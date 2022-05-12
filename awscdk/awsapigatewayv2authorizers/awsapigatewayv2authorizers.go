@@ -14,18 +14,20 @@ import (
 // Authorize HTTP API Routes with IAM.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpIamAuthorizer awscdk.HttpIamAuthorizerimport awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpUrlIntegration awscdk.HttpUrlIntegration
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var principal anyPrincipal
 //
-//   authorizer := NewHttpIamAuthorizer()
+//
+//   authorizer := awscdk.NewHttpIamAuthorizer()
 //
 //   httpApi := apigwv2.NewHttpApi(this, jsii.String("HttpApi"), &httpApiProps{
 //   	defaultAuthorizer: authorizer,
 //   })
 //
 //   routes := httpApi.addRoutes(&addRoutesOptions{
-//   	integration: NewHttpUrlIntegration(jsii.String("BooksIntegration"), jsii.String("https://get-books-proxy.myproxy.internal")),
+//   	integration: awscdk.NewHttpUrlIntegration(jsii.String("BooksIntegration"), jsii.String("https://get-books-proxy.myproxy.internal")),
 //   	path: jsii.String("/books/{book}"),
 //   })
 //
@@ -86,10 +88,12 @@ func (h *jsiiProxy_HttpIamAuthorizer) Bind(_options *awsapigatewayv2.HttpRouteAu
 // Authorize Http Api routes on whether the requester is registered as part of an AWS Cognito user pool.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpJwtAuthorizer awscdk.HttpJwtAuthorizerimport awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpUrlIntegration awscdk.HttpUrlIntegration
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   issuer := "https://test.us.auth0.com"
-//   authorizer := NewHttpJwtAuthorizer(jsii.String("BooksAuthorizer"), issuer, &httpJwtAuthorizerProps{
+//   authorizer := awscdk.NewHttpJwtAuthorizer(jsii.String("BooksAuthorizer"), issuer, &httpJwtAuthorizerProps{
 //   	jwtAudience: []*string{
 //   		jsii.String("3131231"),
 //   	},
@@ -98,7 +102,7 @@ func (h *jsiiProxy_HttpIamAuthorizer) Bind(_options *awsapigatewayv2.HttpRouteAu
 //   api := apigwv2.NewHttpApi(this, jsii.String("HttpApi"))
 //
 //   api.addRoutes(&addRoutesOptions{
-//   	integration: NewHttpUrlIntegration(jsii.String("BooksIntegration"), jsii.String("https://get-books-proxy.myproxy.internal")),
+//   	integration: awscdk.NewHttpUrlIntegration(jsii.String("BooksIntegration"), jsii.String("https://get-books-proxy.myproxy.internal")),
 //   	path: jsii.String("/books"),
 //   	authorizer: authorizer,
 //   })
@@ -160,10 +164,12 @@ func (h *jsiiProxy_HttpJwtAuthorizer) Bind(options *awsapigatewayv2.HttpRouteAut
 // Properties to initialize HttpJwtAuthorizer.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpJwtAuthorizer awscdk.HttpJwtAuthorizerimport awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpUrlIntegration awscdk.HttpUrlIntegration
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   issuer := "https://test.us.auth0.com"
-//   authorizer := NewHttpJwtAuthorizer(jsii.String("BooksAuthorizer"), issuer, &httpJwtAuthorizerProps{
+//   authorizer := awscdk.NewHttpJwtAuthorizer(jsii.String("BooksAuthorizer"), issuer, &httpJwtAuthorizerProps{
 //   	jwtAudience: []*string{
 //   		jsii.String("3131231"),
 //   	},
@@ -172,7 +178,7 @@ func (h *jsiiProxy_HttpJwtAuthorizer) Bind(options *awsapigatewayv2.HttpRouteAut
 //   api := apigwv2.NewHttpApi(this, jsii.String("HttpApi"))
 //
 //   api.addRoutes(&addRoutesOptions{
-//   	integration: NewHttpUrlIntegration(jsii.String("BooksIntegration"), jsii.String("https://get-books-proxy.myproxy.internal")),
+//   	integration: awscdk.NewHttpUrlIntegration(jsii.String("BooksIntegration"), jsii.String("https://get-books-proxy.myproxy.internal")),
 //   	path: jsii.String("/books"),
 //   	authorizer: authorizer,
 //   })
@@ -183,34 +189,35 @@ type HttpJwtAuthorizerProps struct {
 	//
 	// A valid JWT must provide an aud that matches at least one entry in this list.
 	// Experimental.
-	JwtAudience *[]*string `json:"jwtAudience" yaml:"jwtAudience"`
+	JwtAudience *[]*string `field:"required" json:"jwtAudience" yaml:"jwtAudience"`
 	// The name of the authorizer.
 	// Experimental.
-	AuthorizerName *string `json:"authorizerName" yaml:"authorizerName"`
+	AuthorizerName *string `field:"optional" json:"authorizerName" yaml:"authorizerName"`
 	// The identity source for which authorization is requested.
 	// Experimental.
-	IdentitySource *[]*string `json:"identitySource" yaml:"identitySource"`
+	IdentitySource *[]*string `field:"optional" json:"identitySource" yaml:"identitySource"`
 }
 
 // Authorize Http Api routes via a lambda function.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpLambdaAuthorizer awscdk.HttpLambdaAuthorizer
-//   type HttpLambdaResponseType awscdk.HttpLambdaResponseTypeimport awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpUrlIntegration awscdk.HttpUrlIntegration
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   // This function handles your auth logic
 //   var authHandler function
 //
-//   authorizer := NewHttpLambdaAuthorizer(jsii.String("BooksAuthorizer"), authHandler, &httpLambdaAuthorizerProps{
+//
+//   authorizer := awscdk.NewHttpLambdaAuthorizer(jsii.String("BooksAuthorizer"), authHandler, &httpLambdaAuthorizerProps{
 //   	responseTypes: []httpLambdaResponseType{
-//   		httpLambdaResponseType_SIMPLE,
+//   		awscdk.HttpLambdaResponseType_SIMPLE,
 //   	},
 //   })
 //
 //   api := apigwv2.NewHttpApi(this, jsii.String("HttpApi"))
 //
 //   api.addRoutes(&addRoutesOptions{
-//   	integration: NewHttpUrlIntegration(jsii.String("BooksIntegration"), jsii.String("https://get-books-proxy.myproxy.internal")),
+//   	integration: awscdk.NewHttpUrlIntegration(jsii.String("BooksIntegration"), jsii.String("https://get-books-proxy.myproxy.internal")),
 //   	path: jsii.String("/books"),
 //   	authorizer: authorizer,
 //   })
@@ -272,22 +279,23 @@ func (h *jsiiProxy_HttpLambdaAuthorizer) Bind(options *awsapigatewayv2.HttpRoute
 // Properties to initialize HttpTokenAuthorizer.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpLambdaAuthorizer awscdk.HttpLambdaAuthorizer
-//   type HttpLambdaResponseType awscdk.HttpLambdaResponseTypeimport awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpUrlIntegration awscdk.HttpUrlIntegration
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   // This function handles your auth logic
 //   var authHandler function
 //
-//   authorizer := NewHttpLambdaAuthorizer(jsii.String("BooksAuthorizer"), authHandler, &httpLambdaAuthorizerProps{
+//
+//   authorizer := awscdk.NewHttpLambdaAuthorizer(jsii.String("BooksAuthorizer"), authHandler, &httpLambdaAuthorizerProps{
 //   	responseTypes: []httpLambdaResponseType{
-//   		httpLambdaResponseType_SIMPLE,
+//   		awscdk.HttpLambdaResponseType_SIMPLE,
 //   	},
 //   })
 //
 //   api := apigwv2.NewHttpApi(this, jsii.String("HttpApi"))
 //
 //   api.addRoutes(&addRoutesOptions{
-//   	integration: NewHttpUrlIntegration(jsii.String("BooksIntegration"), jsii.String("https://get-books-proxy.myproxy.internal")),
+//   	integration: awscdk.NewHttpUrlIntegration(jsii.String("BooksIntegration"), jsii.String("https://get-books-proxy.myproxy.internal")),
 //   	path: jsii.String("/books"),
 //   	authorizer: authorizer,
 //   })
@@ -296,10 +304,10 @@ func (h *jsiiProxy_HttpLambdaAuthorizer) Bind(options *awsapigatewayv2.HttpRoute
 type HttpLambdaAuthorizerProps struct {
 	// Friendly authorizer name.
 	// Experimental.
-	AuthorizerName *string `json:"authorizerName" yaml:"authorizerName"`
+	AuthorizerName *string `field:"optional" json:"authorizerName" yaml:"authorizerName"`
 	// The identity source for which authorization is requested.
 	// Experimental.
-	IdentitySource *[]*string `json:"identitySource" yaml:"identitySource"`
+	IdentitySource *[]*string `field:"optional" json:"identitySource" yaml:"identitySource"`
 	// The types of responses the lambda can return.
 	//
 	// If HttpLambdaResponseType.SIMPLE is included then
@@ -307,13 +315,13 @@ type HttpLambdaAuthorizerProps struct {
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html#http-api-lambda-authorizer.payload-format-response
 	//
 	// Experimental.
-	ResponseTypes *[]HttpLambdaResponseType `json:"responseTypes" yaml:"responseTypes"`
+	ResponseTypes *[]HttpLambdaResponseType `field:"optional" json:"responseTypes" yaml:"responseTypes"`
 	// How long APIGateway should cache the results.
 	//
 	// Max 1 hour.
 	// Disable caching by setting this to `Duration.seconds(0)`.
 	// Experimental.
-	ResultsCacheTtl awscdk.Duration `json:"resultsCacheTtl" yaml:"resultsCacheTtl"`
+	ResultsCacheTtl awscdk.Duration `field:"optional" json:"resultsCacheTtl" yaml:"resultsCacheTtl"`
 }
 
 // Specifies the type responses the lambda returns.
@@ -332,16 +340,19 @@ const (
 // Authorize Http Api routes on whether the requester is registered as part of an AWS Cognito user pool.
 //
 // Example:
-//   import cognito "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpUserPoolAuthorizer awscdk.HttpUserPoolAuthorizerimport awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpUrlIntegration awscdk.HttpUrlIntegration
+//   import cognito "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   userPool := cognito.NewUserPool(this, jsii.String("UserPool"))
 //
-//   authorizer := NewHttpUserPoolAuthorizer(jsii.String("BooksAuthorizer"), userPool)
+//   authorizer := awscdk.NewHttpUserPoolAuthorizer(jsii.String("BooksAuthorizer"), userPool)
 //
 //   api := apigwv2.NewHttpApi(this, jsii.String("HttpApi"))
 //
 //   api.addRoutes(&addRoutesOptions{
-//   	integration: NewHttpUrlIntegration(jsii.String("BooksIntegration"), jsii.String("https://get-books-proxy.myproxy.internal")),
+//   	integration: awscdk.NewHttpUrlIntegration(jsii.String("BooksIntegration"), jsii.String("https://get-books-proxy.myproxy.internal")),
 //   	path: jsii.String("/books"),
 //   	authorizer: authorizer,
 //   })
@@ -403,9 +414,13 @@ func (h *jsiiProxy_HttpUserPoolAuthorizer) Bind(options *awsapigatewayv2.HttpRou
 // Properties to initialize HttpUserPoolAuthorizer.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2_authorizers "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2_authorizers"import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var userPoolClient userPoolClient
+//
 //   httpUserPoolAuthorizerProps := &httpUserPoolAuthorizerProps{
 //   	authorizerName: jsii.String("authorizerName"),
 //   	identitySource: []*string{
@@ -421,22 +436,23 @@ func (h *jsiiProxy_HttpUserPoolAuthorizer) Bind(options *awsapigatewayv2.HttpRou
 type HttpUserPoolAuthorizerProps struct {
 	// Friendly name of the authorizer.
 	// Experimental.
-	AuthorizerName *string `json:"authorizerName" yaml:"authorizerName"`
+	AuthorizerName *string `field:"optional" json:"authorizerName" yaml:"authorizerName"`
 	// The identity source for which authorization is requested.
 	// Experimental.
-	IdentitySource *[]*string `json:"identitySource" yaml:"identitySource"`
+	IdentitySource *[]*string `field:"optional" json:"identitySource" yaml:"identitySource"`
 	// The user pool clients that should be used to authorize requests with the user pool.
 	// Experimental.
-	UserPoolClients *[]awscognito.IUserPoolClient `json:"userPoolClients" yaml:"userPoolClients"`
+	UserPoolClients *[]awscognito.IUserPoolClient `field:"optional" json:"userPoolClients" yaml:"userPoolClients"`
 	// The AWS region in which the user pool is present.
 	// Experimental.
-	UserPoolRegion *string `json:"userPoolRegion" yaml:"userPoolRegion"`
+	UserPoolRegion *string `field:"optional" json:"userPoolRegion" yaml:"userPoolRegion"`
 }
 
 // Authorize WebSocket Api routes via a lambda function.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type WebSocketLambdaAuthorizer awscdk.WebSocketLambdaAuthorizerimport awscdk "github.com/aws/aws-cdk-go/awscdk"type WebSocketLambdaIntegration awscdk.WebSocketLambdaIntegration
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   // This function handles your auth logic
 //   var authHandler function
@@ -444,9 +460,10 @@ type HttpUserPoolAuthorizerProps struct {
 //   // This function handles your WebSocket requests
 //   var handler function
 //
-//   authorizer := NewWebSocketLambdaAuthorizer(jsii.String("Authorizer"), authHandler)
 //
-//   integration := NewWebSocketLambdaIntegration(jsii.String("Integration"), handler)
+//   authorizer := awscdk.NewWebSocketLambdaAuthorizer(jsii.String("Authorizer"), authHandler)
+//
+//   integration := awscdk.NewWebSocketLambdaIntegration(jsii.String("Integration"), handler)
 //
 //   apigwv2.NewWebSocketApi(this, jsii.String("WebSocketApi"), &webSocketApiProps{
 //   	connectRouteOptions: &webSocketRouteOptions{
@@ -510,7 +527,10 @@ func (w *jsiiProxy_WebSocketLambdaAuthorizer) Bind(options *awsapigatewayv2.WebS
 // Properties to initialize WebSocketTokenAuthorizer.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2_authorizers "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2_authorizers"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   webSocketLambdaAuthorizerProps := &webSocketLambdaAuthorizerProps{
 //   	authorizerName: jsii.String("authorizerName"),
 //   	identitySource: []*string{
@@ -522,13 +542,13 @@ func (w *jsiiProxy_WebSocketLambdaAuthorizer) Bind(options *awsapigatewayv2.WebS
 type WebSocketLambdaAuthorizerProps struct {
 	// The name of the authorizer.
 	// Experimental.
-	AuthorizerName *string `json:"authorizerName" yaml:"authorizerName"`
+	AuthorizerName *string `field:"optional" json:"authorizerName" yaml:"authorizerName"`
 	// The identity source for which authorization is requested.
 	//
 	// Request parameter match `'route.request.querystring|header.[a-zA-z0-9._-]+'`.
 	// Staged variable match `'stageVariables.[a-zA-Z0-9._-]+'`.
 	// Context parameter match `'context.[a-zA-Z0-9._-]+'`.
 	// Experimental.
-	IdentitySource *[]*string `json:"identitySource" yaml:"identitySource"`
+	IdentitySource *[]*string `field:"optional" json:"identitySource" yaml:"identitySource"`
 }
 

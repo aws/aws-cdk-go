@@ -16,8 +16,11 @@ import (
 // The `AWS::Cloud9::EnvironmentEC2` resource creates an Amazon EC2 development environment in AWS Cloud9 . For more information, see [Creating an Environment](https://docs.aws.amazon.com/cloud9/latest/user-guide/create-environment.html) in the *AWS Cloud9 User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloud9 "github.com/aws/aws-cdk-go/awscdk/aws_cloud9"
-//   cfnEnvironmentEC2 := cloud9.NewCfnEnvironmentEC2(this, jsii.String("MyCfnEnvironmentEC2"), &cfnEnvironmentEC2Props{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnEnvironmentEC2 := awscdk.Aws_cloud9.NewCfnEnvironmentEC2(this, jsii.String("MyCfnEnvironmentEC2"), &cfnEnvironmentEC2Props{
 //   	instanceType: jsii.String("instanceType"),
 //
 //   	// the properties below are optional
@@ -895,7 +898,10 @@ func (c *jsiiProxy_CfnEnvironmentEC2) ValidateProperties(_properties interface{}
 // The `Repository` property type specifies an AWS CodeCommit source code repository to be cloned into an AWS Cloud9 development environment.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloud9 "github.com/aws/aws-cdk-go/awscdk/aws_cloud9"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   repositoryProperty := &repositoryProperty{
 //   	pathComponent: jsii.String("pathComponent"),
 //   	repositoryUrl: jsii.String("repositoryUrl"),
@@ -905,17 +911,20 @@ type CfnEnvironmentEC2_RepositoryProperty struct {
 	// The path within the development environment's default file system location to clone the AWS CodeCommit repository into.
 	//
 	// For example, `/REPOSITORY_NAME` would clone the repository into the `/home/USER_NAME/environment/REPOSITORY_NAME` directory in the environment.
-	PathComponent *string `json:"pathComponent" yaml:"pathComponent"`
+	PathComponent *string `field:"required" json:"pathComponent" yaml:"pathComponent"`
 	// The clone URL of the AWS CodeCommit repository to be cloned.
 	//
 	// For example, for an AWS CodeCommit repository this might be `https://git-codecommit.us-east-2.amazonaws.com/v1/repos/REPOSITORY_NAME` .
-	RepositoryUrl *string `json:"repositoryUrl" yaml:"repositoryUrl"`
+	RepositoryUrl *string `field:"required" json:"repositoryUrl" yaml:"repositoryUrl"`
 }
 
 // Properties for defining a `CfnEnvironmentEC2`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloud9 "github.com/aws/aws-cdk-go/awscdk/aws_cloud9"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnEnvironmentEC2Props := &cfnEnvironmentEC2Props{
 //   	instanceType: jsii.String("instanceType"),
 //
@@ -943,15 +952,15 @@ type CfnEnvironmentEC2_RepositoryProperty struct {
 //
 type CfnEnvironmentEC2Props struct {
 	// The type of instance to connect to the environment (for example, `t2.micro` ).
-	InstanceType *string `json:"instanceType" yaml:"instanceType"`
+	InstanceType *string `field:"required" json:"instanceType" yaml:"instanceType"`
 	// The number of minutes until the running instance is shut down after the environment was last used.
-	AutomaticStopTimeMinutes *float64 `json:"automaticStopTimeMinutes" yaml:"automaticStopTimeMinutes"`
+	AutomaticStopTimeMinutes *float64 `field:"optional" json:"automaticStopTimeMinutes" yaml:"automaticStopTimeMinutes"`
 	// The connection type used for connecting to an Amazon EC2 environment.
 	//
 	// Valid values are `CONNECT_SSH` (default) and `CONNECT_SSM` (connected through AWS Systems Manager ).
-	ConnectionType *string `json:"connectionType" yaml:"connectionType"`
+	ConnectionType *string `field:"optional" json:"connectionType" yaml:"connectionType"`
 	// The description of the environment to create.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance.
 	//
 	// To choose an AMI for the instance, you must specify a valid AMI alias or a valid AWS Systems Manager path.
@@ -969,19 +978,19 @@ type CfnEnvironmentEC2Props struct {
 	// - *Amazon Linux (default): `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`*
 	// - Amazon Linux 2: `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
 	// - Ubuntu 18.04: `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
-	ImageId *string `json:"imageId" yaml:"imageId"`
+	ImageId *string `field:"optional" json:"imageId" yaml:"imageId"`
 	// The name of the environment.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The Amazon Resource Name (ARN) of the environment owner.
 	//
 	// This ARN can be the ARN of any AWS Identity and Access Management principal. If this value is not specified, the ARN defaults to this environment's creator.
-	OwnerArn *string `json:"ownerArn" yaml:"ownerArn"`
+	OwnerArn *string `field:"optional" json:"ownerArn" yaml:"ownerArn"`
 	// Any AWS CodeCommit source code repositories to be cloned into the development environment.
-	Repositories interface{} `json:"repositories" yaml:"repositories"`
+	Repositories interface{} `field:"optional" json:"repositories" yaml:"repositories"`
 	// The ID of the subnet in Amazon Virtual Private Cloud (Amazon VPC) that AWS Cloud9 will use to communicate with the Amazon Elastic Compute Cloud (Amazon EC2) instance.
-	SubnetId *string `json:"subnetId" yaml:"subnetId"`
+	SubnetId *string `field:"optional" json:"subnetId" yaml:"subnetId"`
 	// An array of key-value pairs that will be associated with the new AWS Cloud9 development environment.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // The class for different repository providers.
@@ -991,6 +1000,7 @@ type CfnEnvironmentEC2Props struct {
 //
 //   // create a new Cloud9 environment and clone the two repositories
 //   var vpc vpc
+//
 //
 //   // create a codecommit repository to clone into the cloud9 environment
 //   repoNew := codecommit.NewRepository(this, jsii.String("RepoNew"), &repositoryProps{
@@ -1088,7 +1098,7 @@ func CloneRepository_FromCodeCommit(repository awscodecommit.IRepository, path *
 //
 //   // print the Cloud9 IDE URL in the output
 //   // print the Cloud9 IDE URL in the output
-//   NewCfnOutput(this, jsii.String("URL"), &cfnOutputProps{
+//   awscdk.NewCfnOutput(this, jsii.String("URL"), &cfnOutputProps{
 //   	value: c9env.ideUrl,
 //   })
 //
@@ -1539,7 +1549,7 @@ func (e *jsiiProxy_Ec2Environment) Validate() *[]*string {
 //
 //   // print the Cloud9 IDE URL in the output
 //   // print the Cloud9 IDE URL in the output
-//   NewCfnOutput(this, jsii.String("URL"), &cfnOutputProps{
+//   awscdk.NewCfnOutput(this, jsii.String("URL"), &cfnOutputProps{
 //   	value: c9env.ideUrl,
 //   })
 //
@@ -1547,22 +1557,22 @@ func (e *jsiiProxy_Ec2Environment) Validate() *[]*string {
 type Ec2EnvironmentProps struct {
 	// The VPC that AWS Cloud9 will use to communicate with the Amazon Elastic Compute Cloud (Amazon EC2) instance.
 	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
+	Vpc awsec2.IVpc `field:"required" json:"vpc" yaml:"vpc"`
 	// The AWS CodeCommit repository to be cloned.
 	// Experimental.
-	ClonedRepositories *[]CloneRepository `json:"clonedRepositories" yaml:"clonedRepositories"`
+	ClonedRepositories *[]CloneRepository `field:"optional" json:"clonedRepositories" yaml:"clonedRepositories"`
 	// Description of the environment.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Name of the environment.
 	// Experimental.
-	Ec2EnvironmentName *string `json:"ec2EnvironmentName" yaml:"ec2EnvironmentName"`
+	Ec2EnvironmentName *string `field:"optional" json:"ec2EnvironmentName" yaml:"ec2EnvironmentName"`
 	// The type of instance to connect to the environment.
 	// Experimental.
-	InstanceType awsec2.InstanceType `json:"instanceType" yaml:"instanceType"`
+	InstanceType awsec2.InstanceType `field:"optional" json:"instanceType" yaml:"instanceType"`
 	// The subnetSelection of the VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
 	// Experimental.
-	SubnetSelection *awsec2.SubnetSelection `json:"subnetSelection" yaml:"subnetSelection"`
+	SubnetSelection *awsec2.SubnetSelection `field:"optional" json:"subnetSelection" yaml:"subnetSelection"`
 }
 
 // A Cloud9 Environment.

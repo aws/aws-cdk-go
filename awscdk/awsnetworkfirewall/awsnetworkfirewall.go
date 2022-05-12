@@ -16,8 +16,11 @@ import (
 // The firewall defines the configuration settings for an AWS Network Firewall firewall. The settings include the firewall policy, the subnets in your VPC to use for the firewall endpoints, and any tags that are attached to the firewall AWS resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
-//   cfnFirewall := networkfirewall.NewCfnFirewall(this, jsii.String("MyCfnFirewall"), &cfnFirewallProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnFirewall := awscdk.Aws_networkfirewall.NewCfnFirewall(this, jsii.String("MyCfnFirewall"), &cfnFirewallProps{
 //   	firewallName: jsii.String("firewallName"),
 //   	firewallPolicyArn: jsii.String("firewallPolicyArn"),
 //   	subnetMappings: []interface{}{
@@ -884,14 +887,17 @@ func (c *jsiiProxy_CfnFirewall) ValidateProperties(_properties interface{}) {
 // AWS Network Firewall creates an instance of the associated firewall in each subnet that you specify, to filter traffic in the subnet's Availability Zone.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   subnetMappingProperty := &subnetMappingProperty{
 //   	subnetId: jsii.String("subnetId"),
 //   }
 //
 type CfnFirewall_SubnetMappingProperty struct {
 	// The unique identifier for the subnet.
-	SubnetId *string `json:"subnetId" yaml:"subnetId"`
+	SubnetId *string `field:"required" json:"subnetId" yaml:"subnetId"`
 }
 
 // A CloudFormation `AWS::NetworkFirewall::FirewallPolicy`.
@@ -899,8 +905,11 @@ type CfnFirewall_SubnetMappingProperty struct {
 // Use the `FirewallPolicy` to define the stateless and stateful network traffic filtering behavior for your `Firewall` . You can use one firewall policy for multiple firewalls.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
-//   cfnFirewallPolicy := networkfirewall.NewCfnFirewallPolicy(this, jsii.String("MyCfnFirewallPolicy"), &cfnFirewallPolicyProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnFirewallPolicy := awscdk.Aws_networkfirewall.NewCfnFirewallPolicy(this, jsii.String("MyCfnFirewallPolicy"), &cfnFirewallPolicyProps{
 //   	firewallPolicy: &firewallPolicyProperty{
 //   		statelessDefaultActions: []*string{
 //   			jsii.String("statelessDefaultActions"),
@@ -1668,7 +1677,10 @@ func (c *jsiiProxy_CfnFirewallPolicy) ValidateProperties(_properties interface{}
 // A custom action to use in stateless rule actions settings.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   actionDefinitionProperty := &actionDefinitionProperty{
 //   	publishMetricAction: &publishMetricActionProperty{
 //   		dimensions: []interface{}{
@@ -1685,7 +1697,7 @@ type CfnFirewallPolicy_ActionDefinitionProperty struct {
 	// This setting defines a CloudWatch dimension value to be published.
 	//
 	// You can pair this custom action with any of the standard stateless rule actions. For example, you could pair this in a rule action with the standard action that forwards the packet for stateful inspection. Then, when a packet matches the rule, Network Firewall publishes metrics for the packet and forwards it.
-	PublishMetricAction interface{} `json:"publishMetricAction" yaml:"publishMetricAction"`
+	PublishMetricAction interface{} `field:"optional" json:"publishMetricAction" yaml:"publishMetricAction"`
 }
 
 // An optional, non-standard action to use for stateless packet handling.
@@ -1700,7 +1712,10 @@ type CfnFirewallPolicy_ActionDefinitionProperty struct {
 // - In an `FirewallPolicy` specification, in `StatelessCustomActions` . The custom actions are available for use inside the policy where you define them. You can use them for the policy's default stateless actions settings to specify what to do with packets that don't match any of the policy's stateless rules.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   customActionProperty := &customActionProperty{
 //   	actionDefinition: &actionDefinitionProperty{
 //   		publishMetricAction: &publishMetricActionProperty{
@@ -1716,11 +1731,11 @@ type CfnFirewallPolicy_ActionDefinitionProperty struct {
 //
 type CfnFirewallPolicy_CustomActionProperty struct {
 	// The custom action associated with the action name.
-	ActionDefinition interface{} `json:"actionDefinition" yaml:"actionDefinition"`
+	ActionDefinition interface{} `field:"required" json:"actionDefinition" yaml:"actionDefinition"`
 	// The descriptive name of the custom action.
 	//
 	// You can't change the name of a custom action after you create it.
-	ActionName *string `json:"actionName" yaml:"actionName"`
+	ActionName *string `field:"required" json:"actionName" yaml:"actionName"`
 }
 
 // The value to use in an Amazon CloudWatch custom metric dimension.
@@ -1732,20 +1747,26 @@ type CfnFirewallPolicy_CustomActionProperty struct {
 // For more information about CloudWatch custom metric dimensions, see [Publishing Custom Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html#usingDimensions) in the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dimensionProperty := &dimensionProperty{
 //   	value: jsii.String("value"),
 //   }
 //
 type CfnFirewallPolicy_DimensionProperty struct {
 	// The value to use in the custom metric dimension.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // The traffic filtering behavior of a firewall policy, defined in a collection of stateless and stateful rule groups and other settings.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   firewallPolicyProperty := &firewallPolicyProperty{
 //   	statelessDefaultActions: []*string{
 //   		jsii.String("statelessDefaultActions"),
@@ -1799,7 +1820,7 @@ type CfnFirewallPolicy_FirewallPolicyProperty struct {
 	// You must specify one of the standard actions: `aws:pass` , `aws:drop` , or `aws:forward_to_sfe` . In addition, you can specify custom actions that are compatible with your standard section choice.
 	//
 	// For example, you could specify `["aws:pass"]` or you could specify `["aws:pass", “customActionName”]` . For information about compatibility, see the custom action descriptions.
-	StatelessDefaultActions *[]*string `json:"statelessDefaultActions" yaml:"statelessDefaultActions"`
+	StatelessDefaultActions *[]*string `field:"required" json:"statelessDefaultActions" yaml:"statelessDefaultActions"`
 	// The actions to take on a fragmented packet if it doesn't match any of the stateless rules in the policy.
 	//
 	// If you want non-matching fragmented packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe` .
@@ -1807,7 +1828,7 @@ type CfnFirewallPolicy_FirewallPolicyProperty struct {
 	// You must specify one of the standard actions: `aws:pass` , `aws:drop` , or `aws:forward_to_sfe` . In addition, you can specify custom actions that are compatible with your standard section choice.
 	//
 	// For example, you could specify `["aws:pass"]` or you could specify `["aws:pass", “customActionName”]` . For information about compatibility, see the custom action descriptions.
-	StatelessFragmentDefaultActions *[]*string `json:"statelessFragmentDefaultActions" yaml:"statelessFragmentDefaultActions"`
+	StatelessFragmentDefaultActions *[]*string `field:"required" json:"statelessFragmentDefaultActions" yaml:"statelessFragmentDefaultActions"`
 	// The default actions to take on a packet that doesn't match any stateful rules.
 	//
 	// The stateful default action is optional, and is only valid when using the strict rule order.
@@ -1820,23 +1841,23 @@ type CfnFirewallPolicy_FirewallPolicyProperty struct {
 	// - aws:alert_established
 	//
 	// For more information, see [Strict evaluation order](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html#suricata-strict-rule-evaluation-order.html) in the *AWS Network Firewall Developer Guide* .
-	StatefulDefaultActions *[]*string `json:"statefulDefaultActions" yaml:"statefulDefaultActions"`
+	StatefulDefaultActions *[]*string `field:"optional" json:"statefulDefaultActions" yaml:"statefulDefaultActions"`
 	// Additional options governing how Network Firewall handles stateful rules.
 	//
 	// The stateful rule groups that you use in your policy must have stateful rule options settings that are compatible with these settings.
-	StatefulEngineOptions interface{} `json:"statefulEngineOptions" yaml:"statefulEngineOptions"`
+	StatefulEngineOptions interface{} `field:"optional" json:"statefulEngineOptions" yaml:"statefulEngineOptions"`
 	// References to the stateful rule groups that are used in the policy.
 	//
 	// These define the inspection criteria in stateful rules.
-	StatefulRuleGroupReferences interface{} `json:"statefulRuleGroupReferences" yaml:"statefulRuleGroupReferences"`
+	StatefulRuleGroupReferences interface{} `field:"optional" json:"statefulRuleGroupReferences" yaml:"statefulRuleGroupReferences"`
 	// The custom action definitions that are available for use in the firewall policy's `StatelessDefaultActions` setting.
 	//
 	// You name each custom action that you define, and then you can use it by name in your default actions specifications.
-	StatelessCustomActions interface{} `json:"statelessCustomActions" yaml:"statelessCustomActions"`
+	StatelessCustomActions interface{} `field:"optional" json:"statelessCustomActions" yaml:"statelessCustomActions"`
 	// References to the stateless rule groups that are used in the policy.
 	//
 	// These define the matching criteria in stateless rules.
-	StatelessRuleGroupReferences interface{} `json:"statelessRuleGroupReferences" yaml:"statelessRuleGroupReferences"`
+	StatelessRuleGroupReferences interface{} `field:"optional" json:"statelessRuleGroupReferences" yaml:"statelessRuleGroupReferences"`
 }
 
 // Stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet.
@@ -1844,7 +1865,10 @@ type CfnFirewallPolicy_FirewallPolicyProperty struct {
 // This setting defines a CloudWatch dimension value to be published.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   publishMetricActionProperty := &publishMetricActionProperty{
 //   	dimensions: []interface{}{
 //   		&dimensionProperty{
@@ -1855,13 +1879,16 @@ type CfnFirewallPolicy_FirewallPolicyProperty struct {
 //
 type CfnFirewallPolicy_PublishMetricActionProperty struct {
 	// `CfnFirewallPolicy.PublishMetricActionProperty.Dimensions`.
-	Dimensions interface{} `json:"dimensions" yaml:"dimensions"`
+	Dimensions interface{} `field:"required" json:"dimensions" yaml:"dimensions"`
 }
 
 // Configuration settings for the handling of the stateful rule groups in a firewall policy.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   statefulEngineOptionsProperty := &statefulEngineOptionsProperty{
 //   	ruleOrder: jsii.String("ruleOrder"),
 //   }
@@ -1870,13 +1897,16 @@ type CfnFirewallPolicy_StatefulEngineOptionsProperty struct {
 	// Indicates how to manage the order of stateful rule evaluation for the policy.
 	//
 	// `DEFAULT_ACTION_ORDER` is the default behavior. Stateful rules are provided to the rule engine as Suricata compatible strings, and Suricata evaluates them based on certain settings. For more information, see [Evaluation order for stateful rules](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html) in the *AWS Network Firewall Developer Guide* .
-	RuleOrder *string `json:"ruleOrder" yaml:"ruleOrder"`
+	RuleOrder *string `field:"optional" json:"ruleOrder" yaml:"ruleOrder"`
 }
 
 // Identifier for a single stateful rule group, used in a firewall policy to refer to a rule group.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   statefulRuleGroupReferenceProperty := &statefulRuleGroupReferenceProperty{
 //   	resourceArn: jsii.String("resourceArn"),
 //
@@ -1886,7 +1916,7 @@ type CfnFirewallPolicy_StatefulEngineOptionsProperty struct {
 //
 type CfnFirewallPolicy_StatefulRuleGroupReferenceProperty struct {
 	// The Amazon Resource Name (ARN) of the stateful rule group.
-	ResourceArn *string `json:"resourceArn" yaml:"resourceArn"`
+	ResourceArn *string `field:"required" json:"resourceArn" yaml:"resourceArn"`
 	// An integer setting that indicates the order in which to run the stateful rule groups in a single `FirewallPolicy` .
 	//
 	// This setting only applies to firewall policies that specify the `STRICT_ORDER` rule order in the stateful engine options settings.
@@ -1894,13 +1924,16 @@ type CfnFirewallPolicy_StatefulRuleGroupReferenceProperty struct {
 	// Network Firewall evalutes each stateful rule group against a packet starting with the group that has the lowest priority setting. You must ensure that the priority settings are unique within each policy.
 	//
 	// You can change the priority settings of your rule groups at any time. To make it easier to insert rule groups later, number them so there's a wide range in between, for example use 100, 200, and so on.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 }
 
 // Identifier for a single stateless rule group, used in a firewall policy to refer to the rule group.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   statelessRuleGroupReferenceProperty := &statelessRuleGroupReferenceProperty{
 //   	priority: jsii.Number(123),
 //   	resourceArn: jsii.String("resourceArn"),
@@ -1910,15 +1943,18 @@ type CfnFirewallPolicy_StatelessRuleGroupReferenceProperty struct {
 	// An integer setting that indicates the order in which to run the stateless rule groups in a single `FirewallPolicy` .
 	//
 	// Network Firewall applies each stateless rule group to a packet starting with the group that has the lowest priority setting. You must ensure that the priority settings are unique within each policy.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"required" json:"priority" yaml:"priority"`
 	// The Amazon Resource Name (ARN) of the stateless rule group.
-	ResourceArn *string `json:"resourceArn" yaml:"resourceArn"`
+	ResourceArn *string `field:"required" json:"resourceArn" yaml:"resourceArn"`
 }
 
 // Properties for defining a `CfnFirewallPolicy`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnFirewallPolicyProps := &cfnFirewallPolicyProps{
 //   	firewallPolicy: &firewallPolicyProperty{
 //   		statelessDefaultActions: []*string{
@@ -1978,23 +2014,26 @@ type CfnFirewallPolicy_StatelessRuleGroupReferenceProperty struct {
 //
 type CfnFirewallPolicyProps struct {
 	// The traffic filtering behavior of a firewall policy, defined in a collection of stateless and stateful rule groups and other settings.
-	FirewallPolicy interface{} `json:"firewallPolicy" yaml:"firewallPolicy"`
+	FirewallPolicy interface{} `field:"required" json:"firewallPolicy" yaml:"firewallPolicy"`
 	// The descriptive name of the firewall policy.
 	//
 	// You can't change the name of a firewall policy after you create it.
-	FirewallPolicyName *string `json:"firewallPolicyName" yaml:"firewallPolicyName"`
+	FirewallPolicyName *string `field:"required" json:"firewallPolicyName" yaml:"firewallPolicyName"`
 	// A description of the firewall policy.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // Properties for defining a `CfnFirewall`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnFirewallProps := &cfnFirewallProps{
 //   	firewallName: jsii.String("firewallName"),
 //   	firewallPolicyArn: jsii.String("firewallPolicyArn"),
@@ -2022,37 +2061,37 @@ type CfnFirewallProps struct {
 	// The descriptive name of the firewall.
 	//
 	// You can't change the name of a firewall after you create it.
-	FirewallName *string `json:"firewallName" yaml:"firewallName"`
+	FirewallName *string `field:"required" json:"firewallName" yaml:"firewallName"`
 	// The Amazon Resource Name (ARN) of the firewall policy.
 	//
 	// The relationship of firewall to firewall policy is many to one. Each firewall requires one firewall policy association, and you can use the same firewall policy for multiple firewalls.
-	FirewallPolicyArn *string `json:"firewallPolicyArn" yaml:"firewallPolicyArn"`
+	FirewallPolicyArn *string `field:"required" json:"firewallPolicyArn" yaml:"firewallPolicyArn"`
 	// The public subnets that Network Firewall is using for the firewall.
 	//
 	// Each subnet must belong to a different Availability Zone.
-	SubnetMappings interface{} `json:"subnetMappings" yaml:"subnetMappings"`
+	SubnetMappings interface{} `field:"required" json:"subnetMappings" yaml:"subnetMappings"`
 	// The unique identifier of the VPC where the firewall is in use.
 	//
 	// You can't change the VPC of a firewall after you create the firewall.
-	VpcId *string `json:"vpcId" yaml:"vpcId"`
+	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
 	// A flag indicating whether it is possible to delete the firewall.
 	//
 	// A setting of `TRUE` indicates that the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. When you create a firewall, the operation initializes this flag to `TRUE` .
-	DeleteProtection interface{} `json:"deleteProtection" yaml:"deleteProtection"`
+	DeleteProtection interface{} `field:"optional" json:"deleteProtection" yaml:"deleteProtection"`
 	// A description of the firewall.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// A setting indicating whether the firewall is protected against a change to the firewall policy association.
 	//
 	// Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
-	FirewallPolicyChangeProtection interface{} `json:"firewallPolicyChangeProtection" yaml:"firewallPolicyChangeProtection"`
+	FirewallPolicyChangeProtection interface{} `field:"optional" json:"firewallPolicyChangeProtection" yaml:"firewallPolicyChangeProtection"`
 	// A setting indicating whether the firewall is protected against changes to the subnet associations.
 	//
 	// Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
-	SubnetChangeProtection interface{} `json:"subnetChangeProtection" yaml:"subnetChangeProtection"`
+	SubnetChangeProtection interface{} `field:"optional" json:"subnetChangeProtection" yaml:"subnetChangeProtection"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::NetworkFirewall::LoggingConfiguration`.
@@ -2070,8 +2109,11 @@ type CfnFirewallProps struct {
 // You can't change the `LogDestinationType` or `LogType` in a `LogDestinationConfig` . To change these settings, delete the existing `LogDestinationConfig` object and create a new one, in two separate modifications.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
-//   cfnLoggingConfiguration := networkfirewall.NewCfnLoggingConfiguration(this, jsii.String("MyCfnLoggingConfiguration"), &cfnLoggingConfigurationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnLoggingConfiguration := awscdk.Aws_networkfirewall.NewCfnLoggingConfiguration(this, jsii.String("MyCfnLoggingConfiguration"), &cfnLoggingConfigurationProps{
 //   	firewallArn: jsii.String("firewallArn"),
 //   	loggingConfiguration: &loggingConfigurationProperty{
 //   		logDestinationConfigs: []interface{}{
@@ -2768,7 +2810,10 @@ func (c *jsiiProxy_CfnLoggingConfiguration) ValidateProperties(_properties inter
 // Network Firewall generates logs for stateful rule groups. You can save alert and flow log types. The stateful rules engine records flow logs for all network traffic that it receives. It records alert logs for traffic that matches stateful rules that have the rule action set to `DROP` or `ALERT` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   logDestinationConfigProperty := &logDestinationConfigProperty{
 //   	logDestination: map[string]*string{
 //   		"logDestinationKey": jsii.String("logDestination"),
@@ -2789,21 +2834,24 @@ type CfnLoggingConfiguration_LogDestinationConfigProperty struct {
 	// - For a Kinesis Data Firehose delivery stream, provide the name of the delivery stream, with key `deliveryStream` . The following example specifies a delivery stream named `alert-delivery-stream` :
 	//
 	// `"LogDestination": { "deliveryStream": "alert-delivery-stream" }`.
-	LogDestination interface{} `json:"logDestination" yaml:"logDestination"`
+	LogDestination interface{} `field:"required" json:"logDestination" yaml:"logDestination"`
 	// The type of storage destination to send these logs to.
 	//
 	// You can send logs to an Amazon S3 bucket, a CloudWatch log group, or a Kinesis Data Firehose delivery stream.
-	LogDestinationType *string `json:"logDestinationType" yaml:"logDestinationType"`
+	LogDestinationType *string `field:"required" json:"logDestinationType" yaml:"logDestinationType"`
 	// The type of log to send.
 	//
 	// Alert logs report traffic that matches a stateful rule with an action setting that sends an alert log message. Flow logs are standard network traffic flow logs.
-	LogType *string `json:"logType" yaml:"logType"`
+	LogType *string `field:"required" json:"logType" yaml:"logType"`
 }
 
 // Defines how AWS Network Firewall performs logging for a `Firewall` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   loggingConfigurationProperty := &loggingConfigurationProperty{
 //   	logDestinationConfigs: []interface{}{
 //   		&logDestinationConfigProperty{
@@ -2820,13 +2868,16 @@ type CfnLoggingConfiguration_LoggingConfigurationProperty struct {
 	// Defines the logging destinations for the logs for a firewall.
 	//
 	// Network Firewall generates logs for stateful rule groups.
-	LogDestinationConfigs interface{} `json:"logDestinationConfigs" yaml:"logDestinationConfigs"`
+	LogDestinationConfigs interface{} `field:"required" json:"logDestinationConfigs" yaml:"logDestinationConfigs"`
 }
 
 // Properties for defining a `CfnLoggingConfiguration`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnLoggingConfigurationProps := &cfnLoggingConfigurationProps{
 //   	firewallArn: jsii.String("firewallArn"),
 //   	loggingConfiguration: &loggingConfigurationProperty{
@@ -2849,13 +2900,13 @@ type CfnLoggingConfigurationProps struct {
 	// The Amazon Resource Name (ARN) of the `Firewall` that the logging configuration is associated with.
 	//
 	// You can't change the firewall specification after you create the logging configuration.
-	FirewallArn *string `json:"firewallArn" yaml:"firewallArn"`
+	FirewallArn *string `field:"required" json:"firewallArn" yaml:"firewallArn"`
 	// Defines how AWS Network Firewall performs logging for a `Firewall` .
-	LoggingConfiguration interface{} `json:"loggingConfiguration" yaml:"loggingConfiguration"`
+	LoggingConfiguration interface{} `field:"required" json:"loggingConfiguration" yaml:"loggingConfiguration"`
 	// The name of the firewall that the logging configuration is associated with.
 	//
 	// You can't change the firewall specification after you create the logging configuration.
-	FirewallName *string `json:"firewallName" yaml:"firewallName"`
+	FirewallName *string `field:"optional" json:"firewallName" yaml:"firewallName"`
 }
 
 // A CloudFormation `AWS::NetworkFirewall::RuleGroup`.
@@ -2863,8 +2914,11 @@ type CfnLoggingConfigurationProps struct {
 // Use the `RuleGroup` to define a reusable collection of stateless or stateful network traffic filtering rules. You use rule groups in an `FirewallPolicy` to specify the filtering behavior of an `Firewall` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
-//   cfnRuleGroup := networkfirewall.NewCfnRuleGroup(this, jsii.String("MyCfnRuleGroup"), &cfnRuleGroupProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnRuleGroup := awscdk.Aws_networkfirewall.NewCfnRuleGroup(this, jsii.String("MyCfnRuleGroup"), &cfnRuleGroupProps{
 //   	capacity: jsii.Number(123),
 //   	ruleGroupName: jsii.String("ruleGroupName"),
 //   	type: jsii.String("type"),
@@ -3762,7 +3816,10 @@ func (c *jsiiProxy_CfnRuleGroup) ValidateProperties(_properties interface{}) {
 // A custom action to use in stateless rule actions settings.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   actionDefinitionProperty := &actionDefinitionProperty{
 //   	publishMetricAction: &publishMetricActionProperty{
 //   		dimensions: []interface{}{
@@ -3779,7 +3836,7 @@ type CfnRuleGroup_ActionDefinitionProperty struct {
 	// This setting defines a CloudWatch dimension value to be published.
 	//
 	// You can pair this custom action with any of the standard stateless rule actions. For example, you could pair this in a rule action with the standard action that forwards the packet for stateful inspection. Then, when a packet matches the rule, Network Firewall publishes metrics for the packet and forwards it.
-	PublishMetricAction interface{} `json:"publishMetricAction" yaml:"publishMetricAction"`
+	PublishMetricAction interface{} `field:"optional" json:"publishMetricAction" yaml:"publishMetricAction"`
 }
 
 // A single IP address specification.
@@ -3787,7 +3844,10 @@ type CfnRuleGroup_ActionDefinitionProperty struct {
 // This is used in the `RuleGroup.MatchAttributes` source and destination specifications.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   addressProperty := &addressProperty{
 //   	addressDefinition: jsii.String("addressDefinition"),
 //   }
@@ -3803,7 +3863,7 @@ type CfnRuleGroup_AddressProperty struct {
 	// - To configure Network Firewall to inspect for IP addresses from 192.0.2.0 to 192.0.2.255, specify `192.0.2.0/24` .
 	//
 	// For more information about CIDR notation, see the Wikipedia entry [Classless Inter-Domain Routing](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
-	AddressDefinition *string `json:"addressDefinition" yaml:"addressDefinition"`
+	AddressDefinition *string `field:"required" json:"addressDefinition" yaml:"addressDefinition"`
 }
 
 // An optional, non-standard action to use for stateless packet handling.
@@ -3818,7 +3878,10 @@ type CfnRuleGroup_AddressProperty struct {
 // - In an `FirewallPolicy` specification, in `StatelessCustomActions` . The custom actions are available for use inside the policy where you define them. You can use them for the policy's default stateless actions settings to specify what to do with packets that don't match any of the policy's stateless rules.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   customActionProperty := &customActionProperty{
 //   	actionDefinition: &actionDefinitionProperty{
 //   		publishMetricAction: &publishMetricActionProperty{
@@ -3834,11 +3897,11 @@ type CfnRuleGroup_AddressProperty struct {
 //
 type CfnRuleGroup_CustomActionProperty struct {
 	// The custom action associated with the action name.
-	ActionDefinition interface{} `json:"actionDefinition" yaml:"actionDefinition"`
+	ActionDefinition interface{} `field:"required" json:"actionDefinition" yaml:"actionDefinition"`
 	// The descriptive name of the custom action.
 	//
 	// You can't change the name of a custom action after you create it.
-	ActionName *string `json:"actionName" yaml:"actionName"`
+	ActionName *string `field:"required" json:"actionName" yaml:"actionName"`
 }
 
 // The value to use in an Amazon CloudWatch custom metric dimension.
@@ -3850,14 +3913,17 @@ type CfnRuleGroup_CustomActionProperty struct {
 // For more information about CloudWatch custom metric dimensions, see [Publishing Custom Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html#usingDimensions) in the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dimensionProperty := &dimensionProperty{
 //   	value: jsii.String("value"),
 //   }
 //
 type CfnRuleGroup_DimensionProperty struct {
 	// The value to use in the custom metric dimension.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // The 5-tuple criteria for AWS Network Firewall to use to inspect packet headers in stateful traffic flow inspection.
@@ -3865,7 +3931,10 @@ type CfnRuleGroup_DimensionProperty struct {
 // Traffic flows that match the criteria are a match for the corresponding stateful rule.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   headerProperty := &headerProperty{
 //   	destination: jsii.String("destination"),
 //   	destinationPort: jsii.String("destinationPort"),
@@ -3888,19 +3957,19 @@ type CfnRuleGroup_HeaderProperty struct {
 	// - To configure Network Firewall to inspect for IP addresses from 192.0.2.0 to 192.0.2.255, specify `192.0.2.0/24` .
 	//
 	// For more information about CIDR notation, see the Wikipedia entry [Classless Inter-Domain Routing](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
-	Destination *string `json:"destination" yaml:"destination"`
+	Destination *string `field:"required" json:"destination" yaml:"destination"`
 	// The destination port to inspect for.
 	//
 	// You can specify an individual port, for example `1994` and you can specify a port range, for example `1990:1994` . To match with any port, specify `ANY` .
-	DestinationPort *string `json:"destinationPort" yaml:"destinationPort"`
+	DestinationPort *string `field:"required" json:"destinationPort" yaml:"destinationPort"`
 	// The direction of traffic flow to inspect.
 	//
 	// If set to `ANY` , the inspection matches bidirectional traffic, both from the source to the destination and from the destination to the source. If set to `FORWARD` , the inspection only matches traffic going from the source to the destination.
-	Direction *string `json:"direction" yaml:"direction"`
+	Direction *string `field:"required" json:"direction" yaml:"direction"`
 	// The protocol to inspect for.
 	//
 	// To specify all, you can use `IP` , because all traffic on AWS and on the internet is IP.
-	Protocol *string `json:"protocol" yaml:"protocol"`
+	Protocol *string `field:"required" json:"protocol" yaml:"protocol"`
 	// The source IP address or address range to inspect for, in CIDR notation.
 	//
 	// To match with any address, specify `ANY` .
@@ -3913,11 +3982,11 @@ type CfnRuleGroup_HeaderProperty struct {
 	// - To configure Network Firewall to inspect for IP addresses from 192.0.2.0 to 192.0.2.255, specify `192.0.2.0/24` .
 	//
 	// For more information about CIDR notation, see the Wikipedia entry [Classless Inter-Domain Routing](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
-	Source *string `json:"source" yaml:"source"`
+	Source *string `field:"required" json:"source" yaml:"source"`
 	// The source port to inspect for.
 	//
 	// You can specify an individual port, for example `1994` and you can specify a port range, for example `1990:1994` . To match with any port, specify `ANY` .
-	SourcePort *string `json:"sourcePort" yaml:"sourcePort"`
+	SourcePort *string `field:"required" json:"sourcePort" yaml:"sourcePort"`
 }
 
 // A list of IP addresses and address ranges, in CIDR notation.
@@ -3925,7 +3994,10 @@ type CfnRuleGroup_HeaderProperty struct {
 // This is part of a `RuleGroup.RuleVariables` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   iPSetProperty := map[string][]*string{
 //   	"definition": []*string{
 //   		jsii.String("definition"),
@@ -3934,7 +4006,7 @@ type CfnRuleGroup_HeaderProperty struct {
 //
 type CfnRuleGroup_IPSetProperty struct {
 	// The list of IP addresses and address ranges, in CIDR notation.
-	Definition *[]*string `json:"definition" yaml:"definition"`
+	Definition *[]*string `field:"optional" json:"definition" yaml:"definition"`
 }
 
 // Criteria for Network Firewall to use to inspect an individual packet in stateless rule inspection.
@@ -3942,7 +4014,10 @@ type CfnRuleGroup_IPSetProperty struct {
 // Each match attributes set can include one or more items such as IP address, CIDR range, port number, protocol, and TCP flags.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   matchAttributesProperty := &matchAttributesProperty{
 //   	destinationPorts: []interface{}{
 //   		&portRangeProperty{
@@ -3989,29 +4064,29 @@ type CfnRuleGroup_MatchAttributesProperty struct {
 	// If not specified, this matches with any destination port. This setting is only used for protocols 6 (TCP) and 17 (UDP).
 	//
 	// You can specify individual ports, for example `1994` and you can specify port ranges, for example `1990:1994` .
-	DestinationPorts interface{} `json:"destinationPorts" yaml:"destinationPorts"`
+	DestinationPorts interface{} `field:"optional" json:"destinationPorts" yaml:"destinationPorts"`
 	// The destination IP addresses and address ranges to inspect for, in CIDR notation.
 	//
 	// If not specified, this matches with any destination address.
-	Destinations interface{} `json:"destinations" yaml:"destinations"`
+	Destinations interface{} `field:"optional" json:"destinations" yaml:"destinations"`
 	// The protocols to inspect for, specified using each protocol's assigned internet protocol number (IANA).
 	//
 	// If not specified, this matches with any protocol.
-	Protocols interface{} `json:"protocols" yaml:"protocols"`
+	Protocols interface{} `field:"optional" json:"protocols" yaml:"protocols"`
 	// The source ports to inspect for.
 	//
 	// If not specified, this matches with any source port. This setting is only used for protocols 6 (TCP) and 17 (UDP).
 	//
 	// You can specify individual ports, for example `1994` and you can specify port ranges, for example `1990:1994` .
-	SourcePorts interface{} `json:"sourcePorts" yaml:"sourcePorts"`
+	SourcePorts interface{} `field:"optional" json:"sourcePorts" yaml:"sourcePorts"`
 	// The source IP addresses and address ranges to inspect for, in CIDR notation.
 	//
 	// If not specified, this matches with any source address.
-	Sources interface{} `json:"sources" yaml:"sources"`
+	Sources interface{} `field:"optional" json:"sources" yaml:"sources"`
 	// The TCP flags and masks to inspect for.
 	//
 	// If not specified, this matches with any settings. This setting is only used for protocol 6 (TCP).
-	TcpFlags interface{} `json:"tcpFlags" yaml:"tcpFlags"`
+	TcpFlags interface{} `field:"optional" json:"tcpFlags" yaml:"tcpFlags"`
 }
 
 // A single port range specification.
@@ -4019,7 +4094,10 @@ type CfnRuleGroup_MatchAttributesProperty struct {
 // This is used for source and destination port ranges in the stateless `RuleGroup.MatchAttributes` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   portRangeProperty := &portRangeProperty{
 //   	fromPort: jsii.Number(123),
 //   	toPort: jsii.Number(123),
@@ -4029,17 +4107,20 @@ type CfnRuleGroup_PortRangeProperty struct {
 	// The lower limit of the port range.
 	//
 	// This must be less than or equal to the `ToPort` specification.
-	FromPort *float64 `json:"fromPort" yaml:"fromPort"`
+	FromPort *float64 `field:"required" json:"fromPort" yaml:"fromPort"`
 	// The upper limit of the port range.
 	//
 	// This must be greater than or equal to the `FromPort` specification.
-	ToPort *float64 `json:"toPort" yaml:"toPort"`
+	ToPort *float64 `field:"required" json:"toPort" yaml:"toPort"`
 }
 
 // A set of port ranges for use in the rules in a rule group.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   portSetProperty := &portSetProperty{
 //   	definition: []*string{
 //   		jsii.String("definition"),
@@ -4048,7 +4129,7 @@ type CfnRuleGroup_PortRangeProperty struct {
 //
 type CfnRuleGroup_PortSetProperty struct {
 	// The set of port ranges.
-	Definition *[]*string `json:"definition" yaml:"definition"`
+	Definition *[]*string `field:"optional" json:"definition" yaml:"definition"`
 }
 
 // Stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet.
@@ -4056,7 +4137,10 @@ type CfnRuleGroup_PortSetProperty struct {
 // This setting defines a CloudWatch dimension value to be published.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   publishMetricActionProperty := &publishMetricActionProperty{
 //   	dimensions: []interface{}{
 //   		&dimensionProperty{
@@ -4067,7 +4151,7 @@ type CfnRuleGroup_PortSetProperty struct {
 //
 type CfnRuleGroup_PublishMetricActionProperty struct {
 	// `CfnRuleGroup.PublishMetricActionProperty.Dimensions`.
-	Dimensions interface{} `json:"dimensions" yaml:"dimensions"`
+	Dimensions interface{} `field:"required" json:"dimensions" yaml:"dimensions"`
 }
 
 // The inspection criteria and action for a single stateless rule.
@@ -4075,7 +4159,10 @@ type CfnRuleGroup_PublishMetricActionProperty struct {
 // AWS Network Firewall inspects each packet for the specified matching criteria. When a packet matches the criteria, Network Firewall performs the rule's actions on the packet.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   ruleDefinitionProperty := &ruleDefinitionProperty{
 //   	actions: []*string{
 //   		jsii.String("actions"),
@@ -4137,11 +4224,11 @@ type CfnRuleGroup_RuleDefinitionProperty struct {
 	// Additionally, you can specify a custom action. To do this, you define a custom action by name and type, then provide the name you've assigned to the action in this `Actions` setting.
 	//
 	// To provide more than one action in this setting, separate the settings with a comma. For example, if you have a publish metrics custom action that you've named `MyMetricsAction` , then you could specify the standard action `aws:pass` combined with the custom action using `[“aws:pass”, “MyMetricsAction”]` .
-	Actions *[]*string `json:"actions" yaml:"actions"`
+	Actions *[]*string `field:"required" json:"actions" yaml:"actions"`
 	// Criteria for Network Firewall to use to inspect an individual packet in stateless rule inspection.
 	//
 	// Each match attributes set can include one or more items such as IP address, CIDR range, port number, protocol, and TCP flags.
-	MatchAttributes interface{} `json:"matchAttributes" yaml:"matchAttributes"`
+	MatchAttributes interface{} `field:"required" json:"matchAttributes" yaml:"matchAttributes"`
 }
 
 // The object that defines the rules in a rule group.
@@ -4151,7 +4238,10 @@ type CfnRuleGroup_RuleDefinitionProperty struct {
 // To use a rule group, you include it by reference in an Network Firewall firewall policy, then you use the policy in a firewall. You can reference a rule group from more than one firewall policy, and you can use a firewall policy in more than one firewall.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   ruleGroupProperty := &ruleGroupProperty{
 //   	rulesSource: &rulesSourceProperty{
 //   		rulesSourceList: &rulesSourceListProperty{
@@ -4280,21 +4370,24 @@ type CfnRuleGroup_RuleDefinitionProperty struct {
 //
 type CfnRuleGroup_RuleGroupProperty struct {
 	// The stateful rules or stateless rules for the rule group.
-	RulesSource interface{} `json:"rulesSource" yaml:"rulesSource"`
+	RulesSource interface{} `field:"required" json:"rulesSource" yaml:"rulesSource"`
 	// Settings that are available for use in the rules in the rule group.
 	//
 	// You can only use these for stateful rule groups.
-	RuleVariables interface{} `json:"ruleVariables" yaml:"ruleVariables"`
+	RuleVariables interface{} `field:"optional" json:"ruleVariables" yaml:"ruleVariables"`
 	// Additional options governing how Network Firewall handles stateful rules.
 	//
 	// The policies where you use your stateful rule group must have stateful rule options settings that are compatible with these settings.
-	StatefulRuleOptions interface{} `json:"statefulRuleOptions" yaml:"statefulRuleOptions"`
+	StatefulRuleOptions interface{} `field:"optional" json:"statefulRuleOptions" yaml:"statefulRuleOptions"`
 }
 
 // Additional settings for a stateful rule.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   ruleOptionProperty := &ruleOptionProperty{
 //   	keyword: jsii.String("keyword"),
 //
@@ -4306,15 +4399,18 @@ type CfnRuleGroup_RuleGroupProperty struct {
 //
 type CfnRuleGroup_RuleOptionProperty struct {
 	// `CfnRuleGroup.RuleOptionProperty.Keyword`.
-	Keyword *string `json:"keyword" yaml:"keyword"`
+	Keyword *string `field:"required" json:"keyword" yaml:"keyword"`
 	// `CfnRuleGroup.RuleOptionProperty.Settings`.
-	Settings *[]*string `json:"settings" yaml:"settings"`
+	Settings *[]*string `field:"optional" json:"settings" yaml:"settings"`
 }
 
 // Settings that are available for use in the rules in the `RuleGroup` where this is defined.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   ruleVariablesProperty := &ruleVariablesProperty{
 //   	ipSets: map[string]interface{}{
 //   		"ipSetsKey": map[string][]*string{
@@ -4334,9 +4430,9 @@ type CfnRuleGroup_RuleOptionProperty struct {
 //
 type CfnRuleGroup_RuleVariablesProperty struct {
 	// A list of IP addresses and address ranges, in CIDR notation.
-	IpSets interface{} `json:"ipSets" yaml:"ipSets"`
+	IpSets interface{} `field:"optional" json:"ipSets" yaml:"ipSets"`
 	// A list of port ranges.
-	PortSets interface{} `json:"portSets" yaml:"portSets"`
+	PortSets interface{} `field:"optional" json:"portSets" yaml:"portSets"`
 }
 
 // Stateful inspection criteria for a domain list rule group.
@@ -4346,7 +4442,10 @@ type CfnRuleGroup_RuleVariablesProperty struct {
 // By default, Network Firewall domain list inspection only includes traffic coming from the VPC where you deploy the firewall. To inspect traffic from IP addresses outside of the deployment VPC, you set the `HOME_NET` rule variable to include the CIDR range of the deployment VPC plus the other CIDR ranges. For more information, see `RuleGroup.RuleVariables` in this guide and [Stateful domain list rule groups in AWS Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/stateful-rule-groups-domain-names.html) in the *Network Firewall Developer Guide*
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   rulesSourceListProperty := &rulesSourceListProperty{
 //   	generatedRulesType: jsii.String("generatedRulesType"),
 //   	targets: []*string{
@@ -4359,16 +4458,16 @@ type CfnRuleGroup_RuleVariablesProperty struct {
 //
 type CfnRuleGroup_RulesSourceListProperty struct {
 	// Whether you want to allow or deny access to the domains in your target list.
-	GeneratedRulesType *string `json:"generatedRulesType" yaml:"generatedRulesType"`
+	GeneratedRulesType *string `field:"required" json:"generatedRulesType" yaml:"generatedRulesType"`
 	// The domains that you want to inspect for in your traffic flows. Valid domain specifications are the following:.
 	//
 	// - Explicit names. For example, `abc.example.com` matches only the domain `abc.example.com` .
 	// - Names that use a domain wildcard, which you indicate with an initial ' `.` '. For example, `.example.com` matches `example.com` and matches all subdomains of `example.com` , such as `abc.example.com` and `www.example.com` .
-	Targets *[]*string `json:"targets" yaml:"targets"`
+	Targets *[]*string `field:"required" json:"targets" yaml:"targets"`
 	// The types of targets to inspect for.
 	//
 	// Valid values are `TLS_SNI` and `HTTP_HOST` .
-	TargetTypes *[]*string `json:"targetTypes" yaml:"targetTypes"`
+	TargetTypes *[]*string `field:"required" json:"targetTypes" yaml:"targetTypes"`
 }
 
 // The stateless or stateful rules definitions for use in a single rule group.
@@ -4376,7 +4475,10 @@ type CfnRuleGroup_RulesSourceListProperty struct {
 // Each rule group requires a single `RulesSource` . You can use an instance of this for either stateless rules or stateful rules.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   rulesSourceProperty := &rulesSourceProperty{
 //   	rulesSourceList: &rulesSourceListProperty{
 //   		generatedRulesType: jsii.String("generatedRulesType"),
@@ -4482,19 +4584,19 @@ type CfnRuleGroup_RulesSourceListProperty struct {
 //
 type CfnRuleGroup_RulesSourceProperty struct {
 	// Stateful inspection criteria for a domain list rule group.
-	RulesSourceList interface{} `json:"rulesSourceList" yaml:"rulesSourceList"`
+	RulesSourceList interface{} `field:"optional" json:"rulesSourceList" yaml:"rulesSourceList"`
 	// Stateful inspection criteria, provided in Suricata compatible intrusion prevention system (IPS) rules.
 	//
 	// Suricata is an open-source network IPS that includes a standard rule-based language for network traffic inspection.
 	//
 	// These rules contain the inspection criteria and the action to take for traffic that matches the criteria, so this type of rule group doesn't have a separate action setting.
-	RulesString *string `json:"rulesString" yaml:"rulesString"`
+	RulesString *string `field:"optional" json:"rulesString" yaml:"rulesString"`
 	// An array of individual stateful rules inspection criteria to be used together in a stateful rule group.
 	//
 	// Use this option to specify simple Suricata rules with protocol, source and destination, ports, direction, and rule options. For information about the Suricata `Rules` format, see [Rules Format](https://docs.aws.amazon.com/https://suricata.readthedocs.io/en/suricata-5.0.0/rules/intro.html#) .
-	StatefulRules interface{} `json:"statefulRules" yaml:"statefulRules"`
+	StatefulRules interface{} `field:"optional" json:"statefulRules" yaml:"statefulRules"`
 	// Stateless inspection criteria to be used in a stateless rule group.
-	StatelessRulesAndCustomActions interface{} `json:"statelessRulesAndCustomActions" yaml:"statelessRulesAndCustomActions"`
+	StatelessRulesAndCustomActions interface{} `field:"optional" json:"statelessRulesAndCustomActions" yaml:"statelessRulesAndCustomActions"`
 }
 
 // Additional options governing how Network Firewall handles the rule group.
@@ -4502,7 +4604,10 @@ type CfnRuleGroup_RulesSourceProperty struct {
 // You can only use these for stateful rule groups.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   statefulRuleOptionsProperty := &statefulRuleOptionsProperty{
 //   	ruleOrder: jsii.String("ruleOrder"),
 //   }
@@ -4511,7 +4616,7 @@ type CfnRuleGroup_StatefulRuleOptionsProperty struct {
 	// Indicates how to manage the order of the rule evaluation for the rule group.
 	//
 	// `DEFAULT_ACTION_ORDER` is the default behavior. Stateful rules are provided to the rule engine as Suricata compatible strings, and Suricata evaluates them based on certain settings. For more information, see [Evaluation order for stateful rules](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html) in the *AWS Network Firewall Developer Guide* .
-	RuleOrder *string `json:"ruleOrder" yaml:"ruleOrder"`
+	RuleOrder *string `field:"optional" json:"ruleOrder" yaml:"ruleOrder"`
 }
 
 // A single Suricata rules specification, for use in a stateful rule group.
@@ -4519,7 +4624,10 @@ type CfnRuleGroup_StatefulRuleOptionsProperty struct {
 // Use this option to specify a simple Suricata rule with protocol, source and destination, ports, direction, and rule options. For information about the Suricata `Rules` format, see [Rules Format](https://docs.aws.amazon.com/https://suricata.readthedocs.io/en/suricata-5.0.0/rules/intro.html#) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   statefulRuleProperty := &statefulRuleProperty{
 //   	action: jsii.String("action"),
 //   	header: &headerProperty{
@@ -4554,11 +4662,11 @@ type CfnRuleGroup_StatefulRuleProperty struct {
 	// - *ALERT* - Permits the packets to go to the intended destination and sends an alert log message, if alert logging is configured in the firewall's `LoggingConfiguration` .
 	//
 	// You can use this action to test a rule that you intend to use to drop traffic. You can enable the rule with `ALERT` action, verify in the logs that the rule is filtering as you want, then change the action to `DROP` .
-	Action *string `json:"action" yaml:"action"`
+	Action *string `field:"required" json:"action" yaml:"action"`
 	// The stateful inspection criteria for this rule, used to inspect traffic flows.
-	Header interface{} `json:"header" yaml:"header"`
+	Header interface{} `field:"required" json:"header" yaml:"header"`
 	// Additional settings for a stateful rule, provided as keywords and settings.
-	RuleOptions interface{} `json:"ruleOptions" yaml:"ruleOptions"`
+	RuleOptions interface{} `field:"required" json:"ruleOptions" yaml:"ruleOptions"`
 }
 
 // A single stateless rule.
@@ -4566,7 +4674,10 @@ type CfnRuleGroup_StatefulRuleProperty struct {
 // This is used in `RuleGroup.StatelessRulesAndCustomActions` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   statelessRuleProperty := &statelessRuleProperty{
 //   	priority: jsii.Number(123),
 //   	ruleDefinition: &ruleDefinitionProperty{
@@ -4623,9 +4734,9 @@ type CfnRuleGroup_StatelessRuleProperty struct {
 	// Each stateless rule group uses exactly one `StatelessRulesAndCustomActions` object, and each `StatelessRulesAndCustomActions` contains exactly one `StatelessRules` object. To ensure unique priority settings for your rule groups, set unique priorities for the stateless rules that you define inside any single `StatelessRules` object.
 	//
 	// You can change the priority settings of your rules at any time. To make it easier to insert rules later, number them so there's a wide range in between, for example use 100, 200, and so on.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"required" json:"priority" yaml:"priority"`
 	// Defines the stateless 5-tuple packet inspection criteria and the action to take on a packet that matches the criteria.
-	RuleDefinition interface{} `json:"ruleDefinition" yaml:"ruleDefinition"`
+	RuleDefinition interface{} `field:"required" json:"ruleDefinition" yaml:"ruleDefinition"`
 }
 
 // Stateless inspection criteria.
@@ -4633,7 +4744,10 @@ type CfnRuleGroup_StatelessRuleProperty struct {
 // Each stateless rule group uses exactly one of these data types to define its stateless rules.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   statelessRulesAndCustomActionsProperty := &statelessRulesAndCustomActionsProperty{
 //   	statelessRules: []interface{}{
 //   		&statelessRuleProperty{
@@ -4704,11 +4818,11 @@ type CfnRuleGroup_StatelessRuleProperty struct {
 //
 type CfnRuleGroup_StatelessRulesAndCustomActionsProperty struct {
 	// Defines the set of stateless rules for use in a stateless rule group.
-	StatelessRules interface{} `json:"statelessRules" yaml:"statelessRules"`
+	StatelessRules interface{} `field:"required" json:"statelessRules" yaml:"statelessRules"`
 	// Defines an array of individual custom action definitions that are available for use by the stateless rules in this `StatelessRulesAndCustomActions` specification.
 	//
 	// You name each custom action that you define, and then you can use it by name in your stateless rule `RuleGroup.RuleDefinition` `Actions` specification.
-	CustomActions interface{} `json:"customActions" yaml:"customActions"`
+	CustomActions interface{} `field:"optional" json:"customActions" yaml:"customActions"`
 }
 
 // TCP flags and masks to inspect packets for. This is used in the `RuleGroup.MatchAttributes` specification.
@@ -4718,7 +4832,10 @@ type CfnRuleGroup_StatelessRulesAndCustomActionsProperty struct {
 // `"TCPFlags": [ { "Flags": [ "ECE", "SYN" ], "Masks": [ "SYN", "ECE" ] } ]`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tCPFlagFieldProperty := &tCPFlagFieldProperty{
 //   	flags: []*string{
 //   		jsii.String("flags"),
@@ -4739,17 +4856,20 @@ type CfnRuleGroup_TCPFlagFieldProperty struct {
 	//
 	// - The ones that are set in this flags setting must be set in the packet.
 	// - The ones that are not set in this flags setting must also not be set in the packet.
-	Flags *[]*string `json:"flags" yaml:"flags"`
+	Flags *[]*string `field:"required" json:"flags" yaml:"flags"`
 	// The set of flags to consider in the inspection.
 	//
 	// To inspect all flags in the valid values list, leave this with no setting.
-	Masks *[]*string `json:"masks" yaml:"masks"`
+	Masks *[]*string `field:"optional" json:"masks" yaml:"masks"`
 }
 
 // Properties for defining a `CfnRuleGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkfirewall "github.com/aws/aws-cdk-go/awscdk/aws_networkfirewall"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnRuleGroupProps := &cfnRuleGroupProps{
 //   	capacity: jsii.Number(123),
 //   	ruleGroupName: jsii.String("ruleGroupName"),
@@ -4894,23 +5014,23 @@ type CfnRuleGroupProps struct {
 	// The maximum operating resources that this rule group can use.
 	//
 	// You can't change a rule group's capacity setting after you create the rule group. When you update a rule group, you are limited to this capacity. When you reference a rule group from a firewall policy, Network Firewall reserves this capacity for the rule group.
-	Capacity *float64 `json:"capacity" yaml:"capacity"`
+	Capacity *float64 `field:"required" json:"capacity" yaml:"capacity"`
 	// The descriptive name of the rule group.
 	//
 	// You can't change the name of a rule group after you create it.
-	RuleGroupName *string `json:"ruleGroupName" yaml:"ruleGroupName"`
+	RuleGroupName *string `field:"required" json:"ruleGroupName" yaml:"ruleGroupName"`
 	// Indicates whether the rule group is stateless or stateful.
 	//
 	// If the rule group is stateless, it contains
 	// stateless rules. If it is stateful, it contains stateful rules.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// A description of the rule group.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// An object that defines the rule group rules.
-	RuleGroup interface{} `json:"ruleGroup" yaml:"ruleGroup"`
+	RuleGroup interface{} `field:"optional" json:"ruleGroup" yaml:"ruleGroup"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

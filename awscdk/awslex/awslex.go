@@ -16,11 +16,14 @@ import (
 // You must configure an intent based on the AMAZON.FallbackIntent built-in intent. If you don't add one, creating the bot will fail.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var dataPrivacy interface{}
 //   var sentimentAnalysisSettings interface{}
-//   cfnBot := lex.NewCfnBot(this, jsii.String("MyCfnBot"), &cfnBotProps{
+//
+//   cfnBot := awscdk.Aws_lex.NewCfnBot(this, jsii.String("MyCfnBot"), &cfnBotProps{
 //   	dataPrivacy: dataPrivacy,
 //   	idleSessionTtlInSeconds: jsii.Number(123),
 //   	name: jsii.String("name"),
@@ -1879,20 +1882,26 @@ func (c *jsiiProxy_CfnBot) ValidateProperties(_properties interface{}) {
 // Specifies settings that enable advanced audio recognition for slot values.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   advancedRecognitionSettingProperty := &advancedRecognitionSettingProperty{
 //   	audioRecognitionStrategy: jsii.String("audioRecognitionStrategy"),
 //   }
 //
 type CfnBot_AdvancedRecognitionSettingProperty struct {
 	// Specifies that Amazon Lex should use slot values as a custom vocabulary when recognizing user utterances.
-	AudioRecognitionStrategy *string `json:"audioRecognitionStrategy" yaml:"audioRecognitionStrategy"`
+	AudioRecognitionStrategy *string `field:"optional" json:"audioRecognitionStrategy" yaml:"audioRecognitionStrategy"`
 }
 
 // Specifies the location of audio log files collected when conversation logging is enabled for a bot.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   audioLogDestinationProperty := &audioLogDestinationProperty{
 //   	s3Bucket: &s3BucketLogDestinationProperty{
 //   		logPrefix: jsii.String("logPrefix"),
@@ -1905,7 +1914,7 @@ type CfnBot_AdvancedRecognitionSettingProperty struct {
 //
 type CfnBot_AudioLogDestinationProperty struct {
 	// Specifies the Amazon S3 bucket where the audio files are stored.
-	S3Bucket interface{} `json:"s3Bucket" yaml:"s3Bucket"`
+	S3Bucket interface{} `field:"required" json:"s3Bucket" yaml:"s3Bucket"`
 }
 
 // Specifies settings for logging the audio of conversations between Amazon Lex and a user.
@@ -1913,7 +1922,10 @@ type CfnBot_AudioLogDestinationProperty struct {
 // You specify whether to log audio and the Amazon S3 bucket where the audio file is stored.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   audioLogSettingProperty := &audioLogSettingProperty{
 //   	destination: &audioLogDestinationProperty{
 //   		s3Bucket: &s3BucketLogDestinationProperty{
@@ -1929,15 +1941,18 @@ type CfnBot_AudioLogDestinationProperty struct {
 //
 type CfnBot_AudioLogSettingProperty struct {
 	// Specifies the location of the audio log files collected when conversation logging is enabled for a bot.
-	Destination interface{} `json:"destination" yaml:"destination"`
+	Destination interface{} `field:"required" json:"destination" yaml:"destination"`
 	// Specifies whether audio logging is enabled for the bot.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
 }
 
 // Specifies locale settings for a single locale.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   botAliasLocaleSettingsItemProperty := &botAliasLocaleSettingsItemProperty{
 //   	botAliasLocaleSetting: &botAliasLocaleSettingsProperty{
 //   		enabled: jsii.Boolean(false),
@@ -1955,9 +1970,9 @@ type CfnBot_AudioLogSettingProperty struct {
 //
 type CfnBot_BotAliasLocaleSettingsItemProperty struct {
 	// Specifies locale settings for a locale.
-	BotAliasLocaleSetting interface{} `json:"botAliasLocaleSetting" yaml:"botAliasLocaleSetting"`
+	BotAliasLocaleSetting interface{} `field:"required" json:"botAliasLocaleSetting" yaml:"botAliasLocaleSetting"`
 	// Specifies the locale that the settings apply to.
-	LocaleId *string `json:"localeId" yaml:"localeId"`
+	LocaleId *string `field:"required" json:"localeId" yaml:"localeId"`
 }
 
 // Specifies settings that are unique to a locale.
@@ -1965,7 +1980,10 @@ type CfnBot_BotAliasLocaleSettingsItemProperty struct {
 // For example, you can use a different Lambda function for each locale.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   botAliasLocaleSettingsProperty := &botAliasLocaleSettingsProperty{
 //   	enabled: jsii.Boolean(false),
 //
@@ -1982,15 +2000,18 @@ type CfnBot_BotAliasLocaleSettingsProperty struct {
 	// Specifies whether the locale is enabled for the bot.
 	//
 	// If the value is false, the locale isn't available for use.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
 	// Specifies the Lambda function to use in this locale.
-	CodeHookSpecification interface{} `json:"codeHookSpecification" yaml:"codeHookSpecification"`
+	CodeHookSpecification interface{} `field:"optional" json:"codeHookSpecification" yaml:"codeHookSpecification"`
 }
 
 // Provides configuration information for a locale.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   botLocaleProperty := &botLocaleProperty{
 //   	localeId: jsii.String("localeId"),
 //   	nluConfidenceThreshold: jsii.Number(123),
@@ -2901,27 +2922,30 @@ type CfnBot_BotLocaleProperty struct {
 	// The identifier of the language and locale that the bot will be used in.
 	//
 	// The string must match one of the supported locales.
-	LocaleId *string `json:"localeId" yaml:"localeId"`
+	LocaleId *string `field:"required" json:"localeId" yaml:"localeId"`
 	// Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents. You must configure an AMAZON.FallbackIntent. AMAZON.KendraSearchIntent is only inserted if it is configured for the bot.
-	NluConfidenceThreshold *float64 `json:"nluConfidenceThreshold" yaml:"nluConfidenceThreshold"`
+	NluConfidenceThreshold *float64 `field:"required" json:"nluConfidenceThreshold" yaml:"nluConfidenceThreshold"`
 	// Specifies a custom vocabulary to use with a specific locale.
-	CustomVocabulary interface{} `json:"customVocabulary" yaml:"customVocabulary"`
+	CustomVocabulary interface{} `field:"optional" json:"customVocabulary" yaml:"customVocabulary"`
 	// A description of the bot locale.
 	//
 	// Use this to help identify the bot locale in lists.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// One or more intents defined for the locale.
-	Intents interface{} `json:"intents" yaml:"intents"`
+	Intents interface{} `field:"optional" json:"intents" yaml:"intents"`
 	// One or more slot types defined for the locale.
-	SlotTypes interface{} `json:"slotTypes" yaml:"slotTypes"`
+	SlotTypes interface{} `field:"optional" json:"slotTypes" yaml:"slotTypes"`
 	// Identifies the Amazon Polly voice used for audio interaction with the user.
-	VoiceSettings interface{} `json:"voiceSettings" yaml:"voiceSettings"`
+	VoiceSettings interface{} `field:"optional" json:"voiceSettings" yaml:"voiceSettings"`
 }
 
 // Describes a button to use on a response card used to gather slot values from a user.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   buttonProperty := &buttonProperty{
 //   	text: jsii.String("text"),
 //   	value: jsii.String("value"),
@@ -2931,11 +2955,11 @@ type CfnBot_ButtonProperty struct {
 	// The text that appears on the button.
 	//
 	// Use this to tell the user the value that is returned when they choose this button.
-	Text *string `json:"text" yaml:"text"`
+	Text *string `field:"required" json:"text" yaml:"text"`
 	// The value returned to Amazon Lex when the user chooses this button.
 	//
 	// This must be one of the slot values configured for the slot.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // Specifies the Amazon CloudWatch Logs log group where text and metadata logs are delivered.
@@ -2943,7 +2967,10 @@ type CfnBot_ButtonProperty struct {
 // The log group must exist before you enable logging.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cloudWatchLogGroupLogDestinationProperty := &cloudWatchLogGroupLogDestinationProperty{
 //   	cloudWatchLogGroupArn: jsii.String("cloudWatchLogGroupArn"),
 //   	logPrefix: jsii.String("logPrefix"),
@@ -2951,15 +2978,18 @@ type CfnBot_ButtonProperty struct {
 //
 type CfnBot_CloudWatchLogGroupLogDestinationProperty struct {
 	// Specifies the Amazon Resource Name (ARN) of the log group where text and metadata logs are delivered.
-	CloudWatchLogGroupArn *string `json:"cloudWatchLogGroupArn" yaml:"cloudWatchLogGroupArn"`
+	CloudWatchLogGroupArn *string `field:"required" json:"cloudWatchLogGroupArn" yaml:"cloudWatchLogGroupArn"`
 	// Specifies the prefix of the log stream name within the log group that you specified.
-	LogPrefix *string `json:"logPrefix" yaml:"logPrefix"`
+	LogPrefix *string `field:"required" json:"logPrefix" yaml:"logPrefix"`
 }
 
 // Specifies information about code hooks that Amazon Lex calls during a conversation.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   codeHookSpecificationProperty := &codeHookSpecificationProperty{
 //   	lambdaCodeHook: &lambdaCodeHookProperty{
 //   		codeHookInterfaceVersion: jsii.String("codeHookInterfaceVersion"),
@@ -2969,13 +2999,16 @@ type CfnBot_CloudWatchLogGroupLogDestinationProperty struct {
 //
 type CfnBot_CodeHookSpecificationProperty struct {
 	// Specifies a Lambda function that verifies requests to a bot or fulfills the user's request to a bot.
-	LambdaCodeHook interface{} `json:"lambdaCodeHook" yaml:"lambdaCodeHook"`
+	LambdaCodeHook interface{} `field:"required" json:"lambdaCodeHook" yaml:"lambdaCodeHook"`
 }
 
 // Specifies settings that manage logging that saves audio, text, and metadata for the conversations with your users.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   conversationLogSettingsProperty := &conversationLogSettingsProperty{
 //   	audioLogSettings: []interface{}{
 //   		&audioLogSettingProperty{
@@ -3006,11 +3039,11 @@ type CfnBot_CodeHookSpecificationProperty struct {
 //
 type CfnBot_ConversationLogSettingsProperty struct {
 	// Specifies the Amazon S3 settings for logging audio to an S3 bucket.
-	AudioLogSettings interface{} `json:"audioLogSettings" yaml:"audioLogSettings"`
+	AudioLogSettings interface{} `field:"optional" json:"audioLogSettings" yaml:"audioLogSettings"`
 	// Specifies settings to enable text conversation logs.
 	//
 	// You specify the Amazon CloudWatch Logs log group and whether logs should be stored for an alias.
-	TextLogSettings interface{} `json:"textLogSettings" yaml:"textLogSettings"`
+	TextLogSettings interface{} `field:"optional" json:"textLogSettings" yaml:"textLogSettings"`
 }
 
 // A custom response string that Amazon Lex sends to your application.
@@ -3018,20 +3051,26 @@ type CfnBot_ConversationLogSettingsProperty struct {
 // You define the content and structure of the string.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   customPayloadProperty := &customPayloadProperty{
 //   	value: jsii.String("value"),
 //   }
 //
 type CfnBot_CustomPayloadProperty struct {
 	// The string that is sent to your application.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // Specifies an entry in a custom vocabulary.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   customVocabularyItemProperty := &customVocabularyItemProperty{
 //   	phrase: jsii.String("phrase"),
 //
@@ -3041,11 +3080,11 @@ type CfnBot_CustomPayloadProperty struct {
 //
 type CfnBot_CustomVocabularyItemProperty struct {
 	// Specifies 1 - 4 words that should be recognized.
-	Phrase *string `json:"phrase" yaml:"phrase"`
+	Phrase *string `field:"required" json:"phrase" yaml:"phrase"`
 	// Specifies the degree to which the phrase recognition is boosted.
 	//
 	// The default value is 1.
-	Weight *float64 `json:"weight" yaml:"weight"`
+	Weight *float64 `field:"optional" json:"weight" yaml:"weight"`
 }
 
 // Specifies a custom vocabulary.
@@ -3053,7 +3092,10 @@ type CfnBot_CustomVocabularyItemProperty struct {
 // A custom vocabulary is a list of words that you expect to be used during a conversation with your bot.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   customVocabularyProperty := &customVocabularyProperty{
 //   	customVocabularyItems: []interface{}{
 //   		&customVocabularyItemProperty{
@@ -3067,26 +3109,32 @@ type CfnBot_CustomVocabularyItemProperty struct {
 //
 type CfnBot_CustomVocabularyProperty struct {
 	// Specifies a list of words that you expect to be used during a conversation with your bot.
-	CustomVocabularyItems interface{} `json:"customVocabularyItems" yaml:"customVocabularyItems"`
+	CustomVocabularyItems interface{} `field:"required" json:"customVocabularyItems" yaml:"customVocabularyItems"`
 }
 
 // Specifies whether an intent uses the dialog code hook during conversations with a user.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dialogCodeHookSettingProperty := &dialogCodeHookSettingProperty{
 //   	enabled: jsii.Boolean(false),
 //   }
 //
 type CfnBot_DialogCodeHookSettingProperty struct {
 	// Indicates whether an intent uses the dialog code hook during a conversation with a user.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
 }
 
 // Provides information about the external source of the slot type's definition.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   externalSourceSettingProperty := &externalSourceSettingProperty{
 //   	grammarSlotTypeSetting: &grammarSlotTypeSettingProperty{
 //   		source: &grammarSlotTypeSourceProperty{
@@ -3101,13 +3149,16 @@ type CfnBot_DialogCodeHookSettingProperty struct {
 //
 type CfnBot_ExternalSourceSettingProperty struct {
 	// Settings required for a slot type based on a grammar that you provide.
-	GrammarSlotTypeSetting interface{} `json:"grammarSlotTypeSetting" yaml:"grammarSlotTypeSetting"`
+	GrammarSlotTypeSetting interface{} `field:"optional" json:"grammarSlotTypeSetting" yaml:"grammarSlotTypeSetting"`
 }
 
 // Determines if a Lambda function should be invoked for a specific intent.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   fulfillmentCodeHookSettingProperty := &fulfillmentCodeHookSettingProperty{
 //   	enabled: jsii.Boolean(false),
 //
@@ -3431,21 +3482,24 @@ type CfnBot_ExternalSourceSettingProperty struct {
 //
 type CfnBot_FulfillmentCodeHookSettingProperty struct {
 	// Indicates whether a Lambda function should be invoked for fulfill a specific intent.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
 	// Provides settings for update messages sent to the user for long-running Lambda fulfillment functions.
 	//
 	// Fulfillment updates can be used only with streaming conversations.
-	FulfillmentUpdatesSpecification interface{} `json:"fulfillmentUpdatesSpecification" yaml:"fulfillmentUpdatesSpecification"`
+	FulfillmentUpdatesSpecification interface{} `field:"optional" json:"fulfillmentUpdatesSpecification" yaml:"fulfillmentUpdatesSpecification"`
 	// Provides settings for messages sent to the user for after the Lambda fulfillment function completes.
 	//
 	// Post-fulfillment messages can be sent for both streaming and non-streaming conversations.
-	PostFulfillmentStatusSpecification interface{} `json:"postFulfillmentStatusSpecification" yaml:"postFulfillmentStatusSpecification"`
+	PostFulfillmentStatusSpecification interface{} `field:"optional" json:"postFulfillmentStatusSpecification" yaml:"postFulfillmentStatusSpecification"`
 }
 
 // Provides settings for a message that is sent to the user when a fulfillment Lambda function starts running.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   fulfillmentStartResponseSpecificationProperty := &fulfillmentStartResponseSpecificationProperty{
 //   	delayInSeconds: jsii.Number(123),
 //   	messageGroups: []interface{}{
@@ -3513,19 +3567,22 @@ type CfnBot_FulfillmentStartResponseSpecificationProperty struct {
 	// The delay between when the Lambda fulfillment function starts running and the start message is played.
 	//
 	// If the Lambda function returns before the delay is over, the start message isn't played.
-	DelayInSeconds *float64 `json:"delayInSeconds" yaml:"delayInSeconds"`
+	DelayInSeconds *float64 `field:"required" json:"delayInSeconds" yaml:"delayInSeconds"`
 	// One to 5 message groups that contain start messages.
 	//
 	// Amazon Lex chooses one of the messages to play to the user.
-	MessageGroups interface{} `json:"messageGroups" yaml:"messageGroups"`
+	MessageGroups interface{} `field:"required" json:"messageGroups" yaml:"messageGroups"`
 	// Determines whether the user can interrupt the start message while it is playing.
-	AllowInterrupt interface{} `json:"allowInterrupt" yaml:"allowInterrupt"`
+	AllowInterrupt interface{} `field:"optional" json:"allowInterrupt" yaml:"allowInterrupt"`
 }
 
 // Provides information for updating the user on the progress of fulfilling an intent.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   fulfillmentUpdateResponseSpecificationProperty := &fulfillmentUpdateResponseSpecificationProperty{
 //   	frequencyInSeconds: jsii.Number(123),
 //   	messageGroups: []interface{}{
@@ -3593,19 +3650,22 @@ type CfnBot_FulfillmentUpdateResponseSpecificationProperty struct {
 	// The frequency that a message is sent to the user.
 	//
 	// When the period ends, Amazon Lex chooses a message from the message groups and plays it to the user. If the fulfillment Lambda function returns before the first period ends, an update message is not played to the user.
-	FrequencyInSeconds *float64 `json:"frequencyInSeconds" yaml:"frequencyInSeconds"`
+	FrequencyInSeconds *float64 `field:"required" json:"frequencyInSeconds" yaml:"frequencyInSeconds"`
 	// One to 5 message groups that contain update messages.
 	//
 	// Amazon Lex chooses one of the messages to play to the user.
-	MessageGroups interface{} `json:"messageGroups" yaml:"messageGroups"`
+	MessageGroups interface{} `field:"required" json:"messageGroups" yaml:"messageGroups"`
 	// Determines whether the user can interrupt an update message while it is playing.
-	AllowInterrupt interface{} `json:"allowInterrupt" yaml:"allowInterrupt"`
+	AllowInterrupt interface{} `field:"optional" json:"allowInterrupt" yaml:"allowInterrupt"`
 }
 
 // Provides information for updating the user on the progress of fulfilling an intent.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   fulfillmentUpdatesSpecificationProperty := &fulfillmentUpdatesSpecificationProperty{
 //   	active: jsii.Boolean(false),
 //
@@ -3741,19 +3801,22 @@ type CfnBot_FulfillmentUpdatesSpecificationProperty struct {
 	// Determines whether fulfillment updates are sent to the user. When this field is true, updates are sent.
 	//
 	// If the active field is set to true, the `startResponse` , `updateResponse` , and `timeoutInSeconds` fields are required.
-	Active interface{} `json:"active" yaml:"active"`
+	Active interface{} `field:"required" json:"active" yaml:"active"`
 	// Provides configuration information for the message sent to users when the fulfillment Lambda functions starts running.
-	StartResponse interface{} `json:"startResponse" yaml:"startResponse"`
+	StartResponse interface{} `field:"optional" json:"startResponse" yaml:"startResponse"`
 	// The length of time that the fulfillment Lambda function should run before it times out.
-	TimeoutInSeconds *float64 `json:"timeoutInSeconds" yaml:"timeoutInSeconds"`
+	TimeoutInSeconds *float64 `field:"optional" json:"timeoutInSeconds" yaml:"timeoutInSeconds"`
 	// Provides configuration information for messages sent periodically to the user while the fulfillment Lambda function is running.
-	UpdateResponse interface{} `json:"updateResponse" yaml:"updateResponse"`
+	UpdateResponse interface{} `field:"optional" json:"updateResponse" yaml:"updateResponse"`
 }
 
 // Settings required for a slot type based on a grammar that you provide.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   grammarSlotTypeSettingProperty := &grammarSlotTypeSettingProperty{
 //   	source: &grammarSlotTypeSourceProperty{
 //   		s3BucketName: jsii.String("s3BucketName"),
@@ -3766,13 +3829,16 @@ type CfnBot_FulfillmentUpdatesSpecificationProperty struct {
 //
 type CfnBot_GrammarSlotTypeSettingProperty struct {
 	// The source of the grammar used to create the slot type.
-	Source interface{} `json:"source" yaml:"source"`
+	Source interface{} `field:"optional" json:"source" yaml:"source"`
 }
 
 // Describes the Amazon S3 bucket name and location for the grammar that is the source of the slot type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   grammarSlotTypeSourceProperty := &grammarSlotTypeSourceProperty{
 //   	s3BucketName: jsii.String("s3BucketName"),
 //   	s3ObjectKey: jsii.String("s3ObjectKey"),
@@ -3783,11 +3849,11 @@ type CfnBot_GrammarSlotTypeSettingProperty struct {
 //
 type CfnBot_GrammarSlotTypeSourceProperty struct {
 	// The name of the S3 bucket that contains the grammar source.
-	S3BucketName *string `json:"s3BucketName" yaml:"s3BucketName"`
+	S3BucketName *string `field:"required" json:"s3BucketName" yaml:"s3BucketName"`
 	// The path to the grammar in the S3 bucket.
-	S3ObjectKey *string `json:"s3ObjectKey" yaml:"s3ObjectKey"`
+	S3ObjectKey *string `field:"required" json:"s3ObjectKey" yaml:"s3ObjectKey"`
 	// The AWS Key Management Service key required to decrypt the contents of the grammar, if any.
-	KmsKeyArn *string `json:"kmsKeyArn" yaml:"kmsKeyArn"`
+	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
 }
 
 // A card that is shown to the user by a messaging platform.
@@ -3797,7 +3863,10 @@ type CfnBot_GrammarSlotTypeSourceProperty struct {
 // When you use a response card, the response from the user is constrained to the text associated with a button on the card.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   imageResponseCardProperty := &imageResponseCardProperty{
 //   	title: jsii.String("title"),
 //
@@ -3816,38 +3885,44 @@ type CfnBot_ImageResponseCardProperty struct {
 	// The title to display on the response card.
 	//
 	// The format of the title is determined by the platform displaying the response card.
-	Title *string `json:"title" yaml:"title"`
+	Title *string `field:"required" json:"title" yaml:"title"`
 	// A list of buttons that should be displayed on the response card.
 	//
 	// The arrangement of the buttons is determined by the platform that displays the buttons.
-	Buttons interface{} `json:"buttons" yaml:"buttons"`
+	Buttons interface{} `field:"optional" json:"buttons" yaml:"buttons"`
 	// The URL of an image to display on the response card.
 	//
 	// The image URL must be publicly available so that the platform displaying the response card has access to the image.
-	ImageUrl *string `json:"imageUrl" yaml:"imageUrl"`
+	ImageUrl *string `field:"optional" json:"imageUrl" yaml:"imageUrl"`
 	// The subtitle to display on the response card.
 	//
 	// The format of the subtitle is determined by the platform displaying the response card.
-	Subtitle *string `json:"subtitle" yaml:"subtitle"`
+	Subtitle *string `field:"optional" json:"subtitle" yaml:"subtitle"`
 }
 
 // The name of a context that must be active for an intent to be selected by Amazon Lex .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   inputContextProperty := &inputContextProperty{
 //   	name: jsii.String("name"),
 //   }
 //
 type CfnBot_InputContextProperty struct {
 	// The name of the context.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 }
 
 // Provides a statement the Amazon Lex conveys to the user when the intent is successfully fulfilled.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   intentClosingSettingProperty := &intentClosingSettingProperty{
 //   	closingResponse: &responseSpecificationProperty{
 //   		messageGroupsList: []interface{}{
@@ -3917,17 +3992,20 @@ type CfnBot_InputContextProperty struct {
 //
 type CfnBot_IntentClosingSettingProperty struct {
 	// The response that Amazon Lex sends to the user when the intent is complete.
-	ClosingResponse interface{} `json:"closingResponse" yaml:"closingResponse"`
+	ClosingResponse interface{} `field:"required" json:"closingResponse" yaml:"closingResponse"`
 	// Specifies whether an intent's closing response is used.
 	//
 	// When this field is false, the closing response isn't sent to the user and no closing input from the user is used. If the IsActive field isn't specified, the default is true.
-	IsActive interface{} `json:"isActive" yaml:"isActive"`
+	IsActive interface{} `field:"optional" json:"isActive" yaml:"isActive"`
 }
 
 // Provides a prompt for making sure that the user is ready for the intent to be fulfilled.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   intentConfirmationSettingProperty := &intentConfirmationSettingProperty{
 //   	declinationResponse: &responseSpecificationProperty{
 //   		messageGroupsList: []interface{}{
@@ -4059,21 +4137,24 @@ type CfnBot_IntentClosingSettingProperty struct {
 //
 type CfnBot_IntentConfirmationSettingProperty struct {
 	// When the user answers "no" to the question defined in PromptSpecification, Amazon Lex responds with this response to acknowledge that the intent was canceled.
-	DeclinationResponse interface{} `json:"declinationResponse" yaml:"declinationResponse"`
+	DeclinationResponse interface{} `field:"required" json:"declinationResponse" yaml:"declinationResponse"`
 	// Prompts the user to confirm the intent.
 	//
 	// This question should have a yes or no answer.
-	PromptSpecification interface{} `json:"promptSpecification" yaml:"promptSpecification"`
+	PromptSpecification interface{} `field:"required" json:"promptSpecification" yaml:"promptSpecification"`
 	// Specifies whether the intent's confirmation is sent to the user.
 	//
 	// When this field is false, confirmation and declination responses aren't sent and processing continues as if the responses aren't present. If the active field isn't specified, the default is true.
-	IsActive interface{} `json:"isActive" yaml:"isActive"`
+	IsActive interface{} `field:"optional" json:"isActive" yaml:"isActive"`
 }
 
 // Represents an action that the user wants to perform.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   intentProperty := &intentProperty{
 //   	name: jsii.String("name"),
 //
@@ -4917,47 +4998,50 @@ type CfnBot_IntentProperty struct {
 	// The name of the intent.
 	//
 	// Intent names must be unique within the locale that contains the intent and can't match the name of any built-in intent.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// A description of the intent.
 	//
 	// Use the description to help identify the intent in lists.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Specifies that Amazon Lex invokes the alias Lambda function for each user input.
 	//
 	// You can invoke this Lambda function to personalize user interaction.
-	DialogCodeHook interface{} `json:"dialogCodeHook" yaml:"dialogCodeHook"`
+	DialogCodeHook interface{} `field:"optional" json:"dialogCodeHook" yaml:"dialogCodeHook"`
 	// Specifies that Amazon Lex invokes the alias Lambda function when the intent is ready for fulfillment.
 	//
 	// You can invoke this function to complete the bot's transaction with the user.
-	FulfillmentCodeHook interface{} `json:"fulfillmentCodeHook" yaml:"fulfillmentCodeHook"`
+	FulfillmentCodeHook interface{} `field:"optional" json:"fulfillmentCodeHook" yaml:"fulfillmentCodeHook"`
 	// A list of contexts that must be active for this intent to be considered by Amazon Lex .
-	InputContexts interface{} `json:"inputContexts" yaml:"inputContexts"`
+	InputContexts interface{} `field:"optional" json:"inputContexts" yaml:"inputContexts"`
 	// Sets the response that Amazon Lex sends to the user when the intent is closed.
-	IntentClosingSetting interface{} `json:"intentClosingSetting" yaml:"intentClosingSetting"`
+	IntentClosingSetting interface{} `field:"optional" json:"intentClosingSetting" yaml:"intentClosingSetting"`
 	// Provides prompts that Amazon Lex sends to the user to confirm the completion of an intent.
 	//
 	// If the user answers "no," the settings contain a statement that is sent to the user to end the intent.
-	IntentConfirmationSetting interface{} `json:"intentConfirmationSetting" yaml:"intentConfirmationSetting"`
+	IntentConfirmationSetting interface{} `field:"optional" json:"intentConfirmationSetting" yaml:"intentConfirmationSetting"`
 	// Configuration information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called with Amazon Lex can't determine another intent to invoke.
-	KendraConfiguration interface{} `json:"kendraConfiguration" yaml:"kendraConfiguration"`
+	KendraConfiguration interface{} `field:"optional" json:"kendraConfiguration" yaml:"kendraConfiguration"`
 	// A list of contexts that the intent activates when it is fulfilled.
-	OutputContexts interface{} `json:"outputContexts" yaml:"outputContexts"`
+	OutputContexts interface{} `field:"optional" json:"outputContexts" yaml:"outputContexts"`
 	// A unique identifier for the built-in intent to base this intent on.
-	ParentIntentSignature *string `json:"parentIntentSignature" yaml:"parentIntentSignature"`
+	ParentIntentSignature *string `field:"optional" json:"parentIntentSignature" yaml:"parentIntentSignature"`
 	// A list of utterances that a user might say to signal the intent.
-	SampleUtterances interface{} `json:"sampleUtterances" yaml:"sampleUtterances"`
+	SampleUtterances interface{} `field:"optional" json:"sampleUtterances" yaml:"sampleUtterances"`
 	// Indicates the priority for slots.
 	//
 	// Amazon Lex prompts the user for slot values in priority order.
-	SlotPriorities interface{} `json:"slotPriorities" yaml:"slotPriorities"`
+	SlotPriorities interface{} `field:"optional" json:"slotPriorities" yaml:"slotPriorities"`
 	// A list of slots that the intent requires for fulfillment.
-	Slots interface{} `json:"slots" yaml:"slots"`
+	Slots interface{} `field:"optional" json:"slots" yaml:"slots"`
 }
 
 // Provides configuration information for the AMAZON.KendraSearchIntent intent. When you use this intent, Amazon Lex searches the specified Amazon Kendra index and returns documents from the index that match the user's utterance.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   kendraConfigurationProperty := &kendraConfigurationProperty{
 //   	kendraIndex: jsii.String("kendraIndex"),
 //
@@ -4968,19 +5052,22 @@ type CfnBot_IntentProperty struct {
 //
 type CfnBot_KendraConfigurationProperty struct {
 	// The Amazon Resource Name (ARN) of the Amazon Kendra index that you want the AMAZON.KendraSearchIntent intent to search. The index must be in the same account and Region as the Amazon Lex bot.
-	KendraIndex *string `json:"kendraIndex" yaml:"kendraIndex"`
+	KendraIndex *string `field:"required" json:"kendraIndex" yaml:"kendraIndex"`
 	// A query filter that Amazon Lex sends to Amazon Kendra to filter the response from a query.
 	//
 	// The filter is in the format defined by Amazon Kendra.
-	QueryFilterString *string `json:"queryFilterString" yaml:"queryFilterString"`
+	QueryFilterString *string `field:"optional" json:"queryFilterString" yaml:"queryFilterString"`
 	// Determines whether the AMAZON.KendraSearchIntent intent uses a custom query string to query the Amazon Kendra index.
-	QueryFilterStringEnabled interface{} `json:"queryFilterStringEnabled" yaml:"queryFilterStringEnabled"`
+	QueryFilterStringEnabled interface{} `field:"optional" json:"queryFilterStringEnabled" yaml:"queryFilterStringEnabled"`
 }
 
 // Specifies a Lambda function that verifies requests to a bot or fulfills the user's request to a bot.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   lambdaCodeHookProperty := &lambdaCodeHookProperty{
 //   	codeHookInterfaceVersion: jsii.String("codeHookInterfaceVersion"),
 //   	lambdaArn: jsii.String("lambdaArn"),
@@ -4988,15 +5075,18 @@ type CfnBot_KendraConfigurationProperty struct {
 //
 type CfnBot_LambdaCodeHookProperty struct {
 	// Specifies the version of the request-response that you want Amazon Lex to use to invoke your Lambda function.
-	CodeHookInterfaceVersion *string `json:"codeHookInterfaceVersion" yaml:"codeHookInterfaceVersion"`
+	CodeHookInterfaceVersion *string `field:"required" json:"codeHookInterfaceVersion" yaml:"codeHookInterfaceVersion"`
 	// Specifies the Amazon Resource Name (ARN) of the Lambda function.
-	LambdaArn *string `json:"lambdaArn" yaml:"lambdaArn"`
+	LambdaArn *string `field:"required" json:"lambdaArn" yaml:"lambdaArn"`
 }
 
 // Provides one or more messages that Amazon Lex should send to the user.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   messageGroupProperty := &messageGroupProperty{
 //   	message: &messageProperty{
 //   		customPayload: &customPayloadProperty{
@@ -5054,17 +5144,20 @@ type CfnBot_LambdaCodeHookProperty struct {
 //
 type CfnBot_MessageGroupProperty struct {
 	// The primary message that Amazon Lex should send to the user.
-	Message interface{} `json:"message" yaml:"message"`
+	Message interface{} `field:"required" json:"message" yaml:"message"`
 	// Message variations to send to the user.
 	//
 	// When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
-	Variations interface{} `json:"variations" yaml:"variations"`
+	Variations interface{} `field:"optional" json:"variations" yaml:"variations"`
 }
 
 // The object that provides message text and it's type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   messageProperty := &messageProperty{
 //   	customPayload: &customPayloadProperty{
 //   		value: jsii.String("value"),
@@ -5092,19 +5185,22 @@ type CfnBot_MessageGroupProperty struct {
 //
 type CfnBot_MessageProperty struct {
 	// A message in a custom format defined by the client application.
-	CustomPayload interface{} `json:"customPayload" yaml:"customPayload"`
+	CustomPayload interface{} `field:"optional" json:"customPayload" yaml:"customPayload"`
 	// A message that defines a response card that the client application can show to the user.
-	ImageResponseCard interface{} `json:"imageResponseCard" yaml:"imageResponseCard"`
+	ImageResponseCard interface{} `field:"optional" json:"imageResponseCard" yaml:"imageResponseCard"`
 	// A message in plain text format.
-	PlainTextMessage interface{} `json:"plainTextMessage" yaml:"plainTextMessage"`
+	PlainTextMessage interface{} `field:"optional" json:"plainTextMessage" yaml:"plainTextMessage"`
 	// A message in Speech Synthesis Markup Language (SSML) format.
-	SsmlMessage interface{} `json:"ssmlMessage" yaml:"ssmlMessage"`
+	SsmlMessage interface{} `field:"optional" json:"ssmlMessage" yaml:"ssmlMessage"`
 }
 
 // Indicates whether a slot can return multiple values.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   multipleValuesSettingProperty := &multipleValuesSettingProperty{
 //   	allowMultipleValues: jsii.Boolean(false),
 //   }
@@ -5115,13 +5211,16 @@ type CfnBot_MultipleValuesSettingProperty struct {
 	// When true, the slot may return more than one value in a response. When false, the slot returns only a single value. If AllowMultipleValues is not set, the default value is false.
 	//
 	// Multi-value slots are only available in the en-US locale.
-	AllowMultipleValues interface{} `json:"allowMultipleValues" yaml:"allowMultipleValues"`
+	AllowMultipleValues interface{} `field:"optional" json:"allowMultipleValues" yaml:"allowMultipleValues"`
 }
 
 // Determines whether Amazon Lex obscures slot values in conversation logs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   obfuscationSettingProperty := &obfuscationSettingProperty{
 //   	obfuscationSettingType: jsii.String("obfuscationSettingType"),
 //   }
@@ -5130,13 +5229,16 @@ type CfnBot_ObfuscationSettingProperty struct {
 	// Value that determines whether Amazon Lex obscures slot values in conversation logs.
 	//
 	// The default is to obscure the values.
-	ObfuscationSettingType *string `json:"obfuscationSettingType" yaml:"obfuscationSettingType"`
+	ObfuscationSettingType *string `field:"required" json:"obfuscationSettingType" yaml:"obfuscationSettingType"`
 }
 
 // Describes a session context that is activated when an intent is fulfilled.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   outputContextProperty := &outputContextProperty{
 //   	name: jsii.String("name"),
 //   	timeToLiveInSeconds: jsii.Number(123),
@@ -5145,28 +5247,31 @@ type CfnBot_ObfuscationSettingProperty struct {
 //
 type CfnBot_OutputContextProperty struct {
 	// The name of the output context.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The amount of time, in seconds, that the output context should remain active.
 	//
 	// The time is figured from the first time the context is sent to the user.
-	TimeToLiveInSeconds *float64 `json:"timeToLiveInSeconds" yaml:"timeToLiveInSeconds"`
+	TimeToLiveInSeconds *float64 `field:"required" json:"timeToLiveInSeconds" yaml:"timeToLiveInSeconds"`
 	// The number of conversation turns that the output context should remain active.
 	//
 	// The number of turns is counted from the first time that the context is sent to the user.
-	TurnsToLive *float64 `json:"turnsToLive" yaml:"turnsToLive"`
+	TurnsToLive *float64 `field:"required" json:"turnsToLive" yaml:"turnsToLive"`
 }
 
 // Defines an ASCII text message to send to the user.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   plainTextMessageProperty := &plainTextMessageProperty{
 //   	value: jsii.String("value"),
 //   }
 //
 type CfnBot_PlainTextMessageProperty struct {
 	// The message to send to the user.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // Provides a setting that determines whether the post-fulfillment response is sent to the user.
@@ -5174,7 +5279,10 @@ type CfnBot_PlainTextMessageProperty struct {
 // For more information, see [Post-fulfillment response](https://docs.aws.amazon.com/lex/latest/dg/streaming-progress.html#progress-complete) in the *Amazon Lex developer guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   postFulfillmentStatusSpecificationProperty := &postFulfillmentStatusSpecificationProperty{
 //   	failureResponse: &responseSpecificationProperty{
 //   		messageGroupsList: []interface{}{
@@ -5363,17 +5471,20 @@ type CfnBot_PlainTextMessageProperty struct {
 //
 type CfnBot_PostFulfillmentStatusSpecificationProperty struct {
 	// Specifies a list of message groups that Amazon Lex uses to respond when fulfillment isn't successful.
-	FailureResponse interface{} `json:"failureResponse" yaml:"failureResponse"`
+	FailureResponse interface{} `field:"optional" json:"failureResponse" yaml:"failureResponse"`
 	// Specifies a list of message groups that Amazon Lex uses to respond when the fulfillment is successful.
-	SuccessResponse interface{} `json:"successResponse" yaml:"successResponse"`
+	SuccessResponse interface{} `field:"optional" json:"successResponse" yaml:"successResponse"`
 	// Specifies a list of message groups that Amazon Lex uses to respond when fulfillment isn't completed within the timeout period.
-	TimeoutResponse interface{} `json:"timeoutResponse" yaml:"timeoutResponse"`
+	TimeoutResponse interface{} `field:"optional" json:"timeoutResponse" yaml:"timeoutResponse"`
 }
 
 // Specifies a list of message groups that Amazon Lex sends to a user to elicit a response.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   promptSpecificationProperty := &promptSpecificationProperty{
 //   	maxRetries: jsii.Number(123),
 //   	messageGroupsList: []interface{}{
@@ -5439,19 +5550,22 @@ type CfnBot_PostFulfillmentStatusSpecificationProperty struct {
 //
 type CfnBot_PromptSpecificationProperty struct {
 	// The maximum number of times the bot tries to elicit a response from the user using this prompt.
-	MaxRetries *float64 `json:"maxRetries" yaml:"maxRetries"`
+	MaxRetries *float64 `field:"required" json:"maxRetries" yaml:"maxRetries"`
 	// A collection of responses that Amazon Lex can send to the user.
 	//
 	// Amazon Lex chooses the actual response to send at runtime.
-	MessageGroupsList interface{} `json:"messageGroupsList" yaml:"messageGroupsList"`
+	MessageGroupsList interface{} `field:"required" json:"messageGroupsList" yaml:"messageGroupsList"`
 	// Indicates whether the user can interrupt a speech prompt from the bot.
-	AllowInterrupt interface{} `json:"allowInterrupt" yaml:"allowInterrupt"`
+	AllowInterrupt interface{} `field:"optional" json:"allowInterrupt" yaml:"allowInterrupt"`
 }
 
 // Specifies a list of message groups that Amazon Lex uses to respond to user input.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   responseSpecificationProperty := &responseSpecificationProperty{
 //   	messageGroupsList: []interface{}{
 //   		&messageGroupProperty{
@@ -5518,15 +5632,18 @@ type CfnBot_ResponseSpecificationProperty struct {
 	// A collection of responses that Amazon Lex can send to the user.
 	//
 	// Amazon Lex chooses the actual response to send at runtime.
-	MessageGroupsList interface{} `json:"messageGroupsList" yaml:"messageGroupsList"`
+	MessageGroupsList interface{} `field:"required" json:"messageGroupsList" yaml:"messageGroupsList"`
 	// Indicates whether the user can interrupt a speech response from Amazon Lex .
-	AllowInterrupt interface{} `json:"allowInterrupt" yaml:"allowInterrupt"`
+	AllowInterrupt interface{} `field:"optional" json:"allowInterrupt" yaml:"allowInterrupt"`
 }
 
 // Specifies an Amazon S3 bucket for logging audio conversations.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3BucketLogDestinationProperty := &s3BucketLogDestinationProperty{
 //   	logPrefix: jsii.String("logPrefix"),
 //   	s3BucketArn: jsii.String("s3BucketArn"),
@@ -5537,17 +5654,20 @@ type CfnBot_ResponseSpecificationProperty struct {
 //
 type CfnBot_S3BucketLogDestinationProperty struct {
 	// Specifies the Amazon S3 prefix to assign to audio log files.
-	LogPrefix *string `json:"logPrefix" yaml:"logPrefix"`
+	LogPrefix *string `field:"required" json:"logPrefix" yaml:"logPrefix"`
 	// Specifies the Amazon Resource Name (ARN) of the Amazon S3 bucket where audio files are stored.
-	S3BucketArn *string `json:"s3BucketArn" yaml:"s3BucketArn"`
+	S3BucketArn *string `field:"required" json:"s3BucketArn" yaml:"s3BucketArn"`
 	// Specifies the Amazon Resource Name (ARN) of an AWS Key Management Service key for encrypting audio log files stored in an Amazon S3 bucket.
-	KmsKeyArn *string `json:"kmsKeyArn" yaml:"kmsKeyArn"`
+	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
 }
 
 // Defines an Amazon S3 bucket location.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3LocationProperty := &s3LocationProperty{
 //   	s3Bucket: jsii.String("s3Bucket"),
 //   	s3ObjectKey: jsii.String("s3ObjectKey"),
@@ -5558,69 +5678,84 @@ type CfnBot_S3BucketLogDestinationProperty struct {
 //
 type CfnBot_S3LocationProperty struct {
 	// The S3 bucket name.
-	S3Bucket *string `json:"s3Bucket" yaml:"s3Bucket"`
+	S3Bucket *string `field:"required" json:"s3Bucket" yaml:"s3Bucket"`
 	// The path and file name to the object in the S3 bucket.
-	S3ObjectKey *string `json:"s3ObjectKey" yaml:"s3ObjectKey"`
+	S3ObjectKey *string `field:"required" json:"s3ObjectKey" yaml:"s3ObjectKey"`
 	// The version of the object in the S3 bucket.
-	S3ObjectVersion *string `json:"s3ObjectVersion" yaml:"s3ObjectVersion"`
+	S3ObjectVersion *string `field:"optional" json:"s3ObjectVersion" yaml:"s3ObjectVersion"`
 }
 
 // Defines a Speech Synthesis Markup Language (SSML) prompt.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sSMLMessageProperty := &sSMLMessageProperty{
 //   	value: jsii.String("value"),
 //   }
 //
 type CfnBot_SSMLMessageProperty struct {
 	// The SSML text that defines the prompt.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // A sample utterance that invokes and intent or responds to a slot elicitation prompt.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sampleUtteranceProperty := &sampleUtteranceProperty{
 //   	utterance: jsii.String("utterance"),
 //   }
 //
 type CfnBot_SampleUtteranceProperty struct {
 	// The sample utterance that Amazon Lex uses to build its machine-learning model to recognize intents.
-	Utterance *string `json:"utterance" yaml:"utterance"`
+	Utterance *string `field:"required" json:"utterance" yaml:"utterance"`
 }
 
 // Defines one of the values for a slot type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sampleValueProperty := &sampleValueProperty{
 //   	value: jsii.String("value"),
 //   }
 //
 type CfnBot_SampleValueProperty struct {
 	// The value that can be used for a slot type.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // Specifies the default value to use when a user doesn't provide a value for a slot.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   slotDefaultValueProperty := &slotDefaultValueProperty{
 //   	defaultValue: jsii.String("defaultValue"),
 //   }
 //
 type CfnBot_SlotDefaultValueProperty struct {
 	// The default value to use when a user doesn't provide a value for a slot.
-	DefaultValue *string `json:"defaultValue" yaml:"defaultValue"`
+	DefaultValue *string `field:"required" json:"defaultValue" yaml:"defaultValue"`
 }
 
 // Defines a list of values that Amazon Lex should use as the default value for a slot.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   slotDefaultValueSpecificationProperty := &slotDefaultValueSpecificationProperty{
 //   	defaultValueList: []interface{}{
 //   		&slotDefaultValueProperty{
@@ -5633,13 +5768,16 @@ type CfnBot_SlotDefaultValueSpecificationProperty struct {
 	// A list of default values.
 	//
 	// Amazon Lex chooses the default value to use in the order that they are presented in the list.
-	DefaultValueList interface{} `json:"defaultValueList" yaml:"defaultValueList"`
+	DefaultValueList interface{} `field:"required" json:"defaultValueList" yaml:"defaultValueList"`
 }
 
 // Sets the priority that Amazon Lex should use when eliciting slots values from a user.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   slotPriorityProperty := &slotPriorityProperty{
 //   	priority: jsii.Number(123),
 //   	slotName: jsii.String("slotName"),
@@ -5647,9 +5785,9 @@ type CfnBot_SlotDefaultValueSpecificationProperty struct {
 //
 type CfnBot_SlotPriorityProperty struct {
 	// The priority that Amazon Lex should apply to the slot.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"required" json:"priority" yaml:"priority"`
 	// The name of the slot.
-	SlotName *string `json:"slotName" yaml:"slotName"`
+	SlotName *string `field:"required" json:"slotName" yaml:"slotName"`
 }
 
 // Specifies the definition of a slot.
@@ -5657,7 +5795,10 @@ type CfnBot_SlotPriorityProperty struct {
 // Amazon Lex elicits slot values from uses to fulfill the user's intent.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   slotProperty := &slotProperty{
 //   	name: jsii.String("name"),
 //   	slotTypeName: jsii.String("slotTypeName"),
@@ -5943,11 +6084,11 @@ type CfnBot_SlotPriorityProperty struct {
 //
 type CfnBot_SlotProperty struct {
 	// The name of the slot.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The name of the slot type that this slot is based on.
 	//
 	// The slot type defines the acceptable values for the slot.
-	SlotTypeName *string `json:"slotTypeName" yaml:"slotTypeName"`
+	SlotTypeName *string `field:"required" json:"slotTypeName" yaml:"slotTypeName"`
 	// Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
 	//
 	// The field can be set to one of the following values:
@@ -5956,21 +6097,24 @@ type CfnBot_SlotProperty struct {
 	// - TopResolution - If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned.
 	//
 	// If you don't specify the valueSelectionStrategy, the default is OriginalValue.
-	ValueElicitationSetting interface{} `json:"valueElicitationSetting" yaml:"valueElicitationSetting"`
+	ValueElicitationSetting interface{} `field:"required" json:"valueElicitationSetting" yaml:"valueElicitationSetting"`
 	// A description of the slot type.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Determines whether the slot can return multiple values to the application.
-	MultipleValuesSetting interface{} `json:"multipleValuesSetting" yaml:"multipleValuesSetting"`
+	MultipleValuesSetting interface{} `field:"optional" json:"multipleValuesSetting" yaml:"multipleValuesSetting"`
 	// Determines whether the contents of the slot are obfuscated in Amazon CloudWatch Logs logs.
 	//
 	// Use obfuscated slots to protect information such as personally identifiable information (PII) in logs.
-	ObfuscationSetting interface{} `json:"obfuscationSetting" yaml:"obfuscationSetting"`
+	ObfuscationSetting interface{} `field:"optional" json:"obfuscationSetting" yaml:"obfuscationSetting"`
 }
 
 // Describes a slot type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   slotTypeProperty := &slotTypeProperty{
 //   	name: jsii.String("name"),
 //
@@ -6019,23 +6163,23 @@ type CfnBot_SlotTypeProperty struct {
 	// The name of the slot type.
 	//
 	// A slot type name must be unique withing the account.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// A description of the slot type.
 	//
 	// Use the description to help identify the slot type in lists.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Sets the type of external information used to create the slot type.
-	ExternalSourceSetting interface{} `json:"externalSourceSetting" yaml:"externalSourceSetting"`
+	ExternalSourceSetting interface{} `field:"optional" json:"externalSourceSetting" yaml:"externalSourceSetting"`
 	// The built-in slot type used as a parent of this slot type.
 	//
 	// When you define a parent slot type, the new slot type has the configuration of the parent lot type.
 	//
 	// Only AMAZON.AlphaNumeric is supported.
-	ParentSlotTypeSignature *string `json:"parentSlotTypeSignature" yaml:"parentSlotTypeSignature"`
+	ParentSlotTypeSignature *string `field:"optional" json:"parentSlotTypeSignature" yaml:"parentSlotTypeSignature"`
 	// A list of SlotTypeValue objects that defines the values that the slot type can take.
 	//
 	// Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for the slot.
-	SlotTypeValues interface{} `json:"slotTypeValues" yaml:"slotTypeValues"`
+	SlotTypeValues interface{} `field:"optional" json:"slotTypeValues" yaml:"slotTypeValues"`
 	// Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
 	//
 	// The field can be set to one of the following values:
@@ -6044,7 +6188,7 @@ type CfnBot_SlotTypeProperty struct {
 	// - TopResolution - If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned.
 	//
 	// If you don't specify the valueSelectionStrategy, the default is OriginalValue.
-	ValueSelectionSetting interface{} `json:"valueSelectionSetting" yaml:"valueSelectionSetting"`
+	ValueSelectionSetting interface{} `field:"optional" json:"valueSelectionSetting" yaml:"valueSelectionSetting"`
 }
 
 // Each slot type can have a set of values.
@@ -6052,7 +6196,10 @@ type CfnBot_SlotTypeProperty struct {
 // The `SlotTypeValue` represents a value that the slot type can take.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   slotTypeValueProperty := &slotTypeValueProperty{
 //   	sampleValue: &sampleValueProperty{
 //   		value: jsii.String("value"),
@@ -6068,15 +6215,18 @@ type CfnBot_SlotTypeProperty struct {
 //
 type CfnBot_SlotTypeValueProperty struct {
 	// The value of the slot type entry.
-	SampleValue interface{} `json:"sampleValue" yaml:"sampleValue"`
+	SampleValue interface{} `field:"required" json:"sampleValue" yaml:"sampleValue"`
 	// Additional values related to the slot type entry.
-	Synonyms interface{} `json:"synonyms" yaml:"synonyms"`
+	Synonyms interface{} `field:"optional" json:"synonyms" yaml:"synonyms"`
 }
 
 // Settings that you can use for eliciting a slot value.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   slotValueElicitationSettingProperty := &slotValueElicitationSettingProperty{
 //   	slotConstraint: jsii.String("slotConstraint"),
 //
@@ -6349,25 +6499,28 @@ type CfnBot_SlotTypeValueProperty struct {
 //
 type CfnBot_SlotValueElicitationSettingProperty struct {
 	// Specifies whether the slot is required or optional.
-	SlotConstraint *string `json:"slotConstraint" yaml:"slotConstraint"`
+	SlotConstraint *string `field:"required" json:"slotConstraint" yaml:"slotConstraint"`
 	// A list of default values for a slot.
 	//
 	// Default values are used when Amazon Lex hasn't determined a value for a slot. You can specify default values from context variables, session attributes, and defined values.
-	DefaultValueSpecification interface{} `json:"defaultValueSpecification" yaml:"defaultValueSpecification"`
+	DefaultValueSpecification interface{} `field:"optional" json:"defaultValueSpecification" yaml:"defaultValueSpecification"`
 	// The prompt that Amazon Lex uses to elicit the slot value from the user.
-	PromptSpecification interface{} `json:"promptSpecification" yaml:"promptSpecification"`
+	PromptSpecification interface{} `field:"optional" json:"promptSpecification" yaml:"promptSpecification"`
 	// If you know a specific pattern that users might respond to an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy.
 	//
 	// This is optional. In most cases Amazon Lex is capable of understanding user utterances.
-	SampleUtterances interface{} `json:"sampleUtterances" yaml:"sampleUtterances"`
+	SampleUtterances interface{} `field:"optional" json:"sampleUtterances" yaml:"sampleUtterances"`
 	// Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
-	WaitAndContinueSpecification interface{} `json:"waitAndContinueSpecification" yaml:"waitAndContinueSpecification"`
+	WaitAndContinueSpecification interface{} `field:"optional" json:"waitAndContinueSpecification" yaml:"waitAndContinueSpecification"`
 }
 
 // Provides a regular expression used to validate the value of a slot.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   slotValueRegexFilterProperty := &slotValueRegexFilterProperty{
 //   	pattern: jsii.String("pattern"),
 //   }
@@ -6387,13 +6540,16 @@ type CfnBot_SlotValueRegexFilterProperty struct {
 	//
 	// - Infinite repeaters: *, +, or {x,} with no upper bound
 	// - Wild card (.)
-	Pattern *string `json:"pattern" yaml:"pattern"`
+	Pattern *string `field:"required" json:"pattern" yaml:"pattern"`
 }
 
 // Contains settings used by Amazon Lex to select a slot value.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   slotValueSelectionSettingProperty := &slotValueSelectionSettingProperty{
 //   	resolutionStrategy: jsii.String("resolutionStrategy"),
 //
@@ -6415,19 +6571,22 @@ type CfnBot_SlotValueSelectionSettingProperty struct {
 	// - TopResolution - If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned.
 	//
 	// If you don't specify the valueSelectionStrategy, the default is OriginalValue.
-	ResolutionStrategy *string `json:"resolutionStrategy" yaml:"resolutionStrategy"`
+	ResolutionStrategy *string `field:"required" json:"resolutionStrategy" yaml:"resolutionStrategy"`
 	// Specifies settings that enable advanced recognition settings for slot values.
 	//
 	// You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
-	AdvancedRecognitionSetting interface{} `json:"advancedRecognitionSetting" yaml:"advancedRecognitionSetting"`
+	AdvancedRecognitionSetting interface{} `field:"optional" json:"advancedRecognitionSetting" yaml:"advancedRecognitionSetting"`
 	// A regular expression used to validate the value of a slot.
-	RegexFilter interface{} `json:"regexFilter" yaml:"regexFilter"`
+	RegexFilter interface{} `field:"optional" json:"regexFilter" yaml:"regexFilter"`
 }
 
 // Defines the messages that Amazon Lex sends to a user to remind them that the bot is waiting for a response.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   stillWaitingResponseSpecificationProperty := &stillWaitingResponseSpecificationProperty{
 //   	frequencyInSeconds: jsii.Number(123),
 //   	messageGroupsList: []interface{}{
@@ -6496,15 +6655,15 @@ type CfnBot_StillWaitingResponseSpecificationProperty struct {
 	// How often a message should be sent to the user.
 	//
 	// Minimum of 1 second, maximum of 5 minutes.
-	FrequencyInSeconds *float64 `json:"frequencyInSeconds" yaml:"frequencyInSeconds"`
+	FrequencyInSeconds *float64 `field:"required" json:"frequencyInSeconds" yaml:"frequencyInSeconds"`
 	// A collection of responses that Amazon Lex can send to the user.
 	//
 	// Amazon Lex chooses the actual response to send at runtime.
-	MessageGroupsList interface{} `json:"messageGroupsList" yaml:"messageGroupsList"`
+	MessageGroupsList interface{} `field:"required" json:"messageGroupsList" yaml:"messageGroupsList"`
 	// If Amazon Lex waits longer than this length of time for a response, it will stop sending messages.
-	TimeoutInSeconds *float64 `json:"timeoutInSeconds" yaml:"timeoutInSeconds"`
+	TimeoutInSeconds *float64 `field:"required" json:"timeoutInSeconds" yaml:"timeoutInSeconds"`
 	// Indicates that the user can interrupt the response by speaking while the message is being played.
-	AllowInterrupt interface{} `json:"allowInterrupt" yaml:"allowInterrupt"`
+	AllowInterrupt interface{} `field:"optional" json:"allowInterrupt" yaml:"allowInterrupt"`
 }
 
 // Specifies configuration settings for the alias used to test the bot.
@@ -6512,9 +6671,12 @@ type CfnBot_StillWaitingResponseSpecificationProperty struct {
 // If the `TestBotAliasSettings` property is not specified, the settings are configured with default values.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var sentimentAnalysisSettings interface{}
+//
 //   testBotAliasSettingsProperty := &testBotAliasSettingsProperty{
 //   	botAliasLocaleSettings: []interface{}{
 //   		&botAliasLocaleSettingsItemProperty{
@@ -6567,19 +6729,22 @@ type CfnBot_TestBotAliasSettingsProperty struct {
 	// Specifies settings that are unique to a locale.
 	//
 	// For example, you can use a different Lambda function depending on the bot's locale.
-	BotAliasLocaleSettings interface{} `json:"botAliasLocaleSettings" yaml:"botAliasLocaleSettings"`
+	BotAliasLocaleSettings interface{} `field:"optional" json:"botAliasLocaleSettings" yaml:"botAliasLocaleSettings"`
 	// Specifies settings for conversation logs that save audio, text, and metadata information for conversations with your users.
-	ConversationLogSettings interface{} `json:"conversationLogSettings" yaml:"conversationLogSettings"`
+	ConversationLogSettings interface{} `field:"optional" json:"conversationLogSettings" yaml:"conversationLogSettings"`
 	// Specifies a description for the test bot alias.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Specifies whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
-	SentimentAnalysisSettings interface{} `json:"sentimentAnalysisSettings" yaml:"sentimentAnalysisSettings"`
+	SentimentAnalysisSettings interface{} `field:"optional" json:"sentimentAnalysisSettings" yaml:"sentimentAnalysisSettings"`
 }
 
 // Specifies the Amazon CloudWatch Logs destination log group for conversation text logs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   textLogDestinationProperty := &textLogDestinationProperty{
 //   	cloudWatch: &cloudWatchLogGroupLogDestinationProperty{
 //   		cloudWatchLogGroupArn: jsii.String("cloudWatchLogGroupArn"),
@@ -6589,13 +6754,16 @@ type CfnBot_TestBotAliasSettingsProperty struct {
 //
 type CfnBot_TextLogDestinationProperty struct {
 	// Specifies the Amazon CloudWatch Logs log group where text and metadata logs are delivered.
-	CloudWatch interface{} `json:"cloudWatch" yaml:"cloudWatch"`
+	CloudWatch interface{} `field:"required" json:"cloudWatch" yaml:"cloudWatch"`
 }
 
 // Specifies settings to enable conversation logs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   textLogSettingProperty := &textLogSettingProperty{
 //   	destination: &textLogDestinationProperty{
 //   		cloudWatch: &cloudWatchLogGroupLogDestinationProperty{
@@ -6608,28 +6776,34 @@ type CfnBot_TextLogDestinationProperty struct {
 //
 type CfnBot_TextLogSettingProperty struct {
 	// Specifies the Amazon CloudWatch Logs destination log group for conversation text logs.
-	Destination interface{} `json:"destination" yaml:"destination"`
+	Destination interface{} `field:"required" json:"destination" yaml:"destination"`
 	// Specifies whether conversation logs should be stored for an alias.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
 }
 
 // Identifies the Amazon Polly voice used for audio interaction with the user.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   voiceSettingsProperty := &voiceSettingsProperty{
 //   	voiceId: jsii.String("voiceId"),
 //   }
 //
 type CfnBot_VoiceSettingsProperty struct {
 	// The Amazon Polly voice used for voice interaction with the user.
-	VoiceId *string `json:"voiceId" yaml:"voiceId"`
+	VoiceId *string `field:"required" json:"voiceId" yaml:"voiceId"`
 }
 
 // Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   waitAndContinueSpecificationProperty := &waitAndContinueSpecificationProperty{
 //   	continueResponse: &responseSpecificationProperty{
 //   		messageGroupsList: []interface{}{
@@ -6823,15 +6997,15 @@ type CfnBot_VoiceSettingsProperty struct {
 //
 type CfnBot_WaitAndContinueSpecificationProperty struct {
 	// The response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
-	ContinueResponse interface{} `json:"continueResponse" yaml:"continueResponse"`
+	ContinueResponse interface{} `field:"required" json:"continueResponse" yaml:"continueResponse"`
 	// The response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
-	WaitingResponse interface{} `json:"waitingResponse" yaml:"waitingResponse"`
+	WaitingResponse interface{} `field:"required" json:"waitingResponse" yaml:"waitingResponse"`
 	// Specifies whether the bot will wait for a user to respond.
 	//
 	// When this field is false, wait and continue responses for a slot aren't used and the bot expects an appropriate response within the configured timeout. If the IsActive field isn't specified, the default is true.
-	IsActive interface{} `json:"isActive" yaml:"isActive"`
+	IsActive interface{} `field:"optional" json:"isActive" yaml:"isActive"`
 	// A response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
-	StillWaitingResponse interface{} `json:"stillWaitingResponse" yaml:"stillWaitingResponse"`
+	StillWaitingResponse interface{} `field:"optional" json:"stillWaitingResponse" yaml:"stillWaitingResponse"`
 }
 
 // A CloudFormation `AWS::Lex::BotAlias`.
@@ -6841,10 +7015,13 @@ type CfnBot_WaitAndContinueSpecificationProperty struct {
 // For example, you can specify an alias called "PROD" that your applications use to call the Amazon Lex bot.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var sentimentAnalysisSettings interface{}
-//   cfnBotAlias := lex.NewCfnBotAlias(this, jsii.String("MyCfnBotAlias"), &cfnBotAliasProps{
+//
+//   cfnBotAlias := awscdk.Aws_lex.NewCfnBotAlias(this, jsii.String("MyCfnBotAlias"), &cfnBotAliasProps{
 //   	botAliasName: jsii.String("botAliasName"),
 //   	botId: jsii.String("botId"),
 //
@@ -7725,7 +7902,10 @@ func (c *jsiiProxy_CfnBotAlias) ValidateProperties(_properties interface{}) {
 // Specifies the S3 bucket location where audio logs are stored.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   audioLogDestinationProperty := &audioLogDestinationProperty{
 //   	s3Bucket: &s3BucketLogDestinationProperty{
 //   		logPrefix: jsii.String("logPrefix"),
@@ -7738,7 +7918,7 @@ func (c *jsiiProxy_CfnBotAlias) ValidateProperties(_properties interface{}) {
 //
 type CfnBotAlias_AudioLogDestinationProperty struct {
 	// The S3 bucket location where audio logs are stored.
-	S3Bucket interface{} `json:"s3Bucket" yaml:"s3Bucket"`
+	S3Bucket interface{} `field:"required" json:"s3Bucket" yaml:"s3Bucket"`
 }
 
 // Settings for logging audio of conversations between Amazon Lex and a user.
@@ -7746,7 +7926,10 @@ type CfnBotAlias_AudioLogDestinationProperty struct {
 // You specify whether to log audio and the Amazon S3 bucket where the audio file is stored.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   audioLogSettingProperty := &audioLogSettingProperty{
 //   	destination: &audioLogDestinationProperty{
 //   		s3Bucket: &s3BucketLogDestinationProperty{
@@ -7762,9 +7945,9 @@ type CfnBotAlias_AudioLogDestinationProperty struct {
 //
 type CfnBotAlias_AudioLogSettingProperty struct {
 	// The location of audio log files collected when conversation logging is enabled for a bot.
-	Destination interface{} `json:"destination" yaml:"destination"`
+	Destination interface{} `field:"required" json:"destination" yaml:"destination"`
 	// Determines whether audio logging in enabled for the bot.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
 }
 
 // Specifies settings that are unique to a locale.
@@ -7772,7 +7955,10 @@ type CfnBotAlias_AudioLogSettingProperty struct {
 // For example, you can use different Lambda function depending on the bot's locale.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   botAliasLocaleSettingsItemProperty := &botAliasLocaleSettingsItemProperty{
 //   	botAliasLocaleSetting: &botAliasLocaleSettingsProperty{
 //   		enabled: jsii.Boolean(false),
@@ -7790,9 +7976,9 @@ type CfnBotAlias_AudioLogSettingProperty struct {
 //
 type CfnBotAlias_BotAliasLocaleSettingsItemProperty struct {
 	// Specifies settings that are unique to a locale.
-	BotAliasLocaleSetting interface{} `json:"botAliasLocaleSetting" yaml:"botAliasLocaleSetting"`
+	BotAliasLocaleSetting interface{} `field:"required" json:"botAliasLocaleSetting" yaml:"botAliasLocaleSetting"`
 	// The unique identifier of the locale.
-	LocaleId *string `json:"localeId" yaml:"localeId"`
+	LocaleId *string `field:"required" json:"localeId" yaml:"localeId"`
 }
 
 // Specifies settings that are unique to a locale.
@@ -7800,7 +7986,10 @@ type CfnBotAlias_BotAliasLocaleSettingsItemProperty struct {
 // For example, you can use different Lambda function depending on the bot's locale.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   botAliasLocaleSettingsProperty := &botAliasLocaleSettingsProperty{
 //   	enabled: jsii.Boolean(false),
 //
@@ -7817,9 +8006,9 @@ type CfnBotAlias_BotAliasLocaleSettingsProperty struct {
 	// Determines whether the locale is enabled for the bot.
 	//
 	// If the value is false, the locale isn't available for use.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
 	// Specifies the Lambda function that should be used in the locale.
-	CodeHookSpecification interface{} `json:"codeHookSpecification" yaml:"codeHookSpecification"`
+	CodeHookSpecification interface{} `field:"optional" json:"codeHookSpecification" yaml:"codeHookSpecification"`
 }
 
 // The Amazon CloudWatch Logs log group where the text and metadata logs are delivered.
@@ -7827,7 +8016,10 @@ type CfnBotAlias_BotAliasLocaleSettingsProperty struct {
 // The log group must exist before you enable logging.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cloudWatchLogGroupLogDestinationProperty := &cloudWatchLogGroupLogDestinationProperty{
 //   	cloudWatchLogGroupArn: jsii.String("cloudWatchLogGroupArn"),
 //   	logPrefix: jsii.String("logPrefix"),
@@ -7835,15 +8027,18 @@ type CfnBotAlias_BotAliasLocaleSettingsProperty struct {
 //
 type CfnBotAlias_CloudWatchLogGroupLogDestinationProperty struct {
 	// The Amazon Resource Name (ARN) of the log group where text and metadata logs are delivered.
-	CloudWatchLogGroupArn *string `json:"cloudWatchLogGroupArn" yaml:"cloudWatchLogGroupArn"`
+	CloudWatchLogGroupArn *string `field:"required" json:"cloudWatchLogGroupArn" yaml:"cloudWatchLogGroupArn"`
 	// The prefix of the log stream name within the log group that you specified.
-	LogPrefix *string `json:"logPrefix" yaml:"logPrefix"`
+	LogPrefix *string `field:"required" json:"logPrefix" yaml:"logPrefix"`
 }
 
 // Contains information about code hooks that Amazon Lex calls during a conversation.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   codeHookSpecificationProperty := &codeHookSpecificationProperty{
 //   	lambdaCodeHook: &lambdaCodeHookProperty{
 //   		codeHookInterfaceVersion: jsii.String("codeHookInterfaceVersion"),
@@ -7853,13 +8048,16 @@ type CfnBotAlias_CloudWatchLogGroupLogDestinationProperty struct {
 //
 type CfnBotAlias_CodeHookSpecificationProperty struct {
 	// Specifies a Lambda function that verifies requests to a bot or fulfills the user's request to a bot.
-	LambdaCodeHook interface{} `json:"lambdaCodeHook" yaml:"lambdaCodeHook"`
+	LambdaCodeHook interface{} `field:"required" json:"lambdaCodeHook" yaml:"lambdaCodeHook"`
 }
 
 // Configures conversation logging that saves audio, text, and metadata for the conversations with your users.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   conversationLogSettingsProperty := &conversationLogSettingsProperty{
 //   	audioLogSettings: []interface{}{
 //   		&audioLogSettingProperty{
@@ -7890,15 +8088,18 @@ type CfnBotAlias_CodeHookSpecificationProperty struct {
 //
 type CfnBotAlias_ConversationLogSettingsProperty struct {
 	// The Amazon S3 settings for logging audio to an S3 bucket.
-	AudioLogSettings interface{} `json:"audioLogSettings" yaml:"audioLogSettings"`
+	AudioLogSettings interface{} `field:"optional" json:"audioLogSettings" yaml:"audioLogSettings"`
 	// The Amazon CloudWatch Logs settings for logging text and metadata.
-	TextLogSettings interface{} `json:"textLogSettings" yaml:"textLogSettings"`
+	TextLogSettings interface{} `field:"optional" json:"textLogSettings" yaml:"textLogSettings"`
 }
 
 // Specifies a Lambda function that verifies requests to a bot or fulfills the user's request to a bot.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   lambdaCodeHookProperty := &lambdaCodeHookProperty{
 //   	codeHookInterfaceVersion: jsii.String("codeHookInterfaceVersion"),
 //   	lambdaArn: jsii.String("lambdaArn"),
@@ -7906,15 +8107,18 @@ type CfnBotAlias_ConversationLogSettingsProperty struct {
 //
 type CfnBotAlias_LambdaCodeHookProperty struct {
 	// The version of the request-response that you want Amazon Lex to use to invoke your Lambda function.
-	CodeHookInterfaceVersion *string `json:"codeHookInterfaceVersion" yaml:"codeHookInterfaceVersion"`
+	CodeHookInterfaceVersion *string `field:"required" json:"codeHookInterfaceVersion" yaml:"codeHookInterfaceVersion"`
 	// The Amazon Resource Name (ARN) of the Lambda function.
-	LambdaArn *string `json:"lambdaArn" yaml:"lambdaArn"`
+	LambdaArn *string `field:"required" json:"lambdaArn" yaml:"lambdaArn"`
 }
 
 // Specifies an Amazon S3 bucket for logging audio conversations.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3BucketLogDestinationProperty := &s3BucketLogDestinationProperty{
 //   	logPrefix: jsii.String("logPrefix"),
 //   	s3BucketArn: jsii.String("s3BucketArn"),
@@ -7925,17 +8129,20 @@ type CfnBotAlias_LambdaCodeHookProperty struct {
 //
 type CfnBotAlias_S3BucketLogDestinationProperty struct {
 	// The S3 prefix to assign to audio log files.
-	LogPrefix *string `json:"logPrefix" yaml:"logPrefix"`
+	LogPrefix *string `field:"required" json:"logPrefix" yaml:"logPrefix"`
 	// The Amazon Resource Name (ARN) of an Amazon S3 bucket where audio log files are stored.
-	S3BucketArn *string `json:"s3BucketArn" yaml:"s3BucketArn"`
+	S3BucketArn *string `field:"required" json:"s3BucketArn" yaml:"s3BucketArn"`
 	// The Amazon Resource Name (ARN) of an AWS Key Management Service key for encrypting audio log files stored in an S3 bucket.
-	KmsKeyArn *string `json:"kmsKeyArn" yaml:"kmsKeyArn"`
+	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
 }
 
 // Defines the Amazon CloudWatch Logs destination log group for conversation text logs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   textLogDestinationProperty := &textLogDestinationProperty{
 //   	cloudWatch: &cloudWatchLogGroupLogDestinationProperty{
 //   		cloudWatchLogGroupArn: jsii.String("cloudWatchLogGroupArn"),
@@ -7945,13 +8152,16 @@ type CfnBotAlias_S3BucketLogDestinationProperty struct {
 //
 type CfnBotAlias_TextLogDestinationProperty struct {
 	// Defines the Amazon CloudWatch Logs log group where text and metadata logs are delivered.
-	CloudWatch interface{} `json:"cloudWatch" yaml:"cloudWatch"`
+	CloudWatch interface{} `field:"required" json:"cloudWatch" yaml:"cloudWatch"`
 }
 
 // Defines settings to enable conversation logs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   textLogSettingProperty := &textLogSettingProperty{
 //   	destination: &textLogDestinationProperty{
 //   		cloudWatch: &cloudWatchLogGroupLogDestinationProperty{
@@ -7964,17 +8174,20 @@ type CfnBotAlias_TextLogDestinationProperty struct {
 //
 type CfnBotAlias_TextLogSettingProperty struct {
 	// Defines the Amazon CloudWatch Logs destination log group for conversation text logs.
-	Destination interface{} `json:"destination" yaml:"destination"`
+	Destination interface{} `field:"required" json:"destination" yaml:"destination"`
 	// Determines whether conversation logs should be stored for an alias.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
 }
 
 // Properties for defining a `CfnBotAlias`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var sentimentAnalysisSettings interface{}
+//
 //   cfnBotAliasProps := &cfnBotAliasProps{
 //   	botAliasName: jsii.String("botAliasName"),
 //   	botId: jsii.String("botId"),
@@ -8036,38 +8249,41 @@ type CfnBotAlias_TextLogSettingProperty struct {
 //
 type CfnBotAliasProps struct {
 	// The name of the bot alias.
-	BotAliasName *string `json:"botAliasName" yaml:"botAliasName"`
+	BotAliasName *string `field:"required" json:"botAliasName" yaml:"botAliasName"`
 	// The unique identifier of the bot.
-	BotId *string `json:"botId" yaml:"botId"`
+	BotId *string `field:"required" json:"botId" yaml:"botId"`
 	// Maps configuration information to a specific locale.
 	//
 	// You can use this parameter to specify a specific Lambda function to run different functions in different locales.
-	BotAliasLocaleSettings interface{} `json:"botAliasLocaleSettings" yaml:"botAliasLocaleSettings"`
+	BotAliasLocaleSettings interface{} `field:"optional" json:"botAliasLocaleSettings" yaml:"botAliasLocaleSettings"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// You can only add tags when you specify an alias.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	BotAliasTags interface{} `json:"botAliasTags" yaml:"botAliasTags"`
+	BotAliasTags interface{} `field:"optional" json:"botAliasTags" yaml:"botAliasTags"`
 	// The version of the bot that the bot alias references.
-	BotVersion *string `json:"botVersion" yaml:"botVersion"`
+	BotVersion *string `field:"optional" json:"botVersion" yaml:"botVersion"`
 	// Specifies whether Amazon Lex logs text and audio for conversations with the bot.
 	//
 	// When you enable conversation logs, text logs store text input, transcripts of audio input, and associated metadata in Amazon CloudWatch logs. Audio logs store input in Amazon S3 .
-	ConversationLogSettings interface{} `json:"conversationLogSettings" yaml:"conversationLogSettings"`
+	ConversationLogSettings interface{} `field:"optional" json:"conversationLogSettings" yaml:"conversationLogSettings"`
 	// The description of the bot alias.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
-	SentimentAnalysisSettings interface{} `json:"sentimentAnalysisSettings" yaml:"sentimentAnalysisSettings"`
+	SentimentAnalysisSettings interface{} `field:"optional" json:"sentimentAnalysisSettings" yaml:"sentimentAnalysisSettings"`
 }
 
 // Properties for defining a `CfnBot`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var dataPrivacy interface{}
 //   var sentimentAnalysisSettings interface{}
+//
 //   cfnBotProps := &cfnBotProps{
 //   	dataPrivacy: dataPrivacy,
 //   	idleSessionTtlInSeconds: jsii.Number(123),
@@ -9054,39 +9270,39 @@ type CfnBotAliasProps struct {
 //
 type CfnBotProps struct {
 	// Provides information on additional privacy protections Amazon Lex should use with the bot's data.
-	DataPrivacy interface{} `json:"dataPrivacy" yaml:"dataPrivacy"`
+	DataPrivacy interface{} `field:"required" json:"dataPrivacy" yaml:"dataPrivacy"`
 	// The time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot.
 	//
 	// A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Lex deletes any data provided before the timeout.
 	//
 	// You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
-	IdleSessionTtlInSeconds *float64 `json:"idleSessionTtlInSeconds" yaml:"idleSessionTtlInSeconds"`
+	IdleSessionTtlInSeconds *float64 `field:"required" json:"idleSessionTtlInSeconds" yaml:"idleSessionTtlInSeconds"`
 	// The name of the field to filter the list of bots.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The Amazon Resource Name (ARN) of the IAM role used to build and run the bot.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// Indicates whether Amazon Lex V2 should automatically build the locales for the bot after a change.
-	AutoBuildBotLocales interface{} `json:"autoBuildBotLocales" yaml:"autoBuildBotLocales"`
+	AutoBuildBotLocales interface{} `field:"optional" json:"autoBuildBotLocales" yaml:"autoBuildBotLocales"`
 	// The Amazon S3 location of files used to import a bot.
 	//
 	// The files must be in the import format specified in [JSON format for importing and exporting](https://docs.aws.amazon.com/lexv2/latest/dg/import-export-format.html) in the *Amazon Lex developer guide.*
-	BotFileS3Location interface{} `json:"botFileS3Location" yaml:"botFileS3Location"`
+	BotFileS3Location interface{} `field:"optional" json:"botFileS3Location" yaml:"botFileS3Location"`
 	// A list of locales for the bot.
-	BotLocales interface{} `json:"botLocales" yaml:"botLocales"`
+	BotLocales interface{} `field:"optional" json:"botLocales" yaml:"botLocales"`
 	// A list of tags to add to the bot.
 	//
 	// You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
-	BotTags interface{} `json:"botTags" yaml:"botTags"`
+	BotTags interface{} `field:"optional" json:"botTags" yaml:"botTags"`
 	// The description of the version.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Specifies configuration settings for the alias used to test the bot.
 	//
 	// If the `TestBotAliasSettings` property is not specified, the settings are configured with default values.
-	TestBotAliasSettings interface{} `json:"testBotAliasSettings" yaml:"testBotAliasSettings"`
+	TestBotAliasSettings interface{} `field:"optional" json:"testBotAliasSettings" yaml:"testBotAliasSettings"`
 	// A list of tags to add to the test alias for a bot.
 	//
 	// You can only add tags when you import a bot. You can't use the `UpdateAlias` operation to update tags. To update tags on the test alias, use the `TagResource` operation.
-	TestBotAliasTags interface{} `json:"testBotAliasTags" yaml:"testBotAliasTags"`
+	TestBotAliasTags interface{} `field:"optional" json:"testBotAliasTags" yaml:"testBotAliasTags"`
 }
 
 // A CloudFormation `AWS::Lex::BotVersion`.
@@ -9096,8 +9312,11 @@ type CfnBotProps struct {
 // When you specify the first version of a bot, Amazon Lex sets the version to 1. Subsequent versions increment by 1.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
-//   cfnBotVersion := lex.NewCfnBotVersion(this, jsii.String("MyCfnBotVersion"), &cfnBotVersionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnBotVersion := awscdk.Aws_lex.NewCfnBotVersion(this, jsii.String("MyCfnBotVersion"), &cfnBotVersionProps{
 //   	botId: jsii.String("botId"),
 //   	botVersionLocaleSpecification: []interface{}{
 //   		&botVersionLocaleSpecificationProperty{
@@ -9797,14 +10016,17 @@ func (c *jsiiProxy_CfnBotVersion) ValidateProperties(_properties interface{}) {
 // The version of a bot used for a bot locale.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   botVersionLocaleDetailsProperty := &botVersionLocaleDetailsProperty{
 //   	sourceBotVersion: jsii.String("sourceBotVersion"),
 //   }
 //
 type CfnBotVersion_BotVersionLocaleDetailsProperty struct {
 	// The version of a bot used for a bot locale.
-	SourceBotVersion *string `json:"sourceBotVersion" yaml:"sourceBotVersion"`
+	SourceBotVersion *string `field:"required" json:"sourceBotVersion" yaml:"sourceBotVersion"`
 }
 
 // Specifies the locale that Amazon Lex adds to this version.
@@ -9812,7 +10034,10 @@ type CfnBotVersion_BotVersionLocaleDetailsProperty struct {
 // You can choose the Draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   botVersionLocaleSpecificationProperty := &botVersionLocaleSpecificationProperty{
 //   	botVersionLocaleDetails: &botVersionLocaleDetailsProperty{
 //   		sourceBotVersion: jsii.String("sourceBotVersion"),
@@ -9822,15 +10047,18 @@ type CfnBotVersion_BotVersionLocaleDetailsProperty struct {
 //
 type CfnBotVersion_BotVersionLocaleSpecificationProperty struct {
 	// The version of a bot used for a bot locale.
-	BotVersionLocaleDetails interface{} `json:"botVersionLocaleDetails" yaml:"botVersionLocaleDetails"`
+	BotVersionLocaleDetails interface{} `field:"required" json:"botVersionLocaleDetails" yaml:"botVersionLocaleDetails"`
 	// The identifier of the locale to add to the version.
-	LocaleId *string `json:"localeId" yaml:"localeId"`
+	LocaleId *string `field:"required" json:"localeId" yaml:"localeId"`
 }
 
 // Properties for defining a `CfnBotVersion`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnBotVersionProps := &cfnBotVersionProps{
 //   	botId: jsii.String("botId"),
 //   	botVersionLocaleSpecification: []interface{}{
@@ -9848,13 +10076,13 @@ type CfnBotVersion_BotVersionLocaleSpecificationProperty struct {
 //
 type CfnBotVersionProps struct {
 	// The unique identifier of the bot.
-	BotId *string `json:"botId" yaml:"botId"`
+	BotId *string `field:"required" json:"botId" yaml:"botId"`
 	// Specifies the locales that Amazon Lex adds to this version.
 	//
 	// You can choose the Draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
-	BotVersionLocaleSpecification interface{} `json:"botVersionLocaleSpecification" yaml:"botVersionLocaleSpecification"`
+	BotVersionLocaleSpecification interface{} `field:"required" json:"botVersionLocaleSpecification" yaml:"botVersionLocaleSpecification"`
 	// The description of the version.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 
 // A CloudFormation `AWS::Lex::ResourcePolicy`.
@@ -9862,10 +10090,13 @@ type CfnBotVersionProps struct {
 // Specifies a new resource policy with the specified policy statements.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var policy interface{}
-//   cfnResourcePolicy := lex.NewCfnResourcePolicy(this, jsii.String("MyCfnResourcePolicy"), &cfnResourcePolicyProps{
+//
+//   cfnResourcePolicy := awscdk.Aws_lex.NewCfnResourcePolicy(this, jsii.String("MyCfnResourcePolicy"), &cfnResourcePolicyProps{
 //   	policy: policy,
 //   	resourceArn: jsii.String("resourceArn"),
 //   })
@@ -10546,9 +10777,12 @@ func (c *jsiiProxy_CfnResourcePolicy) ValidateProperties(_properties interface{}
 // Properties for defining a `CfnResourcePolicy`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lex "github.com/aws/aws-cdk-go/awscdk/aws_lex"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var policy interface{}
+//
 //   cfnResourcePolicyProps := &cfnResourcePolicyProps{
 //   	policy: policy,
 //   	resourceArn: jsii.String("resourceArn"),
@@ -10558,8 +10792,8 @@ type CfnResourcePolicyProps struct {
 	// A resource policy to add to the resource.
 	//
 	// The policy is a JSON structure that contains one or more statements that define the policy. The policy must follow IAM syntax. If the policy isn't valid, Amazon Lex returns a validation exception.
-	Policy interface{} `json:"policy" yaml:"policy"`
+	Policy interface{} `field:"required" json:"policy" yaml:"policy"`
 	// The Amazon Resource Name (ARN) of the bot or bot alias that the resource policy is attached to.
-	ResourceArn *string `json:"resourceArn" yaml:"resourceArn"`
+	ResourceArn *string `field:"required" json:"resourceArn" yaml:"resourceArn"`
 }
 

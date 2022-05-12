@@ -39,19 +39,19 @@ type AdvancedSecurityOptions struct {
 	//
 	// Only specify this or masterUserName, but not both.
 	// Deprecated: use opensearchservice module instead.
-	MasterUserArn *string `json:"masterUserArn" yaml:"masterUserArn"`
+	MasterUserArn *string `field:"optional" json:"masterUserArn" yaml:"masterUserArn"`
 	// Username for the master user.
 	//
 	// Only specify this or masterUserArn, but not both.
 	// Deprecated: use opensearchservice module instead.
-	MasterUserName *string `json:"masterUserName" yaml:"masterUserName"`
+	MasterUserName *string `field:"optional" json:"masterUserName" yaml:"masterUserName"`
 	// Password for the master user.
 	//
 	// You can use `SecretValue.unsafePlainText` to specify a password in plain text or
 	// use `secretsmanager.Secret.fromSecretAttributes` to reference a secret in
 	// Secrets Manager.
 	// Deprecated: use opensearchservice module instead.
-	MasterUserPassword awscdk.SecretValue `json:"masterUserPassword" yaml:"masterUserPassword"`
+	MasterUserPassword awscdk.SecretValue `field:"optional" json:"masterUserPassword" yaml:"masterUserPassword"`
 }
 
 // Configures the capacity of the cluster such as the instance type and the number of instances.
@@ -70,22 +70,22 @@ type AdvancedSecurityOptions struct {
 type CapacityConfig struct {
 	// The instance type for your data nodes, such as `m3.medium.elasticsearch`. For valid values, see [Supported Instance Types](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html) in the Amazon Elasticsearch Service Developer Guide.
 	// Deprecated: use opensearchservice module instead.
-	DataNodeInstanceType *string `json:"dataNodeInstanceType" yaml:"dataNodeInstanceType"`
+	DataNodeInstanceType *string `field:"optional" json:"dataNodeInstanceType" yaml:"dataNodeInstanceType"`
 	// The number of data nodes (instances) to use in the Amazon ES domain.
 	// Deprecated: use opensearchservice module instead.
-	DataNodes *float64 `json:"dataNodes" yaml:"dataNodes"`
+	DataNodes *float64 `field:"optional" json:"dataNodes" yaml:"dataNodes"`
 	// The hardware configuration of the computer that hosts the dedicated master node, such as `m3.medium.elasticsearch`. For valid values, see [Supported Instance Types] (https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html) in the Amazon Elasticsearch Service Developer Guide.
 	// Deprecated: use opensearchservice module instead.
-	MasterNodeInstanceType *string `json:"masterNodeInstanceType" yaml:"masterNodeInstanceType"`
+	MasterNodeInstanceType *string `field:"optional" json:"masterNodeInstanceType" yaml:"masterNodeInstanceType"`
 	// The number of instances to use for the master node.
 	// Deprecated: use opensearchservice module instead.
-	MasterNodes *float64 `json:"masterNodes" yaml:"masterNodes"`
+	MasterNodes *float64 `field:"optional" json:"masterNodes" yaml:"masterNodes"`
 	// The instance type for your UltraWarm node, such as `ultrawarm1.medium.elasticsearch`. For valid values, see [UltraWarm Storage Limits] (https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-limits.html#limits-ultrawarm) in the Amazon Elasticsearch Service Developer Guide.
 	// Deprecated: use opensearchservice module instead.
-	WarmInstanceType *string `json:"warmInstanceType" yaml:"warmInstanceType"`
+	WarmInstanceType *string `field:"optional" json:"warmInstanceType" yaml:"warmInstanceType"`
 	// The number of UltraWarm nodes (instances) to use in the Amazon ES domain.
 	// Deprecated: use opensearchservice module instead.
-	WarmNodes *float64 `json:"warmNodes" yaml:"warmNodes"`
+	WarmNodes *float64 `field:"optional" json:"warmNodes" yaml:"warmNodes"`
 }
 
 // A CloudFormation `AWS::Elasticsearch::Domain`.
@@ -95,10 +95,13 @@ type CapacityConfig struct {
 // > The `AWS::Elasticsearch::Domain` resource is being replaced by the [AWS::OpenSearchService::Domain](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html) resource. While the legacy Elasticsearch resource and options are still supported, we recommend modifying your existing Cloudformation templates to use the new OpenSearch Service resource, which supports both OpenSearch and legacy Elasticsearch. For instructions to upgrade domains defined within CloudFormation from Elasticsearch to OpenSearch, see [Remarks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#aws-resource-opensearchservice-domain--remarks) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticsearch "github.com/aws/aws-cdk-go/awscdk/aws_elasticsearch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var accessPolicies interface{}
-//   cfnDomain := elasticsearch.NewCfnDomain(this, jsii.String("MyCfnDomain"), &cfnDomainProps{
+//
+//   cfnDomain := awscdk.Aws_elasticsearch.NewCfnDomain(this, jsii.String("MyCfnDomain"), &cfnDomainProps{
 //   	accessPolicies: accessPolicies,
 //   	advancedOptions: map[string]*string{
 //   		"advancedOptionsKey": jsii.String("advancedOptions"),
@@ -1146,7 +1149,10 @@ func (c *jsiiProxy_CfnDomain) ValidateProperties(_properties interface{}) {
 // > The `AWS::Elasticsearch::Domain` resource is being replaced by the [AWS::OpenSearchService::Domain](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html) resource. While the legacy Elasticsearch resource and options are still supported, we recommend modifying your existing Cloudformation templates to use the new OpenSearch Service resource, which supports both OpenSearch and Elasticsearch. For more information about the service rename, see [New resource types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/rename.html#rename-resource) in the *Amazon OpenSearch Service Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticsearch "github.com/aws/aws-cdk-go/awscdk/aws_elasticsearch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   advancedSecurityOptionsInputProperty := &advancedSecurityOptionsInputProperty{
 //   	enabled: jsii.Boolean(false),
 //   	internalUserDatabaseEnabled: jsii.Boolean(false),
@@ -1161,11 +1167,11 @@ type CfnDomain_AdvancedSecurityOptionsInputProperty struct {
 	// True to enable fine-grained access control.
 	//
 	// You must also enable encryption of data at rest and node-to-node encryption.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// True to enable the internal user database.
-	InternalUserDatabaseEnabled interface{} `json:"internalUserDatabaseEnabled" yaml:"internalUserDatabaseEnabled"`
+	InternalUserDatabaseEnabled interface{} `field:"optional" json:"internalUserDatabaseEnabled" yaml:"internalUserDatabaseEnabled"`
 	// Specifies information about the master user.
-	MasterUserOptions interface{} `json:"masterUserOptions" yaml:"masterUserOptions"`
+	MasterUserOptions interface{} `field:"optional" json:"masterUserOptions" yaml:"masterUserOptions"`
 }
 
 // Configures OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
@@ -1173,7 +1179,10 @@ type CfnDomain_AdvancedSecurityOptionsInputProperty struct {
 // > The `AWS::Elasticsearch::Domain` resource is being replaced by the [AWS::OpenSearchService::Domain](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html) resource. While the legacy Elasticsearch resource and options are still supported, we recommend modifying your existing Cloudformation templates to use the new OpenSearch Service resource, which supports both OpenSearch and Elasticsearch. For more information about the service rename, see [New resource types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/rename.html#rename-resource) in the *Amazon OpenSearch Service Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticsearch "github.com/aws/aws-cdk-go/awscdk/aws_elasticsearch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cognitoOptionsProperty := &cognitoOptionsProperty{
 //   	enabled: jsii.Boolean(false),
 //   	identityPoolId: jsii.String("identityPoolId"),
@@ -1185,13 +1194,13 @@ type CfnDomain_CognitoOptionsProperty struct {
 	// Whether to enable or disable Amazon Cognito authentication for OpenSearch Dashboards.
 	//
 	// See [Amazon Cognito authentication for OpenSearch Dashboards](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html) .
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// The Amazon Cognito identity pool ID that you want OpenSearch Service to use for OpenSearch Dashboards authentication.
-	IdentityPoolId *string `json:"identityPoolId" yaml:"identityPoolId"`
+	IdentityPoolId *string `field:"optional" json:"identityPoolId" yaml:"identityPoolId"`
 	// The `AmazonESCognitoAccess` role that allows OpenSearch Service to configure your user pool and identity pool.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// The Amazon Cognito user pool ID that you want OpenSearch Service to use for OpenSearch Dashboards authentication.
-	UserPoolId *string `json:"userPoolId" yaml:"userPoolId"`
+	UserPoolId *string `field:"optional" json:"userPoolId" yaml:"userPoolId"`
 }
 
 // Specifies options for cold storage. For more information, see [Cold storage for Amazon Elasticsearch Service](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/cold-storage.html) .
@@ -1199,7 +1208,10 @@ type CfnDomain_CognitoOptionsProperty struct {
 // > The `AWS::Elasticsearch::Domain` resource is being replaced by the [AWS::OpenSearchService::Domain](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html) resource. While the legacy Elasticsearch resource and options are still supported, we recommend modifying your existing Cloudformation templates to use the new OpenSearch Service resource, which supports both OpenSearch and Elasticsearch. For more information about the service rename, see [New resource types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/rename.html#rename-resource) in the *Amazon OpenSearch Service Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticsearch "github.com/aws/aws-cdk-go/awscdk/aws_elasticsearch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   coldStorageOptionsProperty := &coldStorageOptionsProperty{
 //   	enabled: jsii.Boolean(false),
 //   }
@@ -1208,7 +1220,7 @@ type CfnDomain_ColdStorageOptionsProperty struct {
 	// Whether to enable or disable cold storage on the domain.
 	//
 	// You must enable UltraWarm storage in order to enable cold storage.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 }
 
 // Specifies additional options for the domain endpoint, such as whether to require HTTPS for all traffic or whether to use a custom endpoint rather than the default endpoint.
@@ -1216,7 +1228,10 @@ type CfnDomain_ColdStorageOptionsProperty struct {
 // > The `AWS::Elasticsearch::Domain` resource is being replaced by the [AWS::OpenSearchService::Domain](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html) resource. While the legacy Elasticsearch resource and options are still supported, we recommend modifying your existing Cloudformation templates to use the new OpenSearch Service resource, which supports both OpenSearch and Elasticsearch. For more information about the service rename, see [New resource types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/rename.html#rename-resource) in the *Amazon OpenSearch Service Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticsearch "github.com/aws/aws-cdk-go/awscdk/aws_elasticsearch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   domainEndpointOptionsProperty := &domainEndpointOptionsProperty{
 //   	customEndpoint: jsii.String("customEndpoint"),
 //   	customEndpointCertificateArn: jsii.String("customEndpointCertificateArn"),
@@ -1227,20 +1242,20 @@ type CfnDomain_ColdStorageOptionsProperty struct {
 //
 type CfnDomain_DomainEndpointOptionsProperty struct {
 	// The fully qualified URL for your custom endpoint.
-	CustomEndpoint *string `json:"customEndpoint" yaml:"customEndpoint"`
+	CustomEndpoint *string `field:"optional" json:"customEndpoint" yaml:"customEndpoint"`
 	// The AWS Certificate Manager ARN for your domain's SSL/TLS certificate.
-	CustomEndpointCertificateArn *string `json:"customEndpointCertificateArn" yaml:"customEndpointCertificateArn"`
+	CustomEndpointCertificateArn *string `field:"optional" json:"customEndpointCertificateArn" yaml:"customEndpointCertificateArn"`
 	// True to enable a custom endpoint for the domain.
 	//
 	// If enabled, you must also provide values for `CustomEndpoint` and `CustomEndpointCertificateArn` .
-	CustomEndpointEnabled interface{} `json:"customEndpointEnabled" yaml:"customEndpointEnabled"`
+	CustomEndpointEnabled interface{} `field:"optional" json:"customEndpointEnabled" yaml:"customEndpointEnabled"`
 	// True to require that all traffic to the domain arrive over HTTPS.
-	EnforceHttps interface{} `json:"enforceHttps" yaml:"enforceHttps"`
+	EnforceHttps interface{} `field:"optional" json:"enforceHttps" yaml:"enforceHttps"`
 	// The minimum TLS version required for traffic to the domain. Valid values are TLS 1.0 (default) or 1.2:.
 	//
 	// - `Policy-Min-TLS-1-0-2019-07`
 	// - `Policy-Min-TLS-1-2-2019-07`.
-	TlsSecurityPolicy *string `json:"tlsSecurityPolicy" yaml:"tlsSecurityPolicy"`
+	TlsSecurityPolicy *string `field:"optional" json:"tlsSecurityPolicy" yaml:"tlsSecurityPolicy"`
 }
 
 // The configurations of Amazon Elastic Block Store (Amazon EBS) volumes that are attached to data nodes in the OpenSearch Service domain.
@@ -1250,7 +1265,10 @@ type CfnDomain_DomainEndpointOptionsProperty struct {
 // > The `AWS::Elasticsearch::Domain` resource is being replaced by the [AWS::OpenSearchService::Domain](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html) resource. While the legacy Elasticsearch resource and options are still supported, we recommend modifying your existing Cloudformation templates to use the new OpenSearch Service resource, which supports both OpenSearch and Elasticsearch. For more information about the service rename, see [New resource types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/rename.html#rename-resource) in the *Amazon OpenSearch Service Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticsearch "github.com/aws/aws-cdk-go/awscdk/aws_elasticsearch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   eBSOptionsProperty := &eBSOptionsProperty{
 //   	ebsEnabled: jsii.Boolean(false),
 //   	iops: jsii.Number(123),
@@ -1260,19 +1278,19 @@ type CfnDomain_DomainEndpointOptionsProperty struct {
 //
 type CfnDomain_EBSOptionsProperty struct {
 	// Specifies whether Amazon EBS volumes are attached to data nodes in the OpenSearch Service domain.
-	EbsEnabled interface{} `json:"ebsEnabled" yaml:"ebsEnabled"`
+	EbsEnabled interface{} `field:"optional" json:"ebsEnabled" yaml:"ebsEnabled"`
 	// The number of I/O operations per second (IOPS) that the volume supports.
 	//
 	// This property applies only to the Provisioned IOPS (SSD) EBS volume type.
-	Iops *float64 `json:"iops" yaml:"iops"`
+	Iops *float64 `field:"optional" json:"iops" yaml:"iops"`
 	// The size (in GiB) of the EBS volume for each data node.
 	//
 	// The minimum and maximum size of an EBS volume depends on the EBS volume type and the instance type to which it is attached. For more information, see [EBS volume size limits](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#ebsresource) in the *Amazon OpenSearch Service Developer Guide* .
-	VolumeSize *float64 `json:"volumeSize" yaml:"volumeSize"`
+	VolumeSize *float64 `field:"optional" json:"volumeSize" yaml:"volumeSize"`
 	// The EBS volume type to use with the OpenSearch Service domain, such as standard, gp2, or io1.
 	//
 	// For more information about each type, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon EC2 User Guide for Linux Instances* .
-	VolumeType *string `json:"volumeType" yaml:"volumeType"`
+	VolumeType *string `field:"optional" json:"volumeType" yaml:"volumeType"`
 }
 
 // The cluster configuration for the OpenSearch Service domain.
@@ -1282,7 +1300,10 @@ type CfnDomain_EBSOptionsProperty struct {
 // > The `AWS::Elasticsearch::Domain` resource is being replaced by the [AWS::OpenSearchService::Domain](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html) resource. While the legacy Elasticsearch resource and options are still supported, we recommend modifying your existing Cloudformation templates to use the new OpenSearch Service resource, which supports both OpenSearch and Elasticsearch. For more information about the service rename, see [New resource types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/rename.html#rename-resource) in the *Amazon OpenSearch Service Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticsearch "github.com/aws/aws-cdk-go/awscdk/aws_elasticsearch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   elasticsearchClusterConfigProperty := &elasticsearchClusterConfigProperty{
 //   	coldStorageOptions: &coldStorageOptionsProperty{
 //   		enabled: jsii.Boolean(false),
@@ -1303,35 +1324,35 @@ type CfnDomain_EBSOptionsProperty struct {
 //
 type CfnDomain_ElasticsearchClusterConfigProperty struct {
 	// Specifies cold storage options for the domain.
-	ColdStorageOptions interface{} `json:"coldStorageOptions" yaml:"coldStorageOptions"`
+	ColdStorageOptions interface{} `field:"optional" json:"coldStorageOptions" yaml:"coldStorageOptions"`
 	// The number of instances to use for the master node.
 	//
 	// If you specify this property, you must specify true for the DedicatedMasterEnabled property.
-	DedicatedMasterCount *float64 `json:"dedicatedMasterCount" yaml:"dedicatedMasterCount"`
+	DedicatedMasterCount *float64 `field:"optional" json:"dedicatedMasterCount" yaml:"dedicatedMasterCount"`
 	// Indicates whether to use a dedicated master node for the OpenSearch Service domain.
 	//
 	// A dedicated master node is a cluster node that performs cluster management tasks, but doesn't hold data or respond to data upload requests. Dedicated master nodes offload cluster management tasks to increase the stability of your search clusters. See [Dedicated master nodes in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-dedicatedmasternodes.html) .
-	DedicatedMasterEnabled interface{} `json:"dedicatedMasterEnabled" yaml:"dedicatedMasterEnabled"`
+	DedicatedMasterEnabled interface{} `field:"optional" json:"dedicatedMasterEnabled" yaml:"dedicatedMasterEnabled"`
 	// The hardware configuration of the computer that hosts the dedicated master node, such as `m3.medium.elasticsearch` . If you specify this property, you must specify true for the `DedicatedMasterEnabled` property. For valid values, see [Supported instance types in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html) .
-	DedicatedMasterType *string `json:"dedicatedMasterType" yaml:"dedicatedMasterType"`
+	DedicatedMasterType *string `field:"optional" json:"dedicatedMasterType" yaml:"dedicatedMasterType"`
 	// The number of data nodes (instances) to use in the OpenSearch Service domain.
-	InstanceCount *float64 `json:"instanceCount" yaml:"instanceCount"`
+	InstanceCount *float64 `field:"optional" json:"instanceCount" yaml:"instanceCount"`
 	// The instance type for your data nodes, such as `m3.medium.elasticsearch` . For valid values, see [Supported instance types in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html) .
-	InstanceType *string `json:"instanceType" yaml:"instanceType"`
+	InstanceType *string `field:"optional" json:"instanceType" yaml:"instanceType"`
 	// The number of warm nodes in the cluster.
-	WarmCount *float64 `json:"warmCount" yaml:"warmCount"`
+	WarmCount *float64 `field:"optional" json:"warmCount" yaml:"warmCount"`
 	// Whether to enable warm storage for the cluster.
-	WarmEnabled interface{} `json:"warmEnabled" yaml:"warmEnabled"`
+	WarmEnabled interface{} `field:"optional" json:"warmEnabled" yaml:"warmEnabled"`
 	// The instance type for the cluster's warm nodes.
-	WarmType *string `json:"warmType" yaml:"warmType"`
+	WarmType *string `field:"optional" json:"warmType" yaml:"warmType"`
 	// Specifies zone awareness configuration options.
 	//
 	// Only use if `ZoneAwarenessEnabled` is `true` .
-	ZoneAwarenessConfig interface{} `json:"zoneAwarenessConfig" yaml:"zoneAwarenessConfig"`
+	ZoneAwarenessConfig interface{} `field:"optional" json:"zoneAwarenessConfig" yaml:"zoneAwarenessConfig"`
 	// Indicates whether to enable zone awareness for the OpenSearch Service domain.
 	//
 	// When you enable zone awareness, OpenSearch Service allocates the nodes and replica index shards that belong to a cluster across two Availability Zones (AZs) in the same region to prevent data loss and minimize downtime in the event of node or data center failure. Don't enable zone awareness if your cluster has no replica index shards or is a single-node cluster. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html) .
-	ZoneAwarenessEnabled interface{} `json:"zoneAwarenessEnabled" yaml:"zoneAwarenessEnabled"`
+	ZoneAwarenessEnabled interface{} `field:"optional" json:"zoneAwarenessEnabled" yaml:"zoneAwarenessEnabled"`
 }
 
 // Whether the domain should encrypt data at rest, and if so, the AWS Key Management Service key to use.
@@ -1339,7 +1360,10 @@ type CfnDomain_ElasticsearchClusterConfigProperty struct {
 // > The `AWS::Elasticsearch::Domain` resource is being replaced by the [AWS::OpenSearchService::Domain](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html) resource. While the legacy Elasticsearch resource and options are still supported, we recommend modifying your existing Cloudformation templates to use the new OpenSearch Service resource, which supports both OpenSearch and Elasticsearch. For more information about the service rename, see [New resource types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/rename.html#rename-resource) in the *Amazon OpenSearch Service Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticsearch "github.com/aws/aws-cdk-go/awscdk/aws_elasticsearch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   encryptionAtRestOptionsProperty := &encryptionAtRestOptionsProperty{
 //   	enabled: jsii.Boolean(false),
 //   	kmsKeyId: jsii.String("kmsKeyId"),
@@ -1347,11 +1371,11 @@ type CfnDomain_ElasticsearchClusterConfigProperty struct {
 //
 type CfnDomain_EncryptionAtRestOptionsProperty struct {
 	// Specify `true` to enable encryption at rest.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// The KMS key ID.
 	//
 	// Takes the form `1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a` .
-	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 }
 
 // > The `AWS::Elasticsearch::Domain` resource is being replaced by the [AWS::OpenSearchService::Domain](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html) resource. While the legacy Elasticsearch resource and options are still supported, we recommend modifying your existing Cloudformation templates to use the new OpenSearch Service resource, which supports both OpenSearch and Elasticsearch. For more information about the service rename, see [New resource types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/rename.html#rename-resource) in the *Amazon OpenSearch Service Developer Guide* .
@@ -1361,7 +1385,10 @@ type CfnDomain_EncryptionAtRestOptionsProperty struct {
 // If you enable a slow log, you still have to enable the *collection* of slow logs using the Configuration API. To learn more, see [Enabling log publishing ( AWS CLI)](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createdomain-configure-slow-logs.html#createdomain-configure-slow-logs-cli) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticsearch "github.com/aws/aws-cdk-go/awscdk/aws_elasticsearch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   logPublishingOptionProperty := &logPublishingOptionProperty{
 //   	cloudWatchLogsLogGroupArn: jsii.String("cloudWatchLogsLogGroupArn"),
 //   	enabled: jsii.Boolean(false),
@@ -1369,11 +1396,11 @@ type CfnDomain_EncryptionAtRestOptionsProperty struct {
 //
 type CfnDomain_LogPublishingOptionProperty struct {
 	// Specifies the CloudWatch log group to publish to.
-	CloudWatchLogsLogGroupArn *string `json:"cloudWatchLogsLogGroupArn" yaml:"cloudWatchLogsLogGroupArn"`
+	CloudWatchLogsLogGroupArn *string `field:"optional" json:"cloudWatchLogsLogGroupArn" yaml:"cloudWatchLogsLogGroupArn"`
 	// If `true` , enables the publishing of logs to CloudWatch.
 	//
 	// Default: `false` .
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 }
 
 // Specifies information about the master user.
@@ -1381,7 +1408,10 @@ type CfnDomain_LogPublishingOptionProperty struct {
 // > The `AWS::Elasticsearch::Domain` resource is being replaced by the [AWS::OpenSearchService::Domain](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html) resource. While the legacy Elasticsearch resource and options are still supported, we recommend modifying your existing Cloudformation templates to use the new OpenSearch Service resource, which supports both OpenSearch and Elasticsearch. For more information about the service rename, see [New resource types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/rename.html#rename-resource) in the *Amazon OpenSearch Service Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticsearch "github.com/aws/aws-cdk-go/awscdk/aws_elasticsearch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   masterUserOptionsProperty := &masterUserOptionsProperty{
 //   	masterUserArn: jsii.String("masterUserArn"),
 //   	masterUserName: jsii.String("masterUserName"),
@@ -1392,15 +1422,15 @@ type CfnDomain_MasterUserOptionsProperty struct {
 	// ARN for the master user.
 	//
 	// Only specify if `InternalUserDatabaseEnabled` is false in `AdvancedSecurityOptions` .
-	MasterUserArn *string `json:"masterUserArn" yaml:"masterUserArn"`
+	MasterUserArn *string `field:"optional" json:"masterUserArn" yaml:"masterUserArn"`
 	// Username for the master user.
 	//
 	// Only specify if `InternalUserDatabaseEnabled` is true in `AdvancedSecurityOptions` .
-	MasterUserName *string `json:"masterUserName" yaml:"masterUserName"`
+	MasterUserName *string `field:"optional" json:"masterUserName" yaml:"masterUserName"`
 	// Password for the master user.
 	//
 	// Only specify if `InternalUserDatabaseEnabled` is true in `AdvancedSecurityOptions` .
-	MasterUserPassword *string `json:"masterUserPassword" yaml:"masterUserPassword"`
+	MasterUserPassword *string `field:"optional" json:"masterUserPassword" yaml:"masterUserPassword"`
 }
 
 // Specifies whether node-to-node encryption is enabled.
@@ -1408,14 +1438,17 @@ type CfnDomain_MasterUserOptionsProperty struct {
 // > The `AWS::Elasticsearch::Domain` resource is being replaced by the [AWS::OpenSearchService::Domain](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html) resource. While the legacy Elasticsearch resource and options are still supported, we recommend modifying your existing Cloudformation templates to use the new OpenSearch Service resource, which supports both OpenSearch and Elasticsearch. For more information about the service rename, see [New resource types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/rename.html#rename-resource) in the *Amazon OpenSearch Service Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticsearch "github.com/aws/aws-cdk-go/awscdk/aws_elasticsearch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   nodeToNodeEncryptionOptionsProperty := &nodeToNodeEncryptionOptionsProperty{
 //   	enabled: jsii.Boolean(false),
 //   }
 //
 type CfnDomain_NodeToNodeEncryptionOptionsProperty struct {
 	// Specifies whether node-to-node encryption is enabled, as a Boolean.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 }
 
 // > The `AWS::Elasticsearch::Domain` resource is being replaced by the [AWS::OpenSearchService::Domain](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html) resource. While the legacy Elasticsearch resource and options are still supported, we recommend modifying your existing Cloudformation templates to use the new OpenSearch Service resource, which supports both OpenSearch and Elasticsearch. For more information about the service rename, see [New resource types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/rename.html#rename-resource) in the *Amazon OpenSearch Service Developer Guide* .
@@ -1425,7 +1458,10 @@ type CfnDomain_NodeToNodeEncryptionOptionsProperty struct {
 // The automated snapshot configuration for the OpenSearch Service domain indices.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticsearch "github.com/aws/aws-cdk-go/awscdk/aws_elasticsearch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   snapshotOptionsProperty := &snapshotOptionsProperty{
 //   	automatedSnapshotStartHour: jsii.Number(123),
 //   }
@@ -1434,7 +1470,7 @@ type CfnDomain_SnapshotOptionsProperty struct {
 	// The hour in UTC during which the service takes an automated daily snapshot of the indices in the OpenSearch Service domain.
 	//
 	// For example, if you specify 0, OpenSearch Service takes an automated snapshot everyday between midnight and 1 am. You can specify a value between 0 and 23.
-	AutomatedSnapshotStartHour *float64 `json:"automatedSnapshotStartHour" yaml:"automatedSnapshotStartHour"`
+	AutomatedSnapshotStartHour *float64 `field:"optional" json:"automatedSnapshotStartHour" yaml:"automatedSnapshotStartHour"`
 }
 
 // The virtual private cloud (VPC) configuration for the OpenSearch Service domain.
@@ -1444,7 +1480,10 @@ type CfnDomain_SnapshotOptionsProperty struct {
 // > The `AWS::Elasticsearch::Domain` resource is being replaced by the [AWS::OpenSearchService::Domain](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html) resource. While the legacy Elasticsearch resource and options are still supported, we recommend modifying your existing Cloudformation templates to use the new OpenSearch Service resource, which supports both OpenSearch and Elasticsearch. For more information about the service rename, see [New resource types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/rename.html#rename-resource) in the *Amazon OpenSearch Service Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticsearch "github.com/aws/aws-cdk-go/awscdk/aws_elasticsearch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   vPCOptionsProperty := &vPCOptionsProperty{
 //   	securityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
@@ -1458,11 +1497,11 @@ type CfnDomain_VPCOptionsProperty struct {
 	// The list of security group IDs that are associated with the VPC endpoints for the domain.
 	//
 	// If you don't provide a security group ID, OpenSearch Service uses the default security group for the VPC. To learn more, see [Security groups for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .
-	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
+	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// Provide one subnet ID for each Availability Zone that your domain uses.
 	//
 	// For example, you must specify three subnet IDs for a three Availability Zone domain. To learn more, see [VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) in the *Amazon VPC User Guide* .
-	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
+	SubnetIds *[]*string `field:"optional" json:"subnetIds" yaml:"subnetIds"`
 }
 
 // Specifies zone awareness configuration options. Only use if `ZoneAwarenessEnabled` is `true` .
@@ -1470,7 +1509,10 @@ type CfnDomain_VPCOptionsProperty struct {
 // > The `AWS::Elasticsearch::Domain` resource is being replaced by the [AWS::OpenSearchService::Domain](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html) resource. While the legacy Elasticsearch resource and options are still supported, we recommend modifying your existing Cloudformation templates to use the new OpenSearch Service resource, which supports both OpenSearch and Elasticsearch. For more information about the service rename, see [New resource types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/rename.html#rename-resource) in the *Amazon OpenSearch Service Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticsearch "github.com/aws/aws-cdk-go/awscdk/aws_elasticsearch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   zoneAwarenessConfigProperty := &zoneAwarenessConfigProperty{
 //   	availabilityZoneCount: jsii.Number(123),
 //   }
@@ -1479,15 +1521,18 @@ type CfnDomain_ZoneAwarenessConfigProperty struct {
 	// If you enabled multiple Availability Zones (AZs), the number of AZs that you want the domain to use.
 	//
 	// Valid values are `2` and `3` . Default is 2.
-	AvailabilityZoneCount *float64 `json:"availabilityZoneCount" yaml:"availabilityZoneCount"`
+	AvailabilityZoneCount *float64 `field:"optional" json:"availabilityZoneCount" yaml:"availabilityZoneCount"`
 }
 
 // Properties for defining a `CfnDomain`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticsearch "github.com/aws/aws-cdk-go/awscdk/aws_elasticsearch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var accessPolicies interface{}
+//
 //   cfnDomainProps := &cfnDomainProps{
 //   	accessPolicies: accessPolicies,
 //   	advancedOptions: map[string]*string{
@@ -1576,55 +1621,55 @@ type CfnDomainProps struct {
 	// An AWS Identity and Access Management ( IAM ) policy document that specifies who can access the OpenSearch Service domain and their permissions.
 	//
 	// For more information, see [Configuring access policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ac.html#ac-creating) in the *Amazon OpenSearch Service Developer Guid* e.
-	AccessPolicies interface{} `json:"accessPolicies" yaml:"accessPolicies"`
+	AccessPolicies interface{} `field:"optional" json:"accessPolicies" yaml:"accessPolicies"`
 	// Additional options to specify for the OpenSearch Service domain.
 	//
 	// For more information, see [Advanced cluster parameters](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options) in the *Amazon OpenSearch Service Developer Guide* .
-	AdvancedOptions interface{} `json:"advancedOptions" yaml:"advancedOptions"`
+	AdvancedOptions interface{} `field:"optional" json:"advancedOptions" yaml:"advancedOptions"`
 	// Specifies options for fine-grained access control.
-	AdvancedSecurityOptions interface{} `json:"advancedSecurityOptions" yaml:"advancedSecurityOptions"`
+	AdvancedSecurityOptions interface{} `field:"optional" json:"advancedSecurityOptions" yaml:"advancedSecurityOptions"`
 	// Configures OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
-	CognitoOptions interface{} `json:"cognitoOptions" yaml:"cognitoOptions"`
+	CognitoOptions interface{} `field:"optional" json:"cognitoOptions" yaml:"cognitoOptions"`
 	// Specifies additional options for the domain endpoint, such as whether to require HTTPS for all traffic or whether to use a custom endpoint rather than the default endpoint.
-	DomainEndpointOptions interface{} `json:"domainEndpointOptions" yaml:"domainEndpointOptions"`
+	DomainEndpointOptions interface{} `field:"optional" json:"domainEndpointOptions" yaml:"domainEndpointOptions"`
 	// A name for the OpenSearch Service domain.
 	//
 	// For valid values, see the [DomainName](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/configuration-api.html#configuration-api-datatypes-domainname) data type in the *Amazon OpenSearch Service Developer Guide* . If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
 	//
 	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"optional" json:"domainName" yaml:"domainName"`
 	// The configurations of Amazon Elastic Block Store (Amazon EBS) volumes that are attached to data nodes in the OpenSearch Service domain.
 	//
 	// For more information, see [EBS volume size limits](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#ebsresource) in the *Amazon OpenSearch Service Developer Guide* .
-	EbsOptions interface{} `json:"ebsOptions" yaml:"ebsOptions"`
+	EbsOptions interface{} `field:"optional" json:"ebsOptions" yaml:"ebsOptions"`
 	// ElasticsearchClusterConfig is a property of the AWS::Elasticsearch::Domain resource that configures the cluster of an Amazon OpenSearch Service domain.
-	ElasticsearchClusterConfig interface{} `json:"elasticsearchClusterConfig" yaml:"elasticsearchClusterConfig"`
+	ElasticsearchClusterConfig interface{} `field:"optional" json:"elasticsearchClusterConfig" yaml:"elasticsearchClusterConfig"`
 	// The version of Elasticsearch to use, such as 2.3. If not specified, 1.5 is used as the default. For information about the versions that OpenSearch Service supports, see [Supported versions of OpenSearch and Elasticsearch](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html#choosing-version) in the *Amazon OpenSearch Service Developer Guide* .
 	//
 	// If you set the [EnableVersionUpgrade](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-upgradeopensearchdomain) update policy to `true` , you can update `ElasticsearchVersion` without interruption. When `EnableVersionUpgrade` is set to `false` , or is not specified, updating `ElasticsearchVersion` results in [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
-	ElasticsearchVersion *string `json:"elasticsearchVersion" yaml:"elasticsearchVersion"`
+	ElasticsearchVersion *string `field:"optional" json:"elasticsearchVersion" yaml:"elasticsearchVersion"`
 	// Whether the domain should encrypt data at rest, and if so, the AWS Key Management Service key to use.
 	//
 	// See [Encryption of data at rest for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html) .
-	EncryptionAtRestOptions interface{} `json:"encryptionAtRestOptions" yaml:"encryptionAtRestOptions"`
+	EncryptionAtRestOptions interface{} `field:"optional" json:"encryptionAtRestOptions" yaml:"encryptionAtRestOptions"`
 	// An object with one or more of the following keys: `SEARCH_SLOW_LOGS` , `ES_APPLICATION_LOGS` , `INDEX_SLOW_LOGS` , `AUDIT_LOGS` , depending on the types of logs you want to publish.
 	//
 	// Each key needs a valid `LogPublishingOption` value.
-	LogPublishingOptions interface{} `json:"logPublishingOptions" yaml:"logPublishingOptions"`
+	LogPublishingOptions interface{} `field:"optional" json:"logPublishingOptions" yaml:"logPublishingOptions"`
 	// Specifies whether node-to-node encryption is enabled.
 	//
 	// See [Node-to-node encryption for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ntn.html) .
-	NodeToNodeEncryptionOptions interface{} `json:"nodeToNodeEncryptionOptions" yaml:"nodeToNodeEncryptionOptions"`
+	NodeToNodeEncryptionOptions interface{} `field:"optional" json:"nodeToNodeEncryptionOptions" yaml:"nodeToNodeEncryptionOptions"`
 	// *DEPRECATED* .
 	//
 	// The automated snapshot configuration for the OpenSearch Service domain indices.
-	SnapshotOptions interface{} `json:"snapshotOptions" yaml:"snapshotOptions"`
+	SnapshotOptions interface{} `field:"optional" json:"snapshotOptions" yaml:"snapshotOptions"`
 	// An arbitrary set of tags (key–value pairs) to associate with the OpenSearch Service domain.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The virtual private cloud (VPC) configuration for the OpenSearch Service domain.
 	//
 	// For more information, see [Launching your Amazon OpenSearch Service domains within a VPC](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html) in the *Amazon OpenSearch Service Developer Guide* .
-	VpcOptions interface{} `json:"vpcOptions" yaml:"vpcOptions"`
+	VpcOptions interface{} `field:"optional" json:"vpcOptions" yaml:"vpcOptions"`
 }
 
 // Configures Amazon ES to use Amazon Cognito authentication for Kibana.
@@ -1645,17 +1690,17 @@ type CfnDomainProps struct {
 type CognitoOptions struct {
 	// The Amazon Cognito identity pool ID that you want Amazon ES to use for Kibana authentication.
 	// Deprecated: use opensearchservice module instead.
-	IdentityPoolId *string `json:"identityPoolId" yaml:"identityPoolId"`
+	IdentityPoolId *string `field:"required" json:"identityPoolId" yaml:"identityPoolId"`
 	// A role that allows Amazon ES to configure your user pool and identity pool.
 	//
 	// It must have the `AmazonESCognitoAccess` policy attached to it.
 	// See: https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html#es-cognito-auth-prereq
 	//
 	// Deprecated: use opensearchservice module instead.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"required" json:"role" yaml:"role"`
 	// The Amazon Cognito user pool ID that you want Amazon ES to use for Kibana authentication.
 	// Deprecated: use opensearchservice module instead.
-	UserPoolId *string `json:"userPoolId" yaml:"userPoolId"`
+	UserPoolId *string `field:"required" json:"userPoolId" yaml:"userPoolId"`
 }
 
 // Configures a custom domain endpoint for the ES domain.
@@ -1672,13 +1717,13 @@ type CognitoOptions struct {
 type CustomEndpointOptions struct {
 	// The custom domain name to assign.
 	// Deprecated: use opensearchservice module instead.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 	// The certificate to use.
 	// Deprecated: use opensearchservice module instead.
-	Certificate awscertificatemanager.ICertificate `json:"certificate" yaml:"certificate"`
+	Certificate awscertificatemanager.ICertificate `field:"optional" json:"certificate" yaml:"certificate"`
 	// The hosted zone in Route53 to create the CNAME record in.
 	// Deprecated: use opensearchservice module instead.
-	HostedZone awsroute53.IHostedZone `json:"hostedZone" yaml:"hostedZone"`
+	HostedZone awsroute53.IHostedZone `field:"optional" json:"hostedZone" yaml:"hostedZone"`
 }
 
 // Provides an Elasticsearch domain.
@@ -2606,7 +2651,10 @@ func (d *jsiiProxy_Domain) Validate() *[]*string {
 // Reference to an Elasticsearch domain.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticsearch "github.com/aws/aws-cdk-go/awscdk/aws_elasticsearch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   domainAttributes := &domainAttributes{
 //   	domainArn: jsii.String("domainArn"),
 //   	domainEndpoint: jsii.String("domainEndpoint"),
@@ -2616,10 +2664,10 @@ func (d *jsiiProxy_Domain) Validate() *[]*string {
 type DomainAttributes struct {
 	// The ARN of the Elasticsearch domain.
 	// Deprecated: use opensearchservice module instead.
-	DomainArn *string `json:"domainArn" yaml:"domainArn"`
+	DomainArn *string `field:"required" json:"domainArn" yaml:"domainArn"`
 	// The domain endpoint of the Elasticsearch domain.
 	// Deprecated: use opensearchservice module instead.
-	DomainEndpoint *string `json:"domainEndpoint" yaml:"domainEndpoint"`
+	DomainEndpoint *string `field:"required" json:"domainEndpoint" yaml:"domainEndpoint"`
 }
 
 // Properties for an AWS Elasticsearch Domain.
@@ -2641,35 +2689,35 @@ type DomainAttributes struct {
 type DomainProps struct {
 	// The Elasticsearch version that your domain will leverage.
 	// Deprecated: use opensearchservice module instead.
-	Version ElasticsearchVersion `json:"version" yaml:"version"`
+	Version ElasticsearchVersion `field:"required" json:"version" yaml:"version"`
 	// Domain Access policies.
 	// Deprecated: use opensearchservice module instead.
-	AccessPolicies *[]awsiam.PolicyStatement `json:"accessPolicies" yaml:"accessPolicies"`
+	AccessPolicies *[]awsiam.PolicyStatement `field:"optional" json:"accessPolicies" yaml:"accessPolicies"`
 	// Additional options to specify for the Amazon ES domain.
 	// See: https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options
 	//
 	// Deprecated: use opensearchservice module instead.
-	AdvancedOptions *map[string]*string `json:"advancedOptions" yaml:"advancedOptions"`
+	AdvancedOptions *map[string]*string `field:"optional" json:"advancedOptions" yaml:"advancedOptions"`
 	// The hour in UTC during which the service takes an automated daily snapshot of the indices in the Amazon ES domain.
 	//
 	// Only applies for Elasticsearch
 	// versions below 5.3.
 	// Deprecated: use opensearchservice module instead.
-	AutomatedSnapshotStartHour *float64 `json:"automatedSnapshotStartHour" yaml:"automatedSnapshotStartHour"`
+	AutomatedSnapshotStartHour *float64 `field:"optional" json:"automatedSnapshotStartHour" yaml:"automatedSnapshotStartHour"`
 	// The cluster capacity configuration for the Amazon ES domain.
 	// Deprecated: use opensearchservice module instead.
-	Capacity *CapacityConfig `json:"capacity" yaml:"capacity"`
+	Capacity *CapacityConfig `field:"optional" json:"capacity" yaml:"capacity"`
 	// Configures Amazon ES to use Amazon Cognito authentication for Kibana.
 	// Deprecated: use opensearchservice module instead.
-	CognitoKibanaAuth *CognitoOptions `json:"cognitoKibanaAuth" yaml:"cognitoKibanaAuth"`
+	CognitoKibanaAuth *CognitoOptions `field:"optional" json:"cognitoKibanaAuth" yaml:"cognitoKibanaAuth"`
 	// To configure a custom domain configure these options.
 	//
 	// If you specify a Route53 hosted zone it will create a CNAME record and use DNS validation for the certificate.
 	// Deprecated: use opensearchservice module instead.
-	CustomEndpoint *CustomEndpointOptions `json:"customEndpoint" yaml:"customEndpoint"`
+	CustomEndpoint *CustomEndpointOptions `field:"optional" json:"customEndpoint" yaml:"customEndpoint"`
 	// Enforces a particular physical domain name.
 	// Deprecated: use opensearchservice module instead.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"optional" json:"domainName" yaml:"domainName"`
 	// The configurations of Amazon Elastic Block Store (Amazon EBS) volumes that are attached to data nodes in the Amazon ES domain.
 	//
 	// For more information, see
@@ -2677,46 +2725,46 @@ type DomainProps struct {
 	// (https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs)
 	// in the Amazon Elasticsearch Service Developer Guide.
 	// Deprecated: use opensearchservice module instead.
-	Ebs *EbsOptions `json:"ebs" yaml:"ebs"`
+	Ebs *EbsOptions `field:"optional" json:"ebs" yaml:"ebs"`
 	// To upgrade an Amazon ES domain to a new version of Elasticsearch rather than replacing the entire domain resource, use the EnableVersionUpgrade update policy.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-upgradeelasticsearchdomain
 	//
 	// Deprecated: use opensearchservice module instead.
-	EnableVersionUpgrade *bool `json:"enableVersionUpgrade" yaml:"enableVersionUpgrade"`
+	EnableVersionUpgrade *bool `field:"optional" json:"enableVersionUpgrade" yaml:"enableVersionUpgrade"`
 	// Encryption at rest options for the cluster.
 	// Deprecated: use opensearchservice module instead.
-	EncryptionAtRest *EncryptionAtRestOptions `json:"encryptionAtRest" yaml:"encryptionAtRest"`
+	EncryptionAtRest *EncryptionAtRestOptions `field:"optional" json:"encryptionAtRest" yaml:"encryptionAtRest"`
 	// True to require that all traffic to the domain arrive over HTTPS.
 	// Deprecated: use opensearchservice module instead.
-	EnforceHttps *bool `json:"enforceHttps" yaml:"enforceHttps"`
+	EnforceHttps *bool `field:"optional" json:"enforceHttps" yaml:"enforceHttps"`
 	// Specifies options for fine-grained access control.
 	//
 	// Requires Elasticsearch version 6.7 or later. Enabling fine-grained access control
 	// also requires encryption of data at rest and node-to-node encryption, along with
 	// enforced HTTPS.
 	// Deprecated: use opensearchservice module instead.
-	FineGrainedAccessControl *AdvancedSecurityOptions `json:"fineGrainedAccessControl" yaml:"fineGrainedAccessControl"`
+	FineGrainedAccessControl *AdvancedSecurityOptions `field:"optional" json:"fineGrainedAccessControl" yaml:"fineGrainedAccessControl"`
 	// Configuration log publishing configuration options.
 	// Deprecated: use opensearchservice module instead.
-	Logging *LoggingOptions `json:"logging" yaml:"logging"`
+	Logging *LoggingOptions `field:"optional" json:"logging" yaml:"logging"`
 	// Specify true to enable node to node encryption.
 	//
 	// Requires Elasticsearch version 6.0 or later.
 	// Deprecated: use opensearchservice module instead.
-	NodeToNodeEncryption *bool `json:"nodeToNodeEncryption" yaml:"nodeToNodeEncryption"`
+	NodeToNodeEncryption *bool `field:"optional" json:"nodeToNodeEncryption" yaml:"nodeToNodeEncryption"`
 	// Policy to apply when the domain is removed from the stack.
 	// Deprecated: use opensearchservice module instead.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// The list of security groups that are associated with the VPC endpoints for the domain.
 	//
 	// Only used if `vpc` is specified.
 	// See: https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html
 	//
 	// Deprecated: use opensearchservice module instead.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// The minimum TLS version required for traffic to the domain.
 	// Deprecated: use opensearchservice module instead.
-	TlsSecurityPolicy TLSSecurityPolicy `json:"tlsSecurityPolicy" yaml:"tlsSecurityPolicy"`
+	TlsSecurityPolicy TLSSecurityPolicy `field:"optional" json:"tlsSecurityPolicy" yaml:"tlsSecurityPolicy"`
 	// Configures the domain so that unsigned basic auth is enabled.
 	//
 	// If no master user is provided a default master user
@@ -2728,12 +2776,12 @@ type DomainProps struct {
 	// settings are encountered (like disabling encryption at rest) enabling this
 	// setting will cause a failure.
 	// Deprecated: use opensearchservice module instead.
-	UseUnsignedBasicAuth *bool `json:"useUnsignedBasicAuth" yaml:"useUnsignedBasicAuth"`
+	UseUnsignedBasicAuth *bool `field:"optional" json:"useUnsignedBasicAuth" yaml:"useUnsignedBasicAuth"`
 	// Place the domain inside this VPC.
 	// See: https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html
 	//
 	// Deprecated: use opensearchservice module instead.
-	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
+	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 	// The specific vpc subnets the domain will be placed in.
 	//
 	// You must provide one subnet for each Availability Zone
@@ -2744,10 +2792,10 @@ type DomainProps struct {
 	// See: https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html
 	//
 	// Deprecated: use opensearchservice module instead.
-	VpcSubnets *[]*awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
+	VpcSubnets *[]*awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 	// The cluster zone awareness configuration for the Amazon ES domain.
 	// Deprecated: use opensearchservice module instead.
-	ZoneAwareness *ZoneAwarenessConfig `json:"zoneAwareness" yaml:"zoneAwareness"`
+	ZoneAwareness *ZoneAwarenessConfig `field:"optional" json:"zoneAwareness" yaml:"zoneAwareness"`
 }
 
 // The configurations of Amazon Elastic Block Store (Amazon EBS) volumes that are attached to data nodes in the Amazon ES domain.
@@ -2781,13 +2829,13 @@ type DomainProps struct {
 type EbsOptions struct {
 	// Specifies whether Amazon EBS volumes are attached to data nodes in the Amazon ES domain.
 	// Deprecated: use opensearchservice module instead.
-	Enabled *bool `json:"enabled" yaml:"enabled"`
+	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// The number of I/O operations per second (IOPS) that the volume supports.
 	//
 	// This property applies only to the Provisioned IOPS (SSD) EBS
 	// volume type.
 	// Deprecated: use opensearchservice module instead.
-	Iops *float64 `json:"iops" yaml:"iops"`
+	Iops *float64 `field:"optional" json:"iops" yaml:"iops"`
 	// The size (in GiB) of the EBS volume for each data node.
 	//
 	// The minimum and
@@ -2797,14 +2845,14 @@ type EbsOptions struct {
 	// (https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs)
 	// in the Amazon Elasticsearch Service Developer Guide.
 	// Deprecated: use opensearchservice module instead.
-	VolumeSize *float64 `json:"volumeSize" yaml:"volumeSize"`
+	VolumeSize *float64 `field:"optional" json:"volumeSize" yaml:"volumeSize"`
 	// The EBS volume type to use with the Amazon ES domain, such as standard, gp2, io1.
 	//
 	// For more information, see[Configuring EBS-based Storage]
 	// (https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs)
 	// in the Amazon Elasticsearch Service Developer Guide.
 	// Deprecated: use opensearchservice module instead.
-	VolumeType awsec2.EbsDeviceVolumeType `json:"volumeType" yaml:"volumeType"`
+	VolumeType awsec2.EbsDeviceVolumeType `field:"optional" json:"volumeType" yaml:"volumeType"`
 }
 
 // Elasticsearch version.
@@ -3095,10 +3143,10 @@ func ElasticsearchVersion_V7_9() ElasticsearchVersion {
 type EncryptionAtRestOptions struct {
 	// Specify true to enable encryption at rest.
 	// Deprecated: use opensearchservice module instead.
-	Enabled *bool `json:"enabled" yaml:"enabled"`
+	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// Supply if using KMS key for encryption at rest.
 	// Deprecated: use opensearchservice module instead.
-	KmsKey awskms.IKey `json:"kmsKey" yaml:"kmsKey"`
+	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 }
 
 // An interface that represents an Elasticsearch domain - either created with the CDK, or an existing one.
@@ -3579,34 +3627,34 @@ type LoggingOptions struct {
 	//
 	// Requires Elasticsearch version 5.1 or later.
 	// Deprecated: use opensearchservice module instead.
-	AppLogEnabled *bool `json:"appLogEnabled" yaml:"appLogEnabled"`
+	AppLogEnabled *bool `field:"optional" json:"appLogEnabled" yaml:"appLogEnabled"`
 	// Log Elasticsearch application logs to this log group.
 	// Deprecated: use opensearchservice module instead.
-	AppLogGroup awslogs.ILogGroup `json:"appLogGroup" yaml:"appLogGroup"`
+	AppLogGroup awslogs.ILogGroup `field:"optional" json:"appLogGroup" yaml:"appLogGroup"`
 	// Specify if Elasticsearch audit logging should be set up.
 	//
 	// Requires Elasticsearch version 6.7 or later and fine grained access control to be enabled.
 	// Deprecated: use opensearchservice module instead.
-	AuditLogEnabled *bool `json:"auditLogEnabled" yaml:"auditLogEnabled"`
+	AuditLogEnabled *bool `field:"optional" json:"auditLogEnabled" yaml:"auditLogEnabled"`
 	// Log Elasticsearch audit logs to this log group.
 	// Deprecated: use opensearchservice module instead.
-	AuditLogGroup awslogs.ILogGroup `json:"auditLogGroup" yaml:"auditLogGroup"`
+	AuditLogGroup awslogs.ILogGroup `field:"optional" json:"auditLogGroup" yaml:"auditLogGroup"`
 	// Specify if slow index logging should be set up.
 	//
 	// Requires Elasticsearch version 5.1 or later.
 	// Deprecated: use opensearchservice module instead.
-	SlowIndexLogEnabled *bool `json:"slowIndexLogEnabled" yaml:"slowIndexLogEnabled"`
+	SlowIndexLogEnabled *bool `field:"optional" json:"slowIndexLogEnabled" yaml:"slowIndexLogEnabled"`
 	// Log slow indices to this log group.
 	// Deprecated: use opensearchservice module instead.
-	SlowIndexLogGroup awslogs.ILogGroup `json:"slowIndexLogGroup" yaml:"slowIndexLogGroup"`
+	SlowIndexLogGroup awslogs.ILogGroup `field:"optional" json:"slowIndexLogGroup" yaml:"slowIndexLogGroup"`
 	// Specify if slow search logging should be set up.
 	//
 	// Requires Elasticsearch version 5.1 or later.
 	// Deprecated: use opensearchservice module instead.
-	SlowSearchLogEnabled *bool `json:"slowSearchLogEnabled" yaml:"slowSearchLogEnabled"`
+	SlowSearchLogEnabled *bool `field:"optional" json:"slowSearchLogEnabled" yaml:"slowSearchLogEnabled"`
 	// Log slow searches to this log group.
 	// Deprecated: use opensearchservice module instead.
-	SlowSearchLogGroup awslogs.ILogGroup `json:"slowSearchLogGroup" yaml:"slowSearchLogGroup"`
+	SlowSearchLogGroup awslogs.ILogGroup `field:"optional" json:"slowSearchLogGroup" yaml:"slowSearchLogGroup"`
 }
 
 // The minimum TLS version required for traffic to the domain.
@@ -3650,7 +3698,7 @@ type ZoneAwarenessConfig struct {
 	//
 	// Valid values are 2 and 3.
 	// Deprecated: use opensearchservice module instead.
-	AvailabilityZoneCount *float64 `json:"availabilityZoneCount" yaml:"availabilityZoneCount"`
+	AvailabilityZoneCount *float64 `field:"optional" json:"availabilityZoneCount" yaml:"availabilityZoneCount"`
 	// Indicates whether to enable zone awareness for the Amazon ES domain.
 	//
 	// When you enable zone awareness, Amazon ES allocates the nodes and replica
@@ -3662,6 +3710,6 @@ type ZoneAwarenessConfig struct {
 	// (https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-managedomains-multiaz)
 	// in the Amazon Elasticsearch Service Developer Guide.
 	// Deprecated: use opensearchservice module instead.
-	Enabled *bool `json:"enabled" yaml:"enabled"`
+	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 }
 

@@ -14,8 +14,11 @@ import (
 // The AWS::Athena::DataCatalog resource specifies an Amazon Athena data catalog, which contains a name, description, type, parameters, and tags. For more information, see [DataCatalog](https://docs.aws.amazon.com/athena/latest/APIReference/API_DataCatalog.html) in the *Amazon Athena API Reference* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import athena "github.com/aws/aws-cdk-go/awscdk/aws_athena"
-//   cfnDataCatalog := athena.NewCfnDataCatalog(this, jsii.String("MyCfnDataCatalog"), &cfnDataCatalogProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDataCatalog := awscdk.Aws_athena.NewCfnDataCatalog(this, jsii.String("MyCfnDataCatalog"), &cfnDataCatalogProps{
 //   	name: jsii.String("name"),
 //   	type: jsii.String("type"),
 //
@@ -759,7 +762,10 @@ func (c *jsiiProxy_CfnDataCatalog) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnDataCatalog`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import athena "github.com/aws/aws-cdk-go/awscdk/aws_athena"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDataCatalogProps := &cfnDataCatalogProps{
 //   	name: jsii.String("name"),
 //   	type: jsii.String("type"),
@@ -781,11 +787,11 @@ type CfnDataCatalogProps struct {
 	// The name of the data catalog.
 	//
 	// The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The type of data catalog: `LAMBDA` for a federated catalog, `GLUE` for AWS Glue Catalog, or `HIVE` for an external hive metastore.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// A description of the data catalog.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Specifies the Lambda function or functions to use for the data catalog.
 	//
 	// The mapping used depends on the catalog type.
@@ -808,9 +814,9 @@ type CfnDataCatalogProps struct {
 	// - The `GLUE` data catalog type also applies to the default `AwsDataCatalog` that already exists in your account, of which you can have only one and cannot modify.
 	// - Queries that specify a GLUE data catalog other than the default `AwsDataCatalog` must be run on Athena engine version 2.
 	// - In Regions where Athena engine version 2 is not available, creating new GLUE data catalogs results in an `INVALID_INPUT` error.
-	Parameters interface{} `json:"parameters" yaml:"parameters"`
+	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// The tags (key-value pairs) to associate with this resource.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Athena::NamedQuery`.
@@ -818,8 +824,11 @@ type CfnDataCatalogProps struct {
 // The `AWS::Athena::NamedQuery` resource specifies an Amazon Athena saved query, where `QueryString` contains the SQL query statements that make up the query.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import athena "github.com/aws/aws-cdk-go/awscdk/aws_athena"
-//   cfnNamedQuery := athena.NewCfnNamedQuery(this, jsii.String("MyCfnNamedQuery"), &cfnNamedQueryProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnNamedQuery := awscdk.Aws_athena.NewCfnNamedQuery(this, jsii.String("MyCfnNamedQuery"), &cfnNamedQueryProps{
 //   	database: jsii.String("database"),
 //   	queryString: jsii.String("queryString"),
 //
@@ -1554,7 +1563,10 @@ func (c *jsiiProxy_CfnNamedQuery) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnNamedQuery`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import athena "github.com/aws/aws-cdk-go/awscdk/aws_athena"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnNamedQueryProps := &cfnNamedQueryProps{
 //   	database: jsii.String("database"),
 //   	queryString: jsii.String("queryString"),
@@ -1567,15 +1579,15 @@ func (c *jsiiProxy_CfnNamedQuery) ValidateProperties(_properties interface{}) {
 //
 type CfnNamedQueryProps struct {
 	// The database to which the query belongs.
-	Database *string `json:"database" yaml:"database"`
+	Database *string `field:"required" json:"database" yaml:"database"`
 	// The SQL statements that make up the query.
-	QueryString *string `json:"queryString" yaml:"queryString"`
+	QueryString *string `field:"required" json:"queryString" yaml:"queryString"`
 	// The query description.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The query name.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The name of the workgroup that contains the named query.
-	WorkGroup *string `json:"workGroup" yaml:"workGroup"`
+	WorkGroup *string `field:"optional" json:"workGroup" yaml:"workGroup"`
 }
 
 // A CloudFormation `AWS::Athena::PreparedStatement`.
@@ -1583,8 +1595,11 @@ type CfnNamedQueryProps struct {
 // Specifies a prepared statement for use with SQL queries in Athena.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import athena "github.com/aws/aws-cdk-go/awscdk/aws_athena"
-//   cfnPreparedStatement := athena.NewCfnPreparedStatement(this, jsii.String("MyCfnPreparedStatement"), &cfnPreparedStatementProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnPreparedStatement := awscdk.Aws_athena.NewCfnPreparedStatement(this, jsii.String("MyCfnPreparedStatement"), &cfnPreparedStatementProps{
 //   	queryStatement: jsii.String("queryStatement"),
 //   	statementName: jsii.String("statementName"),
 //   	workGroup: jsii.String("workGroup"),
@@ -2285,7 +2300,10 @@ func (c *jsiiProxy_CfnPreparedStatement) ValidateProperties(_properties interfac
 // Properties for defining a `CfnPreparedStatement`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import athena "github.com/aws/aws-cdk-go/awscdk/aws_athena"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnPreparedStatementProps := &cfnPreparedStatementProps{
 //   	queryStatement: jsii.String("queryStatement"),
 //   	statementName: jsii.String("statementName"),
@@ -2297,13 +2315,13 @@ func (c *jsiiProxy_CfnPreparedStatement) ValidateProperties(_properties interfac
 //
 type CfnPreparedStatementProps struct {
 	// The query string for the prepared statement.
-	QueryStatement *string `json:"queryStatement" yaml:"queryStatement"`
+	QueryStatement *string `field:"required" json:"queryStatement" yaml:"queryStatement"`
 	// The name of the prepared statement.
-	StatementName *string `json:"statementName" yaml:"statementName"`
+	StatementName *string `field:"required" json:"statementName" yaml:"statementName"`
 	// The workgroup to which the prepared statement belongs.
-	WorkGroup *string `json:"workGroup" yaml:"workGroup"`
+	WorkGroup *string `field:"required" json:"workGroup" yaml:"workGroup"`
 	// The description of the prepared statement.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 
 // A CloudFormation `AWS::Athena::WorkGroup`.
@@ -2311,8 +2329,11 @@ type CfnPreparedStatementProps struct {
 // The AWS::Athena::WorkGroup resource specifies an Amazon Athena workgroup, which contains a name, description, creation time, state, and other configuration, listed under `WorkGroupConfiguration` . Each workgroup enables you to isolate queries for you or your group from other queries in the same account. For more information, see [CreateWorkGroup](https://docs.aws.amazon.com/athena/latest/APIReference/API_CreateWorkGroup.html) in the *Amazon Athena API Reference* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import athena "github.com/aws/aws-cdk-go/awscdk/aws_athena"
-//   cfnWorkGroup := athena.NewCfnWorkGroup(this, jsii.String("MyCfnWorkGroup"), &cfnWorkGroupProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnWorkGroup := awscdk.Aws_athena.NewCfnWorkGroup(this, jsii.String("MyCfnWorkGroup"), &cfnWorkGroupProps{
 //   	name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -3100,7 +3121,10 @@ func (c *jsiiProxy_CfnWorkGroup) ValidateProperties(_properties interface{}) {
 // If query results are encrypted in Amazon S3, indicates the encryption option used (for example, `SSE_KMS` or `CSE_KMS` ) and key information.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import athena "github.com/aws/aws-cdk-go/awscdk/aws_athena"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   encryptionConfigurationProperty := &encryptionConfigurationProperty{
 //   	encryptionOption: jsii.String("encryptionOption"),
 //
@@ -3112,15 +3136,18 @@ type CfnWorkGroup_EncryptionConfigurationProperty struct {
 	// Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys ( `SSE_S3` ), server-side encryption with KMS-managed keys ( `SSE_KMS` ), or client-side encryption with KMS-managed keys ( `CSE_KMS` ) is used.
 	//
 	// If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
-	EncryptionOption *string `json:"encryptionOption" yaml:"encryptionOption"`
+	EncryptionOption *string `field:"required" json:"encryptionOption" yaml:"encryptionOption"`
 	// For `SSE_KMS` and `CSE_KMS` , this is the KMS key ARN or ID.
-	KmsKey *string `json:"kmsKey" yaml:"kmsKey"`
+	KmsKey *string `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 }
 
 // The Athena engine version for running queries.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import athena "github.com/aws/aws-cdk-go/awscdk/aws_athena"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   engineVersionProperty := &engineVersionProperty{
 //   	effectiveEngineVersion: jsii.String("effectiveEngineVersion"),
 //   	selectedEngineVersion: jsii.String("selectedEngineVersion"),
@@ -3130,11 +3157,11 @@ type CfnWorkGroup_EngineVersionProperty struct {
 	// Read only.
 	//
 	// The engine version on which the query runs. If the user requests a valid engine version other than Auto, the effective engine version is the same as the engine version that the user requested. If the user requests Auto, the effective engine version is chosen by Athena. When a request to update the engine version is made by a `CreateWorkGroup` or `UpdateWorkGroup` operation, the `EffectiveEngineVersion` field is ignored.
-	EffectiveEngineVersion *string `json:"effectiveEngineVersion" yaml:"effectiveEngineVersion"`
+	EffectiveEngineVersion *string `field:"optional" json:"effectiveEngineVersion" yaml:"effectiveEngineVersion"`
 	// The engine version requested by the user.
 	//
 	// Possible values are determined by the output of `ListEngineVersions` , including Auto. The default is Auto.
-	SelectedEngineVersion *string `json:"selectedEngineVersion" yaml:"selectedEngineVersion"`
+	SelectedEngineVersion *string `field:"optional" json:"selectedEngineVersion" yaml:"selectedEngineVersion"`
 }
 
 // The location in Amazon S3 where query results are stored and the encryption option, if any, used for query results.
@@ -3142,7 +3169,10 @@ type CfnWorkGroup_EngineVersionProperty struct {
 // These are known as "client-side settings". If workgroup settings override client-side settings, then the query uses the workgroup settings.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import athena "github.com/aws/aws-cdk-go/awscdk/aws_athena"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   resultConfigurationProperty := &resultConfigurationProperty{
 //   	encryptionConfiguration: &encryptionConfigurationProperty{
 //   		encryptionOption: jsii.String("encryptionOption"),
@@ -3157,11 +3187,11 @@ type CfnWorkGroup_ResultConfigurationProperty struct {
 	// If query results are encrypted in Amazon S3, indicates the encryption option used (for example, `SSE_KMS` or `CSE_KMS` ) and key information.
 	//
 	// This is a client-side setting. If workgroup settings override client-side settings, then the query uses the encryption configuration that is specified for the workgroup, and also uses the location for storing query results specified in the workgroup. See `EnforceWorkGroupConfiguration` and [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
-	EncryptionConfiguration interface{} `json:"encryptionConfiguration" yaml:"encryptionConfiguration"`
+	EncryptionConfiguration interface{} `field:"optional" json:"encryptionConfiguration" yaml:"encryptionConfiguration"`
 	// The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/` .
 	//
 	// To run a query, you must specify the query results location using either a client-side setting for individual queries or a location specified by the workgroup. If workgroup settings override client-side settings, then the query uses the location specified for the workgroup. If no query location is set, Athena issues an error. For more information, see [Working with Query Results, Output Files, and Query History](https://docs.aws.amazon.com/athena/latest/ug/querying.html) and `EnforceWorkGroupConfiguration` .
-	OutputLocation *string `json:"outputLocation" yaml:"outputLocation"`
+	OutputLocation *string `field:"optional" json:"outputLocation" yaml:"outputLocation"`
 }
 
 // The configuration of the workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether Amazon CloudWatch Metrics are enabled for the workgroup, and the limit for the amount of bytes scanned (cutoff) per query, if it is specified.
@@ -3169,7 +3199,10 @@ type CfnWorkGroup_ResultConfigurationProperty struct {
 // The `EnforceWorkGroupConfiguration` option determines whether workgroup settings override client-side query settings.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import athena "github.com/aws/aws-cdk-go/awscdk/aws_athena"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   workGroupConfigurationProperty := &workGroupConfigurationProperty{
 //   	bytesScannedCutoffPerQuery: jsii.Number(123),
 //   	enforceWorkGroupConfiguration: jsii.Boolean(false),
@@ -3196,31 +3229,34 @@ type CfnWorkGroup_WorkGroupConfigurationProperty struct {
 	// No default is defined.
 	//
 	// > This property currently supports integer types. Support for long values is planned.
-	BytesScannedCutoffPerQuery *float64 `json:"bytesScannedCutoffPerQuery" yaml:"bytesScannedCutoffPerQuery"`
+	BytesScannedCutoffPerQuery *float64 `field:"optional" json:"bytesScannedCutoffPerQuery" yaml:"bytesScannedCutoffPerQuery"`
 	// If set to "true", the settings for the workgroup override client-side settings.
 	//
 	// If set to "false", client-side settings are used. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
-	EnforceWorkGroupConfiguration interface{} `json:"enforceWorkGroupConfiguration" yaml:"enforceWorkGroupConfiguration"`
+	EnforceWorkGroupConfiguration interface{} `field:"optional" json:"enforceWorkGroupConfiguration" yaml:"enforceWorkGroupConfiguration"`
 	// The engine version that all queries running on the workgroup use.
 	//
 	// Queries on the `AmazonAthenaPreviewFunctionality` workgroup run on the preview engine regardless of this setting.
-	EngineVersion interface{} `json:"engineVersion" yaml:"engineVersion"`
+	EngineVersion interface{} `field:"optional" json:"engineVersion" yaml:"engineVersion"`
 	// Indicates that the Amazon CloudWatch metrics are enabled for the workgroup.
-	PublishCloudWatchMetricsEnabled interface{} `json:"publishCloudWatchMetricsEnabled" yaml:"publishCloudWatchMetricsEnabled"`
+	PublishCloudWatchMetricsEnabled interface{} `field:"optional" json:"publishCloudWatchMetricsEnabled" yaml:"publishCloudWatchMetricsEnabled"`
 	// If set to `true` , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries.
 	//
 	// If set to `false` , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is `false` . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the *Amazon Simple Storage Service Developer Guide* .
-	RequesterPaysEnabled interface{} `json:"requesterPaysEnabled" yaml:"requesterPaysEnabled"`
+	RequesterPaysEnabled interface{} `field:"optional" json:"requesterPaysEnabled" yaml:"requesterPaysEnabled"`
 	// Specifies the location in Amazon S3 where query results are stored and the encryption option, if any, used for query results.
 	//
 	// For more information, see [Working with Query Results, Output Files, and Query History](https://docs.aws.amazon.com/athena/latest/ug/querying.html) .
-	ResultConfiguration interface{} `json:"resultConfiguration" yaml:"resultConfiguration"`
+	ResultConfiguration interface{} `field:"optional" json:"resultConfiguration" yaml:"resultConfiguration"`
 }
 
 // Properties for defining a `CfnWorkGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import athena "github.com/aws/aws-cdk-go/awscdk/aws_athena"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnWorkGroupProps := &cfnWorkGroupProps{
 //   	name: jsii.String("name"),
 //
@@ -3257,20 +3293,20 @@ type CfnWorkGroup_WorkGroupConfigurationProperty struct {
 //
 type CfnWorkGroupProps struct {
 	// The workgroup name.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The workgroup description.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The option to delete a workgroup and its contents even if the workgroup contains any named queries.
 	//
 	// The default is false.
-	RecursiveDeleteOption interface{} `json:"recursiveDeleteOption" yaml:"recursiveDeleteOption"`
+	RecursiveDeleteOption interface{} `field:"optional" json:"recursiveDeleteOption" yaml:"recursiveDeleteOption"`
 	// The state of the workgroup: ENABLED or DISABLED.
-	State *string `json:"state" yaml:"state"`
+	State *string `field:"optional" json:"state" yaml:"state"`
 	// The tags (key-value pairs) to associate with this resource.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The configuration of the workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether Amazon CloudWatch Metrics are enabled for the workgroup, and the limit for the amount of bytes scanned (cutoff) per query, if it is specified.
 	//
 	// The `EnforceWorkGroupConfiguration` option determines whether workgroup settings override client-side query settings.
-	WorkGroupConfiguration interface{} `json:"workGroupConfiguration" yaml:"workGroupConfiguration"`
+	WorkGroupConfiguration interface{} `field:"optional" json:"workGroupConfiguration" yaml:"workGroupConfiguration"`
 }
 

@@ -16,8 +16,11 @@ import (
 // > The term *principal* here refers to a user or group that is defined in AWS SSO .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sso "github.com/aws/aws-cdk-go/awscdk/aws_sso"
-//   cfnAssignment := sso.NewCfnAssignment(this, jsii.String("MyCfnAssignment"), &cfnAssignmentProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnAssignment := awscdk.Aws_sso.NewCfnAssignment(this, jsii.String("MyCfnAssignment"), &cfnAssignmentProps{
 //   	instanceArn: jsii.String("instanceArn"),
 //   	permissionSetArn: jsii.String("permissionSetArn"),
 //   	principalId: jsii.String("principalId"),
@@ -764,7 +767,10 @@ func (c *jsiiProxy_CfnAssignment) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnAssignment`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sso "github.com/aws/aws-cdk-go/awscdk/aws_sso"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAssignmentProps := &cfnAssignmentProps{
 //   	instanceArn: jsii.String("instanceArn"),
 //   	permissionSetArn: jsii.String("permissionSetArn"),
@@ -778,19 +784,19 @@ type CfnAssignmentProps struct {
 	// The ARN of the SSO instance under which the operation will be executed.
 	//
 	// For more information about ARNs, see [Amazon Resource Names (ARNs) and AWS Service Namespaces](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) in the *AWS General Reference* .
-	InstanceArn *string `json:"instanceArn" yaml:"instanceArn"`
+	InstanceArn *string `field:"required" json:"instanceArn" yaml:"instanceArn"`
 	// The ARN of the permission set.
-	PermissionSetArn *string `json:"permissionSetArn" yaml:"permissionSetArn"`
+	PermissionSetArn *string `field:"required" json:"permissionSetArn" yaml:"permissionSetArn"`
 	// An identifier for an object in AWS SSO , such as a user or group.
 	//
 	// PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in AWS SSO , see the [AWS SSO Identity Store API Reference](https://docs.aws.amazon.com//singlesignon/latest/IdentityStoreAPIReference/welcome.html) .
-	PrincipalId *string `json:"principalId" yaml:"principalId"`
+	PrincipalId *string `field:"required" json:"principalId" yaml:"principalId"`
 	// The entity type for which the assignment will be created.
-	PrincipalType *string `json:"principalType" yaml:"principalType"`
+	PrincipalType *string `field:"required" json:"principalType" yaml:"principalType"`
 	// TargetID is an AWS account identifier, typically a 10-12 digit string (For example, 123456789012).
-	TargetId *string `json:"targetId" yaml:"targetId"`
+	TargetId *string `field:"required" json:"targetId" yaml:"targetId"`
 	// The entity type for which the assignment will be created.
-	TargetType *string `json:"targetType" yaml:"targetType"`
+	TargetType *string `field:"required" json:"targetType" yaml:"targetType"`
 }
 
 // A CloudFormation `AWS::SSO::InstanceAccessControlAttributeConfiguration`.
@@ -800,8 +806,11 @@ type CfnAssignmentProps struct {
 // > The `InstanceAccessControlAttributeConfiguration` property has been deprecated but is still supported for backwards compatibility purposes. We recommend that you use the `AccessControlAttributes` property instead.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sso "github.com/aws/aws-cdk-go/awscdk/aws_sso"
-//   cfnInstanceAccessControlAttributeConfiguration := sso.NewCfnInstanceAccessControlAttributeConfiguration(this, jsii.String("MyCfnInstanceAccessControlAttributeConfiguration"), &cfnInstanceAccessControlAttributeConfigurationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnInstanceAccessControlAttributeConfiguration := awscdk.Aws_sso.NewCfnInstanceAccessControlAttributeConfiguration(this, jsii.String("MyCfnInstanceAccessControlAttributeConfiguration"), &cfnInstanceAccessControlAttributeConfigurationProps{
 //   	instanceArn: jsii.String("instanceArn"),
 //
 //   	// the properties below are optional
@@ -1469,7 +1478,10 @@ func (c *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration) ValidatePrope
 // You can create permissions policies that determine who can access your AWS resources based upon the configured attribute values. When you enable ABAC and specify `AccessControlAttributes` , AWS SSO passes the attribute values of the authenticated user into IAM for use in policy evaluation.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sso "github.com/aws/aws-cdk-go/awscdk/aws_sso"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   accessControlAttributeProperty := &accessControlAttributeProperty{
 //   	key: jsii.String("key"),
 //   	value: &accessControlAttributeValueProperty{
@@ -1483,15 +1495,18 @@ type CfnInstanceAccessControlAttributeConfiguration_AccessControlAttributeProper
 	// The name of the attribute associated with your identities in your identity source.
 	//
 	// This is used to map a specified attribute in your identity source with an attribute in AWS SSO .
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// The value used for mapping a specified attribute to an identity source.
-	Value interface{} `json:"value" yaml:"value"`
+	Value interface{} `field:"required" json:"value" yaml:"value"`
 }
 
 // The value used for mapping a specified attribute to an identity source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sso "github.com/aws/aws-cdk-go/awscdk/aws_sso"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   accessControlAttributeValueProperty := &accessControlAttributeValueProperty{
 //   	source: []*string{
 //   		jsii.String("source"),
@@ -1500,13 +1515,16 @@ type CfnInstanceAccessControlAttributeConfiguration_AccessControlAttributeProper
 //
 type CfnInstanceAccessControlAttributeConfiguration_AccessControlAttributeValueProperty struct {
 	// The identity source to use when mapping a specified attribute to AWS SSO .
-	Source *[]*string `json:"source" yaml:"source"`
+	Source *[]*string `field:"required" json:"source" yaml:"source"`
 }
 
 // Properties for defining a `CfnInstanceAccessControlAttributeConfiguration`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sso "github.com/aws/aws-cdk-go/awscdk/aws_sso"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnInstanceAccessControlAttributeConfigurationProps := &cfnInstanceAccessControlAttributeConfigurationProps{
 //   	instanceArn: jsii.String("instanceArn"),
 //
@@ -1525,9 +1543,9 @@ type CfnInstanceAccessControlAttributeConfiguration_AccessControlAttributeValueP
 //
 type CfnInstanceAccessControlAttributeConfigurationProps struct {
 	// The ARN of the AWS SSO instance under which the operation will be executed.
-	InstanceArn *string `json:"instanceArn" yaml:"instanceArn"`
+	InstanceArn *string `field:"required" json:"instanceArn" yaml:"instanceArn"`
 	// Lists the attributes that are configured for ABAC in the specified AWS SSO instance.
-	AccessControlAttributes interface{} `json:"accessControlAttributes" yaml:"accessControlAttributes"`
+	AccessControlAttributes interface{} `field:"optional" json:"accessControlAttributes" yaml:"accessControlAttributes"`
 }
 
 // A CloudFormation `AWS::SSO::PermissionSet`.
@@ -1535,10 +1553,13 @@ type CfnInstanceAccessControlAttributeConfigurationProps struct {
 // Specifies a permission set within a specified SSO instance.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sso "github.com/aws/aws-cdk-go/awscdk/aws_sso"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var inlinePolicy interface{}
-//   cfnPermissionSet := sso.NewCfnPermissionSet(this, jsii.String("MyCfnPermissionSet"), &cfnPermissionSetProps{
+//
+//   cfnPermissionSet := awscdk.Aws_sso.NewCfnPermissionSet(this, jsii.String("MyCfnPermissionSet"), &cfnPermissionSetProps{
 //   	instanceArn: jsii.String("instanceArn"),
 //   	name: jsii.String("name"),
 //
@@ -2339,9 +2360,12 @@ func (c *jsiiProxy_CfnPermissionSet) ValidateProperties(_properties interface{})
 // Properties for defining a `CfnPermissionSet`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sso "github.com/aws/aws-cdk-go/awscdk/aws_sso"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var inlinePolicy interface{}
+//
 //   cfnPermissionSetProps := &cfnPermissionSetProps{
 //   	instanceArn: jsii.String("instanceArn"),
 //   	name: jsii.String("name"),
@@ -2366,20 +2390,20 @@ type CfnPermissionSetProps struct {
 	// The ARN of the SSO instance under which the operation will be executed.
 	//
 	// For more information about ARNs, see [Amazon Resource Names (ARNs) and AWS Service Namespaces](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) in the *AWS General Reference* .
-	InstanceArn *string `json:"instanceArn" yaml:"instanceArn"`
+	InstanceArn *string `field:"required" json:"instanceArn" yaml:"instanceArn"`
 	// The name of the permission set.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The description of the `PermissionSet` .
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The IAM inline policy that is attached to the permission set.
-	InlinePolicy interface{} `json:"inlinePolicy" yaml:"inlinePolicy"`
+	InlinePolicy interface{} `field:"optional" json:"inlinePolicy" yaml:"inlinePolicy"`
 	// A structure that stores the details of the IAM managed policy.
-	ManagedPolicies *[]*string `json:"managedPolicies" yaml:"managedPolicies"`
+	ManagedPolicies *[]*string `field:"optional" json:"managedPolicies" yaml:"managedPolicies"`
 	// Used to redirect users within the application during the federation authentication process.
-	RelayStateType *string `json:"relayStateType" yaml:"relayStateType"`
+	RelayStateType *string `field:"optional" json:"relayStateType" yaml:"relayStateType"`
 	// The length of time that the application user sessions are valid for in the ISO-8601 standard.
-	SessionDuration *string `json:"sessionDuration" yaml:"sessionDuration"`
+	SessionDuration *string `field:"optional" json:"sessionDuration" yaml:"sessionDuration"`
 	// The tags to attach to the new `PermissionSet` .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

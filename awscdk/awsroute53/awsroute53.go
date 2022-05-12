@@ -19,6 +19,7 @@ import (
 //   var zone hostedZone
 //   var restApi lambdaRestApi
 //
+//
 //   route53.NewARecord(this, jsii.String("AliasRecord"), &aRecordProps{
 //   	zone: zone,
 //   	target: route53.recordTarget.fromAlias(targets.NewApiGateway(restApi)),
@@ -378,6 +379,7 @@ func (a *jsiiProxy_ARecord) Validate() *[]*string {
 //   var zone hostedZone
 //   var restApi lambdaRestApi
 //
+//
 //   route53.NewARecord(this, jsii.String("AliasRecord"), &aRecordProps{
 //   	zone: zone,
 //   	target: route53.recordTarget.fromAlias(targets.NewApiGateway(restApi)),
@@ -387,19 +389,19 @@ func (a *jsiiProxy_ARecord) Validate() *[]*string {
 type ARecordProps struct {
 	// The hosted zone in which to define the new record.
 	// Experimental.
-	Zone IHostedZone `json:"zone" yaml:"zone"`
+	Zone IHostedZone `field:"required" json:"zone" yaml:"zone"`
 	// A comment to add on the record.
 	// Experimental.
-	Comment *string `json:"comment" yaml:"comment"`
+	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// The domain name for this record.
 	// Experimental.
-	RecordName *string `json:"recordName" yaml:"recordName"`
+	RecordName *string `field:"optional" json:"recordName" yaml:"recordName"`
 	// The resource record cache time to live (TTL).
 	// Experimental.
-	Ttl awscdk.Duration `json:"ttl" yaml:"ttl"`
+	Ttl awscdk.Duration `field:"optional" json:"ttl" yaml:"ttl"`
 	// The target.
 	// Experimental.
-	Target RecordTarget `json:"target" yaml:"target"`
+	Target RecordTarget `field:"required" json:"target" yaml:"target"`
 }
 
 // A DNS AAAA record.
@@ -409,6 +411,7 @@ type ARecordProps struct {
 //
 //   var myZone hostedZone
 //   var distribution cloudFrontWebDistribution
+//
 //   route53.NewAaaaRecord(this, jsii.String("Alias"), &aaaaRecordProps{
 //   	zone: myZone,
 //   	target: route53.recordTarget.fromAlias(targets.NewCloudFrontTarget(distribution)),
@@ -767,6 +770,7 @@ func (a *jsiiProxy_AaaaRecord) Validate() *[]*string {
 //
 //   var myZone hostedZone
 //   var distribution cloudFrontWebDistribution
+//
 //   route53.NewAaaaRecord(this, jsii.String("Alias"), &aaaaRecordProps{
 //   	zone: myZone,
 //   	target: route53.recordTarget.fromAlias(targets.NewCloudFrontTarget(distribution)),
@@ -776,28 +780,31 @@ func (a *jsiiProxy_AaaaRecord) Validate() *[]*string {
 type AaaaRecordProps struct {
 	// The hosted zone in which to define the new record.
 	// Experimental.
-	Zone IHostedZone `json:"zone" yaml:"zone"`
+	Zone IHostedZone `field:"required" json:"zone" yaml:"zone"`
 	// A comment to add on the record.
 	// Experimental.
-	Comment *string `json:"comment" yaml:"comment"`
+	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// The domain name for this record.
 	// Experimental.
-	RecordName *string `json:"recordName" yaml:"recordName"`
+	RecordName *string `field:"optional" json:"recordName" yaml:"recordName"`
 	// The resource record cache time to live (TTL).
 	// Experimental.
-	Ttl awscdk.Duration `json:"ttl" yaml:"ttl"`
+	Ttl awscdk.Duration `field:"optional" json:"ttl" yaml:"ttl"`
 	// The target.
 	// Experimental.
-	Target RecordTarget `json:"target" yaml:"target"`
+	Target RecordTarget `field:"required" json:"target" yaml:"target"`
 }
 
 // Target for a DNS A Record.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var aliasRecordTarget iAliasRecordTarget
-//   addressRecordTarget := route53.addressRecordTarget.fromAlias(aliasRecordTarget)
+//
+//   addressRecordTarget := awscdk.Aws_route53.addressRecordTarget.fromAlias(aliasRecordTarget)
 //
 // Deprecated: Use RecordTarget.
 type AddressRecordTarget interface {
@@ -926,7 +933,10 @@ func AddressRecordTarget_FromValues(values ...*string) RecordTarget {
 // Represents the properties of an alias target destination.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   aliasRecordTargetConfig := &aliasRecordTargetConfig{
 //   	dnsName: jsii.String("dnsName"),
 //   	hostedZoneId: jsii.String("hostedZoneId"),
@@ -936,10 +946,10 @@ func AddressRecordTarget_FromValues(values ...*string) RecordTarget {
 type AliasRecordTargetConfig struct {
 	// DNS name of the target.
 	// Experimental.
-	DnsName *string `json:"dnsName" yaml:"dnsName"`
+	DnsName *string `field:"required" json:"dnsName" yaml:"dnsName"`
 	// Hosted zone ID of the target.
 	// Experimental.
-	HostedZoneId *string `json:"hostedZoneId" yaml:"hostedZoneId"`
+	HostedZoneId *string `field:"required" json:"hostedZoneId" yaml:"hostedZoneId"`
 }
 
 // A DNS Amazon CAA record.
@@ -948,11 +958,15 @@ type AliasRecordTargetConfig struct {
 // to issue certificates for a domain to Amazon only.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var hostedZone hostedZone
-//   caaAmazonRecord := route53.NewCaaAmazonRecord(this, jsii.String("MyCaaAmazonRecord"), &caaAmazonRecordProps{
+//
+//   caaAmazonRecord := awscdk.Aws_route53.NewCaaAmazonRecord(this, jsii.String("MyCaaAmazonRecord"), &caaAmazonRecordProps{
 //   	zone: hostedZone,
 //
 //   	// the properties below are optional
@@ -1310,10 +1324,14 @@ func (c *jsiiProxy_CaaAmazonRecord) Validate() *[]*string {
 // Construction properties for a CaaAmazonRecord.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var hostedZone hostedZone
+//
 //   caaAmazonRecordProps := &caaAmazonRecordProps{
 //   	zone: hostedZone,
 //
@@ -1327,30 +1345,34 @@ func (c *jsiiProxy_CaaAmazonRecord) Validate() *[]*string {
 type CaaAmazonRecordProps struct {
 	// The hosted zone in which to define the new record.
 	// Experimental.
-	Zone IHostedZone `json:"zone" yaml:"zone"`
+	Zone IHostedZone `field:"required" json:"zone" yaml:"zone"`
 	// A comment to add on the record.
 	// Experimental.
-	Comment *string `json:"comment" yaml:"comment"`
+	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// The domain name for this record.
 	// Experimental.
-	RecordName *string `json:"recordName" yaml:"recordName"`
+	RecordName *string `field:"optional" json:"recordName" yaml:"recordName"`
 	// The resource record cache time to live (TTL).
 	// Experimental.
-	Ttl awscdk.Duration `json:"ttl" yaml:"ttl"`
+	Ttl awscdk.Duration `field:"optional" json:"ttl" yaml:"ttl"`
 }
 
 // A DNS CAA record.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var hostedZone hostedZone
-//   caaRecord := route53.NewCaaRecord(this, jsii.String("MyCaaRecord"), &caaRecordProps{
+//
+//   caaRecord := awscdk.Aws_route53.NewCaaRecord(this, jsii.String("MyCaaRecord"), &caaRecordProps{
 //   	values: []caaRecordValue{
 //   		&caaRecordValue{
 //   			flag: jsii.Number(123),
-//   			tag: route53.caaTag_ISSUE,
+//   			tag: awscdk.*Aws_route53.caaTag_ISSUE,
 //   			value: jsii.String("value"),
 //   		},
 //   	},
@@ -1711,15 +1733,19 @@ func (c *jsiiProxy_CaaRecord) Validate() *[]*string {
 // Construction properties for a CaaRecord.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var hostedZone hostedZone
+//
 //   caaRecordProps := &caaRecordProps{
 //   	values: []caaRecordValue{
 //   		&caaRecordValue{
 //   			flag: jsii.Number(123),
-//   			tag: route53.caaTag_ISSUE,
+//   			tag: awscdk.Aws_route53.caaTag_ISSUE,
 //   			value: jsii.String("value"),
 //   		},
 //   	},
@@ -1735,28 +1761,31 @@ func (c *jsiiProxy_CaaRecord) Validate() *[]*string {
 type CaaRecordProps struct {
 	// The hosted zone in which to define the new record.
 	// Experimental.
-	Zone IHostedZone `json:"zone" yaml:"zone"`
+	Zone IHostedZone `field:"required" json:"zone" yaml:"zone"`
 	// A comment to add on the record.
 	// Experimental.
-	Comment *string `json:"comment" yaml:"comment"`
+	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// The domain name for this record.
 	// Experimental.
-	RecordName *string `json:"recordName" yaml:"recordName"`
+	RecordName *string `field:"optional" json:"recordName" yaml:"recordName"`
 	// The resource record cache time to live (TTL).
 	// Experimental.
-	Ttl awscdk.Duration `json:"ttl" yaml:"ttl"`
+	Ttl awscdk.Duration `field:"optional" json:"ttl" yaml:"ttl"`
 	// The values.
 	// Experimental.
-	Values *[]*CaaRecordValue `json:"values" yaml:"values"`
+	Values *[]*CaaRecordValue `field:"required" json:"values" yaml:"values"`
 }
 
 // Properties for a CAA record value.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   caaRecordValue := &caaRecordValue{
 //   	flag: jsii.Number(123),
-//   	tag: route53.caaTag_ISSUE,
+//   	tag: awscdk.Aws_route53.caaTag_ISSUE,
 //   	value: jsii.String("value"),
 //   }
 //
@@ -1764,13 +1793,13 @@ type CaaRecordProps struct {
 type CaaRecordValue struct {
 	// The flag.
 	// Experimental.
-	Flag *float64 `json:"flag" yaml:"flag"`
+	Flag *float64 `field:"required" json:"flag" yaml:"flag"`
 	// The tag.
 	// Experimental.
-	Tag CaaTag `json:"tag" yaml:"tag"`
+	Tag CaaTag `field:"required" json:"tag" yaml:"tag"`
 	// The value associated with the tag.
 	// Experimental.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // The CAA tag.
@@ -1794,8 +1823,11 @@ const (
 // The `AWS::Route53::DNSSEC` resource is used to enable DNSSEC signing in a hosted zone.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
-//   cfnDNSSEC := route53.NewCfnDNSSEC(this, jsii.String("MyCfnDNSSEC"), &cfnDNSSECProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDNSSEC := awscdk.Aws_route53.NewCfnDNSSEC(this, jsii.String("MyCfnDNSSEC"), &cfnDNSSECProps{
 //   	hostedZoneId: jsii.String("hostedZoneId"),
 //   })
 //
@@ -2430,7 +2462,10 @@ func (c *jsiiProxy_CfnDNSSEC) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnDNSSEC`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDNSSECProps := &cfnDNSSECProps{
 //   	hostedZoneId: jsii.String("hostedZoneId"),
 //   }
@@ -2439,7 +2474,7 @@ type CfnDNSSECProps struct {
 	// A unique string (ID) that is used to identify a hosted zone.
 	//
 	// For example: `Z00001111A1ABCaaABC11` .
-	HostedZoneId *string `json:"hostedZoneId" yaml:"hostedZoneId"`
+	HostedZoneId *string `field:"required" json:"hostedZoneId" yaml:"hostedZoneId"`
 }
 
 // A CloudFormation `AWS::Route53::HealthCheck`.
@@ -2463,8 +2498,11 @@ type CfnDNSSECProps struct {
 // - You can create a CloudWatch metric, associate an alarm with the metric, and then create a health check that is based on the state of the alarm. For example, you might create a CloudWatch metric that checks the status of the Amazon EC2 `StatusCheckFailed` metric, add an alarm to the metric, and then create a health check that is based on the state of the alarm. For information about creating CloudWatch metrics and alarms by using the CloudWatch console, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatch.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
-//   cfnHealthCheck := route53.NewCfnHealthCheck(this, jsii.String("MyCfnHealthCheck"), &cfnHealthCheckProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnHealthCheck := awscdk.Aws_route53.NewCfnHealthCheck(this, jsii.String("MyCfnHealthCheck"), &cfnHealthCheckProps{
 //   	healthCheckConfig: &healthCheckConfigProperty{
 //   		type: jsii.String("type"),
 //
@@ -3167,7 +3205,10 @@ func (c *jsiiProxy_CfnHealthCheck) ValidateProperties(_properties interface{}) {
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   alarmIdentifierProperty := &alarmIdentifierProperty{
 //   	name: jsii.String("name"),
 //   	region: jsii.String("region"),
@@ -3175,13 +3216,16 @@ func (c *jsiiProxy_CfnHealthCheck) ValidateProperties(_properties interface{}) {
 //
 type CfnHealthCheck_AlarmIdentifierProperty struct {
 	// `CfnHealthCheck.AlarmIdentifierProperty.Name`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// `CfnHealthCheck.AlarmIdentifierProperty.Region`.
-	Region *string `json:"region" yaml:"region"`
+	Region *string `field:"required" json:"region" yaml:"region"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   healthCheckConfigProperty := &healthCheckConfigProperty{
 //   	type: jsii.String("type"),
 //
@@ -3213,45 +3257,48 @@ type CfnHealthCheck_AlarmIdentifierProperty struct {
 //
 type CfnHealthCheck_HealthCheckConfigProperty struct {
 	// `CfnHealthCheck.HealthCheckConfigProperty.Type`.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// `CfnHealthCheck.HealthCheckConfigProperty.AlarmIdentifier`.
-	AlarmIdentifier interface{} `json:"alarmIdentifier" yaml:"alarmIdentifier"`
+	AlarmIdentifier interface{} `field:"optional" json:"alarmIdentifier" yaml:"alarmIdentifier"`
 	// `CfnHealthCheck.HealthCheckConfigProperty.ChildHealthChecks`.
-	ChildHealthChecks *[]*string `json:"childHealthChecks" yaml:"childHealthChecks"`
+	ChildHealthChecks *[]*string `field:"optional" json:"childHealthChecks" yaml:"childHealthChecks"`
 	// `CfnHealthCheck.HealthCheckConfigProperty.EnableSNI`.
-	EnableSni interface{} `json:"enableSni" yaml:"enableSni"`
+	EnableSni interface{} `field:"optional" json:"enableSni" yaml:"enableSni"`
 	// `CfnHealthCheck.HealthCheckConfigProperty.FailureThreshold`.
-	FailureThreshold *float64 `json:"failureThreshold" yaml:"failureThreshold"`
+	FailureThreshold *float64 `field:"optional" json:"failureThreshold" yaml:"failureThreshold"`
 	// `CfnHealthCheck.HealthCheckConfigProperty.FullyQualifiedDomainName`.
-	FullyQualifiedDomainName *string `json:"fullyQualifiedDomainName" yaml:"fullyQualifiedDomainName"`
+	FullyQualifiedDomainName *string `field:"optional" json:"fullyQualifiedDomainName" yaml:"fullyQualifiedDomainName"`
 	// `CfnHealthCheck.HealthCheckConfigProperty.HealthThreshold`.
-	HealthThreshold *float64 `json:"healthThreshold" yaml:"healthThreshold"`
+	HealthThreshold *float64 `field:"optional" json:"healthThreshold" yaml:"healthThreshold"`
 	// `CfnHealthCheck.HealthCheckConfigProperty.InsufficientDataHealthStatus`.
-	InsufficientDataHealthStatus *string `json:"insufficientDataHealthStatus" yaml:"insufficientDataHealthStatus"`
+	InsufficientDataHealthStatus *string `field:"optional" json:"insufficientDataHealthStatus" yaml:"insufficientDataHealthStatus"`
 	// `CfnHealthCheck.HealthCheckConfigProperty.Inverted`.
-	Inverted interface{} `json:"inverted" yaml:"inverted"`
+	Inverted interface{} `field:"optional" json:"inverted" yaml:"inverted"`
 	// `CfnHealthCheck.HealthCheckConfigProperty.IPAddress`.
-	IpAddress *string `json:"ipAddress" yaml:"ipAddress"`
+	IpAddress *string `field:"optional" json:"ipAddress" yaml:"ipAddress"`
 	// `CfnHealthCheck.HealthCheckConfigProperty.MeasureLatency`.
-	MeasureLatency interface{} `json:"measureLatency" yaml:"measureLatency"`
+	MeasureLatency interface{} `field:"optional" json:"measureLatency" yaml:"measureLatency"`
 	// `CfnHealthCheck.HealthCheckConfigProperty.Port`.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// `CfnHealthCheck.HealthCheckConfigProperty.Regions`.
-	Regions *[]*string `json:"regions" yaml:"regions"`
+	Regions *[]*string `field:"optional" json:"regions" yaml:"regions"`
 	// `CfnHealthCheck.HealthCheckConfigProperty.RequestInterval`.
-	RequestInterval *float64 `json:"requestInterval" yaml:"requestInterval"`
+	RequestInterval *float64 `field:"optional" json:"requestInterval" yaml:"requestInterval"`
 	// `CfnHealthCheck.HealthCheckConfigProperty.ResourcePath`.
-	ResourcePath *string `json:"resourcePath" yaml:"resourcePath"`
+	ResourcePath *string `field:"optional" json:"resourcePath" yaml:"resourcePath"`
 	// `CfnHealthCheck.HealthCheckConfigProperty.RoutingControlArn`.
-	RoutingControlArn *string `json:"routingControlArn" yaml:"routingControlArn"`
+	RoutingControlArn *string `field:"optional" json:"routingControlArn" yaml:"routingControlArn"`
 	// `CfnHealthCheck.HealthCheckConfigProperty.SearchString`.
-	SearchString *string `json:"searchString" yaml:"searchString"`
+	SearchString *string `field:"optional" json:"searchString" yaml:"searchString"`
 }
 
 // The `HealthCheckTag` property describes one key-value pair that is associated with an `AWS::Route53::HealthCheck` resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   healthCheckTagProperty := &healthCheckTagProperty{
 //   	key: jsii.String("key"),
 //   	value: jsii.String("value"),
@@ -3264,18 +3311,21 @@ type CfnHealthCheck_HealthCheckTagProperty struct {
 	// - *Edit a tag* : `Key` is the name of the tag that you want to change the `Value` for.
 	// - *Delete a key* : `Key` is the name of the tag you want to remove.
 	// - *Give a name to a health check* : Edit the default `Name` tag. In the Amazon Route 53 console, the list of your health checks includes a *Name* column that lets you see the name that you've given to each health check.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// The value of `Value` depends on the operation that you want to perform:.
 	//
 	// - *Add a tag to a health check or hosted zone* : `Value` is the value that you want to give the new tag.
 	// - *Edit a tag* : `Value` is the new value that you want to assign the tag.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // Properties for defining a `CfnHealthCheck`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnHealthCheckProps := &cfnHealthCheckProps{
 //   	healthCheckConfig: &healthCheckConfigProperty{
 //   		type: jsii.String("type"),
@@ -3319,9 +3369,9 @@ type CfnHealthCheckProps struct {
 	// A complex type that contains detailed information about one health check.
 	//
 	// For the values to enter for `HealthCheckConfig` , see [HealthCheckConfig](https://docs.aws.amazon.com/Route53/latest/APIReference/API_HealthCheckConfig.html)
-	HealthCheckConfig interface{} `json:"healthCheckConfig" yaml:"healthCheckConfig"`
+	HealthCheckConfig interface{} `field:"required" json:"healthCheckConfig" yaml:"healthCheckConfig"`
 	// The `HealthCheckTags` property describes key-value pairs that are associated with an `AWS::Route53::HealthCheck` resource.
-	HealthCheckTags interface{} `json:"healthCheckTags" yaml:"healthCheckTags"`
+	HealthCheckTags interface{} `field:"optional" json:"healthCheckTags" yaml:"healthCheckTags"`
 }
 
 // A CloudFormation `AWS::Route53::HostedZone`.
@@ -3355,8 +3405,11 @@ type CfnHealthCheckProps struct {
 // > For more information, see [Access Management](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *AWS General Reference* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
-//   cfnHostedZone := route53.NewCfnHostedZone(this, jsii.String("MyCfnHostedZone"), &cfnHostedZoneProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnHostedZone := awscdk.Aws_route53.NewCfnHostedZone(this, jsii.String("MyCfnHostedZone"), &cfnHostedZoneProps{
 //   	hostedZoneConfig: &hostedZoneConfigProperty{
 //   		comment: jsii.String("comment"),
 //   	},
@@ -4169,20 +4222,26 @@ func (c *jsiiProxy_CfnHostedZone) ValidateProperties(_properties interface{}) {
 // If you don't want to specify a comment, omit both the `HostedZoneConfig` and `Comment` elements.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   hostedZoneConfigProperty := &hostedZoneConfigProperty{
 //   	comment: jsii.String("comment"),
 //   }
 //
 type CfnHostedZone_HostedZoneConfigProperty struct {
 	// Any comments that you want to include about the hosted zone.
-	Comment *string `json:"comment" yaml:"comment"`
+	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 }
 
 // A complex type that contains information about a tag that you want to add or edit for the specified health check or hosted zone.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   hostedZoneTagProperty := &hostedZoneTagProperty{
 //   	key: jsii.String("key"),
 //   	value: jsii.String("value"),
@@ -4195,25 +4254,28 @@ type CfnHostedZone_HostedZoneTagProperty struct {
 	// - *Edit a tag* : `Key` is the name of the tag that you want to change the `Value` for.
 	// - *Delete a key* : `Key` is the name of the tag you want to remove.
 	// - *Give a name to a health check* : Edit the default `Name` tag. In the Amazon Route 53 console, the list of your health checks includes a *Name* column that lets you see the name that you've given to each health check.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// The value of `Value` depends on the operation that you want to perform:.
 	//
 	// - *Add a tag to a health check or hosted zone* : `Value` is the value that you want to give the new tag.
 	// - *Edit a tag* : `Value` is the new value that you want to assign the tag.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // A complex type that contains information about a configuration for DNS query logging.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   queryLoggingConfigProperty := &queryLoggingConfigProperty{
 //   	cloudWatchLogsLogGroupArn: jsii.String("cloudWatchLogsLogGroupArn"),
 //   }
 //
 type CfnHostedZone_QueryLoggingConfigProperty struct {
 	// The Amazon Resource Name (ARN) of the CloudWatch Logs log group that Amazon Route 53 is publishing logs to.
-	CloudWatchLogsLogGroupArn *string `json:"cloudWatchLogsLogGroupArn" yaml:"cloudWatchLogsLogGroupArn"`
+	CloudWatchLogsLogGroupArn *string `field:"required" json:"cloudWatchLogsLogGroupArn" yaml:"cloudWatchLogsLogGroupArn"`
 }
 
 // *Private hosted zones only:* A complex type that contains information about an Amazon VPC.
@@ -4223,7 +4285,10 @@ type CfnHostedZone_QueryLoggingConfigProperty struct {
 // > For public hosted zones, omit `VPCs` , `VPCId` , and `VPCRegion` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   vPCProperty := &vPCProperty{
 //   	vpcId: jsii.String("vpcId"),
 //   	vpcRegion: jsii.String("vpcRegion"),
@@ -4233,17 +4298,20 @@ type CfnHostedZone_VPCProperty struct {
 	// *Private hosted zones only:* The ID of an Amazon VPC.
 	//
 	// > For public hosted zones, omit `VPCs` , `VPCId` , and `VPCRegion` .
-	VpcId *string `json:"vpcId" yaml:"vpcId"`
+	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
 	// *Private hosted zones only:* The region that an Amazon VPC was created in.
 	//
 	// > For public hosted zones, omit `VPCs` , `VPCId` , and `VPCRegion` .
-	VpcRegion *string `json:"vpcRegion" yaml:"vpcRegion"`
+	VpcRegion *string `field:"required" json:"vpcRegion" yaml:"vpcRegion"`
 }
 
 // Properties for defining a `CfnHostedZone`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnHostedZoneProps := &cfnHostedZoneProps{
 //   	hostedZoneConfig: &hostedZoneConfigProperty{
 //   		comment: jsii.String("comment"),
@@ -4270,17 +4338,17 @@ type CfnHostedZoneProps struct {
 	// A complex type that contains an optional comment.
 	//
 	// If you don't want to specify a comment, omit the `HostedZoneConfig` and `Comment` elements.
-	HostedZoneConfig interface{} `json:"hostedZoneConfig" yaml:"hostedZoneConfig"`
+	HostedZoneConfig interface{} `field:"optional" json:"hostedZoneConfig" yaml:"hostedZoneConfig"`
 	// Adds, edits, or deletes tags for a health check or a hosted zone.
 	//
 	// For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *AWS Billing and Cost Management User Guide* .
-	HostedZoneTags *[]*CfnHostedZone_HostedZoneTagProperty `json:"hostedZoneTags" yaml:"hostedZoneTags"`
+	HostedZoneTags *[]*CfnHostedZone_HostedZoneTagProperty `field:"optional" json:"hostedZoneTags" yaml:"hostedZoneTags"`
 	// The name of the domain.
 	//
 	// Specify a fully qualified domain name, for example, *www.example.com* . The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats *www.example.com* (without a trailing dot) and *www.example.com.* (with a trailing dot) as identical.
 	//
 	// If you're creating a public hosted zone, this is the name you have registered with your DNS registrar. If your domain name is registered with a registrar other than Route 53, change the name servers for your domain to the set of `NameServers` that are returned by the `Fn::GetAtt` intrinsic function.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Creates a configuration for DNS query logging.
 	//
 	// After you create a query logging configuration, Amazon Route 53 begins to publish log data to an Amazon CloudWatch Logs log group.
@@ -4331,11 +4399,11 @@ type CfnHostedZoneProps struct {
 	// - **Log File Format** - For a list of the values in each query log and the format of each value, see [Logging DNS Queries](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html) in the *Amazon Route 53 Developer Guide* .
 	// - **Pricing** - For information about charges for query logs, see [Amazon CloudWatch Pricing](https://docs.aws.amazon.com/cloudwatch/pricing/) .
 	// - **How to Stop Logging** - If you want Route 53 to stop sending query logs to CloudWatch Logs, delete the query logging configuration. For more information, see [DeleteQueryLoggingConfig](https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteQueryLoggingConfig.html) .
-	QueryLoggingConfig interface{} `json:"queryLoggingConfig" yaml:"queryLoggingConfig"`
+	QueryLoggingConfig interface{} `field:"optional" json:"queryLoggingConfig" yaml:"queryLoggingConfig"`
 	// *Private hosted zones:* A complex type that contains information about the VPCs that are associated with the specified hosted zone.
 	//
 	// > For public hosted zones, omit `VPCs` , `VPCId` , and `VPCRegion` .
-	Vpcs interface{} `json:"vpcs" yaml:"vpcs"`
+	Vpcs interface{} `field:"optional" json:"vpcs" yaml:"vpcs"`
 }
 
 // A CloudFormation `AWS::Route53::KeySigningKey`.
@@ -4343,8 +4411,11 @@ type CfnHostedZoneProps struct {
 // The `AWS::Route53::KeySigningKey` resource creates a new key-signing key (KSK) in a hosted zone. The hosted zone ID is passed as a parameter in the KSK properties. You can specify the properties of this KSK using the `Name` , `Status` , and `KeyManagementServiceArn` properties of the resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
-//   cfnKeySigningKey := route53.NewCfnKeySigningKey(this, jsii.String("MyCfnKeySigningKey"), &cfnKeySigningKeyProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnKeySigningKey := awscdk.Aws_route53.NewCfnKeySigningKey(this, jsii.String("MyCfnKeySigningKey"), &cfnKeySigningKeyProps{
 //   	hostedZoneId: jsii.String("hostedZoneId"),
 //   	keyManagementServiceArn: jsii.String("keyManagementServiceArn"),
 //   	name: jsii.String("name"),
@@ -5057,7 +5128,10 @@ func (c *jsiiProxy_CfnKeySigningKey) ValidateProperties(_properties interface{})
 // Properties for defining a `CfnKeySigningKey`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnKeySigningKeyProps := &cfnKeySigningKeyProps{
 //   	hostedZoneId: jsii.String("hostedZoneId"),
 //   	keyManagementServiceArn: jsii.String("keyManagementServiceArn"),
@@ -5069,15 +5143,15 @@ type CfnKeySigningKeyProps struct {
 	// The unique string (ID) that is used to identify a hosted zone.
 	//
 	// For example: `Z00001111A1ABCaaABC11` .
-	HostedZoneId *string `json:"hostedZoneId" yaml:"hostedZoneId"`
+	HostedZoneId *string `field:"required" json:"hostedZoneId" yaml:"hostedZoneId"`
 	// The Amazon resource name (ARN) for a customer managed customer master key (CMK) in AWS Key Management Service ( AWS KMS ).
 	//
 	// The `KeyManagementServiceArn` must be unique for each key-signing key (KSK) in a single hosted zone. For example: `arn:aws:kms:us-east-1:111122223333:key/111a2222-a11b-1ab1-2ab2-1ab21a2b3a111` .
-	KeyManagementServiceArn *string `json:"keyManagementServiceArn" yaml:"keyManagementServiceArn"`
+	KeyManagementServiceArn *string `field:"required" json:"keyManagementServiceArn" yaml:"keyManagementServiceArn"`
 	// A string used to identify a key-signing key (KSK).
 	//
 	// `Name` can include numbers, letters, and underscores (_). `Name` must be unique for each key-signing key in the same hosted zone.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// A string that represents the current key-signing key (KSK) status.
 	//
 	// Status can have one of the following values:
@@ -5087,7 +5161,7 @@ type CfnKeySigningKeyProps struct {
 	// - **DELETING** - The KSK is in the process of being deleted.
 	// - **ACTION_NEEDED** - There is a problem with the KSK that requires you to take action to resolve. For example, the customer managed key might have been deleted, or the permissions for the customer managed key might have been changed.
 	// - **INTERNAL_FAILURE** - There was an error during a request. Before you can continue to work with DNSSEC signing, including actions that involve this KSK, you must correct the problem. For example, you may need to activate or deactivate the KSK.
-	Status *string `json:"status" yaml:"status"`
+	Status *string `field:"required" json:"status" yaml:"status"`
 }
 
 // A CloudFormation `AWS::Route53::RecordSet`.
@@ -5099,8 +5173,11 @@ type CfnKeySigningKeyProps struct {
 // For more information, see [ChangeResourceRecordSets](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html) in the *Amazon Route 53 API Reference* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
-//   cfnRecordSet := route53.NewCfnRecordSet(this, jsii.String("MyCfnRecordSet"), &cfnRecordSetProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnRecordSet := awscdk.Aws_route53.NewCfnRecordSet(this, jsii.String("MyCfnRecordSet"), &cfnRecordSetProps{
 //   	name: jsii.String("name"),
 //   	type: jsii.String("type"),
 //
@@ -6251,7 +6328,10 @@ func (c *jsiiProxy_CfnRecordSet) ValidateProperties(_properties interface{}) {
 // - For information about creating failover records in a private hosted zone, see [Configuring Failover in a Private Hosted Zone](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   aliasTargetProperty := &aliasTargetProperty{
 //   	dnsName: jsii.String("dnsName"),
 //   	hostedZoneId: jsii.String("hostedZoneId"),
@@ -6311,7 +6391,7 @@ type CfnRecordSet_AliasTargetProperty struct {
 	// - **Another Route 53 record** - Specify the value of the `Name` element for a record in the current hosted zone.
 	//
 	// > If you're creating an alias record that has the same name as the hosted zone (known as the zone apex), you can't specify the domain name for a record for which the value of `Type` is `CNAME` . This is because the alias record must have the same type as the record that you're routing traffic to, and creating a CNAME record for the zone apex isn't supported even for an alias record.
-	DnsName *string `json:"dnsName" yaml:"dnsName"`
+	DnsName *string `field:"required" json:"dnsName" yaml:"dnsName"`
 	// *Alias resource records sets only* : The value used depends on where you want to route traffic:.
 	//
 	// - **Amazon API Gateway custom regional APIs and edge-optimized APIs** - Specify the hosted zone ID for your API. You can get the applicable value using the AWS CLI command [get-domain-names](https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-domain-names.html) :
@@ -6342,7 +6422,7 @@ type CfnRecordSet_AliasTargetProperty struct {
 	// - **Global Accelerator accelerator** - Specify `Z2BJ6XQ5FK7U4H` .
 	// - **An Amazon S3 bucket configured as a static website** - Specify the hosted zone ID for the region that you created the bucket in. For more information about valid values, see the table [Amazon S3 Website Endpoints](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_website_region_endpoints) in the *Amazon Web Services General Reference* .
 	// - **Another Route 53 record in your hosted zone** - Specify the hosted zone ID of your hosted zone. (An alias record can't reference a record in a different hosted zone.)
-	HostedZoneId *string `json:"hostedZoneId" yaml:"hostedZoneId"`
+	HostedZoneId *string `field:"required" json:"hostedZoneId" yaml:"hostedZoneId"`
 	// *Applies only to alias, failover alias, geolocation alias, latency alias, and weighted alias resource record sets:* When `EvaluateTargetHealth` is `true` , an alias resource record set inherits the health of the referenced AWS resource, such as an ELB load balancer or another resource record set in the hosted zone.
 	//
 	// Note the following:
@@ -6364,13 +6444,16 @@ type CfnRecordSet_AliasTargetProperty struct {
 	// - **Other records in the same hosted zone** - If the AWS resource that you specify in `DNSName` is a record or a group of records (for example, a group of weighted records) but is not another alias record, we recommend that you associate a health check with all of the records in the alias target. For more information, see [What Happens When You Omit Health Checks?](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-complex-configs.html#dns-failover-complex-configs-hc-omitting) in the *Amazon Route 53 Developer Guide* .
 	//
 	// For more information and examples, see [Amazon Route 53 Health Checks and DNS Failover](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html) in the *Amazon Route 53 Developer Guide* .
-	EvaluateTargetHealth interface{} `json:"evaluateTargetHealth" yaml:"evaluateTargetHealth"`
+	EvaluateTargetHealth interface{} `field:"optional" json:"evaluateTargetHealth" yaml:"evaluateTargetHealth"`
 }
 
 // A complex type that contains information about a geographic location.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   geoLocationProperty := &geoLocationProperty{
 //   	continentCode: jsii.String("continentCode"),
 //   	countryCode: jsii.String("countryCode"),
@@ -6389,17 +6472,17 @@ type CfnRecordSet_GeoLocationProperty struct {
 	// - *SA* : South America
 	//
 	// Constraint: Specifying `ContinentCode` with either `CountryCode` or `SubdivisionCode` returns an `InvalidInput` error.
-	ContinentCode *string `json:"continentCode" yaml:"continentCode"`
+	ContinentCode *string `field:"optional" json:"continentCode" yaml:"continentCode"`
 	// For geolocation resource record sets, the two-letter code for a country.
 	//
 	// Route 53 uses the two-letter country codes that are specified in [ISO standard 3166-1 alpha-2](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) .
-	CountryCode *string `json:"countryCode" yaml:"countryCode"`
+	CountryCode *string `field:"optional" json:"countryCode" yaml:"countryCode"`
 	// For geolocation resource record sets, the two-letter code for a state of the United States.
 	//
 	// Route 53 doesn't support any other values for `SubdivisionCode` . For a list of state abbreviations, see [Appendix B: Two–Letter State and Possession Abbreviations](https://docs.aws.amazon.com/https://pe.usps.com/text/pub28/28apb.htm) on the United States Postal Service website.
 	//
 	// If you specify `subdivisioncode` , you must also specify `US` for `CountryCode` .
-	SubdivisionCode *string `json:"subdivisionCode" yaml:"subdivisionCode"`
+	SubdivisionCode *string `field:"optional" json:"subdivisionCode" yaml:"subdivisionCode"`
 }
 
 // A CloudFormation `AWS::Route53::RecordSetGroup`.
@@ -6407,8 +6490,11 @@ type CfnRecordSet_GeoLocationProperty struct {
 // A complex type that contains an optional comment, the name and ID of the hosted zone that you want to make changes in, and values for the records that you want to create.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
-//   cfnRecordSetGroup := route53.NewCfnRecordSetGroup(this, jsii.String("MyCfnRecordSetGroup"), &cfnRecordSetGroupProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnRecordSetGroup := awscdk.Aws_route53.NewCfnRecordSetGroup(this, jsii.String("MyCfnRecordSetGroup"), &cfnRecordSetGroupProps{
 //   	comment: jsii.String("comment"),
 //   	hostedZoneId: jsii.String("hostedZoneId"),
 //   	hostedZoneName: jsii.String("hostedZoneName"),
@@ -7151,7 +7237,10 @@ func (c *jsiiProxy_CfnRecordSetGroup) ValidateProperties(_properties interface{}
 // - For information about creating failover records in a private hosted zone, see [Configuring Failover in a Private Hosted Zone](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   aliasTargetProperty := &aliasTargetProperty{
 //   	dnsName: jsii.String("dnsName"),
 //   	hostedZoneId: jsii.String("hostedZoneId"),
@@ -7211,7 +7300,7 @@ type CfnRecordSetGroup_AliasTargetProperty struct {
 	// - **Another Route 53 record** - Specify the value of the `Name` element for a record in the current hosted zone.
 	//
 	// > If you're creating an alias record that has the same name as the hosted zone (known as the zone apex), you can't specify the domain name for a record for which the value of `Type` is `CNAME` . This is because the alias record must have the same type as the record that you're routing traffic to, and creating a CNAME record for the zone apex isn't supported even for an alias record.
-	DnsName *string `json:"dnsName" yaml:"dnsName"`
+	DnsName *string `field:"required" json:"dnsName" yaml:"dnsName"`
 	// *Alias resource records sets only* : The value used depends on where you want to route traffic:.
 	//
 	// - **Amazon API Gateway custom regional APIs and edge-optimized APIs** - Specify the hosted zone ID for your API. You can get the applicable value using the AWS CLI command [get-domain-names](https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-domain-names.html) :
@@ -7242,7 +7331,7 @@ type CfnRecordSetGroup_AliasTargetProperty struct {
 	// - **Global Accelerator accelerator** - Specify `Z2BJ6XQ5FK7U4H` .
 	// - **An Amazon S3 bucket configured as a static website** - Specify the hosted zone ID for the region that you created the bucket in. For more information about valid values, see the table [Amazon S3 Website Endpoints](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_website_region_endpoints) in the *Amazon Web Services General Reference* .
 	// - **Another Route 53 record in your hosted zone** - Specify the hosted zone ID of your hosted zone. (An alias record can't reference a record in a different hosted zone.)
-	HostedZoneId *string `json:"hostedZoneId" yaml:"hostedZoneId"`
+	HostedZoneId *string `field:"required" json:"hostedZoneId" yaml:"hostedZoneId"`
 	// *Applies only to alias records with any routing policy:* When `EvaluateTargetHealth` is `true` , an alias record inherits the health of the referenced AWS resource, such as an ELB load balancer or another record in the hosted zone.
 	//
 	// Note the following:
@@ -7264,13 +7353,16 @@ type CfnRecordSetGroup_AliasTargetProperty struct {
 	// - **Other records in the same hosted zone** - If the AWS resource that you specify in `DNSName` is a record or a group of records (for example, a group of weighted records) but is not another alias record, we recommend that you associate a health check with all of the records in the alias target. For more information, see [What Happens When You Omit Health Checks?](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-complex-configs.html#dns-failover-complex-configs-hc-omitting) in the *Amazon Route 53 Developer Guide* .
 	//
 	// For more information and examples, see [Amazon Route 53 Health Checks and DNS Failover](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html) in the *Amazon Route 53 Developer Guide* .
-	EvaluateTargetHealth interface{} `json:"evaluateTargetHealth" yaml:"evaluateTargetHealth"`
+	EvaluateTargetHealth interface{} `field:"optional" json:"evaluateTargetHealth" yaml:"evaluateTargetHealth"`
 }
 
 // A complex type that contains information about a geographic location.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   geoLocationProperty := &geoLocationProperty{
 //   	continentCode: jsii.String("continentCode"),
 //   	countryCode: jsii.String("countryCode"),
@@ -7289,23 +7381,26 @@ type CfnRecordSetGroup_GeoLocationProperty struct {
 	// - *SA* : South America
 	//
 	// Constraint: Specifying `ContinentCode` with either `CountryCode` or `SubdivisionCode` returns an `InvalidInput` error.
-	ContinentCode *string `json:"continentCode" yaml:"continentCode"`
+	ContinentCode *string `field:"optional" json:"continentCode" yaml:"continentCode"`
 	// For geolocation resource record sets, the two-letter code for a country.
 	//
 	// Route 53 uses the two-letter country codes that are specified in [ISO standard 3166-1 alpha-2](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) .
-	CountryCode *string `json:"countryCode" yaml:"countryCode"`
+	CountryCode *string `field:"optional" json:"countryCode" yaml:"countryCode"`
 	// For geolocation resource record sets, the two-letter code for a state of the United States.
 	//
 	// Route 53 doesn't support any other values for `SubdivisionCode` . For a list of state abbreviations, see [Appendix B: Two–Letter State and Possession Abbreviations](https://docs.aws.amazon.com/https://pe.usps.com/text/pub28/28apb.htm) on the United States Postal Service website.
 	//
 	// If you specify `subdivisioncode` , you must also specify `US` for `CountryCode` .
-	SubdivisionCode *string `json:"subdivisionCode" yaml:"subdivisionCode"`
+	SubdivisionCode *string `field:"optional" json:"subdivisionCode" yaml:"subdivisionCode"`
 }
 
 // Information about one record that you want to create.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   recordSetProperty := &recordSetProperty{
 //   	name: jsii.String("name"),
 //   	type: jsii.String("type"),
@@ -7357,7 +7452,7 @@ type CfnRecordSetGroup_RecordSetProperty struct {
 	// > You can't use the * wildcard for resource records sets that have a type of NS.
 	//
 	// You can use the * wildcard as the leftmost label in a domain name, for example, `*.example.com` . You can't use an * for one of the middle labels, for example, `marketing.*.example.com` . In addition, the * must replace the entire label; for example, you can't specify `prod*.example.com` .
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The DNS record type.
 	//
 	// For information about different record types and how data is encoded for them, see [Supported DNS Resource Record Types](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/ResourceRecordTypes.html) in the *Amazon Route 53 Developer Guide* .
@@ -7383,7 +7478,7 @@ type CfnRecordSetGroup_RecordSetProperty struct {
 	// - *Another resource record set in this hosted zone:* Specify the type of the resource record set that you're creating the alias for. All values are supported except `NS` and `SOA` .
 	//
 	// > If you're creating an alias record that has the same name as the hosted zone (known as the zone apex), you can't route traffic to a record for which the value of `Type` is `CNAME` . This is because the alias record must have the same type as the record you're routing traffic to, and creating a CNAME record for the zone apex isn't supported even for an alias record.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// *Alias resource record sets only:* Information about the AWS resource, such as a CloudFront distribution or an Amazon S3 bucket, that you want to route traffic to.
 	//
 	// If you're creating resource records sets for a private hosted zone, note the following:
@@ -7391,7 +7486,7 @@ type CfnRecordSetGroup_RecordSetProperty struct {
 	// - You can't create an alias resource record set in a private hosted zone to route traffic to a CloudFront distribution.
 	// - Creating geolocation alias resource record sets or latency alias resource record sets in a private hosted zone is unsupported.
 	// - For information about creating failover resource record sets in a private hosted zone, see [Configuring Failover in a Private Hosted Zone](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html) in the *Amazon Route 53 Developer Guide* .
-	AliasTarget interface{} `json:"aliasTarget" yaml:"aliasTarget"`
+	AliasTarget interface{} `field:"optional" json:"aliasTarget" yaml:"aliasTarget"`
 	// *Failover resource record sets only:* To configure failover, you add the `Failover` element to two resource record sets.
 	//
 	// For one resource record set, you specify `PRIMARY` as the value for `Failover` ; for the other resource record set, you specify `SECONDARY` . In addition, you include the `HealthCheckId` element and specify the health check that you want Amazon Route 53 to perform for each resource record set.
@@ -7411,7 +7506,7 @@ type CfnRecordSetGroup_RecordSetProperty struct {
 	//
 	// - [Route 53 Health Checks and DNS Failover](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html)
 	// - [Configuring Failover in a Private Hosted Zone](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html)
-	Failover *string `json:"failover" yaml:"failover"`
+	Failover *string `field:"optional" json:"failover" yaml:"failover"`
 	// *Geolocation resource record sets only:* A complex type that lets you control how Amazon Route 53 responds to DNS queries based on the geographic origin of the query.
 	//
 	// For example, if you want all queries from Africa to be routed to a web server with an IP address of `192.0.2.111` , create a resource record set with a `Type` of `A` and a `ContinentCode` of `AF` .
@@ -7427,7 +7522,7 @@ type CfnRecordSetGroup_RecordSetProperty struct {
 	// > Geolocation works by mapping IP addresses to locations. However, some IP addresses aren't mapped to geographic locations, so even if you create geolocation resource record sets that cover all seven continents, Route 53 will receive some DNS queries from locations that it can't identify. We recommend that you create a resource record set for which the value of `CountryCode` is `*` . Two groups of queries are routed to the resource that you specify in this record: queries that come from locations for which you haven't created geolocation resource record sets and queries from IP addresses that aren't mapped to a location. If you don't create a `*` resource record set, Route 53 returns a "no answer" response for queries from those locations.
 	//
 	// You can't create non-geolocation resource record sets that have the same values for the `Name` and `Type` elements as geolocation resource record sets.
-	GeoLocation interface{} `json:"geoLocation" yaml:"geoLocation"`
+	GeoLocation interface{} `field:"optional" json:"geoLocation" yaml:"geoLocation"`
 	// If you want Amazon Route 53 to return this resource record set in response to a DNS query only when the status of a health check is healthy, include the `HealthCheckId` element and specify the ID of the applicable health check.
 	//
 	// Route 53 determines whether a resource record set is healthy based on one of the following:
@@ -7483,11 +7578,11 @@ type CfnRecordSetGroup_RecordSetProperty struct {
 	// >
 	// > - Create a health check that has the same value for `FullyQualifiedDomainName` as the name of a resource record set.
 	// > - Associate that health check with the resource record set.
-	HealthCheckId *string `json:"healthCheckId" yaml:"healthCheckId"`
+	HealthCheckId *string `field:"optional" json:"healthCheckId" yaml:"healthCheckId"`
 	// The ID of the hosted zone that you want to create records in.
 	//
 	// Specify either `HostedZoneName` or `HostedZoneId` , but not both. If you have multiple hosted zones with the same domain name, you must specify the hosted zone using `HostedZoneId` .
-	HostedZoneId *string `json:"hostedZoneId" yaml:"hostedZoneId"`
+	HostedZoneId *string `field:"optional" json:"hostedZoneId" yaml:"hostedZoneId"`
 	// The name of the hosted zone that you want to create records in.
 	//
 	// You must include a trailing dot (for example, `www.example.com.` ) as part of the `HostedZoneName` .
@@ -7495,7 +7590,7 @@ type CfnRecordSetGroup_RecordSetProperty struct {
 	// When you create a stack using an `AWS::Route53::RecordSet` that specifies `HostedZoneName` , AWS CloudFormation attempts to find a hosted zone whose name matches the `HostedZoneName` . If AWS CloudFormation can't find a hosted zone with a matching domain name, or if there is more than one hosted zone with the specified domain name, AWS CloudFormation will not create the stack.
 	//
 	// Specify either `HostedZoneName` or `HostedZoneId` , but not both. If you have multiple hosted zones with the same domain name, you must specify the hosted zone using `HostedZoneId` .
-	HostedZoneName *string `json:"hostedZoneName" yaml:"hostedZoneName"`
+	HostedZoneName *string `field:"optional" json:"hostedZoneName" yaml:"hostedZoneName"`
 	// *Multivalue answer resource record sets only* : To route traffic approximately randomly to multiple resources, such as web servers, create one multivalue answer record for each resource and specify `true` for `MultiValueAnswer` .
 	//
 	// Note the following:
@@ -7508,7 +7603,7 @@ type CfnRecordSetGroup_RecordSetProperty struct {
 	// - If a resource becomes unavailable after a resolver caches a response, client software typically tries another of the IP addresses in the response.
 	//
 	// You can't create multivalue answer alias records.
-	MultiValueAnswer interface{} `json:"multiValueAnswer" yaml:"multiValueAnswer"`
+	MultiValueAnswer interface{} `field:"optional" json:"multiValueAnswer" yaml:"multiValueAnswer"`
 	// *Latency-based resource record sets only:* The Amazon EC2 Region where you created the resource that this resource record set refers to.
 	//
 	// The resource typically is an AWS resource, such as an EC2 instance or an ELB load balancer, and is referred to by an IP address or a DNS domain name, depending on the record type.
@@ -7523,22 +7618,22 @@ type CfnRecordSetGroup_RecordSetProperty struct {
 	// - You can only create one latency resource record set for each Amazon EC2 Region.
 	// - You aren't required to create latency resource record sets for all Amazon EC2 Regions. Route 53 will choose the region with the best latency from among the regions that you create latency resource record sets for.
 	// - You can't create non-latency resource record sets that have the same values for the `Name` and `Type` elements as latency resource record sets.
-	Region *string `json:"region" yaml:"region"`
+	Region *string `field:"optional" json:"region" yaml:"region"`
 	// Information about the records that you want to create.
 	//
 	// Each record should be in the format appropriate for the record type specified by the `Type` property. For information about different record types and their record formats, see [Values That You Specify When You Create or Edit Amazon Route 53 Records](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html) in the *Amazon Route 53 Developer Guide* .
-	ResourceRecords *[]*string `json:"resourceRecords" yaml:"resourceRecords"`
+	ResourceRecords *[]*string `field:"optional" json:"resourceRecords" yaml:"resourceRecords"`
 	// *Resource record sets that have a routing policy other than simple:* An identifier that differentiates among multiple resource record sets that have the same combination of name and type, such as multiple weighted resource record sets named acme.example.com that have a type of A. In a group of resource record sets that have the same name and type, the value of `SetIdentifier` must be unique for each resource record set.
 	//
 	// For information about routing policies, see [Choosing a Routing Policy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html) in the *Amazon Route 53 Developer Guide* .
-	SetIdentifier *string `json:"setIdentifier" yaml:"setIdentifier"`
+	SetIdentifier *string `field:"optional" json:"setIdentifier" yaml:"setIdentifier"`
 	// The resource record cache time to live (TTL), in seconds. Note the following:.
 	//
 	// - If you're creating or updating an alias resource record set, omit `TTL` . Amazon Route 53 uses the value of `TTL` for the alias target.
 	// - If you're associating this resource record set with a health check (if you're adding a `HealthCheckId` element), we recommend that you specify a `TTL` of 60 seconds or less so clients respond quickly to changes in health status.
 	// - All of the resource record sets in a group of weighted resource record sets must have the same value for `TTL` .
 	// - If a group of weighted resource record sets includes one or more weighted alias resource record sets for which the alias target is an ELB load balancer, we recommend that you specify a `TTL` of 60 seconds for all of the non-alias weighted resource record sets that have the same name and type. Values other than 60 seconds (the TTL for load balancers) will change the effect of the values that you specify for `Weight` .
-	Ttl *string `json:"ttl" yaml:"ttl"`
+	Ttl *string `field:"optional" json:"ttl" yaml:"ttl"`
 	// *Weighted resource record sets only:* Among resource record sets that have the same combination of DNS name and type, a value that determines the proportion of DNS queries that Amazon Route 53 responds to using the current resource record set.
 	//
 	// Route 53 calculates the sum of the weights for the resource record sets that have the same combination of DNS name and type. Route 53 then responds to queries based on the ratio of a resource's weight to the total. Note the following:
@@ -7550,13 +7645,16 @@ type CfnRecordSetGroup_RecordSetProperty struct {
 	// - For weighted (but not weighted alias) resource record sets, if you set `Weight` to `0` for a resource record set, Route 53 never responds to queries with the applicable value for that resource record set. However, if you set `Weight` to `0` for all resource record sets that have the same combination of DNS name and type, traffic is routed to all resources with equal probability.
 	//
 	// The effect of setting `Weight` to `0` is different when you associate health checks with weighted resource record sets. For more information, see [Options for Configuring Route 53 Active-Active and Active-Passive Failover](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html) in the *Amazon Route 53 Developer Guide* .
-	Weight *float64 `json:"weight" yaml:"weight"`
+	Weight *float64 `field:"optional" json:"weight" yaml:"weight"`
 }
 
 // Properties for defining a `CfnRecordSetGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnRecordSetGroupProps := &cfnRecordSetGroupProps{
 //   	comment: jsii.String("comment"),
 //   	hostedZoneId: jsii.String("hostedZoneId"),
@@ -7597,11 +7695,11 @@ type CfnRecordSetGroup_RecordSetProperty struct {
 //
 type CfnRecordSetGroupProps struct {
 	// *Optional:* Any comments you want to include about a change batch request.
-	Comment *string `json:"comment" yaml:"comment"`
+	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// The ID of the hosted zone that you want to create records in.
 	//
 	// Specify either `HostedZoneName` or `HostedZoneId` , but not both. If you have multiple hosted zones with the same domain name, you must specify the hosted zone using `HostedZoneId` .
-	HostedZoneId *string `json:"hostedZoneId" yaml:"hostedZoneId"`
+	HostedZoneId *string `field:"optional" json:"hostedZoneId" yaml:"hostedZoneId"`
 	// The name of the hosted zone that you want to create records in.
 	//
 	// You must include a trailing dot (for example, `www.example.com.` ) as part of the `HostedZoneName` .
@@ -7609,15 +7707,18 @@ type CfnRecordSetGroupProps struct {
 	// When you create a stack using an `AWS::Route53::RecordSet` that specifies `HostedZoneName` , AWS CloudFormation attempts to find a hosted zone whose name matches the `HostedZoneName` . If AWS CloudFormation can't find a hosted zone with a matching domain name, or if there is more than one hosted zone with the specified domain name, AWS CloudFormation will not create the stack.
 	//
 	// Specify either `HostedZoneName` or `HostedZoneId` , but not both. If you have multiple hosted zones with the same domain name, you must specify the hosted zone using `HostedZoneId` .
-	HostedZoneName *string `json:"hostedZoneName" yaml:"hostedZoneName"`
+	HostedZoneName *string `field:"optional" json:"hostedZoneName" yaml:"hostedZoneName"`
 	// A complex type that contains one `RecordSet` element for each record that you want to create.
-	RecordSets interface{} `json:"recordSets" yaml:"recordSets"`
+	RecordSets interface{} `field:"optional" json:"recordSets" yaml:"recordSets"`
 }
 
 // Properties for defining a `CfnRecordSet`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnRecordSetProps := &cfnRecordSetProps{
 //   	name: jsii.String("name"),
 //   	type: jsii.String("type"),
@@ -7670,7 +7771,7 @@ type CfnRecordSetProps struct {
 	// > You can't use the * wildcard for resource records sets that have a type of NS.
 	//
 	// You can use the * wildcard as the leftmost label in a domain name, for example, `*.example.com` . You can't use an * for one of the middle labels, for example, `marketing.*.example.com` . In addition, the * must replace the entire label; for example, you can't specify `prod*.example.com` .
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The DNS record type.
 	//
 	// For information about different record types and how data is encoded for them, see [Supported DNS Resource Record Types](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/ResourceRecordTypes.html) in the *Amazon Route 53 Developer Guide* .
@@ -7696,7 +7797,7 @@ type CfnRecordSetProps struct {
 	// - *Another resource record set in this hosted zone:* Specify the type of the resource record set that you're creating the alias for. All values are supported except `NS` and `SOA` .
 	//
 	// > If you're creating an alias record that has the same name as the hosted zone (known as the zone apex), you can't route traffic to a record for which the value of `Type` is `CNAME` . This is because the alias record must have the same type as the record you're routing traffic to, and creating a CNAME record for the zone apex isn't supported even for an alias record.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// *Alias resource record sets only:* Information about the AWS resource, such as a CloudFront distribution or an Amazon S3 bucket, that you want to route traffic to.
 	//
 	// If you're creating resource records sets for a private hosted zone, note the following:
@@ -7704,9 +7805,9 @@ type CfnRecordSetProps struct {
 	// - You can't create an alias resource record set in a private hosted zone to route traffic to a CloudFront distribution.
 	// - Creating geolocation alias resource record sets or latency alias resource record sets in a private hosted zone is unsupported.
 	// - For information about creating failover resource record sets in a private hosted zone, see [Configuring Failover in a Private Hosted Zone](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html) in the *Amazon Route 53 Developer Guide* .
-	AliasTarget interface{} `json:"aliasTarget" yaml:"aliasTarget"`
+	AliasTarget interface{} `field:"optional" json:"aliasTarget" yaml:"aliasTarget"`
 	// *Optional:* Any comments you want to include about a change batch request.
-	Comment *string `json:"comment" yaml:"comment"`
+	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// *Failover resource record sets only:* To configure failover, you add the `Failover` element to two resource record sets.
 	//
 	// For one resource record set, you specify `PRIMARY` as the value for `Failover` ; for the other resource record set, you specify `SECONDARY` . In addition, you include the `HealthCheckId` element and specify the health check that you want Amazon Route 53 to perform for each resource record set.
@@ -7726,7 +7827,7 @@ type CfnRecordSetProps struct {
 	//
 	// - [Route 53 Health Checks and DNS Failover](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html)
 	// - [Configuring Failover in a Private Hosted Zone](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html)
-	Failover *string `json:"failover" yaml:"failover"`
+	Failover *string `field:"optional" json:"failover" yaml:"failover"`
 	// *Geolocation resource record sets only:* A complex type that lets you control how Amazon Route 53 responds to DNS queries based on the geographic origin of the query.
 	//
 	// For example, if you want all queries from Africa to be routed to a web server with an IP address of `192.0.2.111` , create a resource record set with a `Type` of `A` and a `ContinentCode` of `AF` .
@@ -7742,7 +7843,7 @@ type CfnRecordSetProps struct {
 	// > Geolocation works by mapping IP addresses to locations. However, some IP addresses aren't mapped to geographic locations, so even if you create geolocation resource record sets that cover all seven continents, Route 53 will receive some DNS queries from locations that it can't identify. We recommend that you create a resource record set for which the value of `CountryCode` is `*` . Two groups of queries are routed to the resource that you specify in this record: queries that come from locations for which you haven't created geolocation resource record sets and queries from IP addresses that aren't mapped to a location. If you don't create a `*` resource record set, Route 53 returns a "no answer" response for queries from those locations.
 	//
 	// You can't create non-geolocation resource record sets that have the same values for the `Name` and `Type` elements as geolocation resource record sets.
-	GeoLocation interface{} `json:"geoLocation" yaml:"geoLocation"`
+	GeoLocation interface{} `field:"optional" json:"geoLocation" yaml:"geoLocation"`
 	// If you want Amazon Route 53 to return this resource record set in response to a DNS query only when the status of a health check is healthy, include the `HealthCheckId` element and specify the ID of the applicable health check.
 	//
 	// Route 53 determines whether a resource record set is healthy based on one of the following:
@@ -7798,11 +7899,11 @@ type CfnRecordSetProps struct {
 	// >
 	// > - Create a health check that has the same value for `FullyQualifiedDomainName` as the name of a resource record set.
 	// > - Associate that health check with the resource record set.
-	HealthCheckId *string `json:"healthCheckId" yaml:"healthCheckId"`
+	HealthCheckId *string `field:"optional" json:"healthCheckId" yaml:"healthCheckId"`
 	// The ID of the hosted zone that you want to create records in.
 	//
 	// Specify either `HostedZoneName` or `HostedZoneId` , but not both. If you have multiple hosted zones with the same domain name, you must specify the hosted zone using `HostedZoneId` .
-	HostedZoneId *string `json:"hostedZoneId" yaml:"hostedZoneId"`
+	HostedZoneId *string `field:"optional" json:"hostedZoneId" yaml:"hostedZoneId"`
 	// The name of the hosted zone that you want to create records in.
 	//
 	// You must include a trailing dot (for example, `www.example.com.` ) as part of the `HostedZoneName` .
@@ -7810,7 +7911,7 @@ type CfnRecordSetProps struct {
 	// When you create a stack using an AWS::Route53::RecordSet that specifies `HostedZoneName` , AWS CloudFormation attempts to find a hosted zone whose name matches the HostedZoneName. If AWS CloudFormation cannot find a hosted zone with a matching domain name, or if there is more than one hosted zone with the specified domain name, AWS CloudFormation will not create the stack.
 	//
 	// Specify either `HostedZoneName` or `HostedZoneId` , but not both. If you have multiple hosted zones with the same domain name, you must specify the hosted zone using `HostedZoneId` .
-	HostedZoneName *string `json:"hostedZoneName" yaml:"hostedZoneName"`
+	HostedZoneName *string `field:"optional" json:"hostedZoneName" yaml:"hostedZoneName"`
 	// *Multivalue answer resource record sets only* : To route traffic approximately randomly to multiple resources, such as web servers, create one multivalue answer record for each resource and specify `true` for `MultiValueAnswer` .
 	//
 	// Note the following:
@@ -7823,7 +7924,7 @@ type CfnRecordSetProps struct {
 	// - If a resource becomes unavailable after a resolver caches a response, client software typically tries another of the IP addresses in the response.
 	//
 	// You can't create multivalue answer alias records.
-	MultiValueAnswer interface{} `json:"multiValueAnswer" yaml:"multiValueAnswer"`
+	MultiValueAnswer interface{} `field:"optional" json:"multiValueAnswer" yaml:"multiValueAnswer"`
 	// *Latency-based resource record sets only:* The Amazon EC2 Region where you created the resource that this resource record set refers to.
 	//
 	// The resource typically is an AWS resource, such as an EC2 instance or an ELB load balancer, and is referred to by an IP address or a DNS domain name, depending on the record type.
@@ -7838,7 +7939,7 @@ type CfnRecordSetProps struct {
 	// - You can only create one latency resource record set for each Amazon EC2 Region.
 	// - You aren't required to create latency resource record sets for all Amazon EC2 Regions. Route 53 will choose the region with the best latency from among the regions that you create latency resource record sets for.
 	// - You can't create non-latency resource record sets that have the same values for the `Name` and `Type` elements as latency resource record sets.
-	Region *string `json:"region" yaml:"region"`
+	Region *string `field:"optional" json:"region" yaml:"region"`
 	// One or more values that correspond with the value that you specified for the `Type` property.
 	//
 	// For example, if you specified `A` for `Type` , you specify one or more IP addresses in IPv4 format for `ResourceRecords` . For information about the format of values for each record type, see [Supported DNS Resource Record Types](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/ResourceRecordTypes.html) in the *Amazon Route 53 Developer Guide* .
@@ -7848,18 +7949,18 @@ type CfnRecordSetProps struct {
 	// - You can specify more than one value for all record types except CNAME and SOA.
 	// - The maximum length of a value is 4000 characters.
 	// - If you're creating an alias record, omit `ResourceRecords` .
-	ResourceRecords *[]*string `json:"resourceRecords" yaml:"resourceRecords"`
+	ResourceRecords *[]*string `field:"optional" json:"resourceRecords" yaml:"resourceRecords"`
 	// *Resource record sets that have a routing policy other than simple:* An identifier that differentiates among multiple resource record sets that have the same combination of name and type, such as multiple weighted resource record sets named acme.example.com that have a type of A. In a group of resource record sets that have the same name and type, the value of `SetIdentifier` must be unique for each resource record set.
 	//
 	// For information about routing policies, see [Choosing a Routing Policy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html) in the *Amazon Route 53 Developer Guide* .
-	SetIdentifier *string `json:"setIdentifier" yaml:"setIdentifier"`
+	SetIdentifier *string `field:"optional" json:"setIdentifier" yaml:"setIdentifier"`
 	// The resource record cache time to live (TTL), in seconds. Note the following:.
 	//
 	// - If you're creating or updating an alias resource record set, omit `TTL` . Amazon Route 53 uses the value of `TTL` for the alias target.
 	// - If you're associating this resource record set with a health check (if you're adding a `HealthCheckId` element), we recommend that you specify a `TTL` of 60 seconds or less so clients respond quickly to changes in health status.
 	// - All of the resource record sets in a group of weighted resource record sets must have the same value for `TTL` .
 	// - If a group of weighted resource record sets includes one or more weighted alias resource record sets for which the alias target is an ELB load balancer, we recommend that you specify a `TTL` of 60 seconds for all of the non-alias weighted resource record sets that have the same name and type. Values other than 60 seconds (the TTL for load balancers) will change the effect of the values that you specify for `Weight` .
-	Ttl *string `json:"ttl" yaml:"ttl"`
+	Ttl *string `field:"optional" json:"ttl" yaml:"ttl"`
 	// *Weighted resource record sets only:* Among resource record sets that have the same combination of DNS name and type, a value that determines the proportion of DNS queries that Amazon Route 53 responds to using the current resource record set.
 	//
 	// Route 53 calculates the sum of the weights for the resource record sets that have the same combination of DNS name and type. Route 53 then responds to queries based on the ratio of a resource's weight to the total. Note the following:
@@ -7871,17 +7972,19 @@ type CfnRecordSetProps struct {
 	// - For weighted (but not weighted alias) resource record sets, if you set `Weight` to `0` for a resource record set, Route 53 never responds to queries with the applicable value for that resource record set. However, if you set `Weight` to `0` for all resource record sets that have the same combination of DNS name and type, traffic is routed to all resources with equal probability.
 	//
 	// The effect of setting `Weight` to `0` is different when you associate health checks with weighted resource record sets. For more information, see [Options for Configuring Route 53 Active-Active and Active-Passive Failover](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html) in the *Amazon Route 53 Developer Guide* .
-	Weight *float64 `json:"weight" yaml:"weight"`
+	Weight *float64 `field:"optional" json:"weight" yaml:"weight"`
 }
 
 // A DNS CNAME record.
 //
 // Example:
-//   import acm "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk"
+//   import acm "github.com/aws/aws-cdk-go/awscdk"
+//   import route53 "github.com/aws/aws-cdk-go/awscdk"
 //
 //   // hosted zone and route53 features
 //   var hostedZoneId string
 //   zoneName := "example.com"
+//
 //
 //   myDomainName := "api.example.com"
 //   certificate := acm.NewCertificate(this, jsii.String("cert"), &certificateProps{
@@ -8258,11 +8361,13 @@ func (c *jsiiProxy_CnameRecord) Validate() *[]*string {
 // Construction properties for a CnameRecord.
 //
 // Example:
-//   import acm "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk"
+//   import acm "github.com/aws/aws-cdk-go/awscdk"
+//   import route53 "github.com/aws/aws-cdk-go/awscdk"
 //
 //   // hosted zone and route53 features
 //   var hostedZoneId string
 //   zoneName := "example.com"
+//
 //
 //   myDomainName := "api.example.com"
 //   certificate := acm.NewCertificate(this, jsii.String("cert"), &certificateProps{
@@ -8294,25 +8399,28 @@ func (c *jsiiProxy_CnameRecord) Validate() *[]*string {
 type CnameRecordProps struct {
 	// The hosted zone in which to define the new record.
 	// Experimental.
-	Zone IHostedZone `json:"zone" yaml:"zone"`
+	Zone IHostedZone `field:"required" json:"zone" yaml:"zone"`
 	// A comment to add on the record.
 	// Experimental.
-	Comment *string `json:"comment" yaml:"comment"`
+	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// The domain name for this record.
 	// Experimental.
-	RecordName *string `json:"recordName" yaml:"recordName"`
+	RecordName *string `field:"optional" json:"recordName" yaml:"recordName"`
 	// The resource record cache time to live (TTL).
 	// Experimental.
-	Ttl awscdk.Duration `json:"ttl" yaml:"ttl"`
+	Ttl awscdk.Duration `field:"optional" json:"ttl" yaml:"ttl"`
 	// The domain name.
 	// Experimental.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 }
 
 // Common properties to create a Route 53 hosted zone.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   commonHostedZoneProps := &commonHostedZoneProps{
 //   	zoneName: jsii.String("zoneName"),
 //
@@ -8328,13 +8436,13 @@ type CommonHostedZoneProps struct {
 	// For resource record types that include a domain
 	// name, specify a fully qualified domain name.
 	// Experimental.
-	ZoneName *string `json:"zoneName" yaml:"zoneName"`
+	ZoneName *string `field:"required" json:"zoneName" yaml:"zoneName"`
 	// Any comments that you want to include about the hosted zone.
 	// Experimental.
-	Comment *string `json:"comment" yaml:"comment"`
+	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// The Amazon Resource Name (ARN) for the log group that you want Amazon Route 53 to send query logs to.
 	// Experimental.
-	QueryLogsLogGroupArn *string `json:"queryLogsLogGroupArn" yaml:"queryLogsLogGroupArn"`
+	QueryLogsLogGroupArn *string `field:"optional" json:"queryLogsLogGroupArn" yaml:"queryLogsLogGroupArn"`
 }
 
 // A Cross Account Zone Delegation record.
@@ -8345,7 +8453,7 @@ type CommonHostedZoneProps struct {
 //   })
 //
 //   // import the delegation role by constructing the roleArn
-//   delegationRoleArn := stack.of(this).formatArn(&arnComponents{
+//   delegationRoleArn := awscdk.stack.of(this).formatArn(&arnComponents{
 //   	region: jsii.String(""),
 //   	 // IAM is global in each partition
 //   	service: jsii.String("iam"),
@@ -8561,7 +8669,7 @@ func (c *jsiiProxy_CrossAccountZoneDelegationRecord) Validate() *[]*string {
 //   })
 //
 //   // import the delegation role by constructing the roleArn
-//   delegationRoleArn := stack.of(this).formatArn(&arnComponents{
+//   delegationRoleArn := awscdk.stack.of(this).formatArn(&arnComponents{
 //   	region: jsii.String(""),
 //   	 // IAM is global in each partition
 //   	service: jsii.String("iam"),
@@ -8584,22 +8692,22 @@ func (c *jsiiProxy_CrossAccountZoneDelegationRecord) Validate() *[]*string {
 type CrossAccountZoneDelegationRecordProps struct {
 	// The zone to be delegated.
 	// Experimental.
-	DelegatedZone IHostedZone `json:"delegatedZone" yaml:"delegatedZone"`
+	DelegatedZone IHostedZone `field:"required" json:"delegatedZone" yaml:"delegatedZone"`
 	// The delegation role in the parent account.
 	// Experimental.
-	DelegationRole awsiam.IRole `json:"delegationRole" yaml:"delegationRole"`
+	DelegationRole awsiam.IRole `field:"required" json:"delegationRole" yaml:"delegationRole"`
 	// The hosted zone id in the parent account.
 	// Experimental.
-	ParentHostedZoneId *string `json:"parentHostedZoneId" yaml:"parentHostedZoneId"`
+	ParentHostedZoneId *string `field:"optional" json:"parentHostedZoneId" yaml:"parentHostedZoneId"`
 	// The hosted zone name in the parent account.
 	// Experimental.
-	ParentHostedZoneName *string `json:"parentHostedZoneName" yaml:"parentHostedZoneName"`
+	ParentHostedZoneName *string `field:"optional" json:"parentHostedZoneName" yaml:"parentHostedZoneName"`
 	// The removal policy to apply to the record set.
 	// Experimental.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// The resource record cache time to live (TTL).
 	// Experimental.
-	Ttl awscdk.Duration `json:"ttl" yaml:"ttl"`
+	Ttl awscdk.Duration `field:"optional" json:"ttl" yaml:"ttl"`
 }
 
 // A DNS DS record.
@@ -8607,13 +8715,14 @@ type CrossAccountZoneDelegationRecordProps struct {
 // Example:
 //   var myZone hostedZone
 //
+//
 //   route53.NewDsRecord(this, jsii.String("DSRecord"), &dsRecordProps{
 //   	zone: myZone,
 //   	recordName: jsii.String("foo"),
 //   	values: []*string{
 //   		jsii.String("12345 3 1 123456789abcdef67890123456789abcdef67890"),
 //   	},
-//   	ttl: duration.minutes(jsii.Number(90)),
+//   	ttl: awscdk.Duration.minutes(jsii.Number(90)),
 //   })
 //
 // Experimental.
@@ -8967,32 +9076,33 @@ func (d *jsiiProxy_DsRecord) Validate() *[]*string {
 // Example:
 //   var myZone hostedZone
 //
+//
 //   route53.NewDsRecord(this, jsii.String("DSRecord"), &dsRecordProps{
 //   	zone: myZone,
 //   	recordName: jsii.String("foo"),
 //   	values: []*string{
 //   		jsii.String("12345 3 1 123456789abcdef67890123456789abcdef67890"),
 //   	},
-//   	ttl: duration.minutes(jsii.Number(90)),
+//   	ttl: awscdk.Duration.minutes(jsii.Number(90)),
 //   })
 //
 // Experimental.
 type DsRecordProps struct {
 	// The hosted zone in which to define the new record.
 	// Experimental.
-	Zone IHostedZone `json:"zone" yaml:"zone"`
+	Zone IHostedZone `field:"required" json:"zone" yaml:"zone"`
 	// A comment to add on the record.
 	// Experimental.
-	Comment *string `json:"comment" yaml:"comment"`
+	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// The domain name for this record.
 	// Experimental.
-	RecordName *string `json:"recordName" yaml:"recordName"`
+	RecordName *string `field:"optional" json:"recordName" yaml:"recordName"`
 	// The resource record cache time to live (TTL).
 	// Experimental.
-	Ttl awscdk.Duration `json:"ttl" yaml:"ttl"`
+	Ttl awscdk.Duration `field:"optional" json:"ttl" yaml:"ttl"`
 	// The DS values.
 	// Experimental.
-	Values *[]*string `json:"values" yaml:"values"`
+	Values *[]*string `field:"required" json:"values" yaml:"values"`
 }
 
 // Container for records, and records contain information about how to route traffic for a specific domain, such as example.com and its subdomains (acme.example.com, zenith.example.com).
@@ -9501,10 +9611,10 @@ func (h *jsiiProxy_HostedZone) Validate() *[]*string {
 type HostedZoneAttributes struct {
 	// Identifier of the hosted zone.
 	// Experimental.
-	HostedZoneId *string `json:"hostedZoneId" yaml:"hostedZoneId"`
+	HostedZoneId *string `field:"required" json:"hostedZoneId" yaml:"hostedZoneId"`
 	// Name of the hosted zone.
 	// Experimental.
-	ZoneName *string `json:"zoneName" yaml:"zoneName"`
+	ZoneName *string `field:"required" json:"zoneName" yaml:"zoneName"`
 }
 
 // Properties of a new hosted zone.
@@ -9528,13 +9638,13 @@ type HostedZoneProps struct {
 	// For resource record types that include a domain
 	// name, specify a fully qualified domain name.
 	// Experimental.
-	ZoneName *string `json:"zoneName" yaml:"zoneName"`
+	ZoneName *string `field:"required" json:"zoneName" yaml:"zoneName"`
 	// Any comments that you want to include about the hosted zone.
 	// Experimental.
-	Comment *string `json:"comment" yaml:"comment"`
+	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// The Amazon Resource Name (ARN) for the log group that you want Amazon Route 53 to send query logs to.
 	// Experimental.
-	QueryLogsLogGroupArn *string `json:"queryLogsLogGroupArn" yaml:"queryLogsLogGroupArn"`
+	QueryLogsLogGroupArn *string `field:"optional" json:"queryLogsLogGroupArn" yaml:"queryLogsLogGroupArn"`
 	// A VPC that you want to associate with this hosted zone.
 	//
 	// When you specify
@@ -9542,13 +9652,14 @@ type HostedZoneProps struct {
 	//
 	// You can associate additional VPCs to this private zone using `addVpc(vpc)`.
 	// Experimental.
-	Vpcs *[]awsec2.IVpc `json:"vpcs" yaml:"vpcs"`
+	Vpcs *[]awsec2.IVpc `field:"optional" json:"vpcs" yaml:"vpcs"`
 }
 
 // Zone properties for looking up the Hosted Zone.
 //
 // Example:
 //   import s3 "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   recordName := "www"
 //   domainName := "example.com"
@@ -9579,16 +9690,16 @@ type HostedZoneProps struct {
 type HostedZoneProviderProps struct {
 	// The zone domain e.g. example.com.
 	// Experimental.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 	// Whether the zone that is being looked up is a private hosted zone.
 	// Experimental.
-	PrivateZone *bool `json:"privateZone" yaml:"privateZone"`
+	PrivateZone *bool `field:"optional" json:"privateZone" yaml:"privateZone"`
 	// Specifies the ID of the VPC associated with a private hosted zone.
 	//
 	// If a VPC ID is provided and privateZone is false, no results will be returned
 	// and an error will be raised.
 	// Experimental.
-	VpcId *string `json:"vpcId" yaml:"vpcId"`
+	VpcId *string `field:"optional" json:"vpcId" yaml:"vpcId"`
 }
 
 // Classes that are valid alias record targets, like CloudFront distributions and load balancers, should implement this interface.
@@ -9731,11 +9842,15 @@ func (j *jsiiProxy_IRecordSet) DomainName() *string {
 // A DNS MX record.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var hostedZone hostedZone
-//   mxRecord := route53.NewMxRecord(this, jsii.String("MyMxRecord"), &mxRecordProps{
+//
+//   mxRecord := awscdk.Aws_route53.NewMxRecord(this, jsii.String("MyMxRecord"), &mxRecordProps{
 //   	values: []mxRecordValue{
 //   		&mxRecordValue{
 //   			hostName: jsii.String("hostName"),
@@ -10099,10 +10214,14 @@ func (m *jsiiProxy_MxRecord) Validate() *[]*string {
 // Construction properties for a MxRecord.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var hostedZone hostedZone
+//
 //   mxRecordProps := &mxRecordProps{
 //   	values: []mxRecordValue{
 //   		&mxRecordValue{
@@ -10122,25 +10241,28 @@ func (m *jsiiProxy_MxRecord) Validate() *[]*string {
 type MxRecordProps struct {
 	// The hosted zone in which to define the new record.
 	// Experimental.
-	Zone IHostedZone `json:"zone" yaml:"zone"`
+	Zone IHostedZone `field:"required" json:"zone" yaml:"zone"`
 	// A comment to add on the record.
 	// Experimental.
-	Comment *string `json:"comment" yaml:"comment"`
+	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// The domain name for this record.
 	// Experimental.
-	RecordName *string `json:"recordName" yaml:"recordName"`
+	RecordName *string `field:"optional" json:"recordName" yaml:"recordName"`
 	// The resource record cache time to live (TTL).
 	// Experimental.
-	Ttl awscdk.Duration `json:"ttl" yaml:"ttl"`
+	Ttl awscdk.Duration `field:"optional" json:"ttl" yaml:"ttl"`
 	// The values.
 	// Experimental.
-	Values *[]*MxRecordValue `json:"values" yaml:"values"`
+	Values *[]*MxRecordValue `field:"required" json:"values" yaml:"values"`
 }
 
 // Properties for a MX record value.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   mxRecordValue := &mxRecordValue{
 //   	hostName: jsii.String("hostName"),
 //   	priority: jsii.Number(123),
@@ -10150,16 +10272,17 @@ type MxRecordProps struct {
 type MxRecordValue struct {
 	// The mail server host name.
 	// Experimental.
-	HostName *string `json:"hostName" yaml:"hostName"`
+	HostName *string `field:"required" json:"hostName" yaml:"hostName"`
 	// The priority.
 	// Experimental.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"required" json:"priority" yaml:"priority"`
 }
 
 // A DNS NS record.
 //
 // Example:
 //   var myZone hostedZone
+//
 //
 //   route53.NewNsRecord(this, jsii.String("NSRecord"), &nsRecordProps{
 //   	zone: myZone,
@@ -10168,7 +10291,7 @@ type MxRecordValue struct {
 //   		jsii.String("ns-1.awsdns.co.uk."),
 //   		jsii.String("ns-2.awsdns.com."),
 //   	},
-//   	ttl: duration.minutes(jsii.Number(90)),
+//   	ttl: awscdk.Duration.minutes(jsii.Number(90)),
 //   })
 //
 // Experimental.
@@ -10522,6 +10645,7 @@ func (n *jsiiProxy_NsRecord) Validate() *[]*string {
 // Example:
 //   var myZone hostedZone
 //
+//
 //   route53.NewNsRecord(this, jsii.String("NSRecord"), &nsRecordProps{
 //   	zone: myZone,
 //   	recordName: jsii.String("foo"),
@@ -10529,26 +10653,26 @@ func (n *jsiiProxy_NsRecord) Validate() *[]*string {
 //   		jsii.String("ns-1.awsdns.co.uk."),
 //   		jsii.String("ns-2.awsdns.com."),
 //   	},
-//   	ttl: duration.minutes(jsii.Number(90)),
+//   	ttl: awscdk.Duration.minutes(jsii.Number(90)),
 //   })
 //
 // Experimental.
 type NsRecordProps struct {
 	// The hosted zone in which to define the new record.
 	// Experimental.
-	Zone IHostedZone `json:"zone" yaml:"zone"`
+	Zone IHostedZone `field:"required" json:"zone" yaml:"zone"`
 	// A comment to add on the record.
 	// Experimental.
-	Comment *string `json:"comment" yaml:"comment"`
+	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// The domain name for this record.
 	// Experimental.
-	RecordName *string `json:"recordName" yaml:"recordName"`
+	RecordName *string `field:"optional" json:"recordName" yaml:"recordName"`
 	// The resource record cache time to live (TTL).
 	// Experimental.
-	Ttl awscdk.Duration `json:"ttl" yaml:"ttl"`
+	Ttl awscdk.Duration `field:"optional" json:"ttl" yaml:"ttl"`
 	// The NS values.
 	// Experimental.
-	Values *[]*string `json:"values" yaml:"values"`
+	Values *[]*string `field:"required" json:"values" yaml:"values"`
 }
 
 // Create a Route53 private hosted zone for use in one or more VPCs.
@@ -10558,6 +10682,7 @@ type NsRecordProps struct {
 //
 // Example:
 //   var vpc vpc
+//
 //
 //   zone := route53.NewPrivateHostedZone(this, jsii.String("HostedZone"), &privateHostedZoneProps{
 //   	zoneName: jsii.String("fully.qualified.domain.com"),
@@ -11060,6 +11185,7 @@ func (p *jsiiProxy_PrivateHostedZone) Validate() *[]*string {
 // Example:
 //   var vpc vpc
 //
+//
 //   zone := route53.NewPrivateHostedZone(this, jsii.String("HostedZone"), &privateHostedZoneProps{
 //   	zoneName: jsii.String("fully.qualified.domain.com"),
 //   	vpc: vpc,
@@ -11072,19 +11198,19 @@ type PrivateHostedZoneProps struct {
 	// For resource record types that include a domain
 	// name, specify a fully qualified domain name.
 	// Experimental.
-	ZoneName *string `json:"zoneName" yaml:"zoneName"`
+	ZoneName *string `field:"required" json:"zoneName" yaml:"zoneName"`
 	// Any comments that you want to include about the hosted zone.
 	// Experimental.
-	Comment *string `json:"comment" yaml:"comment"`
+	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// The Amazon Resource Name (ARN) for the log group that you want Amazon Route 53 to send query logs to.
 	// Experimental.
-	QueryLogsLogGroupArn *string `json:"queryLogsLogGroupArn" yaml:"queryLogsLogGroupArn"`
+	QueryLogsLogGroupArn *string `field:"optional" json:"queryLogsLogGroupArn" yaml:"queryLogsLogGroupArn"`
 	// A VPC that you want to associate with this hosted zone.
 	//
 	// Private hosted zones must be associated with at least one VPC. You can
 	// associated additional VPCs using `addVpc(vpc)`.
 	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
+	Vpc awsec2.IVpc `field:"required" json:"vpc" yaml:"vpc"`
 }
 
 // Create a Route53 public hosted zone.
@@ -11647,10 +11773,10 @@ func (p *jsiiProxy_PublicHostedZone) Validate() *[]*string {
 type PublicHostedZoneAttributes struct {
 	// Identifier of the hosted zone.
 	// Experimental.
-	HostedZoneId *string `json:"hostedZoneId" yaml:"hostedZoneId"`
+	HostedZoneId *string `field:"required" json:"hostedZoneId" yaml:"hostedZoneId"`
 	// Name of the hosted zone.
 	// Experimental.
-	ZoneName *string `json:"zoneName" yaml:"zoneName"`
+	ZoneName *string `field:"required" json:"zoneName" yaml:"zoneName"`
 }
 
 // Construction properties for a PublicHostedZone.
@@ -11669,34 +11795,38 @@ type PublicHostedZoneProps struct {
 	// For resource record types that include a domain
 	// name, specify a fully qualified domain name.
 	// Experimental.
-	ZoneName *string `json:"zoneName" yaml:"zoneName"`
+	ZoneName *string `field:"required" json:"zoneName" yaml:"zoneName"`
 	// Any comments that you want to include about the hosted zone.
 	// Experimental.
-	Comment *string `json:"comment" yaml:"comment"`
+	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// The Amazon Resource Name (ARN) for the log group that you want Amazon Route 53 to send query logs to.
 	// Experimental.
-	QueryLogsLogGroupArn *string `json:"queryLogsLogGroupArn" yaml:"queryLogsLogGroupArn"`
+	QueryLogsLogGroupArn *string `field:"optional" json:"queryLogsLogGroupArn" yaml:"queryLogsLogGroupArn"`
 	// Whether to create a CAA record to restrict certificate authorities allowed to issue certificates for this domain to Amazon only.
 	// Experimental.
-	CaaAmazon *bool `json:"caaAmazon" yaml:"caaAmazon"`
+	CaaAmazon *bool `field:"optional" json:"caaAmazon" yaml:"caaAmazon"`
 	// A principal which is trusted to assume a role for zone delegation.
 	// Experimental.
-	CrossAccountZoneDelegationPrincipal awsiam.IPrincipal `json:"crossAccountZoneDelegationPrincipal" yaml:"crossAccountZoneDelegationPrincipal"`
+	CrossAccountZoneDelegationPrincipal awsiam.IPrincipal `field:"optional" json:"crossAccountZoneDelegationPrincipal" yaml:"crossAccountZoneDelegationPrincipal"`
 	// The name of the role created for cross account delegation.
 	// Experimental.
-	CrossAccountZoneDelegationRoleName *string `json:"crossAccountZoneDelegationRoleName" yaml:"crossAccountZoneDelegationRoleName"`
+	CrossAccountZoneDelegationRoleName *string `field:"optional" json:"crossAccountZoneDelegationRoleName" yaml:"crossAccountZoneDelegationRoleName"`
 }
 
 // A record set.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var hostedZone hostedZone
 //   var recordTarget recordTarget
-//   recordSet := route53.NewRecordSet(this, jsii.String("MyRecordSet"), &recordSetProps{
-//   	recordType: route53.recordType_A,
+//
+//   recordSet := awscdk.Aws_route53.NewRecordSet(this, jsii.String("MyRecordSet"), &recordSetProps{
+//   	recordType: awscdk.*Aws_route53.recordType_A,
 //   	target: recordTarget,
 //   	zone: hostedZone,
 //
@@ -12057,10 +12187,14 @@ func (r *jsiiProxy_RecordSet) Validate() *[]*string {
 // Options for a RecordSet.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var hostedZone hostedZone
+//
 //   recordSetOptions := &recordSetOptions{
 //   	zone: hostedZone,
 //
@@ -12074,28 +12208,32 @@ func (r *jsiiProxy_RecordSet) Validate() *[]*string {
 type RecordSetOptions struct {
 	// The hosted zone in which to define the new record.
 	// Experimental.
-	Zone IHostedZone `json:"zone" yaml:"zone"`
+	Zone IHostedZone `field:"required" json:"zone" yaml:"zone"`
 	// A comment to add on the record.
 	// Experimental.
-	Comment *string `json:"comment" yaml:"comment"`
+	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// The domain name for this record.
 	// Experimental.
-	RecordName *string `json:"recordName" yaml:"recordName"`
+	RecordName *string `field:"optional" json:"recordName" yaml:"recordName"`
 	// The resource record cache time to live (TTL).
 	// Experimental.
-	Ttl awscdk.Duration `json:"ttl" yaml:"ttl"`
+	Ttl awscdk.Duration `field:"optional" json:"ttl" yaml:"ttl"`
 }
 
 // Construction properties for a RecordSet.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var hostedZone hostedZone
 //   var recordTarget recordTarget
+//
 //   recordSetProps := &recordSetProps{
-//   	recordType: route53.recordType_A,
+//   	recordType: awscdk.Aws_route53.recordType_A,
 //   	target: recordTarget,
 //   	zone: hostedZone,
 //
@@ -12109,22 +12247,22 @@ type RecordSetOptions struct {
 type RecordSetProps struct {
 	// The hosted zone in which to define the new record.
 	// Experimental.
-	Zone IHostedZone `json:"zone" yaml:"zone"`
+	Zone IHostedZone `field:"required" json:"zone" yaml:"zone"`
 	// A comment to add on the record.
 	// Experimental.
-	Comment *string `json:"comment" yaml:"comment"`
+	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// The domain name for this record.
 	// Experimental.
-	RecordName *string `json:"recordName" yaml:"recordName"`
+	RecordName *string `field:"optional" json:"recordName" yaml:"recordName"`
 	// The resource record cache time to live (TTL).
 	// Experimental.
-	Ttl awscdk.Duration `json:"ttl" yaml:"ttl"`
+	Ttl awscdk.Duration `field:"optional" json:"ttl" yaml:"ttl"`
 	// The record type.
 	// Experimental.
-	RecordType RecordType `json:"recordType" yaml:"recordType"`
+	RecordType RecordType `field:"required" json:"recordType" yaml:"recordType"`
 	// The target for this record, either `RecordTarget.fromValues()` or `RecordTarget.fromAlias()`.
 	// Experimental.
-	Target RecordTarget `json:"target" yaml:"target"`
+	Target RecordTarget `field:"required" json:"target" yaml:"target"`
 }
 
 // Type union for a record that accepts multiple types of target.
@@ -12134,6 +12272,7 @@ type RecordSetProps struct {
 //
 //   var myZone hostedZone
 //   var distribution cloudFrontWebDistribution
+//
 //   route53.NewAaaaRecord(this, jsii.String("Alias"), &aaaaRecordProps{
 //   	zone: myZone,
 //   	target: route53.recordTarget.fromAlias(targets.NewCloudFrontTarget(distribution)),
@@ -12344,11 +12483,15 @@ const (
 // A DNS SRV record.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var hostedZone hostedZone
-//   srvRecord := route53.NewSrvRecord(this, jsii.String("MySrvRecord"), &srvRecordProps{
+//
+//   srvRecord := awscdk.Aws_route53.NewSrvRecord(this, jsii.String("MySrvRecord"), &srvRecordProps{
 //   	values: []srvRecordValue{
 //   		&srvRecordValue{
 //   			hostName: jsii.String("hostName"),
@@ -12714,10 +12857,14 @@ func (s *jsiiProxy_SrvRecord) Validate() *[]*string {
 // Construction properties for a SrvRecord.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var hostedZone hostedZone
+//
 //   srvRecordProps := &srvRecordProps{
 //   	values: []srvRecordValue{
 //   		&srvRecordValue{
@@ -12739,25 +12886,28 @@ func (s *jsiiProxy_SrvRecord) Validate() *[]*string {
 type SrvRecordProps struct {
 	// The hosted zone in which to define the new record.
 	// Experimental.
-	Zone IHostedZone `json:"zone" yaml:"zone"`
+	Zone IHostedZone `field:"required" json:"zone" yaml:"zone"`
 	// A comment to add on the record.
 	// Experimental.
-	Comment *string `json:"comment" yaml:"comment"`
+	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// The domain name for this record.
 	// Experimental.
-	RecordName *string `json:"recordName" yaml:"recordName"`
+	RecordName *string `field:"optional" json:"recordName" yaml:"recordName"`
 	// The resource record cache time to live (TTL).
 	// Experimental.
-	Ttl awscdk.Duration `json:"ttl" yaml:"ttl"`
+	Ttl awscdk.Duration `field:"optional" json:"ttl" yaml:"ttl"`
 	// The values.
 	// Experimental.
-	Values *[]*SrvRecordValue `json:"values" yaml:"values"`
+	Values *[]*SrvRecordValue `field:"required" json:"values" yaml:"values"`
 }
 
 // Properties for a SRV record value.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   srvRecordValue := &srvRecordValue{
 //   	hostName: jsii.String("hostName"),
 //   	port: jsii.Number(123),
@@ -12769,22 +12919,23 @@ type SrvRecordProps struct {
 type SrvRecordValue struct {
 	// The server host name.
 	// Experimental.
-	HostName *string `json:"hostName" yaml:"hostName"`
+	HostName *string `field:"required" json:"hostName" yaml:"hostName"`
 	// The port.
 	// Experimental.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"required" json:"port" yaml:"port"`
 	// The priority.
 	// Experimental.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"required" json:"priority" yaml:"priority"`
 	// The weight.
 	// Experimental.
-	Weight *float64 `json:"weight" yaml:"weight"`
+	Weight *float64 `field:"required" json:"weight" yaml:"weight"`
 }
 
 // A DNS TXT record.
 //
 // Example:
 //   var myZone hostedZone
+//
 //
 //   route53.NewTxtRecord(this, jsii.String("TXTRecord"), &txtRecordProps{
 //   	zone: myZone,
@@ -12797,7 +12948,7 @@ type SrvRecordValue struct {
 //   		jsii.String("Bar!"),
 //   		jsii.String("Baz?"),
 //   	},
-//   	ttl: duration.minutes(jsii.Number(90)),
+//   	ttl: awscdk.Duration.minutes(jsii.Number(90)),
 //   })
 //
 // Experimental.
@@ -13151,6 +13302,7 @@ func (t *jsiiProxy_TxtRecord) Validate() *[]*string {
 // Example:
 //   var myZone hostedZone
 //
+//
 //   route53.NewTxtRecord(this, jsii.String("TXTRecord"), &txtRecordProps{
 //   	zone: myZone,
 //   	recordName: jsii.String("_foo"),
@@ -13162,37 +13314,37 @@ func (t *jsiiProxy_TxtRecord) Validate() *[]*string {
 //   		jsii.String("Bar!"),
 //   		jsii.String("Baz?"),
 //   	},
-//   	ttl: duration.minutes(jsii.Number(90)),
+//   	ttl: awscdk.Duration.minutes(jsii.Number(90)),
 //   })
 //
 // Experimental.
 type TxtRecordProps struct {
 	// The hosted zone in which to define the new record.
 	// Experimental.
-	Zone IHostedZone `json:"zone" yaml:"zone"`
+	Zone IHostedZone `field:"required" json:"zone" yaml:"zone"`
 	// A comment to add on the record.
 	// Experimental.
-	Comment *string `json:"comment" yaml:"comment"`
+	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// The domain name for this record.
 	// Experimental.
-	RecordName *string `json:"recordName" yaml:"recordName"`
+	RecordName *string `field:"optional" json:"recordName" yaml:"recordName"`
 	// The resource record cache time to live (TTL).
 	// Experimental.
-	Ttl awscdk.Duration `json:"ttl" yaml:"ttl"`
+	Ttl awscdk.Duration `field:"optional" json:"ttl" yaml:"ttl"`
 	// The text values.
 	// Experimental.
-	Values *[]*string `json:"values" yaml:"values"`
+	Values *[]*string `field:"required" json:"values" yaml:"values"`
 }
 
 // A Private DNS configuration for a VPC endpoint service.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type HostedZone awscdk.HostedZone
-//   type VpcEndpointServiceDomainName awscdk.VpcEndpointServiceDomainName
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //   var zone hostedZone
 //   var vpces vpcEndpointService
 //
-//   NewVpcEndpointServiceDomainName(this, jsii.String("EndpointDomain"), &vpcEndpointServiceDomainNameProps{
+//
+//   awscdk.NewVpcEndpointServiceDomainName(this, jsii.String("EndpointDomain"), &vpcEndpointServiceDomainNameProps{
 //   	endpointService: vpces,
 //   	domainName: jsii.String("my-stuff.aws-cdk.dev"),
 //   	publicHostedZone: zone,
@@ -13413,12 +13565,12 @@ func (v *jsiiProxy_VpcEndpointServiceDomainName) Validate() *[]*string {
 // Properties to configure a VPC Endpoint Service domain name.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type HostedZone awscdk.HostedZone
-//   type VpcEndpointServiceDomainName awscdk.VpcEndpointServiceDomainName
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //   var zone hostedZone
 //   var vpces vpcEndpointService
 //
-//   NewVpcEndpointServiceDomainName(this, jsii.String("EndpointDomain"), &vpcEndpointServiceDomainNameProps{
+//
+//   awscdk.NewVpcEndpointServiceDomainName(this, jsii.String("EndpointDomain"), &vpcEndpointServiceDomainNameProps{
 //   	endpointService: vpces,
 //   	domainName: jsii.String("my-stuff.aws-cdk.dev"),
 //   	publicHostedZone: zone,
@@ -13434,21 +13586,25 @@ type VpcEndpointServiceDomainNameProps struct {
 	// See: https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-dns-validation.html
 	//
 	// Experimental.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 	// The VPC Endpoint Service to configure Private DNS for.
 	// Experimental.
-	EndpointService awsec2.IVpcEndpointService `json:"endpointService" yaml:"endpointService"`
+	EndpointService awsec2.IVpcEndpointService `field:"required" json:"endpointService" yaml:"endpointService"`
 	// The public hosted zone to use for the domain.
 	// Experimental.
-	PublicHostedZone IPublicHostedZone `json:"publicHostedZone" yaml:"publicHostedZone"`
+	PublicHostedZone IPublicHostedZone `field:"required" json:"publicHostedZone" yaml:"publicHostedZone"`
 }
 
 // Options available when creating a delegation relationship from one PublicHostedZone to another.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
+//
 //   zoneDelegationOptions := &zoneDelegationOptions{
 //   	comment: jsii.String("comment"),
 //   	ttl: duration,
@@ -13458,20 +13614,24 @@ type VpcEndpointServiceDomainNameProps struct {
 type ZoneDelegationOptions struct {
 	// A comment to add on the DNS record created to incorporate the delegation.
 	// Experimental.
-	Comment *string `json:"comment" yaml:"comment"`
+	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// The TTL (Time To Live) of the DNS delegation record in DNS caches.
 	// Experimental.
-	Ttl awscdk.Duration `json:"ttl" yaml:"ttl"`
+	Ttl awscdk.Duration `field:"optional" json:"ttl" yaml:"ttl"`
 }
 
 // A record to delegate further lookups to a different set of name servers.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var hostedZone hostedZone
-//   zoneDelegationRecord := route53.NewZoneDelegationRecord(this, jsii.String("MyZoneDelegationRecord"), &zoneDelegationRecordProps{
+//
+//   zoneDelegationRecord := awscdk.Aws_route53.NewZoneDelegationRecord(this, jsii.String("MyZoneDelegationRecord"), &zoneDelegationRecordProps{
 //   	nameServers: []*string{
 //   		jsii.String("nameServers"),
 //   	},
@@ -13832,10 +13992,14 @@ func (z *jsiiProxy_ZoneDelegationRecord) Validate() *[]*string {
 // Construction properties for a ZoneDelegationRecord.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var hostedZone hostedZone
+//
 //   zoneDelegationRecordProps := &zoneDelegationRecordProps{
 //   	nameServers: []*string{
 //   		jsii.String("nameServers"),
@@ -13852,18 +14016,18 @@ func (z *jsiiProxy_ZoneDelegationRecord) Validate() *[]*string {
 type ZoneDelegationRecordProps struct {
 	// The hosted zone in which to define the new record.
 	// Experimental.
-	Zone IHostedZone `json:"zone" yaml:"zone"`
+	Zone IHostedZone `field:"required" json:"zone" yaml:"zone"`
 	// A comment to add on the record.
 	// Experimental.
-	Comment *string `json:"comment" yaml:"comment"`
+	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// The domain name for this record.
 	// Experimental.
-	RecordName *string `json:"recordName" yaml:"recordName"`
+	RecordName *string `field:"optional" json:"recordName" yaml:"recordName"`
 	// The resource record cache time to live (TTL).
 	// Experimental.
-	Ttl awscdk.Duration `json:"ttl" yaml:"ttl"`
+	Ttl awscdk.Duration `field:"optional" json:"ttl" yaml:"ttl"`
 	// The name servers to report in the delegation records.
 	// Experimental.
-	NameServers *[]*string `json:"nameServers" yaml:"nameServers"`
+	NameServers *[]*string `field:"required" json:"nameServers" yaml:"nameServers"`
 }
 

@@ -16,12 +16,12 @@ import (
 // The image will be created in build time and uploaded to an ECR repository.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type DockerImageAsset awscdk.DockerImageAsset
-//   type NetworkMode awscdk.NetworkMode
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   asset := NewDockerImageAsset(this, jsii.String("MyBuildImage"), &dockerImageAssetProps{
+//
+//   asset := awscdk.NewDockerImageAsset(this, jsii.String("MyBuildImage"), &dockerImageAssetProps{
 //   	directory: path.join(__dirname, jsii.String("my-image")),
-//   	networkMode: networkMode_HOST(),
+//   	networkMode: awscdk.NetworkMode_HOST(),
 //   })
 //
 // Experimental.
@@ -321,9 +321,10 @@ func (d *jsiiProxy_DockerImageAsset) Validate() *[]*string {
 // Options to control invalidation of `DockerImageAsset` asset hashes.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type DockerImageAsset awscdk.DockerImageAsset
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   asset := NewDockerImageAsset(this, jsii.String("MyBuildImage"), &dockerImageAssetProps{
+//
+//   asset := awscdk.NewDockerImageAsset(this, jsii.String("MyBuildImage"), &dockerImageAssetProps{
 //   	directory: path.join(__dirname, jsii.String("my-image")),
 //   	buildArgs: map[string]*string{
 //   		"HTTP_PROXY": jsii.String("http://10.20.30.2:1234"),
@@ -337,30 +338,35 @@ func (d *jsiiProxy_DockerImageAsset) Validate() *[]*string {
 type DockerImageAssetInvalidationOptions struct {
 	// Use `buildArgs` while calculating the asset hash.
 	// Experimental.
-	BuildArgs *bool `json:"buildArgs" yaml:"buildArgs"`
+	BuildArgs *bool `field:"optional" json:"buildArgs" yaml:"buildArgs"`
 	// Use `extraHash` while calculating the asset hash.
 	// Experimental.
-	ExtraHash *bool `json:"extraHash" yaml:"extraHash"`
+	ExtraHash *bool `field:"optional" json:"extraHash" yaml:"extraHash"`
 	// Use `file` while calculating the asset hash.
 	// Experimental.
-	File *bool `json:"file" yaml:"file"`
+	File *bool `field:"optional" json:"file" yaml:"file"`
 	// Use `networkMode` while calculating the asset hash.
 	// Experimental.
-	NetworkMode *bool `json:"networkMode" yaml:"networkMode"`
+	NetworkMode *bool `field:"optional" json:"networkMode" yaml:"networkMode"`
 	// Use `repositoryName` while calculating the asset hash.
 	// Experimental.
-	RepositoryName *bool `json:"repositoryName" yaml:"repositoryName"`
+	RepositoryName *bool `field:"optional" json:"repositoryName" yaml:"repositoryName"`
 	// Use `target` while calculating the asset hash.
 	// Experimental.
-	Target *bool `json:"target" yaml:"target"`
+	Target *bool `field:"optional" json:"target" yaml:"target"`
 }
 
 // Options for DockerImageAsset.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import assets "github.com/aws/aws-cdk-go/awscdk/assets"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecr_assets "github.com/aws/aws-cdk-go/awscdk/aws_ecr_assets"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var networkMode networkMode
+//
 //   dockerImageAssetOptions := &dockerImageAssetOptions{
 //   	buildArgs: map[string]*string{
 //   		"buildArgsKey": jsii.String("buildArgs"),
@@ -370,7 +376,7 @@ type DockerImageAssetInvalidationOptions struct {
 //   	},
 //   	extraHash: jsii.String("extraHash"),
 //   	file: jsii.String("file"),
-//   	follow: assets.followMode_NEVER,
+//   	follow: awscdk.Assets.followMode_NEVER,
 //   	followSymlinks: monocdk.symlinkFollowMode_NEVER,
 //   	ignoreMode: monocdk.ignoreMode_GLOB,
 //   	invalidation: &dockerImageAssetInvalidationOptions{
@@ -390,37 +396,37 @@ type DockerImageAssetInvalidationOptions struct {
 type DockerImageAssetOptions struct {
 	// Glob patterns to exclude from the copy.
 	// Experimental.
-	Exclude *[]*string `json:"exclude" yaml:"exclude"`
+	Exclude *[]*string `field:"optional" json:"exclude" yaml:"exclude"`
 	// A strategy for how to handle symlinks.
 	// Deprecated: use `followSymlinks` instead.
-	Follow assets.FollowMode `json:"follow" yaml:"follow"`
+	Follow assets.FollowMode `field:"optional" json:"follow" yaml:"follow"`
 	// The ignore behavior to use for exclude patterns.
 	// Experimental.
-	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode" yaml:"ignoreMode"`
+	IgnoreMode awscdk.IgnoreMode `field:"optional" json:"ignoreMode" yaml:"ignoreMode"`
 	// Extra information to encode into the fingerprint (e.g. build instructions and other inputs).
 	// Experimental.
-	ExtraHash *string `json:"extraHash" yaml:"extraHash"`
+	ExtraHash *string `field:"optional" json:"extraHash" yaml:"extraHash"`
 	// A strategy for how to handle symlinks.
 	// Experimental.
-	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks" yaml:"followSymlinks"`
+	FollowSymlinks awscdk.SymlinkFollowMode `field:"optional" json:"followSymlinks" yaml:"followSymlinks"`
 	// Build args to pass to the `docker build` command.
 	//
 	// Since Docker build arguments are resolved before deployment, keys and
 	// values cannot refer to unresolved tokens (such as `lambda.functionArn` or
 	// `queue.queueUrl`).
 	// Experimental.
-	BuildArgs *map[string]*string `json:"buildArgs" yaml:"buildArgs"`
+	BuildArgs *map[string]*string `field:"optional" json:"buildArgs" yaml:"buildArgs"`
 	// Path to the Dockerfile (relative to the directory).
 	// Experimental.
-	File *string `json:"file" yaml:"file"`
+	File *string `field:"optional" json:"file" yaml:"file"`
 	// Options to control which parameters are used to invalidate the asset hash.
 	// Experimental.
-	Invalidation *DockerImageAssetInvalidationOptions `json:"invalidation" yaml:"invalidation"`
+	Invalidation *DockerImageAssetInvalidationOptions `field:"optional" json:"invalidation" yaml:"invalidation"`
 	// Networking mode for the RUN commands during build.
 	//
 	// Support docker API 1.25+.
 	// Experimental.
-	NetworkMode NetworkMode `json:"networkMode" yaml:"networkMode"`
+	NetworkMode NetworkMode `field:"optional" json:"networkMode" yaml:"networkMode"`
 	// ECR repository name.
 	//
 	// Specify this property if you need to statically address the image, e.g.
@@ -429,18 +435,19 @@ type DockerImageAssetOptions struct {
 	// Deprecated: to control the location of docker image assets, please override
 	// `Stack.addDockerImageAsset`. this feature will be removed in future
 	// releases.
-	RepositoryName *string `json:"repositoryName" yaml:"repositoryName"`
+	RepositoryName *string `field:"optional" json:"repositoryName" yaml:"repositoryName"`
 	// Docker target to build to.
 	// Experimental.
-	Target *string `json:"target" yaml:"target"`
+	Target *string `field:"optional" json:"target" yaml:"target"`
 }
 
 // Props for DockerImageAssets.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type DockerImageAsset awscdk.DockerImageAsset
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   asset := NewDockerImageAsset(this, jsii.String("MyBuildImage"), &dockerImageAssetProps{
+//
+//   asset := awscdk.NewDockerImageAsset(this, jsii.String("MyBuildImage"), &dockerImageAssetProps{
 //   	directory: path.join(__dirname, jsii.String("my-image")),
 //   	buildArgs: map[string]*string{
 //   		"HTTP_PROXY": jsii.String("http://10.20.30.2:1234"),
@@ -454,37 +461,37 @@ type DockerImageAssetOptions struct {
 type DockerImageAssetProps struct {
 	// Glob patterns to exclude from the copy.
 	// Experimental.
-	Exclude *[]*string `json:"exclude" yaml:"exclude"`
+	Exclude *[]*string `field:"optional" json:"exclude" yaml:"exclude"`
 	// A strategy for how to handle symlinks.
 	// Deprecated: use `followSymlinks` instead.
-	Follow assets.FollowMode `json:"follow" yaml:"follow"`
+	Follow assets.FollowMode `field:"optional" json:"follow" yaml:"follow"`
 	// The ignore behavior to use for exclude patterns.
 	// Experimental.
-	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode" yaml:"ignoreMode"`
+	IgnoreMode awscdk.IgnoreMode `field:"optional" json:"ignoreMode" yaml:"ignoreMode"`
 	// Extra information to encode into the fingerprint (e.g. build instructions and other inputs).
 	// Experimental.
-	ExtraHash *string `json:"extraHash" yaml:"extraHash"`
+	ExtraHash *string `field:"optional" json:"extraHash" yaml:"extraHash"`
 	// A strategy for how to handle symlinks.
 	// Experimental.
-	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks" yaml:"followSymlinks"`
+	FollowSymlinks awscdk.SymlinkFollowMode `field:"optional" json:"followSymlinks" yaml:"followSymlinks"`
 	// Build args to pass to the `docker build` command.
 	//
 	// Since Docker build arguments are resolved before deployment, keys and
 	// values cannot refer to unresolved tokens (such as `lambda.functionArn` or
 	// `queue.queueUrl`).
 	// Experimental.
-	BuildArgs *map[string]*string `json:"buildArgs" yaml:"buildArgs"`
+	BuildArgs *map[string]*string `field:"optional" json:"buildArgs" yaml:"buildArgs"`
 	// Path to the Dockerfile (relative to the directory).
 	// Experimental.
-	File *string `json:"file" yaml:"file"`
+	File *string `field:"optional" json:"file" yaml:"file"`
 	// Options to control which parameters are used to invalidate the asset hash.
 	// Experimental.
-	Invalidation *DockerImageAssetInvalidationOptions `json:"invalidation" yaml:"invalidation"`
+	Invalidation *DockerImageAssetInvalidationOptions `field:"optional" json:"invalidation" yaml:"invalidation"`
 	// Networking mode for the RUN commands during build.
 	//
 	// Support docker API 1.25+.
 	// Experimental.
-	NetworkMode NetworkMode `json:"networkMode" yaml:"networkMode"`
+	NetworkMode NetworkMode `field:"optional" json:"networkMode" yaml:"networkMode"`
 	// ECR repository name.
 	//
 	// Specify this property if you need to statically address the image, e.g.
@@ -493,26 +500,26 @@ type DockerImageAssetProps struct {
 	// Deprecated: to control the location of docker image assets, please override
 	// `Stack.addDockerImageAsset`. this feature will be removed in future
 	// releases.
-	RepositoryName *string `json:"repositoryName" yaml:"repositoryName"`
+	RepositoryName *string `field:"optional" json:"repositoryName" yaml:"repositoryName"`
 	// Docker target to build to.
 	// Experimental.
-	Target *string `json:"target" yaml:"target"`
+	Target *string `field:"optional" json:"target" yaml:"target"`
 	// The directory where the Dockerfile is stored.
 	//
 	// Any directory inside with a name that matches the CDK output folder (cdk.out by default) will be excluded from the asset
 	// Experimental.
-	Directory *string `json:"directory" yaml:"directory"`
+	Directory *string `field:"required" json:"directory" yaml:"directory"`
 }
 
 // networking mode on build time supported by docker.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type DockerImageAsset awscdk.DockerImageAsset
-//   type NetworkMode awscdk.NetworkMode
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   asset := NewDockerImageAsset(this, jsii.String("MyBuildImage"), &dockerImageAssetProps{
+//
+//   asset := awscdk.NewDockerImageAsset(this, jsii.String("MyBuildImage"), &dockerImageAssetProps{
 //   	directory: path.join(__dirname, jsii.String("my-image")),
-//   	networkMode: networkMode_HOST(),
+//   	networkMode: awscdk.NetworkMode_HOST(),
 //   })
 //
 // Experimental.
@@ -610,9 +617,10 @@ func NetworkMode_NONE() NetworkMode {
 // The image will loaded from an existing tarball and uploaded to an ECR repository.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type TarballImageAsset awscdk.TarballImageAsset
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   asset := NewTarballImageAsset(this, jsii.String("MyBuildImage"), &tarballImageAssetProps{
+//
+//   asset := awscdk.NewTarballImageAsset(this, jsii.String("MyBuildImage"), &tarballImageAssetProps{
 //   	tarballFile: jsii.String("local-image.tar"),
 //   })
 //
@@ -893,9 +901,10 @@ func (t *jsiiProxy_TarballImageAsset) Validate() *[]*string {
 // Options for TarballImageAsset.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type TarballImageAsset awscdk.TarballImageAsset
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   asset := NewTarballImageAsset(this, jsii.String("MyBuildImage"), &tarballImageAssetProps{
+//
+//   asset := awscdk.NewTarballImageAsset(this, jsii.String("MyBuildImage"), &tarballImageAssetProps{
 //   	tarballFile: jsii.String("local-image.tar"),
 //   })
 //
@@ -907,6 +916,6 @@ type TarballImageAssetProps struct {
 	// in Node.js projects or dirname of `__file__` in Python) if your tarball
 	// is located as a resource inside your project.
 	// Experimental.
-	TarballFile *string `json:"tarballFile" yaml:"tarballFile"`
+	TarballFile *string `field:"required" json:"tarballFile" yaml:"tarballFile"`
 }
 

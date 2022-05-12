@@ -14,8 +14,11 @@ import (
 // The `AWS::GuardDuty::Detector` resource specifies a new  detector. A detector is an object that represents the  service. A detector is required for  to become operational.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import guardduty "github.com/aws/aws-cdk-go/awscdk/aws_guardduty"
-//   cfnDetector := guardduty.NewCfnDetector(this, jsii.String("MyCfnDetector"), &cfnDetectorProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDetector := awscdk.Aws_guardduty.NewCfnDetector(this, jsii.String("MyCfnDetector"), &cfnDetectorProps{
 //   	enable: jsii.Boolean(false),
 //
 //   	// the properties below are optional
@@ -703,7 +706,10 @@ func (c *jsiiProxy_CfnDetector) ValidateProperties(_properties interface{}) {
 // Describes whether S3 data event logs or Kubernetes audit logs will be enabled as a data source when the detector is created.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import guardduty "github.com/aws/aws-cdk-go/awscdk/aws_guardduty"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cFNDataSourceConfigurationsProperty := &cFNDataSourceConfigurationsProperty{
 //   	kubernetes: &cFNKubernetesConfigurationProperty{
 //   		auditLogs: &cFNKubernetesAuditLogsConfigurationProperty{
@@ -717,28 +723,34 @@ func (c *jsiiProxy_CfnDetector) ValidateProperties(_properties interface{}) {
 //
 type CfnDetector_CFNDataSourceConfigurationsProperty struct {
 	// Describes which Kuberentes data sources are enabled for a detector.
-	Kubernetes interface{} `json:"kubernetes" yaml:"kubernetes"`
+	Kubernetes interface{} `field:"optional" json:"kubernetes" yaml:"kubernetes"`
 	// Describes whether S3 data event logs are enabled as a data source.
-	S3Logs interface{} `json:"s3Logs" yaml:"s3Logs"`
+	S3Logs interface{} `field:"optional" json:"s3Logs" yaml:"s3Logs"`
 }
 
 // Describes which optional data sources are enabled for a detector.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import guardduty "github.com/aws/aws-cdk-go/awscdk/aws_guardduty"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cFNKubernetesAuditLogsConfigurationProperty := &cFNKubernetesAuditLogsConfigurationProperty{
 //   	enable: jsii.Boolean(false),
 //   }
 //
 type CfnDetector_CFNKubernetesAuditLogsConfigurationProperty struct {
 	// Describes whether Kubernetes audit logs are enabled as a data source for the detector.
-	Enable interface{} `json:"enable" yaml:"enable"`
+	Enable interface{} `field:"optional" json:"enable" yaml:"enable"`
 }
 
 // Describes which Kubernetes protection data sources are enabled for the detector.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import guardduty "github.com/aws/aws-cdk-go/awscdk/aws_guardduty"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cFNKubernetesConfigurationProperty := &cFNKubernetesConfigurationProperty{
 //   	auditLogs: &cFNKubernetesAuditLogsConfigurationProperty{
 //   		enable: jsii.Boolean(false),
@@ -747,26 +759,32 @@ type CfnDetector_CFNKubernetesAuditLogsConfigurationProperty struct {
 //
 type CfnDetector_CFNKubernetesConfigurationProperty struct {
 	// Describes whether Kubernetes audit logs are enabled as a data source for the detector.
-	AuditLogs interface{} `json:"auditLogs" yaml:"auditLogs"`
+	AuditLogs interface{} `field:"optional" json:"auditLogs" yaml:"auditLogs"`
 }
 
 // Describes whether S3 data event logs will be enabled as a data source when the detector is created.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import guardduty "github.com/aws/aws-cdk-go/awscdk/aws_guardduty"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cFNS3LogsConfigurationProperty := &cFNS3LogsConfigurationProperty{
 //   	enable: jsii.Boolean(false),
 //   }
 //
 type CfnDetector_CFNS3LogsConfigurationProperty struct {
 	// The status of S3 data event logs as a data source.
-	Enable interface{} `json:"enable" yaml:"enable"`
+	Enable interface{} `field:"optional" json:"enable" yaml:"enable"`
 }
 
 // Properties for defining a `CfnDetector`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import guardduty "github.com/aws/aws-cdk-go/awscdk/aws_guardduty"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDetectorProps := &cfnDetectorProps{
 //   	enable: jsii.Boolean(false),
 //
@@ -786,11 +804,11 @@ type CfnDetector_CFNS3LogsConfigurationProperty struct {
 //
 type CfnDetectorProps struct {
 	// Specifies whether the detector is to be enabled on creation.
-	Enable interface{} `json:"enable" yaml:"enable"`
+	Enable interface{} `field:"required" json:"enable" yaml:"enable"`
 	// Describes which data sources will be enabled for the detector.
-	DataSources interface{} `json:"dataSources" yaml:"dataSources"`
+	DataSources interface{} `field:"optional" json:"dataSources" yaml:"dataSources"`
 	// Specifies how frequently updated findings are exported.
-	FindingPublishingFrequency *string `json:"findingPublishingFrequency" yaml:"findingPublishingFrequency"`
+	FindingPublishingFrequency *string `field:"optional" json:"findingPublishingFrequency" yaml:"findingPublishingFrequency"`
 }
 
 // A CloudFormation `AWS::GuardDuty::Filter`.
@@ -798,10 +816,13 @@ type CfnDetectorProps struct {
 // The `AWS::GuardDuty::Filter` resource specifies a new filter defined by the provided `findingCriteria` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import guardduty "github.com/aws/aws-cdk-go/awscdk/aws_guardduty"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var criterion interface{}
-//   cfnFilter := guardduty.NewCfnFilter(this, jsii.String("MyCfnFilter"), &cfnFilterProps{
+//
+//   cfnFilter := awscdk.Aws_guardduty.NewCfnFilter(this, jsii.String("MyCfnFilter"), &cfnFilterProps{
 //   	action: jsii.String("action"),
 //   	description: jsii.String("description"),
 //   	detectorId: jsii.String("detectorId"),
@@ -1570,7 +1591,10 @@ func (c *jsiiProxy_CfnFilter) ValidateProperties(_properties interface{}) {
 // Specifies the condition to apply to a single field when filtering through  findings.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import guardduty "github.com/aws/aws-cdk-go/awscdk/aws_guardduty"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   conditionProperty := &conditionProperty{
 //   	eq: []*string{
 //   		jsii.String("eq"),
@@ -1596,37 +1620,40 @@ func (c *jsiiProxy_CfnFilter) ValidateProperties(_properties interface{}) {
 //
 type CfnFilter_ConditionProperty struct {
 	// Represents the equal condition to apply to a single field when querying for findings.
-	Eq *[]*string `json:"eq" yaml:"eq"`
+	Eq *[]*string `field:"optional" json:"eq" yaml:"eq"`
 	// Represents an *equal* ** condition to be applied to a single field when querying for findings.
-	EqualTo *[]*string `json:"equalTo" yaml:"equalTo"`
+	EqualTo *[]*string `field:"optional" json:"equalTo" yaml:"equalTo"`
 	// Represents a *greater than* condition to be applied to a single field when querying for findings.
-	GreaterThan *float64 `json:"greaterThan" yaml:"greaterThan"`
+	GreaterThan *float64 `field:"optional" json:"greaterThan" yaml:"greaterThan"`
 	// Represents a *greater than or equal* condition to be applied to a single field when querying for findings.
-	GreaterThanOrEqual *float64 `json:"greaterThanOrEqual" yaml:"greaterThanOrEqual"`
+	GreaterThanOrEqual *float64 `field:"optional" json:"greaterThanOrEqual" yaml:"greaterThanOrEqual"`
 	// Represents a *greater than* condition to be applied to a single field when querying for findings.
-	Gt *float64 `json:"gt" yaml:"gt"`
+	Gt *float64 `field:"optional" json:"gt" yaml:"gt"`
 	// Represents the greater than or equal condition to apply to a single field when querying for findings.
-	Gte *float64 `json:"gte" yaml:"gte"`
+	Gte *float64 `field:"optional" json:"gte" yaml:"gte"`
 	// Represents a *less than* condition to be applied to a single field when querying for findings.
-	LessThan *float64 `json:"lessThan" yaml:"lessThan"`
+	LessThan *float64 `field:"optional" json:"lessThan" yaml:"lessThan"`
 	// Represents a *less than or equal* condition to be applied to a single field when querying for findings.
-	LessThanOrEqual *float64 `json:"lessThanOrEqual" yaml:"lessThanOrEqual"`
+	LessThanOrEqual *float64 `field:"optional" json:"lessThanOrEqual" yaml:"lessThanOrEqual"`
 	// Represents the less than condition to apply to a single field when querying for findings.
-	Lt *float64 `json:"lt" yaml:"lt"`
+	Lt *float64 `field:"optional" json:"lt" yaml:"lt"`
 	// Represents the less than or equal condition to apply to a single field when querying for findings.
-	Lte *float64 `json:"lte" yaml:"lte"`
+	Lte *float64 `field:"optional" json:"lte" yaml:"lte"`
 	// Represents the not equal condition to apply to a single field when querying for findings.
-	Neq *[]*string `json:"neq" yaml:"neq"`
+	Neq *[]*string `field:"optional" json:"neq" yaml:"neq"`
 	// Represents a *not equal* ** condition to be applied to a single field when querying for findings.
-	NotEquals *[]*string `json:"notEquals" yaml:"notEquals"`
+	NotEquals *[]*string `field:"optional" json:"notEquals" yaml:"notEquals"`
 }
 
 // Represents a map of finding properties that match specified conditions and values when querying findings.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import guardduty "github.com/aws/aws-cdk-go/awscdk/aws_guardduty"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var criterion interface{}
+//
 //   findingCriteriaProperty := &findingCriteriaProperty{
 //   	criterion: criterion,
 //   	itemType: &conditionProperty{
@@ -1713,17 +1740,20 @@ type CfnFilter_FindingCriteriaProperty struct {
 	// - updatedAt
 	//
 	// Type: ISO 8601 string format: YYYY-MM-DDTHH:MM:SS.SSSZ or YYYY-MM-DDTHH:MM:SSZ depending on whether the value contains milliseconds.
-	Criterion interface{} `json:"criterion" yaml:"criterion"`
+	Criterion interface{} `field:"optional" json:"criterion" yaml:"criterion"`
 	// Specifies the condition to be applied to a single field when filtering through findings.
-	ItemType interface{} `json:"itemType" yaml:"itemType"`
+	ItemType interface{} `field:"optional" json:"itemType" yaml:"itemType"`
 }
 
 // Properties for defining a `CfnFilter`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import guardduty "github.com/aws/aws-cdk-go/awscdk/aws_guardduty"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var criterion interface{}
+//
 //   cfnFilterProps := &cfnFilterProps{
 //   	action: jsii.String("action"),
 //   	description: jsii.String("description"),
@@ -1759,19 +1789,19 @@ type CfnFilter_FindingCriteriaProperty struct {
 //
 type CfnFilterProps struct {
 	// Specifies the action that is to be applied to the findings that match the filter.
-	Action *string `json:"action" yaml:"action"`
+	Action *string `field:"required" json:"action" yaml:"action"`
 	// The description of the filter.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"required" json:"description" yaml:"description"`
 	// The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
-	DetectorId *string `json:"detectorId" yaml:"detectorId"`
+	DetectorId *string `field:"required" json:"detectorId" yaml:"detectorId"`
 	// Represents the criteria to be used in the filter for querying findings.
-	FindingCriteria interface{} `json:"findingCriteria" yaml:"findingCriteria"`
+	FindingCriteria interface{} `field:"required" json:"findingCriteria" yaml:"findingCriteria"`
 	// The name of the filter.
 	//
 	// Minimum length of 3. Maximum length of 64. Valid characters include alphanumeric characters, dot (.), underscore (_), and dash (-). Spaces are not allowed.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// `AWS::GuardDuty::Filter.Rank`.
-	Rank *float64 `json:"rank" yaml:"rank"`
+	Rank *float64 `field:"required" json:"rank" yaml:"rank"`
 }
 
 // A CloudFormation `AWS::GuardDuty::IPSet`.
@@ -1779,8 +1809,11 @@ type CfnFilterProps struct {
 // The `AWS::GuardDuty::IPSet` resource specifies a new `IPSet` . An `IPSet` is a list of trusted IP addresses from which secure communication is allowed with AWS infrastructure and applications.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import guardduty "github.com/aws/aws-cdk-go/awscdk/aws_guardduty"
-//   cfnIPSet := guardduty.NewCfnIPSet(this, jsii.String("MyCfnIPSet"), &cfnIPSetProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnIPSet := awscdk.Aws_guardduty.NewCfnIPSet(this, jsii.String("MyCfnIPSet"), &cfnIPSetProps{
 //   	activate: jsii.Boolean(false),
 //   	detectorId: jsii.String("detectorId"),
 //   	format: jsii.String("format"),
@@ -2505,7 +2538,10 @@ func (c *jsiiProxy_CfnIPSet) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnIPSet`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import guardduty "github.com/aws/aws-cdk-go/awscdk/aws_guardduty"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnIPSetProps := &cfnIPSetProps{
 //   	activate: jsii.Boolean(false),
 //   	detectorId: jsii.String("detectorId"),
@@ -2518,17 +2554,17 @@ func (c *jsiiProxy_CfnIPSet) ValidateProperties(_properties interface{}) {
 //
 type CfnIPSetProps struct {
 	// Indicates whether or not  uses the `IPSet` .
-	Activate interface{} `json:"activate" yaml:"activate"`
+	Activate interface{} `field:"required" json:"activate" yaml:"activate"`
 	// The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
-	DetectorId *string `json:"detectorId" yaml:"detectorId"`
+	DetectorId *string `field:"required" json:"detectorId" yaml:"detectorId"`
 	// The format of the file that contains the IPSet.
-	Format *string `json:"format" yaml:"format"`
+	Format *string `field:"required" json:"format" yaml:"format"`
 	// The URI of the file that contains the IPSet.
-	Location *string `json:"location" yaml:"location"`
+	Location *string `field:"required" json:"location" yaml:"location"`
 	// The user-friendly name to identify the IPSet.
 	//
 	// Allowed characters are alphanumerics, spaces, hyphens (-), and underscores (_).
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 
 // A CloudFormation `AWS::GuardDuty::Master`.
@@ -2536,8 +2572,11 @@ type CfnIPSetProps struct {
 // You can use the `AWS::GuardDuty::Master` resource in a  member account to accept an invitation from a  administrator account. The invitation to the member account must be sent prior to using the `AWS::GuardDuty::Master` resource to accept the administrator account's invitation. You can invite a member account by using the `InviteMembers` operation of the  API, or by creating an `AWS::GuardDuty::Member` resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import guardduty "github.com/aws/aws-cdk-go/awscdk/aws_guardduty"
-//   cfnMaster := guardduty.NewCfnMaster(this, jsii.String("MyCfnMaster"), &cfnMasterProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnMaster := awscdk.Aws_guardduty.NewCfnMaster(this, jsii.String("MyCfnMaster"), &cfnMasterProps{
 //   	detectorId: jsii.String("detectorId"),
 //   	masterId: jsii.String("masterId"),
 //
@@ -3218,7 +3257,10 @@ func (c *jsiiProxy_CfnMaster) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnMaster`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import guardduty "github.com/aws/aws-cdk-go/awscdk/aws_guardduty"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnMasterProps := &cfnMasterProps{
 //   	detectorId: jsii.String("detectorId"),
 //   	masterId: jsii.String("masterId"),
@@ -3229,13 +3271,13 @@ func (c *jsiiProxy_CfnMaster) ValidateProperties(_properties interface{}) {
 //
 type CfnMasterProps struct {
 	// The unique ID of the detector of the GuardDuty member account.
-	DetectorId *string `json:"detectorId" yaml:"detectorId"`
+	DetectorId *string `field:"required" json:"detectorId" yaml:"detectorId"`
 	// The AWS account ID of the account designated as the  administrator account.
-	MasterId *string `json:"masterId" yaml:"masterId"`
+	MasterId *string `field:"required" json:"masterId" yaml:"masterId"`
 	// The ID of the invitation that is sent to the account designated as a member account.
 	//
 	// You can find the invitation ID by using the ListInvitation action of the  API.
-	InvitationId *string `json:"invitationId" yaml:"invitationId"`
+	InvitationId *string `field:"optional" json:"invitationId" yaml:"invitationId"`
 }
 
 // A CloudFormation `AWS::GuardDuty::Member`.
@@ -3243,8 +3285,11 @@ type CfnMasterProps struct {
 // You can use the `AWS::GuardDuty::Member` resource to add an AWS account as a  member account to the current  administrator account. If the value of the `Status` property is not provided or is set to `Created` , a member account is created but not invited. If the value of the `Status` property is set to `Invited` , a member account is created and invited. An `AWS::GuardDuty::Member` resource must be created with the `Status` property set to `Invited` before the `AWS::GuardDuty::Master` resource can be created in a  member account.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import guardduty "github.com/aws/aws-cdk-go/awscdk/aws_guardduty"
-//   cfnMember := guardduty.NewCfnMember(this, jsii.String("MyCfnMember"), &cfnMemberProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnMember := awscdk.Aws_guardduty.NewCfnMember(this, jsii.String("MyCfnMember"), &cfnMemberProps{
 //   	detectorId: jsii.String("detectorId"),
 //   	email: jsii.String("email"),
 //   	memberId: jsii.String("memberId"),
@@ -3991,7 +4036,10 @@ func (c *jsiiProxy_CfnMember) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnMember`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import guardduty "github.com/aws/aws-cdk-go/awscdk/aws_guardduty"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnMemberProps := &cfnMemberProps{
 //   	detectorId: jsii.String("detectorId"),
 //   	email: jsii.String("email"),
@@ -4005,19 +4053,19 @@ func (c *jsiiProxy_CfnMember) ValidateProperties(_properties interface{}) {
 //
 type CfnMemberProps struct {
 	// The ID of the detector associated with the  service to add the member to.
-	DetectorId *string `json:"detectorId" yaml:"detectorId"`
+	DetectorId *string `field:"required" json:"detectorId" yaml:"detectorId"`
 	// The email address associated with the member account.
-	Email *string `json:"email" yaml:"email"`
+	Email *string `field:"required" json:"email" yaml:"email"`
 	// The AWS account ID of the account to designate as a member.
-	MemberId *string `json:"memberId" yaml:"memberId"`
+	MemberId *string `field:"required" json:"memberId" yaml:"memberId"`
 	// Specifies whether or not to disable email notification for the member account that you invite.
-	DisableEmailNotification interface{} `json:"disableEmailNotification" yaml:"disableEmailNotification"`
+	DisableEmailNotification interface{} `field:"optional" json:"disableEmailNotification" yaml:"disableEmailNotification"`
 	// The invitation message that you want to send to the accounts that you're inviting to GuardDuty as members.
-	Message *string `json:"message" yaml:"message"`
+	Message *string `field:"optional" json:"message" yaml:"message"`
 	// You can use the `Status` property to update the status of the relationship between the member account and its administrator account.
 	//
 	// Valid values are `Created` and `Invited` when using an `AWS::GuardDuty::Member` resource. If the value for this property is not provided or set to `Created` , a member account is created but not invited. If the value of this property is set to `Invited` , a member account is created and invited.
-	Status *string `json:"status" yaml:"status"`
+	Status *string `field:"optional" json:"status" yaml:"status"`
 }
 
 // A CloudFormation `AWS::GuardDuty::ThreatIntelSet`.
@@ -4025,8 +4073,11 @@ type CfnMemberProps struct {
 // The `AWS::GuardDuty::ThreatIntelSet` resource specifies a new `ThreatIntelSet` . A `ThreatIntelSet` consists of known malicious IP addresses.  generates findings based on the `ThreatIntelSet` when it is activated.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import guardduty "github.com/aws/aws-cdk-go/awscdk/aws_guardduty"
-//   cfnThreatIntelSet := guardduty.NewCfnThreatIntelSet(this, jsii.String("MyCfnThreatIntelSet"), &cfnThreatIntelSetProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnThreatIntelSet := awscdk.Aws_guardduty.NewCfnThreatIntelSet(this, jsii.String("MyCfnThreatIntelSet"), &cfnThreatIntelSetProps{
 //   	activate: jsii.Boolean(false),
 //   	detectorId: jsii.String("detectorId"),
 //   	format: jsii.String("format"),
@@ -4749,7 +4800,10 @@ func (c *jsiiProxy_CfnThreatIntelSet) ValidateProperties(_properties interface{}
 // Properties for defining a `CfnThreatIntelSet`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import guardduty "github.com/aws/aws-cdk-go/awscdk/aws_guardduty"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnThreatIntelSetProps := &cfnThreatIntelSetProps{
 //   	activate: jsii.Boolean(false),
 //   	detectorId: jsii.String("detectorId"),
@@ -4762,14 +4816,14 @@ func (c *jsiiProxy_CfnThreatIntelSet) ValidateProperties(_properties interface{}
 //
 type CfnThreatIntelSetProps struct {
 	// A Boolean value that indicates whether GuardDuty is to start using the uploaded ThreatIntelSet.
-	Activate interface{} `json:"activate" yaml:"activate"`
+	Activate interface{} `field:"required" json:"activate" yaml:"activate"`
 	// The unique ID of the detector of the GuardDuty account that you want to create a threatIntelSet for.
-	DetectorId *string `json:"detectorId" yaml:"detectorId"`
+	DetectorId *string `field:"required" json:"detectorId" yaml:"detectorId"`
 	// The format of the file that contains the ThreatIntelSet.
-	Format *string `json:"format" yaml:"format"`
+	Format *string `field:"required" json:"format" yaml:"format"`
 	// The URI of the file that contains the ThreatIntelSet.
-	Location *string `json:"location" yaml:"location"`
+	Location *string `field:"required" json:"location" yaml:"location"`
 	// A user-friendly ThreatIntelSet name displayed in all findings that are generated by activity that involves IP addresses included in this ThreatIntelSet.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

@@ -23,7 +23,10 @@ import (
 // Options when binding a log destination to a RestApi Stage.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   accessLogDestinationConfig := &accessLogDestinationConfig{
 //   	destinationArn: jsii.String("destinationArn"),
 //   }
@@ -32,7 +35,7 @@ import (
 type AccessLogDestinationConfig struct {
 	// The Amazon Resource Name (ARN) of the destination resource.
 	// Experimental.
-	DestinationArn *string `json:"destinationArn" yaml:"destinationArn"`
+	DestinationArn *string `field:"required" json:"destinationArn" yaml:"destinationArn"`
 }
 
 // $context variables that can be used to customize access log pattern.
@@ -1104,6 +1107,7 @@ func (a *jsiiProxy_AccessLogFormat) ToString() *string {
 //   var usageplan usagePlan
 //   var apiKey apiKey
 //
+//
 //   usageplan.addApiKey(apiKey, &addApiKeyOptions{
 //   	overrideLogicalId: jsii.String("..."),
 //   })
@@ -1112,13 +1116,14 @@ func (a *jsiiProxy_AccessLogFormat) ToString() *string {
 type AddApiKeyOptions struct {
 	// Override the CloudFormation logical id of the AWS::ApiGateway::UsagePlanKey resource.
 	// Experimental.
-	OverrideLogicalId *string `json:"overrideLogicalId" yaml:"overrideLogicalId"`
+	OverrideLogicalId *string `field:"optional" json:"overrideLogicalId" yaml:"overrideLogicalId"`
 }
 
 // Represents an OpenAPI definition asset.
 //
 // Example:
 //   var integration integration
+//
 //
 //   api := apigateway.NewSpecRestApi(this, jsii.String("books-api"), &specRestApiProps{
 //   	apiDefinition: apigateway.apiDefinition.fromAsset(jsii.String("path-to-file.json")),
@@ -1277,9 +1282,12 @@ func (a *jsiiProxy_ApiDefinition) BindAfterCreate(_scope awscdk.Construct, _rest
 // Post-Binding Configuration for a CDK construct.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var inlineDefinition interface{}
+//
 //   apiDefinitionConfig := &apiDefinitionConfig{
 //   	inlineDefinition: inlineDefinition,
 //   	s3Location: &apiDefinitionS3Location{
@@ -1295,16 +1303,19 @@ func (a *jsiiProxy_ApiDefinition) BindAfterCreate(_scope awscdk.Construct, _rest
 type ApiDefinitionConfig struct {
 	// Inline specification (mutually exclusive with `s3Location`).
 	// Experimental.
-	InlineDefinition interface{} `json:"inlineDefinition" yaml:"inlineDefinition"`
+	InlineDefinition interface{} `field:"optional" json:"inlineDefinition" yaml:"inlineDefinition"`
 	// The location of the specification in S3 (mutually exclusive with `inlineDefinition`).
 	// Experimental.
-	S3Location *ApiDefinitionS3Location `json:"s3Location" yaml:"s3Location"`
+	S3Location *ApiDefinitionS3Location `field:"optional" json:"s3Location" yaml:"s3Location"`
 }
 
 // S3 location of the API definition file.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   apiDefinitionS3Location := &apiDefinitionS3Location{
 //   	bucket: jsii.String("bucket"),
 //   	key: jsii.String("key"),
@@ -1317,13 +1328,13 @@ type ApiDefinitionConfig struct {
 type ApiDefinitionS3Location struct {
 	// The S3 bucket.
 	// Experimental.
-	Bucket *string `json:"bucket" yaml:"bucket"`
+	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
 	// The S3 key.
 	// Experimental.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// An optional version.
 	// Experimental.
-	Version *string `json:"version" yaml:"version"`
+	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 
 // An API Gateway ApiKey.
@@ -1764,6 +1775,7 @@ func (a *jsiiProxy_ApiKey) Validate() *[]*string {
 //
 // Example:
 //   var api restApi
+//
 //   key := api.addApiKey(jsii.String("ApiKey"), &apiKeyOptions{
 //   	apiKeyName: jsii.String("myApiKey1"),
 //   	value: jsii.String("MyApiKeyThatIsAtLeast20Characters"),
@@ -1775,32 +1787,35 @@ type ApiKeyOptions struct {
 	//
 	// You can add CORS at the resource-level using `addCorsPreflight`.
 	// Experimental.
-	DefaultCorsPreflightOptions *CorsOptions `json:"defaultCorsPreflightOptions" yaml:"defaultCorsPreflightOptions"`
+	DefaultCorsPreflightOptions *CorsOptions `field:"optional" json:"defaultCorsPreflightOptions" yaml:"defaultCorsPreflightOptions"`
 	// An integration to use as a default for all methods created within this API unless an integration is specified.
 	// Experimental.
-	DefaultIntegration Integration `json:"defaultIntegration" yaml:"defaultIntegration"`
+	DefaultIntegration Integration `field:"optional" json:"defaultIntegration" yaml:"defaultIntegration"`
 	// Method options to use as a default for all methods created within this API unless custom options are specified.
 	// Experimental.
-	DefaultMethodOptions *MethodOptions `json:"defaultMethodOptions" yaml:"defaultMethodOptions"`
+	DefaultMethodOptions *MethodOptions `field:"optional" json:"defaultMethodOptions" yaml:"defaultMethodOptions"`
 	// A name for the API key.
 	//
 	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the API key name.
 	// Experimental.
-	ApiKeyName *string `json:"apiKeyName" yaml:"apiKeyName"`
+	ApiKeyName *string `field:"optional" json:"apiKeyName" yaml:"apiKeyName"`
 	// A description of the purpose of the API key.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The value of the API key.
 	//
 	// Must be at least 20 characters long.
 	// Experimental.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
 // ApiKey Properties.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var authorizer authorizer
 //   var duration duration
@@ -1808,6 +1823,7 @@ type ApiKeyOptions struct {
 //   var model model
 //   var requestValidator requestValidator
 //   var restApi restApi
+//
 //   apiKeyProps := &apiKeyProps{
 //   	apiKeyName: jsii.String("apiKeyName"),
 //   	customerId: jsii.String("customerId"),
@@ -1837,7 +1853,7 @@ type ApiKeyOptions struct {
 //   		authorizationScopes: []*string{
 //   			jsii.String("authorizationScopes"),
 //   		},
-//   		authorizationType: apigateway.authorizationType_NONE,
+//   		authorizationType: awscdk.Aws_apigateway.authorizationType_NONE,
 //   		authorizer: authorizer,
 //   		methodResponses: []methodResponse{
 //   			&methodResponse{
@@ -1881,38 +1897,38 @@ type ApiKeyProps struct {
 	//
 	// You can add CORS at the resource-level using `addCorsPreflight`.
 	// Experimental.
-	DefaultCorsPreflightOptions *CorsOptions `json:"defaultCorsPreflightOptions" yaml:"defaultCorsPreflightOptions"`
+	DefaultCorsPreflightOptions *CorsOptions `field:"optional" json:"defaultCorsPreflightOptions" yaml:"defaultCorsPreflightOptions"`
 	// An integration to use as a default for all methods created within this API unless an integration is specified.
 	// Experimental.
-	DefaultIntegration Integration `json:"defaultIntegration" yaml:"defaultIntegration"`
+	DefaultIntegration Integration `field:"optional" json:"defaultIntegration" yaml:"defaultIntegration"`
 	// Method options to use as a default for all methods created within this API unless custom options are specified.
 	// Experimental.
-	DefaultMethodOptions *MethodOptions `json:"defaultMethodOptions" yaml:"defaultMethodOptions"`
+	DefaultMethodOptions *MethodOptions `field:"optional" json:"defaultMethodOptions" yaml:"defaultMethodOptions"`
 	// A name for the API key.
 	//
 	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the API key name.
 	// Experimental.
-	ApiKeyName *string `json:"apiKeyName" yaml:"apiKeyName"`
+	ApiKeyName *string `field:"optional" json:"apiKeyName" yaml:"apiKeyName"`
 	// A description of the purpose of the API key.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The value of the API key.
 	//
 	// Must be at least 20 characters long.
 	// Experimental.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"optional" json:"value" yaml:"value"`
 	// An AWS Marketplace customer identifier to use when integrating with the AWS SaaS Marketplace.
 	// Experimental.
-	CustomerId *string `json:"customerId" yaml:"customerId"`
+	CustomerId *string `field:"optional" json:"customerId" yaml:"customerId"`
 	// Indicates whether the API key can be used by clients.
 	// Experimental.
-	Enabled *bool `json:"enabled" yaml:"enabled"`
+	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// Specifies whether the key identifier is distinct from the created API key value.
 	// Experimental.
-	GenerateDistinctId *bool `json:"generateDistinctId" yaml:"generateDistinctId"`
+	GenerateDistinctId *bool `field:"optional" json:"generateDistinctId" yaml:"generateDistinctId"`
 	// A list of resources this api key is associated with.
 	// Experimental.
-	Resources *[]IRestApi `json:"resources" yaml:"resources"`
+	Resources *[]IRestApi `field:"optional" json:"resources" yaml:"resources"`
 }
 
 // Experimental.
@@ -1930,12 +1946,18 @@ const (
 // OpenAPI specification from a local file.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import assets "github.com/aws/aws-cdk-go/awscdk/assets"import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var dockerImage dockerImage
 //   var grantable iGrantable
 //   var localBundling iLocalBundling
-//   assetApiDefinition := apigateway.NewAssetApiDefinition(jsii.String("path"), &assetOptions{
+//
+//   assetApiDefinition := awscdk.Aws_apigateway.NewAssetApiDefinition(jsii.String("path"), &assetOptions{
 //   	assetHash: jsii.String("assetHash"),
 //   	assetHashType: monocdk.assetHashType_SOURCE,
 //   	bundling: &bundlingOptions{
@@ -1969,7 +1991,7 @@ const (
 //   	exclude: []*string{
 //   		jsii.String("exclude"),
 //   	},
-//   	follow: assets.followMode_NEVER,
+//   	follow: awscdk.Assets.followMode_NEVER,
 //   	followSymlinks: monocdk.symlinkFollowMode_NEVER,
 //   	ignoreMode: monocdk.ignoreMode_GLOB,
 //   	readers: []*iGrantable{
@@ -2142,7 +2164,8 @@ func (a *jsiiProxy_AssetApiDefinition) BindAfterCreate(scope awscdk.Construct, r
 }
 
 // Example:
-//   var books resourceuserPool := cognito.NewUserPool(this, jsii.String("UserPool"))
+//   var books resource
+//   userPool := cognito.NewUserPool(this, jsii.String("UserPool"))
 //
 //   auth := apigateway.NewCognitoUserPoolsAuthorizer(this, jsii.String("booksAuthorizer"), &cognitoUserPoolsAuthorizerProps{
 //   	cognitoUserPools: []iUserPool{
@@ -2613,26 +2636,26 @@ func (a *jsiiProxy_AwsIntegration) Bind(method Method) *IntegrationConfig {
 type AwsIntegrationProps struct {
 	// The name of the integrated AWS service (e.g. `s3`).
 	// Experimental.
-	Service *string `json:"service" yaml:"service"`
+	Service *string `field:"required" json:"service" yaml:"service"`
 	// The AWS action to perform in the integration.
 	//
 	// Use `actionParams` to specify key-value params for the action.
 	//
 	// Mutually exclusive with `path`.
 	// Experimental.
-	Action *string `json:"action" yaml:"action"`
+	Action *string `field:"optional" json:"action" yaml:"action"`
 	// Parameters for the action.
 	//
 	// `action` must be set, and `path` must be undefined.
 	// The action params will be URL encoded.
 	// Experimental.
-	ActionParameters *map[string]*string `json:"actionParameters" yaml:"actionParameters"`
+	ActionParameters *map[string]*string `field:"optional" json:"actionParameters" yaml:"actionParameters"`
 	// The integration's HTTP method type.
 	// Experimental.
-	IntegrationHttpMethod *string `json:"integrationHttpMethod" yaml:"integrationHttpMethod"`
+	IntegrationHttpMethod *string `field:"optional" json:"integrationHttpMethod" yaml:"integrationHttpMethod"`
 	// Integration options, such as content handling, request/response mapping, etc.
 	// Experimental.
-	Options *IntegrationOptions `json:"options" yaml:"options"`
+	Options *IntegrationOptions `field:"optional" json:"options" yaml:"options"`
 	// The path to use for path-base APIs.
 	//
 	// For example, for S3 GET, you can set path to `bucket/key`.
@@ -2640,16 +2663,16 @@ type AwsIntegrationProps struct {
 	//
 	// Mutually exclusive with the `action` options.
 	// Experimental.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 	// Use AWS_PROXY integration.
 	// Experimental.
-	Proxy *bool `json:"proxy" yaml:"proxy"`
+	Proxy *bool `field:"optional" json:"proxy" yaml:"proxy"`
 	// The region of the integrated AWS service.
 	// Experimental.
-	Region *string `json:"region" yaml:"region"`
+	Region *string `field:"optional" json:"region" yaml:"region"`
 	// A designated subdomain supported by certain AWS service for fast host-name lookup.
 	// Experimental.
-	Subdomain *string `json:"subdomain" yaml:"subdomain"`
+	Subdomain *string `field:"optional" json:"subdomain" yaml:"subdomain"`
 }
 
 // This resource creates a base path that clients who call your API must use in the invocation URL.
@@ -2658,12 +2681,15 @@ type AwsIntegrationProps struct {
 // you can use `DomainName.addBasePathMapping()` to define mappings.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var domainName domainName
 //   var restApi restApi
 //   var stage stage
-//   basePathMapping := apigateway.NewBasePathMapping(this, jsii.String("MyBasePathMapping"), &basePathMappingProps{
+//
+//   basePathMapping := awscdk.Aws_apigateway.NewBasePathMapping(this, jsii.String("MyBasePathMapping"), &basePathMappingProps{
 //   	domainName: domainName,
 //   	restApi: restApi,
 //
@@ -3010,6 +3036,7 @@ func (b *jsiiProxy_BasePathMapping) Validate() *[]*string {
 //   var api1 restApi
 //   var api2 restApi
 //
+//
 //   domain.addBasePathMapping(api1, &basePathMappingOptions{
 //   	basePath: jsii.String("go-to-api1"),
 //   })
@@ -3021,18 +3048,21 @@ func (b *jsiiProxy_BasePathMapping) Validate() *[]*string {
 type BasePathMappingOptions struct {
 	// The base path name that callers of the API must provide in the URL after the domain name (e.g. `example.com/base-path`). If you specify this property, it can't be an empty string.
 	// Experimental.
-	BasePath *string `json:"basePath" yaml:"basePath"`
+	BasePath *string `field:"optional" json:"basePath" yaml:"basePath"`
 	// The Deployment stage of API [disable-awslint:ref-via-interface].
 	// Experimental.
-	Stage Stage `json:"stage" yaml:"stage"`
+	Stage Stage `field:"optional" json:"stage" yaml:"stage"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var domainName domainName
 //   var restApi restApi
 //   var stage stage
+//
 //   basePathMappingProps := &basePathMappingProps{
 //   	domainName: domainName,
 //   	restApi: restApi,
@@ -3046,16 +3076,16 @@ type BasePathMappingOptions struct {
 type BasePathMappingProps struct {
 	// The base path name that callers of the API must provide in the URL after the domain name (e.g. `example.com/base-path`). If you specify this property, it can't be an empty string.
 	// Experimental.
-	BasePath *string `json:"basePath" yaml:"basePath"`
+	BasePath *string `field:"optional" json:"basePath" yaml:"basePath"`
 	// The Deployment stage of API [disable-awslint:ref-via-interface].
 	// Experimental.
-	Stage Stage `json:"stage" yaml:"stage"`
+	Stage Stage `field:"optional" json:"stage" yaml:"stage"`
 	// The DomainName to associate with this base path mapping.
 	// Experimental.
-	DomainName IDomainName `json:"domainName" yaml:"domainName"`
+	DomainName IDomainName `field:"required" json:"domainName" yaml:"domainName"`
 	// The RestApi resource to target.
 	// Experimental.
-	RestApi IRestApi `json:"restApi" yaml:"restApi"`
+	RestApi IRestApi `field:"required" json:"restApi" yaml:"restApi"`
 }
 
 // A CloudFormation `AWS::ApiGateway::Account`.
@@ -3067,8 +3097,11 @@ type BasePathMappingProps struct {
 // > If an API Gateway resource has been created in your AWS account , no dependency is required (even if the resource was deleted).
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
-//   cfnAccount := apigateway.NewCfnAccount(this, jsii.String("MyCfnAccount"), &cfnAccountProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnAccount := awscdk.Aws_apigateway.NewCfnAccount(this, jsii.String("MyCfnAccount"), &cfnAccountProps{
 //   	cloudWatchRoleArn: jsii.String("cloudWatchRoleArn"),
 //   })
 //
@@ -3715,14 +3748,17 @@ func (c *jsiiProxy_CfnAccount) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnAccount`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAccountProps := &cfnAccountProps{
 //   	cloudWatchRoleArn: jsii.String("cloudWatchRoleArn"),
 //   }
 //
 type CfnAccountProps struct {
 	// The Amazon Resource Name (ARN) of an IAM role that has write access to CloudWatch Logs in your account.
-	CloudWatchRoleArn *string `json:"cloudWatchRoleArn" yaml:"cloudWatchRoleArn"`
+	CloudWatchRoleArn *string `field:"optional" json:"cloudWatchRoleArn" yaml:"cloudWatchRoleArn"`
 }
 
 // A CloudFormation `AWS::ApiGateway::ApiKey`.
@@ -3730,8 +3766,11 @@ type CfnAccountProps struct {
 // The `AWS::ApiGateway::ApiKey` resource creates a unique key that you can distribute to clients who are executing API Gateway `Method` resources that require an API key. To specify which API key clients must use, map the API key with the `RestApi` and `Stage` resources that include the methods that require a key.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
-//   cfnApiKey := apigateway.NewCfnApiKey(this, jsii.String("MyCfnApiKey"), &cfnApiKeyProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnApiKey := awscdk.Aws_apigateway.NewCfnApiKey(this, jsii.String("MyCfnApiKey"), &cfnApiKeyProps{
 //   	customerId: jsii.String("customerId"),
 //   	description: jsii.String("description"),
 //   	enabled: jsii.Boolean(false),
@@ -4541,7 +4580,10 @@ func (c *jsiiProxy_CfnApiKey) ValidateProperties(_properties interface{}) {
 // `StageKey` is a property of the [AWS::ApiGateway::ApiKey](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html) resource that specifies the stage to associate with the API key. This association allows only clients with the key to make requests to methods in that stage.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   stageKeyProperty := &stageKeyProperty{
 //   	restApiId: jsii.String("restApiId"),
 //   	stageName: jsii.String("stageName"),
@@ -4549,17 +4591,20 @@ func (c *jsiiProxy_CfnApiKey) ValidateProperties(_properties interface{}) {
 //
 type CfnApiKey_StageKeyProperty struct {
 	// The ID of a `RestApi` resource that includes the stage with which you want to associate the API key.
-	RestApiId *string `json:"restApiId" yaml:"restApiId"`
+	RestApiId *string `field:"optional" json:"restApiId" yaml:"restApiId"`
 	// The name of the stage with which to associate the API key.
 	//
 	// The stage must be included in the `RestApi` resource that you specified in the `RestApiId` property.
-	StageName *string `json:"stageName" yaml:"stageName"`
+	StageName *string `field:"optional" json:"stageName" yaml:"stageName"`
 }
 
 // Properties for defining a `CfnApiKey`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnApiKeyProps := &cfnApiKeyProps{
 //   	customerId: jsii.String("customerId"),
 //   	description: jsii.String("description"),
@@ -4583,36 +4628,39 @@ type CfnApiKey_StageKeyProperty struct {
 //
 type CfnApiKeyProps struct {
 	// An AWS Marketplace customer identifier to use when integrating with the AWS SaaS Marketplace.
-	CustomerId *string `json:"customerId" yaml:"customerId"`
+	CustomerId *string `field:"optional" json:"customerId" yaml:"customerId"`
 	// A description of the purpose of the API key.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Indicates whether the API key can be used by clients.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// Specifies whether the key identifier is distinct from the created API key value.
 	//
 	// This parameter is deprecated and should not be used.
-	GenerateDistinctId interface{} `json:"generateDistinctId" yaml:"generateDistinctId"`
+	GenerateDistinctId interface{} `field:"optional" json:"generateDistinctId" yaml:"generateDistinctId"`
 	// A name for the API key.
 	//
 	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the API key name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
 	//
 	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// A list of stages to associate with this API key.
-	StageKeys interface{} `json:"stageKeys" yaml:"stageKeys"`
+	StageKeys interface{} `field:"optional" json:"stageKeys" yaml:"stageKeys"`
 	// An array of arbitrary tags (key-value pairs) to associate with the API key.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The value of the API key.
 	//
 	// Must be at least 20 characters long.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::ApiMapping`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
-//   cfnApiMappingV2 := apigateway.NewCfnApiMappingV2(this, jsii.String("MyCfnApiMappingV2"), &cfnApiMappingV2Props{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnApiMappingV2 := awscdk.Aws_apigateway.NewCfnApiMappingV2(this, jsii.String("MyCfnApiMappingV2"), &cfnApiMappingV2Props{
 //   	apiId: jsii.String("apiId"),
 //   	domainName: jsii.String("domainName"),
 //   	stage: jsii.String("stage"),
@@ -5337,7 +5385,10 @@ func (c *jsiiProxy_CfnApiMappingV2) ValidateProperties(_properties interface{}) 
 // Properties for defining a `AWS::ApiGatewayV2::ApiMapping`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnApiMappingV2Props := &cfnApiMappingV2Props{
 //   	apiId: jsii.String("apiId"),
 //   	domainName: jsii.String("domainName"),
@@ -5355,32 +5406,35 @@ type CfnApiMappingV2Props struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apimapping.html#cfn-apigatewayv2-apimapping-apiid
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	ApiId *string `json:"apiId" yaml:"apiId"`
+	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`
 	// `AWS::ApiGatewayV2::ApiMapping.DomainName`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apimapping.html#cfn-apigatewayv2-apimapping-domainname
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 	// `AWS::ApiGatewayV2::ApiMapping.Stage`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apimapping.html#cfn-apigatewayv2-apimapping-stage
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	Stage *string `json:"stage" yaml:"stage"`
+	Stage *string `field:"required" json:"stage" yaml:"stage"`
 	// `AWS::ApiGatewayV2::ApiMapping.ApiMappingKey`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apimapping.html#cfn-apigatewayv2-apimapping-apimappingkey
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	ApiMappingKey *string `json:"apiMappingKey" yaml:"apiMappingKey"`
+	ApiMappingKey *string `field:"optional" json:"apiMappingKey" yaml:"apiMappingKey"`
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::Api`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var body interface{}
 //   var tags interface{}
-//   cfnApiV2 := apigateway.NewCfnApiV2(this, jsii.String("MyCfnApiV2"), &cfnApiV2Props{
+//
+//   cfnApiV2 := awscdk.Aws_apigateway.NewCfnApiV2(this, jsii.String("MyCfnApiV2"), &cfnApiV2Props{
 //   	apiKeySelectionExpression: jsii.String("apiKeySelectionExpression"),
 //   	basePath: jsii.String("basePath"),
 //   	body: body,
@@ -6423,7 +6477,10 @@ func (c *jsiiProxy_CfnApiV2) ValidateProperties(_properties interface{}) {
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   bodyS3LocationProperty := &bodyS3LocationProperty{
 //   	bucket: jsii.String("bucket"),
 //   	etag: jsii.String("etag"),
@@ -6439,26 +6496,29 @@ type CfnApiV2_BodyS3LocationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-api-bodys3location.html#cfn-apigatewayv2-api-bodys3location-bucket
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	Bucket *string `json:"bucket" yaml:"bucket"`
+	Bucket *string `field:"optional" json:"bucket" yaml:"bucket"`
 	// `CfnApiV2.BodyS3LocationProperty.Etag`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-api-bodys3location.html#cfn-apigatewayv2-api-bodys3location-etag
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	Etag *string `json:"etag" yaml:"etag"`
+	Etag *string `field:"optional" json:"etag" yaml:"etag"`
 	// `CfnApiV2.BodyS3LocationProperty.Key`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-api-bodys3location.html#cfn-apigatewayv2-api-bodys3location-key
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"optional" json:"key" yaml:"key"`
 	// `CfnApiV2.BodyS3LocationProperty.Version`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-api-bodys3location.html#cfn-apigatewayv2-api-bodys3location-version
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	Version *string `json:"version" yaml:"version"`
+	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   corsProperty := &corsProperty{
 //   	allowCredentials: jsii.Boolean(false),
 //   	allowHeaders: []*string{
@@ -6484,41 +6544,44 @@ type CfnApiV2_CorsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-api-cors.html#cfn-apigatewayv2-api-cors-allowcredentials
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	AllowCredentials interface{} `json:"allowCredentials" yaml:"allowCredentials"`
+	AllowCredentials interface{} `field:"optional" json:"allowCredentials" yaml:"allowCredentials"`
 	// `CfnApiV2.CorsProperty.AllowHeaders`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-api-cors.html#cfn-apigatewayv2-api-cors-allowheaders
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	AllowHeaders *[]*string `json:"allowHeaders" yaml:"allowHeaders"`
+	AllowHeaders *[]*string `field:"optional" json:"allowHeaders" yaml:"allowHeaders"`
 	// `CfnApiV2.CorsProperty.AllowMethods`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-api-cors.html#cfn-apigatewayv2-api-cors-allowmethods
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	AllowMethods *[]*string `json:"allowMethods" yaml:"allowMethods"`
+	AllowMethods *[]*string `field:"optional" json:"allowMethods" yaml:"allowMethods"`
 	// `CfnApiV2.CorsProperty.AllowOrigins`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-api-cors.html#cfn-apigatewayv2-api-cors-alloworigins
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	AllowOrigins *[]*string `json:"allowOrigins" yaml:"allowOrigins"`
+	AllowOrigins *[]*string `field:"optional" json:"allowOrigins" yaml:"allowOrigins"`
 	// `CfnApiV2.CorsProperty.ExposeHeaders`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-api-cors.html#cfn-apigatewayv2-api-cors-exposeheaders
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	ExposeHeaders *[]*string `json:"exposeHeaders" yaml:"exposeHeaders"`
+	ExposeHeaders *[]*string `field:"optional" json:"exposeHeaders" yaml:"exposeHeaders"`
 	// `CfnApiV2.CorsProperty.MaxAge`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-api-cors.html#cfn-apigatewayv2-api-cors-maxage
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	MaxAge *float64 `json:"maxAge" yaml:"maxAge"`
+	MaxAge *float64 `field:"optional" json:"maxAge" yaml:"maxAge"`
 }
 
 // Properties for defining a `AWS::ApiGatewayV2::Api`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var body interface{}
 //   var tags interface{}
+//
 //   cfnApiV2Props := &cfnApiV2Props{
 //   	apiKeySelectionExpression: jsii.String("apiKeySelectionExpression"),
 //   	basePath: jsii.String("basePath"),
@@ -6566,82 +6629,82 @@ type CfnApiV2Props struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-apikeyselectionexpression
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	ApiKeySelectionExpression *string `json:"apiKeySelectionExpression" yaml:"apiKeySelectionExpression"`
+	ApiKeySelectionExpression *string `field:"optional" json:"apiKeySelectionExpression" yaml:"apiKeySelectionExpression"`
 	// `AWS::ApiGatewayV2::Api.BasePath`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-basepath
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	BasePath *string `json:"basePath" yaml:"basePath"`
+	BasePath *string `field:"optional" json:"basePath" yaml:"basePath"`
 	// `AWS::ApiGatewayV2::Api.Body`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-body
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	Body interface{} `json:"body" yaml:"body"`
+	Body interface{} `field:"optional" json:"body" yaml:"body"`
 	// `AWS::ApiGatewayV2::Api.BodyS3Location`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-bodys3location
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	BodyS3Location interface{} `json:"bodyS3Location" yaml:"bodyS3Location"`
+	BodyS3Location interface{} `field:"optional" json:"bodyS3Location" yaml:"bodyS3Location"`
 	// `AWS::ApiGatewayV2::Api.CorsConfiguration`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-corsconfiguration
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	CorsConfiguration interface{} `json:"corsConfiguration" yaml:"corsConfiguration"`
+	CorsConfiguration interface{} `field:"optional" json:"corsConfiguration" yaml:"corsConfiguration"`
 	// `AWS::ApiGatewayV2::Api.CredentialsArn`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-credentialsarn
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	CredentialsArn *string `json:"credentialsArn" yaml:"credentialsArn"`
+	CredentialsArn *string `field:"optional" json:"credentialsArn" yaml:"credentialsArn"`
 	// `AWS::ApiGatewayV2::Api.Description`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-description
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// `AWS::ApiGatewayV2::Api.DisableSchemaValidation`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-disableschemavalidation
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	DisableSchemaValidation interface{} `json:"disableSchemaValidation" yaml:"disableSchemaValidation"`
+	DisableSchemaValidation interface{} `field:"optional" json:"disableSchemaValidation" yaml:"disableSchemaValidation"`
 	// `AWS::ApiGatewayV2::Api.FailOnWarnings`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-failonwarnings
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	FailOnWarnings interface{} `json:"failOnWarnings" yaml:"failOnWarnings"`
+	FailOnWarnings interface{} `field:"optional" json:"failOnWarnings" yaml:"failOnWarnings"`
 	// `AWS::ApiGatewayV2::Api.Name`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-name
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// `AWS::ApiGatewayV2::Api.ProtocolType`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-protocoltype
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	ProtocolType *string `json:"protocolType" yaml:"protocolType"`
+	ProtocolType *string `field:"optional" json:"protocolType" yaml:"protocolType"`
 	// `AWS::ApiGatewayV2::Api.RouteKey`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-routekey
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	RouteKey *string `json:"routeKey" yaml:"routeKey"`
+	RouteKey *string `field:"optional" json:"routeKey" yaml:"routeKey"`
 	// `AWS::ApiGatewayV2::Api.RouteSelectionExpression`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-routeselectionexpression
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	RouteSelectionExpression *string `json:"routeSelectionExpression" yaml:"routeSelectionExpression"`
+	RouteSelectionExpression *string `field:"optional" json:"routeSelectionExpression" yaml:"routeSelectionExpression"`
 	// `AWS::ApiGatewayV2::Api.Tags`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-tags
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	Tags interface{} `json:"tags" yaml:"tags"`
+	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
 	// `AWS::ApiGatewayV2::Api.Target`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-target
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	Target *string `json:"target" yaml:"target"`
+	Target *string `field:"optional" json:"target" yaml:"target"`
 	// `AWS::ApiGatewayV2::Api.Version`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-version
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	Version *string `json:"version" yaml:"version"`
+	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 
 // A CloudFormation `AWS::ApiGateway::Authorizer`.
@@ -6649,8 +6712,11 @@ type CfnApiV2Props struct {
 // The `AWS::ApiGateway::Authorizer` resource creates an authorization layer that API Gateway activates for methods that have authorization enabled. API Gateway activates the authorizer when a client calls those methods.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
-//   cfnAuthorizer := apigateway.NewCfnAuthorizer(this, jsii.String("MyCfnAuthorizer"), &cfnAuthorizerProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnAuthorizer := awscdk.Aws_apigateway.NewCfnAuthorizer(this, jsii.String("MyCfnAuthorizer"), &cfnAuthorizerProps{
 //   	name: jsii.String("name"),
 //   	restApiId: jsii.String("restApiId"),
 //   	type: jsii.String("type"),
@@ -7517,7 +7583,10 @@ func (c *jsiiProxy_CfnAuthorizer) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnAuthorizer`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAuthorizerProps := &cfnAuthorizerProps{
 //   	name: jsii.String("name"),
 //   	restApiId: jsii.String("restApiId"),
@@ -7537,50 +7606,53 @@ func (c *jsiiProxy_CfnAuthorizer) ValidateProperties(_properties interface{}) {
 //
 type CfnAuthorizerProps struct {
 	// The name of the authorizer.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The ID of the `RestApi` resource that API Gateway creates the authorizer in.
-	RestApiId *string `json:"restApiId" yaml:"restApiId"`
+	RestApiId *string `field:"required" json:"restApiId" yaml:"restApiId"`
 	// The type of authorizer. Valid values include:.
 	//
 	// - `TOKEN` : A custom authorizer that uses a Lambda function.
 	// - `COGNITO_USER_POOLS` : An authorizer that uses Amazon Cognito user pools.
 	// - `REQUEST` : An authorizer that uses a Lambda function using incoming request parameters.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// The credentials that are required for the authorizer.
 	//
 	// To specify an IAM role that API Gateway assumes, specify the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null.
-	AuthorizerCredentials *string `json:"authorizerCredentials" yaml:"authorizerCredentials"`
+	AuthorizerCredentials *string `field:"optional" json:"authorizerCredentials" yaml:"authorizerCredentials"`
 	// The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches authorizer results.
 	//
 	// If you specify a value greater than 0, API Gateway caches the authorizer responses. By default, API Gateway sets this property to 300. The maximum value is 3600, or 1 hour.
-	AuthorizerResultTtlInSeconds *float64 `json:"authorizerResultTtlInSeconds" yaml:"authorizerResultTtlInSeconds"`
+	AuthorizerResultTtlInSeconds *float64 `field:"optional" json:"authorizerResultTtlInSeconds" yaml:"authorizerResultTtlInSeconds"`
 	// The authorizer's Uniform Resource Identifier (URI).
 	//
 	// If you specify `TOKEN` for the authorizer's `Type` property, specify a Lambda function URI that has the form `arn:aws:apigateway: *region* :lambda:path/ *path*` . The path usually has the form /2015-03-31/functions/ *LambdaFunctionARN* /invocations.
-	AuthorizerUri *string `json:"authorizerUri" yaml:"authorizerUri"`
+	AuthorizerUri *string `field:"optional" json:"authorizerUri" yaml:"authorizerUri"`
 	// An optional customer-defined field that's used in OpenApi imports and exports without functional impact.
-	AuthType *string `json:"authType" yaml:"authType"`
+	AuthType *string `field:"optional" json:"authType" yaml:"authType"`
 	// The source of the identity in an incoming request.
 	//
 	// If you specify `TOKEN` or `COGNITO_USER_POOLS` for the `Type` property, this property is required. Specify a header mapping expression using the form `method.request.header. *name*` , where *name* is the name of a custom authorization header that clients submit as part of their requests.
 	//
 	// If you specify `REQUEST` for the `Type` property, this property is required when authorization caching is enabled. Specify a comma-separated string of one or more mapping expressions of the specified request parameter using the form `method.request.parameter. *name*` . For supported parameter types, see [Configure Lambda Authorizer Using the API Gateway Console](https://docs.aws.amazon.com/apigateway/latest/developerguide/configure-api-gateway-lambda-authorization-with-console.html) in the *API Gateway Developer Guide* .
-	IdentitySource *string `json:"identitySource" yaml:"identitySource"`
+	IdentitySource *string `field:"optional" json:"identitySource" yaml:"identitySource"`
 	// A validation expression for the incoming identity.
 	//
 	// If you specify `TOKEN` for the authorizer's `Type` property, specify a regular expression. API Gateway uses the expression to attempt to match the incoming client token, and proceeds if the token matches. If the token doesn't match, API Gateway responds with a 401 (unauthorized request) error code.
-	IdentityValidationExpression *string `json:"identityValidationExpression" yaml:"identityValidationExpression"`
+	IdentityValidationExpression *string `field:"optional" json:"identityValidationExpression" yaml:"identityValidationExpression"`
 	// A list of the Amazon Cognito user pool Amazon Resource Names (ARNs) to associate with this authorizer.
 	//
 	// Required if you specify `COGNITO_USER_POOLS` as the authorizer `Type` . For more information, see [Use Amazon Cognito User Pools](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html#apigateway-enable-cognito-user-pool) in the *API Gateway Developer Guide* .
-	ProviderArns *[]*string `json:"providerArns" yaml:"providerArns"`
+	ProviderArns *[]*string `field:"optional" json:"providerArns" yaml:"providerArns"`
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::Authorizer`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
-//   cfnAuthorizerV2 := apigateway.NewCfnAuthorizerV2(this, jsii.String("MyCfnAuthorizerV2"), &cfnAuthorizerV2Props{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnAuthorizerV2 := awscdk.Aws_apigateway.NewCfnAuthorizerV2(this, jsii.String("MyCfnAuthorizerV2"), &cfnAuthorizerV2Props{
 //   	apiId: jsii.String("apiId"),
 //   	authorizerType: jsii.String("authorizerType"),
 //   	identitySource: []*string{
@@ -8440,7 +8512,10 @@ func (c *jsiiProxy_CfnAuthorizerV2) ValidateProperties(_properties interface{}) 
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   jWTConfigurationProperty := &jWTConfigurationProperty{
 //   	audience: []*string{
 //   		jsii.String("audience"),
@@ -8456,18 +8531,21 @@ type CfnAuthorizerV2_JWTConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-authorizer-jwtconfiguration.html#cfn-apigatewayv2-authorizer-jwtconfiguration-audience
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	Audience *[]*string `json:"audience" yaml:"audience"`
+	Audience *[]*string `field:"optional" json:"audience" yaml:"audience"`
 	// `CfnAuthorizerV2.JWTConfigurationProperty.Issuer`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-authorizer-jwtconfiguration.html#cfn-apigatewayv2-authorizer-jwtconfiguration-issuer
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	Issuer *string `json:"issuer" yaml:"issuer"`
+	Issuer *string `field:"optional" json:"issuer" yaml:"issuer"`
 }
 
 // Properties for defining a `AWS::ApiGatewayV2::Authorizer`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAuthorizerV2Props := &cfnAuthorizerV2Props{
 //   	apiId: jsii.String("apiId"),
 //   	authorizerType: jsii.String("authorizerType"),
@@ -8497,47 +8575,47 @@ type CfnAuthorizerV2Props struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-apiid
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	ApiId *string `json:"apiId" yaml:"apiId"`
+	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`
 	// `AWS::ApiGatewayV2::Authorizer.AuthorizerType`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-authorizertype
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	AuthorizerType *string `json:"authorizerType" yaml:"authorizerType"`
+	AuthorizerType *string `field:"required" json:"authorizerType" yaml:"authorizerType"`
 	// `AWS::ApiGatewayV2::Authorizer.IdentitySource`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-identitysource
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	IdentitySource *[]*string `json:"identitySource" yaml:"identitySource"`
+	IdentitySource *[]*string `field:"required" json:"identitySource" yaml:"identitySource"`
 	// `AWS::ApiGatewayV2::Authorizer.Name`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-name
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// `AWS::ApiGatewayV2::Authorizer.AuthorizerCredentialsArn`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-authorizercredentialsarn
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	AuthorizerCredentialsArn *string `json:"authorizerCredentialsArn" yaml:"authorizerCredentialsArn"`
+	AuthorizerCredentialsArn *string `field:"optional" json:"authorizerCredentialsArn" yaml:"authorizerCredentialsArn"`
 	// `AWS::ApiGatewayV2::Authorizer.AuthorizerResultTtlInSeconds`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-authorizerresultttlinseconds
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	AuthorizerResultTtlInSeconds *float64 `json:"authorizerResultTtlInSeconds" yaml:"authorizerResultTtlInSeconds"`
+	AuthorizerResultTtlInSeconds *float64 `field:"optional" json:"authorizerResultTtlInSeconds" yaml:"authorizerResultTtlInSeconds"`
 	// `AWS::ApiGatewayV2::Authorizer.AuthorizerUri`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-authorizeruri
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	AuthorizerUri *string `json:"authorizerUri" yaml:"authorizerUri"`
+	AuthorizerUri *string `field:"optional" json:"authorizerUri" yaml:"authorizerUri"`
 	// `AWS::ApiGatewayV2::Authorizer.IdentityValidationExpression`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-identityvalidationexpression
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	IdentityValidationExpression *string `json:"identityValidationExpression" yaml:"identityValidationExpression"`
+	IdentityValidationExpression *string `field:"optional" json:"identityValidationExpression" yaml:"identityValidationExpression"`
 	// `AWS::ApiGatewayV2::Authorizer.JwtConfiguration`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-jwtconfiguration
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	JwtConfiguration interface{} `json:"jwtConfiguration" yaml:"jwtConfiguration"`
+	JwtConfiguration interface{} `field:"optional" json:"jwtConfiguration" yaml:"jwtConfiguration"`
 }
 
 // A CloudFormation `AWS::ApiGateway::BasePathMapping`.
@@ -8545,8 +8623,11 @@ type CfnAuthorizerV2Props struct {
 // The `AWS::ApiGateway::BasePathMapping` resource creates a base path that clients who call your API must use in the invocation URL.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
-//   cfnBasePathMapping := apigateway.NewCfnBasePathMapping(this, jsii.String("MyCfnBasePathMapping"), &cfnBasePathMappingProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnBasePathMapping := awscdk.Aws_apigateway.NewCfnBasePathMapping(this, jsii.String("MyCfnBasePathMapping"), &cfnBasePathMappingProps{
 //   	domainName: jsii.String("domainName"),
 //
 //   	// the properties below are optional
@@ -9269,7 +9350,10 @@ func (c *jsiiProxy_CfnBasePathMapping) ValidateProperties(_properties interface{
 // Properties for defining a `CfnBasePathMapping`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnBasePathMappingProps := &cfnBasePathMappingProps{
 //   	domainName: jsii.String("domainName"),
 //
@@ -9282,15 +9366,15 @@ func (c *jsiiProxy_CfnBasePathMapping) ValidateProperties(_properties interface{
 //
 type CfnBasePathMappingProps struct {
 	// The `DomainName` of an [AWS::ApiGateway::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html) resource.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 	// The base path name that callers of the API must provide in the URL after the domain name.
-	BasePath *string `json:"basePath" yaml:"basePath"`
+	BasePath *string `field:"optional" json:"basePath" yaml:"basePath"`
 	// `AWS::ApiGateway::BasePathMapping.Id`.
-	Id *string `json:"id" yaml:"id"`
+	Id *string `field:"optional" json:"id" yaml:"id"`
 	// The ID of the API.
-	RestApiId *string `json:"restApiId" yaml:"restApiId"`
+	RestApiId *string `field:"optional" json:"restApiId" yaml:"restApiId"`
 	// The name of the API's stage.
-	Stage *string `json:"stage" yaml:"stage"`
+	Stage *string `field:"optional" json:"stage" yaml:"stage"`
 }
 
 // A CloudFormation `AWS::ApiGateway::ClientCertificate`.
@@ -9298,8 +9382,11 @@ type CfnBasePathMappingProps struct {
 // The `AWS::ApiGateway::ClientCertificate` resource creates a client certificate that API Gateway uses to configure client-side SSL authentication for sending requests to the integration endpoint.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
-//   cfnClientCertificate := apigateway.NewCfnClientCertificate(this, jsii.String("MyCfnClientCertificate"), &cfnClientCertificateProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnClientCertificate := awscdk.Aws_apigateway.NewCfnClientCertificate(this, jsii.String("MyCfnClientCertificate"), &cfnClientCertificateProps{
 //   	description: jsii.String("description"),
 //   	tags: []cfnTag{
 //   		&cfnTag{
@@ -9964,7 +10051,10 @@ func (c *jsiiProxy_CfnClientCertificate) ValidateProperties(_properties interfac
 // Properties for defining a `CfnClientCertificate`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnClientCertificateProps := &cfnClientCertificateProps{
 //   	description: jsii.String("description"),
 //   	tags: []cfnTag{
@@ -9977,9 +10067,9 @@ func (c *jsiiProxy_CfnClientCertificate) ValidateProperties(_properties interfac
 //
 type CfnClientCertificateProps struct {
 	// A description of the client certificate.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// An array of arbitrary tags (key-value pairs) to associate with the client certificate.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::ApiGateway::Deployment`.
@@ -9987,8 +10077,11 @@ type CfnClientCertificateProps struct {
 // The `AWS::ApiGateway::Deployment` resource deploys an API Gateway `RestApi` resource to a stage so that clients can call the API over the internet. The stage acts as an environment.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
-//   cfnDeployment := apigateway.NewCfnDeployment(this, jsii.String("MyCfnDeployment"), &cfnDeploymentProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDeployment := awscdk.Aws_apigateway.NewCfnDeployment(this, jsii.String("MyCfnDeployment"), &cfnDeploymentProps{
 //   	restApiId: jsii.String("restApiId"),
 //
 //   	// the properties below are optional
@@ -10784,7 +10877,10 @@ func (c *jsiiProxy_CfnDeployment) ValidateProperties(_properties interface{}) {
 // `AccessLogSetting` is a property of the [StageDescription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html) property type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   accessLogSettingProperty := &accessLogSettingProperty{
 //   	destinationArn: jsii.String("destinationArn"),
 //   	format: jsii.String("format"),
@@ -10794,9 +10890,9 @@ type CfnDeployment_AccessLogSettingProperty struct {
 	// The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs.
 	//
 	// If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-` .
-	DestinationArn *string `json:"destinationArn" yaml:"destinationArn"`
+	DestinationArn *string `field:"optional" json:"destinationArn" yaml:"destinationArn"`
 	// A single line format of the access logs of data, as specified by selected [$context variables](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#context-variable-reference) . The format must include at least `$context.requestId` .
-	Format *string `json:"format" yaml:"format"`
+	Format *string `field:"optional" json:"format" yaml:"format"`
 }
 
 // The `CanarySetting` property type specifies settings for the canary deployment in this stage.
@@ -10804,7 +10900,10 @@ type CfnDeployment_AccessLogSettingProperty struct {
 // `CanarySetting` is a property of the [StageDescription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html) property type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   canarySettingProperty := &canarySettingProperty{
 //   	percentTraffic: jsii.Number(123),
 //   	stageVariableOverrides: map[string]*string{
@@ -10815,19 +10914,22 @@ type CfnDeployment_AccessLogSettingProperty struct {
 //
 type CfnDeployment_CanarySettingProperty struct {
 	// The percent (0-100) of traffic diverted to a canary deployment.
-	PercentTraffic *float64 `json:"percentTraffic" yaml:"percentTraffic"`
+	PercentTraffic *float64 `field:"optional" json:"percentTraffic" yaml:"percentTraffic"`
 	// Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary.
 	//
 	// These stage variables are represented as a string-to-string map between stage variable names and their values.
-	StageVariableOverrides interface{} `json:"stageVariableOverrides" yaml:"stageVariableOverrides"`
+	StageVariableOverrides interface{} `field:"optional" json:"stageVariableOverrides" yaml:"stageVariableOverrides"`
 	// Whether the canary deployment uses the stage cache or not.
-	UseStageCache interface{} `json:"useStageCache" yaml:"useStageCache"`
+	UseStageCache interface{} `field:"optional" json:"useStageCache" yaml:"useStageCache"`
 }
 
 // The `DeploymentCanarySettings` property type specifies settings for the canary deployment.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   deploymentCanarySettingsProperty := &deploymentCanarySettingsProperty{
 //   	percentTraffic: jsii.Number(123),
 //   	stageVariableOverrides: map[string]*string{
@@ -10838,15 +10940,15 @@ type CfnDeployment_CanarySettingProperty struct {
 //
 type CfnDeployment_DeploymentCanarySettingsProperty struct {
 	// The percentage (0-100) of traffic diverted to a canary deployment.
-	PercentTraffic *float64 `json:"percentTraffic" yaml:"percentTraffic"`
+	PercentTraffic *float64 `field:"optional" json:"percentTraffic" yaml:"percentTraffic"`
 	// Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary.
 	//
 	// These stage variables are represented as a string-to-string map between stage variable names and their values.
 	//
 	// Duplicates are not allowed.
-	StageVariableOverrides interface{} `json:"stageVariableOverrides" yaml:"stageVariableOverrides"`
+	StageVariableOverrides interface{} `field:"optional" json:"stageVariableOverrides" yaml:"stageVariableOverrides"`
 	// Whether the canary deployment uses the stage cache.
-	UseStageCache interface{} `json:"useStageCache" yaml:"useStageCache"`
+	UseStageCache interface{} `field:"optional" json:"useStageCache" yaml:"useStageCache"`
 }
 
 // The `MethodSetting` property type configures settings for all methods in a stage.
@@ -10854,7 +10956,10 @@ type CfnDeployment_DeploymentCanarySettingsProperty struct {
 // The `MethodSettings` property of the [Amazon API Gateway Deployment StageDescription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html) property type contains a list of `MethodSetting` property types.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   methodSettingProperty := &methodSettingProperty{
 //   	cacheDataEncrypted: jsii.Boolean(false),
 //   	cacheTtlInSeconds: jsii.Number(123),
@@ -10870,43 +10975,46 @@ type CfnDeployment_DeploymentCanarySettingsProperty struct {
 //
 type CfnDeployment_MethodSettingProperty struct {
 	// Indicates whether the cached responses are encrypted.
-	CacheDataEncrypted interface{} `json:"cacheDataEncrypted" yaml:"cacheDataEncrypted"`
+	CacheDataEncrypted interface{} `field:"optional" json:"cacheDataEncrypted" yaml:"cacheDataEncrypted"`
 	// The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses.
-	CacheTtlInSeconds *float64 `json:"cacheTtlInSeconds" yaml:"cacheTtlInSeconds"`
+	CacheTtlInSeconds *float64 `field:"optional" json:"cacheTtlInSeconds" yaml:"cacheTtlInSeconds"`
 	// Indicates whether responses are cached and returned for requests.
 	//
 	// You must enable a cache cluster on the stage to cache responses. For more information, see [Enable API Gateway Caching in a Stage to Enhance API Performance](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html) in the *API Gateway Developer Guide* .
-	CachingEnabled interface{} `json:"cachingEnabled" yaml:"cachingEnabled"`
+	CachingEnabled interface{} `field:"optional" json:"cachingEnabled" yaml:"cachingEnabled"`
 	// Indicates whether data trace logging is enabled for methods in the stage.
 	//
 	// API Gateway pushes these logs to Amazon CloudWatch Logs.
-	DataTraceEnabled interface{} `json:"dataTraceEnabled" yaml:"dataTraceEnabled"`
+	DataTraceEnabled interface{} `field:"optional" json:"dataTraceEnabled" yaml:"dataTraceEnabled"`
 	// The HTTP method.
-	HttpMethod *string `json:"httpMethod" yaml:"httpMethod"`
+	HttpMethod *string `field:"optional" json:"httpMethod" yaml:"httpMethod"`
 	// The logging level for this method.
 	//
 	// For valid values, see the `loggingLevel` property of the [Stage](https://docs.aws.amazon.com/apigateway/api-reference/resource/stage/#loggingLevel) resource in the *Amazon API Gateway API Reference* .
-	LoggingLevel *string `json:"loggingLevel" yaml:"loggingLevel"`
+	LoggingLevel *string `field:"optional" json:"loggingLevel" yaml:"loggingLevel"`
 	// Indicates whether Amazon CloudWatch metrics are enabled for methods in the stage.
-	MetricsEnabled interface{} `json:"metricsEnabled" yaml:"metricsEnabled"`
+	MetricsEnabled interface{} `field:"optional" json:"metricsEnabled" yaml:"metricsEnabled"`
 	// The resource path for this method.
 	//
 	// Forward slashes ( `/` ) are encoded as `~1` and the initial slash must include a forward slash. For example, the path value `/resource/subresource` must be encoded as `/~1resource~1subresource` . To specify the root path, use only a slash ( `/` ).
-	ResourcePath *string `json:"resourcePath" yaml:"resourcePath"`
+	ResourcePath *string `field:"optional" json:"resourcePath" yaml:"resourcePath"`
 	// The number of burst requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account .
 	//
 	// For more information, see [Manage API Request Throttling](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html) in the *API Gateway Developer Guide* .
-	ThrottlingBurstLimit *float64 `json:"throttlingBurstLimit" yaml:"throttlingBurstLimit"`
+	ThrottlingBurstLimit *float64 `field:"optional" json:"throttlingBurstLimit" yaml:"throttlingBurstLimit"`
 	// The number of steady-state requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account .
 	//
 	// For more information, see [Manage API Request Throttling](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html) in the *API Gateway Developer Guide* .
-	ThrottlingRateLimit *float64 `json:"throttlingRateLimit" yaml:"throttlingRateLimit"`
+	ThrottlingRateLimit *float64 `field:"optional" json:"throttlingRateLimit" yaml:"throttlingRateLimit"`
 }
 
 // `StageDescription` is a property of the [AWS::ApiGateway::Deployment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-deployment.html) resource that configures a deployment stage.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   stageDescriptionProperty := &stageDescriptionProperty{
 //   	accessLogSetting: &accessLogSettingProperty{
 //   		destinationArn: jsii.String("destinationArn"),
@@ -10960,63 +11068,66 @@ type CfnDeployment_MethodSettingProperty struct {
 //
 type CfnDeployment_StageDescriptionProperty struct {
 	// Specifies settings for logging access in this stage.
-	AccessLogSetting interface{} `json:"accessLogSetting" yaml:"accessLogSetting"`
+	AccessLogSetting interface{} `field:"optional" json:"accessLogSetting" yaml:"accessLogSetting"`
 	// Indicates whether cache clustering is enabled for the stage.
-	CacheClusterEnabled interface{} `json:"cacheClusterEnabled" yaml:"cacheClusterEnabled"`
+	CacheClusterEnabled interface{} `field:"optional" json:"cacheClusterEnabled" yaml:"cacheClusterEnabled"`
 	// The size of the stage's cache cluster.
-	CacheClusterSize *string `json:"cacheClusterSize" yaml:"cacheClusterSize"`
+	CacheClusterSize *string `field:"optional" json:"cacheClusterSize" yaml:"cacheClusterSize"`
 	// Indicates whether the cached responses are encrypted.
-	CacheDataEncrypted interface{} `json:"cacheDataEncrypted" yaml:"cacheDataEncrypted"`
+	CacheDataEncrypted interface{} `field:"optional" json:"cacheDataEncrypted" yaml:"cacheDataEncrypted"`
 	// The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses.
-	CacheTtlInSeconds *float64 `json:"cacheTtlInSeconds" yaml:"cacheTtlInSeconds"`
+	CacheTtlInSeconds *float64 `field:"optional" json:"cacheTtlInSeconds" yaml:"cacheTtlInSeconds"`
 	// Indicates whether responses are cached and returned for requests.
 	//
 	// You must enable a cache cluster on the stage to cache responses. For more information, see [Enable API Gateway Caching in a Stage to Enhance API Performance](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html) in the *API Gateway Developer Guide* .
-	CachingEnabled interface{} `json:"cachingEnabled" yaml:"cachingEnabled"`
+	CachingEnabled interface{} `field:"optional" json:"cachingEnabled" yaml:"cachingEnabled"`
 	// Specifies settings for the canary deployment in this stage.
-	CanarySetting interface{} `json:"canarySetting" yaml:"canarySetting"`
+	CanarySetting interface{} `field:"optional" json:"canarySetting" yaml:"canarySetting"`
 	// The identifier of the client certificate that API Gateway uses to call your integration endpoints in the stage.
-	ClientCertificateId *string `json:"clientCertificateId" yaml:"clientCertificateId"`
+	ClientCertificateId *string `field:"optional" json:"clientCertificateId" yaml:"clientCertificateId"`
 	// Indicates whether data trace logging is enabled for methods in the stage.
 	//
 	// API Gateway pushes these logs to Amazon CloudWatch Logs.
-	DataTraceEnabled interface{} `json:"dataTraceEnabled" yaml:"dataTraceEnabled"`
+	DataTraceEnabled interface{} `field:"optional" json:"dataTraceEnabled" yaml:"dataTraceEnabled"`
 	// A description of the purpose of the stage.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The version identifier of the API documentation snapshot.
-	DocumentationVersion *string `json:"documentationVersion" yaml:"documentationVersion"`
+	DocumentationVersion *string `field:"optional" json:"documentationVersion" yaml:"documentationVersion"`
 	// The logging level for this method.
 	//
 	// For valid values, see the `loggingLevel` property of the [Stage](https://docs.aws.amazon.com/apigateway/api-reference/resource/stage/#loggingLevel) resource in the *Amazon API Gateway API Reference* .
-	LoggingLevel *string `json:"loggingLevel" yaml:"loggingLevel"`
+	LoggingLevel *string `field:"optional" json:"loggingLevel" yaml:"loggingLevel"`
 	// Configures settings for all of the stage's methods.
-	MethodSettings interface{} `json:"methodSettings" yaml:"methodSettings"`
+	MethodSettings interface{} `field:"optional" json:"methodSettings" yaml:"methodSettings"`
 	// Indicates whether Amazon CloudWatch metrics are enabled for methods in the stage.
-	MetricsEnabled interface{} `json:"metricsEnabled" yaml:"metricsEnabled"`
+	MetricsEnabled interface{} `field:"optional" json:"metricsEnabled" yaml:"metricsEnabled"`
 	// An array of arbitrary tags (key-value pairs) to associate with the stage.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The target request burst rate limit.
 	//
 	// This allows more requests through for a period of time than the target rate limit. For more information, see [Manage API Request Throttling](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html) in the *API Gateway Developer Guide* .
-	ThrottlingBurstLimit *float64 `json:"throttlingBurstLimit" yaml:"throttlingBurstLimit"`
+	ThrottlingBurstLimit *float64 `field:"optional" json:"throttlingBurstLimit" yaml:"throttlingBurstLimit"`
 	// The target request steady-state rate limit.
 	//
 	// For more information, see [Manage API Request Throttling](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html) in the *API Gateway Developer Guide* .
-	ThrottlingRateLimit *float64 `json:"throttlingRateLimit" yaml:"throttlingRateLimit"`
+	ThrottlingRateLimit *float64 `field:"optional" json:"throttlingRateLimit" yaml:"throttlingRateLimit"`
 	// Specifies whether active tracing with X-ray is enabled for this stage.
 	//
 	// For more information, see [Trace API Gateway API Execution with AWS X-Ray](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-xray.html) in the *API Gateway Developer Guide* .
-	TracingEnabled interface{} `json:"tracingEnabled" yaml:"tracingEnabled"`
+	TracingEnabled interface{} `field:"optional" json:"tracingEnabled" yaml:"tracingEnabled"`
 	// A map that defines the stage variables.
 	//
 	// Variable names must consist of alphanumeric characters, and the values must match the following regular expression: `[A-Za-z0-9-._~:/?#&=,]+` .
-	Variables interface{} `json:"variables" yaml:"variables"`
+	Variables interface{} `field:"optional" json:"variables" yaml:"variables"`
 }
 
 // Properties for defining a `CfnDeployment`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDeploymentProps := &cfnDeploymentProps{
 //   	restApiId: jsii.String("restApiId"),
 //
@@ -11084,24 +11195,27 @@ type CfnDeployment_StageDescriptionProperty struct {
 //
 type CfnDeploymentProps struct {
 	// The ID of the `RestApi` resource to deploy.
-	RestApiId *string `json:"restApiId" yaml:"restApiId"`
+	RestApiId *string `field:"required" json:"restApiId" yaml:"restApiId"`
 	// Specifies settings for the canary deployment.
-	DeploymentCanarySettings interface{} `json:"deploymentCanarySettings" yaml:"deploymentCanarySettings"`
+	DeploymentCanarySettings interface{} `field:"optional" json:"deploymentCanarySettings" yaml:"deploymentCanarySettings"`
 	// A description of the purpose of the API Gateway deployment.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Configures the stage that API Gateway creates with this deployment.
-	StageDescription interface{} `json:"stageDescription" yaml:"stageDescription"`
+	StageDescription interface{} `field:"optional" json:"stageDescription" yaml:"stageDescription"`
 	// A name for the stage that API Gateway creates with this deployment.
 	//
 	// Use only alphanumeric characters.
-	StageName *string `json:"stageName" yaml:"stageName"`
+	StageName *string `field:"optional" json:"stageName" yaml:"stageName"`
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::Deployment`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
-//   cfnDeploymentV2 := apigateway.NewCfnDeploymentV2(this, jsii.String("MyCfnDeploymentV2"), &cfnDeploymentV2Props{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDeploymentV2 := awscdk.Aws_apigateway.NewCfnDeploymentV2(this, jsii.String("MyCfnDeploymentV2"), &cfnDeploymentV2Props{
 //   	apiId: jsii.String("apiId"),
 //
 //   	// the properties below are optional
@@ -11800,7 +11914,10 @@ func (c *jsiiProxy_CfnDeploymentV2) ValidateProperties(_properties interface{}) 
 // Properties for defining a `AWS::ApiGatewayV2::Deployment`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDeploymentV2Props := &cfnDeploymentV2Props{
 //   	apiId: jsii.String("apiId"),
 //
@@ -11817,17 +11934,17 @@ type CfnDeploymentV2Props struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-deployment.html#cfn-apigatewayv2-deployment-apiid
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	ApiId *string `json:"apiId" yaml:"apiId"`
+	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`
 	// `AWS::ApiGatewayV2::Deployment.Description`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-deployment.html#cfn-apigatewayv2-deployment-description
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// `AWS::ApiGatewayV2::Deployment.StageName`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-deployment.html#cfn-apigatewayv2-deployment-stagename
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	StageName *string `json:"stageName" yaml:"stageName"`
+	StageName *string `field:"optional" json:"stageName" yaml:"stageName"`
 }
 
 // A CloudFormation `AWS::ApiGateway::DocumentationPart`.
@@ -11835,8 +11952,11 @@ type CfnDeploymentV2Props struct {
 // The `AWS::ApiGateway::DocumentationPart` resource creates a documentation part for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
-//   cfnDocumentationPart := apigateway.NewCfnDocumentationPart(this, jsii.String("MyCfnDocumentationPart"), &cfnDocumentationPartProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDocumentationPart := awscdk.Aws_apigateway.NewCfnDocumentationPart(this, jsii.String("MyCfnDocumentationPart"), &cfnDocumentationPartProps{
 //   	location: &locationProperty{
 //   		method: jsii.String("method"),
 //   		name: jsii.String("name"),
@@ -12523,7 +12643,10 @@ func (c *jsiiProxy_CfnDocumentationPart) ValidateProperties(_properties interfac
 // > For more information about each property, including constraints and valid values, see [DocumentationPart](https://docs.aws.amazon.com/apigateway/api-reference/resource/documentation-part/#location) in the *Amazon API Gateway REST API Reference* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   locationProperty := &locationProperty{
 //   	method: jsii.String("method"),
 //   	name: jsii.String("name"),
@@ -12534,21 +12657,24 @@ func (c *jsiiProxy_CfnDocumentationPart) ValidateProperties(_properties interfac
 //
 type CfnDocumentationPart_LocationProperty struct {
 	// The HTTP verb of a method.
-	Method *string `json:"method" yaml:"method"`
+	Method *string `field:"optional" json:"method" yaml:"method"`
 	// The name of the targeted API entity.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The URL path of the target.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 	// The HTTP status code of a response.
-	StatusCode *string `json:"statusCode" yaml:"statusCode"`
+	StatusCode *string `field:"optional" json:"statusCode" yaml:"statusCode"`
 	// The type of API entity that the documentation content applies to.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 
 // Properties for defining a `CfnDocumentationPart`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDocumentationPartProps := &cfnDocumentationPartProps{
 //   	location: &locationProperty{
 //   		method: jsii.String("method"),
@@ -12563,11 +12689,11 @@ type CfnDocumentationPart_LocationProperty struct {
 //
 type CfnDocumentationPartProps struct {
 	// The location of the API entity that the documentation applies to.
-	Location interface{} `json:"location" yaml:"location"`
+	Location interface{} `field:"required" json:"location" yaml:"location"`
 	// The documentation content map of the targeted API entity.
-	Properties *string `json:"properties" yaml:"properties"`
+	Properties *string `field:"required" json:"properties" yaml:"properties"`
 	// The identifier of the targeted API entity.
-	RestApiId *string `json:"restApiId" yaml:"restApiId"`
+	RestApiId *string `field:"required" json:"restApiId" yaml:"restApiId"`
 }
 
 // A CloudFormation `AWS::ApiGateway::DocumentationVersion`.
@@ -12575,8 +12701,11 @@ type CfnDocumentationPartProps struct {
 // The `AWS::ApiGateway::DocumentationVersion` resource creates a snapshot of the documentation for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
-//   cfnDocumentationVersion := apigateway.NewCfnDocumentationVersion(this, jsii.String("MyCfnDocumentationVersion"), &cfnDocumentationVersionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDocumentationVersion := awscdk.Aws_apigateway.NewCfnDocumentationVersion(this, jsii.String("MyCfnDocumentationVersion"), &cfnDocumentationVersionProps{
 //   	documentationVersion: jsii.String("documentationVersion"),
 //   	restApiId: jsii.String("restApiId"),
 //
@@ -13255,7 +13384,10 @@ func (c *jsiiProxy_CfnDocumentationVersion) ValidateProperties(_properties inter
 // Properties for defining a `CfnDocumentationVersion`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDocumentationVersionProps := &cfnDocumentationVersionProps{
 //   	documentationVersion: jsii.String("documentationVersion"),
 //   	restApiId: jsii.String("restApiId"),
@@ -13266,11 +13398,11 @@ func (c *jsiiProxy_CfnDocumentationVersion) ValidateProperties(_properties inter
 //
 type CfnDocumentationVersionProps struct {
 	// The version identifier of the API documentation snapshot.
-	DocumentationVersion *string `json:"documentationVersion" yaml:"documentationVersion"`
+	DocumentationVersion *string `field:"required" json:"documentationVersion" yaml:"documentationVersion"`
 	// The identifier of the API.
-	RestApiId *string `json:"restApiId" yaml:"restApiId"`
+	RestApiId *string `field:"required" json:"restApiId" yaml:"restApiId"`
 	// The description of the API documentation snapshot.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 
 // A CloudFormation `AWS::ApiGateway::DomainName`.
@@ -13280,8 +13412,11 @@ type CfnDocumentationVersionProps struct {
 // You can use a custom domain name to provide a URL that's more intuitive and easier to recall. For more information about using custom domain names, see [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html) in the *API Gateway Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
-//   cfnDomainName := apigateway.NewCfnDomainName(this, jsii.String("MyCfnDomainName"), &cfnDomainNameProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDomainName := awscdk.Aws_apigateway.NewCfnDomainName(this, jsii.String("MyCfnDomainName"), &cfnDomainNameProps{
 //   	certificateArn: jsii.String("certificateArn"),
 //   	domainName: jsii.String("domainName"),
 //   	endpointConfiguration: &endpointConfigurationProperty{
@@ -14139,7 +14274,10 @@ func (c *jsiiProxy_CfnDomainName) ValidateProperties(_properties interface{}) {
 // `EndpointConfiguration` is a property of the [AWS::ApiGateway::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html) resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   endpointConfigurationProperty := &endpointConfigurationProperty{
 //   	types: []*string{
 //   		jsii.String("types"),
@@ -14150,7 +14288,7 @@ type CfnDomainName_EndpointConfigurationProperty struct {
 	// A list of endpoint types of an API or its custom domain name.
 	//
 	// For an edge-optimized API and its custom domain name, the endpoint type is `EDGE` . For a regional API and its custom domain name, the endpoint type is `REGIONAL` .
-	Types *[]*string `json:"types" yaml:"types"`
+	Types *[]*string `field:"optional" json:"types" yaml:"types"`
 }
 
 // If specified, API Gateway performs two-way authentication between the client and the server.
@@ -14158,7 +14296,10 @@ type CfnDomainName_EndpointConfigurationProperty struct {
 // Clients must present a trusted certificate to access your API.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   mutualTlsAuthenticationProperty := &mutualTlsAuthenticationProperty{
 //   	truststoreUri: jsii.String("truststoreUri"),
 //   	truststoreVersion: jsii.String("truststoreVersion"),
@@ -14168,17 +14309,20 @@ type CfnDomainName_MutualTlsAuthenticationProperty struct {
 	// An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3:// bucket-name / key-name` .
 	//
 	// The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version. To update the truststore, you must have permissions to access the S3 object.
-	TruststoreUri *string `json:"truststoreUri" yaml:"truststoreUri"`
+	TruststoreUri *string `field:"optional" json:"truststoreUri" yaml:"truststoreUri"`
 	// The version of the S3 object that contains your truststore.
 	//
 	// To specify a version, you must have versioning enabled for the S3 bucket.
-	TruststoreVersion *string `json:"truststoreVersion" yaml:"truststoreVersion"`
+	TruststoreVersion *string `field:"optional" json:"truststoreVersion" yaml:"truststoreVersion"`
 }
 
 // Properties for defining a `CfnDomainName`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDomainNameProps := &cfnDomainNameProps{
 //   	certificateArn: jsii.String("certificateArn"),
 //   	domainName: jsii.String("domainName"),
@@ -14206,38 +14350,41 @@ type CfnDomainNameProps struct {
 	// The reference to an AWS -managed certificate for use by the edge-optimized endpoint for this domain name.
 	//
 	// AWS Certificate Manager is the only supported source. For requirements and additional information about setting up certificates, see [Get Certificates Ready in AWS Certificate Manager](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html#how-to-custom-domains-prerequisites) in the *API Gateway Developer Guide* .
-	CertificateArn *string `json:"certificateArn" yaml:"certificateArn"`
+	CertificateArn *string `field:"optional" json:"certificateArn" yaml:"certificateArn"`
 	// The custom domain name for your API.
 	//
 	// Uppercase letters are not supported.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"optional" json:"domainName" yaml:"domainName"`
 	// A list of the endpoint types of the domain name.
-	EndpointConfiguration interface{} `json:"endpointConfiguration" yaml:"endpointConfiguration"`
+	EndpointConfiguration interface{} `field:"optional" json:"endpointConfiguration" yaml:"endpointConfiguration"`
 	// The mutual TLS authentication configuration for a custom domain name.
-	MutualTlsAuthentication interface{} `json:"mutualTlsAuthentication" yaml:"mutualTlsAuthentication"`
+	MutualTlsAuthentication interface{} `field:"optional" json:"mutualTlsAuthentication" yaml:"mutualTlsAuthentication"`
 	// The ARN of the public certificate issued by ACM to validate ownership of your custom domain.
 	//
 	// Only required when configuring mutual TLS and using an ACM imported or private CA certificate ARN as the RegionalCertificateArn.
-	OwnershipVerificationCertificateArn *string `json:"ownershipVerificationCertificateArn" yaml:"ownershipVerificationCertificateArn"`
+	OwnershipVerificationCertificateArn *string `field:"optional" json:"ownershipVerificationCertificateArn" yaml:"ownershipVerificationCertificateArn"`
 	// The reference to an AWS -managed certificate for use by the regional endpoint for the domain name.
 	//
 	// AWS Certificate Manager is the only supported source.
-	RegionalCertificateArn *string `json:"regionalCertificateArn" yaml:"regionalCertificateArn"`
+	RegionalCertificateArn *string `field:"optional" json:"regionalCertificateArn" yaml:"regionalCertificateArn"`
 	// The Transport Layer Security (TLS) version + cipher suite for this domain name.
 	//
 	// Valid values include `TLS_1_0` and `TLS_1_2` .
-	SecurityPolicy *string `json:"securityPolicy" yaml:"securityPolicy"`
+	SecurityPolicy *string `field:"optional" json:"securityPolicy" yaml:"securityPolicy"`
 	// An array of arbitrary tags (key-value pairs) to associate with the domain name.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::DomainName`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var tags interface{}
-//   cfnDomainNameV2 := apigateway.NewCfnDomainNameV2(this, jsii.String("MyCfnDomainNameV2"), &cfnDomainNameV2Props{
+//
+//   cfnDomainNameV2 := awscdk.Aws_apigateway.NewCfnDomainNameV2(this, jsii.String("MyCfnDomainNameV2"), &cfnDomainNameV2Props{
 //   	domainName: jsii.String("domainName"),
 //
 //   	// the properties below are optional
@@ -14954,7 +15101,10 @@ func (c *jsiiProxy_CfnDomainNameV2) ValidateProperties(_properties interface{}) 
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   domainNameConfigurationProperty := &domainNameConfigurationProperty{
 //   	certificateArn: jsii.String("certificateArn"),
 //   	certificateName: jsii.String("certificateName"),
@@ -14969,25 +15119,28 @@ type CfnDomainNameV2_DomainNameConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-domainnameconfiguration.html#cfn-apigatewayv2-domainname-domainnameconfiguration-certificatearn
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	CertificateArn *string `json:"certificateArn" yaml:"certificateArn"`
+	CertificateArn *string `field:"optional" json:"certificateArn" yaml:"certificateArn"`
 	// `CfnDomainNameV2.DomainNameConfigurationProperty.CertificateName`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-domainnameconfiguration.html#cfn-apigatewayv2-domainname-domainnameconfiguration-certificatename
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	CertificateName *string `json:"certificateName" yaml:"certificateName"`
+	CertificateName *string `field:"optional" json:"certificateName" yaml:"certificateName"`
 	// `CfnDomainNameV2.DomainNameConfigurationProperty.EndpointType`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-domainnameconfiguration.html#cfn-apigatewayv2-domainname-domainnameconfiguration-endpointtype
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	EndpointType *string `json:"endpointType" yaml:"endpointType"`
+	EndpointType *string `field:"optional" json:"endpointType" yaml:"endpointType"`
 }
 
 // Properties for defining a `AWS::ApiGatewayV2::DomainName`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var tags interface{}
+//
 //   cfnDomainNameV2Props := &cfnDomainNameV2Props{
 //   	domainName: jsii.String("domainName"),
 //
@@ -15010,17 +15163,17 @@ type CfnDomainNameV2Props struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html#cfn-apigatewayv2-domainname-domainname
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 	// `AWS::ApiGatewayV2::DomainName.DomainNameConfigurations`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html#cfn-apigatewayv2-domainname-domainnameconfigurations
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	DomainNameConfigurations interface{} `json:"domainNameConfigurations" yaml:"domainNameConfigurations"`
+	DomainNameConfigurations interface{} `field:"optional" json:"domainNameConfigurations" yaml:"domainNameConfigurations"`
 	// `AWS::ApiGatewayV2::DomainName.Tags`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html#cfn-apigatewayv2-domainname-tags
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	Tags interface{} `json:"tags" yaml:"tags"`
+	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::ApiGateway::GatewayResponse`.
@@ -15028,8 +15181,11 @@ type CfnDomainNameV2Props struct {
 // The `AWS::ApiGateway::GatewayResponse` resource creates a gateway response for your API. For more information, see [API Gateway Responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/customize-gateway-responses.html#api-gateway-gatewayResponse-definition) in the *API Gateway Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
-//   cfnGatewayResponse := apigateway.NewCfnGatewayResponse(this, jsii.String("MyCfnGatewayResponse"), &cfnGatewayResponseProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnGatewayResponse := awscdk.Aws_apigateway.NewCfnGatewayResponse(this, jsii.String("MyCfnGatewayResponse"), &cfnGatewayResponseProps{
 //   	responseType: jsii.String("responseType"),
 //   	restApiId: jsii.String("restApiId"),
 //
@@ -15776,7 +15932,10 @@ func (c *jsiiProxy_CfnGatewayResponse) ValidateProperties(_properties interface{
 // Properties for defining a `CfnGatewayResponse`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnGatewayResponseProps := &cfnGatewayResponseProps{
 //   	responseType: jsii.String("responseType"),
 //   	restApiId: jsii.String("restApiId"),
@@ -15795,29 +15954,32 @@ type CfnGatewayResponseProps struct {
 	// The response type.
 	//
 	// For valid values, see [GatewayResponse](https://docs.aws.amazon.com/apigateway/api-reference/resource/gateway-response/) in the *API Gateway API Reference* .
-	ResponseType *string `json:"responseType" yaml:"responseType"`
+	ResponseType *string `field:"required" json:"responseType" yaml:"responseType"`
 	// The identifier of the API.
-	RestApiId *string `json:"restApiId" yaml:"restApiId"`
+	RestApiId *string `field:"required" json:"restApiId" yaml:"restApiId"`
 	// The response parameters (paths, query strings, and headers) for the response.
 	//
 	// Duplicates not allowed.
-	ResponseParameters interface{} `json:"responseParameters" yaml:"responseParameters"`
+	ResponseParameters interface{} `field:"optional" json:"responseParameters" yaml:"responseParameters"`
 	// The response templates for the response.
 	//
 	// Duplicates not allowed.
-	ResponseTemplates interface{} `json:"responseTemplates" yaml:"responseTemplates"`
+	ResponseTemplates interface{} `field:"optional" json:"responseTemplates" yaml:"responseTemplates"`
 	// The HTTP status code for the response.
-	StatusCode *string `json:"statusCode" yaml:"statusCode"`
+	StatusCode *string `field:"optional" json:"statusCode" yaml:"statusCode"`
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::IntegrationResponse`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var responseParameters interface{}
 //   var responseTemplates interface{}
-//   cfnIntegrationResponseV2 := apigateway.NewCfnIntegrationResponseV2(this, jsii.String("MyCfnIntegrationResponseV2"), &cfnIntegrationResponseV2Props{
+//
+//   cfnIntegrationResponseV2 := awscdk.Aws_apigateway.NewCfnIntegrationResponseV2(this, jsii.String("MyCfnIntegrationResponseV2"), &cfnIntegrationResponseV2Props{
 //   	apiId: jsii.String("apiId"),
 //   	integrationId: jsii.String("integrationId"),
 //   	integrationResponseKey: jsii.String("integrationResponseKey"),
@@ -16620,10 +16782,13 @@ func (c *jsiiProxy_CfnIntegrationResponseV2) ValidateProperties(_properties inte
 // Properties for defining a `AWS::ApiGatewayV2::IntegrationResponse`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var responseParameters interface{}
 //   var responseTemplates interface{}
+//
 //   cfnIntegrationResponseV2Props := &cfnIntegrationResponseV2Props{
 //   	apiId: jsii.String("apiId"),
 //   	integrationId: jsii.String("integrationId"),
@@ -16644,47 +16809,50 @@ type CfnIntegrationResponseV2Props struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integrationresponse.html#cfn-apigatewayv2-integrationresponse-apiid
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	ApiId *string `json:"apiId" yaml:"apiId"`
+	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`
 	// `AWS::ApiGatewayV2::IntegrationResponse.IntegrationId`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integrationresponse.html#cfn-apigatewayv2-integrationresponse-integrationid
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	IntegrationId *string `json:"integrationId" yaml:"integrationId"`
+	IntegrationId *string `field:"required" json:"integrationId" yaml:"integrationId"`
 	// `AWS::ApiGatewayV2::IntegrationResponse.IntegrationResponseKey`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integrationresponse.html#cfn-apigatewayv2-integrationresponse-integrationresponsekey
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	IntegrationResponseKey *string `json:"integrationResponseKey" yaml:"integrationResponseKey"`
+	IntegrationResponseKey *string `field:"required" json:"integrationResponseKey" yaml:"integrationResponseKey"`
 	// `AWS::ApiGatewayV2::IntegrationResponse.ContentHandlingStrategy`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integrationresponse.html#cfn-apigatewayv2-integrationresponse-contenthandlingstrategy
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	ContentHandlingStrategy *string `json:"contentHandlingStrategy" yaml:"contentHandlingStrategy"`
+	ContentHandlingStrategy *string `field:"optional" json:"contentHandlingStrategy" yaml:"contentHandlingStrategy"`
 	// `AWS::ApiGatewayV2::IntegrationResponse.ResponseParameters`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integrationresponse.html#cfn-apigatewayv2-integrationresponse-responseparameters
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	ResponseParameters interface{} `json:"responseParameters" yaml:"responseParameters"`
+	ResponseParameters interface{} `field:"optional" json:"responseParameters" yaml:"responseParameters"`
 	// `AWS::ApiGatewayV2::IntegrationResponse.ResponseTemplates`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integrationresponse.html#cfn-apigatewayv2-integrationresponse-responsetemplates
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	ResponseTemplates interface{} `json:"responseTemplates" yaml:"responseTemplates"`
+	ResponseTemplates interface{} `field:"optional" json:"responseTemplates" yaml:"responseTemplates"`
 	// `AWS::ApiGatewayV2::IntegrationResponse.TemplateSelectionExpression`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integrationresponse.html#cfn-apigatewayv2-integrationresponse-templateselectionexpression
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	TemplateSelectionExpression *string `json:"templateSelectionExpression" yaml:"templateSelectionExpression"`
+	TemplateSelectionExpression *string `field:"optional" json:"templateSelectionExpression" yaml:"templateSelectionExpression"`
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::Integration`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var requestParameters interface{}
 //   var requestTemplates interface{}
-//   cfnIntegrationV2 := apigateway.NewCfnIntegrationV2(this, jsii.String("MyCfnIntegrationV2"), &cfnIntegrationV2Props{
+//
+//   cfnIntegrationV2 := awscdk.Aws_apigateway.NewCfnIntegrationV2(this, jsii.String("MyCfnIntegrationV2"), &cfnIntegrationV2Props{
 //   	apiId: jsii.String("apiId"),
 //   	integrationType: jsii.String("integrationType"),
 //
@@ -17669,10 +17837,13 @@ func (c *jsiiProxy_CfnIntegrationV2) ValidateProperties(_properties interface{})
 // Properties for defining a `AWS::ApiGatewayV2::Integration`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var requestParameters interface{}
 //   var requestTemplates interface{}
+//
 //   cfnIntegrationV2Props := &cfnIntegrationV2Props{
 //   	apiId: jsii.String("apiId"),
 //   	integrationType: jsii.String("integrationType"),
@@ -17700,72 +17871,72 @@ type CfnIntegrationV2Props struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-apiid
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	ApiId *string `json:"apiId" yaml:"apiId"`
+	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`
 	// `AWS::ApiGatewayV2::Integration.IntegrationType`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-integrationtype
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	IntegrationType *string `json:"integrationType" yaml:"integrationType"`
+	IntegrationType *string `field:"required" json:"integrationType" yaml:"integrationType"`
 	// `AWS::ApiGatewayV2::Integration.ConnectionType`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-connectiontype
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	ConnectionType *string `json:"connectionType" yaml:"connectionType"`
+	ConnectionType *string `field:"optional" json:"connectionType" yaml:"connectionType"`
 	// `AWS::ApiGatewayV2::Integration.ContentHandlingStrategy`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-contenthandlingstrategy
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	ContentHandlingStrategy *string `json:"contentHandlingStrategy" yaml:"contentHandlingStrategy"`
+	ContentHandlingStrategy *string `field:"optional" json:"contentHandlingStrategy" yaml:"contentHandlingStrategy"`
 	// `AWS::ApiGatewayV2::Integration.CredentialsArn`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-credentialsarn
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	CredentialsArn *string `json:"credentialsArn" yaml:"credentialsArn"`
+	CredentialsArn *string `field:"optional" json:"credentialsArn" yaml:"credentialsArn"`
 	// `AWS::ApiGatewayV2::Integration.Description`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-description
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// `AWS::ApiGatewayV2::Integration.IntegrationMethod`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-integrationmethod
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	IntegrationMethod *string `json:"integrationMethod" yaml:"integrationMethod"`
+	IntegrationMethod *string `field:"optional" json:"integrationMethod" yaml:"integrationMethod"`
 	// `AWS::ApiGatewayV2::Integration.IntegrationUri`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-integrationuri
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	IntegrationUri *string `json:"integrationUri" yaml:"integrationUri"`
+	IntegrationUri *string `field:"optional" json:"integrationUri" yaml:"integrationUri"`
 	// `AWS::ApiGatewayV2::Integration.PassthroughBehavior`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-passthroughbehavior
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	PassthroughBehavior *string `json:"passthroughBehavior" yaml:"passthroughBehavior"`
+	PassthroughBehavior *string `field:"optional" json:"passthroughBehavior" yaml:"passthroughBehavior"`
 	// `AWS::ApiGatewayV2::Integration.PayloadFormatVersion`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-payloadformatversion
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	PayloadFormatVersion *string `json:"payloadFormatVersion" yaml:"payloadFormatVersion"`
+	PayloadFormatVersion *string `field:"optional" json:"payloadFormatVersion" yaml:"payloadFormatVersion"`
 	// `AWS::ApiGatewayV2::Integration.RequestParameters`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-requestparameters
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	RequestParameters interface{} `json:"requestParameters" yaml:"requestParameters"`
+	RequestParameters interface{} `field:"optional" json:"requestParameters" yaml:"requestParameters"`
 	// `AWS::ApiGatewayV2::Integration.RequestTemplates`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-requesttemplates
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	RequestTemplates interface{} `json:"requestTemplates" yaml:"requestTemplates"`
+	RequestTemplates interface{} `field:"optional" json:"requestTemplates" yaml:"requestTemplates"`
 	// `AWS::ApiGatewayV2::Integration.TemplateSelectionExpression`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-templateselectionexpression
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	TemplateSelectionExpression *string `json:"templateSelectionExpression" yaml:"templateSelectionExpression"`
+	TemplateSelectionExpression *string `field:"optional" json:"templateSelectionExpression" yaml:"templateSelectionExpression"`
 	// `AWS::ApiGatewayV2::Integration.TimeoutInMillis`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-timeoutinmillis
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	TimeoutInMillis *float64 `json:"timeoutInMillis" yaml:"timeoutInMillis"`
+	TimeoutInMillis *float64 `field:"optional" json:"timeoutInMillis" yaml:"timeoutInMillis"`
 }
 
 // A CloudFormation `AWS::ApiGateway::Method`.
@@ -17773,8 +17944,11 @@ type CfnIntegrationV2Props struct {
 // The `AWS::ApiGateway::Method` resource creates API Gateway methods that define the parameters and body that clients must send in their requests.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
-//   cfnMethod := apigateway.NewCfnMethod(this, jsii.String("MyCfnMethod"), &cfnMethodProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnMethod := awscdk.Aws_apigateway.NewCfnMethod(this, jsii.String("MyCfnMethod"), &cfnMethodProps{
 //   	httpMethod: jsii.String("httpMethod"),
 //   	resourceId: jsii.String("resourceId"),
 //   	restApiId: jsii.String("restApiId"),
@@ -18738,7 +18912,10 @@ func (c *jsiiProxy_CfnMethod) ValidateProperties(_properties interface{}) {
 // `Integration` is a property of the [AWS::ApiGateway::Method](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html) resource that specifies information about the target backend that a method calls.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   integrationProperty := &integrationProperty{
 //   	cacheKeyParameters: []*string{
 //   		jsii.String("cacheKeyParameters"),
@@ -18780,42 +18957,42 @@ type CfnMethod_IntegrationProperty struct {
 	// A list of request parameters whose values API Gateway caches.
 	//
 	// For cases where the integration type allows for RequestParameters to be set, these parameters must also be specified in [RequestParameters](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-requestparameters) to be supported in `CacheKeyParameters` .
-	CacheKeyParameters *[]*string `json:"cacheKeyParameters" yaml:"cacheKeyParameters"`
+	CacheKeyParameters *[]*string `field:"optional" json:"cacheKeyParameters" yaml:"cacheKeyParameters"`
 	// An API-specific tag group of related cached parameters.
-	CacheNamespace *string `json:"cacheNamespace" yaml:"cacheNamespace"`
+	CacheNamespace *string `field:"optional" json:"cacheNamespace" yaml:"cacheNamespace"`
 	// The ID of the `VpcLink` used for the integration when `connectionType=VPC_LINK` , otherwise undefined.
-	ConnectionId *string `json:"connectionId" yaml:"connectionId"`
+	ConnectionId *string `field:"optional" json:"connectionId" yaml:"connectionId"`
 	// The type of the network connection to the integration endpoint.
 	//
 	// The valid value is `INTERNET` for connections through the public routable internet or `VPC_LINK` for private connections between API Gateway and a network load balancer in a VPC. The default value is `INTERNET` .
-	ConnectionType *string `json:"connectionType" yaml:"connectionType"`
+	ConnectionType *string `field:"optional" json:"connectionType" yaml:"connectionType"`
 	// Specifies how to handle request payload content type conversions. Valid values are:.
 	//
 	// - `CONVERT_TO_BINARY` : Converts a request payload from a base64-encoded string to a binary blob.
 	// - `CONVERT_TO_TEXT` : Converts a request payload from a binary blob to a base64-encoded string.
 	//
 	// If this property isn't defined, the request payload is passed through from the method request to the integration request without modification, provided that the `PassthroughBehaviors` property is configured to support payload pass-through.
-	ContentHandling *string `json:"contentHandling" yaml:"contentHandling"`
+	ContentHandling *string `field:"optional" json:"contentHandling" yaml:"contentHandling"`
 	// The credentials that are required for the integration.
 	//
 	// To specify an AWS Identity and Access Management (IAM) role that API Gateway assumes, specify the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify arn:aws:iam::*:user/*.
 	//
 	// To use resource-based permissions on the AWS Lambda (Lambda) function, don't specify this property. Use the [AWS::Lambda::Permission](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html) resource to permit API Gateway to call the function. For more information, see [Allow Amazon API Gateway to Invoke a Lambda Function](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#access-control-resource-based-example-apigateway-invoke-function) in the *AWS Lambda Developer Guide* .
-	Credentials *string `json:"credentials" yaml:"credentials"`
+	Credentials *string `field:"optional" json:"credentials" yaml:"credentials"`
 	// The integration's HTTP method type.
 	//
 	// For the `Type` property, if you specify `MOCK` , this property is optional. For all other types, you must specify this property.
-	IntegrationHttpMethod *string `json:"integrationHttpMethod" yaml:"integrationHttpMethod"`
+	IntegrationHttpMethod *string `field:"optional" json:"integrationHttpMethod" yaml:"integrationHttpMethod"`
 	// The response that API Gateway provides after a method's backend completes processing a request.
 	//
 	// API Gateway intercepts the response from the backend so that you can control how API Gateway surfaces backend responses. For example, you can map the backend status codes to codes that you define.
-	IntegrationResponses interface{} `json:"integrationResponses" yaml:"integrationResponses"`
+	IntegrationResponses interface{} `field:"optional" json:"integrationResponses" yaml:"integrationResponses"`
 	// Indicates when API Gateway passes requests to the targeted backend.
 	//
 	// This behavior depends on the request's `Content-Type` header and whether you defined a mapping template for it.
 	//
 	// For more information and valid values, see the [passthroughBehavior](https://docs.aws.amazon.com/apigateway/api-reference/link-relation/integration-put/#passthroughBehavior) field in the *API Gateway API Reference* .
-	PassthroughBehavior *string `json:"passthroughBehavior" yaml:"passthroughBehavior"`
+	PassthroughBehavior *string `field:"optional" json:"passthroughBehavior" yaml:"passthroughBehavior"`
 	// The request parameters that API Gateway sends with the backend request.
 	//
 	// Specify request parameters as key-value pairs (string-to-string mappings), with a destination as the key and a source as the value.
@@ -18823,7 +19000,7 @@ type CfnMethod_IntegrationProperty struct {
 	// Specify the destination by using the following pattern `integration.request. *location* . *name*` , where *location* is query string, path, or header, and *name* is a valid, unique parameter name.
 	//
 	// The source must be an existing method request parameter or a static value. You must enclose static values in single quotation marks and pre-encode these values based on their destination in the request.
-	RequestParameters interface{} `json:"requestParameters" yaml:"requestParameters"`
+	RequestParameters interface{} `field:"optional" json:"requestParameters" yaml:"requestParameters"`
 	// A map of Apache Velocity templates that are applied on the request payload.
 	//
 	// The template that API Gateway uses is based on the value of the `Content-Type` header that's sent by the client. The content type value is the key, and the template is the value (specified as a string), such as the following snippet:
@@ -18831,15 +19008,15 @@ type CfnMethod_IntegrationProperty struct {
 	// `"application/json": "{\n \"statusCode\": 200\n}"`
 	//
 	// For more information about templates, see [API Gateway Mapping Template and Access Logging Variable Reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html) in the *API Gateway Developer Guide* .
-	RequestTemplates interface{} `json:"requestTemplates" yaml:"requestTemplates"`
+	RequestTemplates interface{} `field:"optional" json:"requestTemplates" yaml:"requestTemplates"`
 	// Custom timeout between 50 and 29,000 milliseconds.
 	//
 	// The default value is 29,000 milliseconds or 29 seconds.
-	TimeoutInMillis *float64 `json:"timeoutInMillis" yaml:"timeoutInMillis"`
+	TimeoutInMillis *float64 `field:"optional" json:"timeoutInMillis" yaml:"timeoutInMillis"`
 	// The type of backend that your method is running, such as `HTTP` or `MOCK` .
 	//
 	// For all of the valid values, see the [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/#type) property for the `Integration` resource in the *Amazon API Gateway REST API Reference* .
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 	// The Uniform Resource Identifier (URI) for the integration.
 	//
 	// If you specify `HTTP` for the `Type` property, specify the API endpoint URL.
@@ -18849,13 +19026,16 @@ type CfnMethod_IntegrationProperty struct {
 	// If you specify `AWS` for the `Type` property, specify an AWS service that follows this form: arn:aws:apigateway: *region* : *subdomain* . *service|service* : *path|action* / *service_api* . For example, a Lambda function URI follows this form: arn:aws:apigateway: *region* :lambda:path/ *path* . The path is usually in the form /2015-03-31/functions/ *LambdaFunctionARN* /invocations. For more information, see the `uri` property of the [Integration](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/) resource in the Amazon API Gateway REST API Reference.
 	//
 	// If you specified `HTTP` or `AWS` for the `Type` property, you must specify this property.
-	Uri *string `json:"uri" yaml:"uri"`
+	Uri *string `field:"optional" json:"uri" yaml:"uri"`
 }
 
 // `IntegrationResponse` is a property of the [Amazon API Gateway Method Integration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html) property type that specifies the response that API Gateway sends after a method's backend finishes processing a request.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   integrationResponseProperty := &integrationResponseProperty{
 //   	statusCode: jsii.String("statusCode"),
 //
@@ -18872,14 +19052,14 @@ type CfnMethod_IntegrationProperty struct {
 //
 type CfnMethod_IntegrationResponseProperty struct {
 	// The status code that API Gateway uses to map the integration response to a [MethodResponse](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-methodresponse.html) status code.
-	StatusCode *string `json:"statusCode" yaml:"statusCode"`
+	StatusCode *string `field:"required" json:"statusCode" yaml:"statusCode"`
 	// Specifies how to handle request payload content type conversions. Valid values are:.
 	//
 	// - `CONVERT_TO_BINARY` : Converts a request payload from a base64-encoded string to a binary blob.
 	// - `CONVERT_TO_TEXT` : Converts a request payload from a binary blob to a base64-encoded string.
 	//
 	// If this property isn't defined, the request payload is passed through from the method request to the integration request without modification.
-	ContentHandling *string `json:"contentHandling" yaml:"contentHandling"`
+	ContentHandling *string `field:"optional" json:"contentHandling" yaml:"contentHandling"`
 	// The response parameters from the backend response that API Gateway sends to the method response.
 	//
 	// Specify response parameters as key-value pairs ( [string-to-string mappings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/mappings-section-structure.html) ).
@@ -18890,19 +19070,22 @@ type CfnMethod_IntegrationResponseProperty struct {
 	// - The source must be an existing method request parameter or a static value. You must enclose static values in single quotation marks and pre-encode these values based on the destination specified in the request.
 	//
 	// For more information about templates, see [API Gateway Mapping Template and Access Logging Variable Reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html) in the *API Gateway Developer Guide* .
-	ResponseParameters interface{} `json:"responseParameters" yaml:"responseParameters"`
+	ResponseParameters interface{} `field:"optional" json:"responseParameters" yaml:"responseParameters"`
 	// The templates that are used to transform the integration response body.
 	//
 	// Specify templates as key-value pairs (string-to-string mappings), with a content type as the key and a template as the value. For more information, see [API Gateway Mapping Template and Access Logging Variable Reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html) in the *API Gateway Developer Guide* .
-	ResponseTemplates interface{} `json:"responseTemplates" yaml:"responseTemplates"`
+	ResponseTemplates interface{} `field:"optional" json:"responseTemplates" yaml:"responseTemplates"`
 	// A [regular expression](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-regexes.html) that specifies which error strings or status codes from the backend map to the integration response.
-	SelectionPattern *string `json:"selectionPattern" yaml:"selectionPattern"`
+	SelectionPattern *string `field:"optional" json:"selectionPattern" yaml:"selectionPattern"`
 }
 
 // `MethodResponse` is a property of the [AWS::ApiGateway::Method](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html) resource that defines the responses that can be sent to the client that calls a method.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   methodResponseProperty := &methodResponseProperty{
 //   	statusCode: jsii.String("statusCode"),
 //
@@ -18917,21 +19100,24 @@ type CfnMethod_IntegrationResponseProperty struct {
 //
 type CfnMethod_MethodResponseProperty struct {
 	// The method response's status code, which you map to an [IntegrationResponse](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration-integrationresponse.html) .
-	StatusCode *string `json:"statusCode" yaml:"statusCode"`
+	StatusCode *string `field:"required" json:"statusCode" yaml:"statusCode"`
 	// The resources used for the response's content type.
 	//
 	// Specify response models as key-value pairs (string-to-string maps), with a content type as the key and a [Model](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html) resource name as the value.
-	ResponseModels interface{} `json:"responseModels" yaml:"responseModels"`
+	ResponseModels interface{} `field:"optional" json:"responseModels" yaml:"responseModels"`
 	// Response parameters that API Gateway sends to the client that called a method.
 	//
 	// Specify response parameters as key-value pairs (string-to-Boolean maps), with a destination as the key and a Boolean as the value. Specify the destination using the following pattern: `method.response.header. *name*` , where *name* is a valid, unique header name. The Boolean specifies whether a parameter is required.
-	ResponseParameters interface{} `json:"responseParameters" yaml:"responseParameters"`
+	ResponseParameters interface{} `field:"optional" json:"responseParameters" yaml:"responseParameters"`
 }
 
 // Properties for defining a `CfnMethod`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnMethodProps := &cfnMethodProps{
 //   	httpMethod: jsii.String("httpMethod"),
 //   	resourceId: jsii.String("resourceId"),
@@ -19005,43 +19191,43 @@ type CfnMethod_MethodResponseProperty struct {
 //
 type CfnMethodProps struct {
 	// The HTTP method that clients use to call this method.
-	HttpMethod *string `json:"httpMethod" yaml:"httpMethod"`
+	HttpMethod *string `field:"required" json:"httpMethod" yaml:"httpMethod"`
 	// The ID of an API Gateway [resource](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html) . For root resource methods, specify the `RestApi` root resource ID, such as `{ "Fn::GetAtt": ["MyRestApi", "RootResourceId"] }` .
-	ResourceId *string `json:"resourceId" yaml:"resourceId"`
+	ResourceId *string `field:"required" json:"resourceId" yaml:"resourceId"`
 	// The ID of the [RestApi](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html) resource in which API Gateway creates the method.
-	RestApiId *string `json:"restApiId" yaml:"restApiId"`
+	RestApiId *string `field:"required" json:"restApiId" yaml:"restApiId"`
 	// Indicates whether the method requires clients to submit a valid API key.
-	ApiKeyRequired interface{} `json:"apiKeyRequired" yaml:"apiKeyRequired"`
+	ApiKeyRequired interface{} `field:"optional" json:"apiKeyRequired" yaml:"apiKeyRequired"`
 	// A list of authorization scopes configured on the method.
 	//
 	// The scopes are used with a `COGNITO_USER_POOLS` authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes match a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes.
-	AuthorizationScopes *[]*string `json:"authorizationScopes" yaml:"authorizationScopes"`
+	AuthorizationScopes *[]*string `field:"optional" json:"authorizationScopes" yaml:"authorizationScopes"`
 	// The method's authorization type.
 	//
 	// This parameter is required. For valid values, see [Method](https://docs.aws.amazon.com/apigateway/api-reference/resource/method/) in the *API Gateway API Reference* .
 	//
 	// > If you specify the `AuthorizerId` property, specify `CUSTOM` or `COGNITO_USER_POOLS` for this property.
-	AuthorizationType *string `json:"authorizationType" yaml:"authorizationType"`
+	AuthorizationType *string `field:"optional" json:"authorizationType" yaml:"authorizationType"`
 	// The identifier of the [authorizer](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html) to use on this method. If you specify this property, specify `CUSTOM` or `COGNITO_USER_POOLS` for the `AuthorizationType` property.
-	AuthorizerId *string `json:"authorizerId" yaml:"authorizerId"`
+	AuthorizerId *string `field:"optional" json:"authorizerId" yaml:"authorizerId"`
 	// The backend system that the method calls when it receives a request.
-	Integration interface{} `json:"integration" yaml:"integration"`
+	Integration interface{} `field:"optional" json:"integration" yaml:"integration"`
 	// The responses that can be sent to the client who calls the method.
-	MethodResponses interface{} `json:"methodResponses" yaml:"methodResponses"`
+	MethodResponses interface{} `field:"optional" json:"methodResponses" yaml:"methodResponses"`
 	// A friendly operation name for the method.
 	//
 	// For example, you can assign the `OperationName` of `ListPets` for the `GET /pets` method.
-	OperationName *string `json:"operationName" yaml:"operationName"`
+	OperationName *string `field:"optional" json:"operationName" yaml:"operationName"`
 	// The resources that are used for the request's content type.
 	//
 	// Specify request models as key-value pairs (string-to-string mapping), with a content type as the key and a `Model` resource name as the value. To use the same model regardless of the content type, specify `$default` as the key.
-	RequestModels interface{} `json:"requestModels" yaml:"requestModels"`
+	RequestModels interface{} `field:"optional" json:"requestModels" yaml:"requestModels"`
 	// The request parameters that API Gateway accepts.
 	//
 	// Specify request parameters as key-value pairs (string-to-Boolean mapping), with a source as the key and a Boolean as the value. The Boolean specifies whether a parameter is required. A source must match the format `method.request. *location* . *name*` , where the location is querystring, path, or header, and *name* is a valid, unique parameter name.
-	RequestParameters interface{} `json:"requestParameters" yaml:"requestParameters"`
+	RequestParameters interface{} `field:"optional" json:"requestParameters" yaml:"requestParameters"`
 	// The ID of the associated request validator.
-	RequestValidatorId *string `json:"requestValidatorId" yaml:"requestValidatorId"`
+	RequestValidatorId *string `field:"optional" json:"requestValidatorId" yaml:"requestValidatorId"`
 }
 
 // A CloudFormation `AWS::ApiGateway::Model`.
@@ -19049,10 +19235,13 @@ type CfnMethodProps struct {
 // The `AWS::ApiGateway::Model` resource defines the structure of a request or response payload for an API method.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var schema interface{}
-//   cfnModel := apigateway.NewCfnModel(this, jsii.String("MyCfnModel"), &cfnModelProps{
+//
+//   cfnModel := awscdk.Aws_apigateway.NewCfnModel(this, jsii.String("MyCfnModel"), &cfnModelProps{
 //   	restApiId: jsii.String("restApiId"),
 //
 //   	// the properties below are optional
@@ -19781,9 +19970,12 @@ func (c *jsiiProxy_CfnModel) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnModel`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var schema interface{}
+//
 //   cfnModelProps := &cfnModelProps{
 //   	restApiId: jsii.String("restApiId"),
 //
@@ -19796,30 +19988,33 @@ func (c *jsiiProxy_CfnModel) ValidateProperties(_properties interface{}) {
 //
 type CfnModelProps struct {
 	// The ID of a REST API with which to associate this model.
-	RestApiId *string `json:"restApiId" yaml:"restApiId"`
+	RestApiId *string `field:"required" json:"restApiId" yaml:"restApiId"`
 	// The content type for the model.
-	ContentType *string `json:"contentType" yaml:"contentType"`
+	ContentType *string `field:"optional" json:"contentType" yaml:"contentType"`
 	// A description that identifies this model.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// A name for the model.
 	//
 	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the model name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
 	//
 	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The schema to use to transform data to one or more output formats.
 	//
 	// Specify null ( `{}` ) if you don't want to specify a schema.
-	Schema interface{} `json:"schema" yaml:"schema"`
+	Schema interface{} `field:"optional" json:"schema" yaml:"schema"`
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::Model`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var schema interface{}
-//   cfnModelV2 := apigateway.NewCfnModelV2(this, jsii.String("MyCfnModelV2"), &cfnModelV2Props{
+//
+//   cfnModelV2 := awscdk.Aws_apigateway.NewCfnModelV2(this, jsii.String("MyCfnModelV2"), &cfnModelV2Props{
 //   	apiId: jsii.String("apiId"),
 //   	name: jsii.String("name"),
 //   	schema: schema,
@@ -20570,9 +20765,12 @@ func (c *jsiiProxy_CfnModelV2) ValidateProperties(_properties interface{}) {
 // Properties for defining a `AWS::ApiGatewayV2::Model`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var schema interface{}
+//
 //   cfnModelV2Props := &cfnModelV2Props{
 //   	apiId: jsii.String("apiId"),
 //   	name: jsii.String("name"),
@@ -20591,27 +20789,27 @@ type CfnModelV2Props struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-model.html#cfn-apigatewayv2-model-apiid
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	ApiId *string `json:"apiId" yaml:"apiId"`
+	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`
 	// `AWS::ApiGatewayV2::Model.Name`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-model.html#cfn-apigatewayv2-model-name
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// `AWS::ApiGatewayV2::Model.Schema`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-model.html#cfn-apigatewayv2-model-schema
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	Schema interface{} `json:"schema" yaml:"schema"`
+	Schema interface{} `field:"required" json:"schema" yaml:"schema"`
 	// `AWS::ApiGatewayV2::Model.ContentType`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-model.html#cfn-apigatewayv2-model-contenttype
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	ContentType *string `json:"contentType" yaml:"contentType"`
+	ContentType *string `field:"optional" json:"contentType" yaml:"contentType"`
 	// `AWS::ApiGatewayV2::Model.Description`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-model.html#cfn-apigatewayv2-model-description
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 
 // A CloudFormation `AWS::ApiGateway::RequestValidator`.
@@ -20619,8 +20817,11 @@ type CfnModelV2Props struct {
 // The `AWS::ApiGateway::RequestValidator` resource sets up basic validation rules for incoming requests to your API. For more information, see [Enable Basic Request Validation for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html) in the *API Gateway Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
-//   cfnRequestValidator := apigateway.NewCfnRequestValidator(this, jsii.String("MyCfnRequestValidator"), &cfnRequestValidatorProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnRequestValidator := awscdk.Aws_apigateway.NewCfnRequestValidator(this, jsii.String("MyCfnRequestValidator"), &cfnRequestValidatorProps{
 //   	restApiId: jsii.String("restApiId"),
 //
 //   	// the properties below are optional
@@ -21335,7 +21536,10 @@ func (c *jsiiProxy_CfnRequestValidator) ValidateProperties(_properties interface
 // Properties for defining a `CfnRequestValidator`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnRequestValidatorProps := &cfnRequestValidatorProps{
 //   	restApiId: jsii.String("restApiId"),
 //
@@ -21347,13 +21551,13 @@ func (c *jsiiProxy_CfnRequestValidator) ValidateProperties(_properties interface
 //
 type CfnRequestValidatorProps struct {
 	// The identifier of the targeted API entity.
-	RestApiId *string `json:"restApiId" yaml:"restApiId"`
+	RestApiId *string `field:"required" json:"restApiId" yaml:"restApiId"`
 	// The name of this request validator.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Indicates whether to validate the request body according to the configured schema for the targeted API and method.
-	ValidateRequestBody interface{} `json:"validateRequestBody" yaml:"validateRequestBody"`
+	ValidateRequestBody interface{} `field:"optional" json:"validateRequestBody" yaml:"validateRequestBody"`
 	// Indicates whether to validate request parameters.
-	ValidateRequestParameters interface{} `json:"validateRequestParameters" yaml:"validateRequestParameters"`
+	ValidateRequestParameters interface{} `field:"optional" json:"validateRequestParameters" yaml:"validateRequestParameters"`
 }
 
 // A CloudFormation `AWS::ApiGateway::Resource`.
@@ -21361,8 +21565,11 @@ type CfnRequestValidatorProps struct {
 // The `AWS::ApiGateway::Resource` resource creates a resource in an API.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
-//   cfnResource := apigateway.NewCfnResource(this, jsii.String("MyCfnResource"), &cfnResourceProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnResource := awscdk.Aws_apigateway.NewCfnResource(this, jsii.String("MyCfnResource"), &cfnResourceProps{
 //   	parentId: jsii.String("parentId"),
 //   	pathPart: jsii.String("pathPart"),
 //   	restApiId: jsii.String("restApiId"),
@@ -22055,7 +22262,10 @@ func (c *jsiiProxy_CfnResource) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnResource`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnResourceProps := &cfnResourceProps{
 //   	parentId: jsii.String("parentId"),
 //   	pathPart: jsii.String("pathPart"),
@@ -22066,11 +22276,11 @@ type CfnResourceProps struct {
 	// If you want to create a child resource, the ID of the parent resource.
 	//
 	// For resources without a parent, specify the `RestApi` root resource ID, such as `{ "Fn::GetAtt": ["MyRestApi", "RootResourceId"] }` .
-	ParentId *string `json:"parentId" yaml:"parentId"`
+	ParentId *string `field:"required" json:"parentId" yaml:"parentId"`
 	// A path name for the resource.
-	PathPart *string `json:"pathPart" yaml:"pathPart"`
+	PathPart *string `field:"required" json:"pathPart" yaml:"pathPart"`
 	// The ID of the [RestApi](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html) resource in which you want to create this resource.
-	RestApiId *string `json:"restApiId" yaml:"restApiId"`
+	RestApiId *string `field:"required" json:"restApiId" yaml:"restApiId"`
 }
 
 // A CloudFormation `AWS::ApiGateway::RestApi`.
@@ -22080,11 +22290,14 @@ type CfnResourceProps struct {
 // > On January 1, 2016, the Swagger Specification was donated to the [OpenAPI initiative](https://docs.aws.amazon.com/https://www.openapis.org/) , becoming the foundation of the OpenAPI Specification.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var body interface{}
 //   var policy interface{}
-//   cfnRestApi := apigateway.NewCfnRestApi(this, jsii.String("MyCfnRestApi"), &cfnRestApiProps{
+//
+//   cfnRestApi := awscdk.Aws_apigateway.NewCfnRestApi(this, jsii.String("MyCfnRestApi"), &cfnRestApiProps{
 //   	apiKeySourceType: jsii.String("apiKeySourceType"),
 //   	binaryMediaTypes: []*string{
 //   		jsii.String("binaryMediaTypes"),
@@ -23076,7 +23289,10 @@ func (c *jsiiProxy_CfnRestApi) ValidateProperties(_properties interface{}) {
 // `EndpointConfiguration` is a property of the [AWS::ApiGateway::RestApi](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html) resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   endpointConfigurationProperty := &endpointConfigurationProperty{
 //   	types: []*string{
 //   		jsii.String("types"),
@@ -23092,9 +23308,9 @@ type CfnRestApi_EndpointConfigurationProperty struct {
 	// - `EDGE` : For an edge-optimized API and its custom domain name.
 	// - `REGIONAL` : For a regional API and its custom domain name.
 	// - `PRIVATE` : For a private API.
-	Types *[]*string `json:"types" yaml:"types"`
+	Types *[]*string `field:"optional" json:"types" yaml:"types"`
 	// A list of VPC endpoint IDs of an API ( [AWS::ApiGateway::RestApi](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html) ) against which to create Route53 ALIASes. It is only supported for `PRIVATE` endpoint type.
-	VpcEndpointIds *[]*string `json:"vpcEndpointIds" yaml:"vpcEndpointIds"`
+	VpcEndpointIds *[]*string `field:"optional" json:"vpcEndpointIds" yaml:"vpcEndpointIds"`
 }
 
 // `S3Location` is a property of the [AWS::ApiGateway::RestApi](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html) resource that specifies the Amazon S3 location of a OpenAPI (formerly Swagger) file that defines a set of RESTful APIs in JSON or YAML.
@@ -23102,7 +23318,10 @@ type CfnRestApi_EndpointConfigurationProperty struct {
 // > On January 1, 2016, the Swagger Specification was donated to the [OpenAPI initiative](https://docs.aws.amazon.com/https://www.openapis.org/) , becoming the foundation of the OpenAPI Specification.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3LocationProperty := &s3LocationProperty{
 //   	bucket: jsii.String("bucket"),
 //   	eTag: jsii.String("eTag"),
@@ -23112,24 +23331,27 @@ type CfnRestApi_EndpointConfigurationProperty struct {
 //
 type CfnRestApi_S3LocationProperty struct {
 	// The name of the S3 bucket where the OpenAPI file is stored.
-	Bucket *string `json:"bucket" yaml:"bucket"`
+	Bucket *string `field:"optional" json:"bucket" yaml:"bucket"`
 	// The Amazon S3 ETag (a file checksum) of the OpenAPI file.
 	//
 	// If you don't specify a value, API Gateway skips ETag validation of your OpenAPI file.
-	ETag *string `json:"eTag" yaml:"eTag"`
+	ETag *string `field:"optional" json:"eTag" yaml:"eTag"`
 	// The file name of the OpenAPI file (Amazon S3 object name).
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"optional" json:"key" yaml:"key"`
 	// For versioning-enabled buckets, a specific version of the OpenAPI file.
-	Version *string `json:"version" yaml:"version"`
+	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 
 // Properties for defining a `CfnRestApi`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var body interface{}
 //   var policy interface{}
+//
 //   cfnRestApiProps := &cfnRestApiProps{
 //   	apiKeySourceType: jsii.String("apiKeySourceType"),
 //   	binaryMediaTypes: []*string{
@@ -23174,35 +23396,35 @@ type CfnRestApiProps struct {
 	//
 	// - `HEADER` to read the API key from the `X-API-Key` header of a request.
 	// - `AUTHORIZER` to read the API key from the `UsageIdentifierKey` from a Lambda authorizer.
-	ApiKeySourceType *string `json:"apiKeySourceType" yaml:"apiKeySourceType"`
+	ApiKeySourceType *string `field:"optional" json:"apiKeySourceType" yaml:"apiKeySourceType"`
 	// The list of binary media types that are supported by the `RestApi` resource.
 	//
 	// Use `~1` instead of `/` in the media types, for example `image~1png` or `application~1octet-stream` . By default, `RestApi` supports only UTF-8-encoded text payloads. Duplicates are not allowed. For more information, see [Enable Support for Binary Payloads in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-payload-encodings.html) in the *API Gateway Developer Guide* .
-	BinaryMediaTypes *[]*string `json:"binaryMediaTypes" yaml:"binaryMediaTypes"`
+	BinaryMediaTypes *[]*string `field:"optional" json:"binaryMediaTypes" yaml:"binaryMediaTypes"`
 	// An OpenAPI specification that defines a set of RESTful APIs in JSON format.
 	//
 	// For YAML templates, you can also provide the specification in YAML format.
-	Body interface{} `json:"body" yaml:"body"`
+	Body interface{} `field:"optional" json:"body" yaml:"body"`
 	// The Amazon Simple Storage Service (Amazon S3) location that points to an OpenAPI file, which defines a set of RESTful APIs in JSON or YAML format.
-	BodyS3Location interface{} `json:"bodyS3Location" yaml:"bodyS3Location"`
+	BodyS3Location interface{} `field:"optional" json:"bodyS3Location" yaml:"bodyS3Location"`
 	// The ID of the `RestApi` resource that you want to clone.
-	CloneFrom *string `json:"cloneFrom" yaml:"cloneFrom"`
+	CloneFrom *string `field:"optional" json:"cloneFrom" yaml:"cloneFrom"`
 	// A description of the `RestApi` resource.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Specifies whether clients can invoke your API by using the default `execute-api` endpoint.
 	//
 	// By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.
-	DisableExecuteApiEndpoint interface{} `json:"disableExecuteApiEndpoint" yaml:"disableExecuteApiEndpoint"`
+	DisableExecuteApiEndpoint interface{} `field:"optional" json:"disableExecuteApiEndpoint" yaml:"disableExecuteApiEndpoint"`
 	// A list of the endpoint types of the API.
 	//
 	// Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the `Parameters` property.
-	EndpointConfiguration interface{} `json:"endpointConfiguration" yaml:"endpointConfiguration"`
+	EndpointConfiguration interface{} `field:"optional" json:"endpointConfiguration" yaml:"endpointConfiguration"`
 	// Indicates whether to roll back the resource if a warning occurs while API Gateway is creating the `RestApi` resource.
-	FailOnWarnings interface{} `json:"failOnWarnings" yaml:"failOnWarnings"`
+	FailOnWarnings interface{} `field:"optional" json:"failOnWarnings" yaml:"failOnWarnings"`
 	// A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (with a null value) on an API.
 	//
 	// When compression is enabled, compression or decompression is not applied on the payload if the payload size is smaller than this value. Setting it to zero allows compression for any payload size.
-	MinimumCompressionSize *float64 `json:"minimumCompressionSize" yaml:"minimumCompressionSize"`
+	MinimumCompressionSize *float64 `field:"optional" json:"minimumCompressionSize" yaml:"minimumCompressionSize"`
 	// This property applies only when you use OpenAPI to define your REST API.
 	//
 	// The `Mode` determines how API Gateway handles resource updates.
@@ -23214,27 +23436,30 @@ type CfnRestApiProps struct {
 	// For `merge` , the new API definition takes precedence, but any container types such as endpoint configurations and binary media types are merged with the existing API. Use `merge` to define top-level `RestApi` properties in addition to using OpenAPI. Generally, it's preferred to use API Gateway's OpenAPI extensions to model these properties.
 	//
 	// If you don't specify this property, a default value is chosen. For REST APIs created before March 29, 2021, the default is `overwrite` . Otherwise, the default value is `merge` .
-	Mode *string `json:"mode" yaml:"mode"`
+	Mode *string `field:"optional" json:"mode" yaml:"mode"`
 	// A name for the `RestApi` resource.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Custom header parameters for the request.
-	Parameters interface{} `json:"parameters" yaml:"parameters"`
+	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// A policy document that contains the permissions for the `RestApi` resource.
 	//
 	// To set the ARN for the policy, use the `!Join` intrinsic function with `""` as delimiter and values of `"execute-api:/"` and `"*"` .
-	Policy interface{} `json:"policy" yaml:"policy"`
+	Policy interface{} `field:"optional" json:"policy" yaml:"policy"`
 	// An array of arbitrary tags (key-value pairs) to associate with the API.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::RouteResponse`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var responseModels interface{}
 //   var responseParameters interface{}
-//   cfnRouteResponseV2 := apigateway.NewCfnRouteResponseV2(this, jsii.String("MyCfnRouteResponseV2"), &cfnRouteResponseV2Props{
+//
+//   cfnRouteResponseV2 := awscdk.Aws_apigateway.NewCfnRouteResponseV2(this, jsii.String("MyCfnRouteResponseV2"), &cfnRouteResponseV2Props{
 //   	apiId: jsii.String("apiId"),
 //   	routeId: jsii.String("routeId"),
 //   	routeResponseKey: jsii.String("routeResponseKey"),
@@ -24009,7 +24234,10 @@ func (c *jsiiProxy_CfnRouteResponseV2) ValidateProperties(_properties interface{
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   parameterConstraintsProperty := &parameterConstraintsProperty{
 //   	required: jsii.Boolean(false),
 //   }
@@ -24022,16 +24250,19 @@ type CfnRouteResponseV2_ParameterConstraintsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-routeresponse-parameterconstraints.html#cfn-apigatewayv2-routeresponse-parameterconstraints-required
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	Required interface{} `json:"required" yaml:"required"`
+	Required interface{} `field:"required" json:"required" yaml:"required"`
 }
 
 // Properties for defining a `AWS::ApiGatewayV2::RouteResponse`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var responseModels interface{}
 //   var responseParameters interface{}
+//
 //   cfnRouteResponseV2Props := &cfnRouteResponseV2Props{
 //   	apiId: jsii.String("apiId"),
 //   	routeId: jsii.String("routeId"),
@@ -24051,42 +24282,45 @@ type CfnRouteResponseV2Props struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-routeresponse.html#cfn-apigatewayv2-routeresponse-apiid
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	ApiId *string `json:"apiId" yaml:"apiId"`
+	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`
 	// `AWS::ApiGatewayV2::RouteResponse.RouteId`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-routeresponse.html#cfn-apigatewayv2-routeresponse-routeid
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	RouteId *string `json:"routeId" yaml:"routeId"`
+	RouteId *string `field:"required" json:"routeId" yaml:"routeId"`
 	// `AWS::ApiGatewayV2::RouteResponse.RouteResponseKey`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-routeresponse.html#cfn-apigatewayv2-routeresponse-routeresponsekey
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	RouteResponseKey *string `json:"routeResponseKey" yaml:"routeResponseKey"`
+	RouteResponseKey *string `field:"required" json:"routeResponseKey" yaml:"routeResponseKey"`
 	// `AWS::ApiGatewayV2::RouteResponse.ModelSelectionExpression`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-routeresponse.html#cfn-apigatewayv2-routeresponse-modelselectionexpression
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	ModelSelectionExpression *string `json:"modelSelectionExpression" yaml:"modelSelectionExpression"`
+	ModelSelectionExpression *string `field:"optional" json:"modelSelectionExpression" yaml:"modelSelectionExpression"`
 	// `AWS::ApiGatewayV2::RouteResponse.ResponseModels`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-routeresponse.html#cfn-apigatewayv2-routeresponse-responsemodels
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	ResponseModels interface{} `json:"responseModels" yaml:"responseModels"`
+	ResponseModels interface{} `field:"optional" json:"responseModels" yaml:"responseModels"`
 	// `AWS::ApiGatewayV2::RouteResponse.ResponseParameters`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-routeresponse.html#cfn-apigatewayv2-routeresponse-responseparameters
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	ResponseParameters interface{} `json:"responseParameters" yaml:"responseParameters"`
+	ResponseParameters interface{} `field:"optional" json:"responseParameters" yaml:"responseParameters"`
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::Route`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var requestModels interface{}
 //   var requestParameters interface{}
-//   cfnRouteV2 := apigateway.NewCfnRouteV2(this, jsii.String("MyCfnRouteV2"), &cfnRouteV2Props{
+//
+//   cfnRouteV2 := awscdk.Aws_apigateway.NewCfnRouteV2(this, jsii.String("MyCfnRouteV2"), &cfnRouteV2Props{
 //   	apiId: jsii.String("apiId"),
 //   	routeKey: jsii.String("routeKey"),
 //
@@ -25019,7 +25253,10 @@ func (c *jsiiProxy_CfnRouteV2) ValidateProperties(_properties interface{}) {
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   parameterConstraintsProperty := &parameterConstraintsProperty{
 //   	required: jsii.Boolean(false),
 //   }
@@ -25032,16 +25269,19 @@ type CfnRouteV2_ParameterConstraintsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-route-parameterconstraints.html#cfn-apigatewayv2-route-parameterconstraints-required
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	Required interface{} `json:"required" yaml:"required"`
+	Required interface{} `field:"required" json:"required" yaml:"required"`
 }
 
 // Properties for defining a `AWS::ApiGatewayV2::Route`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var requestModels interface{}
 //   var requestParameters interface{}
+//
 //   cfnRouteV2Props := &cfnRouteV2Props{
 //   	apiId: jsii.String("apiId"),
 //   	routeKey: jsii.String("routeKey"),
@@ -25069,62 +25309,62 @@ type CfnRouteV2Props struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-route.html#cfn-apigatewayv2-route-apiid
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	ApiId *string `json:"apiId" yaml:"apiId"`
+	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`
 	// `AWS::ApiGatewayV2::Route.RouteKey`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-route.html#cfn-apigatewayv2-route-routekey
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	RouteKey *string `json:"routeKey" yaml:"routeKey"`
+	RouteKey *string `field:"required" json:"routeKey" yaml:"routeKey"`
 	// `AWS::ApiGatewayV2::Route.ApiKeyRequired`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-route.html#cfn-apigatewayv2-route-apikeyrequired
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	ApiKeyRequired interface{} `json:"apiKeyRequired" yaml:"apiKeyRequired"`
+	ApiKeyRequired interface{} `field:"optional" json:"apiKeyRequired" yaml:"apiKeyRequired"`
 	// `AWS::ApiGatewayV2::Route.AuthorizationScopes`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-route.html#cfn-apigatewayv2-route-authorizationscopes
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	AuthorizationScopes *[]*string `json:"authorizationScopes" yaml:"authorizationScopes"`
+	AuthorizationScopes *[]*string `field:"optional" json:"authorizationScopes" yaml:"authorizationScopes"`
 	// `AWS::ApiGatewayV2::Route.AuthorizationType`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-route.html#cfn-apigatewayv2-route-authorizationtype
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	AuthorizationType *string `json:"authorizationType" yaml:"authorizationType"`
+	AuthorizationType *string `field:"optional" json:"authorizationType" yaml:"authorizationType"`
 	// `AWS::ApiGatewayV2::Route.AuthorizerId`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-route.html#cfn-apigatewayv2-route-authorizerid
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	AuthorizerId *string `json:"authorizerId" yaml:"authorizerId"`
+	AuthorizerId *string `field:"optional" json:"authorizerId" yaml:"authorizerId"`
 	// `AWS::ApiGatewayV2::Route.ModelSelectionExpression`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-route.html#cfn-apigatewayv2-route-modelselectionexpression
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	ModelSelectionExpression *string `json:"modelSelectionExpression" yaml:"modelSelectionExpression"`
+	ModelSelectionExpression *string `field:"optional" json:"modelSelectionExpression" yaml:"modelSelectionExpression"`
 	// `AWS::ApiGatewayV2::Route.OperationName`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-route.html#cfn-apigatewayv2-route-operationname
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	OperationName *string `json:"operationName" yaml:"operationName"`
+	OperationName *string `field:"optional" json:"operationName" yaml:"operationName"`
 	// `AWS::ApiGatewayV2::Route.RequestModels`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-route.html#cfn-apigatewayv2-route-requestmodels
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	RequestModels interface{} `json:"requestModels" yaml:"requestModels"`
+	RequestModels interface{} `field:"optional" json:"requestModels" yaml:"requestModels"`
 	// `AWS::ApiGatewayV2::Route.RequestParameters`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-route.html#cfn-apigatewayv2-route-requestparameters
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	RequestParameters interface{} `json:"requestParameters" yaml:"requestParameters"`
+	RequestParameters interface{} `field:"optional" json:"requestParameters" yaml:"requestParameters"`
 	// `AWS::ApiGatewayV2::Route.RouteResponseSelectionExpression`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-route.html#cfn-apigatewayv2-route-routeresponseselectionexpression
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	RouteResponseSelectionExpression *string `json:"routeResponseSelectionExpression" yaml:"routeResponseSelectionExpression"`
+	RouteResponseSelectionExpression *string `field:"optional" json:"routeResponseSelectionExpression" yaml:"routeResponseSelectionExpression"`
 	// `AWS::ApiGatewayV2::Route.Target`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-route.html#cfn-apigatewayv2-route-target
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	Target *string `json:"target" yaml:"target"`
+	Target *string `field:"optional" json:"target" yaml:"target"`
 }
 
 // A CloudFormation `AWS::ApiGateway::Stage`.
@@ -25132,8 +25372,11 @@ type CfnRouteV2Props struct {
 // The `AWS::ApiGateway::Stage` resource creates a stage for a deployment.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
-//   cfnStage := apigateway.NewCfnStage(this, jsii.String("MyCfnStage"), &cfnStageProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnStage := awscdk.Aws_apigateway.NewCfnStage(this, jsii.String("MyCfnStage"), &cfnStageProps{
 //   	restApiId: jsii.String("restApiId"),
 //
 //   	// the properties below are optional
@@ -26083,7 +26326,10 @@ func (c *jsiiProxy_CfnStage) ValidateProperties(_properties interface{}) {
 // `AccessLogSetting` is a property of the [AWS::ApiGateway::Stage](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html) resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   accessLogSettingProperty := &accessLogSettingProperty{
 //   	destinationArn: jsii.String("destinationArn"),
 //   	format: jsii.String("format"),
@@ -26093,9 +26339,9 @@ type CfnStage_AccessLogSettingProperty struct {
 	// The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs.
 	//
 	// If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-` . This parameter is required to enable access logging.
-	DestinationArn *string `json:"destinationArn" yaml:"destinationArn"`
+	DestinationArn *string `field:"optional" json:"destinationArn" yaml:"destinationArn"`
 	// A single line format of the access logs of data, as specified by selected [$context variables](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#context-variable-reference) . The format must include at least `$context.requestId` . This parameter is required to enable access logging.
-	Format *string `json:"format" yaml:"format"`
+	Format *string `field:"optional" json:"format" yaml:"format"`
 }
 
 // The `CanarySetting` property type specifies settings for the canary deployment in this stage.
@@ -26103,7 +26349,10 @@ type CfnStage_AccessLogSettingProperty struct {
 // `CanarySetting` is a property of the [AWS::ApiGateway::Stage](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html) resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   canarySettingProperty := &canarySettingProperty{
 //   	deploymentId: jsii.String("deploymentId"),
 //   	percentTraffic: jsii.Number(123),
@@ -26115,17 +26364,17 @@ type CfnStage_AccessLogSettingProperty struct {
 //
 type CfnStage_CanarySettingProperty struct {
 	// The identifier of the deployment that the stage points to.
-	DeploymentId *string `json:"deploymentId" yaml:"deploymentId"`
+	DeploymentId *string `field:"optional" json:"deploymentId" yaml:"deploymentId"`
 	// The percentage (0-100) of traffic diverted to a canary deployment.
-	PercentTraffic *float64 `json:"percentTraffic" yaml:"percentTraffic"`
+	PercentTraffic *float64 `field:"optional" json:"percentTraffic" yaml:"percentTraffic"`
 	// Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary.
 	//
 	// These stage variables are represented as a string-to-string map between stage variable names and their values.
 	//
 	// Duplicates are not allowed.
-	StageVariableOverrides interface{} `json:"stageVariableOverrides" yaml:"stageVariableOverrides"`
+	StageVariableOverrides interface{} `field:"optional" json:"stageVariableOverrides" yaml:"stageVariableOverrides"`
 	// Whether the canary deployment uses the stage cache or not.
-	UseStageCache interface{} `json:"useStageCache" yaml:"useStageCache"`
+	UseStageCache interface{} `field:"optional" json:"useStageCache" yaml:"useStageCache"`
 }
 
 // The `MethodSetting` property type configures settings for all methods in a stage.
@@ -26133,7 +26382,10 @@ type CfnStage_CanarySettingProperty struct {
 // The `MethodSettings` property of the `AWS::ApiGateway::Stage` resource contains a list of `MethodSetting` property types.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   methodSettingProperty := &methodSettingProperty{
 //   	cacheDataEncrypted: jsii.Boolean(false),
 //   	cacheTtlInSeconds: jsii.Number(123),
@@ -26149,45 +26401,48 @@ type CfnStage_CanarySettingProperty struct {
 //
 type CfnStage_MethodSettingProperty struct {
 	// Indicates whether the cached responses are encrypted.
-	CacheDataEncrypted interface{} `json:"cacheDataEncrypted" yaml:"cacheDataEncrypted"`
+	CacheDataEncrypted interface{} `field:"optional" json:"cacheDataEncrypted" yaml:"cacheDataEncrypted"`
 	// The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses.
-	CacheTtlInSeconds *float64 `json:"cacheTtlInSeconds" yaml:"cacheTtlInSeconds"`
+	CacheTtlInSeconds *float64 `field:"optional" json:"cacheTtlInSeconds" yaml:"cacheTtlInSeconds"`
 	// Indicates whether responses are cached and returned for requests.
 	//
 	// You must enable a cache cluster on the stage to cache responses.
-	CachingEnabled interface{} `json:"cachingEnabled" yaml:"cachingEnabled"`
+	CachingEnabled interface{} `field:"optional" json:"cachingEnabled" yaml:"cachingEnabled"`
 	// Indicates whether data trace logging is enabled for methods in the stage.
 	//
 	// API Gateway pushes these logs to Amazon CloudWatch Logs.
-	DataTraceEnabled interface{} `json:"dataTraceEnabled" yaml:"dataTraceEnabled"`
+	DataTraceEnabled interface{} `field:"optional" json:"dataTraceEnabled" yaml:"dataTraceEnabled"`
 	// The HTTP method.
 	//
 	// To apply settings to multiple resources and methods, specify an asterisk ( `*` ) for the `HttpMethod` and `/*` for the `ResourcePath` . This parameter is required when you specify a `MethodSetting` .
-	HttpMethod *string `json:"httpMethod" yaml:"httpMethod"`
+	HttpMethod *string `field:"optional" json:"httpMethod" yaml:"httpMethod"`
 	// The logging level for this method.
 	//
 	// For valid values, see the `loggingLevel` property of the [Stage](https://docs.aws.amazon.com/apigateway/api-reference/resource/stage/#loggingLevel) resource in the *Amazon API Gateway API Reference* .
-	LoggingLevel *string `json:"loggingLevel" yaml:"loggingLevel"`
+	LoggingLevel *string `field:"optional" json:"loggingLevel" yaml:"loggingLevel"`
 	// Indicates whether Amazon CloudWatch metrics are enabled for methods in the stage.
-	MetricsEnabled interface{} `json:"metricsEnabled" yaml:"metricsEnabled"`
+	MetricsEnabled interface{} `field:"optional" json:"metricsEnabled" yaml:"metricsEnabled"`
 	// The resource path for this method.
 	//
 	// Forward slashes ( `/` ) are encoded as `~1` and the initial slash must include a forward slash. For example, the path value `/resource/subresource` must be encoded as `/~1resource~1subresource` . To specify the root path, use only a slash ( `/` ). To apply settings to multiple resources and methods, specify an asterisk ( `*` ) for the `HttpMethod` and `/*` for the `ResourcePath` . This parameter is required when you specify a `MethodSetting` .
-	ResourcePath *string `json:"resourcePath" yaml:"resourcePath"`
+	ResourcePath *string `field:"optional" json:"resourcePath" yaml:"resourcePath"`
 	// The number of burst requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account .
 	//
 	// For more information, see [Manage API Request Throttling](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html) in the *API Gateway Developer Guide* .
-	ThrottlingBurstLimit *float64 `json:"throttlingBurstLimit" yaml:"throttlingBurstLimit"`
+	ThrottlingBurstLimit *float64 `field:"optional" json:"throttlingBurstLimit" yaml:"throttlingBurstLimit"`
 	// The number of steady-state requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account .
 	//
 	// For more information, see [Manage API Request Throttling](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html) in the *API Gateway Developer Guide* .
-	ThrottlingRateLimit *float64 `json:"throttlingRateLimit" yaml:"throttlingRateLimit"`
+	ThrottlingRateLimit *float64 `field:"optional" json:"throttlingRateLimit" yaml:"throttlingRateLimit"`
 }
 
 // Properties for defining a `CfnStage`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnStageProps := &cfnStageProps{
 //   	restApiId: jsii.String("restApiId"),
 //
@@ -26239,50 +26494,53 @@ type CfnStage_MethodSettingProperty struct {
 //
 type CfnStageProps struct {
 	// The ID of the `RestApi` resource that you're deploying with this stage.
-	RestApiId *string `json:"restApiId" yaml:"restApiId"`
+	RestApiId *string `field:"required" json:"restApiId" yaml:"restApiId"`
 	// Specifies settings for logging access in this stage.
-	AccessLogSetting interface{} `json:"accessLogSetting" yaml:"accessLogSetting"`
+	AccessLogSetting interface{} `field:"optional" json:"accessLogSetting" yaml:"accessLogSetting"`
 	// Indicates whether cache clustering is enabled for the stage.
-	CacheClusterEnabled interface{} `json:"cacheClusterEnabled" yaml:"cacheClusterEnabled"`
+	CacheClusterEnabled interface{} `field:"optional" json:"cacheClusterEnabled" yaml:"cacheClusterEnabled"`
 	// The stage's cache cluster size.
-	CacheClusterSize *string `json:"cacheClusterSize" yaml:"cacheClusterSize"`
+	CacheClusterSize *string `field:"optional" json:"cacheClusterSize" yaml:"cacheClusterSize"`
 	// Specifies settings for the canary deployment in this stage.
-	CanarySetting interface{} `json:"canarySetting" yaml:"canarySetting"`
+	CanarySetting interface{} `field:"optional" json:"canarySetting" yaml:"canarySetting"`
 	// The ID of the client certificate that API Gateway uses to call your integration endpoints in the stage.
-	ClientCertificateId *string `json:"clientCertificateId" yaml:"clientCertificateId"`
+	ClientCertificateId *string `field:"optional" json:"clientCertificateId" yaml:"clientCertificateId"`
 	// The ID of the deployment that the stage is associated with.
 	//
 	// This parameter is required to create a stage.
-	DeploymentId *string `json:"deploymentId" yaml:"deploymentId"`
+	DeploymentId *string `field:"optional" json:"deploymentId" yaml:"deploymentId"`
 	// A description of the stage.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The version ID of the API documentation snapshot.
-	DocumentationVersion *string `json:"documentationVersion" yaml:"documentationVersion"`
+	DocumentationVersion *string `field:"optional" json:"documentationVersion" yaml:"documentationVersion"`
 	// Settings for all methods in the stage.
-	MethodSettings interface{} `json:"methodSettings" yaml:"methodSettings"`
+	MethodSettings interface{} `field:"optional" json:"methodSettings" yaml:"methodSettings"`
 	// The name of the stage, which API Gateway uses as the first path segment in the invoked Uniform Resource Identifier (URI).
-	StageName *string `json:"stageName" yaml:"stageName"`
+	StageName *string `field:"optional" json:"stageName" yaml:"stageName"`
 	// An array of arbitrary tags (key-value pairs) to associate with the stage.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// Specifies whether active X-Ray tracing is enabled for this stage.
 	//
 	// For more information, see [Trace API Gateway API Execution with AWS X-Ray](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-xray.html) in the *API Gateway Developer Guide* .
-	TracingEnabled interface{} `json:"tracingEnabled" yaml:"tracingEnabled"`
+	TracingEnabled interface{} `field:"optional" json:"tracingEnabled" yaml:"tracingEnabled"`
 	// A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value.
 	//
 	// Variable names are limited to alphanumeric characters. Values must match the following regular expression: `[A-Za-z0-9-._~:/?#&=,]+` .
-	Variables interface{} `json:"variables" yaml:"variables"`
+	Variables interface{} `field:"optional" json:"variables" yaml:"variables"`
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::Stage`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var routeSettings interface{}
 //   var stageVariables interface{}
 //   var tags interface{}
-//   cfnStageV2 := apigateway.NewCfnStageV2(this, jsii.String("MyCfnStageV2"), &cfnStageV2Props{
+//
+//   cfnStageV2 := awscdk.Aws_apigateway.NewCfnStageV2(this, jsii.String("MyCfnStageV2"), &cfnStageV2Props{
 //   	apiId: jsii.String("apiId"),
 //   	stageName: jsii.String("stageName"),
 //
@@ -27186,7 +27444,10 @@ func (c *jsiiProxy_CfnStageV2) ValidateProperties(_properties interface{}) {
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   accessLogSettingsProperty := &accessLogSettingsProperty{
 //   	destinationArn: jsii.String("destinationArn"),
 //   	format: jsii.String("format"),
@@ -27200,16 +27461,19 @@ type CfnStageV2_AccessLogSettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-stage-accesslogsettings.html#cfn-apigatewayv2-stage-accesslogsettings-destinationarn
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	DestinationArn *string `json:"destinationArn" yaml:"destinationArn"`
+	DestinationArn *string `field:"optional" json:"destinationArn" yaml:"destinationArn"`
 	// `CfnStageV2.AccessLogSettingsProperty.Format`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-stage-accesslogsettings.html#cfn-apigatewayv2-stage-accesslogsettings-format
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	Format *string `json:"format" yaml:"format"`
+	Format *string `field:"optional" json:"format" yaml:"format"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   routeSettingsProperty := &routeSettingsProperty{
 //   	dataTraceEnabled: jsii.Boolean(false),
 //   	detailedMetricsEnabled: jsii.Boolean(false),
@@ -27226,37 +27490,40 @@ type CfnStageV2_RouteSettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-stage-routesettings.html#cfn-apigatewayv2-stage-routesettings-datatraceenabled
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	DataTraceEnabled interface{} `json:"dataTraceEnabled" yaml:"dataTraceEnabled"`
+	DataTraceEnabled interface{} `field:"optional" json:"dataTraceEnabled" yaml:"dataTraceEnabled"`
 	// `CfnStageV2.RouteSettingsProperty.DetailedMetricsEnabled`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-stage-routesettings.html#cfn-apigatewayv2-stage-routesettings-detailedmetricsenabled
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	DetailedMetricsEnabled interface{} `json:"detailedMetricsEnabled" yaml:"detailedMetricsEnabled"`
+	DetailedMetricsEnabled interface{} `field:"optional" json:"detailedMetricsEnabled" yaml:"detailedMetricsEnabled"`
 	// `CfnStageV2.RouteSettingsProperty.LoggingLevel`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-stage-routesettings.html#cfn-apigatewayv2-stage-routesettings-logginglevel
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	LoggingLevel *string `json:"loggingLevel" yaml:"loggingLevel"`
+	LoggingLevel *string `field:"optional" json:"loggingLevel" yaml:"loggingLevel"`
 	// `CfnStageV2.RouteSettingsProperty.ThrottlingBurstLimit`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-stage-routesettings.html#cfn-apigatewayv2-stage-routesettings-throttlingburstlimit
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	ThrottlingBurstLimit *float64 `json:"throttlingBurstLimit" yaml:"throttlingBurstLimit"`
+	ThrottlingBurstLimit *float64 `field:"optional" json:"throttlingBurstLimit" yaml:"throttlingBurstLimit"`
 	// `CfnStageV2.RouteSettingsProperty.ThrottlingRateLimit`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-stage-routesettings.html#cfn-apigatewayv2-stage-routesettings-throttlingratelimit
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	ThrottlingRateLimit *float64 `json:"throttlingRateLimit" yaml:"throttlingRateLimit"`
+	ThrottlingRateLimit *float64 `field:"optional" json:"throttlingRateLimit" yaml:"throttlingRateLimit"`
 }
 
 // Properties for defining a `AWS::ApiGatewayV2::Stage`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var routeSettings interface{}
 //   var stageVariables interface{}
 //   var tags interface{}
+//
 //   cfnStageV2Props := &cfnStageV2Props{
 //   	apiId: jsii.String("apiId"),
 //   	stageName: jsii.String("stageName"),
@@ -27290,57 +27557,57 @@ type CfnStageV2Props struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-apiid
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	ApiId *string `json:"apiId" yaml:"apiId"`
+	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`
 	// `AWS::ApiGatewayV2::Stage.StageName`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-stagename
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	StageName *string `json:"stageName" yaml:"stageName"`
+	StageName *string `field:"required" json:"stageName" yaml:"stageName"`
 	// `AWS::ApiGatewayV2::Stage.AccessLogSettings`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-accesslogsettings
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	AccessLogSettings interface{} `json:"accessLogSettings" yaml:"accessLogSettings"`
+	AccessLogSettings interface{} `field:"optional" json:"accessLogSettings" yaml:"accessLogSettings"`
 	// `AWS::ApiGatewayV2::Stage.AutoDeploy`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-autodeploy
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	AutoDeploy interface{} `json:"autoDeploy" yaml:"autoDeploy"`
+	AutoDeploy interface{} `field:"optional" json:"autoDeploy" yaml:"autoDeploy"`
 	// `AWS::ApiGatewayV2::Stage.ClientCertificateId`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-clientcertificateid
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	ClientCertificateId *string `json:"clientCertificateId" yaml:"clientCertificateId"`
+	ClientCertificateId *string `field:"optional" json:"clientCertificateId" yaml:"clientCertificateId"`
 	// `AWS::ApiGatewayV2::Stage.DefaultRouteSettings`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-defaultroutesettings
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	DefaultRouteSettings interface{} `json:"defaultRouteSettings" yaml:"defaultRouteSettings"`
+	DefaultRouteSettings interface{} `field:"optional" json:"defaultRouteSettings" yaml:"defaultRouteSettings"`
 	// `AWS::ApiGatewayV2::Stage.DeploymentId`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-deploymentid
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	DeploymentId *string `json:"deploymentId" yaml:"deploymentId"`
+	DeploymentId *string `field:"optional" json:"deploymentId" yaml:"deploymentId"`
 	// `AWS::ApiGatewayV2::Stage.Description`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-description
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// `AWS::ApiGatewayV2::Stage.RouteSettings`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-routesettings
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	RouteSettings interface{} `json:"routeSettings" yaml:"routeSettings"`
+	RouteSettings interface{} `field:"optional" json:"routeSettings" yaml:"routeSettings"`
 	// `AWS::ApiGatewayV2::Stage.StageVariables`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-stagevariables
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	StageVariables interface{} `json:"stageVariables" yaml:"stageVariables"`
+	StageVariables interface{} `field:"optional" json:"stageVariables" yaml:"stageVariables"`
 	// `AWS::ApiGatewayV2::Stage.Tags`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-tags
 	//
 	// Deprecated: moved to package aws-apigatewayv2.
-	Tags interface{} `json:"tags" yaml:"tags"`
+	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::ApiGateway::UsagePlan`.
@@ -27350,8 +27617,11 @@ type CfnStageV2Props struct {
 // In some cases clients can exceed the targets that you set. Don’t rely on usage plans to control costs. Consider using [AWS Budgets](https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html) to monitor costs and [AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) to manage API requests.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
-//   cfnUsagePlan := apigateway.NewCfnUsagePlan(this, jsii.String("MyCfnUsagePlan"), &cfnUsagePlanProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnUsagePlan := awscdk.Aws_apigateway.NewCfnUsagePlan(this, jsii.String("MyCfnUsagePlan"), &cfnUsagePlanProps{
 //   	apiStages: []interface{}{
 //   		&apiStageProperty{
 //   			apiId: jsii.String("apiId"),
@@ -28122,7 +28392,10 @@ func (c *jsiiProxy_CfnUsagePlan) ValidateProperties(_properties interface{}) {
 // `ApiStage` is a property of the [AWS::ApiGateway::UsagePlan](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html) resource that specifies which stages and APIs to associate with a usage plan.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   apiStageProperty := &apiStageProperty{
 //   	apiId: jsii.String("apiId"),
 //   	stage: jsii.String("stage"),
@@ -28136,15 +28409,15 @@ func (c *jsiiProxy_CfnUsagePlan) ValidateProperties(_properties interface{}) {
 //
 type CfnUsagePlan_ApiStageProperty struct {
 	// The ID of an API that is in the specified `Stage` property that you want to associate with the usage plan.
-	ApiId *string `json:"apiId" yaml:"apiId"`
+	ApiId *string `field:"optional" json:"apiId" yaml:"apiId"`
 	// The name of the stage to associate with the usage plan.
-	Stage *string `json:"stage" yaml:"stage"`
+	Stage *string `field:"optional" json:"stage" yaml:"stage"`
 	// Map containing method-level throttling information for an API stage in a usage plan.
 	//
 	// The key for the map is the path and method for which to configure custom throttling, for example, "/pets/GET".
 	//
 	// Duplicates are not allowed.
-	Throttle interface{} `json:"throttle" yaml:"throttle"`
+	Throttle interface{} `field:"optional" json:"throttle" yaml:"throttle"`
 }
 
 // `QuotaSettings` is a property of the [AWS::ApiGateway::UsagePlan](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html) resource that specifies a target for the maximum number of requests users can make to your REST APIs.
@@ -28152,7 +28425,10 @@ type CfnUsagePlan_ApiStageProperty struct {
 // In some cases clients can exceed the targets that you set. Don’t rely on usage plans to control costs. Consider using [AWS Budgets](https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html) to monitor costs and [AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) to manage API requests.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   quotaSettingsProperty := &quotaSettingsProperty{
 //   	limit: jsii.Number(123),
 //   	offset: jsii.Number(123),
@@ -28161,21 +28437,24 @@ type CfnUsagePlan_ApiStageProperty struct {
 //
 type CfnUsagePlan_QuotaSettingsProperty struct {
 	// The target maximum number of requests that can be made in a given time period.
-	Limit *float64 `json:"limit" yaml:"limit"`
+	Limit *float64 `field:"optional" json:"limit" yaml:"limit"`
 	// The day that a time period starts.
 	//
 	// For example, with a time period of `WEEK` , an offset of `0` starts on Sunday, and an offset of `1` starts on Monday.
-	Offset *float64 `json:"offset" yaml:"offset"`
+	Offset *float64 `field:"optional" json:"offset" yaml:"offset"`
 	// The time period for which the target maximum limit of requests applies, such as `DAY` or `WEEK` .
 	//
 	// For valid values, see the period property for the [UsagePlan](https://docs.aws.amazon.com/apigateway/api-reference/resource/usage-plan) resource in the *Amazon API Gateway REST API Reference* .
-	Period *string `json:"period" yaml:"period"`
+	Period *string `field:"optional" json:"period" yaml:"period"`
 }
 
 // `ThrottleSettings` is a property of the [AWS::ApiGateway::UsagePlan](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html) resource that specifies the overall request rate (average requests per second) and burst capacity when users call your REST APIs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   throttleSettingsProperty := &throttleSettingsProperty{
 //   	burstLimit: jsii.Number(123),
 //   	rateLimit: jsii.Number(123),
@@ -28185,11 +28464,11 @@ type CfnUsagePlan_ThrottleSettingsProperty struct {
 	// The API target request burst rate limit.
 	//
 	// This allows more requests through for a period of time than the target rate limit. For more information about request throttling, see [Manage API Request Throttling](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html) in the *API Gateway Developer Guide* .
-	BurstLimit *float64 `json:"burstLimit" yaml:"burstLimit"`
+	BurstLimit *float64 `field:"optional" json:"burstLimit" yaml:"burstLimit"`
 	// The API target request steady-state rate limit.
 	//
 	// For more information about request throttling, see [Manage API Request Throttling](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html) in the *API Gateway Developer Guide* .
-	RateLimit *float64 `json:"rateLimit" yaml:"rateLimit"`
+	RateLimit *float64 `field:"optional" json:"rateLimit" yaml:"rateLimit"`
 }
 
 // A CloudFormation `AWS::ApiGateway::UsagePlanKey`.
@@ -28197,8 +28476,11 @@ type CfnUsagePlan_ThrottleSettingsProperty struct {
 // The `AWS::ApiGateway::UsagePlanKey` resource associates an API key with a usage plan. This association determines which users the usage plan is applied to.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
-//   cfnUsagePlanKey := apigateway.NewCfnUsagePlanKey(this, jsii.String("MyCfnUsagePlanKey"), &cfnUsagePlanKeyProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnUsagePlanKey := awscdk.Aws_apigateway.NewCfnUsagePlanKey(this, jsii.String("MyCfnUsagePlanKey"), &cfnUsagePlanKeyProps{
 //   	keyId: jsii.String("keyId"),
 //   	keyType: jsii.String("keyType"),
 //   	usagePlanId: jsii.String("usagePlanId"),
@@ -28888,7 +29170,10 @@ func (c *jsiiProxy_CfnUsagePlanKey) ValidateProperties(_properties interface{}) 
 // Properties for defining a `CfnUsagePlanKey`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnUsagePlanKeyProps := &cfnUsagePlanKeyProps{
 //   	keyId: jsii.String("keyId"),
 //   	keyType: jsii.String("keyType"),
@@ -28897,19 +29182,22 @@ func (c *jsiiProxy_CfnUsagePlanKey) ValidateProperties(_properties interface{}) 
 //
 type CfnUsagePlanKeyProps struct {
 	// The ID of the usage plan key.
-	KeyId *string `json:"keyId" yaml:"keyId"`
+	KeyId *string `field:"required" json:"keyId" yaml:"keyId"`
 	// The type of usage plan key.
 	//
 	// Currently, the only valid key type is `API_KEY` .
-	KeyType *string `json:"keyType" yaml:"keyType"`
+	KeyType *string `field:"required" json:"keyType" yaml:"keyType"`
 	// The ID of the usage plan.
-	UsagePlanId *string `json:"usagePlanId" yaml:"usagePlanId"`
+	UsagePlanId *string `field:"required" json:"usagePlanId" yaml:"usagePlanId"`
 }
 
 // Properties for defining a `CfnUsagePlan`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnUsagePlanProps := &cfnUsagePlanProps{
 //   	apiStages: []interface{}{
 //   		&apiStageProperty{
@@ -28944,17 +29232,17 @@ type CfnUsagePlanKeyProps struct {
 //
 type CfnUsagePlanProps struct {
 	// The API stages to associate with this usage plan.
-	ApiStages interface{} `json:"apiStages" yaml:"apiStages"`
+	ApiStages interface{} `field:"optional" json:"apiStages" yaml:"apiStages"`
 	// A description of the usage plan.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Configures the number of requests that users can make within a given interval.
-	Quota interface{} `json:"quota" yaml:"quota"`
+	Quota interface{} `field:"optional" json:"quota" yaml:"quota"`
 	// An array of arbitrary tags (key-value pairs) to associate with the usage plan.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// Configures the overall request rate (average requests per second) and burst capacity.
-	Throttle interface{} `json:"throttle" yaml:"throttle"`
+	Throttle interface{} `field:"optional" json:"throttle" yaml:"throttle"`
 	// A name for the usage plan.
-	UsagePlanName *string `json:"usagePlanName" yaml:"usagePlanName"`
+	UsagePlanName *string `field:"optional" json:"usagePlanName" yaml:"usagePlanName"`
 }
 
 // A CloudFormation `AWS::ApiGateway::VpcLink`.
@@ -28962,8 +29250,11 @@ type CfnUsagePlanProps struct {
 // The `AWS::ApiGateway::VpcLink` resource creates an API Gateway VPC link for a REST API to access resources in an Amazon Virtual Private Cloud (VPC). For more information, see [vpclink:create](https://docs.aws.amazon.com/apigateway/api-reference/link-relation/vpclink-create/) in the `Amazon API Gateway REST API Reference` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
-//   cfnVpcLink := apigateway.NewCfnVpcLink(this, jsii.String("MyCfnVpcLink"), &cfnVpcLinkProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnVpcLink := awscdk.Aws_apigateway.NewCfnVpcLink(this, jsii.String("MyCfnVpcLink"), &cfnVpcLinkProps{
 //   	name: jsii.String("name"),
 //   	targetArns: []*string{
 //   		jsii.String("targetArns"),
@@ -29664,7 +29955,10 @@ func (c *jsiiProxy_CfnVpcLink) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnVpcLink`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnVpcLinkProps := &cfnVpcLinkProps{
 //   	name: jsii.String("name"),
 //   	targetArns: []*string{
@@ -29683,21 +29977,22 @@ func (c *jsiiProxy_CfnVpcLink) ValidateProperties(_properties interface{}) {
 //
 type CfnVpcLinkProps struct {
 	// A name for the VPC link.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The ARN of network load balancer of the VPC targeted by the VPC link.
 	//
 	// The network load balancer must be owned by the same AWS account of the API owner.
-	TargetArns *[]*string `json:"targetArns" yaml:"targetArns"`
+	TargetArns *[]*string `field:"required" json:"targetArns" yaml:"targetArns"`
 	// A description of the VPC link.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// An array of arbitrary tags (key-value pairs) to associate with the VPC link.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // Cognito user pools based custom authorizer.
 //
 // Example:
-//   var books resourceuserPool := cognito.NewUserPool(this, jsii.String("UserPool"))
+//   var books resource
+//   userPool := cognito.NewUserPool(this, jsii.String("UserPool"))
 //
 //   auth := apigateway.NewCognitoUserPoolsAuthorizer(this, jsii.String("booksAuthorizer"), &cognitoUserPoolsAuthorizerProps{
 //   	cognitoUserPools: []iUserPool{
@@ -30103,7 +30398,8 @@ func (c *jsiiProxy_CognitoUserPoolsAuthorizer) Validate() *[]*string {
 // Properties for CognitoUserPoolsAuthorizer.
 //
 // Example:
-//   var books resourceuserPool := cognito.NewUserPool(this, jsii.String("UserPool"))
+//   var books resource
+//   userPool := cognito.NewUserPool(this, jsii.String("UserPool"))
 //
 //   auth := apigateway.NewCognitoUserPoolsAuthorizer(this, jsii.String("booksAuthorizer"), &cognitoUserPoolsAuthorizerProps{
 //   	cognitoUserPools: []iUserPool{
@@ -30119,12 +30415,12 @@ func (c *jsiiProxy_CognitoUserPoolsAuthorizer) Validate() *[]*string {
 type CognitoUserPoolsAuthorizerProps struct {
 	// The user pools to associate with this authorizer.
 	// Experimental.
-	CognitoUserPools *[]awscognito.IUserPool `json:"cognitoUserPools" yaml:"cognitoUserPools"`
+	CognitoUserPools *[]awscognito.IUserPool `field:"required" json:"cognitoUserPools" yaml:"cognitoUserPools"`
 	// An optional human friendly name for the authorizer.
 	//
 	// Note that, this is not the primary identifier of the authorizer.
 	// Experimental.
-	AuthorizerName *string `json:"authorizerName" yaml:"authorizerName"`
+	AuthorizerName *string `field:"optional" json:"authorizerName" yaml:"authorizerName"`
 	// The request header mapping expression for the bearer token.
 	//
 	// This is typically passed as part of the header, in which case
@@ -30132,17 +30428,18 @@ type CognitoUserPoolsAuthorizerProps struct {
 	// See: https://docs.aws.amazon.com/apigateway/api-reference/link-relation/authorizer-create/#identitySource
 	//
 	// Experimental.
-	IdentitySource *string `json:"identitySource" yaml:"identitySource"`
+	IdentitySource *string `field:"optional" json:"identitySource" yaml:"identitySource"`
 	// How long APIGateway should cache the results.
 	//
 	// Max 1 hour.
 	// Disable caching by setting this to 0.
 	// Experimental.
-	ResultsCacheTtl awscdk.Duration `json:"resultsCacheTtl" yaml:"resultsCacheTtl"`
+	ResultsCacheTtl awscdk.Duration `field:"optional" json:"resultsCacheTtl" yaml:"resultsCacheTtl"`
 }
 
 // Example:
 //   import elbv2 "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   vpc := ec2.NewVpc(this, jsii.String("VPC"))
 //   nlb := elbv2.NewNetworkLoadBalancer(this, jsii.String("NLB"), &networkLoadBalancerProps{
@@ -30177,6 +30474,7 @@ const (
 // Example:
 //   var getBookHandler function
 //   var getBookIntegration lambdaIntegration
+//
 //
 //   getBookIntegration := apigateway.NewLambdaIntegration(getBookHandler, &lambdaIntegrationOptions{
 //   	contentHandling: apigateway.contentHandling_CONVERT_TO_TEXT,
@@ -30249,6 +30547,7 @@ func Cors_DEFAULT_HEADERS() *[]*string {
 // Example:
 //   var myResource resource
 //
+//
 //   myResource.addCorsPreflight(&corsOptions{
 //   	allowOrigins: []*string{
 //   		jsii.String("https://amazon.com"),
@@ -30272,7 +30571,7 @@ type CorsOptions struct {
 	// See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin
 	//
 	// Experimental.
-	AllowOrigins *[]*string `json:"allowOrigins" yaml:"allowOrigins"`
+	AllowOrigins *[]*string `field:"required" json:"allowOrigins" yaml:"allowOrigins"`
 	// The Access-Control-Allow-Credentials response header tells browsers whether to expose the response to frontend JavaScript code when the request's credentials mode (Request.credentials) is "include".
 	//
 	// When a request's credentials mode (Request.credentials) is "include",
@@ -30283,24 +30582,24 @@ type CorsOptions struct {
 	// See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials
 	//
 	// Experimental.
-	AllowCredentials *bool `json:"allowCredentials" yaml:"allowCredentials"`
+	AllowCredentials *bool `field:"optional" json:"allowCredentials" yaml:"allowCredentials"`
 	// The Access-Control-Allow-Headers response header is used in response to a preflight request which includes the Access-Control-Request-Headers to indicate which HTTP headers can be used during the actual request.
 	// See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers
 	//
 	// Experimental.
-	AllowHeaders *[]*string `json:"allowHeaders" yaml:"allowHeaders"`
+	AllowHeaders *[]*string `field:"optional" json:"allowHeaders" yaml:"allowHeaders"`
 	// The Access-Control-Allow-Methods response header specifies the method or methods allowed when accessing the resource in response to a preflight request.
 	//
 	// If `ANY` is specified, it will be expanded to `Cors.ALL_METHODS`.
 	// See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods
 	//
 	// Experimental.
-	AllowMethods *[]*string `json:"allowMethods" yaml:"allowMethods"`
+	AllowMethods *[]*string `field:"optional" json:"allowMethods" yaml:"allowMethods"`
 	// Sets Access-Control-Max-Age to -1, which means that caching is disabled.
 	//
 	// This option cannot be used with `maxAge`.
 	// Experimental.
-	DisableCache *bool `json:"disableCache" yaml:"disableCache"`
+	DisableCache *bool `field:"optional" json:"disableCache" yaml:"disableCache"`
 	// The Access-Control-Expose-Headers response header indicates which headers can be exposed as part of the response by listing their names.
 	//
 	// If you want clients to be able to access other headers, you have to list
@@ -30308,17 +30607,17 @@ type CorsOptions struct {
 	// See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Expose-Headers
 	//
 	// Experimental.
-	ExposeHeaders *[]*string `json:"exposeHeaders" yaml:"exposeHeaders"`
+	ExposeHeaders *[]*string `field:"optional" json:"exposeHeaders" yaml:"exposeHeaders"`
 	// The Access-Control-Max-Age response header indicates how long the results of a preflight request (that is the information contained in the Access-Control-Allow-Methods and Access-Control-Allow-Headers headers) can be cached.
 	//
 	// To disable caching altogether use `disableCache: true`.
 	// See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Max-Age
 	//
 	// Experimental.
-	MaxAge awscdk.Duration `json:"maxAge" yaml:"maxAge"`
+	MaxAge awscdk.Duration `field:"optional" json:"maxAge" yaml:"maxAge"`
 	// Specifies the response status code returned from the OPTIONS method.
 	// Experimental.
-	StatusCode *float64 `json:"statusCode" yaml:"statusCode"`
+	StatusCode *float64 `field:"optional" json:"statusCode" yaml:"statusCode"`
 }
 
 // A Deployment of a REST API.
@@ -30788,20 +31087,21 @@ func (d *jsiiProxy_Deployment) Validate() *[]*string {
 type DeploymentProps struct {
 	// The Rest API to deploy.
 	// Experimental.
-	Api IRestApi `json:"api" yaml:"api"`
+	Api IRestApi `field:"required" json:"api" yaml:"api"`
 	// A description of the purpose of the API Gateway deployment.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// When an API Gateway model is updated, a new deployment will automatically be created.
 	//
 	// If this is true, the old API Gateway Deployment resource will not be deleted.
 	// This will allow manually reverting back to a previous deployment in case for example.
 	// Experimental.
-	RetainDeployments *bool `json:"retainDeployments" yaml:"retainDeployments"`
+	RetainDeployments *bool `field:"optional" json:"retainDeployments" yaml:"retainDeployments"`
 }
 
 // Example:
 //   var acm interface{}
+//
 //
 //   apigateway.NewDomainName(this, jsii.String("domain-name"), &domainNameProps{
 //   	domainName: jsii.String("example.com"),
@@ -31221,7 +31521,10 @@ func (d *jsiiProxy_DomainName) Validate() *[]*string {
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   domainNameAttributes := &domainNameAttributes{
 //   	domainName: jsii.String("domainName"),
 //   	domainNameAliasHostedZoneId: jsii.String("domainNameAliasHostedZoneId"),
@@ -31232,17 +31535,18 @@ func (d *jsiiProxy_DomainName) Validate() *[]*string {
 type DomainNameAttributes struct {
 	// The domain name (e.g. `example.com`).
 	// Experimental.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 	// The Route53 hosted zone ID to use in order to connect a record set to this domain through an alias.
 	// Experimental.
-	DomainNameAliasHostedZoneId *string `json:"domainNameAliasHostedZoneId" yaml:"domainNameAliasHostedZoneId"`
+	DomainNameAliasHostedZoneId *string `field:"required" json:"domainNameAliasHostedZoneId" yaml:"domainNameAliasHostedZoneId"`
 	// The Route53 alias target to use in order to connect a record set to this domain through an alias.
 	// Experimental.
-	DomainNameAliasTarget *string `json:"domainNameAliasTarget" yaml:"domainNameAliasTarget"`
+	DomainNameAliasTarget *string `field:"required" json:"domainNameAliasTarget" yaml:"domainNameAliasTarget"`
 }
 
 // Example:
 //   var acmCertificateForExampleCom interface{}
+//
 //
 //   api := apigateway.NewRestApi(this, jsii.String("MyDomain"), &restApiProps{
 //   	domainName: &domainNameOptions{
@@ -31258,30 +31562,31 @@ type DomainNameOptions struct {
 	// For "EDGE" domain names, the certificate
 	// needs to be in the US East (N. Virginia) region.
 	// Experimental.
-	Certificate awscertificatemanager.ICertificate `json:"certificate" yaml:"certificate"`
+	Certificate awscertificatemanager.ICertificate `field:"required" json:"certificate" yaml:"certificate"`
 	// The custom domain name for your API.
 	//
 	// Uppercase letters are not supported.
 	// Experimental.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 	// The base path name that callers of the API must provide in the URL after the domain name (e.g. `example.com/base-path`). If you specify this property, it can't be an empty string.
 	// Experimental.
-	BasePath *string `json:"basePath" yaml:"basePath"`
+	BasePath *string `field:"optional" json:"basePath" yaml:"basePath"`
 	// The type of endpoint for this DomainName.
 	// Experimental.
-	EndpointType EndpointType `json:"endpointType" yaml:"endpointType"`
+	EndpointType EndpointType `field:"optional" json:"endpointType" yaml:"endpointType"`
 	// The mutual TLS authentication configuration for a custom domain name.
 	// Experimental.
-	Mtls *MTLSConfig `json:"mtls" yaml:"mtls"`
+	Mtls *MTLSConfig `field:"optional" json:"mtls" yaml:"mtls"`
 	// The Transport Layer Security (TLS) version + cipher suite for this domain name.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html
 	//
 	// Experimental.
-	SecurityPolicy SecurityPolicy `json:"securityPolicy" yaml:"securityPolicy"`
+	SecurityPolicy SecurityPolicy `field:"optional" json:"securityPolicy" yaml:"securityPolicy"`
 }
 
 // Example:
 //   var acm interface{}
+//
 //
 //   apigateway.NewDomainName(this, jsii.String("domain-name"), &domainNameProps{
 //   	domainName: jsii.String("example.com"),
@@ -31300,33 +31605,33 @@ type DomainNameProps struct {
 	// For "EDGE" domain names, the certificate
 	// needs to be in the US East (N. Virginia) region.
 	// Experimental.
-	Certificate awscertificatemanager.ICertificate `json:"certificate" yaml:"certificate"`
+	Certificate awscertificatemanager.ICertificate `field:"required" json:"certificate" yaml:"certificate"`
 	// The custom domain name for your API.
 	//
 	// Uppercase letters are not supported.
 	// Experimental.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 	// The base path name that callers of the API must provide in the URL after the domain name (e.g. `example.com/base-path`). If you specify this property, it can't be an empty string.
 	// Experimental.
-	BasePath *string `json:"basePath" yaml:"basePath"`
+	BasePath *string `field:"optional" json:"basePath" yaml:"basePath"`
 	// The type of endpoint for this DomainName.
 	// Experimental.
-	EndpointType EndpointType `json:"endpointType" yaml:"endpointType"`
+	EndpointType EndpointType `field:"optional" json:"endpointType" yaml:"endpointType"`
 	// The mutual TLS authentication configuration for a custom domain name.
 	// Experimental.
-	Mtls *MTLSConfig `json:"mtls" yaml:"mtls"`
+	Mtls *MTLSConfig `field:"optional" json:"mtls" yaml:"mtls"`
 	// The Transport Layer Security (TLS) version + cipher suite for this domain name.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html
 	//
 	// Experimental.
-	SecurityPolicy SecurityPolicy `json:"securityPolicy" yaml:"securityPolicy"`
+	SecurityPolicy SecurityPolicy `field:"optional" json:"securityPolicy" yaml:"securityPolicy"`
 	// If specified, all requests to this domain will be mapped to the production deployment of this API.
 	//
 	// If you wish to map this domain to multiple APIs
 	// with different base paths, don't specify this option and use
 	// `addBasePathMapping`.
 	// Experimental.
-	Mapping IRestApi `json:"mapping" yaml:"mapping"`
+	Mapping IRestApi `field:"optional" json:"mapping" yaml:"mapping"`
 }
 
 // Represents a reference to a REST API's Empty model, which is available as part of the model collection by default.
@@ -31345,8 +31650,11 @@ type DomainNameProps struct {
 // }.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
-//   emptyModel := apigateway.NewEmptyModel()
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   emptyModel := awscdk.Aws_apigateway.NewEmptyModel()
 //
 // See: https://docs.amazonaws.cn/en_us/apigateway/latest/developerguide/models-mappings.html#models-mappings-models
 //
@@ -31417,14 +31725,15 @@ func NewEmptyModel_Override(e EmptyModel) {
 type EndpointConfiguration struct {
 	// A list of endpoint types of an API or its custom domain name.
 	// Experimental.
-	Types *[]EndpointType `json:"types" yaml:"types"`
+	Types *[]EndpointType `field:"required" json:"types" yaml:"types"`
 	// A list of VPC Endpoints against which to create Route53 ALIASes.
 	// Experimental.
-	VpcEndpoints *[]awsec2.IVpcEndpoint `json:"vpcEndpoints" yaml:"vpcEndpoints"`
+	VpcEndpoints *[]awsec2.IVpcEndpoint `field:"optional" json:"vpcEndpoints" yaml:"vpcEndpoints"`
 }
 
 // Example:
 //   var apiDefinition apiDefinition
+//
 //
 //   api := apigateway.NewSpecRestApi(this, jsii.String("ExampleRestApi"), &specRestApiProps{
 //   	apiDefinition: apiDefinition,
@@ -31465,8 +31774,11 @@ const (
 // }.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
-//   errorModel := apigateway.NewErrorModel()
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   errorModel := awscdk.Aws_apigateway.NewErrorModel()
 //
 // Deprecated: You should use Model.ERROR_MODEL
 type ErrorModel interface {
@@ -31521,11 +31833,14 @@ func NewErrorModel_Override(e ErrorModel) {
 // Configure the response received by clients, produced from the API Gateway backend.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var responseType responseType
 //   var restApi restApi
-//   gatewayResponse := apigateway.NewGatewayResponse(this, jsii.String("MyGatewayResponse"), &gatewayResponseProps{
+//
+//   gatewayResponse := awscdk.Aws_apigateway.NewGatewayResponse(this, jsii.String("MyGatewayResponse"), &gatewayResponseProps{
 //   	restApi: restApi,
 //   	type: responseType,
 //
@@ -31896,25 +32211,28 @@ type GatewayResponseOptions struct {
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/supported-gateway-response-types.html
 	//
 	// Experimental.
-	Type ResponseType `json:"type" yaml:"type"`
+	Type ResponseType `field:"required" json:"type" yaml:"type"`
 	// Custom headers parameters for response.
 	// Experimental.
-	ResponseHeaders *map[string]*string `json:"responseHeaders" yaml:"responseHeaders"`
+	ResponseHeaders *map[string]*string `field:"optional" json:"responseHeaders" yaml:"responseHeaders"`
 	// Http status code for response.
 	// Experimental.
-	StatusCode *string `json:"statusCode" yaml:"statusCode"`
+	StatusCode *string `field:"optional" json:"statusCode" yaml:"statusCode"`
 	// Custom templates to get mapped as response.
 	// Experimental.
-	Templates *map[string]*string `json:"templates" yaml:"templates"`
+	Templates *map[string]*string `field:"optional" json:"templates" yaml:"templates"`
 }
 
 // Properties for a new gateway response.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var responseType responseType
 //   var restApi restApi
+//
 //   gatewayResponseProps := &gatewayResponseProps{
 //   	restApi: restApi,
 //   	type: responseType,
@@ -31935,19 +32253,19 @@ type GatewayResponseProps struct {
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/supported-gateway-response-types.html
 	//
 	// Experimental.
-	Type ResponseType `json:"type" yaml:"type"`
+	Type ResponseType `field:"required" json:"type" yaml:"type"`
 	// Custom headers parameters for response.
 	// Experimental.
-	ResponseHeaders *map[string]*string `json:"responseHeaders" yaml:"responseHeaders"`
+	ResponseHeaders *map[string]*string `field:"optional" json:"responseHeaders" yaml:"responseHeaders"`
 	// Http status code for response.
 	// Experimental.
-	StatusCode *string `json:"statusCode" yaml:"statusCode"`
+	StatusCode *string `field:"optional" json:"statusCode" yaml:"statusCode"`
 	// Custom templates to get mapped as response.
 	// Experimental.
-	Templates *map[string]*string `json:"templates" yaml:"templates"`
+	Templates *map[string]*string `field:"optional" json:"templates" yaml:"templates"`
 	// Rest api resource to target.
 	// Experimental.
-	RestApi IRestApi `json:"restApi" yaml:"restApi"`
+	RestApi IRestApi `field:"required" json:"restApi" yaml:"restApi"`
 }
 
 // You can integrate an API method with an HTTP endpoint using the HTTP proxy integration or the HTTP custom integration,.
@@ -31964,6 +32282,7 @@ type GatewayResponseProps struct {
 // Example:
 //   var authFn function
 //   var books resource
+//
 //
 //   auth := apigateway.NewRequestAuthorizer(this, jsii.String("booksAuthorizer"), &requestAuthorizerProps{
 //   	handler: authFn,
@@ -32029,11 +32348,16 @@ func (h *jsiiProxy_HttpIntegration) Bind(_method Method) *IntegrationConfig {
 }
 
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var role role
 //   var vpcLink vpcLink
+//
 //   httpIntegrationProps := &httpIntegrationProps{
 //   	httpMethod: jsii.String("httpMethod"),
 //   	options: &integrationOptions{
@@ -32041,8 +32365,8 @@ func (h *jsiiProxy_HttpIntegration) Bind(_method Method) *IntegrationConfig {
 //   			jsii.String("cacheKeyParameters"),
 //   		},
 //   		cacheNamespace: jsii.String("cacheNamespace"),
-//   		connectionType: apigateway.connectionType_INTERNET,
-//   		contentHandling: apigateway.contentHandling_CONVERT_TO_BINARY,
+//   		connectionType: awscdk.Aws_apigateway.connectionType_INTERNET,
+//   		contentHandling: awscdk.*Aws_apigateway.contentHandling_CONVERT_TO_BINARY,
 //   		credentialsPassthrough: jsii.Boolean(false),
 //   		credentialsRole: role,
 //   		integrationResponses: []integrationResponse{
@@ -32050,7 +32374,7 @@ func (h *jsiiProxy_HttpIntegration) Bind(_method Method) *IntegrationConfig {
 //   				statusCode: jsii.String("statusCode"),
 //
 //   				// the properties below are optional
-//   				contentHandling: apigateway.*contentHandling_CONVERT_TO_BINARY,
+//   				contentHandling: awscdk.*Aws_apigateway.*contentHandling_CONVERT_TO_BINARY,
 //   				responseParameters: map[string]*string{
 //   					"responseParametersKey": jsii.String("responseParameters"),
 //   				},
@@ -32060,7 +32384,7 @@ func (h *jsiiProxy_HttpIntegration) Bind(_method Method) *IntegrationConfig {
 //   				selectionPattern: jsii.String("selectionPattern"),
 //   			},
 //   		},
-//   		passthroughBehavior: apigateway.passthroughBehavior_WHEN_NO_MATCH,
+//   		passthroughBehavior: awscdk.*Aws_apigateway.passthroughBehavior_WHEN_NO_MATCH,
 //   		requestParameters: map[string]*string{
 //   			"requestParametersKey": jsii.String("requestParameters"),
 //   		},
@@ -32077,13 +32401,13 @@ func (h *jsiiProxy_HttpIntegration) Bind(_method Method) *IntegrationConfig {
 type HttpIntegrationProps struct {
 	// HTTP method to use when invoking the backend URL.
 	// Experimental.
-	HttpMethod *string `json:"httpMethod" yaml:"httpMethod"`
+	HttpMethod *string `field:"optional" json:"httpMethod" yaml:"httpMethod"`
 	// Integration options, such as request/resopnse mapping, content handling, etc.
 	// Experimental.
-	Options *IntegrationOptions `json:"options" yaml:"options"`
+	Options *IntegrationOptions `field:"optional" json:"options" yaml:"options"`
 	// Determines whether to use proxy integration or custom integration.
 	// Experimental.
-	Proxy *bool `json:"proxy" yaml:"proxy"`
+	Proxy *bool `field:"optional" json:"proxy" yaml:"proxy"`
 }
 
 // Access log destination for a RestApi Stage.
@@ -32741,6 +33065,7 @@ func (j *jsiiProxy_IVpcLink) VpcLinkId() *string {
 //   var authFn function
 //   var books resource
 //
+//
 //   auth := apigateway.NewRequestAuthorizer(this, jsii.String("booksAuthorizer"), &requestAuthorizerProps{
 //   	handler: authFn,
 //   	identitySources: []*string{
@@ -32866,10 +33191,13 @@ func IdentitySource_StageVariable(stageVariable *string) *string {
 // OpenAPI specification from an inline JSON object.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var definition interface{}
-//   inlineApiDefinition := apigateway.NewInlineApiDefinition(definition)
+//
+//   inlineApiDefinition := awscdk.Aws_apigateway.NewInlineApiDefinition(definition)
 //
 // Experimental.
 type InlineApiDefinition interface {
@@ -33043,6 +33371,7 @@ func (i *jsiiProxy_InlineApiDefinition) BindAfterCreate(_scope awscdk.Construct,
 //   var books resource
 //   var iamUser user
 //
+//
 //   getBooks := books.addMethod(jsii.String("GET"), apigateway.NewHttpIntegration(jsii.String("http://amazon.com")), &methodOptions{
 //   	authorizationType: apigateway.authorizationType_IAM,
 //   })
@@ -33115,13 +33444,18 @@ func (i *jsiiProxy_Integration) Bind(_method Method) *IntegrationConfig {
 // Result of binding an Integration to a Method.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var role role
 //   var vpcLink vpcLink
+//
 //   integrationConfig := &integrationConfig{
-//   	type: apigateway.integrationType_AWS,
+//   	type: awscdk.Aws_apigateway.integrationType_AWS,
 //
 //   	// the properties below are optional
 //   	deploymentToken: jsii.String("deploymentToken"),
@@ -33131,8 +33465,8 @@ func (i *jsiiProxy_Integration) Bind(_method Method) *IntegrationConfig {
 //   			jsii.String("cacheKeyParameters"),
 //   		},
 //   		cacheNamespace: jsii.String("cacheNamespace"),
-//   		connectionType: apigateway.connectionType_INTERNET,
-//   		contentHandling: apigateway.contentHandling_CONVERT_TO_BINARY,
+//   		connectionType: awscdk.*Aws_apigateway.connectionType_INTERNET,
+//   		contentHandling: awscdk.*Aws_apigateway.contentHandling_CONVERT_TO_BINARY,
 //   		credentialsPassthrough: jsii.Boolean(false),
 //   		credentialsRole: role,
 //   		integrationResponses: []integrationResponse{
@@ -33140,7 +33474,7 @@ func (i *jsiiProxy_Integration) Bind(_method Method) *IntegrationConfig {
 //   				statusCode: jsii.String("statusCode"),
 //
 //   				// the properties below are optional
-//   				contentHandling: apigateway.*contentHandling_CONVERT_TO_BINARY,
+//   				contentHandling: awscdk.*Aws_apigateway.*contentHandling_CONVERT_TO_BINARY,
 //   				responseParameters: map[string]*string{
 //   					"responseParametersKey": jsii.String("responseParameters"),
 //   				},
@@ -33150,7 +33484,7 @@ func (i *jsiiProxy_Integration) Bind(_method Method) *IntegrationConfig {
 //   				selectionPattern: jsii.String("selectionPattern"),
 //   			},
 //   		},
-//   		passthroughBehavior: apigateway.passthroughBehavior_WHEN_NO_MATCH,
+//   		passthroughBehavior: awscdk.*Aws_apigateway.passthroughBehavior_WHEN_NO_MATCH,
 //   		requestParameters: map[string]*string{
 //   			"requestParametersKey": jsii.String("requestParameters"),
 //   		},
@@ -33167,7 +33501,7 @@ func (i *jsiiProxy_Integration) Bind(_method Method) *IntegrationConfig {
 type IntegrationConfig struct {
 	// Specifies an API method integration type.
 	// Experimental.
-	Type IntegrationType `json:"type" yaml:"type"`
+	Type IntegrationType `field:"required" json:"type" yaml:"type"`
 	// This value is included in computing the Deployment's fingerprint.
 	//
 	// When the fingerprint
@@ -33175,33 +33509,35 @@ type IntegrationConfig struct {
 	// This property should contain values associated with the Integration that upon changing
 	// should trigger a fresh the Deployment needs to be refreshed.
 	// Experimental.
-	DeploymentToken *string `json:"deploymentToken" yaml:"deploymentToken"`
+	DeploymentToken *string `field:"optional" json:"deploymentToken" yaml:"deploymentToken"`
 	// The integration's HTTP method type.
 	// Experimental.
-	IntegrationHttpMethod *string `json:"integrationHttpMethod" yaml:"integrationHttpMethod"`
+	IntegrationHttpMethod *string `field:"optional" json:"integrationHttpMethod" yaml:"integrationHttpMethod"`
 	// Integration options.
 	// Experimental.
-	Options *IntegrationOptions `json:"options" yaml:"options"`
+	Options *IntegrationOptions `field:"optional" json:"options" yaml:"options"`
 	// The Uniform Resource Identifier (URI) for the integration.
 	// See: https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/#uri
 	//
 	// Experimental.
-	Uri *string `json:"uri" yaml:"uri"`
+	Uri *string `field:"optional" json:"uri" yaml:"uri"`
 }
 
 // Example:
-//   import path "github.com/aws-samples/dummy/path"import lambda "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"type App awscdk.App
-//   type Stack awscdk.Stackimport awscdk "github.com/aws/aws-cdk-go/awscdk"type MockIntegration awscdk.MockIntegration
-//   type PassthroughBehavior awscdk.PassthroughBehavior
-//   type RestApi awscdk.RestApiimport awscdk "github.com/aws/aws-cdk-go/awscdk"type RequestAuthorizer awscdk.RequestAuthorizerimport awscdk "github.com/aws/aws-cdk-go/awscdk"type IdentitySource awscdk.IdentitySource
+//   import path "github.com/aws-samples/dummy/path"
+//   import lambda "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   // Against the RestApi endpoint from the stack output, run
 //   // `curl -s -o /dev/null -w "%{http_code}" <url>` should return 401
 //   // `curl -s -o /dev/null -w "%{http_code}" -H 'Authorization: deny' <url>?allow=yes` should return 403
 //   // `curl -s -o /dev/null -w "%{http_code}" -H 'Authorization: allow' <url>?allow=yes` should return 200
 //
-//   app := NewApp()
-//   stack := NewStack(app, jsii.String("RequestAuthorizerInteg"))
+//   app := awscdk.NewApp()
+//   stack := awscdk.NewStack(app, jsii.String("RequestAuthorizerInteg"))
 //
 //   authorizerFn := lambda.NewFunction(stack, jsii.String("MyAuthorizerFunction"), &functionProps{
 //   	runtime: lambda.runtime_NODEJS_14_X(),
@@ -33209,23 +33545,23 @@ type IntegrationConfig struct {
 //   	code: lambda.assetCode.fromAsset(path.join(__dirname, jsii.String("integ.request-authorizer.handler"))),
 //   })
 //
-//   restapi := NewRestApi(stack, jsii.String("MyRestApi"))
+//   restapi := awscdk.NewRestApi(stack, jsii.String("MyRestApi"))
 //
-//   authorizer := NewRequestAuthorizer(stack, jsii.String("MyAuthorizer"), &requestAuthorizerProps{
+//   authorizer := awscdk.NewRequestAuthorizer(stack, jsii.String("MyAuthorizer"), &requestAuthorizerProps{
 //   	handler: authorizerFn,
 //   	identitySources: []*string{
-//   		identitySource.header(jsii.String("Authorization")),
-//   		*identitySource.queryString(jsii.String("allow")),
+//   		awscdk.IdentitySource.header(jsii.String("Authorization")),
+//   		awscdk.IdentitySource.queryString(jsii.String("allow")),
 //   	},
 //   })
 //
-//   restapi.root.addMethod(jsii.String("ANY"), NewMockIntegration(&integrationOptions{
+//   restapi.root.addMethod(jsii.String("ANY"), awscdk.NewMockIntegration(&integrationOptions{
 //   	integrationResponses: []integrationResponse{
 //   		&integrationResponse{
 //   			statusCode: jsii.String("200"),
 //   		},
 //   	},
-//   	passthroughBehavior: passthroughBehavior_NEVER,
+//   	passthroughBehavior: awscdk.PassthroughBehavior_NEVER,
 //   	requestTemplates: map[string]*string{
 //   		"application/json": jsii.String("{ \"statusCode\": 200 }"),
 //   	},
@@ -33245,24 +33581,24 @@ type IntegrationOptions struct {
 	// It determines
 	// request parameters that will make it into the cache key.
 	// Experimental.
-	CacheKeyParameters *[]*string `json:"cacheKeyParameters" yaml:"cacheKeyParameters"`
+	CacheKeyParameters *[]*string `field:"optional" json:"cacheKeyParameters" yaml:"cacheKeyParameters"`
 	// An API-specific tag group of related cached parameters.
 	// Experimental.
-	CacheNamespace *string `json:"cacheNamespace" yaml:"cacheNamespace"`
+	CacheNamespace *string `field:"optional" json:"cacheNamespace" yaml:"cacheNamespace"`
 	// The type of network connection to the integration endpoint.
 	// Experimental.
-	ConnectionType ConnectionType `json:"connectionType" yaml:"connectionType"`
+	ConnectionType ConnectionType `field:"optional" json:"connectionType" yaml:"connectionType"`
 	// Specifies how to handle request payload content type conversions.
 	// Experimental.
-	ContentHandling ContentHandling `json:"contentHandling" yaml:"contentHandling"`
+	ContentHandling ContentHandling `field:"optional" json:"contentHandling" yaml:"contentHandling"`
 	// Requires that the caller's identity be passed through from the request.
 	// Experimental.
-	CredentialsPassthrough *bool `json:"credentialsPassthrough" yaml:"credentialsPassthrough"`
+	CredentialsPassthrough *bool `field:"optional" json:"credentialsPassthrough" yaml:"credentialsPassthrough"`
 	// An IAM role that API Gateway assumes.
 	//
 	// Mutually exclusive with `credentialsPassThrough`.
 	// Experimental.
-	CredentialsRole awsiam.IRole `json:"credentialsRole" yaml:"credentialsRole"`
+	CredentialsRole awsiam.IRole `field:"optional" json:"credentialsRole" yaml:"credentialsRole"`
 	// The response that API Gateway provides after a method's backend completes processing a request.
 	//
 	// API Gateway intercepts the response from the
@@ -33270,13 +33606,13 @@ type IntegrationOptions struct {
 	// responses. For example, you can map the backend status codes to codes
 	// that you define.
 	// Experimental.
-	IntegrationResponses *[]*IntegrationResponse `json:"integrationResponses" yaml:"integrationResponses"`
+	IntegrationResponses *[]*IntegrationResponse `field:"optional" json:"integrationResponses" yaml:"integrationResponses"`
 	// Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the requestTemplates property on the Integration resource.
 	//
 	// There are three valid values: WHEN_NO_MATCH, WHEN_NO_TEMPLATES, and
 	// NEVER.
 	// Experimental.
-	PassthroughBehavior PassthroughBehavior `json:"passthroughBehavior" yaml:"passthroughBehavior"`
+	PassthroughBehavior PassthroughBehavior `field:"optional" json:"passthroughBehavior" yaml:"passthroughBehavior"`
 	// The request parameters that API Gateway sends with the backend request.
 	//
 	// Specify request parameters as key-value pairs (string-to-string
@@ -33290,7 +33626,7 @@ type IntegrationOptions struct {
 	// value. You must enclose static values in single quotation marks and
 	// pre-encode these values based on their destination in the request.
 	// Experimental.
-	RequestParameters *map[string]*string `json:"requestParameters" yaml:"requestParameters"`
+	RequestParameters *map[string]*string `field:"optional" json:"requestParameters" yaml:"requestParameters"`
 	// A map of Apache Velocity templates that are applied on the request payload.
 	//
 	// The template that API Gateway uses is based on the value of the
@@ -33304,21 +33640,22 @@ type IntegrationOptions struct {
 	// See: http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html
 	//
 	// Experimental.
-	RequestTemplates *map[string]*string `json:"requestTemplates" yaml:"requestTemplates"`
+	RequestTemplates *map[string]*string `field:"optional" json:"requestTemplates" yaml:"requestTemplates"`
 	// The maximum amount of time an integration will run before it returns without a response.
 	//
 	// Must be between 50 milliseconds and 29 seconds.
 	// Experimental.
-	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
+	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 	// The VpcLink used for the integration.
 	//
 	// Required if connectionType is VPC_LINK.
 	// Experimental.
-	VpcLink IVpcLink `json:"vpcLink" yaml:"vpcLink"`
+	VpcLink IVpcLink `field:"optional" json:"vpcLink" yaml:"vpcLink"`
 }
 
 // Example:
 //   import elbv2 "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   vpc := ec2.NewVpc(this, jsii.String("VPC"))
 //   nlb := elbv2.NewNetworkLoadBalancer(this, jsii.String("NLB"), &networkLoadBalancerProps{
@@ -33342,15 +33679,15 @@ type IntegrationOptions struct {
 type IntegrationProps struct {
 	// Specifies an API method integration type.
 	// Experimental.
-	Type IntegrationType `json:"type" yaml:"type"`
+	Type IntegrationType `field:"required" json:"type" yaml:"type"`
 	// The integration's HTTP method type.
 	//
 	// Required unless you use a MOCK integration.
 	// Experimental.
-	IntegrationHttpMethod *string `json:"integrationHttpMethod" yaml:"integrationHttpMethod"`
+	IntegrationHttpMethod *string `field:"optional" json:"integrationHttpMethod" yaml:"integrationHttpMethod"`
 	// Integration options.
 	// Experimental.
-	Options *IntegrationOptions `json:"options" yaml:"options"`
+	Options *IntegrationOptions `field:"optional" json:"options" yaml:"options"`
 	// The Uniform Resource Identifier (URI) for the integration.
 	//
 	// - If you specify HTTP for the `type` property, specify the API endpoint URL.
@@ -33363,16 +33700,19 @@ type IntegrationProps struct {
 	// See: https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/#uri
 	//
 	// Experimental.
-	Uri interface{} `json:"uri" yaml:"uri"`
+	Uri interface{} `field:"optional" json:"uri" yaml:"uri"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   integrationResponse := &integrationResponse{
 //   	statusCode: jsii.String("statusCode"),
 //
 //   	// the properties below are optional
-//   	contentHandling: apigateway.contentHandling_CONVERT_TO_BINARY,
+//   	contentHandling: awscdk.Aws_apigateway.contentHandling_CONVERT_TO_BINARY,
 //   	responseParameters: map[string]*string{
 //   		"responseParametersKey": jsii.String("responseParameters"),
 //   	},
@@ -33386,10 +33726,10 @@ type IntegrationProps struct {
 type IntegrationResponse struct {
 	// The status code that API Gateway uses to map the integration response to a MethodResponse status code.
 	// Experimental.
-	StatusCode *string `json:"statusCode" yaml:"statusCode"`
+	StatusCode *string `field:"required" json:"statusCode" yaml:"statusCode"`
 	// Specifies how to handle request payload content type conversions.
 	// Experimental.
-	ContentHandling ContentHandling `json:"contentHandling" yaml:"contentHandling"`
+	ContentHandling ContentHandling `field:"optional" json:"contentHandling" yaml:"contentHandling"`
 	// The response parameters from the backend response that API Gateway sends to the method response.
 	//
 	// Use the destination as the key and the source as the value:
@@ -33403,7 +33743,7 @@ type IntegrationResponse struct {
 	// See: http://docs.aws.amazon.com/apigateway/latest/developerguide/request-response-data-mappings.html
 	//
 	// Experimental.
-	ResponseParameters *map[string]*string `json:"responseParameters" yaml:"responseParameters"`
+	ResponseParameters *map[string]*string `field:"optional" json:"responseParameters" yaml:"responseParameters"`
 	// The templates that are used to transform the integration response body.
 	//
 	// Specify templates as key-value pairs, with a content type as the key and
@@ -33411,7 +33751,7 @@ type IntegrationResponse struct {
 	// See: http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html
 	//
 	// Experimental.
-	ResponseTemplates *map[string]*string `json:"responseTemplates" yaml:"responseTemplates"`
+	ResponseTemplates *map[string]*string `field:"optional" json:"responseTemplates" yaml:"responseTemplates"`
 	// Specifies the regular expression (regex) pattern used to choose an integration response based on the response from the back end.
 	//
 	// For example, if the success response returns nothing and the error response returns some string, you
@@ -33421,11 +33761,12 @@ type IntegrationResponse struct {
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-integration-settings-integration-response.html
 	//
 	// Experimental.
-	SelectionPattern *string `json:"selectionPattern" yaml:"selectionPattern"`
+	SelectionPattern *string `field:"optional" json:"selectionPattern" yaml:"selectionPattern"`
 }
 
 // Example:
 //   import elbv2 "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   vpc := ec2.NewVpc(this, jsii.String("VPC"))
 //   nlb := elbv2.NewNetworkLoadBalancer(this, jsii.String("NLB"), &networkLoadBalancerProps{
@@ -33486,6 +33827,7 @@ const (
 // Example:
 //   var api restApi
 //
+//
 //   // We define the JSON Schema for the transformed valid response
 //   responseModel := api.addModel(jsii.String("ResponseModel"), &modelOptions{
 //   	contentType: jsii.String("application/json"),
@@ -33529,82 +33871,83 @@ const (
 // Experimental.
 type JsonSchema struct {
 	// Experimental.
-	AdditionalItems *[]*JsonSchema `json:"additionalItems" yaml:"additionalItems"`
+	AdditionalItems *[]*JsonSchema `field:"optional" json:"additionalItems" yaml:"additionalItems"`
 	// Experimental.
-	AdditionalProperties interface{} `json:"additionalProperties" yaml:"additionalProperties"`
+	AdditionalProperties interface{} `field:"optional" json:"additionalProperties" yaml:"additionalProperties"`
 	// Experimental.
-	AllOf *[]*JsonSchema `json:"allOf" yaml:"allOf"`
+	AllOf *[]*JsonSchema `field:"optional" json:"allOf" yaml:"allOf"`
 	// Experimental.
-	AnyOf *[]*JsonSchema `json:"anyOf" yaml:"anyOf"`
+	AnyOf *[]*JsonSchema `field:"optional" json:"anyOf" yaml:"anyOf"`
 	// Experimental.
-	Contains interface{} `json:"contains" yaml:"contains"`
+	Contains interface{} `field:"optional" json:"contains" yaml:"contains"`
 	// The default value if you use an enum.
 	// Experimental.
-	Default interface{} `json:"default" yaml:"default"`
+	Default interface{} `field:"optional" json:"default" yaml:"default"`
 	// Experimental.
-	Definitions *map[string]*JsonSchema `json:"definitions" yaml:"definitions"`
+	Definitions *map[string]*JsonSchema `field:"optional" json:"definitions" yaml:"definitions"`
 	// Experimental.
-	Dependencies *map[string]interface{} `json:"dependencies" yaml:"dependencies"`
+	Dependencies *map[string]interface{} `field:"optional" json:"dependencies" yaml:"dependencies"`
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Experimental.
-	Enum *[]interface{} `json:"enum" yaml:"enum"`
+	Enum *[]interface{} `field:"optional" json:"enum" yaml:"enum"`
 	// Experimental.
-	ExclusiveMaximum *bool `json:"exclusiveMaximum" yaml:"exclusiveMaximum"`
+	ExclusiveMaximum *bool `field:"optional" json:"exclusiveMaximum" yaml:"exclusiveMaximum"`
 	// Experimental.
-	ExclusiveMinimum *bool `json:"exclusiveMinimum" yaml:"exclusiveMinimum"`
+	ExclusiveMinimum *bool `field:"optional" json:"exclusiveMinimum" yaml:"exclusiveMinimum"`
 	// Experimental.
-	Format *string `json:"format" yaml:"format"`
+	Format *string `field:"optional" json:"format" yaml:"format"`
 	// Experimental.
-	Id *string `json:"id" yaml:"id"`
+	Id *string `field:"optional" json:"id" yaml:"id"`
 	// Experimental.
-	Items interface{} `json:"items" yaml:"items"`
+	Items interface{} `field:"optional" json:"items" yaml:"items"`
 	// Experimental.
-	Maximum *float64 `json:"maximum" yaml:"maximum"`
+	Maximum *float64 `field:"optional" json:"maximum" yaml:"maximum"`
 	// Experimental.
-	MaxItems *float64 `json:"maxItems" yaml:"maxItems"`
+	MaxItems *float64 `field:"optional" json:"maxItems" yaml:"maxItems"`
 	// Experimental.
-	MaxLength *float64 `json:"maxLength" yaml:"maxLength"`
+	MaxLength *float64 `field:"optional" json:"maxLength" yaml:"maxLength"`
 	// Experimental.
-	MaxProperties *float64 `json:"maxProperties" yaml:"maxProperties"`
+	MaxProperties *float64 `field:"optional" json:"maxProperties" yaml:"maxProperties"`
 	// Experimental.
-	Minimum *float64 `json:"minimum" yaml:"minimum"`
+	Minimum *float64 `field:"optional" json:"minimum" yaml:"minimum"`
 	// Experimental.
-	MinItems *float64 `json:"minItems" yaml:"minItems"`
+	MinItems *float64 `field:"optional" json:"minItems" yaml:"minItems"`
 	// Experimental.
-	MinLength *float64 `json:"minLength" yaml:"minLength"`
+	MinLength *float64 `field:"optional" json:"minLength" yaml:"minLength"`
 	// Experimental.
-	MinProperties *float64 `json:"minProperties" yaml:"minProperties"`
+	MinProperties *float64 `field:"optional" json:"minProperties" yaml:"minProperties"`
 	// Experimental.
-	MultipleOf *float64 `json:"multipleOf" yaml:"multipleOf"`
+	MultipleOf *float64 `field:"optional" json:"multipleOf" yaml:"multipleOf"`
 	// Experimental.
-	Not **JsonSchema `json:"not" yaml:"not"`
+	Not **JsonSchema `field:"optional" json:"not" yaml:"not"`
 	// Experimental.
-	OneOf *[]*JsonSchema `json:"oneOf" yaml:"oneOf"`
+	OneOf *[]*JsonSchema `field:"optional" json:"oneOf" yaml:"oneOf"`
 	// Experimental.
-	Pattern *string `json:"pattern" yaml:"pattern"`
+	Pattern *string `field:"optional" json:"pattern" yaml:"pattern"`
 	// Experimental.
-	PatternProperties *map[string]*JsonSchema `json:"patternProperties" yaml:"patternProperties"`
+	PatternProperties *map[string]*JsonSchema `field:"optional" json:"patternProperties" yaml:"patternProperties"`
 	// Experimental.
-	Properties *map[string]*JsonSchema `json:"properties" yaml:"properties"`
+	Properties *map[string]*JsonSchema `field:"optional" json:"properties" yaml:"properties"`
 	// Experimental.
-	PropertyNames **JsonSchema `json:"propertyNames" yaml:"propertyNames"`
+	PropertyNames **JsonSchema `field:"optional" json:"propertyNames" yaml:"propertyNames"`
 	// Experimental.
-	Ref *string `json:"ref" yaml:"ref"`
+	Ref *string `field:"optional" json:"ref" yaml:"ref"`
 	// Experimental.
-	Required *[]*string `json:"required" yaml:"required"`
+	Required *[]*string `field:"optional" json:"required" yaml:"required"`
 	// Experimental.
-	Schema JsonSchemaVersion `json:"schema" yaml:"schema"`
+	Schema JsonSchemaVersion `field:"optional" json:"schema" yaml:"schema"`
 	// Experimental.
-	Title *string `json:"title" yaml:"title"`
+	Title *string `field:"optional" json:"title" yaml:"title"`
 	// Experimental.
-	Type interface{} `json:"type" yaml:"type"`
+	Type interface{} `field:"optional" json:"type" yaml:"type"`
 	// Experimental.
-	UniqueItems *bool `json:"uniqueItems" yaml:"uniqueItems"`
+	UniqueItems *bool `field:"optional" json:"uniqueItems" yaml:"uniqueItems"`
 }
 
 // Example:
 //   var api restApi
+//
 //
 //   // We define the JSON Schema for the transformed valid response
 //   responseModel := api.addModel(jsii.String("ResponseModel"), &modelOptions{
@@ -33666,6 +34009,7 @@ const (
 
 // Example:
 //   var api restApi
+//
 //
 //   // We define the JSON Schema for the transformed valid response
 //   responseModel := api.addModel(jsii.String("ResponseModel"), &modelOptions{
@@ -33755,41 +34099,47 @@ const (
 type JsonWithStandardFieldProps struct {
 	// If this flag is enabled, the principal identifier of the caller will be output to the log.
 	// Experimental.
-	Caller *bool `json:"caller" yaml:"caller"`
+	Caller *bool `field:"required" json:"caller" yaml:"caller"`
 	// If this flag is enabled, the http method will be output to the log.
 	// Experimental.
-	HttpMethod *bool `json:"httpMethod" yaml:"httpMethod"`
+	HttpMethod *bool `field:"required" json:"httpMethod" yaml:"httpMethod"`
 	// If this flag is enabled, the source IP of request will be output to the log.
 	// Experimental.
-	Ip *bool `json:"ip" yaml:"ip"`
+	Ip *bool `field:"required" json:"ip" yaml:"ip"`
 	// If this flag is enabled, the request protocol will be output to the log.
 	// Experimental.
-	Protocol *bool `json:"protocol" yaml:"protocol"`
+	Protocol *bool `field:"required" json:"protocol" yaml:"protocol"`
 	// If this flag is enabled, the CLF-formatted request time((dd/MMM/yyyy:HH:mm:ss +-hhmm) will be output to the log.
 	// Experimental.
-	RequestTime *bool `json:"requestTime" yaml:"requestTime"`
+	RequestTime *bool `field:"required" json:"requestTime" yaml:"requestTime"`
 	// If this flag is enabled, the path to your resource will be output to the log.
 	// Experimental.
-	ResourcePath *bool `json:"resourcePath" yaml:"resourcePath"`
+	ResourcePath *bool `field:"required" json:"resourcePath" yaml:"resourcePath"`
 	// If this flag is enabled, the response payload length will be output to the log.
 	// Experimental.
-	ResponseLength *bool `json:"responseLength" yaml:"responseLength"`
+	ResponseLength *bool `field:"required" json:"responseLength" yaml:"responseLength"`
 	// If this flag is enabled, the method response status will be output to the log.
 	// Experimental.
-	Status *bool `json:"status" yaml:"status"`
+	Status *bool `field:"required" json:"status" yaml:"status"`
 	// If this flag is enabled, the principal identifier of the user will be output to the log.
 	// Experimental.
-	User *bool `json:"user" yaml:"user"`
+	User *bool `field:"required" json:"user" yaml:"user"`
 }
 
 // Base properties for all lambda authorizers.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var function_ function
 //   var role role
+//
 //   lambdaAuthorizerProps := &lambdaAuthorizerProps{
 //   	handler: function_,
 //
@@ -33808,24 +34158,24 @@ type LambdaAuthorizerProps struct {
 	// {@link https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-lambda-authorizer-input.html | here} and output specification
 	// {@link https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-lambda-authorizer-output.html | here}.
 	// Experimental.
-	Handler awslambda.IFunction `json:"handler" yaml:"handler"`
+	Handler awslambda.IFunction `field:"required" json:"handler" yaml:"handler"`
 	// An optional IAM role for APIGateway to assume before calling the Lambda-based authorizer.
 	//
 	// The IAM role must be
 	// assumable by 'apigateway.amazonaws.com'.
 	// Experimental.
-	AssumeRole awsiam.IRole `json:"assumeRole" yaml:"assumeRole"`
+	AssumeRole awsiam.IRole `field:"optional" json:"assumeRole" yaml:"assumeRole"`
 	// An optional human friendly name for the authorizer.
 	//
 	// Note that, this is not the primary identifier of the authorizer.
 	// Experimental.
-	AuthorizerName *string `json:"authorizerName" yaml:"authorizerName"`
+	AuthorizerName *string `field:"optional" json:"authorizerName" yaml:"authorizerName"`
 	// How long APIGateway should cache the results.
 	//
 	// Max 1 hour.
 	// Disable caching by setting this to 0.
 	// Experimental.
-	ResultsCacheTtl awscdk.Duration `json:"resultsCacheTtl" yaml:"resultsCacheTtl"`
+	ResultsCacheTtl awscdk.Duration `field:"optional" json:"resultsCacheTtl" yaml:"resultsCacheTtl"`
 }
 
 // Integrates an AWS Lambda function to an API Gateway method.
@@ -33833,6 +34183,7 @@ type LambdaAuthorizerProps struct {
 // Example:
 //   var resource resource
 //   var handler function
+//
 //   resource.addMethod(jsii.String("GET"), apigateway.NewLambdaIntegration(handler))
 //
 // Experimental.
@@ -33891,6 +34242,7 @@ func (l *jsiiProxy_LambdaIntegration) Bind(method Method) *IntegrationConfig {
 //   var getBookHandler function
 //   var getBookIntegration lambdaIntegration
 //
+//
 //   getBookIntegration := apigateway.NewLambdaIntegration(getBookHandler, &lambdaIntegrationOptions{
 //   	contentHandling: apigateway.contentHandling_CONVERT_TO_TEXT,
 //   	 // convert to base64
@@ -33904,24 +34256,24 @@ type LambdaIntegrationOptions struct {
 	// It determines
 	// request parameters that will make it into the cache key.
 	// Experimental.
-	CacheKeyParameters *[]*string `json:"cacheKeyParameters" yaml:"cacheKeyParameters"`
+	CacheKeyParameters *[]*string `field:"optional" json:"cacheKeyParameters" yaml:"cacheKeyParameters"`
 	// An API-specific tag group of related cached parameters.
 	// Experimental.
-	CacheNamespace *string `json:"cacheNamespace" yaml:"cacheNamespace"`
+	CacheNamespace *string `field:"optional" json:"cacheNamespace" yaml:"cacheNamespace"`
 	// The type of network connection to the integration endpoint.
 	// Experimental.
-	ConnectionType ConnectionType `json:"connectionType" yaml:"connectionType"`
+	ConnectionType ConnectionType `field:"optional" json:"connectionType" yaml:"connectionType"`
 	// Specifies how to handle request payload content type conversions.
 	// Experimental.
-	ContentHandling ContentHandling `json:"contentHandling" yaml:"contentHandling"`
+	ContentHandling ContentHandling `field:"optional" json:"contentHandling" yaml:"contentHandling"`
 	// Requires that the caller's identity be passed through from the request.
 	// Experimental.
-	CredentialsPassthrough *bool `json:"credentialsPassthrough" yaml:"credentialsPassthrough"`
+	CredentialsPassthrough *bool `field:"optional" json:"credentialsPassthrough" yaml:"credentialsPassthrough"`
 	// An IAM role that API Gateway assumes.
 	//
 	// Mutually exclusive with `credentialsPassThrough`.
 	// Experimental.
-	CredentialsRole awsiam.IRole `json:"credentialsRole" yaml:"credentialsRole"`
+	CredentialsRole awsiam.IRole `field:"optional" json:"credentialsRole" yaml:"credentialsRole"`
 	// The response that API Gateway provides after a method's backend completes processing a request.
 	//
 	// API Gateway intercepts the response from the
@@ -33929,13 +34281,13 @@ type LambdaIntegrationOptions struct {
 	// responses. For example, you can map the backend status codes to codes
 	// that you define.
 	// Experimental.
-	IntegrationResponses *[]*IntegrationResponse `json:"integrationResponses" yaml:"integrationResponses"`
+	IntegrationResponses *[]*IntegrationResponse `field:"optional" json:"integrationResponses" yaml:"integrationResponses"`
 	// Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the requestTemplates property on the Integration resource.
 	//
 	// There are three valid values: WHEN_NO_MATCH, WHEN_NO_TEMPLATES, and
 	// NEVER.
 	// Experimental.
-	PassthroughBehavior PassthroughBehavior `json:"passthroughBehavior" yaml:"passthroughBehavior"`
+	PassthroughBehavior PassthroughBehavior `field:"optional" json:"passthroughBehavior" yaml:"passthroughBehavior"`
 	// The request parameters that API Gateway sends with the backend request.
 	//
 	// Specify request parameters as key-value pairs (string-to-string
@@ -33949,7 +34301,7 @@ type LambdaIntegrationOptions struct {
 	// value. You must enclose static values in single quotation marks and
 	// pre-encode these values based on their destination in the request.
 	// Experimental.
-	RequestParameters *map[string]*string `json:"requestParameters" yaml:"requestParameters"`
+	RequestParameters *map[string]*string `field:"optional" json:"requestParameters" yaml:"requestParameters"`
 	// A map of Apache Velocity templates that are applied on the request payload.
 	//
 	// The template that API Gateway uses is based on the value of the
@@ -33963,17 +34315,17 @@ type LambdaIntegrationOptions struct {
 	// See: http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html
 	//
 	// Experimental.
-	RequestTemplates *map[string]*string `json:"requestTemplates" yaml:"requestTemplates"`
+	RequestTemplates *map[string]*string `field:"optional" json:"requestTemplates" yaml:"requestTemplates"`
 	// The maximum amount of time an integration will run before it returns without a response.
 	//
 	// Must be between 50 milliseconds and 29 seconds.
 	// Experimental.
-	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
+	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 	// The VpcLink used for the integration.
 	//
 	// Required if connectionType is VPC_LINK.
 	// Experimental.
-	VpcLink IVpcLink `json:"vpcLink" yaml:"vpcLink"`
+	VpcLink IVpcLink `field:"optional" json:"vpcLink" yaml:"vpcLink"`
 	// Allow invoking method from AWS Console UI (for testing purposes).
 	//
 	// This will add another permission to the AWS Lambda resource policy which
@@ -33981,12 +34333,12 @@ type LambdaIntegrationOptions struct {
 	// is set to `false`, the function will only be usable from the deployment
 	// endpoint.
 	// Experimental.
-	AllowTestInvoke *bool `json:"allowTestInvoke" yaml:"allowTestInvoke"`
+	AllowTestInvoke *bool `field:"optional" json:"allowTestInvoke" yaml:"allowTestInvoke"`
 	// Use proxy integration or normal (request/response mapping) integration.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html#api-gateway-simple-proxy-for-lambda-output-format
 	//
 	// Experimental.
-	Proxy *bool `json:"proxy" yaml:"proxy"`
+	Proxy *bool `field:"optional" json:"proxy" yaml:"proxy"`
 }
 
 // Defines an API Gateway REST API with AWS Lambda proxy integration.
@@ -33997,6 +34349,7 @@ type LambdaIntegrationOptions struct {
 //
 // Example:
 //   var backend function
+//
 //   api := apigateway.NewLambdaRestApi(this, jsii.String("myapi"), &lambdaRestApiProps{
 //   	handler: backend,
 //   	proxy: jsii.Boolean(false),
@@ -34830,6 +35183,7 @@ func (l *jsiiProxy_LambdaRestApi) Validate() *[]*string {
 
 // Example:
 //   var backend function
+//
 //   api := apigateway.NewLambdaRestApi(this, jsii.String("myapi"), &lambdaRestApiProps{
 //   	handler: backend,
 //   	proxy: jsii.Boolean(false),
@@ -34850,7 +35204,7 @@ func (l *jsiiProxy_LambdaRestApi) Validate() *[]*string {
 type LambdaRestApiProps struct {
 	// Automatically configure an AWS CloudWatch role for API Gateway.
 	// Experimental.
-	CloudWatchRole *bool `json:"cloudWatchRole" yaml:"cloudWatchRole"`
+	CloudWatchRole *bool `field:"optional" json:"cloudWatchRole" yaml:"cloudWatchRole"`
 	// Indicates if a Deployment should be automatically created for this API, and recreated when the API model (resources, methods) changes.
 	//
 	// Since API Gateway deployments are immutable, When this option is enabled
@@ -34868,13 +35222,13 @@ type LambdaRestApiProps struct {
 	// A CloudFormation Output will also be defined with the root URL endpoint
 	// of this REST API.
 	// Experimental.
-	Deploy *bool `json:"deploy" yaml:"deploy"`
+	Deploy *bool `field:"optional" json:"deploy" yaml:"deploy"`
 	// Options for the API Gateway stage that will always point to the latest deployment when `deploy` is enabled.
 	//
 	// If `deploy` is disabled,
 	// this value cannot be set.
 	// Experimental.
-	DeployOptions *StageOptions `json:"deployOptions" yaml:"deployOptions"`
+	DeployOptions *StageOptions `field:"optional" json:"deployOptions" yaml:"deployOptions"`
 	// Specifies whether clients can invoke the API using the default execute-api endpoint.
 	//
 	// To require that clients use a custom domain name to invoke the
@@ -34882,68 +35236,68 @@ type LambdaRestApiProps struct {
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html
 	//
 	// Experimental.
-	DisableExecuteApiEndpoint *bool `json:"disableExecuteApiEndpoint" yaml:"disableExecuteApiEndpoint"`
+	DisableExecuteApiEndpoint *bool `field:"optional" json:"disableExecuteApiEndpoint" yaml:"disableExecuteApiEndpoint"`
 	// Configure a custom domain name and map it to this API.
 	// Experimental.
-	DomainName *DomainNameOptions `json:"domainName" yaml:"domainName"`
+	DomainName *DomainNameOptions `field:"optional" json:"domainName" yaml:"domainName"`
 	// Export name for the CfnOutput containing the API endpoint.
 	// Experimental.
-	EndpointExportName *string `json:"endpointExportName" yaml:"endpointExportName"`
+	EndpointExportName *string `field:"optional" json:"endpointExportName" yaml:"endpointExportName"`
 	// A list of the endpoint types of the API.
 	//
 	// Use this property when creating
 	// an API.
 	// Experimental.
-	EndpointTypes *[]EndpointType `json:"endpointTypes" yaml:"endpointTypes"`
+	EndpointTypes *[]EndpointType `field:"optional" json:"endpointTypes" yaml:"endpointTypes"`
 	// Indicates whether to roll back the resource if a warning occurs while API Gateway is creating the RestApi resource.
 	// Experimental.
-	FailOnWarnings *bool `json:"failOnWarnings" yaml:"failOnWarnings"`
+	FailOnWarnings *bool `field:"optional" json:"failOnWarnings" yaml:"failOnWarnings"`
 	// Custom header parameters for the request.
 	// See: https://docs.aws.amazon.com/cli/latest/reference/apigateway/import-rest-api.html
 	//
 	// Experimental.
-	Parameters *map[string]*string `json:"parameters" yaml:"parameters"`
+	Parameters *map[string]*string `field:"optional" json:"parameters" yaml:"parameters"`
 	// A policy document that contains the permissions for this RestApi.
 	// Experimental.
-	Policy awsiam.PolicyDocument `json:"policy" yaml:"policy"`
+	Policy awsiam.PolicyDocument `field:"optional" json:"policy" yaml:"policy"`
 	// A name for the API Gateway RestApi resource.
 	// Experimental.
-	RestApiName *string `json:"restApiName" yaml:"restApiName"`
+	RestApiName *string `field:"optional" json:"restApiName" yaml:"restApiName"`
 	// Retains old deployment resources when the API changes.
 	//
 	// This allows
 	// manually reverting stages to point to old deployments via the AWS
 	// Console.
 	// Experimental.
-	RetainDeployments *bool `json:"retainDeployments" yaml:"retainDeployments"`
+	RetainDeployments *bool `field:"optional" json:"retainDeployments" yaml:"retainDeployments"`
 	// Adds a CORS preflight OPTIONS method to this resource and all child resources.
 	//
 	// You can add CORS at the resource-level using `addCorsPreflight`.
 	// Experimental.
-	DefaultCorsPreflightOptions *CorsOptions `json:"defaultCorsPreflightOptions" yaml:"defaultCorsPreflightOptions"`
+	DefaultCorsPreflightOptions *CorsOptions `field:"optional" json:"defaultCorsPreflightOptions" yaml:"defaultCorsPreflightOptions"`
 	// An integration to use as a default for all methods created within this API unless an integration is specified.
 	// Experimental.
-	DefaultIntegration Integration `json:"defaultIntegration" yaml:"defaultIntegration"`
+	DefaultIntegration Integration `field:"optional" json:"defaultIntegration" yaml:"defaultIntegration"`
 	// Method options to use as a default for all methods created within this API unless custom options are specified.
 	// Experimental.
-	DefaultMethodOptions *MethodOptions `json:"defaultMethodOptions" yaml:"defaultMethodOptions"`
+	DefaultMethodOptions *MethodOptions `field:"optional" json:"defaultMethodOptions" yaml:"defaultMethodOptions"`
 	// The source of the API key for metering requests according to a usage plan.
 	// Experimental.
-	ApiKeySourceType ApiKeySourceType `json:"apiKeySourceType" yaml:"apiKeySourceType"`
+	ApiKeySourceType ApiKeySourceType `field:"optional" json:"apiKeySourceType" yaml:"apiKeySourceType"`
 	// The list of binary media mime-types that are supported by the RestApi resource, such as "image/png" or "application/octet-stream".
 	// Experimental.
-	BinaryMediaTypes *[]*string `json:"binaryMediaTypes" yaml:"binaryMediaTypes"`
+	BinaryMediaTypes *[]*string `field:"optional" json:"binaryMediaTypes" yaml:"binaryMediaTypes"`
 	// The ID of the API Gateway RestApi resource that you want to clone.
 	// Experimental.
-	CloneFrom IRestApi `json:"cloneFrom" yaml:"cloneFrom"`
+	CloneFrom IRestApi `field:"optional" json:"cloneFrom" yaml:"cloneFrom"`
 	// A description of the purpose of this API Gateway RestApi resource.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The EndpointConfiguration property type specifies the endpoint types of a REST API.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-endpointconfiguration.html
 	//
 	// Experimental.
-	EndpointConfiguration *EndpointConfiguration `json:"endpointConfiguration" yaml:"endpointConfiguration"`
+	EndpointConfiguration *EndpointConfiguration `field:"optional" json:"endpointConfiguration" yaml:"endpointConfiguration"`
 	// A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (when undefined) on an API.
 	//
 	// When compression is enabled, compression or
@@ -34951,23 +35305,23 @@ type LambdaRestApiProps struct {
 	// smaller than this value. Setting it to zero allows compression for any
 	// payload size.
 	// Experimental.
-	MinimumCompressionSize *float64 `json:"minimumCompressionSize" yaml:"minimumCompressionSize"`
+	MinimumCompressionSize *float64 `field:"optional" json:"minimumCompressionSize" yaml:"minimumCompressionSize"`
 	// The default Lambda function that handles all requests from this API.
 	//
 	// This handler will be used as a the default integration for all methods in
 	// this API, unless specified otherwise in `addMethod`.
 	// Experimental.
-	Handler awslambda.IFunction `json:"handler" yaml:"handler"`
+	Handler awslambda.IFunction `field:"required" json:"handler" yaml:"handler"`
 	// Deprecated: the `LambdaRestApiProps` now extends `RestApiProps`, so all
 	// options are just available here. Note that the options specified in
 	// `options` will be overridden by any props specified at the root level.
-	Options *RestApiProps `json:"options" yaml:"options"`
+	Options *RestApiProps `field:"optional" json:"options" yaml:"options"`
 	// If true, route all requests to the Lambda Function.
 	//
 	// If set to false, you will need to explicitly define the API model using
 	// `addResource` and `addMethod` (or `addProxy`).
 	// Experimental.
-	Proxy *bool `json:"proxy" yaml:"proxy"`
+	Proxy *bool `field:"optional" json:"proxy" yaml:"proxy"`
 }
 
 // Use CloudWatch Logs as a custom access log destination for API Gateway.
@@ -35039,6 +35393,7 @@ func (l *jsiiProxy_LogGroupLogDestination) Bind(_stage IStage) *AccessLogDestina
 // Example:
 //   var acm interface{}
 //
+//
 //   apigateway.NewDomainName(this, jsii.String("domain-name"), &domainNameProps{
 //   	domainName: jsii.String("example.com"),
 //   	certificate: acm.certificate_FromCertificateArn(this, jsii.String("cert"), jsii.String("arn:aws:acm:us-east-1:1111111:certificate/11-3336f1-44483d-adc7-9cd375c5169d")),
@@ -35053,19 +35408,20 @@ func (l *jsiiProxy_LogGroupLogDestination) Bind(_stage IStage) *AccessLogDestina
 type MTLSConfig struct {
 	// The bucket that the trust store is hosted in.
 	// Experimental.
-	Bucket awss3.IBucket `json:"bucket" yaml:"bucket"`
+	Bucket awss3.IBucket `field:"required" json:"bucket" yaml:"bucket"`
 	// The key in S3 to look at for the trust store.
 	// Experimental.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// The version of the S3 object that contains your truststore.
 	//
 	// To specify a version, you must have versioning enabled for the S3 bucket.
 	// Experimental.
-	Version *string `json:"version" yaml:"version"`
+	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 
 // Example:
 //   var integration lambdaIntegration
+//
 //
 //   api := apigateway.NewRestApi(this, jsii.String("hello-api"))
 //
@@ -35546,7 +35902,7 @@ func (m *jsiiProxy_Method) Validate() *[]*string {
 type MethodDeploymentOptions struct {
 	// Indicates whether the cached responses are encrypted.
 	// Experimental.
-	CacheDataEncrypted *bool `json:"cacheDataEncrypted" yaml:"cacheDataEncrypted"`
+	CacheDataEncrypted *bool `field:"optional" json:"cacheDataEncrypted" yaml:"cacheDataEncrypted"`
 	// Specifies the time to live (TTL), in seconds, for cached responses.
 	//
 	// The
@@ -35554,40 +35910,40 @@ type MethodDeploymentOptions struct {
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html
 	//
 	// Experimental.
-	CacheTtl awscdk.Duration `json:"cacheTtl" yaml:"cacheTtl"`
+	CacheTtl awscdk.Duration `field:"optional" json:"cacheTtl" yaml:"cacheTtl"`
 	// Specifies whether responses should be cached and returned for requests.
 	//
 	// A
 	// cache cluster must be enabled on the stage for responses to be cached.
 	// Experimental.
-	CachingEnabled *bool `json:"cachingEnabled" yaml:"cachingEnabled"`
+	CachingEnabled *bool `field:"optional" json:"cachingEnabled" yaml:"cachingEnabled"`
 	// Specifies whether data trace logging is enabled for this method.
 	//
 	// When enabled, API gateway will log the full API requests and responses.
 	// This can be useful to troubleshoot APIs, but can result in logging sensitive data.
 	// We recommend that you don't enable this feature for production APIs.
 	// Experimental.
-	DataTraceEnabled *bool `json:"dataTraceEnabled" yaml:"dataTraceEnabled"`
+	DataTraceEnabled *bool `field:"optional" json:"dataTraceEnabled" yaml:"dataTraceEnabled"`
 	// Specifies the logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
 	// Experimental.
-	LoggingLevel MethodLoggingLevel `json:"loggingLevel" yaml:"loggingLevel"`
+	LoggingLevel MethodLoggingLevel `field:"optional" json:"loggingLevel" yaml:"loggingLevel"`
 	// Specifies whether Amazon CloudWatch metrics are enabled for this method.
 	// Experimental.
-	MetricsEnabled *bool `json:"metricsEnabled" yaml:"metricsEnabled"`
+	MetricsEnabled *bool `field:"optional" json:"metricsEnabled" yaml:"metricsEnabled"`
 	// Specifies the throttling burst limit.
 	//
 	// The total rate of all requests in your AWS account is limited to 5,000 requests.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html
 	//
 	// Experimental.
-	ThrottlingBurstLimit *float64 `json:"throttlingBurstLimit" yaml:"throttlingBurstLimit"`
+	ThrottlingBurstLimit *float64 `field:"optional" json:"throttlingBurstLimit" yaml:"throttlingBurstLimit"`
 	// Specifies the throttling rate limit.
 	//
 	// The total rate of all requests in your AWS account is limited to 10,000 requests per second (rps).
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html
 	//
 	// Experimental.
-	ThrottlingRateLimit *float64 `json:"throttlingRateLimit" yaml:"throttlingRateLimit"`
+	ThrottlingRateLimit *float64 `field:"optional" json:"throttlingRateLimit" yaml:"throttlingRateLimit"`
 }
 
 // Example:
@@ -35613,6 +35969,7 @@ const (
 // Example:
 //   var api restApi
 //   var userLambda function
+//
 //
 //   userModel := api.addModel(jsii.String("UserModel"), &modelOptions{
 //   	schema: &jsonSchema{
@@ -35641,7 +35998,7 @@ const (
 type MethodOptions struct {
 	// Indicates whether the method requires clients to submit a valid API key.
 	// Experimental.
-	ApiKeyRequired *bool `json:"apiKeyRequired" yaml:"apiKeyRequired"`
+	ApiKeyRequired *bool `field:"optional" json:"apiKeyRequired" yaml:"apiKeyRequired"`
 	// A list of authorization scopes configured on the method.
 	//
 	// The scopes are used with
@@ -35649,7 +36006,7 @@ type MethodOptions struct {
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-authorizationscopes
 	//
 	// Experimental.
-	AuthorizationScopes *[]*string `json:"authorizationScopes" yaml:"authorizationScopes"`
+	AuthorizationScopes *[]*string `field:"optional" json:"authorizationScopes" yaml:"authorizationScopes"`
 	// Method authorization. If the value is set of `Custom`, an `authorizer` must also be specified.
 	//
 	// If you're using one of the authorizers that are available via the {@link Authorizer} class, such as {@link Authorizer#token()},
@@ -35657,23 +36014,23 @@ type MethodOptions struct {
 	// However, specifying an authorization type using this property that conflicts with what is expected by the {@link Authorizer}
 	// will result in an error.
 	// Experimental.
-	AuthorizationType AuthorizationType `json:"authorizationType" yaml:"authorizationType"`
+	AuthorizationType AuthorizationType `field:"optional" json:"authorizationType" yaml:"authorizationType"`
 	// If `authorizationType` is `Custom`, this specifies the ID of the method authorizer resource.
 	//
 	// If specified, the value of `authorizationType` must be set to `Custom`.
 	// Experimental.
-	Authorizer IAuthorizer `json:"authorizer" yaml:"authorizer"`
+	Authorizer IAuthorizer `field:"optional" json:"authorizer" yaml:"authorizer"`
 	// The responses that can be sent to the client who calls the method.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-settings-method-response.html
 	//
 	// Experimental.
-	MethodResponses *[]*MethodResponse `json:"methodResponses" yaml:"methodResponses"`
+	MethodResponses *[]*MethodResponse `field:"optional" json:"methodResponses" yaml:"methodResponses"`
 	// A friendly operation name for the method.
 	//
 	// For example, you can assign the
 	// OperationName of ListPets for the GET /pets method.
 	// Experimental.
-	OperationName *string `json:"operationName" yaml:"operationName"`
+	OperationName *string `field:"optional" json:"operationName" yaml:"operationName"`
 	// The models which describe data structure of request payload.
 	//
 	// When
@@ -35685,6 +36042,7 @@ type MethodOptions struct {
 	// Example:
 	//   var api restApi
 	//   var userLambda function
+	//
 	//
 	//   userModel := api.addModel(jsii.String("UserModel"), &modelOptions{
 	//   	schema: &jsonSchema{
@@ -35712,7 +36070,7 @@ type MethodOptions struct {
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-settings-method-request.html#setup-method-request-model
 	//
 	// Experimental.
-	RequestModels *map[string]IModel `json:"requestModels" yaml:"requestModels"`
+	RequestModels *map[string]IModel `field:"optional" json:"requestModels" yaml:"requestModels"`
 	// The request parameters that API Gateway accepts.
 	//
 	// Specify request parameters
@@ -35721,30 +36079,33 @@ type MethodOptions struct {
 	// A source must match the format method.request.location.name, where the location
 	// is querystring, path, or header, and name is a valid, unique parameter name.
 	// Experimental.
-	RequestParameters *map[string]*bool `json:"requestParameters" yaml:"requestParameters"`
+	RequestParameters *map[string]*bool `field:"optional" json:"requestParameters" yaml:"requestParameters"`
 	// The ID of the associated request validator.
 	//
 	// Only one of `requestValidator` or `requestValidatorOptions` must be specified.
 	// Works together with `requestModels` or `requestParameters` to validate
 	// the request before it reaches integration like Lambda Proxy Integration.
 	// Experimental.
-	RequestValidator IRequestValidator `json:"requestValidator" yaml:"requestValidator"`
+	RequestValidator IRequestValidator `field:"optional" json:"requestValidator" yaml:"requestValidator"`
 	// Request validator options to create new validator Only one of `requestValidator` or `requestValidatorOptions` must be specified.
 	//
 	// Works together with `requestModels` or `requestParameters` to validate
 	// the request before it reaches integration like Lambda Proxy Integration.
 	// Experimental.
-	RequestValidatorOptions *RequestValidatorOptions `json:"requestValidatorOptions" yaml:"requestValidatorOptions"`
+	RequestValidatorOptions *RequestValidatorOptions `field:"optional" json:"requestValidatorOptions" yaml:"requestValidatorOptions"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var authorizer authorizer
 //   var integration integration
 //   var model model
 //   var requestValidator requestValidator
 //   var resource resource
+//
 //   methodProps := &methodProps{
 //   	httpMethod: jsii.String("httpMethod"),
 //   	resource: resource,
@@ -35756,7 +36117,7 @@ type MethodOptions struct {
 //   		authorizationScopes: []*string{
 //   			jsii.String("authorizationScopes"),
 //   		},
-//   		authorizationType: apigateway.authorizationType_NONE,
+//   		authorizationType: awscdk.Aws_apigateway.authorizationType_NONE,
 //   		authorizer: authorizer,
 //   		methodResponses: []methodResponse{
 //   			&methodResponse{
@@ -35791,25 +36152,28 @@ type MethodOptions struct {
 type MethodProps struct {
 	// The HTTP method ("GET", "POST", "PUT", ...) that clients use to call this method.
 	// Experimental.
-	HttpMethod *string `json:"httpMethod" yaml:"httpMethod"`
+	HttpMethod *string `field:"required" json:"httpMethod" yaml:"httpMethod"`
 	// The resource this method is associated with.
 	//
 	// For root resource methods,
 	// specify the `RestApi` object.
 	// Experimental.
-	Resource IResource `json:"resource" yaml:"resource"`
+	Resource IResource `field:"required" json:"resource" yaml:"resource"`
 	// The backend system that the method calls when it receives a request.
 	// Experimental.
-	Integration Integration `json:"integration" yaml:"integration"`
+	Integration Integration `field:"optional" json:"integration" yaml:"integration"`
 	// Method options.
 	// Experimental.
-	Options *MethodOptions `json:"options" yaml:"options"`
+	Options *MethodOptions `field:"optional" json:"options" yaml:"options"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var model model
+//
 //   methodResponse := &methodResponse{
 //   	statusCode: jsii.String("statusCode"),
 //
@@ -35828,14 +36192,14 @@ type MethodResponse struct {
 	//
 	// Required.
 	// Experimental.
-	StatusCode *string `json:"statusCode" yaml:"statusCode"`
+	StatusCode *string `field:"required" json:"statusCode" yaml:"statusCode"`
 	// The resources used for the response's content type.
 	//
 	// Specify response models as
 	// key-value pairs (string-to-string maps), with a content type as the key and a Model
 	// resource name as the value.
 	// Experimental.
-	ResponseModels *map[string]IModel `json:"responseModels" yaml:"responseModels"`
+	ResponseModels *map[string]IModel `field:"optional" json:"responseModels" yaml:"responseModels"`
 	// Response parameters that API Gateway sends to the client that called a method.
 	//
 	// Specify response parameters as key-value pairs (string-to-Boolean maps), with
@@ -35843,7 +36207,7 @@ type MethodResponse struct {
 	// using the following pattern: method.response.header.name, where the name is a
 	// valid, unique header name. The Boolean specifies whether a parameter is required.
 	// Experimental.
-	ResponseParameters *map[string]*bool `json:"responseParameters" yaml:"responseParameters"`
+	ResponseParameters *map[string]*bool `field:"optional" json:"responseParameters" yaml:"responseParameters"`
 }
 
 // This type of integration lets API Gateway return a response without sending the request further to the backend.
@@ -35859,18 +36223,20 @@ type MethodResponse struct {
 // Gateway responses are other examples of mock integrations.
 //
 // Example:
-//   import path "github.com/aws-samples/dummy/path"import lambda "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"type App awscdk.App
-//   type Stack awscdk.Stackimport awscdk "github.com/aws/aws-cdk-go/awscdk"type MockIntegration awscdk.MockIntegration
-//   type PassthroughBehavior awscdk.PassthroughBehavior
-//   type RestApi awscdk.RestApiimport awscdk "github.com/aws/aws-cdk-go/awscdk"type RequestAuthorizer awscdk.RequestAuthorizerimport awscdk "github.com/aws/aws-cdk-go/awscdk"type IdentitySource awscdk.IdentitySource
+//   import path "github.com/aws-samples/dummy/path"
+//   import lambda "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   // Against the RestApi endpoint from the stack output, run
 //   // `curl -s -o /dev/null -w "%{http_code}" <url>` should return 401
 //   // `curl -s -o /dev/null -w "%{http_code}" -H 'Authorization: deny' <url>?allow=yes` should return 403
 //   // `curl -s -o /dev/null -w "%{http_code}" -H 'Authorization: allow' <url>?allow=yes` should return 200
 //
-//   app := NewApp()
-//   stack := NewStack(app, jsii.String("RequestAuthorizerInteg"))
+//   app := awscdk.NewApp()
+//   stack := awscdk.NewStack(app, jsii.String("RequestAuthorizerInteg"))
 //
 //   authorizerFn := lambda.NewFunction(stack, jsii.String("MyAuthorizerFunction"), &functionProps{
 //   	runtime: lambda.runtime_NODEJS_14_X(),
@@ -35878,23 +36244,23 @@ type MethodResponse struct {
 //   	code: lambda.assetCode.fromAsset(path.join(__dirname, jsii.String("integ.request-authorizer.handler"))),
 //   })
 //
-//   restapi := NewRestApi(stack, jsii.String("MyRestApi"))
+//   restapi := awscdk.NewRestApi(stack, jsii.String("MyRestApi"))
 //
-//   authorizer := NewRequestAuthorizer(stack, jsii.String("MyAuthorizer"), &requestAuthorizerProps{
+//   authorizer := awscdk.NewRequestAuthorizer(stack, jsii.String("MyAuthorizer"), &requestAuthorizerProps{
 //   	handler: authorizerFn,
 //   	identitySources: []*string{
-//   		identitySource.header(jsii.String("Authorization")),
-//   		*identitySource.queryString(jsii.String("allow")),
+//   		awscdk.IdentitySource.header(jsii.String("Authorization")),
+//   		awscdk.IdentitySource.queryString(jsii.String("allow")),
 //   	},
 //   })
 //
-//   restapi.root.addMethod(jsii.String("ANY"), NewMockIntegration(&integrationOptions{
+//   restapi.root.addMethod(jsii.String("ANY"), awscdk.NewMockIntegration(&integrationOptions{
 //   	integrationResponses: []integrationResponse{
 //   		&integrationResponse{
 //   			statusCode: jsii.String("200"),
 //   		},
 //   	},
-//   	passthroughBehavior: passthroughBehavior_NEVER,
+//   	passthroughBehavior: awscdk.PassthroughBehavior_NEVER,
 //   	requestTemplates: map[string]*string{
 //   		"application/json": jsii.String("{ \"statusCode\": 200 }"),
 //   	},
@@ -35961,6 +36327,7 @@ func (m *jsiiProxy_MockIntegration) Bind(_method Method) *IntegrationConfig {
 
 // Example:
 //   var api restApi
+//
 //
 //   // We define the JSON Schema for the transformed valid response
 //   responseModel := api.addModel(jsii.String("ResponseModel"), &modelOptions{
@@ -36389,6 +36756,7 @@ func (m *jsiiProxy_Model) Validate() *[]*string {
 // Example:
 //   var api restApi
 //
+//
 //   // We define the JSON Schema for the transformed valid response
 //   responseModel := api.addModel(jsii.String("ResponseModel"), &modelOptions{
 //   	contentType: jsii.String("application/json"),
@@ -36433,16 +36801,16 @@ type ModelOptions struct {
 	//
 	// Specify null ({}) if you don't want to specify a schema.
 	// Experimental.
-	Schema *JsonSchema `json:"schema" yaml:"schema"`
+	Schema *JsonSchema `field:"required" json:"schema" yaml:"schema"`
 	// The content type for the model.
 	//
 	// You can also force a
 	// content type in the request or response model mapping.
 	// Experimental.
-	ContentType *string `json:"contentType" yaml:"contentType"`
+	ContentType *string `field:"optional" json:"contentType" yaml:"contentType"`
 	// A description that identifies this model.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// A name for the model.
 	//
 	// Important
@@ -36451,16 +36819,19 @@ type ModelOptions struct {
 	//   updates that require no or some interruption. If you
 	//   must replace the resource, specify a new name.
 	// Experimental.
-	ModelName *string `json:"modelName" yaml:"modelName"`
+	ModelName *string `field:"optional" json:"modelName" yaml:"modelName"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var default_ interface{}
 //   var enum_ interface{}
 //   var jsonSchema_ jsonSchema
 //   var restApi restApi
+//
 //   modelProps := &modelProps{
 //   	restApi: restApi,
 //   	schema: &jsonSchema{
@@ -36516,9 +36887,9 @@ type ModelOptions struct {
 //   		required: []*string{
 //   			jsii.String("required"),
 //   		},
-//   		schema: apigateway.jsonSchemaVersion_DRAFT4,
+//   		schema: awscdk.Aws_apigateway.jsonSchemaVersion_DRAFT4,
 //   		title: jsii.String("title"),
-//   		type: apigateway.jsonSchemaType_NULL,
+//   		type: awscdk.*Aws_apigateway.jsonSchemaType_NULL,
 //   		uniqueItems: jsii.Boolean(false),
 //   	},
 //
@@ -36534,16 +36905,16 @@ type ModelProps struct {
 	//
 	// Specify null ({}) if you don't want to specify a schema.
 	// Experimental.
-	Schema *JsonSchema `json:"schema" yaml:"schema"`
+	Schema *JsonSchema `field:"required" json:"schema" yaml:"schema"`
 	// The content type for the model.
 	//
 	// You can also force a
 	// content type in the request or response model mapping.
 	// Experimental.
-	ContentType *string `json:"contentType" yaml:"contentType"`
+	ContentType *string `field:"optional" json:"contentType" yaml:"contentType"`
 	// A description that identifies this model.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// A name for the model.
 	//
 	// Important
@@ -36552,7 +36923,7 @@ type ModelProps struct {
 	//   updates that require no or some interruption. If you
 	//   must replace the resource, specify a new name.
 	// Experimental.
-	ModelName *string `json:"modelName" yaml:"modelName"`
+	ModelName *string `field:"optional" json:"modelName" yaml:"modelName"`
 	// The rest API that this model is part of.
 	//
 	// The reason we need the RestApi object itself and not just the ID is because the model
@@ -36560,22 +36931,24 @@ type ModelProps struct {
 	// hash to determine the ID of the deployment. This allows us to automatically update
 	// the deployment when the model of the REST API changes.
 	// Experimental.
-	RestApi IRestApi `json:"restApi" yaml:"restApi"`
+	RestApi IRestApi `field:"required" json:"restApi" yaml:"restApi"`
 }
 
 // Example:
-//   import path "github.com/aws-samples/dummy/path"import lambda "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"type App awscdk.App
-//   type Stack awscdk.Stackimport awscdk "github.com/aws/aws-cdk-go/awscdk"type MockIntegration awscdk.MockIntegration
-//   type PassthroughBehavior awscdk.PassthroughBehavior
-//   type RestApi awscdk.RestApiimport awscdk "github.com/aws/aws-cdk-go/awscdk"type RequestAuthorizer awscdk.RequestAuthorizerimport awscdk "github.com/aws/aws-cdk-go/awscdk"type IdentitySource awscdk.IdentitySource
+//   import path "github.com/aws-samples/dummy/path"
+//   import lambda "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   // Against the RestApi endpoint from the stack output, run
 //   // `curl -s -o /dev/null -w "%{http_code}" <url>` should return 401
 //   // `curl -s -o /dev/null -w "%{http_code}" -H 'Authorization: deny' <url>?allow=yes` should return 403
 //   // `curl -s -o /dev/null -w "%{http_code}" -H 'Authorization: allow' <url>?allow=yes` should return 200
 //
-//   app := NewApp()
-//   stack := NewStack(app, jsii.String("RequestAuthorizerInteg"))
+//   app := awscdk.NewApp()
+//   stack := awscdk.NewStack(app, jsii.String("RequestAuthorizerInteg"))
 //
 //   authorizerFn := lambda.NewFunction(stack, jsii.String("MyAuthorizerFunction"), &functionProps{
 //   	runtime: lambda.runtime_NODEJS_14_X(),
@@ -36583,23 +36956,23 @@ type ModelProps struct {
 //   	code: lambda.assetCode.fromAsset(path.join(__dirname, jsii.String("integ.request-authorizer.handler"))),
 //   })
 //
-//   restapi := NewRestApi(stack, jsii.String("MyRestApi"))
+//   restapi := awscdk.NewRestApi(stack, jsii.String("MyRestApi"))
 //
-//   authorizer := NewRequestAuthorizer(stack, jsii.String("MyAuthorizer"), &requestAuthorizerProps{
+//   authorizer := awscdk.NewRequestAuthorizer(stack, jsii.String("MyAuthorizer"), &requestAuthorizerProps{
 //   	handler: authorizerFn,
 //   	identitySources: []*string{
-//   		identitySource.header(jsii.String("Authorization")),
-//   		*identitySource.queryString(jsii.String("allow")),
+//   		awscdk.IdentitySource.header(jsii.String("Authorization")),
+//   		awscdk.IdentitySource.queryString(jsii.String("allow")),
 //   	},
 //   })
 //
-//   restapi.root.addMethod(jsii.String("ANY"), NewMockIntegration(&integrationOptions{
+//   restapi.root.addMethod(jsii.String("ANY"), awscdk.NewMockIntegration(&integrationOptions{
 //   	integrationResponses: []integrationResponse{
 //   		&integrationResponse{
 //   			statusCode: jsii.String("200"),
 //   		},
 //   	},
-//   	passthroughBehavior: passthroughBehavior_NEVER,
+//   	passthroughBehavior: awscdk.PassthroughBehavior_NEVER,
 //   	requestTemplates: map[string]*string{
 //   		"application/json": jsii.String("{ \"statusCode\": 200 }"),
 //   	},
@@ -36635,6 +37008,7 @@ const (
 // Example:
 //   var api restApi
 //
+//
 //   key := apigateway.NewRateLimitedApiKey(this, jsii.String("rate-limited-api-key"), &rateLimitedApiKeyProps{
 //   	customerId: jsii.String("hello-customer"),
 //   	resources: []iRestApi{
@@ -36663,6 +37037,7 @@ const (
 // Example:
 //   var resource resource
 //   var handler function
+//
 //   proxy := resource.addProxy(&proxyResourceOptions{
 //   	defaultIntegration: apigateway.NewLambdaIntegration(handler),
 //
@@ -37265,6 +37640,7 @@ func (p *jsiiProxy_ProxyResource) Validate() *[]*string {
 // Example:
 //   var resource resource
 //   var handler function
+//
 //   proxy := resource.addProxy(&proxyResourceOptions{
 //   	defaultIntegration: apigateway.NewLambdaIntegration(handler),
 //
@@ -37278,23 +37654,26 @@ type ProxyResourceOptions struct {
 	//
 	// You can add CORS at the resource-level using `addCorsPreflight`.
 	// Experimental.
-	DefaultCorsPreflightOptions *CorsOptions `json:"defaultCorsPreflightOptions" yaml:"defaultCorsPreflightOptions"`
+	DefaultCorsPreflightOptions *CorsOptions `field:"optional" json:"defaultCorsPreflightOptions" yaml:"defaultCorsPreflightOptions"`
 	// An integration to use as a default for all methods created within this API unless an integration is specified.
 	// Experimental.
-	DefaultIntegration Integration `json:"defaultIntegration" yaml:"defaultIntegration"`
+	DefaultIntegration Integration `field:"optional" json:"defaultIntegration" yaml:"defaultIntegration"`
 	// Method options to use as a default for all methods created within this API unless custom options are specified.
 	// Experimental.
-	DefaultMethodOptions *MethodOptions `json:"defaultMethodOptions" yaml:"defaultMethodOptions"`
+	DefaultMethodOptions *MethodOptions `field:"optional" json:"defaultMethodOptions" yaml:"defaultMethodOptions"`
 	// Adds an "ANY" method to this resource.
 	//
 	// If set to `false`, you will have to explicitly
 	// add methods to this resource after it's created.
 	// Experimental.
-	AnyMethod *bool `json:"anyMethod" yaml:"anyMethod"`
+	AnyMethod *bool `field:"optional" json:"anyMethod" yaml:"anyMethod"`
 }
 
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var authorizer authorizer
 //   var duration duration
@@ -37302,6 +37681,7 @@ type ProxyResourceOptions struct {
 //   var model model
 //   var requestValidator requestValidator
 //   var resource resource
+//
 //   proxyResourceProps := &proxyResourceProps{
 //   	parent: resource,
 //
@@ -37333,7 +37713,7 @@ type ProxyResourceOptions struct {
 //   		authorizationScopes: []*string{
 //   			jsii.String("authorizationScopes"),
 //   		},
-//   		authorizationType: apigateway.authorizationType_NONE,
+//   		authorizationType: awscdk.Aws_apigateway.authorizationType_NONE,
 //   		authorizer: authorizer,
 //   		methodResponses: []methodResponse{
 //   			&methodResponse{
@@ -37370,31 +37750,32 @@ type ProxyResourceProps struct {
 	//
 	// You can add CORS at the resource-level using `addCorsPreflight`.
 	// Experimental.
-	DefaultCorsPreflightOptions *CorsOptions `json:"defaultCorsPreflightOptions" yaml:"defaultCorsPreflightOptions"`
+	DefaultCorsPreflightOptions *CorsOptions `field:"optional" json:"defaultCorsPreflightOptions" yaml:"defaultCorsPreflightOptions"`
 	// An integration to use as a default for all methods created within this API unless an integration is specified.
 	// Experimental.
-	DefaultIntegration Integration `json:"defaultIntegration" yaml:"defaultIntegration"`
+	DefaultIntegration Integration `field:"optional" json:"defaultIntegration" yaml:"defaultIntegration"`
 	// Method options to use as a default for all methods created within this API unless custom options are specified.
 	// Experimental.
-	DefaultMethodOptions *MethodOptions `json:"defaultMethodOptions" yaml:"defaultMethodOptions"`
+	DefaultMethodOptions *MethodOptions `field:"optional" json:"defaultMethodOptions" yaml:"defaultMethodOptions"`
 	// Adds an "ANY" method to this resource.
 	//
 	// If set to `false`, you will have to explicitly
 	// add methods to this resource after it's created.
 	// Experimental.
-	AnyMethod *bool `json:"anyMethod" yaml:"anyMethod"`
+	AnyMethod *bool `field:"optional" json:"anyMethod" yaml:"anyMethod"`
 	// The parent resource of this resource.
 	//
 	// You can either pass another
 	// `Resource` object or a `RestApi` object here.
 	// Experimental.
-	Parent IResource `json:"parent" yaml:"parent"`
+	Parent IResource `field:"required" json:"parent" yaml:"parent"`
 }
 
 // Specifies the maximum number of requests that clients can make to API Gateway APIs.
 //
 // Example:
 //   var api restApi
+//
 //
 //   key := apigateway.NewRateLimitedApiKey(this, jsii.String("rate-limited-api-key"), &rateLimitedApiKeyProps{
 //   	customerId: jsii.String("hello-customer"),
@@ -37411,19 +37792,20 @@ type ProxyResourceProps struct {
 type QuotaSettings struct {
 	// The maximum number of requests that users can make within the specified time period.
 	// Experimental.
-	Limit *float64 `json:"limit" yaml:"limit"`
+	Limit *float64 `field:"optional" json:"limit" yaml:"limit"`
 	// For the initial time period, the number of requests to subtract from the specified limit.
 	// Experimental.
-	Offset *float64 `json:"offset" yaml:"offset"`
+	Offset *float64 `field:"optional" json:"offset" yaml:"offset"`
 	// The time period for which the maximum limit of requests applies.
 	// Experimental.
-	Period Period `json:"period" yaml:"period"`
+	Period Period `field:"optional" json:"period" yaml:"period"`
 }
 
 // An API Gateway ApiKey, for which a rate limiting configuration can be specified.
 //
 // Example:
 //   var api restApi
+//
 //
 //   key := apigateway.NewRateLimitedApiKey(this, jsii.String("rate-limited-api-key"), &rateLimitedApiKeyProps{
 //   	customerId: jsii.String("hello-customer"),
@@ -37850,6 +38232,7 @@ func (r *jsiiProxy_RateLimitedApiKey) Validate() *[]*string {
 // Example:
 //   var api restApi
 //
+//
 //   key := apigateway.NewRateLimitedApiKey(this, jsii.String("rate-limited-api-key"), &rateLimitedApiKeyProps{
 //   	customerId: jsii.String("hello-customer"),
 //   	resources: []iRestApi{
@@ -37867,47 +38250,47 @@ type RateLimitedApiKeyProps struct {
 	//
 	// You can add CORS at the resource-level using `addCorsPreflight`.
 	// Experimental.
-	DefaultCorsPreflightOptions *CorsOptions `json:"defaultCorsPreflightOptions" yaml:"defaultCorsPreflightOptions"`
+	DefaultCorsPreflightOptions *CorsOptions `field:"optional" json:"defaultCorsPreflightOptions" yaml:"defaultCorsPreflightOptions"`
 	// An integration to use as a default for all methods created within this API unless an integration is specified.
 	// Experimental.
-	DefaultIntegration Integration `json:"defaultIntegration" yaml:"defaultIntegration"`
+	DefaultIntegration Integration `field:"optional" json:"defaultIntegration" yaml:"defaultIntegration"`
 	// Method options to use as a default for all methods created within this API unless custom options are specified.
 	// Experimental.
-	DefaultMethodOptions *MethodOptions `json:"defaultMethodOptions" yaml:"defaultMethodOptions"`
+	DefaultMethodOptions *MethodOptions `field:"optional" json:"defaultMethodOptions" yaml:"defaultMethodOptions"`
 	// A name for the API key.
 	//
 	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the API key name.
 	// Experimental.
-	ApiKeyName *string `json:"apiKeyName" yaml:"apiKeyName"`
+	ApiKeyName *string `field:"optional" json:"apiKeyName" yaml:"apiKeyName"`
 	// A description of the purpose of the API key.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The value of the API key.
 	//
 	// Must be at least 20 characters long.
 	// Experimental.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"optional" json:"value" yaml:"value"`
 	// An AWS Marketplace customer identifier to use when integrating with the AWS SaaS Marketplace.
 	// Experimental.
-	CustomerId *string `json:"customerId" yaml:"customerId"`
+	CustomerId *string `field:"optional" json:"customerId" yaml:"customerId"`
 	// Indicates whether the API key can be used by clients.
 	// Experimental.
-	Enabled *bool `json:"enabled" yaml:"enabled"`
+	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// Specifies whether the key identifier is distinct from the created API key value.
 	// Experimental.
-	GenerateDistinctId *bool `json:"generateDistinctId" yaml:"generateDistinctId"`
+	GenerateDistinctId *bool `field:"optional" json:"generateDistinctId" yaml:"generateDistinctId"`
 	// A list of resources this api key is associated with.
 	// Experimental.
-	Resources *[]IRestApi `json:"resources" yaml:"resources"`
+	Resources *[]IRestApi `field:"optional" json:"resources" yaml:"resources"`
 	// API Stages to be associated with the RateLimitedApiKey.
 	// Experimental.
-	ApiStages *[]*UsagePlanPerApiStage `json:"apiStages" yaml:"apiStages"`
+	ApiStages *[]*UsagePlanPerApiStage `field:"optional" json:"apiStages" yaml:"apiStages"`
 	// Number of requests clients can make in a given time period.
 	// Experimental.
-	Quota *QuotaSettings `json:"quota" yaml:"quota"`
+	Quota *QuotaSettings `field:"optional" json:"quota" yaml:"quota"`
 	// Overall throttle settings for the API.
 	// Experimental.
-	Throttle *ThrottleSettings `json:"throttle" yaml:"throttle"`
+	Throttle *ThrottleSettings `field:"optional" json:"throttle" yaml:"throttle"`
 }
 
 // Request-based lambda authorizer that recognizes the caller's identity via request parameters, such as headers, paths, query strings, stage variables, or context variables.
@@ -37917,6 +38300,7 @@ type RateLimitedApiKeyProps struct {
 // Example:
 //   var authFn function
 //   var books resource
+//
 //
 //   auth := apigateway.NewRequestAuthorizer(this, jsii.String("booksAuthorizer"), &requestAuthorizerProps{
 //   	handler: authFn,
@@ -38403,6 +38787,7 @@ func (r *jsiiProxy_RequestAuthorizer) Validate() *[]*string {
 //   var authFn function
 //   var books resource
 //
+//
 //   auth := apigateway.NewRequestAuthorizer(this, jsii.String("booksAuthorizer"), &requestAuthorizerProps{
 //   	handler: authFn,
 //   	identitySources: []*string{
@@ -38423,24 +38808,24 @@ type RequestAuthorizerProps struct {
 	// {@link https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-lambda-authorizer-input.html | here} and output specification
 	// {@link https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-lambda-authorizer-output.html | here}.
 	// Experimental.
-	Handler awslambda.IFunction `json:"handler" yaml:"handler"`
+	Handler awslambda.IFunction `field:"required" json:"handler" yaml:"handler"`
 	// An optional IAM role for APIGateway to assume before calling the Lambda-based authorizer.
 	//
 	// The IAM role must be
 	// assumable by 'apigateway.amazonaws.com'.
 	// Experimental.
-	AssumeRole awsiam.IRole `json:"assumeRole" yaml:"assumeRole"`
+	AssumeRole awsiam.IRole `field:"optional" json:"assumeRole" yaml:"assumeRole"`
 	// An optional human friendly name for the authorizer.
 	//
 	// Note that, this is not the primary identifier of the authorizer.
 	// Experimental.
-	AuthorizerName *string `json:"authorizerName" yaml:"authorizerName"`
+	AuthorizerName *string `field:"optional" json:"authorizerName" yaml:"authorizerName"`
 	// How long APIGateway should cache the results.
 	//
 	// Max 1 hour.
 	// Disable caching by setting this to 0.
 	// Experimental.
-	ResultsCacheTtl awscdk.Duration `json:"resultsCacheTtl" yaml:"resultsCacheTtl"`
+	ResultsCacheTtl awscdk.Duration `field:"optional" json:"resultsCacheTtl" yaml:"resultsCacheTtl"`
 	// An array of request header mapping expressions for identities.
 	//
 	// Supported parameter types are
@@ -38454,7 +38839,7 @@ type RequestAuthorizerProps struct {
 	// See: https://docs.aws.amazon.com/apigateway/api-reference/link-relation/authorizer-create/#identitySource
 	//
 	// Experimental.
-	IdentitySources *[]*string `json:"identitySources" yaml:"identitySources"`
+	IdentitySources *[]*string `field:"required" json:"identitySources" yaml:"identitySources"`
 }
 
 // Configure what must be included in the `requestContext`.
@@ -38482,109 +38867,112 @@ type RequestContext struct {
 	//
 	// Whether the AWS account of the API owner should be included in the request context.
 	// Experimental.
-	AccountId *bool `json:"accountId" yaml:"accountId"`
+	AccountId *bool `field:"optional" json:"accountId" yaml:"accountId"`
 	// Represents the information of $context.apiId.
 	//
 	// Whether the identifier API Gateway assigns to your API should be included in the request context.
 	// Experimental.
-	ApiId *bool `json:"apiId" yaml:"apiId"`
+	ApiId *bool `field:"optional" json:"apiId" yaml:"apiId"`
 	// Represents the information of $context.identity.apiKey.
 	//
 	// Whether the API key associated with the request should be included in request context.
 	// Experimental.
-	ApiKey *bool `json:"apiKey" yaml:"apiKey"`
+	ApiKey *bool `field:"optional" json:"apiKey" yaml:"apiKey"`
 	// Represents the information of $context.authorizer.principalId.
 	//
 	// Whether the principal user identifier associated with the token sent by the client and returned
 	// from an API Gateway Lambda authorizer should be included in the request context.
 	// Experimental.
-	AuthorizerPrincipalId *bool `json:"authorizerPrincipalId" yaml:"authorizerPrincipalId"`
+	AuthorizerPrincipalId *bool `field:"optional" json:"authorizerPrincipalId" yaml:"authorizerPrincipalId"`
 	// Represents the information of $context.identity.caller.
 	//
 	// Whether the principal identifier of the caller that signed the request should be included in the request context.
 	// Supported for resources that use IAM authorization.
 	// Experimental.
-	Caller *bool `json:"caller" yaml:"caller"`
+	Caller *bool `field:"optional" json:"caller" yaml:"caller"`
 	// Represents the information of $context.identity.cognitoAuthenticationProvider.
 	//
 	// Whether the list of the Amazon Cognito authentication providers used by the caller making the request should be included in the request context.
 	// Available only if the request was signed with Amazon Cognito credentials.
 	// Experimental.
-	CognitoAuthenticationProvider *bool `json:"cognitoAuthenticationProvider" yaml:"cognitoAuthenticationProvider"`
+	CognitoAuthenticationProvider *bool `field:"optional" json:"cognitoAuthenticationProvider" yaml:"cognitoAuthenticationProvider"`
 	// Represents the information of $context.identity.cognitoAuthenticationType.
 	//
 	// Whether the Amazon Cognito authentication type of the caller making the request should be included in the request context.
 	// Available only if the request was signed with Amazon Cognito credentials.
 	// Possible values include authenticated for authenticated identities and unauthenticated for unauthenticated identities.
 	// Experimental.
-	CognitoAuthenticationType *bool `json:"cognitoAuthenticationType" yaml:"cognitoAuthenticationType"`
+	CognitoAuthenticationType *bool `field:"optional" json:"cognitoAuthenticationType" yaml:"cognitoAuthenticationType"`
 	// Represents the information of $context.identity.cognitoIdentityId.
 	//
 	// Whether the Amazon Cognito identity ID of the caller making the request should be included in the request context.
 	// Available only if the request was signed with Amazon Cognito credentials.
 	// Experimental.
-	CognitoIdentityId *bool `json:"cognitoIdentityId" yaml:"cognitoIdentityId"`
+	CognitoIdentityId *bool `field:"optional" json:"cognitoIdentityId" yaml:"cognitoIdentityId"`
 	// Represents the information of $context.identity.cognitoIdentityPoolId.
 	//
 	// Whether the Amazon Cognito identity pool ID of the caller making the request should be included in the request context.
 	// Available only if the request was signed with Amazon Cognito credentials.
 	// Experimental.
-	CognitoIdentityPoolId *bool `json:"cognitoIdentityPoolId" yaml:"cognitoIdentityPoolId"`
+	CognitoIdentityPoolId *bool `field:"optional" json:"cognitoIdentityPoolId" yaml:"cognitoIdentityPoolId"`
 	// Represents the information of $context.httpMethod.
 	//
 	// Whether the HTTP method used should be included in the request context.
 	// Valid values include: DELETE, GET, HEAD, OPTIONS, PATCH, POST, and PUT.
 	// Experimental.
-	HttpMethod *bool `json:"httpMethod" yaml:"httpMethod"`
+	HttpMethod *bool `field:"optional" json:"httpMethod" yaml:"httpMethod"`
 	// Represents the information of $context.requestId.
 	//
 	// Whether the ID for the request should be included in the request context.
 	// Experimental.
-	RequestId *bool `json:"requestId" yaml:"requestId"`
+	RequestId *bool `field:"optional" json:"requestId" yaml:"requestId"`
 	// Represents the information of $context.resourceId.
 	//
 	// Whether the identifier that API Gateway assigns to your resource should be included in the request context.
 	// Experimental.
-	ResourceId *bool `json:"resourceId" yaml:"resourceId"`
+	ResourceId *bool `field:"optional" json:"resourceId" yaml:"resourceId"`
 	// Represents the information of $context.resourcePath.
 	//
 	// Whether the path to the resource should be included in the request context.
 	// Experimental.
-	ResourcePath *bool `json:"resourcePath" yaml:"resourcePath"`
+	ResourcePath *bool `field:"optional" json:"resourcePath" yaml:"resourcePath"`
 	// Represents the information of $context.identity.sourceIp.
 	//
 	// Whether the source IP address of the immediate TCP connection making the request
 	// to API Gateway endpoint should be included in the request context.
 	// Experimental.
-	SourceIp *bool `json:"sourceIp" yaml:"sourceIp"`
+	SourceIp *bool `field:"optional" json:"sourceIp" yaml:"sourceIp"`
 	// Represents the information of $context.stage.
 	//
 	// Whether the deployment stage of the API request should be included in the request context.
 	// Experimental.
-	Stage *bool `json:"stage" yaml:"stage"`
+	Stage *bool `field:"optional" json:"stage" yaml:"stage"`
 	// Represents the information of $context.identity.user.
 	//
 	// Whether the principal identifier of the user that will be authorized should be included in the request context.
 	// Supported for resources that use IAM authorization.
 	// Experimental.
-	User *bool `json:"user" yaml:"user"`
+	User *bool `field:"optional" json:"user" yaml:"user"`
 	// Represents the information of $context.identity.userAgent.
 	//
 	// Whether the User-Agent header of the API caller should be included in the request context.
 	// Experimental.
-	UserAgent *bool `json:"userAgent" yaml:"userAgent"`
+	UserAgent *bool `field:"optional" json:"userAgent" yaml:"userAgent"`
 	// Represents the information of $context.identity.userArn.
 	//
 	// Whether the Amazon Resource Name (ARN) of the effective user identified after authentication should be included in the request context.
 	// Experimental.
-	UserArn *bool `json:"userArn" yaml:"userArn"`
+	UserArn *bool `field:"optional" json:"userArn" yaml:"userArn"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var restApi restApi
-//   requestValidator := apigateway.NewRequestValidator(this, jsii.String("MyRequestValidator"), &requestValidatorProps{
+//
+//   requestValidator := awscdk.Aws_apigateway.NewRequestValidator(this, jsii.String("MyRequestValidator"), &requestValidatorProps{
 //   	restApi: restApi,
 //
 //   	// the properties below are optional
@@ -38963,6 +39351,7 @@ func (r *jsiiProxy_RequestValidator) Validate() *[]*string {
 //   var responseModel model
 //   var errorResponseModel model
 //
+//
 //   resource.addMethod(jsii.String("GET"), integration, &methodOptions{
 //   	// We can mark the parameters as required
 //   	requestParameters: map[string]*bool{
@@ -39008,19 +39397,22 @@ func (r *jsiiProxy_RequestValidator) Validate() *[]*string {
 type RequestValidatorOptions struct {
 	// The name of this request validator.
 	// Experimental.
-	RequestValidatorName *string `json:"requestValidatorName" yaml:"requestValidatorName"`
+	RequestValidatorName *string `field:"optional" json:"requestValidatorName" yaml:"requestValidatorName"`
 	// Indicates whether to validate the request body according to the configured schema for the targeted API and method.
 	// Experimental.
-	ValidateRequestBody *bool `json:"validateRequestBody" yaml:"validateRequestBody"`
+	ValidateRequestBody *bool `field:"optional" json:"validateRequestBody" yaml:"validateRequestBody"`
 	// Indicates whether to validate request parameters.
 	// Experimental.
-	ValidateRequestParameters *bool `json:"validateRequestParameters" yaml:"validateRequestParameters"`
+	ValidateRequestParameters *bool `field:"optional" json:"validateRequestParameters" yaml:"validateRequestParameters"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var restApi restApi
+//
 //   requestValidatorProps := &requestValidatorProps{
 //   	restApi: restApi,
 //
@@ -39034,13 +39426,13 @@ type RequestValidatorOptions struct {
 type RequestValidatorProps struct {
 	// The name of this request validator.
 	// Experimental.
-	RequestValidatorName *string `json:"requestValidatorName" yaml:"requestValidatorName"`
+	RequestValidatorName *string `field:"optional" json:"requestValidatorName" yaml:"requestValidatorName"`
 	// Indicates whether to validate the request body according to the configured schema for the targeted API and method.
 	// Experimental.
-	ValidateRequestBody *bool `json:"validateRequestBody" yaml:"validateRequestBody"`
+	ValidateRequestBody *bool `field:"optional" json:"validateRequestBody" yaml:"validateRequestBody"`
 	// Indicates whether to validate request parameters.
 	// Experimental.
-	ValidateRequestParameters *bool `json:"validateRequestParameters" yaml:"validateRequestParameters"`
+	ValidateRequestParameters *bool `field:"optional" json:"validateRequestParameters" yaml:"validateRequestParameters"`
 	// The rest API that this model is part of.
 	//
 	// The reason we need the RestApi object itself and not just the ID is because the model
@@ -39048,11 +39440,12 @@ type RequestValidatorProps struct {
 	// hash to determine the ID of the deployment. This allows us to automatically update
 	// the deployment when the model of the REST API changes.
 	// Experimental.
-	RestApi IRestApi `json:"restApi" yaml:"restApi"`
+	RestApi IRestApi `field:"required" json:"restApi" yaml:"restApi"`
 }
 
 // Example:
 //   var booksBackend lambdaIntegration
+//
 //   api := apigateway.NewRestApi(this, jsii.String("books"), &restApiProps{
 //   	defaultIntegration: booksBackend,
 //   })
@@ -39644,9 +40037,12 @@ func (r *jsiiProxy_Resource) Validate() *[]*string {
 // Attributes that can be specified when importing a Resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var restApi restApi
+//
 //   resourceAttributes := &resourceAttributes{
 //   	path: jsii.String("path"),
 //   	resourceId: jsii.String("resourceId"),
@@ -39657,13 +40053,13 @@ func (r *jsiiProxy_Resource) Validate() *[]*string {
 type ResourceAttributes struct {
 	// The full path of this resource.
 	// Experimental.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"required" json:"path" yaml:"path"`
 	// The ID of the resource.
 	// Experimental.
-	ResourceId *string `json:"resourceId" yaml:"resourceId"`
+	ResourceId *string `field:"required" json:"resourceId" yaml:"resourceId"`
 	// The rest API that this resource is part of.
 	// Experimental.
-	RestApi IRestApi `json:"restApi" yaml:"restApi"`
+	RestApi IRestApi `field:"required" json:"restApi" yaml:"restApi"`
 }
 
 // Experimental.
@@ -40216,6 +40612,7 @@ func (r *jsiiProxy_ResourceBase) Validate() *[]*string {
 // Example:
 //   var resource resource
 //
+//
 //   subtree := resource.addResource(jsii.String("subtree"), &resourceOptions{
 //   	defaultCorsPreflightOptions: &corsOptions{
 //   		allowOrigins: []*string{
@@ -40230,17 +40627,20 @@ type ResourceOptions struct {
 	//
 	// You can add CORS at the resource-level using `addCorsPreflight`.
 	// Experimental.
-	DefaultCorsPreflightOptions *CorsOptions `json:"defaultCorsPreflightOptions" yaml:"defaultCorsPreflightOptions"`
+	DefaultCorsPreflightOptions *CorsOptions `field:"optional" json:"defaultCorsPreflightOptions" yaml:"defaultCorsPreflightOptions"`
 	// An integration to use as a default for all methods created within this API unless an integration is specified.
 	// Experimental.
-	DefaultIntegration Integration `json:"defaultIntegration" yaml:"defaultIntegration"`
+	DefaultIntegration Integration `field:"optional" json:"defaultIntegration" yaml:"defaultIntegration"`
 	// Method options to use as a default for all methods created within this API unless custom options are specified.
 	// Experimental.
-	DefaultMethodOptions *MethodOptions `json:"defaultMethodOptions" yaml:"defaultMethodOptions"`
+	DefaultMethodOptions *MethodOptions `field:"optional" json:"defaultMethodOptions" yaml:"defaultMethodOptions"`
 }
 
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var authorizer authorizer
 //   var duration duration
@@ -40248,6 +40648,7 @@ type ResourceOptions struct {
 //   var model model
 //   var requestValidator requestValidator
 //   var resource resource
+//
 //   resourceProps := &resourceProps{
 //   	parent: resource,
 //   	pathPart: jsii.String("pathPart"),
@@ -40279,7 +40680,7 @@ type ResourceOptions struct {
 //   		authorizationScopes: []*string{
 //   			jsii.String("authorizationScopes"),
 //   		},
-//   		authorizationType: apigateway.authorizationType_NONE,
+//   		authorizationType: awscdk.Aws_apigateway.authorizationType_NONE,
 //   		authorizer: authorizer,
 //   		methodResponses: []methodResponse{
 //   			&methodResponse{
@@ -40316,22 +40717,22 @@ type ResourceProps struct {
 	//
 	// You can add CORS at the resource-level using `addCorsPreflight`.
 	// Experimental.
-	DefaultCorsPreflightOptions *CorsOptions `json:"defaultCorsPreflightOptions" yaml:"defaultCorsPreflightOptions"`
+	DefaultCorsPreflightOptions *CorsOptions `field:"optional" json:"defaultCorsPreflightOptions" yaml:"defaultCorsPreflightOptions"`
 	// An integration to use as a default for all methods created within this API unless an integration is specified.
 	// Experimental.
-	DefaultIntegration Integration `json:"defaultIntegration" yaml:"defaultIntegration"`
+	DefaultIntegration Integration `field:"optional" json:"defaultIntegration" yaml:"defaultIntegration"`
 	// Method options to use as a default for all methods created within this API unless custom options are specified.
 	// Experimental.
-	DefaultMethodOptions *MethodOptions `json:"defaultMethodOptions" yaml:"defaultMethodOptions"`
+	DefaultMethodOptions *MethodOptions `field:"optional" json:"defaultMethodOptions" yaml:"defaultMethodOptions"`
 	// The parent resource of this resource.
 	//
 	// You can either pass another
 	// `Resource` object or a `RestApi` object here.
 	// Experimental.
-	Parent IResource `json:"parent" yaml:"parent"`
+	Parent IResource `field:"required" json:"parent" yaml:"parent"`
 	// A path name for the resource.
 	// Experimental.
-	PathPart *string `json:"pathPart" yaml:"pathPart"`
+	PathPart *string `field:"required" json:"pathPart" yaml:"pathPart"`
 }
 
 // Supported types of gateway responses.
@@ -41459,16 +41860,9 @@ func (r *jsiiProxy_RestApi) Validate() *[]*string {
 // Attributes that can be specified when importing a RestApi.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type App awscdk.App
-//   type CfnOutput awscdk.CfnOutput
-//   type NestedStack awscdk.NestedStack
-//   type NestedStackProps awscdk.NestedStackProps
-//   type Stack awscdk.Stackimport constructs "github.com/aws/constructs-go/constructs"type Construct constructs.Constructimport awscdk "github.com/aws/aws-cdk-go/awscdk"type Deployment awscdk.Deployment
-//   type Method awscdk.Method
-//   type MockIntegration awscdk.MockIntegration
-//   type PassthroughBehavior awscdk.PassthroughBehavior
-//   type RestApi awscdk.RestApi
-//   type Stage awscdk.Stage
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/constructs-go/constructs"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   /**
 //    * This file showcases how to split up a RestApi's Resources and Methods across nested stacks.
@@ -41488,7 +41882,7 @@ func (r *jsiiProxy_RestApi) Validate() *[]*string {
 //   	this := &rootStack{}
 //   	newStack_Override(this, scope, jsii.String("integ-restapi-import-RootStack"))
 //
-//   	restApi := NewRestApi(this, jsii.String("RestApi"), &restApiProps{
+//   	restApi := awscdk.NewRestApi(this, jsii.String("RestApi"), &restApiProps{
 //   		deploy: jsii.Boolean(false),
 //   	})
 //   	restApi.root.addMethod(jsii.String("ANY"))
@@ -41506,11 +41900,11 @@ func (r *jsiiProxy_RestApi) Validate() *[]*string {
 //   		methods: petsStack.methods.concat(booksStack.methods),
 //   	})
 //
-//   	NewCfnOutput(this, jsii.String("PetsURL"), &cfnOutputProps{
+//   	awscdk.NewCfnOutput(this, jsii.String("PetsURL"), &cfnOutputProps{
 //   		value: fmt.Sprintf("https://%v.execute-api.%v.amazonaws.com/prod/pets", restApi.restApiId, this.region),
 //   	})
 //
-//   	NewCfnOutput(this, jsii.String("BooksURL"), &cfnOutputProps{
+//   	awscdk.NewCfnOutput(this, jsii.String("BooksURL"), &cfnOutputProps{
 //   		value: fmt.Sprintf("https://%v.execute-api.%v.amazonaws.com/prod/books", restApi.restApiId, this.region),
 //   	})
 //   	return this
@@ -41531,18 +41925,18 @@ func (r *jsiiProxy_RestApi) Validate() *[]*string {
 //   	this := &petsStack{}
 //   	newNestedStack_Override(this, scope, jsii.String("integ-restapi-import-PetsStack"), props)
 //
-//   	api := restApi.fromRestApiAttributes(this, jsii.String("RestApi"), &restApiAttributes{
+//   	api := awscdk.RestApi.fromRestApiAttributes(this, jsii.String("RestApi"), &restApiAttributes{
 //   		restApiId: props.restApiId,
 //   		rootResourceId: props.rootResourceId,
 //   	})
 //
-//   	method := api.root.addResource(jsii.String("pets")).addMethod(jsii.String("GET"), NewMockIntegration(&integrationOptions{
+//   	method := api.root.addResource(jsii.String("pets")).addMethod(jsii.String("GET"), awscdk.NewMockIntegration(&integrationOptions{
 //   		integrationResponses: []integrationResponse{
 //   			&integrationResponse{
 //   				statusCode: jsii.String("200"),
 //   			},
 //   		},
-//   		passthroughBehavior: passthroughBehavior_NEVER,
+//   		passthroughBehavior: awscdk.PassthroughBehavior_NEVER,
 //   		requestTemplates: map[string]*string{
 //   			"application/json": jsii.String("{ \"statusCode\": 200 }"),
 //   		},
@@ -41567,18 +41961,18 @@ func (r *jsiiProxy_RestApi) Validate() *[]*string {
 //   	this := &booksStack{}
 //   	newNestedStack_Override(this, scope, jsii.String("integ-restapi-import-BooksStack"), props)
 //
-//   	api := restApi.fromRestApiAttributes(this, jsii.String("RestApi"), &restApiAttributes{
+//   	api := awscdk.RestApi.fromRestApiAttributes(this, jsii.String("RestApi"), &restApiAttributes{
 //   		restApiId: props.restApiId,
 //   		rootResourceId: props.rootResourceId,
 //   	})
 //
-//   	method := api.root.addResource(jsii.String("books")).addMethod(jsii.String("GET"), NewMockIntegration(&integrationOptions{
+//   	method := api.root.addResource(jsii.String("books")).addMethod(jsii.String("GET"), awscdk.NewMockIntegration(&integrationOptions{
 //   		integrationResponses: []*integrationResponse{
 //   			&integrationResponse{
 //   				statusCode: jsii.String("200"),
 //   			},
 //   		},
-//   		passthroughBehavior: *passthroughBehavior_NEVER,
+//   		passthroughBehavior: awscdk.PassthroughBehavior_NEVER,
 //   		requestTemplates: map[string]*string{
 //   			"application/json": jsii.String("{ \"statusCode\": 200 }"),
 //   		},
@@ -41608,39 +42002,41 @@ func (r *jsiiProxy_RestApi) Validate() *[]*string {
 //   	this := &deployStack{}
 //   	newNestedStack_Override(this, scope, jsii.String("integ-restapi-import-DeployStack"), props)
 //
-//   	deployment := NewDeployment(this, jsii.String("Deployment"), &deploymentProps{
-//   		api: *restApi.fromRestApiId(this, jsii.String("RestApi"), props.restApiId),
+//   	deployment := awscdk.NewDeployment(this, jsii.String("Deployment"), &deploymentProps{
+//   		api: awscdk.RestApi.fromRestApiId(this, jsii.String("RestApi"), props.restApiId),
 //   	})
 //   	if *props.methods {
 //   		for _, method := range *props.methods {
 //   			deployment.node.addDependency(method)
 //   		}
 //   	}
-//   	NewStage(this, jsii.String("Stage"), &stageProps{
+//   	awscdk.NewStage(this, jsii.String("Stage"), &stageProps{
 //   		deployment: deployment,
 //   	})
 //   	return this
 //   }
 //
-//   NewRootStack(NewApp())
+//   NewRootStack(awscdk.NewApp())
 //
 // Experimental.
 type RestApiAttributes struct {
 	// The ID of the API Gateway RestApi.
 	// Experimental.
-	RestApiId *string `json:"restApiId" yaml:"restApiId"`
+	RestApiId *string `field:"required" json:"restApiId" yaml:"restApiId"`
 	// The resource ID of the root resource.
 	// Experimental.
-	RootResourceId *string `json:"rootResourceId" yaml:"rootResourceId"`
+	RootResourceId *string `field:"required" json:"rootResourceId" yaml:"rootResourceId"`
 }
 
 // Base implementation that are common to various implementations of IRestApi.
 //
 // Example:
-//   import route53 "github.com/aws/aws-cdk-go/awscdk"import targets "github.com/aws/aws-cdk-go/awscdk"
+//   import route53 "github.com/aws/aws-cdk-go/awscdk"
+//   import targets "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var api restApi
 //   var hostedZoneForExampleCom interface{}
+//
 //
 //   route53.NewARecord(this, jsii.String("CustomDomainAliasRecord"), &aRecordProps{
 //   	zone: hostedZoneForExampleCom,
@@ -42365,7 +42761,13 @@ func (r *jsiiProxy_RestApiBase) Validate() *[]*string {
 // Represents the props that all Rest APIs share.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"import awscdk "github.com/aws/aws-cdk-go/awscdk"import certificatemanager "github.com/aws/aws-cdk-go/awscdk/aws_certificatemanager"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3 "github.com/aws/aws-cdk-go/awscdk/aws_s3"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var accessLogDestination iAccessLogDestination
 //   var accessLogFormat accessLogFormat
@@ -42373,6 +42775,7 @@ func (r *jsiiProxy_RestApiBase) Validate() *[]*string {
 //   var certificate certificate
 //   var duration duration
 //   var policyDocument policyDocument
+//
 //   restApiBaseProps := &restApiBaseProps{
 //   	cloudWatchRole: jsii.Boolean(false),
 //   	deploy: jsii.Boolean(false),
@@ -42388,14 +42791,14 @@ func (r *jsiiProxy_RestApiBase) Validate() *[]*string {
 //   		dataTraceEnabled: jsii.Boolean(false),
 //   		description: jsii.String("description"),
 //   		documentationVersion: jsii.String("documentationVersion"),
-//   		loggingLevel: apigateway.methodLoggingLevel_OFF,
+//   		loggingLevel: awscdk.Aws_apigateway.methodLoggingLevel_OFF,
 //   		methodOptions: map[string]methodDeploymentOptions{
 //   			"methodOptionsKey": &methodDeploymentOptions{
 //   				"cacheDataEncrypted": jsii.Boolean(false),
 //   				"cacheTtl": duration,
 //   				"cachingEnabled": jsii.Boolean(false),
 //   				"dataTraceEnabled": jsii.Boolean(false),
-//   				"loggingLevel": apigateway.*methodLoggingLevel_OFF,
+//   				"loggingLevel": awscdk.*Aws_apigateway.*methodLoggingLevel_OFF,
 //   				"metricsEnabled": jsii.Boolean(false),
 //   				"throttlingBurstLimit": jsii.Number(123),
 //   				"throttlingRateLimit": jsii.Number(123),
@@ -42417,7 +42820,7 @@ func (r *jsiiProxy_RestApiBase) Validate() *[]*string {
 //
 //   		// the properties below are optional
 //   		basePath: jsii.String("basePath"),
-//   		endpointType: apigateway.endpointType_EDGE,
+//   		endpointType: awscdk.*Aws_apigateway.endpointType_EDGE,
 //   		mtls: &mTLSConfig{
 //   			bucket: bucket,
 //   			key: jsii.String("key"),
@@ -42425,11 +42828,11 @@ func (r *jsiiProxy_RestApiBase) Validate() *[]*string {
 //   			// the properties below are optional
 //   			version: jsii.String("version"),
 //   		},
-//   		securityPolicy: apigateway.securityPolicy_TLS_1_0,
+//   		securityPolicy: awscdk.*Aws_apigateway.securityPolicy_TLS_1_0,
 //   	},
 //   	endpointExportName: jsii.String("endpointExportName"),
 //   	endpointTypes: []*endpointType{
-//   		apigateway.*endpointType_EDGE,
+//   		awscdk.*Aws_apigateway.*endpointType_EDGE,
 //   	},
 //   	failOnWarnings: jsii.Boolean(false),
 //   	parameters: map[string]*string{
@@ -42444,7 +42847,7 @@ func (r *jsiiProxy_RestApiBase) Validate() *[]*string {
 type RestApiBaseProps struct {
 	// Automatically configure an AWS CloudWatch role for API Gateway.
 	// Experimental.
-	CloudWatchRole *bool `json:"cloudWatchRole" yaml:"cloudWatchRole"`
+	CloudWatchRole *bool `field:"optional" json:"cloudWatchRole" yaml:"cloudWatchRole"`
 	// Indicates if a Deployment should be automatically created for this API, and recreated when the API model (resources, methods) changes.
 	//
 	// Since API Gateway deployments are immutable, When this option is enabled
@@ -42462,13 +42865,13 @@ type RestApiBaseProps struct {
 	// A CloudFormation Output will also be defined with the root URL endpoint
 	// of this REST API.
 	// Experimental.
-	Deploy *bool `json:"deploy" yaml:"deploy"`
+	Deploy *bool `field:"optional" json:"deploy" yaml:"deploy"`
 	// Options for the API Gateway stage that will always point to the latest deployment when `deploy` is enabled.
 	//
 	// If `deploy` is disabled,
 	// this value cannot be set.
 	// Experimental.
-	DeployOptions *StageOptions `json:"deployOptions" yaml:"deployOptions"`
+	DeployOptions *StageOptions `field:"optional" json:"deployOptions" yaml:"deployOptions"`
 	// Specifies whether clients can invoke the API using the default execute-api endpoint.
 	//
 	// To require that clients use a custom domain name to invoke the
@@ -42476,46 +42879,52 @@ type RestApiBaseProps struct {
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html
 	//
 	// Experimental.
-	DisableExecuteApiEndpoint *bool `json:"disableExecuteApiEndpoint" yaml:"disableExecuteApiEndpoint"`
+	DisableExecuteApiEndpoint *bool `field:"optional" json:"disableExecuteApiEndpoint" yaml:"disableExecuteApiEndpoint"`
 	// Configure a custom domain name and map it to this API.
 	// Experimental.
-	DomainName *DomainNameOptions `json:"domainName" yaml:"domainName"`
+	DomainName *DomainNameOptions `field:"optional" json:"domainName" yaml:"domainName"`
 	// Export name for the CfnOutput containing the API endpoint.
 	// Experimental.
-	EndpointExportName *string `json:"endpointExportName" yaml:"endpointExportName"`
+	EndpointExportName *string `field:"optional" json:"endpointExportName" yaml:"endpointExportName"`
 	// A list of the endpoint types of the API.
 	//
 	// Use this property when creating
 	// an API.
 	// Experimental.
-	EndpointTypes *[]EndpointType `json:"endpointTypes" yaml:"endpointTypes"`
+	EndpointTypes *[]EndpointType `field:"optional" json:"endpointTypes" yaml:"endpointTypes"`
 	// Indicates whether to roll back the resource if a warning occurs while API Gateway is creating the RestApi resource.
 	// Experimental.
-	FailOnWarnings *bool `json:"failOnWarnings" yaml:"failOnWarnings"`
+	FailOnWarnings *bool `field:"optional" json:"failOnWarnings" yaml:"failOnWarnings"`
 	// Custom header parameters for the request.
 	// See: https://docs.aws.amazon.com/cli/latest/reference/apigateway/import-rest-api.html
 	//
 	// Experimental.
-	Parameters *map[string]*string `json:"parameters" yaml:"parameters"`
+	Parameters *map[string]*string `field:"optional" json:"parameters" yaml:"parameters"`
 	// A policy document that contains the permissions for this RestApi.
 	// Experimental.
-	Policy awsiam.PolicyDocument `json:"policy" yaml:"policy"`
+	Policy awsiam.PolicyDocument `field:"optional" json:"policy" yaml:"policy"`
 	// A name for the API Gateway RestApi resource.
 	// Experimental.
-	RestApiName *string `json:"restApiName" yaml:"restApiName"`
+	RestApiName *string `field:"optional" json:"restApiName" yaml:"restApiName"`
 	// Retains old deployment resources when the API changes.
 	//
 	// This allows
 	// manually reverting stages to point to old deployments via the AWS
 	// Console.
 	// Experimental.
-	RetainDeployments *bool `json:"retainDeployments" yaml:"retainDeployments"`
+	RetainDeployments *bool `field:"optional" json:"retainDeployments" yaml:"retainDeployments"`
 }
 
 // Represents the props that all Rest APIs share.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"import awscdk "github.com/aws/aws-cdk-go/awscdk"import certificatemanager "github.com/aws/aws-cdk-go/awscdk/aws_certificatemanager"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3 "github.com/aws/aws-cdk-go/awscdk/aws_s3"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var accessLogDestination iAccessLogDestination
 //   var accessLogFormat accessLogFormat
@@ -42527,6 +42936,7 @@ type RestApiBaseProps struct {
 //   var model model
 //   var policyDocument policyDocument
 //   var requestValidator requestValidator
+//
 //   restApiOptions := &restApiOptions{
 //   	cloudWatchRole: jsii.Boolean(false),
 //   	defaultCorsPreflightOptions: &corsOptions{
@@ -42555,7 +42965,7 @@ type RestApiBaseProps struct {
 //   		authorizationScopes: []*string{
 //   			jsii.String("authorizationScopes"),
 //   		},
-//   		authorizationType: apigateway.authorizationType_NONE,
+//   		authorizationType: awscdk.Aws_apigateway.authorizationType_NONE,
 //   		authorizer: authorizer,
 //   		methodResponses: []methodResponse{
 //   			&methodResponse{
@@ -42597,14 +43007,14 @@ type RestApiBaseProps struct {
 //   		dataTraceEnabled: jsii.Boolean(false),
 //   		description: jsii.String("description"),
 //   		documentationVersion: jsii.String("documentationVersion"),
-//   		loggingLevel: apigateway.methodLoggingLevel_OFF,
+//   		loggingLevel: awscdk.*Aws_apigateway.methodLoggingLevel_OFF,
 //   		methodOptions: map[string]methodDeploymentOptions{
 //   			"methodOptionsKey": &methodDeploymentOptions{
 //   				"cacheDataEncrypted": jsii.Boolean(false),
 //   				"cacheTtl": duration,
 //   				"cachingEnabled": jsii.Boolean(false),
 //   				"dataTraceEnabled": jsii.Boolean(false),
-//   				"loggingLevel": apigateway.*methodLoggingLevel_OFF,
+//   				"loggingLevel": awscdk.*Aws_apigateway.*methodLoggingLevel_OFF,
 //   				"metricsEnabled": jsii.Boolean(false),
 //   				"throttlingBurstLimit": jsii.Number(123),
 //   				"throttlingRateLimit": jsii.Number(123),
@@ -42626,7 +43036,7 @@ type RestApiBaseProps struct {
 //
 //   		// the properties below are optional
 //   		basePath: jsii.String("basePath"),
-//   		endpointType: apigateway.endpointType_EDGE,
+//   		endpointType: awscdk.*Aws_apigateway.endpointType_EDGE,
 //   		mtls: &mTLSConfig{
 //   			bucket: bucket,
 //   			key: jsii.String("key"),
@@ -42634,11 +43044,11 @@ type RestApiBaseProps struct {
 //   			// the properties below are optional
 //   			version: jsii.String("version"),
 //   		},
-//   		securityPolicy: apigateway.securityPolicy_TLS_1_0,
+//   		securityPolicy: awscdk.*Aws_apigateway.securityPolicy_TLS_1_0,
 //   	},
 //   	endpointExportName: jsii.String("endpointExportName"),
 //   	endpointTypes: []*endpointType{
-//   		apigateway.*endpointType_EDGE,
+//   		awscdk.*Aws_apigateway.*endpointType_EDGE,
 //   	},
 //   	failOnWarnings: jsii.Boolean(false),
 //   	parameters: map[string]*string{
@@ -42653,7 +43063,7 @@ type RestApiBaseProps struct {
 type RestApiOptions struct {
 	// Automatically configure an AWS CloudWatch role for API Gateway.
 	// Deprecated: - superseded by `RestApiBaseProps`.
-	CloudWatchRole *bool `json:"cloudWatchRole" yaml:"cloudWatchRole"`
+	CloudWatchRole *bool `field:"optional" json:"cloudWatchRole" yaml:"cloudWatchRole"`
 	// Indicates if a Deployment should be automatically created for this API, and recreated when the API model (resources, methods) changes.
 	//
 	// Since API Gateway deployments are immutable, When this option is enabled
@@ -42671,13 +43081,13 @@ type RestApiOptions struct {
 	// A CloudFormation Output will also be defined with the root URL endpoint
 	// of this REST API.
 	// Deprecated: - superseded by `RestApiBaseProps`.
-	Deploy *bool `json:"deploy" yaml:"deploy"`
+	Deploy *bool `field:"optional" json:"deploy" yaml:"deploy"`
 	// Options for the API Gateway stage that will always point to the latest deployment when `deploy` is enabled.
 	//
 	// If `deploy` is disabled,
 	// this value cannot be set.
 	// Deprecated: - superseded by `RestApiBaseProps`.
-	DeployOptions *StageOptions `json:"deployOptions" yaml:"deployOptions"`
+	DeployOptions *StageOptions `field:"optional" json:"deployOptions" yaml:"deployOptions"`
 	// Specifies whether clients can invoke the API using the default execute-api endpoint.
 	//
 	// To require that clients use a custom domain name to invoke the
@@ -42685,51 +43095,51 @@ type RestApiOptions struct {
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html
 	//
 	// Deprecated: - superseded by `RestApiBaseProps`.
-	DisableExecuteApiEndpoint *bool `json:"disableExecuteApiEndpoint" yaml:"disableExecuteApiEndpoint"`
+	DisableExecuteApiEndpoint *bool `field:"optional" json:"disableExecuteApiEndpoint" yaml:"disableExecuteApiEndpoint"`
 	// Configure a custom domain name and map it to this API.
 	// Deprecated: - superseded by `RestApiBaseProps`.
-	DomainName *DomainNameOptions `json:"domainName" yaml:"domainName"`
+	DomainName *DomainNameOptions `field:"optional" json:"domainName" yaml:"domainName"`
 	// Export name for the CfnOutput containing the API endpoint.
 	// Deprecated: - superseded by `RestApiBaseProps`.
-	EndpointExportName *string `json:"endpointExportName" yaml:"endpointExportName"`
+	EndpointExportName *string `field:"optional" json:"endpointExportName" yaml:"endpointExportName"`
 	// A list of the endpoint types of the API.
 	//
 	// Use this property when creating
 	// an API.
 	// Deprecated: - superseded by `RestApiBaseProps`.
-	EndpointTypes *[]EndpointType `json:"endpointTypes" yaml:"endpointTypes"`
+	EndpointTypes *[]EndpointType `field:"optional" json:"endpointTypes" yaml:"endpointTypes"`
 	// Indicates whether to roll back the resource if a warning occurs while API Gateway is creating the RestApi resource.
 	// Deprecated: - superseded by `RestApiBaseProps`.
-	FailOnWarnings *bool `json:"failOnWarnings" yaml:"failOnWarnings"`
+	FailOnWarnings *bool `field:"optional" json:"failOnWarnings" yaml:"failOnWarnings"`
 	// Custom header parameters for the request.
 	// See: https://docs.aws.amazon.com/cli/latest/reference/apigateway/import-rest-api.html
 	//
 	// Deprecated: - superseded by `RestApiBaseProps`.
-	Parameters *map[string]*string `json:"parameters" yaml:"parameters"`
+	Parameters *map[string]*string `field:"optional" json:"parameters" yaml:"parameters"`
 	// A policy document that contains the permissions for this RestApi.
 	// Deprecated: - superseded by `RestApiBaseProps`.
-	Policy awsiam.PolicyDocument `json:"policy" yaml:"policy"`
+	Policy awsiam.PolicyDocument `field:"optional" json:"policy" yaml:"policy"`
 	// A name for the API Gateway RestApi resource.
 	// Deprecated: - superseded by `RestApiBaseProps`.
-	RestApiName *string `json:"restApiName" yaml:"restApiName"`
+	RestApiName *string `field:"optional" json:"restApiName" yaml:"restApiName"`
 	// Retains old deployment resources when the API changes.
 	//
 	// This allows
 	// manually reverting stages to point to old deployments via the AWS
 	// Console.
 	// Deprecated: - superseded by `RestApiBaseProps`.
-	RetainDeployments *bool `json:"retainDeployments" yaml:"retainDeployments"`
+	RetainDeployments *bool `field:"optional" json:"retainDeployments" yaml:"retainDeployments"`
 	// Adds a CORS preflight OPTIONS method to this resource and all child resources.
 	//
 	// You can add CORS at the resource-level using `addCorsPreflight`.
 	// Deprecated: - superseded by `RestApiBaseProps`.
-	DefaultCorsPreflightOptions *CorsOptions `json:"defaultCorsPreflightOptions" yaml:"defaultCorsPreflightOptions"`
+	DefaultCorsPreflightOptions *CorsOptions `field:"optional" json:"defaultCorsPreflightOptions" yaml:"defaultCorsPreflightOptions"`
 	// An integration to use as a default for all methods created within this API unless an integration is specified.
 	// Deprecated: - superseded by `RestApiBaseProps`.
-	DefaultIntegration Integration `json:"defaultIntegration" yaml:"defaultIntegration"`
+	DefaultIntegration Integration `field:"optional" json:"defaultIntegration" yaml:"defaultIntegration"`
 	// Method options to use as a default for all methods created within this API unless custom options are specified.
 	// Deprecated: - superseded by `RestApiBaseProps`.
-	DefaultMethodOptions *MethodOptions `json:"defaultMethodOptions" yaml:"defaultMethodOptions"`
+	DefaultMethodOptions *MethodOptions `field:"optional" json:"defaultMethodOptions" yaml:"defaultMethodOptions"`
 }
 
 // Props to create a new instance of RestApi.
@@ -42749,7 +43159,7 @@ type RestApiOptions struct {
 type RestApiProps struct {
 	// Automatically configure an AWS CloudWatch role for API Gateway.
 	// Experimental.
-	CloudWatchRole *bool `json:"cloudWatchRole" yaml:"cloudWatchRole"`
+	CloudWatchRole *bool `field:"optional" json:"cloudWatchRole" yaml:"cloudWatchRole"`
 	// Indicates if a Deployment should be automatically created for this API, and recreated when the API model (resources, methods) changes.
 	//
 	// Since API Gateway deployments are immutable, When this option is enabled
@@ -42767,13 +43177,13 @@ type RestApiProps struct {
 	// A CloudFormation Output will also be defined with the root URL endpoint
 	// of this REST API.
 	// Experimental.
-	Deploy *bool `json:"deploy" yaml:"deploy"`
+	Deploy *bool `field:"optional" json:"deploy" yaml:"deploy"`
 	// Options for the API Gateway stage that will always point to the latest deployment when `deploy` is enabled.
 	//
 	// If `deploy` is disabled,
 	// this value cannot be set.
 	// Experimental.
-	DeployOptions *StageOptions `json:"deployOptions" yaml:"deployOptions"`
+	DeployOptions *StageOptions `field:"optional" json:"deployOptions" yaml:"deployOptions"`
 	// Specifies whether clients can invoke the API using the default execute-api endpoint.
 	//
 	// To require that clients use a custom domain name to invoke the
@@ -42781,68 +43191,68 @@ type RestApiProps struct {
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html
 	//
 	// Experimental.
-	DisableExecuteApiEndpoint *bool `json:"disableExecuteApiEndpoint" yaml:"disableExecuteApiEndpoint"`
+	DisableExecuteApiEndpoint *bool `field:"optional" json:"disableExecuteApiEndpoint" yaml:"disableExecuteApiEndpoint"`
 	// Configure a custom domain name and map it to this API.
 	// Experimental.
-	DomainName *DomainNameOptions `json:"domainName" yaml:"domainName"`
+	DomainName *DomainNameOptions `field:"optional" json:"domainName" yaml:"domainName"`
 	// Export name for the CfnOutput containing the API endpoint.
 	// Experimental.
-	EndpointExportName *string `json:"endpointExportName" yaml:"endpointExportName"`
+	EndpointExportName *string `field:"optional" json:"endpointExportName" yaml:"endpointExportName"`
 	// A list of the endpoint types of the API.
 	//
 	// Use this property when creating
 	// an API.
 	// Experimental.
-	EndpointTypes *[]EndpointType `json:"endpointTypes" yaml:"endpointTypes"`
+	EndpointTypes *[]EndpointType `field:"optional" json:"endpointTypes" yaml:"endpointTypes"`
 	// Indicates whether to roll back the resource if a warning occurs while API Gateway is creating the RestApi resource.
 	// Experimental.
-	FailOnWarnings *bool `json:"failOnWarnings" yaml:"failOnWarnings"`
+	FailOnWarnings *bool `field:"optional" json:"failOnWarnings" yaml:"failOnWarnings"`
 	// Custom header parameters for the request.
 	// See: https://docs.aws.amazon.com/cli/latest/reference/apigateway/import-rest-api.html
 	//
 	// Experimental.
-	Parameters *map[string]*string `json:"parameters" yaml:"parameters"`
+	Parameters *map[string]*string `field:"optional" json:"parameters" yaml:"parameters"`
 	// A policy document that contains the permissions for this RestApi.
 	// Experimental.
-	Policy awsiam.PolicyDocument `json:"policy" yaml:"policy"`
+	Policy awsiam.PolicyDocument `field:"optional" json:"policy" yaml:"policy"`
 	// A name for the API Gateway RestApi resource.
 	// Experimental.
-	RestApiName *string `json:"restApiName" yaml:"restApiName"`
+	RestApiName *string `field:"optional" json:"restApiName" yaml:"restApiName"`
 	// Retains old deployment resources when the API changes.
 	//
 	// This allows
 	// manually reverting stages to point to old deployments via the AWS
 	// Console.
 	// Experimental.
-	RetainDeployments *bool `json:"retainDeployments" yaml:"retainDeployments"`
+	RetainDeployments *bool `field:"optional" json:"retainDeployments" yaml:"retainDeployments"`
 	// Adds a CORS preflight OPTIONS method to this resource and all child resources.
 	//
 	// You can add CORS at the resource-level using `addCorsPreflight`.
 	// Experimental.
-	DefaultCorsPreflightOptions *CorsOptions `json:"defaultCorsPreflightOptions" yaml:"defaultCorsPreflightOptions"`
+	DefaultCorsPreflightOptions *CorsOptions `field:"optional" json:"defaultCorsPreflightOptions" yaml:"defaultCorsPreflightOptions"`
 	// An integration to use as a default for all methods created within this API unless an integration is specified.
 	// Experimental.
-	DefaultIntegration Integration `json:"defaultIntegration" yaml:"defaultIntegration"`
+	DefaultIntegration Integration `field:"optional" json:"defaultIntegration" yaml:"defaultIntegration"`
 	// Method options to use as a default for all methods created within this API unless custom options are specified.
 	// Experimental.
-	DefaultMethodOptions *MethodOptions `json:"defaultMethodOptions" yaml:"defaultMethodOptions"`
+	DefaultMethodOptions *MethodOptions `field:"optional" json:"defaultMethodOptions" yaml:"defaultMethodOptions"`
 	// The source of the API key for metering requests according to a usage plan.
 	// Experimental.
-	ApiKeySourceType ApiKeySourceType `json:"apiKeySourceType" yaml:"apiKeySourceType"`
+	ApiKeySourceType ApiKeySourceType `field:"optional" json:"apiKeySourceType" yaml:"apiKeySourceType"`
 	// The list of binary media mime-types that are supported by the RestApi resource, such as "image/png" or "application/octet-stream".
 	// Experimental.
-	BinaryMediaTypes *[]*string `json:"binaryMediaTypes" yaml:"binaryMediaTypes"`
+	BinaryMediaTypes *[]*string `field:"optional" json:"binaryMediaTypes" yaml:"binaryMediaTypes"`
 	// The ID of the API Gateway RestApi resource that you want to clone.
 	// Experimental.
-	CloneFrom IRestApi `json:"cloneFrom" yaml:"cloneFrom"`
+	CloneFrom IRestApi `field:"optional" json:"cloneFrom" yaml:"cloneFrom"`
 	// A description of the purpose of this API Gateway RestApi resource.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The EndpointConfiguration property type specifies the endpoint types of a REST API.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-endpointconfiguration.html
 	//
 	// Experimental.
-	EndpointConfiguration *EndpointConfiguration `json:"endpointConfiguration" yaml:"endpointConfiguration"`
+	EndpointConfiguration *EndpointConfiguration `field:"optional" json:"endpointConfiguration" yaml:"endpointConfiguration"`
 	// A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (when undefined) on an API.
 	//
 	// When compression is enabled, compression or
@@ -42850,16 +43260,20 @@ type RestApiProps struct {
 	// smaller than this value. Setting it to zero allows compression for any
 	// payload size.
 	// Experimental.
-	MinimumCompressionSize *float64 `json:"minimumCompressionSize" yaml:"minimumCompressionSize"`
+	MinimumCompressionSize *float64 `field:"optional" json:"minimumCompressionSize" yaml:"minimumCompressionSize"`
 }
 
 // OpenAPI specification from an S3 archive.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3 "github.com/aws/aws-cdk-go/awscdk/aws_s3"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var bucket bucket
-//   s3ApiDefinition := apigateway.NewS3ApiDefinition(bucket, jsii.String("key"), jsii.String("objectVersion"))
+//
+//   s3ApiDefinition := awscdk.Aws_apigateway.NewS3ApiDefinition(bucket, jsii.String("key"), jsii.String("objectVersion"))
 //
 // Experimental.
 type S3ApiDefinition interface {
@@ -43029,6 +43443,7 @@ func (s *jsiiProxy_S3ApiDefinition) BindAfterCreate(_scope awscdk.Construct, _re
 // Example:
 //   var acmCertificateForExampleCom interface{}
 //
+//
 //   apigateway.NewDomainName(this, jsii.String("custom-domain"), &domainNameProps{
 //   	domainName: jsii.String("example.com"),
 //   	certificate: acmCertificateForExampleCom,
@@ -43060,6 +43475,7 @@ const (
 //
 // Example:
 //   var integration integration
+//
 //
 //   api := apigateway.NewSpecRestApi(this, jsii.String("books-api"), &specRestApiProps{
 //   	apiDefinition: apigateway.apiDefinition.fromAsset(jsii.String("path-to-file.json")),
@@ -43801,6 +44217,7 @@ func (s *jsiiProxy_SpecRestApi) Validate() *[]*string {
 // Example:
 //   var integration integration
 //
+//
 //   api := apigateway.NewSpecRestApi(this, jsii.String("books-api"), &specRestApiProps{
 //   	apiDefinition: apigateway.apiDefinition.fromAsset(jsii.String("path-to-file.json")),
 //   })
@@ -43812,7 +44229,7 @@ func (s *jsiiProxy_SpecRestApi) Validate() *[]*string {
 type SpecRestApiProps struct {
 	// Automatically configure an AWS CloudWatch role for API Gateway.
 	// Experimental.
-	CloudWatchRole *bool `json:"cloudWatchRole" yaml:"cloudWatchRole"`
+	CloudWatchRole *bool `field:"optional" json:"cloudWatchRole" yaml:"cloudWatchRole"`
 	// Indicates if a Deployment should be automatically created for this API, and recreated when the API model (resources, methods) changes.
 	//
 	// Since API Gateway deployments are immutable, When this option is enabled
@@ -43830,13 +44247,13 @@ type SpecRestApiProps struct {
 	// A CloudFormation Output will also be defined with the root URL endpoint
 	// of this REST API.
 	// Experimental.
-	Deploy *bool `json:"deploy" yaml:"deploy"`
+	Deploy *bool `field:"optional" json:"deploy" yaml:"deploy"`
 	// Options for the API Gateway stage that will always point to the latest deployment when `deploy` is enabled.
 	//
 	// If `deploy` is disabled,
 	// this value cannot be set.
 	// Experimental.
-	DeployOptions *StageOptions `json:"deployOptions" yaml:"deployOptions"`
+	DeployOptions *StageOptions `field:"optional" json:"deployOptions" yaml:"deployOptions"`
 	// Specifies whether clients can invoke the API using the default execute-api endpoint.
 	//
 	// To require that clients use a custom domain name to invoke the
@@ -43844,45 +44261,45 @@ type SpecRestApiProps struct {
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html
 	//
 	// Experimental.
-	DisableExecuteApiEndpoint *bool `json:"disableExecuteApiEndpoint" yaml:"disableExecuteApiEndpoint"`
+	DisableExecuteApiEndpoint *bool `field:"optional" json:"disableExecuteApiEndpoint" yaml:"disableExecuteApiEndpoint"`
 	// Configure a custom domain name and map it to this API.
 	// Experimental.
-	DomainName *DomainNameOptions `json:"domainName" yaml:"domainName"`
+	DomainName *DomainNameOptions `field:"optional" json:"domainName" yaml:"domainName"`
 	// Export name for the CfnOutput containing the API endpoint.
 	// Experimental.
-	EndpointExportName *string `json:"endpointExportName" yaml:"endpointExportName"`
+	EndpointExportName *string `field:"optional" json:"endpointExportName" yaml:"endpointExportName"`
 	// A list of the endpoint types of the API.
 	//
 	// Use this property when creating
 	// an API.
 	// Experimental.
-	EndpointTypes *[]EndpointType `json:"endpointTypes" yaml:"endpointTypes"`
+	EndpointTypes *[]EndpointType `field:"optional" json:"endpointTypes" yaml:"endpointTypes"`
 	// Indicates whether to roll back the resource if a warning occurs while API Gateway is creating the RestApi resource.
 	// Experimental.
-	FailOnWarnings *bool `json:"failOnWarnings" yaml:"failOnWarnings"`
+	FailOnWarnings *bool `field:"optional" json:"failOnWarnings" yaml:"failOnWarnings"`
 	// Custom header parameters for the request.
 	// See: https://docs.aws.amazon.com/cli/latest/reference/apigateway/import-rest-api.html
 	//
 	// Experimental.
-	Parameters *map[string]*string `json:"parameters" yaml:"parameters"`
+	Parameters *map[string]*string `field:"optional" json:"parameters" yaml:"parameters"`
 	// A policy document that contains the permissions for this RestApi.
 	// Experimental.
-	Policy awsiam.PolicyDocument `json:"policy" yaml:"policy"`
+	Policy awsiam.PolicyDocument `field:"optional" json:"policy" yaml:"policy"`
 	// A name for the API Gateway RestApi resource.
 	// Experimental.
-	RestApiName *string `json:"restApiName" yaml:"restApiName"`
+	RestApiName *string `field:"optional" json:"restApiName" yaml:"restApiName"`
 	// Retains old deployment resources when the API changes.
 	//
 	// This allows
 	// manually reverting stages to point to old deployments via the AWS
 	// Console.
 	// Experimental.
-	RetainDeployments *bool `json:"retainDeployments" yaml:"retainDeployments"`
+	RetainDeployments *bool `field:"optional" json:"retainDeployments" yaml:"retainDeployments"`
 	// An OpenAPI definition compatible with API Gateway.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html
 	//
 	// Experimental.
-	ApiDefinition ApiDefinition `json:"apiDefinition" yaml:"apiDefinition"`
+	ApiDefinition ApiDefinition `field:"required" json:"apiDefinition" yaml:"apiDefinition"`
 }
 
 // Example:
@@ -44324,7 +44741,7 @@ func (s *jsiiProxy_Stage) Validate() *[]*string {
 type StageOptions struct {
 	// Indicates whether the cached responses are encrypted.
 	// Experimental.
-	CacheDataEncrypted *bool `json:"cacheDataEncrypted" yaml:"cacheDataEncrypted"`
+	CacheDataEncrypted *bool `field:"optional" json:"cacheDataEncrypted" yaml:"cacheDataEncrypted"`
 	// Specifies the time to live (TTL), in seconds, for cached responses.
 	//
 	// The
@@ -44332,84 +44749,84 @@ type StageOptions struct {
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html
 	//
 	// Experimental.
-	CacheTtl awscdk.Duration `json:"cacheTtl" yaml:"cacheTtl"`
+	CacheTtl awscdk.Duration `field:"optional" json:"cacheTtl" yaml:"cacheTtl"`
 	// Specifies whether responses should be cached and returned for requests.
 	//
 	// A
 	// cache cluster must be enabled on the stage for responses to be cached.
 	// Experimental.
-	CachingEnabled *bool `json:"cachingEnabled" yaml:"cachingEnabled"`
+	CachingEnabled *bool `field:"optional" json:"cachingEnabled" yaml:"cachingEnabled"`
 	// Specifies whether data trace logging is enabled for this method.
 	//
 	// When enabled, API gateway will log the full API requests and responses.
 	// This can be useful to troubleshoot APIs, but can result in logging sensitive data.
 	// We recommend that you don't enable this feature for production APIs.
 	// Experimental.
-	DataTraceEnabled *bool `json:"dataTraceEnabled" yaml:"dataTraceEnabled"`
+	DataTraceEnabled *bool `field:"optional" json:"dataTraceEnabled" yaml:"dataTraceEnabled"`
 	// Specifies the logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
 	// Experimental.
-	LoggingLevel MethodLoggingLevel `json:"loggingLevel" yaml:"loggingLevel"`
+	LoggingLevel MethodLoggingLevel `field:"optional" json:"loggingLevel" yaml:"loggingLevel"`
 	// Specifies whether Amazon CloudWatch metrics are enabled for this method.
 	// Experimental.
-	MetricsEnabled *bool `json:"metricsEnabled" yaml:"metricsEnabled"`
+	MetricsEnabled *bool `field:"optional" json:"metricsEnabled" yaml:"metricsEnabled"`
 	// Specifies the throttling burst limit.
 	//
 	// The total rate of all requests in your AWS account is limited to 5,000 requests.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html
 	//
 	// Experimental.
-	ThrottlingBurstLimit *float64 `json:"throttlingBurstLimit" yaml:"throttlingBurstLimit"`
+	ThrottlingBurstLimit *float64 `field:"optional" json:"throttlingBurstLimit" yaml:"throttlingBurstLimit"`
 	// Specifies the throttling rate limit.
 	//
 	// The total rate of all requests in your AWS account is limited to 10,000 requests per second (rps).
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html
 	//
 	// Experimental.
-	ThrottlingRateLimit *float64 `json:"throttlingRateLimit" yaml:"throttlingRateLimit"`
+	ThrottlingRateLimit *float64 `field:"optional" json:"throttlingRateLimit" yaml:"throttlingRateLimit"`
 	// The CloudWatch Logs log group.
 	// Experimental.
-	AccessLogDestination IAccessLogDestination `json:"accessLogDestination" yaml:"accessLogDestination"`
+	AccessLogDestination IAccessLogDestination `field:"optional" json:"accessLogDestination" yaml:"accessLogDestination"`
 	// A single line format of access logs of data, as specified by selected $content variables.
 	//
 	// The format must include at least `AccessLogFormat.contextRequestId()`.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#context-variable-reference
 	//
 	// Experimental.
-	AccessLogFormat AccessLogFormat `json:"accessLogFormat" yaml:"accessLogFormat"`
+	AccessLogFormat AccessLogFormat `field:"optional" json:"accessLogFormat" yaml:"accessLogFormat"`
 	// Indicates whether cache clustering is enabled for the stage.
 	// Experimental.
-	CacheClusterEnabled *bool `json:"cacheClusterEnabled" yaml:"cacheClusterEnabled"`
+	CacheClusterEnabled *bool `field:"optional" json:"cacheClusterEnabled" yaml:"cacheClusterEnabled"`
 	// The stage's cache cluster size.
 	// Experimental.
-	CacheClusterSize *string `json:"cacheClusterSize" yaml:"cacheClusterSize"`
+	CacheClusterSize *string `field:"optional" json:"cacheClusterSize" yaml:"cacheClusterSize"`
 	// The identifier of the client certificate that API Gateway uses to call your integration endpoints in the stage.
 	// Experimental.
-	ClientCertificateId *string `json:"clientCertificateId" yaml:"clientCertificateId"`
+	ClientCertificateId *string `field:"optional" json:"clientCertificateId" yaml:"clientCertificateId"`
 	// A description of the purpose of the stage.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The version identifier of the API documentation snapshot.
 	// Experimental.
-	DocumentationVersion *string `json:"documentationVersion" yaml:"documentationVersion"`
+	DocumentationVersion *string `field:"optional" json:"documentationVersion" yaml:"documentationVersion"`
 	// Method deployment options for specific resources/methods.
 	//
 	// These will
 	// override common options defined in `StageOptions#methodOptions`.
 	// Experimental.
-	MethodOptions *map[string]*MethodDeploymentOptions `json:"methodOptions" yaml:"methodOptions"`
+	MethodOptions *map[string]*MethodDeploymentOptions `field:"optional" json:"methodOptions" yaml:"methodOptions"`
 	// The name of the stage, which API Gateway uses as the first path segment in the invoked Uniform Resource Identifier (URI).
 	// Experimental.
-	StageName *string `json:"stageName" yaml:"stageName"`
+	StageName *string `field:"optional" json:"stageName" yaml:"stageName"`
 	// Specifies whether Amazon X-Ray tracing is enabled for this method.
 	// Experimental.
-	TracingEnabled *bool `json:"tracingEnabled" yaml:"tracingEnabled"`
+	TracingEnabled *bool `field:"optional" json:"tracingEnabled" yaml:"tracingEnabled"`
 	// A map that defines the stage variables.
 	//
 	// Variable names must consist of
 	// alphanumeric characters, and the values must match the following regular
 	// expression: [A-Za-z0-9-._~:/?#&amp;=,]+.
 	// Experimental.
-	Variables *map[string]*string `json:"variables" yaml:"variables"`
+	Variables *map[string]*string `field:"optional" json:"variables" yaml:"variables"`
 }
 
 // Example:
@@ -44447,7 +44864,7 @@ type StageOptions struct {
 type StageProps struct {
 	// Indicates whether the cached responses are encrypted.
 	// Experimental.
-	CacheDataEncrypted *bool `json:"cacheDataEncrypted" yaml:"cacheDataEncrypted"`
+	CacheDataEncrypted *bool `field:"optional" json:"cacheDataEncrypted" yaml:"cacheDataEncrypted"`
 	// Specifies the time to live (TTL), in seconds, for cached responses.
 	//
 	// The
@@ -44455,105 +44872,110 @@ type StageProps struct {
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html
 	//
 	// Experimental.
-	CacheTtl awscdk.Duration `json:"cacheTtl" yaml:"cacheTtl"`
+	CacheTtl awscdk.Duration `field:"optional" json:"cacheTtl" yaml:"cacheTtl"`
 	// Specifies whether responses should be cached and returned for requests.
 	//
 	// A
 	// cache cluster must be enabled on the stage for responses to be cached.
 	// Experimental.
-	CachingEnabled *bool `json:"cachingEnabled" yaml:"cachingEnabled"`
+	CachingEnabled *bool `field:"optional" json:"cachingEnabled" yaml:"cachingEnabled"`
 	// Specifies whether data trace logging is enabled for this method.
 	//
 	// When enabled, API gateway will log the full API requests and responses.
 	// This can be useful to troubleshoot APIs, but can result in logging sensitive data.
 	// We recommend that you don't enable this feature for production APIs.
 	// Experimental.
-	DataTraceEnabled *bool `json:"dataTraceEnabled" yaml:"dataTraceEnabled"`
+	DataTraceEnabled *bool `field:"optional" json:"dataTraceEnabled" yaml:"dataTraceEnabled"`
 	// Specifies the logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
 	// Experimental.
-	LoggingLevel MethodLoggingLevel `json:"loggingLevel" yaml:"loggingLevel"`
+	LoggingLevel MethodLoggingLevel `field:"optional" json:"loggingLevel" yaml:"loggingLevel"`
 	// Specifies whether Amazon CloudWatch metrics are enabled for this method.
 	// Experimental.
-	MetricsEnabled *bool `json:"metricsEnabled" yaml:"metricsEnabled"`
+	MetricsEnabled *bool `field:"optional" json:"metricsEnabled" yaml:"metricsEnabled"`
 	// Specifies the throttling burst limit.
 	//
 	// The total rate of all requests in your AWS account is limited to 5,000 requests.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html
 	//
 	// Experimental.
-	ThrottlingBurstLimit *float64 `json:"throttlingBurstLimit" yaml:"throttlingBurstLimit"`
+	ThrottlingBurstLimit *float64 `field:"optional" json:"throttlingBurstLimit" yaml:"throttlingBurstLimit"`
 	// Specifies the throttling rate limit.
 	//
 	// The total rate of all requests in your AWS account is limited to 10,000 requests per second (rps).
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html
 	//
 	// Experimental.
-	ThrottlingRateLimit *float64 `json:"throttlingRateLimit" yaml:"throttlingRateLimit"`
+	ThrottlingRateLimit *float64 `field:"optional" json:"throttlingRateLimit" yaml:"throttlingRateLimit"`
 	// The CloudWatch Logs log group.
 	// Experimental.
-	AccessLogDestination IAccessLogDestination `json:"accessLogDestination" yaml:"accessLogDestination"`
+	AccessLogDestination IAccessLogDestination `field:"optional" json:"accessLogDestination" yaml:"accessLogDestination"`
 	// A single line format of access logs of data, as specified by selected $content variables.
 	//
 	// The format must include at least `AccessLogFormat.contextRequestId()`.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#context-variable-reference
 	//
 	// Experimental.
-	AccessLogFormat AccessLogFormat `json:"accessLogFormat" yaml:"accessLogFormat"`
+	AccessLogFormat AccessLogFormat `field:"optional" json:"accessLogFormat" yaml:"accessLogFormat"`
 	// Indicates whether cache clustering is enabled for the stage.
 	// Experimental.
-	CacheClusterEnabled *bool `json:"cacheClusterEnabled" yaml:"cacheClusterEnabled"`
+	CacheClusterEnabled *bool `field:"optional" json:"cacheClusterEnabled" yaml:"cacheClusterEnabled"`
 	// The stage's cache cluster size.
 	// Experimental.
-	CacheClusterSize *string `json:"cacheClusterSize" yaml:"cacheClusterSize"`
+	CacheClusterSize *string `field:"optional" json:"cacheClusterSize" yaml:"cacheClusterSize"`
 	// The identifier of the client certificate that API Gateway uses to call your integration endpoints in the stage.
 	// Experimental.
-	ClientCertificateId *string `json:"clientCertificateId" yaml:"clientCertificateId"`
+	ClientCertificateId *string `field:"optional" json:"clientCertificateId" yaml:"clientCertificateId"`
 	// A description of the purpose of the stage.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The version identifier of the API documentation snapshot.
 	// Experimental.
-	DocumentationVersion *string `json:"documentationVersion" yaml:"documentationVersion"`
+	DocumentationVersion *string `field:"optional" json:"documentationVersion" yaml:"documentationVersion"`
 	// Method deployment options for specific resources/methods.
 	//
 	// These will
 	// override common options defined in `StageOptions#methodOptions`.
 	// Experimental.
-	MethodOptions *map[string]*MethodDeploymentOptions `json:"methodOptions" yaml:"methodOptions"`
+	MethodOptions *map[string]*MethodDeploymentOptions `field:"optional" json:"methodOptions" yaml:"methodOptions"`
 	// The name of the stage, which API Gateway uses as the first path segment in the invoked Uniform Resource Identifier (URI).
 	// Experimental.
-	StageName *string `json:"stageName" yaml:"stageName"`
+	StageName *string `field:"optional" json:"stageName" yaml:"stageName"`
 	// Specifies whether Amazon X-Ray tracing is enabled for this method.
 	// Experimental.
-	TracingEnabled *bool `json:"tracingEnabled" yaml:"tracingEnabled"`
+	TracingEnabled *bool `field:"optional" json:"tracingEnabled" yaml:"tracingEnabled"`
 	// A map that defines the stage variables.
 	//
 	// Variable names must consist of
 	// alphanumeric characters, and the values must match the following regular
 	// expression: [A-Za-z0-9-._~:/?#&amp;=,]+.
 	// Experimental.
-	Variables *map[string]*string `json:"variables" yaml:"variables"`
+	Variables *map[string]*string `field:"optional" json:"variables" yaml:"variables"`
 	// The deployment that this stage points to [disable-awslint:ref-via-interface].
 	// Experimental.
-	Deployment Deployment `json:"deployment" yaml:"deployment"`
+	Deployment Deployment `field:"required" json:"deployment" yaml:"deployment"`
 }
 
 // Options when configuring Step Functions synchronous integration with Rest API.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var role role
 //   var vpcLink vpcLink
+//
 //   stepFunctionsExecutionIntegrationOptions := &stepFunctionsExecutionIntegrationOptions{
 //   	authorizer: jsii.Boolean(false),
 //   	cacheKeyParameters: []*string{
 //   		jsii.String("cacheKeyParameters"),
 //   	},
 //   	cacheNamespace: jsii.String("cacheNamespace"),
-//   	connectionType: apigateway.connectionType_INTERNET,
-//   	contentHandling: apigateway.contentHandling_CONVERT_TO_BINARY,
+//   	connectionType: awscdk.Aws_apigateway.connectionType_INTERNET,
+//   	contentHandling: awscdk.*Aws_apigateway.contentHandling_CONVERT_TO_BINARY,
 //   	credentialsPassthrough: jsii.Boolean(false),
 //   	credentialsRole: role,
 //   	headers: jsii.Boolean(false),
@@ -44562,7 +44984,7 @@ type StageProps struct {
 //   			statusCode: jsii.String("statusCode"),
 //
 //   			// the properties below are optional
-//   			contentHandling: apigateway.*contentHandling_CONVERT_TO_BINARY,
+//   			contentHandling: awscdk.*Aws_apigateway.*contentHandling_CONVERT_TO_BINARY,
 //   			responseParameters: map[string]*string{
 //   				"responseParametersKey": jsii.String("responseParameters"),
 //   			},
@@ -44572,7 +44994,7 @@ type StageProps struct {
 //   			selectionPattern: jsii.String("selectionPattern"),
 //   		},
 //   	},
-//   	passthroughBehavior: apigateway.passthroughBehavior_WHEN_NO_MATCH,
+//   	passthroughBehavior: awscdk.*Aws_apigateway.passthroughBehavior_WHEN_NO_MATCH,
 //   	path: jsii.Boolean(false),
 //   	querystring: jsii.Boolean(false),
 //   	requestContext: &requestContext{
@@ -44612,24 +45034,24 @@ type StepFunctionsExecutionIntegrationOptions struct {
 	// It determines
 	// request parameters that will make it into the cache key.
 	// Experimental.
-	CacheKeyParameters *[]*string `json:"cacheKeyParameters" yaml:"cacheKeyParameters"`
+	CacheKeyParameters *[]*string `field:"optional" json:"cacheKeyParameters" yaml:"cacheKeyParameters"`
 	// An API-specific tag group of related cached parameters.
 	// Experimental.
-	CacheNamespace *string `json:"cacheNamespace" yaml:"cacheNamespace"`
+	CacheNamespace *string `field:"optional" json:"cacheNamespace" yaml:"cacheNamespace"`
 	// The type of network connection to the integration endpoint.
 	// Experimental.
-	ConnectionType ConnectionType `json:"connectionType" yaml:"connectionType"`
+	ConnectionType ConnectionType `field:"optional" json:"connectionType" yaml:"connectionType"`
 	// Specifies how to handle request payload content type conversions.
 	// Experimental.
-	ContentHandling ContentHandling `json:"contentHandling" yaml:"contentHandling"`
+	ContentHandling ContentHandling `field:"optional" json:"contentHandling" yaml:"contentHandling"`
 	// Requires that the caller's identity be passed through from the request.
 	// Experimental.
-	CredentialsPassthrough *bool `json:"credentialsPassthrough" yaml:"credentialsPassthrough"`
+	CredentialsPassthrough *bool `field:"optional" json:"credentialsPassthrough" yaml:"credentialsPassthrough"`
 	// An IAM role that API Gateway assumes.
 	//
 	// Mutually exclusive with `credentialsPassThrough`.
 	// Experimental.
-	CredentialsRole awsiam.IRole `json:"credentialsRole" yaml:"credentialsRole"`
+	CredentialsRole awsiam.IRole `field:"optional" json:"credentialsRole" yaml:"credentialsRole"`
 	// The response that API Gateway provides after a method's backend completes processing a request.
 	//
 	// API Gateway intercepts the response from the
@@ -44637,13 +45059,13 @@ type StepFunctionsExecutionIntegrationOptions struct {
 	// responses. For example, you can map the backend status codes to codes
 	// that you define.
 	// Experimental.
-	IntegrationResponses *[]*IntegrationResponse `json:"integrationResponses" yaml:"integrationResponses"`
+	IntegrationResponses *[]*IntegrationResponse `field:"optional" json:"integrationResponses" yaml:"integrationResponses"`
 	// Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the requestTemplates property on the Integration resource.
 	//
 	// There are three valid values: WHEN_NO_MATCH, WHEN_NO_TEMPLATES, and
 	// NEVER.
 	// Experimental.
-	PassthroughBehavior PassthroughBehavior `json:"passthroughBehavior" yaml:"passthroughBehavior"`
+	PassthroughBehavior PassthroughBehavior `field:"optional" json:"passthroughBehavior" yaml:"passthroughBehavior"`
 	// The request parameters that API Gateway sends with the backend request.
 	//
 	// Specify request parameters as key-value pairs (string-to-string
@@ -44657,7 +45079,7 @@ type StepFunctionsExecutionIntegrationOptions struct {
 	// value. You must enclose static values in single quotation marks and
 	// pre-encode these values based on their destination in the request.
 	// Experimental.
-	RequestParameters *map[string]*string `json:"requestParameters" yaml:"requestParameters"`
+	RequestParameters *map[string]*string `field:"optional" json:"requestParameters" yaml:"requestParameters"`
 	// A map of Apache Velocity templates that are applied on the request payload.
 	//
 	// The template that API Gateway uses is based on the value of the
@@ -44671,17 +45093,17 @@ type StepFunctionsExecutionIntegrationOptions struct {
 	// See: http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html
 	//
 	// Experimental.
-	RequestTemplates *map[string]*string `json:"requestTemplates" yaml:"requestTemplates"`
+	RequestTemplates *map[string]*string `field:"optional" json:"requestTemplates" yaml:"requestTemplates"`
 	// The maximum amount of time an integration will run before it returns without a response.
 	//
 	// Must be between 50 milliseconds and 29 seconds.
 	// Experimental.
-	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
+	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 	// The VpcLink used for the integration.
 	//
 	// Required if connectionType is VPC_LINK.
 	// Experimental.
-	VpcLink IVpcLink `json:"vpcLink" yaml:"vpcLink"`
+	VpcLink IVpcLink `field:"optional" json:"vpcLink" yaml:"vpcLink"`
 	// If the whole authorizer object, including custom context values should be in the execution input.
 	//
 	// The execution input will include a new key `authorizer`:
@@ -44693,7 +45115,7 @@ type StepFunctionsExecutionIntegrationOptions struct {
 	//    }
 	// }.
 	// Experimental.
-	Authorizer *bool `json:"authorizer" yaml:"authorizer"`
+	Authorizer *bool `field:"optional" json:"authorizer" yaml:"authorizer"`
 	// Check if header is to be included inside the execution input.
 	//
 	// The execution input will include a new key `headers`:
@@ -44706,7 +45128,7 @@ type StepFunctionsExecutionIntegrationOptions struct {
 	//    }
 	// }.
 	// Experimental.
-	Headers *bool `json:"headers" yaml:"headers"`
+	Headers *bool `field:"optional" json:"headers" yaml:"headers"`
 	// Check if path is to be included inside the execution input.
 	//
 	// The execution input will include a new key `path`:
@@ -44718,7 +45140,7 @@ type StepFunctionsExecutionIntegrationOptions struct {
 	//    }
 	// }.
 	// Experimental.
-	Path *bool `json:"path" yaml:"path"`
+	Path *bool `field:"optional" json:"path" yaml:"path"`
 	// Check if querystring is to be included inside the execution input.
 	//
 	// The execution input will include a new key `queryString`:
@@ -44730,7 +45152,7 @@ type StepFunctionsExecutionIntegrationOptions struct {
 	//    }
 	// }.
 	// Experimental.
-	Querystring *bool `json:"querystring" yaml:"querystring"`
+	Querystring *bool `field:"optional" json:"querystring" yaml:"querystring"`
 	// Which details of the incoming request must be passed onto the underlying state machine, such as, account id, user identity, request id, etc.
 	//
 	// The execution input will include a new key `requestContext`:
@@ -44742,7 +45164,7 @@ type StepFunctionsExecutionIntegrationOptions struct {
 	//    }
 	// }.
 	// Experimental.
-	RequestContext *RequestContext `json:"requestContext" yaml:"requestContext"`
+	RequestContext *RequestContext `field:"optional" json:"requestContext" yaml:"requestContext"`
 }
 
 // Options to integrate with various StepFunction API.
@@ -45671,7 +46093,7 @@ func (s *jsiiProxy_StepFunctionsRestApi) Validate() *[]*string {
 type StepFunctionsRestApiProps struct {
 	// Automatically configure an AWS CloudWatch role for API Gateway.
 	// Experimental.
-	CloudWatchRole *bool `json:"cloudWatchRole" yaml:"cloudWatchRole"`
+	CloudWatchRole *bool `field:"optional" json:"cloudWatchRole" yaml:"cloudWatchRole"`
 	// Indicates if a Deployment should be automatically created for this API, and recreated when the API model (resources, methods) changes.
 	//
 	// Since API Gateway deployments are immutable, When this option is enabled
@@ -45689,13 +46111,13 @@ type StepFunctionsRestApiProps struct {
 	// A CloudFormation Output will also be defined with the root URL endpoint
 	// of this REST API.
 	// Experimental.
-	Deploy *bool `json:"deploy" yaml:"deploy"`
+	Deploy *bool `field:"optional" json:"deploy" yaml:"deploy"`
 	// Options for the API Gateway stage that will always point to the latest deployment when `deploy` is enabled.
 	//
 	// If `deploy` is disabled,
 	// this value cannot be set.
 	// Experimental.
-	DeployOptions *StageOptions `json:"deployOptions" yaml:"deployOptions"`
+	DeployOptions *StageOptions `field:"optional" json:"deployOptions" yaml:"deployOptions"`
 	// Specifies whether clients can invoke the API using the default execute-api endpoint.
 	//
 	// To require that clients use a custom domain name to invoke the
@@ -45703,68 +46125,68 @@ type StepFunctionsRestApiProps struct {
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html
 	//
 	// Experimental.
-	DisableExecuteApiEndpoint *bool `json:"disableExecuteApiEndpoint" yaml:"disableExecuteApiEndpoint"`
+	DisableExecuteApiEndpoint *bool `field:"optional" json:"disableExecuteApiEndpoint" yaml:"disableExecuteApiEndpoint"`
 	// Configure a custom domain name and map it to this API.
 	// Experimental.
-	DomainName *DomainNameOptions `json:"domainName" yaml:"domainName"`
+	DomainName *DomainNameOptions `field:"optional" json:"domainName" yaml:"domainName"`
 	// Export name for the CfnOutput containing the API endpoint.
 	// Experimental.
-	EndpointExportName *string `json:"endpointExportName" yaml:"endpointExportName"`
+	EndpointExportName *string `field:"optional" json:"endpointExportName" yaml:"endpointExportName"`
 	// A list of the endpoint types of the API.
 	//
 	// Use this property when creating
 	// an API.
 	// Experimental.
-	EndpointTypes *[]EndpointType `json:"endpointTypes" yaml:"endpointTypes"`
+	EndpointTypes *[]EndpointType `field:"optional" json:"endpointTypes" yaml:"endpointTypes"`
 	// Indicates whether to roll back the resource if a warning occurs while API Gateway is creating the RestApi resource.
 	// Experimental.
-	FailOnWarnings *bool `json:"failOnWarnings" yaml:"failOnWarnings"`
+	FailOnWarnings *bool `field:"optional" json:"failOnWarnings" yaml:"failOnWarnings"`
 	// Custom header parameters for the request.
 	// See: https://docs.aws.amazon.com/cli/latest/reference/apigateway/import-rest-api.html
 	//
 	// Experimental.
-	Parameters *map[string]*string `json:"parameters" yaml:"parameters"`
+	Parameters *map[string]*string `field:"optional" json:"parameters" yaml:"parameters"`
 	// A policy document that contains the permissions for this RestApi.
 	// Experimental.
-	Policy awsiam.PolicyDocument `json:"policy" yaml:"policy"`
+	Policy awsiam.PolicyDocument `field:"optional" json:"policy" yaml:"policy"`
 	// A name for the API Gateway RestApi resource.
 	// Experimental.
-	RestApiName *string `json:"restApiName" yaml:"restApiName"`
+	RestApiName *string `field:"optional" json:"restApiName" yaml:"restApiName"`
 	// Retains old deployment resources when the API changes.
 	//
 	// This allows
 	// manually reverting stages to point to old deployments via the AWS
 	// Console.
 	// Experimental.
-	RetainDeployments *bool `json:"retainDeployments" yaml:"retainDeployments"`
+	RetainDeployments *bool `field:"optional" json:"retainDeployments" yaml:"retainDeployments"`
 	// Adds a CORS preflight OPTIONS method to this resource and all child resources.
 	//
 	// You can add CORS at the resource-level using `addCorsPreflight`.
 	// Experimental.
-	DefaultCorsPreflightOptions *CorsOptions `json:"defaultCorsPreflightOptions" yaml:"defaultCorsPreflightOptions"`
+	DefaultCorsPreflightOptions *CorsOptions `field:"optional" json:"defaultCorsPreflightOptions" yaml:"defaultCorsPreflightOptions"`
 	// An integration to use as a default for all methods created within this API unless an integration is specified.
 	// Experimental.
-	DefaultIntegration Integration `json:"defaultIntegration" yaml:"defaultIntegration"`
+	DefaultIntegration Integration `field:"optional" json:"defaultIntegration" yaml:"defaultIntegration"`
 	// Method options to use as a default for all methods created within this API unless custom options are specified.
 	// Experimental.
-	DefaultMethodOptions *MethodOptions `json:"defaultMethodOptions" yaml:"defaultMethodOptions"`
+	DefaultMethodOptions *MethodOptions `field:"optional" json:"defaultMethodOptions" yaml:"defaultMethodOptions"`
 	// The source of the API key for metering requests according to a usage plan.
 	// Experimental.
-	ApiKeySourceType ApiKeySourceType `json:"apiKeySourceType" yaml:"apiKeySourceType"`
+	ApiKeySourceType ApiKeySourceType `field:"optional" json:"apiKeySourceType" yaml:"apiKeySourceType"`
 	// The list of binary media mime-types that are supported by the RestApi resource, such as "image/png" or "application/octet-stream".
 	// Experimental.
-	BinaryMediaTypes *[]*string `json:"binaryMediaTypes" yaml:"binaryMediaTypes"`
+	BinaryMediaTypes *[]*string `field:"optional" json:"binaryMediaTypes" yaml:"binaryMediaTypes"`
 	// The ID of the API Gateway RestApi resource that you want to clone.
 	// Experimental.
-	CloneFrom IRestApi `json:"cloneFrom" yaml:"cloneFrom"`
+	CloneFrom IRestApi `field:"optional" json:"cloneFrom" yaml:"cloneFrom"`
 	// A description of the purpose of this API Gateway RestApi resource.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The EndpointConfiguration property type specifies the endpoint types of a REST API.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-endpointconfiguration.html
 	//
 	// Experimental.
-	EndpointConfiguration *EndpointConfiguration `json:"endpointConfiguration" yaml:"endpointConfiguration"`
+	EndpointConfiguration *EndpointConfiguration `field:"optional" json:"endpointConfiguration" yaml:"endpointConfiguration"`
 	// A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (when undefined) on an API.
 	//
 	// When compression is enabled, compression or
@@ -45772,13 +46194,13 @@ type StepFunctionsRestApiProps struct {
 	// smaller than this value. Setting it to zero allows compression for any
 	// payload size.
 	// Experimental.
-	MinimumCompressionSize *float64 `json:"minimumCompressionSize" yaml:"minimumCompressionSize"`
+	MinimumCompressionSize *float64 `field:"optional" json:"minimumCompressionSize" yaml:"minimumCompressionSize"`
 	// The default State Machine that handles all requests from this API.
 	//
 	// This stateMachine will be used as a the default integration for all methods in
 	// this API, unless specified otherwise in `addMethod`.
 	// Experimental.
-	StateMachine awsstepfunctions.IStateMachine `json:"stateMachine" yaml:"stateMachine"`
+	StateMachine awsstepfunctions.IStateMachine `field:"required" json:"stateMachine" yaml:"stateMachine"`
 	// If the whole authorizer object, including custom context values should be in the execution input.
 	//
 	// The execution input will include a new key `authorizer`:
@@ -45790,7 +46212,7 @@ type StepFunctionsRestApiProps struct {
 	//    }
 	// }.
 	// Experimental.
-	Authorizer *bool `json:"authorizer" yaml:"authorizer"`
+	Authorizer *bool `field:"optional" json:"authorizer" yaml:"authorizer"`
 	// Check if header is to be included inside the execution input.
 	//
 	// The execution input will include a new key `headers`:
@@ -45803,7 +46225,7 @@ type StepFunctionsRestApiProps struct {
 	//    }
 	// }.
 	// Experimental.
-	Headers *bool `json:"headers" yaml:"headers"`
+	Headers *bool `field:"optional" json:"headers" yaml:"headers"`
 	// Check if path is to be included inside the execution input.
 	//
 	// The execution input will include a new key `path`:
@@ -45815,7 +46237,7 @@ type StepFunctionsRestApiProps struct {
 	//    }
 	// }.
 	// Experimental.
-	Path *bool `json:"path" yaml:"path"`
+	Path *bool `field:"optional" json:"path" yaml:"path"`
 	// Check if querystring is to be included inside the execution input.
 	//
 	// The execution input will include a new key `queryString`:
@@ -45827,7 +46249,7 @@ type StepFunctionsRestApiProps struct {
 	//    }
 	// }.
 	// Experimental.
-	Querystring *bool `json:"querystring" yaml:"querystring"`
+	Querystring *bool `field:"optional" json:"querystring" yaml:"querystring"`
 	// Which details of the incoming request must be passed onto the underlying state machine, such as, account id, user identity, request id, etc.
 	//
 	// The execution input will include a new key `requestContext`:
@@ -45839,16 +46261,17 @@ type StepFunctionsRestApiProps struct {
 	//    }
 	// }.
 	// Experimental.
-	RequestContext *RequestContext `json:"requestContext" yaml:"requestContext"`
+	RequestContext *RequestContext `field:"optional" json:"requestContext" yaml:"requestContext"`
 	// An IAM role that API Gateway will assume to start the execution of the state machine.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 }
 
 // Container for defining throttling parameters to API stages or methods.
 //
 // Example:
 //   var integration lambdaIntegration
+//
 //
 //   api := apigateway.NewRestApi(this, jsii.String("hello-api"))
 //
@@ -45873,18 +46296,21 @@ type StepFunctionsRestApiProps struct {
 type ThrottleSettings struct {
 	// The maximum API request rate limit over a time ranging from one to a few seconds.
 	// Experimental.
-	BurstLimit *float64 `json:"burstLimit" yaml:"burstLimit"`
+	BurstLimit *float64 `field:"optional" json:"burstLimit" yaml:"burstLimit"`
 	// The API request steady-state rate limit (average requests per second over an extended period of time).
 	// Experimental.
-	RateLimit *float64 `json:"rateLimit" yaml:"rateLimit"`
+	RateLimit *float64 `field:"optional" json:"rateLimit" yaml:"rateLimit"`
 }
 
 // Represents per-method throttling for a resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var method method
+//
 //   throttlingPerMethod := &throttlingPerMethod{
 //   	method: method,
 //   	throttle: &throttleSettings{
@@ -45897,10 +46323,10 @@ type ThrottleSettings struct {
 type ThrottlingPerMethod struct {
 	// [disable-awslint:ref-via-interface] The method for which you specify the throttling settings.
 	// Experimental.
-	Method Method `json:"method" yaml:"method"`
+	Method Method `field:"required" json:"method" yaml:"method"`
 	// Specifies the overall request rate (average requests per second) and burst capacity.
 	// Experimental.
-	Throttle *ThrottleSettings `json:"throttle" yaml:"throttle"`
+	Throttle *ThrottleSettings `field:"required" json:"throttle" yaml:"throttle"`
 }
 
 // Token based lambda authorizer that recognizes the caller's identity as a bearer token, such as a JSON Web Token (JWT) or an OAuth token.
@@ -45910,6 +46336,7 @@ type ThrottlingPerMethod struct {
 // Example:
 //   var authFn function
 //   var books resource
+//
 //
 //   auth := apigateway.NewTokenAuthorizer(this, jsii.String("booksAuthorizer"), &tokenAuthorizerProps{
 //   	handler: authFn,
@@ -46393,6 +46820,7 @@ func (t *jsiiProxy_TokenAuthorizer) Validate() *[]*string {
 //   var authFn function
 //   var books resource
 //
+//
 //   auth := apigateway.NewTokenAuthorizer(this, jsii.String("booksAuthorizer"), &tokenAuthorizerProps{
 //   	handler: authFn,
 //   })
@@ -46410,24 +46838,24 @@ type TokenAuthorizerProps struct {
 	// {@link https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-lambda-authorizer-input.html | here} and output specification
 	// {@link https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-lambda-authorizer-output.html | here}.
 	// Experimental.
-	Handler awslambda.IFunction `json:"handler" yaml:"handler"`
+	Handler awslambda.IFunction `field:"required" json:"handler" yaml:"handler"`
 	// An optional IAM role for APIGateway to assume before calling the Lambda-based authorizer.
 	//
 	// The IAM role must be
 	// assumable by 'apigateway.amazonaws.com'.
 	// Experimental.
-	AssumeRole awsiam.IRole `json:"assumeRole" yaml:"assumeRole"`
+	AssumeRole awsiam.IRole `field:"optional" json:"assumeRole" yaml:"assumeRole"`
 	// An optional human friendly name for the authorizer.
 	//
 	// Note that, this is not the primary identifier of the authorizer.
 	// Experimental.
-	AuthorizerName *string `json:"authorizerName" yaml:"authorizerName"`
+	AuthorizerName *string `field:"optional" json:"authorizerName" yaml:"authorizerName"`
 	// How long APIGateway should cache the results.
 	//
 	// Max 1 hour.
 	// Disable caching by setting this to 0.
 	// Experimental.
-	ResultsCacheTtl awscdk.Duration `json:"resultsCacheTtl" yaml:"resultsCacheTtl"`
+	ResultsCacheTtl awscdk.Duration `field:"optional" json:"resultsCacheTtl" yaml:"resultsCacheTtl"`
 	// The request header mapping expression for the bearer token.
 	//
 	// This is typically passed as part of the header, in which case
@@ -46435,17 +46863,18 @@ type TokenAuthorizerProps struct {
 	// See: https://docs.aws.amazon.com/apigateway/api-reference/link-relation/authorizer-create/#identitySource
 	//
 	// Experimental.
-	IdentitySource *string `json:"identitySource" yaml:"identitySource"`
+	IdentitySource *string `field:"optional" json:"identitySource" yaml:"identitySource"`
 	// An optional regex to be matched against the authorization token.
 	//
 	// When matched the authorizer lambda is invoked,
 	// otherwise a 401 Unauthorized is returned to the client.
 	// Experimental.
-	ValidationRegex *string `json:"validationRegex" yaml:"validationRegex"`
+	ValidationRegex *string `field:"optional" json:"validationRegex" yaml:"validationRegex"`
 }
 
 // Example:
 //   var integration lambdaIntegration
+//
 //
 //   api := apigateway.NewRestApi(this, jsii.String("hello-api"))
 //
@@ -46860,6 +47289,7 @@ func (u *jsiiProxy_UsagePlan) Validate() *[]*string {
 //   var api restApi
 //   var echoMethod method
 //
+//
 //   plan.addApiStage(&usagePlanPerApiStage{
 //   	stage: api.deploymentStage,
 //   	throttle: []throttlingPerMethod{
@@ -46876,16 +47306,17 @@ func (u *jsiiProxy_UsagePlan) Validate() *[]*string {
 // Experimental.
 type UsagePlanPerApiStage struct {
 	// Experimental.
-	Api IRestApi `json:"api" yaml:"api"`
+	Api IRestApi `field:"optional" json:"api" yaml:"api"`
 	// [disable-awslint:ref-via-interface].
 	// Experimental.
-	Stage Stage `json:"stage" yaml:"stage"`
+	Stage Stage `field:"optional" json:"stage" yaml:"stage"`
 	// Experimental.
-	Throttle *[]*ThrottlingPerMethod `json:"throttle" yaml:"throttle"`
+	Throttle *[]*ThrottlingPerMethod `field:"optional" json:"throttle" yaml:"throttle"`
 }
 
 // Example:
 //   var integration lambdaIntegration
+//
 //
 //   api := apigateway.NewRestApi(this, jsii.String("hello-api"))
 //
@@ -46910,28 +47341,29 @@ type UsagePlanPerApiStage struct {
 type UsagePlanProps struct {
 	// ApiKey to be associated with the usage plan.
 	// Deprecated: use `addApiKey()`.
-	ApiKey IApiKey `json:"apiKey" yaml:"apiKey"`
+	ApiKey IApiKey `field:"optional" json:"apiKey" yaml:"apiKey"`
 	// API Stages to be associated with the usage plan.
 	// Experimental.
-	ApiStages *[]*UsagePlanPerApiStage `json:"apiStages" yaml:"apiStages"`
+	ApiStages *[]*UsagePlanPerApiStage `field:"optional" json:"apiStages" yaml:"apiStages"`
 	// Represents usage plan purpose.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Name for this usage plan.
 	// Experimental.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Number of requests clients can make in a given time period.
 	// Experimental.
-	Quota *QuotaSettings `json:"quota" yaml:"quota"`
+	Quota *QuotaSettings `field:"optional" json:"quota" yaml:"quota"`
 	// Overall throttle settings for the API.
 	// Experimental.
-	Throttle *ThrottleSettings `json:"throttle" yaml:"throttle"`
+	Throttle *ThrottleSettings `field:"optional" json:"throttle" yaml:"throttle"`
 }
 
 // Define a new VPC Link Specifies an API Gateway VPC link for a RestApi to access resources in an Amazon Virtual Private Cloud (VPC).
 //
 // Example:
 //   import elbv2 "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   vpc := ec2.NewVpc(this, jsii.String("VPC"))
 //   nlb := elbv2.NewNetworkLoadBalancer(this, jsii.String("NLB"), &networkLoadBalancerProps{
@@ -47334,6 +47766,7 @@ func (v *jsiiProxy_VpcLink) Validate() *[]*string {
 // Example:
 //   import elbv2 "github.com/aws/aws-cdk-go/awscdk"
 //
+//
 //   vpc := ec2.NewVpc(this, jsii.String("VPC"))
 //   nlb := elbv2.NewNetworkLoadBalancer(this, jsii.String("NLB"), &networkLoadBalancerProps{
 //   	vpc: vpc,
@@ -47356,14 +47789,14 @@ func (v *jsiiProxy_VpcLink) Validate() *[]*string {
 type VpcLinkProps struct {
 	// The description of the VPC link.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The network load balancers of the VPC targeted by the VPC link.
 	//
 	// The network load balancers must be owned by the same AWS account of the API owner.
 	// Experimental.
-	Targets *[]awselasticloadbalancingv2.INetworkLoadBalancer `json:"targets" yaml:"targets"`
+	Targets *[]awselasticloadbalancingv2.INetworkLoadBalancer `field:"optional" json:"targets" yaml:"targets"`
 	// The name used to label and identify the VPC link.
 	// Experimental.
-	VpcLinkName *string `json:"vpcLinkName" yaml:"vpcLinkName"`
+	VpcLinkName *string `field:"optional" json:"vpcLinkName" yaml:"vpcLinkName"`
 }
 

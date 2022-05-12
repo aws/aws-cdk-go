@@ -21,9 +21,12 @@ import (
 // The options to add a field to an Intermediate Type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var field field
+//
 //   addFieldOptions := &addFieldOptions{
 //   	field: field,
 //   	fieldName: jsii.String("fieldName"),
@@ -36,21 +39,25 @@ type AddFieldOptions struct {
 	// This option must be configured for Object, Interface,
 	// Input and Union Types.
 	// Experimental.
-	Field IField `json:"field" yaml:"field"`
+	Field IField `field:"optional" json:"field" yaml:"field"`
 	// The name of the field.
 	//
 	// This option must be configured for Object, Interface,
 	// Input and Enum Types.
 	// Experimental.
-	FieldName *string `json:"fieldName" yaml:"fieldName"`
+	FieldName *string `field:"optional" json:"fieldName" yaml:"fieldName"`
 }
 
 // Configuration for API Key authorization in AppSync.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var expiration expiration
+//
 //   apiKeyConfig := &apiKeyConfig{
 //   	description: jsii.String("description"),
 //   	expires: expiration,
@@ -61,16 +68,16 @@ type AddFieldOptions struct {
 type ApiKeyConfig struct {
 	// Description of API key.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The time from creation time after which the API key expires.
 	//
 	// It must be a minimum of 1 day and a maximum of 365 days from date of creation.
 	// Rounded down to the nearest hour.
 	// Experimental.
-	Expires awscdk.Expiration `json:"expires" yaml:"expires"`
+	Expires awscdk.Expiration `field:"optional" json:"expires" yaml:"expires"`
 	// Unique name of the API Key.
 	// Experimental.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 
 // AppSync Functions are local functions that perform certain operations onto a backend data source.
@@ -80,6 +87,7 @@ type ApiKeyConfig struct {
 //
 // Example:
 //   var api graphqlApi
+//
 //
 //   appsyncFunction := appsync.NewAppsyncFunction(this, jsii.String("function"), &appsyncFunctionProps{
 //   	name: jsii.String("appsync_function"),
@@ -496,7 +504,10 @@ func (a *jsiiProxy_AppsyncFunction) Validate() *[]*string {
 // The attributes for imported AppSync Functions.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   appsyncFunctionAttributes := &appsyncFunctionAttributes{
 //   	functionArn: jsii.String("functionArn"),
 //   }
@@ -505,13 +516,14 @@ func (a *jsiiProxy_AppsyncFunction) Validate() *[]*string {
 type AppsyncFunctionAttributes struct {
 	// the ARN of the AppSync function.
 	// Experimental.
-	FunctionArn *string `json:"functionArn" yaml:"functionArn"`
+	FunctionArn *string `field:"required" json:"functionArn" yaml:"functionArn"`
 }
 
 // the CDK properties for AppSync Functions.
 //
 // Example:
 //   var api graphqlApi
+//
 //
 //   appsyncFunction := appsync.NewAppsyncFunction(this, jsii.String("function"), &appsyncFunctionProps{
 //   	name: jsii.String("appsync_function"),
@@ -525,29 +537,32 @@ type AppsyncFunctionAttributes struct {
 type AppsyncFunctionProps struct {
 	// the name of the AppSync Function.
 	// Experimental.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// the description for this AppSync Function.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// the request mapping template for the AppSync Function.
 	// Experimental.
-	RequestMappingTemplate MappingTemplate `json:"requestMappingTemplate" yaml:"requestMappingTemplate"`
+	RequestMappingTemplate MappingTemplate `field:"optional" json:"requestMappingTemplate" yaml:"requestMappingTemplate"`
 	// the response mapping template for the AppSync Function.
 	// Experimental.
-	ResponseMappingTemplate MappingTemplate `json:"responseMappingTemplate" yaml:"responseMappingTemplate"`
+	ResponseMappingTemplate MappingTemplate `field:"optional" json:"responseMappingTemplate" yaml:"responseMappingTemplate"`
 	// the GraphQL Api linked to this AppSync Function.
 	// Experimental.
-	Api IGraphqlApi `json:"api" yaml:"api"`
+	Api IGraphqlApi `field:"required" json:"api" yaml:"api"`
 	// the data source linked to this AppSync Function.
 	// Experimental.
-	DataSource BaseDataSource `json:"dataSource" yaml:"dataSource"`
+	DataSource BaseDataSource `field:"required" json:"dataSource" yaml:"dataSource"`
 }
 
 // Utility class representing the assigment of a value to an attribute.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
-//   assign := appsync.NewAssign(jsii.String("attr"), jsii.String("arg"))
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   assign := awscdk.Aws_appsync.NewAssign(jsii.String("attr"), jsii.String("arg"))
 //
 // Experimental.
 type Assign interface {
@@ -741,10 +756,13 @@ func (a *jsiiProxy_AttributeValues) RenderVariables() *string {
 // Utility class to allow assigning a value to an attribute.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var assign assign
-//   attributeValuesStep := appsync.NewAttributeValuesStep(jsii.String("attr"), jsii.String("container"), []assign{
+//
+//   attributeValuesStep := awscdk.Aws_appsync.NewAttributeValuesStep(jsii.String("attr"), jsii.String("container"), []assign{
 //   	assign,
 //   })
 //
@@ -842,10 +860,10 @@ func (a *jsiiProxy_AttributeValuesStep) Is(val *string) AttributeValues {
 type AuthorizationConfig struct {
 	// Additional authorization modes.
 	// Experimental.
-	AdditionalAuthorizationModes *[]*AuthorizationMode `json:"additionalAuthorizationModes" yaml:"additionalAuthorizationModes"`
+	AdditionalAuthorizationModes *[]*AuthorizationMode `field:"optional" json:"additionalAuthorizationModes" yaml:"additionalAuthorizationModes"`
 	// Optional authorization configuration.
 	// Experimental.
-	DefaultAuthorization *AuthorizationMode `json:"defaultAuthorization" yaml:"defaultAuthorization"`
+	DefaultAuthorization *AuthorizationMode `field:"optional" json:"defaultAuthorization" yaml:"defaultAuthorization"`
 }
 
 // Interface to specify default or additional authorization(s).
@@ -893,19 +911,19 @@ type AuthorizationMode struct {
 	// See: https://docs.aws.amazon.com/appsync/latest/devguide/security.html
 	//
 	// Experimental.
-	AuthorizationType AuthorizationType `json:"authorizationType" yaml:"authorizationType"`
+	AuthorizationType AuthorizationType `field:"required" json:"authorizationType" yaml:"authorizationType"`
 	// If authorizationType is `AuthorizationType.API_KEY`, this option can be configured.
 	// Experimental.
-	ApiKeyConfig *ApiKeyConfig `json:"apiKeyConfig" yaml:"apiKeyConfig"`
+	ApiKeyConfig *ApiKeyConfig `field:"optional" json:"apiKeyConfig" yaml:"apiKeyConfig"`
 	// If authorizationType is `AuthorizationType.LAMBDA`, this option is required.
 	// Experimental.
-	LambdaAuthorizerConfig *LambdaAuthorizerConfig `json:"lambdaAuthorizerConfig" yaml:"lambdaAuthorizerConfig"`
+	LambdaAuthorizerConfig *LambdaAuthorizerConfig `field:"optional" json:"lambdaAuthorizerConfig" yaml:"lambdaAuthorizerConfig"`
 	// If authorizationType is `AuthorizationType.OIDC`, this option is required.
 	// Experimental.
-	OpenIdConnectConfig *OpenIdConnectConfig `json:"openIdConnectConfig" yaml:"openIdConnectConfig"`
+	OpenIdConnectConfig *OpenIdConnectConfig `field:"optional" json:"openIdConnectConfig" yaml:"openIdConnectConfig"`
 	// If authorizationType is `AuthorizationType.USER_POOL`, this option is required.
 	// Experimental.
-	UserPoolConfig *UserPoolConfig `json:"userPoolConfig" yaml:"userPoolConfig"`
+	UserPoolConfig *UserPoolConfig `field:"optional" json:"userPoolConfig" yaml:"userPoolConfig"`
 }
 
 // enum with all possible values for AppSync authorization type.
@@ -998,10 +1016,10 @@ const (
 type AwsIamConfig struct {
 	// The signing region for AWS IAM authorization.
 	// Experimental.
-	SigningRegion *string `json:"signingRegion" yaml:"signingRegion"`
+	SigningRegion *string `field:"required" json:"signingRegion" yaml:"signingRegion"`
 	// The signing service name for AWS IAM authorization.
 	// Experimental.
-	SigningServiceName *string `json:"signingServiceName" yaml:"signingServiceName"`
+	SigningServiceName *string `field:"required" json:"signingServiceName" yaml:"signingServiceName"`
 }
 
 // Abstract AppSync datasource implementation.
@@ -1301,10 +1319,14 @@ func (b *jsiiProxy_BackedDataSource) Validate() *[]*string {
 // properties for an AppSync datasource backed by a resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var graphqlApi graphqlApi
 //   var role role
+//
 //   backedDataSourceProps := &backedDataSourceProps{
 //   	api: graphqlApi,
 //
@@ -1318,24 +1340,27 @@ func (b *jsiiProxy_BackedDataSource) Validate() *[]*string {
 type BackedDataSourceProps struct {
 	// The API to attach this data source to.
 	// Experimental.
-	Api IGraphqlApi `json:"api" yaml:"api"`
+	Api IGraphqlApi `field:"required" json:"api" yaml:"api"`
 	// the description of the data source.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the data source.
 	// Experimental.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The IAM service role to be assumed by AppSync to interact with the data source.
 	// Experimental.
-	ServiceRole awsiam.IRole `json:"serviceRole" yaml:"serviceRole"`
+	ServiceRole awsiam.IRole `field:"optional" json:"serviceRole" yaml:"serviceRole"`
 }
 
 // the base properties for AppSync Functions.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var mappingTemplate mappingTemplate
+//
 //   baseAppsyncFunctionProps := &baseAppsyncFunctionProps{
 //   	name: jsii.String("name"),
 //
@@ -1349,16 +1374,16 @@ type BackedDataSourceProps struct {
 type BaseAppsyncFunctionProps struct {
 	// the name of the AppSync Function.
 	// Experimental.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// the description for this AppSync Function.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// the request mapping template for the AppSync Function.
 	// Experimental.
-	RequestMappingTemplate MappingTemplate `json:"requestMappingTemplate" yaml:"requestMappingTemplate"`
+	RequestMappingTemplate MappingTemplate `field:"optional" json:"requestMappingTemplate" yaml:"requestMappingTemplate"`
 	// the response mapping template for the AppSync Function.
 	// Experimental.
-	ResponseMappingTemplate MappingTemplate `json:"responseMappingTemplate" yaml:"responseMappingTemplate"`
+	ResponseMappingTemplate MappingTemplate `field:"optional" json:"responseMappingTemplate" yaml:"responseMappingTemplate"`
 }
 
 // Abstract AppSync datasource implementation.
@@ -1369,6 +1394,7 @@ type BaseAppsyncFunctionProps struct {
 //   var api graphqlApi
 //   var dummyRequest mappingTemplate
 //   var dummyResponse mappingTemplate
+//
 //   info := appsync.NewObjectType(jsii.String("Info"), &objectTypeOptions{
 //   	definition: map[string]iField{
 //   		"node": appsync.NewResolvableField(&ResolvableFieldOptions{
@@ -1662,9 +1688,12 @@ func (b *jsiiProxy_BaseDataSource) Validate() *[]*string {
 // Base properties for an AppSync datasource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var graphqlApi graphqlApi
+//
 //   baseDataSourceProps := &baseDataSourceProps{
 //   	api: graphqlApi,
 //
@@ -1677,20 +1706,21 @@ func (b *jsiiProxy_BaseDataSource) Validate() *[]*string {
 type BaseDataSourceProps struct {
 	// The API to attach this data source to.
 	// Experimental.
-	Api IGraphqlApi `json:"api" yaml:"api"`
+	Api IGraphqlApi `field:"required" json:"api" yaml:"api"`
 	// the description of the data source.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the data source.
 	// Experimental.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 
 // Basic properties for an AppSync resolver.
 //
 // Example:
 //   // Build a data source for AppSync to access the database.
-//   var api graphqlApi// Create username and password secret for DB Cluster
+//   var api graphqlApi
+//   // Create username and password secret for DB Cluster
 //   secret := rds.NewDatabaseSecret(this, jsii.String("AuroraSecret"), &databaseSecretProps{
 //   	username: jsii.String("clusteradmin"),
 //   })
@@ -1730,22 +1760,22 @@ type BaseDataSourceProps struct {
 type BaseResolverProps struct {
 	// name of the GraphQL field in the given type this resolver is attached to.
 	// Experimental.
-	FieldName *string `json:"fieldName" yaml:"fieldName"`
+	FieldName *string `field:"required" json:"fieldName" yaml:"fieldName"`
 	// name of the GraphQL type this resolver is attached to.
 	// Experimental.
-	TypeName *string `json:"typeName" yaml:"typeName"`
+	TypeName *string `field:"required" json:"typeName" yaml:"typeName"`
 	// The caching configuration for this resolver.
 	// Experimental.
-	CachingConfig *CachingConfig `json:"cachingConfig" yaml:"cachingConfig"`
+	CachingConfig *CachingConfig `field:"optional" json:"cachingConfig" yaml:"cachingConfig"`
 	// configuration of the pipeline resolver.
 	// Experimental.
-	PipelineConfig *[]IAppsyncFunction `json:"pipelineConfig" yaml:"pipelineConfig"`
+	PipelineConfig *[]IAppsyncFunction `field:"optional" json:"pipelineConfig" yaml:"pipelineConfig"`
 	// The request mapping template for this resolver.
 	// Experimental.
-	RequestMappingTemplate MappingTemplate `json:"requestMappingTemplate" yaml:"requestMappingTemplate"`
+	RequestMappingTemplate MappingTemplate `field:"optional" json:"requestMappingTemplate" yaml:"requestMappingTemplate"`
 	// The response mapping template for this resolver.
 	// Experimental.
-	ResponseMappingTemplate MappingTemplate `json:"responseMappingTemplate" yaml:"responseMappingTemplate"`
+	ResponseMappingTemplate MappingTemplate `field:"optional" json:"responseMappingTemplate" yaml:"responseMappingTemplate"`
 }
 
 // Base options for GraphQL Types.
@@ -1771,21 +1801,25 @@ type BaseResolverProps struct {
 type BaseTypeOptions struct {
 	// property determining if this attribute is a list i.e. if true, attribute would be [Type].
 	// Experimental.
-	IsList *bool `json:"isList" yaml:"isList"`
+	IsList *bool `field:"optional" json:"isList" yaml:"isList"`
 	// property determining if this attribute is non-nullable i.e. if true, attribute would be Type!
 	// Experimental.
-	IsRequired *bool `json:"isRequired" yaml:"isRequired"`
+	IsRequired *bool `field:"optional" json:"isRequired" yaml:"isRequired"`
 	// property determining if this attribute is a non-nullable list i.e. if true, attribute would be [ Type ]! or if isRequired true, attribe would be [ Type! ]!
 	// Experimental.
-	IsRequiredList *bool `json:"isRequiredList" yaml:"isRequiredList"`
+	IsRequiredList *bool `field:"optional" json:"isRequiredList" yaml:"isRequiredList"`
 }
 
 // CachingConfig for AppSync resolvers.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
+//
 //   cachingConfig := &cachingConfig{
 //   	ttl: duration,
 //
@@ -1801,12 +1835,12 @@ type CachingConfig struct {
 	//
 	// Valid values are between 1 and 3600 seconds.
 	// Experimental.
-	Ttl awscdk.Duration `json:"ttl" yaml:"ttl"`
+	Ttl awscdk.Duration `field:"required" json:"ttl" yaml:"ttl"`
 	// The caching keys for a resolver that has caching enabled.
 	//
 	// Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
 	// Experimental.
-	CachingKeys *[]*string `json:"cachingKeys" yaml:"cachingKeys"`
+	CachingKeys *[]*string `field:"optional" json:"cachingKeys" yaml:"cachingKeys"`
 }
 
 // A CloudFormation `AWS::AppSync::ApiCache`.
@@ -1814,8 +1848,11 @@ type CachingConfig struct {
 // The `AWS::AppSync::ApiCache` resource represents the input of a `CreateApiCache` operation.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
-//   cfnApiCache := appsync.NewCfnApiCache(this, jsii.String("MyCfnApiCache"), &cfnApiCacheProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnApiCache := awscdk.Aws_appsync.NewCfnApiCache(this, jsii.String("MyCfnApiCache"), &cfnApiCacheProps{
 //   	apiCachingBehavior: jsii.String("apiCachingBehavior"),
 //   	apiId: jsii.String("apiId"),
 //   	ttl: jsii.Number(123),
@@ -2590,7 +2627,10 @@ func (c *jsiiProxy_CfnApiCache) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnApiCache`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnApiCacheProps := &cfnApiCacheProps{
 //   	apiCachingBehavior: jsii.String("apiCachingBehavior"),
 //   	apiId: jsii.String("apiId"),
@@ -2607,13 +2647,13 @@ type CfnApiCacheProps struct {
 	//
 	// - *FULL_REQUEST_CACHING* : All requests are fully cached.
 	// - *PER_RESOLVER_CACHING* : Individual resolvers that you specify are cached.
-	ApiCachingBehavior *string `json:"apiCachingBehavior" yaml:"apiCachingBehavior"`
+	ApiCachingBehavior *string `field:"required" json:"apiCachingBehavior" yaml:"apiCachingBehavior"`
 	// The GraphQL API ID.
-	ApiId *string `json:"apiId" yaml:"apiId"`
+	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`
 	// TTL in seconds for cache entries.
 	//
 	// Valid values are 1–3,600 seconds.
-	Ttl *float64 `json:"ttl" yaml:"ttl"`
+	Ttl *float64 `field:"required" json:"ttl" yaml:"ttl"`
 	// The cache instance type. Valid values are.
 	//
 	// - `SMALL`
@@ -2636,15 +2676,15 @@ type CfnApiCacheProps struct {
 	// - *R4_2XLARGE* : A r4.2xlarge instance type.
 	// - *R4_4XLARGE* : A r4.4xlarge instance type.
 	// - *R4_8XLARGE* : A r4.8xlarge instance type.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// At-rest encryption flag for cache.
 	//
 	// You cannot update this setting after creation.
-	AtRestEncryptionEnabled interface{} `json:"atRestEncryptionEnabled" yaml:"atRestEncryptionEnabled"`
+	AtRestEncryptionEnabled interface{} `field:"optional" json:"atRestEncryptionEnabled" yaml:"atRestEncryptionEnabled"`
 	// Transit encryption flag when connecting to cache.
 	//
 	// You cannot update this setting after creation.
-	TransitEncryptionEnabled interface{} `json:"transitEncryptionEnabled" yaml:"transitEncryptionEnabled"`
+	TransitEncryptionEnabled interface{} `field:"optional" json:"transitEncryptionEnabled" yaml:"transitEncryptionEnabled"`
 }
 
 // A CloudFormation `AWS::AppSync::ApiKey`.
@@ -2652,8 +2692,11 @@ type CfnApiCacheProps struct {
 // The `AWS::AppSync::ApiKey` resource creates a unique key that you can distribute to clients who are executing GraphQL operations with AWS AppSync that require an API key.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
-//   cfnApiKey := appsync.NewCfnApiKey(this, jsii.String("MyCfnApiKey"), &cfnApiKeyProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnApiKey := awscdk.Aws_appsync.NewCfnApiKey(this, jsii.String("MyCfnApiKey"), &cfnApiKeyProps{
 //   	apiId: jsii.String("apiId"),
 //
 //   	// the properties below are optional
@@ -3380,7 +3423,10 @@ func (c *jsiiProxy_CfnApiKey) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnApiKey`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnApiKeyProps := &cfnApiKeyProps{
 //   	apiId: jsii.String("apiId"),
 //
@@ -3392,15 +3438,15 @@ func (c *jsiiProxy_CfnApiKey) ValidateProperties(_properties interface{}) {
 //
 type CfnApiKeyProps struct {
 	// Unique AWS AppSync GraphQL API ID for this API key.
-	ApiId *string `json:"apiId" yaml:"apiId"`
+	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`
 	// The API key ID.
-	ApiKeyId *string `json:"apiKeyId" yaml:"apiKeyId"`
+	ApiKeyId *string `field:"optional" json:"apiKeyId" yaml:"apiKeyId"`
 	// Unique description of your API key.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The time after which the API key expires.
 	//
 	// The date is represented as seconds since the epoch, rounded down to the nearest hour.
-	Expires *float64 `json:"expires" yaml:"expires"`
+	Expires *float64 `field:"optional" json:"expires" yaml:"expires"`
 }
 
 // A CloudFormation `AWS::AppSync::DataSource`.
@@ -3408,8 +3454,11 @@ type CfnApiKeyProps struct {
 // The `AWS::AppSync::DataSource` resource creates data sources for resolvers in AWS AppSync to connect to, such as Amazon DynamoDB , AWS Lambda , and Amazon OpenSearch Service . Resolvers use these data sources to fetch data when clients make GraphQL calls.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
-//   cfnDataSource := appsync.NewCfnDataSource(this, jsii.String("MyCfnDataSource"), &cfnDataSourceProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDataSource := awscdk.Aws_appsync.NewCfnDataSource(this, jsii.String("MyCfnDataSource"), &cfnDataSourceProps{
 //   	apiId: jsii.String("apiId"),
 //   	name: jsii.String("name"),
 //   	type: jsii.String("type"),
@@ -4352,7 +4401,10 @@ func (c *jsiiProxy_CfnDataSource) ValidateProperties(_properties interface{}) {
 // `AuthorizationConfig` is a property of the [AWS AppSync DataSource HttpConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-httpconfig.html) property type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   authorizationConfigProperty := &authorizationConfigProperty{
 //   	authorizationType: jsii.String("authorizationType"),
 //
@@ -4367,9 +4419,9 @@ type CfnDataSource_AuthorizationConfigProperty struct {
 	// The authorization type that the HTTP endpoint requires.
 	//
 	// - *AWS_IAM* : The authorization type is Signature Version 4 (SigV4).
-	AuthorizationType *string `json:"authorizationType" yaml:"authorizationType"`
+	AuthorizationType *string `field:"required" json:"authorizationType" yaml:"authorizationType"`
 	// The AWS Identity and Access Management settings.
-	AwsIamConfig interface{} `json:"awsIamConfig" yaml:"awsIamConfig"`
+	AwsIamConfig interface{} `field:"optional" json:"awsIamConfig" yaml:"awsIamConfig"`
 }
 
 // Use the `AwsIamConfig` property type to specify `AwsIamConfig` for a AWS AppSync authorizaton.
@@ -4377,7 +4429,10 @@ type CfnDataSource_AuthorizationConfigProperty struct {
 // `AwsIamConfig` is a property of the [AWS AppSync DataSource AuthorizationConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-httpconfig-authorizationconfig.html) resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   awsIamConfigProperty := &awsIamConfigProperty{
 //   	signingRegion: jsii.String("signingRegion"),
 //   	signingServiceName: jsii.String("signingServiceName"),
@@ -4385,15 +4440,18 @@ type CfnDataSource_AuthorizationConfigProperty struct {
 //
 type CfnDataSource_AwsIamConfigProperty struct {
 	// The signing Region for AWS Identity and Access Management authorization.
-	SigningRegion *string `json:"signingRegion" yaml:"signingRegion"`
+	SigningRegion *string `field:"optional" json:"signingRegion" yaml:"signingRegion"`
 	// The signing service name for AWS Identity and Access Management authorization.
-	SigningServiceName *string `json:"signingServiceName" yaml:"signingServiceName"`
+	SigningServiceName *string `field:"optional" json:"signingServiceName" yaml:"signingServiceName"`
 }
 
 // Describes a Delta Sync configuration.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   deltaSyncConfigProperty := &deltaSyncConfigProperty{
 //   	baseTableTtl: jsii.String("baseTableTtl"),
 //   	deltaSyncTableName: jsii.String("deltaSyncTableName"),
@@ -4402,11 +4460,11 @@ type CfnDataSource_AwsIamConfigProperty struct {
 //
 type CfnDataSource_DeltaSyncConfigProperty struct {
 	// The number of minutes that an Item is stored in the data source.
-	BaseTableTtl *string `json:"baseTableTtl" yaml:"baseTableTtl"`
+	BaseTableTtl *string `field:"required" json:"baseTableTtl" yaml:"baseTableTtl"`
 	// The Delta Sync table name.
-	DeltaSyncTableName *string `json:"deltaSyncTableName" yaml:"deltaSyncTableName"`
+	DeltaSyncTableName *string `field:"required" json:"deltaSyncTableName" yaml:"deltaSyncTableName"`
 	// The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
-	DeltaSyncTableTtl *string `json:"deltaSyncTableTtl" yaml:"deltaSyncTableTtl"`
+	DeltaSyncTableTtl *string `field:"required" json:"deltaSyncTableTtl" yaml:"deltaSyncTableTtl"`
 }
 
 // The `DynamoDBConfig` property type specifies the `AwsRegion` and `TableName` for an Amazon DynamoDB table in your account for an AWS AppSync data source.
@@ -4414,7 +4472,10 @@ type CfnDataSource_DeltaSyncConfigProperty struct {
 // `DynamoDBConfig` is a property of the [AWS::AppSync::DataSource](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html) property type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dynamoDBConfigProperty := &dynamoDBConfigProperty{
 //   	awsRegion: jsii.String("awsRegion"),
 //   	tableName: jsii.String("tableName"),
@@ -4431,15 +4492,15 @@ type CfnDataSource_DeltaSyncConfigProperty struct {
 //
 type CfnDataSource_DynamoDBConfigProperty struct {
 	// The AWS Region.
-	AwsRegion *string `json:"awsRegion" yaml:"awsRegion"`
+	AwsRegion *string `field:"required" json:"awsRegion" yaml:"awsRegion"`
 	// The table name.
-	TableName *string `json:"tableName" yaml:"tableName"`
+	TableName *string `field:"required" json:"tableName" yaml:"tableName"`
 	// The `DeltaSyncConfig` for a versioned datasource.
-	DeltaSyncConfig interface{} `json:"deltaSyncConfig" yaml:"deltaSyncConfig"`
+	DeltaSyncConfig interface{} `field:"optional" json:"deltaSyncConfig" yaml:"deltaSyncConfig"`
 	// Set to `TRUE` to use AWS Identity and Access Management with this data source.
-	UseCallerCredentials interface{} `json:"useCallerCredentials" yaml:"useCallerCredentials"`
+	UseCallerCredentials interface{} `field:"optional" json:"useCallerCredentials" yaml:"useCallerCredentials"`
 	// Set to TRUE to use Conflict Detection and Resolution with this data source.
-	Versioned interface{} `json:"versioned" yaml:"versioned"`
+	Versioned interface{} `field:"optional" json:"versioned" yaml:"versioned"`
 }
 
 // The `ElasticsearchConfig` property type specifies the `AwsRegion` and `Endpoints` for an Amazon OpenSearch Service domain in your account for an AWS AppSync data source.
@@ -4449,7 +4510,10 @@ type CfnDataSource_DynamoDBConfigProperty struct {
 // As of September 2021, Amazon Elasticsearch Service is Amazon OpenSearch Service . This property is deprecated. For new data sources, use *OpenSearchServiceConfig* to specify an OpenSearch Service data source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   elasticsearchConfigProperty := &elasticsearchConfigProperty{
 //   	awsRegion: jsii.String("awsRegion"),
 //   	endpoint: jsii.String("endpoint"),
@@ -4457,9 +4521,9 @@ type CfnDataSource_DynamoDBConfigProperty struct {
 //
 type CfnDataSource_ElasticsearchConfigProperty struct {
 	// The AWS Region.
-	AwsRegion *string `json:"awsRegion" yaml:"awsRegion"`
+	AwsRegion *string `field:"required" json:"awsRegion" yaml:"awsRegion"`
 	// The endpoint.
-	Endpoint *string `json:"endpoint" yaml:"endpoint"`
+	Endpoint *string `field:"required" json:"endpoint" yaml:"endpoint"`
 }
 
 // Use the `HttpConfig` property type to specify `HttpConfig` for an AWS AppSync data source.
@@ -4467,7 +4531,10 @@ type CfnDataSource_ElasticsearchConfigProperty struct {
 // `HttpConfig` is a property of the [AWS::AppSync::DataSource](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html) resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   httpConfigProperty := &httpConfigProperty{
 //   	endpoint: jsii.String("endpoint"),
 //
@@ -4485,9 +4552,9 @@ type CfnDataSource_ElasticsearchConfigProperty struct {
 //
 type CfnDataSource_HttpConfigProperty struct {
 	// The endpoint.
-	Endpoint *string `json:"endpoint" yaml:"endpoint"`
+	Endpoint *string `field:"required" json:"endpoint" yaml:"endpoint"`
 	// The authorization configuration.
-	AuthorizationConfig interface{} `json:"authorizationConfig" yaml:"authorizationConfig"`
+	AuthorizationConfig interface{} `field:"optional" json:"authorizationConfig" yaml:"authorizationConfig"`
 }
 
 // The `LambdaConfig` property type specifies the Lambda function ARN for an AWS AppSync data source.
@@ -4495,14 +4562,17 @@ type CfnDataSource_HttpConfigProperty struct {
 // `LambdaConfig` is a property of the [AWS::AppSync::DataSource](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html) property type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   lambdaConfigProperty := &lambdaConfigProperty{
 //   	lambdaFunctionArn: jsii.String("lambdaFunctionArn"),
 //   }
 //
 type CfnDataSource_LambdaConfigProperty struct {
 	// The ARN for the Lambda function.
-	LambdaFunctionArn *string `json:"lambdaFunctionArn" yaml:"lambdaFunctionArn"`
+	LambdaFunctionArn *string `field:"required" json:"lambdaFunctionArn" yaml:"lambdaFunctionArn"`
 }
 
 // The `OpenSearchServiceConfig` property type specifies the `AwsRegion` and `Endpoints` for an Amazon OpenSearch Service domain in your account for an AWS AppSync data source.
@@ -4510,7 +4580,10 @@ type CfnDataSource_LambdaConfigProperty struct {
 // `OpenSearchServiceConfig` is a property of the [AWS::AppSync::DataSource](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html) property type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   openSearchServiceConfigProperty := &openSearchServiceConfigProperty{
 //   	awsRegion: jsii.String("awsRegion"),
 //   	endpoint: jsii.String("endpoint"),
@@ -4518,9 +4591,9 @@ type CfnDataSource_LambdaConfigProperty struct {
 //
 type CfnDataSource_OpenSearchServiceConfigProperty struct {
 	// The AWS Region.
-	AwsRegion *string `json:"awsRegion" yaml:"awsRegion"`
+	AwsRegion *string `field:"required" json:"awsRegion" yaml:"awsRegion"`
 	// The endpoint.
-	Endpoint *string `json:"endpoint" yaml:"endpoint"`
+	Endpoint *string `field:"required" json:"endpoint" yaml:"endpoint"`
 }
 
 // Use the `RdsHttpEndpointConfig` property type to specify the `RdsHttpEndpoint` for an AWS AppSync relational database.
@@ -4528,7 +4601,10 @@ type CfnDataSource_OpenSearchServiceConfigProperty struct {
 // `RdsHttpEndpointConfig` is a property of the [AWS AppSync DataSource RelationalDatabaseConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-relationaldatabaseconfig.html) resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   rdsHttpEndpointConfigProperty := &rdsHttpEndpointConfigProperty{
 //   	awsRegion: jsii.String("awsRegion"),
 //   	awsSecretStoreArn: jsii.String("awsSecretStoreArn"),
@@ -4541,15 +4617,15 @@ type CfnDataSource_OpenSearchServiceConfigProperty struct {
 //
 type CfnDataSource_RdsHttpEndpointConfigProperty struct {
 	// AWS Region for RDS HTTP endpoint.
-	AwsRegion *string `json:"awsRegion" yaml:"awsRegion"`
+	AwsRegion *string `field:"required" json:"awsRegion" yaml:"awsRegion"`
 	// The ARN for database credentials stored in AWS Secrets Manager .
-	AwsSecretStoreArn *string `json:"awsSecretStoreArn" yaml:"awsSecretStoreArn"`
+	AwsSecretStoreArn *string `field:"required" json:"awsSecretStoreArn" yaml:"awsSecretStoreArn"`
 	// Amazon RDS cluster Amazon Resource Name (ARN).
-	DbClusterIdentifier *string `json:"dbClusterIdentifier" yaml:"dbClusterIdentifier"`
+	DbClusterIdentifier *string `field:"required" json:"dbClusterIdentifier" yaml:"dbClusterIdentifier"`
 	// Logical database name.
-	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
+	DatabaseName *string `field:"optional" json:"databaseName" yaml:"databaseName"`
 	// Logical schema name.
-	Schema *string `json:"schema" yaml:"schema"`
+	Schema *string `field:"optional" json:"schema" yaml:"schema"`
 }
 
 // Use the `RelationalDatabaseConfig` property type to specify `RelationalDatabaseConfig` for an AWS AppSync data source.
@@ -4557,7 +4633,10 @@ type CfnDataSource_RdsHttpEndpointConfigProperty struct {
 // `RelationalDatabaseConfig` is a property of the [AWS::AppSync::DataSource](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html) property type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   relationalDatabaseConfigProperty := &relationalDatabaseConfigProperty{
 //   	relationalDatabaseSourceType: jsii.String("relationalDatabaseSourceType"),
 //
@@ -4575,15 +4654,18 @@ type CfnDataSource_RdsHttpEndpointConfigProperty struct {
 //
 type CfnDataSource_RelationalDatabaseConfigProperty struct {
 	// The type of relational data source.
-	RelationalDatabaseSourceType *string `json:"relationalDatabaseSourceType" yaml:"relationalDatabaseSourceType"`
+	RelationalDatabaseSourceType *string `field:"required" json:"relationalDatabaseSourceType" yaml:"relationalDatabaseSourceType"`
 	// Information about the Amazon RDS resource.
-	RdsHttpEndpointConfig interface{} `json:"rdsHttpEndpointConfig" yaml:"rdsHttpEndpointConfig"`
+	RdsHttpEndpointConfig interface{} `field:"optional" json:"rdsHttpEndpointConfig" yaml:"rdsHttpEndpointConfig"`
 }
 
 // Properties for defining a `CfnDataSource`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDataSourceProps := &cfnDataSourceProps{
 //   	apiId: jsii.String("apiId"),
 //   	name: jsii.String("name"),
@@ -4648,9 +4730,9 @@ type CfnDataSource_RelationalDatabaseConfigProperty struct {
 //
 type CfnDataSourceProps struct {
 	// Unique AWS AppSync GraphQL API identifier where this data source will be created.
-	ApiId *string `json:"apiId" yaml:"apiId"`
+	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`
 	// Friendly name for you to identify your AppSync data source after creation.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The type of the data source.
 	//
 	// - *AWS_LAMBDA* : The data source is an AWS Lambda function.
@@ -4660,31 +4742,31 @@ type CfnDataSourceProps struct {
 	// - *NONE* : There is no data source. This type is used when you wish to invoke a GraphQL operation without connecting to a data source, such as performing data transformation with resolvers or triggering a subscription to be invoked from a mutation.
 	// - *HTTP* : The data source is an HTTP endpoint.
 	// - *RELATIONAL_DATABASE* : The data source is a relational database.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// The description of the data source.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// AWS Region and TableName for an Amazon DynamoDB table in your account.
-	DynamoDbConfig interface{} `json:"dynamoDbConfig" yaml:"dynamoDbConfig"`
+	DynamoDbConfig interface{} `field:"optional" json:"dynamoDbConfig" yaml:"dynamoDbConfig"`
 	// AWS Region and Endpoints for an Amazon OpenSearch Service domain in your account.
 	//
 	// As of September 2021, Amazon Elasticsearch Service is Amazon OpenSearch Service . This property is deprecated. For new data sources, use *OpenSearchServiceConfig* to specify an OpenSearch Service data source.
-	ElasticsearchConfig interface{} `json:"elasticsearchConfig" yaml:"elasticsearchConfig"`
+	ElasticsearchConfig interface{} `field:"optional" json:"elasticsearchConfig" yaml:"elasticsearchConfig"`
 	// Endpoints for an HTTP data source.
-	HttpConfig interface{} `json:"httpConfig" yaml:"httpConfig"`
+	HttpConfig interface{} `field:"optional" json:"httpConfig" yaml:"httpConfig"`
 	// An ARN of a Lambda function in valid ARN format.
 	//
 	// This can be the ARN of a Lambda function that exists in the current account or in another account.
-	LambdaConfig interface{} `json:"lambdaConfig" yaml:"lambdaConfig"`
+	LambdaConfig interface{} `field:"optional" json:"lambdaConfig" yaml:"lambdaConfig"`
 	// AWS Region and Endpoints for an Amazon OpenSearch Service domain in your account.
-	OpenSearchServiceConfig interface{} `json:"openSearchServiceConfig" yaml:"openSearchServiceConfig"`
+	OpenSearchServiceConfig interface{} `field:"optional" json:"openSearchServiceConfig" yaml:"openSearchServiceConfig"`
 	// Relational Database configuration of the relational database data source.
-	RelationalDatabaseConfig interface{} `json:"relationalDatabaseConfig" yaml:"relationalDatabaseConfig"`
+	RelationalDatabaseConfig interface{} `field:"optional" json:"relationalDatabaseConfig" yaml:"relationalDatabaseConfig"`
 	// The AWS Identity and Access Management service role ARN for the data source.
 	//
 	// The system assumes this role when accessing the data source.
 	//
 	// Required if `Type` is specified as `AWS_LAMBDA` , `AMAZON_DYNAMODB` , `AMAZON_ELASTICSEARCH` , or `AMAZON_OPENSEARCH_SERVICE` .
-	ServiceRoleArn *string `json:"serviceRoleArn" yaml:"serviceRoleArn"`
+	ServiceRoleArn *string `field:"optional" json:"serviceRoleArn" yaml:"serviceRoleArn"`
 }
 
 // A CloudFormation `AWS::AppSync::DomainName`.
@@ -4692,8 +4774,11 @@ type CfnDataSourceProps struct {
 // The `AWS::AppSync::DomainName` resource creates a `DomainNameConfig` object to configure a custom domain.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
-//   cfnDomainName := appsync.NewCfnDomainName(this, jsii.String("MyCfnDomainName"), &cfnDomainNameProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDomainName := awscdk.Aws_appsync.NewCfnDomainName(this, jsii.String("MyCfnDomainName"), &cfnDomainNameProps{
 //   	certificateArn: jsii.String("certificateArn"),
 //   	domainName: jsii.String("domainName"),
 //
@@ -5411,8 +5496,11 @@ func (c *jsiiProxy_CfnDomainName) ValidateProperties(_properties interface{}) {
 // The `AWS::AppSync::DomainNameApiAssociation` resource represents the mapping of your custom domain name to the assigned API URL.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
-//   cfnDomainNameApiAssociation := appsync.NewCfnDomainNameApiAssociation(this, jsii.String("MyCfnDomainNameApiAssociation"), &cfnDomainNameApiAssociationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDomainNameApiAssociation := awscdk.Aws_appsync.NewCfnDomainNameApiAssociation(this, jsii.String("MyCfnDomainNameApiAssociation"), &cfnDomainNameApiAssociationProps{
 //   	apiId: jsii.String("apiId"),
 //   	domainName: jsii.String("domainName"),
 //   })
@@ -6078,7 +6166,10 @@ func (c *jsiiProxy_CfnDomainNameApiAssociation) ValidateProperties(_properties i
 // Properties for defining a `CfnDomainNameApiAssociation`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDomainNameApiAssociationProps := &cfnDomainNameApiAssociationProps{
 //   	apiId: jsii.String("apiId"),
 //   	domainName: jsii.String("domainName"),
@@ -6086,15 +6177,18 @@ func (c *jsiiProxy_CfnDomainNameApiAssociation) ValidateProperties(_properties i
 //
 type CfnDomainNameApiAssociationProps struct {
 	// The API ID.
-	ApiId *string `json:"apiId" yaml:"apiId"`
+	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`
 	// The domain name.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 }
 
 // Properties for defining a `CfnDomainName`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDomainNameProps := &cfnDomainNameProps{
 //   	certificateArn: jsii.String("certificateArn"),
 //   	domainName: jsii.String("domainName"),
@@ -6107,11 +6201,11 @@ type CfnDomainNameProps struct {
 	// The Amazon Resource Name (ARN) of the certificate.
 	//
 	// This will be an AWS Certificate Manager certificate.
-	CertificateArn *string `json:"certificateArn" yaml:"certificateArn"`
+	CertificateArn *string `field:"required" json:"certificateArn" yaml:"certificateArn"`
 	// The domain name.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 	// The decription for your domain name.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 
 // A CloudFormation `AWS::AppSync::FunctionConfiguration`.
@@ -6123,8 +6217,11 @@ type CfnDomainNameProps struct {
 // > See [Update Behaviors of Stack Resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html) in the *AWS CloudFormation User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
-//   cfnFunctionConfiguration := appsync.NewCfnFunctionConfiguration(this, jsii.String("MyCfnFunctionConfiguration"), &cfnFunctionConfigurationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnFunctionConfiguration := awscdk.Aws_appsync.NewCfnFunctionConfiguration(this, jsii.String("MyCfnFunctionConfiguration"), &cfnFunctionConfigurationProps{
 //   	apiId: jsii.String("apiId"),
 //   	dataSourceName: jsii.String("dataSourceName"),
 //   	functionVersion: jsii.String("functionVersion"),
@@ -7045,14 +7142,17 @@ func (c *jsiiProxy_CfnFunctionConfiguration) ValidateProperties(_properties inte
 // The `LambdaConflictHandlerConfig` object when configuring `LAMBDA` as the Conflict Handler.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   lambdaConflictHandlerConfigProperty := &lambdaConflictHandlerConfigProperty{
 //   	lambdaConflictHandlerArn: jsii.String("lambdaConflictHandlerArn"),
 //   }
 //
 type CfnFunctionConfiguration_LambdaConflictHandlerConfigProperty struct {
 	// The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
-	LambdaConflictHandlerArn *string `json:"lambdaConflictHandlerArn" yaml:"lambdaConflictHandlerArn"`
+	LambdaConflictHandlerArn *string `field:"optional" json:"lambdaConflictHandlerArn" yaml:"lambdaConflictHandlerArn"`
 }
 
 // Describes a Sync configuration for a resolver.
@@ -7060,7 +7160,10 @@ type CfnFunctionConfiguration_LambdaConflictHandlerConfigProperty struct {
 // Specifies which Conflict Detection strategy and Resolution strategy to use when the resolver is invoked.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   syncConfigProperty := &syncConfigProperty{
 //   	conflictDetection: jsii.String("conflictDetection"),
 //
@@ -7076,21 +7179,24 @@ type CfnFunctionConfiguration_SyncConfigProperty struct {
 	//
 	// - *VERSION* : Detect conflicts based on object versions for this resolver.
 	// - *NONE* : Do not detect conflicts when invoking this resolver.
-	ConflictDetection *string `json:"conflictDetection" yaml:"conflictDetection"`
+	ConflictDetection *string `field:"required" json:"conflictDetection" yaml:"conflictDetection"`
 	// The Conflict Resolution strategy to perform in the event of a conflict.
 	//
 	// - *OPTIMISTIC_CONCURRENCY* : Resolve conflicts by rejecting mutations when versions don't match the latest version at the server.
 	// - *AUTOMERGE* : Resolve conflicts with the Automerge conflict resolution strategy.
 	// - *LAMBDA* : Resolve conflicts with an AWS Lambda function supplied in the `LambdaConflictHandlerConfig` .
-	ConflictHandler *string `json:"conflictHandler" yaml:"conflictHandler"`
+	ConflictHandler *string `field:"optional" json:"conflictHandler" yaml:"conflictHandler"`
 	// The `LambdaConflictHandlerConfig` when configuring `LAMBDA` as the Conflict Handler.
-	LambdaConflictHandlerConfig interface{} `json:"lambdaConflictHandlerConfig" yaml:"lambdaConflictHandlerConfig"`
+	LambdaConflictHandlerConfig interface{} `field:"optional" json:"lambdaConflictHandlerConfig" yaml:"lambdaConflictHandlerConfig"`
 }
 
 // Properties for defining a `CfnFunctionConfiguration`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnFunctionConfigurationProps := &cfnFunctionConfigurationProps{
 //   	apiId: jsii.String("apiId"),
 //   	dataSourceName: jsii.String("dataSourceName"),
@@ -7117,37 +7223,37 @@ type CfnFunctionConfiguration_SyncConfigProperty struct {
 //
 type CfnFunctionConfigurationProps struct {
 	// The AWS AppSync GraphQL API that you want to attach using this function.
-	ApiId *string `json:"apiId" yaml:"apiId"`
+	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`
 	// The name of data source this function will attach.
-	DataSourceName *string `json:"dataSourceName" yaml:"dataSourceName"`
+	DataSourceName *string `field:"required" json:"dataSourceName" yaml:"dataSourceName"`
 	// The version of the request mapping template.
 	//
 	// Currently, only the 2018-05-29 version of the template is supported.
-	FunctionVersion *string `json:"functionVersion" yaml:"functionVersion"`
+	FunctionVersion *string `field:"required" json:"functionVersion" yaml:"functionVersion"`
 	// The name of the function.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The `Function` description.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The maximum number of resolver request inputs that will be sent to a single AWS Lambda function in a `BatchInvoke` operation.
-	MaxBatchSize *float64 `json:"maxBatchSize" yaml:"maxBatchSize"`
+	MaxBatchSize *float64 `field:"optional" json:"maxBatchSize" yaml:"maxBatchSize"`
 	// The `Function` request mapping template.
 	//
 	// Functions support only the 2018-05-29 version of the request mapping template.
-	RequestMappingTemplate *string `json:"requestMappingTemplate" yaml:"requestMappingTemplate"`
+	RequestMappingTemplate *string `field:"optional" json:"requestMappingTemplate" yaml:"requestMappingTemplate"`
 	// Describes a Sync configuration for a resolver.
 	//
 	// Contains information on which Conflict Detection, as well as Resolution strategy, should be performed when the resolver is invoked.
-	RequestMappingTemplateS3Location *string `json:"requestMappingTemplateS3Location" yaml:"requestMappingTemplateS3Location"`
+	RequestMappingTemplateS3Location *string `field:"optional" json:"requestMappingTemplateS3Location" yaml:"requestMappingTemplateS3Location"`
 	// The `Function` response mapping template.
-	ResponseMappingTemplate *string `json:"responseMappingTemplate" yaml:"responseMappingTemplate"`
+	ResponseMappingTemplate *string `field:"optional" json:"responseMappingTemplate" yaml:"responseMappingTemplate"`
 	// The location of a response mapping template in an Amazon S3 bucket.
 	//
 	// Use this if you want to provision with a template file in Amazon S3 rather than embedding it in your CloudFormation template.
-	ResponseMappingTemplateS3Location *string `json:"responseMappingTemplateS3Location" yaml:"responseMappingTemplateS3Location"`
+	ResponseMappingTemplateS3Location *string `field:"optional" json:"responseMappingTemplateS3Location" yaml:"responseMappingTemplateS3Location"`
 	// Describes a Sync configuration for a resolver.
 	//
 	// Specifies which Conflict Detection strategy and Resolution strategy to use when the resolver is invoked.
-	SyncConfig interface{} `json:"syncConfig" yaml:"syncConfig"`
+	SyncConfig interface{} `field:"optional" json:"syncConfig" yaml:"syncConfig"`
 }
 
 // A CloudFormation `AWS::AppSync::GraphQLApi`.
@@ -7155,8 +7261,11 @@ type CfnFunctionConfigurationProps struct {
 // The `AWS::AppSync::GraphQLApi` resource creates a new AWS AppSync GraphQL API. This is the top-level construct for your application. For more information, see [Quick Start](https://docs.aws.amazon.com/appsync/latest/devguide/quickstart.html) in the *AWS AppSync Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
-//   cfnGraphQLApi := appsync.NewCfnGraphQLApi(this, jsii.String("MyCfnGraphQLApi"), &cfnGraphQLApiProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnGraphQLApi := awscdk.Aws_appsync.NewCfnGraphQLApi(this, jsii.String("MyCfnGraphQLApi"), &cfnGraphQLApiProps{
 //   	authenticationType: jsii.String("authenticationType"),
 //   	name: jsii.String("name"),
 //
@@ -8043,7 +8152,10 @@ func (c *jsiiProxy_CfnGraphQLApi) ValidateProperties(_properties interface{}) {
 // Describes an additional authentication provider.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   additionalAuthenticationProviderProperty := &additionalAuthenticationProviderProperty{
 //   	authenticationType: jsii.String("authenticationType"),
 //
@@ -8070,19 +8182,22 @@ type CfnGraphQLApi_AdditionalAuthenticationProviderProperty struct {
 	// The authentication type for API key, AWS Identity and Access Management , OIDC, Amazon Cognito user pools , or AWS Lambda .
 	//
 	// Valid Values: `API_KEY` | `AWS_IAM` | `OPENID_CONNECT` | `AMAZON_COGNITO_USER_POOLS` | `AWS_LAMBDA`.
-	AuthenticationType *string `json:"authenticationType" yaml:"authenticationType"`
+	AuthenticationType *string `field:"required" json:"authenticationType" yaml:"authenticationType"`
 	// Configuration for AWS Lambda function authorization.
-	LambdaAuthorizerConfig interface{} `json:"lambdaAuthorizerConfig" yaml:"lambdaAuthorizerConfig"`
+	LambdaAuthorizerConfig interface{} `field:"optional" json:"lambdaAuthorizerConfig" yaml:"lambdaAuthorizerConfig"`
 	// The OIDC configuration.
-	OpenIdConnectConfig interface{} `json:"openIdConnectConfig" yaml:"openIdConnectConfig"`
+	OpenIdConnectConfig interface{} `field:"optional" json:"openIdConnectConfig" yaml:"openIdConnectConfig"`
 	// The Amazon Cognito user pool configuration.
-	UserPoolConfig interface{} `json:"userPoolConfig" yaml:"userPoolConfig"`
+	UserPoolConfig interface{} `field:"optional" json:"userPoolConfig" yaml:"userPoolConfig"`
 }
 
 // Describes an Amazon Cognito user pool configuration.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cognitoUserPoolConfigProperty := &cognitoUserPoolConfigProperty{
 //   	appIdClientRegex: jsii.String("appIdClientRegex"),
 //   	awsRegion: jsii.String("awsRegion"),
@@ -8091,17 +8206,20 @@ type CfnGraphQLApi_AdditionalAuthenticationProviderProperty struct {
 //
 type CfnGraphQLApi_CognitoUserPoolConfigProperty struct {
 	// A regular expression for validating the incoming Amazon Cognito user pool app client ID.
-	AppIdClientRegex *string `json:"appIdClientRegex" yaml:"appIdClientRegex"`
+	AppIdClientRegex *string `field:"optional" json:"appIdClientRegex" yaml:"appIdClientRegex"`
 	// The AWS Region in which the user pool was created.
-	AwsRegion *string `json:"awsRegion" yaml:"awsRegion"`
+	AwsRegion *string `field:"optional" json:"awsRegion" yaml:"awsRegion"`
 	// The user pool ID.
-	UserPoolId *string `json:"userPoolId" yaml:"userPoolId"`
+	UserPoolId *string `field:"optional" json:"userPoolId" yaml:"userPoolId"`
 }
 
 // Configuration for AWS Lambda function authorization.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   lambdaAuthorizerConfigProperty := &lambdaAuthorizerConfigProperty{
 //   	authorizerResultTtlInSeconds: jsii.Number(123),
 //   	authorizerUri: jsii.String("authorizerUri"),
@@ -8112,7 +8230,7 @@ type CfnGraphQLApi_LambdaAuthorizerConfigProperty struct {
 	// The number of seconds a response should be cached for.
 	//
 	// The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses.
-	AuthorizerResultTtlInSeconds *float64 `json:"authorizerResultTtlInSeconds" yaml:"authorizerResultTtlInSeconds"`
+	AuthorizerResultTtlInSeconds *float64 `field:"optional" json:"authorizerResultTtlInSeconds" yaml:"authorizerResultTtlInSeconds"`
 	// The ARN of the Lambda function to be called for authorization.
 	//
 	// This may be a standard Lambda ARN, a version ARN ( `.../v3` ) or alias ARN.
@@ -8120,9 +8238,9 @@ type CfnGraphQLApi_LambdaAuthorizerConfigProperty struct {
 	// *Note* : This Lambda function must have the following resource-based policy assigned to it. When configuring Lambda authorizers in the console, this is done for you. To do so with the AWS CLI , run the following:
 	//
 	// `aws lambda add-permission --function-name "arn:aws:lambda:us-east-2:111122223333:function:my-function" --statement-id "appsync" --principal appsync.amazonaws.com --action lambda:InvokeFunction`
-	AuthorizerUri *string `json:"authorizerUri" yaml:"authorizerUri"`
+	AuthorizerUri *string `field:"optional" json:"authorizerUri" yaml:"authorizerUri"`
 	// A regular expression for validation of tokens before the Lambda function is called.
-	IdentityValidationExpression *string `json:"identityValidationExpression" yaml:"identityValidationExpression"`
+	IdentityValidationExpression *string `field:"optional" json:"identityValidationExpression" yaml:"identityValidationExpression"`
 }
 
 // The `LogConfig` property type specifies the logging configuration when writing GraphQL operations and tracing to Amazon CloudWatch for an AWS AppSync GraphQL API.
@@ -8130,7 +8248,10 @@ type CfnGraphQLApi_LambdaAuthorizerConfigProperty struct {
 // `LogConfig` is a property of the [AWS::AppSync::GraphQLApi](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html) property type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   logConfigProperty := &logConfigProperty{
 //   	cloudWatchLogsRoleArn: jsii.String("cloudWatchLogsRoleArn"),
 //   	excludeVerboseContent: jsii.Boolean(false),
@@ -8139,9 +8260,9 @@ type CfnGraphQLApi_LambdaAuthorizerConfigProperty struct {
 //
 type CfnGraphQLApi_LogConfigProperty struct {
 	// The service role that AWS AppSync will assume to publish to Amazon CloudWatch Logs in your account.
-	CloudWatchLogsRoleArn *string `json:"cloudWatchLogsRoleArn" yaml:"cloudWatchLogsRoleArn"`
+	CloudWatchLogsRoleArn *string `field:"optional" json:"cloudWatchLogsRoleArn" yaml:"cloudWatchLogsRoleArn"`
 	// Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging level.
-	ExcludeVerboseContent interface{} `json:"excludeVerboseContent" yaml:"excludeVerboseContent"`
+	ExcludeVerboseContent interface{} `field:"optional" json:"excludeVerboseContent" yaml:"excludeVerboseContent"`
 	// The field logging level. Values can be NONE, ERROR, or ALL.
 	//
 	// - *NONE* : No field-level logs are captured.
@@ -8154,7 +8275,7 @@ type CfnGraphQLApi_LogConfigProperty struct {
 	//
 	// - Field-level tracing information.
 	// - The generated request/response functions that got resolved for each field.
-	FieldLogLevel *string `json:"fieldLogLevel" yaml:"fieldLogLevel"`
+	FieldLogLevel *string `field:"optional" json:"fieldLogLevel" yaml:"fieldLogLevel"`
 }
 
 // The `OpenIDConnectConfig` property type specifies the optional authorization configuration for using an OpenID Connect compliant service with your GraphQL endpoint for an AWS AppSync GraphQL API.
@@ -8162,7 +8283,10 @@ type CfnGraphQLApi_LogConfigProperty struct {
 // `OpenIDConnectConfig` is a property of the [AWS::AppSync::GraphQLApi](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html) property type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   openIDConnectConfigProperty := &openIDConnectConfigProperty{
 //   	authTtl: jsii.Number(123),
 //   	clientId: jsii.String("clientId"),
@@ -8172,23 +8296,26 @@ type CfnGraphQLApi_LogConfigProperty struct {
 //
 type CfnGraphQLApi_OpenIDConnectConfigProperty struct {
 	// The number of milliseconds that a token is valid after being authenticated.
-	AuthTtl *float64 `json:"authTtl" yaml:"authTtl"`
+	AuthTtl *float64 `field:"optional" json:"authTtl" yaml:"authTtl"`
 	// The client identifier of the Relying party at the OpenID identity provider.
 	//
 	// This identifier is typically obtained when the Relying party is registered with the OpenID identity provider. You can specify a regular expression so that AWS AppSync can validate against multiple client identifiers at a time.
-	ClientId *string `json:"clientId" yaml:"clientId"`
+	ClientId *string `field:"optional" json:"clientId" yaml:"clientId"`
 	// The number of milliseconds that a token is valid after it's issued to a user.
-	IatTtl *float64 `json:"iatTtl" yaml:"iatTtl"`
+	IatTtl *float64 `field:"optional" json:"iatTtl" yaml:"iatTtl"`
 	// The issuer for the OIDC configuration.
 	//
 	// The issuer returned by discovery must exactly match the value of `iss` in the ID token.
-	Issuer *string `json:"issuer" yaml:"issuer"`
+	Issuer *string `field:"optional" json:"issuer" yaml:"issuer"`
 }
 
 // The `UserPoolConfig` property type specifies the optional authorization configuration for using Amazon Cognito user pools with your GraphQL endpoint for an AWS AppSync GraphQL API.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   userPoolConfigProperty := &userPoolConfigProperty{
 //   	appIdClientRegex: jsii.String("appIdClientRegex"),
 //   	awsRegion: jsii.String("awsRegion"),
@@ -8198,21 +8325,24 @@ type CfnGraphQLApi_OpenIDConnectConfigProperty struct {
 //
 type CfnGraphQLApi_UserPoolConfigProperty struct {
 	// A regular expression for validating the incoming Amazon Cognito user pool app client ID.
-	AppIdClientRegex *string `json:"appIdClientRegex" yaml:"appIdClientRegex"`
+	AppIdClientRegex *string `field:"optional" json:"appIdClientRegex" yaml:"appIdClientRegex"`
 	// The AWS Region in which the user pool was created.
-	AwsRegion *string `json:"awsRegion" yaml:"awsRegion"`
+	AwsRegion *string `field:"optional" json:"awsRegion" yaml:"awsRegion"`
 	// The action that you want your GraphQL API to take when a request that uses Amazon Cognito user pool authentication doesn't match the Amazon Cognito user pool configuration.
 	//
 	// When specifying Amazon Cognito user pools as the default authentication, you must set the value for `DefaultAction` to `ALLOW` if specifying `AdditionalAuthenticationProviders` .
-	DefaultAction *string `json:"defaultAction" yaml:"defaultAction"`
+	DefaultAction *string `field:"optional" json:"defaultAction" yaml:"defaultAction"`
 	// The user pool ID.
-	UserPoolId *string `json:"userPoolId" yaml:"userPoolId"`
+	UserPoolId *string `field:"optional" json:"userPoolId" yaml:"userPoolId"`
 }
 
 // Properties for defining a `CfnGraphQLApi`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnGraphQLApiProps := &cfnGraphQLApiProps{
 //   	authenticationType: jsii.String("authenticationType"),
 //   	name: jsii.String("name"),
@@ -8276,25 +8406,25 @@ type CfnGraphQLApiProps struct {
 	// Security configuration for your GraphQL API.
 	//
 	// For allowed values (such as `API_KEY` , `AWS_IAM` , `AMAZON_COGNITO_USER_POOLS` , `OPENID_CONNECT` , or `AWS_LAMBDA` ), see [Security](https://docs.aws.amazon.com/appsync/latest/devguide/security.html) in the *AWS AppSync Developer Guide* .
-	AuthenticationType *string `json:"authenticationType" yaml:"authenticationType"`
+	AuthenticationType *string `field:"required" json:"authenticationType" yaml:"authenticationType"`
 	// The API name.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// A list of additional authentication providers for the `GraphqlApi` API.
-	AdditionalAuthenticationProviders interface{} `json:"additionalAuthenticationProviders" yaml:"additionalAuthenticationProviders"`
+	AdditionalAuthenticationProviders interface{} `field:"optional" json:"additionalAuthenticationProviders" yaml:"additionalAuthenticationProviders"`
 	// A `LambdaAuthorizerConfig` holds configuration on how to authorize AWS AppSync API access when using the `AWS_LAMBDA` authorizer mode.
 	//
 	// Be aware that an AWS AppSync API may have only one Lambda authorizer configured at a time.
-	LambdaAuthorizerConfig interface{} `json:"lambdaAuthorizerConfig" yaml:"lambdaAuthorizerConfig"`
+	LambdaAuthorizerConfig interface{} `field:"optional" json:"lambdaAuthorizerConfig" yaml:"lambdaAuthorizerConfig"`
 	// The Amazon CloudWatch Logs configuration.
-	LogConfig interface{} `json:"logConfig" yaml:"logConfig"`
+	LogConfig interface{} `field:"optional" json:"logConfig" yaml:"logConfig"`
 	// The OpenID Connect configuration.
-	OpenIdConnectConfig interface{} `json:"openIdConnectConfig" yaml:"openIdConnectConfig"`
+	OpenIdConnectConfig interface{} `field:"optional" json:"openIdConnectConfig" yaml:"openIdConnectConfig"`
 	// An arbitrary set of tags (key-value pairs) for this GraphQL API.
-	Tags interface{} `json:"tags" yaml:"tags"`
+	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
 	// Optional authorization configuration for using Amazon Cognito user pools with your GraphQL endpoint.
-	UserPoolConfig interface{} `json:"userPoolConfig" yaml:"userPoolConfig"`
+	UserPoolConfig interface{} `field:"optional" json:"userPoolConfig" yaml:"userPoolConfig"`
 	// A flag indicating whether to use AWS X-Ray tracing for this `GraphqlApi` .
-	XrayEnabled interface{} `json:"xrayEnabled" yaml:"xrayEnabled"`
+	XrayEnabled interface{} `field:"optional" json:"xrayEnabled" yaml:"xrayEnabled"`
 }
 
 // A CloudFormation `AWS::AppSync::GraphQLSchema`.
@@ -8306,8 +8436,11 @@ type CfnGraphQLApiProps struct {
 // > See [Update Behaviors of Stack Resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html) in the *AWS CloudFormation User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
-//   cfnGraphQLSchema := appsync.NewCfnGraphQLSchema(this, jsii.String("MyCfnGraphQLSchema"), &cfnGraphQLSchemaProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnGraphQLSchema := awscdk.Aws_appsync.NewCfnGraphQLSchema(this, jsii.String("MyCfnGraphQLSchema"), &cfnGraphQLSchemaProps{
 //   	apiId: jsii.String("apiId"),
 //
 //   	// the properties below are optional
@@ -8990,7 +9123,10 @@ func (c *jsiiProxy_CfnGraphQLSchema) ValidateProperties(_properties interface{})
 // Properties for defining a `CfnGraphQLSchema`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnGraphQLSchemaProps := &cfnGraphQLSchemaProps{
 //   	apiId: jsii.String("apiId"),
 //
@@ -9001,15 +9137,15 @@ func (c *jsiiProxy_CfnGraphQLSchema) ValidateProperties(_properties interface{})
 //
 type CfnGraphQLSchemaProps struct {
 	// The AWS AppSync GraphQL API identifier to which you want to apply this schema.
-	ApiId *string `json:"apiId" yaml:"apiId"`
+	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`
 	// The text representation of a GraphQL schema in SDL format.
 	//
 	// For more information about using the `Ref` function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref) .
-	Definition *string `json:"definition" yaml:"definition"`
+	Definition *string `field:"optional" json:"definition" yaml:"definition"`
 	// The location of a GraphQL schema file in an Amazon S3 bucket.
 	//
 	// Use this if you want to provision with the schema living in Amazon S3 rather than embedding it in your CloudFormation template.
-	DefinitionS3Location *string `json:"definitionS3Location" yaml:"definitionS3Location"`
+	DefinitionS3Location *string `field:"optional" json:"definitionS3Location" yaml:"definitionS3Location"`
 }
 
 // A CloudFormation `AWS::AppSync::Resolver`.
@@ -9021,8 +9157,11 @@ type CfnGraphQLSchemaProps struct {
 // > See [Update Behaviors of Stack Resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html) in the *AWS CloudFormation User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
-//   cfnResolver := appsync.NewCfnResolver(this, jsii.String("MyCfnResolver"), &cfnResolverProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnResolver := awscdk.Aws_appsync.NewCfnResolver(this, jsii.String("MyCfnResolver"), &cfnResolverProps{
 //   	apiId: jsii.String("apiId"),
 //   	fieldName: jsii.String("fieldName"),
 //   	typeName: jsii.String("typeName"),
@@ -9985,7 +10124,10 @@ func (c *jsiiProxy_CfnResolver) ValidateProperties(_properties interface{}) {
 // The caching configuration for a resolver that has caching activated.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cachingConfigProperty := &cachingConfigProperty{
 //   	ttl: jsii.Number(123),
 //
@@ -9999,24 +10141,27 @@ type CfnResolver_CachingConfigProperty struct {
 	// The TTL in seconds for a resolver that has caching activated.
 	//
 	// Valid values are 1–3,600 seconds.
-	Ttl *float64 `json:"ttl" yaml:"ttl"`
+	Ttl *float64 `field:"required" json:"ttl" yaml:"ttl"`
 	// The caching keys for a resolver that has caching activated.
 	//
 	// Valid values are entries from the `$context.arguments` , `$context.source` , and `$context.identity` maps.
-	CachingKeys *[]*string `json:"cachingKeys" yaml:"cachingKeys"`
+	CachingKeys *[]*string `field:"optional" json:"cachingKeys" yaml:"cachingKeys"`
 }
 
 // The `LambdaConflictHandlerConfig` when configuring LAMBDA as the Conflict Handler.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   lambdaConflictHandlerConfigProperty := &lambdaConflictHandlerConfigProperty{
 //   	lambdaConflictHandlerArn: jsii.String("lambdaConflictHandlerArn"),
 //   }
 //
 type CfnResolver_LambdaConflictHandlerConfigProperty struct {
 	// The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
-	LambdaConflictHandlerArn *string `json:"lambdaConflictHandlerArn" yaml:"lambdaConflictHandlerArn"`
+	LambdaConflictHandlerArn *string `field:"optional" json:"lambdaConflictHandlerArn" yaml:"lambdaConflictHandlerArn"`
 }
 
 // Use the `PipelineConfig` property type to specify `PipelineConfig` for an AWS AppSync resolver.
@@ -10024,7 +10169,10 @@ type CfnResolver_LambdaConflictHandlerConfigProperty struct {
 // `PipelineConfig` is a property of the [AWS::AppSync::Resolver](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html) resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   pipelineConfigProperty := &pipelineConfigProperty{
 //   	functions: []*string{
 //   		jsii.String("functions"),
@@ -10033,7 +10181,7 @@ type CfnResolver_LambdaConflictHandlerConfigProperty struct {
 //
 type CfnResolver_PipelineConfigProperty struct {
 	// A list of `Function` objects.
-	Functions *[]*string `json:"functions" yaml:"functions"`
+	Functions *[]*string `field:"optional" json:"functions" yaml:"functions"`
 }
 
 // Describes a Sync configuration for a resolver.
@@ -10041,7 +10189,10 @@ type CfnResolver_PipelineConfigProperty struct {
 // Specifies which Conflict Detection strategy and Resolution strategy to use when the resolver is invoked.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   syncConfigProperty := &syncConfigProperty{
 //   	conflictDetection: jsii.String("conflictDetection"),
 //
@@ -10057,21 +10208,24 @@ type CfnResolver_SyncConfigProperty struct {
 	//
 	// - *VERSION* : Detect conflicts based on object versions for this resolver.
 	// - *NONE* : Do not detect conflicts when invoking this resolver.
-	ConflictDetection *string `json:"conflictDetection" yaml:"conflictDetection"`
+	ConflictDetection *string `field:"required" json:"conflictDetection" yaml:"conflictDetection"`
 	// The Conflict Resolution strategy to perform in the event of a conflict.
 	//
 	// - *OPTIMISTIC_CONCURRENCY* : Resolve conflicts by rejecting mutations when versions don't match the latest version at the server.
 	// - *AUTOMERGE* : Resolve conflicts with the Automerge conflict resolution strategy.
 	// - *LAMBDA* : Resolve conflicts with an AWS Lambda function supplied in the `LambdaConflictHandlerConfig` .
-	ConflictHandler *string `json:"conflictHandler" yaml:"conflictHandler"`
+	ConflictHandler *string `field:"optional" json:"conflictHandler" yaml:"conflictHandler"`
 	// The `LambdaConflictHandlerConfig` when configuring `LAMBDA` as the Conflict Handler.
-	LambdaConflictHandlerConfig interface{} `json:"lambdaConflictHandlerConfig" yaml:"lambdaConflictHandlerConfig"`
+	LambdaConflictHandlerConfig interface{} `field:"optional" json:"lambdaConflictHandlerConfig" yaml:"lambdaConflictHandlerConfig"`
 }
 
 // Properties for defining a `CfnResolver`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnResolverProps := &cfnResolverProps{
 //   	apiId: jsii.String("apiId"),
 //   	fieldName: jsii.String("fieldName"),
@@ -10111,46 +10265,49 @@ type CfnResolver_SyncConfigProperty struct {
 //
 type CfnResolverProps struct {
 	// The AWS AppSync GraphQL API to which you want to attach this resolver.
-	ApiId *string `json:"apiId" yaml:"apiId"`
+	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`
 	// The GraphQL field on a type that invokes the resolver.
-	FieldName *string `json:"fieldName" yaml:"fieldName"`
+	FieldName *string `field:"required" json:"fieldName" yaml:"fieldName"`
 	// The GraphQL type that invokes this resolver.
-	TypeName *string `json:"typeName" yaml:"typeName"`
+	TypeName *string `field:"required" json:"typeName" yaml:"typeName"`
 	// The caching configuration for the resolver.
-	CachingConfig interface{} `json:"cachingConfig" yaml:"cachingConfig"`
+	CachingConfig interface{} `field:"optional" json:"cachingConfig" yaml:"cachingConfig"`
 	// The resolver data source name.
-	DataSourceName *string `json:"dataSourceName" yaml:"dataSourceName"`
+	DataSourceName *string `field:"optional" json:"dataSourceName" yaml:"dataSourceName"`
 	// The resolver type.
 	//
 	// - *UNIT* : A UNIT resolver type. A UNIT resolver is the default resolver type. You can use a UNIT resolver to run a GraphQL query against a single data source.
 	// - *PIPELINE* : A PIPELINE resolver type. You can use a PIPELINE resolver to invoke a series of `Function` objects in a serial manner. You can use a pipeline resolver to run a GraphQL query against multiple data sources.
-	Kind *string `json:"kind" yaml:"kind"`
+	Kind *string `field:"optional" json:"kind" yaml:"kind"`
 	// The maximum number of resolver request inputs that will be sent to a single AWS Lambda function in a `BatchInvoke` operation.
-	MaxBatchSize *float64 `json:"maxBatchSize" yaml:"maxBatchSize"`
+	MaxBatchSize *float64 `field:"optional" json:"maxBatchSize" yaml:"maxBatchSize"`
 	// Functions linked with the pipeline resolver.
-	PipelineConfig interface{} `json:"pipelineConfig" yaml:"pipelineConfig"`
+	PipelineConfig interface{} `field:"optional" json:"pipelineConfig" yaml:"pipelineConfig"`
 	// The request mapping template.
 	//
 	// Request mapping templates are optional when using a Lambda data source. For all other data sources, a request mapping template is required.
-	RequestMappingTemplate *string `json:"requestMappingTemplate" yaml:"requestMappingTemplate"`
+	RequestMappingTemplate *string `field:"optional" json:"requestMappingTemplate" yaml:"requestMappingTemplate"`
 	// The location of a request mapping template in an Amazon S3 bucket.
 	//
 	// Use this if you want to provision with a template file in Amazon S3 rather than embedding it in your CloudFormation template.
-	RequestMappingTemplateS3Location *string `json:"requestMappingTemplateS3Location" yaml:"requestMappingTemplateS3Location"`
+	RequestMappingTemplateS3Location *string `field:"optional" json:"requestMappingTemplateS3Location" yaml:"requestMappingTemplateS3Location"`
 	// The response mapping template.
-	ResponseMappingTemplate *string `json:"responseMappingTemplate" yaml:"responseMappingTemplate"`
+	ResponseMappingTemplate *string `field:"optional" json:"responseMappingTemplate" yaml:"responseMappingTemplate"`
 	// The location of a response mapping template in an Amazon S3 bucket.
 	//
 	// Use this if you want to provision with a template file in Amazon S3 rather than embedding it in your CloudFormation template.
-	ResponseMappingTemplateS3Location *string `json:"responseMappingTemplateS3Location" yaml:"responseMappingTemplateS3Location"`
+	ResponseMappingTemplateS3Location *string `field:"optional" json:"responseMappingTemplateS3Location" yaml:"responseMappingTemplateS3Location"`
 	// The `SyncConfig` for a resolver attached to a versioned data source.
-	SyncConfig interface{} `json:"syncConfig" yaml:"syncConfig"`
+	SyncConfig interface{} `field:"optional" json:"syncConfig" yaml:"syncConfig"`
 }
 
 // Optional configuration for data sources.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dataSourceOptions := &dataSourceOptions{
 //   	description: jsii.String("description"),
 //   	name: jsii.String("name"),
@@ -10160,10 +10317,10 @@ type CfnResolverProps struct {
 type DataSourceOptions struct {
 	// The description of the data source.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the data source, overrides the id given by cdk.
 	// Experimental.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 
 // Directives for types.
@@ -10173,6 +10330,7 @@ type DataSourceOptions struct {
 // Example:
 //   var api graphqlApi
 //   var film interfaceType
+//
 //
 //   api.addSubscription(jsii.String("addedFilm"), appsync.NewField(&fieldOptions{
 //   	returnType: film.attribute(),
@@ -10378,11 +10536,13 @@ func (d *jsiiProxy_Directive) ToString() *string {
 // Domain name configuration for AppSync.
 //
 // Example:
-//   import acm "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk"
+//   import acm "github.com/aws/aws-cdk-go/awscdk"
+//   import route53 "github.com/aws/aws-cdk-go/awscdk"
 //
 //   // hosted zone and route53 features
 //   var hostedZoneId string
 //   zoneName := "example.com"
+//
 //
 //   myDomainName := "api.example.com"
 //   certificate := acm.NewCertificate(this, jsii.String("cert"), &certificateProps{
@@ -10414,12 +10574,12 @@ func (d *jsiiProxy_Directive) ToString() *string {
 type DomainOptions struct {
 	// The certificate to use with the domain name.
 	// Experimental.
-	Certificate awscertificatemanager.ICertificate `json:"certificate" yaml:"certificate"`
+	Certificate awscertificatemanager.ICertificate `field:"required" json:"certificate" yaml:"certificate"`
 	// The actual domain name.
 	//
 	// For example, `api.example.com`.
 	// Experimental.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 }
 
 // An AppSync datasource backed by a DynamoDB table.
@@ -10768,11 +10928,16 @@ func (d *jsiiProxy_DynamoDbDataSource) Validate() *[]*string {
 // Properties for an AppSync DynamoDB datasource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"import awscdk "github.com/aws/aws-cdk-go/awscdk"import dynamodb "github.com/aws/aws-cdk-go/awscdk/aws_dynamodb"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var graphqlApi graphqlApi
 //   var role role
 //   var table table
+//
 //   dynamoDbDataSourceProps := &dynamoDbDataSourceProps{
 //   	api: graphqlApi,
 //   	table: table,
@@ -10789,36 +10954,41 @@ func (d *jsiiProxy_DynamoDbDataSource) Validate() *[]*string {
 type DynamoDbDataSourceProps struct {
 	// The API to attach this data source to.
 	// Experimental.
-	Api IGraphqlApi `json:"api" yaml:"api"`
+	Api IGraphqlApi `field:"required" json:"api" yaml:"api"`
 	// the description of the data source.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the data source.
 	// Experimental.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The IAM service role to be assumed by AppSync to interact with the data source.
 	// Experimental.
-	ServiceRole awsiam.IRole `json:"serviceRole" yaml:"serviceRole"`
+	ServiceRole awsiam.IRole `field:"optional" json:"serviceRole" yaml:"serviceRole"`
 	// The DynamoDB table backing this data source.
 	// Experimental.
-	Table awsdynamodb.ITable `json:"table" yaml:"table"`
+	Table awsdynamodb.ITable `field:"required" json:"table" yaml:"table"`
 	// Specify whether this DS is read only or has read and write permissions to the DynamoDB table.
 	// Experimental.
-	ReadOnlyAccess *bool `json:"readOnlyAccess" yaml:"readOnlyAccess"`
+	ReadOnlyAccess *bool `field:"optional" json:"readOnlyAccess" yaml:"readOnlyAccess"`
 	// use credentials of caller to access DynamoDB.
 	// Experimental.
-	UseCallerCredentials *bool `json:"useCallerCredentials" yaml:"useCallerCredentials"`
+	UseCallerCredentials *bool `field:"optional" json:"useCallerCredentials" yaml:"useCallerCredentials"`
 }
 
 // An Appsync datasource backed by Elasticsearch.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticsearch "github.com/aws/aws-cdk-go/awscdk/aws_elasticsearch"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var domain domain
 //   var graphqlApi graphqlApi
 //   var role role
-//   elasticsearchDataSource := appsync.NewElasticsearchDataSource(this, jsii.String("MyElasticsearchDataSource"), &elasticsearchDataSourceProps{
+//
+//   elasticsearchDataSource := awscdk.Aws_appsync.NewElasticsearchDataSource(this, jsii.String("MyElasticsearchDataSource"), &elasticsearchDataSourceProps{
 //   	api: graphqlApi,
 //   	domain: domain,
 //
@@ -11135,11 +11305,16 @@ func (e *jsiiProxy_ElasticsearchDataSource) Validate() *[]*string {
 // Properties for the Elasticsearch Data Source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticsearch "github.com/aws/aws-cdk-go/awscdk/aws_elasticsearch"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var domain domain
 //   var graphqlApi graphqlApi
 //   var role role
+//
 //   elasticsearchDataSourceProps := &elasticsearchDataSourceProps{
 //   	api: graphqlApi,
 //   	domain: domain,
@@ -11154,25 +11329,26 @@ func (e *jsiiProxy_ElasticsearchDataSource) Validate() *[]*string {
 type ElasticsearchDataSourceProps struct {
 	// The API to attach this data source to.
 	// Deprecated: - use `OpenSearchDataSourceProps` with `OpenSearchDataSource`.
-	Api IGraphqlApi `json:"api" yaml:"api"`
+	Api IGraphqlApi `field:"required" json:"api" yaml:"api"`
 	// the description of the data source.
 	// Deprecated: - use `OpenSearchDataSourceProps` with `OpenSearchDataSource`.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the data source.
 	// Deprecated: - use `OpenSearchDataSourceProps` with `OpenSearchDataSource`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The IAM service role to be assumed by AppSync to interact with the data source.
 	// Deprecated: - use `OpenSearchDataSourceProps` with `OpenSearchDataSource`.
-	ServiceRole awsiam.IRole `json:"serviceRole" yaml:"serviceRole"`
+	ServiceRole awsiam.IRole `field:"optional" json:"serviceRole" yaml:"serviceRole"`
 	// The elasticsearch domain containing the endpoint for the data source.
 	// Deprecated: - use `OpenSearchDataSourceProps` with `OpenSearchDataSource`.
-	Domain awselasticsearch.IDomain `json:"domain" yaml:"domain"`
+	Domain awselasticsearch.IDomain `field:"required" json:"domain" yaml:"domain"`
 }
 
 // Enum Types are abstract types that includes a set of fields that represent the strings this type can create.
 //
 // Example:
 //   var api graphqlApi
+//
 //   episode := appsync.NewEnumType(jsii.String("Episode"), &enumTypeOptions{
 //   	definition: []*string{
 //   		jsii.String("NEWHOPE"),
@@ -11318,6 +11494,7 @@ func (e *jsiiProxy_EnumType) ToString() *string {
 //
 // Example:
 //   var api graphqlApi
+//
 //   episode := appsync.NewEnumType(jsii.String("Episode"), &enumTypeOptions{
 //   	definition: []*string{
 //   		jsii.String("NEWHOPE"),
@@ -11331,7 +11508,7 @@ func (e *jsiiProxy_EnumType) ToString() *string {
 type EnumTypeOptions struct {
 	// the attributes of this type.
 	// Experimental.
-	Definition *[]*string `json:"definition" yaml:"definition"`
+	Definition *[]*string `field:"required" json:"definition" yaml:"definition"`
 }
 
 // props used by implementations of BaseDataSource to provide configuration.
@@ -11339,7 +11516,10 @@ type EnumTypeOptions struct {
 // Should not be used directly.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   extendedDataSourceProps := &extendedDataSourceProps{
 //   	type: jsii.String("type"),
 //
@@ -11402,36 +11582,40 @@ type EnumTypeOptions struct {
 type ExtendedDataSourceProps struct {
 	// the type of the AppSync datasource.
 	// Experimental.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// configuration for DynamoDB Datasource.
 	// Experimental.
-	DynamoDbConfig interface{} `json:"dynamoDbConfig" yaml:"dynamoDbConfig"`
+	DynamoDbConfig interface{} `field:"optional" json:"dynamoDbConfig" yaml:"dynamoDbConfig"`
 	// configuration for Elasticsearch data source.
 	// Deprecated: - use `openSearchConfig`.
-	ElasticsearchConfig interface{} `json:"elasticsearchConfig" yaml:"elasticsearchConfig"`
+	ElasticsearchConfig interface{} `field:"optional" json:"elasticsearchConfig" yaml:"elasticsearchConfig"`
 	// configuration for HTTP Datasource.
 	// Experimental.
-	HttpConfig interface{} `json:"httpConfig" yaml:"httpConfig"`
+	HttpConfig interface{} `field:"optional" json:"httpConfig" yaml:"httpConfig"`
 	// configuration for Lambda Datasource.
 	// Experimental.
-	LambdaConfig interface{} `json:"lambdaConfig" yaml:"lambdaConfig"`
+	LambdaConfig interface{} `field:"optional" json:"lambdaConfig" yaml:"lambdaConfig"`
 	// configuration for OpenSearch data source.
 	// Experimental.
-	OpenSearchServiceConfig interface{} `json:"openSearchServiceConfig" yaml:"openSearchServiceConfig"`
+	OpenSearchServiceConfig interface{} `field:"optional" json:"openSearchServiceConfig" yaml:"openSearchServiceConfig"`
 	// configuration for RDS Datasource.
 	// Experimental.
-	RelationalDatabaseConfig interface{} `json:"relationalDatabaseConfig" yaml:"relationalDatabaseConfig"`
+	RelationalDatabaseConfig interface{} `field:"optional" json:"relationalDatabaseConfig" yaml:"relationalDatabaseConfig"`
 }
 
 // Additional property for an AppSync resolver for data source reference.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var appsyncFunction appsyncFunction
 //   var baseDataSource baseDataSource
 //   var duration duration
 //   var mappingTemplate mappingTemplate
+//
 //   extendedResolverProps := &extendedResolverProps{
 //   	fieldName: jsii.String("fieldName"),
 //   	typeName: jsii.String("typeName"),
@@ -11457,25 +11641,25 @@ type ExtendedDataSourceProps struct {
 type ExtendedResolverProps struct {
 	// name of the GraphQL field in the given type this resolver is attached to.
 	// Experimental.
-	FieldName *string `json:"fieldName" yaml:"fieldName"`
+	FieldName *string `field:"required" json:"fieldName" yaml:"fieldName"`
 	// name of the GraphQL type this resolver is attached to.
 	// Experimental.
-	TypeName *string `json:"typeName" yaml:"typeName"`
+	TypeName *string `field:"required" json:"typeName" yaml:"typeName"`
 	// The caching configuration for this resolver.
 	// Experimental.
-	CachingConfig *CachingConfig `json:"cachingConfig" yaml:"cachingConfig"`
+	CachingConfig *CachingConfig `field:"optional" json:"cachingConfig" yaml:"cachingConfig"`
 	// configuration of the pipeline resolver.
 	// Experimental.
-	PipelineConfig *[]IAppsyncFunction `json:"pipelineConfig" yaml:"pipelineConfig"`
+	PipelineConfig *[]IAppsyncFunction `field:"optional" json:"pipelineConfig" yaml:"pipelineConfig"`
 	// The request mapping template for this resolver.
 	// Experimental.
-	RequestMappingTemplate MappingTemplate `json:"requestMappingTemplate" yaml:"requestMappingTemplate"`
+	RequestMappingTemplate MappingTemplate `field:"optional" json:"requestMappingTemplate" yaml:"requestMappingTemplate"`
 	// The response mapping template for this resolver.
 	// Experimental.
-	ResponseMappingTemplate MappingTemplate `json:"responseMappingTemplate" yaml:"responseMappingTemplate"`
+	ResponseMappingTemplate MappingTemplate `field:"optional" json:"responseMappingTemplate" yaml:"responseMappingTemplate"`
 	// The data source this resolver is using.
 	// Experimental.
-	DataSource BaseDataSource `json:"dataSource" yaml:"dataSource"`
+	DataSource BaseDataSource `field:"optional" json:"dataSource" yaml:"dataSource"`
 }
 
 // Fields build upon Graphql Types and provide typing and arguments.
@@ -11962,17 +12146,17 @@ const (
 type FieldOptions struct {
 	// The return type for this field.
 	// Experimental.
-	ReturnType GraphqlType `json:"returnType" yaml:"returnType"`
+	ReturnType GraphqlType `field:"required" json:"returnType" yaml:"returnType"`
 	// The arguments for this field.
 	//
 	// i.e. type Example (first: String second: String) {}
 	// - where 'first' and 'second' are key values for args
 	// and 'String' is the GraphqlType.
 	// Experimental.
-	Args *map[string]GraphqlType `json:"args" yaml:"args"`
+	Args *map[string]GraphqlType `field:"optional" json:"args" yaml:"args"`
 	// the directives for this field.
 	// Experimental.
-	Directives *[]Directive `json:"directives" yaml:"directives"`
+	Directives *[]Directive `field:"optional" json:"directives" yaml:"directives"`
 }
 
 // An AppSync GraphQL API.
@@ -12761,6 +12945,7 @@ func (g *jsiiProxy_GraphqlApi) Validate() *[]*string {
 // Example:
 //   var api graphqlApi
 //   var table table
+//
 //   importedApi := appsync.graphqlApi.fromGraphqlApiAttributes(this, jsii.String("IApi"), &graphqlApiAttributes{
 //   	graphqlApiId: api.apiId,
 //   	graphqlApiArn: api.arn,
@@ -12771,10 +12956,10 @@ func (g *jsiiProxy_GraphqlApi) Validate() *[]*string {
 type GraphqlApiAttributes struct {
 	// an unique AWS AppSync GraphQL API identifier i.e. 'lxz775lwdrgcndgz3nurvac7oa'.
 	// Experimental.
-	GraphqlApiId *string `json:"graphqlApiId" yaml:"graphqlApiId"`
+	GraphqlApiId *string `field:"required" json:"graphqlApiId" yaml:"graphqlApiId"`
 	// the arn for the GraphQL Api.
 	// Experimental.
-	GraphqlApiArn *string `json:"graphqlApiArn" yaml:"graphqlApiArn"`
+	GraphqlApiArn *string `field:"optional" json:"graphqlApiArn" yaml:"graphqlApiArn"`
 }
 
 // Base Class for GraphQL API.
@@ -13294,27 +13479,27 @@ func (g *jsiiProxy_GraphqlApiBase) Validate() *[]*string {
 type GraphqlApiProps struct {
 	// the name of the GraphQL API.
 	// Experimental.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// Optional authorization configuration.
 	// Experimental.
-	AuthorizationConfig *AuthorizationConfig `json:"authorizationConfig" yaml:"authorizationConfig"`
+	AuthorizationConfig *AuthorizationConfig `field:"optional" json:"authorizationConfig" yaml:"authorizationConfig"`
 	// The domain name configuration for the GraphQL API.
 	//
 	// The Route 53 hosted zone and CName DNS record must be configured in addition to this setting to
 	// enable custom domain URL.
 	// Experimental.
-	DomainName *DomainOptions `json:"domainName" yaml:"domainName"`
+	DomainName *DomainOptions `field:"optional" json:"domainName" yaml:"domainName"`
 	// Logging configuration for this api.
 	// Experimental.
-	LogConfig *LogConfig `json:"logConfig" yaml:"logConfig"`
+	LogConfig *LogConfig `field:"optional" json:"logConfig" yaml:"logConfig"`
 	// GraphQL schema definition. Specify how you want to define your schema.
 	//
 	// Schema.fromFile(filePath: string) allows schema definition through schema.graphql file
 	// Experimental.
-	Schema Schema `json:"schema" yaml:"schema"`
+	Schema Schema `field:"optional" json:"schema" yaml:"schema"`
 	// A flag indicating whether or not X-Ray tracing is enabled for the GraphQL API.
 	// Experimental.
-	XrayEnabled *bool `json:"xrayEnabled" yaml:"xrayEnabled"`
+	XrayEnabled *bool `field:"optional" json:"xrayEnabled" yaml:"xrayEnabled"`
 }
 
 // The GraphQL Types in AppSync's GraphQL.
@@ -13331,6 +13516,7 @@ type GraphqlApiProps struct {
 //   var api graphqlApi
 //   var dummyRequest mappingTemplate
 //   var dummyResponse mappingTemplate
+//
 //   info := appsync.NewObjectType(jsii.String("Info"), &objectTypeOptions{
 //   	definition: map[string]iField{
 //   		"node": appsync.NewResolvableField(&ResolvableFieldOptions{
@@ -13767,9 +13953,12 @@ func (g *jsiiProxy_GraphqlType) ToString() *string {
 // Options for GraphQL Types.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var intermediateType iIntermediateType
+//
 //   graphqlTypeOptions := &graphqlTypeOptions{
 //   	intermediateType: intermediateType,
 //   	isList: jsii.Boolean(false),
@@ -13781,16 +13970,16 @@ func (g *jsiiProxy_GraphqlType) ToString() *string {
 type GraphqlTypeOptions struct {
 	// property determining if this attribute is a list i.e. if true, attribute would be [Type].
 	// Experimental.
-	IsList *bool `json:"isList" yaml:"isList"`
+	IsList *bool `field:"optional" json:"isList" yaml:"isList"`
 	// property determining if this attribute is non-nullable i.e. if true, attribute would be Type!
 	// Experimental.
-	IsRequired *bool `json:"isRequired" yaml:"isRequired"`
+	IsRequired *bool `field:"optional" json:"isRequired" yaml:"isRequired"`
 	// property determining if this attribute is a non-nullable list i.e. if true, attribute would be [ Type ]! or if isRequired true, attribe would be [ Type! ]!
 	// Experimental.
-	IsRequiredList *bool `json:"isRequiredList" yaml:"isRequiredList"`
+	IsRequiredList *bool `field:"optional" json:"isRequiredList" yaml:"isRequiredList"`
 	// the intermediate type linked to this attribute.
 	// Experimental.
-	IntermediateType IIntermediateType `json:"intermediateType" yaml:"intermediateType"`
+	IntermediateType IIntermediateType `field:"optional" json:"intermediateType" yaml:"intermediateType"`
 }
 
 // An AppSync datasource backed by a http endpoint.
@@ -14149,21 +14338,24 @@ func (h *jsiiProxy_HttpDataSource) Validate() *[]*string {
 type HttpDataSourceOptions struct {
 	// The description of the data source.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the data source, overrides the id given by cdk.
 	// Experimental.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The authorization config in case the HTTP endpoint requires authorization.
 	// Experimental.
-	AuthorizationConfig *AwsIamConfig `json:"authorizationConfig" yaml:"authorizationConfig"`
+	AuthorizationConfig *AwsIamConfig `field:"optional" json:"authorizationConfig" yaml:"authorizationConfig"`
 }
 
 // Properties for an AppSync http datasource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var graphqlApi graphqlApi
+//
 //   httpDataSourceProps := &httpDataSourceProps{
 //   	api: graphqlApi,
 //   	endpoint: jsii.String("endpoint"),
@@ -14181,19 +14373,19 @@ type HttpDataSourceOptions struct {
 type HttpDataSourceProps struct {
 	// The API to attach this data source to.
 	// Experimental.
-	Api IGraphqlApi `json:"api" yaml:"api"`
+	Api IGraphqlApi `field:"required" json:"api" yaml:"api"`
 	// the description of the data source.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the data source.
 	// Experimental.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The http endpoint.
 	// Experimental.
-	Endpoint *string `json:"endpoint" yaml:"endpoint"`
+	Endpoint *string `field:"required" json:"endpoint" yaml:"endpoint"`
 	// The authorization config in case the HTTP endpoint requires authorization.
 	// Experimental.
-	AuthorizationConfig *AwsIamConfig `json:"authorizationConfig" yaml:"authorizationConfig"`
+	AuthorizationConfig *AwsIamConfig `field:"optional" json:"authorizationConfig" yaml:"authorizationConfig"`
 }
 
 // Interface for AppSync Functions.
@@ -14697,7 +14889,8 @@ func (j *jsiiProxy_IIntermediateType) SetResolvers(val *[]Resolver) {
 // A class used to generate resource arns for AppSync.
 //
 // Example:
-//   var api graphqlApirole := iam.NewRole(this, jsii.String("Role"), &roleProps{
+//   var api graphqlApi
+//   role := iam.NewRole(this, jsii.String("Role"), &roleProps{
 //   	assumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
 //   })
 //
@@ -14795,6 +14988,7 @@ func (i *jsiiProxy_IamResource) ResourceArns(api GraphqlApi) *[]*string {
 //
 // Example:
 //   var api graphqlApi
+//
 //   review := appsync.NewInputType(jsii.String("Review"), &intermediateTypeOptions{
 //   	definition: map[string]iField{
 //   		"stars": appsync.GraphqlType.int(&BaseTypeOptions{
@@ -15126,17 +15320,20 @@ func (i *jsiiProxy_InterfaceType) ToString() *string {
 type IntermediateTypeOptions struct {
 	// the attributes of this type.
 	// Experimental.
-	Definition *map[string]IField `json:"definition" yaml:"definition"`
+	Definition *map[string]IField `field:"required" json:"definition" yaml:"definition"`
 	// the directives for this object type.
 	// Experimental.
-	Directives *[]Directive `json:"directives" yaml:"directives"`
+	Directives *[]Directive `field:"optional" json:"directives" yaml:"directives"`
 }
 
 // Factory class for DynamoDB key conditions.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
-//   keyCondition := appsync.keyCondition.beginsWith(jsii.String("keyName"), jsii.String("arg"))
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   keyCondition := awscdk.Aws_appsync.keyCondition.beginsWith(jsii.String("keyName"), jsii.String("arg"))
 //
 // Experimental.
 type KeyCondition interface {
@@ -15308,6 +15505,7 @@ func (k *jsiiProxy_KeyCondition) RenderTemplate() *string {
 //   import lambda "github.com/aws/aws-cdk-go/awscdk"
 //   var authFunction function
 //
+//
 //   appsync.NewGraphqlApi(this, jsii.String("api"), &graphqlApiProps{
 //   	name: jsii.String("api"),
 //   	schema: appsync.schema.fromAsset(path.join(__dirname, jsii.String("appsync.test.graphql"))),
@@ -15333,26 +15531,31 @@ type LambdaAuthorizerConfig struct {
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-lambdaauthorizerconfig.html
 	//
 	// Experimental.
-	Handler awslambda.IFunction `json:"handler" yaml:"handler"`
+	Handler awslambda.IFunction `field:"required" json:"handler" yaml:"handler"`
 	// How long the results are cached.
 	//
 	// Disable caching by setting this to 0.
 	// Experimental.
-	ResultsCacheTtl awscdk.Duration `json:"resultsCacheTtl" yaml:"resultsCacheTtl"`
+	ResultsCacheTtl awscdk.Duration `field:"optional" json:"resultsCacheTtl" yaml:"resultsCacheTtl"`
 	// A regular expression for validation of tokens before the Lambda function is called.
 	// Experimental.
-	ValidationRegex *string `json:"validationRegex" yaml:"validationRegex"`
+	ValidationRegex *string `field:"optional" json:"validationRegex" yaml:"validationRegex"`
 }
 
 // An AppSync datasource backed by a Lambda function.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var function_ function
 //   var graphqlApi graphqlApi
 //   var role role
-//   lambdaDataSource := appsync.NewLambdaDataSource(this, jsii.String("MyLambdaDataSource"), &lambdaDataSourceProps{
+//
+//   lambdaDataSource := awscdk.Aws_appsync.NewLambdaDataSource(this, jsii.String("MyLambdaDataSource"), &lambdaDataSourceProps{
 //   	api: graphqlApi,
 //   	lambdaFunction: function_,
 //
@@ -15669,11 +15872,16 @@ func (l *jsiiProxy_LambdaDataSource) Validate() *[]*string {
 // Properties for an AppSync Lambda datasource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var function_ function
 //   var graphqlApi graphqlApi
 //   var role role
+//
 //   lambdaDataSourceProps := &lambdaDataSourceProps{
 //   	api: graphqlApi,
 //   	lambdaFunction: function_,
@@ -15688,30 +15896,34 @@ func (l *jsiiProxy_LambdaDataSource) Validate() *[]*string {
 type LambdaDataSourceProps struct {
 	// The API to attach this data source to.
 	// Experimental.
-	Api IGraphqlApi `json:"api" yaml:"api"`
+	Api IGraphqlApi `field:"required" json:"api" yaml:"api"`
 	// the description of the data source.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the data source.
 	// Experimental.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The IAM service role to be assumed by AppSync to interact with the data source.
 	// Experimental.
-	ServiceRole awsiam.IRole `json:"serviceRole" yaml:"serviceRole"`
+	ServiceRole awsiam.IRole `field:"optional" json:"serviceRole" yaml:"serviceRole"`
 	// The Lambda function to call to interact with this data source.
 	// Experimental.
-	LambdaFunction awslambda.IFunction `json:"lambdaFunction" yaml:"lambdaFunction"`
+	LambdaFunction awslambda.IFunction `field:"required" json:"lambdaFunction" yaml:"lambdaFunction"`
 }
 
 // Logging configuration for AppSync.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var role role
+//
 //   logConfig := &logConfig{
 //   	excludeVerboseContent: jsii.Boolean(false),
-//   	fieldLogLevel: appsync.fieldLogLevel_NONE,
+//   	fieldLogLevel: awscdk.Aws_appsync.fieldLogLevel_NONE,
 //   	role: role,
 //   }
 //
@@ -15719,13 +15931,13 @@ type LambdaDataSourceProps struct {
 type LogConfig struct {
 	// exclude verbose content.
 	// Experimental.
-	ExcludeVerboseContent interface{} `json:"excludeVerboseContent" yaml:"excludeVerboseContent"`
+	ExcludeVerboseContent interface{} `field:"optional" json:"excludeVerboseContent" yaml:"excludeVerboseContent"`
 	// log level for fields.
 	// Experimental.
-	FieldLogLevel FieldLogLevel `json:"fieldLogLevel" yaml:"fieldLogLevel"`
+	FieldLogLevel FieldLogLevel `field:"optional" json:"fieldLogLevel" yaml:"fieldLogLevel"`
 	// The role for CloudWatch Logs.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 }
 
 // MappingTemplates for AppSync resolvers.
@@ -15734,6 +15946,7 @@ type LogConfig struct {
 //   var api graphqlApi
 //   var dummyRequest mappingTemplate
 //   var dummyResponse mappingTemplate
+//
 //   info := appsync.NewObjectType(jsii.String("Info"), &objectTypeOptions{
 //   	definition: map[string]iField{
 //   		"node": appsync.NewResolvableField(&ResolvableFieldOptions{
@@ -15974,10 +16187,13 @@ func (m *jsiiProxy_MappingTemplate) RenderTemplate() *string {
 // An AppSync dummy datasource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var graphqlApi graphqlApi
-//   noneDataSource := appsync.NewNoneDataSource(this, jsii.String("MyNoneDataSource"), &noneDataSourceProps{
+//
+//   noneDataSource := awscdk.Aws_appsync.NewNoneDataSource(this, jsii.String("MyNoneDataSource"), &noneDataSourceProps{
 //   	api: graphqlApi,
 //
 //   	// the properties below are optional
@@ -16279,9 +16495,12 @@ func (n *jsiiProxy_NoneDataSource) Validate() *[]*string {
 // Properties for an AppSync dummy datasource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var graphqlApi graphqlApi
+//
 //   noneDataSourceProps := &noneDataSourceProps{
 //   	api: graphqlApi,
 //
@@ -16294,13 +16513,13 @@ func (n *jsiiProxy_NoneDataSource) Validate() *[]*string {
 type NoneDataSourceProps struct {
 	// The API to attach this data source to.
 	// Experimental.
-	Api IGraphqlApi `json:"api" yaml:"api"`
+	Api IGraphqlApi `field:"required" json:"api" yaml:"api"`
 	// the description of the data source.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the data source.
 	// Experimental.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 
 // Object Types are types declared by you.
@@ -16309,6 +16528,7 @@ type NoneDataSourceProps struct {
 //   var api graphqlApi
 //   var dummyRequest mappingTemplate
 //   var dummyResponse mappingTemplate
+//
 //   info := appsync.NewObjectType(jsii.String("Info"), &objectTypeOptions{
 //   	definition: map[string]iField{
 //   		"node": appsync.NewResolvableField(&ResolvableFieldOptions{
@@ -16527,6 +16747,7 @@ func (o *jsiiProxy_ObjectType) ToString() *string {
 //   var api graphqlApi
 //   var dummyRequest mappingTemplate
 //   var dummyResponse mappingTemplate
+//
 //   info := appsync.NewObjectType(jsii.String("Info"), &objectTypeOptions{
 //   	definition: map[string]iField{
 //   		"node": appsync.NewResolvableField(&ResolvableFieldOptions{
@@ -16545,19 +16766,22 @@ func (o *jsiiProxy_ObjectType) ToString() *string {
 type ObjectTypeOptions struct {
 	// the attributes of this type.
 	// Experimental.
-	Definition *map[string]IField `json:"definition" yaml:"definition"`
+	Definition *map[string]IField `field:"required" json:"definition" yaml:"definition"`
 	// the directives for this object type.
 	// Experimental.
-	Directives *[]Directive `json:"directives" yaml:"directives"`
+	Directives *[]Directive `field:"optional" json:"directives" yaml:"directives"`
 	// The Interface Types this Object Type implements.
 	// Experimental.
-	InterfaceTypes *[]InterfaceType `json:"interfaceTypes" yaml:"interfaceTypes"`
+	InterfaceTypes *[]InterfaceType `field:"optional" json:"interfaceTypes" yaml:"interfaceTypes"`
 }
 
 // Configuration for OpenID Connect authorization in AppSync.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   openIdConnectConfig := &openIdConnectConfig{
 //   	oidcProvider: jsii.String("oidcProvider"),
 //
@@ -16573,7 +16797,7 @@ type OpenIdConnectConfig struct {
 	//
 	// The issuer returned by discovery must exactly match the value of `iss` in the OIDC token.
 	// Experimental.
-	OidcProvider *string `json:"oidcProvider" yaml:"oidcProvider"`
+	OidcProvider *string `field:"required" json:"oidcProvider" yaml:"oidcProvider"`
 	// The client identifier of the Relying party at the OpenID identity provider.
 	//
 	// A regular expression can be specified so AppSync can validate against multiple client identifiers at a time.
@@ -16582,17 +16806,17 @@ type OpenIdConnectConfig struct {
 	//   -"ABCD|CDEF"
 	//
 	// Experimental.
-	ClientId *string `json:"clientId" yaml:"clientId"`
+	ClientId *string `field:"optional" json:"clientId" yaml:"clientId"`
 	// The number of milliseconds an OIDC token is valid after being authenticated by OIDC provider.
 	//
 	// `auth_time` claim in OIDC token is required for this validation to work.
 	// Experimental.
-	TokenExpiryFromAuth *float64 `json:"tokenExpiryFromAuth" yaml:"tokenExpiryFromAuth"`
+	TokenExpiryFromAuth *float64 `field:"optional" json:"tokenExpiryFromAuth" yaml:"tokenExpiryFromAuth"`
 	// The number of milliseconds an OIDC token is valid after being issued to a user.
 	//
 	// This validation uses `iat` claim of OIDC token.
 	// Experimental.
-	TokenExpiryFromIssue *float64 `json:"tokenExpiryFromIssue" yaml:"tokenExpiryFromIssue"`
+	TokenExpiryFromIssue *float64 `field:"optional" json:"tokenExpiryFromIssue" yaml:"tokenExpiryFromIssue"`
 }
 
 // An Appsync datasource backed by OpenSearch.
@@ -16602,10 +16826,11 @@ type OpenIdConnectConfig struct {
 //
 //   var api graphqlApi
 //
+//
 //   user := iam.NewUser(this, jsii.String("User"))
 //   domain := opensearch.NewDomain(this, jsii.String("Domain"), &domainProps{
 //   	version: opensearch.engineVersion_OPENSEARCH_1_2(),
-//   	removalPolicy: removalPolicy_DESTROY,
+//   	removalPolicy: awscdk.RemovalPolicy_DESTROY,
 //   	fineGrainedAccessControl: &advancedSecurityOptions{
 //   		masterUserArn: user.userArn,
 //   	},
@@ -16945,11 +17170,16 @@ func (o *jsiiProxy_OpenSearchDataSource) Validate() *[]*string {
 // Properties for the OpenSearch Data Source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"import awscdk "github.com/aws/aws-cdk-go/awscdk"import opensearchservice "github.com/aws/aws-cdk-go/awscdk/aws_opensearchservice"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var domain domain
 //   var graphqlApi graphqlApi
 //   var role role
+//
 //   openSearchDataSourceProps := &openSearchDataSourceProps{
 //   	api: graphqlApi,
 //   	domain: domain,
@@ -16964,19 +17194,19 @@ func (o *jsiiProxy_OpenSearchDataSource) Validate() *[]*string {
 type OpenSearchDataSourceProps struct {
 	// The API to attach this data source to.
 	// Experimental.
-	Api IGraphqlApi `json:"api" yaml:"api"`
+	Api IGraphqlApi `field:"required" json:"api" yaml:"api"`
 	// the description of the data source.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the data source.
 	// Experimental.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The IAM service role to be assumed by AppSync to interact with the data source.
 	// Experimental.
-	ServiceRole awsiam.IRole `json:"serviceRole" yaml:"serviceRole"`
+	ServiceRole awsiam.IRole `field:"optional" json:"serviceRole" yaml:"serviceRole"`
 	// The OpenSearch domain containing the endpoint for the data source.
 	// Experimental.
-	Domain awsopensearchservice.IDomain `json:"domain" yaml:"domain"`
+	Domain awsopensearchservice.IDomain `field:"required" json:"domain" yaml:"domain"`
 }
 
 // Specifies the assignment to the partition key.
@@ -16985,10 +17215,13 @@ type OpenSearchDataSourceProps struct {
 // enhanced with the assignment of the sort key.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var assign assign
-//   partitionKey := appsync.NewPartitionKey(assign)
+//
+//   partitionKey := awscdk.Aws_appsync.NewPartitionKey(assign)
 //
 // Experimental.
 type PartitionKey interface {
@@ -17091,8 +17324,11 @@ func (p *jsiiProxy_PartitionKey) Sort(key *string) SortKeyStep {
 // Utility class to allow assigning a value or an auto-generated id to a partition key.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
-//   partitionKeyStep := appsync.NewPartitionKeyStep(jsii.String("key"))
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   partitionKeyStep := awscdk.Aws_appsync.NewPartitionKeyStep(jsii.String("key"))
 //
 // Experimental.
 type PartitionKeyStep interface {
@@ -17288,7 +17524,8 @@ func (p *jsiiProxy_PrimaryKey) RenderTemplate() *string {
 //
 // Example:
 //   // Build a data source for AppSync to access the database.
-//   var api graphqlApi// Create username and password secret for DB Cluster
+//   var api graphqlApi
+//   // Create username and password secret for DB Cluster
 //   secret := rds.NewDatabaseSecret(this, jsii.String("AuroraSecret"), &databaseSecretProps{
 //   	username: jsii.String("clusteradmin"),
 //   })
@@ -17631,12 +17868,18 @@ func (r *jsiiProxy_RdsDataSource) Validate() *[]*string {
 // Properties for an AppSync RDS datasource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"import awscdk "github.com/aws/aws-cdk-go/awscdk"import rds "github.com/aws/aws-cdk-go/awscdk/aws_rds"import awscdk "github.com/aws/aws-cdk-go/awscdk"import secretsmanager "github.com/aws/aws-cdk-go/awscdk/aws_secretsmanager"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var graphqlApi graphqlApi
 //   var role role
 //   var secret secret
 //   var serverlessCluster serverlessCluster
+//
 //   rdsDataSourceProps := &rdsDataSourceProps{
 //   	api: graphqlApi,
 //   	secretStore: secret,
@@ -17653,25 +17896,25 @@ func (r *jsiiProxy_RdsDataSource) Validate() *[]*string {
 type RdsDataSourceProps struct {
 	// The API to attach this data source to.
 	// Experimental.
-	Api IGraphqlApi `json:"api" yaml:"api"`
+	Api IGraphqlApi `field:"required" json:"api" yaml:"api"`
 	// the description of the data source.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the data source.
 	// Experimental.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The IAM service role to be assumed by AppSync to interact with the data source.
 	// Experimental.
-	ServiceRole awsiam.IRole `json:"serviceRole" yaml:"serviceRole"`
+	ServiceRole awsiam.IRole `field:"optional" json:"serviceRole" yaml:"serviceRole"`
 	// The secret containing the credentials for the database.
 	// Experimental.
-	SecretStore awssecretsmanager.ISecret `json:"secretStore" yaml:"secretStore"`
+	SecretStore awssecretsmanager.ISecret `field:"required" json:"secretStore" yaml:"secretStore"`
 	// The serverless cluster to call to interact with this data source.
 	// Experimental.
-	ServerlessCluster awsrds.IServerlessCluster `json:"serverlessCluster" yaml:"serverlessCluster"`
+	ServerlessCluster awsrds.IServerlessCluster `field:"required" json:"serverlessCluster" yaml:"serverlessCluster"`
 	// The name of the database to use within the cluster.
 	// Experimental.
-	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
+	DatabaseName *string `field:"optional" json:"databaseName" yaml:"databaseName"`
 }
 
 // Resolvable Fields build upon Graphql Types and provide fields that can resolve into operations on a data source.
@@ -17680,6 +17923,7 @@ type RdsDataSourceProps struct {
 //   var api graphqlApi
 //   var dummyRequest mappingTemplate
 //   var dummyResponse mappingTemplate
+//
 //   info := appsync.NewObjectType(jsii.String("Info"), &objectTypeOptions{
 //   	definition: map[string]iField{
 //   		"node": appsync.NewResolvableField(&ResolvableFieldOptions{
@@ -18136,6 +18380,7 @@ func (r *jsiiProxy_ResolvableField) ToString() *string {
 //   var dummyRequest mappingTemplate
 //   var dummyResponse mappingTemplate
 //
+//
 //   string := appsync.graphqlType.string()
 //   int := appsync.graphqlType.int()
 //   api.addMutation(jsii.String("addFilm"), appsync.NewResolvableField(&resolvableFieldOptions{
@@ -18153,29 +18398,29 @@ func (r *jsiiProxy_ResolvableField) ToString() *string {
 type ResolvableFieldOptions struct {
 	// The return type for this field.
 	// Experimental.
-	ReturnType GraphqlType `json:"returnType" yaml:"returnType"`
+	ReturnType GraphqlType `field:"required" json:"returnType" yaml:"returnType"`
 	// The arguments for this field.
 	//
 	// i.e. type Example (first: String second: String) {}
 	// - where 'first' and 'second' are key values for args
 	// and 'String' is the GraphqlType.
 	// Experimental.
-	Args *map[string]GraphqlType `json:"args" yaml:"args"`
+	Args *map[string]GraphqlType `field:"optional" json:"args" yaml:"args"`
 	// the directives for this field.
 	// Experimental.
-	Directives *[]Directive `json:"directives" yaml:"directives"`
+	Directives *[]Directive `field:"optional" json:"directives" yaml:"directives"`
 	// The data source creating linked to this resolvable field.
 	// Experimental.
-	DataSource BaseDataSource `json:"dataSource" yaml:"dataSource"`
+	DataSource BaseDataSource `field:"optional" json:"dataSource" yaml:"dataSource"`
 	// configuration of the pipeline resolver.
 	// Experimental.
-	PipelineConfig *[]IAppsyncFunction `json:"pipelineConfig" yaml:"pipelineConfig"`
+	PipelineConfig *[]IAppsyncFunction `field:"optional" json:"pipelineConfig" yaml:"pipelineConfig"`
 	// The request mapping template for this resolver.
 	// Experimental.
-	RequestMappingTemplate MappingTemplate `json:"requestMappingTemplate" yaml:"requestMappingTemplate"`
+	RequestMappingTemplate MappingTemplate `field:"optional" json:"requestMappingTemplate" yaml:"requestMappingTemplate"`
 	// The response mapping template for this resolver.
 	// Experimental.
-	ResponseMappingTemplate MappingTemplate `json:"responseMappingTemplate" yaml:"responseMappingTemplate"`
+	ResponseMappingTemplate MappingTemplate `field:"optional" json:"responseMappingTemplate" yaml:"responseMappingTemplate"`
 }
 
 // An AppSync resolver.
@@ -18183,6 +18428,7 @@ type ResolvableFieldOptions struct {
 // Example:
 //   var api graphqlApi
 //   var appsyncFunction appsyncFunction
+//
 //
 //   pipelineResolver := appsync.NewResolver(this, jsii.String("pipeline"), &resolverProps{
 //   	api: api,
@@ -18404,6 +18650,7 @@ func (r *jsiiProxy_Resolver) Validate() *[]*string {
 //   var api graphqlApi
 //   var appsyncFunction appsyncFunction
 //
+//
 //   pipelineResolver := appsync.NewResolver(this, jsii.String("pipeline"), &resolverProps{
 //   	api: api,
 //   	dataSource: api.addNoneDataSource(jsii.String("none")),
@@ -18420,28 +18667,28 @@ func (r *jsiiProxy_Resolver) Validate() *[]*string {
 type ResolverProps struct {
 	// name of the GraphQL field in the given type this resolver is attached to.
 	// Experimental.
-	FieldName *string `json:"fieldName" yaml:"fieldName"`
+	FieldName *string `field:"required" json:"fieldName" yaml:"fieldName"`
 	// name of the GraphQL type this resolver is attached to.
 	// Experimental.
-	TypeName *string `json:"typeName" yaml:"typeName"`
+	TypeName *string `field:"required" json:"typeName" yaml:"typeName"`
 	// The caching configuration for this resolver.
 	// Experimental.
-	CachingConfig *CachingConfig `json:"cachingConfig" yaml:"cachingConfig"`
+	CachingConfig *CachingConfig `field:"optional" json:"cachingConfig" yaml:"cachingConfig"`
 	// configuration of the pipeline resolver.
 	// Experimental.
-	PipelineConfig *[]IAppsyncFunction `json:"pipelineConfig" yaml:"pipelineConfig"`
+	PipelineConfig *[]IAppsyncFunction `field:"optional" json:"pipelineConfig" yaml:"pipelineConfig"`
 	// The request mapping template for this resolver.
 	// Experimental.
-	RequestMappingTemplate MappingTemplate `json:"requestMappingTemplate" yaml:"requestMappingTemplate"`
+	RequestMappingTemplate MappingTemplate `field:"optional" json:"requestMappingTemplate" yaml:"requestMappingTemplate"`
 	// The response mapping template for this resolver.
 	// Experimental.
-	ResponseMappingTemplate MappingTemplate `json:"responseMappingTemplate" yaml:"responseMappingTemplate"`
+	ResponseMappingTemplate MappingTemplate `field:"optional" json:"responseMappingTemplate" yaml:"responseMappingTemplate"`
 	// The data source this resolver is using.
 	// Experimental.
-	DataSource BaseDataSource `json:"dataSource" yaml:"dataSource"`
+	DataSource BaseDataSource `field:"optional" json:"dataSource" yaml:"dataSource"`
 	// The API this resolver is attached to.
 	// Experimental.
-	Api IGraphqlApi `json:"api" yaml:"api"`
+	Api IGraphqlApi `field:"required" json:"api" yaml:"api"`
 }
 
 // The Schema for a GraphQL Api.
@@ -18661,7 +18908,10 @@ func (s *jsiiProxy_Schema) Bind(api GraphqlApi) CfnGraphQLSchema {
 // be generated code-first.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   schemaOptions := &schemaOptions{
 //   	filePath: jsii.String("filePath"),
 //   }
@@ -18674,16 +18924,19 @@ type SchemaOptions struct {
 	// configured, then the schema will be generated from an
 	// existing file from disk.
 	// Experimental.
-	FilePath *string `json:"filePath" yaml:"filePath"`
+	FilePath *string `field:"optional" json:"filePath" yaml:"filePath"`
 }
 
 // Utility class to allow assigning a value or an auto-generated id to a sort key.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var assign assign
-//   sortKeyStep := appsync.NewSortKeyStep(assign, jsii.String("skey"))
+//
+//   sortKeyStep := awscdk.Aws_appsync.NewSortKeyStep(assign, jsii.String("skey"))
 //
 // Experimental.
 type SortKeyStep interface {
@@ -18831,6 +19084,7 @@ const (
 //
 // Example:
 //   var api graphqlApi
+//
 //   string := appsync.graphqlType.string()
 //   human := appsync.NewObjectType(jsii.String("Human"), &objectTypeOptions{
 //   	definition: map[string]iField{
@@ -18991,6 +19245,7 @@ func (u *jsiiProxy_UnionType) ToString() *string {
 //
 // Example:
 //   var api graphqlApi
+//
 //   string := appsync.graphqlType.string()
 //   human := appsync.NewObjectType(jsii.String("Human"), &objectTypeOptions{
 //   	definition: map[string]iField{
@@ -19020,34 +19275,38 @@ func (u *jsiiProxy_UnionType) ToString() *string {
 type UnionTypeOptions struct {
 	// the object types for this union type.
 	// Experimental.
-	Definition *[]IIntermediateType `json:"definition" yaml:"definition"`
+	Definition *[]IIntermediateType `field:"required" json:"definition" yaml:"definition"`
 }
 
 // Configuration for Cognito user-pools in AppSync.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appsync "github.com/aws/aws-cdk-go/awscdk/aws_appsync"import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito "github.com/aws/aws-cdk-go/awscdk/aws_cognito"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var userPool userPool
+//
 //   userPoolConfig := &userPoolConfig{
 //   	userPool: userPool,
 //
 //   	// the properties below are optional
 //   	appIdClientRegex: jsii.String("appIdClientRegex"),
-//   	defaultAction: appsync.userPoolDefaultAction_ALLOW,
+//   	defaultAction: awscdk.Aws_appsync.userPoolDefaultAction_ALLOW,
 //   }
 //
 // Experimental.
 type UserPoolConfig struct {
 	// The Cognito user pool to use as identity source.
 	// Experimental.
-	UserPool awscognito.IUserPool `json:"userPool" yaml:"userPool"`
+	UserPool awscognito.IUserPool `field:"required" json:"userPool" yaml:"userPool"`
 	// the optional app id regex.
 	// Experimental.
-	AppIdClientRegex *string `json:"appIdClientRegex" yaml:"appIdClientRegex"`
+	AppIdClientRegex *string `field:"optional" json:"appIdClientRegex" yaml:"appIdClientRegex"`
 	// Default auth action.
 	// Experimental.
-	DefaultAction UserPoolDefaultAction `json:"defaultAction" yaml:"defaultAction"`
+	DefaultAction UserPoolDefaultAction `field:"optional" json:"defaultAction" yaml:"defaultAction"`
 }
 
 // enum with all possible values for Cognito user-pool default actions.

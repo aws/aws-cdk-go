@@ -20,12 +20,18 @@ import (
 // Job Code from a local file.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import assets "github.com/aws/aws-cdk-go/awscdk/assets"import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var dockerImage dockerImage
 //   var grantable iGrantable
 //   var localBundling iLocalBundling
-//   assetCode := glue.NewAssetCode(jsii.String("path"), &assetOptions{
+//
+//   assetCode := awscdk.Aws_glue.NewAssetCode(jsii.String("path"), &assetOptions{
 //   	assetHash: jsii.String("assetHash"),
 //   	assetHashType: monocdk.assetHashType_SOURCE,
 //   	bundling: &bundlingOptions{
@@ -59,7 +65,7 @@ import (
 //   	exclude: []*string{
 //   		jsii.String("exclude"),
 //   	},
-//   	follow: assets.followMode_NEVER,
+//   	follow: awscdk.Assets.followMode_NEVER,
 //   	followSymlinks: monocdk.symlinkFollowMode_NEVER,
 //   	ignoreMode: monocdk.ignoreMode_GLOB,
 //   	readers: []*iGrantable{
@@ -159,8 +165,11 @@ func (a *jsiiProxy_AssetCode) Bind(scope constructs.Construct, grantable awsiam.
 // The `AWS::Glue::Classifier` resource creates an AWS Glue classifier that categorizes data sources and specifies schemas. For more information, see [Adding Classifiers to a Crawler](https://docs.aws.amazon.com/glue/latest/dg/add-classifier.html) and [Classifier Structure](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-classifiers.html#aws-glue-api-crawler-classifiers-Classifier) in the *AWS Glue Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
-//   cfnClassifier := glue.NewCfnClassifier(this, jsii.String("MyCfnClassifier"), &cfnClassifierProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnClassifier := awscdk.Aws_glue.NewCfnClassifier(this, jsii.String("MyCfnClassifier"), &cfnClassifierProps{
 //   	csvClassifier: &csvClassifierProperty{
 //   		allowSingleColumn: jsii.Boolean(false),
 //   		containsHeader: jsii.String("containsHeader"),
@@ -887,7 +896,10 @@ func (c *jsiiProxy_CfnClassifier) ValidateProperties(_properties interface{}) {
 // A classifier for custom `CSV` content.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   csvClassifierProperty := &csvClassifierProperty{
 //   	allowSingleColumn: jsii.Boolean(false),
 //   	containsHeader: jsii.String("containsHeader"),
@@ -902,29 +914,38 @@ func (c *jsiiProxy_CfnClassifier) ValidateProperties(_properties interface{}) {
 //
 type CfnClassifier_CsvClassifierProperty struct {
 	// Enables the processing of files that contain only one column.
-	AllowSingleColumn interface{} `json:"allowSingleColumn" yaml:"allowSingleColumn"`
+	AllowSingleColumn interface{} `field:"optional" json:"allowSingleColumn" yaml:"allowSingleColumn"`
 	// Indicates whether the CSV file contains a header.
-	ContainsHeader *string `json:"containsHeader" yaml:"containsHeader"`
+	//
+	// A value of `UNKNOWN` specifies that the classifier will detect whether the CSV file contains headings.
+	//
+	// A value of `PRESENT` specifies that the CSV file contains headings.
+	//
+	// A value of `ABSENT` specifies that the CSV file does not contain headings.
+	ContainsHeader *string `field:"optional" json:"containsHeader" yaml:"containsHeader"`
 	// A custom symbol to denote what separates each column entry in the row.
-	Delimiter *string `json:"delimiter" yaml:"delimiter"`
+	Delimiter *string `field:"optional" json:"delimiter" yaml:"delimiter"`
 	// Specifies not to trim values before identifying the type of column values.
 	//
 	// The default value is `true` .
-	DisableValueTrimming interface{} `json:"disableValueTrimming" yaml:"disableValueTrimming"`
+	DisableValueTrimming interface{} `field:"optional" json:"disableValueTrimming" yaml:"disableValueTrimming"`
 	// A list of strings representing column names.
-	Header *[]*string `json:"header" yaml:"header"`
+	Header *[]*string `field:"optional" json:"header" yaml:"header"`
 	// The name of the classifier.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// A custom symbol to denote what combines content into a single column value.
 	//
 	// It must be different from the column delimiter.
-	QuoteSymbol *string `json:"quoteSymbol" yaml:"quoteSymbol"`
+	QuoteSymbol *string `field:"optional" json:"quoteSymbol" yaml:"quoteSymbol"`
 }
 
 // A classifier that uses `grok` patterns.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   grokClassifierProperty := &grokClassifierProperty{
 //   	classification: jsii.String("classification"),
 //   	grokPattern: jsii.String("grokPattern"),
@@ -936,23 +957,26 @@ type CfnClassifier_CsvClassifierProperty struct {
 //
 type CfnClassifier_GrokClassifierProperty struct {
 	// An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, and so on.
-	Classification *string `json:"classification" yaml:"classification"`
+	Classification *string `field:"required" json:"classification" yaml:"classification"`
 	// The grok pattern applied to a data store by this classifier.
 	//
 	// For more information, see built-in patterns in [Writing Custom Classifiers](https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html) .
-	GrokPattern *string `json:"grokPattern" yaml:"grokPattern"`
+	GrokPattern *string `field:"required" json:"grokPattern" yaml:"grokPattern"`
 	// Optional custom grok patterns defined by this classifier.
 	//
 	// For more information, see custom patterns in [Writing Custom Classifiers](https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html) .
-	CustomPatterns *string `json:"customPatterns" yaml:"customPatterns"`
+	CustomPatterns *string `field:"optional" json:"customPatterns" yaml:"customPatterns"`
 	// The name of the classifier.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 
 // A classifier for `JSON` content.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   jsonClassifierProperty := &jsonClassifierProperty{
 //   	jsonPath: jsii.String("jsonPath"),
 //
@@ -964,15 +988,18 @@ type CfnClassifier_JsonClassifierProperty struct {
 	// A `JsonPath` string defining the JSON data for the classifier to classify.
 	//
 	// AWS Glue supports a subset of `JsonPath` , as described in [Writing JsonPath Custom Classifiers](https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json) .
-	JsonPath *string `json:"jsonPath" yaml:"jsonPath"`
+	JsonPath *string `field:"required" json:"jsonPath" yaml:"jsonPath"`
 	// The name of the classifier.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 
 // A classifier for `XML` content.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   xMLClassifierProperty := &xMLClassifierProperty{
 //   	classification: jsii.String("classification"),
 //   	rowTag: jsii.String("rowTag"),
@@ -983,19 +1010,22 @@ type CfnClassifier_JsonClassifierProperty struct {
 //
 type CfnClassifier_XMLClassifierProperty struct {
 	// An identifier of the data format that the classifier matches.
-	Classification *string `json:"classification" yaml:"classification"`
+	Classification *string `field:"required" json:"classification" yaml:"classification"`
 	// The XML tag designating the element that contains each record in an XML document being parsed.
 	//
 	// This can't identify a self-closing element (closed by `/>` ). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, `<row item_a="A" item_b="B"></row>` is okay, but `<row item_a="A" item_b="B" />` is not).
-	RowTag *string `json:"rowTag" yaml:"rowTag"`
+	RowTag *string `field:"required" json:"rowTag" yaml:"rowTag"`
 	// The name of the classifier.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 
 // Properties for defining a `CfnClassifier`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnClassifierProps := &cfnClassifierProps{
 //   	csvClassifier: &csvClassifierProperty{
 //   		allowSingleColumn: jsii.Boolean(false),
@@ -1033,13 +1063,13 @@ type CfnClassifier_XMLClassifierProperty struct {
 //
 type CfnClassifierProps struct {
 	// A classifier for comma-separated values (CSV).
-	CsvClassifier interface{} `json:"csvClassifier" yaml:"csvClassifier"`
+	CsvClassifier interface{} `field:"optional" json:"csvClassifier" yaml:"csvClassifier"`
 	// A classifier that uses `grok` .
-	GrokClassifier interface{} `json:"grokClassifier" yaml:"grokClassifier"`
+	GrokClassifier interface{} `field:"optional" json:"grokClassifier" yaml:"grokClassifier"`
 	// A classifier for JSON content.
-	JsonClassifier interface{} `json:"jsonClassifier" yaml:"jsonClassifier"`
+	JsonClassifier interface{} `field:"optional" json:"jsonClassifier" yaml:"jsonClassifier"`
 	// A classifier for XML content.
-	XmlClassifier interface{} `json:"xmlClassifier" yaml:"xmlClassifier"`
+	XmlClassifier interface{} `field:"optional" json:"xmlClassifier" yaml:"xmlClassifier"`
 }
 
 // A CloudFormation `AWS::Glue::Connection`.
@@ -1047,10 +1077,13 @@ type CfnClassifierProps struct {
 // The `AWS::Glue::Connection` resource specifies an AWS Glue connection to a data source. For more information, see [Adding a Connection to Your Data Store](https://docs.aws.amazon.com/glue/latest/dg/populate-add-connection.html) and [Connection Structure](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-connections.html#aws-glue-api-catalog-connections-Connection) in the *AWS Glue Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var connectionProperties interface{}
-//   cfnConnection := glue.NewCfnConnection(this, jsii.String("MyCfnConnection"), &cfnConnectionProps{
+//
+//   cfnConnection := awscdk.Aws_glue.NewCfnConnection(this, jsii.String("MyCfnConnection"), &cfnConnectionProps{
 //   	catalogId: jsii.String("catalogId"),
 //   	connectionInput: &connectionInputProperty{
 //   		connectionType: jsii.String("connectionType"),
@@ -1726,9 +1759,12 @@ func (c *jsiiProxy_CfnConnection) ValidateProperties(_properties interface{}) {
 // A structure that is used to specify a connection to create or update.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var connectionProperties interface{}
+//
 //   connectionInputProperty := &connectionInputProperty{
 //   	connectionType: jsii.String("connectionType"),
 //
@@ -1757,23 +1793,26 @@ type CfnConnection_ConnectionInputProperty struct {
 	// - `NETWORK` - Designates a network connection to a data source within an Amazon Virtual Private Cloud environment (Amazon VPC).
 	//
 	// SFTP is not supported.
-	ConnectionType *string `json:"connectionType" yaml:"connectionType"`
+	ConnectionType *string `field:"required" json:"connectionType" yaml:"connectionType"`
 	// These key-value pairs define parameters for the connection.
-	ConnectionProperties interface{} `json:"connectionProperties" yaml:"connectionProperties"`
+	ConnectionProperties interface{} `field:"optional" json:"connectionProperties" yaml:"connectionProperties"`
 	// The description of the connection.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// A list of criteria that can be used in selecting this connection.
-	MatchCriteria *[]*string `json:"matchCriteria" yaml:"matchCriteria"`
+	MatchCriteria *[]*string `field:"optional" json:"matchCriteria" yaml:"matchCriteria"`
 	// The name of the connection.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// A map of physical connection requirements, such as virtual private cloud (VPC) and `SecurityGroup` , that are needed to successfully make this connection.
-	PhysicalConnectionRequirements interface{} `json:"physicalConnectionRequirements" yaml:"physicalConnectionRequirements"`
+	PhysicalConnectionRequirements interface{} `field:"optional" json:"physicalConnectionRequirements" yaml:"physicalConnectionRequirements"`
 }
 
 // Specifies the physical requirements for a connection.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   physicalConnectionRequirementsProperty := &physicalConnectionRequirementsProperty{
 //   	availabilityZone: jsii.String("availabilityZone"),
 //   	securityGroupIdList: []*string{
@@ -1786,19 +1825,22 @@ type CfnConnection_PhysicalConnectionRequirementsProperty struct {
 	// The connection's Availability Zone.
 	//
 	// This field is redundant because the specified subnet implies the Availability Zone to be used. Currently the field must be populated, but it will be deprecated in the future.
-	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
+	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
 	// The security group ID list used by the connection.
-	SecurityGroupIdList *[]*string `json:"securityGroupIdList" yaml:"securityGroupIdList"`
+	SecurityGroupIdList *[]*string `field:"optional" json:"securityGroupIdList" yaml:"securityGroupIdList"`
 	// The subnet ID used by the connection.
-	SubnetId *string `json:"subnetId" yaml:"subnetId"`
+	SubnetId *string `field:"optional" json:"subnetId" yaml:"subnetId"`
 }
 
 // Properties for defining a `CfnConnection`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var connectionProperties interface{}
+//
 //   cfnConnectionProps := &cfnConnectionProps{
 //   	catalogId: jsii.String("catalogId"),
 //   	connectionInput: &connectionInputProperty{
@@ -1827,9 +1869,9 @@ type CfnConnectionProps struct {
 	// Currently, this should be the AWS account ID.
 	//
 	// > To specify the account ID, you can use the `Ref` intrinsic function with the `AWS::AccountId` pseudo parameter. For example: `!Ref AWS::AccountId` .
-	CatalogId *string `json:"catalogId" yaml:"catalogId"`
+	CatalogId *string `field:"required" json:"catalogId" yaml:"catalogId"`
 	// The connection that you want to create.
-	ConnectionInput interface{} `json:"connectionInput" yaml:"connectionInput"`
+	ConnectionInput interface{} `field:"required" json:"connectionInput" yaml:"connectionInput"`
 }
 
 // A CloudFormation `AWS::Glue::Crawler`.
@@ -1837,10 +1879,13 @@ type CfnConnectionProps struct {
 // The `AWS::Glue::Crawler` resource specifies an AWS Glue crawler. For more information, see [Cataloging Tables with a Crawler](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html) and [Crawler Structure](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-crawling.html#aws-glue-api-crawler-crawling-Crawler) in the *AWS Glue Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var tags interface{}
-//   cfnCrawler := glue.NewCfnCrawler(this, jsii.String("MyCfnCrawler"), &cfnCrawlerProps{
+//
+//   cfnCrawler := awscdk.Aws_glue.NewCfnCrawler(this, jsii.String("MyCfnCrawler"), &cfnCrawlerProps{
 //   	role: jsii.String("role"),
 //   	targets: &targetsProperty{
 //   		catalogTargets: []interface{}{
@@ -1918,7 +1963,7 @@ type CfnCrawler interface {
 	// AWS resource type.
 	// Experimental.
 	CfnResourceType() *string
-	// A list of UTF-8 strings that specify the custom classifiers that are associated with the crawler.
+	// A list of UTF-8 strings that specify the names of custom classifiers that are associated with the crawler.
 	Classifiers() *[]*string
 	SetClassifiers(val *[]*string)
 	// Crawler configuration information.
@@ -1973,6 +2018,10 @@ type CfnCrawler interface {
 	Schedule() interface{}
 	SetSchedule(val interface{})
 	// The policy that specifies update and delete behaviors for the crawler.
+	//
+	// The policy tells the crawler what to do in the event that it detects a change in a table that already exists in the customer's database at the time of the crawl. The `SchemaChangePolicy` does not affect whether or how new tables and partitions are added. New tables and partitions are always created regardless of the `SchemaChangePolicy` on a crawler.
+	//
+	// The SchemaChangePolicy consists of two components, `UpdateBehavior` and `DeleteBehavior` .
 	SchemaChangePolicy() interface{}
 	SetSchemaChangePolicy(val interface{})
 	// The stack in which this element is defined.
@@ -2782,7 +2831,10 @@ func (c *jsiiProxy_CfnCrawler) ValidateProperties(_properties interface{}) {
 // Specifies an AWS Glue Data Catalog target.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   catalogTargetProperty := &catalogTargetProperty{
 //   	databaseName: jsii.String("databaseName"),
 //   	tables: []*string{
@@ -2792,28 +2844,34 @@ func (c *jsiiProxy_CfnCrawler) ValidateProperties(_properties interface{}) {
 //
 type CfnCrawler_CatalogTargetProperty struct {
 	// The name of the database to be synchronized.
-	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
+	DatabaseName *string `field:"optional" json:"databaseName" yaml:"databaseName"`
 	// A list of the tables to be synchronized.
-	Tables *[]*string `json:"tables" yaml:"tables"`
+	Tables *[]*string `field:"optional" json:"tables" yaml:"tables"`
 }
 
 // Specifies an Amazon DynamoDB table to crawl.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dynamoDBTargetProperty := &dynamoDBTargetProperty{
 //   	path: jsii.String("path"),
 //   }
 //
 type CfnCrawler_DynamoDBTargetProperty struct {
 	// The name of the DynamoDB table to crawl.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 }
 
 // Specifies a JDBC data store to crawl.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   jdbcTargetProperty := &jdbcTargetProperty{
 //   	connectionName: jsii.String("connectionName"),
 //   	exclusions: []*string{
@@ -2824,19 +2882,22 @@ type CfnCrawler_DynamoDBTargetProperty struct {
 //
 type CfnCrawler_JdbcTargetProperty struct {
 	// The name of the connection to use to connect to the JDBC target.
-	ConnectionName *string `json:"connectionName" yaml:"connectionName"`
+	ConnectionName *string `field:"optional" json:"connectionName" yaml:"connectionName"`
 	// A list of glob patterns used to exclude from the crawl.
 	//
 	// For more information, see [Catalog Tables with a Crawler](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html) .
-	Exclusions *[]*string `json:"exclusions" yaml:"exclusions"`
+	Exclusions *[]*string `field:"optional" json:"exclusions" yaml:"exclusions"`
 	// The path of the JDBC target.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 }
 
 // Specifies an Amazon DocumentDB or MongoDB data store to crawl.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   mongoDBTargetProperty := &mongoDBTargetProperty{
 //   	connectionName: jsii.String("connectionName"),
 //   	path: jsii.String("path"),
@@ -2844,9 +2905,9 @@ type CfnCrawler_JdbcTargetProperty struct {
 //
 type CfnCrawler_MongoDBTargetProperty struct {
 	// The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
-	ConnectionName *string `json:"connectionName" yaml:"connectionName"`
+	ConnectionName *string `field:"optional" json:"connectionName" yaml:"connectionName"`
 	// The path of the Amazon DocumentDB or MongoDB target (database/collection).
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 }
 
 // When crawling an Amazon S3 data source after the first crawl is complete, specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run.
@@ -2854,7 +2915,10 @@ type CfnCrawler_MongoDBTargetProperty struct {
 // For more information, see [Incremental Crawls in AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/incremental-crawls.html) in the developer guide.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   recrawlPolicyProperty := &recrawlPolicyProperty{
 //   	recrawlBehavior: jsii.String("recrawlBehavior"),
 //   }
@@ -2867,13 +2931,16 @@ type CfnCrawler_RecrawlPolicyProperty struct {
 	// A value of `CRAWL_NEW_FOLDERS_ONLY` specifies crawling only folders that were added since the last crawler run.
 	//
 	// A value of `CRAWL_EVENT_MODE` specifies crawling only the changes identified by Amazon S3 events.
-	RecrawlBehavior *string `json:"recrawlBehavior" yaml:"recrawlBehavior"`
+	RecrawlBehavior *string `field:"optional" json:"recrawlBehavior" yaml:"recrawlBehavior"`
 }
 
 // Specifies a data store in Amazon Simple Storage Service (Amazon S3).
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3TargetProperty := &s3TargetProperty{
 //   	connectionName: jsii.String("connectionName"),
 //   	dlqEventQueueArn: jsii.String("dlqEventQueueArn"),
@@ -2887,27 +2954,30 @@ type CfnCrawler_RecrawlPolicyProperty struct {
 //
 type CfnCrawler_S3TargetProperty struct {
 	// The name of a connection which allows a job or crawler to access data in Amazon S3 within an Amazon Virtual Private Cloud environment (Amazon VPC).
-	ConnectionName *string `json:"connectionName" yaml:"connectionName"`
+	ConnectionName *string `field:"optional" json:"connectionName" yaml:"connectionName"`
 	// `CfnCrawler.S3TargetProperty.DlqEventQueueArn`.
-	DlqEventQueueArn *string `json:"dlqEventQueueArn" yaml:"dlqEventQueueArn"`
+	DlqEventQueueArn *string `field:"optional" json:"dlqEventQueueArn" yaml:"dlqEventQueueArn"`
 	// `CfnCrawler.S3TargetProperty.EventQueueArn`.
-	EventQueueArn *string `json:"eventQueueArn" yaml:"eventQueueArn"`
+	EventQueueArn *string `field:"optional" json:"eventQueueArn" yaml:"eventQueueArn"`
 	// A list of glob patterns used to exclude from the crawl.
 	//
 	// For more information, see [Catalog Tables with a Crawler](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html) .
-	Exclusions *[]*string `json:"exclusions" yaml:"exclusions"`
+	Exclusions *[]*string `field:"optional" json:"exclusions" yaml:"exclusions"`
 	// The path to the Amazon S3 target.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 	// Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset.
 	//
 	// If not set, all the files are crawled. A valid value is an integer between 1 and 249.
-	SampleSize *float64 `json:"sampleSize" yaml:"sampleSize"`
+	SampleSize *float64 `field:"optional" json:"sampleSize" yaml:"sampleSize"`
 }
 
 // A scheduling object using a `cron` statement to schedule an event.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   scheduleProperty := &scheduleProperty{
 //   	scheduleExpression: jsii.String("scheduleExpression"),
 //   }
@@ -2916,13 +2986,20 @@ type CfnCrawler_ScheduleProperty struct {
 	// A `cron` expression used to specify the schedule.
 	//
 	// For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html) . For example, to run something every day at 12:15 UTC, specify `cron(15 12 * * ? *)` .
-	ScheduleExpression *string `json:"scheduleExpression" yaml:"scheduleExpression"`
+	ScheduleExpression *string `field:"optional" json:"scheduleExpression" yaml:"scheduleExpression"`
 }
 
-// A policy that specifies update and deletion behaviors for the crawler.
+// The policy that specifies update and delete behaviors for the crawler.
+//
+// The policy tells the crawler what to do in the event that it detects a change in a table that already exists in the customer's database at the time of the crawl. The `SchemaChangePolicy` does not affect whether or how new tables and partitions are added. New tables and partitions are always created regardless of the `SchemaChangePolicy` on a crawler.
+//
+// The SchemaChangePolicy consists of two components, `UpdateBehavior` and `DeleteBehavior` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   schemaChangePolicyProperty := &schemaChangePolicyProperty{
 //   	deleteBehavior: jsii.String("deleteBehavior"),
 //   	updateBehavior: jsii.String("updateBehavior"),
@@ -2930,15 +3007,28 @@ type CfnCrawler_ScheduleProperty struct {
 //
 type CfnCrawler_SchemaChangePolicyProperty struct {
 	// The deletion behavior when the crawler finds a deleted object.
-	DeleteBehavior *string `json:"deleteBehavior" yaml:"deleteBehavior"`
+	//
+	// A value of `LOG` specifies that if a table or partition is found to no longer exist, do not delete it, only log that it was found to no longer exist.
+	//
+	// A value of `DELETE_FROM_DATABASE` specifies that if a table or partition is found to have been removed, delete it from the database.
+	//
+	// A value of `DEPRECATE_IN_DATABASE` specifies that if a table has been found to no longer exist, to add a property to the table that says "DEPRECATED" and includes a timestamp with the time of deprecation.
+	DeleteBehavior *string `field:"optional" json:"deleteBehavior" yaml:"deleteBehavior"`
 	// The update behavior when the crawler finds a changed schema.
-	UpdateBehavior *string `json:"updateBehavior" yaml:"updateBehavior"`
+	//
+	// A value of `LOG` specifies that if a table or a partition already exists, and a change is detected, do not update it, only log that a change was detected. Add new tables and new partitions (including on existing tables).
+	//
+	// A value of `UPDATE_IN_DATABASE` specifies that if a table or partition already exists, and a change is detected, update it. Add new tables and partitions.
+	UpdateBehavior *string `field:"optional" json:"updateBehavior" yaml:"updateBehavior"`
 }
 
 // Specifies data stores to crawl.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   targetsProperty := &targetsProperty{
 //   	catalogTargets: []interface{}{
 //   		&catalogTargetProperty{
@@ -2984,23 +3074,26 @@ type CfnCrawler_SchemaChangePolicyProperty struct {
 //
 type CfnCrawler_TargetsProperty struct {
 	// Specifies AWS Glue Data Catalog targets.
-	CatalogTargets interface{} `json:"catalogTargets" yaml:"catalogTargets"`
+	CatalogTargets interface{} `field:"optional" json:"catalogTargets" yaml:"catalogTargets"`
 	// Specifies Amazon DynamoDB targets.
-	DynamoDbTargets interface{} `json:"dynamoDbTargets" yaml:"dynamoDbTargets"`
+	DynamoDbTargets interface{} `field:"optional" json:"dynamoDbTargets" yaml:"dynamoDbTargets"`
 	// Specifies JDBC targets.
-	JdbcTargets interface{} `json:"jdbcTargets" yaml:"jdbcTargets"`
+	JdbcTargets interface{} `field:"optional" json:"jdbcTargets" yaml:"jdbcTargets"`
 	// A list of Mongo DB targets.
-	MongoDbTargets interface{} `json:"mongoDbTargets" yaml:"mongoDbTargets"`
+	MongoDbTargets interface{} `field:"optional" json:"mongoDbTargets" yaml:"mongoDbTargets"`
 	// Specifies Amazon Simple Storage Service (Amazon S3) targets.
-	S3Targets interface{} `json:"s3Targets" yaml:"s3Targets"`
+	S3Targets interface{} `field:"optional" json:"s3Targets" yaml:"s3Targets"`
 }
 
 // Properties for defining a `CfnCrawler`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var tags interface{}
+//
 //   cfnCrawlerProps := &cfnCrawlerProps{
 //   	role: jsii.String("role"),
 //   	targets: &targetsProperty{
@@ -3071,33 +3164,37 @@ type CfnCrawler_TargetsProperty struct {
 //
 type CfnCrawlerProps struct {
 	// The Amazon Resource Name (ARN) of an IAM role that's used to access customer resources, such as Amazon Simple Storage Service (Amazon S3) data.
-	Role *string `json:"role" yaml:"role"`
+	Role *string `field:"required" json:"role" yaml:"role"`
 	// A collection of targets to crawl.
-	Targets interface{} `json:"targets" yaml:"targets"`
-	// A list of UTF-8 strings that specify the custom classifiers that are associated with the crawler.
-	Classifiers *[]*string `json:"classifiers" yaml:"classifiers"`
+	Targets interface{} `field:"required" json:"targets" yaml:"targets"`
+	// A list of UTF-8 strings that specify the names of custom classifiers that are associated with the crawler.
+	Classifiers *[]*string `field:"optional" json:"classifiers" yaml:"classifiers"`
 	// Crawler configuration information.
 	//
 	// This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see [Configuring a Crawler](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html) .
-	Configuration *string `json:"configuration" yaml:"configuration"`
+	Configuration *string `field:"optional" json:"configuration" yaml:"configuration"`
 	// The name of the `SecurityConfiguration` structure to be used by this crawler.
-	CrawlerSecurityConfiguration *string `json:"crawlerSecurityConfiguration" yaml:"crawlerSecurityConfiguration"`
+	CrawlerSecurityConfiguration *string `field:"optional" json:"crawlerSecurityConfiguration" yaml:"crawlerSecurityConfiguration"`
 	// The name of the database in which the crawler's output is stored.
-	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
+	DatabaseName *string `field:"optional" json:"databaseName" yaml:"databaseName"`
 	// A description of the crawler.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the crawler.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.
-	RecrawlPolicy interface{} `json:"recrawlPolicy" yaml:"recrawlPolicy"`
+	RecrawlPolicy interface{} `field:"optional" json:"recrawlPolicy" yaml:"recrawlPolicy"`
 	// For scheduled crawlers, the schedule when the crawler runs.
-	Schedule interface{} `json:"schedule" yaml:"schedule"`
+	Schedule interface{} `field:"optional" json:"schedule" yaml:"schedule"`
 	// The policy that specifies update and delete behaviors for the crawler.
-	SchemaChangePolicy interface{} `json:"schemaChangePolicy" yaml:"schemaChangePolicy"`
+	//
+	// The policy tells the crawler what to do in the event that it detects a change in a table that already exists in the customer's database at the time of the crawl. The `SchemaChangePolicy` does not affect whether or how new tables and partitions are added. New tables and partitions are always created regardless of the `SchemaChangePolicy` on a crawler.
+	//
+	// The SchemaChangePolicy consists of two components, `UpdateBehavior` and `DeleteBehavior` .
+	SchemaChangePolicy interface{} `field:"optional" json:"schemaChangePolicy" yaml:"schemaChangePolicy"`
 	// The prefix added to the names of tables that are created.
-	TablePrefix *string `json:"tablePrefix" yaml:"tablePrefix"`
+	TablePrefix *string `field:"optional" json:"tablePrefix" yaml:"tablePrefix"`
 	// The tags to use with this crawler.
-	Tags interface{} `json:"tags" yaml:"tags"`
+	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Glue::DataCatalogEncryptionSettings`.
@@ -3105,8 +3202,11 @@ type CfnCrawlerProps struct {
 // Sets the security configuration for a specified catalog. After the configuration has been set, the specified encryption is applied to every catalog write thereafter.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
-//   cfnDataCatalogEncryptionSettings := glue.NewCfnDataCatalogEncryptionSettings(this, jsii.String("MyCfnDataCatalogEncryptionSettings"), &cfnDataCatalogEncryptionSettingsProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDataCatalogEncryptionSettings := awscdk.Aws_glue.NewCfnDataCatalogEncryptionSettings(this, jsii.String("MyCfnDataCatalogEncryptionSettings"), &cfnDataCatalogEncryptionSettingsProps{
 //   	catalogId: jsii.String("catalogId"),
 //   	dataCatalogEncryptionSettings: &dataCatalogEncryptionSettingsProperty{
 //   		connectionPasswordEncryption: &connectionPasswordEncryptionProperty{
@@ -3776,7 +3876,10 @@ func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) ValidateProperties(_propert
 // This encryption requires that you set AWS KMS key permissions to enable or restrict access on the password key according to your security requirements. For example, you might want only administrators to have decrypt permission on the password key.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   connectionPasswordEncryptionProperty := &connectionPasswordEncryptionProperty{
 //   	kmsKeyId: jsii.String("kmsKeyId"),
 //   	returnConnectionPasswordEncrypted: jsii.Boolean(false),
@@ -3786,17 +3889,20 @@ type CfnDataCatalogEncryptionSettings_ConnectionPasswordEncryptionProperty struc
 	// An AWS KMS key that is used to encrypt the connection password.
 	//
 	// If connection password protection is enabled, the caller of `CreateConnection` and `UpdateConnection` needs at least `kms:Encrypt` permission on the specified AWS KMS key, to encrypt passwords before storing them in the Data Catalog. You can set the decrypt permission to enable or restrict access on the password key according to your security requirements.
-	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// When the `ReturnConnectionPasswordEncrypted` flag is set to "true", passwords remain encrypted in the responses of `GetConnection` and `GetConnections` .
 	//
 	// This encryption takes effect independently from catalog encryption.
-	ReturnConnectionPasswordEncrypted interface{} `json:"returnConnectionPasswordEncrypted" yaml:"returnConnectionPasswordEncrypted"`
+	ReturnConnectionPasswordEncrypted interface{} `field:"optional" json:"returnConnectionPasswordEncrypted" yaml:"returnConnectionPasswordEncrypted"`
 }
 
 // Contains configuration information for maintaining Data Catalog security.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dataCatalogEncryptionSettingsProperty := &dataCatalogEncryptionSettingsProperty{
 //   	connectionPasswordEncryption: &connectionPasswordEncryptionProperty{
 //   		kmsKeyId: jsii.String("kmsKeyId"),
@@ -3812,15 +3918,18 @@ type CfnDataCatalogEncryptionSettings_DataCatalogEncryptionSettingsProperty stru
 	// When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of `CreateConnection` or `UpdateConnection` and store it in the `ENCRYPTED_PASSWORD` field in the connection properties.
 	//
 	// You can enable catalog encryption or only password encryption.
-	ConnectionPasswordEncryption interface{} `json:"connectionPasswordEncryption" yaml:"connectionPasswordEncryption"`
+	ConnectionPasswordEncryption interface{} `field:"optional" json:"connectionPasswordEncryption" yaml:"connectionPasswordEncryption"`
 	// Specifies the encryption-at-rest configuration for the Data Catalog.
-	EncryptionAtRest interface{} `json:"encryptionAtRest" yaml:"encryptionAtRest"`
+	EncryptionAtRest interface{} `field:"optional" json:"encryptionAtRest" yaml:"encryptionAtRest"`
 }
 
 // Specifies the encryption-at-rest configuration for the Data Catalog.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   encryptionAtRestProperty := &encryptionAtRestProperty{
 //   	catalogEncryptionMode: jsii.String("catalogEncryptionMode"),
 //   	sseAwsKmsKeyId: jsii.String("sseAwsKmsKeyId"),
@@ -3828,15 +3937,18 @@ type CfnDataCatalogEncryptionSettings_DataCatalogEncryptionSettingsProperty stru
 //
 type CfnDataCatalogEncryptionSettings_EncryptionAtRestProperty struct {
 	// The encryption-at-rest mode for encrypting Data Catalog data.
-	CatalogEncryptionMode *string `json:"catalogEncryptionMode" yaml:"catalogEncryptionMode"`
+	CatalogEncryptionMode *string `field:"optional" json:"catalogEncryptionMode" yaml:"catalogEncryptionMode"`
 	// The ID of the AWS KMS key to use for encryption at rest.
-	SseAwsKmsKeyId *string `json:"sseAwsKmsKeyId" yaml:"sseAwsKmsKeyId"`
+	SseAwsKmsKeyId *string `field:"optional" json:"sseAwsKmsKeyId" yaml:"sseAwsKmsKeyId"`
 }
 
 // Properties for defining a `CfnDataCatalogEncryptionSettings`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDataCatalogEncryptionSettingsProps := &cfnDataCatalogEncryptionSettingsProps{
 //   	catalogId: jsii.String("catalogId"),
 //   	dataCatalogEncryptionSettings: &dataCatalogEncryptionSettingsProperty{
@@ -3853,9 +3965,9 @@ type CfnDataCatalogEncryptionSettings_EncryptionAtRestProperty struct {
 //
 type CfnDataCatalogEncryptionSettingsProps struct {
 	// The ID of the Data Catalog in which the settings are created.
-	CatalogId *string `json:"catalogId" yaml:"catalogId"`
+	CatalogId *string `field:"required" json:"catalogId" yaml:"catalogId"`
 	// Contains configuration information for maintaining Data Catalog security.
-	DataCatalogEncryptionSettings interface{} `json:"dataCatalogEncryptionSettings" yaml:"dataCatalogEncryptionSettings"`
+	DataCatalogEncryptionSettings interface{} `field:"required" json:"dataCatalogEncryptionSettings" yaml:"dataCatalogEncryptionSettings"`
 }
 
 // A CloudFormation `AWS::Glue::Database`.
@@ -3863,10 +3975,13 @@ type CfnDataCatalogEncryptionSettingsProps struct {
 // The `AWS::Glue::Database` resource specifies a logical grouping of tables in AWS Glue . For more information, see [Defining a Database in Your Data Catalog](https://docs.aws.amazon.com/glue/latest/dg/define-database.html) and [Database Structure](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-databases.html#aws-glue-api-catalog-databases-Database) in the *AWS Glue Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameters interface{}
-//   cfnDatabase := glue.NewCfnDatabase(this, jsii.String("MyCfnDatabase"), &cfnDatabaseProps{
+//
+//   cfnDatabase := awscdk.Aws_glue.NewCfnDatabase(this, jsii.String("MyCfnDatabase"), &cfnDatabaseProps{
 //   	catalogId: jsii.String("catalogId"),
 //   	databaseInput: &databaseInputProperty{
 //   		createTableDefaultPermissions: []interface{}{
@@ -4542,20 +4657,26 @@ func (c *jsiiProxy_CfnDatabase) ValidateProperties(_properties interface{}) {
 // The AWS Lake Formation principal.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dataLakePrincipalProperty := &dataLakePrincipalProperty{
 //   	dataLakePrincipalIdentifier: jsii.String("dataLakePrincipalIdentifier"),
 //   }
 //
 type CfnDatabase_DataLakePrincipalProperty struct {
 	// An identifier for the AWS Lake Formation principal.
-	DataLakePrincipalIdentifier *string `json:"dataLakePrincipalIdentifier" yaml:"dataLakePrincipalIdentifier"`
+	DataLakePrincipalIdentifier *string `field:"optional" json:"dataLakePrincipalIdentifier" yaml:"dataLakePrincipalIdentifier"`
 }
 
 // A structure that describes a target database for resource linking.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   databaseIdentifierProperty := &databaseIdentifierProperty{
 //   	catalogId: jsii.String("catalogId"),
 //   	databaseName: jsii.String("databaseName"),
@@ -4563,17 +4684,20 @@ type CfnDatabase_DataLakePrincipalProperty struct {
 //
 type CfnDatabase_DatabaseIdentifierProperty struct {
 	// The ID of the Data Catalog in which the database resides.
-	CatalogId *string `json:"catalogId" yaml:"catalogId"`
+	CatalogId *string `field:"optional" json:"catalogId" yaml:"catalogId"`
 	// The name of the catalog database.
-	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
+	DatabaseName *string `field:"optional" json:"databaseName" yaml:"databaseName"`
 }
 
 // The structure used to create or update a database.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameters interface{}
+//
 //   databaseInputProperty := &databaseInputProperty{
 //   	createTableDefaultPermissions: []interface{}{
 //   		&principalPrivilegesProperty{
@@ -4597,25 +4721,28 @@ type CfnDatabase_DatabaseIdentifierProperty struct {
 //
 type CfnDatabase_DatabaseInputProperty struct {
 	// Creates a set of default permissions on the table for principals.
-	CreateTableDefaultPermissions interface{} `json:"createTableDefaultPermissions" yaml:"createTableDefaultPermissions"`
+	CreateTableDefaultPermissions interface{} `field:"optional" json:"createTableDefaultPermissions" yaml:"createTableDefaultPermissions"`
 	// A description of the database.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The location of the database (for example, an HDFS path).
-	LocationUri *string `json:"locationUri" yaml:"locationUri"`
+	LocationUri *string `field:"optional" json:"locationUri" yaml:"locationUri"`
 	// The name of the database.
 	//
 	// For Hive compatibility, this is folded to lowercase when it is stored.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// These key-value pairs define parameters and properties of the database.
-	Parameters interface{} `json:"parameters" yaml:"parameters"`
+	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// A `DatabaseIdentifier` structure that describes a target database for resource linking.
-	TargetDatabase interface{} `json:"targetDatabase" yaml:"targetDatabase"`
+	TargetDatabase interface{} `field:"optional" json:"targetDatabase" yaml:"targetDatabase"`
 }
 
 // the permissions granted to a principal.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   principalPrivilegesProperty := &principalPrivilegesProperty{
 //   	permissions: []*string{
 //   		jsii.String("permissions"),
@@ -4627,17 +4754,20 @@ type CfnDatabase_DatabaseInputProperty struct {
 //
 type CfnDatabase_PrincipalPrivilegesProperty struct {
 	// The permissions that are granted to the principal.
-	Permissions *[]*string `json:"permissions" yaml:"permissions"`
+	Permissions *[]*string `field:"optional" json:"permissions" yaml:"permissions"`
 	// The principal who is granted permissions.
-	Principal interface{} `json:"principal" yaml:"principal"`
+	Principal interface{} `field:"optional" json:"principal" yaml:"principal"`
 }
 
 // Properties for defining a `CfnDatabase`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameters interface{}
+//
 //   cfnDatabaseProps := &cfnDatabaseProps{
 //   	catalogId: jsii.String("catalogId"),
 //   	databaseInput: &databaseInputProperty{
@@ -4666,9 +4796,9 @@ type CfnDatabaseProps struct {
 	// The AWS account ID for the account in which to create the catalog object.
 	//
 	// > To specify the account ID, you can use the `Ref` intrinsic function with the `AWS::AccountId` pseudo parameter. For example: `!Ref AWS::AccountId`
-	CatalogId *string `json:"catalogId" yaml:"catalogId"`
+	CatalogId *string `field:"required" json:"catalogId" yaml:"catalogId"`
 	// The metadata for the database.
-	DatabaseInput interface{} `json:"databaseInput" yaml:"databaseInput"`
+	DatabaseInput interface{} `field:"required" json:"databaseInput" yaml:"databaseInput"`
 }
 
 // A CloudFormation `AWS::Glue::DevEndpoint`.
@@ -4676,11 +4806,14 @@ type CfnDatabaseProps struct {
 // The `AWS::Glue::DevEndpoint` resource specifies a development endpoint where a developer can remotely debug ETL scripts for AWS Glue . For more information, see [DevEndpoint Structure](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-dev-endpoint.html#aws-glue-api-jobs-dev-endpoint-DevEndpoint) in the AWS Glue Developer Guide.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var arguments_ interface{}
 //   var tags interface{}
-//   cfnDevEndpoint := glue.NewCfnDevEndpoint(this, jsii.String("MyCfnDevEndpoint"), &cfnDevEndpointProps{
+//
+//   cfnDevEndpoint := awscdk.Aws_glue.NewCfnDevEndpoint(this, jsii.String("MyCfnDevEndpoint"), &cfnDevEndpointProps{
 //   	roleArn: jsii.String("roleArn"),
 //
 //   	// the properties below are optional
@@ -5656,10 +5789,13 @@ func (c *jsiiProxy_CfnDevEndpoint) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnDevEndpoint`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var arguments_ interface{}
 //   var tags interface{}
+//
 //   cfnDevEndpointProps := &cfnDevEndpointProps{
 //   	roleArn: jsii.String("roleArn"),
 //
@@ -5686,7 +5822,7 @@ func (c *jsiiProxy_CfnDevEndpoint) ValidateProperties(_properties interface{}) {
 //
 type CfnDevEndpointProps struct {
 	// The Amazon Resource Name (ARN) of the IAM role used in this `DevEndpoint` .
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// A map of arguments used to configure the `DevEndpoint` .
 	//
 	// Valid arguments are:
@@ -5696,19 +5832,19 @@ type CfnDevEndpointProps struct {
 	// - `"GLUE_PYTHON_VERSION": "2"`
 	//
 	// You can specify a version of Python support for development endpoints by using the `Arguments` parameter in the `CreateDevEndpoint` or `UpdateDevEndpoint` APIs. If no arguments are provided, the version defaults to Python 2.
-	Arguments interface{} `json:"arguments" yaml:"arguments"`
+	Arguments interface{} `field:"optional" json:"arguments" yaml:"arguments"`
 	// The name of the `DevEndpoint` .
-	EndpointName *string `json:"endpointName" yaml:"endpointName"`
+	EndpointName *string `field:"optional" json:"endpointName" yaml:"endpointName"`
 	// The path to one or more Java `.jar` files in an S3 bucket that should be loaded in your `DevEndpoint` .
 	//
 	// > You can only use pure Java/Scala libraries with a `DevEndpoint` .
-	ExtraJarsS3Path *string `json:"extraJarsS3Path" yaml:"extraJarsS3Path"`
+	ExtraJarsS3Path *string `field:"optional" json:"extraJarsS3Path" yaml:"extraJarsS3Path"`
 	// The paths to one or more Python libraries in an Amazon S3 bucket that should be loaded in your `DevEndpoint` .
 	//
 	// Multiple values must be complete paths separated by a comma.
 	//
 	// > You can only use pure Python libraries with a `DevEndpoint` . Libraries that rely on C extensions, such as the [pandas](https://docs.aws.amazon.com/http://pandas.pydata.org/) Python data analysis library, are not currently supported.
-	ExtraPythonLibsS3Path *string `json:"extraPythonLibsS3Path" yaml:"extraPythonLibsS3Path"`
+	ExtraPythonLibsS3Path *string `field:"optional" json:"extraPythonLibsS3Path" yaml:"extraPythonLibsS3Path"`
 	// The AWS Glue version determines the versions of Apache Spark and Python that AWS Glue supports.
 	//
 	// The Python version indicates the version supported for running your ETL scripts on development endpoints.
@@ -5718,31 +5854,31 @@ type CfnDevEndpointProps struct {
 	// Development endpoints that are created without specifying a Glue version default to Glue 0.9.
 	//
 	// You can specify a version of Python support for development endpoints by using the `Arguments` parameter in the `CreateDevEndpoint` or `UpdateDevEndpoint` APIs. If no arguments are provided, the version defaults to Python 2.
-	GlueVersion *string `json:"glueVersion" yaml:"glueVersion"`
+	GlueVersion *string `field:"optional" json:"glueVersion" yaml:"glueVersion"`
 	// The number of AWS Glue Data Processing Units (DPUs) allocated to this `DevEndpoint` .
-	NumberOfNodes *float64 `json:"numberOfNodes" yaml:"numberOfNodes"`
+	NumberOfNodes *float64 `field:"optional" json:"numberOfNodes" yaml:"numberOfNodes"`
 	// The number of workers of a defined `workerType` that are allocated to the development endpoint.
 	//
 	// The maximum number of workers you can define are 299 for `G.1X` , and 149 for `G.2X` .
-	NumberOfWorkers *float64 `json:"numberOfWorkers" yaml:"numberOfWorkers"`
+	NumberOfWorkers *float64 `field:"optional" json:"numberOfWorkers" yaml:"numberOfWorkers"`
 	// The public key to be used by this `DevEndpoint` for authentication.
 	//
 	// This attribute is provided for backward compatibility because the recommended attribute to use is public keys.
-	PublicKey *string `json:"publicKey" yaml:"publicKey"`
+	PublicKey *string `field:"optional" json:"publicKey" yaml:"publicKey"`
 	// A list of public keys to be used by the `DevEndpoints` for authentication.
 	//
 	// Using this attribute is preferred over a single public key because the public keys allow you to have a different private key per client.
 	//
 	// > If you previously created an endpoint with a public key, you must remove that key to be able to set a list of public keys. Call the `UpdateDevEndpoint` API operation with the public key content in the `deletePublicKeys` attribute, and the list of new keys in the `addPublicKeys` attribute.
-	PublicKeys *[]*string `json:"publicKeys" yaml:"publicKeys"`
+	PublicKeys *[]*string `field:"optional" json:"publicKeys" yaml:"publicKeys"`
 	// The name of the `SecurityConfiguration` structure to be used with this `DevEndpoint` .
-	SecurityConfiguration *string `json:"securityConfiguration" yaml:"securityConfiguration"`
+	SecurityConfiguration *string `field:"optional" json:"securityConfiguration" yaml:"securityConfiguration"`
 	// A list of security group identifiers used in this `DevEndpoint` .
-	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
+	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// The subnet ID for this `DevEndpoint` .
-	SubnetId *string `json:"subnetId" yaml:"subnetId"`
+	SubnetId *string `field:"optional" json:"subnetId" yaml:"subnetId"`
 	// The tags to use with this DevEndpoint.
-	Tags interface{} `json:"tags" yaml:"tags"`
+	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
 	// The type of predefined worker that is allocated to the development endpoint.
 	//
 	// Accepts a value of Standard, G.1X, or G.2X.
@@ -5752,7 +5888,7 @@ type CfnDevEndpointProps struct {
 	// - For the `G.2X` worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.
 	//
 	// Known issue: when a development endpoint is created with the `G.2X` `WorkerType` configuration, the Spark drivers for the development endpoint will run on 4 vCPU, 16 GB of memory, and a 64 GB disk.
-	WorkerType *string `json:"workerType" yaml:"workerType"`
+	WorkerType *string `field:"optional" json:"workerType" yaml:"workerType"`
 }
 
 // A CloudFormation `AWS::Glue::Job`.
@@ -5760,11 +5896,14 @@ type CfnDevEndpointProps struct {
 // The `AWS::Glue::Job` resource specifies an AWS Glue job in the data catalog. For more information, see [Adding Jobs in AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/add-job.html) and [Job Structure](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html#aws-glue-api-jobs-job-Job) in the *AWS Glue Developer Guide.*
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var defaultArguments interface{}
 //   var tags interface{}
-//   cfnJob := glue.NewCfnJob(this, jsii.String("MyCfnJob"), &cfnJobProps{
+//
+//   cfnJob := awscdk.Aws_glue.NewCfnJob(this, jsii.String("MyCfnJob"), &cfnJobProps{
 //   	command: &jobCommandProperty{
 //   		name: jsii.String("name"),
 //   		pythonVersion: jsii.String("pythonVersion"),
@@ -6807,7 +6946,10 @@ func (c *jsiiProxy_CfnJob) ValidateProperties(_properties interface{}) {
 // Specifies the connections used by a job.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   connectionsListProperty := &connectionsListProperty{
 //   	connections: []*string{
 //   		jsii.String("connections"),
@@ -6816,13 +6958,16 @@ func (c *jsiiProxy_CfnJob) ValidateProperties(_properties interface{}) {
 //
 type CfnJob_ConnectionsListProperty struct {
 	// A list of connections used by the job.
-	Connections *[]*string `json:"connections" yaml:"connections"`
+	Connections *[]*string `field:"optional" json:"connections" yaml:"connections"`
 }
 
 // An execution property of a job.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   executionPropertyProperty := &executionPropertyProperty{
 //   	maxConcurrentRuns: jsii.Number(123),
 //   }
@@ -6831,13 +6976,16 @@ type CfnJob_ExecutionPropertyProperty struct {
 	// The maximum number of concurrent runs allowed for the job.
 	//
 	// The default is 1. An error is returned when this threshold is reached. The maximum value you can specify is controlled by a service limit.
-	MaxConcurrentRuns *float64 `json:"maxConcurrentRuns" yaml:"maxConcurrentRuns"`
+	MaxConcurrentRuns *float64 `field:"optional" json:"maxConcurrentRuns" yaml:"maxConcurrentRuns"`
 }
 
 // Specifies code executed when a job is run.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   jobCommandProperty := &jobCommandProperty{
 //   	name: jsii.String("name"),
 //   	pythonVersion: jsii.String("pythonVersion"),
@@ -6848,35 +6996,41 @@ type CfnJob_JobCommandProperty struct {
 	// The name of the job command.
 	//
 	// For an Apache Spark ETL job, this must be `glueetl` . For a Python shell job, it must be `pythonshell` .
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The Python version being used to execute a Python shell job.
 	//
 	// Allowed values are 2 or 3.
-	PythonVersion *string `json:"pythonVersion" yaml:"pythonVersion"`
+	PythonVersion *string `field:"optional" json:"pythonVersion" yaml:"pythonVersion"`
 	// Specifies the Amazon Simple Storage Service (Amazon S3) path to a script that executes a job (required).
-	ScriptLocation *string `json:"scriptLocation" yaml:"scriptLocation"`
+	ScriptLocation *string `field:"optional" json:"scriptLocation" yaml:"scriptLocation"`
 }
 
 // Specifies configuration properties of a notification.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   notificationPropertyProperty := &notificationPropertyProperty{
 //   	notifyDelayAfter: jsii.Number(123),
 //   }
 //
 type CfnJob_NotificationPropertyProperty struct {
 	// After a job run starts, the number of minutes to wait before sending a job run delay notification.
-	NotifyDelayAfter *float64 `json:"notifyDelayAfter" yaml:"notifyDelayAfter"`
+	NotifyDelayAfter *float64 `field:"optional" json:"notifyDelayAfter" yaml:"notifyDelayAfter"`
 }
 
 // Properties for defining a `CfnJob`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var defaultArguments interface{}
 //   var tags interface{}
+//
 //   cfnJobProps := &cfnJobProps{
 //   	command: &jobCommandProperty{
 //   		name: jsii.String("name"),
@@ -6914,13 +7068,13 @@ type CfnJob_NotificationPropertyProperty struct {
 //
 type CfnJobProps struct {
 	// The code that executes a job.
-	Command interface{} `json:"command" yaml:"command"`
+	Command interface{} `field:"required" json:"command" yaml:"command"`
 	// The name or Amazon Resource Name (ARN) of the IAM role associated with this job.
-	Role *string `json:"role" yaml:"role"`
+	Role *string `field:"required" json:"role" yaml:"role"`
 	// The number of capacity units that are allocated to this job.
-	AllocatedCapacity *float64 `json:"allocatedCapacity" yaml:"allocatedCapacity"`
+	AllocatedCapacity *float64 `field:"optional" json:"allocatedCapacity" yaml:"allocatedCapacity"`
 	// The connections used for this job.
-	Connections interface{} `json:"connections" yaml:"connections"`
+	Connections interface{} `field:"optional" json:"connections" yaml:"connections"`
 	// The default arguments for this job, specified as name-value pairs.
 	//
 	// You can specify arguments here that your own job-execution script consumes, in addition to arguments that AWS Glue itself consumes.
@@ -6928,11 +7082,11 @@ type CfnJobProps struct {
 	// For information about how to specify and consume your own job arguments, see [Calling AWS Glue APIs in Python](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) in the *AWS Glue Developer Guide* .
 	//
 	// For information about the key-value pairs that AWS Glue consumes to set up your job, see [Special Parameters Used by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html) in the *AWS Glue Developer Guide* .
-	DefaultArguments interface{} `json:"defaultArguments" yaml:"defaultArguments"`
+	DefaultArguments interface{} `field:"optional" json:"defaultArguments" yaml:"defaultArguments"`
 	// A description of the job.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The maximum number of concurrent runs that are allowed for this job.
-	ExecutionProperty interface{} `json:"executionProperty" yaml:"executionProperty"`
+	ExecutionProperty interface{} `field:"optional" json:"executionProperty" yaml:"executionProperty"`
 	// Glue version determines the versions of Apache Spark and Python that AWS Glue supports.
 	//
 	// The Python version indicates the version supported for jobs of type Spark.
@@ -6940,9 +7094,9 @@ type CfnJobProps struct {
 	// For more information about the available AWS Glue versions and corresponding Spark and Python versions, see [Glue version](https://docs.aws.amazon.com/glue/latest/dg/add-job.html) in the developer guide.
 	//
 	// Jobs that are created without specifying a Glue version default to Glue 0.9.
-	GlueVersion *string `json:"glueVersion" yaml:"glueVersion"`
+	GlueVersion *string `field:"optional" json:"glueVersion" yaml:"glueVersion"`
 	// This field is reserved for future use.
-	LogUri *string `json:"logUri" yaml:"logUri"`
+	LogUri *string `field:"optional" json:"logUri" yaml:"logUri"`
 	// The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
 	//
 	// A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
@@ -6953,25 +7107,25 @@ type CfnJobProps struct {
 	//
 	// - When you specify a Python shell job ( `JobCommand.Name` ="pythonshell"), you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.
 	// - When you specify an Apache Spark ETL job ( `JobCommand.Name` ="glueetl"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.
-	MaxCapacity *float64 `json:"maxCapacity" yaml:"maxCapacity"`
+	MaxCapacity *float64 `field:"optional" json:"maxCapacity" yaml:"maxCapacity"`
 	// The maximum number of times to retry this job after a JobRun fails.
-	MaxRetries *float64 `json:"maxRetries" yaml:"maxRetries"`
+	MaxRetries *float64 `field:"optional" json:"maxRetries" yaml:"maxRetries"`
 	// The name you assign to this job definition.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Specifies configuration properties of a notification.
-	NotificationProperty interface{} `json:"notificationProperty" yaml:"notificationProperty"`
+	NotificationProperty interface{} `field:"optional" json:"notificationProperty" yaml:"notificationProperty"`
 	// The number of workers of a defined `workerType` that are allocated when a job runs.
 	//
 	// The maximum number of workers you can define are 299 for `G.1X` , and 149 for `G.2X` .
-	NumberOfWorkers *float64 `json:"numberOfWorkers" yaml:"numberOfWorkers"`
+	NumberOfWorkers *float64 `field:"optional" json:"numberOfWorkers" yaml:"numberOfWorkers"`
 	// The name of the `SecurityConfiguration` structure to be used with this job.
-	SecurityConfiguration *string `json:"securityConfiguration" yaml:"securityConfiguration"`
+	SecurityConfiguration *string `field:"optional" json:"securityConfiguration" yaml:"securityConfiguration"`
 	// The tags to use with this job.
-	Tags interface{} `json:"tags" yaml:"tags"`
+	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
 	// The job timeout in minutes.
 	//
 	// This is the maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status. The default is 2,880 minutes (48 hours).
-	Timeout *float64 `json:"timeout" yaml:"timeout"`
+	Timeout *float64 `field:"optional" json:"timeout" yaml:"timeout"`
 	// The type of predefined worker that is allocated when a job runs.
 	//
 	// Accepts a value of Standard, G.1X, or G.2X.
@@ -6979,7 +7133,7 @@ type CfnJobProps struct {
 	// - For the `Standard` worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.
 	// - For the `G.1X` worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.
 	// - For the `G.2X` worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.
-	WorkerType *string `json:"workerType" yaml:"workerType"`
+	WorkerType *string `field:"optional" json:"workerType" yaml:"workerType"`
 }
 
 // A CloudFormation `AWS::Glue::MLTransform`.
@@ -6987,10 +7141,13 @@ type CfnJobProps struct {
 // The AWS::Glue::MLTransform is an AWS Glue resource type that manages machine learning transforms.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var tags interface{}
-//   cfnMLTransform := glue.NewCfnMLTransform(this, jsii.String("MyCfnMLTransform"), &cfnMLTransformProps{
+//
+//   cfnMLTransform := awscdk.Aws_glue.NewCfnMLTransform(this, jsii.String("MyCfnMLTransform"), &cfnMLTransformProps{
 //   	inputRecordTables: &inputRecordTablesProperty{
 //   		glueTables: []interface{}{
 //   			&glueTablesProperty{
@@ -7955,7 +8112,10 @@ func (c *jsiiProxy_CfnMLTransform) ValidateProperties(_properties interface{}) {
 // The parameters to configure the find matches transform.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   findMatchesParametersProperty := &findMatchesParametersProperty{
 //   	primaryKeyColumnName: jsii.String("primaryKeyColumnName"),
 //
@@ -7969,7 +8129,7 @@ type CfnMLTransform_FindMatchesParametersProperty struct {
 	// The name of a column that uniquely identifies rows in the source table.
 	//
 	// Used to help identify matching records.
-	PrimaryKeyColumnName *string `json:"primaryKeyColumnName" yaml:"primaryKeyColumnName"`
+	PrimaryKeyColumnName *string `field:"required" json:"primaryKeyColumnName" yaml:"primaryKeyColumnName"`
 	// The value that is selected when tuning your transform for a balance between accuracy and cost.
 	//
 	// A value of 0.5 means that the system balances accuracy and cost concerns. A value of 1.0 means a bias purely for accuracy, which typically results in a higher cost, sometimes substantially higher. A value of 0.0 means a bias purely for cost, which results in a less accurate `FindMatches` transform, sometimes with unacceptable accuracy.
@@ -7977,13 +8137,13 @@ type CfnMLTransform_FindMatchesParametersProperty struct {
 	// Accuracy measures how well the transform finds true positives and true negatives. Increasing accuracy requires more machine resources and cost. But it also results in increased recall.
 	//
 	// Cost measures how many compute resources, and thus money, are consumed to run the transform.
-	AccuracyCostTradeoff *float64 `json:"accuracyCostTradeoff" yaml:"accuracyCostTradeoff"`
+	AccuracyCostTradeoff *float64 `field:"optional" json:"accuracyCostTradeoff" yaml:"accuracyCostTradeoff"`
 	// The value to switch on or off to force the output to match the provided labels from users.
 	//
 	// If the value is `True` , the `find matches` transform forces the output to match the provided labels. The results override the normal conflation results. If the value is `False` , the `find matches` transform does not ensure all the labels provided are respected, and the results rely on the trained model.
 	//
 	// Note that setting this value to true may increase the conflation execution time.
-	EnforceProvidedLabels interface{} `json:"enforceProvidedLabels" yaml:"enforceProvidedLabels"`
+	EnforceProvidedLabels interface{} `field:"optional" json:"enforceProvidedLabels" yaml:"enforceProvidedLabels"`
 	// The value selected when tuning your transform for a balance between precision and recall.
 	//
 	// A value of 0.5 means no preference; a value of 1.0 means a bias purely for precision, and a value of 0.0 means a bias for recall. Because this is a tradeoff, choosing values close to 1.0 means very low recall, and choosing values close to 0.0 results in very low precision.
@@ -7991,13 +8151,16 @@ type CfnMLTransform_FindMatchesParametersProperty struct {
 	// The precision metric indicates how often your model is correct when it predicts a match.
 	//
 	// The recall metric indicates that for an actual match, how often your model predicts the match.
-	PrecisionRecallTradeoff *float64 `json:"precisionRecallTradeoff" yaml:"precisionRecallTradeoff"`
+	PrecisionRecallTradeoff *float64 `field:"optional" json:"precisionRecallTradeoff" yaml:"precisionRecallTradeoff"`
 }
 
 // The database and table in the AWS Glue Data Catalog that is used for input or output data.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   glueTablesProperty := &glueTablesProperty{
 //   	databaseName: jsii.String("databaseName"),
 //   	tableName: jsii.String("tableName"),
@@ -8009,19 +8172,22 @@ type CfnMLTransform_FindMatchesParametersProperty struct {
 //
 type CfnMLTransform_GlueTablesProperty struct {
 	// A database name in the AWS Glue Data Catalog .
-	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
+	DatabaseName *string `field:"required" json:"databaseName" yaml:"databaseName"`
 	// A table name in the AWS Glue Data Catalog .
-	TableName *string `json:"tableName" yaml:"tableName"`
+	TableName *string `field:"required" json:"tableName" yaml:"tableName"`
 	// A unique identifier for the AWS Glue Data Catalog .
-	CatalogId *string `json:"catalogId" yaml:"catalogId"`
+	CatalogId *string `field:"optional" json:"catalogId" yaml:"catalogId"`
 	// The name of the connection to the AWS Glue Data Catalog .
-	ConnectionName *string `json:"connectionName" yaml:"connectionName"`
+	ConnectionName *string `field:"optional" json:"connectionName" yaml:"connectionName"`
 }
 
 // A list of AWS Glue table definitions used by the transform.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   inputRecordTablesProperty := &inputRecordTablesProperty{
 //   	glueTables: []interface{}{
 //   		&glueTablesProperty{
@@ -8037,13 +8203,16 @@ type CfnMLTransform_GlueTablesProperty struct {
 //
 type CfnMLTransform_InputRecordTablesProperty struct {
 	// The database and table in the AWS Glue Data Catalog that is used for input or output data.
-	GlueTables interface{} `json:"glueTables" yaml:"glueTables"`
+	GlueTables interface{} `field:"optional" json:"glueTables" yaml:"glueTables"`
 }
 
 // The encryption-at-rest settings of the transform that apply to accessing user data.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   mLUserDataEncryptionProperty := &mLUserDataEncryptionProperty{
 //   	mlUserDataEncryptionMode: jsii.String("mlUserDataEncryptionMode"),
 //
@@ -8057,9 +8226,9 @@ type CfnMLTransform_MLUserDataEncryptionProperty struct {
 	// - DISABLED: encryption is disabled.
 	// - SSEKMS: use of server-side encryption with AWS Key Management Service (SSE-KMS) for user data
 	// stored in Amazon S3.
-	MlUserDataEncryptionMode *string `json:"mlUserDataEncryptionMode" yaml:"mlUserDataEncryptionMode"`
+	MlUserDataEncryptionMode *string `field:"required" json:"mlUserDataEncryptionMode" yaml:"mlUserDataEncryptionMode"`
 	// The ID for the customer-provided KMS key.
-	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 }
 
 // The encryption-at-rest settings of the transform that apply to accessing user data.
@@ -8071,7 +8240,10 @@ type CfnMLTransform_MLUserDataEncryptionProperty struct {
 // KMS key.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   transformEncryptionProperty := &transformEncryptionProperty{
 //   	mlUserDataEncryption: &mLUserDataEncryptionProperty{
 //   		mlUserDataEncryptionMode: jsii.String("mlUserDataEncryptionMode"),
@@ -8084,15 +8256,18 @@ type CfnMLTransform_MLUserDataEncryptionProperty struct {
 //
 type CfnMLTransform_TransformEncryptionProperty struct {
 	// The encryption-at-rest settings of the transform that apply to accessing user data.
-	MlUserDataEncryption interface{} `json:"mlUserDataEncryption" yaml:"mlUserDataEncryption"`
+	MlUserDataEncryption interface{} `field:"optional" json:"mlUserDataEncryption" yaml:"mlUserDataEncryption"`
 	// The name of the security configuration.
-	TaskRunSecurityConfigurationName *string `json:"taskRunSecurityConfigurationName" yaml:"taskRunSecurityConfigurationName"`
+	TaskRunSecurityConfigurationName *string `field:"optional" json:"taskRunSecurityConfigurationName" yaml:"taskRunSecurityConfigurationName"`
 }
 
 // The algorithm-specific parameters that are associated with the machine learning transform.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   transformParametersProperty := &transformParametersProperty{
 //   	transformType: jsii.String("transformType"),
 //
@@ -8111,17 +8286,20 @@ type CfnMLTransform_TransformParametersProperty struct {
 	// The type of machine learning transform. `FIND_MATCHES` is the only option.
 	//
 	// For information about the types of machine learning transforms, see [Creating Machine Learning Transforms](https://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html) .
-	TransformType *string `json:"transformType" yaml:"transformType"`
+	TransformType *string `field:"required" json:"transformType" yaml:"transformType"`
 	// The parameters for the find matches algorithm.
-	FindMatchesParameters interface{} `json:"findMatchesParameters" yaml:"findMatchesParameters"`
+	FindMatchesParameters interface{} `field:"optional" json:"findMatchesParameters" yaml:"findMatchesParameters"`
 }
 
 // Properties for defining a `CfnMLTransform`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var tags interface{}
+//
 //   cfnMLTransformProps := &cfnMLTransformProps{
 //   	inputRecordTables: &inputRecordTablesProperty{
 //   		glueTables: []interface{}{
@@ -8173,22 +8351,22 @@ type CfnMLTransform_TransformParametersProperty struct {
 //
 type CfnMLTransformProps struct {
 	// A list of AWS Glue table definitions used by the transform.
-	InputRecordTables interface{} `json:"inputRecordTables" yaml:"inputRecordTables"`
+	InputRecordTables interface{} `field:"required" json:"inputRecordTables" yaml:"inputRecordTables"`
 	// The name or Amazon Resource Name (ARN) of the IAM role with the required permissions.
 	//
 	// The required permissions include both AWS Glue service role permissions to AWS Glue resources, and Amazon S3 permissions required by the transform.
 	//
 	// - This role needs AWS Glue service role permissions to allow access to resources in AWS Glue . See [Attach a Policy to IAM Users That Access AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/attach-policy-iam-user.html) .
 	// - This role needs permission to your Amazon Simple Storage Service (Amazon S3) sources, targets, temporary directory, scripts, and any libraries used by the task run for this transform.
-	Role *string `json:"role" yaml:"role"`
+	Role *string `field:"required" json:"role" yaml:"role"`
 	// The algorithm-specific parameters that are associated with the machine learning transform.
-	TransformParameters interface{} `json:"transformParameters" yaml:"transformParameters"`
+	TransformParameters interface{} `field:"required" json:"transformParameters" yaml:"transformParameters"`
 	// A user-defined, long-form description text for the machine learning transform.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// This value determines which version of AWS Glue this machine learning transform is compatible with.
 	//
 	// Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9. For more information, see [AWS Glue Versions](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions) in the developer guide.
-	GlueVersion *string `json:"glueVersion" yaml:"glueVersion"`
+	GlueVersion *string `field:"optional" json:"glueVersion" yaml:"glueVersion"`
 	// The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform.
 	//
 	// You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the [AWS Glue pricing page](https://docs.aws.amazon.com/glue/pricing/) .
@@ -8201,24 +8379,24 @@ type CfnMLTransformProps struct {
 	// - `MaxCapacity` and `NumberOfWorkers` must both be at least 1.
 	//
 	// When the `WorkerType` field is set to a value other than `Standard` , the `MaxCapacity` field is set automatically and becomes read-only.
-	MaxCapacity *float64 `json:"maxCapacity" yaml:"maxCapacity"`
+	MaxCapacity *float64 `field:"optional" json:"maxCapacity" yaml:"maxCapacity"`
 	// The maximum number of times to retry after an `MLTaskRun` of the machine learning transform fails.
-	MaxRetries *float64 `json:"maxRetries" yaml:"maxRetries"`
+	MaxRetries *float64 `field:"optional" json:"maxRetries" yaml:"maxRetries"`
 	// A user-defined name for the machine learning transform. Names are required to be unique. `Name` is optional:.
 	//
 	// - If you supply `Name` , the stack cannot be repeatedly created.
 	// - If `Name` is not provided, a randomly generated name will be used instead.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The number of workers of a defined `workerType` that are allocated when a task of the transform runs.
 	//
 	// If `WorkerType` is set, then `NumberOfWorkers` is required (and vice versa).
-	NumberOfWorkers *float64 `json:"numberOfWorkers" yaml:"numberOfWorkers"`
+	NumberOfWorkers *float64 `field:"optional" json:"numberOfWorkers" yaml:"numberOfWorkers"`
 	// The tags to use with this machine learning transform.
 	//
 	// You may use tags to limit access to the machine learning transform. For more information about tags in AWS Glue , see [AWS Tags in AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html) in the developer guide.
-	Tags interface{} `json:"tags" yaml:"tags"`
+	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
 	// The timeout in minutes of the machine learning transform.
-	Timeout *float64 `json:"timeout" yaml:"timeout"`
+	Timeout *float64 `field:"optional" json:"timeout" yaml:"timeout"`
 	// The encryption-at-rest settings of the transform that apply to accessing user data.
 	//
 	// Machine learning
@@ -8226,7 +8404,7 @@ type CfnMLTransformProps struct {
 	//
 	// Additionally, imported labels and trained transforms can now be encrypted using a customer provided
 	// KMS key.
-	TransformEncryption interface{} `json:"transformEncryption" yaml:"transformEncryption"`
+	TransformEncryption interface{} `field:"optional" json:"transformEncryption" yaml:"transformEncryption"`
 	// The type of predefined worker that is allocated when a task of this transform runs.
 	//
 	// Accepts a value of Standard, G.1X, or G.2X.
@@ -8241,7 +8419,7 @@ type CfnMLTransformProps struct {
 	// - If `MaxCapacity` is set then neither `NumberOfWorkers` or `WorkerType` can be set.
 	// - If `WorkerType` is set, then `NumberOfWorkers` is required (and vice versa).
 	// - `MaxCapacity` and `NumberOfWorkers` must both be at least 1.
-	WorkerType *string `json:"workerType" yaml:"workerType"`
+	WorkerType *string `field:"optional" json:"workerType" yaml:"workerType"`
 }
 
 // A CloudFormation `AWS::Glue::Partition`.
@@ -8249,11 +8427,14 @@ type CfnMLTransformProps struct {
 // The `AWS::Glue::Partition` resource creates an AWS Glue partition, which represents a slice of table data. For more information, see [CreatePartition Action](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-partitions.html#aws-glue-api-catalog-partitions-CreatePartition) and [Partition Structure](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-partitions.html#aws-glue-api-catalog-partitions-Partition) in the *AWS Glue Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameters interface{}
 //   var skewedColumnValueLocationMaps interface{}
-//   cfnPartition := glue.NewCfnPartition(this, jsii.String("MyCfnPartition"), &cfnPartitionProps{
+//
+//   cfnPartition := awscdk.Aws_glue.NewCfnPartition(this, jsii.String("MyCfnPartition"), &cfnPartitionProps{
 //   	catalogId: jsii.String("catalogId"),
 //   	databaseName: jsii.String("databaseName"),
 //   	partitionInput: &partitionInputProperty{
@@ -9013,7 +9194,10 @@ func (c *jsiiProxy_CfnPartition) ValidateProperties(_properties interface{}) {
 // A column in a `Table` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   columnProperty := &columnProperty{
 //   	name: jsii.String("name"),
 //
@@ -9024,17 +9208,20 @@ func (c *jsiiProxy_CfnPartition) ValidateProperties(_properties interface{}) {
 //
 type CfnPartition_ColumnProperty struct {
 	// The name of the `Column` .
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// A free-form text comment.
-	Comment *string `json:"comment" yaml:"comment"`
+	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// The data type of the `Column` .
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 
 // Specifies the sort order of a sorted column.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   orderProperty := &orderProperty{
 //   	column: jsii.String("column"),
 //
@@ -9044,18 +9231,21 @@ type CfnPartition_ColumnProperty struct {
 //
 type CfnPartition_OrderProperty struct {
 	// The name of the column.
-	Column *string `json:"column" yaml:"column"`
+	Column *string `field:"required" json:"column" yaml:"column"`
 	// Indicates that the column is sorted in ascending order ( `== 1` ), or in descending order ( `==0` ).
-	SortOrder *float64 `json:"sortOrder" yaml:"sortOrder"`
+	SortOrder *float64 `field:"optional" json:"sortOrder" yaml:"sortOrder"`
 }
 
 // The structure used to create and update a partition.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameters interface{}
 //   var skewedColumnValueLocationMaps interface{}
+//
 //   partitionInputProperty := &partitionInputProperty{
 //   	values: []*string{
 //   		jsii.String("values"),
@@ -9123,11 +9313,11 @@ type CfnPartition_PartitionInputProperty struct {
 	// Although this parameter is not required by the SDK, you must specify this parameter for a valid input.
 	//
 	// The values for the keys for the new partition must be passed as an array of String objects that must be ordered in the same order as the partition keys appearing in the Amazon S3 prefix. Otherwise AWS Glue will add the values to the wrong keys.
-	Values *[]*string `json:"values" yaml:"values"`
+	Values *[]*string `field:"required" json:"values" yaml:"values"`
 	// These key-value pairs define partition parameters.
-	Parameters interface{} `json:"parameters" yaml:"parameters"`
+	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// Provides information about the physical location where the partition is stored.
-	StorageDescriptor interface{} `json:"storageDescriptor" yaml:"storageDescriptor"`
+	StorageDescriptor interface{} `field:"optional" json:"storageDescriptor" yaml:"storageDescriptor"`
 }
 
 // A structure that contains schema identity fields.
@@ -9136,7 +9326,10 @@ type CfnPartition_PartitionInputProperty struct {
 // provided.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   schemaIdProperty := &schemaIdProperty{
 //   	registryName: jsii.String("registryName"),
 //   	schemaArn: jsii.String("schemaArn"),
@@ -9145,22 +9338,25 @@ type CfnPartition_PartitionInputProperty struct {
 //
 type CfnPartition_SchemaIdProperty struct {
 	// The name of the schema registry that contains the schema.
-	RegistryName *string `json:"registryName" yaml:"registryName"`
+	RegistryName *string `field:"optional" json:"registryName" yaml:"registryName"`
 	// The Amazon Resource Name (ARN) of the schema.
 	//
 	// One of `SchemaArn` or `SchemaName` has to be
 	// provided.
-	SchemaArn *string `json:"schemaArn" yaml:"schemaArn"`
+	SchemaArn *string `field:"optional" json:"schemaArn" yaml:"schemaArn"`
 	// The name of the schema.
 	//
 	// One of `SchemaArn` or `SchemaName` has to be provided.
-	SchemaName *string `json:"schemaName" yaml:"schemaName"`
+	SchemaName *string `field:"optional" json:"schemaName" yaml:"schemaName"`
 }
 
 // An object that references a schema stored in the AWS Glue Schema Registry.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   schemaReferenceProperty := &schemaReferenceProperty{
 //   	schemaId: &schemaIdProperty{
 //   		registryName: jsii.String("registryName"),
@@ -9176,21 +9372,24 @@ type CfnPartition_SchemaReferenceProperty struct {
 	//
 	// Either this or the `SchemaVersionId` has to be
 	// provided.
-	SchemaId interface{} `json:"schemaId" yaml:"schemaId"`
+	SchemaId interface{} `field:"optional" json:"schemaId" yaml:"schemaId"`
 	// The unique ID assigned to a version of the schema.
 	//
 	// Either this or the `SchemaId` has to be provided.
-	SchemaVersionId *string `json:"schemaVersionId" yaml:"schemaVersionId"`
+	SchemaVersionId *string `field:"optional" json:"schemaVersionId" yaml:"schemaVersionId"`
 	// The version number of the schema.
-	SchemaVersionNumber *float64 `json:"schemaVersionNumber" yaml:"schemaVersionNumber"`
+	SchemaVersionNumber *float64 `field:"optional" json:"schemaVersionNumber" yaml:"schemaVersionNumber"`
 }
 
 // Information about a serialization/deserialization program (SerDe) that serves as an extractor and loader.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameters interface{}
+//
 //   serdeInfoProperty := &serdeInfoProperty{
 //   	name: jsii.String("name"),
 //   	parameters: parameters,
@@ -9199,13 +9398,13 @@ type CfnPartition_SchemaReferenceProperty struct {
 //
 type CfnPartition_SerdeInfoProperty struct {
 	// Name of the SerDe.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// These key-value pairs define initialization parameters for the SerDe.
-	Parameters interface{} `json:"parameters" yaml:"parameters"`
+	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// Usually the class that implements the SerDe.
 	//
 	// An example is `org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe` .
-	SerializationLibrary *string `json:"serializationLibrary" yaml:"serializationLibrary"`
+	SerializationLibrary *string `field:"optional" json:"serializationLibrary" yaml:"serializationLibrary"`
 }
 
 // Specifies skewed values in a table.
@@ -9213,9 +9412,12 @@ type CfnPartition_SerdeInfoProperty struct {
 // Skewed values are those that occur with very high frequency.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var skewedColumnValueLocationMaps interface{}
+//
 //   skewedInfoProperty := &skewedInfoProperty{
 //   	skewedColumnNames: []*string{
 //   		jsii.String("skewedColumnNames"),
@@ -9228,20 +9430,23 @@ type CfnPartition_SerdeInfoProperty struct {
 //
 type CfnPartition_SkewedInfoProperty struct {
 	// A list of names of columns that contain skewed values.
-	SkewedColumnNames *[]*string `json:"skewedColumnNames" yaml:"skewedColumnNames"`
+	SkewedColumnNames *[]*string `field:"optional" json:"skewedColumnNames" yaml:"skewedColumnNames"`
 	// A mapping of skewed values to the columns that contain them.
-	SkewedColumnValueLocationMaps interface{} `json:"skewedColumnValueLocationMaps" yaml:"skewedColumnValueLocationMaps"`
+	SkewedColumnValueLocationMaps interface{} `field:"optional" json:"skewedColumnValueLocationMaps" yaml:"skewedColumnValueLocationMaps"`
 	// A list of values that appear so frequently as to be considered skewed.
-	SkewedColumnValues *[]*string `json:"skewedColumnValues" yaml:"skewedColumnValues"`
+	SkewedColumnValues *[]*string `field:"optional" json:"skewedColumnValues" yaml:"skewedColumnValues"`
 }
 
 // Describes the physical storage of table data.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameters interface{}
 //   var skewedColumnValueLocationMaps interface{}
+//
 //   storageDescriptorProperty := &storageDescriptorProperty{
 //   	bucketColumns: []*string{
 //   		jsii.String("bucketColumns"),
@@ -9297,44 +9502,47 @@ type CfnPartition_SkewedInfoProperty struct {
 //
 type CfnPartition_StorageDescriptorProperty struct {
 	// A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
-	BucketColumns *[]*string `json:"bucketColumns" yaml:"bucketColumns"`
+	BucketColumns *[]*string `field:"optional" json:"bucketColumns" yaml:"bucketColumns"`
 	// A list of the `Columns` in the table.
-	Columns interface{} `json:"columns" yaml:"columns"`
+	Columns interface{} `field:"optional" json:"columns" yaml:"columns"`
 	// `True` if the data in the table is compressed, or `False` if not.
-	Compressed interface{} `json:"compressed" yaml:"compressed"`
+	Compressed interface{} `field:"optional" json:"compressed" yaml:"compressed"`
 	// The input format: `SequenceFileInputFormat` (binary), or `TextInputFormat` , or a custom format.
-	InputFormat *string `json:"inputFormat" yaml:"inputFormat"`
+	InputFormat *string `field:"optional" json:"inputFormat" yaml:"inputFormat"`
 	// The physical location of the table.
 	//
 	// By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
-	Location *string `json:"location" yaml:"location"`
+	Location *string `field:"optional" json:"location" yaml:"location"`
 	// The number of buckets.
 	//
 	// You must specify this property if the partition contains any dimension columns.
-	NumberOfBuckets *float64 `json:"numberOfBuckets" yaml:"numberOfBuckets"`
+	NumberOfBuckets *float64 `field:"optional" json:"numberOfBuckets" yaml:"numberOfBuckets"`
 	// The output format: `SequenceFileOutputFormat` (binary), or `IgnoreKeyTextOutputFormat` , or a custom format.
-	OutputFormat *string `json:"outputFormat" yaml:"outputFormat"`
+	OutputFormat *string `field:"optional" json:"outputFormat" yaml:"outputFormat"`
 	// The user-supplied properties in key-value form.
-	Parameters interface{} `json:"parameters" yaml:"parameters"`
+	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// An object that references a schema stored in the AWS Glue Schema Registry.
-	SchemaReference interface{} `json:"schemaReference" yaml:"schemaReference"`
+	SchemaReference interface{} `field:"optional" json:"schemaReference" yaml:"schemaReference"`
 	// The serialization/deserialization (SerDe) information.
-	SerdeInfo interface{} `json:"serdeInfo" yaml:"serdeInfo"`
+	SerdeInfo interface{} `field:"optional" json:"serdeInfo" yaml:"serdeInfo"`
 	// The information about values that appear frequently in a column (skewed values).
-	SkewedInfo interface{} `json:"skewedInfo" yaml:"skewedInfo"`
+	SkewedInfo interface{} `field:"optional" json:"skewedInfo" yaml:"skewedInfo"`
 	// A list specifying the sort order of each bucket in the table.
-	SortColumns interface{} `json:"sortColumns" yaml:"sortColumns"`
+	SortColumns interface{} `field:"optional" json:"sortColumns" yaml:"sortColumns"`
 	// `True` if the table data is stored in subdirectories, or `False` if not.
-	StoredAsSubDirectories interface{} `json:"storedAsSubDirectories" yaml:"storedAsSubDirectories"`
+	StoredAsSubDirectories interface{} `field:"optional" json:"storedAsSubDirectories" yaml:"storedAsSubDirectories"`
 }
 
 // Properties for defining a `CfnPartition`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameters interface{}
 //   var skewedColumnValueLocationMaps interface{}
+//
 //   cfnPartitionProps := &cfnPartitionProps{
 //   	catalogId: jsii.String("catalogId"),
 //   	databaseName: jsii.String("databaseName"),
@@ -9405,13 +9613,13 @@ type CfnPartitionProps struct {
 	// The AWS account ID of the catalog in which the partion is to be created.
 	//
 	// > To specify the account ID, you can use the `Ref` intrinsic function with the `AWS::AccountId` pseudo parameter. For example: `!Ref AWS::AccountId`
-	CatalogId *string `json:"catalogId" yaml:"catalogId"`
+	CatalogId *string `field:"required" json:"catalogId" yaml:"catalogId"`
 	// The name of the catalog database in which to create the partition.
-	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
+	DatabaseName *string `field:"required" json:"databaseName" yaml:"databaseName"`
 	// The structure used to create and update a partition.
-	PartitionInput interface{} `json:"partitionInput" yaml:"partitionInput"`
+	PartitionInput interface{} `field:"required" json:"partitionInput" yaml:"partitionInput"`
 	// The name of the metadata table in which the partition is to be created.
-	TableName *string `json:"tableName" yaml:"tableName"`
+	TableName *string `field:"required" json:"tableName" yaml:"tableName"`
 }
 
 // A CloudFormation `AWS::Glue::Registry`.
@@ -9419,8 +9627,11 @@ type CfnPartitionProps struct {
 // The AWS::Glue::Registry is an AWS Glue resource type that manages registries of schemas in the AWS Glue Schema Registry.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
-//   cfnRegistry := glue.NewCfnRegistry(this, jsii.String("MyCfnRegistry"), &cfnRegistryProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnRegistry := awscdk.Aws_glue.NewCfnRegistry(this, jsii.String("MyCfnRegistry"), &cfnRegistryProps{
 //   	name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -10106,7 +10317,10 @@ func (c *jsiiProxy_CfnRegistry) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnRegistry`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnRegistryProps := &cfnRegistryProps{
 //   	name: jsii.String("name"),
 //
@@ -10122,11 +10336,11 @@ func (c *jsiiProxy_CfnRegistry) ValidateProperties(_properties interface{}) {
 //
 type CfnRegistryProps struct {
 	// The name of the registry.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// A description of the registry.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// AWS tags that contain a key value pair and may be searched by console, command line, or API.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Glue::Schema`.
@@ -10134,8 +10348,11 @@ type CfnRegistryProps struct {
 // The `AWS::Glue::Schema` is an AWS Glue resource type that manages schemas in the AWS Glue Schema Registry.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
-//   cfnSchema := glue.NewCfnSchema(this, jsii.String("MyCfnSchema"), &cfnSchemaProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnSchema := awscdk.Aws_glue.NewCfnSchema(this, jsii.String("MyCfnSchema"), &cfnSchemaProps{
 //   	compatibility: jsii.String("compatibility"),
 //   	dataFormat: jsii.String("dataFormat"),
 //   	name: jsii.String("name"),
@@ -10955,7 +11172,10 @@ func (c *jsiiProxy_CfnSchema) ValidateProperties(_properties interface{}) {
 // Specifies a registry in the AWS Glue Schema Registry.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   registryProperty := &registryProperty{
 //   	arn: jsii.String("arn"),
 //   	name: jsii.String("name"),
@@ -10963,15 +11183,18 @@ func (c *jsiiProxy_CfnSchema) ValidateProperties(_properties interface{}) {
 //
 type CfnSchema_RegistryProperty struct {
 	// The Amazon Resource Name (ARN) of the registry.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"optional" json:"arn" yaml:"arn"`
 	// The name of the registry.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 
 // Specifies the version of a schema.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   schemaVersionProperty := &schemaVersionProperty{
 //   	isLatest: jsii.Boolean(false),
 //   	versionNumber: jsii.Number(123),
@@ -10979,15 +11202,18 @@ type CfnSchema_RegistryProperty struct {
 //
 type CfnSchema_SchemaVersionProperty struct {
 	// Indicates if this version is the latest version of the schema.
-	IsLatest interface{} `json:"isLatest" yaml:"isLatest"`
+	IsLatest interface{} `field:"optional" json:"isLatest" yaml:"isLatest"`
 	// The version number of the schema.
-	VersionNumber *float64 `json:"versionNumber" yaml:"versionNumber"`
+	VersionNumber *float64 `field:"optional" json:"versionNumber" yaml:"versionNumber"`
 }
 
 // Properties for defining a `CfnSchema`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnSchemaProps := &cfnSchemaProps{
 //   	compatibility: jsii.String("compatibility"),
 //   	dataFormat: jsii.String("dataFormat"),
@@ -11014,27 +11240,27 @@ type CfnSchema_SchemaVersionProperty struct {
 //
 type CfnSchemaProps struct {
 	// The compatibility mode of the schema.
-	Compatibility *string `json:"compatibility" yaml:"compatibility"`
+	Compatibility *string `field:"required" json:"compatibility" yaml:"compatibility"`
 	// The data format of the schema definition.
 	//
 	// Currently only `AVRO` is supported.
-	DataFormat *string `json:"dataFormat" yaml:"dataFormat"`
+	DataFormat *string `field:"required" json:"dataFormat" yaml:"dataFormat"`
 	// Name of the schema to be created of max length of 255, and may only contain letters, numbers, hyphen, underscore, dollar sign, or hash mark.
 	//
 	// No whitespace.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The schema definition using the `DataFormat` setting for `SchemaName` .
-	SchemaDefinition *string `json:"schemaDefinition" yaml:"schemaDefinition"`
+	SchemaDefinition *string `field:"required" json:"schemaDefinition" yaml:"schemaDefinition"`
 	// Specify the `VersionNumber` or the `IsLatest` for setting the checkpoint for the schema.
 	//
 	// This is only required for updating a checkpoint.
-	CheckpointVersion interface{} `json:"checkpointVersion" yaml:"checkpointVersion"`
+	CheckpointVersion interface{} `field:"optional" json:"checkpointVersion" yaml:"checkpointVersion"`
 	// A description of the schema if specified when created.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The registry where a schema is stored.
-	Registry interface{} `json:"registry" yaml:"registry"`
+	Registry interface{} `field:"optional" json:"registry" yaml:"registry"`
 	// AWS tags that contain a key value pair and may be searched by console, command line, or API.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Glue::SchemaVersion`.
@@ -11042,8 +11268,11 @@ type CfnSchemaProps struct {
 // The `AWS::Glue::SchemaVersion` is an AWS Glue resource type that manages schema versions of schemas in the AWS Glue Schema Registry.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
-//   cfnSchemaVersion := glue.NewCfnSchemaVersion(this, jsii.String("MyCfnSchemaVersion"), &cfnSchemaVersionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnSchemaVersion := awscdk.Aws_glue.NewCfnSchemaVersion(this, jsii.String("MyCfnSchemaVersion"), &cfnSchemaVersionProps{
 //   	schema: &schemaProperty{
 //   		registryName: jsii.String("registryName"),
 //   		schemaArn: jsii.String("schemaArn"),
@@ -11715,7 +11944,10 @@ func (c *jsiiProxy_CfnSchemaVersion) ValidateProperties(_properties interface{})
 // Either `SchemaArn` , or `SchemaName` and `RegistryName` has to be provided.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   schemaProperty := &schemaProperty{
 //   	registryName: jsii.String("registryName"),
 //   	schemaArn: jsii.String("schemaArn"),
@@ -11726,15 +11958,15 @@ type CfnSchemaVersion_SchemaProperty struct {
 	// The name of the registry where the schema is stored.
 	//
 	// Either `SchemaArn` , or `SchemaName` and `RegistryName` has to be provided.
-	RegistryName *string `json:"registryName" yaml:"registryName"`
+	RegistryName *string `field:"optional" json:"registryName" yaml:"registryName"`
 	// The Amazon Resource Name (ARN) of the schema.
 	//
 	// Either `SchemaArn` , or `SchemaName` and `RegistryName` has to be provided.
-	SchemaArn *string `json:"schemaArn" yaml:"schemaArn"`
+	SchemaArn *string `field:"optional" json:"schemaArn" yaml:"schemaArn"`
 	// The name of the schema.
 	//
 	// Either `SchemaArn` , or `SchemaName` and `RegistryName` has to be provided.
-	SchemaName *string `json:"schemaName" yaml:"schemaName"`
+	SchemaName *string `field:"optional" json:"schemaName" yaml:"schemaName"`
 }
 
 // A CloudFormation `AWS::Glue::SchemaVersionMetadata`.
@@ -11742,8 +11974,11 @@ type CfnSchemaVersion_SchemaProperty struct {
 // The `AWS::Glue::SchemaVersionMetadata` is an AWS Glue resource type that defines the metadata key-value pairs for a schema version in AWS Glue Schema Registry.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
-//   cfnSchemaVersionMetadata := glue.NewCfnSchemaVersionMetadata(this, jsii.String("MyCfnSchemaVersionMetadata"), &cfnSchemaVersionMetadataProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnSchemaVersionMetadata := awscdk.Aws_glue.NewCfnSchemaVersionMetadata(this, jsii.String("MyCfnSchemaVersionMetadata"), &cfnSchemaVersionMetadataProps{
 //   	key: jsii.String("key"),
 //   	schemaVersionId: jsii.String("schemaVersionId"),
 //   	value: jsii.String("value"),
@@ -12420,7 +12655,10 @@ func (c *jsiiProxy_CfnSchemaVersionMetadata) ValidateProperties(_properties inte
 // Properties for defining a `CfnSchemaVersionMetadata`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnSchemaVersionMetadataProps := &cfnSchemaVersionMetadataProps{
 //   	key: jsii.String("key"),
 //   	schemaVersionId: jsii.String("schemaVersionId"),
@@ -12429,17 +12667,20 @@ func (c *jsiiProxy_CfnSchemaVersionMetadata) ValidateProperties(_properties inte
 //
 type CfnSchemaVersionMetadataProps struct {
 	// A metadata key in a key-value pair for metadata.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// The version number of the schema.
-	SchemaVersionId *string `json:"schemaVersionId" yaml:"schemaVersionId"`
+	SchemaVersionId *string `field:"required" json:"schemaVersionId" yaml:"schemaVersionId"`
 	// A metadata key's corresponding value.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // Properties for defining a `CfnSchemaVersion`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnSchemaVersionProps := &cfnSchemaVersionProps{
 //   	schema: &schemaProperty{
 //   		registryName: jsii.String("registryName"),
@@ -12451,9 +12692,9 @@ type CfnSchemaVersionMetadataProps struct {
 //
 type CfnSchemaVersionProps struct {
 	// The schema that includes the schema version.
-	Schema interface{} `json:"schema" yaml:"schema"`
+	Schema interface{} `field:"required" json:"schema" yaml:"schema"`
 	// The schema definition for the schema version.
-	SchemaDefinition *string `json:"schemaDefinition" yaml:"schemaDefinition"`
+	SchemaDefinition *string `field:"required" json:"schemaDefinition" yaml:"schemaDefinition"`
 }
 
 // A CloudFormation `AWS::Glue::SecurityConfiguration`.
@@ -12461,8 +12702,11 @@ type CfnSchemaVersionProps struct {
 // Creates a new security configuration. A security configuration is a set of security properties that can be used by AWS Glue . You can use a security configuration to encrypt data at rest. For information about using security configurations in AWS Glue , see [Encrypting Data Written by Crawlers, Jobs, and Development Endpoints](https://docs.aws.amazon.com/glue/latest/dg/encryption-security-configuration.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
-//   cfnSecurityConfiguration := glue.NewCfnSecurityConfiguration(this, jsii.String("MyCfnSecurityConfiguration"), &cfnSecurityConfigurationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnSecurityConfiguration := awscdk.Aws_glue.NewCfnSecurityConfiguration(this, jsii.String("MyCfnSecurityConfiguration"), &cfnSecurityConfigurationProps{
 //   	encryptionConfiguration: &encryptionConfigurationProperty{
 //   		cloudWatchEncryption: &cloudWatchEncryptionProperty{
 //   			cloudWatchEncryptionMode: jsii.String("cloudWatchEncryptionMode"),
@@ -13132,7 +13376,10 @@ func (c *jsiiProxy_CfnSecurityConfiguration) ValidateProperties(_properties inte
 // Specifies how Amazon CloudWatch data should be encrypted.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cloudWatchEncryptionProperty := &cloudWatchEncryptionProperty{
 //   	cloudWatchEncryptionMode: jsii.String("cloudWatchEncryptionMode"),
 //   	kmsKeyArn: jsii.String("kmsKeyArn"),
@@ -13140,15 +13387,18 @@ func (c *jsiiProxy_CfnSecurityConfiguration) ValidateProperties(_properties inte
 //
 type CfnSecurityConfiguration_CloudWatchEncryptionProperty struct {
 	// The encryption mode to use for CloudWatch data.
-	CloudWatchEncryptionMode *string `json:"cloudWatchEncryptionMode" yaml:"cloudWatchEncryptionMode"`
+	CloudWatchEncryptionMode *string `field:"optional" json:"cloudWatchEncryptionMode" yaml:"cloudWatchEncryptionMode"`
 	// The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-	KmsKeyArn *string `json:"kmsKeyArn" yaml:"kmsKeyArn"`
+	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
 }
 
 // Specifies an encryption configuration.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   encryptionConfigurationProperty := &encryptionConfigurationProperty{
 //   	cloudWatchEncryption: &cloudWatchEncryptionProperty{
 //   		cloudWatchEncryptionMode: jsii.String("cloudWatchEncryptionMode"),
@@ -13168,17 +13418,20 @@ type CfnSecurityConfiguration_CloudWatchEncryptionProperty struct {
 //
 type CfnSecurityConfiguration_EncryptionConfigurationProperty struct {
 	// The encryption configuration for Amazon CloudWatch.
-	CloudWatchEncryption interface{} `json:"cloudWatchEncryption" yaml:"cloudWatchEncryption"`
+	CloudWatchEncryption interface{} `field:"optional" json:"cloudWatchEncryption" yaml:"cloudWatchEncryption"`
 	// The encryption configuration for job bookmarks.
-	JobBookmarksEncryption interface{} `json:"jobBookmarksEncryption" yaml:"jobBookmarksEncryption"`
+	JobBookmarksEncryption interface{} `field:"optional" json:"jobBookmarksEncryption" yaml:"jobBookmarksEncryption"`
 	// The encyption configuration for Amazon Simple Storage Service (Amazon S3) data.
-	S3Encryptions interface{} `json:"s3Encryptions" yaml:"s3Encryptions"`
+	S3Encryptions interface{} `field:"optional" json:"s3Encryptions" yaml:"s3Encryptions"`
 }
 
 // Specifies how job bookmark data should be encrypted.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   jobBookmarksEncryptionProperty := &jobBookmarksEncryptionProperty{
 //   	jobBookmarksEncryptionMode: jsii.String("jobBookmarksEncryptionMode"),
 //   	kmsKeyArn: jsii.String("kmsKeyArn"),
@@ -13186,15 +13439,18 @@ type CfnSecurityConfiguration_EncryptionConfigurationProperty struct {
 //
 type CfnSecurityConfiguration_JobBookmarksEncryptionProperty struct {
 	// The encryption mode to use for job bookmarks data.
-	JobBookmarksEncryptionMode *string `json:"jobBookmarksEncryptionMode" yaml:"jobBookmarksEncryptionMode"`
+	JobBookmarksEncryptionMode *string `field:"optional" json:"jobBookmarksEncryptionMode" yaml:"jobBookmarksEncryptionMode"`
 	// The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-	KmsKeyArn *string `json:"kmsKeyArn" yaml:"kmsKeyArn"`
+	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
 }
 
 // Specifies how Amazon Simple Storage Service (Amazon S3) data should be encrypted.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3EncryptionProperty := &s3EncryptionProperty{
 //   	kmsKeyArn: jsii.String("kmsKeyArn"),
 //   	s3EncryptionMode: jsii.String("s3EncryptionMode"),
@@ -13202,15 +13458,18 @@ type CfnSecurityConfiguration_JobBookmarksEncryptionProperty struct {
 //
 type CfnSecurityConfiguration_S3EncryptionProperty struct {
 	// The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-	KmsKeyArn *string `json:"kmsKeyArn" yaml:"kmsKeyArn"`
+	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
 	// The encryption mode to use for Amazon S3 data.
-	S3EncryptionMode *string `json:"s3EncryptionMode" yaml:"s3EncryptionMode"`
+	S3EncryptionMode *string `field:"optional" json:"s3EncryptionMode" yaml:"s3EncryptionMode"`
 }
 
 // Properties for defining a `CfnSecurityConfiguration`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnSecurityConfigurationProps := &cfnSecurityConfigurationProps{
 //   	encryptionConfiguration: &encryptionConfigurationProperty{
 //   		cloudWatchEncryption: &cloudWatchEncryptionProperty{
@@ -13233,9 +13492,9 @@ type CfnSecurityConfiguration_S3EncryptionProperty struct {
 //
 type CfnSecurityConfigurationProps struct {
 	// The encryption configuration associated with this security configuration.
-	EncryptionConfiguration interface{} `json:"encryptionConfiguration" yaml:"encryptionConfiguration"`
+	EncryptionConfiguration interface{} `field:"required" json:"encryptionConfiguration" yaml:"encryptionConfiguration"`
 	// The name of the security configuration.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 }
 
 // A CloudFormation `AWS::Glue::Table`.
@@ -13243,11 +13502,14 @@ type CfnSecurityConfigurationProps struct {
 // The `AWS::Glue::Table` resource specifies tabular data in the AWS Glue data catalog. For more information, see [Defining Tables in the AWS Glue Data Catalog](https://docs.aws.amazon.com/glue/latest/dg/tables-described.html) and [Table Structure](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-Table) in the *AWS Glue Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameters interface{}
 //   var skewedColumnValueLocationMaps interface{}
-//   cfnTable := glue.NewCfnTable(this, jsii.String("MyCfnTable"), &cfnTableProps{
+//
+//   cfnTable := awscdk.Aws_glue.NewCfnTable(this, jsii.String("MyCfnTable"), &cfnTableProps{
 //   	catalogId: jsii.String("catalogId"),
 //   	databaseName: jsii.String("databaseName"),
 //   	tableInput: &tableInputProperty{
@@ -14001,7 +14263,10 @@ func (c *jsiiProxy_CfnTable) ValidateProperties(_properties interface{}) {
 // A column in a `Table` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   columnProperty := &columnProperty{
 //   	name: jsii.String("name"),
 //
@@ -14012,17 +14277,20 @@ func (c *jsiiProxy_CfnTable) ValidateProperties(_properties interface{}) {
 //
 type CfnTable_ColumnProperty struct {
 	// The name of the `Column` .
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// A free-form text comment.
-	Comment *string `json:"comment" yaml:"comment"`
+	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// The data type of the `Column` .
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 
 // Specifies the sort order of a sorted column.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   orderProperty := &orderProperty{
 //   	column: jsii.String("column"),
 //   	sortOrder: jsii.Number(123),
@@ -14030,9 +14298,9 @@ type CfnTable_ColumnProperty struct {
 //
 type CfnTable_OrderProperty struct {
 	// The name of the column.
-	Column *string `json:"column" yaml:"column"`
+	Column *string `field:"required" json:"column" yaml:"column"`
 	// Indicates that the column is sorted in ascending order ( `== 1` ), or in descending order ( `==0` ).
-	SortOrder *float64 `json:"sortOrder" yaml:"sortOrder"`
+	SortOrder *float64 `field:"required" json:"sortOrder" yaml:"sortOrder"`
 }
 
 // A structure that contains schema identity fields.
@@ -14041,7 +14309,10 @@ type CfnTable_OrderProperty struct {
 // provided.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   schemaIdProperty := &schemaIdProperty{
 //   	registryName: jsii.String("registryName"),
 //   	schemaArn: jsii.String("schemaArn"),
@@ -14050,22 +14321,25 @@ type CfnTable_OrderProperty struct {
 //
 type CfnTable_SchemaIdProperty struct {
 	// The name of the schema registry that contains the schema.
-	RegistryName *string `json:"registryName" yaml:"registryName"`
+	RegistryName *string `field:"optional" json:"registryName" yaml:"registryName"`
 	// The Amazon Resource Name (ARN) of the schema.
 	//
 	// One of `SchemaArn` or `SchemaName` has to be
 	// provided.
-	SchemaArn *string `json:"schemaArn" yaml:"schemaArn"`
+	SchemaArn *string `field:"optional" json:"schemaArn" yaml:"schemaArn"`
 	// The name of the schema.
 	//
 	// One of `SchemaArn` or `SchemaName` has to be provided.
-	SchemaName *string `json:"schemaName" yaml:"schemaName"`
+	SchemaName *string `field:"optional" json:"schemaName" yaml:"schemaName"`
 }
 
 // An object that references a schema stored in the AWS Glue Schema Registry.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   schemaReferenceProperty := &schemaReferenceProperty{
 //   	schemaId: &schemaIdProperty{
 //   		registryName: jsii.String("registryName"),
@@ -14081,21 +14355,24 @@ type CfnTable_SchemaReferenceProperty struct {
 	//
 	// Either this or the `SchemaVersionId` has to be
 	// provided.
-	SchemaId interface{} `json:"schemaId" yaml:"schemaId"`
+	SchemaId interface{} `field:"optional" json:"schemaId" yaml:"schemaId"`
 	// The unique ID assigned to a version of the schema.
 	//
 	// Either this or the `SchemaId` has to be provided.
-	SchemaVersionId *string `json:"schemaVersionId" yaml:"schemaVersionId"`
+	SchemaVersionId *string `field:"optional" json:"schemaVersionId" yaml:"schemaVersionId"`
 	// The version number of the schema.
-	SchemaVersionNumber *float64 `json:"schemaVersionNumber" yaml:"schemaVersionNumber"`
+	SchemaVersionNumber *float64 `field:"optional" json:"schemaVersionNumber" yaml:"schemaVersionNumber"`
 }
 
 // Information about a serialization/deserialization program (SerDe) that serves as an extractor and loader.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameters interface{}
+//
 //   serdeInfoProperty := &serdeInfoProperty{
 //   	name: jsii.String("name"),
 //   	parameters: parameters,
@@ -14104,13 +14381,13 @@ type CfnTable_SchemaReferenceProperty struct {
 //
 type CfnTable_SerdeInfoProperty struct {
 	// Name of the SerDe.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// These key-value pairs define initialization parameters for the SerDe.
-	Parameters interface{} `json:"parameters" yaml:"parameters"`
+	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// Usually the class that implements the SerDe.
 	//
 	// An example is `org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe` .
-	SerializationLibrary *string `json:"serializationLibrary" yaml:"serializationLibrary"`
+	SerializationLibrary *string `field:"optional" json:"serializationLibrary" yaml:"serializationLibrary"`
 }
 
 // Specifies skewed values in a table.
@@ -14118,9 +14395,12 @@ type CfnTable_SerdeInfoProperty struct {
 // Skewed values are those that occur with very high frequency.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var skewedColumnValueLocationMaps interface{}
+//
 //   skewedInfoProperty := &skewedInfoProperty{
 //   	skewedColumnNames: []*string{
 //   		jsii.String("skewedColumnNames"),
@@ -14133,20 +14413,23 @@ type CfnTable_SerdeInfoProperty struct {
 //
 type CfnTable_SkewedInfoProperty struct {
 	// A list of names of columns that contain skewed values.
-	SkewedColumnNames *[]*string `json:"skewedColumnNames" yaml:"skewedColumnNames"`
+	SkewedColumnNames *[]*string `field:"optional" json:"skewedColumnNames" yaml:"skewedColumnNames"`
 	// A mapping of skewed values to the columns that contain them.
-	SkewedColumnValueLocationMaps interface{} `json:"skewedColumnValueLocationMaps" yaml:"skewedColumnValueLocationMaps"`
+	SkewedColumnValueLocationMaps interface{} `field:"optional" json:"skewedColumnValueLocationMaps" yaml:"skewedColumnValueLocationMaps"`
 	// A list of values that appear so frequently as to be considered skewed.
-	SkewedColumnValues *[]*string `json:"skewedColumnValues" yaml:"skewedColumnValues"`
+	SkewedColumnValues *[]*string `field:"optional" json:"skewedColumnValues" yaml:"skewedColumnValues"`
 }
 
 // Describes the physical storage of table data.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameters interface{}
 //   var skewedColumnValueLocationMaps interface{}
+//
 //   storageDescriptorProperty := &storageDescriptorProperty{
 //   	bucketColumns: []*string{
 //   		jsii.String("bucketColumns"),
@@ -14200,39 +14483,42 @@ type CfnTable_SkewedInfoProperty struct {
 //
 type CfnTable_StorageDescriptorProperty struct {
 	// A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
-	BucketColumns *[]*string `json:"bucketColumns" yaml:"bucketColumns"`
+	BucketColumns *[]*string `field:"optional" json:"bucketColumns" yaml:"bucketColumns"`
 	// A list of the `Columns` in the table.
-	Columns interface{} `json:"columns" yaml:"columns"`
+	Columns interface{} `field:"optional" json:"columns" yaml:"columns"`
 	// `True` if the data in the table is compressed, or `False` if not.
-	Compressed interface{} `json:"compressed" yaml:"compressed"`
+	Compressed interface{} `field:"optional" json:"compressed" yaml:"compressed"`
 	// The input format: `SequenceFileInputFormat` (binary), or `TextInputFormat` , or a custom format.
-	InputFormat *string `json:"inputFormat" yaml:"inputFormat"`
+	InputFormat *string `field:"optional" json:"inputFormat" yaml:"inputFormat"`
 	// The physical location of the table.
 	//
 	// By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
-	Location *string `json:"location" yaml:"location"`
+	Location *string `field:"optional" json:"location" yaml:"location"`
 	// Must be specified if the table contains any dimension columns.
-	NumberOfBuckets *float64 `json:"numberOfBuckets" yaml:"numberOfBuckets"`
+	NumberOfBuckets *float64 `field:"optional" json:"numberOfBuckets" yaml:"numberOfBuckets"`
 	// The output format: `SequenceFileOutputFormat` (binary), or `IgnoreKeyTextOutputFormat` , or a custom format.
-	OutputFormat *string `json:"outputFormat" yaml:"outputFormat"`
+	OutputFormat *string `field:"optional" json:"outputFormat" yaml:"outputFormat"`
 	// The user-supplied properties in key-value form.
-	Parameters interface{} `json:"parameters" yaml:"parameters"`
+	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// An object that references a schema stored in the AWS Glue Schema Registry.
-	SchemaReference interface{} `json:"schemaReference" yaml:"schemaReference"`
+	SchemaReference interface{} `field:"optional" json:"schemaReference" yaml:"schemaReference"`
 	// The serialization/deserialization (SerDe) information.
-	SerdeInfo interface{} `json:"serdeInfo" yaml:"serdeInfo"`
+	SerdeInfo interface{} `field:"optional" json:"serdeInfo" yaml:"serdeInfo"`
 	// The information about values that appear frequently in a column (skewed values).
-	SkewedInfo interface{} `json:"skewedInfo" yaml:"skewedInfo"`
+	SkewedInfo interface{} `field:"optional" json:"skewedInfo" yaml:"skewedInfo"`
 	// A list specifying the sort order of each bucket in the table.
-	SortColumns interface{} `json:"sortColumns" yaml:"sortColumns"`
+	SortColumns interface{} `field:"optional" json:"sortColumns" yaml:"sortColumns"`
 	// `True` if the table data is stored in subdirectories, or `False` if not.
-	StoredAsSubDirectories interface{} `json:"storedAsSubDirectories" yaml:"storedAsSubDirectories"`
+	StoredAsSubDirectories interface{} `field:"optional" json:"storedAsSubDirectories" yaml:"storedAsSubDirectories"`
 }
 
 // A structure that describes a target table for resource linking.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tableIdentifierProperty := &tableIdentifierProperty{
 //   	catalogId: jsii.String("catalogId"),
 //   	databaseName: jsii.String("databaseName"),
@@ -14241,20 +14527,23 @@ type CfnTable_StorageDescriptorProperty struct {
 //
 type CfnTable_TableIdentifierProperty struct {
 	// The ID of the Data Catalog in which the table resides.
-	CatalogId *string `json:"catalogId" yaml:"catalogId"`
+	CatalogId *string `field:"optional" json:"catalogId" yaml:"catalogId"`
 	// The name of the catalog database that contains the target table.
-	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
+	DatabaseName *string `field:"optional" json:"databaseName" yaml:"databaseName"`
 	// The name of the target table.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 
 // A structure used to define a table.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameters interface{}
 //   var skewedColumnValueLocationMaps interface{}
+//
 //   tableInputProperty := &tableInputProperty{
 //   	description: jsii.String("description"),
 //   	name: jsii.String("name"),
@@ -14332,46 +14621,49 @@ type CfnTable_TableIdentifierProperty struct {
 //
 type CfnTable_TableInputProperty struct {
 	// A description of the table.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The table name.
 	//
 	// For Hive compatibility, this is folded to lowercase when it is stored.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The table owner.
-	Owner *string `json:"owner" yaml:"owner"`
+	Owner *string `field:"optional" json:"owner" yaml:"owner"`
 	// These key-value pairs define properties associated with the table.
-	Parameters interface{} `json:"parameters" yaml:"parameters"`
+	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
 	//
 	// When you create a table used by Amazon Athena, and you do not specify any `partitionKeys` , you must at least set the value of `partitionKeys` to an empty list. For example:
 	//
 	// `"PartitionKeys": []`.
-	PartitionKeys interface{} `json:"partitionKeys" yaml:"partitionKeys"`
+	PartitionKeys interface{} `field:"optional" json:"partitionKeys" yaml:"partitionKeys"`
 	// The retention time for this table.
-	Retention *float64 `json:"retention" yaml:"retention"`
+	Retention *float64 `field:"optional" json:"retention" yaml:"retention"`
 	// A storage descriptor containing information about the physical storage of this table.
-	StorageDescriptor interface{} `json:"storageDescriptor" yaml:"storageDescriptor"`
+	StorageDescriptor interface{} `field:"optional" json:"storageDescriptor" yaml:"storageDescriptor"`
 	// The type of this table ( `EXTERNAL_TABLE` , `VIRTUAL_VIEW` , etc.).
-	TableType *string `json:"tableType" yaml:"tableType"`
+	TableType *string `field:"optional" json:"tableType" yaml:"tableType"`
 	// A `TableIdentifier` structure that describes a target table for resource linking.
-	TargetTable interface{} `json:"targetTable" yaml:"targetTable"`
+	TargetTable interface{} `field:"optional" json:"targetTable" yaml:"targetTable"`
 	// If the table is a view, the expanded text of the view;
 	//
 	// otherwise `null` .
-	ViewExpandedText *string `json:"viewExpandedText" yaml:"viewExpandedText"`
+	ViewExpandedText *string `field:"optional" json:"viewExpandedText" yaml:"viewExpandedText"`
 	// If the table is a view, the original text of the view;
 	//
 	// otherwise `null` .
-	ViewOriginalText *string `json:"viewOriginalText" yaml:"viewOriginalText"`
+	ViewOriginalText *string `field:"optional" json:"viewOriginalText" yaml:"viewOriginalText"`
 }
 
 // Properties for defining a `CfnTable`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameters interface{}
 //   var skewedColumnValueLocationMaps interface{}
+//
 //   cfnTableProps := &cfnTableProps{
 //   	catalogId: jsii.String("catalogId"),
 //   	databaseName: jsii.String("databaseName"),
@@ -14455,13 +14747,13 @@ type CfnTableProps struct {
 	// The ID of the Data Catalog in which to create the `Table` .
 	//
 	// If none is supplied, the AWS account ID is used by default.
-	CatalogId *string `json:"catalogId" yaml:"catalogId"`
+	CatalogId *string `field:"required" json:"catalogId" yaml:"catalogId"`
 	// The name of the database where the table metadata resides.
 	//
 	// For Hive compatibility, this must be all lowercase.
-	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
+	DatabaseName *string `field:"required" json:"databaseName" yaml:"databaseName"`
 	// A structure used to define a table.
-	TableInput interface{} `json:"tableInput" yaml:"tableInput"`
+	TableInput interface{} `field:"required" json:"tableInput" yaml:"tableInput"`
 }
 
 // A CloudFormation `AWS::Glue::Trigger`.
@@ -14469,11 +14761,14 @@ type CfnTableProps struct {
 // The `AWS::Glue::Trigger` resource specifies triggers that run AWS Glue jobs. For more information, see [Triggering Jobs in AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/trigger-job.html) and [Trigger Structure](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-trigger.html#aws-glue-api-jobs-trigger-Trigger) in the *AWS Glue Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var arguments_ interface{}
 //   var tags interface{}
-//   cfnTrigger := glue.NewCfnTrigger(this, jsii.String("MyCfnTrigger"), &cfnTriggerProps{
+//
+//   cfnTrigger := awscdk.Aws_glue.NewCfnTrigger(this, jsii.String("MyCfnTrigger"), &cfnTriggerProps{
 //   	actions: []interface{}{
 //   		&actionProperty{
 //   			arguments: arguments_,
@@ -15301,9 +15596,12 @@ func (c *jsiiProxy_CfnTrigger) ValidateProperties(_properties interface{}) {
 // Defines an action to be initiated by a trigger.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var arguments_ interface{}
+//
 //   actionProperty := &actionProperty{
 //   	arguments: arguments_,
 //   	crawlerName: jsii.String("crawlerName"),
@@ -15325,25 +15623,28 @@ type CfnTrigger_ActionProperty struct {
 	// For information about how to specify and consume your own job arguments, see [Calling AWS Glue APIs in Python](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) in the *AWS Glue Developer Guide* .
 	//
 	// For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html) topic in the developer guide.
-	Arguments interface{} `json:"arguments" yaml:"arguments"`
+	Arguments interface{} `field:"optional" json:"arguments" yaml:"arguments"`
 	// The name of the crawler to be used with this action.
-	CrawlerName *string `json:"crawlerName" yaml:"crawlerName"`
+	CrawlerName *string `field:"optional" json:"crawlerName" yaml:"crawlerName"`
 	// The name of a job to be executed.
-	JobName *string `json:"jobName" yaml:"jobName"`
+	JobName *string `field:"optional" json:"jobName" yaml:"jobName"`
 	// Specifies configuration properties of a job run notification.
-	NotificationProperty interface{} `json:"notificationProperty" yaml:"notificationProperty"`
+	NotificationProperty interface{} `field:"optional" json:"notificationProperty" yaml:"notificationProperty"`
 	// The name of the `SecurityConfiguration` structure to be used with this action.
-	SecurityConfiguration *string `json:"securityConfiguration" yaml:"securityConfiguration"`
+	SecurityConfiguration *string `field:"optional" json:"securityConfiguration" yaml:"securityConfiguration"`
 	// The `JobRun` timeout in minutes.
 	//
 	// This is the maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status. The default is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.
-	Timeout *float64 `json:"timeout" yaml:"timeout"`
+	Timeout *float64 `field:"optional" json:"timeout" yaml:"timeout"`
 }
 
 // Defines a condition under which a trigger fires.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   conditionProperty := &conditionProperty{
 //   	crawlerName: jsii.String("crawlerName"),
 //   	crawlState: jsii.String("crawlState"),
@@ -15354,36 +15655,42 @@ type CfnTrigger_ActionProperty struct {
 //
 type CfnTrigger_ConditionProperty struct {
 	// The name of the crawler to which this condition applies.
-	CrawlerName *string `json:"crawlerName" yaml:"crawlerName"`
+	CrawlerName *string `field:"optional" json:"crawlerName" yaml:"crawlerName"`
 	// The state of the crawler to which this condition applies.
-	CrawlState *string `json:"crawlState" yaml:"crawlState"`
+	CrawlState *string `field:"optional" json:"crawlState" yaml:"crawlState"`
 	// The name of the job whose `JobRuns` this condition applies to, and on which this trigger waits.
-	JobName *string `json:"jobName" yaml:"jobName"`
+	JobName *string `field:"optional" json:"jobName" yaml:"jobName"`
 	// A logical operator.
-	LogicalOperator *string `json:"logicalOperator" yaml:"logicalOperator"`
+	LogicalOperator *string `field:"optional" json:"logicalOperator" yaml:"logicalOperator"`
 	// The condition state.
 	//
 	// Currently, the values supported are `SUCCEEDED` , `STOPPED` , `TIMEOUT` , and `FAILED` .
-	State *string `json:"state" yaml:"state"`
+	State *string `field:"optional" json:"state" yaml:"state"`
 }
 
 // Specifies configuration properties of a job run notification.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   notificationPropertyProperty := &notificationPropertyProperty{
 //   	notifyDelayAfter: jsii.Number(123),
 //   }
 //
 type CfnTrigger_NotificationPropertyProperty struct {
 	// After a job run starts, the number of minutes to wait before sending a job run delay notification.
-	NotifyDelayAfter *float64 `json:"notifyDelayAfter" yaml:"notifyDelayAfter"`
+	NotifyDelayAfter *float64 `field:"optional" json:"notifyDelayAfter" yaml:"notifyDelayAfter"`
 }
 
 // Defines the predicate of the trigger, which determines when it fires.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   predicateProperty := &predicateProperty{
 //   	conditions: []interface{}{
 //   		&conditionProperty{
@@ -15399,20 +15706,23 @@ type CfnTrigger_NotificationPropertyProperty struct {
 //
 type CfnTrigger_PredicateProperty struct {
 	// A list of the conditions that determine when the trigger will fire.
-	Conditions interface{} `json:"conditions" yaml:"conditions"`
+	Conditions interface{} `field:"optional" json:"conditions" yaml:"conditions"`
 	// An optional field if only one condition is listed.
 	//
 	// If multiple conditions are listed, then this field is required.
-	Logical *string `json:"logical" yaml:"logical"`
+	Logical *string `field:"optional" json:"logical" yaml:"logical"`
 }
 
 // Properties for defining a `CfnTrigger`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var arguments_ interface{}
 //   var tags interface{}
+//
 //   cfnTriggerProps := &cfnTriggerProps{
 //   	actions: []interface{}{
 //   		&actionProperty{
@@ -15451,27 +15761,27 @@ type CfnTrigger_PredicateProperty struct {
 //
 type CfnTriggerProps struct {
 	// The actions initiated by this trigger.
-	Actions interface{} `json:"actions" yaml:"actions"`
+	Actions interface{} `field:"required" json:"actions" yaml:"actions"`
 	// The type of trigger that this is.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// A description of this trigger.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the trigger.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The predicate of this trigger, which defines when it will fire.
-	Predicate interface{} `json:"predicate" yaml:"predicate"`
+	Predicate interface{} `field:"optional" json:"predicate" yaml:"predicate"`
 	// A `cron` expression used to specify the schedule.
 	//
 	// For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html) in the *AWS Glue Developer Guide* . For example, to run something every day at 12:15 UTC, specify `cron(15 12 * * ? *)` .
-	Schedule *string `json:"schedule" yaml:"schedule"`
+	Schedule *string `field:"optional" json:"schedule" yaml:"schedule"`
 	// Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created.
 	//
 	// True is not supported for `ON_DEMAND` triggers.
-	StartOnCreation interface{} `json:"startOnCreation" yaml:"startOnCreation"`
+	StartOnCreation interface{} `field:"optional" json:"startOnCreation" yaml:"startOnCreation"`
 	// The tags to use with this trigger.
-	Tags interface{} `json:"tags" yaml:"tags"`
+	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
 	// The name of the workflow associated with the trigger.
-	WorkflowName *string `json:"workflowName" yaml:"workflowName"`
+	WorkflowName *string `field:"optional" json:"workflowName" yaml:"workflowName"`
 }
 
 // A CloudFormation `AWS::Glue::Workflow`.
@@ -15479,11 +15789,14 @@ type CfnTriggerProps struct {
 // The `AWS::Glue::Workflow` is an AWS Glue resource type that manages AWS Glue workflows. A workflow is a container for a set of related jobs, crawlers, and triggers in AWS Glue . Using a workflow, you can design a complex multi-job extract, transform, and load (ETL) activity that AWS Glue can execute and track as single entity.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var defaultRunProperties interface{}
 //   var tags interface{}
-//   cfnWorkflow := glue.NewCfnWorkflow(this, jsii.String("MyCfnWorkflow"), &cfnWorkflowProps{
+//
+//   cfnWorkflow := awscdk.Aws_glue.NewCfnWorkflow(this, jsii.String("MyCfnWorkflow"), &cfnWorkflowProps{
 //   	defaultRunProperties: defaultRunProperties,
 //   	description: jsii.String("description"),
 //   	name: jsii.String("name"),
@@ -16173,10 +16486,13 @@ func (c *jsiiProxy_CfnWorkflow) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnWorkflow`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var defaultRunProperties interface{}
 //   var tags interface{}
+//
 //   cfnWorkflowProps := &cfnWorkflowProps{
 //   	defaultRunProperties: defaultRunProperties,
 //   	description: jsii.String("description"),
@@ -16186,20 +16502,23 @@ func (c *jsiiProxy_CfnWorkflow) ValidateProperties(_properties interface{}) {
 //
 type CfnWorkflowProps struct {
 	// A collection of properties to be used as part of each execution of the workflow.
-	DefaultRunProperties interface{} `json:"defaultRunProperties" yaml:"defaultRunProperties"`
+	DefaultRunProperties interface{} `field:"optional" json:"defaultRunProperties" yaml:"defaultRunProperties"`
 	// A description of the workflow.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the workflow representing the flow.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The tags to use with this workflow.
-	Tags interface{} `json:"tags" yaml:"tags"`
+	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // Classification string given to tables with this data format.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
-//   classificationString := glue.classificationString_AVRO()
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   classificationString := awscdk.Aws_glue.classificationString_AVRO()
 //
 // See: https://docs.aws.amazon.com/glue/latest/dg/add-classifier.html#classifier-built-in
 //
@@ -16337,10 +16656,10 @@ func ClassificationString_XML() ClassificationString {
 type CloudWatchEncryption struct {
 	// Encryption mode.
 	// Experimental.
-	Mode CloudWatchEncryptionMode `json:"mode" yaml:"mode"`
+	Mode CloudWatchEncryptionMode `field:"required" json:"mode" yaml:"mode"`
 	// The KMS key to be used to encrypt the data.
 	// Experimental.
-	KmsKey awskms.IKey `json:"kmsKey" yaml:"kmsKey"`
+	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 }
 
 // Encryption mode for CloudWatch Logs.
@@ -16376,6 +16695,7 @@ const (
 //
 // Example:
 //   var bucket bucket
+//
 //   glue.NewJob(this, jsii.String("PythonShellJob"), &jobProps{
 //   	executable: glue.jobExecutable.pythonShell(&pythonShellExecutableProps{
 //   		glueVersion: glue.glueVersion_V1_0(),
@@ -16458,7 +16778,10 @@ func (c *jsiiProxy_Code) Bind(scope constructs.Construct, grantable awsiam.IGran
 // Result of binding `Code` into a `Job`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   codeConfig := &codeConfig{
 //   	s3Location: &location{
 //   		bucketName: jsii.String("bucketName"),
@@ -16473,13 +16796,16 @@ func (c *jsiiProxy_Code) Bind(scope constructs.Construct, grantable awsiam.IGran
 type CodeConfig struct {
 	// The location of the code in S3.
 	// Experimental.
-	S3Location *awss3.Location `json:"s3Location" yaml:"s3Location"`
+	S3Location *awss3.Location `field:"required" json:"s3Location" yaml:"s3Location"`
 }
 
 // A column of a table.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   column := &column{
 //   	name: jsii.String("name"),
 //   	type: &type{
@@ -16495,13 +16821,13 @@ type CodeConfig struct {
 type Column struct {
 	// Name of the column.
 	// Experimental.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// Type of the column.
 	// Experimental.
-	Type *Type `json:"type" yaml:"type"`
+	Type *Type `field:"required" json:"type" yaml:"type"`
 	// Coment describing the column.
 	// Experimental.
-	Comment *string `json:"comment" yaml:"comment"`
+	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 }
 
 // An AWS Glue connection to a data source.
@@ -16509,6 +16835,7 @@ type Column struct {
 // Example:
 //   var securityGroup securityGroup
 //   var subnet subnet
+//
 //   glue.NewConnection(this, jsii.String("MyConnection"), &connectionProps{
 //   	type: glue.connectionType_NETWORK(),
 //   	// The security groups granting AWS Glue inbound access to the data source within the VPC
@@ -16928,10 +17255,14 @@ func (c *jsiiProxy_Connection) Validate() *[]*string {
 // Base Connection Options.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var securityGroup securityGroup
 //   var subnet subnet
+//
 //   connectionOptions := &connectionOptions{
 //   	connectionName: jsii.String("connectionName"),
 //   	description: jsii.String("description"),
@@ -16951,28 +17282,28 @@ func (c *jsiiProxy_Connection) Validate() *[]*string {
 type ConnectionOptions struct {
 	// The name of the connection.
 	// Experimental.
-	ConnectionName *string `json:"connectionName" yaml:"connectionName"`
+	ConnectionName *string `field:"optional" json:"connectionName" yaml:"connectionName"`
 	// The description of the connection.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// A list of criteria that can be used in selecting this connection.
 	//
 	// This is useful for filtering the results of https://awscli.amazonaws.com/v2/documentation/api/latest/reference/glue/get-connections.html
 	// Experimental.
-	MatchCriteria *[]*string `json:"matchCriteria" yaml:"matchCriteria"`
+	MatchCriteria *[]*string `field:"optional" json:"matchCriteria" yaml:"matchCriteria"`
 	// Key-Value pairs that define parameters for the connection.
 	// See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-connect.html
 	//
 	// Experimental.
-	Properties *map[string]*string `json:"properties" yaml:"properties"`
+	Properties *map[string]*string `field:"optional" json:"properties" yaml:"properties"`
 	// The list of security groups needed to successfully make this connection e.g. to successfully connect to VPC.
 	// Experimental.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// The VPC subnet to connect to resources within a VPC.
 	//
 	// See more at https://docs.aws.amazon.com/glue/latest/dg/start-connecting.html.
 	// Experimental.
-	Subnet awsec2.ISubnet `json:"subnet" yaml:"subnet"`
+	Subnet awsec2.ISubnet `field:"optional" json:"subnet" yaml:"subnet"`
 }
 
 // Construction properties for {@link Connection}.
@@ -16980,6 +17311,7 @@ type ConnectionOptions struct {
 // Example:
 //   var securityGroup securityGroup
 //   var subnet subnet
+//
 //   glue.NewConnection(this, jsii.String("MyConnection"), &connectionProps{
 //   	type: glue.connectionType_NETWORK(),
 //   	// The security groups granting AWS Glue inbound access to the data source within the VPC
@@ -16994,31 +17326,31 @@ type ConnectionOptions struct {
 type ConnectionProps struct {
 	// The name of the connection.
 	// Experimental.
-	ConnectionName *string `json:"connectionName" yaml:"connectionName"`
+	ConnectionName *string `field:"optional" json:"connectionName" yaml:"connectionName"`
 	// The description of the connection.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// A list of criteria that can be used in selecting this connection.
 	//
 	// This is useful for filtering the results of https://awscli.amazonaws.com/v2/documentation/api/latest/reference/glue/get-connections.html
 	// Experimental.
-	MatchCriteria *[]*string `json:"matchCriteria" yaml:"matchCriteria"`
+	MatchCriteria *[]*string `field:"optional" json:"matchCriteria" yaml:"matchCriteria"`
 	// Key-Value pairs that define parameters for the connection.
 	// See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-connect.html
 	//
 	// Experimental.
-	Properties *map[string]*string `json:"properties" yaml:"properties"`
+	Properties *map[string]*string `field:"optional" json:"properties" yaml:"properties"`
 	// The list of security groups needed to successfully make this connection e.g. to successfully connect to VPC.
 	// Experimental.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// The VPC subnet to connect to resources within a VPC.
 	//
 	// See more at https://docs.aws.amazon.com/glue/latest/dg/start-connecting.html.
 	// Experimental.
-	Subnet awsec2.ISubnet `json:"subnet" yaml:"subnet"`
+	Subnet awsec2.ISubnet `field:"optional" json:"subnet" yaml:"subnet"`
 	// The type of the connection.
 	// Experimental.
-	Type ConnectionType `json:"type" yaml:"type"`
+	Type ConnectionType `field:"required" json:"type" yaml:"type"`
 }
 
 // The type of the glue connection.
@@ -17029,6 +17361,7 @@ type ConnectionProps struct {
 // Example:
 //   var securityGroup securityGroup
 //   var subnet subnet
+//
 //   glue.NewConnection(this, jsii.String("MyConnection"), &connectionProps{
 //   	type: glue.connectionType_NETWORK(),
 //   	// The security groups granting AWS Glue inbound access to the data source within the VPC
@@ -17151,9 +17484,13 @@ func (c *jsiiProxy_ConnectionType) ToString() *string {
 // Properties for enabling Continuous Logging for Glue Jobs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var logGroup logGroup
+//
 //   continuousLoggingProps := &continuousLoggingProps{
 //   	enabled: jsii.Boolean(false),
 //
@@ -17170,27 +17507,28 @@ func (c *jsiiProxy_ConnectionType) ToString() *string {
 type ContinuousLoggingProps struct {
 	// Enable continouous logging.
 	// Experimental.
-	Enabled *bool `json:"enabled" yaml:"enabled"`
+	Enabled *bool `field:"required" json:"enabled" yaml:"enabled"`
 	// Apply the provided conversion pattern.
 	//
 	// This is a Log4j Conversion Pattern to customize driver and executor logs.
 	// Experimental.
-	ConversionPattern *string `json:"conversionPattern" yaml:"conversionPattern"`
+	ConversionPattern *string `field:"optional" json:"conversionPattern" yaml:"conversionPattern"`
 	// Specify a custom CloudWatch log group name.
 	// Experimental.
-	LogGroup awslogs.ILogGroup `json:"logGroup" yaml:"logGroup"`
+	LogGroup awslogs.ILogGroup `field:"optional" json:"logGroup" yaml:"logGroup"`
 	// Specify a custom CloudWatch log stream prefix.
 	// Experimental.
-	LogStreamPrefix *string `json:"logStreamPrefix" yaml:"logStreamPrefix"`
+	LogStreamPrefix *string `field:"optional" json:"logStreamPrefix" yaml:"logStreamPrefix"`
 	// Filter out non-useful Apache Spark driver/executor and Apache Hadoop YARN heartbeat log messages.
 	// Experimental.
-	Quiet *bool `json:"quiet" yaml:"quiet"`
+	Quiet *bool `field:"optional" json:"quiet" yaml:"quiet"`
 }
 
 // Defines the input/output formats and ser/de for a single DataFormat.
 //
 // Example:
 //   var myDatabase database
+//
 //   glue.NewTable(this, jsii.String("MyTable"), &tableProps{
 //   	database: myDatabase,
 //   	tableName: jsii.String("my_table"),
@@ -17403,12 +17741,15 @@ func DataFormat_TSV() DataFormat {
 // Properties of a DataFormat instance.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var classificationString classificationString
 //   var inputFormat inputFormat
 //   var outputFormat outputFormat
 //   var serializationLibrary serializationLibrary
+//
 //   dataFormatProps := &dataFormatProps{
 //   	inputFormat: inputFormat,
 //   	outputFormat: outputFormat,
@@ -17422,16 +17763,16 @@ func DataFormat_TSV() DataFormat {
 type DataFormatProps struct {
 	// `InputFormat` for this data format.
 	// Experimental.
-	InputFormat InputFormat `json:"inputFormat" yaml:"inputFormat"`
+	InputFormat InputFormat `field:"required" json:"inputFormat" yaml:"inputFormat"`
 	// `OutputFormat` for this data format.
 	// Experimental.
-	OutputFormat OutputFormat `json:"outputFormat" yaml:"outputFormat"`
+	OutputFormat OutputFormat `field:"required" json:"outputFormat" yaml:"outputFormat"`
 	// Serialization library for this data format.
 	// Experimental.
-	SerializationLibrary SerializationLibrary `json:"serializationLibrary" yaml:"serializationLibrary"`
+	SerializationLibrary SerializationLibrary `field:"required" json:"serializationLibrary" yaml:"serializationLibrary"`
 	// Classification string given to tables with this data format.
 	// Experimental.
-	ClassificationString ClassificationString `json:"classificationString" yaml:"classificationString"`
+	ClassificationString ClassificationString `field:"optional" json:"classificationString" yaml:"classificationString"`
 }
 
 // A Glue database.
@@ -17866,18 +18207,19 @@ func (d *jsiiProxy_Database) Validate() *[]*string {
 type DatabaseProps struct {
 	// The name of the database.
 	// Experimental.
-	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
+	DatabaseName *string `field:"required" json:"databaseName" yaml:"databaseName"`
 	// The location of the database (for example, an HDFS path).
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html
 	//
 	// Experimental.
-	LocationUri *string `json:"locationUri" yaml:"locationUri"`
+	LocationUri *string `field:"optional" json:"locationUri" yaml:"locationUri"`
 }
 
 // AWS Glue version determines the versions of Apache Spark and Python that are available to the job.
 //
 // Example:
 //   var bucket bucket
+//
 //   glue.NewJob(this, jsii.String("PythonShellJob"), &jobProps{
 //   	executable: glue.jobExecutable.pythonShell(&pythonShellExecutableProps{
 //   		glueVersion: glue.glueVersion_V1_0(),
@@ -18379,8 +18721,11 @@ func (j *jsiiProxy_ITable) TableName() *string {
 // Absolute class name of the Hadoop `InputFormat` to use when reading table files.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
-//   inputFormat := glue.inputFormat_AVRO()
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   inputFormat := awscdk.Aws_glue.inputFormat_AVRO()
 //
 // Experimental.
 type InputFormat interface {
@@ -18489,6 +18834,7 @@ func InputFormat_TEXT() InputFormat {
 //
 // Example:
 //   var bucket bucket
+//
 //   glue.NewJob(this, jsii.String("PythonShellJob"), &jobProps{
 //   	executable: glue.jobExecutable.pythonShell(&pythonShellExecutableProps{
 //   		glueVersion: glue.glueVersion_V1_0(),
@@ -19074,9 +19420,13 @@ func (j *jsiiProxy_Job) Validate() *[]*string {
 // Attributes for importing {@link Job}.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var role role
+//
 //   jobAttributes := &jobAttributes{
 //   	jobName: jsii.String("jobName"),
 //
@@ -19088,10 +19438,10 @@ func (j *jsiiProxy_Job) Validate() *[]*string {
 type JobAttributes struct {
 	// The name of the job.
 	// Experimental.
-	JobName *string `json:"jobName" yaml:"jobName"`
+	JobName *string `field:"required" json:"jobName" yaml:"jobName"`
 	// The IAM role assumed by Glue to run this job.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 }
 
 // Job bookmarks encryption configuration.
@@ -19114,10 +19464,10 @@ type JobAttributes struct {
 type JobBookmarksEncryption struct {
 	// Encryption mode.
 	// Experimental.
-	Mode JobBookmarksEncryptionMode `json:"mode" yaml:"mode"`
+	Mode JobBookmarksEncryptionMode `field:"required" json:"mode" yaml:"mode"`
 	// The KMS key to be used to encrypt the data.
 	// Experimental.
-	KmsKey awskms.IKey `json:"kmsKey" yaml:"kmsKey"`
+	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 }
 
 // Encryption mode for Job Bookmarks.
@@ -19153,6 +19503,7 @@ const (
 //
 // Example:
 //   var bucket bucket
+//
 //   glue.NewJob(this, jsii.String("PythonShellJob"), &jobProps{
 //   	executable: glue.jobExecutable.pythonShell(&pythonShellExecutableProps{
 //   		glueVersion: glue.glueVersion_V1_0(),
@@ -19292,14 +19643,17 @@ func (j *jsiiProxy_JobExecutable) Bind() *JobExecutableConfig {
 // Result of binding a `JobExecutable` into a `Job`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var code code
 //   var glueVersion glueVersion
 //   var jobType jobType
+//
 //   jobExecutableConfig := &jobExecutableConfig{
 //   	glueVersion: glueVersion,
-//   	language: glue.jobLanguage_SCALA,
+//   	language: awscdk.Aws_glue.jobLanguage_SCALA,
 //   	script: code,
 //   	type: jobType,
 //
@@ -19315,7 +19669,7 @@ func (j *jsiiProxy_JobExecutable) Bind() *JobExecutableConfig {
 //   	extraPythonFiles: []*code{
 //   		code,
 //   	},
-//   	pythonVersion: glue.pythonVersion_TWO,
+//   	pythonVersion: awscdk.*Aws_glue.pythonVersion_TWO,
 //   }
 //
 // Experimental.
@@ -19324,48 +19678,48 @@ type JobExecutableConfig struct {
 	// See: https://docs.aws.amazon.com/glue/latest/dg/release-notes.html
 	//
 	// Experimental.
-	GlueVersion GlueVersion `json:"glueVersion" yaml:"glueVersion"`
+	GlueVersion GlueVersion `field:"required" json:"glueVersion" yaml:"glueVersion"`
 	// The language of the job (Scala or Python).
 	// See: `--job-language` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Experimental.
-	Language JobLanguage `json:"language" yaml:"language"`
+	Language JobLanguage `field:"required" json:"language" yaml:"language"`
 	// The script that is executed by a job.
 	// Experimental.
-	Script Code `json:"script" yaml:"script"`
+	Script Code `field:"required" json:"script" yaml:"script"`
 	// Specify the type of the job whether it's an Apache Spark ETL or streaming one or if it's a Python shell job.
 	// Experimental.
-	Type JobType `json:"type" yaml:"type"`
+	Type JobType `field:"required" json:"type" yaml:"type"`
 	// The Scala class that serves as the entry point for the job.
 	//
 	// This applies only if your the job langauage is Scala.
 	// See: `--class` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Experimental.
-	ClassName *string `json:"className" yaml:"className"`
+	ClassName *string `field:"optional" json:"className" yaml:"className"`
 	// Additional files, such as configuration files that AWS Glue copies to the working directory of your script before executing it.
 	// See: `--extra-files` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Experimental.
-	ExtraFiles *[]Code `json:"extraFiles" yaml:"extraFiles"`
+	ExtraFiles *[]Code `field:"optional" json:"extraFiles" yaml:"extraFiles"`
 	// Additional Java .jar files that AWS Glue adds to the Java classpath before executing your script.
 	// See: `--extra-jars` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Experimental.
-	ExtraJars *[]Code `json:"extraJars" yaml:"extraJars"`
+	ExtraJars *[]Code `field:"optional" json:"extraJars" yaml:"extraJars"`
 	// Setting this value to true prioritizes the customer's extra JAR files in the classpath.
 	// See: `--user-jars-first` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Experimental.
-	ExtraJarsFirst *bool `json:"extraJarsFirst" yaml:"extraJarsFirst"`
+	ExtraJarsFirst *bool `field:"optional" json:"extraJarsFirst" yaml:"extraJarsFirst"`
 	// Additional Python files that AWS Glue adds to the Python path before executing your script.
 	// See: `--extra-py-files` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Experimental.
-	ExtraPythonFiles *[]Code `json:"extraPythonFiles" yaml:"extraPythonFiles"`
+	ExtraPythonFiles *[]Code `field:"optional" json:"extraPythonFiles" yaml:"extraPythonFiles"`
 	// The Python version to use.
 	// Experimental.
-	PythonVersion PythonVersion `json:"pythonVersion" yaml:"pythonVersion"`
+	PythonVersion PythonVersion `field:"optional" json:"pythonVersion" yaml:"pythonVersion"`
 }
 
 // Runtime language of the Glue job.
@@ -19385,6 +19739,7 @@ const (
 //
 // Example:
 //   var bucket bucket
+//
 //   glue.NewJob(this, jsii.String("PythonShellJob"), &jobProps{
 //   	executable: glue.jobExecutable.pythonShell(&pythonShellExecutableProps{
 //   		glueVersion: glue.glueVersion_V1_0(),
@@ -19398,76 +19753,76 @@ const (
 type JobProps struct {
 	// The job's executable properties.
 	// Experimental.
-	Executable JobExecutable `json:"executable" yaml:"executable"`
+	Executable JobExecutable `field:"required" json:"executable" yaml:"executable"`
 	// The {@link Connection}s used for this job.
 	//
 	// Connections are used to connect to other AWS Service or resources within a VPC.
 	// Experimental.
-	Connections *[]IConnection `json:"connections" yaml:"connections"`
+	Connections *[]IConnection `field:"optional" json:"connections" yaml:"connections"`
 	// Enables continuous logging with the specified props.
 	// See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Experimental.
-	ContinuousLogging *ContinuousLoggingProps `json:"continuousLogging" yaml:"continuousLogging"`
+	ContinuousLogging *ContinuousLoggingProps `field:"optional" json:"continuousLogging" yaml:"continuousLogging"`
 	// The default arguments for this job, specified as name-value pairs.
 	// See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html for a list of reserved parameters
 	//
 	// Experimental.
-	DefaultArguments *map[string]*string `json:"defaultArguments" yaml:"defaultArguments"`
+	DefaultArguments *map[string]*string `field:"optional" json:"defaultArguments" yaml:"defaultArguments"`
 	// The description of the job.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Enables the collection of metrics for job profiling.
 	// See: `--enable-metrics` at https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Experimental.
-	EnableProfilingMetrics *bool `json:"enableProfilingMetrics" yaml:"enableProfilingMetrics"`
+	EnableProfilingMetrics *bool `field:"optional" json:"enableProfilingMetrics" yaml:"enableProfilingMetrics"`
 	// The name of the job.
 	// Experimental.
-	JobName *string `json:"jobName" yaml:"jobName"`
+	JobName *string `field:"optional" json:"jobName" yaml:"jobName"`
 	// The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
 	//
 	// Cannot be used for Glue version 2.0 and later - workerType and workerCount should be used instead.
 	// Experimental.
-	MaxCapacity *float64 `json:"maxCapacity" yaml:"maxCapacity"`
+	MaxCapacity *float64 `field:"optional" json:"maxCapacity" yaml:"maxCapacity"`
 	// The maximum number of concurrent runs allowed for the job.
 	//
 	// An error is returned when this threshold is reached. The maximum value you can specify is controlled by a service limit.
 	// Experimental.
-	MaxConcurrentRuns *float64 `json:"maxConcurrentRuns" yaml:"maxConcurrentRuns"`
+	MaxConcurrentRuns *float64 `field:"optional" json:"maxConcurrentRuns" yaml:"maxConcurrentRuns"`
 	// The maximum number of times to retry this job after a job run fails.
 	// Experimental.
-	MaxRetries *float64 `json:"maxRetries" yaml:"maxRetries"`
+	MaxRetries *float64 `field:"optional" json:"maxRetries" yaml:"maxRetries"`
 	// The number of minutes to wait after a job run starts, before sending a job run delay notification.
 	// Experimental.
-	NotifyDelayAfter awscdk.Duration `json:"notifyDelayAfter" yaml:"notifyDelayAfter"`
+	NotifyDelayAfter awscdk.Duration `field:"optional" json:"notifyDelayAfter" yaml:"notifyDelayAfter"`
 	// The IAM role assumed by Glue to run this job.
 	//
 	// If providing a custom role, it needs to trust the Glue service principal (glue.amazonaws.com) and be granted sufficient permissions.
 	// See: https://docs.aws.amazon.com/glue/latest/dg/getting-started-access.html
 	//
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The {@link SecurityConfiguration} to use for this job.
 	// Experimental.
-	SecurityConfiguration ISecurityConfiguration `json:"securityConfiguration" yaml:"securityConfiguration"`
+	SecurityConfiguration ISecurityConfiguration `field:"optional" json:"securityConfiguration" yaml:"securityConfiguration"`
 	// Enables the Spark UI debugging and monitoring with the specified props.
 	// See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Experimental.
-	SparkUI *SparkUIProps `json:"sparkUI" yaml:"sparkUI"`
+	SparkUI *SparkUIProps `field:"optional" json:"sparkUI" yaml:"sparkUI"`
 	// The tags to add to the resources on which the job runs.
 	// Experimental.
-	Tags *map[string]*string `json:"tags" yaml:"tags"`
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 	// The maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status.
 	// Experimental.
-	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
+	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 	// The number of workers of a defined {@link WorkerType} that are allocated when a job runs.
 	// Experimental.
-	WorkerCount *float64 `json:"workerCount" yaml:"workerCount"`
+	WorkerCount *float64 `field:"optional" json:"workerCount" yaml:"workerCount"`
 	// The type of predefined worker that is allocated when a job runs.
 	// Experimental.
-	WorkerType WorkerType `json:"workerType" yaml:"workerType"`
+	WorkerType WorkerType `field:"optional" json:"workerType" yaml:"workerType"`
 }
 
 // Job states emitted by Glue to CloudWatch Events.
@@ -19506,8 +19861,11 @@ const (
 // can instantiate a `JobType` object, e.g: `JobType.of('other name')`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
-//   jobType := glue.jobType_ETL()
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   jobType := awscdk.Aws_glue.jobType_ETL()
 //
 // Experimental.
 type JobType interface {
@@ -19600,8 +19958,11 @@ const (
 // Absolute class name of the Hadoop `OutputFormat` to use when writing table files.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
-//   outputFormat := glue.NewOutputFormat(jsii.String("className"))
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   outputFormat := awscdk.Aws_glue.NewOutputFormat(jsii.String("className"))
 //
 // Experimental.
 type OutputFormat interface {
@@ -19699,6 +20060,7 @@ func OutputFormat_PARQUET() OutputFormat {
 //
 // Example:
 //   var myTable table
+//
 //   myTable.addPartitionIndex(&partitionIndex{
 //   	indexName: jsii.String("my-index"),
 //   	keyNames: []*string{
@@ -19713,16 +20075,17 @@ type PartitionIndex struct {
 	// The names must correspond to a name in the
 	// table's partition keys.
 	// Experimental.
-	KeyNames *[]*string `json:"keyNames" yaml:"keyNames"`
+	KeyNames *[]*string `field:"required" json:"keyNames" yaml:"keyNames"`
 	// The name of the partition index.
 	// Experimental.
-	IndexName *string `json:"indexName" yaml:"indexName"`
+	IndexName *string `field:"optional" json:"indexName" yaml:"indexName"`
 }
 
 // Props for creating a Python shell job executable.
 //
 // Example:
 //   var bucket bucket
+//
 //   glue.NewJob(this, jsii.String("PythonShellJob"), &jobProps{
 //   	executable: glue.jobExecutable.pythonShell(&pythonShellExecutableProps{
 //   		glueVersion: glue.glueVersion_V1_0(),
@@ -19738,27 +20101,27 @@ type PythonShellExecutableProps struct {
 	// See: https://docs.aws.amazon.com/glue/latest/dg/release-notes.html
 	//
 	// Experimental.
-	GlueVersion GlueVersion `json:"glueVersion" yaml:"glueVersion"`
+	GlueVersion GlueVersion `field:"required" json:"glueVersion" yaml:"glueVersion"`
 	// The Python version to use.
 	// Experimental.
-	PythonVersion PythonVersion `json:"pythonVersion" yaml:"pythonVersion"`
+	PythonVersion PythonVersion `field:"required" json:"pythonVersion" yaml:"pythonVersion"`
 	// The script that executes a job.
 	// Experimental.
-	Script Code `json:"script" yaml:"script"`
+	Script Code `field:"required" json:"script" yaml:"script"`
 	// Additional files, such as configuration files that AWS Glue copies to the working directory of your script before executing it.
 	//
 	// Only individual files are supported, directories are not supported.
 	// See: `--extra-files` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Experimental.
-	ExtraFiles *[]Code `json:"extraFiles" yaml:"extraFiles"`
+	ExtraFiles *[]Code `field:"optional" json:"extraFiles" yaml:"extraFiles"`
 	// Additional Python files that AWS Glue adds to the Python path before executing your script.
 	//
 	// Only individual files are supported, directories are not supported.
 	// See: `--extra-py-files` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Experimental.
-	ExtraPythonFiles *[]Code `json:"extraPythonFiles" yaml:"extraPythonFiles"`
+	ExtraPythonFiles *[]Code `field:"optional" json:"extraPythonFiles" yaml:"extraPythonFiles"`
 }
 
 // Props for creating a Python Spark (ETL or Streaming) job executable.
@@ -19779,37 +20142,37 @@ type PythonSparkJobExecutableProps struct {
 	// See: https://docs.aws.amazon.com/glue/latest/dg/release-notes.html
 	//
 	// Experimental.
-	GlueVersion GlueVersion `json:"glueVersion" yaml:"glueVersion"`
+	GlueVersion GlueVersion `field:"required" json:"glueVersion" yaml:"glueVersion"`
 	// The Python version to use.
 	// Experimental.
-	PythonVersion PythonVersion `json:"pythonVersion" yaml:"pythonVersion"`
+	PythonVersion PythonVersion `field:"required" json:"pythonVersion" yaml:"pythonVersion"`
 	// The script that executes a job.
 	// Experimental.
-	Script Code `json:"script" yaml:"script"`
+	Script Code `field:"required" json:"script" yaml:"script"`
 	// Additional files, such as configuration files that AWS Glue copies to the working directory of your script before executing it.
 	//
 	// Only individual files are supported, directories are not supported.
 	// See: `--extra-files` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Experimental.
-	ExtraFiles *[]Code `json:"extraFiles" yaml:"extraFiles"`
+	ExtraFiles *[]Code `field:"optional" json:"extraFiles" yaml:"extraFiles"`
 	// Additional Java .jar files that AWS Glue adds to the Java classpath before executing your script. Only individual files are supported, directories are not supported.
 	// See: `--extra-jars` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Experimental.
-	ExtraJars *[]Code `json:"extraJars" yaml:"extraJars"`
+	ExtraJars *[]Code `field:"optional" json:"extraJars" yaml:"extraJars"`
 	// Setting this value to true prioritizes the customer's extra JAR files in the classpath.
 	// See: `--user-jars-first` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Experimental.
-	ExtraJarsFirst *bool `json:"extraJarsFirst" yaml:"extraJarsFirst"`
+	ExtraJarsFirst *bool `field:"optional" json:"extraJarsFirst" yaml:"extraJarsFirst"`
 	// Additional Python files that AWS Glue adds to the Python path before executing your script.
 	//
 	// Only individual files are supported, directories are not supported.
 	// See: `--extra-py-files` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Experimental.
-	ExtraPythonFiles *[]Code `json:"extraPythonFiles" yaml:"extraPythonFiles"`
+	ExtraPythonFiles *[]Code `field:"optional" json:"extraPythonFiles" yaml:"extraPythonFiles"`
 }
 
 // Python version.
@@ -19839,10 +20202,14 @@ const (
 // Glue job Code from an S3 bucket.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3 "github.com/aws/aws-cdk-go/awscdk/aws_s3"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var bucket bucket
-//   s3Code := glue.NewS3Code(bucket, jsii.String("key"))
+//
+//   s3Code := awscdk.Aws_glue.NewS3Code(bucket, jsii.String("key"))
 //
 // Experimental.
 type S3Code interface {
@@ -19950,10 +20317,10 @@ func (s *jsiiProxy_S3Code) Bind(_scope constructs.Construct, grantable awsiam.IG
 type S3Encryption struct {
 	// Encryption mode.
 	// Experimental.
-	Mode S3EncryptionMode `json:"mode" yaml:"mode"`
+	Mode S3EncryptionMode `field:"required" json:"mode" yaml:"mode"`
 	// The KMS key to be used to encrypt the data.
 	// Experimental.
-	KmsKey awskms.IKey `json:"kmsKey" yaml:"kmsKey"`
+	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 }
 
 // Encryption mode for S3.
@@ -19994,6 +20361,7 @@ const (
 //
 // Example:
 //   var bucket bucket
+//
 //   glue.NewJob(this, jsii.String("ScalaSparkEtlJob"), &jobProps{
 //   	executable: glue.jobExecutable.scalaEtl(&scalaJobExecutableProps{
 //   		glueVersion: glue.glueVersion_V2_0(),
@@ -20012,36 +20380,37 @@ type ScalaJobExecutableProps struct {
 	// See: `--class` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Experimental.
-	ClassName *string `json:"className" yaml:"className"`
+	ClassName *string `field:"required" json:"className" yaml:"className"`
 	// Glue version.
 	// See: https://docs.aws.amazon.com/glue/latest/dg/release-notes.html
 	//
 	// Experimental.
-	GlueVersion GlueVersion `json:"glueVersion" yaml:"glueVersion"`
+	GlueVersion GlueVersion `field:"required" json:"glueVersion" yaml:"glueVersion"`
 	// The script that executes a job.
 	// Experimental.
-	Script Code `json:"script" yaml:"script"`
+	Script Code `field:"required" json:"script" yaml:"script"`
 	// Additional files, such as configuration files that AWS Glue copies to the working directory of your script before executing it.
 	//
 	// Only individual files are supported, directories are not supported.
 	// See: `--extra-files` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Experimental.
-	ExtraFiles *[]Code `json:"extraFiles" yaml:"extraFiles"`
+	ExtraFiles *[]Code `field:"optional" json:"extraFiles" yaml:"extraFiles"`
 	// Additional Java .jar files that AWS Glue adds to the Java classpath before executing your script. Only individual files are supported, directories are not supported.
 	// See: `--extra-jars` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Experimental.
-	ExtraJars *[]Code `json:"extraJars" yaml:"extraJars"`
+	ExtraJars *[]Code `field:"optional" json:"extraJars" yaml:"extraJars"`
 	// Setting this value to true prioritizes the customer's extra JAR files in the classpath.
 	// See: `--user-jars-first` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
 	// Experimental.
-	ExtraJarsFirst *bool `json:"extraJarsFirst" yaml:"extraJarsFirst"`
+	ExtraJarsFirst *bool `field:"optional" json:"extraJarsFirst" yaml:"extraJarsFirst"`
 }
 
 // Example:
 //   var myDatabase database
+//
 //   glue.NewTable(this, jsii.String("MyTable"), &tableProps{
 //   	database: myDatabase,
 //   	tableName: jsii.String("my_table"),
@@ -20772,23 +21141,26 @@ func (s *jsiiProxy_SecurityConfiguration) Validate() *[]*string {
 type SecurityConfigurationProps struct {
 	// The name of the security configuration.
 	// Experimental.
-	SecurityConfigurationName *string `json:"securityConfigurationName" yaml:"securityConfigurationName"`
+	SecurityConfigurationName *string `field:"required" json:"securityConfigurationName" yaml:"securityConfigurationName"`
 	// The encryption configuration for Amazon CloudWatch Logs.
 	// Experimental.
-	CloudWatchEncryption *CloudWatchEncryption `json:"cloudWatchEncryption" yaml:"cloudWatchEncryption"`
+	CloudWatchEncryption *CloudWatchEncryption `field:"optional" json:"cloudWatchEncryption" yaml:"cloudWatchEncryption"`
 	// The encryption configuration for Glue Job Bookmarks.
 	// Experimental.
-	JobBookmarksEncryption *JobBookmarksEncryption `json:"jobBookmarksEncryption" yaml:"jobBookmarksEncryption"`
+	JobBookmarksEncryption *JobBookmarksEncryption `field:"optional" json:"jobBookmarksEncryption" yaml:"jobBookmarksEncryption"`
 	// The encryption configuration for Amazon Simple Storage Service (Amazon S3) data.
 	// Experimental.
-	S3Encryption *S3Encryption `json:"s3Encryption" yaml:"s3Encryption"`
+	S3Encryption *S3Encryption `field:"optional" json:"s3Encryption" yaml:"s3Encryption"`
 }
 
 // Serialization library to use when serializing/deserializing (SerDe) table records.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
-//   serializationLibrary := glue.serializationLibrary_AVRO()
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   serializationLibrary := awscdk.Aws_glue.serializationLibrary_AVRO()
 //
 // See: https://cwiki.apache.org/confluence/display/Hive/SerDe
 //
@@ -20953,9 +21325,13 @@ func SerializationLibrary_REGEXP() SerializationLibrary {
 // The Spark UI logging location.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3 "github.com/aws/aws-cdk-go/awscdk/aws_s3"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var bucket bucket
+//
 //   sparkUILoggingLocation := &sparkUILoggingLocation{
 //   	bucket: bucket,
 //
@@ -20969,18 +21345,22 @@ func SerializationLibrary_REGEXP() SerializationLibrary {
 type SparkUILoggingLocation struct {
 	// The bucket where the Glue job stores the logs.
 	// Experimental.
-	Bucket awss3.IBucket `json:"bucket" yaml:"bucket"`
+	Bucket awss3.IBucket `field:"required" json:"bucket" yaml:"bucket"`
 	// The path inside the bucket (objects prefix) where the Glue job stores the logs.
 	// Experimental.
-	Prefix *string `json:"prefix" yaml:"prefix"`
+	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 }
 
 // Properties for enabling Spark UI monitoring feature for Spark-based Glue jobs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3 "github.com/aws/aws-cdk-go/awscdk/aws_s3"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var bucket bucket
+//
 //   sparkUIProps := &sparkUIProps{
 //   	enabled: jsii.Boolean(false),
 //
@@ -20995,19 +21375,20 @@ type SparkUILoggingLocation struct {
 type SparkUIProps struct {
 	// Enable Spark UI.
 	// Experimental.
-	Enabled *bool `json:"enabled" yaml:"enabled"`
+	Enabled *bool `field:"required" json:"enabled" yaml:"enabled"`
 	// The bucket where the Glue job stores the logs.
 	// Experimental.
-	Bucket awss3.IBucket `json:"bucket" yaml:"bucket"`
+	Bucket awss3.IBucket `field:"optional" json:"bucket" yaml:"bucket"`
 	// The path inside the bucket (objects prefix) where the Glue job stores the logs.
 	// Experimental.
-	Prefix *string `json:"prefix" yaml:"prefix"`
+	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 }
 
 // A Glue table.
 //
 // Example:
 //   var myDatabase database
+//
 //   glue.NewTable(this, jsii.String("MyTable"), &tableProps{
 //   	database: myDatabase,
 //   	tableName: jsii.String("my_table"),
@@ -21656,7 +22037,10 @@ func (t *jsiiProxy_Table) Validate() *[]*string {
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tableAttributes := &tableAttributes{
 //   	tableArn: jsii.String("tableArn"),
 //   	tableName: jsii.String("tableName"),
@@ -21665,15 +22049,16 @@ func (t *jsiiProxy_Table) Validate() *[]*string {
 // Experimental.
 type TableAttributes struct {
 	// Experimental.
-	TableArn *string `json:"tableArn" yaml:"tableArn"`
+	TableArn *string `field:"required" json:"tableArn" yaml:"tableArn"`
 	// Experimental.
-	TableName *string `json:"tableName" yaml:"tableName"`
+	TableName *string `field:"required" json:"tableName" yaml:"tableName"`
 }
 
 // Encryption options for a Table.
 //
 // Example:
 //   var myDatabase database
+//
 //   glue.NewTable(this, jsii.String("MyTable"), &tableProps{
 //   	encryption: glue.tableEncryption_S3_MANAGED,
 //   	// ...
@@ -21718,6 +22103,7 @@ const (
 
 // Example:
 //   var myDatabase database
+//
 //   glue.NewTable(this, jsii.String("MyTable"), &tableProps{
 //   	database: myDatabase,
 //   	tableName: jsii.String("my_table"),
@@ -21744,25 +22130,25 @@ const (
 type TableProps struct {
 	// Columns of the table.
 	// Experimental.
-	Columns *[]*Column `json:"columns" yaml:"columns"`
+	Columns *[]*Column `field:"required" json:"columns" yaml:"columns"`
 	// Database in which to store the table.
 	// Experimental.
-	Database IDatabase `json:"database" yaml:"database"`
+	Database IDatabase `field:"required" json:"database" yaml:"database"`
 	// Storage type of the table's data.
 	// Experimental.
-	DataFormat DataFormat `json:"dataFormat" yaml:"dataFormat"`
+	DataFormat DataFormat `field:"required" json:"dataFormat" yaml:"dataFormat"`
 	// Name of the table.
 	// Experimental.
-	TableName *string `json:"tableName" yaml:"tableName"`
+	TableName *string `field:"required" json:"tableName" yaml:"tableName"`
 	// S3 bucket in which to store data.
 	// Experimental.
-	Bucket awss3.IBucket `json:"bucket" yaml:"bucket"`
+	Bucket awss3.IBucket `field:"optional" json:"bucket" yaml:"bucket"`
 	// Indicates whether the table's data is compressed or not.
 	// Experimental.
-	Compressed *bool `json:"compressed" yaml:"compressed"`
+	Compressed *bool `field:"optional" json:"compressed" yaml:"compressed"`
 	// Description of the table.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The kind of encryption to secure the data with.
 	//
 	// You can only provide this option if you are not explicitly passing in a bucket.
@@ -21770,34 +22156,35 @@ type TableProps struct {
 	// If you choose `SSE-KMS`, you *can* provide an un-managed KMS key with `encryptionKey`.
 	// If you choose `CSE-KMS`, you *must* provide an un-managed KMS key with `encryptionKey`.
 	// Experimental.
-	Encryption TableEncryption `json:"encryption" yaml:"encryption"`
+	Encryption TableEncryption `field:"optional" json:"encryption" yaml:"encryption"`
 	// External KMS key to use for bucket encryption.
 	//
 	// The `encryption` property must be `SSE-KMS` or `CSE-KMS`.
 	// Experimental.
-	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
+	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// Partition indexes on the table.
 	//
 	// A maximum of 3 indexes
 	// are allowed on a table. Keys in the index must be part
 	// of the table's partition keys.
 	// Experimental.
-	PartitionIndexes *[]*PartitionIndex `json:"partitionIndexes" yaml:"partitionIndexes"`
+	PartitionIndexes *[]*PartitionIndex `field:"optional" json:"partitionIndexes" yaml:"partitionIndexes"`
 	// Partition columns of the table.
 	// Experimental.
-	PartitionKeys *[]*Column `json:"partitionKeys" yaml:"partitionKeys"`
+	PartitionKeys *[]*Column `field:"optional" json:"partitionKeys" yaml:"partitionKeys"`
 	// S3 prefix under which table objects are stored.
 	// Experimental.
-	S3Prefix *string `json:"s3Prefix" yaml:"s3Prefix"`
+	S3Prefix *string `field:"optional" json:"s3Prefix" yaml:"s3Prefix"`
 	// Indicates whether the table data is stored in subdirectories.
 	// Experimental.
-	StoredAsSubDirectories *bool `json:"storedAsSubDirectories" yaml:"storedAsSubDirectories"`
+	StoredAsSubDirectories *bool `field:"optional" json:"storedAsSubDirectories" yaml:"storedAsSubDirectories"`
 }
 
 // Represents a type of a column in a table schema.
 //
 // Example:
 //   var myDatabase database
+//
 //   glue.NewTable(this, jsii.String("MyTable"), &tableProps{
 //   	database: myDatabase,
 //   	tableName: jsii.String("my_table"),
@@ -21824,10 +22211,10 @@ type TableProps struct {
 type Type struct {
 	// Glue InputString for this type.
 	// Experimental.
-	InputString *string `json:"inputString" yaml:"inputString"`
+	InputString *string `field:"required" json:"inputString" yaml:"inputString"`
 	// Indicates whether this type is a primitive data type.
 	// Experimental.
-	IsPrimitive *bool `json:"isPrimitive" yaml:"isPrimitive"`
+	IsPrimitive *bool `field:"required" json:"isPrimitive" yaml:"isPrimitive"`
 }
 
 // The type of predefined worker that is allocated when a job runs.
@@ -21836,8 +22223,11 @@ type Type struct {
 // can instantiate a `WorkerType` object, e.g: `WorkerType.of('other type')`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import glue "github.com/aws/aws-cdk-go/awscdk/aws_glue"
-//   workerType := glue.workerType_G_1X()
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   workerType := awscdk.Aws_glue.workerType_G_1X()
 //
 // Experimental.
 type WorkerType interface {

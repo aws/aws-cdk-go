@@ -14,8 +14,11 @@ import (
 // Creates a cell in an account.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53recoveryreadiness "github.com/aws/aws-cdk-go/awscdk/aws_route53recoveryreadiness"
-//   cfnCell := route53recoveryreadiness.NewCfnCell(this, jsii.String("MyCfnCell"), &cfnCellProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnCell := awscdk.Aws_route53recoveryreadiness.NewCfnCell(this, jsii.String("MyCfnCell"), &cfnCellProps{
 //   	cellName: jsii.String("cellName"),
 //
 //   	// the properties below are optional
@@ -720,7 +723,10 @@ func (c *jsiiProxy_CfnCell) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnCell`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53recoveryreadiness "github.com/aws/aws-cdk-go/awscdk/aws_route53recoveryreadiness"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnCellProps := &cfnCellProps{
 //   	cellName: jsii.String("cellName"),
 //
@@ -738,13 +744,13 @@ func (c *jsiiProxy_CfnCell) ValidateProperties(_properties interface{}) {
 //
 type CfnCellProps struct {
 	// The name of the cell to create.
-	CellName *string `json:"cellName" yaml:"cellName"`
+	CellName *string `field:"required" json:"cellName" yaml:"cellName"`
 	// A list of cell Amazon Resource Names (ARNs) contained within this cell, for use in nested cells.
 	//
 	// For example, Availability Zones within specific AWS Regions .
-	Cells *[]*string `json:"cells" yaml:"cells"`
+	Cells *[]*string `field:"optional" json:"cells" yaml:"cells"`
 	// A collection of tags associated with a resource.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Route53RecoveryReadiness::ReadinessCheck`.
@@ -752,8 +758,11 @@ type CfnCellProps struct {
 // Creates a readiness check in an account. A readiness check monitors a resource set in your application, such as a set of Amazon Aurora instances, that Application Recovery Controller is auditing recovery readiness for. The audits run once every minute on every resource that's associated with a readiness check.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53recoveryreadiness "github.com/aws/aws-cdk-go/awscdk/aws_route53recoveryreadiness"
-//   cfnReadinessCheck := route53recoveryreadiness.NewCfnReadinessCheck(this, jsii.String("MyCfnReadinessCheck"), &cfnReadinessCheckProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnReadinessCheck := awscdk.Aws_route53recoveryreadiness.NewCfnReadinessCheck(this, jsii.String("MyCfnReadinessCheck"), &cfnReadinessCheckProps{
 //   	readinessCheckName: jsii.String("readinessCheckName"),
 //
 //   	// the properties below are optional
@@ -1440,7 +1449,10 @@ func (c *jsiiProxy_CfnReadinessCheck) ValidateProperties(_properties interface{}
 // Properties for defining a `CfnReadinessCheck`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53recoveryreadiness "github.com/aws/aws-cdk-go/awscdk/aws_route53recoveryreadiness"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnReadinessCheckProps := &cfnReadinessCheckProps{
 //   	readinessCheckName: jsii.String("readinessCheckName"),
 //
@@ -1456,11 +1468,11 @@ func (c *jsiiProxy_CfnReadinessCheck) ValidateProperties(_properties interface{}
 //
 type CfnReadinessCheckProps struct {
 	// The name of the readiness check to create.
-	ReadinessCheckName *string `json:"readinessCheckName" yaml:"readinessCheckName"`
+	ReadinessCheckName *string `field:"required" json:"readinessCheckName" yaml:"readinessCheckName"`
 	// The name of the resource set to check.
-	ResourceSetName *string `json:"resourceSetName" yaml:"resourceSetName"`
+	ResourceSetName *string `field:"optional" json:"resourceSetName" yaml:"resourceSetName"`
 	// A collection of tags associated with a resource.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Route53RecoveryReadiness::RecoveryGroup`.
@@ -1468,8 +1480,11 @@ type CfnReadinessCheckProps struct {
 // Creates a recovery group in an account. A recovery group corresponds to an application and includes a list of the cells that make up the application.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53recoveryreadiness "github.com/aws/aws-cdk-go/awscdk/aws_route53recoveryreadiness"
-//   cfnRecoveryGroup := route53recoveryreadiness.NewCfnRecoveryGroup(this, jsii.String("MyCfnRecoveryGroup"), &cfnRecoveryGroupProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnRecoveryGroup := awscdk.Aws_route53recoveryreadiness.NewCfnRecoveryGroup(this, jsii.String("MyCfnRecoveryGroup"), &cfnRecoveryGroupProps{
 //   	recoveryGroupName: jsii.String("recoveryGroupName"),
 //
 //   	// the properties below are optional
@@ -2158,7 +2173,10 @@ func (c *jsiiProxy_CfnRecoveryGroup) ValidateProperties(_properties interface{})
 // Properties for defining a `CfnRecoveryGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53recoveryreadiness "github.com/aws/aws-cdk-go/awscdk/aws_route53recoveryreadiness"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnRecoveryGroupProps := &cfnRecoveryGroupProps{
 //   	recoveryGroupName: jsii.String("recoveryGroupName"),
 //
@@ -2176,11 +2194,11 @@ func (c *jsiiProxy_CfnRecoveryGroup) ValidateProperties(_properties interface{})
 //
 type CfnRecoveryGroupProps struct {
 	// The name of the recovery group to create.
-	RecoveryGroupName *string `json:"recoveryGroupName" yaml:"recoveryGroupName"`
+	RecoveryGroupName *string `field:"required" json:"recoveryGroupName" yaml:"recoveryGroupName"`
 	// A list of the cell Amazon Resource Names (ARNs) in the recovery group.
-	Cells *[]*string `json:"cells" yaml:"cells"`
+	Cells *[]*string `field:"optional" json:"cells" yaml:"cells"`
 	// A collection of tags associated with a resource.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Route53RecoveryReadiness::ResourceSet`.
@@ -2188,8 +2206,11 @@ type CfnRecoveryGroupProps struct {
 // Creates a resource set. A resource set is a set of resources of one type that span multiple cells. You can associate a resource set with a readiness check to monitor the resources for failover readiness.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53recoveryreadiness "github.com/aws/aws-cdk-go/awscdk/aws_route53recoveryreadiness"
-//   cfnResourceSet := route53recoveryreadiness.NewCfnResourceSet(this, jsii.String("MyCfnResourceSet"), &cfnResourceSetProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnResourceSet := awscdk.Aws_route53recoveryreadiness.NewCfnResourceSet(this, jsii.String("MyCfnResourceSet"), &cfnResourceSetProps{
 //   	resources: []interface{}{
 //   		&resourceProperty{
 //   			componentId: jsii.String("componentId"),
@@ -2925,7 +2946,10 @@ func (c *jsiiProxy_CfnResourceSet) ValidateProperties(_properties interface{}) {
 // A component for DNS/routing control readiness checks and architecture checks.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53recoveryreadiness "github.com/aws/aws-cdk-go/awscdk/aws_route53recoveryreadiness"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dNSTargetResourceProperty := &dNSTargetResourceProperty{
 //   	domainName: jsii.String("domainName"),
 //   	hostedZoneArn: jsii.String("hostedZoneArn"),
@@ -2944,34 +2968,40 @@ func (c *jsiiProxy_CfnResourceSet) ValidateProperties(_properties interface{}) {
 //
 type CfnResourceSet_DNSTargetResourceProperty struct {
 	// The domain name that acts as an ingress point to a portion of the customer application.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"optional" json:"domainName" yaml:"domainName"`
 	// The hosted zone Amazon Resource Name (ARN) that contains the DNS record with the provided name of the target resource.
-	HostedZoneArn *string `json:"hostedZoneArn" yaml:"hostedZoneArn"`
+	HostedZoneArn *string `field:"optional" json:"hostedZoneArn" yaml:"hostedZoneArn"`
 	// The Route 53 record set ID that uniquely identifies a DNS record, given a name and a type.
-	RecordSetId *string `json:"recordSetId" yaml:"recordSetId"`
+	RecordSetId *string `field:"optional" json:"recordSetId" yaml:"recordSetId"`
 	// The type of DNS record of the target resource.
-	RecordType *string `json:"recordType" yaml:"recordType"`
+	RecordType *string `field:"optional" json:"recordType" yaml:"recordType"`
 	// The target resource that the Route 53 record points to.
-	TargetResource interface{} `json:"targetResource" yaml:"targetResource"`
+	TargetResource interface{} `field:"optional" json:"targetResource" yaml:"targetResource"`
 }
 
 // The Network Load Balancer resource that a DNS target resource points to.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53recoveryreadiness "github.com/aws/aws-cdk-go/awscdk/aws_route53recoveryreadiness"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   nLBResourceProperty := &nLBResourceProperty{
 //   	arn: jsii.String("arn"),
 //   }
 //
 type CfnResourceSet_NLBResourceProperty struct {
 	// The Network Load Balancer resource Amazon Resource Name (ARN).
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"optional" json:"arn" yaml:"arn"`
 }
 
 // The Route 53 resource that a DNS target resource record points to.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53recoveryreadiness "github.com/aws/aws-cdk-go/awscdk/aws_route53recoveryreadiness"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   r53ResourceRecordProperty := &r53ResourceRecordProperty{
 //   	domainName: jsii.String("domainName"),
 //   	recordSetId: jsii.String("recordSetId"),
@@ -2979,15 +3009,18 @@ type CfnResourceSet_NLBResourceProperty struct {
 //
 type CfnResourceSet_R53ResourceRecordProperty struct {
 	// The DNS target domain name.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"optional" json:"domainName" yaml:"domainName"`
 	// The Route 53 Resource Record Set ID.
-	RecordSetId *string `json:"recordSetId" yaml:"recordSetId"`
+	RecordSetId *string `field:"optional" json:"recordSetId" yaml:"recordSetId"`
 }
 
 // The resource element of a resource set.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53recoveryreadiness "github.com/aws/aws-cdk-go/awscdk/aws_route53recoveryreadiness"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   resourceProperty := &resourceProperty{
 //   	componentId: jsii.String("componentId"),
 //   	dnsTargetResource: &dNSTargetResourceProperty{
@@ -3013,23 +3046,26 @@ type CfnResourceSet_R53ResourceRecordProperty struct {
 //
 type CfnResourceSet_ResourceProperty struct {
 	// The component identifier of the resource, generated when DNS target resource is used.
-	ComponentId *string `json:"componentId" yaml:"componentId"`
+	ComponentId *string `field:"optional" json:"componentId" yaml:"componentId"`
 	// A component for DNS/routing control readiness checks.
 	//
 	// This is a required setting when `ResourceSet` `ResourceSetType` is set to `AWS::Route53RecoveryReadiness::DNSTargetResource` . Do not set it for any other `ResourceSetType` setting.
-	DnsTargetResource interface{} `json:"dnsTargetResource" yaml:"dnsTargetResource"`
+	DnsTargetResource interface{} `field:"optional" json:"dnsTargetResource" yaml:"dnsTargetResource"`
 	// The recovery group Amazon Resource Name (ARN) or the cell ARN that the readiness checks for this resource set are scoped to.
-	ReadinessScopes *[]*string `json:"readinessScopes" yaml:"readinessScopes"`
+	ReadinessScopes *[]*string `field:"optional" json:"readinessScopes" yaml:"readinessScopes"`
 	// The Amazon Resource Name (ARN) of the AWS resource.
 	//
 	// This is a required setting for all `ResourceSet` `ResourceSetType` settings except `AWS::Route53RecoveryReadiness::DNSTargetResource` . Do not set this when `ResourceSetType` is set to `AWS::Route53RecoveryReadiness::DNSTargetResource` .
-	ResourceArn *string `json:"resourceArn" yaml:"resourceArn"`
+	ResourceArn *string `field:"optional" json:"resourceArn" yaml:"resourceArn"`
 }
 
 // The target resource that the Route 53 record points to.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53recoveryreadiness "github.com/aws/aws-cdk-go/awscdk/aws_route53recoveryreadiness"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   targetResourceProperty := &targetResourceProperty{
 //   	nlbResource: &nLBResourceProperty{
 //   		arn: jsii.String("arn"),
@@ -3042,15 +3078,18 @@ type CfnResourceSet_ResourceProperty struct {
 //
 type CfnResourceSet_TargetResourceProperty struct {
 	// The Network Load Balancer resource that a DNS target resource points to.
-	NlbResource interface{} `json:"nlbResource" yaml:"nlbResource"`
+	NlbResource interface{} `field:"optional" json:"nlbResource" yaml:"nlbResource"`
 	// The Route 53 resource that a DNS target resource record points to.
-	R53Resource interface{} `json:"r53Resource" yaml:"r53Resource"`
+	R53Resource interface{} `field:"optional" json:"r53Resource" yaml:"r53Resource"`
 }
 
 // Properties for defining a `CfnResourceSet`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53recoveryreadiness "github.com/aws/aws-cdk-go/awscdk/aws_route53recoveryreadiness"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnResourceSetProps := &cfnResourceSetProps{
 //   	resources: []interface{}{
 //   		&resourceProperty{
@@ -3090,16 +3129,16 @@ type CfnResourceSet_TargetResourceProperty struct {
 //
 type CfnResourceSetProps struct {
 	// A list of resource objects in the resource set.
-	Resources interface{} `json:"resources" yaml:"resources"`
+	Resources interface{} `field:"required" json:"resources" yaml:"resources"`
 	// The name of the resource set to create.
-	ResourceSetName *string `json:"resourceSetName" yaml:"resourceSetName"`
+	ResourceSetName *string `field:"required" json:"resourceSetName" yaml:"resourceSetName"`
 	// The resource type of the resources in the resource set. Enter one of the following values for resource type:.
 	//
 	// AWS::AutoScaling::AutoScalingGroup, AWS::CloudWatch::Alarm, AWS::EC2::CustomerGateway, AWS::DynamoDB::Table, AWS::EC2::Volume, AWS::ElasticLoadBalancing::LoadBalancer, AWS::ElasticLoadBalancingV2::LoadBalancer, AWS::MSK::Cluster, AWS::RDS::DBCluster, AWS::Route53::HealthCheck, AWS::SQS::Queue, AWS::SNS::Topic, AWS::SNS::Subscription, AWS::EC2::VPC, AWS::EC2::VPNConnection, AWS::EC2::VPNGateway, AWS::Route53RecoveryReadiness::DNSTargetResource.
 	//
 	// Note that AWS::Route53RecoveryReadiness::DNSTargetResource is only used for this setting. It isn't an actual AWS CloudFormation resource type.
-	ResourceSetType *string `json:"resourceSetType" yaml:"resourceSetType"`
+	ResourceSetType *string `field:"required" json:"resourceSetType" yaml:"resourceSetType"`
 	// A tag to associate with the parameters for a resource set.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

@@ -46,11 +46,14 @@ func AuthorizationToken_GrantRead(grantee awsiam.IGrantable) {
 // The `AWS::ECR::PublicRepository` resource specifies an Amazon Elastic Container Registry Public (Amazon ECR Public) repository, where users can push and pull Docker images, Open Container Initiative (OCI) images, and OCI compatible artifacts. For more information, see [Amazon ECR public repositories](https://docs.aws.amazon.com/AmazonECR/latest/public/public-repositories.html) in the *Amazon ECR Public User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecr "github.com/aws/aws-cdk-go/awscdk/aws_ecr"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var repositoryCatalogData interface{}
 //   var repositoryPolicyText interface{}
-//   cfnPublicRepository := ecr.NewCfnPublicRepository(this, jsii.String("MyCfnPublicRepository"), &cfnPublicRepositoryProps{
+//
+//   cfnPublicRepository := awscdk.Aws_ecr.NewCfnPublicRepository(this, jsii.String("MyCfnPublicRepository"), &cfnPublicRepositoryProps{
 //   	repositoryCatalogData: repositoryCatalogData,
 //   	repositoryName: jsii.String("repositoryName"),
 //   	repositoryPolicyText: repositoryPolicyText,
@@ -767,10 +770,13 @@ func (c *jsiiProxy_CfnPublicRepository) ValidateProperties(_properties interface
 // Properties for defining a `CfnPublicRepository`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecr "github.com/aws/aws-cdk-go/awscdk/aws_ecr"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var repositoryCatalogData interface{}
 //   var repositoryPolicyText interface{}
+//
 //   cfnPublicRepositoryProps := &cfnPublicRepositoryProps{
 //   	repositoryCatalogData: repositoryCatalogData,
 //   	repositoryName: jsii.String("repositoryName"),
@@ -787,19 +793,19 @@ type CfnPublicRepositoryProps struct {
 	// The details about the repository that are publicly visible in the Amazon ECR Public Gallery.
 	//
 	// For more information, see [Amazon ECR Public repository catalog data](https://docs.aws.amazon.com/AmazonECR/latest/public/public-repository-catalog-data.html) in the *Amazon ECR Public User Guide* .
-	RepositoryCatalogData interface{} `json:"repositoryCatalogData" yaml:"repositoryCatalogData"`
+	RepositoryCatalogData interface{} `field:"optional" json:"repositoryCatalogData" yaml:"repositoryCatalogData"`
 	// The name to use for the public repository.
 	//
 	// The repository name may be specified on its own (such as `nginx-web-app` ) or it can be prepended with a namespace to group the repository into a category (such as `project-a/nginx-web-app` ). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the repository name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
 	//
 	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-	RepositoryName *string `json:"repositoryName" yaml:"repositoryName"`
+	RepositoryName *string `field:"optional" json:"repositoryName" yaml:"repositoryName"`
 	// The JSON repository policy text to apply to the public repository.
 	//
 	// For more information, see [Amazon ECR Public repository policies](https://docs.aws.amazon.com/AmazonECR/latest/public/public-repository-policies.html) in the *Amazon ECR Public User Guide* .
-	RepositoryPolicyText interface{} `json:"repositoryPolicyText" yaml:"repositoryPolicyText"`
+	RepositoryPolicyText interface{} `field:"optional" json:"repositoryPolicyText" yaml:"repositoryPolicyText"`
 	// An array of key-value pairs to apply to this resource.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::ECR::PullThroughCacheRule`.
@@ -807,8 +813,11 @@ type CfnPublicRepositoryProps struct {
 // Creates a pull through cache rule. A pull through cache rule provides a way to cache images from an external public registry in your Amazon ECR private registry.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecr "github.com/aws/aws-cdk-go/awscdk/aws_ecr"
-//   cfnPullThroughCacheRule := ecr.NewCfnPullThroughCacheRule(this, jsii.String("MyCfnPullThroughCacheRule"), &cfnPullThroughCacheRuleProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnPullThroughCacheRule := awscdk.Aws_ecr.NewCfnPullThroughCacheRule(this, jsii.String("MyCfnPullThroughCacheRule"), &cfnPullThroughCacheRuleProps{
 //   	ecrRepositoryPrefix: jsii.String("ecrRepositoryPrefix"),
 //   	upstreamRegistryUrl: jsii.String("upstreamRegistryUrl"),
 //   })
@@ -1463,7 +1472,10 @@ func (c *jsiiProxy_CfnPullThroughCacheRule) ValidateProperties(_properties inter
 // Properties for defining a `CfnPullThroughCacheRule`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecr "github.com/aws/aws-cdk-go/awscdk/aws_ecr"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnPullThroughCacheRuleProps := &cfnPullThroughCacheRuleProps{
 //   	ecrRepositoryPrefix: jsii.String("ecrRepositoryPrefix"),
 //   	upstreamRegistryUrl: jsii.String("upstreamRegistryUrl"),
@@ -1471,9 +1483,9 @@ func (c *jsiiProxy_CfnPullThroughCacheRule) ValidateProperties(_properties inter
 //
 type CfnPullThroughCacheRuleProps struct {
 	// The Amazon ECR repository prefix associated with the pull through cache rule.
-	EcrRepositoryPrefix *string `json:"ecrRepositoryPrefix" yaml:"ecrRepositoryPrefix"`
+	EcrRepositoryPrefix *string `field:"optional" json:"ecrRepositoryPrefix" yaml:"ecrRepositoryPrefix"`
 	// The upstream registry URL associated with the pull through cache rule.
-	UpstreamRegistryUrl *string `json:"upstreamRegistryUrl" yaml:"upstreamRegistryUrl"`
+	UpstreamRegistryUrl *string `field:"optional" json:"upstreamRegistryUrl" yaml:"upstreamRegistryUrl"`
 }
 
 // A CloudFormation `AWS::ECR::RegistryPolicy`.
@@ -1483,10 +1495,13 @@ type CfnPullThroughCacheRuleProps struct {
 // A private registry policy is used to specify permissions for another AWS account and is used when configuring cross-account replication. For more information, see [Registry permissions](https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html) in the *Amazon Elastic Container Registry User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecr "github.com/aws/aws-cdk-go/awscdk/aws_ecr"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var policyText interface{}
-//   cfnRegistryPolicy := ecr.NewCfnRegistryPolicy(this, jsii.String("MyCfnRegistryPolicy"), &cfnRegistryPolicyProps{
+//
+//   cfnRegistryPolicy := awscdk.Aws_ecr.NewCfnRegistryPolicy(this, jsii.String("MyCfnRegistryPolicy"), &cfnRegistryPolicyProps{
 //   	policyText: policyText,
 //   })
 //
@@ -2131,16 +2146,19 @@ func (c *jsiiProxy_CfnRegistryPolicy) ValidateProperties(_properties interface{}
 // Properties for defining a `CfnRegistryPolicy`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecr "github.com/aws/aws-cdk-go/awscdk/aws_ecr"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var policyText interface{}
+//
 //   cfnRegistryPolicyProps := &cfnRegistryPolicyProps{
 //   	policyText: policyText,
 //   }
 //
 type CfnRegistryPolicyProps struct {
 	// The JSON policy text for your registry.
-	PolicyText interface{} `json:"policyText" yaml:"policyText"`
+	PolicyText interface{} `field:"required" json:"policyText" yaml:"policyText"`
 }
 
 // A CloudFormation `AWS::ECR::ReplicationConfiguration`.
@@ -2150,8 +2168,11 @@ type CfnRegistryPolicyProps struct {
 // > When configuring cross-account replication, the destination account must grant the source account permission to replicate. This permission is controlled using a private registry permissions policy. For more information, see `AWS::ECR::RegistryPolicy` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecr "github.com/aws/aws-cdk-go/awscdk/aws_ecr"
-//   cfnReplicationConfiguration := ecr.NewCfnReplicationConfiguration(this, jsii.String("MyCfnReplicationConfiguration"), &cfnReplicationConfigurationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnReplicationConfiguration := awscdk.Aws_ecr.NewCfnReplicationConfiguration(this, jsii.String("MyCfnReplicationConfiguration"), &cfnReplicationConfigurationProps{
 //   	replicationConfiguration: &replicationConfigurationProperty{
 //   		rules: []interface{}{
 //   			&replicationRuleProperty{
@@ -2815,7 +2836,10 @@ func (c *jsiiProxy_CfnReplicationConfiguration) ValidateProperties(_properties i
 // The replication configuration for a registry.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecr "github.com/aws/aws-cdk-go/awscdk/aws_ecr"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   replicationConfigurationProperty := &replicationConfigurationProperty{
 //   	rules: []interface{}{
 //   		&replicationRuleProperty{
@@ -2839,13 +2863,16 @@ func (c *jsiiProxy_CfnReplicationConfiguration) ValidateProperties(_properties i
 //
 type CfnReplicationConfiguration_ReplicationConfigurationProperty struct {
 	// An array of objects representing the replication destinations and repository filters for a replication configuration.
-	Rules interface{} `json:"rules" yaml:"rules"`
+	Rules interface{} `field:"required" json:"rules" yaml:"rules"`
 }
 
 // An array of objects representing the destination for a replication rule.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecr "github.com/aws/aws-cdk-go/awscdk/aws_ecr"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   replicationDestinationProperty := &replicationDestinationProperty{
 //   	region: jsii.String("region"),
 //   	registryId: jsii.String("registryId"),
@@ -2853,17 +2880,20 @@ type CfnReplicationConfiguration_ReplicationConfigurationProperty struct {
 //
 type CfnReplicationConfiguration_ReplicationDestinationProperty struct {
 	// The Region to replicate to.
-	Region *string `json:"region" yaml:"region"`
+	Region *string `field:"required" json:"region" yaml:"region"`
 	// The AWS account ID of the Amazon ECR private registry to replicate to.
 	//
 	// When configuring cross-Region replication within your own registry, specify your own account ID.
-	RegistryId *string `json:"registryId" yaml:"registryId"`
+	RegistryId *string `field:"required" json:"registryId" yaml:"registryId"`
 }
 
 // An array of objects representing the replication destinations and repository filters for a replication configuration.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecr "github.com/aws/aws-cdk-go/awscdk/aws_ecr"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   replicationRuleProperty := &replicationRuleProperty{
 //   	destinations: []interface{}{
 //   		&replicationDestinationProperty{
@@ -2883,11 +2913,11 @@ type CfnReplicationConfiguration_ReplicationDestinationProperty struct {
 //
 type CfnReplicationConfiguration_ReplicationRuleProperty struct {
 	// An array of objects representing the destination for a replication rule.
-	Destinations interface{} `json:"destinations" yaml:"destinations"`
+	Destinations interface{} `field:"required" json:"destinations" yaml:"destinations"`
 	// An array of objects representing the filters for a replication rule.
 	//
 	// Specifying a repository filter for a replication rule provides a method for controlling which repositories in a private registry are replicated.
-	RepositoryFilters interface{} `json:"repositoryFilters" yaml:"repositoryFilters"`
+	RepositoryFilters interface{} `field:"optional" json:"repositoryFilters" yaml:"repositoryFilters"`
 }
 
 // The filter settings used with image replication.
@@ -2895,7 +2925,10 @@ type CfnReplicationConfiguration_ReplicationRuleProperty struct {
 // Specifying a repository filter to a replication rule provides a method for controlling which repositories in a private registry are replicated. If no repository filter is specified, all images in the repository are replicated.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecr "github.com/aws/aws-cdk-go/awscdk/aws_ecr"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   repositoryFilterProperty := &repositoryFilterProperty{
 //   	filter: jsii.String("filter"),
 //   	filterType: jsii.String("filterType"),
@@ -2905,17 +2938,20 @@ type CfnReplicationConfiguration_RepositoryFilterProperty struct {
 	// The repository filter details.
 	//
 	// When the `PREFIX_MATCH` filter type is specified, this value is required and should be the repository name prefix to configure replication for.
-	Filter *string `json:"filter" yaml:"filter"`
+	Filter *string `field:"required" json:"filter" yaml:"filter"`
 	// The repository filter type.
 	//
 	// The only supported value is `PREFIX_MATCH` , which is a repository name prefix specified with the `filter` parameter.
-	FilterType *string `json:"filterType" yaml:"filterType"`
+	FilterType *string `field:"required" json:"filterType" yaml:"filterType"`
 }
 
 // Properties for defining a `CfnReplicationConfiguration`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecr "github.com/aws/aws-cdk-go/awscdk/aws_ecr"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnReplicationConfigurationProps := &cfnReplicationConfigurationProps{
 //   	replicationConfiguration: &replicationConfigurationProperty{
 //   		rules: []interface{}{
@@ -2941,7 +2977,7 @@ type CfnReplicationConfiguration_RepositoryFilterProperty struct {
 //
 type CfnReplicationConfigurationProps struct {
 	// The replication configuration for a registry.
-	ReplicationConfiguration interface{} `json:"replicationConfiguration" yaml:"replicationConfiguration"`
+	ReplicationConfiguration interface{} `field:"required" json:"replicationConfiguration" yaml:"replicationConfiguration"`
 }
 
 // A CloudFormation `AWS::ECR::Repository`.
@@ -2949,10 +2985,13 @@ type CfnReplicationConfigurationProps struct {
 // The `AWS::ECR::Repository` resource specifies an Amazon Elastic Container Registry (Amazon ECR) repository, where users can push and pull Docker images, Open Container Initiative (OCI) images, and OCI compatible artifacts. For more information, see [Amazon ECR private repositories](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html) in the *Amazon ECR User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecr "github.com/aws/aws-cdk-go/awscdk/aws_ecr"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var repositoryPolicyText interface{}
-//   cfnRepository := ecr.NewCfnRepository(this, jsii.String("MyCfnRepository"), &cfnRepositoryProps{
+//
+//   cfnRepository := awscdk.Aws_ecr.NewCfnRepository(this, jsii.String("MyCfnRepository"), &cfnRepositoryProps{
 //   	encryptionConfiguration: &encryptionConfigurationProperty{
 //   		encryptionType: jsii.String("encryptionType"),
 //
@@ -3769,7 +3808,10 @@ func (c *jsiiProxy_CfnRepository) ValidateProperties(_properties interface{}) {
 // For more control over the encryption of the contents of your repository, you can use server-side encryption with AWS Key Management Service key stored in AWS Key Management Service ( AWS KMS ) to encrypt your images. For more information, see [Amazon ECR encryption at rest](https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html) in the *Amazon Elastic Container Registry User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecr "github.com/aws/aws-cdk-go/awscdk/aws_ecr"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   encryptionConfigurationProperty := &encryptionConfigurationProperty{
 //   	encryptionType: jsii.String("encryptionType"),
 //
@@ -3783,17 +3825,20 @@ type CfnRepository_EncryptionConfigurationProperty struct {
 	// If you use the `KMS` encryption type, the contents of the repository will be encrypted using server-side encryption with AWS Key Management Service key stored in AWS KMS . When you use AWS KMS to encrypt your data, you can either use the default AWS managed AWS KMS key for Amazon ECR, or specify your own AWS KMS key, which you already created. For more information, see [Protecting data using server-side encryption with an AWS KMS key stored in AWS Key Management Service (SSE-KMS)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html) in the *Amazon Simple Storage Service Console Developer Guide* .
 	//
 	// If you use the `AES256` encryption type, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts the images in the repository using an AES-256 encryption algorithm. For more information, see [Protecting data using server-side encryption with Amazon S3-managed encryption keys (SSE-S3)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html) in the *Amazon Simple Storage Service Console Developer Guide* .
-	EncryptionType *string `json:"encryptionType" yaml:"encryptionType"`
+	EncryptionType *string `field:"required" json:"encryptionType" yaml:"encryptionType"`
 	// If you use the `KMS` encryption type, specify the AWS KMS key to use for encryption.
 	//
 	// The alias, key ID, or full ARN of the AWS KMS key can be specified. The key must exist in the same Region as the repository. If no key is specified, the default AWS managed AWS KMS key for Amazon ECR will be used.
-	KmsKey *string `json:"kmsKey" yaml:"kmsKey"`
+	KmsKey *string `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 }
 
 // The image scanning configuration for a repository.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecr "github.com/aws/aws-cdk-go/awscdk/aws_ecr"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   imageScanningConfigurationProperty := &imageScanningConfigurationProperty{
 //   	scanOnPush: jsii.Boolean(false),
 //   }
@@ -3802,7 +3847,7 @@ type CfnRepository_ImageScanningConfigurationProperty struct {
 	// The setting that determines whether images are scanned after being pushed to a repository.
 	//
 	// If set to `true` , images will be scanned after being pushed. If this parameter is not specified, it will default to `false` and images will not be scanned unless a scan is manually started.
-	ScanOnPush interface{} `json:"scanOnPush" yaml:"scanOnPush"`
+	ScanOnPush interface{} `field:"optional" json:"scanOnPush" yaml:"scanOnPush"`
 }
 
 // The `LifecyclePolicy` property type specifies a lifecycle policy.
@@ -3810,7 +3855,10 @@ type CfnRepository_ImageScanningConfigurationProperty struct {
 // For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html) in the *Amazon ECR User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecr "github.com/aws/aws-cdk-go/awscdk/aws_ecr"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   lifecyclePolicyProperty := &lifecyclePolicyProperty{
 //   	lifecyclePolicyText: jsii.String("lifecyclePolicyText"),
 //   	registryId: jsii.String("registryId"),
@@ -3818,19 +3866,22 @@ type CfnRepository_ImageScanningConfigurationProperty struct {
 //
 type CfnRepository_LifecyclePolicyProperty struct {
 	// The JSON repository policy text to apply to the repository.
-	LifecyclePolicyText *string `json:"lifecyclePolicyText" yaml:"lifecyclePolicyText"`
+	LifecyclePolicyText *string `field:"optional" json:"lifecyclePolicyText" yaml:"lifecyclePolicyText"`
 	// The AWS account ID associated with the registry that contains the repository.
 	//
 	// If you do not specify a registry, the default registry is assumed.
-	RegistryId *string `json:"registryId" yaml:"registryId"`
+	RegistryId *string `field:"optional" json:"registryId" yaml:"registryId"`
 }
 
 // Properties for defining a `CfnRepository`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecr "github.com/aws/aws-cdk-go/awscdk/aws_ecr"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var repositoryPolicyText interface{}
+//
 //   cfnRepositoryProps := &cfnRepositoryProps{
 //   	encryptionConfiguration: &encryptionConfigurationProperty{
 //   		encryptionType: jsii.String("encryptionType"),
@@ -3860,31 +3911,31 @@ type CfnRepositoryProps struct {
 	// The encryption configuration for the repository.
 	//
 	// This determines how the contents of your repository are encrypted at rest.
-	EncryptionConfiguration interface{} `json:"encryptionConfiguration" yaml:"encryptionConfiguration"`
+	EncryptionConfiguration interface{} `field:"optional" json:"encryptionConfiguration" yaml:"encryptionConfiguration"`
 	// The image scanning configuration for the repository.
 	//
 	// This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
-	ImageScanningConfiguration interface{} `json:"imageScanningConfiguration" yaml:"imageScanningConfiguration"`
+	ImageScanningConfiguration interface{} `field:"optional" json:"imageScanningConfiguration" yaml:"imageScanningConfiguration"`
 	// The tag mutability setting for the repository.
 	//
 	// If this parameter is omitted, the default setting of `MUTABLE` will be used which will allow image tags to be overwritten. If `IMMUTABLE` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
-	ImageTagMutability *string `json:"imageTagMutability" yaml:"imageTagMutability"`
+	ImageTagMutability *string `field:"optional" json:"imageTagMutability" yaml:"imageTagMutability"`
 	// Creates or updates a lifecycle policy.
 	//
 	// For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html) .
-	LifecyclePolicy interface{} `json:"lifecyclePolicy" yaml:"lifecyclePolicy"`
+	LifecyclePolicy interface{} `field:"optional" json:"lifecyclePolicy" yaml:"lifecyclePolicy"`
 	// The name to use for the repository.
 	//
 	// The repository name may be specified on its own (such as `nginx-web-app` ) or it can be prepended with a namespace to group the repository into a category (such as `project-a/nginx-web-app` ). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the repository name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
 	//
 	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-	RepositoryName *string `json:"repositoryName" yaml:"repositoryName"`
+	RepositoryName *string `field:"optional" json:"repositoryName" yaml:"repositoryName"`
 	// The JSON repository policy text to apply to the repository.
 	//
 	// For more information, see [Amazon ECR repository policies](https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policy-examples.html) in the *Amazon Elastic Container Registry User Guide* .
-	RepositoryPolicyText interface{} `json:"repositoryPolicyText" yaml:"repositoryPolicyText"`
+	RepositoryPolicyText interface{} `field:"optional" json:"repositoryPolicyText" yaml:"repositoryPolicyText"`
 	// An array of key-value pairs to apply to this resource.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // Represents an ECR repository.
@@ -4150,24 +4201,24 @@ func (j *jsiiProxy_IRepository) RepositoryUri() *string {
 //   	maxImageCount: jsii.Number(9999),
 //   })
 //   repository.addLifecycleRule(&lifecycleRule{
-//   	maxImageAge: duration.days(jsii.Number(30)),
+//   	maxImageAge: awscdk.Duration.days(jsii.Number(30)),
 //   })
 //
 // Experimental.
 type LifecycleRule struct {
 	// Describes the purpose of the rule.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The maximum age of images to retain. The value must represent a number of days.
 	//
 	// Specify exactly one of maxImageCount and maxImageAge.
 	// Experimental.
-	MaxImageAge awscdk.Duration `json:"maxImageAge" yaml:"maxImageAge"`
+	MaxImageAge awscdk.Duration `field:"optional" json:"maxImageAge" yaml:"maxImageAge"`
 	// The maximum number of images to retain.
 	//
 	// Specify exactly one of maxImageCount and maxImageAge.
 	// Experimental.
-	MaxImageCount *float64 `json:"maxImageCount" yaml:"maxImageCount"`
+	MaxImageCount *float64 `field:"optional" json:"maxImageCount" yaml:"maxImageCount"`
 	// Controls the order in which rules are evaluated (low to high).
 	//
 	// All rules must have a unique priority, where lower numbers have
@@ -4179,27 +4230,31 @@ type LifecycleRule struct {
 	// All rules without a specified priority will have incrementing priorities
 	// automatically assigned to them, higher than any rules that DO have priorities.
 	// Experimental.
-	RulePriority *float64 `json:"rulePriority" yaml:"rulePriority"`
+	RulePriority *float64 `field:"optional" json:"rulePriority" yaml:"rulePriority"`
 	// Select images that have ALL the given prefixes in their tag.
 	//
 	// Only if tagStatus == TagStatus.Tagged
 	// Experimental.
-	TagPrefixList *[]*string `json:"tagPrefixList" yaml:"tagPrefixList"`
+	TagPrefixList *[]*string `field:"optional" json:"tagPrefixList" yaml:"tagPrefixList"`
 	// Select images based on tags.
 	//
 	// Only one rule is allowed to select untagged images, and it must
 	// have the highest rulePriority.
 	// Experimental.
-	TagStatus TagStatus `json:"tagStatus" yaml:"tagStatus"`
+	TagStatus TagStatus `field:"optional" json:"tagStatus" yaml:"tagStatus"`
 }
 
 // Options for the onCloudTrailImagePushed method.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecr "github.com/aws/aws-cdk-go/awscdk/aws_ecr"import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var detail interface{}
 //   var ruleTarget iRuleTarget
+//
 //   onCloudTrailImagePushedOptions := &onCloudTrailImagePushedOptions{
 //   	description: jsii.String("description"),
 //   	eventPattern: &eventPattern{
@@ -4240,7 +4295,7 @@ type LifecycleRule struct {
 type OnCloudTrailImagePushedOptions struct {
 	// A description of the rule's purpose.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Additional restrictions for the event to route to the specified target.
 	//
 	// The method that generates the rule probably imposes some type of event
@@ -4249,25 +4304,29 @@ type OnCloudTrailImagePushedOptions struct {
 	// See: https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html
 	//
 	// Experimental.
-	EventPattern *awsevents.EventPattern `json:"eventPattern" yaml:"eventPattern"`
+	EventPattern *awsevents.EventPattern `field:"optional" json:"eventPattern" yaml:"eventPattern"`
 	// A name for the rule.
 	// Experimental.
-	RuleName *string `json:"ruleName" yaml:"ruleName"`
+	RuleName *string `field:"optional" json:"ruleName" yaml:"ruleName"`
 	// The target to register for the event.
 	// Experimental.
-	Target awsevents.IRuleTarget `json:"target" yaml:"target"`
+	Target awsevents.IRuleTarget `field:"optional" json:"target" yaml:"target"`
 	// Only watch changes to this image tag.
 	// Experimental.
-	ImageTag *string `json:"imageTag" yaml:"imageTag"`
+	ImageTag *string `field:"optional" json:"imageTag" yaml:"imageTag"`
 }
 
 // Options for the OnImageScanCompleted method.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecr "github.com/aws/aws-cdk-go/awscdk/aws_ecr"import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var detail interface{}
 //   var ruleTarget iRuleTarget
+//
 //   onImageScanCompletedOptions := &onImageScanCompletedOptions{
 //   	description: jsii.String("description"),
 //   	eventPattern: &eventPattern{
@@ -4310,7 +4369,7 @@ type OnCloudTrailImagePushedOptions struct {
 type OnImageScanCompletedOptions struct {
 	// A description of the rule's purpose.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Additional restrictions for the event to route to the specified target.
 	//
 	// The method that generates the rule probably imposes some type of event
@@ -4319,18 +4378,18 @@ type OnImageScanCompletedOptions struct {
 	// See: https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html
 	//
 	// Experimental.
-	EventPattern *awsevents.EventPattern `json:"eventPattern" yaml:"eventPattern"`
+	EventPattern *awsevents.EventPattern `field:"optional" json:"eventPattern" yaml:"eventPattern"`
 	// A name for the rule.
 	// Experimental.
-	RuleName *string `json:"ruleName" yaml:"ruleName"`
+	RuleName *string `field:"optional" json:"ruleName" yaml:"ruleName"`
 	// The target to register for the event.
 	// Experimental.
-	Target awsevents.IRuleTarget `json:"target" yaml:"target"`
+	Target awsevents.IRuleTarget `field:"optional" json:"target" yaml:"target"`
 	// Only watch changes to the image tags spedified.
 	//
 	// Leave it undefined to watch the full repository.
 	// Experimental.
-	ImageTags *[]*string `json:"imageTags" yaml:"imageTags"`
+	ImageTags *[]*string `field:"optional" json:"imageTags" yaml:"imageTags"`
 }
 
 // Authorization token to access the global public ECR Gallery via Docker CLI.
@@ -4366,6 +4425,7 @@ func PublicGalleryAuthorizationToken_GrantRead(grantee awsiam.IGrantable) {
 //
 // Example:
 //   import ecr "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   apprunner.NewService(this, jsii.String("Service"), &serviceProps{
 //   	source: apprunner.source.fromEcr(&ecrProps{
@@ -5027,7 +5087,10 @@ func (r *jsiiProxy_Repository) Validate() *[]*string {
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecr "github.com/aws/aws-cdk-go/awscdk/aws_ecr"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   repositoryAttributes := &repositoryAttributes{
 //   	repositoryArn: jsii.String("repositoryArn"),
 //   	repositoryName: jsii.String("repositoryName"),
@@ -5036,9 +5099,9 @@ func (r *jsiiProxy_Repository) Validate() *[]*string {
 // Experimental.
 type RepositoryAttributes struct {
 	// Experimental.
-	RepositoryArn *string `json:"repositoryArn" yaml:"repositoryArn"`
+	RepositoryArn *string `field:"required" json:"repositoryArn" yaml:"repositoryArn"`
 	// Experimental.
-	RepositoryName *string `json:"repositoryName" yaml:"repositoryName"`
+	RepositoryName *string `field:"required" json:"repositoryName" yaml:"repositoryName"`
 }
 
 // Base class for ECR repository.
@@ -5694,35 +5757,35 @@ type RepositoryProps struct {
 	// If you choose KMS, you can specify a KMS key via `encryptionKey`. If
 	// encryptionKey is not specified, an AWS managed KMS key is used.
 	// Experimental.
-	Encryption RepositoryEncryption `json:"encryption" yaml:"encryption"`
+	Encryption RepositoryEncryption `field:"optional" json:"encryption" yaml:"encryption"`
 	// External KMS key to use for repository encryption.
 	//
 	// The 'encryption' property must be either not specified or set to "KMS".
 	// An error will be emitted if encryption is set to "AES256".
 	// Experimental.
-	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
+	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// Enable the scan on push when creating the repository.
 	// Experimental.
-	ImageScanOnPush *bool `json:"imageScanOnPush" yaml:"imageScanOnPush"`
+	ImageScanOnPush *bool `field:"optional" json:"imageScanOnPush" yaml:"imageScanOnPush"`
 	// The tag mutability setting for the repository.
 	//
 	// If this parameter is omitted, the default setting of MUTABLE will be used which will allow image tags to be overwritten.
 	// Experimental.
-	ImageTagMutability TagMutability `json:"imageTagMutability" yaml:"imageTagMutability"`
+	ImageTagMutability TagMutability `field:"optional" json:"imageTagMutability" yaml:"imageTagMutability"`
 	// The AWS account ID associated with the registry that contains the repository.
 	// See: https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_PutLifecyclePolicy.html
 	//
 	// Experimental.
-	LifecycleRegistryId *string `json:"lifecycleRegistryId" yaml:"lifecycleRegistryId"`
+	LifecycleRegistryId *string `field:"optional" json:"lifecycleRegistryId" yaml:"lifecycleRegistryId"`
 	// Life cycle rules to apply to this registry.
 	// Experimental.
-	LifecycleRules *[]*LifecycleRule `json:"lifecycleRules" yaml:"lifecycleRules"`
+	LifecycleRules *[]*LifecycleRule `field:"optional" json:"lifecycleRules" yaml:"lifecycleRules"`
 	// Determine what happens to the repository when the resource/stack is deleted.
 	// Experimental.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// Name for this repository.
 	// Experimental.
-	RepositoryName *string `json:"repositoryName" yaml:"repositoryName"`
+	RepositoryName *string `field:"optional" json:"repositoryName" yaml:"repositoryName"`
 }
 
 // The tag mutability setting for your repository.

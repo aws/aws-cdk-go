@@ -8,7 +8,10 @@ import (
 )
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cx_api "github.com/aws/aws-cdk-go/awscdk/cx_api"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   assemblyBuildOptions := &assemblyBuildOptions{
 //   	runtimeInfo: &runtimeInfo{
 //   		libraries: map[string]*string{
@@ -22,17 +25,21 @@ type AssemblyBuildOptions struct {
 	// Include the specified runtime information (module versions) in manifest.
 	// Deprecated: All template modifications that should result from this should
 	// have already been inserted into the template.
-	RuntimeInfo *RuntimeInfo `json:"runtimeInfo" yaml:"runtimeInfo"`
+	RuntimeInfo *RuntimeInfo `field:"optional" json:"runtimeInfo" yaml:"runtimeInfo"`
 }
 
 // Asset manifest is a description of a set of assets which need to be built and published.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloud_assembly_schema "github.com/aws/aws-cdk-go/awscdk/cloud_assembly_schema"import awscdk "github.com/aws/aws-cdk-go/awscdk"import cx_api "github.com/aws/aws-cdk-go/awscdk/cx_api"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var cloudAssembly cloudAssembly
-//   assetManifestArtifact := cx_api.NewAssetManifestArtifact(cloudAssembly, jsii.String("name"), &artifactManifest{
-//   	type: cloud_assembly_schema.artifactType_NONE,
+//
+//   assetManifestArtifact := awscdk.Cx_api.NewAssetManifestArtifact(cloudAssembly, jsii.String("name"), &artifactManifest{
+//   	type: awscdk.Cloud_assembly_schema.artifactType_NONE,
 //
 //   	// the properties below are optional
 //   	dependencies: []*string{
@@ -307,7 +314,10 @@ func (a *jsiiProxy_AssetManifestArtifact) FindMetadataByType(type_ *string) *[]*
 // Artifact properties for CloudFormation stacks.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cx_api "github.com/aws/aws-cdk-go/awscdk/cx_api"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   awsCloudFormationStackProperties := &awsCloudFormationStackProperties{
 //   	templateFile: jsii.String("templateFile"),
 //
@@ -323,26 +333,30 @@ func (a *jsiiProxy_AssetManifestArtifact) FindMetadataByType(type_ *string) *[]*
 type AwsCloudFormationStackProperties struct {
 	// A file relative to the assembly root which contains the CloudFormation template for this stack.
 	// Experimental.
-	TemplateFile *string `json:"templateFile" yaml:"templateFile"`
+	TemplateFile *string `field:"required" json:"templateFile" yaml:"templateFile"`
 	// Values for CloudFormation stack parameters that should be passed when the stack is deployed.
 	// Experimental.
-	Parameters *map[string]*string `json:"parameters" yaml:"parameters"`
+	Parameters *map[string]*string `field:"optional" json:"parameters" yaml:"parameters"`
 	// The name to use for the CloudFormation stack.
 	// Experimental.
-	StackName *string `json:"stackName" yaml:"stackName"`
+	StackName *string `field:"optional" json:"stackName" yaml:"stackName"`
 	// Whether to enable termination protection for this stack.
 	// Experimental.
-	TerminationProtection *bool `json:"terminationProtection" yaml:"terminationProtection"`
+	TerminationProtection *bool `field:"optional" json:"terminationProtection" yaml:"terminationProtection"`
 }
 
 // Represents an artifact within a cloud assembly.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloud_assembly_schema "github.com/aws/aws-cdk-go/awscdk/cloud_assembly_schema"import awscdk "github.com/aws/aws-cdk-go/awscdk"import cx_api "github.com/aws/aws-cdk-go/awscdk/cx_api"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var cloudAssembly cloudAssembly
-//   cloudArtifact := cx_api.cloudArtifact.fromManifest(cloudAssembly, jsii.String("MyCloudArtifact"), &artifactManifest{
-//   	type: cloud_assembly_schema.artifactType_NONE,
+//
+//   cloudArtifact := awscdk.Cx_api.cloudArtifact.fromManifest(cloudAssembly, jsii.String("MyCloudArtifact"), &artifactManifest{
+//   	type: awscdk.Cloud_assembly_schema.artifactType_NONE,
 //
 //   	// the properties below are optional
 //   	dependencies: []*string{
@@ -546,8 +560,11 @@ func (c *jsiiProxy_CloudArtifact) FindMetadataByType(type_ *string) *[]*Metadata
 // Represents a deployable cloud application.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cx_api "github.com/aws/aws-cdk-go/awscdk/cx_api"
-//   cloudAssembly := cx_api.NewCloudAssembly(jsii.String("directory"), &loadManifestOptions{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cloudAssembly := awscdk.Cx_api.NewCloudAssembly(jsii.String("directory"), &loadManifestOptions{
 //   	skipEnumCheck: jsii.Boolean(false),
 //   	skipVersionCheck: jsii.Boolean(false),
 //   })
@@ -820,10 +837,13 @@ func (c *jsiiProxy_CloudAssembly) TryGetArtifact(id *string) CloudArtifact {
 //
 // Example:
 //   // Example automatically generated from non-compiling source. May contain errors.
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cx_api "github.com/aws/aws-cdk-go/awscdk/cx_api"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var cloudAssemblyBuilder cloudAssemblyBuilder
-//   cloudAssemblyBuilder := cx_api.NewCloudAssemblyBuilder(jsii.String("outdir"), &cloudAssemblyBuilderProps{
+//
+//   cloudAssemblyBuilder := awscdk.Cx_api.NewCloudAssemblyBuilder(jsii.String("outdir"), &cloudAssemblyBuilderProps{
 //   	assetOutdir: jsii.String("assetOutdir"),
 //   	parentBuilder: cloudAssemblyBuilder,
 //   })
@@ -949,9 +969,12 @@ func (c *jsiiProxy_CloudAssemblyBuilder) CreateNestedAssembly(artifactId *string
 // Construction properties for CloudAssemblyBuilder.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cx_api "github.com/aws/aws-cdk-go/awscdk/cx_api"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var cloudAssemblyBuilder cloudAssemblyBuilder
+//
 //   cloudAssemblyBuilderProps := &cloudAssemblyBuilderProps{
 //   	assetOutdir: jsii.String("assetOutdir"),
 //   	parentBuilder: cloudAssemblyBuilder,
@@ -961,18 +984,22 @@ func (c *jsiiProxy_CloudAssemblyBuilder) CreateNestedAssembly(artifactId *string
 type CloudAssemblyBuilderProps struct {
 	// Use the given asset output directory.
 	// Experimental.
-	AssetOutdir *string `json:"assetOutdir" yaml:"assetOutdir"`
+	AssetOutdir *string `field:"optional" json:"assetOutdir" yaml:"assetOutdir"`
 	// If this builder is for a nested assembly, the parent assembly builder.
 	// Experimental.
-	ParentBuilder CloudAssemblyBuilder `json:"parentBuilder" yaml:"parentBuilder"`
+	ParentBuilder CloudAssemblyBuilder `field:"optional" json:"parentBuilder" yaml:"parentBuilder"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloud_assembly_schema "github.com/aws/aws-cdk-go/awscdk/cloud_assembly_schema"import awscdk "github.com/aws/aws-cdk-go/awscdk"import cx_api "github.com/aws/aws-cdk-go/awscdk/cx_api"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var cloudAssembly cloudAssembly
-//   cloudFormationStackArtifact := cx_api.NewCloudFormationStackArtifact(cloudAssembly, jsii.String("artifactId"), &artifactManifest{
-//   	type: cloud_assembly_schema.artifactType_NONE,
+//
+//   cloudFormationStackArtifact := awscdk.Cx_api.NewCloudFormationStackArtifact(cloudAssembly, jsii.String("artifactId"), &artifactManifest{
+//   	type: awscdk.Cloud_assembly_schema.artifactType_NONE,
 //
 //   	// the properties below are optional
 //   	dependencies: []*string{
@@ -1442,7 +1469,10 @@ func (c *jsiiProxy_CloudFormationStackArtifact) FindMetadataByType(type_ *string
 // Query to hosted zone context provider.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cx_api "github.com/aws/aws-cdk-go/awscdk/cx_api"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   endpointServiceAvailabilityZonesContextQuery := &endpointServiceAvailabilityZonesContextQuery{
 //   	account: jsii.String("account"),
 //   	region: jsii.String("region"),
@@ -1453,19 +1483,22 @@ func (c *jsiiProxy_CloudFormationStackArtifact) FindMetadataByType(type_ *string
 type EndpointServiceAvailabilityZonesContextQuery struct {
 	// Query account.
 	// Experimental.
-	Account *string `json:"account" yaml:"account"`
+	Account *string `field:"optional" json:"account" yaml:"account"`
 	// Query region.
 	// Experimental.
-	Region *string `json:"region" yaml:"region"`
+	Region *string `field:"optional" json:"region" yaml:"region"`
 	// Query service name.
 	// Experimental.
-	ServiceName *string `json:"serviceName" yaml:"serviceName"`
+	ServiceName *string `field:"optional" json:"serviceName" yaml:"serviceName"`
 }
 
 // Models an AWS execution environment, for use within the CDK toolkit.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cx_api "github.com/aws/aws-cdk-go/awscdk/cx_api"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   environment := &environment{
 //   	account: jsii.String("account"),
 //   	name: jsii.String("name"),
@@ -1476,19 +1509,22 @@ type EndpointServiceAvailabilityZonesContextQuery struct {
 type Environment struct {
 	// The AWS account this environment deploys into.
 	// Experimental.
-	Account *string `json:"account" yaml:"account"`
+	Account *string `field:"required" json:"account" yaml:"account"`
 	// The arbitrary name of this environment (user-set, or at least user-meaningful).
 	// Experimental.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The AWS region name where this environment deploys into.
 	// Experimental.
-	Region *string `json:"region" yaml:"region"`
+	Region *string `field:"required" json:"region" yaml:"region"`
 }
 
 // Return the appropriate values for the environment placeholders.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cx_api "github.com/aws/aws-cdk-go/awscdk/cx_api"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   environmentPlaceholderValues := &environmentPlaceholderValues{
 //   	accountId: jsii.String("accountId"),
 //   	partition: jsii.String("partition"),
@@ -1499,13 +1535,13 @@ type Environment struct {
 type EnvironmentPlaceholderValues struct {
 	// Return the account.
 	// Experimental.
-	AccountId *string `json:"accountId" yaml:"accountId"`
+	AccountId *string `field:"required" json:"accountId" yaml:"accountId"`
 	// Return the partition.
 	// Experimental.
-	Partition *string `json:"partition" yaml:"partition"`
+	Partition *string `field:"required" json:"partition" yaml:"partition"`
 	// Return the region.
 	// Experimental.
-	Region *string `json:"region" yaml:"region"`
+	Region *string `field:"required" json:"region" yaml:"region"`
 }
 
 // Placeholders which can be used manifests.
@@ -1514,8 +1550,11 @@ type EnvironmentPlaceholderValues struct {
 // Cloud Assembly manifest.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cx_api "github.com/aws/aws-cdk-go/awscdk/cx_api"
-//   environmentPlaceholders := cx_api.NewEnvironmentPlaceholders()
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   environmentPlaceholders := awscdk.Cx_api.NewEnvironmentPlaceholders()
 //
 // Experimental.
 type EnvironmentPlaceholders interface {
@@ -1623,8 +1662,11 @@ func EnvironmentPlaceholders_CURRENT_REGION() *string {
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cx_api "github.com/aws/aws-cdk-go/awscdk/cx_api"
-//   environmentUtils := cx_api.NewEnvironmentUtils()
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   environmentUtils := awscdk.Cx_api.NewEnvironmentUtils()
 //
 // Experimental.
 type EnvironmentUtils interface {
@@ -1772,7 +1814,10 @@ func (i *jsiiProxy_IEnvironmentPlaceholderProvider) Region() *string {
 // Properties of a discovered key.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cx_api "github.com/aws/aws-cdk-go/awscdk/cx_api"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   keyContextResponse := &keyContextResponse{
 //   	keyId: jsii.String("keyId"),
 //   }
@@ -1781,15 +1826,18 @@ func (i *jsiiProxy_IEnvironmentPlaceholderProvider) Region() *string {
 type KeyContextResponse struct {
 	// Id of the key.
 	// Experimental.
-	KeyId *string `json:"keyId" yaml:"keyId"`
+	KeyId *string `field:"required" json:"keyId" yaml:"keyId"`
 }
 
 // Properties of a discovered load balancer.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cx_api "github.com/aws/aws-cdk-go/awscdk/cx_api"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   loadBalancerContextResponse := &loadBalancerContextResponse{
-//   	ipAddressType: cx_api.loadBalancerIpAddressType_IPV4,
+//   	ipAddressType: awscdk.Cx_api.loadBalancerIpAddressType_IPV4,
 //   	loadBalancerArn: jsii.String("loadBalancerArn"),
 //   	loadBalancerCanonicalHostedZoneId: jsii.String("loadBalancerCanonicalHostedZoneId"),
 //   	loadBalancerDnsName: jsii.String("loadBalancerDnsName"),
@@ -1803,22 +1851,22 @@ type KeyContextResponse struct {
 type LoadBalancerContextResponse struct {
 	// Type of IP address.
 	// Experimental.
-	IpAddressType LoadBalancerIpAddressType `json:"ipAddressType" yaml:"ipAddressType"`
+	IpAddressType LoadBalancerIpAddressType `field:"required" json:"ipAddressType" yaml:"ipAddressType"`
 	// The ARN of the load balancer.
 	// Experimental.
-	LoadBalancerArn *string `json:"loadBalancerArn" yaml:"loadBalancerArn"`
+	LoadBalancerArn *string `field:"required" json:"loadBalancerArn" yaml:"loadBalancerArn"`
 	// The hosted zone ID of the load balancer's name.
 	// Experimental.
-	LoadBalancerCanonicalHostedZoneId *string `json:"loadBalancerCanonicalHostedZoneId" yaml:"loadBalancerCanonicalHostedZoneId"`
+	LoadBalancerCanonicalHostedZoneId *string `field:"required" json:"loadBalancerCanonicalHostedZoneId" yaml:"loadBalancerCanonicalHostedZoneId"`
 	// Load balancer's DNS name.
 	// Experimental.
-	LoadBalancerDnsName *string `json:"loadBalancerDnsName" yaml:"loadBalancerDnsName"`
+	LoadBalancerDnsName *string `field:"required" json:"loadBalancerDnsName" yaml:"loadBalancerDnsName"`
 	// Load balancer's security groups.
 	// Experimental.
-	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
+	SecurityGroupIds *[]*string `field:"required" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// Load balancer's VPC.
 	// Experimental.
-	VpcId *string `json:"vpcId" yaml:"vpcId"`
+	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
 }
 
 // Load balancer ip address type.
@@ -1837,7 +1885,10 @@ const (
 // Properties of a discovered load balancer listener.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cx_api "github.com/aws/aws-cdk-go/awscdk/cx_api"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   loadBalancerListenerContextResponse := &loadBalancerListenerContextResponse{
 //   	listenerArn: jsii.String("listenerArn"),
 //   	listenerPort: jsii.Number(123),
@@ -1850,13 +1901,13 @@ const (
 type LoadBalancerListenerContextResponse struct {
 	// The ARN of the listener.
 	// Experimental.
-	ListenerArn *string `json:"listenerArn" yaml:"listenerArn"`
+	ListenerArn *string `field:"required" json:"listenerArn" yaml:"listenerArn"`
 	// The port the listener is listening on.
 	// Experimental.
-	ListenerPort *float64 `json:"listenerPort" yaml:"listenerPort"`
+	ListenerPort *float64 `field:"required" json:"listenerPort" yaml:"listenerPort"`
 	// The security groups of the load balancer.
 	// Experimental.
-	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
+	SecurityGroupIds *[]*string `field:"required" json:"securityGroupIds" yaml:"securityGroupIds"`
 }
 
 // Backwards compatibility for when `MetadataEntry` was defined here.
@@ -1864,7 +1915,10 @@ type LoadBalancerListenerContextResponse struct {
 // This is necessary because its used as an input in the stable.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cx_api "github.com/aws/aws-cdk-go/awscdk/cx_api"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   metadataEntry := &metadataEntry{
 //   	type: jsii.String("type"),
 //
@@ -1881,17 +1935,20 @@ type LoadBalancerListenerContextResponse struct {
 type MetadataEntry struct {
 	// The type of the metadata entry.
 	// Deprecated: moved to package 'cloud-assembly-schema'.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// The data.
 	// Deprecated: moved to package 'cloud-assembly-schema'.
-	Data interface{} `json:"data" yaml:"data"`
+	Data interface{} `field:"optional" json:"data" yaml:"data"`
 	// A stack trace for when the entry was created.
 	// Deprecated: moved to package 'cloud-assembly-schema'.
-	Trace *[]*string `json:"trace" yaml:"trace"`
+	Trace *[]*string `field:"optional" json:"trace" yaml:"trace"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cx_api "github.com/aws/aws-cdk-go/awscdk/cx_api"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   metadataEntryResult := &metadataEntryResult{
 //   	path: jsii.String("path"),
 //   	type: jsii.String("type"),
@@ -1907,16 +1964,16 @@ type MetadataEntry struct {
 type MetadataEntryResult struct {
 	// The type of the metadata entry.
 	// Experimental.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// The data.
 	// Experimental.
-	Data interface{} `json:"data" yaml:"data"`
+	Data interface{} `field:"optional" json:"data" yaml:"data"`
 	// A stack trace for when the entry was created.
 	// Experimental.
-	Trace *[]*string `json:"trace" yaml:"trace"`
+	Trace *[]*string `field:"optional" json:"trace" yaml:"trace"`
 	// The path in which this entry was defined.
 	// Experimental.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"required" json:"path" yaml:"path"`
 }
 
 // Backwards compatibility for when `MissingContext` was defined here.
@@ -1924,9 +1981,12 @@ type MetadataEntryResult struct {
 // This is necessary because its used as an input in the stable.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cx_api "github.com/aws/aws-cdk-go/awscdk/cx_api"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var props interface{}
+//
 //   missingContext := &missingContext{
 //   	key: jsii.String("key"),
 //   	props: map[string]interface{}{
@@ -1941,29 +2001,33 @@ type MetadataEntryResult struct {
 type MissingContext struct {
 	// The missing context key.
 	// Deprecated: moved to package 'cloud-assembly-schema'.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// A set of provider-specific options.
 	//
 	// (This is the old untyped definition, which is necessary for backwards compatibility.
 	// See cxschema for a type definition.)
 	// Deprecated: moved to package 'cloud-assembly-schema'.
-	Props *map[string]interface{} `json:"props" yaml:"props"`
+	Props *map[string]interface{} `field:"required" json:"props" yaml:"props"`
 	// The provider from which we expect this context key to be obtained.
 	//
 	// (This is the old untyped definition, which is necessary for backwards compatibility.
 	// See cxschema for a type definition.)
 	// Deprecated: moved to package 'cloud-assembly-schema'.
-	Provider *string `json:"provider" yaml:"provider"`
+	Provider *string `field:"required" json:"provider" yaml:"provider"`
 }
 
 // Asset manifest is a description of a set of assets which need to be built and published.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloud_assembly_schema "github.com/aws/aws-cdk-go/awscdk/cloud_assembly_schema"import awscdk "github.com/aws/aws-cdk-go/awscdk"import cx_api "github.com/aws/aws-cdk-go/awscdk/cx_api"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var cloudAssembly cloudAssembly
-//   nestedCloudAssemblyArtifact := cx_api.NewNestedCloudAssemblyArtifact(cloudAssembly, jsii.String("name"), &artifactManifest{
-//   	type: cloud_assembly_schema.artifactType_NONE,
+//
+//   nestedCloudAssemblyArtifact := awscdk.Cx_api.NewNestedCloudAssemblyArtifact(cloudAssembly, jsii.String("name"), &artifactManifest{
+//   	type: awscdk.Cloud_assembly_schema.artifactType_NONE,
 //
 //   	// the properties below are optional
 //   	dependencies: []*string{
@@ -2222,7 +2286,10 @@ func (n *jsiiProxy_NestedCloudAssemblyArtifact) FindMetadataByType(type_ *string
 // This is necessary because its used as an input in the stable.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cx_api "github.com/aws/aws-cdk-go/awscdk/cx_api"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   runtimeInfo := &runtimeInfo{
 //   	libraries: map[string]*string{
 //   		"librariesKey": jsii.String("libraries"),
@@ -2235,13 +2302,16 @@ func (n *jsiiProxy_NestedCloudAssemblyArtifact) FindMetadataByType(type_ *string
 type RuntimeInfo struct {
 	// The list of libraries loaded in the application, associated with their versions.
 	// Deprecated: moved to package 'cloud-assembly-schema'.
-	Libraries *map[string]*string `json:"libraries" yaml:"libraries"`
+	Libraries *map[string]*string `field:"required" json:"libraries" yaml:"libraries"`
 }
 
 // Properties of a discovered SecurityGroup.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cx_api "github.com/aws/aws-cdk-go/awscdk/cx_api"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   securityGroupContextResponse := &securityGroupContextResponse{
 //   	allowAllOutbound: jsii.Boolean(false),
 //   	securityGroupId: jsii.String("securityGroupId"),
@@ -2255,14 +2325,17 @@ type SecurityGroupContextResponse struct {
 	// when the security group has all-protocol egress permissions to access both
 	// `0.0.0.0/0` and `::/0`.
 	// Experimental.
-	AllowAllOutbound *bool `json:"allowAllOutbound" yaml:"allowAllOutbound"`
+	AllowAllOutbound *bool `field:"required" json:"allowAllOutbound" yaml:"allowAllOutbound"`
 	// The security group's id.
 	// Experimental.
-	SecurityGroupId *string `json:"securityGroupId" yaml:"securityGroupId"`
+	SecurityGroupId *string `field:"required" json:"securityGroupId" yaml:"securityGroupId"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cx_api "github.com/aws/aws-cdk-go/awscdk/cx_api"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   synthesisMessage := &synthesisMessage{
 //   	entry: &metadataEntry{
 //   		type: jsii.String("type"),
@@ -2274,17 +2347,17 @@ type SecurityGroupContextResponse struct {
 //   		},
 //   	},
 //   	id: jsii.String("id"),
-//   	level: cx_api.synthesisMessageLevel_INFO,
+//   	level: awscdk.Cx_api.synthesisMessageLevel_INFO,
 //   }
 //
 // Experimental.
 type SynthesisMessage struct {
 	// Experimental.
-	Entry *cloudassemblyschema.MetadataEntry `json:"entry" yaml:"entry"`
+	Entry *cloudassemblyschema.MetadataEntry `field:"required" json:"entry" yaml:"entry"`
 	// Experimental.
-	Id *string `json:"id" yaml:"id"`
+	Id *string `field:"required" json:"id" yaml:"id"`
 	// Experimental.
-	Level SynthesisMessageLevel `json:"level" yaml:"level"`
+	Level SynthesisMessageLevel `field:"required" json:"level" yaml:"level"`
 }
 
 // Experimental.
@@ -2300,11 +2373,15 @@ const (
 )
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloud_assembly_schema "github.com/aws/aws-cdk-go/awscdk/cloud_assembly_schema"import awscdk "github.com/aws/aws-cdk-go/awscdk"import cx_api "github.com/aws/aws-cdk-go/awscdk/cx_api"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var cloudAssembly cloudAssembly
-//   treeCloudArtifact := cx_api.NewTreeCloudArtifact(cloudAssembly, jsii.String("name"), &artifactManifest{
-//   	type: cloud_assembly_schema.artifactType_NONE,
+//
+//   treeCloudArtifact := awscdk.Cx_api.NewTreeCloudArtifact(cloudAssembly, jsii.String("name"), &artifactManifest{
+//   	type: awscdk.Cloud_assembly_schema.artifactType_NONE,
 //
 //   	// the properties below are optional
 //   	dependencies: []*string{
@@ -2521,7 +2598,10 @@ func (t *jsiiProxy_TreeCloudArtifact) FindMetadataByType(type_ *string) *[]*Meta
 // Properties of a discovered VPC.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cx_api "github.com/aws/aws-cdk-go/awscdk/cx_api"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   vpcContextResponse := &vpcContextResponse{
 //   	availabilityZones: []*string{
 //   		jsii.String("availabilityZones"),
@@ -2569,7 +2649,7 @@ func (t *jsiiProxy_TreeCloudArtifact) FindMetadataByType(type_ *string) *[]*Meta
 //   					cidr: jsii.String("cidr"),
 //   				},
 //   			},
-//   			type: cx_api.vpcSubnetGroupType_PUBLIC,
+//   			type: awscdk.Cx_api.vpcSubnetGroupType_PUBLIC,
 //   		},
 //   	},
 //   	vpcCidrBlock: jsii.String("vpcCidrBlock"),
@@ -2580,55 +2660,55 @@ func (t *jsiiProxy_TreeCloudArtifact) FindMetadataByType(type_ *string) *[]*Meta
 type VpcContextResponse struct {
 	// AZs.
 	// Experimental.
-	AvailabilityZones *[]*string `json:"availabilityZones" yaml:"availabilityZones"`
+	AvailabilityZones *[]*string `field:"required" json:"availabilityZones" yaml:"availabilityZones"`
 	// VPC id.
 	// Experimental.
-	VpcId *string `json:"vpcId" yaml:"vpcId"`
+	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
 	// IDs of all isolated subnets.
 	//
 	// Element count: #(availabilityZones) · #(isolatedGroups).
 	// Experimental.
-	IsolatedSubnetIds *[]*string `json:"isolatedSubnetIds" yaml:"isolatedSubnetIds"`
+	IsolatedSubnetIds *[]*string `field:"optional" json:"isolatedSubnetIds" yaml:"isolatedSubnetIds"`
 	// Name of isolated subnet groups.
 	//
 	// Element count: #(isolatedGroups).
 	// Experimental.
-	IsolatedSubnetNames *[]*string `json:"isolatedSubnetNames" yaml:"isolatedSubnetNames"`
+	IsolatedSubnetNames *[]*string `field:"optional" json:"isolatedSubnetNames" yaml:"isolatedSubnetNames"`
 	// Route Table IDs of isolated subnet groups.
 	//
 	// Element count: #(availabilityZones) · #(isolatedGroups).
 	// Experimental.
-	IsolatedSubnetRouteTableIds *[]*string `json:"isolatedSubnetRouteTableIds" yaml:"isolatedSubnetRouteTableIds"`
+	IsolatedSubnetRouteTableIds *[]*string `field:"optional" json:"isolatedSubnetRouteTableIds" yaml:"isolatedSubnetRouteTableIds"`
 	// IDs of all private subnets.
 	//
 	// Element count: #(availabilityZones) · #(privateGroups).
 	// Experimental.
-	PrivateSubnetIds *[]*string `json:"privateSubnetIds" yaml:"privateSubnetIds"`
+	PrivateSubnetIds *[]*string `field:"optional" json:"privateSubnetIds" yaml:"privateSubnetIds"`
 	// Name of private subnet groups.
 	//
 	// Element count: #(privateGroups).
 	// Experimental.
-	PrivateSubnetNames *[]*string `json:"privateSubnetNames" yaml:"privateSubnetNames"`
+	PrivateSubnetNames *[]*string `field:"optional" json:"privateSubnetNames" yaml:"privateSubnetNames"`
 	// Route Table IDs of private subnet groups.
 	//
 	// Element count: #(availabilityZones) · #(privateGroups).
 	// Experimental.
-	PrivateSubnetRouteTableIds *[]*string `json:"privateSubnetRouteTableIds" yaml:"privateSubnetRouteTableIds"`
+	PrivateSubnetRouteTableIds *[]*string `field:"optional" json:"privateSubnetRouteTableIds" yaml:"privateSubnetRouteTableIds"`
 	// IDs of all public subnets.
 	//
 	// Element count: #(availabilityZones) · #(publicGroups).
 	// Experimental.
-	PublicSubnetIds *[]*string `json:"publicSubnetIds" yaml:"publicSubnetIds"`
+	PublicSubnetIds *[]*string `field:"optional" json:"publicSubnetIds" yaml:"publicSubnetIds"`
 	// Name of public subnet groups.
 	//
 	// Element count: #(publicGroups).
 	// Experimental.
-	PublicSubnetNames *[]*string `json:"publicSubnetNames" yaml:"publicSubnetNames"`
+	PublicSubnetNames *[]*string `field:"optional" json:"publicSubnetNames" yaml:"publicSubnetNames"`
 	// Route Table IDs of public subnet groups.
 	//
 	// Element count: #(availabilityZones) · #(publicGroups).
 	// Experimental.
-	PublicSubnetRouteTableIds *[]*string `json:"publicSubnetRouteTableIds" yaml:"publicSubnetRouteTableIds"`
+	PublicSubnetRouteTableIds *[]*string `field:"optional" json:"publicSubnetRouteTableIds" yaml:"publicSubnetRouteTableIds"`
 	// The subnet groups discovered for the given VPC.
 	//
 	// Unlike the above properties, this will include asymmetric subnets,
@@ -2636,19 +2716,22 @@ type VpcContextResponse struct {
 	// This property will only be populated if {@link VpcContextQuery.returnAsymmetricSubnets}
 	// is true.
 	// Experimental.
-	SubnetGroups *[]*VpcSubnetGroup `json:"subnetGroups" yaml:"subnetGroups"`
+	SubnetGroups *[]*VpcSubnetGroup `field:"optional" json:"subnetGroups" yaml:"subnetGroups"`
 	// VPC cidr.
 	// Experimental.
-	VpcCidrBlock *string `json:"vpcCidrBlock" yaml:"vpcCidrBlock"`
+	VpcCidrBlock *string `field:"optional" json:"vpcCidrBlock" yaml:"vpcCidrBlock"`
 	// The VPN gateway ID.
 	// Experimental.
-	VpnGatewayId *string `json:"vpnGatewayId" yaml:"vpnGatewayId"`
+	VpnGatewayId *string `field:"optional" json:"vpnGatewayId" yaml:"vpnGatewayId"`
 }
 
 // A subnet representation that the VPC provider uses.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cx_api "github.com/aws/aws-cdk-go/awscdk/cx_api"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   vpcSubnet := &vpcSubnet{
 //   	availabilityZone: jsii.String("availabilityZone"),
 //   	routeTableId: jsii.String("routeTableId"),
@@ -2662,16 +2745,16 @@ type VpcContextResponse struct {
 type VpcSubnet struct {
 	// The code of the availability zone this subnet is in (for example, 'us-west-2a').
 	// Experimental.
-	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
+	AvailabilityZone *string `field:"required" json:"availabilityZone" yaml:"availabilityZone"`
 	// The identifier of the route table for this subnet.
 	// Experimental.
-	RouteTableId *string `json:"routeTableId" yaml:"routeTableId"`
+	RouteTableId *string `field:"required" json:"routeTableId" yaml:"routeTableId"`
 	// The identifier of the subnet.
 	// Experimental.
-	SubnetId *string `json:"subnetId" yaml:"subnetId"`
+	SubnetId *string `field:"required" json:"subnetId" yaml:"subnetId"`
 	// CIDR range of the subnet.
 	// Experimental.
-	Cidr *string `json:"cidr" yaml:"cidr"`
+	Cidr *string `field:"optional" json:"cidr" yaml:"cidr"`
 }
 
 // A group of subnets returned by the VPC provider.
@@ -2679,7 +2762,10 @@ type VpcSubnet struct {
 // The included subnets do NOT have to be symmetric!
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cx_api "github.com/aws/aws-cdk-go/awscdk/cx_api"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   vpcSubnetGroup := &vpcSubnetGroup{
 //   	name: jsii.String("name"),
 //   	subnets: []vpcSubnet{
@@ -2692,23 +2778,23 @@ type VpcSubnet struct {
 //   			cidr: jsii.String("cidr"),
 //   		},
 //   	},
-//   	type: cx_api.vpcSubnetGroupType_PUBLIC,
+//   	type: awscdk.Cx_api.vpcSubnetGroupType_PUBLIC,
 //   }
 //
 // Experimental.
 type VpcSubnetGroup struct {
 	// The name of the subnet group, determined by looking at the tags of of the subnets that belong to it.
 	// Experimental.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The subnets that are part of this group.
 	//
 	// There is no condition that the subnets have to be symmetric
 	// in the group.
 	// Experimental.
-	Subnets *[]*VpcSubnet `json:"subnets" yaml:"subnets"`
+	Subnets *[]*VpcSubnet `field:"required" json:"subnets" yaml:"subnets"`
 	// The type of the subnet group.
 	// Experimental.
-	Type VpcSubnetGroupType `json:"type" yaml:"type"`
+	Type VpcSubnetGroupType `field:"required" json:"type" yaml:"type"`
 }
 
 // The type of subnet group.

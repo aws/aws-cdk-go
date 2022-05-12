@@ -15,10 +15,13 @@ import (
 // Creates a profiling group.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codeguruprofiler "github.com/aws/aws-cdk-go/awscdk/aws_codeguruprofiler"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var agentPermissions interface{}
-//   cfnProfilingGroup := codeguruprofiler.NewCfnProfilingGroup(this, jsii.String("MyCfnProfilingGroup"), &cfnProfilingGroupProps{
+//
+//   cfnProfilingGroup := awscdk.Aws_codeguruprofiler.NewCfnProfilingGroup(this, jsii.String("MyCfnProfilingGroup"), &cfnProfilingGroupProps{
 //   	profilingGroupName: jsii.String("profilingGroupName"),
 //
 //   	// the properties below are optional
@@ -766,7 +769,10 @@ func (c *jsiiProxy_CfnProfilingGroup) ValidateProperties(_properties interface{}
 // We support SNS topic as a notification channel.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codeguruprofiler "github.com/aws/aws-cdk-go/awscdk/aws_codeguruprofiler"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   channelProperty := &channelProperty{
 //   	channelUri: jsii.String("channelUri"),
 //
@@ -776,17 +782,20 @@ func (c *jsiiProxy_CfnProfilingGroup) ValidateProperties(_properties interface{}
 //
 type CfnProfilingGroup_ChannelProperty struct {
 	// The channel URI.
-	ChannelUri *string `json:"channelUri" yaml:"channelUri"`
+	ChannelUri *string `field:"required" json:"channelUri" yaml:"channelUri"`
 	// The channel ID.
-	ChannelId *string `json:"channelId" yaml:"channelId"`
+	ChannelId *string `field:"optional" json:"channelId" yaml:"channelId"`
 }
 
 // Properties for defining a `CfnProfilingGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codeguruprofiler "github.com/aws/aws-cdk-go/awscdk/aws_codeguruprofiler"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var agentPermissions interface{}
+//
 //   cfnProfilingGroupProps := &cfnProfilingGroupProps{
 //   	profilingGroupName: jsii.String("profilingGroupName"),
 //
@@ -811,7 +820,7 @@ type CfnProfilingGroup_ChannelProperty struct {
 //
 type CfnProfilingGroupProps struct {
 	// The name of the profiling group.
-	ProfilingGroupName *string `json:"profilingGroupName" yaml:"profilingGroupName"`
+	ProfilingGroupName *string `field:"required" json:"profilingGroupName" yaml:"profilingGroupName"`
 	// The agent permissions attached to this profiling group.
 	//
 	// This action group grants `ConfigureAgent` and `PostAgentProfile` permissions to perform actions required by the profiling agent. The Json consists of key `Principals` .
@@ -819,15 +828,15 @@ type CfnProfilingGroupProps struct {
 	// *Principals* : A list of string ARNs for the roles and users you want to grant access to the profiling group. Wildcards are not supported in the ARNs. You are allowed to provide up to 50 ARNs. An empty list is not permitted. This is a required key.
 	//
 	// For more information, see [Resource-based policies in CodeGuru Profiler](https://docs.aws.amazon.com/codeguru/latest/profiler-ug/resource-based-policies.html) in the *Amazon CodeGuru Profiler user guide* , [ConfigureAgent](https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ConfigureAgent.html) , and [PostAgentProfile](https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_PostAgentProfile.html) .
-	AgentPermissions interface{} `json:"agentPermissions" yaml:"agentPermissions"`
+	AgentPermissions interface{} `field:"optional" json:"agentPermissions" yaml:"agentPermissions"`
 	// Adds anomaly notifications for a profiling group.
-	AnomalyDetectionNotificationConfiguration interface{} `json:"anomalyDetectionNotificationConfiguration" yaml:"anomalyDetectionNotificationConfiguration"`
+	AnomalyDetectionNotificationConfiguration interface{} `field:"optional" json:"anomalyDetectionNotificationConfiguration" yaml:"anomalyDetectionNotificationConfiguration"`
 	// The compute platform of the profiling group.
 	//
 	// Use `AWSLambda` if your application runs on AWS Lambda. Use `Default` if your application runs on a compute platform that is not AWS Lambda , such an Amazon EC2 instance, an on-premises server, or a different platform. If not specified, `Default` is used. This property is immutable.
-	ComputePlatform *string `json:"computePlatform" yaml:"computePlatform"`
+	ComputePlatform *string `field:"optional" json:"computePlatform" yaml:"computePlatform"`
 	// A list of tags to add to the created profiling group.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // The compute platform of the profiling group.
@@ -1374,9 +1383,9 @@ func (p *jsiiProxy_ProfilingGroup) Validate() *[]*string {
 type ProfilingGroupProps struct {
 	// The compute platform of the profiling group.
 	// Experimental.
-	ComputePlatform ComputePlatform `json:"computePlatform" yaml:"computePlatform"`
+	ComputePlatform ComputePlatform `field:"optional" json:"computePlatform" yaml:"computePlatform"`
 	// A name for the profiling group.
 	// Experimental.
-	ProfilingGroupName *string `json:"profilingGroupName" yaml:"profilingGroupName"`
+	ProfilingGroupName *string `field:"optional" json:"profilingGroupName" yaml:"profilingGroupName"`
 }
 

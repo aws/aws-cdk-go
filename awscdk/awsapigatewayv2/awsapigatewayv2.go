@@ -17,22 +17,23 @@ import (
 // Options for the Route with Integration resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpLambdaAuthorizer awscdk.HttpLambdaAuthorizer
-//   type HttpLambdaResponseType awscdk.HttpLambdaResponseTypeimport awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpUrlIntegration awscdk.HttpUrlIntegration
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   // This function handles your auth logic
 //   var authHandler function
 //
-//   authorizer := NewHttpLambdaAuthorizer(jsii.String("BooksAuthorizer"), authHandler, &httpLambdaAuthorizerProps{
+//
+//   authorizer := awscdk.NewHttpLambdaAuthorizer(jsii.String("BooksAuthorizer"), authHandler, &httpLambdaAuthorizerProps{
 //   	responseTypes: []httpLambdaResponseType{
-//   		httpLambdaResponseType_SIMPLE,
+//   		awscdk.HttpLambdaResponseType_SIMPLE,
 //   	},
 //   })
 //
 //   api := apigwv2.NewHttpApi(this, jsii.String("HttpApi"))
 //
 //   api.addRoutes(&addRoutesOptions{
-//   	integration: NewHttpUrlIntegration(jsii.String("BooksIntegration"), jsii.String("https://get-books-proxy.myproxy.internal")),
+//   	integration: awscdk.NewHttpUrlIntegration(jsii.String("BooksIntegration"), jsii.String("https://get-books-proxy.myproxy.internal")),
 //   	path: jsii.String("/books"),
 //   	authorizer: authorizer,
 //   })
@@ -41,35 +42,38 @@ import (
 type AddRoutesOptions struct {
 	// The integration to be configured on this route.
 	// Experimental.
-	Integration HttpRouteIntegration `json:"integration" yaml:"integration"`
+	Integration HttpRouteIntegration `field:"required" json:"integration" yaml:"integration"`
 	// The path at which all of these routes are configured.
 	// Experimental.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"required" json:"path" yaml:"path"`
 	// The list of OIDC scopes to include in the authorization.
 	//
 	// These scopes will override the default authorization scopes on the gateway.
 	// Set to [] to remove default scopes.
 	// Experimental.
-	AuthorizationScopes *[]*string `json:"authorizationScopes" yaml:"authorizationScopes"`
+	AuthorizationScopes *[]*string `field:"optional" json:"authorizationScopes" yaml:"authorizationScopes"`
 	// Authorizer to be associated to these routes.
 	//
 	// Use NoneAuthorizer to remove the default authorizer for the api.
 	// Experimental.
-	Authorizer IHttpRouteAuthorizer `json:"authorizer" yaml:"authorizer"`
+	Authorizer IHttpRouteAuthorizer `field:"optional" json:"authorizer" yaml:"authorizer"`
 	// The HTTP methods to be configured.
 	// Experimental.
-	Methods *[]HttpMethod `json:"methods" yaml:"methods"`
+	Methods *[]HttpMethod `field:"optional" json:"methods" yaml:"methods"`
 }
 
 // Create a new API mapping for API Gateway API endpoint.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var api iApi
 //   var domainName domainName
 //   var stage iStage
-//   apiMapping := apigatewayv2.NewApiMapping(this, jsii.String("MyApiMapping"), &apiMappingProps{
+//
+//   apiMapping := awscdk.Aws_apigatewayv2.NewApiMapping(this, jsii.String("MyApiMapping"), &apiMappingProps{
 //   	api: api,
 //   	domainName: domainName,
 //
@@ -472,7 +476,10 @@ func (a *jsiiProxy_ApiMapping) Validate() *[]*string {
 // The attributes used to import existing ApiMapping.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   apiMappingAttributes := &apiMappingAttributes{
 //   	apiMappingId: jsii.String("apiMappingId"),
 //   }
@@ -481,17 +488,20 @@ func (a *jsiiProxy_ApiMapping) Validate() *[]*string {
 type ApiMappingAttributes struct {
 	// The API mapping ID.
 	// Experimental.
-	ApiMappingId *string `json:"apiMappingId" yaml:"apiMappingId"`
+	ApiMappingId *string `field:"required" json:"apiMappingId" yaml:"apiMappingId"`
 }
 
 // Properties used to create the ApiMapping resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var api iApi
 //   var domainName domainName
 //   var stage iStage
+//
 //   apiMappingProps := &apiMappingProps{
 //   	api: api,
 //   	domainName: domainName,
@@ -505,18 +515,18 @@ type ApiMappingAttributes struct {
 type ApiMappingProps struct {
 	// The Api to which this mapping is applied.
 	// Experimental.
-	Api IApi `json:"api" yaml:"api"`
+	Api IApi `field:"required" json:"api" yaml:"api"`
 	// custom domain name of the mapping target.
 	// Experimental.
-	DomainName IDomainName `json:"domainName" yaml:"domainName"`
+	DomainName IDomainName `field:"required" json:"domainName" yaml:"domainName"`
 	// Api mapping key.
 	//
 	// The path where this stage should be mapped to on the domain.
 	// Experimental.
-	ApiMappingKey *string `json:"apiMappingKey" yaml:"apiMappingKey"`
+	ApiMappingKey *string `field:"optional" json:"apiMappingKey" yaml:"apiMappingKey"`
 	// stage for the ApiMapping resource required for WebSocket API defaults to default stage of an HTTP API.
 	// Experimental.
-	Stage IStage `json:"stage" yaml:"stage"`
+	Stage IStage `field:"optional" json:"stage" yaml:"stage"`
 }
 
 // Payload format version for lambda authorizers.
@@ -539,9 +549,12 @@ const (
 // The options here are the ones that would be configured for all being set up.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var httpRouteIntegration httpRouteIntegration
+//
 //   batchHttpRouteOptions := &batchHttpRouteOptions{
 //   	integration: httpRouteIntegration,
 //   }
@@ -550,7 +563,7 @@ const (
 type BatchHttpRouteOptions struct {
 	// The integration to be configured on this route.
 	// Experimental.
-	Integration HttpRouteIntegration `json:"integration" yaml:"integration"`
+	Integration HttpRouteIntegration `field:"required" json:"integration" yaml:"integration"`
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::Api`.
@@ -558,11 +571,14 @@ type BatchHttpRouteOptions struct {
 // The `AWS::ApiGatewayV2::Api` resource creates an API. WebSocket APIs and HTTP APIs are supported. For more information about WebSocket APIs, see [About WebSocket APIs in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-overview.html) in the *API Gateway Developer Guide* . For more information about HTTP APIs, see [HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api.html) in the *API Gateway Developer Guide.*
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var body interface{}
 //   var tags interface{}
-//   cfnApi := apigatewayv2.NewCfnApi(this, jsii.String("MyCfnApi"), &cfnApiProps{
+//
+//   cfnApi := awscdk.Aws_apigatewayv2.NewCfnApi(this, jsii.String("MyCfnApi"), &cfnApiProps{
 //   	apiKeySelectionExpression: jsii.String("apiKeySelectionExpression"),
 //   	basePath: jsii.String("basePath"),
 //   	body: body,
@@ -1604,7 +1620,10 @@ func (c *jsiiProxy_CfnApi) ValidateProperties(_properties interface{}) {
 // Supported only for HTTP APIs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   bodyS3LocationProperty := &bodyS3LocationProperty{
 //   	bucket: jsii.String("bucket"),
 //   	etag: jsii.String("etag"),
@@ -1616,15 +1635,15 @@ type CfnApi_BodyS3LocationProperty struct {
 	// The S3 bucket that contains the OpenAPI definition to import.
 	//
 	// Required if you specify a `BodyS3Location` for an API.
-	Bucket *string `json:"bucket" yaml:"bucket"`
+	Bucket *string `field:"optional" json:"bucket" yaml:"bucket"`
 	// The Etag of the S3 object.
-	Etag *string `json:"etag" yaml:"etag"`
+	Etag *string `field:"optional" json:"etag" yaml:"etag"`
 	// The key of the S3 object.
 	//
 	// Required if you specify a `BodyS3Location` for an API.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"optional" json:"key" yaml:"key"`
 	// The version of the S3 object.
-	Version *string `json:"version" yaml:"version"`
+	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 
 // The `Cors` property specifies a CORS configuration for an API.
@@ -1632,7 +1651,10 @@ type CfnApi_BodyS3LocationProperty struct {
 // Supported only for HTTP APIs. See [Configuring CORS](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html) for more information.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   corsProperty := &corsProperty{
 //   	allowCredentials: jsii.Boolean(false),
 //   	allowHeaders: []*string{
@@ -1654,27 +1676,27 @@ type CfnApi_CorsProperty struct {
 	// Specifies whether credentials are included in the CORS request.
 	//
 	// Supported only for HTTP APIs.
-	AllowCredentials interface{} `json:"allowCredentials" yaml:"allowCredentials"`
+	AllowCredentials interface{} `field:"optional" json:"allowCredentials" yaml:"allowCredentials"`
 	// Represents a collection of allowed headers.
 	//
 	// Supported only for HTTP APIs.
-	AllowHeaders *[]*string `json:"allowHeaders" yaml:"allowHeaders"`
+	AllowHeaders *[]*string `field:"optional" json:"allowHeaders" yaml:"allowHeaders"`
 	// Represents a collection of allowed HTTP methods.
 	//
 	// Supported only for HTTP APIs.
-	AllowMethods *[]*string `json:"allowMethods" yaml:"allowMethods"`
+	AllowMethods *[]*string `field:"optional" json:"allowMethods" yaml:"allowMethods"`
 	// Represents a collection of allowed origins.
 	//
 	// Supported only for HTTP APIs.
-	AllowOrigins *[]*string `json:"allowOrigins" yaml:"allowOrigins"`
+	AllowOrigins *[]*string `field:"optional" json:"allowOrigins" yaml:"allowOrigins"`
 	// Represents a collection of exposed headers.
 	//
 	// Supported only for HTTP APIs.
-	ExposeHeaders *[]*string `json:"exposeHeaders" yaml:"exposeHeaders"`
+	ExposeHeaders *[]*string `field:"optional" json:"exposeHeaders" yaml:"exposeHeaders"`
 	// The number of seconds that the browser should cache preflight request results.
 	//
 	// Supported only for HTTP APIs.
-	MaxAge *float64 `json:"maxAge" yaml:"maxAge"`
+	MaxAge *float64 `field:"optional" json:"maxAge" yaml:"maxAge"`
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::ApiGatewayManagedOverrides`.
@@ -1682,11 +1704,14 @@ type CfnApi_CorsProperty struct {
 // The `AWS::ApiGatewayV2::ApiGatewayManagedOverrides` resource overrides the default properties of API Gateway-managed resources that are implicitly configured for you when you use quick create. When you create an API by using quick create, an `AWS::ApiGatewayV2::Route` , `AWS::ApiGatewayV2::Integration` , and `AWS::ApiGatewayV2::Stage` are created for you and associated with your `AWS::ApiGatewayV2::Api` . The `AWS::ApiGatewayV2::ApiGatewayManagedOverrides` resource enables you to set, or override the properties of these implicit resources. Supported only for HTTP APIs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var routeSettings interface{}
 //   var stageVariables interface{}
-//   cfnApiGatewayManagedOverrides := apigatewayv2.NewCfnApiGatewayManagedOverrides(this, jsii.String("MyCfnApiGatewayManagedOverrides"), &cfnApiGatewayManagedOverridesProps{
+//
+//   cfnApiGatewayManagedOverrides := awscdk.Aws_apigatewayv2.NewCfnApiGatewayManagedOverrides(this, jsii.String("MyCfnApiGatewayManagedOverrides"), &cfnApiGatewayManagedOverridesProps{
 //   	apiId: jsii.String("apiId"),
 //
 //   	// the properties below are optional
@@ -2416,7 +2441,10 @@ func (c *jsiiProxy_CfnApiGatewayManagedOverrides) ValidateProperties(_properties
 // The `AccessLogSettings` property overrides the access log settings for an API Gateway-managed stage.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   accessLogSettingsProperty := &accessLogSettingsProperty{
 //   	destinationArn: jsii.String("destinationArn"),
 //   	format: jsii.String("format"),
@@ -2424,11 +2452,11 @@ func (c *jsiiProxy_CfnApiGatewayManagedOverrides) ValidateProperties(_properties
 //
 type CfnApiGatewayManagedOverrides_AccessLogSettingsProperty struct {
 	// The ARN of the CloudWatch Logs log group to receive access logs.
-	DestinationArn *string `json:"destinationArn" yaml:"destinationArn"`
+	DestinationArn *string `field:"optional" json:"destinationArn" yaml:"destinationArn"`
 	// A single line format of the access logs of data, as specified by selected $context variables.
 	//
 	// The format must include at least $context.requestId.
-	Format *string `json:"format" yaml:"format"`
+	Format *string `field:"optional" json:"format" yaml:"format"`
 }
 
 // The `IntegrationOverrides` property overrides the integration settings for an API Gateway-managed integration.
@@ -2436,7 +2464,10 @@ type CfnApiGatewayManagedOverrides_AccessLogSettingsProperty struct {
 // If you remove this property, API Gateway restores the default values.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   integrationOverridesProperty := &integrationOverridesProperty{
 //   	description: jsii.String("description"),
 //   	integrationMethod: jsii.String("integrationMethod"),
@@ -2446,17 +2477,17 @@ type CfnApiGatewayManagedOverrides_AccessLogSettingsProperty struct {
 //
 type CfnApiGatewayManagedOverrides_IntegrationOverridesProperty struct {
 	// The description of the integration.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Specifies the integration's HTTP method type.
-	IntegrationMethod *string `json:"integrationMethod" yaml:"integrationMethod"`
+	IntegrationMethod *string `field:"optional" json:"integrationMethod" yaml:"integrationMethod"`
 	// Specifies the format of the payload sent to an integration.
 	//
 	// Required for HTTP APIs. For HTTP APIs, supported values for Lambda proxy integrations are `1.0` and `2.0` . For all other integrations, `1.0` is the only supported value. To learn more, see [Working with AWS Lambda proxy integrations for HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html) .
-	PayloadFormatVersion *string `json:"payloadFormatVersion" yaml:"payloadFormatVersion"`
+	PayloadFormatVersion *string `field:"optional" json:"payloadFormatVersion" yaml:"payloadFormatVersion"`
 	// Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs.
 	//
 	// The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
-	TimeoutInMillis *float64 `json:"timeoutInMillis" yaml:"timeoutInMillis"`
+	TimeoutInMillis *float64 `field:"optional" json:"timeoutInMillis" yaml:"timeoutInMillis"`
 }
 
 // The `RouteOverrides` property overrides the route configuration for an API Gateway-managed route.
@@ -2464,7 +2495,10 @@ type CfnApiGatewayManagedOverrides_IntegrationOverridesProperty struct {
 // If you remove this property, API Gateway restores the default values.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   routeOverridesProperty := &routeOverridesProperty{
 //   	authorizationScopes: []*string{
 //   		jsii.String("authorizationScopes"),
@@ -2477,27 +2511,30 @@ type CfnApiGatewayManagedOverrides_IntegrationOverridesProperty struct {
 //
 type CfnApiGatewayManagedOverrides_RouteOverridesProperty struct {
 	// The authorization scopes supported by this route.
-	AuthorizationScopes *[]*string `json:"authorizationScopes" yaml:"authorizationScopes"`
+	AuthorizationScopes *[]*string `field:"optional" json:"authorizationScopes" yaml:"authorizationScopes"`
 	// The authorization type for the route.
 	//
 	// To learn more, see [AuthorizationType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-route.html#cfn-apigatewayv2-route-authorizationtype) .
-	AuthorizationType *string `json:"authorizationType" yaml:"authorizationType"`
+	AuthorizationType *string `field:"optional" json:"authorizationType" yaml:"authorizationType"`
 	// The identifier of the `Authorizer` resource to be associated with this route.
 	//
 	// The authorizer identifier is generated by API Gateway when you created the authorizer.
-	AuthorizerId *string `json:"authorizerId" yaml:"authorizerId"`
+	AuthorizerId *string `field:"optional" json:"authorizerId" yaml:"authorizerId"`
 	// The operation name for the route.
-	OperationName *string `json:"operationName" yaml:"operationName"`
+	OperationName *string `field:"optional" json:"operationName" yaml:"operationName"`
 	// For HTTP integrations, specify a fully qualified URL.
 	//
 	// For Lambda integrations, specify a function ARN. The type of the integration will be HTTP_PROXY or AWS_PROXY, respectively.
-	Target *string `json:"target" yaml:"target"`
+	Target *string `field:"optional" json:"target" yaml:"target"`
 }
 
 // The `RouteSettings` property overrides the route settings for an API Gateway-managed route.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   routeSettingsProperty := &routeSettingsProperty{
 //   	dataTraceEnabled: jsii.Boolean(false),
 //   	detailedMetricsEnabled: jsii.Boolean(false),
@@ -2510,17 +2547,17 @@ type CfnApiGatewayManagedOverrides_RouteSettingsProperty struct {
 	// Specifies whether ( `true` ) or not ( `false` ) data trace logging is enabled for this route.
 	//
 	// This property affects the log entries pushed to Amazon CloudWatch Logs. Supported only for WebSocket APIs.
-	DataTraceEnabled interface{} `json:"dataTraceEnabled" yaml:"dataTraceEnabled"`
+	DataTraceEnabled interface{} `field:"optional" json:"dataTraceEnabled" yaml:"dataTraceEnabled"`
 	// Specifies whether detailed metrics are enabled.
-	DetailedMetricsEnabled interface{} `json:"detailedMetricsEnabled" yaml:"detailedMetricsEnabled"`
+	DetailedMetricsEnabled interface{} `field:"optional" json:"detailedMetricsEnabled" yaml:"detailedMetricsEnabled"`
 	// Specifies the logging level for this route: `INFO` , `ERROR` , or `OFF` .
 	//
 	// This property affects the log entries pushed to Amazon CloudWatch Logs. Supported only for WebSocket APIs.
-	LoggingLevel *string `json:"loggingLevel" yaml:"loggingLevel"`
+	LoggingLevel *string `field:"optional" json:"loggingLevel" yaml:"loggingLevel"`
 	// Specifies the throttling burst limit.
-	ThrottlingBurstLimit *float64 `json:"throttlingBurstLimit" yaml:"throttlingBurstLimit"`
+	ThrottlingBurstLimit *float64 `field:"optional" json:"throttlingBurstLimit" yaml:"throttlingBurstLimit"`
 	// Specifies the throttling rate limit.
-	ThrottlingRateLimit *float64 `json:"throttlingRateLimit" yaml:"throttlingRateLimit"`
+	ThrottlingRateLimit *float64 `field:"optional" json:"throttlingRateLimit" yaml:"throttlingRateLimit"`
 }
 
 // The `StageOverrides` property overrides the stage configuration for an API Gateway-managed stage.
@@ -2528,10 +2565,13 @@ type CfnApiGatewayManagedOverrides_RouteSettingsProperty struct {
 // If you remove this property, API Gateway restores the default values.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var routeSettings interface{}
 //   var stageVariables interface{}
+//
 //   stageOverridesProperty := &stageOverridesProperty{
 //   	accessLogSettings: &accessLogSettingsProperty{
 //   		destinationArn: jsii.String("destinationArn"),
@@ -2552,30 +2592,33 @@ type CfnApiGatewayManagedOverrides_RouteSettingsProperty struct {
 //
 type CfnApiGatewayManagedOverrides_StageOverridesProperty struct {
 	// Settings for logging access in a stage.
-	AccessLogSettings interface{} `json:"accessLogSettings" yaml:"accessLogSettings"`
+	AccessLogSettings interface{} `field:"optional" json:"accessLogSettings" yaml:"accessLogSettings"`
 	// Specifies whether updates to an API automatically trigger a new deployment.
 	//
 	// The default value is `true` .
-	AutoDeploy interface{} `json:"autoDeploy" yaml:"autoDeploy"`
+	AutoDeploy interface{} `field:"optional" json:"autoDeploy" yaml:"autoDeploy"`
 	// The default route settings for the stage.
-	DefaultRouteSettings interface{} `json:"defaultRouteSettings" yaml:"defaultRouteSettings"`
+	DefaultRouteSettings interface{} `field:"optional" json:"defaultRouteSettings" yaml:"defaultRouteSettings"`
 	// The description for the API stage.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Route settings for the stage.
-	RouteSettings interface{} `json:"routeSettings" yaml:"routeSettings"`
+	RouteSettings interface{} `field:"optional" json:"routeSettings" yaml:"routeSettings"`
 	// A map that defines the stage variables for a `Stage` .
 	//
 	// Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&=,]+.
-	StageVariables interface{} `json:"stageVariables" yaml:"stageVariables"`
+	StageVariables interface{} `field:"optional" json:"stageVariables" yaml:"stageVariables"`
 }
 
 // Properties for defining a `CfnApiGatewayManagedOverrides`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var routeSettings interface{}
 //   var stageVariables interface{}
+//
 //   cfnApiGatewayManagedOverridesProps := &cfnApiGatewayManagedOverridesProps{
 //   	apiId: jsii.String("apiId"),
 //
@@ -2616,13 +2659,13 @@ type CfnApiGatewayManagedOverrides_StageOverridesProperty struct {
 //
 type CfnApiGatewayManagedOverridesProps struct {
 	// The ID of the API for which to override the configuration of API Gateway-managed resources.
-	ApiId *string `json:"apiId" yaml:"apiId"`
+	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`
 	// Overrides the integration configuration for an API Gateway-managed integration.
-	Integration interface{} `json:"integration" yaml:"integration"`
+	Integration interface{} `field:"optional" json:"integration" yaml:"integration"`
 	// Overrides the route configuration for an API Gateway-managed route.
-	Route interface{} `json:"route" yaml:"route"`
+	Route interface{} `field:"optional" json:"route" yaml:"route"`
 	// Overrides the stage configuration for an API Gateway-managed stage.
-	Stage interface{} `json:"stage" yaml:"stage"`
+	Stage interface{} `field:"optional" json:"stage" yaml:"stage"`
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::ApiMapping`.
@@ -2630,8 +2673,11 @@ type CfnApiGatewayManagedOverridesProps struct {
 // The `AWS::ApiGatewayV2::ApiMapping` resource contains an API mapping. An API mapping relates a path of your custom domain name to a stage of your API. A custom domain name can have multiple API mappings, but the paths can't overlap. A custom domain can map only to APIs of the same protocol type. For more information, see [CreateApiMapping](https://docs.aws.amazon.com/apigatewayv2/latest/api-reference/domainnames-domainname-apimappings.html#CreateApiMapping) in the *Amazon API Gateway V2 API Reference* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
-//   cfnApiMapping := apigatewayv2.NewCfnApiMapping(this, jsii.String("MyCfnApiMapping"), &cfnApiMappingProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnApiMapping := awscdk.Aws_apigatewayv2.NewCfnApiMapping(this, jsii.String("MyCfnApiMapping"), &cfnApiMappingProps{
 //   	apiId: jsii.String("apiId"),
 //   	domainName: jsii.String("domainName"),
 //   	stage: jsii.String("stage"),
@@ -3332,7 +3378,10 @@ func (c *jsiiProxy_CfnApiMapping) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnApiMapping`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnApiMappingProps := &cfnApiMappingProps{
 //   	apiId: jsii.String("apiId"),
 //   	domainName: jsii.String("domainName"),
@@ -3344,22 +3393,25 @@ func (c *jsiiProxy_CfnApiMapping) ValidateProperties(_properties interface{}) {
 //
 type CfnApiMappingProps struct {
 	// The identifier of the API.
-	ApiId *string `json:"apiId" yaml:"apiId"`
+	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`
 	// The domain name.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 	// The API stage.
-	Stage *string `json:"stage" yaml:"stage"`
+	Stage *string `field:"required" json:"stage" yaml:"stage"`
 	// The API mapping key.
-	ApiMappingKey *string `json:"apiMappingKey" yaml:"apiMappingKey"`
+	ApiMappingKey *string `field:"optional" json:"apiMappingKey" yaml:"apiMappingKey"`
 }
 
 // Properties for defining a `CfnApi`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var body interface{}
 //   var tags interface{}
+//
 //   cfnApiProps := &cfnApiProps{
 //   	apiKeySelectionExpression: jsii.String("apiKeySelectionExpression"),
 //   	basePath: jsii.String("basePath"),
@@ -3404,67 +3456,67 @@ type CfnApiProps struct {
 	// An API key selection expression.
 	//
 	// Supported only for WebSocket APIs. See [API Key Selection Expressions](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions) .
-	ApiKeySelectionExpression *string `json:"apiKeySelectionExpression" yaml:"apiKeySelectionExpression"`
+	ApiKeySelectionExpression *string `field:"optional" json:"apiKeySelectionExpression" yaml:"apiKeySelectionExpression"`
 	// Specifies how to interpret the base path of the API during import.
 	//
 	// Valid values are `ignore` , `prepend` , and `split` . The default value is `ignore` . To learn more, see [Set the OpenAPI basePath Property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api-basePath.html) . Supported only for HTTP APIs.
-	BasePath *string `json:"basePath" yaml:"basePath"`
+	BasePath *string `field:"optional" json:"basePath" yaml:"basePath"`
 	// The OpenAPI definition.
 	//
 	// Supported only for HTTP APIs. To import an HTTP API, you must specify a `Body` or `BodyS3Location` . If you specify a `Body` or `BodyS3Location` , don't specify CloudFormation resources such as `AWS::ApiGatewayV2::Authorizer` or `AWS::ApiGatewayV2::Route` . API Gateway doesn't support the combination of OpenAPI and CloudFormation resources.
-	Body interface{} `json:"body" yaml:"body"`
+	Body interface{} `field:"optional" json:"body" yaml:"body"`
 	// The S3 location of an OpenAPI definition.
 	//
 	// Supported only for HTTP APIs. To import an HTTP API, you must specify a `Body` or `BodyS3Location` . If you specify a `Body` or `BodyS3Location` , don't specify CloudFormation resources such as `AWS::ApiGatewayV2::Authorizer` or `AWS::ApiGatewayV2::Route` . API Gateway doesn't support the combination of OpenAPI and CloudFormation resources.
-	BodyS3Location interface{} `json:"bodyS3Location" yaml:"bodyS3Location"`
+	BodyS3Location interface{} `field:"optional" json:"bodyS3Location" yaml:"bodyS3Location"`
 	// A CORS configuration.
 	//
 	// Supported only for HTTP APIs. See [Configuring CORS](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html) for more information.
-	CorsConfiguration interface{} `json:"corsConfiguration" yaml:"corsConfiguration"`
+	CorsConfiguration interface{} `field:"optional" json:"corsConfiguration" yaml:"corsConfiguration"`
 	// This property is part of quick create.
 	//
 	// It specifies the credentials required for the integration, if any. For a Lambda integration, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify `arn:aws:iam::*:user/*` . To use resource-based permissions on supported AWS services, specify `null` . Currently, this property is not used for HTTP integrations. Supported only for HTTP APIs.
-	CredentialsArn *string `json:"credentialsArn" yaml:"credentialsArn"`
+	CredentialsArn *string `field:"optional" json:"credentialsArn" yaml:"credentialsArn"`
 	// The description of the API.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Specifies whether clients can invoke your API by using the default `execute-api` endpoint.
 	//
 	// By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.
-	DisableExecuteApiEndpoint interface{} `json:"disableExecuteApiEndpoint" yaml:"disableExecuteApiEndpoint"`
+	DisableExecuteApiEndpoint interface{} `field:"optional" json:"disableExecuteApiEndpoint" yaml:"disableExecuteApiEndpoint"`
 	// Avoid validating models when creating a deployment.
 	//
 	// Supported only for WebSocket APIs.
-	DisableSchemaValidation interface{} `json:"disableSchemaValidation" yaml:"disableSchemaValidation"`
+	DisableSchemaValidation interface{} `field:"optional" json:"disableSchemaValidation" yaml:"disableSchemaValidation"`
 	// Specifies whether to rollback the API creation when a warning is encountered.
 	//
 	// By default, API creation continues if a warning is encountered.
-	FailOnWarnings interface{} `json:"failOnWarnings" yaml:"failOnWarnings"`
+	FailOnWarnings interface{} `field:"optional" json:"failOnWarnings" yaml:"failOnWarnings"`
 	// The name of the API.
 	//
 	// Required unless you specify an OpenAPI definition for `Body` or `S3BodyLocation` .
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The API protocol.
 	//
 	// Valid values are `WEBSOCKET` or `HTTP` . Required unless you specify an OpenAPI definition for `Body` or `S3BodyLocation` .
-	ProtocolType *string `json:"protocolType" yaml:"protocolType"`
+	ProtocolType *string `field:"optional" json:"protocolType" yaml:"protocolType"`
 	// This property is part of quick create.
 	//
 	// If you don't specify a `routeKey` , a default route of `$default` is created. The `$default` route acts as a catch-all for any request made to your API, for a particular stage. The `$default` route key can't be modified. You can add routes after creating the API, and you can update the route keys of additional routes. Supported only for HTTP APIs.
-	RouteKey *string `json:"routeKey" yaml:"routeKey"`
+	RouteKey *string `field:"optional" json:"routeKey" yaml:"routeKey"`
 	// The route selection expression for the API.
 	//
 	// For HTTP APIs, the `routeSelectionExpression` must be `${request.method} ${request.path}` . If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.
-	RouteSelectionExpression *string `json:"routeSelectionExpression" yaml:"routeSelectionExpression"`
+	RouteSelectionExpression *string `field:"optional" json:"routeSelectionExpression" yaml:"routeSelectionExpression"`
 	// The collection of tags.
 	//
 	// Each tag element is associated with a given resource.
-	Tags interface{} `json:"tags" yaml:"tags"`
+	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
 	// This property is part of quick create.
 	//
 	// Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes. For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN. The type of the integration will be HTTP_PROXY or AWS_PROXY, respectively. Supported only for HTTP APIs.
-	Target *string `json:"target" yaml:"target"`
+	Target *string `field:"optional" json:"target" yaml:"target"`
 	// A version identifier for the API.
-	Version *string `json:"version" yaml:"version"`
+	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::Authorizer`.
@@ -3472,8 +3524,11 @@ type CfnApiProps struct {
 // The `AWS::ApiGatewayV2::Authorizer` resource creates an authorizer for a WebSocket API or an HTTP API. To learn more, see [Controlling and managing access to a WebSocket API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-control-access.html) and [Controlling and managing access to an HTTP API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-access-control.html) in the *API Gateway Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
-//   cfnAuthorizer := apigatewayv2.NewCfnAuthorizer(this, jsii.String("MyCfnAuthorizer"), &cfnAuthorizerProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnAuthorizer := awscdk.Aws_apigatewayv2.NewCfnAuthorizer(this, jsii.String("MyCfnAuthorizer"), &cfnAuthorizerProps{
 //   	apiId: jsii.String("apiId"),
 //   	authorizerType: jsii.String("authorizerType"),
 //   	name: jsii.String("name"),
@@ -4355,7 +4410,10 @@ func (c *jsiiProxy_CfnAuthorizer) ValidateProperties(_properties interface{}) {
 // Required for the `JWT` authorizer type. Supported only for HTTP APIs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   jWTConfigurationProperty := &jWTConfigurationProperty{
 //   	audience: []*string{
 //   		jsii.String("audience"),
@@ -4367,17 +4425,20 @@ type CfnAuthorizer_JWTConfigurationProperty struct {
 	// A list of the intended recipients of the JWT.
 	//
 	// A valid JWT must provide an `aud` that matches at least one entry in this list. See [RFC 7519](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc7519#section-4.1.3) . Required for the `JWT` authorizer type. Supported only for HTTP APIs.
-	Audience *[]*string `json:"audience" yaml:"audience"`
+	Audience *[]*string `field:"optional" json:"audience" yaml:"audience"`
 	// The base domain of the identity provider that issues JSON Web Tokens.
 	//
 	// For example, an Amazon Cognito user pool has the following format: `https://cognito-idp. {region} .amazonaws.com/ {userPoolId}` . Required for the `JWT` authorizer type. Supported only for HTTP APIs.
-	Issuer *string `json:"issuer" yaml:"issuer"`
+	Issuer *string `field:"optional" json:"issuer" yaml:"issuer"`
 }
 
 // Properties for defining a `CfnAuthorizer`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAuthorizerProps := &cfnAuthorizerProps{
 //   	apiId: jsii.String("apiId"),
 //   	authorizerType: jsii.String("authorizerType"),
@@ -4403,45 +4464,45 @@ type CfnAuthorizer_JWTConfigurationProperty struct {
 //
 type CfnAuthorizerProps struct {
 	// The API identifier.
-	ApiId *string `json:"apiId" yaml:"apiId"`
+	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`
 	// The authorizer type.
 	//
 	// Specify `REQUEST` for a Lambda function using incoming request parameters. Specify `JWT` to use JSON Web Tokens (supported only for HTTP APIs).
-	AuthorizerType *string `json:"authorizerType" yaml:"authorizerType"`
+	AuthorizerType *string `field:"required" json:"authorizerType" yaml:"authorizerType"`
 	// The name of the authorizer.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer.
 	//
 	// To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null. Supported only for `REQUEST` authorizers.
-	AuthorizerCredentialsArn *string `json:"authorizerCredentialsArn" yaml:"authorizerCredentialsArn"`
+	AuthorizerCredentialsArn *string `field:"optional" json:"authorizerCredentialsArn" yaml:"authorizerCredentialsArn"`
 	// Specifies the format of the payload sent to an HTTP API Lambda authorizer.
 	//
 	// Required for HTTP API Lambda authorizers. Supported values are `1.0` and `2.0` . To learn more, see [Working with AWS Lambda authorizers for HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html) .
-	AuthorizerPayloadFormatVersion *string `json:"authorizerPayloadFormatVersion" yaml:"authorizerPayloadFormatVersion"`
+	AuthorizerPayloadFormatVersion *string `field:"optional" json:"authorizerPayloadFormatVersion" yaml:"authorizerPayloadFormatVersion"`
 	// The time to live (TTL) for cached authorizer results, in seconds.
 	//
 	// If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Supported only for HTTP API Lambda authorizers.
-	AuthorizerResultTtlInSeconds *float64 `json:"authorizerResultTtlInSeconds" yaml:"authorizerResultTtlInSeconds"`
+	AuthorizerResultTtlInSeconds *float64 `field:"optional" json:"authorizerResultTtlInSeconds" yaml:"authorizerResultTtlInSeconds"`
 	// The authorizer's Uniform Resource Identifier (URI).
 	//
 	// For `REQUEST` authorizers, this must be a well-formed Lambda function URI, for example, `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2: *{account_id}* :function: *{lambda_function_name}* /invocations` . In general, the URI has this form: `arn:aws:apigateway: *{region}* :lambda:path/ *{service_api}*` , where *{region}* is the same as the region hosting the Lambda function, path indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial `/` . For Lambda functions, this is usually of the form `/2015-03-31/functions/[FunctionARN]/invocations` .
-	AuthorizerUri *string `json:"authorizerUri" yaml:"authorizerUri"`
+	AuthorizerUri *string `field:"optional" json:"authorizerUri" yaml:"authorizerUri"`
 	// Specifies whether a Lambda authorizer returns a response in a simple format.
 	//
 	// By default, a Lambda authorizer must return an IAM policy. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy. Supported only for HTTP APIs. To learn more, see [Working with AWS Lambda authorizers for HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html) .
-	EnableSimpleResponses interface{} `json:"enableSimpleResponses" yaml:"enableSimpleResponses"`
+	EnableSimpleResponses interface{} `field:"optional" json:"enableSimpleResponses" yaml:"enableSimpleResponses"`
 	// The identity source for which authorization is requested.
 	//
 	// For a `REQUEST` authorizer, this is optional. The value is a set of one or more mapping expressions of the specified request parameters. The identity source can be headers, query string parameters, stage variables, and context parameters. For example, if an Auth header and a Name query string parameter are defined as identity sources, this value is route.request.header.Auth, route.request.querystring.Name for WebSocket APIs. For HTTP APIs, use selection expressions prefixed with `$` , for example, `$request.header.Auth` , `$request.querystring.Name` . These parameters are used to perform runtime validation for Lambda-based authorizers by verifying all of the identity-related request parameters are present in the request, not null, and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function. Otherwise, it returns a 401 Unauthorized response without calling the Lambda function. For HTTP APIs, identity sources are also used as the cache key when caching is enabled. To learn more, see [Working with AWS Lambda authorizers for HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html) .
 	//
 	// For `JWT` , a single entry that specifies where to extract the JSON Web Token (JWT) from inbound requests. Currently only header-based and query parameter-based selections are supported, for example `$request.header.Authorization` .
-	IdentitySource *[]*string `json:"identitySource" yaml:"identitySource"`
+	IdentitySource *[]*string `field:"optional" json:"identitySource" yaml:"identitySource"`
 	// This parameter is not used.
-	IdentityValidationExpression *string `json:"identityValidationExpression" yaml:"identityValidationExpression"`
+	IdentityValidationExpression *string `field:"optional" json:"identityValidationExpression" yaml:"identityValidationExpression"`
 	// The `JWTConfiguration` property specifies the configuration of a JWT authorizer.
 	//
 	// Required for the `JWT` authorizer type. Supported only for HTTP APIs.
-	JwtConfiguration interface{} `json:"jwtConfiguration" yaml:"jwtConfiguration"`
+	JwtConfiguration interface{} `field:"optional" json:"jwtConfiguration" yaml:"jwtConfiguration"`
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::Deployment`.
@@ -4449,8 +4510,11 @@ type CfnAuthorizerProps struct {
 // The `AWS::ApiGatewayV2::Deployment` resource creates a deployment for an API.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
-//   cfnDeployment := apigatewayv2.NewCfnDeployment(this, jsii.String("MyCfnDeployment"), &cfnDeploymentProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDeployment := awscdk.Aws_apigatewayv2.NewCfnDeployment(this, jsii.String("MyCfnDeployment"), &cfnDeploymentProps{
 //   	apiId: jsii.String("apiId"),
 //
 //   	// the properties below are optional
@@ -5129,7 +5193,10 @@ func (c *jsiiProxy_CfnDeployment) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnDeployment`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDeploymentProps := &cfnDeploymentProps{
 //   	apiId: jsii.String("apiId"),
 //
@@ -5140,11 +5207,11 @@ func (c *jsiiProxy_CfnDeployment) ValidateProperties(_properties interface{}) {
 //
 type CfnDeploymentProps struct {
 	// The API identifier.
-	ApiId *string `json:"apiId" yaml:"apiId"`
+	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`
 	// The description for the deployment resource.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of an existing stage to associate with the deployment.
-	StageName *string `json:"stageName" yaml:"stageName"`
+	StageName *string `field:"optional" json:"stageName" yaml:"stageName"`
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::DomainName`.
@@ -5154,10 +5221,13 @@ type CfnDeploymentProps struct {
 // You can use a custom domain name to provide a URL that's more intuitive and easier to recall. For more information about using custom domain names, see [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html) in the *API Gateway Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var tags interface{}
-//   cfnDomainName := apigatewayv2.NewCfnDomainName(this, jsii.String("MyCfnDomainName"), &cfnDomainNameProps{
+//
+//   cfnDomainName := awscdk.Aws_apigatewayv2.NewCfnDomainName(this, jsii.String("MyCfnDomainName"), &cfnDomainNameProps{
 //   	domainName: jsii.String("domainName"),
 //
 //   	// the properties below are optional
@@ -5890,7 +5960,10 @@ func (c *jsiiProxy_CfnDomainName) ValidateProperties(_properties interface{}) {
 // `DomainNameConfiguration` is a property of the [AWS::ApiGatewayV2::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html) resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   domainNameConfigurationProperty := &domainNameConfigurationProperty{
 //   	certificateArn: jsii.String("certificateArn"),
 //   	certificateName: jsii.String("certificateName"),
@@ -5903,19 +5976,19 @@ type CfnDomainName_DomainNameConfigurationProperty struct {
 	// An AWS -managed certificate that will be used by the edge-optimized endpoint for this domain name.
 	//
 	// AWS Certificate Manager is the only supported source.
-	CertificateArn *string `json:"certificateArn" yaml:"certificateArn"`
+	CertificateArn *string `field:"optional" json:"certificateArn" yaml:"certificateArn"`
 	// The user-friendly name of the certificate that will be used by the edge-optimized endpoint for this domain name.
-	CertificateName *string `json:"certificateName" yaml:"certificateName"`
+	CertificateName *string `field:"optional" json:"certificateName" yaml:"certificateName"`
 	// The endpoint type.
-	EndpointType *string `json:"endpointType" yaml:"endpointType"`
+	EndpointType *string `field:"optional" json:"endpointType" yaml:"endpointType"`
 	// The ARN of the public certificate issued by ACM to validate ownership of your custom domain.
 	//
 	// Only required when configuring mutual TLS and using an ACM imported or private CA certificate ARN as the RegionalCertificateArn.
-	OwnershipVerificationCertificateArn *string `json:"ownershipVerificationCertificateArn" yaml:"ownershipVerificationCertificateArn"`
+	OwnershipVerificationCertificateArn *string `field:"optional" json:"ownershipVerificationCertificateArn" yaml:"ownershipVerificationCertificateArn"`
 	// The Transport Layer Security (TLS) version of the security policy for this domain name.
 	//
 	// The valid values are `TLS_1_0` and `TLS_1_2` .
-	SecurityPolicy *string `json:"securityPolicy" yaml:"securityPolicy"`
+	SecurityPolicy *string `field:"optional" json:"securityPolicy" yaml:"securityPolicy"`
 }
 
 // If specified, API Gateway performs two-way authentication between the client and the server.
@@ -5923,7 +5996,10 @@ type CfnDomainName_DomainNameConfigurationProperty struct {
 // Clients must present a trusted certificate to access your API.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   mutualTlsAuthenticationProperty := &mutualTlsAuthenticationProperty{
 //   	truststoreUri: jsii.String("truststoreUri"),
 //   	truststoreVersion: jsii.String("truststoreVersion"),
@@ -5933,19 +6009,22 @@ type CfnDomainName_MutualTlsAuthenticationProperty struct {
 	// An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3:// bucket-name / key-name` .
 	//
 	// The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version. To update the truststore, you must have permissions to access the S3 object.
-	TruststoreUri *string `json:"truststoreUri" yaml:"truststoreUri"`
+	TruststoreUri *string `field:"optional" json:"truststoreUri" yaml:"truststoreUri"`
 	// The version of the S3 object that contains your truststore.
 	//
 	// To specify a version, you must have versioning enabled for the S3 bucket.
-	TruststoreVersion *string `json:"truststoreVersion" yaml:"truststoreVersion"`
+	TruststoreVersion *string `field:"optional" json:"truststoreVersion" yaml:"truststoreVersion"`
 }
 
 // Properties for defining a `CfnDomainName`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var tags interface{}
+//
 //   cfnDomainNameProps := &cfnDomainNameProps{
 //   	domainName: jsii.String("domainName"),
 //
@@ -5970,13 +6049,13 @@ type CfnDomainNameProps struct {
 	// The custom domain name for your API in Amazon API Gateway.
 	//
 	// Uppercase letters are not supported.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 	// The domain name configurations.
-	DomainNameConfigurations interface{} `json:"domainNameConfigurations" yaml:"domainNameConfigurations"`
+	DomainNameConfigurations interface{} `field:"optional" json:"domainNameConfigurations" yaml:"domainNameConfigurations"`
 	// The mutual TLS authentication configuration for a custom domain name.
-	MutualTlsAuthentication interface{} `json:"mutualTlsAuthentication" yaml:"mutualTlsAuthentication"`
+	MutualTlsAuthentication interface{} `field:"optional" json:"mutualTlsAuthentication" yaml:"mutualTlsAuthentication"`
 	// The collection of tags associated with a domain name.
-	Tags interface{} `json:"tags" yaml:"tags"`
+	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::Integration`.
@@ -5984,12 +6063,15 @@ type CfnDomainNameProps struct {
 // The `AWS::ApiGatewayV2::Integration` resource creates an integration for an API.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var requestParameters interface{}
 //   var requestTemplates interface{}
 //   var responseParameters interface{}
-//   cfnIntegration := apigatewayv2.NewCfnIntegration(this, jsii.String("MyCfnIntegration"), &cfnIntegrationProps{
+//
+//   cfnIntegration := awscdk.Aws_apigatewayv2.NewCfnIntegration(this, jsii.String("MyCfnIntegration"), &cfnIntegrationProps{
 //   	apiId: jsii.String("apiId"),
 //   	integrationType: jsii.String("integrationType"),
 //
@@ -7056,7 +7138,10 @@ func (c *jsiiProxy_CfnIntegration) ValidateProperties(_properties interface{}) {
 // Specifies a list of response parameters for an HTTP API.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   responseParameterListProperty := &responseParameterListProperty{
 //   	responseParameters: []interface{}{
 //   		&responseParameterProperty{
@@ -7070,7 +7155,7 @@ type CfnIntegration_ResponseParameterListProperty struct {
 	// Supported only for HTTP APIs.
 	//
 	// You use response parameters to transform the HTTP response from a backend integration before returning the response to clients. Specify a key-value map from a selection key to response parameters. The selection key must be a valid HTTP status code within the range of 200-599. Response parameters are a key-value map. The key must match the pattern `<action>:<header>.<location>` or `overwrite.statuscode` . The action can be `append` , `overwrite` or `remove` . The value can be a static value, or map to response data, stage variables, or context variables that are evaluated at runtime. To learn more, see [Transforming API requests and responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) .
-	ResponseParameters interface{} `json:"responseParameters" yaml:"responseParameters"`
+	ResponseParameters interface{} `field:"optional" json:"responseParameters" yaml:"responseParameters"`
 }
 
 // Supported only for HTTP APIs.
@@ -7078,7 +7163,10 @@ type CfnIntegration_ResponseParameterListProperty struct {
 // You use response parameters to transform the HTTP response from a backend integration before returning the response to clients. Specify a key-value map from a selection key to response parameters. The selection key must be a valid HTTP status code within the range of 200-599. Response parameters are a key-value map. The key must match the pattern `<action>:<header>.<location>` or `overwrite.statuscode` . The action can be `append` , `overwrite` or `remove` . The value can be a static value, or map to response data, stage variables, or context variables that are evaluated at runtime. To learn more, see [Transforming API requests and responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   responseParameterProperty := &responseParameterProperty{
 //   	destination: jsii.String("destination"),
 //   	source: jsii.String("source"),
@@ -7088,11 +7176,11 @@ type CfnIntegration_ResponseParameterProperty struct {
 	// Specifies the location of the response to modify, and how to modify it.
 	//
 	// To learn more, see [Transforming API requests and responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) .
-	Destination *string `json:"destination" yaml:"destination"`
+	Destination *string `field:"required" json:"destination" yaml:"destination"`
 	// Specifies the data to update the parameter with.
 	//
 	// To learn more, see [Transforming API requests and responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) .
-	Source *string `json:"source" yaml:"source"`
+	Source *string `field:"required" json:"source" yaml:"source"`
 }
 
 // The `TlsConfig` property specifies the TLS configuration for a private integration.
@@ -7100,7 +7188,10 @@ type CfnIntegration_ResponseParameterProperty struct {
 // If you specify a TLS configuration, private integration traffic uses the HTTPS protocol. Supported only for HTTP APIs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tlsConfigProperty := &tlsConfigProperty{
 //   	serverNameToVerify: jsii.String("serverNameToVerify"),
 //   }
@@ -7109,17 +7200,20 @@ type CfnIntegration_TlsConfigProperty struct {
 	// If you specify a server name, API Gateway uses it to verify the hostname on the integration's certificate.
 	//
 	// The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.
-	ServerNameToVerify *string `json:"serverNameToVerify" yaml:"serverNameToVerify"`
+	ServerNameToVerify *string `field:"optional" json:"serverNameToVerify" yaml:"serverNameToVerify"`
 }
 
 // Properties for defining a `CfnIntegration`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var requestParameters interface{}
 //   var requestTemplates interface{}
 //   var responseParameters interface{}
+//
 //   cfnIntegrationProps := &cfnIntegrationProps{
 //   	apiId: jsii.String("apiId"),
 //   	integrationType: jsii.String("integrationType"),
@@ -7147,7 +7241,7 @@ type CfnIntegration_TlsConfigProperty struct {
 //
 type CfnIntegrationProps struct {
 	// The API identifier.
-	ApiId *string `json:"apiId" yaml:"apiId"`
+	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`
 	// The integration type of an integration. One of the following:.
 	//
 	// `AWS` : for integrating the route or method request with an AWS service action, including the Lambda function-invoking action. With the Lambda function-invoking action, this is referred to as the Lambda custom integration. With any other AWS service action, this is known as AWS integration. Supported only for WebSocket APIs.
@@ -7159,15 +7253,15 @@ type CfnIntegrationProps struct {
 	// `HTTP_PROXY` : for integrating the route or method request with an HTTP endpoint, with the client request passed through as-is. This is also referred to as HTTP proxy integration. For HTTP API private integrations, use an `HTTP_PROXY` integration.
 	//
 	// `MOCK` : for integrating the route or method request with API Gateway as a "loopback" endpoint without invoking any backend. Supported only for WebSocket APIs.
-	IntegrationType *string `json:"integrationType" yaml:"integrationType"`
+	IntegrationType *string `field:"required" json:"integrationType" yaml:"integrationType"`
 	// The ID of the VPC link for a private integration.
 	//
 	// Supported only for HTTP APIs.
-	ConnectionId *string `json:"connectionId" yaml:"connectionId"`
+	ConnectionId *string `field:"optional" json:"connectionId" yaml:"connectionId"`
 	// The type of the network connection to the integration endpoint.
 	//
 	// Specify `INTERNET` for connections through the public routable internet or `VPC_LINK` for private connections between API Gateway and resources in a VPC. The default value is `INTERNET` .
-	ConnectionType *string `json:"connectionType" yaml:"connectionType"`
+	ConnectionType *string `field:"optional" json:"connectionType" yaml:"connectionType"`
 	// Supported only for WebSocket APIs.
 	//
 	// Specifies how to handle response payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT` , with the following behaviors:
@@ -7177,25 +7271,25 @@ type CfnIntegrationProps struct {
 	// `CONVERT_TO_TEXT` : Converts a response payload from a binary blob to a Base64-encoded string.
 	//
 	// If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.
-	ContentHandlingStrategy *string `json:"contentHandlingStrategy" yaml:"contentHandlingStrategy"`
+	ContentHandlingStrategy *string `field:"optional" json:"contentHandlingStrategy" yaml:"contentHandlingStrategy"`
 	// Specifies the credentials required for the integration, if any.
 	//
 	// For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string `arn:aws:iam::*:user/*` . To use resource-based permissions on supported AWS services, don't specify this parameter.
-	CredentialsArn *string `json:"credentialsArn" yaml:"credentialsArn"`
+	CredentialsArn *string `field:"optional" json:"credentialsArn" yaml:"credentialsArn"`
 	// The description of the integration.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Specifies the integration's HTTP method type.
-	IntegrationMethod *string `json:"integrationMethod" yaml:"integrationMethod"`
+	IntegrationMethod *string `field:"optional" json:"integrationMethod" yaml:"integrationMethod"`
 	// Supported only for HTTP API `AWS_PROXY` integrations.
 	//
 	// Specifies the AWS service action to invoke. To learn more, see [Integration subtype reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) .
-	IntegrationSubtype *string `json:"integrationSubtype" yaml:"integrationSubtype"`
+	IntegrationSubtype *string `field:"optional" json:"integrationSubtype" yaml:"integrationSubtype"`
 	// For a Lambda integration, specify the URI of a Lambda function.
 	//
 	// For an HTTP integration, specify a fully-qualified URL.
 	//
 	// For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service. If you specify the ARN of an AWS Cloud Map service, API Gateway uses `DiscoverInstances` to identify resources. You can use query parameters to target specific resources. To learn more, see [DiscoverInstances](https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstances.html) . For private integrations, all resources must be owned by the same AWS account .
-	IntegrationUri *string `json:"integrationUri" yaml:"integrationUri"`
+	IntegrationUri *string `field:"optional" json:"integrationUri" yaml:"integrationUri"`
 	// Specifies the pass-through behavior for incoming requests based on the `Content-Type` header in the request, and the available mapping templates specified as the `requestTemplates` property on the `Integration` resource.
 	//
 	// There are three valid values: `WHEN_NO_MATCH` , `WHEN_NO_TEMPLATES` , and `NEVER` . Supported only for WebSocket APIs.
@@ -7205,11 +7299,11 @@ type CfnIntegrationProps struct {
 	// `NEVER` rejects unmapped content types with an `HTTP 415 Unsupported Media Type` response.
 	//
 	// `WHEN_NO_TEMPLATES` allows pass-through when the integration has no content types mapped to templates. However, if there is at least one content type defined, unmapped content types will be rejected with the same `HTTP 415 Unsupported Media Type` response.
-	PassthroughBehavior *string `json:"passthroughBehavior" yaml:"passthroughBehavior"`
+	PassthroughBehavior *string `field:"optional" json:"passthroughBehavior" yaml:"passthroughBehavior"`
 	// Specifies the format of the payload sent to an integration.
 	//
 	// Required for HTTP APIs. For HTTP APIs, supported values for Lambda proxy integrations are `1.0` and `2.0` . For all other integrations, `1.0` is the only supported value. To learn more, see [Working with AWS Lambda proxy integrations for HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html) .
-	PayloadFormatVersion *string `json:"payloadFormatVersion" yaml:"payloadFormatVersion"`
+	PayloadFormatVersion *string `field:"optional" json:"payloadFormatVersion" yaml:"payloadFormatVersion"`
 	// For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend.
 	//
 	// The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the backend. The method request parameter value must match the pattern of `method.request. {location} . {name}` , where `{location}` is `querystring` , `path` , or `header` ; and `{name}` must be a valid and unique method request parameter name.
@@ -7217,27 +7311,27 @@ type CfnIntegrationProps struct {
 	// For HTTP API integrations with a specified `integrationSubtype` , request parameters are a key-value map specifying parameters that are passed to `AWS_PROXY` integrations. You can provide static values, or map request data, stage variables, or context variables that are evaluated at runtime. To learn more, see [Working with AWS service integrations for HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services.html) .
 	//
 	// For HTTP API integrations without a specified `integrationSubtype` request parameters are a key-value map specifying how to transform HTTP requests before sending them to the backend. The key should follow the pattern <action>:<header|querystring|path>.<location> where action can be `append` , `overwrite` or `remove` . For values, you can provide static values, or map request data, stage variables, or context variables that are evaluated at runtime. To learn more, see [Transforming API requests and responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) .
-	RequestParameters interface{} `json:"requestParameters" yaml:"requestParameters"`
+	RequestParameters interface{} `field:"optional" json:"requestParameters" yaml:"requestParameters"`
 	// Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
 	//
 	// The content type value is the key in this map, and the template (as a String) is the value. Supported only for WebSocket APIs.
-	RequestTemplates interface{} `json:"requestTemplates" yaml:"requestTemplates"`
+	RequestTemplates interface{} `field:"optional" json:"requestTemplates" yaml:"requestTemplates"`
 	// Supported only for HTTP APIs.
 	//
 	// You use response parameters to transform the HTTP response from a backend integration before returning the response to clients. Specify a key-value map from a selection key to response parameters. The selection key must be a valid HTTP status code within the range of 200-599. The value is of type [`ResponseParameterList`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-responseparameterlist.html) . To learn more, see [Transforming API requests and responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) .
-	ResponseParameters interface{} `json:"responseParameters" yaml:"responseParameters"`
+	ResponseParameters interface{} `field:"optional" json:"responseParameters" yaml:"responseParameters"`
 	// The template selection expression for the integration.
 	//
 	// Supported only for WebSocket APIs.
-	TemplateSelectionExpression *string `json:"templateSelectionExpression" yaml:"templateSelectionExpression"`
+	TemplateSelectionExpression *string `field:"optional" json:"templateSelectionExpression" yaml:"templateSelectionExpression"`
 	// Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs.
 	//
 	// The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
-	TimeoutInMillis *float64 `json:"timeoutInMillis" yaml:"timeoutInMillis"`
+	TimeoutInMillis *float64 `field:"optional" json:"timeoutInMillis" yaml:"timeoutInMillis"`
 	// The TLS configuration for a private integration.
 	//
 	// If you specify a TLS configuration, private integration traffic uses the HTTPS protocol. Supported only for HTTP APIs.
-	TlsConfig interface{} `json:"tlsConfig" yaml:"tlsConfig"`
+	TlsConfig interface{} `field:"optional" json:"tlsConfig" yaml:"tlsConfig"`
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::IntegrationResponse`.
@@ -7245,11 +7339,14 @@ type CfnIntegrationProps struct {
 // The `AWS::ApiGatewayV2::IntegrationResponse` resource updates an integration response for an WebSocket API. For more information, see [Set up WebSocket API Integration Responses in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-integration-responses.html) in the *API Gateway Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var responseParameters interface{}
 //   var responseTemplates interface{}
-//   cfnIntegrationResponse := apigatewayv2.NewCfnIntegrationResponse(this, jsii.String("MyCfnIntegrationResponse"), &cfnIntegrationResponseProps{
+//
+//   cfnIntegrationResponse := awscdk.Aws_apigatewayv2.NewCfnIntegrationResponse(this, jsii.String("MyCfnIntegrationResponse"), &cfnIntegrationResponseProps{
 //   	apiId: jsii.String("apiId"),
 //   	integrationId: jsii.String("integrationId"),
 //   	integrationResponseKey: jsii.String("integrationResponseKey"),
@@ -8030,10 +8127,13 @@ func (c *jsiiProxy_CfnIntegrationResponse) ValidateProperties(_properties interf
 // Properties for defining a `CfnIntegrationResponse`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var responseParameters interface{}
 //   var responseTemplates interface{}
+//
 //   cfnIntegrationResponseProps := &cfnIntegrationResponseProps{
 //   	apiId: jsii.String("apiId"),
 //   	integrationId: jsii.String("integrationId"),
@@ -8048,11 +8148,11 @@ func (c *jsiiProxy_CfnIntegrationResponse) ValidateProperties(_properties interf
 //
 type CfnIntegrationResponseProps struct {
 	// The API identifier.
-	ApiId *string `json:"apiId" yaml:"apiId"`
+	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`
 	// The integration ID.
-	IntegrationId *string `json:"integrationId" yaml:"integrationId"`
+	IntegrationId *string `field:"required" json:"integrationId" yaml:"integrationId"`
 	// The integration response key.
-	IntegrationResponseKey *string `json:"integrationResponseKey" yaml:"integrationResponseKey"`
+	IntegrationResponseKey *string `field:"required" json:"integrationResponseKey" yaml:"integrationResponseKey"`
 	// Supported only for WebSocket APIs.
 	//
 	// Specifies how to handle response payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT` , with the following behaviors:
@@ -8062,19 +8162,19 @@ type CfnIntegrationResponseProps struct {
 	// `CONVERT_TO_TEXT` : Converts a response payload from a binary blob to a Base64-encoded string.
 	//
 	// If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.
-	ContentHandlingStrategy *string `json:"contentHandlingStrategy" yaml:"contentHandlingStrategy"`
+	ContentHandlingStrategy *string `field:"optional" json:"contentHandlingStrategy" yaml:"contentHandlingStrategy"`
 	// A key-value map specifying response parameters that are passed to the method response from the backend.
 	//
 	// The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of `method.response.header. *{name}*` , where name is a valid and unique header name. The mapped non-static value must match the pattern of `integration.response.header. *{name}*` or `integration.response.body. *{JSON-expression}*` , where `*{name}*` is a valid and unique response header name and `*{JSON-expression}*` is a valid JSON expression without the `$` prefix.
-	ResponseParameters interface{} `json:"responseParameters" yaml:"responseParameters"`
+	ResponseParameters interface{} `field:"optional" json:"responseParameters" yaml:"responseParameters"`
 	// The collection of response templates for the integration response as a string-to-string map of key-value pairs.
 	//
 	// Response templates are represented as a key/value map, with a content-type as the key and a template as the value.
-	ResponseTemplates interface{} `json:"responseTemplates" yaml:"responseTemplates"`
+	ResponseTemplates interface{} `field:"optional" json:"responseTemplates" yaml:"responseTemplates"`
 	// The template selection expression for the integration response.
 	//
 	// Supported only for WebSocket APIs.
-	TemplateSelectionExpression *string `json:"templateSelectionExpression" yaml:"templateSelectionExpression"`
+	TemplateSelectionExpression *string `field:"optional" json:"templateSelectionExpression" yaml:"templateSelectionExpression"`
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::Model`.
@@ -8082,10 +8182,13 @@ type CfnIntegrationResponseProps struct {
 // The `AWS::ApiGatewayV2::Model` resource updates data model for a WebSocket API. For more information, see [Model Selection Expressions](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) in the *API Gateway Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var schema interface{}
-//   cfnModel := apigatewayv2.NewCfnModel(this, jsii.String("MyCfnModel"), &cfnModelProps{
+//
+//   cfnModel := awscdk.Aws_apigatewayv2.NewCfnModel(this, jsii.String("MyCfnModel"), &cfnModelProps{
 //   	apiId: jsii.String("apiId"),
 //   	name: jsii.String("name"),
 //   	schema: schema,
@@ -8810,9 +8913,12 @@ func (c *jsiiProxy_CfnModel) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnModel`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var schema interface{}
+//
 //   cfnModelProps := &cfnModelProps{
 //   	apiId: jsii.String("apiId"),
 //   	name: jsii.String("name"),
@@ -8825,17 +8931,17 @@ func (c *jsiiProxy_CfnModel) ValidateProperties(_properties interface{}) {
 //
 type CfnModelProps struct {
 	// The API identifier.
-	ApiId *string `json:"apiId" yaml:"apiId"`
+	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`
 	// The name of the model.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The schema for the model.
 	//
 	// For application/json models, this should be JSON schema draft 4 model.
-	Schema interface{} `json:"schema" yaml:"schema"`
+	Schema interface{} `field:"required" json:"schema" yaml:"schema"`
 	// The content-type for the model, for example, "application/json".
-	ContentType *string `json:"contentType" yaml:"contentType"`
+	ContentType *string `field:"optional" json:"contentType" yaml:"contentType"`
 	// The description of the model.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::Route`.
@@ -8843,11 +8949,14 @@ type CfnModelProps struct {
 // The `AWS::ApiGatewayV2::Route` resource creates a route for an API.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var requestModels interface{}
 //   var requestParameters interface{}
-//   cfnRoute := apigatewayv2.NewCfnRoute(this, jsii.String("MyCfnRoute"), &cfnRouteProps{
+//
+//   cfnRoute := awscdk.Aws_apigatewayv2.NewCfnRoute(this, jsii.String("MyCfnRoute"), &cfnRouteProps{
 //   	apiId: jsii.String("apiId"),
 //   	routeKey: jsii.String("routeKey"),
 //
@@ -9742,23 +9851,29 @@ func (c *jsiiProxy_CfnRoute) ValidateProperties(_properties interface{}) {
 // Specifies whether the parameter is required.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   parameterConstraintsProperty := &parameterConstraintsProperty{
 //   	required: jsii.Boolean(false),
 //   }
 //
 type CfnRoute_ParameterConstraintsProperty struct {
 	// Specifies whether the parameter is required.
-	Required interface{} `json:"required" yaml:"required"`
+	Required interface{} `field:"required" json:"required" yaml:"required"`
 }
 
 // Properties for defining a `CfnRoute`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var requestModels interface{}
 //   var requestParameters interface{}
+//
 //   cfnRouteProps := &cfnRouteProps{
 //   	apiId: jsii.String("apiId"),
 //   	routeKey: jsii.String("routeKey"),
@@ -9780,45 +9895,45 @@ type CfnRoute_ParameterConstraintsProperty struct {
 //
 type CfnRouteProps struct {
 	// The API identifier.
-	ApiId *string `json:"apiId" yaml:"apiId"`
+	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`
 	// The route key for the route.
 	//
 	// For HTTP APIs, the route key can be either `$default` , or a combination of an HTTP method and resource path, for example, `GET /pets` .
-	RouteKey *string `json:"routeKey" yaml:"routeKey"`
+	RouteKey *string `field:"required" json:"routeKey" yaml:"routeKey"`
 	// Specifies whether an API key is required for the route.
 	//
 	// Supported only for WebSocket APIs.
-	ApiKeyRequired interface{} `json:"apiKeyRequired" yaml:"apiKeyRequired"`
+	ApiKeyRequired interface{} `field:"optional" json:"apiKeyRequired" yaml:"apiKeyRequired"`
 	// The authorization scopes supported by this route.
-	AuthorizationScopes *[]*string `json:"authorizationScopes" yaml:"authorizationScopes"`
+	AuthorizationScopes *[]*string `field:"optional" json:"authorizationScopes" yaml:"authorizationScopes"`
 	// The authorization type for the route.
 	//
 	// For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer. For HTTP APIs, valid values are `NONE` for open access, `JWT` for using JSON Web Tokens, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
-	AuthorizationType *string `json:"authorizationType" yaml:"authorizationType"`
+	AuthorizationType *string `field:"optional" json:"authorizationType" yaml:"authorizationType"`
 	// The identifier of the `Authorizer` resource to be associated with this route.
 	//
 	// The authorizer identifier is generated by API Gateway when you created the authorizer.
-	AuthorizerId *string `json:"authorizerId" yaml:"authorizerId"`
+	AuthorizerId *string `field:"optional" json:"authorizerId" yaml:"authorizerId"`
 	// The model selection expression for the route.
 	//
 	// Supported only for WebSocket APIs.
-	ModelSelectionExpression *string `json:"modelSelectionExpression" yaml:"modelSelectionExpression"`
+	ModelSelectionExpression *string `field:"optional" json:"modelSelectionExpression" yaml:"modelSelectionExpression"`
 	// The operation name for the route.
-	OperationName *string `json:"operationName" yaml:"operationName"`
+	OperationName *string `field:"optional" json:"operationName" yaml:"operationName"`
 	// The request models for the route.
 	//
 	// Supported only for WebSocket APIs.
-	RequestModels interface{} `json:"requestModels" yaml:"requestModels"`
+	RequestModels interface{} `field:"optional" json:"requestModels" yaml:"requestModels"`
 	// The request parameters for the route.
 	//
 	// Supported only for WebSocket APIs.
-	RequestParameters interface{} `json:"requestParameters" yaml:"requestParameters"`
+	RequestParameters interface{} `field:"optional" json:"requestParameters" yaml:"requestParameters"`
 	// The route response selection expression for the route.
 	//
 	// Supported only for WebSocket APIs.
-	RouteResponseSelectionExpression *string `json:"routeResponseSelectionExpression" yaml:"routeResponseSelectionExpression"`
+	RouteResponseSelectionExpression *string `field:"optional" json:"routeResponseSelectionExpression" yaml:"routeResponseSelectionExpression"`
 	// The target for the route.
-	Target *string `json:"target" yaml:"target"`
+	Target *string `field:"optional" json:"target" yaml:"target"`
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::RouteResponse`.
@@ -9826,11 +9941,14 @@ type CfnRouteProps struct {
 // The `AWS::ApiGatewayV2::RouteResponse` resource creates a route response for a WebSocket API. For more information, see [Set up Route Responses for a WebSocket API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-route-response.html) in the *API Gateway Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var responseModels interface{}
 //   var responseParameters interface{}
-//   cfnRouteResponse := apigatewayv2.NewCfnRouteResponse(this, jsii.String("MyCfnRouteResponse"), &cfnRouteResponseProps{
+//
+//   cfnRouteResponse := awscdk.Aws_apigatewayv2.NewCfnRouteResponse(this, jsii.String("MyCfnRouteResponse"), &cfnRouteResponseProps{
 //   	apiId: jsii.String("apiId"),
 //   	routeId: jsii.String("routeId"),
 //   	routeResponseKey: jsii.String("routeResponseKey"),
@@ -10577,23 +10695,29 @@ func (c *jsiiProxy_CfnRouteResponse) ValidateProperties(_properties interface{})
 // Specifies whether the parameter is required.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   parameterConstraintsProperty := &parameterConstraintsProperty{
 //   	required: jsii.Boolean(false),
 //   }
 //
 type CfnRouteResponse_ParameterConstraintsProperty struct {
 	// Specifies whether the parameter is required.
-	Required interface{} `json:"required" yaml:"required"`
+	Required interface{} `field:"required" json:"required" yaml:"required"`
 }
 
 // Properties for defining a `CfnRouteResponse`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var responseModels interface{}
 //   var responseParameters interface{}
+//
 //   cfnRouteResponseProps := &cfnRouteResponseProps{
 //   	apiId: jsii.String("apiId"),
 //   	routeId: jsii.String("routeId"),
@@ -10607,19 +10731,19 @@ type CfnRouteResponse_ParameterConstraintsProperty struct {
 //
 type CfnRouteResponseProps struct {
 	// The API identifier.
-	ApiId *string `json:"apiId" yaml:"apiId"`
+	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`
 	// The route ID.
-	RouteId *string `json:"routeId" yaml:"routeId"`
+	RouteId *string `field:"required" json:"routeId" yaml:"routeId"`
 	// The route response key.
-	RouteResponseKey *string `json:"routeResponseKey" yaml:"routeResponseKey"`
+	RouteResponseKey *string `field:"required" json:"routeResponseKey" yaml:"routeResponseKey"`
 	// The model selection expression for the route response.
 	//
 	// Supported only for WebSocket APIs.
-	ModelSelectionExpression *string `json:"modelSelectionExpression" yaml:"modelSelectionExpression"`
+	ModelSelectionExpression *string `field:"optional" json:"modelSelectionExpression" yaml:"modelSelectionExpression"`
 	// The response models for the route response.
-	ResponseModels interface{} `json:"responseModels" yaml:"responseModels"`
+	ResponseModels interface{} `field:"optional" json:"responseModels" yaml:"responseModels"`
 	// The route response parameters.
-	ResponseParameters interface{} `json:"responseParameters" yaml:"responseParameters"`
+	ResponseParameters interface{} `field:"optional" json:"responseParameters" yaml:"responseParameters"`
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::Stage`.
@@ -10627,12 +10751,15 @@ type CfnRouteResponseProps struct {
 // The `AWS::ApiGatewayV2::Stage` resource specifies a stage for an API. Each stage is a named reference to a deployment of the API and is made available for client applications to call. To learn more, see [Working with stages for HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-stages.html) and [Deploy a WebSocket API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-set-up-websocket-deployment.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var routeSettings interface{}
 //   var stageVariables interface{}
 //   var tags interface{}
-//   cfnStage := apigatewayv2.NewCfnStage(this, jsii.String("MyCfnStage"), &cfnStageProps{
+//
+//   cfnStage := awscdk.Aws_apigatewayv2.NewCfnStage(this, jsii.String("MyCfnStage"), &cfnStageProps{
 //   	apiId: jsii.String("apiId"),
 //   	stageName: jsii.String("stageName"),
 //
@@ -11521,7 +11648,10 @@ func (c *jsiiProxy_CfnStage) ValidateProperties(_properties interface{}) {
 // Settings for logging access in a stage.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   accessLogSettingsProperty := &accessLogSettingsProperty{
 //   	destinationArn: jsii.String("destinationArn"),
 //   	format: jsii.String("format"),
@@ -11531,17 +11661,20 @@ type CfnStage_AccessLogSettingsProperty struct {
 	// The ARN of the CloudWatch Logs log group to receive access logs.
 	//
 	// This parameter is required to enable access logging.
-	DestinationArn *string `json:"destinationArn" yaml:"destinationArn"`
+	DestinationArn *string `field:"optional" json:"destinationArn" yaml:"destinationArn"`
 	// A single line format of the access logs of data, as specified by selected $context variables.
 	//
 	// The format must include at least $context.requestId. This parameter is required to enable access logging.
-	Format *string `json:"format" yaml:"format"`
+	Format *string `field:"optional" json:"format" yaml:"format"`
 }
 
 // Represents a collection of route settings.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   routeSettingsProperty := &routeSettingsProperty{
 //   	dataTraceEnabled: jsii.Boolean(false),
 //   	detailedMetricsEnabled: jsii.Boolean(false),
@@ -11554,27 +11687,30 @@ type CfnStage_RouteSettingsProperty struct {
 	// Specifies whether ( `true` ) or not ( `false` ) data trace logging is enabled for this route.
 	//
 	// This property affects the log entries pushed to Amazon CloudWatch Logs. Supported only for WebSocket APIs.
-	DataTraceEnabled interface{} `json:"dataTraceEnabled" yaml:"dataTraceEnabled"`
+	DataTraceEnabled interface{} `field:"optional" json:"dataTraceEnabled" yaml:"dataTraceEnabled"`
 	// Specifies whether detailed metrics are enabled.
-	DetailedMetricsEnabled interface{} `json:"detailedMetricsEnabled" yaml:"detailedMetricsEnabled"`
+	DetailedMetricsEnabled interface{} `field:"optional" json:"detailedMetricsEnabled" yaml:"detailedMetricsEnabled"`
 	// Specifies the logging level for this route: `INFO` , `ERROR` , or `OFF` .
 	//
 	// This property affects the log entries pushed to Amazon CloudWatch Logs. Supported only for WebSocket APIs.
-	LoggingLevel *string `json:"loggingLevel" yaml:"loggingLevel"`
+	LoggingLevel *string `field:"optional" json:"loggingLevel" yaml:"loggingLevel"`
 	// Specifies the throttling burst limit.
-	ThrottlingBurstLimit *float64 `json:"throttlingBurstLimit" yaml:"throttlingBurstLimit"`
+	ThrottlingBurstLimit *float64 `field:"optional" json:"throttlingBurstLimit" yaml:"throttlingBurstLimit"`
 	// Specifies the throttling rate limit.
-	ThrottlingRateLimit *float64 `json:"throttlingRateLimit" yaml:"throttlingRateLimit"`
+	ThrottlingRateLimit *float64 `field:"optional" json:"throttlingRateLimit" yaml:"throttlingRateLimit"`
 }
 
 // Properties for defining a `CfnStage`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var routeSettings interface{}
 //   var stageVariables interface{}
 //   var tags interface{}
+//
 //   cfnStageProps := &cfnStageProps{
 //   	apiId: jsii.String("apiId"),
 //   	stageName: jsii.String("stageName"),
@@ -11603,41 +11739,41 @@ type CfnStage_RouteSettingsProperty struct {
 //
 type CfnStageProps struct {
 	// The API identifier.
-	ApiId *string `json:"apiId" yaml:"apiId"`
+	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`
 	// The stage name.
 	//
 	// Stage names can contain only alphanumeric characters, hyphens, and underscores, or be `$default` . Maximum length is 128 characters.
-	StageName *string `json:"stageName" yaml:"stageName"`
+	StageName *string `field:"required" json:"stageName" yaml:"stageName"`
 	// Settings for logging access in this stage.
-	AccessLogSettings interface{} `json:"accessLogSettings" yaml:"accessLogSettings"`
+	AccessLogSettings interface{} `field:"optional" json:"accessLogSettings" yaml:"accessLogSettings"`
 	// This parameter is not currently supported.
-	AccessPolicyId *string `json:"accessPolicyId" yaml:"accessPolicyId"`
+	AccessPolicyId *string `field:"optional" json:"accessPolicyId" yaml:"accessPolicyId"`
 	// Specifies whether updates to an API automatically trigger a new deployment.
 	//
 	// The default value is `false` .
-	AutoDeploy interface{} `json:"autoDeploy" yaml:"autoDeploy"`
+	AutoDeploy interface{} `field:"optional" json:"autoDeploy" yaml:"autoDeploy"`
 	// The identifier of a client certificate for a `Stage` .
 	//
 	// Supported only for WebSocket APIs.
-	ClientCertificateId *string `json:"clientCertificateId" yaml:"clientCertificateId"`
+	ClientCertificateId *string `field:"optional" json:"clientCertificateId" yaml:"clientCertificateId"`
 	// The default route settings for the stage.
-	DefaultRouteSettings interface{} `json:"defaultRouteSettings" yaml:"defaultRouteSettings"`
+	DefaultRouteSettings interface{} `field:"optional" json:"defaultRouteSettings" yaml:"defaultRouteSettings"`
 	// The deployment identifier for the API stage.
 	//
 	// Can't be updated if `autoDeploy` is enabled.
-	DeploymentId *string `json:"deploymentId" yaml:"deploymentId"`
+	DeploymentId *string `field:"optional" json:"deploymentId" yaml:"deploymentId"`
 	// The description for the API stage.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Route settings for the stage.
-	RouteSettings interface{} `json:"routeSettings" yaml:"routeSettings"`
+	RouteSettings interface{} `field:"optional" json:"routeSettings" yaml:"routeSettings"`
 	// A map that defines the stage variables for a `Stage` .
 	//
 	// Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&=,]+.
-	StageVariables interface{} `json:"stageVariables" yaml:"stageVariables"`
+	StageVariables interface{} `field:"optional" json:"stageVariables" yaml:"stageVariables"`
 	// The collection of tags.
 	//
 	// Each tag element is associated with a given resource.
-	Tags interface{} `json:"tags" yaml:"tags"`
+	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::VpcLink`.
@@ -11645,10 +11781,13 @@ type CfnStageProps struct {
 // The `AWS::ApiGatewayV2::VpcLink` resource creates a VPC link. Supported only for HTTP APIs. The VPC link status must transition from `PENDING` to `AVAILABLE` to successfully create a VPC link, which can take up to 10 minutes. To learn more, see [Working with VPC Links for HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-vpc-links.html) in the *API Gateway Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var tags interface{}
-//   cfnVpcLink := apigatewayv2.NewCfnVpcLink(this, jsii.String("MyCfnVpcLink"), &cfnVpcLinkProps{
+//
+//   cfnVpcLink := awscdk.Aws_apigatewayv2.NewCfnVpcLink(this, jsii.String("MyCfnVpcLink"), &cfnVpcLinkProps{
 //   	name: jsii.String("name"),
 //   	subnetIds: []*string{
 //   		jsii.String("subnetIds"),
@@ -12346,9 +12485,12 @@ func (c *jsiiProxy_CfnVpcLink) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnVpcLink`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var tags interface{}
+//
 //   cfnVpcLinkProps := &cfnVpcLinkProps{
 //   	name: jsii.String("name"),
 //   	subnetIds: []*string{
@@ -12364,15 +12506,15 @@ func (c *jsiiProxy_CfnVpcLink) ValidateProperties(_properties interface{}) {
 //
 type CfnVpcLinkProps struct {
 	// The name of the VPC link.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// A list of subnet IDs to include in the VPC link.
-	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
+	SubnetIds *[]*string `field:"required" json:"subnetIds" yaml:"subnetIds"`
 	// A list of security group IDs for the VPC link.
-	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
+	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// The collection of tags.
 	//
 	// Each tag element is associated with a given resource.
-	Tags interface{} `json:"tags" yaml:"tags"`
+	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // Supported CORS HTTP methods.
@@ -12392,7 +12534,7 @@ type CfnVpcLinkProps struct {
 //   		allowOrigins: []*string{
 //   			jsii.String("*"),
 //   		},
-//   		maxAge: duration.days(jsii.Number(10)),
+//   		maxAge: awscdk.Duration.days(jsii.Number(10)),
 //   	},
 //   })
 //
@@ -12443,7 +12585,7 @@ const (
 //   		allowOrigins: []*string{
 //   			jsii.String("*"),
 //   		},
-//   		maxAge: duration.days(jsii.Number(10)),
+//   		maxAge: awscdk.Duration.days(jsii.Number(10)),
 //   	},
 //   })
 //
@@ -12451,34 +12593,35 @@ const (
 type CorsPreflightOptions struct {
 	// Specifies whether credentials are included in the CORS request.
 	// Experimental.
-	AllowCredentials *bool `json:"allowCredentials" yaml:"allowCredentials"`
+	AllowCredentials *bool `field:"optional" json:"allowCredentials" yaml:"allowCredentials"`
 	// Represents a collection of allowed headers.
 	// Experimental.
-	AllowHeaders *[]*string `json:"allowHeaders" yaml:"allowHeaders"`
+	AllowHeaders *[]*string `field:"optional" json:"allowHeaders" yaml:"allowHeaders"`
 	// Represents a collection of allowed HTTP methods.
 	// Experimental.
-	AllowMethods *[]CorsHttpMethod `json:"allowMethods" yaml:"allowMethods"`
+	AllowMethods *[]CorsHttpMethod `field:"optional" json:"allowMethods" yaml:"allowMethods"`
 	// Represents a collection of allowed origins.
 	// Experimental.
-	AllowOrigins *[]*string `json:"allowOrigins" yaml:"allowOrigins"`
+	AllowOrigins *[]*string `field:"optional" json:"allowOrigins" yaml:"allowOrigins"`
 	// Represents a collection of exposed headers.
 	// Experimental.
-	ExposeHeaders *[]*string `json:"exposeHeaders" yaml:"exposeHeaders"`
+	ExposeHeaders *[]*string `field:"optional" json:"exposeHeaders" yaml:"exposeHeaders"`
 	// The duration that the browser should cache preflight request results.
 	// Experimental.
-	MaxAge awscdk.Duration `json:"maxAge" yaml:"maxAge"`
+	MaxAge awscdk.Duration `field:"optional" json:"maxAge" yaml:"maxAge"`
 }
 
 // Options for DomainMapping.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpLambdaIntegration awscdk.HttpLambdaIntegration
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var handler function
 //   var dn domainName
 //
+//
 //   apiDemo := apigwv2.NewHttpApi(this, jsii.String("DemoApi"), &httpApiProps{
-//   	defaultIntegration: NewHttpLambdaIntegration(jsii.String("DefaultIntegration"), handler),
+//   	defaultIntegration: awscdk.NewHttpLambdaIntegration(jsii.String("DefaultIntegration"), handler),
 //   	// https://${dn.domainName}/demo goes to apiDemo $default stage
 //   	defaultDomainMapping: &domainMappingOptions{
 //   		domainName: dn,
@@ -12490,20 +12633,22 @@ type CorsPreflightOptions struct {
 type DomainMappingOptions struct {
 	// The domain name for the mapping.
 	// Experimental.
-	DomainName IDomainName `json:"domainName" yaml:"domainName"`
+	DomainName IDomainName `field:"required" json:"domainName" yaml:"domainName"`
 	// The API mapping key.
 	//
 	// Leave it undefined for the root path mapping.
 	// Experimental.
-	MappingKey *string `json:"mappingKey" yaml:"mappingKey"`
+	MappingKey *string `field:"optional" json:"mappingKey" yaml:"mappingKey"`
 }
 
 // Custom domain resource for the API.
 //
 // Example:
-//   import acm "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpLambdaIntegration awscdk.HttpLambdaIntegration
+//   import acm "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var handler function
+//
 //
 //   certArn := "arn:aws:acm:us-east-1:111111111111:certificate"
 //   domainName := "example.com"
@@ -12513,7 +12658,7 @@ type DomainMappingOptions struct {
 //   	certificate: acm.certificate.fromCertificateArn(this, jsii.String("cert"), certArn),
 //   })
 //   api := apigwv2.NewHttpApi(this, jsii.String("HttpProxyProdApi"), &httpApiProps{
-//   	defaultIntegration: NewHttpLambdaIntegration(jsii.String("DefaultIntegration"), handler),
+//   	defaultIntegration: awscdk.NewHttpLambdaIntegration(jsii.String("DefaultIntegration"), handler),
 //   	// https://${dn.domainName}/foo goes to prodApi $default stage
 //   	defaultDomainMapping: &domainMappingOptions{
 //   		domainName: dn,
@@ -12926,7 +13071,10 @@ func (d *jsiiProxy_DomainName) Validate() *[]*string {
 // custom domain name attributes.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   domainNameAttributes := &domainNameAttributes{
 //   	name: jsii.String("name"),
 //   	regionalDomainName: jsii.String("regionalDomainName"),
@@ -12937,21 +13085,23 @@ func (d *jsiiProxy_DomainName) Validate() *[]*string {
 type DomainNameAttributes struct {
 	// domain name string.
 	// Experimental.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The domain name associated with the regional endpoint for this custom domain name.
 	// Experimental.
-	RegionalDomainName *string `json:"regionalDomainName" yaml:"regionalDomainName"`
+	RegionalDomainName *string `field:"required" json:"regionalDomainName" yaml:"regionalDomainName"`
 	// The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
 	// Experimental.
-	RegionalHostedZoneId *string `json:"regionalHostedZoneId" yaml:"regionalHostedZoneId"`
+	RegionalHostedZoneId *string `field:"required" json:"regionalHostedZoneId" yaml:"regionalHostedZoneId"`
 }
 
 // properties used for creating the DomainName.
 //
 // Example:
-//   import acm "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpLambdaIntegration awscdk.HttpLambdaIntegration
+//   import acm "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var handler function
+//
 //
 //   certArn := "arn:aws:acm:us-east-1:111111111111:certificate"
 //   domainName := "example.com"
@@ -12961,7 +13111,7 @@ type DomainNameAttributes struct {
 //   	certificate: acm.certificate.fromCertificateArn(this, jsii.String("cert"), certArn),
 //   })
 //   api := apigwv2.NewHttpApi(this, jsii.String("HttpProxyProdApi"), &httpApiProps{
-//   	defaultIntegration: NewHttpLambdaIntegration(jsii.String("DefaultIntegration"), handler),
+//   	defaultIntegration: awscdk.NewHttpLambdaIntegration(jsii.String("DefaultIntegration"), handler),
 //   	// https://${dn.domainName}/foo goes to prodApi $default stage
 //   	defaultDomainMapping: &domainMappingOptions{
 //   		domainName: dn,
@@ -12975,45 +13125,49 @@ type DomainNameProps struct {
 	//
 	// Certificate can be both ACM issued or imported.
 	// Experimental.
-	Certificate awscertificatemanager.ICertificate `json:"certificate" yaml:"certificate"`
+	Certificate awscertificatemanager.ICertificate `field:"required" json:"certificate" yaml:"certificate"`
 	// The user-friendly name of the certificate that will be used by the endpoint for this domain name.
 	// Experimental.
-	CertificateName *string `json:"certificateName" yaml:"certificateName"`
+	CertificateName *string `field:"optional" json:"certificateName" yaml:"certificateName"`
 	// The type of endpoint for this DomainName.
 	// Experimental.
-	EndpointType EndpointType `json:"endpointType" yaml:"endpointType"`
+	EndpointType EndpointType `field:"optional" json:"endpointType" yaml:"endpointType"`
 	// A public certificate issued by ACM to validate that you own a custom domain.
 	//
 	// This parameter is required
 	// only when you configure mutual TLS authentication and you specify an ACM imported or private CA certificate
 	// for `certificate`. The ownership certificate validates that you have permissions to use the domain name.
 	// Experimental.
-	OwnershipCertificate awscertificatemanager.ICertificate `json:"ownershipCertificate" yaml:"ownershipCertificate"`
+	OwnershipCertificate awscertificatemanager.ICertificate `field:"optional" json:"ownershipCertificate" yaml:"ownershipCertificate"`
 	// The Transport Layer Security (TLS) version + cipher suite for this domain name.
 	// Experimental.
-	SecurityPolicy SecurityPolicy `json:"securityPolicy" yaml:"securityPolicy"`
+	SecurityPolicy SecurityPolicy `field:"optional" json:"securityPolicy" yaml:"securityPolicy"`
 	// The custom domain name.
 	// Experimental.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 	// The mutual TLS authentication configuration for a custom domain name.
 	// Experimental.
-	Mtls *MTLSConfig `json:"mtls" yaml:"mtls"`
+	Mtls *MTLSConfig `field:"optional" json:"mtls" yaml:"mtls"`
 }
 
 // properties for creating a domain name endpoint.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import certificatemanager "github.com/aws/aws-cdk-go/awscdk/aws_certificatemanager"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var certificate certificate
+//
 //   endpointOptions := &endpointOptions{
 //   	certificate: certificate,
 //
 //   	// the properties below are optional
 //   	certificateName: jsii.String("certificateName"),
-//   	endpointType: apigatewayv2.endpointType_EDGE,
+//   	endpointType: awscdk.Aws_apigatewayv2.endpointType_EDGE,
 //   	ownershipCertificate: certificate,
-//   	securityPolicy: apigatewayv2.securityPolicy_TLS_1_0,
+//   	securityPolicy: awscdk.*Aws_apigatewayv2.securityPolicy_TLS_1_0,
 //   }
 //
 // Experimental.
@@ -13022,23 +13176,23 @@ type EndpointOptions struct {
 	//
 	// Certificate can be both ACM issued or imported.
 	// Experimental.
-	Certificate awscertificatemanager.ICertificate `json:"certificate" yaml:"certificate"`
+	Certificate awscertificatemanager.ICertificate `field:"required" json:"certificate" yaml:"certificate"`
 	// The user-friendly name of the certificate that will be used by the endpoint for this domain name.
 	// Experimental.
-	CertificateName *string `json:"certificateName" yaml:"certificateName"`
+	CertificateName *string `field:"optional" json:"certificateName" yaml:"certificateName"`
 	// The type of endpoint for this DomainName.
 	// Experimental.
-	EndpointType EndpointType `json:"endpointType" yaml:"endpointType"`
+	EndpointType EndpointType `field:"optional" json:"endpointType" yaml:"endpointType"`
 	// A public certificate issued by ACM to validate that you own a custom domain.
 	//
 	// This parameter is required
 	// only when you configure mutual TLS authentication and you specify an ACM imported or private CA certificate
 	// for `certificate`. The ownership certificate validates that you have permissions to use the domain name.
 	// Experimental.
-	OwnershipCertificate awscertificatemanager.ICertificate `json:"ownershipCertificate" yaml:"ownershipCertificate"`
+	OwnershipCertificate awscertificatemanager.ICertificate `field:"optional" json:"ownershipCertificate" yaml:"ownershipCertificate"`
 	// The Transport Layer Security (TLS) version + cipher suite for this domain name.
 	// Experimental.
-	SecurityPolicy SecurityPolicy `json:"securityPolicy" yaml:"securityPolicy"`
+	SecurityPolicy SecurityPolicy `field:"optional" json:"securityPolicy" yaml:"securityPolicy"`
 }
 
 // Endpoint type for a domain name.
@@ -13057,10 +13211,13 @@ const (
 // Options for granting invoke access.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   grantInvokeOptions := &grantInvokeOptions{
 //   	httpMethods: []httpMethod{
-//   		apigatewayv2.*httpMethod_ANY,
+//   		awscdk.Aws_apigatewayv2.*httpMethod_ANY,
 //   	},
 //   }
 //
@@ -13068,16 +13225,17 @@ const (
 type GrantInvokeOptions struct {
 	// The HTTP methods to allow.
 	// Experimental.
-	HttpMethods *[]HttpMethod `json:"httpMethods" yaml:"httpMethods"`
+	HttpMethods *[]HttpMethod `field:"optional" json:"httpMethods" yaml:"httpMethods"`
 }
 
 // Create a new API Gateway HTTP API endpoint.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpLambdaIntegration awscdk.HttpLambdaIntegration
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var booksDefaultFn function
-//   booksIntegration := NewHttpLambdaIntegration(jsii.String("BooksIntegration"), booksDefaultFn)
+//
+//   booksIntegration := awscdk.NewHttpLambdaIntegration(jsii.String("BooksIntegration"), booksDefaultFn)
 //
 //   httpApi := apigwv2.NewHttpApi(this, jsii.String("HttpApi"))
 //
@@ -13706,7 +13864,10 @@ func (h *jsiiProxy_HttpApi) Validate() *[]*string {
 // Attributes for importing an HttpApi into the CDK.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   httpApiAttributes := &httpApiAttributes{
 //   	httpApiId: jsii.String("httpApiId"),
 //
@@ -13718,18 +13879,19 @@ func (h *jsiiProxy_HttpApi) Validate() *[]*string {
 type HttpApiAttributes struct {
 	// The identifier of the HttpApi.
 	// Experimental.
-	HttpApiId *string `json:"httpApiId" yaml:"httpApiId"`
+	HttpApiId *string `field:"required" json:"httpApiId" yaml:"httpApiId"`
 	// The endpoint URL of the HttpApi.
 	// Experimental.
-	ApiEndpoint *string `json:"apiEndpoint" yaml:"apiEndpoint"`
+	ApiEndpoint *string `field:"optional" json:"apiEndpoint" yaml:"apiEndpoint"`
 }
 
 // Properties to initialize an instance of `HttpApi`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpAlbIntegration awscdk.HttpAlbIntegration
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var lb applicationLoadBalancer
+//
 //   listener := lb.addListener(jsii.String("listener"), &baseApplicationListenerProps{
 //   	port: jsii.Number(80),
 //   })
@@ -13738,7 +13900,7 @@ type HttpApiAttributes struct {
 //   })
 //
 //   httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &httpApiProps{
-//   	defaultIntegration: NewHttpAlbIntegration(jsii.String("DefaultIntegration"), listener, &httpAlbIntegrationProps{
+//   	defaultIntegration: awscdk.NewHttpAlbIntegration(jsii.String("DefaultIntegration"), listener, &httpAlbIntegrationProps{
 //   		parameterMapping: apigwv2.NewParameterMapping().custom(jsii.String("myKey"), jsii.String("myValue")),
 //   	}),
 //   })
@@ -13747,52 +13909,56 @@ type HttpApiAttributes struct {
 type HttpApiProps struct {
 	// Name for the HTTP API resource.
 	// Experimental.
-	ApiName *string `json:"apiName" yaml:"apiName"`
+	ApiName *string `field:"optional" json:"apiName" yaml:"apiName"`
 	// Specifies a CORS configuration for an API.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html
 	//
 	// Experimental.
-	CorsPreflight *CorsPreflightOptions `json:"corsPreflight" yaml:"corsPreflight"`
+	CorsPreflight *CorsPreflightOptions `field:"optional" json:"corsPreflight" yaml:"corsPreflight"`
 	// Whether a default stage and deployment should be automatically created.
 	// Experimental.
-	CreateDefaultStage *bool `json:"createDefaultStage" yaml:"createDefaultStage"`
+	CreateDefaultStage *bool `field:"optional" json:"createDefaultStage" yaml:"createDefaultStage"`
 	// Default OIDC scopes attached to all routes in the gateway, unless explicitly configured on the route.
 	// Experimental.
-	DefaultAuthorizationScopes *[]*string `json:"defaultAuthorizationScopes" yaml:"defaultAuthorizationScopes"`
+	DefaultAuthorizationScopes *[]*string `field:"optional" json:"defaultAuthorizationScopes" yaml:"defaultAuthorizationScopes"`
 	// Default Authorizer to applied to all routes in the gateway.
 	// Experimental.
-	DefaultAuthorizer IHttpRouteAuthorizer `json:"defaultAuthorizer" yaml:"defaultAuthorizer"`
+	DefaultAuthorizer IHttpRouteAuthorizer `field:"optional" json:"defaultAuthorizer" yaml:"defaultAuthorizer"`
 	// Configure a custom domain with the API mapping resource to the HTTP API.
 	// Experimental.
-	DefaultDomainMapping *DomainMappingOptions `json:"defaultDomainMapping" yaml:"defaultDomainMapping"`
+	DefaultDomainMapping *DomainMappingOptions `field:"optional" json:"defaultDomainMapping" yaml:"defaultDomainMapping"`
 	// An integration that will be configured on the catch-all route ($default).
 	// Experimental.
-	DefaultIntegration HttpRouteIntegration `json:"defaultIntegration" yaml:"defaultIntegration"`
+	DefaultIntegration HttpRouteIntegration `field:"optional" json:"defaultIntegration" yaml:"defaultIntegration"`
 	// The description of the API.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Specifies whether clients can invoke your API using the default endpoint.
 	//
 	// By default, clients can invoke your API with the default
 	// `https://{api_id}.execute-api.{region}.amazonaws.com` endpoint. Enable
 	// this if you would like clients to use your custom domain name.
 	// Experimental.
-	DisableExecuteApiEndpoint *bool `json:"disableExecuteApiEndpoint" yaml:"disableExecuteApiEndpoint"`
+	DisableExecuteApiEndpoint *bool `field:"optional" json:"disableExecuteApiEndpoint" yaml:"disableExecuteApiEndpoint"`
 }
 
 // An authorizer for Http Apis.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var httpApi httpApi
-//   httpAuthorizer := apigatewayv2.NewHttpAuthorizer(this, jsii.String("MyHttpAuthorizer"), &httpAuthorizerProps{
+//
+//   httpAuthorizer := awscdk.Aws_apigatewayv2.NewHttpAuthorizer(this, jsii.String("MyHttpAuthorizer"), &httpAuthorizerProps{
 //   	httpApi: httpApi,
 //   	identitySource: []*string{
 //   		jsii.String("identitySource"),
 //   	},
-//   	type: apigatewayv2.httpAuthorizerType_IAM,
+//   	type: awscdk.*Aws_apigatewayv2.httpAuthorizerType_IAM,
 //
 //   	// the properties below are optional
 //   	authorizerName: jsii.String("authorizerName"),
@@ -13802,7 +13968,7 @@ type HttpApiProps struct {
 //   		jsii.String("jwtAudience"),
 //   	},
 //   	jwtIssuer: jsii.String("jwtIssuer"),
-//   	payloadFormatVersion: apigatewayv2.authorizerPayloadVersion_VERSION_1_0,
+//   	payloadFormatVersion: awscdk.*Aws_apigatewayv2.authorizerPayloadVersion_VERSION_1_0,
 //   	resultsCacheTtl: duration,
 //   })
 //
@@ -14174,7 +14340,10 @@ func (h *jsiiProxy_HttpAuthorizer) Validate() *[]*string {
 // Reference to an http authorizer.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   httpAuthorizerAttributes := &httpAuthorizerAttributes{
 //   	authorizerId: jsii.String("authorizerId"),
 //   	authorizerType: jsii.String("authorizerType"),
@@ -14184,7 +14353,7 @@ func (h *jsiiProxy_HttpAuthorizer) Validate() *[]*string {
 type HttpAuthorizerAttributes struct {
 	// Id of the Authorizer.
 	// Experimental.
-	AuthorizerId *string `json:"authorizerId" yaml:"authorizerId"`
+	AuthorizerId *string `field:"required" json:"authorizerId" yaml:"authorizerId"`
 	// Type of authorizer.
 	//
 	// Possible values are:
@@ -14192,22 +14361,26 @@ type HttpAuthorizerAttributes struct {
 	// - CUSTOM - Lambda Authorizer
 	// - NONE - No Authorization.
 	// Experimental.
-	AuthorizerType *string `json:"authorizerType" yaml:"authorizerType"`
+	AuthorizerType *string `field:"required" json:"authorizerType" yaml:"authorizerType"`
 }
 
 // Properties to initialize an instance of `HttpAuthorizer`.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var httpApi httpApi
+//
 //   httpAuthorizerProps := &httpAuthorizerProps{
 //   	httpApi: httpApi,
 //   	identitySource: []*string{
 //   		jsii.String("identitySource"),
 //   	},
-//   	type: apigatewayv2.httpAuthorizerType_IAM,
+//   	type: awscdk.Aws_apigatewayv2.httpAuthorizerType_IAM,
 //
 //   	// the properties below are optional
 //   	authorizerName: jsii.String("authorizerName"),
@@ -14217,7 +14390,7 @@ type HttpAuthorizerAttributes struct {
 //   		jsii.String("jwtAudience"),
 //   	},
 //   	jwtIssuer: jsii.String("jwtIssuer"),
-//   	payloadFormatVersion: apigatewayv2.authorizerPayloadVersion_VERSION_1_0,
+//   	payloadFormatVersion: awscdk.*Aws_apigatewayv2.authorizerPayloadVersion_VERSION_1_0,
 //   	resultsCacheTtl: duration,
 //   }
 //
@@ -14225,44 +14398,44 @@ type HttpAuthorizerAttributes struct {
 type HttpAuthorizerProps struct {
 	// HTTP Api to attach the authorizer to.
 	// Experimental.
-	HttpApi IHttpApi `json:"httpApi" yaml:"httpApi"`
+	HttpApi IHttpApi `field:"required" json:"httpApi" yaml:"httpApi"`
 	// The identity source for which authorization is requested.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-identitysource
 	//
 	// Experimental.
-	IdentitySource *[]*string `json:"identitySource" yaml:"identitySource"`
+	IdentitySource *[]*string `field:"required" json:"identitySource" yaml:"identitySource"`
 	// The type of authorizer.
 	// Experimental.
-	Type HttpAuthorizerType `json:"type" yaml:"type"`
+	Type HttpAuthorizerType `field:"required" json:"type" yaml:"type"`
 	// Name of the authorizer.
 	// Experimental.
-	AuthorizerName *string `json:"authorizerName" yaml:"authorizerName"`
+	AuthorizerName *string `field:"optional" json:"authorizerName" yaml:"authorizerName"`
 	// The authorizer's Uniform Resource Identifier (URI).
 	//
 	// For REQUEST authorizers, this must be a well-formed Lambda function URI.
 	// Experimental.
-	AuthorizerUri *string `json:"authorizerUri" yaml:"authorizerUri"`
+	AuthorizerUri *string `field:"optional" json:"authorizerUri" yaml:"authorizerUri"`
 	// Specifies whether a Lambda authorizer returns a response in a simple format.
 	//
 	// If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy.
 	// Experimental.
-	EnableSimpleResponses *bool `json:"enableSimpleResponses" yaml:"enableSimpleResponses"`
+	EnableSimpleResponses *bool `field:"optional" json:"enableSimpleResponses" yaml:"enableSimpleResponses"`
 	// A list of the intended recipients of the JWT.
 	//
 	// A valid JWT must provide an aud that matches at least one entry in this list.
 	// Experimental.
-	JwtAudience *[]*string `json:"jwtAudience" yaml:"jwtAudience"`
+	JwtAudience *[]*string `field:"optional" json:"jwtAudience" yaml:"jwtAudience"`
 	// The base domain of the identity provider that issues JWT.
 	// Experimental.
-	JwtIssuer *string `json:"jwtIssuer" yaml:"jwtIssuer"`
+	JwtIssuer *string `field:"optional" json:"jwtIssuer" yaml:"jwtIssuer"`
 	// Specifies the format of the payload sent to an HTTP API Lambda authorizer.
 	// Experimental.
-	PayloadFormatVersion AuthorizerPayloadVersion `json:"payloadFormatVersion" yaml:"payloadFormatVersion"`
+	PayloadFormatVersion AuthorizerPayloadVersion `field:"optional" json:"payloadFormatVersion" yaml:"payloadFormatVersion"`
 	// How long APIGateway should cache the results.
 	//
 	// Max 1 hour.
 	// Experimental.
-	ResultsCacheTtl awscdk.Duration `json:"resultsCacheTtl" yaml:"resultsCacheTtl"`
+	ResultsCacheTtl awscdk.Duration `field:"optional" json:"resultsCacheTtl" yaml:"resultsCacheTtl"`
 }
 
 // Supported Authorizer types.
@@ -14297,23 +14470,26 @@ const (
 // The integration for an API route.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var httpApi httpApi
 //   var integrationCredentials integrationCredentials
 //   var parameterMapping parameterMapping
 //   var payloadFormatVersion payloadFormatVersion
-//   httpIntegration := apigatewayv2.NewHttpIntegration(this, jsii.String("MyHttpIntegration"), &httpIntegrationProps{
+//
+//   httpIntegration := awscdk.Aws_apigatewayv2.NewHttpIntegration(this, jsii.String("MyHttpIntegration"), &httpIntegrationProps{
 //   	httpApi: httpApi,
-//   	integrationType: apigatewayv2.httpIntegrationType_HTTP_PROXY,
+//   	integrationType: awscdk.*Aws_apigatewayv2.httpIntegrationType_HTTP_PROXY,
 //
 //   	// the properties below are optional
 //   	connectionId: jsii.String("connectionId"),
-//   	connectionType: apigatewayv2.httpConnectionType_VPC_LINK,
+//   	connectionType: awscdk.*Aws_apigatewayv2.httpConnectionType_VPC_LINK,
 //   	credentials: integrationCredentials,
-//   	integrationSubtype: apigatewayv2.httpIntegrationSubtype_EVENTBRIDGE_PUT_EVENTS,
+//   	integrationSubtype: awscdk.*Aws_apigatewayv2.httpIntegrationSubtype_EVENTBRIDGE_PUT_EVENTS,
 //   	integrationUri: jsii.String("integrationUri"),
-//   	method: apigatewayv2.httpMethod_ANY,
+//   	method: awscdk.*Aws_apigatewayv2.httpMethod_ANY,
 //   	parameterMapping: parameterMapping,
 //   	payloadFormatVersion: payloadFormatVersion,
 //   	secureServerName: jsii.String("secureServerName"),
@@ -14683,23 +14859,26 @@ func (h *jsiiProxy_HttpIntegration) Validate() *[]*string {
 // The integration properties.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var httpApi httpApi
 //   var integrationCredentials integrationCredentials
 //   var parameterMapping parameterMapping
 //   var payloadFormatVersion payloadFormatVersion
+//
 //   httpIntegrationProps := &httpIntegrationProps{
 //   	httpApi: httpApi,
-//   	integrationType: apigatewayv2.httpIntegrationType_HTTP_PROXY,
+//   	integrationType: awscdk.Aws_apigatewayv2.httpIntegrationType_HTTP_PROXY,
 //
 //   	// the properties below are optional
 //   	connectionId: jsii.String("connectionId"),
-//   	connectionType: apigatewayv2.httpConnectionType_VPC_LINK,
+//   	connectionType: awscdk.*Aws_apigatewayv2.httpConnectionType_VPC_LINK,
 //   	credentials: integrationCredentials,
-//   	integrationSubtype: apigatewayv2.httpIntegrationSubtype_EVENTBRIDGE_PUT_EVENTS,
+//   	integrationSubtype: awscdk.*Aws_apigatewayv2.httpIntegrationSubtype_EVENTBRIDGE_PUT_EVENTS,
 //   	integrationUri: jsii.String("integrationUri"),
-//   	method: apigatewayv2.httpMethod_ANY,
+//   	method: awscdk.*Aws_apigatewayv2.httpMethod_ANY,
 //   	parameterMapping: parameterMapping,
 //   	payloadFormatVersion: payloadFormatVersion,
 //   	secureServerName: jsii.String("secureServerName"),
@@ -14709,50 +14888,50 @@ func (h *jsiiProxy_HttpIntegration) Validate() *[]*string {
 type HttpIntegrationProps struct {
 	// The HTTP API to which this integration should be bound.
 	// Experimental.
-	HttpApi IHttpApi `json:"httpApi" yaml:"httpApi"`
+	HttpApi IHttpApi `field:"required" json:"httpApi" yaml:"httpApi"`
 	// Integration type.
 	// Experimental.
-	IntegrationType HttpIntegrationType `json:"integrationType" yaml:"integrationType"`
+	IntegrationType HttpIntegrationType `field:"required" json:"integrationType" yaml:"integrationType"`
 	// The ID of the VPC link for a private integration.
 	//
 	// Supported only for HTTP APIs.
 	// Experimental.
-	ConnectionId *string `json:"connectionId" yaml:"connectionId"`
+	ConnectionId *string `field:"optional" json:"connectionId" yaml:"connectionId"`
 	// The type of the network connection to the integration endpoint.
 	// Experimental.
-	ConnectionType HttpConnectionType `json:"connectionType" yaml:"connectionType"`
+	ConnectionType HttpConnectionType `field:"optional" json:"connectionType" yaml:"connectionType"`
 	// The credentials with which to invoke the integration.
 	// Experimental.
-	Credentials IntegrationCredentials `json:"credentials" yaml:"credentials"`
+	Credentials IntegrationCredentials `field:"optional" json:"credentials" yaml:"credentials"`
 	// Integration subtype.
 	//
 	// Used for AWS Service integrations, specifies the target of the integration.
 	// Experimental.
-	IntegrationSubtype HttpIntegrationSubtype `json:"integrationSubtype" yaml:"integrationSubtype"`
+	IntegrationSubtype HttpIntegrationSubtype `field:"optional" json:"integrationSubtype" yaml:"integrationSubtype"`
 	// Integration URI.
 	//
 	// This will be the function ARN in the case of `HttpIntegrationType.AWS_PROXY`,
 	// or HTTP URL in the case of `HttpIntegrationType.HTTP_PROXY`.
 	// Experimental.
-	IntegrationUri *string `json:"integrationUri" yaml:"integrationUri"`
+	IntegrationUri *string `field:"optional" json:"integrationUri" yaml:"integrationUri"`
 	// The HTTP method to use when calling the underlying HTTP proxy.
 	// Experimental.
-	Method HttpMethod `json:"method" yaml:"method"`
+	Method HttpMethod `field:"optional" json:"method" yaml:"method"`
 	// Specifies how to transform HTTP requests before sending them to the backend.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html
 	//
 	// Experimental.
-	ParameterMapping ParameterMapping `json:"parameterMapping" yaml:"parameterMapping"`
+	ParameterMapping ParameterMapping `field:"optional" json:"parameterMapping" yaml:"parameterMapping"`
 	// The version of the payload format.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
 	//
 	// Experimental.
-	PayloadFormatVersion PayloadFormatVersion `json:"payloadFormatVersion" yaml:"payloadFormatVersion"`
+	PayloadFormatVersion PayloadFormatVersion `field:"optional" json:"payloadFormatVersion" yaml:"payloadFormatVersion"`
 	// Specifies the TLS configuration for a private integration.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-tlsconfig.html
 	//
 	// Experimental.
-	SecureServerName *string `json:"secureServerName" yaml:"secureServerName"`
+	SecureServerName *string `field:"optional" json:"secureServerName" yaml:"secureServerName"`
 }
 
 // Supported integration subtypes.
@@ -14822,13 +15001,13 @@ const (
 // Supported HTTP methods.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpUrlIntegration awscdk.HttpUrlIntegration
-//   type HttpLambdaIntegration awscdk.HttpLambdaIntegration
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var booksDefaultFn function
 //
-//   getBooksIntegration := NewHttpUrlIntegration(jsii.String("GetBooksIntegration"), jsii.String("https://get-books-proxy.myproxy.internal"))
-//   booksDefaultIntegration := NewHttpLambdaIntegration(jsii.String("BooksIntegration"), booksDefaultFn)
+//
+//   getBooksIntegration := awscdk.NewHttpUrlIntegration(jsii.String("GetBooksIntegration"), jsii.String("https://get-books-proxy.myproxy.internal"))
+//   booksDefaultIntegration := awscdk.NewHttpLambdaIntegration(jsii.String("BooksIntegration"), booksDefaultFn)
 //
 //   httpApi := apigwv2.NewHttpApi(this, jsii.String("HttpApi"))
 //
@@ -14880,10 +15059,12 @@ const (
 // Explicitly configure no authorizers on specific HTTP API routes.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpJwtAuthorizer awscdk.HttpJwtAuthorizerimport awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpUrlIntegration awscdk.HttpUrlIntegration
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   issuer := "https://test.us.auth0.com"
-//   authorizer := NewHttpJwtAuthorizer(jsii.String("DefaultAuthorizer"), issuer, &httpJwtAuthorizerProps{
+//   authorizer := awscdk.NewHttpJwtAuthorizer(jsii.String("DefaultAuthorizer"), issuer, &httpJwtAuthorizerProps{
 //   	jwtAudience: []*string{
 //   		jsii.String("3131231"),
 //   	},
@@ -14897,7 +15078,7 @@ const (
 //   })
 //
 //   api.addRoutes(&addRoutesOptions{
-//   	integration: NewHttpUrlIntegration(jsii.String("BooksIntegration"), jsii.String("https://get-books-proxy.myproxy.internal")),
+//   	integration: awscdk.NewHttpUrlIntegration(jsii.String("BooksIntegration"), jsii.String("https://get-books-proxy.myproxy.internal")),
 //   	path: jsii.String("/books"),
 //   	methods: []httpMethod{
 //   		apigwv2.*httpMethod_GET,
@@ -14905,7 +15086,7 @@ const (
 //   })
 //
 //   api.addRoutes(&addRoutesOptions{
-//   	integration: NewHttpUrlIntegration(jsii.String("BooksIdIntegration"), jsii.String("https://get-books-proxy.myproxy.internal")),
+//   	integration: awscdk.NewHttpUrlIntegration(jsii.String("BooksIdIntegration"), jsii.String("https://get-books-proxy.myproxy.internal")),
 //   	path: jsii.String("/books/{id}"),
 //   	methods: []*httpMethod{
 //   		apigwv2.*httpMethod_GET,
@@ -14913,7 +15094,7 @@ const (
 //   })
 //
 //   api.addRoutes(&addRoutesOptions{
-//   	integration: NewHttpUrlIntegration(jsii.String("BooksIntegration"), jsii.String("https://get-books-proxy.myproxy.internal")),
+//   	integration: awscdk.NewHttpUrlIntegration(jsii.String("BooksIntegration"), jsii.String("https://get-books-proxy.myproxy.internal")),
 //   	path: jsii.String("/books"),
 //   	methods: []*httpMethod{
 //   		apigwv2.*httpMethod_POST,
@@ -14924,7 +15105,7 @@ const (
 //   })
 //
 //   api.addRoutes(&addRoutesOptions{
-//   	integration: NewHttpUrlIntegration(jsii.String("LoginIntegration"), jsii.String("https://get-books-proxy.myproxy.internal")),
+//   	integration: awscdk.NewHttpUrlIntegration(jsii.String("LoginIntegration"), jsii.String("https://get-books-proxy.myproxy.internal")),
 //   	path: jsii.String("/login"),
 //   	methods: []*httpMethod{
 //   		apigwv2.*httpMethod_POST,
@@ -14987,13 +15168,16 @@ func (h *jsiiProxy_HttpNoneAuthorizer) Bind(_arg *HttpRouteAuthorizerBindOptions
 // Route class that creates the Route for API Gateway HTTP API.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var httpApi httpApi
 //   var httpRouteAuthorizer iHttpRouteAuthorizer
 //   var httpRouteIntegration httpRouteIntegration
 //   var httpRouteKey httpRouteKey
-//   httpRoute := apigatewayv2.NewHttpRoute(this, jsii.String("MyHttpRoute"), &httpRouteProps{
+//
+//   httpRoute := awscdk.Aws_apigatewayv2.NewHttpRoute(this, jsii.String("MyHttpRoute"), &httpRouteProps{
 //   	httpApi: httpApi,
 //   	integration: httpRouteIntegration,
 //   	routeKey: httpRouteKey,
@@ -15414,10 +15598,14 @@ func (h *jsiiProxy_HttpRoute) Validate() *[]*string {
 // Input to the bind() operation, that binds an authorizer to a route.
 //
 // Example:
-//   import constructs "github.com/aws/constructs-go/constructs"import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import constructs "github.com/aws/constructs-go/constructs"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var construct construct
 //   var httpRoute httpRoute
+//
 //   httpRouteAuthorizerBindOptions := &httpRouteAuthorizerBindOptions{
 //   	route: httpRoute,
 //   	scope: construct,
@@ -15427,16 +15615,19 @@ func (h *jsiiProxy_HttpRoute) Validate() *[]*string {
 type HttpRouteAuthorizerBindOptions struct {
 	// The route to which the authorizer is being bound.
 	// Experimental.
-	Route IHttpRoute `json:"route" yaml:"route"`
+	Route IHttpRoute `field:"required" json:"route" yaml:"route"`
 	// The scope for any constructs created as part of the bind.
 	// Experimental.
-	Scope constructs.Construct `json:"scope" yaml:"scope"`
+	Scope constructs.Construct `field:"required" json:"scope" yaml:"scope"`
 }
 
 // Results of binding an authorizer to an http route.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   httpRouteAuthorizerConfig := &httpRouteAuthorizerConfig{
 //   	authorizationType: jsii.String("authorizationType"),
 //
@@ -15457,21 +15648,22 @@ type HttpRouteAuthorizerConfig struct {
 	// - CUSTOM - Lambda Authorizer
 	// - NONE - No Authorization.
 	// Experimental.
-	AuthorizationType *string `json:"authorizationType" yaml:"authorizationType"`
+	AuthorizationType *string `field:"required" json:"authorizationType" yaml:"authorizationType"`
 	// The list of OIDC scopes to include in the authorization.
 	// Experimental.
-	AuthorizationScopes *[]*string `json:"authorizationScopes" yaml:"authorizationScopes"`
+	AuthorizationScopes *[]*string `field:"optional" json:"authorizationScopes" yaml:"authorizationScopes"`
 	// The authorizer id.
 	// Experimental.
-	AuthorizerId *string `json:"authorizerId" yaml:"authorizerId"`
+	AuthorizerId *string `field:"optional" json:"authorizerId" yaml:"authorizerId"`
 }
 
 // The interface that various route integration classes will inherit.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpAlbIntegration awscdk.HttpAlbIntegration
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var lb applicationLoadBalancer
+//
 //   listener := lb.addListener(jsii.String("listener"), &baseApplicationListenerProps{
 //   	port: jsii.Number(80),
 //   })
@@ -15480,7 +15672,7 @@ type HttpRouteAuthorizerConfig struct {
 //   })
 //
 //   httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &httpApiProps{
-//   	defaultIntegration: NewHttpAlbIntegration(jsii.String("DefaultIntegration"), listener, &httpAlbIntegrationProps{
+//   	defaultIntegration: awscdk.NewHttpAlbIntegration(jsii.String("DefaultIntegration"), listener, &httpAlbIntegrationProps{
 //   		parameterMapping: apigwv2.NewParameterMapping().custom(jsii.String("myKey"), jsii.String("myValue")),
 //   	}),
 //   })
@@ -15543,10 +15735,14 @@ func (h *jsiiProxy_HttpRouteIntegration) CompleteBind(_options *HttpRouteIntegra
 // Options to the HttpRouteIntegration during its bind operation.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var construct construct
 //   var httpRoute httpRoute
+//
 //   httpRouteIntegrationBindOptions := &httpRouteIntegrationBindOptions{
 //   	route: httpRoute,
 //   	scope: construct,
@@ -15556,35 +15752,38 @@ func (h *jsiiProxy_HttpRouteIntegration) CompleteBind(_options *HttpRouteIntegra
 type HttpRouteIntegrationBindOptions struct {
 	// The route to which this is being bound.
 	// Experimental.
-	Route IHttpRoute `json:"route" yaml:"route"`
+	Route IHttpRoute `field:"required" json:"route" yaml:"route"`
 	// The current scope in which the bind is occurring.
 	//
 	// If the `HttpRouteIntegration` being bound creates additional constructs,
 	// this will be used as their parent scope.
 	// Experimental.
-	Scope awscdk.Construct `json:"scope" yaml:"scope"`
+	Scope awscdk.Construct `field:"required" json:"scope" yaml:"scope"`
 }
 
 // Config returned back as a result of the bind.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var integrationCredentials integrationCredentials
 //   var parameterMapping parameterMapping
 //   var payloadFormatVersion payloadFormatVersion
+//
 //   httpRouteIntegrationConfig := &httpRouteIntegrationConfig{
 //   	payloadFormatVersion: payloadFormatVersion,
-//   	type: apigatewayv2.httpIntegrationType_HTTP_PROXY,
+//   	type: awscdk.Aws_apigatewayv2.httpIntegrationType_HTTP_PROXY,
 //
 //   	// the properties below are optional
 //   	connectionId: jsii.String("connectionId"),
-//   	connectionType: apigatewayv2.httpConnectionType_VPC_LINK,
+//   	connectionType: awscdk.*Aws_apigatewayv2.httpConnectionType_VPC_LINK,
 //   	credentials: integrationCredentials,
-//   	method: apigatewayv2.httpMethod_ANY,
+//   	method: awscdk.*Aws_apigatewayv2.httpMethod_ANY,
 //   	parameterMapping: parameterMapping,
 //   	secureServerName: jsii.String("secureServerName"),
-//   	subtype: apigatewayv2.httpIntegrationSubtype_EVENTBRIDGE_PUT_EVENTS,
+//   	subtype: awscdk.*Aws_apigatewayv2.httpIntegrationSubtype_EVENTBRIDGE_PUT_EVENTS,
 //   	uri: jsii.String("uri"),
 //   }
 //
@@ -15594,42 +15793,42 @@ type HttpRouteIntegrationConfig struct {
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
 	//
 	// Experimental.
-	PayloadFormatVersion PayloadFormatVersion `json:"payloadFormatVersion" yaml:"payloadFormatVersion"`
+	PayloadFormatVersion PayloadFormatVersion `field:"required" json:"payloadFormatVersion" yaml:"payloadFormatVersion"`
 	// Integration type.
 	// Experimental.
-	Type HttpIntegrationType `json:"type" yaml:"type"`
+	Type HttpIntegrationType `field:"required" json:"type" yaml:"type"`
 	// The ID of the VPC link for a private integration.
 	//
 	// Supported only for HTTP APIs.
 	// Experimental.
-	ConnectionId *string `json:"connectionId" yaml:"connectionId"`
+	ConnectionId *string `field:"optional" json:"connectionId" yaml:"connectionId"`
 	// The type of the network connection to the integration endpoint.
 	// Experimental.
-	ConnectionType HttpConnectionType `json:"connectionType" yaml:"connectionType"`
+	ConnectionType HttpConnectionType `field:"optional" json:"connectionType" yaml:"connectionType"`
 	// The credentials with which to invoke the integration.
 	// Experimental.
-	Credentials IntegrationCredentials `json:"credentials" yaml:"credentials"`
+	Credentials IntegrationCredentials `field:"optional" json:"credentials" yaml:"credentials"`
 	// The HTTP method that must be used to invoke the underlying proxy.
 	//
 	// Required for `HttpIntegrationType.HTTP_PROXY`
 	// Experimental.
-	Method HttpMethod `json:"method" yaml:"method"`
+	Method HttpMethod `field:"optional" json:"method" yaml:"method"`
 	// Specifies how to transform HTTP requests before sending them to the backend.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html
 	//
 	// Experimental.
-	ParameterMapping ParameterMapping `json:"parameterMapping" yaml:"parameterMapping"`
+	ParameterMapping ParameterMapping `field:"optional" json:"parameterMapping" yaml:"parameterMapping"`
 	// Specifies the server name to verified by HTTPS when calling the backend integration.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-tlsconfig.html
 	//
 	// Experimental.
-	SecureServerName *string `json:"secureServerName" yaml:"secureServerName"`
+	SecureServerName *string `field:"optional" json:"secureServerName" yaml:"secureServerName"`
 	// Integration subtype.
 	// Experimental.
-	Subtype HttpIntegrationSubtype `json:"subtype" yaml:"subtype"`
+	Subtype HttpIntegrationSubtype `field:"optional" json:"subtype" yaml:"subtype"`
 	// Integration URI.
 	// Experimental.
-	Uri *string `json:"uri" yaml:"uri"`
+	Uri *string `field:"optional" json:"uri" yaml:"uri"`
 }
 
 // HTTP route in APIGateway is a combination of the HTTP method and the path component.
@@ -15637,8 +15836,11 @@ type HttpRouteIntegrationConfig struct {
 // This class models that combination.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
-//   httpRouteKey := apigatewayv2.httpRouteKey.with(jsii.String("path"), apigatewayv2.httpMethod_ANY)
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   httpRouteKey := awscdk.Aws_apigatewayv2.httpRouteKey.with(jsii.String("path"), awscdk.Aws_apigatewayv2.httpMethod_ANY)
 //
 // Experimental.
 type HttpRouteKey interface {
@@ -15722,12 +15924,15 @@ func HttpRouteKey_DEFAULT() HttpRouteKey {
 // Properties to initialize a new Route.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var httpApi httpApi
 //   var httpRouteAuthorizer iHttpRouteAuthorizer
 //   var httpRouteIntegration httpRouteIntegration
 //   var httpRouteKey httpRouteKey
+//
 //   httpRouteProps := &httpRouteProps{
 //   	httpApi: httpApi,
 //   	integration: httpRouteIntegration,
@@ -15744,29 +15949,30 @@ func HttpRouteKey_DEFAULT() HttpRouteKey {
 type HttpRouteProps struct {
 	// The integration to be configured on this route.
 	// Experimental.
-	Integration HttpRouteIntegration `json:"integration" yaml:"integration"`
+	Integration HttpRouteIntegration `field:"required" json:"integration" yaml:"integration"`
 	// the API the route is associated with.
 	// Experimental.
-	HttpApi IHttpApi `json:"httpApi" yaml:"httpApi"`
+	HttpApi IHttpApi `field:"required" json:"httpApi" yaml:"httpApi"`
 	// The key to this route.
 	//
 	// This is a combination of an HTTP method and an HTTP path.
 	// Experimental.
-	RouteKey HttpRouteKey `json:"routeKey" yaml:"routeKey"`
+	RouteKey HttpRouteKey `field:"required" json:"routeKey" yaml:"routeKey"`
 	// The list of OIDC scopes to include in the authorization.
 	//
 	// These scopes will be merged with the scopes from the attached authorizer.
 	// Experimental.
-	AuthorizationScopes *[]*string `json:"authorizationScopes" yaml:"authorizationScopes"`
+	AuthorizationScopes *[]*string `field:"optional" json:"authorizationScopes" yaml:"authorizationScopes"`
 	// Authorizer for a WebSocket API or an HTTP API.
 	// Experimental.
-	Authorizer IHttpRouteAuthorizer `json:"authorizer" yaml:"authorizer"`
+	Authorizer IHttpRouteAuthorizer `field:"optional" json:"authorizer" yaml:"authorizer"`
 }
 
 // Represents a stage where an instance of the API is deployed.
 //
 // Example:
 //   var api httpApi
+//
 //
 //   apigwv2.NewHttpStage(this, jsii.String("Stage"), &httpStageProps{
 //   	httpApi: api,
@@ -16310,9 +16516,12 @@ func (h *jsiiProxy_HttpStage) Validate() *[]*string {
 // The attributes used to import existing HttpStage.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var httpApi httpApi
+//
 //   httpStageAttributes := &httpStageAttributes{
 //   	api: httpApi,
 //   	stageName: jsii.String("stageName"),
@@ -16322,10 +16531,10 @@ func (h *jsiiProxy_HttpStage) Validate() *[]*string {
 type HttpStageAttributes struct {
 	// The name of the stage.
 	// Experimental.
-	StageName *string `json:"stageName" yaml:"stageName"`
+	StageName *string `field:"required" json:"stageName" yaml:"stageName"`
 	// The API to which this stage is associated.
 	// Experimental.
-	Api IHttpApi `json:"api" yaml:"api"`
+	Api IHttpApi `field:"required" json:"api" yaml:"api"`
 }
 
 // The options to create a new Stage for an HTTP API.
@@ -16333,6 +16542,7 @@ type HttpStageAttributes struct {
 // Example:
 //   var api httpApi
 //   var dn domainName
+//
 //
 //   api.addStage(jsii.String("beta"), &httpStageOptions{
 //   	stageName: jsii.String("beta"),
@@ -16348,24 +16558,25 @@ type HttpStageAttributes struct {
 type HttpStageOptions struct {
 	// Whether updates to an API automatically trigger a new deployment.
 	// Experimental.
-	AutoDeploy *bool `json:"autoDeploy" yaml:"autoDeploy"`
+	AutoDeploy *bool `field:"optional" json:"autoDeploy" yaml:"autoDeploy"`
 	// The options for custom domain and api mapping.
 	// Experimental.
-	DomainMapping *DomainMappingOptions `json:"domainMapping" yaml:"domainMapping"`
+	DomainMapping *DomainMappingOptions `field:"optional" json:"domainMapping" yaml:"domainMapping"`
 	// Throttle settings for the routes of this stage.
 	// Experimental.
-	Throttle *ThrottleSettings `json:"throttle" yaml:"throttle"`
+	Throttle *ThrottleSettings `field:"optional" json:"throttle" yaml:"throttle"`
 	// The name of the stage.
 	//
 	// See `StageName` class for more details.
 	// Experimental.
-	StageName *string `json:"stageName" yaml:"stageName"`
+	StageName *string `field:"optional" json:"stageName" yaml:"stageName"`
 }
 
 // Properties to initialize an instance of `HttpStage`.
 //
 // Example:
 //   var api httpApi
+//
 //
 //   apigwv2.NewHttpStage(this, jsii.String("Stage"), &httpStageProps{
 //   	httpApi: api,
@@ -16376,21 +16587,21 @@ type HttpStageOptions struct {
 type HttpStageProps struct {
 	// Whether updates to an API automatically trigger a new deployment.
 	// Experimental.
-	AutoDeploy *bool `json:"autoDeploy" yaml:"autoDeploy"`
+	AutoDeploy *bool `field:"optional" json:"autoDeploy" yaml:"autoDeploy"`
 	// The options for custom domain and api mapping.
 	// Experimental.
-	DomainMapping *DomainMappingOptions `json:"domainMapping" yaml:"domainMapping"`
+	DomainMapping *DomainMappingOptions `field:"optional" json:"domainMapping" yaml:"domainMapping"`
 	// Throttle settings for the routes of this stage.
 	// Experimental.
-	Throttle *ThrottleSettings `json:"throttle" yaml:"throttle"`
+	Throttle *ThrottleSettings `field:"optional" json:"throttle" yaml:"throttle"`
 	// The name of the stage.
 	//
 	// See `StageName` class for more details.
 	// Experimental.
-	StageName *string `json:"stageName" yaml:"stageName"`
+	StageName *string `field:"optional" json:"stageName" yaml:"stageName"`
 	// The HTTP API to which this stage is associated.
 	// Experimental.
-	HttpApi IHttpApi `json:"httpApi" yaml:"httpApi"`
+	HttpApi IHttpApi `field:"required" json:"httpApi" yaml:"httpApi"`
 }
 
 // Represents a API Gateway HTTP/WebSocket API.
@@ -17267,10 +17478,14 @@ func (j *jsiiProxy_IWebSocketStage) CallbackUrl() *string {
 // Credentials used for AWS Service integrations.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var role role
-//   integrationCredentials := apigatewayv2.integrationCredentials.fromRole(role)
+//
+//   integrationCredentials := awscdk.Aws_apigatewayv2.integrationCredentials.fromRole(role)
 //
 // Experimental.
 type IntegrationCredentials interface {
@@ -17343,8 +17558,10 @@ func IntegrationCredentials_UseCallerIdentity() IntegrationCredentials {
 // The mTLS authentication configuration for a custom domain name.
 //
 // Example:
-//   import s3 "github.com/aws/aws-cdk-go/awscdk"import acm "github.com/aws/aws-cdk-go/awscdk"
+//   import s3 "github.com/aws/aws-cdk-go/awscdk"
+//   import acm "github.com/aws/aws-cdk-go/awscdk"
 //   var bucket bucket
+//
 //
 //   certArn := "arn:aws:acm:us-east-1:111111111111:certificate"
 //   domainName := "example.com"
@@ -17363,23 +17580,24 @@ func IntegrationCredentials_UseCallerIdentity() IntegrationCredentials {
 type MTLSConfig struct {
 	// The bucket that the trust store is hosted in.
 	// Experimental.
-	Bucket awss3.IBucket `json:"bucket" yaml:"bucket"`
+	Bucket awss3.IBucket `field:"required" json:"bucket" yaml:"bucket"`
 	// The key in S3 to look at for the trust store.
 	// Experimental.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// The version of the S3 object that contains your truststore.
 	//
 	// To specify a version, you must have versioning enabled for the S3 bucket.
 	// Experimental.
-	Version *string `json:"version" yaml:"version"`
+	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 
 // Represents a Mapping Value.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpAlbIntegration awscdk.HttpAlbIntegration
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var lb applicationLoadBalancer
+//
 //   listener := lb.addListener(jsii.String("listener"), &baseApplicationListenerProps{
 //   	port: jsii.Number(80),
 //   })
@@ -17388,7 +17606,7 @@ type MTLSConfig struct {
 //   })
 //
 //   httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &httpApiProps{
-//   	defaultIntegration: NewHttpAlbIntegration(jsii.String("DefaultIntegration"), listener, &httpAlbIntegrationProps{
+//   	defaultIntegration: awscdk.NewHttpAlbIntegration(jsii.String("DefaultIntegration"), listener, &httpAlbIntegrationProps{
 //   		parameterMapping: apigwv2.NewParameterMapping().appendHeader(jsii.String("header2"), apigwv2.mappingValue.requestHeader(jsii.String("header1"))).removeHeader(jsii.String("header1")),
 //   	}),
 //   })
@@ -17593,9 +17811,10 @@ func MappingValue_NONE() MappingValue {
 // Represents a Parameter Mapping.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpAlbIntegration awscdk.HttpAlbIntegration
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var lb applicationLoadBalancer
+//
 //   listener := lb.addListener(jsii.String("listener"), &baseApplicationListenerProps{
 //   	port: jsii.Number(80),
 //   })
@@ -17604,7 +17823,7 @@ func MappingValue_NONE() MappingValue {
 //   })
 //
 //   httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &httpApiProps{
-//   	defaultIntegration: NewHttpAlbIntegration(jsii.String("DefaultIntegration"), listener, &httpAlbIntegrationProps{
+//   	defaultIntegration: awscdk.NewHttpAlbIntegration(jsii.String("DefaultIntegration"), listener, &httpAlbIntegrationProps{
 //   		parameterMapping: apigwv2.NewParameterMapping().appendHeader(jsii.String("header2"), apigwv2.mappingValue.requestHeader(jsii.String("header1"))).removeHeader(jsii.String("header1")),
 //   	}),
 //   })
@@ -17806,8 +18025,11 @@ func (p *jsiiProxy_ParameterMapping) RemoveQueryString(name *string) ParameterMa
 // Payload format version for lambda proxy integration.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
-//   payloadFormatVersion := apigatewayv2.payloadFormatVersion.custom(jsii.String("version"))
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   payloadFormatVersion := awscdk.Aws_apigatewayv2.payloadFormatVersion.custom(jsii.String("version"))
 //
 // See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
 //
@@ -17891,7 +18113,10 @@ const (
 // The attributes used to import existing Stage.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   stageAttributes := &stageAttributes{
 //   	stageName: jsii.String("stageName"),
 //   }
@@ -17900,7 +18125,7 @@ const (
 type StageAttributes struct {
 	// The name of the stage.
 	// Experimental.
-	StageName *string `json:"stageName" yaml:"stageName"`
+	StageName *string `field:"required" json:"stageName" yaml:"stageName"`
 }
 
 // Options required to create a new stage.
@@ -17908,9 +18133,12 @@ type StageAttributes struct {
 // Options that are common between HTTP and Websocket APIs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var domainName domainName
+//
 //   stageOptions := &stageOptions{
 //   	autoDeploy: jsii.Boolean(false),
 //   	domainMapping: &domainMappingOptions{
@@ -17929,19 +18157,22 @@ type StageAttributes struct {
 type StageOptions struct {
 	// Whether updates to an API automatically trigger a new deployment.
 	// Experimental.
-	AutoDeploy *bool `json:"autoDeploy" yaml:"autoDeploy"`
+	AutoDeploy *bool `field:"optional" json:"autoDeploy" yaml:"autoDeploy"`
 	// The options for custom domain and api mapping.
 	// Experimental.
-	DomainMapping *DomainMappingOptions `json:"domainMapping" yaml:"domainMapping"`
+	DomainMapping *DomainMappingOptions `field:"optional" json:"domainMapping" yaml:"domainMapping"`
 	// Throttle settings for the routes of this stage.
 	// Experimental.
-	Throttle *ThrottleSettings `json:"throttle" yaml:"throttle"`
+	Throttle *ThrottleSettings `field:"optional" json:"throttle" yaml:"throttle"`
 }
 
 // Container for defining throttling parameters to API stages.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   throttleSettings := &throttleSettings{
 //   	burstLimit: jsii.Number(123),
 //   	rateLimit: jsii.Number(123),
@@ -17951,16 +18182,17 @@ type StageOptions struct {
 type ThrottleSettings struct {
 	// The maximum API request rate limit over a time ranging from one to a few seconds.
 	// Experimental.
-	BurstLimit *float64 `json:"burstLimit" yaml:"burstLimit"`
+	BurstLimit *float64 `field:"optional" json:"burstLimit" yaml:"burstLimit"`
 	// The API request steady-state rate limit (average requests per second over an extended period of time).
 	// Experimental.
-	RateLimit *float64 `json:"rateLimit" yaml:"rateLimit"`
+	RateLimit *float64 `field:"optional" json:"rateLimit" yaml:"rateLimit"`
 }
 
 // Define a new VPC Link Specifies an API Gateway VPC link for a HTTP API to access resources in an Amazon Virtual Private Cloud (VPC).
 //
 // Example:
 //   import ec2 "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   vpc := ec2.NewVpc(this, jsii.String("VPC"))
 //   vpcLink := apigwv2.NewVpcLink(this, jsii.String("VpcLink"), &vpcLinkProps{
@@ -18383,6 +18615,7 @@ func (v *jsiiProxy_VpcLink) Validate() *[]*string {
 //   import ec2 "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var vpc vpc
+//
 //   awesomeLink := apigwv2.vpcLink.fromVpcLinkAttributes(this, jsii.String("awesome-vpc-link"), &vpcLinkAttributes{
 //   	vpcLinkId: jsii.String("us-east-1_oiuR12Abd"),
 //   	vpc: vpc,
@@ -18392,16 +18625,17 @@ func (v *jsiiProxy_VpcLink) Validate() *[]*string {
 type VpcLinkAttributes struct {
 	// The VPC to which this VPC link is associated with.
 	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
+	Vpc awsec2.IVpc `field:"required" json:"vpc" yaml:"vpc"`
 	// The VPC Link id.
 	// Experimental.
-	VpcLinkId *string `json:"vpcLinkId" yaml:"vpcLinkId"`
+	VpcLinkId *string `field:"required" json:"vpcLinkId" yaml:"vpcLinkId"`
 }
 
 // Properties for a VpcLink.
 //
 // Example:
 //   import ec2 "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   vpc := ec2.NewVpc(this, jsii.String("VPC"))
 //   vpcLink := apigwv2.NewVpcLink(this, jsii.String("VpcLink"), &vpcLinkProps{
@@ -18412,27 +18646,28 @@ type VpcLinkAttributes struct {
 type VpcLinkProps struct {
 	// The VPC in which the private resources reside.
 	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
+	Vpc awsec2.IVpc `field:"required" json:"vpc" yaml:"vpc"`
 	// A list of security groups for the VPC link.
 	// Experimental.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// A list of subnets for the VPC link.
 	// Experimental.
-	Subnets *awsec2.SubnetSelection `json:"subnets" yaml:"subnets"`
+	Subnets *awsec2.SubnetSelection `field:"optional" json:"subnets" yaml:"subnets"`
 	// The name used to label and identify the VPC link.
 	// Experimental.
-	VpcLinkName *string `json:"vpcLinkName" yaml:"vpcLinkName"`
+	VpcLinkName *string `field:"optional" json:"vpcLinkName" yaml:"vpcLinkName"`
 }
 
 // Create a new API Gateway WebSocket API endpoint.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type WebSocketLambdaIntegration awscdk.WebSocketLambdaIntegration
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var messageHandler function
+//
 //   webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("mywsapi"))
 //   webSocketApi.addRoute(jsii.String("sendmessage"), &webSocketRouteOptions{
-//   	integration: NewWebSocketLambdaIntegration(jsii.String("SendMessageIntegration"), messageHandler),
+//   	integration: awscdk.NewWebSocketLambdaIntegration(jsii.String("SendMessageIntegration"), messageHandler),
 //   })
 //
 // Experimental.
@@ -18889,10 +19124,10 @@ func (w *jsiiProxy_WebSocketApi) Validate() *[]*string {
 type WebSocketApiAttributes struct {
 	// The identifier of the WebSocketApi.
 	// Experimental.
-	WebSocketId *string `json:"webSocketId" yaml:"webSocketId"`
+	WebSocketId *string `field:"required" json:"webSocketId" yaml:"webSocketId"`
 	// The endpoint URL of the WebSocketApi.
 	// Experimental.
-	ApiEndpoint *string `json:"apiEndpoint" yaml:"apiEndpoint"`
+	ApiEndpoint *string `field:"optional" json:"apiEndpoint" yaml:"apiEndpoint"`
 }
 
 // Represents the currently available API Key Selection Expressions.
@@ -18976,7 +19211,8 @@ func WebSocketApiKeySelectionExpression_HEADER_X_API_KEY() WebSocketApiKeySelect
 // Props for WebSocket API.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type WebSocketLambdaAuthorizer awscdk.WebSocketLambdaAuthorizerimport awscdk "github.com/aws/aws-cdk-go/awscdk"type WebSocketLambdaIntegration awscdk.WebSocketLambdaIntegration
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   // This function handles your auth logic
 //   var authHandler function
@@ -18984,9 +19220,10 @@ func WebSocketApiKeySelectionExpression_HEADER_X_API_KEY() WebSocketApiKeySelect
 //   // This function handles your WebSocket requests
 //   var handler function
 //
-//   authorizer := NewWebSocketLambdaAuthorizer(jsii.String("Authorizer"), authHandler)
 //
-//   integration := NewWebSocketLambdaIntegration(jsii.String("Integration"), handler)
+//   authorizer := awscdk.NewWebSocketLambdaAuthorizer(jsii.String("Authorizer"), authHandler)
+//
+//   integration := awscdk.NewWebSocketLambdaIntegration(jsii.String("Integration"), handler)
 //
 //   apigwv2.NewWebSocketApi(this, jsii.String("WebSocketApi"), &webSocketApiProps{
 //   	connectRouteOptions: &webSocketRouteOptions{
@@ -19001,38 +19238,41 @@ type WebSocketApiProps struct {
 	//
 	// Providing this option will require an API Key be provided to access the API.
 	// Experimental.
-	ApiKeySelectionExpression WebSocketApiKeySelectionExpression `json:"apiKeySelectionExpression" yaml:"apiKeySelectionExpression"`
+	ApiKeySelectionExpression WebSocketApiKeySelectionExpression `field:"optional" json:"apiKeySelectionExpression" yaml:"apiKeySelectionExpression"`
 	// Name for the WebSocket API resource.
 	// Experimental.
-	ApiName *string `json:"apiName" yaml:"apiName"`
+	ApiName *string `field:"optional" json:"apiName" yaml:"apiName"`
 	// Options to configure a '$connect' route.
 	// Experimental.
-	ConnectRouteOptions *WebSocketRouteOptions `json:"connectRouteOptions" yaml:"connectRouteOptions"`
+	ConnectRouteOptions *WebSocketRouteOptions `field:"optional" json:"connectRouteOptions" yaml:"connectRouteOptions"`
 	// Options to configure a '$default' route.
 	// Experimental.
-	DefaultRouteOptions *WebSocketRouteOptions `json:"defaultRouteOptions" yaml:"defaultRouteOptions"`
+	DefaultRouteOptions *WebSocketRouteOptions `field:"optional" json:"defaultRouteOptions" yaml:"defaultRouteOptions"`
 	// The description of the API.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Options to configure a '$disconnect' route.
 	// Experimental.
-	DisconnectRouteOptions *WebSocketRouteOptions `json:"disconnectRouteOptions" yaml:"disconnectRouteOptions"`
+	DisconnectRouteOptions *WebSocketRouteOptions `field:"optional" json:"disconnectRouteOptions" yaml:"disconnectRouteOptions"`
 	// The route selection expression for the API.
 	// Experimental.
-	RouteSelectionExpression *string `json:"routeSelectionExpression" yaml:"routeSelectionExpression"`
+	RouteSelectionExpression *string `field:"optional" json:"routeSelectionExpression" yaml:"routeSelectionExpression"`
 }
 
 // An authorizer for WebSocket Apis.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var webSocketApi webSocketApi
-//   webSocketAuthorizer := apigatewayv2.NewWebSocketAuthorizer(this, jsii.String("MyWebSocketAuthorizer"), &webSocketAuthorizerProps{
+//
+//   webSocketAuthorizer := awscdk.Aws_apigatewayv2.NewWebSocketAuthorizer(this, jsii.String("MyWebSocketAuthorizer"), &webSocketAuthorizerProps{
 //   	identitySource: []*string{
 //   		jsii.String("identitySource"),
 //   	},
-//   	type: apigatewayv2.webSocketAuthorizerType_LAMBDA,
+//   	type: awscdk.*Aws_apigatewayv2.webSocketAuthorizerType_LAMBDA,
 //   	webSocketApi: webSocketApi,
 //
 //   	// the properties below are optional
@@ -19408,7 +19648,10 @@ func (w *jsiiProxy_WebSocketAuthorizer) Validate() *[]*string {
 // Reference to an WebSocket authorizer.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   webSocketAuthorizerAttributes := &webSocketAuthorizerAttributes{
 //   	authorizerId: jsii.String("authorizerId"),
 //   	authorizerType: jsii.String("authorizerType"),
@@ -19418,27 +19661,30 @@ func (w *jsiiProxy_WebSocketAuthorizer) Validate() *[]*string {
 type WebSocketAuthorizerAttributes struct {
 	// Id of the Authorizer.
 	// Experimental.
-	AuthorizerId *string `json:"authorizerId" yaml:"authorizerId"`
+	AuthorizerId *string `field:"required" json:"authorizerId" yaml:"authorizerId"`
 	// Type of authorizer.
 	//
 	// Possible values are:
 	// - CUSTOM - Lambda Authorizer
 	// - NONE - No Authorization.
 	// Experimental.
-	AuthorizerType *string `json:"authorizerType" yaml:"authorizerType"`
+	AuthorizerType *string `field:"required" json:"authorizerType" yaml:"authorizerType"`
 }
 
 // Properties to initialize an instance of `WebSocketAuthorizer`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var webSocketApi webSocketApi
+//
 //   webSocketAuthorizerProps := &webSocketAuthorizerProps{
 //   	identitySource: []*string{
 //   		jsii.String("identitySource"),
 //   	},
-//   	type: apigatewayv2.webSocketAuthorizerType_LAMBDA,
+//   	type: awscdk.Aws_apigatewayv2.webSocketAuthorizerType_LAMBDA,
 //   	webSocketApi: webSocketApi,
 //
 //   	// the properties below are optional
@@ -19452,21 +19698,21 @@ type WebSocketAuthorizerProps struct {
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-identitysource
 	//
 	// Experimental.
-	IdentitySource *[]*string `json:"identitySource" yaml:"identitySource"`
+	IdentitySource *[]*string `field:"required" json:"identitySource" yaml:"identitySource"`
 	// The type of authorizer.
 	// Experimental.
-	Type WebSocketAuthorizerType `json:"type" yaml:"type"`
+	Type WebSocketAuthorizerType `field:"required" json:"type" yaml:"type"`
 	// WebSocket Api to attach the authorizer to.
 	// Experimental.
-	WebSocketApi IWebSocketApi `json:"webSocketApi" yaml:"webSocketApi"`
+	WebSocketApi IWebSocketApi `field:"required" json:"webSocketApi" yaml:"webSocketApi"`
 	// Name of the authorizer.
 	// Experimental.
-	AuthorizerName *string `json:"authorizerName" yaml:"authorizerName"`
+	AuthorizerName *string `field:"optional" json:"authorizerName" yaml:"authorizerName"`
 	// The authorizer's Uniform Resource Identifier (URI).
 	//
 	// For REQUEST authorizers, this must be a well-formed Lambda function URI.
 	// Experimental.
-	AuthorizerUri *string `json:"authorizerUri" yaml:"authorizerUri"`
+	AuthorizerUri *string `field:"optional" json:"authorizerUri" yaml:"authorizerUri"`
 }
 
 // Supported Authorizer types.
@@ -19482,11 +19728,14 @@ const (
 // The integration for an API route.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var webSocketApi webSocketApi
-//   webSocketIntegration := apigatewayv2.NewWebSocketIntegration(this, jsii.String("MyWebSocketIntegration"), &webSocketIntegrationProps{
-//   	integrationType: apigatewayv2.webSocketIntegrationType_AWS_PROXY,
+//
+//   webSocketIntegration := awscdk.Aws_apigatewayv2.NewWebSocketIntegration(this, jsii.String("MyWebSocketIntegration"), &webSocketIntegrationProps{
+//   	integrationType: awscdk.*Aws_apigatewayv2.webSocketIntegrationType_AWS_PROXY,
 //   	integrationUri: jsii.String("integrationUri"),
 //   	webSocketApi: webSocketApi,
 //   })
@@ -19855,11 +20104,14 @@ func (w *jsiiProxy_WebSocketIntegration) Validate() *[]*string {
 // The integration properties.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var webSocketApi webSocketApi
+//
 //   webSocketIntegrationProps := &webSocketIntegrationProps{
-//   	integrationType: apigatewayv2.webSocketIntegrationType_AWS_PROXY,
+//   	integrationType: awscdk.Aws_apigatewayv2.webSocketIntegrationType_AWS_PROXY,
 //   	integrationUri: jsii.String("integrationUri"),
 //   	webSocketApi: webSocketApi,
 //   }
@@ -19868,13 +20120,13 @@ func (w *jsiiProxy_WebSocketIntegration) Validate() *[]*string {
 type WebSocketIntegrationProps struct {
 	// Integration type.
 	// Experimental.
-	IntegrationType WebSocketIntegrationType `json:"integrationType" yaml:"integrationType"`
+	IntegrationType WebSocketIntegrationType `field:"required" json:"integrationType" yaml:"integrationType"`
 	// Integration URI.
 	// Experimental.
-	IntegrationUri *string `json:"integrationUri" yaml:"integrationUri"`
+	IntegrationUri *string `field:"required" json:"integrationUri" yaml:"integrationUri"`
 	// The WebSocket API to which this integration should be bound.
 	// Experimental.
-	WebSocketApi IWebSocketApi `json:"webSocketApi" yaml:"webSocketApi"`
+	WebSocketApi IWebSocketApi `field:"required" json:"webSocketApi" yaml:"webSocketApi"`
 }
 
 // WebSocket Integration Types.
@@ -19893,8 +20145,11 @@ const (
 // Explicitly configure no authorizers on specific WebSocket API routes.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
-//   webSocketNoneAuthorizer := apigatewayv2.NewWebSocketNoneAuthorizer()
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   webSocketNoneAuthorizer := awscdk.Aws_apigatewayv2.NewWebSocketNoneAuthorizer()
 //
 // Experimental.
 type WebSocketNoneAuthorizer interface {
@@ -19951,12 +20206,15 @@ func (w *jsiiProxy_WebSocketNoneAuthorizer) Bind(_arg *WebSocketRouteAuthorizerB
 // Route class that creates the Route for API Gateway WebSocket API.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var webSocketApi webSocketApi
 //   var webSocketRouteAuthorizer iWebSocketRouteAuthorizer
 //   var webSocketRouteIntegration webSocketRouteIntegration
-//   webSocketRoute := apigatewayv2.NewWebSocketRoute(this, jsii.String("MyWebSocketRoute"), &webSocketRouteProps{
+//
+//   webSocketRoute := awscdk.Aws_apigatewayv2.NewWebSocketRoute(this, jsii.String("MyWebSocketRoute"), &webSocketRouteProps{
 //   	integration: webSocketRouteIntegration,
 //   	routeKey: jsii.String("routeKey"),
 //   	webSocketApi: webSocketApi,
@@ -20356,10 +20614,14 @@ func (w *jsiiProxy_WebSocketRoute) Validate() *[]*string {
 // Input to the bind() operation, that binds an authorizer to a route.
 //
 // Example:
-//   import constructs "github.com/aws/constructs-go/constructs"import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import constructs "github.com/aws/constructs-go/constructs"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var construct construct
 //   var webSocketRoute webSocketRoute
+//
 //   webSocketRouteAuthorizerBindOptions := &webSocketRouteAuthorizerBindOptions{
 //   	route: webSocketRoute,
 //   	scope: construct,
@@ -20369,16 +20631,19 @@ func (w *jsiiProxy_WebSocketRoute) Validate() *[]*string {
 type WebSocketRouteAuthorizerBindOptions struct {
 	// The route to which the authorizer is being bound.
 	// Experimental.
-	Route IWebSocketRoute `json:"route" yaml:"route"`
+	Route IWebSocketRoute `field:"required" json:"route" yaml:"route"`
 	// The scope for any constructs created as part of the bind.
 	// Experimental.
-	Scope constructs.Construct `json:"scope" yaml:"scope"`
+	Scope constructs.Construct `field:"required" json:"scope" yaml:"scope"`
 }
 
 // Results of binding an authorizer to an WebSocket route.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   webSocketRouteAuthorizerConfig := &webSocketRouteAuthorizerConfig{
 //   	authorizationType: jsii.String("authorizationType"),
 //
@@ -20394,18 +20659,19 @@ type WebSocketRouteAuthorizerConfig struct {
 	// - CUSTOM - Lambda Authorizer
 	// - NONE - No Authorization.
 	// Experimental.
-	AuthorizationType *string `json:"authorizationType" yaml:"authorizationType"`
+	AuthorizationType *string `field:"required" json:"authorizationType" yaml:"authorizationType"`
 	// The authorizer id.
 	// Experimental.
-	AuthorizerId *string `json:"authorizerId" yaml:"authorizerId"`
+	AuthorizerId *string `field:"optional" json:"authorizerId" yaml:"authorizerId"`
 }
 
 // The interface that various route integration classes will inherit.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type WebSocketLambdaIntegration awscdk.WebSocketLambdaIntegration
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var messageHandler function
+//
 //
 //   webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("mywsapi"))
 //   apigwv2.NewWebSocketStage(this, jsii.String("mystage"), &webSocketStageProps{
@@ -20414,7 +20680,7 @@ type WebSocketRouteAuthorizerConfig struct {
 //   	autoDeploy: jsii.Boolean(true),
 //   })
 //   webSocketApi.addRoute(jsii.String("sendmessage"), &webSocketRouteOptions{
-//   	integration: NewWebSocketLambdaIntegration(jsii.String("SendMessageIntegration"), messageHandler),
+//   	integration: awscdk.NewWebSocketLambdaIntegration(jsii.String("SendMessageIntegration"), messageHandler),
 //   })
 //
 // Experimental.
@@ -20457,10 +20723,14 @@ func (w *jsiiProxy_WebSocketRouteIntegration) Bind(options *WebSocketRouteIntegr
 // Options to the WebSocketRouteIntegration during its bind operation.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var construct construct
 //   var webSocketRoute webSocketRoute
+//
 //   webSocketRouteIntegrationBindOptions := &webSocketRouteIntegrationBindOptions{
 //   	route: webSocketRoute,
 //   	scope: construct,
@@ -20470,21 +20740,24 @@ func (w *jsiiProxy_WebSocketRouteIntegration) Bind(options *WebSocketRouteIntegr
 type WebSocketRouteIntegrationBindOptions struct {
 	// The route to which this is being bound.
 	// Experimental.
-	Route IWebSocketRoute `json:"route" yaml:"route"`
+	Route IWebSocketRoute `field:"required" json:"route" yaml:"route"`
 	// The current scope in which the bind is occurring.
 	//
 	// If the `WebSocketRouteIntegration` being bound creates additional constructs,
 	// this will be used as their parent scope.
 	// Experimental.
-	Scope awscdk.Construct `json:"scope" yaml:"scope"`
+	Scope awscdk.Construct `field:"required" json:"scope" yaml:"scope"`
 }
 
 // Config returned back as a result of the bind.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   webSocketRouteIntegrationConfig := &webSocketRouteIntegrationConfig{
-//   	type: apigatewayv2.webSocketIntegrationType_AWS_PROXY,
+//   	type: awscdk.Aws_apigatewayv2.webSocketIntegrationType_AWS_PROXY,
 //   	uri: jsii.String("uri"),
 //   }
 //
@@ -20492,18 +20765,19 @@ type WebSocketRouteIntegrationBindOptions struct {
 type WebSocketRouteIntegrationConfig struct {
 	// Integration type.
 	// Experimental.
-	Type WebSocketIntegrationType `json:"type" yaml:"type"`
+	Type WebSocketIntegrationType `field:"required" json:"type" yaml:"type"`
 	// Integration URI.
 	// Experimental.
-	Uri *string `json:"uri" yaml:"uri"`
+	Uri *string `field:"required" json:"uri" yaml:"uri"`
 }
 
 // Options used to add route to the API.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type WebSocketLambdaIntegration awscdk.WebSocketLambdaIntegration
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var messageHandler function
+//
 //
 //   webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("mywsapi"))
 //   apigwv2.NewWebSocketStage(this, jsii.String("mystage"), &webSocketStageProps{
@@ -20512,29 +20786,32 @@ type WebSocketRouteIntegrationConfig struct {
 //   	autoDeploy: jsii.Boolean(true),
 //   })
 //   webSocketApi.addRoute(jsii.String("sendmessage"), &webSocketRouteOptions{
-//   	integration: NewWebSocketLambdaIntegration(jsii.String("SendMessageIntegration"), messageHandler),
+//   	integration: awscdk.NewWebSocketLambdaIntegration(jsii.String("SendMessageIntegration"), messageHandler),
 //   })
 //
 // Experimental.
 type WebSocketRouteOptions struct {
 	// The integration to be configured on this route.
 	// Experimental.
-	Integration WebSocketRouteIntegration `json:"integration" yaml:"integration"`
+	Integration WebSocketRouteIntegration `field:"required" json:"integration" yaml:"integration"`
 	// The authorize to this route.
 	//
 	// You can only set authorizer to a $connect route.
 	// Experimental.
-	Authorizer IWebSocketRouteAuthorizer `json:"authorizer" yaml:"authorizer"`
+	Authorizer IWebSocketRouteAuthorizer `field:"optional" json:"authorizer" yaml:"authorizer"`
 }
 
 // Properties to initialize a new Route.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var webSocketApi webSocketApi
 //   var webSocketRouteAuthorizer iWebSocketRouteAuthorizer
 //   var webSocketRouteIntegration webSocketRouteIntegration
+//
 //   webSocketRouteProps := &webSocketRouteProps{
 //   	integration: webSocketRouteIntegration,
 //   	routeKey: jsii.String("routeKey"),
@@ -20549,29 +20826,30 @@ type WebSocketRouteOptions struct {
 type WebSocketRouteProps struct {
 	// The integration to be configured on this route.
 	// Experimental.
-	Integration WebSocketRouteIntegration `json:"integration" yaml:"integration"`
+	Integration WebSocketRouteIntegration `field:"required" json:"integration" yaml:"integration"`
 	// The authorize to this route.
 	//
 	// You can only set authorizer to a $connect route.
 	// Experimental.
-	Authorizer IWebSocketRouteAuthorizer `json:"authorizer" yaml:"authorizer"`
+	Authorizer IWebSocketRouteAuthorizer `field:"optional" json:"authorizer" yaml:"authorizer"`
 	// The key to this route.
 	// Experimental.
-	RouteKey *string `json:"routeKey" yaml:"routeKey"`
+	RouteKey *string `field:"required" json:"routeKey" yaml:"routeKey"`
 	// The API the route is associated with.
 	// Experimental.
-	WebSocketApi IWebSocketApi `json:"webSocketApi" yaml:"webSocketApi"`
+	WebSocketApi IWebSocketApi `field:"required" json:"webSocketApi" yaml:"webSocketApi"`
 	// Whether the route requires an API Key to be provided.
 	// Experimental.
-	ApiKeyRequired *bool `json:"apiKeyRequired" yaml:"apiKeyRequired"`
+	ApiKeyRequired *bool `field:"optional" json:"apiKeyRequired" yaml:"apiKeyRequired"`
 }
 
 // Represents a stage where an instance of the API is deployed.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type WebSocketLambdaIntegration awscdk.WebSocketLambdaIntegration
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var messageHandler function
+//
 //
 //   webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("mywsapi"))
 //   apigwv2.NewWebSocketStage(this, jsii.String("mystage"), &webSocketStageProps{
@@ -20580,7 +20858,7 @@ type WebSocketRouteProps struct {
 //   	autoDeploy: jsii.Boolean(true),
 //   })
 //   webSocketApi.addRoute(jsii.String("sendmessage"), &webSocketRouteOptions{
-//   	integration: NewWebSocketLambdaIntegration(jsii.String("SendMessageIntegration"), messageHandler),
+//   	integration: awscdk.NewWebSocketLambdaIntegration(jsii.String("SendMessageIntegration"), messageHandler),
 //   })
 //
 // Experimental.
@@ -21038,9 +21316,12 @@ func (w *jsiiProxy_WebSocketStage) Validate() *[]*string {
 // The attributes used to import existing WebSocketStage.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var webSocketApi webSocketApi
+//
 //   webSocketStageAttributes := &webSocketStageAttributes{
 //   	api: webSocketApi,
 //   	stageName: jsii.String("stageName"),
@@ -21050,18 +21331,19 @@ func (w *jsiiProxy_WebSocketStage) Validate() *[]*string {
 type WebSocketStageAttributes struct {
 	// The name of the stage.
 	// Experimental.
-	StageName *string `json:"stageName" yaml:"stageName"`
+	StageName *string `field:"required" json:"stageName" yaml:"stageName"`
 	// The API to which this stage is associated.
 	// Experimental.
-	Api IWebSocketApi `json:"api" yaml:"api"`
+	Api IWebSocketApi `field:"required" json:"api" yaml:"api"`
 }
 
 // Properties to initialize an instance of `WebSocketStage`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type WebSocketLambdaIntegration awscdk.WebSocketLambdaIntegration
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var messageHandler function
+//
 //
 //   webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("mywsapi"))
 //   apigwv2.NewWebSocketStage(this, jsii.String("mystage"), &webSocketStageProps{
@@ -21070,25 +21352,25 @@ type WebSocketStageAttributes struct {
 //   	autoDeploy: jsii.Boolean(true),
 //   })
 //   webSocketApi.addRoute(jsii.String("sendmessage"), &webSocketRouteOptions{
-//   	integration: NewWebSocketLambdaIntegration(jsii.String("SendMessageIntegration"), messageHandler),
+//   	integration: awscdk.NewWebSocketLambdaIntegration(jsii.String("SendMessageIntegration"), messageHandler),
 //   })
 //
 // Experimental.
 type WebSocketStageProps struct {
 	// Whether updates to an API automatically trigger a new deployment.
 	// Experimental.
-	AutoDeploy *bool `json:"autoDeploy" yaml:"autoDeploy"`
+	AutoDeploy *bool `field:"optional" json:"autoDeploy" yaml:"autoDeploy"`
 	// The options for custom domain and api mapping.
 	// Experimental.
-	DomainMapping *DomainMappingOptions `json:"domainMapping" yaml:"domainMapping"`
+	DomainMapping *DomainMappingOptions `field:"optional" json:"domainMapping" yaml:"domainMapping"`
 	// Throttle settings for the routes of this stage.
 	// Experimental.
-	Throttle *ThrottleSettings `json:"throttle" yaml:"throttle"`
+	Throttle *ThrottleSettings `field:"optional" json:"throttle" yaml:"throttle"`
 	// The name of the stage.
 	// Experimental.
-	StageName *string `json:"stageName" yaml:"stageName"`
+	StageName *string `field:"required" json:"stageName" yaml:"stageName"`
 	// The WebSocket API to which this stage is associated.
 	// Experimental.
-	WebSocketApi IWebSocketApi `json:"webSocketApi" yaml:"webSocketApi"`
+	WebSocketApi IWebSocketApi `field:"required" json:"webSocketApi" yaml:"webSocketApi"`
 }
 

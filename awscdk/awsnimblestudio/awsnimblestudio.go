@@ -14,8 +14,11 @@ import (
 // The `AWS::NimbleStudio::LaunchProfile` resource represents access permissions for a set of studio components, including types of workstations, render farms, and shared file systems. Launch profiles are shared with studio users to give them access to the set of studio components.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import nimblestudio "github.com/aws/aws-cdk-go/awscdk/aws_nimblestudio"
-//   cfnLaunchProfile := nimblestudio.NewCfnLaunchProfile(this, jsii.String("MyCfnLaunchProfile"), &cfnLaunchProfileProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnLaunchProfile := awscdk.Aws_nimblestudio.NewCfnLaunchProfile(this, jsii.String("MyCfnLaunchProfile"), &cfnLaunchProfileProps{
 //   	ec2SubnetIds: []*string{
 //   		jsii.String("ec2SubnetIds"),
 //   	},
@@ -842,7 +845,10 @@ func (c *jsiiProxy_CfnLaunchProfile) ValidateProperties(_properties interface{})
 // A configuration for a streaming session.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import nimblestudio "github.com/aws/aws-cdk-go/awscdk/aws_nimblestudio"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   streamConfigurationProperty := &streamConfigurationProperty{
 //   	clipboardMode: jsii.String("clipboardMode"),
 //   	ec2InstanceTypes: []*string{
@@ -868,15 +874,15 @@ func (c *jsiiProxy_CfnLaunchProfile) ValidateProperties(_properties interface{})
 //
 type CfnLaunchProfile_StreamConfigurationProperty struct {
 	// Enable or disable the use of the system clipboard to copy and paste between the streaming session and streaming client.
-	ClipboardMode *string `json:"clipboardMode" yaml:"clipboardMode"`
+	ClipboardMode *string `field:"required" json:"clipboardMode" yaml:"clipboardMode"`
 	// The EC2 instance types that users can select from when launching a streaming session with this launch profile.
-	Ec2InstanceTypes *[]*string `json:"ec2InstanceTypes" yaml:"ec2InstanceTypes"`
+	Ec2InstanceTypes *[]*string `field:"required" json:"ec2InstanceTypes" yaml:"ec2InstanceTypes"`
 	// The streaming images that users can select from when launching a streaming session with this launch profile.
-	StreamingImageIds *[]*string `json:"streamingImageIds" yaml:"streamingImageIds"`
+	StreamingImageIds *[]*string `field:"required" json:"streamingImageIds" yaml:"streamingImageIds"`
 	// The length of time, in minutes, that a streaming session can be active before it is stopped or terminated.
 	//
 	// After this point, Nimble Studio automatically terminates or stops the session. The default length of time is 690 minutes, and the maximum length of time is 30 days.
-	MaxSessionLengthInMinutes *float64 `json:"maxSessionLengthInMinutes" yaml:"maxSessionLengthInMinutes"`
+	MaxSessionLengthInMinutes *float64 `field:"optional" json:"maxSessionLengthInMinutes" yaml:"maxSessionLengthInMinutes"`
 	// Integer that determines if you can start and stop your sessions and how long a session can stay in the STOPPED state.
 	//
 	// The default value is 0. The maximum value is 5760.
@@ -884,15 +890,18 @@ type CfnLaunchProfile_StreamConfigurationProperty struct {
 	// If the value is missing or set to 0, your sessions can’t be stopped. If you then call `StopStreamingSession` , the session fails. If the time that a session stays in the READY state exceeds the `maxSessionLengthInMinutes` value, the session will automatically be terminated (instead of stopped).
 	//
 	// If the value is set to a positive number, the session can be stopped. You can call `StopStreamingSession` to stop sessions in the READY state. If the time that a session stays in the READY state exceeds the `maxSessionLengthInMinutes` value, the session will automatically be stopped (instead of terminated).
-	MaxStoppedSessionLengthInMinutes *float64 `json:"maxStoppedSessionLengthInMinutes" yaml:"maxStoppedSessionLengthInMinutes"`
+	MaxStoppedSessionLengthInMinutes *float64 `field:"optional" json:"maxStoppedSessionLengthInMinutes" yaml:"maxStoppedSessionLengthInMinutes"`
 	// (Optional) The upload storage for a streaming session.
-	SessionStorage interface{} `json:"sessionStorage" yaml:"sessionStorage"`
+	SessionStorage interface{} `field:"optional" json:"sessionStorage" yaml:"sessionStorage"`
 }
 
 // The configuration for a streaming session’s upload storage.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import nimblestudio "github.com/aws/aws-cdk-go/awscdk/aws_nimblestudio"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   streamConfigurationSessionStorageProperty := &streamConfigurationSessionStorageProperty{
 //   	mode: []*string{
 //   		jsii.String("mode"),
@@ -907,15 +916,18 @@ type CfnLaunchProfile_StreamConfigurationSessionStorageProperty struct {
 	// Allows artists to upload files to their workstations.
 	//
 	// The only valid option is `UPLOAD` .
-	Mode *[]*string `json:"mode" yaml:"mode"`
+	Mode *[]*string `field:"optional" json:"mode" yaml:"mode"`
 	// The configuration for the upload storage root of the streaming session.
-	Root interface{} `json:"root" yaml:"root"`
+	Root interface{} `field:"optional" json:"root" yaml:"root"`
 }
 
 // The upload storage root location (folder) on streaming workstations where files are uploaded.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import nimblestudio "github.com/aws/aws-cdk-go/awscdk/aws_nimblestudio"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   streamingSessionStorageRootProperty := &streamingSessionStorageRootProperty{
 //   	linux: jsii.String("linux"),
 //   	windows: jsii.String("windows"),
@@ -923,15 +935,18 @@ type CfnLaunchProfile_StreamConfigurationSessionStorageProperty struct {
 //
 type CfnLaunchProfile_StreamingSessionStorageRootProperty struct {
 	// The folder path in Linux workstations where files are uploaded.
-	Linux *string `json:"linux" yaml:"linux"`
+	Linux *string `field:"optional" json:"linux" yaml:"linux"`
 	// The folder path in Windows workstations where files are uploaded.
-	Windows *string `json:"windows" yaml:"windows"`
+	Windows *string `field:"optional" json:"windows" yaml:"windows"`
 }
 
 // Properties for defining a `CfnLaunchProfile`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import nimblestudio "github.com/aws/aws-cdk-go/awscdk/aws_nimblestudio"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnLaunchProfileProps := &cfnLaunchProfileProps{
 //   	ec2SubnetIds: []*string{
 //   		jsii.String("ec2SubnetIds"),
@@ -976,27 +991,27 @@ type CfnLaunchProfile_StreamingSessionStorageRootProperty struct {
 //
 type CfnLaunchProfileProps struct {
 	// Unique identifiers for a collection of EC2 subnets.
-	Ec2SubnetIds *[]*string `json:"ec2SubnetIds" yaml:"ec2SubnetIds"`
+	Ec2SubnetIds *[]*string `field:"required" json:"ec2SubnetIds" yaml:"ec2SubnetIds"`
 	// The version number of the protocol that is used by the launch profile.
 	//
 	// The only valid version is "2021-03-31".
-	LaunchProfileProtocolVersions *[]*string `json:"launchProfileProtocolVersions" yaml:"launchProfileProtocolVersions"`
+	LaunchProfileProtocolVersions *[]*string `field:"required" json:"launchProfileProtocolVersions" yaml:"launchProfileProtocolVersions"`
 	// A friendly name for the launch profile.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// A configuration for a streaming session.
-	StreamConfiguration interface{} `json:"streamConfiguration" yaml:"streamConfiguration"`
+	StreamConfiguration interface{} `field:"required" json:"streamConfiguration" yaml:"streamConfiguration"`
 	// Unique identifiers for a collection of studio components that can be used with this launch profile.
-	StudioComponentIds *[]*string `json:"studioComponentIds" yaml:"studioComponentIds"`
+	StudioComponentIds *[]*string `field:"required" json:"studioComponentIds" yaml:"studioComponentIds"`
 	// The unique identifier for a studio resource.
 	//
 	// In Nimble Studio , all other resources are contained in a studio resource.
-	StudioId *string `json:"studioId" yaml:"studioId"`
+	StudioId *string `field:"required" json:"studioId" yaml:"studioId"`
 	// A human-readable description of the launch profile.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *map[string]*string `json:"tags" yaml:"tags"`
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::NimbleStudio::StreamingImage`.
@@ -1004,8 +1019,11 @@ type CfnLaunchProfileProps struct {
 // The `AWS::NimbleStudio::StreamingImage` resource creates a streaming image in a studio. A streaming image defines the operating system and software to be used in an  streaming session.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import nimblestudio "github.com/aws/aws-cdk-go/awscdk/aws_nimblestudio"
-//   cfnStreamingImage := nimblestudio.NewCfnStreamingImage(this, jsii.String("MyCfnStreamingImage"), &cfnStreamingImageProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnStreamingImage := awscdk.Aws_nimblestudio.NewCfnStreamingImage(this, jsii.String("MyCfnStreamingImage"), &cfnStreamingImageProps{
 //   	ec2ImageId: jsii.String("ec2ImageId"),
 //   	name: jsii.String("name"),
 //   	studioId: jsii.String("studioId"),
@@ -1773,7 +1791,10 @@ func (c *jsiiProxy_CfnStreamingImage) ValidateProperties(_properties interface{}
 // Properties for defining a `CfnStreamingImage`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import nimblestudio "github.com/aws/aws-cdk-go/awscdk/aws_nimblestudio"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnStreamingImageProps := &cfnStreamingImageProps{
 //   	ec2ImageId: jsii.String("ec2ImageId"),
 //   	name: jsii.String("name"),
@@ -1788,19 +1809,19 @@ func (c *jsiiProxy_CfnStreamingImage) ValidateProperties(_properties interface{}
 //
 type CfnStreamingImageProps struct {
 	// The ID of an EC2 machine image with which to create the streaming image.
-	Ec2ImageId *string `json:"ec2ImageId" yaml:"ec2ImageId"`
+	Ec2ImageId *string `field:"required" json:"ec2ImageId" yaml:"ec2ImageId"`
 	// A friendly name for a streaming image resource.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The unique identifier for a studio resource.
 	//
 	// In Nimble Studio , all other resources are contained in a studio resource.
-	StudioId *string `json:"studioId" yaml:"studioId"`
+	StudioId *string `field:"required" json:"studioId" yaml:"studioId"`
 	// A human-readable description of the streaming image.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *map[string]*string `json:"tags" yaml:"tags"`
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::NimbleStudio::Studio`.
@@ -1812,8 +1833,11 @@ type CfnStreamingImageProps struct {
 // You can optionally specify an AWS Key Management Service key in the StudioEncryptionConfiguration. In Nimble Studio, resource names, descriptions, initialization scripts, and other data you provide are always encrypted at rest using an AWS Key Management Service key. By default, this key is owned by AWS and managed on your behalf. You may provide your own AWS Key Management Service key when calling CreateStudio to encrypt this data using a key that you own and manage. When providing an AWS Key Management Service key during studio creation,  creates AWS Key Management Service grants in your account to provide your studio user and admin roles access to these AWS Key Management Service keys. If you delete this grant, the studio will no longer be accessible to your portal users. If you delete the studio AWS Key Management Service key, your studio will no longer be accessible.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import nimblestudio "github.com/aws/aws-cdk-go/awscdk/aws_nimblestudio"
-//   cfnStudio := nimblestudio.NewCfnStudio(this, jsii.String("MyCfnStudio"), &cfnStudioProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnStudio := awscdk.Aws_nimblestudio.NewCfnStudio(this, jsii.String("MyCfnStudio"), &cfnStudioProps{
 //   	adminRoleArn: jsii.String("adminRoleArn"),
 //   	displayName: jsii.String("displayName"),
 //   	studioName: jsii.String("studioName"),
@@ -2608,7 +2632,10 @@ func (c *jsiiProxy_CfnStudio) ValidateProperties(_properties interface{}) {
 // Configuration of the encryption method that is used for the studio.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import nimblestudio "github.com/aws/aws-cdk-go/awscdk/aws_nimblestudio"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   studioEncryptionConfigurationProperty := &studioEncryptionConfigurationProperty{
 //   	keyType: jsii.String("keyType"),
 //
@@ -2618,9 +2645,9 @@ func (c *jsiiProxy_CfnStudio) ValidateProperties(_properties interface{}) {
 //
 type CfnStudio_StudioEncryptionConfigurationProperty struct {
 	// The type of KMS key that is used to encrypt studio data.
-	KeyType *string `json:"keyType" yaml:"keyType"`
+	KeyType *string `field:"required" json:"keyType" yaml:"keyType"`
 	// The ARN for a KMS key that is used to encrypt studio data.
-	KeyArn *string `json:"keyArn" yaml:"keyArn"`
+	KeyArn *string `field:"optional" json:"keyArn" yaml:"keyArn"`
 }
 
 // A CloudFormation `AWS::NimbleStudio::StudioComponent`.
@@ -2632,8 +2659,11 @@ type CfnStudio_StudioEncryptionConfigurationProperty struct {
 // A studio component also has a set of initialization scripts, which are returned by `GetLaunchProfileInitialization` . These initialization scripts run on streaming sessions when they start. They provide users with flexibility in controlling how studio resources are configured on a streaming session.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import nimblestudio "github.com/aws/aws-cdk-go/awscdk/aws_nimblestudio"
-//   cfnStudioComponent := nimblestudio.NewCfnStudioComponent(this, jsii.String("MyCfnStudioComponent"), &cfnStudioComponentProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnStudioComponent := awscdk.Aws_nimblestudio.NewCfnStudioComponent(this, jsii.String("MyCfnStudioComponent"), &cfnStudioComponentProps{
 //   	name: jsii.String("name"),
 //   	studioId: jsii.String("studioId"),
 //   	type: jsii.String("type"),
@@ -3514,7 +3544,10 @@ func (c *jsiiProxy_CfnStudioComponent) ValidateProperties(_properties interface{
 // An LDAP attribute of an Active Directory computer account, in the form of a name:value pair.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import nimblestudio "github.com/aws/aws-cdk-go/awscdk/aws_nimblestudio"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   activeDirectoryComputerAttributeProperty := &activeDirectoryComputerAttributeProperty{
 //   	name: jsii.String("name"),
 //   	value: jsii.String("value"),
@@ -3522,15 +3555,18 @@ func (c *jsiiProxy_CfnStudioComponent) ValidateProperties(_properties interface{
 //
 type CfnStudioComponent_ActiveDirectoryComputerAttributeProperty struct {
 	// The name for the LDAP attribute.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The value for the LDAP attribute.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
 // The configuration for a Microsoft Active Directory (Microsoft AD) studio resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import nimblestudio "github.com/aws/aws-cdk-go/awscdk/aws_nimblestudio"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   activeDirectoryConfigurationProperty := &activeDirectoryConfigurationProperty{
 //   	computerAttributes: []interface{}{
 //   		&activeDirectoryComputerAttributeProperty{
@@ -3544,17 +3580,20 @@ type CfnStudioComponent_ActiveDirectoryComputerAttributeProperty struct {
 //
 type CfnStudioComponent_ActiveDirectoryConfigurationProperty struct {
 	// A collection of custom attributes for an Active Directory computer.
-	ComputerAttributes interface{} `json:"computerAttributes" yaml:"computerAttributes"`
+	ComputerAttributes interface{} `field:"optional" json:"computerAttributes" yaml:"computerAttributes"`
 	// The directory ID of the Directory Service for Microsoft Active Directory to access using this studio component.
-	DirectoryId *string `json:"directoryId" yaml:"directoryId"`
+	DirectoryId *string `field:"optional" json:"directoryId" yaml:"directoryId"`
 	// The distinguished name (DN) and organizational unit (OU) of an Active Directory computer.
-	OrganizationalUnitDistinguishedName *string `json:"organizationalUnitDistinguishedName" yaml:"organizationalUnitDistinguishedName"`
+	OrganizationalUnitDistinguishedName *string `field:"optional" json:"organizationalUnitDistinguishedName" yaml:"organizationalUnitDistinguishedName"`
 }
 
 // The configuration for a render farm that is associated with a studio resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import nimblestudio "github.com/aws/aws-cdk-go/awscdk/aws_nimblestudio"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   computeFarmConfigurationProperty := &computeFarmConfigurationProperty{
 //   	activeDirectoryUser: jsii.String("activeDirectoryUser"),
 //   	endpoint: jsii.String("endpoint"),
@@ -3562,28 +3601,34 @@ type CfnStudioComponent_ActiveDirectoryConfigurationProperty struct {
 //
 type CfnStudioComponent_ComputeFarmConfigurationProperty struct {
 	// The name of an Active Directory user that is used on ComputeFarm worker instances.
-	ActiveDirectoryUser *string `json:"activeDirectoryUser" yaml:"activeDirectoryUser"`
+	ActiveDirectoryUser *string `field:"optional" json:"activeDirectoryUser" yaml:"activeDirectoryUser"`
 	// The endpoint of the ComputeFarm that is accessed by the studio component resource.
-	Endpoint *string `json:"endpoint" yaml:"endpoint"`
+	Endpoint *string `field:"optional" json:"endpoint" yaml:"endpoint"`
 }
 
 // The configuration for a license service that is associated with a studio resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import nimblestudio "github.com/aws/aws-cdk-go/awscdk/aws_nimblestudio"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   licenseServiceConfigurationProperty := &licenseServiceConfigurationProperty{
 //   	endpoint: jsii.String("endpoint"),
 //   }
 //
 type CfnStudioComponent_LicenseServiceConfigurationProperty struct {
 	// The endpoint of the license service that is accessed by the studio component resource.
-	Endpoint *string `json:"endpoint" yaml:"endpoint"`
+	Endpoint *string `field:"optional" json:"endpoint" yaml:"endpoint"`
 }
 
 // A parameter for a studio component script, in the form of a key:value pair.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import nimblestudio "github.com/aws/aws-cdk-go/awscdk/aws_nimblestudio"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   scriptParameterKeyValueProperty := &scriptParameterKeyValueProperty{
 //   	key: jsii.String("key"),
 //   	value: jsii.String("value"),
@@ -3591,15 +3636,18 @@ type CfnStudioComponent_LicenseServiceConfigurationProperty struct {
 //
 type CfnStudioComponent_ScriptParameterKeyValueProperty struct {
 	// A script parameter key.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"optional" json:"key" yaml:"key"`
 	// A script parameter value.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
 // The configuration for a shared file storage system that is associated with a studio resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import nimblestudio "github.com/aws/aws-cdk-go/awscdk/aws_nimblestudio"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sharedFileSystemConfigurationProperty := &sharedFileSystemConfigurationProperty{
 //   	endpoint: jsii.String("endpoint"),
 //   	fileSystemId: jsii.String("fileSystemId"),
@@ -3610,21 +3658,24 @@ type CfnStudioComponent_ScriptParameterKeyValueProperty struct {
 //
 type CfnStudioComponent_SharedFileSystemConfigurationProperty struct {
 	// The endpoint of the shared file system that is accessed by the studio component resource.
-	Endpoint *string `json:"endpoint" yaml:"endpoint"`
+	Endpoint *string `field:"optional" json:"endpoint" yaml:"endpoint"`
 	// The unique identifier for a file system.
-	FileSystemId *string `json:"fileSystemId" yaml:"fileSystemId"`
+	FileSystemId *string `field:"optional" json:"fileSystemId" yaml:"fileSystemId"`
 	// The mount location for a shared file system on a Linux virtual workstation.
-	LinuxMountPoint *string `json:"linuxMountPoint" yaml:"linuxMountPoint"`
+	LinuxMountPoint *string `field:"optional" json:"linuxMountPoint" yaml:"linuxMountPoint"`
 	// The name of the file share.
-	ShareName *string `json:"shareName" yaml:"shareName"`
+	ShareName *string `field:"optional" json:"shareName" yaml:"shareName"`
 	// The mount location for a shared file system on a Windows virtual workstation.
-	WindowsMountDrive *string `json:"windowsMountDrive" yaml:"windowsMountDrive"`
+	WindowsMountDrive *string `field:"optional" json:"windowsMountDrive" yaml:"windowsMountDrive"`
 }
 
 // The configuration of the studio component, based on component type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import nimblestudio "github.com/aws/aws-cdk-go/awscdk/aws_nimblestudio"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   studioComponentConfigurationProperty := &studioComponentConfigurationProperty{
 //   	activeDirectoryConfiguration: &activeDirectoryConfigurationProperty{
 //   		computerAttributes: []interface{}{
@@ -3654,19 +3705,22 @@ type CfnStudioComponent_SharedFileSystemConfigurationProperty struct {
 //
 type CfnStudioComponent_StudioComponentConfigurationProperty struct {
 	// The configuration for a Microsoft Active Directory (Microsoft AD) studio resource.
-	ActiveDirectoryConfiguration interface{} `json:"activeDirectoryConfiguration" yaml:"activeDirectoryConfiguration"`
+	ActiveDirectoryConfiguration interface{} `field:"optional" json:"activeDirectoryConfiguration" yaml:"activeDirectoryConfiguration"`
 	// The configuration for a render farm that is associated with a studio resource.
-	ComputeFarmConfiguration interface{} `json:"computeFarmConfiguration" yaml:"computeFarmConfiguration"`
+	ComputeFarmConfiguration interface{} `field:"optional" json:"computeFarmConfiguration" yaml:"computeFarmConfiguration"`
 	// The configuration for a license service that is associated with a studio resource.
-	LicenseServiceConfiguration interface{} `json:"licenseServiceConfiguration" yaml:"licenseServiceConfiguration"`
+	LicenseServiceConfiguration interface{} `field:"optional" json:"licenseServiceConfiguration" yaml:"licenseServiceConfiguration"`
 	// The configuration for a shared file storage system that is associated with a studio resource.
-	SharedFileSystemConfiguration interface{} `json:"sharedFileSystemConfiguration" yaml:"sharedFileSystemConfiguration"`
+	SharedFileSystemConfiguration interface{} `field:"optional" json:"sharedFileSystemConfiguration" yaml:"sharedFileSystemConfiguration"`
 }
 
 // Initialization scripts for studio components.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import nimblestudio "github.com/aws/aws-cdk-go/awscdk/aws_nimblestudio"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   studioComponentInitializationScriptProperty := &studioComponentInitializationScriptProperty{
 //   	launchProfileProtocolVersion: jsii.String("launchProfileProtocolVersion"),
 //   	platform: jsii.String("platform"),
@@ -3678,19 +3732,22 @@ type CfnStudioComponent_StudioComponentInitializationScriptProperty struct {
 	// The version number of the protocol that is used by the launch profile.
 	//
 	// The only valid version is "2021-03-31".
-	LaunchProfileProtocolVersion *string `json:"launchProfileProtocolVersion" yaml:"launchProfileProtocolVersion"`
+	LaunchProfileProtocolVersion *string `field:"optional" json:"launchProfileProtocolVersion" yaml:"launchProfileProtocolVersion"`
 	// The platform of the initialization script, either WINDOWS or LINUX.
-	Platform *string `json:"platform" yaml:"platform"`
+	Platform *string `field:"optional" json:"platform" yaml:"platform"`
 	// The method to use when running the initialization script.
-	RunContext *string `json:"runContext" yaml:"runContext"`
+	RunContext *string `field:"optional" json:"runContext" yaml:"runContext"`
 	// The initialization script.
-	Script *string `json:"script" yaml:"script"`
+	Script *string `field:"optional" json:"script" yaml:"script"`
 }
 
 // Properties for defining a `CfnStudioComponent`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import nimblestudio "github.com/aws/aws-cdk-go/awscdk/aws_nimblestudio"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnStudioComponentProps := &cfnStudioComponentProps{
 //   	name: jsii.String("name"),
 //   	studioId: jsii.String("studioId"),
@@ -3749,35 +3806,38 @@ type CfnStudioComponent_StudioComponentInitializationScriptProperty struct {
 //
 type CfnStudioComponentProps struct {
 	// A friendly name for the studio component resource.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The unique identifier for a studio resource.
 	//
 	// In Nimble Studio , all other resources are contained in a studio resource.
-	StudioId *string `json:"studioId" yaml:"studioId"`
+	StudioId *string `field:"required" json:"studioId" yaml:"studioId"`
 	// The type of the studio component.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// The configuration of the studio component, based on component type.
-	Configuration interface{} `json:"configuration" yaml:"configuration"`
+	Configuration interface{} `field:"optional" json:"configuration" yaml:"configuration"`
 	// A human-readable description for the studio component resource.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The EC2 security groups that control access to the studio component.
-	Ec2SecurityGroupIds *[]*string `json:"ec2SecurityGroupIds" yaml:"ec2SecurityGroupIds"`
+	Ec2SecurityGroupIds *[]*string `field:"optional" json:"ec2SecurityGroupIds" yaml:"ec2SecurityGroupIds"`
 	// Initialization scripts for studio components.
-	InitializationScripts interface{} `json:"initializationScripts" yaml:"initializationScripts"`
+	InitializationScripts interface{} `field:"optional" json:"initializationScripts" yaml:"initializationScripts"`
 	// Parameters for the studio component scripts.
-	ScriptParameters interface{} `json:"scriptParameters" yaml:"scriptParameters"`
+	ScriptParameters interface{} `field:"optional" json:"scriptParameters" yaml:"scriptParameters"`
 	// The specific subtype of a studio component.
-	Subtype *string `json:"subtype" yaml:"subtype"`
+	Subtype *string `field:"optional" json:"subtype" yaml:"subtype"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *map[string]*string `json:"tags" yaml:"tags"`
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // Properties for defining a `CfnStudio`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import nimblestudio "github.com/aws/aws-cdk-go/awscdk/aws_nimblestudio"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnStudioProps := &cfnStudioProps{
 //   	adminRoleArn: jsii.String("adminRoleArn"),
 //   	displayName: jsii.String("displayName"),
@@ -3798,18 +3858,18 @@ type CfnStudioComponentProps struct {
 //
 type CfnStudioProps struct {
 	// The IAM role that studio admins assume when logging in to the Nimble Studio portal.
-	AdminRoleArn *string `json:"adminRoleArn" yaml:"adminRoleArn"`
+	AdminRoleArn *string `field:"required" json:"adminRoleArn" yaml:"adminRoleArn"`
 	// A friendly name for the studio.
-	DisplayName *string `json:"displayName" yaml:"displayName"`
+	DisplayName *string `field:"required" json:"displayName" yaml:"displayName"`
 	// The name of the studio, as included in the URL when accessing it in the Nimble Studio portal.
-	StudioName *string `json:"studioName" yaml:"studioName"`
+	StudioName *string `field:"required" json:"studioName" yaml:"studioName"`
 	// The IAM role that studio users assume when logging in to the Nimble Studio portal.
-	UserRoleArn *string `json:"userRoleArn" yaml:"userRoleArn"`
+	UserRoleArn *string `field:"required" json:"userRoleArn" yaml:"userRoleArn"`
 	// Configuration of the encryption method that is used for the studio.
-	StudioEncryptionConfiguration interface{} `json:"studioEncryptionConfiguration" yaml:"studioEncryptionConfiguration"`
+	StudioEncryptionConfiguration interface{} `field:"optional" json:"studioEncryptionConfiguration" yaml:"studioEncryptionConfiguration"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *map[string]*string `json:"tags" yaml:"tags"`
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 

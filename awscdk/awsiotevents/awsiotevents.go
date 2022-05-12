@@ -13,9 +13,13 @@ import (
 // Options when binding a Action to a detector model.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var role role
+//
 //   actionBindOptions := &actionBindOptions{
 //   	role: role,
 //   }
@@ -24,13 +28,16 @@ import (
 type ActionBindOptions struct {
 	// The IAM role assumed by IoT Events to perform the action.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"required" json:"role" yaml:"role"`
 }
 
 // Properties for a AWS IoT Events action.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   actionConfig := &actionConfig{
 //   	configuration: &actionProperty{
 //   		clearTimer: &clearTimerProperty{
@@ -164,7 +171,7 @@ type ActionBindOptions struct {
 type ActionConfig struct {
 	// The configuration for this action.
 	// Experimental.
-	Configuration *CfnDetectorModel_ActionProperty `json:"configuration" yaml:"configuration"`
+	Configuration *CfnDetectorModel_ActionProperty `field:"required" json:"configuration" yaml:"configuration"`
 }
 
 // A CloudFormation `AWS::IoTEvents::AlarmModel`.
@@ -172,8 +179,11 @@ type ActionConfig struct {
 // Represents an alarm model to monitor an AWS IoT Events input attribute. You can use the alarm to get notified when the value is outside a specified range. For more information, see [Create an alarm model](https://docs.aws.amazon.com/iotevents/latest/developerguide/create-alarms.html) in the *AWS IoT Events Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
-//   cfnAlarmModel := iotevents.NewCfnAlarmModel(this, jsii.String("MyCfnAlarmModel"), &cfnAlarmModelProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnAlarmModel := awscdk.Aws_iotevents.NewCfnAlarmModel(this, jsii.String("MyCfnAlarmModel"), &cfnAlarmModelProps{
 //   	alarmRule: &alarmRuleProperty{
 //   		simpleRule: &simpleRuleProperty{
 //   			comparisonOperator: jsii.String("comparisonOperator"),
@@ -1113,7 +1123,10 @@ func (c *jsiiProxy_CfnAlarmModel) ValidateProperties(_properties interface{}) {
 // Specifies whether to get notified for alarm state changes.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   acknowledgeFlowProperty := &acknowledgeFlowProperty{
 //   	enabled: jsii.Boolean(false),
 //   }
@@ -1122,13 +1135,16 @@ type CfnAlarmModel_AcknowledgeFlowProperty struct {
 	// The value must be `TRUE` or `FALSE` .
 	//
 	// If `TRUE` , you receive a notification when the alarm state changes. You must choose to acknowledge the notification before the alarm state can return to `NORMAL` . If `FALSE` , you won't receive notifications. The alarm automatically changes to the `NORMAL` state when the input property value returns to the specified range.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 }
 
 // Specifies one of the following actions to receive notifications when the alarm state changes.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   alarmActionProperty := &alarmActionProperty{
 //   	dynamoDb: &dynamoDBProperty{
 //   		hashKeyField: jsii.String("hashKeyField"),
@@ -1262,7 +1278,7 @@ type CfnAlarmModel_AlarmActionProperty struct {
 	// For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide* .
 	//
 	// If the defined payload type is a string, `DynamoDBAction` writes non-JSON data to the DynamoDB table as binary data. The DynamoDB console displays the data as Base64-encoded text. The value for the `payloadField` parameter is `<payload-field>_raw` .
-	DynamoDb interface{} `json:"dynamoDb" yaml:"dynamoDb"`
+	DynamoDb interface{} `field:"optional" json:"dynamoDb" yaml:"dynamoDb"`
 	// Defines an action to write to the Amazon DynamoDB table that you created.
 	//
 	// The default action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
@@ -1285,11 +1301,11 @@ type CfnAlarmModel_AlarmActionProperty struct {
 	// For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide* .
 	//
 	// The value for the `type` parameter in `Payload` must be `JSON` .
-	DynamoDBv2 interface{} `json:"dynamoDBv2" yaml:"dynamoDBv2"`
+	DynamoDBv2 interface{} `field:"optional" json:"dynamoDBv2" yaml:"dynamoDBv2"`
 	// Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
-	Firehose interface{} `json:"firehose" yaml:"firehose"`
+	Firehose interface{} `field:"optional" json:"firehose" yaml:"firehose"`
 	// Sends an AWS IoT Events input, passing in information about the detector model instance and the event that triggered the action.
-	IotEvents interface{} `json:"iotEvents" yaml:"iotEvents"`
+	IotEvents interface{} `field:"optional" json:"iotEvents" yaml:"iotEvents"`
 	// Sends information about the detector model instance and the event that triggered the action to a specified asset property in AWS IoT SiteWise .
 	//
 	// You must use expressions for all parameters in `IotSiteWiseAction` . The expressions accept literals, operators, functions, references, and substitutions templates.
@@ -1305,21 +1321,24 @@ type CfnAlarmModel_AlarmActionProperty struct {
 	// You must specify either `propertyAlias` or both `assetId` and `propertyId` to identify the target asset property in AWS IoT SiteWise .
 	//
 	// For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide* .
-	IotSiteWise interface{} `json:"iotSiteWise" yaml:"iotSiteWise"`
+	IotSiteWise interface{} `field:"optional" json:"iotSiteWise" yaml:"iotSiteWise"`
 	// Information required to publish the MQTT message through the AWS IoT message broker.
-	IotTopicPublish interface{} `json:"iotTopicPublish" yaml:"iotTopicPublish"`
+	IotTopicPublish interface{} `field:"optional" json:"iotTopicPublish" yaml:"iotTopicPublish"`
 	// Calls a Lambda function, passing in information about the detector model instance and the event that triggered the action.
-	Lambda interface{} `json:"lambda" yaml:"lambda"`
+	Lambda interface{} `field:"optional" json:"lambda" yaml:"lambda"`
 	// `CfnAlarmModel.AlarmActionProperty.Sns`.
-	Sns interface{} `json:"sns" yaml:"sns"`
+	Sns interface{} `field:"optional" json:"sns" yaml:"sns"`
 	// Sends information about the detector model instance and the event that triggered the action to an Amazon SQS queue.
-	Sqs interface{} `json:"sqs" yaml:"sqs"`
+	Sqs interface{} `field:"optional" json:"sqs" yaml:"sqs"`
 }
 
 // Contains the configuration information of alarm state changes.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   alarmCapabilitiesProperty := &alarmCapabilitiesProperty{
 //   	acknowledgeFlow: &acknowledgeFlowProperty{
 //   		enabled: jsii.Boolean(false),
@@ -1331,17 +1350,20 @@ type CfnAlarmModel_AlarmActionProperty struct {
 //
 type CfnAlarmModel_AlarmCapabilitiesProperty struct {
 	// Specifies whether to get notified for alarm state changes.
-	AcknowledgeFlow interface{} `json:"acknowledgeFlow" yaml:"acknowledgeFlow"`
+	AcknowledgeFlow interface{} `field:"optional" json:"acknowledgeFlow" yaml:"acknowledgeFlow"`
 	// Specifies the default alarm state.
 	//
 	// The configuration applies to all alarms that were created based on this alarm model.
-	InitializationConfiguration interface{} `json:"initializationConfiguration" yaml:"initializationConfiguration"`
+	InitializationConfiguration interface{} `field:"optional" json:"initializationConfiguration" yaml:"initializationConfiguration"`
 }
 
 // Contains information about one or more alarm actions.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   alarmEventActionsProperty := &alarmEventActionsProperty{
 //   	alarmActions: []interface{}{
 //   		&alarmActionProperty{
@@ -1458,13 +1480,16 @@ type CfnAlarmModel_AlarmCapabilitiesProperty struct {
 //
 type CfnAlarmModel_AlarmEventActionsProperty struct {
 	// Specifies one or more supported actions to receive notifications when the alarm state changes.
-	AlarmActions interface{} `json:"alarmActions" yaml:"alarmActions"`
+	AlarmActions interface{} `field:"optional" json:"alarmActions" yaml:"alarmActions"`
 }
 
 // Defines when your alarm is invoked.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   alarmRuleProperty := &alarmRuleProperty{
 //   	simpleRule: &simpleRuleProperty{
 //   		comparisonOperator: jsii.String("comparisonOperator"),
@@ -1475,7 +1500,7 @@ type CfnAlarmModel_AlarmEventActionsProperty struct {
 //
 type CfnAlarmModel_AlarmRuleProperty struct {
 	// A rule that compares an input property value to a threshold value with a comparison operator.
-	SimpleRule interface{} `json:"simpleRule" yaml:"simpleRule"`
+	SimpleRule interface{} `field:"optional" json:"simpleRule" yaml:"simpleRule"`
 }
 
 // A structure that contains timestamp information. For more information, see [TimeInNanos](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_TimeInNanos.html) in the *AWS IoT SiteWise API Reference* .
@@ -1493,7 +1518,10 @@ type CfnAlarmModel_AlarmRuleProperty struct {
 // For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   assetPropertyTimestampProperty := &assetPropertyTimestampProperty{
 //   	timeInSeconds: jsii.String("timeInSeconds"),
 //
@@ -1505,11 +1533,11 @@ type CfnAlarmModel_AssetPropertyTimestampProperty struct {
 	// The timestamp, in seconds, in the Unix epoch format.
 	//
 	// The valid range is between 1-31556889864403199.
-	TimeInSeconds *string `json:"timeInSeconds" yaml:"timeInSeconds"`
+	TimeInSeconds *string `field:"required" json:"timeInSeconds" yaml:"timeInSeconds"`
 	// The nanosecond offset converted from `timeInSeconds` .
 	//
 	// The valid range is between 0-999999999.
-	OffsetInNanos *string `json:"offsetInNanos" yaml:"offsetInNanos"`
+	OffsetInNanos *string `field:"optional" json:"offsetInNanos" yaml:"offsetInNanos"`
 }
 
 // A structure that contains value information. For more information, see [AssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html) in the *AWS IoT SiteWise API Reference* .
@@ -1522,7 +1550,10 @@ type CfnAlarmModel_AssetPropertyTimestampProperty struct {
 // For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   assetPropertyValueProperty := &assetPropertyValueProperty{
 //   	value: &assetPropertyVariantProperty{
 //   		booleanValue: jsii.String("booleanValue"),
@@ -1543,15 +1574,15 @@ type CfnAlarmModel_AssetPropertyTimestampProperty struct {
 //
 type CfnAlarmModel_AssetPropertyValueProperty struct {
 	// The value to send to an asset property.
-	Value interface{} `json:"value" yaml:"value"`
+	Value interface{} `field:"required" json:"value" yaml:"value"`
 	// The quality of the asset property value.
 	//
 	// The value must be `'GOOD'` , `'BAD'` , or `'UNCERTAIN'` .
-	Quality *string `json:"quality" yaml:"quality"`
+	Quality *string `field:"optional" json:"quality" yaml:"quality"`
 	// The timestamp associated with the asset property value.
 	//
 	// The default is the current event time.
-	Timestamp interface{} `json:"timestamp" yaml:"timestamp"`
+	Timestamp interface{} `field:"optional" json:"timestamp" yaml:"timestamp"`
 }
 
 // A structure that contains an asset property value.
@@ -1573,7 +1604,10 @@ type CfnAlarmModel_AssetPropertyValueProperty struct {
 // You must specify one of the following value types, depending on the `dataType` of the specified asset property. For more information, see [AssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetProperty.html) in the *AWS IoT SiteWise API Reference* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   assetPropertyVariantProperty := &assetPropertyVariantProperty{
 //   	booleanValue: jsii.String("booleanValue"),
 //   	doubleValue: jsii.String("doubleValue"),
@@ -1585,19 +1619,19 @@ type CfnAlarmModel_AssetPropertyVariantProperty struct {
 	// The asset property value is a Boolean value that must be `'TRUE'` or `'FALSE'` .
 	//
 	// You must use an expression, and the evaluated result should be a Boolean value.
-	BooleanValue *string `json:"booleanValue" yaml:"booleanValue"`
+	BooleanValue *string `field:"optional" json:"booleanValue" yaml:"booleanValue"`
 	// The asset property value is a double.
 	//
 	// You must use an expression, and the evaluated result should be a double.
-	DoubleValue *string `json:"doubleValue" yaml:"doubleValue"`
+	DoubleValue *string `field:"optional" json:"doubleValue" yaml:"doubleValue"`
 	// The asset property value is an integer.
 	//
 	// You must use an expression, and the evaluated result should be an integer.
-	IntegerValue *string `json:"integerValue" yaml:"integerValue"`
+	IntegerValue *string `field:"optional" json:"integerValue" yaml:"integerValue"`
 	// The asset property value is a string.
 	//
 	// You must use an expression, and the evaluated result should be a string.
-	StringValue *string `json:"stringValue" yaml:"stringValue"`
+	StringValue *string `field:"optional" json:"stringValue" yaml:"stringValue"`
 }
 
 // Defines an action to write to the Amazon DynamoDB table that you created.
@@ -1624,7 +1658,10 @@ type CfnAlarmModel_AssetPropertyVariantProperty struct {
 // If the defined payload type is a string, `DynamoDBAction` writes non-JSON data to the DynamoDB table as binary data. The DynamoDB console displays the data as Base64-encoded text. The value for the `payloadField` parameter is `<payload-field>_raw` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dynamoDBProperty := &dynamoDBProperty{
 //   	hashKeyField: jsii.String("hashKeyField"),
 //   	hashKeyValue: jsii.String("hashKeyValue"),
@@ -1647,20 +1684,20 @@ type CfnAlarmModel_DynamoDBProperty struct {
 	// The name of the hash key (also called the partition key).
 	//
 	// The `hashKeyField` value must match the partition key of the target DynamoDB table.
-	HashKeyField *string `json:"hashKeyField" yaml:"hashKeyField"`
+	HashKeyField *string `field:"required" json:"hashKeyField" yaml:"hashKeyField"`
 	// The value of the hash key (also called the partition key).
-	HashKeyValue *string `json:"hashKeyValue" yaml:"hashKeyValue"`
+	HashKeyValue *string `field:"required" json:"hashKeyValue" yaml:"hashKeyValue"`
 	// The name of the DynamoDB table.
 	//
 	// The `tableName` value must match the table name of the target DynamoDB table.
-	TableName *string `json:"tableName" yaml:"tableName"`
+	TableName *string `field:"required" json:"tableName" yaml:"tableName"`
 	// The data type for the hash key (also called the partition key). You can specify the following values:.
 	//
 	// - `'STRING'` - The hash key is a string.
 	// - `'NUMBER'` - The hash key is a number.
 	//
 	// If you don't specify `hashKeyType` , the default value is `'STRING'` .
-	HashKeyType *string `json:"hashKeyType" yaml:"hashKeyType"`
+	HashKeyType *string `field:"optional" json:"hashKeyType" yaml:"hashKeyType"`
 	// The type of operation to perform. You can specify the following values:.
 	//
 	// - `'INSERT'` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
@@ -1668,28 +1705,28 @@ type CfnAlarmModel_DynamoDBProperty struct {
 	// - `'DELETE'` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
 	//
 	// If you don't specify this parameter, AWS IoT Events triggers the `'INSERT'` operation.
-	Operation *string `json:"operation" yaml:"operation"`
+	Operation *string `field:"optional" json:"operation" yaml:"operation"`
 	// Information needed to configure the payload.
 	//
 	// By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
-	Payload interface{} `json:"payload" yaml:"payload"`
+	Payload interface{} `field:"optional" json:"payload" yaml:"payload"`
 	// The name of the DynamoDB column that receives the action payload.
 	//
 	// If you don't specify this parameter, the name of the DynamoDB column is `payload` .
-	PayloadField *string `json:"payloadField" yaml:"payloadField"`
+	PayloadField *string `field:"optional" json:"payloadField" yaml:"payloadField"`
 	// The name of the range key (also called the sort key).
 	//
 	// The `rangeKeyField` value must match the sort key of the target DynamoDB table.
-	RangeKeyField *string `json:"rangeKeyField" yaml:"rangeKeyField"`
+	RangeKeyField *string `field:"optional" json:"rangeKeyField" yaml:"rangeKeyField"`
 	// The data type for the range key (also called the sort key), You can specify the following values:.
 	//
 	// - `'STRING'` - The range key is a string.
 	// - `'NUMBER'` - The range key is number.
 	//
 	// If you don't specify `rangeKeyField` , the default value is `'STRING'` .
-	RangeKeyType *string `json:"rangeKeyType" yaml:"rangeKeyType"`
+	RangeKeyType *string `field:"optional" json:"rangeKeyType" yaml:"rangeKeyType"`
 	// The value of the range key (also called the sort key).
-	RangeKeyValue *string `json:"rangeKeyValue" yaml:"rangeKeyValue"`
+	RangeKeyValue *string `field:"optional" json:"rangeKeyValue" yaml:"rangeKeyValue"`
 }
 
 // Defines an action to write to the Amazon DynamoDB table that you created.
@@ -1716,7 +1753,10 @@ type CfnAlarmModel_DynamoDBProperty struct {
 // The value for the `type` parameter in `Payload` must be `JSON` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dynamoDBv2Property := &dynamoDBv2Property{
 //   	tableName: jsii.String("tableName"),
 //
@@ -1729,15 +1769,18 @@ type CfnAlarmModel_DynamoDBProperty struct {
 //
 type CfnAlarmModel_DynamoDBv2Property struct {
 	// The name of the DynamoDB table.
-	TableName *string `json:"tableName" yaml:"tableName"`
+	TableName *string `field:"required" json:"tableName" yaml:"tableName"`
 	// `CfnAlarmModel.DynamoDBv2Property.Payload`.
-	Payload interface{} `json:"payload" yaml:"payload"`
+	Payload interface{} `field:"optional" json:"payload" yaml:"payload"`
 }
 
 // Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   firehoseProperty := &firehoseProperty{
 //   	deliveryStreamName: jsii.String("deliveryStreamName"),
 //
@@ -1751,13 +1794,13 @@ type CfnAlarmModel_DynamoDBv2Property struct {
 //
 type CfnAlarmModel_FirehoseProperty struct {
 	// The name of the Kinesis Data Firehose delivery stream where the data is written.
-	DeliveryStreamName *string `json:"deliveryStreamName" yaml:"deliveryStreamName"`
+	DeliveryStreamName *string `field:"required" json:"deliveryStreamName" yaml:"deliveryStreamName"`
 	// You can configure the action payload when you send a message to an Amazon Kinesis Data Firehose delivery stream.
-	Payload interface{} `json:"payload" yaml:"payload"`
+	Payload interface{} `field:"optional" json:"payload" yaml:"payload"`
 	// A character separator that is used to separate records written to the Kinesis Data Firehose delivery stream.
 	//
 	// Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
-	Separator *string `json:"separator" yaml:"separator"`
+	Separator *string `field:"optional" json:"separator" yaml:"separator"`
 }
 
 // Specifies the default alarm state.
@@ -1765,7 +1808,10 @@ type CfnAlarmModel_FirehoseProperty struct {
 // The configuration applies to all alarms that were created based on this alarm model.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   initializationConfigurationProperty := &initializationConfigurationProperty{
 //   	disabledOnInitialization: jsii.Boolean(false),
 //   }
@@ -1774,13 +1820,16 @@ type CfnAlarmModel_InitializationConfigurationProperty struct {
 	// The value must be `TRUE` or `FALSE` .
 	//
 	// If `FALSE` , all alarm instances created based on the alarm model are activated. The default value is `TRUE` .
-	DisabledOnInitialization interface{} `json:"disabledOnInitialization" yaml:"disabledOnInitialization"`
+	DisabledOnInitialization interface{} `field:"required" json:"disabledOnInitialization" yaml:"disabledOnInitialization"`
 }
 
 // Sends an AWS IoT Events input, passing in information about the detector model instance and the event that triggered the action.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   iotEventsProperty := &iotEventsProperty{
 //   	inputName: jsii.String("inputName"),
 //
@@ -1793,9 +1842,9 @@ type CfnAlarmModel_InitializationConfigurationProperty struct {
 //
 type CfnAlarmModel_IotEventsProperty struct {
 	// The name of the AWS IoT Events input where the data is sent.
-	InputName *string `json:"inputName" yaml:"inputName"`
+	InputName *string `field:"required" json:"inputName" yaml:"inputName"`
 	// You can configure the action payload when you send a message to an AWS IoT Events input.
-	Payload interface{} `json:"payload" yaml:"payload"`
+	Payload interface{} `field:"optional" json:"payload" yaml:"payload"`
 }
 
 // Sends information about the detector model instance and the event that triggered the action to a specified asset property in AWS IoT SiteWise .
@@ -1815,7 +1864,10 @@ type CfnAlarmModel_IotEventsProperty struct {
 // For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   iotSiteWiseProperty := &iotSiteWiseProperty{
 //   	propertyValue: &assetPropertyValueProperty{
 //   		value: &assetPropertyVariantProperty{
@@ -1846,23 +1898,26 @@ type CfnAlarmModel_IotSiteWiseProperty struct {
 	// The value to send to the asset property.
 	//
 	// This value contains timestamp, quality, and value (TQV) information.
-	PropertyValue interface{} `json:"propertyValue" yaml:"propertyValue"`
+	PropertyValue interface{} `field:"required" json:"propertyValue" yaml:"propertyValue"`
 	// The ID of the asset that has the specified property.
-	AssetId *string `json:"assetId" yaml:"assetId"`
+	AssetId *string `field:"optional" json:"assetId" yaml:"assetId"`
 	// A unique identifier for this entry.
 	//
 	// You can use the entry ID to track which data entry causes an error in case of failure. The default is a new unique identifier.
-	EntryId *string `json:"entryId" yaml:"entryId"`
+	EntryId *string `field:"optional" json:"entryId" yaml:"entryId"`
 	// The alias of the asset property.
-	PropertyAlias *string `json:"propertyAlias" yaml:"propertyAlias"`
+	PropertyAlias *string `field:"optional" json:"propertyAlias" yaml:"propertyAlias"`
 	// The ID of the asset property.
-	PropertyId *string `json:"propertyId" yaml:"propertyId"`
+	PropertyId *string `field:"optional" json:"propertyId" yaml:"propertyId"`
 }
 
 // Information required to publish the MQTT message through the AWS IoT message broker.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   iotTopicPublishProperty := &iotTopicPublishProperty{
 //   	mqttTopic: jsii.String("mqttTopic"),
 //
@@ -1877,15 +1932,18 @@ type CfnAlarmModel_IotTopicPublishProperty struct {
 	// The MQTT topic of the message.
 	//
 	// You can use a string expression that includes variables ( `$variable.<variable-name>` ) and input values ( `$input.<input-name>.<path-to-datum>` ) as the topic string.
-	MqttTopic *string `json:"mqttTopic" yaml:"mqttTopic"`
+	MqttTopic *string `field:"required" json:"mqttTopic" yaml:"mqttTopic"`
 	// You can configure the action payload when you publish a message to an AWS IoT Core topic.
-	Payload interface{} `json:"payload" yaml:"payload"`
+	Payload interface{} `field:"optional" json:"payload" yaml:"payload"`
 }
 
 // Calls a Lambda function, passing in information about the detector model instance and the event that triggered the action.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   lambdaProperty := &lambdaProperty{
 //   	functionArn: jsii.String("functionArn"),
 //
@@ -1898,9 +1956,9 @@ type CfnAlarmModel_IotTopicPublishProperty struct {
 //
 type CfnAlarmModel_LambdaProperty struct {
 	// The ARN of the Lambda function that is executed.
-	FunctionArn *string `json:"functionArn" yaml:"functionArn"`
+	FunctionArn *string `field:"required" json:"functionArn" yaml:"functionArn"`
 	// You can configure the action payload when you send a message to a Lambda function.
-	Payload interface{} `json:"payload" yaml:"payload"`
+	Payload interface{} `field:"optional" json:"payload" yaml:"payload"`
 }
 
 // Information needed to configure the payload.
@@ -1908,7 +1966,10 @@ type CfnAlarmModel_LambdaProperty struct {
 // By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   payloadProperty := &payloadProperty{
 //   	contentExpression: jsii.String("contentExpression"),
 //   	type: jsii.String("type"),
@@ -1918,15 +1979,18 @@ type CfnAlarmModel_PayloadProperty struct {
 	// The content of the payload.
 	//
 	// You can use a string expression that includes quoted strings ( `'<string>'` ), variables ( `$variable.<variable-name>` ), input values ( `$input.<input-name>.<path-to-datum>` ), string concatenations, and quoted strings that contain `${}` as the content. The recommended maximum size of a content expression is 1 KB.
-	ContentExpression *string `json:"contentExpression" yaml:"contentExpression"`
+	ContentExpression *string `field:"required" json:"contentExpression" yaml:"contentExpression"`
 	// The value of the payload type can be either `STRING` or `JSON` .
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 }
 
 // A rule that compares an input property value to a threshold value with a comparison operator.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   simpleRuleProperty := &simpleRuleProperty{
 //   	comparisonOperator: jsii.String("comparisonOperator"),
 //   	inputProperty: jsii.String("inputProperty"),
@@ -1935,21 +1999,24 @@ type CfnAlarmModel_PayloadProperty struct {
 //
 type CfnAlarmModel_SimpleRuleProperty struct {
 	// The comparison operator.
-	ComparisonOperator *string `json:"comparisonOperator" yaml:"comparisonOperator"`
+	ComparisonOperator *string `field:"required" json:"comparisonOperator" yaml:"comparisonOperator"`
 	// The value on the left side of the comparison operator.
 	//
 	// You can specify an AWS IoT Events input attribute as an input property.
-	InputProperty *string `json:"inputProperty" yaml:"inputProperty"`
+	InputProperty *string `field:"required" json:"inputProperty" yaml:"inputProperty"`
 	// The value on the right side of the comparison operator.
 	//
 	// You can enter a number or specify an AWS IoT Events input attribute.
-	Threshold *string `json:"threshold" yaml:"threshold"`
+	Threshold *string `field:"required" json:"threshold" yaml:"threshold"`
 }
 
 // Information required to publish the Amazon SNS message.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   snsProperty := &snsProperty{
 //   	targetArn: jsii.String("targetArn"),
 //
@@ -1962,15 +2029,18 @@ type CfnAlarmModel_SimpleRuleProperty struct {
 //
 type CfnAlarmModel_SnsProperty struct {
 	// The ARN of the Amazon SNS target where the message is sent.
-	TargetArn *string `json:"targetArn" yaml:"targetArn"`
+	TargetArn *string `field:"required" json:"targetArn" yaml:"targetArn"`
 	// You can configure the action payload when you send a message as an Amazon SNS push notification.
-	Payload interface{} `json:"payload" yaml:"payload"`
+	Payload interface{} `field:"optional" json:"payload" yaml:"payload"`
 }
 
 // Sends information about the detector model instance and the event that triggered the action to an Amazon SQS queue.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sqsProperty := &sqsProperty{
 //   	queueUrl: jsii.String("queueUrl"),
 //
@@ -1984,19 +2054,22 @@ type CfnAlarmModel_SnsProperty struct {
 //
 type CfnAlarmModel_SqsProperty struct {
 	// The URL of the SQS queue where the data is written.
-	QueueUrl *string `json:"queueUrl" yaml:"queueUrl"`
+	QueueUrl *string `field:"required" json:"queueUrl" yaml:"queueUrl"`
 	// You can configure the action payload when you send a message to an Amazon SQS queue.
-	Payload interface{} `json:"payload" yaml:"payload"`
+	Payload interface{} `field:"optional" json:"payload" yaml:"payload"`
 	// Set this to TRUE if you want the data to be base-64 encoded before it is written to the queue.
 	//
 	// Otherwise, set this to FALSE.
-	UseBase64 interface{} `json:"useBase64" yaml:"useBase64"`
+	UseBase64 interface{} `field:"optional" json:"useBase64" yaml:"useBase64"`
 }
 
 // Properties for defining a `CfnAlarmModel`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAlarmModelProps := &cfnAlarmModelProps{
 //   	alarmRule: &alarmRuleProperty{
 //   		simpleRule: &simpleRuleProperty{
@@ -2143,31 +2216,31 @@ type CfnAlarmModel_SqsProperty struct {
 //
 type CfnAlarmModelProps struct {
 	// Defines when your alarm is invoked.
-	AlarmRule interface{} `json:"alarmRule" yaml:"alarmRule"`
+	AlarmRule interface{} `field:"required" json:"alarmRule" yaml:"alarmRule"`
 	// The ARN of the IAM role that allows the alarm to perform actions and access AWS resources.
 	//
 	// For more information, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *AWS General Reference* .
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// Contains the configuration information of alarm state changes.
-	AlarmCapabilities interface{} `json:"alarmCapabilities" yaml:"alarmCapabilities"`
+	AlarmCapabilities interface{} `field:"optional" json:"alarmCapabilities" yaml:"alarmCapabilities"`
 	// Contains information about one or more alarm actions.
-	AlarmEventActions interface{} `json:"alarmEventActions" yaml:"alarmEventActions"`
+	AlarmEventActions interface{} `field:"optional" json:"alarmEventActions" yaml:"alarmEventActions"`
 	// The description of the alarm model.
-	AlarmModelDescription *string `json:"alarmModelDescription" yaml:"alarmModelDescription"`
+	AlarmModelDescription *string `field:"optional" json:"alarmModelDescription" yaml:"alarmModelDescription"`
 	// The name of the alarm model.
-	AlarmModelName *string `json:"alarmModelName" yaml:"alarmModelName"`
+	AlarmModelName *string `field:"optional" json:"alarmModelName" yaml:"alarmModelName"`
 	// An input attribute used as a key to create an alarm.
 	//
 	// AWS IoT Events routes [inputs](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Input.html) associated with this key to the alarm.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"optional" json:"key" yaml:"key"`
 	// A non-negative integer that reflects the severity level of the alarm.
-	Severity *float64 `json:"severity" yaml:"severity"`
+	Severity *float64 `field:"optional" json:"severity" yaml:"severity"`
 	// A list of key-value pairs that contain metadata for the alarm model.
 	//
 	// The tags help you manage the alarm model. For more information, see [Tagging your AWS IoT Events resources](https://docs.aws.amazon.com/iotevents/latest/developerguide/tagging-iotevents.html) in the *AWS IoT Events Developer Guide* .
 	//
 	// You can create up to 50 tags for one alarm model.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::IoTEvents::DetectorModel`.
@@ -2183,8 +2256,11 @@ type CfnAlarmModelProps struct {
 // > Also, be aware that if you attempt to update several detector models at once using AWS CloudFormation , some updates may succeed and others fail. In this case, the effects on each detector model's detector instances and version number depend on whether the update succeeded or failed, with the results as stated.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
-//   cfnDetectorModel := iotevents.NewCfnDetectorModel(this, jsii.String("MyCfnDetectorModel"), &cfnDetectorModelProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDetectorModel := awscdk.Aws_iotevents.NewCfnDetectorModel(this, jsii.String("MyCfnDetectorModel"), &cfnDetectorModelProps{
 //   	detectorModelDefinition: &detectorModelDefinitionProperty{
 //   		initialStateName: jsii.String("initialStateName"),
 //   		states: []interface{}{
@@ -3513,7 +3589,10 @@ func (c *jsiiProxy_CfnDetectorModel) ValidateProperties(_properties interface{})
 // An action to be performed when the `condition` is TRUE.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   actionProperty := &actionProperty{
 //   	clearTimer: &clearTimerProperty{
 //   		timerName: jsii.String("timerName"),
@@ -3643,35 +3722,35 @@ func (c *jsiiProxy_CfnDetectorModel) ValidateProperties(_properties interface{})
 //
 type CfnDetectorModel_ActionProperty struct {
 	// Information needed to clear the timer.
-	ClearTimer interface{} `json:"clearTimer" yaml:"clearTimer"`
+	ClearTimer interface{} `field:"optional" json:"clearTimer" yaml:"clearTimer"`
 	// Writes to the DynamoDB table that you created.
 	//
 	// The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide* .
-	DynamoDb interface{} `json:"dynamoDb" yaml:"dynamoDb"`
+	DynamoDb interface{} `field:"optional" json:"dynamoDb" yaml:"dynamoDb"`
 	// Writes to the DynamoDB table that you created.
 	//
 	// The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide* .
-	DynamoDBv2 interface{} `json:"dynamoDBv2" yaml:"dynamoDBv2"`
+	DynamoDBv2 interface{} `field:"optional" json:"dynamoDBv2" yaml:"dynamoDBv2"`
 	// Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
-	Firehose interface{} `json:"firehose" yaml:"firehose"`
+	Firehose interface{} `field:"optional" json:"firehose" yaml:"firehose"`
 	// Sends AWS IoT Events input, which passes information about the detector model instance and the event that triggered the action.
-	IotEvents interface{} `json:"iotEvents" yaml:"iotEvents"`
+	IotEvents interface{} `field:"optional" json:"iotEvents" yaml:"iotEvents"`
 	// Sends information about the detector model instance and the event that triggered the action to an asset property in AWS IoT SiteWise .
-	IotSiteWise interface{} `json:"iotSiteWise" yaml:"iotSiteWise"`
+	IotSiteWise interface{} `field:"optional" json:"iotSiteWise" yaml:"iotSiteWise"`
 	// Publishes an MQTT message with the given topic to the AWS IoT message broker.
-	IotTopicPublish interface{} `json:"iotTopicPublish" yaml:"iotTopicPublish"`
+	IotTopicPublish interface{} `field:"optional" json:"iotTopicPublish" yaml:"iotTopicPublish"`
 	// Calls a Lambda function, passing in information about the detector model instance and the event that triggered the action.
-	Lambda interface{} `json:"lambda" yaml:"lambda"`
+	Lambda interface{} `field:"optional" json:"lambda" yaml:"lambda"`
 	// Information needed to reset the timer.
-	ResetTimer interface{} `json:"resetTimer" yaml:"resetTimer"`
+	ResetTimer interface{} `field:"optional" json:"resetTimer" yaml:"resetTimer"`
 	// Information needed to set the timer.
-	SetTimer interface{} `json:"setTimer" yaml:"setTimer"`
+	SetTimer interface{} `field:"optional" json:"setTimer" yaml:"setTimer"`
 	// Sets a variable to a specified value.
-	SetVariable interface{} `json:"setVariable" yaml:"setVariable"`
+	SetVariable interface{} `field:"optional" json:"setVariable" yaml:"setVariable"`
 	// Sends an Amazon SNS message.
-	Sns interface{} `json:"sns" yaml:"sns"`
+	Sns interface{} `field:"optional" json:"sns" yaml:"sns"`
 	// Sends an Amazon SNS message.
-	Sqs interface{} `json:"sqs" yaml:"sqs"`
+	Sqs interface{} `field:"optional" json:"sqs" yaml:"sqs"`
 }
 
 // A structure that contains timestamp information. For more information, see [TimeInNanos](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_TimeInNanos.html) in the *AWS IoT SiteWise API Reference* .
@@ -3689,7 +3768,10 @@ type CfnDetectorModel_ActionProperty struct {
 // For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   assetPropertyTimestampProperty := &assetPropertyTimestampProperty{
 //   	timeInSeconds: jsii.String("timeInSeconds"),
 //
@@ -3701,11 +3783,11 @@ type CfnDetectorModel_AssetPropertyTimestampProperty struct {
 	// The timestamp, in seconds, in the Unix epoch format.
 	//
 	// The valid range is between 1-31556889864403199.
-	TimeInSeconds *string `json:"timeInSeconds" yaml:"timeInSeconds"`
+	TimeInSeconds *string `field:"required" json:"timeInSeconds" yaml:"timeInSeconds"`
 	// The nanosecond offset converted from `timeInSeconds` .
 	//
 	// The valid range is between 0-999999999.
-	OffsetInNanos *string `json:"offsetInNanos" yaml:"offsetInNanos"`
+	OffsetInNanos *string `field:"optional" json:"offsetInNanos" yaml:"offsetInNanos"`
 }
 
 // A structure that contains value information. For more information, see [AssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html) in the *AWS IoT SiteWise API Reference* .
@@ -3718,7 +3800,10 @@ type CfnDetectorModel_AssetPropertyTimestampProperty struct {
 // For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   assetPropertyValueProperty := &assetPropertyValueProperty{
 //   	value: &assetPropertyVariantProperty{
 //   		booleanValue: jsii.String("booleanValue"),
@@ -3739,15 +3824,15 @@ type CfnDetectorModel_AssetPropertyTimestampProperty struct {
 //
 type CfnDetectorModel_AssetPropertyValueProperty struct {
 	// The value to send to an asset property.
-	Value interface{} `json:"value" yaml:"value"`
+	Value interface{} `field:"required" json:"value" yaml:"value"`
 	// The quality of the asset property value.
 	//
 	// The value must be `'GOOD'` , `'BAD'` , or `'UNCERTAIN'` .
-	Quality *string `json:"quality" yaml:"quality"`
+	Quality *string `field:"optional" json:"quality" yaml:"quality"`
 	// The timestamp associated with the asset property value.
 	//
 	// The default is the current event time.
-	Timestamp interface{} `json:"timestamp" yaml:"timestamp"`
+	Timestamp interface{} `field:"optional" json:"timestamp" yaml:"timestamp"`
 }
 
 // A structure that contains an asset property value.
@@ -3769,7 +3854,10 @@ type CfnDetectorModel_AssetPropertyValueProperty struct {
 // You must specify one of the following value types, depending on the `dataType` of the specified asset property. For more information, see [AssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetProperty.html) in the *AWS IoT SiteWise API Reference* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   assetPropertyVariantProperty := &assetPropertyVariantProperty{
 //   	booleanValue: jsii.String("booleanValue"),
 //   	doubleValue: jsii.String("doubleValue"),
@@ -3781,38 +3869,44 @@ type CfnDetectorModel_AssetPropertyVariantProperty struct {
 	// The asset property value is a Boolean value that must be `'TRUE'` or `'FALSE'` .
 	//
 	// You must use an expression, and the evaluated result should be a Boolean value.
-	BooleanValue *string `json:"booleanValue" yaml:"booleanValue"`
+	BooleanValue *string `field:"optional" json:"booleanValue" yaml:"booleanValue"`
 	// The asset property value is a double.
 	//
 	// You must use an expression, and the evaluated result should be a double.
-	DoubleValue *string `json:"doubleValue" yaml:"doubleValue"`
+	DoubleValue *string `field:"optional" json:"doubleValue" yaml:"doubleValue"`
 	// The asset property value is an integer.
 	//
 	// You must use an expression, and the evaluated result should be an integer.
-	IntegerValue *string `json:"integerValue" yaml:"integerValue"`
+	IntegerValue *string `field:"optional" json:"integerValue" yaml:"integerValue"`
 	// The asset property value is a string.
 	//
 	// You must use an expression, and the evaluated result should be a string.
-	StringValue *string `json:"stringValue" yaml:"stringValue"`
+	StringValue *string `field:"optional" json:"stringValue" yaml:"stringValue"`
 }
 
 // Information needed to clear the timer.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   clearTimerProperty := &clearTimerProperty{
 //   	timerName: jsii.String("timerName"),
 //   }
 //
 type CfnDetectorModel_ClearTimerProperty struct {
 	// The name of the timer to clear.
-	TimerName *string `json:"timerName" yaml:"timerName"`
+	TimerName *string `field:"required" json:"timerName" yaml:"timerName"`
 }
 
 // Information that defines how a detector operates.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   detectorModelDefinitionProperty := &detectorModelDefinitionProperty{
 //   	initialStateName: jsii.String("initialStateName"),
 //   	states: []interface{}{
@@ -4377,9 +4471,9 @@ type CfnDetectorModel_ClearTimerProperty struct {
 //
 type CfnDetectorModel_DetectorModelDefinitionProperty struct {
 	// The state that is entered at the creation of each detector (instance).
-	InitialStateName *string `json:"initialStateName" yaml:"initialStateName"`
+	InitialStateName *string `field:"required" json:"initialStateName" yaml:"initialStateName"`
 	// Information about the states of the detector.
-	States interface{} `json:"states" yaml:"states"`
+	States interface{} `field:"required" json:"states" yaml:"states"`
 }
 
 // Defines an action to write to the Amazon DynamoDB table that you created.
@@ -4406,7 +4500,10 @@ type CfnDetectorModel_DetectorModelDefinitionProperty struct {
 // If the defined payload type is a string, `DynamoDBAction` writes non-JSON data to the DynamoDB table as binary data. The DynamoDB console displays the data as Base64-encoded text. The value for the `payloadField` parameter is `<payload-field>_raw` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dynamoDBProperty := &dynamoDBProperty{
 //   	hashKeyField: jsii.String("hashKeyField"),
 //   	hashKeyValue: jsii.String("hashKeyValue"),
@@ -4429,20 +4526,20 @@ type CfnDetectorModel_DynamoDBProperty struct {
 	// The name of the hash key (also called the partition key).
 	//
 	// The `hashKeyField` value must match the partition key of the target DynamoDB table.
-	HashKeyField *string `json:"hashKeyField" yaml:"hashKeyField"`
+	HashKeyField *string `field:"required" json:"hashKeyField" yaml:"hashKeyField"`
 	// The value of the hash key (also called the partition key).
-	HashKeyValue *string `json:"hashKeyValue" yaml:"hashKeyValue"`
+	HashKeyValue *string `field:"required" json:"hashKeyValue" yaml:"hashKeyValue"`
 	// The name of the DynamoDB table.
 	//
 	// The `tableName` value must match the table name of the target DynamoDB table.
-	TableName *string `json:"tableName" yaml:"tableName"`
+	TableName *string `field:"required" json:"tableName" yaml:"tableName"`
 	// The data type for the hash key (also called the partition key). You can specify the following values:.
 	//
 	// - `'STRING'` - The hash key is a string.
 	// - `'NUMBER'` - The hash key is a number.
 	//
 	// If you don't specify `hashKeyType` , the default value is `'STRING'` .
-	HashKeyType *string `json:"hashKeyType" yaml:"hashKeyType"`
+	HashKeyType *string `field:"optional" json:"hashKeyType" yaml:"hashKeyType"`
 	// The type of operation to perform. You can specify the following values:.
 	//
 	// - `'INSERT'` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
@@ -4450,28 +4547,28 @@ type CfnDetectorModel_DynamoDBProperty struct {
 	// - `'DELETE'` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
 	//
 	// If you don't specify this parameter, AWS IoT Events triggers the `'INSERT'` operation.
-	Operation *string `json:"operation" yaml:"operation"`
+	Operation *string `field:"optional" json:"operation" yaml:"operation"`
 	// Information needed to configure the payload.
 	//
 	// By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
-	Payload interface{} `json:"payload" yaml:"payload"`
+	Payload interface{} `field:"optional" json:"payload" yaml:"payload"`
 	// The name of the DynamoDB column that receives the action payload.
 	//
 	// If you don't specify this parameter, the name of the DynamoDB column is `payload` .
-	PayloadField *string `json:"payloadField" yaml:"payloadField"`
+	PayloadField *string `field:"optional" json:"payloadField" yaml:"payloadField"`
 	// The name of the range key (also called the sort key).
 	//
 	// The `rangeKeyField` value must match the sort key of the target DynamoDB table.
-	RangeKeyField *string `json:"rangeKeyField" yaml:"rangeKeyField"`
+	RangeKeyField *string `field:"optional" json:"rangeKeyField" yaml:"rangeKeyField"`
 	// The data type for the range key (also called the sort key), You can specify the following values:.
 	//
 	// - `'STRING'` - The range key is a string.
 	// - `'NUMBER'` - The range key is number.
 	//
 	// If you don't specify `rangeKeyField` , the default value is `'STRING'` .
-	RangeKeyType *string `json:"rangeKeyType" yaml:"rangeKeyType"`
+	RangeKeyType *string `field:"optional" json:"rangeKeyType" yaml:"rangeKeyType"`
 	// The value of the range key (also called the sort key).
-	RangeKeyValue *string `json:"rangeKeyValue" yaml:"rangeKeyValue"`
+	RangeKeyValue *string `field:"optional" json:"rangeKeyValue" yaml:"rangeKeyValue"`
 }
 
 // Defines an action to write to the Amazon DynamoDB table that you created.
@@ -4498,7 +4595,10 @@ type CfnDetectorModel_DynamoDBProperty struct {
 // The value for the `type` parameter in `Payload` must be `JSON` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dynamoDBv2Property := &dynamoDBv2Property{
 //   	tableName: jsii.String("tableName"),
 //
@@ -4511,17 +4611,20 @@ type CfnDetectorModel_DynamoDBProperty struct {
 //
 type CfnDetectorModel_DynamoDBv2Property struct {
 	// The name of the DynamoDB table.
-	TableName *string `json:"tableName" yaml:"tableName"`
+	TableName *string `field:"required" json:"tableName" yaml:"tableName"`
 	// Information needed to configure the payload.
 	//
 	// By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
-	Payload interface{} `json:"payload" yaml:"payload"`
+	Payload interface{} `field:"optional" json:"payload" yaml:"payload"`
 }
 
 // Specifies the `actions` to be performed when the `condition` evaluates to TRUE.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   eventProperty := &eventProperty{
 //   	eventName: jsii.String("eventName"),
 //
@@ -4659,19 +4762,22 @@ type CfnDetectorModel_DynamoDBv2Property struct {
 //
 type CfnDetectorModel_EventProperty struct {
 	// The name of the event.
-	EventName *string `json:"eventName" yaml:"eventName"`
+	EventName *string `field:"required" json:"eventName" yaml:"eventName"`
 	// The actions to be performed.
-	Actions interface{} `json:"actions" yaml:"actions"`
+	Actions interface{} `field:"optional" json:"actions" yaml:"actions"`
 	// Optional.
 	//
 	// The Boolean expression that, when TRUE, causes the `actions` to be performed. If not present, the actions are performed (=TRUE). If the expression result is not a Boolean value, the actions are not performed (=FALSE).
-	Condition *string `json:"condition" yaml:"condition"`
+	Condition *string `field:"optional" json:"condition" yaml:"condition"`
 }
 
 // Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   firehoseProperty := &firehoseProperty{
 //   	deliveryStreamName: jsii.String("deliveryStreamName"),
 //
@@ -4685,19 +4791,22 @@ type CfnDetectorModel_EventProperty struct {
 //
 type CfnDetectorModel_FirehoseProperty struct {
 	// The name of the Kinesis Data Firehose delivery stream where the data is written.
-	DeliveryStreamName *string `json:"deliveryStreamName" yaml:"deliveryStreamName"`
+	DeliveryStreamName *string `field:"required" json:"deliveryStreamName" yaml:"deliveryStreamName"`
 	// You can configure the action payload when you send a message to an Amazon Kinesis Data Firehose delivery stream.
-	Payload interface{} `json:"payload" yaml:"payload"`
+	Payload interface{} `field:"optional" json:"payload" yaml:"payload"`
 	// A character separator that is used to separate records written to the Kinesis Data Firehose delivery stream.
 	//
 	// Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
-	Separator *string `json:"separator" yaml:"separator"`
+	Separator *string `field:"optional" json:"separator" yaml:"separator"`
 }
 
 // Sends an AWS IoT Events input, passing in information about the detector model instance and the event that triggered the action.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   iotEventsProperty := &iotEventsProperty{
 //   	inputName: jsii.String("inputName"),
 //
@@ -4710,9 +4819,9 @@ type CfnDetectorModel_FirehoseProperty struct {
 //
 type CfnDetectorModel_IotEventsProperty struct {
 	// The name of the AWS IoT Events input where the data is sent.
-	InputName *string `json:"inputName" yaml:"inputName"`
+	InputName *string `field:"required" json:"inputName" yaml:"inputName"`
 	// You can configure the action payload when you send a message to an AWS IoT Events input.
-	Payload interface{} `json:"payload" yaml:"payload"`
+	Payload interface{} `field:"optional" json:"payload" yaml:"payload"`
 }
 
 // Sends information about the detector model instance and the event that triggered the action to a specified asset property in AWS IoT SiteWise .
@@ -4732,7 +4841,10 @@ type CfnDetectorModel_IotEventsProperty struct {
 // For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   iotSiteWiseProperty := &iotSiteWiseProperty{
 //   	propertyValue: &assetPropertyValueProperty{
 //   		value: &assetPropertyVariantProperty{
@@ -4763,23 +4875,26 @@ type CfnDetectorModel_IotSiteWiseProperty struct {
 	// The value to send to the asset property.
 	//
 	// This value contains timestamp, quality, and value (TQV) information.
-	PropertyValue interface{} `json:"propertyValue" yaml:"propertyValue"`
+	PropertyValue interface{} `field:"required" json:"propertyValue" yaml:"propertyValue"`
 	// The ID of the asset that has the specified property.
-	AssetId *string `json:"assetId" yaml:"assetId"`
+	AssetId *string `field:"optional" json:"assetId" yaml:"assetId"`
 	// A unique identifier for this entry.
 	//
 	// You can use the entry ID to track which data entry causes an error in case of failure. The default is a new unique identifier.
-	EntryId *string `json:"entryId" yaml:"entryId"`
+	EntryId *string `field:"optional" json:"entryId" yaml:"entryId"`
 	// The alias of the asset property.
-	PropertyAlias *string `json:"propertyAlias" yaml:"propertyAlias"`
+	PropertyAlias *string `field:"optional" json:"propertyAlias" yaml:"propertyAlias"`
 	// The ID of the asset property.
-	PropertyId *string `json:"propertyId" yaml:"propertyId"`
+	PropertyId *string `field:"optional" json:"propertyId" yaml:"propertyId"`
 }
 
 // Information required to publish the MQTT message through the AWS IoT message broker.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   iotTopicPublishProperty := &iotTopicPublishProperty{
 //   	mqttTopic: jsii.String("mqttTopic"),
 //
@@ -4794,15 +4909,18 @@ type CfnDetectorModel_IotTopicPublishProperty struct {
 	// The MQTT topic of the message.
 	//
 	// You can use a string expression that includes variables ( `$variable.<variable-name>` ) and input values ( `$input.<input-name>.<path-to-datum>` ) as the topic string.
-	MqttTopic *string `json:"mqttTopic" yaml:"mqttTopic"`
+	MqttTopic *string `field:"required" json:"mqttTopic" yaml:"mqttTopic"`
 	// You can configure the action payload when you publish a message to an AWS IoT Core topic.
-	Payload interface{} `json:"payload" yaml:"payload"`
+	Payload interface{} `field:"optional" json:"payload" yaml:"payload"`
 }
 
 // Calls a Lambda function, passing in information about the detector model instance and the event that triggered the action.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   lambdaProperty := &lambdaProperty{
 //   	functionArn: jsii.String("functionArn"),
 //
@@ -4815,15 +4933,18 @@ type CfnDetectorModel_IotTopicPublishProperty struct {
 //
 type CfnDetectorModel_LambdaProperty struct {
 	// The ARN of the Lambda function that is executed.
-	FunctionArn *string `json:"functionArn" yaml:"functionArn"`
+	FunctionArn *string `field:"required" json:"functionArn" yaml:"functionArn"`
 	// You can configure the action payload when you send a message to a Lambda function.
-	Payload interface{} `json:"payload" yaml:"payload"`
+	Payload interface{} `field:"optional" json:"payload" yaml:"payload"`
 }
 
 // When entering this state, perform these `actions` if the `condition` is TRUE.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   onEnterProperty := &onEnterProperty{
 //   	events: []interface{}{
 //   		&eventProperty{
@@ -4965,13 +5086,16 @@ type CfnDetectorModel_LambdaProperty struct {
 //
 type CfnDetectorModel_OnEnterProperty struct {
 	// Specifies the actions that are performed when the state is entered and the `condition` is `TRUE` .
-	Events interface{} `json:"events" yaml:"events"`
+	Events interface{} `field:"optional" json:"events" yaml:"events"`
 }
 
 // When exiting this state, perform these `actions` if the specified `condition` is `TRUE` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   onExitProperty := &onExitProperty{
 //   	events: []interface{}{
 //   		&eventProperty{
@@ -5113,13 +5237,16 @@ type CfnDetectorModel_OnEnterProperty struct {
 //
 type CfnDetectorModel_OnExitProperty struct {
 	// Specifies the `actions` that are performed when the state is exited and the `condition` is `TRUE` .
-	Events interface{} `json:"events" yaml:"events"`
+	Events interface{} `field:"optional" json:"events" yaml:"events"`
 }
 
 // Specifies the actions performed when the `condition` evaluates to TRUE.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   onInputProperty := &onInputProperty{
 //   	events: []interface{}{
 //   		&eventProperty{
@@ -5398,9 +5525,9 @@ type CfnDetectorModel_OnExitProperty struct {
 //
 type CfnDetectorModel_OnInputProperty struct {
 	// Specifies the actions performed when the `condition` evaluates to TRUE.
-	Events interface{} `json:"events" yaml:"events"`
+	Events interface{} `field:"optional" json:"events" yaml:"events"`
 	// Specifies the actions performed, and the next state entered, when a `condition` evaluates to TRUE.
-	TransitionEvents interface{} `json:"transitionEvents" yaml:"transitionEvents"`
+	TransitionEvents interface{} `field:"optional" json:"transitionEvents" yaml:"transitionEvents"`
 }
 
 // Information needed to configure the payload.
@@ -5408,7 +5535,10 @@ type CfnDetectorModel_OnInputProperty struct {
 // By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   payloadProperty := &payloadProperty{
 //   	contentExpression: jsii.String("contentExpression"),
 //   	type: jsii.String("type"),
@@ -5418,9 +5548,9 @@ type CfnDetectorModel_PayloadProperty struct {
 	// The content of the payload.
 	//
 	// You can use a string expression that includes quoted strings ( `'<string>'` ), variables ( `$variable.<variable-name>` ), input values ( `$input.<input-name>.<path-to-datum>` ), string concatenations, and quoted strings that contain `${}` as the content. The recommended maximum size of a content expression is 1 KB.
-	ContentExpression *string `json:"contentExpression" yaml:"contentExpression"`
+	ContentExpression *string `field:"required" json:"contentExpression" yaml:"contentExpression"`
 	// The value of the payload type can be either `STRING` or `JSON` .
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 }
 
 // Information required to reset the timer.
@@ -5428,20 +5558,26 @@ type CfnDetectorModel_PayloadProperty struct {
 // The timer is reset to the previously evaluated result of the duration. The duration expression isn't reevaluated when you reset the timer.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   resetTimerProperty := &resetTimerProperty{
 //   	timerName: jsii.String("timerName"),
 //   }
 //
 type CfnDetectorModel_ResetTimerProperty struct {
 	// The name of the timer to reset.
-	TimerName *string `json:"timerName" yaml:"timerName"`
+	TimerName *string `field:"required" json:"timerName" yaml:"timerName"`
 }
 
 // Information needed to set the timer.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   setTimerProperty := &setTimerProperty{
 //   	timerName: jsii.String("timerName"),
 //
@@ -5452,21 +5588,24 @@ type CfnDetectorModel_ResetTimerProperty struct {
 //
 type CfnDetectorModel_SetTimerProperty struct {
 	// The name of the timer.
-	TimerName *string `json:"timerName" yaml:"timerName"`
+	TimerName *string `field:"required" json:"timerName" yaml:"timerName"`
 	// The duration of the timer, in seconds.
 	//
 	// You can use a string expression that includes numbers, variables ( `$variable.<variable-name>` ), and input values ( `$input.<input-name>.<path-to-datum>` ) as the duration. The range of the duration is 1-31622400 seconds. To ensure accuracy, the minimum duration is 60 seconds. The evaluated result of the duration is rounded down to the nearest whole number.
-	DurationExpression *string `json:"durationExpression" yaml:"durationExpression"`
+	DurationExpression *string `field:"optional" json:"durationExpression" yaml:"durationExpression"`
 	// The number of seconds until the timer expires.
 	//
 	// The minimum value is 60 seconds to ensure accuracy. The maximum value is 31622400 seconds.
-	Seconds *float64 `json:"seconds" yaml:"seconds"`
+	Seconds *float64 `field:"optional" json:"seconds" yaml:"seconds"`
 }
 
 // Information about the variable and its new value.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   setVariableProperty := &setVariableProperty{
 //   	value: jsii.String("value"),
 //   	variableName: jsii.String("variableName"),
@@ -5474,15 +5613,18 @@ type CfnDetectorModel_SetTimerProperty struct {
 //
 type CfnDetectorModel_SetVariableProperty struct {
 	// The new value of the variable.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 	// The name of the variable.
-	VariableName *string `json:"variableName" yaml:"variableName"`
+	VariableName *string `field:"required" json:"variableName" yaml:"variableName"`
 }
 
 // Information required to publish the Amazon SNS message.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   snsProperty := &snsProperty{
 //   	targetArn: jsii.String("targetArn"),
 //
@@ -5495,15 +5637,18 @@ type CfnDetectorModel_SetVariableProperty struct {
 //
 type CfnDetectorModel_SnsProperty struct {
 	// The ARN of the Amazon SNS target where the message is sent.
-	TargetArn *string `json:"targetArn" yaml:"targetArn"`
+	TargetArn *string `field:"required" json:"targetArn" yaml:"targetArn"`
 	// You can configure the action payload when you send a message as an Amazon SNS push notification.
-	Payload interface{} `json:"payload" yaml:"payload"`
+	Payload interface{} `field:"optional" json:"payload" yaml:"payload"`
 }
 
 // Sends information about the detector model instance and the event that triggered the action to an Amazon SQS queue.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sqsProperty := &sqsProperty{
 //   	queueUrl: jsii.String("queueUrl"),
 //
@@ -5517,19 +5662,22 @@ type CfnDetectorModel_SnsProperty struct {
 //
 type CfnDetectorModel_SqsProperty struct {
 	// The URL of the SQS queue where the data is written.
-	QueueUrl *string `json:"queueUrl" yaml:"queueUrl"`
+	QueueUrl *string `field:"required" json:"queueUrl" yaml:"queueUrl"`
 	// You can configure the action payload when you send a message to an Amazon SQS queue.
-	Payload interface{} `json:"payload" yaml:"payload"`
+	Payload interface{} `field:"optional" json:"payload" yaml:"payload"`
 	// Set this to TRUE if you want the data to be base-64 encoded before it is written to the queue.
 	//
 	// Otherwise, set this to FALSE.
-	UseBase64 interface{} `json:"useBase64" yaml:"useBase64"`
+	UseBase64 interface{} `field:"optional" json:"useBase64" yaml:"useBase64"`
 }
 
 // Information that defines a state of a detector.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   stateProperty := &stateProperty{
 //   	stateName: jsii.String("stateName"),
 //
@@ -6089,19 +6237,22 @@ type CfnDetectorModel_SqsProperty struct {
 //
 type CfnDetectorModel_StateProperty struct {
 	// The name of the state.
-	StateName *string `json:"stateName" yaml:"stateName"`
+	StateName *string `field:"required" json:"stateName" yaml:"stateName"`
 	// When entering this state, perform these `actions` if the `condition` is TRUE.
-	OnEnter interface{} `json:"onEnter" yaml:"onEnter"`
+	OnEnter interface{} `field:"optional" json:"onEnter" yaml:"onEnter"`
 	// When exiting this state, perform these `actions` if the specified `condition` is `TRUE` .
-	OnExit interface{} `json:"onExit" yaml:"onExit"`
+	OnExit interface{} `field:"optional" json:"onExit" yaml:"onExit"`
 	// When an input is received and the `condition` is TRUE, perform the specified `actions` .
-	OnInput interface{} `json:"onInput" yaml:"onInput"`
+	OnInput interface{} `field:"optional" json:"onInput" yaml:"onInput"`
 }
 
 // Specifies the actions performed and the next state entered when a `condition` evaluates to TRUE.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   transitionEventProperty := &transitionEventProperty{
 //   	condition: jsii.String("condition"),
 //   	eventName: jsii.String("eventName"),
@@ -6242,19 +6393,22 @@ type CfnDetectorModel_TransitionEventProperty struct {
 	// Required.
 	//
 	// A Boolean expression that when TRUE causes the actions to be performed and the `nextState` to be entered.
-	Condition *string `json:"condition" yaml:"condition"`
+	Condition *string `field:"required" json:"condition" yaml:"condition"`
 	// The name of the transition event.
-	EventName *string `json:"eventName" yaml:"eventName"`
+	EventName *string `field:"required" json:"eventName" yaml:"eventName"`
 	// The next state to enter.
-	NextState *string `json:"nextState" yaml:"nextState"`
+	NextState *string `field:"required" json:"nextState" yaml:"nextState"`
 	// The actions to be performed.
-	Actions interface{} `json:"actions" yaml:"actions"`
+	Actions interface{} `field:"optional" json:"actions" yaml:"actions"`
 }
 
 // Properties for defining a `CfnDetectorModel`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDetectorModelProps := &cfnDetectorModelProps{
 //   	detectorModelDefinition: &detectorModelDefinitionProperty{
 //   		initialStateName: jsii.String("initialStateName"),
@@ -6834,25 +6988,25 @@ type CfnDetectorModel_TransitionEventProperty struct {
 //
 type CfnDetectorModelProps struct {
 	// Information that defines how a detector operates.
-	DetectorModelDefinition interface{} `json:"detectorModelDefinition" yaml:"detectorModelDefinition"`
+	DetectorModelDefinition interface{} `field:"required" json:"detectorModelDefinition" yaml:"detectorModelDefinition"`
 	// The ARN of the role that grants permission to AWS IoT Events to perform its operations.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// A brief description of the detector model.
-	DetectorModelDescription *string `json:"detectorModelDescription" yaml:"detectorModelDescription"`
+	DetectorModelDescription *string `field:"optional" json:"detectorModelDescription" yaml:"detectorModelDescription"`
 	// The name of the detector model.
-	DetectorModelName *string `json:"detectorModelName" yaml:"detectorModelName"`
+	DetectorModelName *string `field:"optional" json:"detectorModelName" yaml:"detectorModelName"`
 	// Information about the order in which events are evaluated and how actions are executed.
-	EvaluationMethod *string `json:"evaluationMethod" yaml:"evaluationMethod"`
+	EvaluationMethod *string `field:"optional" json:"evaluationMethod" yaml:"evaluationMethod"`
 	// The value used to identify a detector instance.
 	//
 	// When a device or system sends input, a new detector instance with a unique key value is created. AWS IoT Events can continue to route input to its corresponding detector instance based on this identifying information.
 	//
 	// This parameter uses a JSON-path expression to select the attribute-value pair in the message payload that is used for identification. To route the message to the correct detector instance, the device must send a message payload that contains the same attribute-value.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"optional" json:"key" yaml:"key"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::IoTEvents::Input`.
@@ -6860,8 +7014,11 @@ type CfnDetectorModelProps struct {
 // The AWS::IoTEvents::Input resource creates an input. To monitor your devices and processes, they must have a way to get telemetry data into AWS IoT Events . This is done by sending messages as *inputs* to AWS IoT Events . For more information, see [How to Use AWS IoT Events](https://docs.aws.amazon.com/iotevents/latest/developerguide/how-to-use-iotevents.html) in the *AWS IoT Events Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
-//   cfnInput := iotevents.NewCfnInput(this, jsii.String("MyCfnInput"), &cfnInputProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnInput := awscdk.Aws_iotevents.NewCfnInput(this, jsii.String("MyCfnInput"), &cfnInputProps{
 //   	inputDefinition: &inputDefinitionProperty{
 //   		attributes: []interface{}{
 //   			&attributeProperty{
@@ -7568,7 +7725,10 @@ func (c *jsiiProxy_CfnInput) ValidateProperties(_properties interface{}) {
 // Inputs are derived from messages sent to the AWS IoT Events system using `BatchPutMessage` . Each such message contains a JSON payload. Those attributes (and their paired values) specified here are available for use in the `condition` expressions used by detectors.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   attributeProperty := &attributeProperty{
 //   	jsonPath: jsii.String("jsonPath"),
 //   }
@@ -7579,13 +7739,16 @@ type CfnInput_AttributeProperty struct {
 	// Use this to specify an attribute from the JSON payload that is made available by the input. Inputs are derived from messages sent to AWS IoT Events ( `BatchPutMessage` ). Each such message contains a JSON payload. The attribute (and its paired value) specified here are available for use in the `condition` expressions used by detectors.
 	//
 	// Syntax: `<field-name>.<field-name>...`
-	JsonPath *string `json:"jsonPath" yaml:"jsonPath"`
+	JsonPath *string `field:"required" json:"jsonPath" yaml:"jsonPath"`
 }
 
 // The definition of the input.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   inputDefinitionProperty := &inputDefinitionProperty{
 //   	attributes: []interface{}{
 //   		&attributeProperty{
@@ -7598,13 +7761,16 @@ type CfnInput_InputDefinitionProperty struct {
 	// The attributes from the JSON payload that are made available by the input.
 	//
 	// Inputs are derived from messages sent to the AWS IoT Events system using `BatchPutMessage` . Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the `condition` expressions used by detectors that monitor this input.
-	Attributes interface{} `json:"attributes" yaml:"attributes"`
+	Attributes interface{} `field:"required" json:"attributes" yaml:"attributes"`
 }
 
 // Properties for defining a `CfnInput`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnInputProps := &cfnInputProps{
 //   	inputDefinition: &inputDefinitionProperty{
 //   		attributes: []interface{}{
@@ -7627,23 +7793,26 @@ type CfnInput_InputDefinitionProperty struct {
 //
 type CfnInputProps struct {
 	// The definition of the input.
-	InputDefinition interface{} `json:"inputDefinition" yaml:"inputDefinition"`
+	InputDefinition interface{} `field:"required" json:"inputDefinition" yaml:"inputDefinition"`
 	// A brief description of the input.
-	InputDescription *string `json:"inputDescription" yaml:"inputDescription"`
+	InputDescription *string `field:"optional" json:"inputDescription" yaml:"inputDescription"`
 	// The name of the input.
-	InputName *string `json:"inputName" yaml:"inputName"`
+	InputName *string `field:"optional" json:"inputName" yaml:"inputName"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // Defines an AWS IoT Events detector model in this stack.
 //
 // Example:
-//   import iotevents "github.com/aws/aws-cdk-go/awscdk"import actions "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk"
+//   import iotevents "github.com/aws/aws-cdk-go/awscdk"
+//   import actions "github.com/aws/aws-cdk-go/awscdk"
+//   import lambda "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var func iFunction
+//
 //
 //   input := iotevents.NewInput(this, jsii.String("MyInput"), &inputProps{
 //   	inputName: jsii.String("my_input"),
@@ -8082,9 +8251,12 @@ func (d *jsiiProxy_DetectorModel) Validate() *[]*string {
 // Properties for defining an AWS IoT Events detector model.
 //
 // Example:
-//   import iotevents "github.com/aws/aws-cdk-go/awscdk"import actions "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk"
+//   import iotevents "github.com/aws/aws-cdk-go/awscdk"
+//   import actions "github.com/aws/aws-cdk-go/awscdk"
+//   import lambda "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var func iFunction
+//
 //
 //   input := iotevents.NewInput(this, jsii.String("MyInput"), &inputProps{
 //   	inputName: jsii.String("my_input"),
@@ -8159,10 +8331,10 @@ func (d *jsiiProxy_DetectorModel) Validate() *[]*string {
 type DetectorModelProps struct {
 	// The state that is entered at the creation of each detector.
 	// Experimental.
-	InitialState State `json:"initialState" yaml:"initialState"`
+	InitialState State `field:"required" json:"initialState" yaml:"initialState"`
 	// A brief description of the detector model.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The value used to identify a detector instance.
 	//
 	// When a device or system sends input, a new
@@ -8173,10 +8345,10 @@ type DetectorModelProps struct {
 	// payload that is used for identification. To route the message to the correct detector instance,
 	// the device must send a message payload that contains the same attribute-value.
 	// Experimental.
-	DetectorKey *string `json:"detectorKey" yaml:"detectorKey"`
+	DetectorKey *string `field:"optional" json:"detectorKey" yaml:"detectorKey"`
 	// The name of the detector model.
 	// Experimental.
-	DetectorModelName *string `json:"detectorModelName" yaml:"detectorModelName"`
+	DetectorModelName *string `field:"optional" json:"detectorModelName" yaml:"detectorModelName"`
 	// Information about the order in which events are evaluated and how actions are executed.
 	//
 	// When setting to SERIAL, variables are updated and event conditions are evaluated in the order
@@ -8184,19 +8356,22 @@ type DetectorModelProps struct {
 	// When setting to BATCH, variables within a state are updated and events within a state are
 	// performed only after all event conditions are evaluated.
 	// Experimental.
-	EvaluationMethod EventEvaluation `json:"evaluationMethod" yaml:"evaluationMethod"`
+	EvaluationMethod EventEvaluation `field:"optional" json:"evaluationMethod" yaml:"evaluationMethod"`
 	// The role that grants permission to AWS IoT Events to perform its operations.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 }
 
 // Specifies the actions to be performed when the condition evaluates to `true`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotevents "github.com/aws/aws-cdk-go/awscdk/aws_iotevents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var action iAction
 //   var expression expression
+//
 //   event := &event{
 //   	eventName: jsii.String("eventName"),
 //
@@ -8211,21 +8386,24 @@ type DetectorModelProps struct {
 type Event struct {
 	// The name of the event.
 	// Experimental.
-	EventName *string `json:"eventName" yaml:"eventName"`
+	EventName *string `field:"required" json:"eventName" yaml:"eventName"`
 	// The actions to be performed.
 	// Experimental.
-	Actions *[]IAction `json:"actions" yaml:"actions"`
+	Actions *[]IAction `field:"optional" json:"actions" yaml:"actions"`
 	// The Boolean expression that, when `true`, causes the actions to be performed.
 	// Experimental.
-	Condition Expression `json:"condition" yaml:"condition"`
+	Condition Expression `field:"optional" json:"condition" yaml:"condition"`
 }
 
 // Information about the order in which events are evaluated and how actions are executed.
 //
 // Example:
-//   import iotevents "github.com/aws/aws-cdk-go/awscdk"import actions "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk"
+//   import iotevents "github.com/aws/aws-cdk-go/awscdk"
+//   import actions "github.com/aws/aws-cdk-go/awscdk"
+//   import lambda "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var func iFunction
+//
 //
 //   input := iotevents.NewInput(this, jsii.String("MyInput"), &inputProps{
 //   	inputName: jsii.String("my_input"),
@@ -8312,7 +8490,8 @@ const (
 //
 // Example:
 //   // Example automatically generated from non-compiling source. May contain errors.
-//   import iotevents "github.com/aws/aws-cdk-go/awscdk"import actions "github.com/aws/aws-cdk-go/awscdk"
+//   import iotevents "github.com/aws/aws-cdk-go/awscdk"
+//   import actions "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var input iInput
 //
@@ -8687,9 +8866,12 @@ func (j *jsiiProxy_IInput) InputName() *string {
 // Defines an AWS IoT Events input in this stack.
 //
 // Example:
-//   import iotevents "github.com/aws/aws-cdk-go/awscdk"import actions "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk"
+//   import iotevents "github.com/aws/aws-cdk-go/awscdk"
+//   import actions "github.com/aws/aws-cdk-go/awscdk"
+//   import lambda "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var func iFunction
+//
 //
 //   input := iotevents.NewInput(this, jsii.String("MyInput"), &inputProps{
 //   	inputName: jsii.String("my_input"),
@@ -9178,9 +9360,12 @@ func (i *jsiiProxy_Input) Validate() *[]*string {
 // Properties for defining an AWS IoT Events input.
 //
 // Example:
-//   import iotevents "github.com/aws/aws-cdk-go/awscdk"import actions "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk"
+//   import iotevents "github.com/aws/aws-cdk-go/awscdk"
+//   import actions "github.com/aws/aws-cdk-go/awscdk"
+//   import lambda "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var func iFunction
+//
 //
 //   input := iotevents.NewInput(this, jsii.String("MyInput"), &inputProps{
 //   	inputName: jsii.String("my_input"),
@@ -9260,17 +9445,18 @@ type InputProps struct {
 	// Each such message contains a JSON payload. The attribute (and its paired value)
 	// specified here are available for use in the condition expressions used by detectors.
 	// Experimental.
-	AttributeJsonPaths *[]*string `json:"attributeJsonPaths" yaml:"attributeJsonPaths"`
+	AttributeJsonPaths *[]*string `field:"required" json:"attributeJsonPaths" yaml:"attributeJsonPaths"`
 	// The name of the input.
 	// Experimental.
-	InputName *string `json:"inputName" yaml:"inputName"`
+	InputName *string `field:"optional" json:"inputName" yaml:"inputName"`
 }
 
 // Defines a state of a detector.
 //
 // Example:
 //   // Example automatically generated from non-compiling source. May contain errors.
-//   import iotevents "github.com/aws/aws-cdk-go/awscdk"import actions "github.com/aws/aws-cdk-go/awscdk"
+//   import iotevents "github.com/aws/aws-cdk-go/awscdk"
+//   import actions "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var input iInput
 //
@@ -9357,7 +9543,8 @@ func (s *jsiiProxy_State) TransitionTo(targetState State, options *TransitionOpt
 //
 // Example:
 //   // Example automatically generated from non-compiling source. May contain errors.
-//   import iotevents "github.com/aws/aws-cdk-go/awscdk"import actions "github.com/aws/aws-cdk-go/awscdk"
+//   import iotevents "github.com/aws/aws-cdk-go/awscdk"
+//   import actions "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var input iInput
 //
@@ -9382,33 +9569,36 @@ func (s *jsiiProxy_State) TransitionTo(targetState State, options *TransitionOpt
 type StateProps struct {
 	// The name of the state.
 	// Experimental.
-	StateName *string `json:"stateName" yaml:"stateName"`
+	StateName *string `field:"required" json:"stateName" yaml:"stateName"`
 	// Specifies the events on enter.
 	//
 	// The conditions of the events will be evaluated when entering this state.
 	// If the condition of the event evaluates to `true`, the actions of the event will be executed.
 	// Experimental.
-	OnEnter *[]*Event `json:"onEnter" yaml:"onEnter"`
+	OnEnter *[]*Event `field:"optional" json:"onEnter" yaml:"onEnter"`
 	// Specifies the events on exit.
 	//
 	// The conditions of the events are evaluated when an exiting this state.
 	// If the condition evaluates to `true`, the actions of the event will be executed.
 	// Experimental.
-	OnExit *[]*Event `json:"onExit" yaml:"onExit"`
+	OnExit *[]*Event `field:"optional" json:"onExit" yaml:"onExit"`
 	// Specifies the events on input.
 	//
 	// The conditions of the events will be evaluated when any input is received.
 	// If the condition of the event evaluates to `true`, the actions of the event will be executed.
 	// Experimental.
-	OnInput *[]*Event `json:"onInput" yaml:"onInput"`
+	OnInput *[]*Event `field:"optional" json:"onInput" yaml:"onInput"`
 }
 
 // Properties for options of state transition.
 //
 // Example:
-//   import iotevents "github.com/aws/aws-cdk-go/awscdk"import actions "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk"
+//   import iotevents "github.com/aws/aws-cdk-go/awscdk"
+//   import actions "github.com/aws/aws-cdk-go/awscdk"
+//   import lambda "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var func iFunction
+//
 //
 //   input := iotevents.NewInput(this, jsii.String("MyInput"), &inputProps{
 //   	inputName: jsii.String("my_input"),
@@ -9485,12 +9675,12 @@ type TransitionOptions struct {
 	//
 	// When this was evaluated to `true`, the state transition and the actions are triggered.
 	// Experimental.
-	When Expression `json:"when" yaml:"when"`
+	When Expression `field:"required" json:"when" yaml:"when"`
 	// The name of the event.
 	// Experimental.
-	EventName *string `json:"eventName" yaml:"eventName"`
+	EventName *string `field:"optional" json:"eventName" yaml:"eventName"`
 	// The actions to be performed with the transition.
 	// Experimental.
-	Executing *[]IAction `json:"executing" yaml:"executing"`
+	Executing *[]IAction `field:"optional" json:"executing" yaml:"executing"`
 }
 

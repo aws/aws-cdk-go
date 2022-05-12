@@ -16,8 +16,11 @@ import (
 // > The `AWS::SDB::Domain` resource does not allow any updates, including metadata updates.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sdb "github.com/aws/aws-cdk-go/awscdk/aws_sdb"
-//   cfnDomain := sdb.NewCfnDomain(this, jsii.String("MyCfnDomain"), &cfnDomainProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDomain := awscdk.Aws_sdb.NewCfnDomain(this, jsii.String("MyCfnDomain"), &cfnDomainProps{
 //   	description: jsii.String("description"),
 //   })
 //
@@ -650,13 +653,16 @@ func (c *jsiiProxy_CfnDomain) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnDomain`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sdb "github.com/aws/aws-cdk-go/awscdk/aws_sdb"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDomainProps := &cfnDomainProps{
 //   	description: jsii.String("description"),
 //   }
 //
 type CfnDomainProps struct {
 	// Information about the SimpleDB domain.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 

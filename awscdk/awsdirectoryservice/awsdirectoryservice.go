@@ -14,8 +14,11 @@ import (
 // The `AWS::DirectoryService::MicrosoftAD` resource specifies a Microsoft Active Directory in AWS so that your directory users and groups can access the AWS Management Console and AWS applications using their existing credentials. For more information, see [AWS Managed Microsoft AD](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html) in the *AWS Directory Service Admin Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import directoryservice "github.com/aws/aws-cdk-go/awscdk/aws_directoryservice"
-//   cfnMicrosoftAD := directoryservice.NewCfnMicrosoftAD(this, jsii.String("MyCfnMicrosoftAD"), &cfnMicrosoftADProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnMicrosoftAD := awscdk.Aws_directoryservice.NewCfnMicrosoftAD(this, jsii.String("MyCfnMicrosoftAD"), &cfnMicrosoftADProps{
 //   	name: jsii.String("name"),
 //   	password: jsii.String("password"),
 //   	vpcSettings: &vpcSettingsProperty{
@@ -825,7 +828,10 @@ func (c *jsiiProxy_CfnMicrosoftAD) ValidateProperties(_properties interface{}) {
 // Contains VPC information for the [CreateDirectory](https://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateDirectory.html) or [CreateMicrosoftAD](https://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateMicrosoftAD.html) operation.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import directoryservice "github.com/aws/aws-cdk-go/awscdk/aws_directoryservice"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   vpcSettingsProperty := &vpcSettingsProperty{
 //   	subnetIds: []*string{
 //   		jsii.String("subnetIds"),
@@ -837,15 +843,18 @@ type CfnMicrosoftAD_VpcSettingsProperty struct {
 	// The identifiers of the subnets for the directory servers.
 	//
 	// The two subnets must be in different Availability Zones. AWS Directory Service specifies a directory server and a DNS server in each of these subnets.
-	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
+	SubnetIds *[]*string `field:"required" json:"subnetIds" yaml:"subnetIds"`
 	// The identifier of the VPC in which to create the directory.
-	VpcId *string `json:"vpcId" yaml:"vpcId"`
+	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
 }
 
 // Properties for defining a `CfnMicrosoftAD`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import directoryservice "github.com/aws/aws-cdk-go/awscdk/aws_directoryservice"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnMicrosoftADProps := &cfnMicrosoftADProps{
 //   	name: jsii.String("name"),
 //   	password: jsii.String("password"),
@@ -865,31 +874,31 @@ type CfnMicrosoftAD_VpcSettingsProperty struct {
 //
 type CfnMicrosoftADProps struct {
 	// The fully qualified domain name for the AWS Managed Microsoft AD directory, such as `corp.example.com` . This name will resolve inside your VPC only. It does not need to be publicly resolvable.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The password for the default administrative user named `Admin` .
 	//
 	// If you need to change the password for the administrator account, see the [ResetUserPassword](https://docs.aws.amazon.com/directoryservice/latest/devguide/API_ResetUserPassword.html) API call in the *AWS Directory Service API Reference* .
-	Password *string `json:"password" yaml:"password"`
+	Password *string `field:"required" json:"password" yaml:"password"`
 	// Specifies the VPC settings of the Microsoft AD directory server in AWS .
-	VpcSettings interface{} `json:"vpcSettings" yaml:"vpcSettings"`
+	VpcSettings interface{} `field:"required" json:"vpcSettings" yaml:"vpcSettings"`
 	// Specifies an alias for a directory and assigns the alias to the directory.
 	//
 	// The alias is used to construct the access URL for the directory, such as `http://<alias>.awsapps.com` . By default, AWS CloudFormation does not create an alias.
 	//
 	// > After an alias has been created, it cannot be deleted or reused, so this operation should only be used when absolutely necessary.
-	CreateAlias interface{} `json:"createAlias" yaml:"createAlias"`
+	CreateAlias interface{} `field:"optional" json:"createAlias" yaml:"createAlias"`
 	// AWS Managed Microsoft AD is available in two editions: `Standard` and `Enterprise` .
 	//
 	// `Enterprise` is the default.
-	Edition *string `json:"edition" yaml:"edition"`
+	Edition *string `field:"optional" json:"edition" yaml:"edition"`
 	// Whether to enable single sign-on for a Microsoft Active Directory in AWS .
 	//
 	// Single sign-on allows users in your directory to access certain AWS services from a computer joined to the directory without having to enter their credentials separately. If you don't specify a value, AWS CloudFormation disables single sign-on by default.
-	EnableSso interface{} `json:"enableSso" yaml:"enableSso"`
+	EnableSso interface{} `field:"optional" json:"enableSso" yaml:"enableSso"`
 	// The NetBIOS name for your domain, such as `CORP` .
 	//
 	// If you don't specify a NetBIOS name, it will default to the first part of your directory DNS. For example, `CORP` for the directory DNS `corp.example.com` .
-	ShortName *string `json:"shortName" yaml:"shortName"`
+	ShortName *string `field:"optional" json:"shortName" yaml:"shortName"`
 }
 
 // A CloudFormation `AWS::DirectoryService::SimpleAD`.
@@ -897,8 +906,11 @@ type CfnMicrosoftADProps struct {
 // The `AWS::DirectoryService::SimpleAD` resource specifies an AWS Directory Service Simple Active Directory ( Simple AD ) in AWS so that your directory users and groups can access the AWS Management Console and AWS applications using their existing credentials. Simple AD is a Microsoft Active Directory–compatible directory. For more information, see [Simple Active Directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_simple_ad.html) in the *AWS Directory Service Admin Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import directoryservice "github.com/aws/aws-cdk-go/awscdk/aws_directoryservice"
-//   cfnSimpleAD := directoryservice.NewCfnSimpleAD(this, jsii.String("MyCfnSimpleAD"), &cfnSimpleADProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnSimpleAD := awscdk.Aws_directoryservice.NewCfnSimpleAD(this, jsii.String("MyCfnSimpleAD"), &cfnSimpleADProps{
 //   	name: jsii.String("name"),
 //   	password: jsii.String("password"),
 //   	size: jsii.String("size"),
@@ -1730,7 +1742,10 @@ func (c *jsiiProxy_CfnSimpleAD) ValidateProperties(_properties interface{}) {
 // Contains VPC information for the [CreateDirectory](https://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateDirectory.html) or [CreateMicrosoftAD](https://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateMicrosoftAD.html) operation.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import directoryservice "github.com/aws/aws-cdk-go/awscdk/aws_directoryservice"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   vpcSettingsProperty := &vpcSettingsProperty{
 //   	subnetIds: []*string{
 //   		jsii.String("subnetIds"),
@@ -1742,15 +1757,18 @@ type CfnSimpleAD_VpcSettingsProperty struct {
 	// The identifiers of the subnets for the directory servers.
 	//
 	// The two subnets must be in different Availability Zones. AWS Directory Service specifies a directory server and a DNS server in each of these subnets.
-	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
+	SubnetIds *[]*string `field:"required" json:"subnetIds" yaml:"subnetIds"`
 	// The identifier of the VPC in which to create the directory.
-	VpcId *string `json:"vpcId" yaml:"vpcId"`
+	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
 }
 
 // Properties for defining a `CfnSimpleAD`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import directoryservice "github.com/aws/aws-cdk-go/awscdk/aws_directoryservice"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnSimpleADProps := &cfnSimpleADProps{
 //   	name: jsii.String("name"),
 //   	password: jsii.String("password"),
@@ -1771,32 +1789,32 @@ type CfnSimpleAD_VpcSettingsProperty struct {
 //
 type CfnSimpleADProps struct {
 	// The fully qualified name for the directory, such as `corp.example.com` .
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The password for the directory administrator.
 	//
 	// The directory creation process creates a directory administrator account with the user name `Administrator` and this password.
 	//
 	// If you need to change the password for the administrator account, see the [ResetUserPassword](https://docs.aws.amazon.com/directoryservice/latest/devguide/API_ResetUserPassword.html) API call in the *AWS Directory Service API Reference* .
-	Password *string `json:"password" yaml:"password"`
+	Password *string `field:"required" json:"password" yaml:"password"`
 	// The size of the directory.
 	//
 	// For valid values, see [CreateDirectory](https://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateDirectory.html) in the *AWS Directory Service API Reference* .
-	Size *string `json:"size" yaml:"size"`
+	Size *string `field:"required" json:"size" yaml:"size"`
 	// A [DirectoryVpcSettings](https://docs.aws.amazon.com/directoryservice/latest/devguide/API_DirectoryVpcSettings.html) object that contains additional information for the operation.
-	VpcSettings interface{} `json:"vpcSettings" yaml:"vpcSettings"`
+	VpcSettings interface{} `field:"required" json:"vpcSettings" yaml:"vpcSettings"`
 	// If set to `true` , specifies an alias for a directory and assigns the alias to the directory.
 	//
 	// The alias is used to construct the access URL for the directory, such as `http://<alias>.awsapps.com` . By default, this property is set to `false` .
 	//
 	// > After an alias has been created, it cannot be deleted or reused, so this operation should only be used when absolutely necessary.
-	CreateAlias interface{} `json:"createAlias" yaml:"createAlias"`
+	CreateAlias interface{} `field:"optional" json:"createAlias" yaml:"createAlias"`
 	// A description for the directory.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Whether to enable single sign-on for a directory.
 	//
 	// If you don't specify a value, AWS CloudFormation disables single sign-on by default.
-	EnableSso interface{} `json:"enableSso" yaml:"enableSso"`
+	EnableSso interface{} `field:"optional" json:"enableSso" yaml:"enableSso"`
 	// The NetBIOS name of the directory, such as `CORP` .
-	ShortName *string `json:"shortName" yaml:"shortName"`
+	ShortName *string `field:"optional" json:"shortName" yaml:"shortName"`
 }
 

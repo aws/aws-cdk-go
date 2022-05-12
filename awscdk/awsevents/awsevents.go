@@ -14,7 +14,7 @@ import (
 //
 // Example:
 //   connection := events.NewConnection(this, jsii.String("Connection"), &connectionProps{
-//   	authorization: events.authorization.apiKey(jsii.String("x-api-key"), secretValue.secretsManager(jsii.String("ApiSecretName"))),
+//   	authorization: events.authorization.apiKey(jsii.String("x-api-key"), awscdk.SecretValue.secretsManager(jsii.String("ApiSecretName"))),
 //   	description: jsii.String("Connection with API Key x-api-key"),
 //   })
 //
@@ -409,7 +409,7 @@ func (a *jsiiProxy_ApiDestination) Validate() *[]*string {
 //
 // Example:
 //   connection := events.NewConnection(this, jsii.String("Connection"), &connectionProps{
-//   	authorization: events.authorization.apiKey(jsii.String("x-api-key"), secretValue.secretsManager(jsii.String("ApiSecretName"))),
+//   	authorization: events.authorization.apiKey(jsii.String("x-api-key"), awscdk.SecretValue.secretsManager(jsii.String("ApiSecretName"))),
 //   	description: jsii.String("Connection with API Key x-api-key"),
 //   })
 //
@@ -430,33 +430,37 @@ func (a *jsiiProxy_ApiDestination) Validate() *[]*string {
 type ApiDestinationProps struct {
 	// The ARN of the connection to use for the API destination.
 	// Experimental.
-	Connection IConnection `json:"connection" yaml:"connection"`
+	Connection IConnection `field:"required" json:"connection" yaml:"connection"`
 	// The URL to the HTTP invocation endpoint for the API destination..
 	// Experimental.
-	Endpoint *string `json:"endpoint" yaml:"endpoint"`
+	Endpoint *string `field:"required" json:"endpoint" yaml:"endpoint"`
 	// The name for the API destination.
 	// Experimental.
-	ApiDestinationName *string `json:"apiDestinationName" yaml:"apiDestinationName"`
+	ApiDestinationName *string `field:"optional" json:"apiDestinationName" yaml:"apiDestinationName"`
 	// A description for the API destination.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The method to use for the request to the HTTP invocation endpoint.
 	// Experimental.
-	HttpMethod HttpMethod `json:"httpMethod" yaml:"httpMethod"`
+	HttpMethod HttpMethod `field:"optional" json:"httpMethod" yaml:"httpMethod"`
 	// The maximum number of requests per second to send to the HTTP invocation endpoint.
 	// Experimental.
-	RateLimitPerSecond *float64 `json:"rateLimitPerSecond" yaml:"rateLimitPerSecond"`
+	RateLimitPerSecond *float64 `field:"optional" json:"rateLimitPerSecond" yaml:"rateLimitPerSecond"`
 }
 
 // Define an EventBridge Archive.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var detail interface{}
 //   var duration duration
 //   var eventBus eventBus
-//   archive := events.NewArchive(this, jsii.String("MyArchive"), &archiveProps{
+//
+//   archive := awscdk.Aws_events.NewArchive(this, jsii.String("MyArchive"), &archiveProps{
 //   	eventPattern: &eventPattern{
 //   		account: []*string{
 //   			jsii.String("account"),
@@ -856,11 +860,15 @@ func (a *jsiiProxy_Archive) Validate() *[]*string {
 // The event archive properties.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var detail interface{}
 //   var duration duration
 //   var eventBus eventBus
+//
 //   archiveProps := &archiveProps{
 //   	eventPattern: &eventPattern{
 //   		account: []*string{
@@ -903,28 +911,28 @@ func (a *jsiiProxy_Archive) Validate() *[]*string {
 type ArchiveProps struct {
 	// An event pattern to use to filter events sent to the archive.
 	// Experimental.
-	EventPattern *EventPattern `json:"eventPattern" yaml:"eventPattern"`
+	EventPattern *EventPattern `field:"required" json:"eventPattern" yaml:"eventPattern"`
 	// The name of the archive.
 	// Experimental.
-	ArchiveName *string `json:"archiveName" yaml:"archiveName"`
+	ArchiveName *string `field:"optional" json:"archiveName" yaml:"archiveName"`
 	// A description for the archive.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The number of days to retain events for.
 	//
 	// Default value is 0. If set to 0, events are retained indefinitely.
 	// Experimental.
-	Retention awscdk.Duration `json:"retention" yaml:"retention"`
+	Retention awscdk.Duration `field:"optional" json:"retention" yaml:"retention"`
 	// The event source associated with the archive.
 	// Experimental.
-	SourceEventBus IEventBus `json:"sourceEventBus" yaml:"sourceEventBus"`
+	SourceEventBus IEventBus `field:"required" json:"sourceEventBus" yaml:"sourceEventBus"`
 }
 
 // Authorization type for an API Destination Connection.
 //
 // Example:
 //   connection := events.NewConnection(this, jsii.String("Connection"), &connectionProps{
-//   	authorization: events.authorization.apiKey(jsii.String("x-api-key"), secretValue.secretsManager(jsii.String("ApiSecretName"))),
+//   	authorization: events.authorization.apiKey(jsii.String("x-api-key"), awscdk.SecretValue.secretsManager(jsii.String("ApiSecretName"))),
 //   	description: jsii.String("Connection with API Key x-api-key"),
 //   })
 //
@@ -1027,28 +1035,28 @@ func Authorization_Oauth(props *OAuthAuthorizationProps) Authorization {
 //   	description: jsii.String("MyCustomerEventBus Archive"),
 //   	eventPattern: &eventPattern{
 //   		account: []*string{
-//   			*stack.of(this).account,
+//   			awscdk.*stack.of(this).account,
 //   		},
 //   	},
-//   	retention: duration.days(jsii.Number(365)),
+//   	retention: awscdk.Duration.days(jsii.Number(365)),
 //   })
 //
 // Experimental.
 type BaseArchiveProps struct {
 	// An event pattern to use to filter events sent to the archive.
 	// Experimental.
-	EventPattern *EventPattern `json:"eventPattern" yaml:"eventPattern"`
+	EventPattern *EventPattern `field:"required" json:"eventPattern" yaml:"eventPattern"`
 	// The name of the archive.
 	// Experimental.
-	ArchiveName *string `json:"archiveName" yaml:"archiveName"`
+	ArchiveName *string `field:"optional" json:"archiveName" yaml:"archiveName"`
 	// A description for the archive.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The number of days to retain events for.
 	//
 	// Default value is 0. If set to 0, events are retained indefinitely.
 	// Experimental.
-	Retention awscdk.Duration `json:"retention" yaml:"retention"`
+	Retention awscdk.Duration `field:"optional" json:"retention" yaml:"retention"`
 }
 
 // A CloudFormation `AWS::Events::ApiDestination`.
@@ -1067,8 +1075,11 @@ type BaseArchiveProps struct {
 // For examples of CloudFormation templates that use secrets, see [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#aws-resource-events-connection--examples) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
-//   cfnApiDestination := events.NewCfnApiDestination(this, jsii.String("MyCfnApiDestination"), &cfnApiDestinationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnApiDestination := awscdk.Aws_events.NewCfnApiDestination(this, jsii.String("MyCfnApiDestination"), &cfnApiDestinationProps{
 //   	connectionArn: jsii.String("connectionArn"),
 //   	httpMethod: jsii.String("httpMethod"),
 //   	invocationEndpoint: jsii.String("invocationEndpoint"),
@@ -1827,7 +1838,10 @@ func (c *jsiiProxy_CfnApiDestination) ValidateProperties(_properties interface{}
 // Properties for defining a `CfnApiDestination`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnApiDestinationProps := &cfnApiDestinationProps{
 //   	connectionArn: jsii.String("connectionArn"),
 //   	httpMethod: jsii.String("httpMethod"),
@@ -1843,17 +1857,17 @@ type CfnApiDestinationProps struct {
 	// The ARN of the connection to use for the API destination.
 	//
 	// The destination endpoint must support the authorization type specified for the connection.
-	ConnectionArn *string `json:"connectionArn" yaml:"connectionArn"`
+	ConnectionArn *string `field:"required" json:"connectionArn" yaml:"connectionArn"`
 	// The method to use for the request to the HTTP invocation endpoint.
-	HttpMethod *string `json:"httpMethod" yaml:"httpMethod"`
+	HttpMethod *string `field:"required" json:"httpMethod" yaml:"httpMethod"`
 	// The URL to the HTTP invocation endpoint for the API destination.
-	InvocationEndpoint *string `json:"invocationEndpoint" yaml:"invocationEndpoint"`
+	InvocationEndpoint *string `field:"required" json:"invocationEndpoint" yaml:"invocationEndpoint"`
 	// A description for the API destination to create.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The maximum number of requests per second to send to the HTTP invocation endpoint.
-	InvocationRateLimitPerSecond *float64 `json:"invocationRateLimitPerSecond" yaml:"invocationRateLimitPerSecond"`
+	InvocationRateLimitPerSecond *float64 `field:"optional" json:"invocationRateLimitPerSecond" yaml:"invocationRateLimitPerSecond"`
 	// The name for the API destination to create.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 
 // A CloudFormation `AWS::Events::Archive`.
@@ -1861,10 +1875,13 @@ type CfnApiDestinationProps struct {
 // Creates an archive of events with the specified settings. When you create an archive, incoming events might not immediately start being sent to the archive. Allow a short period of time for changes to take effect. If you do not specify a pattern to filter events sent to the archive, all events are sent to the archive except replayed events. Replayed events are not sent to an archive.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var eventPattern interface{}
-//   cfnArchive := events.NewCfnArchive(this, jsii.String("MyCfnArchive"), &cfnArchiveProps{
+//
+//   cfnArchive := awscdk.Aws_events.NewCfnArchive(this, jsii.String("MyCfnArchive"), &cfnArchiveProps{
 //   	sourceArn: jsii.String("sourceArn"),
 //
 //   	// the properties below are optional
@@ -2613,9 +2630,12 @@ func (c *jsiiProxy_CfnArchive) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnArchive`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var eventPattern interface{}
+//
 //   cfnArchiveProps := &cfnArchiveProps{
 //   	sourceArn: jsii.String("sourceArn"),
 //
@@ -2628,17 +2648,17 @@ func (c *jsiiProxy_CfnArchive) ValidateProperties(_properties interface{}) {
 //
 type CfnArchiveProps struct {
 	// The ARN of the event bus that sends events to the archive.
-	SourceArn *string `json:"sourceArn" yaml:"sourceArn"`
+	SourceArn *string `field:"required" json:"sourceArn" yaml:"sourceArn"`
 	// The name for the archive to create.
-	ArchiveName *string `json:"archiveName" yaml:"archiveName"`
+	ArchiveName *string `field:"optional" json:"archiveName" yaml:"archiveName"`
 	// A description for the archive.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// An event pattern to use to filter events sent to the archive.
-	EventPattern interface{} `json:"eventPattern" yaml:"eventPattern"`
+	EventPattern interface{} `field:"optional" json:"eventPattern" yaml:"eventPattern"`
 	// The number of days to retain events for.
 	//
 	// Default value is 0. If set to 0, events are retained indefinitely
-	RetentionDays *float64 `json:"retentionDays" yaml:"retentionDays"`
+	RetentionDays *float64 `field:"optional" json:"retentionDays" yaml:"retentionDays"`
 }
 
 // A CloudFormation `AWS::Events::Connection`.
@@ -2646,8 +2666,11 @@ type CfnArchiveProps struct {
 // Creates a connection. A connection defines the authorization type and credentials to use for authorization with an API destination HTTP endpoint.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
-//   cfnConnection := events.NewCfnConnection(this, jsii.String("MyCfnConnection"), &cfnConnectionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnConnection := awscdk.Aws_events.NewCfnConnection(this, jsii.String("MyCfnConnection"), &cfnConnectionProps{
 //   	authorizationType: jsii.String("authorizationType"),
 //   	authParameters: &authParametersProperty{
 //   		apiKeyAuthParameters: &apiKeyAuthParametersProperty{
@@ -3451,7 +3474,10 @@ func (c *jsiiProxy_CfnConnection) ValidateProperties(_properties interface{}) {
 // Contains the API key authorization parameters for the connection.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   apiKeyAuthParametersProperty := &apiKeyAuthParametersProperty{
 //   	apiKeyName: jsii.String("apiKeyName"),
 //   	apiKeyValue: jsii.String("apiKeyValue"),
@@ -3459,15 +3485,18 @@ func (c *jsiiProxy_CfnConnection) ValidateProperties(_properties interface{}) {
 //
 type CfnConnection_ApiKeyAuthParametersProperty struct {
 	// The name of the API key to use for authorization.
-	ApiKeyName *string `json:"apiKeyName" yaml:"apiKeyName"`
+	ApiKeyName *string `field:"required" json:"apiKeyName" yaml:"apiKeyName"`
 	// The value for the API key to use for authorization.
-	ApiKeyValue *string `json:"apiKeyValue" yaml:"apiKeyValue"`
+	ApiKeyValue *string `field:"required" json:"apiKeyValue" yaml:"apiKeyValue"`
 }
 
 // Contains the authorization parameters to use for the connection.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   authParametersProperty := &authParametersProperty{
 //   	apiKeyAuthParameters: &apiKeyAuthParametersProperty{
 //   		apiKeyName: jsii.String("apiKeyName"),
@@ -3549,19 +3578,22 @@ type CfnConnection_ApiKeyAuthParametersProperty struct {
 //
 type CfnConnection_AuthParametersProperty struct {
 	// The API Key parameters to use for authorization.
-	ApiKeyAuthParameters interface{} `json:"apiKeyAuthParameters" yaml:"apiKeyAuthParameters"`
+	ApiKeyAuthParameters interface{} `field:"optional" json:"apiKeyAuthParameters" yaml:"apiKeyAuthParameters"`
 	// The authorization parameters for Basic authorization.
-	BasicAuthParameters interface{} `json:"basicAuthParameters" yaml:"basicAuthParameters"`
+	BasicAuthParameters interface{} `field:"optional" json:"basicAuthParameters" yaml:"basicAuthParameters"`
 	// Additional parameters for the connection that are passed through with every invocation to the HTTP endpoint.
-	InvocationHttpParameters interface{} `json:"invocationHttpParameters" yaml:"invocationHttpParameters"`
+	InvocationHttpParameters interface{} `field:"optional" json:"invocationHttpParameters" yaml:"invocationHttpParameters"`
 	// The OAuth parameters to use for authorization.
-	OAuthParameters interface{} `json:"oAuthParameters" yaml:"oAuthParameters"`
+	OAuthParameters interface{} `field:"optional" json:"oAuthParameters" yaml:"oAuthParameters"`
 }
 
 // Contains the Basic authorization parameters for the connection.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   basicAuthParametersProperty := &basicAuthParametersProperty{
 //   	password: jsii.String("password"),
 //   	username: jsii.String("username"),
@@ -3569,15 +3601,18 @@ type CfnConnection_AuthParametersProperty struct {
 //
 type CfnConnection_BasicAuthParametersProperty struct {
 	// The password associated with the user name to use for Basic authorization.
-	Password *string `json:"password" yaml:"password"`
+	Password *string `field:"required" json:"password" yaml:"password"`
 	// The user name to use for Basic authorization.
-	Username *string `json:"username" yaml:"username"`
+	Username *string `field:"required" json:"username" yaml:"username"`
 }
 
 // Contains the OAuth authorization parameters to use for the connection.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   clientParametersProperty := &clientParametersProperty{
 //   	clientId: jsii.String("clientId"),
 //   	clientSecret: jsii.String("clientSecret"),
@@ -3585,15 +3620,18 @@ type CfnConnection_BasicAuthParametersProperty struct {
 //
 type CfnConnection_ClientParametersProperty struct {
 	// The client ID to use for OAuth authorization.
-	ClientId *string `json:"clientId" yaml:"clientId"`
+	ClientId *string `field:"required" json:"clientId" yaml:"clientId"`
 	// The client secret assciated with the client ID to use for OAuth authorization.
-	ClientSecret *string `json:"clientSecret" yaml:"clientSecret"`
+	ClientSecret *string `field:"required" json:"clientSecret" yaml:"clientSecret"`
 }
 
 // Contains additional parameters for the connection.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   connectionHttpParametersProperty := &connectionHttpParametersProperty{
 //   	bodyParameters: []interface{}{
 //   		&parameterProperty{
@@ -3626,17 +3664,20 @@ type CfnConnection_ClientParametersProperty struct {
 //
 type CfnConnection_ConnectionHttpParametersProperty struct {
 	// Contains additional body string parameters for the connection.
-	BodyParameters interface{} `json:"bodyParameters" yaml:"bodyParameters"`
+	BodyParameters interface{} `field:"optional" json:"bodyParameters" yaml:"bodyParameters"`
 	// Contains additional header parameters for the connection.
-	HeaderParameters interface{} `json:"headerParameters" yaml:"headerParameters"`
+	HeaderParameters interface{} `field:"optional" json:"headerParameters" yaml:"headerParameters"`
 	// Contains additional query string parameters for the connection.
-	QueryStringParameters interface{} `json:"queryStringParameters" yaml:"queryStringParameters"`
+	QueryStringParameters interface{} `field:"optional" json:"queryStringParameters" yaml:"queryStringParameters"`
 }
 
 // Contains the OAuth authorization parameters to use for the connection.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   oAuthParametersProperty := &oAuthParametersProperty{
 //   	authorizationEndpoint: jsii.String("authorizationEndpoint"),
 //   	clientParameters: &clientParametersProperty{
@@ -3679,13 +3720,13 @@ type CfnConnection_ConnectionHttpParametersProperty struct {
 //
 type CfnConnection_OAuthParametersProperty struct {
 	// The URL to the authorization endpoint when OAuth is specified as the authorization type.
-	AuthorizationEndpoint *string `json:"authorizationEndpoint" yaml:"authorizationEndpoint"`
+	AuthorizationEndpoint *string `field:"required" json:"authorizationEndpoint" yaml:"authorizationEndpoint"`
 	// A `CreateConnectionOAuthClientRequestParameters` object that contains the client parameters for OAuth authorization.
-	ClientParameters interface{} `json:"clientParameters" yaml:"clientParameters"`
+	ClientParameters interface{} `field:"required" json:"clientParameters" yaml:"clientParameters"`
 	// The method to use for the authorization request.
-	HttpMethod *string `json:"httpMethod" yaml:"httpMethod"`
+	HttpMethod *string `field:"required" json:"httpMethod" yaml:"httpMethod"`
 	// A `ConnectionHttpParameters` object that contains details about the additional parameters to use for the connection.
-	OAuthHttpParameters interface{} `json:"oAuthHttpParameters" yaml:"oAuthHttpParameters"`
+	OAuthHttpParameters interface{} `field:"optional" json:"oAuthHttpParameters" yaml:"oAuthHttpParameters"`
 }
 
 // Additional query string parameter for the connection.
@@ -3693,7 +3734,10 @@ type CfnConnection_OAuthParametersProperty struct {
 // You can include up to 100 additional query string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   parameterProperty := &parameterProperty{
 //   	key: jsii.String("key"),
 //   	value: jsii.String("value"),
@@ -3704,17 +3748,20 @@ type CfnConnection_OAuthParametersProperty struct {
 //
 type CfnConnection_ParameterProperty struct {
 	// The key for a query string parameter.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// The value associated with the key for the query string parameter.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 	// Specifies whether the value is secret.
-	IsValueSecret interface{} `json:"isValueSecret" yaml:"isValueSecret"`
+	IsValueSecret interface{} `field:"optional" json:"isValueSecret" yaml:"isValueSecret"`
 }
 
 // Properties for defining a `CfnConnection`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnConnectionProps := &cfnConnectionProps{
 //   	authorizationType: jsii.String("authorizationType"),
 //   	authParameters: &authParametersProperty{
@@ -3805,13 +3852,13 @@ type CfnConnectionProps struct {
 	// The type of authorization to use for the connection.
 	//
 	// > OAUTH tokens are refreshed when a 401 or 407 response is returned.
-	AuthorizationType *string `json:"authorizationType" yaml:"authorizationType"`
+	AuthorizationType *string `field:"required" json:"authorizationType" yaml:"authorizationType"`
 	// A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
-	AuthParameters interface{} `json:"authParameters" yaml:"authParameters"`
+	AuthParameters interface{} `field:"required" json:"authParameters" yaml:"authParameters"`
 	// A description for the connection to create.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name for the connection to create.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 
 // A CloudFormation `AWS::Events::Endpoint`.
@@ -3819,8 +3866,11 @@ type CfnConnectionProps struct {
 // A global endpoint used to improve your application's availability by making it regional-fault tolerant. For more information about global endpoints, see [Making applications Regional-fault tolerant with global endpoints and event replication](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html) in the Amazon EventBridge User Guide.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
-//   cfnEndpoint := events.NewCfnEndpoint(this, jsii.String("MyCfnEndpoint"), &cfnEndpointProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnEndpoint := awscdk.Aws_events.NewCfnEndpoint(this, jsii.String("MyCfnEndpoint"), &cfnEndpointProps{
 //   	eventBuses: []interface{}{
 //   		&endpointEventBusProperty{
 //   			eventBusArn: jsii.String("eventBusArn"),
@@ -4642,14 +4692,17 @@ func (c *jsiiProxy_CfnEndpoint) ValidateProperties(_properties interface{}) {
 // The event buses the endpoint is associated with.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   endpointEventBusProperty := &endpointEventBusProperty{
 //   	eventBusArn: jsii.String("eventBusArn"),
 //   }
 //
 type CfnEndpoint_EndpointEventBusProperty struct {
 	// The ARN of the event bus the endpoint is associated with.
-	EventBusArn *string `json:"eventBusArn" yaml:"eventBusArn"`
+	EventBusArn *string `field:"required" json:"eventBusArn" yaml:"eventBusArn"`
 }
 
 // The failover configuration for an endpoint.
@@ -4657,7 +4710,10 @@ type CfnEndpoint_EndpointEventBusProperty struct {
 // This includes what triggers failover and what happens when it's triggered.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   failoverConfigProperty := &failoverConfigProperty{
 //   	primary: &primaryProperty{
 //   		healthCheck: jsii.String("healthCheck"),
@@ -4669,41 +4725,50 @@ type CfnEndpoint_EndpointEventBusProperty struct {
 //
 type CfnEndpoint_FailoverConfigProperty struct {
 	// The main Region of the endpoint.
-	Primary interface{} `json:"primary" yaml:"primary"`
+	Primary interface{} `field:"required" json:"primary" yaml:"primary"`
 	// The Region that events are routed to when failover is triggered or event replication is enabled.
-	Secondary interface{} `json:"secondary" yaml:"secondary"`
+	Secondary interface{} `field:"required" json:"secondary" yaml:"secondary"`
 }
 
 // The primary Region of the endpoint.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   primaryProperty := &primaryProperty{
 //   	healthCheck: jsii.String("healthCheck"),
 //   }
 //
 type CfnEndpoint_PrimaryProperty struct {
 	// The ARN of the health check used by the endpoint to determine whether failover is triggered.
-	HealthCheck *string `json:"healthCheck" yaml:"healthCheck"`
+	HealthCheck *string `field:"required" json:"healthCheck" yaml:"healthCheck"`
 }
 
 // Endpoints can replicate all events to the secondary Region.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   replicationConfigProperty := &replicationConfigProperty{
 //   	state: jsii.String("state"),
 //   }
 //
 type CfnEndpoint_ReplicationConfigProperty struct {
 	// The state of event replication.
-	State *string `json:"state" yaml:"state"`
+	State *string `field:"required" json:"state" yaml:"state"`
 }
 
 // The routing configuration of the endpoint.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   routingConfigProperty := &routingConfigProperty{
 //   	failoverConfig: &failoverConfigProperty{
 //   		primary: &primaryProperty{
@@ -4719,26 +4784,32 @@ type CfnEndpoint_RoutingConfigProperty struct {
 	// The failover configuration for an endpoint.
 	//
 	// This includes what triggers failover and what happens when it's triggered.
-	FailoverConfig interface{} `json:"failoverConfig" yaml:"failoverConfig"`
+	FailoverConfig interface{} `field:"required" json:"failoverConfig" yaml:"failoverConfig"`
 }
 
 // The secondary Region that processes events when failover is triggered or replication is enabled.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   secondaryProperty := &secondaryProperty{
 //   	route: jsii.String("route"),
 //   }
 //
 type CfnEndpoint_SecondaryProperty struct {
 	// Defines the secondary Region.
-	Route *string `json:"route" yaml:"route"`
+	Route *string `field:"required" json:"route" yaml:"route"`
 }
 
 // Properties for defining a `CfnEndpoint`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnEndpointProps := &cfnEndpointProps{
 //   	eventBuses: []interface{}{
 //   		&endpointEventBusProperty{
@@ -4769,17 +4840,17 @@ type CfnEndpointProps struct {
 	// The event buses being used by the endpoint.
 	//
 	// *Exactly* : `2`.
-	EventBuses interface{} `json:"eventBuses" yaml:"eventBuses"`
+	EventBuses interface{} `field:"required" json:"eventBuses" yaml:"eventBuses"`
 	// The name of the endpoint.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The routing configuration of the endpoint.
-	RoutingConfig interface{} `json:"routingConfig" yaml:"routingConfig"`
+	RoutingConfig interface{} `field:"required" json:"routingConfig" yaml:"routingConfig"`
 	// A description for the endpoint.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Whether event replication was enabled or disabled for this endpoint.
-	ReplicationConfig interface{} `json:"replicationConfig" yaml:"replicationConfig"`
+	ReplicationConfig interface{} `field:"optional" json:"replicationConfig" yaml:"replicationConfig"`
 	// The ARN of the role used by event replication for the endpoint.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 }
 
 // A CloudFormation `AWS::Events::EventBus`.
@@ -4787,8 +4858,11 @@ type CfnEndpointProps struct {
 // Creates a new event bus within your account. This can be a custom event bus which you can use to receive events from your custom applications and services, or it can be a partner event bus which can be matched to a partner event source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
-//   cfnEventBus := events.NewCfnEventBus(this, jsii.String("MyCfnEventBus"), &cfnEventBusProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnEventBus := awscdk.Aws_events.NewCfnEventBus(this, jsii.String("MyCfnEventBus"), &cfnEventBusProps{
 //   	name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -5514,7 +5588,10 @@ func (c *jsiiProxy_CfnEventBus) ValidateProperties(_properties interface{}) {
 // In EventBridge, rules and event buses support tagging.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tagEntryProperty := &tagEntryProperty{
 //   	key: jsii.String("key"),
 //   	value: jsii.String("value"),
@@ -5524,9 +5601,9 @@ type CfnEventBus_TagEntryProperty struct {
 	// A string you can use to assign a value.
 	//
 	// The combination of tag keys and values can help you organize and categorize your resources.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// The value for the specified tag key.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // A CloudFormation `AWS::Events::EventBusPolicy`.
@@ -5542,10 +5619,13 @@ type CfnEventBus_TagEntryProperty struct {
 // The permission policy on the event bus cannot exceed 10 KB in size.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var statement interface{}
-//   cfnEventBusPolicy := events.NewCfnEventBusPolicy(this, jsii.String("MyCfnEventBusPolicy"), &cfnEventBusPolicyProps{
+//
+//   cfnEventBusPolicy := awscdk.Aws_events.NewCfnEventBusPolicy(this, jsii.String("MyCfnEventBusPolicy"), &cfnEventBusPolicyProps{
 //   	statementId: jsii.String("statementId"),
 //
 //   	// the properties below are optional
@@ -6316,7 +6396,10 @@ func (c *jsiiProxy_CfnEventBusPolicy) ValidateProperties(_properties interface{}
 // `'{"Type" : "StringEquals", "Key": "aws:PrincipalOrgID", "Value": "o-1234567890"}'`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   conditionProperty := &conditionProperty{
 //   	key: jsii.String("key"),
 //   	type: jsii.String("type"),
@@ -6327,23 +6410,26 @@ type CfnEventBusPolicy_ConditionProperty struct {
 	// Specifies the key for the condition.
 	//
 	// Currently the only supported key is `aws:PrincipalOrgID` .
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"optional" json:"key" yaml:"key"`
 	// Specifies the type of condition.
 	//
 	// Currently the only supported value is `StringEquals` .
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 	// Specifies the value for the key.
 	//
 	// Currently, this must be the ID of the organization.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
 // Properties for defining a `CfnEventBusPolicy`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var statement interface{}
+//
 //   cfnEventBusPolicyProps := &cfnEventBusPolicyProps{
 //   	statementId: jsii.String("statementId"),
 //
@@ -6365,9 +6451,9 @@ type CfnEventBusPolicyProps struct {
 	// If you later want to revoke the permission for this external account, specify this `StatementId` when you run [RemovePermission](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_RemovePermission.html) .
 	//
 	// > Each `StatementId` must be unique.
-	StatementId *string `json:"statementId" yaml:"statementId"`
+	StatementId *string `field:"required" json:"statementId" yaml:"statementId"`
 	// The action that you are enabling the other account to perform.
-	Action *string `json:"action" yaml:"action"`
+	Action *string `field:"optional" json:"action" yaml:"action"`
 	// This parameter enables you to limit the permission to accounts that fulfill a certain condition, such as being a member of a certain AWS organization.
 	//
 	// For more information about AWS Organizations, see [What Is AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html) in the *AWS Organizations User Guide* .
@@ -6375,27 +6461,30 @@ type CfnEventBusPolicyProps struct {
 	// If you specify `Condition` with an AWS organization ID, and specify "*" as the value for `Principal` , you grant permission to all the accounts in the named organization.
 	//
 	// The `Condition` is a JSON string which must contain `Type` , `Key` , and `Value` fields.
-	Condition interface{} `json:"condition" yaml:"condition"`
+	Condition interface{} `field:"optional" json:"condition" yaml:"condition"`
 	// The name of the event bus associated with the rule.
 	//
 	// If you omit this, the default event bus is used.
-	EventBusName *string `json:"eventBusName" yaml:"eventBusName"`
+	EventBusName *string `field:"optional" json:"eventBusName" yaml:"eventBusName"`
 	// The 12-digit AWS account ID that you are permitting to put events to your default event bus.
 	//
 	// Specify "*" to permit any account to put events to your default event bus.
 	//
 	// If you specify "*" without specifying `Condition` , avoid creating rules that may match undesirable events. To create more secure rules, make sure that the event pattern for each rule contains an `account` field with a specific account ID from which to receive events. Rules with an account field do not match any events sent from other accounts.
-	Principal *string `json:"principal" yaml:"principal"`
+	Principal *string `field:"optional" json:"principal" yaml:"principal"`
 	// A JSON string that describes the permission policy statement.
 	//
 	// You can include a `Policy` parameter in the request instead of using the `StatementId` , `Action` , `Principal` , or `Condition` parameters.
-	Statement interface{} `json:"statement" yaml:"statement"`
+	Statement interface{} `field:"optional" json:"statement" yaml:"statement"`
 }
 
 // Properties for defining a `CfnEventBus`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnEventBusProps := &cfnEventBusProps{
 //   	name: jsii.String("name"),
 //
@@ -6415,11 +6504,11 @@ type CfnEventBusProps struct {
 	// Event bus names cannot contain the / character. You can't use the name `default` for a custom event bus, as this name is already used for your account's default event bus.
 	//
 	// If this is a partner event bus, the name must exactly match the name of the partner event source that this event bus is matched to.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
-	EventSourceName *string `json:"eventSourceName" yaml:"eventSourceName"`
+	EventSourceName *string `field:"optional" json:"eventSourceName" yaml:"eventSourceName"`
 	// Tags to associate with the event bus.
-	Tags *[]*CfnEventBus_TagEntryProperty `json:"tags" yaml:"tags"`
+	Tags *[]*CfnEventBus_TagEntryProperty `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Events::Rule`.
@@ -6443,10 +6532,13 @@ type CfnEventBusProps struct {
 // An infinite loop can quickly cause higher than expected charges. We recommend that you use budgeting, which alerts you when charges exceed your specified limit. For more information, see [Managing Your Costs with Budgets](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-managing-costs.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var eventPattern interface{}
-//   cfnRule := events.NewCfnRule(this, jsii.String("MyCfnRule"), &cfnRuleProps{
+//
+//   cfnRule := awscdk.Aws_events.NewCfnRule(this, jsii.String("MyCfnRule"), &cfnRuleProps{
 //   	description: jsii.String("description"),
 //   	eventBusName: jsii.String("eventBusName"),
 //   	eventPattern: eventPattern,
@@ -7452,7 +7544,10 @@ func (c *jsiiProxy_CfnRule) ValidateProperties(_properties interface{}) {
 // This structure is relevant only for ECS tasks that use the `awsvpc` network mode.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   awsVpcConfigurationProperty := &awsVpcConfigurationProperty{
 //   	subnets: []*string{
 //   		jsii.String("subnets"),
@@ -7469,15 +7564,15 @@ type CfnRule_AwsVpcConfigurationProperty struct {
 	// Specifies the subnets associated with the task.
 	//
 	// These subnets must all be in the same VPC. You can specify as many as 16 subnets.
-	Subnets *[]*string `json:"subnets" yaml:"subnets"`
+	Subnets *[]*string `field:"required" json:"subnets" yaml:"subnets"`
 	// Specifies whether the task's elastic network interface receives a public IP address.
 	//
 	// You can specify `ENABLED` only when `LaunchType` in `EcsParameters` is set to `FARGATE` .
-	AssignPublicIp *string `json:"assignPublicIp" yaml:"assignPublicIp"`
+	AssignPublicIp *string `field:"optional" json:"assignPublicIp" yaml:"assignPublicIp"`
 	// Specifies the security groups associated with the task.
 	//
 	// These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
-	SecurityGroups *[]*string `json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]*string `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 }
 
 // The array properties for the submitted job, such as the size of the array.
@@ -7485,7 +7580,10 @@ type CfnRule_AwsVpcConfigurationProperty struct {
 // The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   batchArrayPropertiesProperty := &batchArrayPropertiesProperty{
 //   	size: jsii.Number(123),
 //   }
@@ -7494,13 +7592,16 @@ type CfnRule_BatchArrayPropertiesProperty struct {
 	// The size of the array, if this is an array batch job.
 	//
 	// Valid values are integers between 2 and 10,000.
-	Size *float64 `json:"size" yaml:"size"`
+	Size *float64 `field:"optional" json:"size" yaml:"size"`
 }
 
 // The custom parameters to be used when the target is an AWS Batch job.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   batchParametersProperty := &batchParametersProperty{
 //   	jobDefinition: jsii.String("jobDefinition"),
 //   	jobName: jsii.String("jobName"),
@@ -7518,17 +7619,17 @@ type CfnRule_BatchParametersProperty struct {
 	// The ARN or name of the job definition to use if the event target is an AWS Batch job.
 	//
 	// This job definition must already exist.
-	JobDefinition *string `json:"jobDefinition" yaml:"jobDefinition"`
+	JobDefinition *string `field:"required" json:"jobDefinition" yaml:"jobDefinition"`
 	// The name to use for this execution of the job, if the target is an AWS Batch job.
-	JobName *string `json:"jobName" yaml:"jobName"`
+	JobName *string `field:"required" json:"jobName" yaml:"jobName"`
 	// The array properties for the submitted job, such as the size of the array.
 	//
 	// The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job.
-	ArrayProperties interface{} `json:"arrayProperties" yaml:"arrayProperties"`
+	ArrayProperties interface{} `field:"optional" json:"arrayProperties" yaml:"arrayProperties"`
 	// The retry strategy to use for failed jobs, if the target is an AWS Batch job.
 	//
 	// The retry strategy is the number of times to retry the failed job execution. Valid values are 1–10. When you specify a retry strategy here, it overrides the retry strategy defined in the job definition.
-	RetryStrategy interface{} `json:"retryStrategy" yaml:"retryStrategy"`
+	RetryStrategy interface{} `field:"optional" json:"retryStrategy" yaml:"retryStrategy"`
 }
 
 // The retry strategy to use for failed jobs, if the target is an AWS Batch job.
@@ -7536,7 +7637,10 @@ type CfnRule_BatchParametersProperty struct {
 // If you specify a retry strategy here, it overrides the retry strategy defined in the job definition.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   batchRetryStrategyProperty := &batchRetryStrategyProperty{
 //   	attempts: jsii.Number(123),
 //   }
@@ -7545,7 +7649,7 @@ type CfnRule_BatchRetryStrategyProperty struct {
 	// The number of times to attempt to retry, if the job fails.
 	//
 	// Valid values are 1–10.
-	Attempts *float64 `json:"attempts" yaml:"attempts"`
+	Attempts *float64 `field:"optional" json:"attempts" yaml:"attempts"`
 }
 
 // The details of a capacity provider strategy.
@@ -7553,7 +7657,10 @@ type CfnRule_BatchRetryStrategyProperty struct {
 // To learn more, see [CapacityProviderStrategyItem](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CapacityProviderStrategyItem.html) in the Amazon ECS API Reference.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   capacityProviderStrategyItemProperty := &capacityProviderStrategyItemProperty{
 //   	capacityProvider: jsii.String("capacityProvider"),
 //
@@ -7564,34 +7671,40 @@ type CfnRule_BatchRetryStrategyProperty struct {
 //
 type CfnRule_CapacityProviderStrategyItemProperty struct {
 	// The short name of the capacity provider.
-	CapacityProvider *string `json:"capacityProvider" yaml:"capacityProvider"`
+	CapacityProvider *string `field:"required" json:"capacityProvider" yaml:"capacityProvider"`
 	// The base value designates how many tasks, at a minimum, to run on the specified capacity provider.
 	//
 	// Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of 0 is used.
-	Base *float64 `json:"base" yaml:"base"`
+	Base *float64 `field:"optional" json:"base" yaml:"base"`
 	// The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider.
 	//
 	// The weight value is taken into consideration after the base value, if defined, is satisfied.
-	Weight *float64 `json:"weight" yaml:"weight"`
+	Weight *float64 `field:"optional" json:"weight" yaml:"weight"`
 }
 
 // A `DeadLetterConfig` object that contains information about a dead-letter queue configuration.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   deadLetterConfigProperty := &deadLetterConfigProperty{
 //   	arn: jsii.String("arn"),
 //   }
 //
 type CfnRule_DeadLetterConfigProperty struct {
 	// The ARN of the SQS queue specified as the target for the dead-letter queue.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"optional" json:"arn" yaml:"arn"`
 }
 
 // The custom parameters to be used when the target is an Amazon ECS task.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   ecsParametersProperty := &ecsParametersProperty{
 //   	taskDefinitionArn: jsii.String("taskDefinitionArn"),
 //
@@ -7648,61 +7761,61 @@ type CfnRule_DeadLetterConfigProperty struct {
 //
 type CfnRule_EcsParametersProperty struct {
 	// The ARN of the task definition to use if the event target is an Amazon ECS task.
-	TaskDefinitionArn *string `json:"taskDefinitionArn" yaml:"taskDefinitionArn"`
+	TaskDefinitionArn *string `field:"required" json:"taskDefinitionArn" yaml:"taskDefinitionArn"`
 	// The capacity provider strategy to use for the task.
 	//
 	// If a `capacityProviderStrategy` is specified, the `launchType` parameter must be omitted. If no `capacityProviderStrategy` or launchType is specified, the `defaultCapacityProviderStrategy` for the cluster is used.
-	CapacityProviderStrategy interface{} `json:"capacityProviderStrategy" yaml:"capacityProviderStrategy"`
+	CapacityProviderStrategy interface{} `field:"optional" json:"capacityProviderStrategy" yaml:"capacityProviderStrategy"`
 	// Specifies whether to enable Amazon ECS managed tags for the task.
 	//
 	// For more information, see [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html) in the Amazon Elastic Container Service Developer Guide.
-	EnableEcsManagedTags interface{} `json:"enableEcsManagedTags" yaml:"enableEcsManagedTags"`
+	EnableEcsManagedTags interface{} `field:"optional" json:"enableEcsManagedTags" yaml:"enableEcsManagedTags"`
 	// Whether or not to enable the execute command functionality for the containers in this task.
 	//
 	// If true, this enables execute command functionality on all containers in the task.
-	EnableExecuteCommand interface{} `json:"enableExecuteCommand" yaml:"enableExecuteCommand"`
+	EnableExecuteCommand interface{} `field:"optional" json:"enableExecuteCommand" yaml:"enableExecuteCommand"`
 	// Specifies an ECS task group for the task.
 	//
 	// The maximum length is 255 characters.
-	Group *string `json:"group" yaml:"group"`
+	Group *string `field:"optional" json:"group" yaml:"group"`
 	// Specifies the launch type on which your task is running.
 	//
 	// The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The `FARGATE` value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. For more information, see [AWS Fargate on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html) in the *Amazon Elastic Container Service Developer Guide* .
-	LaunchType *string `json:"launchType" yaml:"launchType"`
+	LaunchType *string `field:"optional" json:"launchType" yaml:"launchType"`
 	// Use this structure if the Amazon ECS task uses the `awsvpc` network mode.
 	//
 	// This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if `LaunchType` is `FARGATE` because the `awsvpc` mode is required for Fargate tasks.
 	//
 	// If you specify `NetworkConfiguration` when the target ECS task does not use the `awsvpc` network mode, the task fails.
-	NetworkConfiguration interface{} `json:"networkConfiguration" yaml:"networkConfiguration"`
+	NetworkConfiguration interface{} `field:"optional" json:"networkConfiguration" yaml:"networkConfiguration"`
 	// An array of placement constraint objects to use for the task.
 	//
 	// You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime).
-	PlacementConstraints interface{} `json:"placementConstraints" yaml:"placementConstraints"`
+	PlacementConstraints interface{} `field:"optional" json:"placementConstraints" yaml:"placementConstraints"`
 	// The placement strategy objects to use for the task.
 	//
 	// You can specify a maximum of five strategy rules per task.
-	PlacementStrategies interface{} `json:"placementStrategies" yaml:"placementStrategies"`
+	PlacementStrategies interface{} `field:"optional" json:"placementStrategies" yaml:"placementStrategies"`
 	// Specifies the platform version for the task.
 	//
 	// Specify only the numeric portion of the platform version, such as `1.1.0` .
 	//
 	// This structure is used only if `LaunchType` is `FARGATE` . For more information about valid platform versions, see [AWS Fargate Platform Versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html) in the *Amazon Elastic Container Service Developer Guide* .
-	PlatformVersion *string `json:"platformVersion" yaml:"platformVersion"`
+	PlatformVersion *string `field:"optional" json:"platformVersion" yaml:"platformVersion"`
 	// Specifies whether to propagate the tags from the task definition to the task.
 	//
 	// If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the TagResource API action.
-	PropagateTags *string `json:"propagateTags" yaml:"propagateTags"`
+	PropagateTags *string `field:"optional" json:"propagateTags" yaml:"propagateTags"`
 	// The reference ID to use for the task.
-	ReferenceId *string `json:"referenceId" yaml:"referenceId"`
+	ReferenceId *string `field:"optional" json:"referenceId" yaml:"referenceId"`
 	// The metadata that you apply to the task to help you categorize and organize them.
 	//
 	// Each tag consists of a key and an optional value, both of which you define. To learn more, see [RunTask](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html#ECS-RunTask-request-tags) in the Amazon ECS API Reference.
-	TagList interface{} `json:"tagList" yaml:"tagList"`
+	TagList interface{} `field:"optional" json:"tagList" yaml:"tagList"`
 	// The number of tasks to create based on `TaskDefinition` .
 	//
 	// The default is 1.
-	TaskCount *float64 `json:"taskCount" yaml:"taskCount"`
+	TaskCount *float64 `field:"optional" json:"taskCount" yaml:"taskCount"`
 }
 
 // These are custom parameter to be used when the target is an API Gateway REST APIs or EventBridge ApiDestinations.
@@ -7710,7 +7823,10 @@ type CfnRule_EcsParametersProperty struct {
 // In the latter case, these are merged with any InvocationParameters specified on the Connection, with any values from the Connection taking precedence.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   httpParametersProperty := &httpParametersProperty{
 //   	headerParameters: map[string]*string{
 //   		"headerParametersKey": jsii.String("headerParameters"),
@@ -7725,17 +7841,20 @@ type CfnRule_EcsParametersProperty struct {
 //
 type CfnRule_HttpParametersProperty struct {
 	// The headers that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
-	HeaderParameters interface{} `json:"headerParameters" yaml:"headerParameters"`
+	HeaderParameters interface{} `field:"optional" json:"headerParameters" yaml:"headerParameters"`
 	// The path parameter values to be used to populate API Gateway REST API or EventBridge ApiDestination path wildcards ("*").
-	PathParameterValues *[]*string `json:"pathParameterValues" yaml:"pathParameterValues"`
+	PathParameterValues *[]*string `field:"optional" json:"pathParameterValues" yaml:"pathParameterValues"`
 	// The query string keys/values that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
-	QueryStringParameters interface{} `json:"queryStringParameters" yaml:"queryStringParameters"`
+	QueryStringParameters interface{} `field:"optional" json:"queryStringParameters" yaml:"queryStringParameters"`
 }
 
 // Contains the parameters needed for you to provide custom input to a target based on one or more pieces of data extracted from the event.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   inputTransformerProperty := &inputTransformerProperty{
 //   	inputTemplate: jsii.String("inputTemplate"),
 //
@@ -7789,7 +7908,7 @@ type CfnRule_InputTransformerProperty struct {
 	// `"InputTemplate": '{"myInstance": <instance>,"myStatus": "<instance> is in state \"<status>\""}'`
 	//
 	// `}`.
-	InputTemplate *string `json:"inputTemplate" yaml:"inputTemplate"`
+	InputTemplate *string `field:"required" json:"inputTemplate" yaml:"inputTemplate"`
 	// Map of JSON paths to be extracted from the event.
 	//
 	// You can then insert these in the template in `InputTemplate` to produce the output you want to be sent to the target.
@@ -7797,7 +7916,7 @@ type CfnRule_InputTransformerProperty struct {
 	// `InputPathsMap` is an array key-value pairs, where each value is a valid JSON path. You can have as many as 100 key-value pairs. You must use JSON dot notation, not bracket notation.
 	//
 	// The keys cannot start with " AWS ."
-	InputPathsMap interface{} `json:"inputPathsMap" yaml:"inputPathsMap"`
+	InputPathsMap interface{} `field:"optional" json:"inputPathsMap" yaml:"inputPathsMap"`
 }
 
 // This object enables you to specify a JSON path to extract from the event and use as the partition key for the Amazon Kinesis data stream, so that you can control the shard to which the event goes.
@@ -7805,7 +7924,10 @@ type CfnRule_InputTransformerProperty struct {
 // If you do not include this parameter, the default is to use the `eventId` as the partition key.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   kinesisParametersProperty := &kinesisParametersProperty{
 //   	partitionKeyPath: jsii.String("partitionKeyPath"),
 //   }
@@ -7814,13 +7936,16 @@ type CfnRule_KinesisParametersProperty struct {
 	// The JSON path to be extracted from the event and used as the partition key.
 	//
 	// For more information, see [Amazon Kinesis Streams Key Concepts](https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#partition-key) in the *Amazon Kinesis Streams Developer Guide* .
-	PartitionKeyPath *string `json:"partitionKeyPath" yaml:"partitionKeyPath"`
+	PartitionKeyPath *string `field:"required" json:"partitionKeyPath" yaml:"partitionKeyPath"`
 }
 
 // This structure specifies the network configuration for an ECS task.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   networkConfigurationProperty := &networkConfigurationProperty{
 //   	awsVpcConfiguration: &awsVpcConfigurationProperty{
 //   		subnets: []*string{
@@ -7839,7 +7964,7 @@ type CfnRule_NetworkConfigurationProperty struct {
 	// Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used.
 	//
 	// This structure is relevant only for ECS tasks that use the `awsvpc` network mode.
-	AwsVpcConfiguration interface{} `json:"awsVpcConfiguration" yaml:"awsVpcConfiguration"`
+	AwsVpcConfiguration interface{} `field:"optional" json:"awsVpcConfiguration" yaml:"awsVpcConfiguration"`
 }
 
 // An object representing a constraint on task placement.
@@ -7847,7 +7972,10 @@ type CfnRule_NetworkConfigurationProperty struct {
 // To learn more, see [Task Placement Constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html) in the Amazon Elastic Container Service Developer Guide.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   placementConstraintProperty := &placementConstraintProperty{
 //   	expression: jsii.String("expression"),
 //   	type: jsii.String("type"),
@@ -7857,11 +7985,11 @@ type CfnRule_PlacementConstraintProperty struct {
 	// A cluster query language expression to apply to the constraint.
 	//
 	// You cannot specify an expression if the constraint type is `distinctInstance` . To learn more, see [Cluster Query Language](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html) in the Amazon Elastic Container Service Developer Guide.
-	Expression *string `json:"expression" yaml:"expression"`
+	Expression *string `field:"optional" json:"expression" yaml:"expression"`
 	// The type of constraint.
 	//
 	// Use distinctInstance to ensure that each task in a particular group is running on a different container instance. Use memberOf to restrict the selection to a group of valid candidates.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 
 // The task placement strategy for a task or service.
@@ -7869,7 +7997,10 @@ type CfnRule_PlacementConstraintProperty struct {
 // To learn more, see [Task Placement Strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html) in the Amazon Elastic Container Service Service Developer Guide.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   placementStrategyProperty := &placementStrategyProperty{
 //   	field: jsii.String("field"),
 //   	type: jsii.String("type"),
@@ -7879,17 +8010,20 @@ type CfnRule_PlacementStrategyProperty struct {
 	// The field to apply the placement strategy against.
 	//
 	// For the spread placement strategy, valid values are instanceId (or host, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as attribute:ecs.availability-zone. For the binpack placement strategy, valid values are cpu and memory. For the random placement strategy, this field is not used.
-	Field *string `json:"field" yaml:"field"`
+	Field *string `field:"optional" json:"field" yaml:"field"`
 	// The type of placement strategy.
 	//
 	// The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task).
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 
 // These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the Amazon Redshift Data API ExecuteStatement based on EventBridge events.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   redshiftDataParametersProperty := &redshiftDataParametersProperty{
 //   	database: jsii.String("database"),
 //   	sql: jsii.String("sql"),
@@ -7905,29 +8039,32 @@ type CfnRule_RedshiftDataParametersProperty struct {
 	// The name of the database.
 	//
 	// Required when authenticating using temporary credentials.
-	Database *string `json:"database" yaml:"database"`
+	Database *string `field:"required" json:"database" yaml:"database"`
 	// The SQL statement text to run.
-	Sql *string `json:"sql" yaml:"sql"`
+	Sql *string `field:"required" json:"sql" yaml:"sql"`
 	// The database user name.
 	//
 	// Required when authenticating using temporary credentials.
-	DbUser *string `json:"dbUser" yaml:"dbUser"`
+	DbUser *string `field:"optional" json:"dbUser" yaml:"dbUser"`
 	// The name or ARN of the secret that enables access to the database.
 	//
 	// Required when authenticating using AWS Secrets Manager.
-	SecretManagerArn *string `json:"secretManagerArn" yaml:"secretManagerArn"`
+	SecretManagerArn *string `field:"optional" json:"secretManagerArn" yaml:"secretManagerArn"`
 	// The name of the SQL statement.
 	//
 	// You can name the SQL statement when you create it to identify the query.
-	StatementName *string `json:"statementName" yaml:"statementName"`
+	StatementName *string `field:"optional" json:"statementName" yaml:"statementName"`
 	// Indicates whether to send an event back to EventBridge after the SQL statement runs.
-	WithEvent interface{} `json:"withEvent" yaml:"withEvent"`
+	WithEvent interface{} `field:"optional" json:"withEvent" yaml:"withEvent"`
 }
 
 // A `RetryPolicy` object that includes information about the retry policy settings.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   retryPolicyProperty := &retryPolicyProperty{
 //   	maximumEventAgeInSeconds: jsii.Number(123),
 //   	maximumRetryAttempts: jsii.Number(123),
@@ -7935,17 +8072,20 @@ type CfnRule_RedshiftDataParametersProperty struct {
 //
 type CfnRule_RetryPolicyProperty struct {
 	// The maximum amount of time, in seconds, to continue to make retry attempts.
-	MaximumEventAgeInSeconds *float64 `json:"maximumEventAgeInSeconds" yaml:"maximumEventAgeInSeconds"`
+	MaximumEventAgeInSeconds *float64 `field:"optional" json:"maximumEventAgeInSeconds" yaml:"maximumEventAgeInSeconds"`
 	// The maximum number of retry attempts to make before the request fails.
 	//
 	// Retry attempts continue until either the maximum number of attempts is made or until the duration of the `MaximumEventAgeInSeconds` is met.
-	MaximumRetryAttempts *float64 `json:"maximumRetryAttempts" yaml:"maximumRetryAttempts"`
+	MaximumRetryAttempts *float64 `field:"optional" json:"maximumRetryAttempts" yaml:"maximumRetryAttempts"`
 }
 
 // This parameter contains the criteria (either InstanceIds or a tag) used to specify which EC2 instances are to be sent the command.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   runCommandParametersProperty := &runCommandParametersProperty{
 //   	runCommandTargets: []interface{}{
 //   		&runCommandTargetProperty{
@@ -7959,7 +8099,7 @@ type CfnRule_RetryPolicyProperty struct {
 //
 type CfnRule_RunCommandParametersProperty struct {
 	// Currently, we support including only one RunCommandTarget block, which specifies either an array of InstanceIds or a tag.
-	RunCommandTargets interface{} `json:"runCommandTargets" yaml:"runCommandTargets"`
+	RunCommandTargets interface{} `field:"required" json:"runCommandTargets" yaml:"runCommandTargets"`
 }
 
 // Information about the EC2 instances that are to be sent the command, specified as key-value pairs.
@@ -7967,7 +8107,10 @@ type CfnRule_RunCommandParametersProperty struct {
 // Each `RunCommandTarget` block can include only one key, but this key may specify multiple values.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   runCommandTargetProperty := &runCommandTargetProperty{
 //   	key: jsii.String("key"),
 //   	values: []*string{
@@ -7977,17 +8120,20 @@ type CfnRule_RunCommandParametersProperty struct {
 //
 type CfnRule_RunCommandTargetProperty struct {
 	// Can be either `tag:` *tag-key* or `InstanceIds` .
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// If `Key` is `tag:` *tag-key* , `Values` is a list of tag values.
 	//
 	// If `Key` is `InstanceIds` , `Values` is a list of Amazon EC2 instance IDs.
-	Values *[]*string `json:"values" yaml:"values"`
+	Values *[]*string `field:"required" json:"values" yaml:"values"`
 }
 
 // Name/Value pair of a parameter to start execution of a SageMaker Model Building Pipeline.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sageMakerPipelineParameterProperty := &sageMakerPipelineParameterProperty{
 //   	name: jsii.String("name"),
 //   	value: jsii.String("value"),
@@ -7995,15 +8141,18 @@ type CfnRule_RunCommandTargetProperty struct {
 //
 type CfnRule_SageMakerPipelineParameterProperty struct {
 	// Name of parameter to start execution of a SageMaker Model Building Pipeline.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// Value of parameter to start execution of a SageMaker Model Building Pipeline.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // These are custom parameters to use when the target is a SageMaker Model Building Pipeline that starts based on EventBridge events.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sageMakerPipelineParametersProperty := &sageMakerPipelineParametersProperty{
 //   	pipelineParameterList: []interface{}{
 //   		&sageMakerPipelineParameterProperty{
@@ -8015,20 +8164,23 @@ type CfnRule_SageMakerPipelineParameterProperty struct {
 //
 type CfnRule_SageMakerPipelineParametersProperty struct {
 	// List of Parameter names and values for SageMaker Model Building Pipeline execution.
-	PipelineParameterList interface{} `json:"pipelineParameterList" yaml:"pipelineParameterList"`
+	PipelineParameterList interface{} `field:"optional" json:"pipelineParameterList" yaml:"pipelineParameterList"`
 }
 
 // This structure includes the custom parameter to be used when the target is an SQS FIFO queue.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sqsParametersProperty := &sqsParametersProperty{
 //   	messageGroupId: jsii.String("messageGroupId"),
 //   }
 //
 type CfnRule_SqsParametersProperty struct {
 	// The FIFO message group ID to use as the target.
-	MessageGroupId *string `json:"messageGroupId" yaml:"messageGroupId"`
+	MessageGroupId *string `field:"required" json:"messageGroupId" yaml:"messageGroupId"`
 }
 
 // A key-value pair associated with an ECS Target of an EventBridge rule.
@@ -8038,7 +8190,10 @@ type CfnRule_SqsParametersProperty struct {
 // > Currently, tags are only available when using ECS with EventBridge .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tagProperty := &tagProperty{
 //   	key: jsii.String("key"),
 //   	value: jsii.String("value"),
@@ -8048,9 +8203,9 @@ type CfnRule_TagProperty struct {
 	// A string you can use to assign a value.
 	//
 	// The combination of tag keys and values can help you organize and categorize your resources.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"optional" json:"key" yaml:"key"`
 	// The value for the specified tag key.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
 // Targets are the resources to be invoked when a rule is triggered.
@@ -8060,7 +8215,10 @@ type CfnRule_TagProperty struct {
 // If you are setting the event bus of another account as the target, and that account granted permission to your account through an organization instead of directly by the account ID, then you must specify a `RoleArn` with proper permissions in the `Target` structure. For more information, see [Sending and Receiving Events Between AWS Accounts](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html) in the *Amazon EventBridge User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   targetProperty := &targetProperty{
 //   	arn: jsii.String("arn"),
 //   	id: jsii.String("id"),
@@ -8198,69 +8356,72 @@ type CfnRule_TagProperty struct {
 //
 type CfnRule_TargetProperty struct {
 	// The Amazon Resource Name (ARN) of the target.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"required" json:"arn" yaml:"arn"`
 	// The ID of the target within the specified rule.
 	//
 	// Use this ID to reference the target when updating the rule. We recommend using a memorable and unique string.
-	Id *string `json:"id" yaml:"id"`
+	Id *string `field:"required" json:"id" yaml:"id"`
 	// If the event target is an AWS Batch job, this contains the job definition, job name, and other parameters.
 	//
 	// For more information, see [Jobs](https://docs.aws.amazon.com/batch/latest/userguide/jobs.html) in the *AWS Batch User Guide* .
-	BatchParameters interface{} `json:"batchParameters" yaml:"batchParameters"`
+	BatchParameters interface{} `field:"optional" json:"batchParameters" yaml:"batchParameters"`
 	// The `DeadLetterConfig` that defines the target queue to send dead-letter queue events to.
-	DeadLetterConfig interface{} `json:"deadLetterConfig" yaml:"deadLetterConfig"`
+	DeadLetterConfig interface{} `field:"optional" json:"deadLetterConfig" yaml:"deadLetterConfig"`
 	// Contains the Amazon ECS task definition and task count to be used, if the event target is an Amazon ECS task.
 	//
 	// For more information about Amazon ECS tasks, see [Task Definitions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html) in the *Amazon EC2 Container Service Developer Guide* .
-	EcsParameters interface{} `json:"ecsParameters" yaml:"ecsParameters"`
+	EcsParameters interface{} `field:"optional" json:"ecsParameters" yaml:"ecsParameters"`
 	// Contains the HTTP parameters to use when the target is a API Gateway REST endpoint or EventBridge ApiDestination.
 	//
 	// If you specify an API Gateway REST API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you're using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence.
-	HttpParameters interface{} `json:"httpParameters" yaml:"httpParameters"`
+	HttpParameters interface{} `field:"optional" json:"httpParameters" yaml:"httpParameters"`
 	// Valid JSON text passed to the target.
 	//
 	// In this case, nothing from the event itself is passed to the target. For more information, see [The JavaScript Object Notation (JSON) Data Interchange Format](https://docs.aws.amazon.com/http://www.rfc-editor.org/rfc/rfc7159.txt) .
-	Input *string `json:"input" yaml:"input"`
+	Input *string `field:"optional" json:"input" yaml:"input"`
 	// The value of the JSONPath that is used for extracting part of the matched event when passing it to the target.
 	//
 	// You must use JSON dot notation, not bracket notation. For more information about JSON paths, see [JSONPath](https://docs.aws.amazon.com/http://goessner.net/articles/JsonPath/) .
-	InputPath *string `json:"inputPath" yaml:"inputPath"`
+	InputPath *string `field:"optional" json:"inputPath" yaml:"inputPath"`
 	// Settings to enable you to provide custom input to a target based on certain event data.
 	//
 	// You can extract one or more key-value pairs from the event and then use that data to send customized input to the target.
-	InputTransformer interface{} `json:"inputTransformer" yaml:"inputTransformer"`
+	InputTransformer interface{} `field:"optional" json:"inputTransformer" yaml:"inputTransformer"`
 	// The custom parameter you can use to control the shard assignment, when the target is a Kinesis data stream.
 	//
 	// If you do not include this parameter, the default is to use the `eventId` as the partition key.
-	KinesisParameters interface{} `json:"kinesisParameters" yaml:"kinesisParameters"`
+	KinesisParameters interface{} `field:"optional" json:"kinesisParameters" yaml:"kinesisParameters"`
 	// Contains the Amazon Redshift Data API parameters to use when the target is a Amazon Redshift cluster.
 	//
 	// If you specify a Amazon Redshift Cluster as a Target, you can use this to specify parameters to invoke the Amazon Redshift Data API ExecuteStatement based on EventBridge events.
-	RedshiftDataParameters interface{} `json:"redshiftDataParameters" yaml:"redshiftDataParameters"`
+	RedshiftDataParameters interface{} `field:"optional" json:"redshiftDataParameters" yaml:"redshiftDataParameters"`
 	// The `RetryPolicy` object that contains the retry policy configuration to use for the dead-letter queue.
-	RetryPolicy interface{} `json:"retryPolicy" yaml:"retryPolicy"`
+	RetryPolicy interface{} `field:"optional" json:"retryPolicy" yaml:"retryPolicy"`
 	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered.
 	//
 	// If one rule triggers multiple targets, you can use a different IAM role for each target.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// Parameters used when you are using the rule to invoke Amazon EC2 Run Command.
-	RunCommandParameters interface{} `json:"runCommandParameters" yaml:"runCommandParameters"`
+	RunCommandParameters interface{} `field:"optional" json:"runCommandParameters" yaml:"runCommandParameters"`
 	// Contains the SageMaker Model Building Pipeline parameters to start execution of a SageMaker Model Building Pipeline.
 	//
 	// If you specify a SageMaker Model Building Pipeline as a target, you can use this to specify parameters to start a pipeline execution based on EventBridge events.
-	SageMakerPipelineParameters interface{} `json:"sageMakerPipelineParameters" yaml:"sageMakerPipelineParameters"`
+	SageMakerPipelineParameters interface{} `field:"optional" json:"sageMakerPipelineParameters" yaml:"sageMakerPipelineParameters"`
 	// Contains the message group ID to use when the target is a FIFO queue.
 	//
 	// If you specify an SQS FIFO queue as a target, the queue must have content-based deduplication enabled.
-	SqsParameters interface{} `json:"sqsParameters" yaml:"sqsParameters"`
+	SqsParameters interface{} `field:"optional" json:"sqsParameters" yaml:"sqsParameters"`
 }
 
 // Properties for defining a `CfnRule`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var eventPattern interface{}
+//
 //   cfnRuleProps := &cfnRuleProps{
 //   	description: jsii.String("description"),
 //   	eventBusName: jsii.String("eventBusName"),
@@ -8409,27 +8570,27 @@ type CfnRule_TargetProperty struct {
 //
 type CfnRuleProps struct {
 	// The description of the rule.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name or ARN of the event bus associated with the rule.
 	//
 	// If you omit this, the default event bus is used.
-	EventBusName *string `json:"eventBusName" yaml:"eventBusName"`
+	EventBusName *string `field:"optional" json:"eventBusName" yaml:"eventBusName"`
 	// The event pattern of the rule.
 	//
 	// For more information, see [Events and Event Patterns](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) in the *Amazon EventBridge User Guide* .
-	EventPattern interface{} `json:"eventPattern" yaml:"eventPattern"`
+	EventPattern interface{} `field:"optional" json:"eventPattern" yaml:"eventPattern"`
 	// The name of the rule.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The Amazon Resource Name (ARN) of the role that is used for target invocation.
 	//
 	// If you're setting an event bus in another account as the target and that account granted permission to your account through an organization instead of directly by the account ID, you must specify a `RoleArn` with proper permissions in the `Target` structure, instead of here in this parameter.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// The scheduling expression.
 	//
 	// For example, "cron(0 20 * * ? *)", "rate(5 minutes)". For more information, see [Creating an Amazon EventBridge rule that runs on a schedule](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-schedule.html) .
-	ScheduleExpression *string `json:"scheduleExpression" yaml:"scheduleExpression"`
+	ScheduleExpression *string `field:"optional" json:"scheduleExpression" yaml:"scheduleExpression"`
 	// The state of the rule.
-	State *string `json:"state" yaml:"state"`
+	State *string `field:"optional" json:"state" yaml:"state"`
 	// Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.
 	//
 	// Targets are the resources that are invoked when a rule is triggered.
@@ -8493,14 +8654,14 @@ type CfnRuleProps struct {
 	// When you add targets to a rule and the associated rule triggers soon after, new or updated targets might not be immediately invoked. Allow a short period of time for changes to take effect.
 	//
 	// This action can partially fail if too many requests are made at the same time. If that happens, `FailedEntryCount` is non-zero in the response and each entry in `FailedEntries` provides the ID of the failed target and the error code.
-	Targets interface{} `json:"targets" yaml:"targets"`
+	Targets interface{} `field:"optional" json:"targets" yaml:"targets"`
 }
 
 // Define an EventBridge Connection.
 //
 // Example:
 //   connection := events.NewConnection(this, jsii.String("Connection"), &connectionProps{
-//   	authorization: events.authorization.apiKey(jsii.String("x-api-key"), secretValue.secretsManager(jsii.String("ApiSecretName"))),
+//   	authorization: events.authorization.apiKey(jsii.String("x-api-key"), awscdk.SecretValue.secretsManager(jsii.String("ApiSecretName"))),
 //   	description: jsii.String("Connection with API Key x-api-key"),
 //   })
 //
@@ -8928,7 +9089,10 @@ func (c *jsiiProxy_Connection) Validate() *[]*string {
 // Interface with properties necessary to import a reusable Connection.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   connectionAttributes := &connectionAttributes{
 //   	connectionArn: jsii.String("connectionArn"),
 //   	connectionName: jsii.String("connectionName"),
@@ -8939,13 +9103,13 @@ func (c *jsiiProxy_Connection) Validate() *[]*string {
 type ConnectionAttributes struct {
 	// The ARN of the connection created.
 	// Experimental.
-	ConnectionArn *string `json:"connectionArn" yaml:"connectionArn"`
+	ConnectionArn *string `field:"required" json:"connectionArn" yaml:"connectionArn"`
 	// The Name for the connection.
 	// Experimental.
-	ConnectionName *string `json:"connectionName" yaml:"connectionName"`
+	ConnectionName *string `field:"required" json:"connectionName" yaml:"connectionName"`
 	// The ARN for the secret created for the connection.
 	// Experimental.
-	ConnectionSecretArn *string `json:"connectionSecretArn" yaml:"connectionSecretArn"`
+	ConnectionSecretArn *string `field:"required" json:"connectionSecretArn" yaml:"connectionSecretArn"`
 }
 
 // An API Destination Connection.
@@ -8954,7 +9118,7 @@ type ConnectionAttributes struct {
 //
 // Example:
 //   connection := events.NewConnection(this, jsii.String("Connection"), &connectionProps{
-//   	authorization: events.authorization.apiKey(jsii.String("x-api-key"), secretValue.secretsManager(jsii.String("ApiSecretName"))),
+//   	authorization: events.authorization.apiKey(jsii.String("x-api-key"), awscdk.SecretValue.secretsManager(jsii.String("ApiSecretName"))),
 //   	description: jsii.String("Connection with API Key x-api-key"),
 //   })
 //
@@ -8975,22 +9139,22 @@ type ConnectionAttributes struct {
 type ConnectionProps struct {
 	// The authorization type for the connection.
 	// Experimental.
-	Authorization Authorization `json:"authorization" yaml:"authorization"`
+	Authorization Authorization `field:"required" json:"authorization" yaml:"authorization"`
 	// Additional string parameters to add to the invocation bodies.
 	// Experimental.
-	BodyParameters *map[string]HttpParameter `json:"bodyParameters" yaml:"bodyParameters"`
+	BodyParameters *map[string]HttpParameter `field:"optional" json:"bodyParameters" yaml:"bodyParameters"`
 	// The name of the connection.
 	// Experimental.
-	ConnectionName *string `json:"connectionName" yaml:"connectionName"`
+	ConnectionName *string `field:"optional" json:"connectionName" yaml:"connectionName"`
 	// The name of the connection.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Additional string parameters to add to the invocation headers.
 	// Experimental.
-	HeaderParameters *map[string]HttpParameter `json:"headerParameters" yaml:"headerParameters"`
+	HeaderParameters *map[string]HttpParameter `field:"optional" json:"headerParameters" yaml:"headerParameters"`
 	// Additional string parameters to add to the invocation query strings.
 	// Experimental.
-	QueryStringParameters *map[string]HttpParameter `json:"queryStringParameters" yaml:"queryStringParameters"`
+	QueryStringParameters *map[string]HttpParameter `field:"optional" json:"queryStringParameters" yaml:"queryStringParameters"`
 }
 
 // Options to configure a cron expression.
@@ -8999,9 +9163,11 @@ type ConnectionProps struct {
 // a field implies '*' or '?', whichever one is appropriate.
 //
 // Example:
-//   import events "github.com/aws/aws-cdk-go/awscdk"import targets "github.com/aws/aws-cdk-go/awscdk"
+//   import events "github.com/aws/aws-cdk-go/awscdk"
+//   import targets "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var fn function
+//
 //   rule := events.NewRule(this, jsii.String("Schedule Rule"), &ruleProps{
 //   	schedule: events.schedule.cron(&cronOptions{
 //   		minute: jsii.String("0"),
@@ -9016,22 +9182,22 @@ type ConnectionProps struct {
 type CronOptions struct {
 	// The day of the month to run this rule at.
 	// Experimental.
-	Day *string `json:"day" yaml:"day"`
+	Day *string `field:"optional" json:"day" yaml:"day"`
 	// The hour to run this rule at.
 	// Experimental.
-	Hour *string `json:"hour" yaml:"hour"`
+	Hour *string `field:"optional" json:"hour" yaml:"hour"`
 	// The minute to run this rule at.
 	// Experimental.
-	Minute *string `json:"minute" yaml:"minute"`
+	Minute *string `field:"optional" json:"minute" yaml:"minute"`
 	// The month to run this rule at.
 	// Experimental.
-	Month *string `json:"month" yaml:"month"`
+	Month *string `field:"optional" json:"month" yaml:"month"`
 	// The day of the week to run this rule at.
 	// Experimental.
-	WeekDay *string `json:"weekDay" yaml:"weekDay"`
+	WeekDay *string `field:"optional" json:"weekDay" yaml:"weekDay"`
 	// The year to run this rule at.
 	// Experimental.
-	Year *string `json:"year" yaml:"year"`
+	Year *string `field:"optional" json:"year" yaml:"year"`
 }
 
 // Define an EventBridge EventBus.
@@ -9046,10 +9212,10 @@ type CronOptions struct {
 //   	description: jsii.String("MyCustomerEventBus Archive"),
 //   	eventPattern: &eventPattern{
 //   		account: []*string{
-//   			*stack.of(this).account,
+//   			awscdk.*stack.of(this).account,
 //   		},
 //   	},
-//   	retention: duration.days(jsii.Number(365)),
+//   	retention: awscdk.Duration.days(jsii.Number(365)),
 //   })
 //
 // Experimental.
@@ -9562,7 +9728,10 @@ func (e *jsiiProxy_EventBus) Validate() *[]*string {
 // Interface with properties necessary to import a reusable EventBus.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   eventBusAttributes := &eventBusAttributes{
 //   	eventBusArn: jsii.String("eventBusArn"),
 //   	eventBusName: jsii.String("eventBusName"),
@@ -9576,16 +9745,16 @@ func (e *jsiiProxy_EventBus) Validate() *[]*string {
 type EventBusAttributes struct {
 	// The ARN of this event bus resource.
 	// Experimental.
-	EventBusArn *string `json:"eventBusArn" yaml:"eventBusArn"`
+	EventBusArn *string `field:"required" json:"eventBusArn" yaml:"eventBusArn"`
 	// The physical ID of this event bus resource.
 	// Experimental.
-	EventBusName *string `json:"eventBusName" yaml:"eventBusName"`
+	EventBusName *string `field:"required" json:"eventBusName" yaml:"eventBusName"`
 	// The JSON policy of this event bus resource.
 	// Experimental.
-	EventBusPolicy *string `json:"eventBusPolicy" yaml:"eventBusPolicy"`
+	EventBusPolicy *string `field:"required" json:"eventBusPolicy" yaml:"eventBusPolicy"`
 	// The partner event source to associate with this event bus resource.
 	// Experimental.
-	EventSourceName *string `json:"eventSourceName" yaml:"eventSourceName"`
+	EventSourceName *string `field:"optional" json:"eventSourceName" yaml:"eventSourceName"`
 }
 
 // Properties to define an event bus.
@@ -9600,20 +9769,20 @@ type EventBusAttributes struct {
 //   	description: jsii.String("MyCustomerEventBus Archive"),
 //   	eventPattern: &eventPattern{
 //   		account: []*string{
-//   			*stack.of(this).account,
+//   			awscdk.*stack.of(this).account,
 //   		},
 //   	},
-//   	retention: duration.days(jsii.Number(365)),
+//   	retention: awscdk.Duration.days(jsii.Number(365)),
 //   })
 //
 // Experimental.
 type EventBusProps struct {
 	// The name of the event bus you are creating Note: If 'eventSourceName' is passed in, you cannot set this.
 	// Experimental.
-	EventBusName *string `json:"eventBusName" yaml:"eventBusName"`
+	EventBusName *string `field:"optional" json:"eventBusName" yaml:"eventBusName"`
 	// The partner event source to associate with this event bus resource Note: If 'eventBusName' is passed in, you cannot set this.
 	// Experimental.
-	EventSourceName *string `json:"eventSourceName" yaml:"eventSourceName"`
+	EventSourceName *string `field:"optional" json:"eventSourceName" yaml:"eventSourceName"`
 }
 
 // Represents a field in the event pattern.
@@ -9835,6 +10004,7 @@ func (e *jsiiProxy_EventField) ToString() *string {
 // Example:
 //   import lambda "github.com/aws/aws-cdk-go/awscdk"
 //
+//
 //   fn := lambda.NewFunction(this, jsii.String("MyFunc"), &functionProps{
 //   	runtime: lambda.runtime_NODEJS_12_X(),
 //   	handler: jsii.String("index.handler"),
@@ -9865,24 +10035,24 @@ func (e *jsiiProxy_EventField) ToString() *string {
 type EventPattern struct {
 	// The 12-digit number identifying an AWS account.
 	// Experimental.
-	Account *[]*string `json:"account" yaml:"account"`
+	Account *[]*string `field:"optional" json:"account" yaml:"account"`
 	// A JSON object, whose content is at the discretion of the service originating the event.
 	// Experimental.
-	Detail *map[string]interface{} `json:"detail" yaml:"detail"`
+	Detail *map[string]interface{} `field:"optional" json:"detail" yaml:"detail"`
 	// Identifies, in combination with the source field, the fields and values that appear in the detail field.
 	//
 	// Represents the "detail-type" event field.
 	// Experimental.
-	DetailType *[]*string `json:"detailType" yaml:"detailType"`
+	DetailType *[]*string `field:"optional" json:"detailType" yaml:"detailType"`
 	// A unique value is generated for every event.
 	//
 	// This can be helpful in
 	// tracing events as they move through rules to targets, and are processed.
 	// Experimental.
-	Id *[]*string `json:"id" yaml:"id"`
+	Id *[]*string `field:"optional" json:"id" yaml:"id"`
 	// Identifies the AWS region where the event originated.
 	// Experimental.
-	Region *[]*string `json:"region" yaml:"region"`
+	Region *[]*string `field:"optional" json:"region" yaml:"region"`
 	// This JSON array contains ARNs that identify resources that are involved in the event.
 	//
 	// Inclusion of these ARNs is at the discretion of the
@@ -9893,7 +10063,7 @@ type EventPattern struct {
 	// Auto Scaling groups, but API calls with AWS CloudTrail do not include
 	// resource ARNs.
 	// Experimental.
-	Resources *[]*string `json:"resources" yaml:"resources"`
+	Resources *[]*string `field:"optional" json:"resources" yaml:"resources"`
 	// Identifies the service that sourced the event.
 	//
 	// All events sourced from
@@ -9907,17 +10077,17 @@ type EventPattern struct {
 	// See: http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces
 	//
 	// Experimental.
-	Source *[]*string `json:"source" yaml:"source"`
+	Source *[]*string `field:"optional" json:"source" yaml:"source"`
 	// The event timestamp, which can be specified by the service originating the event.
 	//
 	// If the event spans a time interval, the service might choose
 	// to report the start time, so this value can be noticeably before the time
 	// the event is actually received.
 	// Experimental.
-	Time *[]*string `json:"time" yaml:"time"`
+	Time *[]*string `field:"optional" json:"time" yaml:"time"`
 	// By default, this is set to 0 (zero) in all events.
 	// Experimental.
-	Version *[]*string `json:"version" yaml:"version"`
+	Version *[]*string `field:"optional" json:"version" yaml:"version"`
 }
 
 // Supported HTTP operations.
@@ -9951,10 +10121,14 @@ const (
 // An additional HTTP parameter to send along with the OAuth request.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var secretValue secretValue
-//   httpParameter := events.httpParameter.fromSecret(secretValue)
+//
+//   httpParameter := awscdk.Aws_events.httpParameter.fromSecret(secretValue)
 //
 // Experimental.
 type HttpParameter interface {
@@ -10265,15 +10439,19 @@ func (i *jsiiProxy_IRuleTarget) Bind(rule IRule, id *string) *RuleTargetConfig {
 // Properties for `Authorization.oauth()`.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var httpParameter httpParameter
 //   var secretValue secretValue
+//
 //   oAuthAuthorizationProps := &oAuthAuthorizationProps{
 //   	authorizationEndpoint: jsii.String("authorizationEndpoint"),
 //   	clientId: jsii.String("clientId"),
 //   	clientSecret: secretValue,
-//   	httpMethod: events.httpMethod_POST,
+//   	httpMethod: awscdk.Aws_events.httpMethod_POST,
 //
 //   	// the properties below are optional
 //   	bodyParameters: map[string]*httpParameter{
@@ -10291,27 +10469,27 @@ func (i *jsiiProxy_IRuleTarget) Bind(rule IRule, id *string) *RuleTargetConfig {
 type OAuthAuthorizationProps struct {
 	// The URL to the authorization endpoint.
 	// Experimental.
-	AuthorizationEndpoint *string `json:"authorizationEndpoint" yaml:"authorizationEndpoint"`
+	AuthorizationEndpoint *string `field:"required" json:"authorizationEndpoint" yaml:"authorizationEndpoint"`
 	// The client ID to use for OAuth authorization for the connection.
 	// Experimental.
-	ClientId *string `json:"clientId" yaml:"clientId"`
+	ClientId *string `field:"required" json:"clientId" yaml:"clientId"`
 	// The client secret associated with the client ID to use for OAuth authorization for the connection.
 	// Experimental.
-	ClientSecret awscdk.SecretValue `json:"clientSecret" yaml:"clientSecret"`
+	ClientSecret awscdk.SecretValue `field:"required" json:"clientSecret" yaml:"clientSecret"`
 	// The method to use for the authorization request.
 	//
 	// (Can only choose POST, GET or PUT).
 	// Experimental.
-	HttpMethod HttpMethod `json:"httpMethod" yaml:"httpMethod"`
+	HttpMethod HttpMethod `field:"required" json:"httpMethod" yaml:"httpMethod"`
 	// Additional string parameters to add to the OAuth request body.
 	// Experimental.
-	BodyParameters *map[string]HttpParameter `json:"bodyParameters" yaml:"bodyParameters"`
+	BodyParameters *map[string]HttpParameter `field:"optional" json:"bodyParameters" yaml:"bodyParameters"`
 	// Additional string parameters to add to the OAuth request header.
 	// Experimental.
-	HeaderParameters *map[string]HttpParameter `json:"headerParameters" yaml:"headerParameters"`
+	HeaderParameters *map[string]HttpParameter `field:"optional" json:"headerParameters" yaml:"headerParameters"`
 	// Additional string parameters to add to the OAuth request query string.
 	// Experimental.
-	QueryStringParameters *map[string]HttpParameter `json:"queryStringParameters" yaml:"queryStringParameters"`
+	QueryStringParameters *map[string]HttpParameter `field:"optional" json:"queryStringParameters" yaml:"queryStringParameters"`
 }
 
 // Standard set of options for `onXxx` event handlers on construct.
@@ -10346,7 +10524,7 @@ type OAuthAuthorizationProps struct {
 type OnEventOptions struct {
 	// A description of the rule's purpose.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Additional restrictions for the event to route to the specified target.
 	//
 	// The method that generates the rule probably imposes some type of event
@@ -10355,19 +10533,20 @@ type OnEventOptions struct {
 	// See: https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html
 	//
 	// Experimental.
-	EventPattern *EventPattern `json:"eventPattern" yaml:"eventPattern"`
+	EventPattern *EventPattern `field:"optional" json:"eventPattern" yaml:"eventPattern"`
 	// A name for the rule.
 	// Experimental.
-	RuleName *string `json:"ruleName" yaml:"ruleName"`
+	RuleName *string `field:"optional" json:"ruleName" yaml:"ruleName"`
 	// The target to register for the event.
 	// Experimental.
-	Target IRuleTarget `json:"target" yaml:"target"`
+	Target IRuleTarget `field:"optional" json:"target" yaml:"target"`
 }
 
 // Defines an EventBridge Rule in this stack.
 //
 // Example:
 //   import lambda "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   fn := lambda.NewFunction(this, jsii.String("MyFunc"), &functionProps{
 //   	runtime: lambda.runtime_NODEJS_12_X(),
@@ -10828,7 +11007,7 @@ func (r *jsiiProxy_Rule) Validate() *[]*string {
 //
 // Example:
 //   connection := events.NewConnection(this, jsii.String("Connection"), &connectionProps{
-//   	authorization: events.authorization.apiKey(jsii.String("x-api-key"), secretValue.secretsManager(jsii.String("ApiSecretName"))),
+//   	authorization: events.authorization.apiKey(jsii.String("x-api-key"), awscdk.SecretValue.secretsManager(jsii.String("ApiSecretName"))),
 //   	description: jsii.String("Connection with API Key x-api-key"),
 //   })
 //
@@ -10849,13 +11028,13 @@ func (r *jsiiProxy_Rule) Validate() *[]*string {
 type RuleProps struct {
 	// A description of the rule's purpose.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Indicates whether the rule is enabled.
 	// Experimental.
-	Enabled *bool `json:"enabled" yaml:"enabled"`
+	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// The event bus to associate with this rule.
 	// Experimental.
-	EventBus IEventBus `json:"eventBus" yaml:"eventBus"`
+	EventBus IEventBus `field:"optional" json:"eventBus" yaml:"eventBus"`
 	// Describes which events EventBridge routes to the specified target.
 	//
 	// These routed events are matched events. For more information, see Events
@@ -10868,10 +11047,10 @@ type RuleProps struct {
 	// pattern.
 	//
 	// Experimental.
-	EventPattern *EventPattern `json:"eventPattern" yaml:"eventPattern"`
+	EventPattern *EventPattern `field:"optional" json:"eventPattern" yaml:"eventPattern"`
 	// A name for the rule.
 	// Experimental.
-	RuleName *string `json:"ruleName" yaml:"ruleName"`
+	RuleName *string `field:"optional" json:"ruleName" yaml:"ruleName"`
 	// The schedule or rate (frequency) that determines when EventBridge runs the rule.
 	//
 	// For more information, see Schedule Expression Syntax for
@@ -10881,23 +11060,28 @@ type RuleProps struct {
 	// You must specify this property, the `eventPattern` property, or both.
 	//
 	// Experimental.
-	Schedule Schedule `json:"schedule" yaml:"schedule"`
+	Schedule Schedule `field:"optional" json:"schedule" yaml:"schedule"`
 	// Targets to invoke when this rule matches an event.
 	//
 	// Input will be the full matched event. If you wish to specify custom
 	// target input, use `addTarget(target[, inputOptions])`.
 	// Experimental.
-	Targets *[]IRuleTarget `json:"targets" yaml:"targets"`
+	Targets *[]IRuleTarget `field:"optional" json:"targets" yaml:"targets"`
 }
 
 // Properties for an event rule target.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var construct construct
 //   var role role
 //   var ruleTargetInput ruleTargetInput
+//
 //   ruleTargetConfig := &ruleTargetConfig{
 //   	arn: jsii.String("arn"),
 //
@@ -11011,47 +11195,47 @@ type RuleProps struct {
 type RuleTargetConfig struct {
 	// The Amazon Resource Name (ARN) of the target.
 	// Experimental.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"required" json:"arn" yaml:"arn"`
 	// Parameters used when the rule invokes Amazon AWS Batch Job/Queue.
 	// Experimental.
-	BatchParameters *CfnRule_BatchParametersProperty `json:"batchParameters" yaml:"batchParameters"`
+	BatchParameters *CfnRule_BatchParametersProperty `field:"optional" json:"batchParameters" yaml:"batchParameters"`
 	// Contains information about a dead-letter queue configuration.
 	// Experimental.
-	DeadLetterConfig *CfnRule_DeadLetterConfigProperty `json:"deadLetterConfig" yaml:"deadLetterConfig"`
+	DeadLetterConfig *CfnRule_DeadLetterConfigProperty `field:"optional" json:"deadLetterConfig" yaml:"deadLetterConfig"`
 	// The Amazon ECS task definition and task count to use, if the event target is an Amazon ECS task.
 	// Experimental.
-	EcsParameters *CfnRule_EcsParametersProperty `json:"ecsParameters" yaml:"ecsParameters"`
+	EcsParameters *CfnRule_EcsParametersProperty `field:"optional" json:"ecsParameters" yaml:"ecsParameters"`
 	// Contains the HTTP parameters to use when the target is a API Gateway REST endpoint or EventBridge API destination.
 	// Experimental.
-	HttpParameters *CfnRule_HttpParametersProperty `json:"httpParameters" yaml:"httpParameters"`
+	HttpParameters *CfnRule_HttpParametersProperty `field:"optional" json:"httpParameters" yaml:"httpParameters"`
 	// A unique, user-defined identifier for the target.
 	//
 	// Acceptable values
 	// include alphanumeric characters, periods (.), hyphens (-), and
 	// underscores (_).
 	// Deprecated: no replacement. we will always use an autogenerated id.
-	Id *string `json:"id" yaml:"id"`
+	Id *string `field:"optional" json:"id" yaml:"id"`
 	// What input to send to the event target.
 	// Experimental.
-	Input RuleTargetInput `json:"input" yaml:"input"`
+	Input RuleTargetInput `field:"optional" json:"input" yaml:"input"`
 	// Settings that control shard assignment, when the target is a Kinesis stream.
 	//
 	// If you don't include this parameter, eventId is used as the
 	// partition key.
 	// Experimental.
-	KinesisParameters *CfnRule_KinesisParametersProperty `json:"kinesisParameters" yaml:"kinesisParameters"`
+	KinesisParameters *CfnRule_KinesisParametersProperty `field:"optional" json:"kinesisParameters" yaml:"kinesisParameters"`
 	// A RetryPolicy object that includes information about the retry policy settings.
 	// Experimental.
-	RetryPolicy *CfnRule_RetryPolicyProperty `json:"retryPolicy" yaml:"retryPolicy"`
+	RetryPolicy *CfnRule_RetryPolicyProperty `field:"optional" json:"retryPolicy" yaml:"retryPolicy"`
 	// Role to use to invoke this event target.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// Parameters used when the rule invokes Amazon EC2 Systems Manager Run Command.
 	// Experimental.
-	RunCommandParameters *CfnRule_RunCommandParametersProperty `json:"runCommandParameters" yaml:"runCommandParameters"`
+	RunCommandParameters *CfnRule_RunCommandParametersProperty `field:"optional" json:"runCommandParameters" yaml:"runCommandParameters"`
 	// Parameters used when the FIFO sqs queue is used an event target by the rule.
 	// Experimental.
-	SqsParameters *CfnRule_SqsParametersProperty `json:"sqsParameters" yaml:"sqsParameters"`
+	SqsParameters *CfnRule_SqsParametersProperty `field:"optional" json:"sqsParameters" yaml:"sqsParameters"`
 	// The resource that is backing this target.
 	//
 	// This is the resource that will actually have some action performed on it when used as a target
@@ -11062,13 +11246,15 @@ type RuleTargetConfig struct {
 	// See: https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html
 	//
 	// Experimental.
-	TargetResource awscdk.IConstruct `json:"targetResource" yaml:"targetResource"`
+	TargetResource awscdk.IConstruct `field:"optional" json:"targetResource" yaml:"targetResource"`
 }
 
 // The input to send to the event target.
 //
 // Example:
-//   import iam "github.com/aws/aws-cdk-go/awscdk"import sfn "github.com/aws/aws-cdk-go/awscdk"
+//   import iam "github.com/aws/aws-cdk-go/awscdk"
+//   import sfn "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   rule := events.NewRule(this, jsii.String("Rule"), &ruleProps{
 //   	schedule: events.schedule.rate(cdk.duration.minutes(jsii.Number(1))),
@@ -11216,7 +11402,10 @@ func (r *jsiiProxy_RuleTargetInput) Bind(rule IRule) *RuleTargetInputProperties 
 // The input properties for an event target.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   ruleTargetInputProperties := &ruleTargetInputProperties{
 //   	input: jsii.String("input"),
 //   	inputPath: jsii.String("inputPath"),
@@ -11230,23 +11419,23 @@ func (r *jsiiProxy_RuleTargetInput) Bind(rule IRule) *RuleTargetInputProperties 
 type RuleTargetInputProperties struct {
 	// Literal input to the target service (must be valid JSON).
 	// Experimental.
-	Input *string `json:"input" yaml:"input"`
+	Input *string `field:"optional" json:"input" yaml:"input"`
 	// JsonPath to take input from the input event.
 	// Experimental.
-	InputPath *string `json:"inputPath" yaml:"inputPath"`
+	InputPath *string `field:"optional" json:"inputPath" yaml:"inputPath"`
 	// Paths map to extract values from event and insert into `inputTemplate`.
 	// Experimental.
-	InputPathsMap *map[string]*string `json:"inputPathsMap" yaml:"inputPathsMap"`
+	InputPathsMap *map[string]*string `field:"optional" json:"inputPathsMap" yaml:"inputPathsMap"`
 	// Input template to insert paths map into.
 	// Experimental.
-	InputTemplate *string `json:"inputTemplate" yaml:"inputTemplate"`
+	InputTemplate *string `field:"optional" json:"inputTemplate" yaml:"inputTemplate"`
 }
 
 // Schedule for scheduled event rules.
 //
 // Example:
 //   connection := events.NewConnection(this, jsii.String("Connection"), &connectionProps{
-//   	authorization: events.authorization.apiKey(jsii.String("x-api-key"), secretValue.secretsManager(jsii.String("ApiSecretName"))),
+//   	authorization: events.authorization.apiKey(jsii.String("x-api-key"), awscdk.SecretValue.secretsManager(jsii.String("ApiSecretName"))),
 //   	description: jsii.String("Connection with API Key x-api-key"),
 //   })
 //

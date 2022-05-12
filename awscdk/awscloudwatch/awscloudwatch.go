@@ -19,6 +19,7 @@ import (
 //
 //   // or add alarms to an existing group
 //   var blueGreenAlias alias
+//
 //   alarm := cloudwatch.NewAlarm(this, jsii.String("Errors"), &alarmProps{
 //   	comparisonOperator: cloudwatch.comparisonOperator_GREATER_THAN_THRESHOLD,
 //   	threshold: jsii.Number(1),
@@ -596,7 +597,10 @@ func (a *jsiiProxy_Alarm) Validate() *[]*string {
 // Properties for an alarm action.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   alarmActionConfig := &alarmActionConfig{
 //   	alarmActionArn: jsii.String("alarmActionArn"),
 //   }
@@ -605,7 +609,7 @@ func (a *jsiiProxy_Alarm) Validate() *[]*string {
 type AlarmActionConfig struct {
 	// Return the ARN that should be used for a CloudWatch Alarm action.
 	// Experimental.
-	AlarmActionArn *string `json:"alarmActionArn" yaml:"alarmActionArn"`
+	AlarmActionArn *string `field:"required" json:"alarmActionArn" yaml:"alarmActionArn"`
 }
 
 // The base class for Alarm and CompositeAlarm resources.
@@ -1100,6 +1104,7 @@ func (a *jsiiProxy_AlarmBase) Validate() *[]*string {
 //
 //   // or add alarms to an existing group
 //   var blueGreenAlias alias
+//
 //   alarm := cloudwatch.NewAlarm(this, jsii.String("Errors"), &alarmProps{
 //   	comparisonOperator: cloudwatch.comparisonOperator_GREATER_THAN_THRESHOLD,
 //   	threshold: jsii.Number(1),
@@ -1124,22 +1129,22 @@ func (a *jsiiProxy_AlarmBase) Validate() *[]*string {
 type AlarmProps struct {
 	// The number of periods over which data is compared to the specified threshold.
 	// Experimental.
-	EvaluationPeriods *float64 `json:"evaluationPeriods" yaml:"evaluationPeriods"`
+	EvaluationPeriods *float64 `field:"required" json:"evaluationPeriods" yaml:"evaluationPeriods"`
 	// The value against which the specified statistic is compared.
 	// Experimental.
-	Threshold *float64 `json:"threshold" yaml:"threshold"`
+	Threshold *float64 `field:"required" json:"threshold" yaml:"threshold"`
 	// Whether the actions for this alarm are enabled.
 	// Experimental.
-	ActionsEnabled *bool `json:"actionsEnabled" yaml:"actionsEnabled"`
+	ActionsEnabled *bool `field:"optional" json:"actionsEnabled" yaml:"actionsEnabled"`
 	// Description for the alarm.
 	// Experimental.
-	AlarmDescription *string `json:"alarmDescription" yaml:"alarmDescription"`
+	AlarmDescription *string `field:"optional" json:"alarmDescription" yaml:"alarmDescription"`
 	// Name of the alarm.
 	// Experimental.
-	AlarmName *string `json:"alarmName" yaml:"alarmName"`
+	AlarmName *string `field:"optional" json:"alarmName" yaml:"alarmName"`
 	// Comparison to use to check if metric is breaching.
 	// Experimental.
-	ComparisonOperator ComparisonOperator `json:"comparisonOperator" yaml:"comparisonOperator"`
+	ComparisonOperator ComparisonOperator `field:"optional" json:"comparisonOperator" yaml:"comparisonOperator"`
 	// The number of datapoints that must be breaching to trigger the alarm.
 	//
 	// This is used only if you are setting an "M
@@ -1148,17 +1153,17 @@ type AlarmProps struct {
 	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation
 	//
 	// Experimental.
-	DatapointsToAlarm *float64 `json:"datapointsToAlarm" yaml:"datapointsToAlarm"`
+	DatapointsToAlarm *float64 `field:"optional" json:"datapointsToAlarm" yaml:"datapointsToAlarm"`
 	// Specifies whether to evaluate the data and potentially change the alarm state if there are too few data points to be statistically significant.
 	//
 	// Used only for alarms that are based on percentiles.
 	// Experimental.
-	EvaluateLowSampleCountPercentile *string `json:"evaluateLowSampleCountPercentile" yaml:"evaluateLowSampleCountPercentile"`
+	EvaluateLowSampleCountPercentile *string `field:"optional" json:"evaluateLowSampleCountPercentile" yaml:"evaluateLowSampleCountPercentile"`
 	// The period over which the specified statistic is applied.
 	//
 	// Cannot be used with `MathExpression` objects.
 	// Deprecated: Use `metric.with({ period: ... })` to encode the period into the Metric object
-	Period awscdk.Duration `json:"period" yaml:"period"`
+	Period awscdk.Duration `field:"optional" json:"period" yaml:"period"`
 	// What function to use for aggregating.
 	//
 	// Can be one of the following:
@@ -1172,16 +1177,16 @@ type AlarmProps struct {
 	//
 	// Cannot be used with `MathExpression` objects.
 	// Deprecated: Use `metric.with({ statistic: ... })` to encode the period into the Metric object
-	Statistic *string `json:"statistic" yaml:"statistic"`
+	Statistic *string `field:"optional" json:"statistic" yaml:"statistic"`
 	// Sets how this alarm is to handle missing data points.
 	// Experimental.
-	TreatMissingData TreatMissingData `json:"treatMissingData" yaml:"treatMissingData"`
+	TreatMissingData TreatMissingData `field:"optional" json:"treatMissingData" yaml:"treatMissingData"`
 	// The metric to add the alarm on.
 	//
 	// Metric objects can be obtained from most resources, or you can construct
 	// custom Metric objects by instantiating one.
 	// Experimental.
-	Metric IMetric `json:"metric" yaml:"metric"`
+	Metric IMetric `field:"required" json:"metric" yaml:"metric"`
 }
 
 // Class with static functions to build AlarmRule for Composite Alarms.
@@ -1191,6 +1196,7 @@ type AlarmProps struct {
 //   var alarm2 alarm
 //   var alarm3 alarm
 //   var alarm4 alarm
+//
 //
 //   alarmRule := cloudwatch.alarmRule.anyOf(cloudwatch.alarmRule.allOf(cloudwatch.alarmRule.anyOf(alarm1, cloudwatch.alarmRule.fromAlarm(alarm2, cloudwatch.alarmState_OK), alarm3), cloudwatch.alarmRule.not(cloudwatch.alarmRule.fromAlarm(alarm4, cloudwatch.alarmState_INSUFFICIENT_DATA))), cloudwatch.alarmRule.fromBoolean(jsii.Boolean(false)))
 //
@@ -1351,6 +1357,7 @@ func AlarmRule_Not(operand IAlarmRule) IAlarmRule {
 //   var dashboard dashboard
 //   var errorAlarm alarm
 //
+//
 //   dashboard.addWidgets(cloudwatch.NewAlarmStatusWidget(&alarmStatusWidgetProps{
 //   	title: jsii.String("Errors"),
 //   	alarms: []iAlarm{
@@ -1382,6 +1389,7 @@ const (
 // Example:
 //   var dashboard dashboard
 //   var errorAlarm alarm
+//
 //
 //   dashboard.addWidgets(
 //   cloudwatch.NewAlarmStatusWidget(&alarmStatusWidgetProps{
@@ -1559,6 +1567,7 @@ func (a *jsiiProxy_AlarmStatusWidget) ToJson() *[]interface{} {
 //   var dashboard dashboard
 //   var errorAlarm alarm
 //
+//
 //   dashboard.addWidgets(
 //   cloudwatch.NewAlarmStatusWidget(&alarmStatusWidgetProps{
 //   	alarms: []iAlarm{
@@ -1570,13 +1579,13 @@ func (a *jsiiProxy_AlarmStatusWidget) ToJson() *[]interface{} {
 type AlarmStatusWidgetProps struct {
 	// CloudWatch Alarms to show in widget.
 	// Experimental.
-	Alarms *[]IAlarm `json:"alarms" yaml:"alarms"`
+	Alarms *[]IAlarm `field:"required" json:"alarms" yaml:"alarms"`
 	// Height of the widget.
 	// Experimental.
-	Height *float64 `json:"height" yaml:"height"`
+	Height *float64 `field:"optional" json:"height" yaml:"height"`
 	// Specifies how to sort the alarms in the widget.
 	// Experimental.
-	SortBy AlarmStatusWidgetSortBy `json:"sortBy" yaml:"sortBy"`
+	SortBy AlarmStatusWidgetSortBy `field:"optional" json:"sortBy" yaml:"sortBy"`
 	// Use this field to filter the list of alarms displayed in the widget to only those alarms currently in the specified states.
 	//
 	// You can specify one or more alarm states in the value for this field.
@@ -1584,13 +1593,13 @@ type AlarmStatusWidgetProps struct {
 	//
 	// If you omit this field or specify an empty array, all the alarms specifed in alarms are displayed.
 	// Experimental.
-	States *[]AlarmState `json:"states" yaml:"states"`
+	States *[]AlarmState `field:"optional" json:"states" yaml:"states"`
 	// The title of the widget.
 	// Experimental.
-	Title *string `json:"title" yaml:"title"`
+	Title *string `field:"optional" json:"title" yaml:"title"`
 	// Width of the widget, in a grid of 24 units wide.
 	// Experimental.
-	Width *float64 `json:"width" yaml:"width"`
+	Width *float64 `field:"optional" json:"width" yaml:"width"`
 }
 
 // The sort possibilities for AlarmStatusWidgets.
@@ -1598,6 +1607,7 @@ type AlarmStatusWidgetProps struct {
 // Example:
 //   var dashboard dashboard
 //   var errorAlarm alarm
+//
 //
 //   dashboard.addWidgets(cloudwatch.NewAlarmStatusWidget(&alarmStatusWidgetProps{
 //   	title: jsii.String("Errors"),
@@ -1634,6 +1644,7 @@ const (
 // Example:
 //   var dashboard dashboard
 //   var errorAlarm alarm
+//
 //
 //   dashboard.addWidgets(cloudwatch.NewAlarmWidget(&alarmWidgetProps{
 //   	title: jsii.String("Errors"),
@@ -1809,6 +1820,7 @@ func (a *jsiiProxy_AlarmWidget) ToJson() *[]interface{} {
 //   var dashboard dashboard
 //   var errorAlarm alarm
 //
+//
 //   dashboard.addWidgets(cloudwatch.NewAlarmWidget(&alarmWidgetProps{
 //   	title: jsii.String("Errors"),
 //   	alarm: errorAlarm,
@@ -1818,22 +1830,22 @@ func (a *jsiiProxy_AlarmWidget) ToJson() *[]interface{} {
 type AlarmWidgetProps struct {
 	// Height of the widget.
 	// Experimental.
-	Height *float64 `json:"height" yaml:"height"`
+	Height *float64 `field:"optional" json:"height" yaml:"height"`
 	// The region the metrics of this graph should be taken from.
 	// Experimental.
-	Region *string `json:"region" yaml:"region"`
+	Region *string `field:"optional" json:"region" yaml:"region"`
 	// Title for the graph.
 	// Experimental.
-	Title *string `json:"title" yaml:"title"`
+	Title *string `field:"optional" json:"title" yaml:"title"`
 	// Width of the widget, in a grid of 24 units wide.
 	// Experimental.
-	Width *float64 `json:"width" yaml:"width"`
+	Width *float64 `field:"optional" json:"width" yaml:"width"`
 	// The alarm to show.
 	// Experimental.
-	Alarm IAlarm `json:"alarm" yaml:"alarm"`
+	Alarm IAlarm `field:"required" json:"alarm" yaml:"alarm"`
 	// Left Y axis.
 	// Experimental.
-	LeftYAxis *YAxisProps `json:"leftYAxis" yaml:"leftYAxis"`
+	LeftYAxis *YAxisProps `field:"optional" json:"leftYAxis" yaml:"leftYAxis"`
 }
 
 // A CloudFormation `AWS::CloudWatch::Alarm`.
@@ -1845,8 +1857,11 @@ type AlarmWidgetProps struct {
 // When you update an existing alarm, its state is left unchanged, but the update completely overwrites the previous configuration of the alarm.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
-//   cfnAlarm := cloudwatch.NewCfnAlarm(this, jsii.String("MyCfnAlarm"), &cfnAlarmProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnAlarm := awscdk.Aws_cloudwatch.NewCfnAlarm(this, jsii.String("MyCfnAlarm"), &cfnAlarmProps{
 //   	comparisonOperator: jsii.String("comparisonOperator"),
 //   	evaluationPeriods: jsii.Number(123),
 //
@@ -3034,7 +3049,10 @@ func (c *jsiiProxy_CfnAlarm) ValidateProperties(_properties interface{}) {
 // Dimensions are name/value pairs that can be associated with a CloudWatch metric. You can specify a maximum of 10 dimensions for a given metric.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dimensionProperty := &dimensionProperty{
 //   	name: jsii.String("name"),
 //   	value: jsii.String("value"),
@@ -3044,9 +3062,9 @@ type CfnAlarm_DimensionProperty struct {
 	// The name of the dimension, from 1–255 characters in length.
 	//
 	// This dimension name must have been included when the metric was published.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The value for the dimension, from 1–255 characters in length.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // The `MetricDataQuery` property type specifies the metric data to return, and whether this call is just retrieving a batch set of data for one metric, or is performing a math expression on metric data.
@@ -3054,7 +3072,10 @@ type CfnAlarm_DimensionProperty struct {
 // Any expression used must return a single time series. For more information, see [Metric Math Syntax and Functions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax) in the *Amazon CloudWatch User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   metricDataQueryProperty := &metricDataQueryProperty{
 //   	id: jsii.String("id"),
 //
@@ -3087,35 +3108,35 @@ type CfnAlarm_MetricDataQueryProperty struct {
 	// A short name used to tie this object to the results in the response.
 	//
 	// This name must be unique within a single call to `GetMetricData` . If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
-	Id *string `json:"id" yaml:"id"`
+	Id *string `field:"required" json:"id" yaml:"id"`
 	// The ID of the account where the metrics are located, if this is a cross-account alarm.
-	AccountId *string `json:"accountId" yaml:"accountId"`
+	AccountId *string `field:"optional" json:"accountId" yaml:"accountId"`
 	// The math expression to be performed on the returned data, if this object is performing a math expression.
 	//
 	// This expression can use the `Id` of the other metrics to refer to those metrics, and can also use the `Id` of other expressions to use the result of those expressions. For more information about metric math expressions, see [Metric Math Syntax and Functions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax) in the *Amazon CloudWatch User Guide* .
 	//
 	// Within each MetricDataQuery object, you must specify either `Expression` or `MetricStat` but not both.
-	Expression *string `json:"expression" yaml:"expression"`
+	Expression *string `field:"optional" json:"expression" yaml:"expression"`
 	// A human-readable label for this metric or expression.
 	//
 	// This is especially useful if this is an expression, so that you know what the value represents. If the metric or expression is shown in a CloudWatch dashboard widget, the label is shown. If `Label` is omitted, CloudWatch generates a default.
-	Label *string `json:"label" yaml:"label"`
+	Label *string `field:"optional" json:"label" yaml:"label"`
 	// The metric to be returned, along with statistics, period, and units.
 	//
 	// Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
 	//
 	// Within one MetricDataQuery object, you must specify either `Expression` or `MetricStat` but not both.
-	MetricStat interface{} `json:"metricStat" yaml:"metricStat"`
+	MetricStat interface{} `field:"optional" json:"metricStat" yaml:"metricStat"`
 	// The granularity, in seconds, of the returned data points.
 	//
 	// For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a `PutMetricData` operation that includes a `StorageResolution of 1 second` .
-	Period *float64 `json:"period" yaml:"period"`
+	Period *float64 `field:"optional" json:"period" yaml:"period"`
 	// This option indicates whether to return the timestamps and raw data values of this metric.
 	//
 	// When you create an alarm based on a metric math expression, specify `True` for this value for only the one math expression that the alarm is based on. You must specify `False` for `ReturnData` for all the other metrics and expressions used in the alarm.
 	//
 	// This field is required.
-	ReturnData interface{} `json:"returnData" yaml:"returnData"`
+	ReturnData interface{} `field:"optional" json:"returnData" yaml:"returnData"`
 }
 
 // The `Metric` property type represents a specific metric.
@@ -3123,7 +3144,10 @@ type CfnAlarm_MetricDataQueryProperty struct {
 // `Metric` is a property of the [MetricStat](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricstat.html) property type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   metricProperty := &metricProperty{
 //   	dimensions: []interface{}{
 //   		&dimensionProperty{
@@ -3137,13 +3161,13 @@ type CfnAlarm_MetricDataQueryProperty struct {
 //
 type CfnAlarm_MetricProperty struct {
 	// The metric dimensions that you want to be used for the metric that the alarm will watch..
-	Dimensions interface{} `json:"dimensions" yaml:"dimensions"`
+	Dimensions interface{} `field:"optional" json:"dimensions" yaml:"dimensions"`
 	// The name of the metric that you want the alarm to watch.
 	//
 	// This is a required field.
-	MetricName *string `json:"metricName" yaml:"metricName"`
+	MetricName *string `field:"optional" json:"metricName" yaml:"metricName"`
 	// The namespace of the metric that the alarm will watch.
-	Namespace *string `json:"namespace" yaml:"namespace"`
+	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`
 }
 
 // This structure defines the metric to be returned, along with the statistics, period, and units.
@@ -3151,7 +3175,10 @@ type CfnAlarm_MetricProperty struct {
 // `MetricStat` is a property of the [MetricDataQuery](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricdataquery.html) property type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   metricStatProperty := &metricStatProperty{
 //   	metric: &metricProperty{
 //   		dimensions: []interface{}{
@@ -3172,7 +3199,7 @@ type CfnAlarm_MetricProperty struct {
 //
 type CfnAlarm_MetricStatProperty struct {
 	// The metric to return, including the metric name, namespace, and dimensions.
-	Metric interface{} `json:"metric" yaml:"metric"`
+	Metric interface{} `field:"required" json:"metric" yaml:"metric"`
 	// The granularity, in seconds, of the returned data points.
 	//
 	// For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a `PutMetricData` call that includes a `StorageResolution` of 1 second.
@@ -3182,21 +3209,24 @@ type CfnAlarm_MetricStatProperty struct {
 	// - Start time between 3 hours and 15 days ago - Use a multiple of 60 seconds (1 minute).
 	// - Start time between 15 and 63 days ago - Use a multiple of 300 seconds (5 minutes).
 	// - Start time greater than 63 days ago - Use a multiple of 3600 seconds (1 hour).
-	Period *float64 `json:"period" yaml:"period"`
+	Period *float64 `field:"required" json:"period" yaml:"period"`
 	// The statistic to return.
 	//
 	// It can include any CloudWatch statistic or extended statistic. For a list of valid values, see the table in [Statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic) in the *Amazon CloudWatch User Guide* .
-	Stat *string `json:"stat" yaml:"stat"`
+	Stat *string `field:"required" json:"stat" yaml:"stat"`
 	// The unit to use for the returned data points.
 	//
 	// Valid values are: Seconds, Microseconds, Milliseconds, Bytes, Kilobytes, Megabytes, Gigabytes, Terabytes, Bits, Kilobits, Megabits, Gigabits, Terabits, Percent, Count, Bytes/Second, Kilobytes/Second, Megabytes/Second, Gigabytes/Second, Terabytes/Second, Bits/Second, Kilobits/Second, Megabits/Second, Gigabits/Second, Terabits/Second, Count/Second, or None.
-	Unit *string `json:"unit" yaml:"unit"`
+	Unit *string `field:"optional" json:"unit" yaml:"unit"`
 }
 
 // Properties for defining a `CfnAlarm`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAlarmProps := &cfnAlarmProps{
 //   	comparisonOperator: jsii.String("comparisonOperator"),
 //   	evaluationPeriods: jsii.Number(123),
@@ -3268,73 +3298,73 @@ type CfnAlarmProps struct {
 	// The specified statistic value is used as the first operand.
 	//
 	// You can specify the following values: `GreaterThanThreshold` , `GreaterThanOrEqualToThreshold` , `LessThanThreshold` , or `LessThanOrEqualToThreshold` .
-	ComparisonOperator *string `json:"comparisonOperator" yaml:"comparisonOperator"`
+	ComparisonOperator *string `field:"required" json:"comparisonOperator" yaml:"comparisonOperator"`
 	// The number of periods over which data is compared to the specified threshold.
 	//
 	// If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and `DatapointsToAlarm` is the M.
 	//
 	// For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *Amazon CloudWatch User Guide* .
-	EvaluationPeriods *float64 `json:"evaluationPeriods" yaml:"evaluationPeriods"`
+	EvaluationPeriods *float64 `field:"required" json:"evaluationPeriods" yaml:"evaluationPeriods"`
 	// Indicates whether actions should be executed during any changes to the alarm state.
 	//
 	// The default is TRUE.
-	ActionsEnabled interface{} `json:"actionsEnabled" yaml:"actionsEnabled"`
+	ActionsEnabled interface{} `field:"optional" json:"actionsEnabled" yaml:"actionsEnabled"`
 	// The list of actions to execute when this alarm transitions into an ALARM state from any other state.
 	//
 	// Specify each action as an Amazon Resource Name (ARN). For more information about creating alarms and the actions that you can specify, see [PutMetricAlarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html) in the *Amazon CloudWatch API Reference* .
-	AlarmActions *[]*string `json:"alarmActions" yaml:"alarmActions"`
+	AlarmActions *[]*string `field:"optional" json:"alarmActions" yaml:"alarmActions"`
 	// The description of the alarm.
-	AlarmDescription *string `json:"alarmDescription" yaml:"alarmDescription"`
+	AlarmDescription *string `field:"optional" json:"alarmDescription" yaml:"alarmDescription"`
 	// The name of the alarm.
 	//
 	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the alarm name.
 	//
 	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-	AlarmName *string `json:"alarmName" yaml:"alarmName"`
+	AlarmName *string `field:"optional" json:"alarmName" yaml:"alarmName"`
 	// The number of datapoints that must be breaching to trigger the alarm.
 	//
 	// This is used only if you are setting an "M out of N" alarm. In that case, this value is the M, and the value that you set for `EvaluationPeriods` is the N value. For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *Amazon CloudWatch User Guide* .
 	//
 	// If you omit this parameter, CloudWatch uses the same value here that you set for `EvaluationPeriods` , and the alarm goes to alarm state if that many consecutive periods are breaching.
-	DatapointsToAlarm *float64 `json:"datapointsToAlarm" yaml:"datapointsToAlarm"`
+	DatapointsToAlarm *float64 `field:"optional" json:"datapointsToAlarm" yaml:"datapointsToAlarm"`
 	// The dimensions for the metric associated with the alarm.
 	//
 	// For an alarm based on a math expression, you can't specify `Dimensions` . Instead, you use `Metrics` .
-	Dimensions interface{} `json:"dimensions" yaml:"dimensions"`
+	Dimensions interface{} `field:"optional" json:"dimensions" yaml:"dimensions"`
 	// Used only for alarms based on percentiles.
 	//
 	// If `ignore` , the alarm state does not change during periods with too few data points to be statistically significant. If `evaluate` or this parameter is not used, the alarm is always evaluated and possibly changes state no matter how many data points are available.
-	EvaluateLowSampleCountPercentile *string `json:"evaluateLowSampleCountPercentile" yaml:"evaluateLowSampleCountPercentile"`
+	EvaluateLowSampleCountPercentile *string `field:"optional" json:"evaluateLowSampleCountPercentile" yaml:"evaluateLowSampleCountPercentile"`
 	// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
 	//
 	// For an alarm based on a metric, you must specify either `Statistic` or `ExtendedStatistic` but not both.
 	//
 	// For an alarm based on a math expression, you can't specify `ExtendedStatistic` . Instead, you use `Metrics` .
-	ExtendedStatistic *string `json:"extendedStatistic" yaml:"extendedStatistic"`
+	ExtendedStatistic *string `field:"optional" json:"extendedStatistic" yaml:"extendedStatistic"`
 	// The actions to execute when this alarm transitions to the `INSUFFICIENT_DATA` state from any other state.
 	//
 	// Each action is specified as an Amazon Resource Name (ARN).
-	InsufficientDataActions *[]*string `json:"insufficientDataActions" yaml:"insufficientDataActions"`
+	InsufficientDataActions *[]*string `field:"optional" json:"insufficientDataActions" yaml:"insufficientDataActions"`
 	// The name of the metric associated with the alarm.
 	//
 	// This is required for an alarm based on a metric. For an alarm based on a math expression, you use `Metrics` instead and you can't specify `MetricName` .
-	MetricName *string `json:"metricName" yaml:"metricName"`
+	MetricName *string `field:"optional" json:"metricName" yaml:"metricName"`
 	// An array that enables you to create an alarm based on the result of a metric math expression.
 	//
 	// Each item in the array either retrieves a metric or performs a math expression.
 	//
 	// If you specify the `Metrics` parameter, you cannot specify `MetricName` , `Dimensions` , `Period` , `Namespace` , `Statistic` , `ExtendedStatistic` , or `Unit` .
-	Metrics interface{} `json:"metrics" yaml:"metrics"`
+	Metrics interface{} `field:"optional" json:"metrics" yaml:"metrics"`
 	// The namespace of the metric associated with the alarm.
 	//
 	// This is required for an alarm based on a metric. For an alarm based on a math expression, you can't specify `Namespace` and you use `Metrics` instead.
 	//
 	// For a list of namespaces for metrics from AWS services, see [AWS Services That Publish CloudWatch Metrics.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html)
-	Namespace *string `json:"namespace" yaml:"namespace"`
+	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`
 	// The actions to execute when this alarm transitions to the `OK` state from any other state.
 	//
 	// Each action is specified as an Amazon Resource Name (ARN).
-	OkActions *[]*string `json:"okActions" yaml:"okActions"`
+	OkActions *[]*string `field:"optional" json:"okActions" yaml:"okActions"`
 	// The period, in seconds, over which the statistic is applied.
 	//
 	// This is required for an alarm based on a metric. Valid values are 10, 30, 60, and any multiple of 60.
@@ -3342,29 +3372,29 @@ type CfnAlarmProps struct {
 	// For an alarm based on a math expression, you can't specify `Period` , and instead you use the `Metrics` parameter.
 	//
 	// *Minimum:* 10.
-	Period *float64 `json:"period" yaml:"period"`
+	Period *float64 `field:"optional" json:"period" yaml:"period"`
 	// The statistic for the metric associated with the alarm, other than percentile. For percentile statistics, use `ExtendedStatistic` .
 	//
 	// For an alarm based on a metric, you must specify either `Statistic` or `ExtendedStatistic` but not both.
 	//
 	// For an alarm based on a math expression, you can't specify `Statistic` . Instead, you use `Metrics` .
-	Statistic *string `json:"statistic" yaml:"statistic"`
+	Statistic *string `field:"optional" json:"statistic" yaml:"statistic"`
 	// The value to compare with the specified statistic.
-	Threshold *float64 `json:"threshold" yaml:"threshold"`
+	Threshold *float64 `field:"optional" json:"threshold" yaml:"threshold"`
 	// In an alarm based on an anomaly detection model, this is the ID of the `ANOMALY_DETECTION_BAND` function used as the threshold for the alarm.
-	ThresholdMetricId *string `json:"thresholdMetricId" yaml:"thresholdMetricId"`
+	ThresholdMetricId *string `field:"optional" json:"thresholdMetricId" yaml:"thresholdMetricId"`
 	// Sets how this alarm is to handle missing data points.
 	//
 	// Valid values are `breaching` , `notBreaching` , `ignore` , and `missing` . For more information, see [Configuring How CloudWatch Alarms Treat Missing Data](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data) in the *Amazon CloudWatch User Guide* .
 	//
 	// If you omit this parameter, the default behavior of `missing` is used.
-	TreatMissingData *string `json:"treatMissingData" yaml:"treatMissingData"`
+	TreatMissingData *string `field:"optional" json:"treatMissingData" yaml:"treatMissingData"`
 	// The unit of the metric associated with the alarm.
 	//
 	// Specify this only if you are creating an alarm based on a single metric. Do not specify this if you are specifying a `Metrics` array.
 	//
 	// You can specify the following values: Seconds, Microseconds, Milliseconds, Bytes, Kilobytes, Megabytes, Gigabytes, Terabytes, Bits, Kilobits, Megabits, Gigabits, Terabits, Percent, Count, Bytes/Second, Kilobytes/Second, Megabytes/Second, Gigabytes/Second, Terabytes/Second, Bits/Second, Kilobits/Second, Megabits/Second, Gigabits/Second, Terabits/Second, Count/Second, or None.
-	Unit *string `json:"unit" yaml:"unit"`
+	Unit *string `field:"optional" json:"unit" yaml:"unit"`
 }
 
 // A CloudFormation `AWS::CloudWatch::AnomalyDetector`.
@@ -3372,8 +3402,11 @@ type CfnAlarmProps struct {
 // The `AWS::CloudWatch::AnomalyDetector` type specifies an anomaly detection band for a certain metric and statistic. The band represents the expected "normal" range for the metric values. Anomaly detection bands can be used for visualization of a metric's expected values, and for alarms.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
-//   cfnAnomalyDetector := cloudwatch.NewCfnAnomalyDetector(this, jsii.String("MyCfnAnomalyDetector"), &cfnAnomalyDetectorProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnAnomalyDetector := awscdk.Aws_cloudwatch.NewCfnAnomalyDetector(this, jsii.String("MyCfnAnomalyDetector"), &cfnAnomalyDetectorProps{
 //   	configuration: &configurationProperty{
 //   		excludedTimeRanges: []interface{}{
 //   			&rangeProperty{
@@ -4197,7 +4230,10 @@ func (c *jsiiProxy_CfnAnomalyDetector) ValidateProperties(_properties interface{
 // The configuration can also include the time zone to use for the metric.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   configurationProperty := &configurationProperty{
 //   	excludedTimeRanges: []interface{}{
 //   		&rangeProperty{
@@ -4212,13 +4248,13 @@ type CfnAnomalyDetector_ConfigurationProperty struct {
 	// Specifies an array of time ranges to exclude from use when the anomaly detection model is trained and updated.
 	//
 	// Use this to make sure that events that could cause unusual values for the metric, such as deployments, aren't used when CloudWatch creates or updates the model.
-	ExcludedTimeRanges interface{} `json:"excludedTimeRanges" yaml:"excludedTimeRanges"`
+	ExcludedTimeRanges interface{} `field:"optional" json:"excludedTimeRanges" yaml:"excludedTimeRanges"`
 	// The time zone to use for the metric.
 	//
 	// This is useful to enable the model to automatically account for daylight savings time changes if the metric is sensitive to such time changes.
 	//
 	// To specify a time zone, use the name of the time zone as specified in the standard tz database. For more information, see [tz database](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Tz_database) .
-	MetricTimeZone *string `json:"metricTimeZone" yaml:"metricTimeZone"`
+	MetricTimeZone *string `field:"optional" json:"metricTimeZone" yaml:"metricTimeZone"`
 }
 
 // A dimension is a name/value pair that is part of the identity of a metric.
@@ -4228,7 +4264,10 @@ type CfnAnomalyDetector_ConfigurationProperty struct {
 // You can assign up to 10 dimensions to a metric.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dimensionProperty := &dimensionProperty{
 //   	name: jsii.String("name"),
 //   	value: jsii.String("value"),
@@ -4236,11 +4275,11 @@ type CfnAnomalyDetector_ConfigurationProperty struct {
 //
 type CfnAnomalyDetector_DimensionProperty struct {
 	// The name of the dimension.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The value of the dimension.
 	//
 	// Dimension values must contain only ASCII characters and must include at least one non-whitespace character.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // This structure is used in both `GetMetricData` and `PutMetricAlarm` .
@@ -4256,7 +4295,10 @@ type CfnAnomalyDetector_DimensionProperty struct {
 // Some of the parameters of this structure also have different uses whether you are using this structure in a `GetMetricData` operation or a `PutMetricAlarm` operation. These differences are explained in the following parameter list.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   metricDataQueryProperty := &metricDataQueryProperty{
 //   	id: jsii.String("id"),
 //
@@ -4291,11 +4333,11 @@ type CfnAnomalyDetector_MetricDataQueryProperty struct {
 	// A short name used to tie this object to the results in the response.
 	//
 	// This name must be unique within a single call to `GetMetricData` . If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
-	Id *string `json:"id" yaml:"id"`
+	Id *string `field:"required" json:"id" yaml:"id"`
 	// The ID of the account where the metrics are located, if this is a cross-account alarm.
 	//
 	// Use this field only for `PutMetricAlarm` operations. It is not used in `GetMetricData` operations.
-	AccountId *string `json:"accountId" yaml:"accountId"`
+	AccountId *string `field:"optional" json:"accountId" yaml:"accountId"`
 	// This field can contain either a Metrics Insights query, or a metric math expression to be performed on the returned data.
 	//
 	// For more information about Metrics Insights queries, see [Metrics Insights query components and syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-metrics-insights-querylanguage) in the *Amazon CloudWatch User Guide* .
@@ -4303,29 +4345,29 @@ type CfnAnomalyDetector_MetricDataQueryProperty struct {
 	// A math expression can use the `Id` of the other metrics or queries to refer to those metrics, and can also use the `Id` of other expressions to use the result of those expressions. For more information about metric math expressions, see [Metric Math Syntax and Functions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax) in the *Amazon CloudWatch User Guide* .
 	//
 	// Within each MetricDataQuery object, you must specify either `Expression` or `MetricStat` but not both.
-	Expression *string `json:"expression" yaml:"expression"`
+	Expression *string `field:"optional" json:"expression" yaml:"expression"`
 	// A human-readable label for this metric or expression.
 	//
 	// This is especially useful if this is an expression, so that you know what the value represents. If the metric or expression is shown in a CloudWatch dashboard widget, the label is shown. If Label is omitted, CloudWatch generates a default.
 	//
 	// You can put dynamic expressions into a label, so that it is more descriptive. For more information, see [Using Dynamic Labels](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/graph-dynamic-labels.html) .
-	Label *string `json:"label" yaml:"label"`
+	Label *string `field:"optional" json:"label" yaml:"label"`
 	// The metric to be returned, along with statistics, period, and units.
 	//
 	// Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
 	//
 	// Within one MetricDataQuery object, you must specify either `Expression` or `MetricStat` but not both.
-	MetricStat interface{} `json:"metricStat" yaml:"metricStat"`
+	MetricStat interface{} `field:"optional" json:"metricStat" yaml:"metricStat"`
 	// The granularity, in seconds, of the returned data points.
 	//
 	// For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a `PutMetricData` operation that includes a `StorageResolution of 1 second` .
-	Period *float64 `json:"period" yaml:"period"`
+	Period *float64 `field:"optional" json:"period" yaml:"period"`
 	// When used in `GetMetricData` , this option indicates whether to return the timestamps and raw data values of this metric.
 	//
 	// If you are performing this call just to do math expressions and do not also need the raw data returned, you can specify `False` . If you omit this, the default of `True` is used.
 	//
 	// When used in `PutMetricAlarm` , specify `True` for the one expression result to use as the alarm. For all other metrics and expressions in the same `PutMetricAlarm` operation, specify `ReturnData` as False.
-	ReturnData interface{} `json:"returnData" yaml:"returnData"`
+	ReturnData interface{} `field:"optional" json:"returnData" yaml:"returnData"`
 }
 
 // Indicates the CloudWatch math expression that provides the time series the anomaly detector uses as input.
@@ -4333,7 +4375,10 @@ type CfnAnomalyDetector_MetricDataQueryProperty struct {
 // The designated math expression must return a single time series.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   metricMathAnomalyDetectorProperty := &metricMathAnomalyDetectorProperty{
 //   	metricDataQueries: []interface{}{
 //   		&metricDataQueryProperty{
@@ -4372,13 +4417,16 @@ type CfnAnomalyDetector_MetricMathAnomalyDetectorProperty struct {
 	// An array of metric data query structures that enables you to create an anomaly detector based on the result of a metric math expression.
 	//
 	// Each item in `MetricDataQueries` gets a metric or performs a math expression. One item in `MetricDataQueries` is the expression that provides the time series that the anomaly detector uses as input. Designate the expression by setting `ReturnData` to `True` for this object in the array. For all other expressions and metrics, set `ReturnData` to `False` . The designated expression must return a single time series.
-	MetricDataQueries interface{} `json:"metricDataQueries" yaml:"metricDataQueries"`
+	MetricDataQueries interface{} `field:"optional" json:"metricDataQueries" yaml:"metricDataQueries"`
 }
 
 // Represents a specific metric.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   metricProperty := &metricProperty{
 //   	metricName: jsii.String("metricName"),
 //   	namespace: jsii.String("namespace"),
@@ -4396,17 +4444,20 @@ type CfnAnomalyDetector_MetricProperty struct {
 	// The name of the metric.
 	//
 	// This is a required field.
-	MetricName *string `json:"metricName" yaml:"metricName"`
+	MetricName *string `field:"required" json:"metricName" yaml:"metricName"`
 	// The namespace of the metric.
-	Namespace *string `json:"namespace" yaml:"namespace"`
+	Namespace *string `field:"required" json:"namespace" yaml:"namespace"`
 	// The dimensions for the metric.
-	Dimensions interface{} `json:"dimensions" yaml:"dimensions"`
+	Dimensions interface{} `field:"optional" json:"dimensions" yaml:"dimensions"`
 }
 
 // This structure defines the metric to be returned, along with the statistics, period, and units.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   metricStatProperty := &metricStatProperty{
 //   	metric: &metricProperty{
 //   		metricName: jsii.String("metricName"),
@@ -4429,7 +4480,7 @@ type CfnAnomalyDetector_MetricProperty struct {
 //
 type CfnAnomalyDetector_MetricStatProperty struct {
 	// The metric to return, including the metric name, namespace, and dimensions.
-	Metric interface{} `json:"metric" yaml:"metric"`
+	Metric interface{} `field:"required" json:"metric" yaml:"metric"`
 	// The granularity, in seconds, of the returned data points.
 	//
 	// For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a `PutMetricData` call that includes a `StorageResolution` of 1 second.
@@ -4439,21 +4490,24 @@ type CfnAnomalyDetector_MetricStatProperty struct {
 	// - Start time between 3 hours and 15 days ago - Use a multiple of 60 seconds (1 minute).
 	// - Start time between 15 and 63 days ago - Use a multiple of 300 seconds (5 minutes).
 	// - Start time greater than 63 days ago - Use a multiple of 3600 seconds (1 hour).
-	Period *float64 `json:"period" yaml:"period"`
+	Period *float64 `field:"required" json:"period" yaml:"period"`
 	// The statistic to return.
 	//
 	// It can include any CloudWatch statistic or extended statistic.
-	Stat *string `json:"stat" yaml:"stat"`
+	Stat *string `field:"required" json:"stat" yaml:"stat"`
 	// When you are using a `Put` operation, this defines what unit you want to use when storing the metric.
 	//
 	// In a `Get` operation, if you omit `Unit` then all data that was collected with any unit is returned, along with the corresponding units that were specified when the data was reported to CloudWatch. If you specify a unit, the operation returns only data that was collected with that unit specified. If you specify a unit that does not match the data collected, the results of the operation are null. CloudWatch does not perform unit conversions.
-	Unit *string `json:"unit" yaml:"unit"`
+	Unit *string `field:"optional" json:"unit" yaml:"unit"`
 }
 
 // Each `Range` specifies one range of days or times to exclude from use for training or updating an anomaly detection model.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   rangeProperty := &rangeProperty{
 //   	endTime: jsii.String("endTime"),
 //   	startTime: jsii.String("startTime"),
@@ -4463,17 +4517,20 @@ type CfnAnomalyDetector_RangeProperty struct {
 	// The end time of the range to exclude.
 	//
 	// The format is `yyyy-MM-dd'T'HH:mm:ss` . For example, `2019-07-01T23:59:59` .
-	EndTime *string `json:"endTime" yaml:"endTime"`
+	EndTime *string `field:"required" json:"endTime" yaml:"endTime"`
 	// The start time of the range to exclude.
 	//
 	// The format is `yyyy-MM-dd'T'HH:mm:ss` . For example, `2019-07-01T23:59:59` .
-	StartTime *string `json:"startTime" yaml:"startTime"`
+	StartTime *string `field:"required" json:"startTime" yaml:"startTime"`
 }
 
 // Designates the CloudWatch metric and statistic that provides the time series the anomaly detector uses as input.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   singleMetricAnomalyDetectorProperty := &singleMetricAnomalyDetectorProperty{
 //   	dimensions: []interface{}{
 //   		&dimensionProperty{
@@ -4488,19 +4545,22 @@ type CfnAnomalyDetector_RangeProperty struct {
 //
 type CfnAnomalyDetector_SingleMetricAnomalyDetectorProperty struct {
 	// The metric dimensions to create the anomaly detection model for.
-	Dimensions interface{} `json:"dimensions" yaml:"dimensions"`
+	Dimensions interface{} `field:"optional" json:"dimensions" yaml:"dimensions"`
 	// The name of the metric to create the anomaly detection model for.
-	MetricName *string `json:"metricName" yaml:"metricName"`
+	MetricName *string `field:"optional" json:"metricName" yaml:"metricName"`
 	// The namespace of the metric to create the anomaly detection model for.
-	Namespace *string `json:"namespace" yaml:"namespace"`
+	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`
 	// The statistic to use for the metric and anomaly detection model.
-	Stat *string `json:"stat" yaml:"stat"`
+	Stat *string `field:"optional" json:"stat" yaml:"stat"`
 }
 
 // Properties for defining a `CfnAnomalyDetector`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAnomalyDetectorProps := &cfnAnomalyDetectorProps{
 //   	configuration: &configurationProperty{
 //   		excludedTimeRanges: []interface{}{
@@ -4570,19 +4630,19 @@ type CfnAnomalyDetectorProps struct {
 	// Specifies details about how the anomaly detection model is to be trained, including time ranges to exclude when training and updating the model.
 	//
 	// The configuration can also include the time zone to use for the metric.
-	Configuration interface{} `json:"configuration" yaml:"configuration"`
+	Configuration interface{} `field:"optional" json:"configuration" yaml:"configuration"`
 	// The dimensions of the metric associated with the anomaly detection band.
-	Dimensions interface{} `json:"dimensions" yaml:"dimensions"`
+	Dimensions interface{} `field:"optional" json:"dimensions" yaml:"dimensions"`
 	// The CloudWatch metric math expression for this anomaly detector.
-	MetricMathAnomalyDetector interface{} `json:"metricMathAnomalyDetector" yaml:"metricMathAnomalyDetector"`
+	MetricMathAnomalyDetector interface{} `field:"optional" json:"metricMathAnomalyDetector" yaml:"metricMathAnomalyDetector"`
 	// The name of the metric associated with the anomaly detection band.
-	MetricName *string `json:"metricName" yaml:"metricName"`
+	MetricName *string `field:"optional" json:"metricName" yaml:"metricName"`
 	// The namespace of the metric associated with the anomaly detection band.
-	Namespace *string `json:"namespace" yaml:"namespace"`
+	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`
 	// The CloudWatch metric and statistic for this anomaly detector.
-	SingleMetricAnomalyDetector interface{} `json:"singleMetricAnomalyDetector" yaml:"singleMetricAnomalyDetector"`
+	SingleMetricAnomalyDetector interface{} `field:"optional" json:"singleMetricAnomalyDetector" yaml:"singleMetricAnomalyDetector"`
 	// The statistic of the metric associated with the anomaly detection band.
-	Stat *string `json:"stat" yaml:"stat"`
+	Stat *string `field:"optional" json:"stat" yaml:"stat"`
 }
 
 // A CloudFormation `AWS::CloudWatch::CompositeAlarm`.
@@ -4600,8 +4660,11 @@ type CfnAnomalyDetectorProps struct {
 // When you update an existing alarm, its state is left unchanged, but the update completely overwrites the previous configuration of the alarm.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
-//   cfnCompositeAlarm := cloudwatch.NewCfnCompositeAlarm(this, jsii.String("MyCfnCompositeAlarm"), &cfnCompositeAlarmProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnCompositeAlarm := awscdk.Aws_cloudwatch.NewCfnCompositeAlarm(this, jsii.String("MyCfnCompositeAlarm"), &cfnCompositeAlarmProps{
 //   	alarmName: jsii.String("alarmName"),
 //   	alarmRule: jsii.String("alarmRule"),
 //
@@ -5412,7 +5475,10 @@ func (c *jsiiProxy_CfnCompositeAlarm) ValidateProperties(_properties interface{}
 // Properties for defining a `CfnCompositeAlarm`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnCompositeAlarmProps := &cfnCompositeAlarmProps{
 //   	alarmName: jsii.String("alarmName"),
 //   	alarmRule: jsii.String("alarmRule"),
@@ -5435,7 +5501,7 @@ type CfnCompositeAlarmProps struct {
 	// The name for the composite alarm.
 	//
 	// This name must be unique within your AWS account.
-	AlarmName *string `json:"alarmName" yaml:"alarmName"`
+	AlarmName *string `field:"required" json:"alarmName" yaml:"alarmName"`
 	// An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state.
 	//
 	// For each alarm that you reference, you designate a function that specifies whether that alarm needs to be in ALARM state, OK state, or INSUFFICIENT_DATA state. You can use operators (AND, OR and NOT) to combine multiple functions in a single expression. You can use parenthesis to logically group the functions in your expression.
@@ -5453,25 +5519,25 @@ type CfnCompositeAlarmProps struct {
 	// TRUE and FALSE are useful for testing a complex AlarmRule structure, and for testing your alarm actions.
 	//
 	// For more information about `AlarmRule` syntax, see [PutCompositeAlarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutCompositeAlarm.html) in the *Amazon CloudWatch API Reference* .
-	AlarmRule *string `json:"alarmRule" yaml:"alarmRule"`
+	AlarmRule *string `field:"required" json:"alarmRule" yaml:"alarmRule"`
 	// Indicates whether actions should be executed during any changes to the alarm state of the composite alarm.
 	//
 	// The default is TRUE.
-	ActionsEnabled interface{} `json:"actionsEnabled" yaml:"actionsEnabled"`
+	ActionsEnabled interface{} `field:"optional" json:"actionsEnabled" yaml:"actionsEnabled"`
 	// The actions to execute when this alarm transitions to the ALARM state from any other state.
 	//
 	// Each action is specified as an Amazon Resource Name (ARN). For more information about creating alarms and the actions that you can specify, see [PutCompositeAlarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutCompositeAlarm.html) in the *Amazon CloudWatch API Reference* .
-	AlarmActions *[]*string `json:"alarmActions" yaml:"alarmActions"`
+	AlarmActions *[]*string `field:"optional" json:"alarmActions" yaml:"alarmActions"`
 	// The description for the composite alarm.
-	AlarmDescription *string `json:"alarmDescription" yaml:"alarmDescription"`
+	AlarmDescription *string `field:"optional" json:"alarmDescription" yaml:"alarmDescription"`
 	// The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state.
 	//
 	// Each action is specified as an Amazon Resource Name (ARN). For more information about creating alarms and the actions that you can specify, see [PutCompositeAlarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutCompositeAlarm.html) in the *Amazon CloudWatch API Reference* .
-	InsufficientDataActions *[]*string `json:"insufficientDataActions" yaml:"insufficientDataActions"`
+	InsufficientDataActions *[]*string `field:"optional" json:"insufficientDataActions" yaml:"insufficientDataActions"`
 	// The actions to execute when this alarm transitions to the OK state from any other state.
 	//
 	// Each action is specified as an Amazon Resource Name (ARN). For more information about creating alarms and the actions that you can specify, see [PutCompositeAlarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutCompositeAlarm.html) in the *Amazon CloudWatch API Reference* .
-	OkActions *[]*string `json:"okActions" yaml:"okActions"`
+	OkActions *[]*string `field:"optional" json:"okActions" yaml:"okActions"`
 }
 
 // A CloudFormation `AWS::CloudWatch::Dashboard`.
@@ -5481,8 +5547,11 @@ type CfnCompositeAlarmProps struct {
 // All dashboards in your account are global, not region-specific.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
-//   cfnDashboard := cloudwatch.NewCfnDashboard(this, jsii.String("MyCfnDashboard"), &cfnDashboardProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDashboard := awscdk.Aws_cloudwatch.NewCfnDashboard(this, jsii.String("MyCfnDashboard"), &cfnDashboardProps{
 //   	dashboardBody: jsii.String("dashboardBody"),
 //
 //   	// the properties below are optional
@@ -6145,7 +6214,10 @@ func (c *jsiiProxy_CfnDashboard) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnDashboard`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDashboardProps := &cfnDashboardProps{
 //   	dashboardBody: jsii.String("dashboardBody"),
 //
@@ -6159,11 +6231,11 @@ type CfnDashboardProps struct {
 	// This parameter is required.
 	//
 	// For more information about the syntax, see [Dashboard Body Structure and Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html) .
-	DashboardBody *string `json:"dashboardBody" yaml:"dashboardBody"`
+	DashboardBody *string `field:"required" json:"dashboardBody" yaml:"dashboardBody"`
 	// The name of the dashboard.
 	//
 	// The name must be between 1 and 255 characters. If you do not specify a name, one will be generated automatically.
-	DashboardName *string `json:"dashboardName" yaml:"dashboardName"`
+	DashboardName *string `field:"optional" json:"dashboardName" yaml:"dashboardName"`
 }
 
 // A CloudFormation `AWS::CloudWatch::InsightRule`.
@@ -6171,8 +6243,11 @@ type CfnDashboardProps struct {
 // Creates or updates a Contributor Insights rule. Rules evaluate log events in a CloudWatch Logs log group, enabling you to find contributor data for the log events in that log group. For more information, see [Using Contributor Insights to Analyze High-Cardinality Data](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights.html) in the *Amazon CloudWatch User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
-//   cfnInsightRule := cloudwatch.NewCfnInsightRule(this, jsii.String("MyCfnInsightRule"), &cfnInsightRuleProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnInsightRule := awscdk.Aws_cloudwatch.NewCfnInsightRule(this, jsii.String("MyCfnInsightRule"), &cfnInsightRuleProps{
 //   	ruleBody: jsii.String("ruleBody"),
 //   	ruleName: jsii.String("ruleName"),
 //   	ruleState: jsii.String("ruleState"),
@@ -6903,7 +6978,10 @@ func (c *jsiiProxy_CfnInsightRule) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnInsightRule`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnInsightRuleProps := &cfnInsightRuleProps{
 //   	ruleBody: jsii.String("ruleBody"),
 //   	ruleName: jsii.String("ruleName"),
@@ -6922,13 +7000,13 @@ type CfnInsightRuleProps struct {
 	// The definition of the rule, as a JSON object.
 	//
 	// For details about the syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html) in the *Amazon CloudWatch User Guide* .
-	RuleBody *string `json:"ruleBody" yaml:"ruleBody"`
+	RuleBody *string `field:"required" json:"ruleBody" yaml:"ruleBody"`
 	// The name of the rule.
-	RuleName *string `json:"ruleName" yaml:"ruleName"`
+	RuleName *string `field:"required" json:"ruleName" yaml:"ruleName"`
 	// The current state of the rule.
 	//
 	// Valid values are `ENABLED` and `DISABLED` .
-	RuleState *string `json:"ruleState" yaml:"ruleState"`
+	RuleState *string `field:"required" json:"ruleState" yaml:"ruleState"`
 	// A list of key-value pairs to associate with the Contributor Insights rule.
 	//
 	// You can associate as many as 50 tags with a rule.
@@ -6936,7 +7014,7 @@ type CfnInsightRuleProps struct {
 	// Tags can help you organize and categorize your resources. For more information, see [Tagging Your Amazon CloudWatch Resources](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Tagging.html) .
 	//
 	// To be able to associate tags with a rule, you must have the `cloudwatch:TagResource` permission in addition to the `cloudwatch:PutInsightRule` permission.
-	Tags interface{} `json:"tags" yaml:"tags"`
+	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::CloudWatch::MetricStream`.
@@ -6954,8 +7032,11 @@ type CfnInsightRuleProps struct {
 // When you create a metric stream, the stream is created in the `running` state. If you update an existing metric stream, the state does not change.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
-//   cfnMetricStream := cloudwatch.NewCfnMetricStream(this, jsii.String("MyCfnMetricStream"), &cfnMetricStreamProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnMetricStream := awscdk.Aws_cloudwatch.NewCfnMetricStream(this, jsii.String("MyCfnMetricStream"), &cfnMetricStreamProps{
 //   	firehoseArn: jsii.String("firehoseArn"),
 //   	outputFormat: jsii.String("outputFormat"),
 //   	roleArn: jsii.String("roleArn"),
@@ -7834,14 +7915,17 @@ func (c *jsiiProxy_CfnMetricStream) ValidateProperties(_properties interface{}) 
 // This structure contains the name of one of the metric namespaces that is listed in a filter of a metric stream.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   metricStreamFilterProperty := &metricStreamFilterProperty{
 //   	namespace: jsii.String("namespace"),
 //   }
 //
 type CfnMetricStream_MetricStreamFilterProperty struct {
 	// The name of the metric namespace in the filter.
-	Namespace *string `json:"namespace" yaml:"namespace"`
+	Namespace *string `field:"required" json:"namespace" yaml:"namespace"`
 }
 
 // This structure specifies a list of additional statistics to stream, and the metrics to stream those additional statistics for.
@@ -7849,7 +7933,10 @@ type CfnMetricStream_MetricStreamFilterProperty struct {
 // All metrics that match the combination of metric name and namespace will be streamed with the additional statistics, no matter their dimensions.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   metricStreamStatisticsConfigurationProperty := &metricStreamStatisticsConfigurationProperty{
 //   	additionalStatistics: []*string{
 //   		jsii.String("additionalStatistics"),
@@ -7864,15 +7951,18 @@ type CfnMetricStream_MetricStreamFilterProperty struct {
 //
 type CfnMetricStream_MetricStreamStatisticsConfigurationProperty struct {
 	// The additional statistics to stream for the metrics listed in `IncludeMetrics` .
-	AdditionalStatistics *[]*string `json:"additionalStatistics" yaml:"additionalStatistics"`
+	AdditionalStatistics *[]*string `field:"required" json:"additionalStatistics" yaml:"additionalStatistics"`
 	// An array that defines the metrics that are to have additional statistics streamed.
-	IncludeMetrics interface{} `json:"includeMetrics" yaml:"includeMetrics"`
+	IncludeMetrics interface{} `field:"required" json:"includeMetrics" yaml:"includeMetrics"`
 }
 
 // A structure that specifies the metric name and namespace for one metric that is going to have additional statistics included in the stream.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   metricStreamStatisticsMetricProperty := &metricStreamStatisticsMetricProperty{
 //   	metricName: jsii.String("metricName"),
 //   	namespace: jsii.String("namespace"),
@@ -7880,15 +7970,18 @@ type CfnMetricStream_MetricStreamStatisticsConfigurationProperty struct {
 //
 type CfnMetricStream_MetricStreamStatisticsMetricProperty struct {
 	// The name of the metric.
-	MetricName *string `json:"metricName" yaml:"metricName"`
+	MetricName *string `field:"required" json:"metricName" yaml:"metricName"`
 	// The namespace of the metric.
-	Namespace *string `json:"namespace" yaml:"namespace"`
+	Namespace *string `field:"required" json:"namespace" yaml:"namespace"`
 }
 
 // Properties for defining a `CfnMetricStream`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnMetricStreamProps := &cfnMetricStreamProps{
 //   	firehoseArn: jsii.String("firehoseArn"),
 //   	outputFormat: jsii.String("outputFormat"),
@@ -7931,45 +8024,45 @@ type CfnMetricStreamProps struct {
 	// The ARN of the Amazon Kinesis Firehose delivery stream to use for this metric stream.
 	//
 	// This Amazon Kinesis Firehose delivery stream must already exist and must be in the same account as the metric stream.
-	FirehoseArn *string `json:"firehoseArn" yaml:"firehoseArn"`
+	FirehoseArn *string `field:"required" json:"firehoseArn" yaml:"firehoseArn"`
 	// The output format for the stream.
 	//
 	// Valid values are `json` and `opentelemetry0.7` For more information about metric stream output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html) .
 	//
 	// This parameter is required.
-	OutputFormat *string `json:"outputFormat" yaml:"outputFormat"`
+	OutputFormat *string `field:"required" json:"outputFormat" yaml:"outputFormat"`
 	// The ARN of an IAM role that this metric stream will use to access Amazon Kinesis Firehose resources.
 	//
 	// This IAM role must already exist and must be in the same account as the metric stream. This IAM role must include the `firehose:PutRecord` and `firehose:PutRecordBatch` permissions.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces that you specify here.
 	//
 	// You cannot specify both `IncludeFilters` and `ExcludeFilters` in the same metric stream.
 	//
 	// When you modify the `IncludeFilters` or `ExcludeFilters` of an existing metric stream in any way, the metric stream is effectively restarted, so after such a change you will get only the datapoints that have a timestamp after the time of the update.
-	ExcludeFilters interface{} `json:"excludeFilters" yaml:"excludeFilters"`
+	ExcludeFilters interface{} `field:"optional" json:"excludeFilters" yaml:"excludeFilters"`
 	// If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here.
 	//
 	// You cannot specify both `IncludeFilters` and `ExcludeFilters` in the same metric stream.
 	//
 	// When you modify the `IncludeFilters` or `ExcludeFilters` of an existing metric stream in any way, the metric stream is effectively restarted, so after such a change you will get only the datapoints that have a timestamp after the time of the update.
-	IncludeFilters interface{} `json:"includeFilters" yaml:"includeFilters"`
+	IncludeFilters interface{} `field:"optional" json:"includeFilters" yaml:"includeFilters"`
 	// If you are creating a new metric stream, this is the name for the new stream.
 	//
 	// The name must be different than the names of other metric streams in this account and Region.
 	//
 	// If you are updating a metric stream, specify the name of that stream here.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// By default, a metric stream always sends the MAX, MIN, SUM, and SAMPLECOUNT statistics for each metric that is streamed.
 	//
 	// You can use this parameter to have the metric stream also send additional statistics in the stream. This array can have up to 100 members.
 	//
 	// For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `OutputFormat` . If the `OutputFormat` is `json` , you can stream any additional statistic that is supported by CloudWatch , listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html) . If the `OutputFormat` is `opentelemetry0` .7, you can stream percentile statistics *(p??)* .
-	StatisticsConfigurations interface{} `json:"statisticsConfigurations" yaml:"statisticsConfigurations"`
+	StatisticsConfigurations interface{} `field:"optional" json:"statisticsConfigurations" yaml:"statisticsConfigurations"`
 	// An array of key-value pairs to apply to the metric stream.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A set of standard colours that can be used in annotations in a GraphWidget.
@@ -7978,6 +8071,7 @@ type CfnMetricStreamProps struct {
 //   var dashboard dashboard
 //   var executionCountMetric metric
 //   var errorCountMetric metric
+//
 //
 //   dashboard.addWidgets(cloudwatch.NewGraphWidget(&graphWidgetProps{
 //   	title: jsii.String("Executions vs error rate"),
@@ -8097,10 +8191,13 @@ func Color_RED() *string {
 // Widgets will be laid out next to each other.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var widget iWidget
-//   column := cloudwatch.NewColumn(widget)
+//
+//   column := awscdk.Aws_cloudwatch.NewColumn(widget)
 //
 // Experimental.
 type Column interface {
@@ -8218,10 +8315,14 @@ func (c *jsiiProxy_Column) ToJson() *[]interface{} {
 // Options shared by most methods accepting metric options.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var dimensions interface{}
 //   var duration duration
+//
 //   commonMetricOptions := &commonMetricOptions{
 //   	account: jsii.String("account"),
 //   	color: jsii.String("color"),
@@ -8235,23 +8336,23 @@ func (c *jsiiProxy_Column) ToJson() *[]interface{} {
 //   	period: duration,
 //   	region: jsii.String("region"),
 //   	statistic: jsii.String("statistic"),
-//   	unit: cloudwatch.unit_SECONDS,
+//   	unit: awscdk.Aws_cloudwatch.unit_SECONDS,
 //   }
 //
 // Experimental.
 type CommonMetricOptions struct {
 	// Account which this metric comes from.
 	// Experimental.
-	Account *string `json:"account" yaml:"account"`
+	Account *string `field:"optional" json:"account" yaml:"account"`
 	// The hex color code, prefixed with '#' (e.g. '#00ff00'), to use when this metric is rendered on a graph. The `Color` class has a set of standard colors that can be used here.
 	// Experimental.
-	Color *string `json:"color" yaml:"color"`
+	Color *string `field:"optional" json:"color" yaml:"color"`
 	// Dimensions of the metric.
 	// Deprecated: Use 'dimensionsMap' instead.
-	Dimensions *map[string]interface{} `json:"dimensions" yaml:"dimensions"`
+	Dimensions *map[string]interface{} `field:"optional" json:"dimensions" yaml:"dimensions"`
 	// Dimensions of the metric.
 	// Experimental.
-	DimensionsMap *map[string]*string `json:"dimensionsMap" yaml:"dimensionsMap"`
+	DimensionsMap *map[string]*string `field:"optional" json:"dimensionsMap" yaml:"dimensionsMap"`
 	// Label for this metric when added to a Graph in a Dashboard.
 	//
 	// You can use [dynamic labels](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/graph-dynamic-labels.html)
@@ -8265,13 +8366,13 @@ type CommonMetricOptions struct {
 	// As the metric label, the maximum value in the visible range will
 	// be shown next to the time series name in the graph's legend.
 	// Experimental.
-	Label *string `json:"label" yaml:"label"`
+	Label *string `field:"optional" json:"label" yaml:"label"`
 	// The period over which the specified statistic is applied.
 	// Experimental.
-	Period awscdk.Duration `json:"period" yaml:"period"`
+	Period awscdk.Duration `field:"optional" json:"period" yaml:"period"`
 	// Region which this metric comes from.
 	// Experimental.
-	Region *string `json:"region" yaml:"region"`
+	Region *string `field:"optional" json:"region" yaml:"region"`
 	// What function to use for aggregating.
 	//
 	// Can be one of the following:
@@ -8283,7 +8384,7 @@ type CommonMetricOptions struct {
 	// - "SampleCount | "n"
 	// - "pNN.NN"
 	// Experimental.
-	Statistic *string `json:"statistic" yaml:"statistic"`
+	Statistic *string `field:"optional" json:"statistic" yaml:"statistic"`
 	// Unit used to filter the metric stream.
 	//
 	// Only refer to datums emitted to the metric stream with the given unit and
@@ -8295,7 +8396,7 @@ type CommonMetricOptions struct {
 	//
 	// CloudWatch does not honor this property for graphs.
 	// Experimental.
-	Unit Unit `json:"unit" yaml:"unit"`
+	Unit Unit `field:"optional" json:"unit" yaml:"unit"`
 }
 
 // Comparison operator for evaluating alarms.
@@ -8304,6 +8405,7 @@ type CommonMetricOptions struct {
 //   import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var myHostedZone hostedZone
+//
 //   certificate := acm.NewCertificate(this, jsii.String("Certificate"), &certificateProps{
 //   	domainName: jsii.String("hello.example.com"),
 //   	validation: acm.certificateValidation.fromDns(myHostedZone),
@@ -8354,6 +8456,7 @@ const (
 //   var alarm2 alarm
 //   var alarm3 alarm
 //   var alarm4 alarm
+//
 //
 //   alarmRule := cloudwatch.alarmRule.anyOf(cloudwatch.alarmRule.allOf(cloudwatch.alarmRule.anyOf(alarm1, cloudwatch.alarmRule.fromAlarm(alarm2, cloudwatch.alarmState_OK), alarm3), cloudwatch.alarmRule.not(cloudwatch.alarmRule.fromAlarm(alarm4, cloudwatch.alarmState_INSUFFICIENT_DATA))), cloudwatch.alarmRule.fromBoolean(jsii.Boolean(false)))
 //
@@ -8898,6 +9001,7 @@ func (c *jsiiProxy_CompositeAlarm) Validate() *[]*string {
 //   var alarm3 alarm
 //   var alarm4 alarm
 //
+//
 //   alarmRule := cloudwatch.alarmRule.anyOf(cloudwatch.alarmRule.allOf(cloudwatch.alarmRule.anyOf(alarm1, cloudwatch.alarmRule.fromAlarm(alarm2, cloudwatch.alarmState_OK), alarm3), cloudwatch.alarmRule.not(cloudwatch.alarmRule.fromAlarm(alarm4, cloudwatch.alarmState_INSUFFICIENT_DATA))), cloudwatch.alarmRule.fromBoolean(jsii.Boolean(false)))
 //
 //   cloudwatch.NewCompositeAlarm(this, jsii.String("MyAwesomeCompositeAlarm"), &compositeAlarmProps{
@@ -8908,16 +9012,16 @@ func (c *jsiiProxy_CompositeAlarm) Validate() *[]*string {
 type CompositeAlarmProps struct {
 	// Expression that specifies which other alarms are to be evaluated to determine this composite alarm's state.
 	// Experimental.
-	AlarmRule IAlarmRule `json:"alarmRule" yaml:"alarmRule"`
+	AlarmRule IAlarmRule `field:"required" json:"alarmRule" yaml:"alarmRule"`
 	// Whether the actions for this alarm are enabled.
 	// Experimental.
-	ActionsEnabled *bool `json:"actionsEnabled" yaml:"actionsEnabled"`
+	ActionsEnabled *bool `field:"optional" json:"actionsEnabled" yaml:"actionsEnabled"`
 	// Description for the alarm.
 	// Experimental.
-	AlarmDescription *string `json:"alarmDescription" yaml:"alarmDescription"`
+	AlarmDescription *string `field:"optional" json:"alarmDescription" yaml:"alarmDescription"`
 	// Name of the alarm.
 	// Experimental.
-	CompositeAlarmName *string `json:"compositeAlarmName" yaml:"compositeAlarmName"`
+	CompositeAlarmName *string `field:"optional" json:"compositeAlarmName" yaml:"compositeAlarmName"`
 }
 
 // A real CloudWatch widget that has its own fixed size and remembers its position.
@@ -9077,6 +9181,7 @@ func (c *jsiiProxy_ConcreteWidget) ToJson() *[]interface{} {
 //   import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var myHostedZone hostedZone
+//
 //   certificate := acm.NewCertificate(this, jsii.String("Certificate"), &certificateProps{
 //   	domainName: jsii.String("hello.example.com"),
 //   	validation: acm.certificateValidation.fromDns(myHostedZone),
@@ -9091,22 +9196,22 @@ func (c *jsiiProxy_ConcreteWidget) ToJson() *[]interface{} {
 type CreateAlarmOptions struct {
 	// The number of periods over which data is compared to the specified threshold.
 	// Experimental.
-	EvaluationPeriods *float64 `json:"evaluationPeriods" yaml:"evaluationPeriods"`
+	EvaluationPeriods *float64 `field:"required" json:"evaluationPeriods" yaml:"evaluationPeriods"`
 	// The value against which the specified statistic is compared.
 	// Experimental.
-	Threshold *float64 `json:"threshold" yaml:"threshold"`
+	Threshold *float64 `field:"required" json:"threshold" yaml:"threshold"`
 	// Whether the actions for this alarm are enabled.
 	// Experimental.
-	ActionsEnabled *bool `json:"actionsEnabled" yaml:"actionsEnabled"`
+	ActionsEnabled *bool `field:"optional" json:"actionsEnabled" yaml:"actionsEnabled"`
 	// Description for the alarm.
 	// Experimental.
-	AlarmDescription *string `json:"alarmDescription" yaml:"alarmDescription"`
+	AlarmDescription *string `field:"optional" json:"alarmDescription" yaml:"alarmDescription"`
 	// Name of the alarm.
 	// Experimental.
-	AlarmName *string `json:"alarmName" yaml:"alarmName"`
+	AlarmName *string `field:"optional" json:"alarmName" yaml:"alarmName"`
 	// Comparison to use to check if metric is breaching.
 	// Experimental.
-	ComparisonOperator ComparisonOperator `json:"comparisonOperator" yaml:"comparisonOperator"`
+	ComparisonOperator ComparisonOperator `field:"optional" json:"comparisonOperator" yaml:"comparisonOperator"`
 	// The number of datapoints that must be breaching to trigger the alarm.
 	//
 	// This is used only if you are setting an "M
@@ -9115,17 +9220,17 @@ type CreateAlarmOptions struct {
 	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation
 	//
 	// Experimental.
-	DatapointsToAlarm *float64 `json:"datapointsToAlarm" yaml:"datapointsToAlarm"`
+	DatapointsToAlarm *float64 `field:"optional" json:"datapointsToAlarm" yaml:"datapointsToAlarm"`
 	// Specifies whether to evaluate the data and potentially change the alarm state if there are too few data points to be statistically significant.
 	//
 	// Used only for alarms that are based on percentiles.
 	// Experimental.
-	EvaluateLowSampleCountPercentile *string `json:"evaluateLowSampleCountPercentile" yaml:"evaluateLowSampleCountPercentile"`
+	EvaluateLowSampleCountPercentile *string `field:"optional" json:"evaluateLowSampleCountPercentile" yaml:"evaluateLowSampleCountPercentile"`
 	// The period over which the specified statistic is applied.
 	//
 	// Cannot be used with `MathExpression` objects.
 	// Deprecated: Use `metric.with({ period: ... })` to encode the period into the Metric object
-	Period awscdk.Duration `json:"period" yaml:"period"`
+	Period awscdk.Duration `field:"optional" json:"period" yaml:"period"`
 	// What function to use for aggregating.
 	//
 	// Can be one of the following:
@@ -9139,16 +9244,17 @@ type CreateAlarmOptions struct {
 	//
 	// Cannot be used with `MathExpression` objects.
 	// Deprecated: Use `metric.with({ statistic: ... })` to encode the period into the Metric object
-	Statistic *string `json:"statistic" yaml:"statistic"`
+	Statistic *string `field:"optional" json:"statistic" yaml:"statistic"`
 	// Sets how this alarm is to handle missing data points.
 	// Experimental.
-	TreatMissingData TreatMissingData `json:"treatMissingData" yaml:"treatMissingData"`
+	TreatMissingData TreatMissingData `field:"optional" json:"treatMissingData" yaml:"treatMissingData"`
 }
 
 // A CustomWidget shows the result of a AWS lambda function.
 //
 // Example:
 //   var dashboard dashboard
+//
 //
 //   // Import or create a lambda function
 //   fn := lambda.function.fromFunctionArn(dashboard, jsii.String("Function"), jsii.String("arn:aws:lambda:us-east-1:123456789012:function:MyFn"))
@@ -9326,6 +9432,7 @@ func (c *jsiiProxy_CustomWidget) ToJson() *[]interface{} {
 // Example:
 //   var dashboard dashboard
 //
+//
 //   // Import or create a lambda function
 //   fn := lambda.function.fromFunctionArn(dashboard, jsii.String("Function"), jsii.String("arn:aws:lambda:us-east-1:123456789012:function:MyFn"))
 //
@@ -9338,40 +9445,43 @@ func (c *jsiiProxy_CustomWidget) ToJson() *[]interface{} {
 type CustomWidgetProps struct {
 	// The Arn of the AWS Lambda function that returns HTML or JSON that will be displayed in the widget.
 	// Experimental.
-	FunctionArn *string `json:"functionArn" yaml:"functionArn"`
+	FunctionArn *string `field:"required" json:"functionArn" yaml:"functionArn"`
 	// The title of the widget.
 	// Experimental.
-	Title *string `json:"title" yaml:"title"`
+	Title *string `field:"required" json:"title" yaml:"title"`
 	// Height of the widget.
 	// Experimental.
-	Height *float64 `json:"height" yaml:"height"`
+	Height *float64 `field:"optional" json:"height" yaml:"height"`
 	// Parameters passed to the lambda function.
 	// Experimental.
-	Params interface{} `json:"params" yaml:"params"`
+	Params interface{} `field:"optional" json:"params" yaml:"params"`
 	// Update the widget on refresh.
 	// Experimental.
-	UpdateOnRefresh *bool `json:"updateOnRefresh" yaml:"updateOnRefresh"`
+	UpdateOnRefresh *bool `field:"optional" json:"updateOnRefresh" yaml:"updateOnRefresh"`
 	// Update the widget on resize.
 	// Experimental.
-	UpdateOnResize *bool `json:"updateOnResize" yaml:"updateOnResize"`
+	UpdateOnResize *bool `field:"optional" json:"updateOnResize" yaml:"updateOnResize"`
 	// Update the widget on time range change.
 	// Experimental.
-	UpdateOnTimeRangeChange *bool `json:"updateOnTimeRangeChange" yaml:"updateOnTimeRangeChange"`
+	UpdateOnTimeRangeChange *bool `field:"optional" json:"updateOnTimeRangeChange" yaml:"updateOnTimeRangeChange"`
 	// Width of the widget, in a grid of 24 units wide.
 	// Experimental.
-	Width *float64 `json:"width" yaml:"width"`
+	Width *float64 `field:"optional" json:"width" yaml:"width"`
 }
 
 // A CloudWatch dashboard.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var widget iWidget
-//   dashboard := cloudwatch.NewDashboard(this, jsii.String("MyDashboard"), &dashboardProps{
+//
+//   dashboard := awscdk.Aws_cloudwatch.NewDashboard(this, jsii.String("MyDashboard"), &dashboardProps{
 //   	dashboardName: jsii.String("dashboardName"),
 //   	end: jsii.String("end"),
-//   	periodOverride: cloudwatch.periodOverride_AUTO,
+//   	periodOverride: awscdk.*Aws_cloudwatch.periodOverride_AUTO,
 //   	start: jsii.String("start"),
 //   	widgets: [][]*iWidget{
 //   		[]*iWidget{
@@ -9764,13 +9874,16 @@ func (d *jsiiProxy_Dashboard) Validate() *[]*string {
 // Properties for defining a CloudWatch Dashboard.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var widget iWidget
+//
 //   dashboardProps := &dashboardProps{
 //   	dashboardName: jsii.String("dashboardName"),
 //   	end: jsii.String("end"),
-//   	periodOverride: cloudwatch.periodOverride_AUTO,
+//   	periodOverride: awscdk.Aws_cloudwatch.periodOverride_AUTO,
 //   	start: jsii.String("start"),
 //   	widgets: [][]*iWidget{
 //   		[]*iWidget{
@@ -9785,19 +9898,19 @@ type DashboardProps struct {
 	//
 	// If set, must only contain alphanumerics, dash (-) and underscore (_).
 	// Experimental.
-	DashboardName *string `json:"dashboardName" yaml:"dashboardName"`
+	DashboardName *string `field:"optional" json:"dashboardName" yaml:"dashboardName"`
 	// The end of the time range to use for each widget on the dashboard when the dashboard loads.
 	//
 	// If you specify a value for end, you must also specify a value for start.
 	// Specify an absolute time in the ISO 8601 format. For example, 2018-12-17T06:00:00.000Z.
 	// Experimental.
-	End *string `json:"end" yaml:"end"`
+	End *string `field:"optional" json:"end" yaml:"end"`
 	// Use this field to specify the period for the graphs when the dashboard loads.
 	//
 	// Specifying `Auto` causes the period of all graphs on the dashboard to automatically adapt to the time range of the dashboard.
 	// Specifying `Inherit` ensures that the period set for each graph is always obeyed.
 	// Experimental.
-	PeriodOverride PeriodOverride `json:"periodOverride" yaml:"periodOverride"`
+	PeriodOverride PeriodOverride `field:"optional" json:"periodOverride" yaml:"periodOverride"`
 	// The start of the time range to use for each widget on the dashboard.
 	//
 	// You can specify start without specifying end to specify a relative time range that ends with the current time.
@@ -9806,20 +9919,23 @@ type DashboardProps struct {
 	// You can also use start along with an end field, to specify an absolute time range.
 	// When specifying an absolute time range, use the ISO 8601 format. For example, 2018-12-17T06:00:00.000Z.
 	// Experimental.
-	Start *string `json:"start" yaml:"start"`
+	Start *string `field:"optional" json:"start" yaml:"start"`
 	// Initial set of widgets on the dashboard.
 	//
 	// One array represents a row of widgets.
 	// Experimental.
-	Widgets *[]*[]IWidget `json:"widgets" yaml:"widgets"`
+	Widgets *[]*[]IWidget `field:"optional" json:"widgets" yaml:"widgets"`
 }
 
 // Metric dimension.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var value interface{}
+//
 //   dimension := &dimension{
 //   	name: jsii.String("name"),
 //   	value: value,
@@ -9831,16 +9947,17 @@ type DashboardProps struct {
 type Dimension struct {
 	// Name of the dimension.
 	// Experimental.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// Value of the dimension.
 	// Experimental.
-	Value interface{} `json:"value" yaml:"value"`
+	Value interface{} `field:"required" json:"value" yaml:"value"`
 }
 
 // A dashboard widget that displays metrics.
 //
 // Example:
 //   var dashboard dashboard
+//
 //
 //   dashboard.addWidgets(cloudwatch.NewGraphWidget(&graphWidgetProps{
 //   	// ...
@@ -10038,6 +10155,7 @@ func (g *jsiiProxy_GraphWidget) ToJson() *[]interface{} {
 // Example:
 //   var dashboard dashboard
 //
+//
 //   dashboard.addWidgets(cloudwatch.NewGraphWidget(&graphWidgetProps{
 //   	// ...
 //
@@ -10048,69 +10166,70 @@ func (g *jsiiProxy_GraphWidget) ToJson() *[]interface{} {
 type GraphWidgetProps struct {
 	// Height of the widget.
 	// Experimental.
-	Height *float64 `json:"height" yaml:"height"`
+	Height *float64 `field:"optional" json:"height" yaml:"height"`
 	// The region the metrics of this graph should be taken from.
 	// Experimental.
-	Region *string `json:"region" yaml:"region"`
+	Region *string `field:"optional" json:"region" yaml:"region"`
 	// Title for the graph.
 	// Experimental.
-	Title *string `json:"title" yaml:"title"`
+	Title *string `field:"optional" json:"title" yaml:"title"`
 	// Width of the widget, in a grid of 24 units wide.
 	// Experimental.
-	Width *float64 `json:"width" yaml:"width"`
+	Width *float64 `field:"optional" json:"width" yaml:"width"`
 	// Metrics to display on left Y axis.
 	// Experimental.
-	Left *[]IMetric `json:"left" yaml:"left"`
+	Left *[]IMetric `field:"optional" json:"left" yaml:"left"`
 	// Annotations for the left Y axis.
 	// Experimental.
-	LeftAnnotations *[]*HorizontalAnnotation `json:"leftAnnotations" yaml:"leftAnnotations"`
+	LeftAnnotations *[]*HorizontalAnnotation `field:"optional" json:"leftAnnotations" yaml:"leftAnnotations"`
 	// Left Y axis.
 	// Experimental.
-	LeftYAxis *YAxisProps `json:"leftYAxis" yaml:"leftYAxis"`
+	LeftYAxis *YAxisProps `field:"optional" json:"leftYAxis" yaml:"leftYAxis"`
 	// Position of the legend.
 	// Experimental.
-	LegendPosition LegendPosition `json:"legendPosition" yaml:"legendPosition"`
+	LegendPosition LegendPosition `field:"optional" json:"legendPosition" yaml:"legendPosition"`
 	// Whether the graph should show live data.
 	// Experimental.
-	LiveData *bool `json:"liveData" yaml:"liveData"`
+	LiveData *bool `field:"optional" json:"liveData" yaml:"liveData"`
 	// The default period for all metrics in this widget.
 	//
 	// The period is the length of time represented by one data point on the graph.
 	// This default can be overridden within each metric definition.
 	// Experimental.
-	Period awscdk.Duration `json:"period" yaml:"period"`
+	Period awscdk.Duration `field:"optional" json:"period" yaml:"period"`
 	// Metrics to display on right Y axis.
 	// Experimental.
-	Right *[]IMetric `json:"right" yaml:"right"`
+	Right *[]IMetric `field:"optional" json:"right" yaml:"right"`
 	// Annotations for the right Y axis.
 	// Experimental.
-	RightAnnotations *[]*HorizontalAnnotation `json:"rightAnnotations" yaml:"rightAnnotations"`
+	RightAnnotations *[]*HorizontalAnnotation `field:"optional" json:"rightAnnotations" yaml:"rightAnnotations"`
 	// Right Y axis.
 	// Experimental.
-	RightYAxis *YAxisProps `json:"rightYAxis" yaml:"rightYAxis"`
+	RightYAxis *YAxisProps `field:"optional" json:"rightYAxis" yaml:"rightYAxis"`
 	// Whether to show the value from the entire time range. Only applicable for Bar and Pie charts.
 	//
 	// If false, values will be from the most recent period of your chosen time range;
 	// if true, shows the value from the entire time range.
 	// Experimental.
-	SetPeriodToTimeRange *bool `json:"setPeriodToTimeRange" yaml:"setPeriodToTimeRange"`
+	SetPeriodToTimeRange *bool `field:"optional" json:"setPeriodToTimeRange" yaml:"setPeriodToTimeRange"`
 	// Whether the graph should be shown as stacked lines.
 	// Experimental.
-	Stacked *bool `json:"stacked" yaml:"stacked"`
+	Stacked *bool `field:"optional" json:"stacked" yaml:"stacked"`
 	// The default statistic to be displayed for each metric.
 	//
 	// This default can be overridden within the definition of each individual metric.
 	// Experimental.
-	Statistic *string `json:"statistic" yaml:"statistic"`
+	Statistic *string `field:"optional" json:"statistic" yaml:"statistic"`
 	// Display this metric.
 	// Experimental.
-	View GraphWidgetView `json:"view" yaml:"view"`
+	View GraphWidgetView `field:"optional" json:"view" yaml:"view"`
 }
 
 // Types of view.
 //
 // Example:
 //   var dashboard dashboard
+//
 //
 //   dashboard.addWidgets(cloudwatch.NewGraphWidget(&graphWidgetProps{
 //   	// ...
@@ -10136,13 +10255,16 @@ const (
 // Horizontal annotation to be added to a graph.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   horizontalAnnotation := &horizontalAnnotation{
 //   	value: jsii.Number(123),
 //
 //   	// the properties below are optional
 //   	color: jsii.String("color"),
-//   	fill: cloudwatch.shading_NONE,
+//   	fill: awscdk.Aws_cloudwatch.shading_NONE,
 //   	label: jsii.String("label"),
 //   	visible: jsii.Boolean(false),
 //   }
@@ -10151,19 +10273,19 @@ const (
 type HorizontalAnnotation struct {
 	// The value of the annotation.
 	// Experimental.
-	Value *float64 `json:"value" yaml:"value"`
+	Value *float64 `field:"required" json:"value" yaml:"value"`
 	// The hex color code, prefixed with '#' (e.g. '#00ff00'), to be used for the annotation. The `Color` class has a set of standard colors that can be used here.
 	// Experimental.
-	Color *string `json:"color" yaml:"color"`
+	Color *string `field:"optional" json:"color" yaml:"color"`
 	// Add shading above or below the annotation.
 	// Experimental.
-	Fill Shading `json:"fill" yaml:"fill"`
+	Fill Shading `field:"optional" json:"fill" yaml:"fill"`
 	// Label for the annotation.
 	// Experimental.
-	Label *string `json:"label" yaml:"label"`
+	Label *string `field:"optional" json:"label" yaml:"label"`
 	// Whether the annotation is visible.
 	// Experimental.
-	Visible *bool `json:"visible" yaml:"visible"`
+	Visible *bool `field:"optional" json:"visible" yaml:"visible"`
 }
 
 // Represents a CloudWatch Alarm.
@@ -10462,6 +10584,7 @@ func (j *jsiiProxy_IWidget) Width() *float64 {
 // Example:
 //   var dashboard dashboard
 //
+//
 //   dashboard.addWidgets(cloudwatch.NewGraphWidget(&graphWidgetProps{
 //   	// ...
 //
@@ -10487,6 +10610,7 @@ const (
 //
 // Example:
 //   var dashboard dashboard
+//
 //
 //   dashboard.addWidgets(cloudwatch.NewLogQueryWidget(&logQueryWidgetProps{
 //   	logGroupNames: []*string{
@@ -10525,6 +10649,7 @@ const (
 //
 // Example:
 //   var dashboard dashboard
+//
 //
 //   dashboard.addWidgets(cloudwatch.NewLogQueryWidget(&logQueryWidgetProps{
 //   	logGroupNames: []*string{
@@ -10706,6 +10831,7 @@ func (l *jsiiProxy_LogQueryWidget) ToJson() *[]interface{} {
 // Example:
 //   var dashboard dashboard
 //
+//
 //   dashboard.addWidgets(cloudwatch.NewLogQueryWidget(&logQueryWidgetProps{
 //   	logGroupNames: []*string{
 //   		jsii.String("my-log-group"),
@@ -10722,33 +10848,33 @@ func (l *jsiiProxy_LogQueryWidget) ToJson() *[]interface{} {
 type LogQueryWidgetProps struct {
 	// Names of log groups to query.
 	// Experimental.
-	LogGroupNames *[]*string `json:"logGroupNames" yaml:"logGroupNames"`
+	LogGroupNames *[]*string `field:"required" json:"logGroupNames" yaml:"logGroupNames"`
 	// Height of the widget.
 	// Experimental.
-	Height *float64 `json:"height" yaml:"height"`
+	Height *float64 `field:"optional" json:"height" yaml:"height"`
 	// A sequence of lines to use to build the query.
 	//
 	// The query will be built by joining the lines together using `\n|`.
 	// Experimental.
-	QueryLines *[]*string `json:"queryLines" yaml:"queryLines"`
+	QueryLines *[]*string `field:"optional" json:"queryLines" yaml:"queryLines"`
 	// Full query string for log insights.
 	//
 	// Be sure to prepend every new line with a newline and pipe character
 	// (`\n|`).
 	// Experimental.
-	QueryString *string `json:"queryString" yaml:"queryString"`
+	QueryString *string `field:"optional" json:"queryString" yaml:"queryString"`
 	// The region the metrics of this widget should be taken from.
 	// Experimental.
-	Region *string `json:"region" yaml:"region"`
+	Region *string `field:"optional" json:"region" yaml:"region"`
 	// Title for the widget.
 	// Experimental.
-	Title *string `json:"title" yaml:"title"`
+	Title *string `field:"optional" json:"title" yaml:"title"`
 	// The type of view to use.
 	// Experimental.
-	View LogQueryVisualizationType `json:"view" yaml:"view"`
+	View LogQueryVisualizationType `field:"optional" json:"view" yaml:"view"`
 	// Width of the widget, in a grid of 24 units wide.
 	// Experimental.
-	Width *float64 `json:"width" yaml:"width"`
+	Width *float64 `field:"optional" json:"width" yaml:"width"`
 }
 
 // A math expression built with metric(s) emitted by a service.
@@ -10768,6 +10894,7 @@ type LogQueryWidgetProps struct {
 //
 // Example:
 //   var fn function
+//
 //
 //   allProblems := cloudwatch.NewMathExpression(&mathExpressionProps{
 //   	expression: jsii.String("errors + throttles"),
@@ -11022,9 +11149,13 @@ func (m *jsiiProxy_MathExpression) With(props *MathExpressionOptions) MathExpres
 // Configurable options for MathExpressions.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
+//
 //   mathExpressionOptions := &mathExpressionOptions{
 //   	color: jsii.String("color"),
 //   	label: jsii.String("label"),
@@ -11037,7 +11168,7 @@ func (m *jsiiProxy_MathExpression) With(props *MathExpressionOptions) MathExpres
 type MathExpressionOptions struct {
 	// Color for this metric when added to a Graph in a Dashboard.
 	// Experimental.
-	Color *string `json:"color" yaml:"color"`
+	Color *string `field:"optional" json:"color" yaml:"color"`
 	// Label for this expression when added to a Graph in a Dashboard.
 	//
 	// If this expression evaluates to more than one time series (for
@@ -11061,31 +11192,32 @@ type MathExpressionOptions struct {
 	// will be shown for each individual time series produce by this
 	// math expression.
 	// Experimental.
-	Label *string `json:"label" yaml:"label"`
+	Label *string `field:"optional" json:"label" yaml:"label"`
 	// The period over which the expression's statistics are applied.
 	//
 	// This period overrides all periods in the metrics used in this
 	// math expression.
 	// Experimental.
-	Period awscdk.Duration `json:"period" yaml:"period"`
+	Period awscdk.Duration `field:"optional" json:"period" yaml:"period"`
 	// Account to evaluate search expressions within.
 	//
 	// Specifying a searchAccount has no effect to the account used
 	// for metrics within the expression (passed via usingMetrics).
 	// Experimental.
-	SearchAccount *string `json:"searchAccount" yaml:"searchAccount"`
+	SearchAccount *string `field:"optional" json:"searchAccount" yaml:"searchAccount"`
 	// Region to evaluate search expressions within.
 	//
 	// Specifying a searchRegion has no effect to the region used
 	// for metrics within the expression (passed via usingMetrics).
 	// Experimental.
-	SearchRegion *string `json:"searchRegion" yaml:"searchRegion"`
+	SearchRegion *string `field:"optional" json:"searchRegion" yaml:"searchRegion"`
 }
 
 // Properties for a MathExpression.
 //
 // Example:
 //   var fn function
+//
 //
 //   allProblems := cloudwatch.NewMathExpression(&mathExpressionProps{
 //   	expression: jsii.String("errors + throttles"),
@@ -11099,7 +11231,7 @@ type MathExpressionOptions struct {
 type MathExpressionProps struct {
 	// Color for this metric when added to a Graph in a Dashboard.
 	// Experimental.
-	Color *string `json:"color" yaml:"color"`
+	Color *string `field:"optional" json:"color" yaml:"color"`
 	// Label for this expression when added to a Graph in a Dashboard.
 	//
 	// If this expression evaluates to more than one time series (for
@@ -11123,37 +11255,37 @@ type MathExpressionProps struct {
 	// will be shown for each individual time series produce by this
 	// math expression.
 	// Experimental.
-	Label *string `json:"label" yaml:"label"`
+	Label *string `field:"optional" json:"label" yaml:"label"`
 	// The period over which the expression's statistics are applied.
 	//
 	// This period overrides all periods in the metrics used in this
 	// math expression.
 	// Experimental.
-	Period awscdk.Duration `json:"period" yaml:"period"`
+	Period awscdk.Duration `field:"optional" json:"period" yaml:"period"`
 	// Account to evaluate search expressions within.
 	//
 	// Specifying a searchAccount has no effect to the account used
 	// for metrics within the expression (passed via usingMetrics).
 	// Experimental.
-	SearchAccount *string `json:"searchAccount" yaml:"searchAccount"`
+	SearchAccount *string `field:"optional" json:"searchAccount" yaml:"searchAccount"`
 	// Region to evaluate search expressions within.
 	//
 	// Specifying a searchRegion has no effect to the region used
 	// for metrics within the expression (passed via usingMetrics).
 	// Experimental.
-	SearchRegion *string `json:"searchRegion" yaml:"searchRegion"`
+	SearchRegion *string `field:"optional" json:"searchRegion" yaml:"searchRegion"`
 	// The expression defining the metric.
 	//
 	// When an expression contains a SEARCH function, it cannot be used
 	// within an Alarm.
 	// Experimental.
-	Expression *string `json:"expression" yaml:"expression"`
+	Expression *string `field:"required" json:"expression" yaml:"expression"`
 	// The metrics used in the expression, in a map.
 	//
 	// The key is the identifier that represents the given metric in the
 	// expression, and the value is the actual Metric object.
 	// Experimental.
-	UsingMetrics *map[string]IMetric `json:"usingMetrics" yaml:"usingMetrics"`
+	UsingMetrics *map[string]IMetric `field:"optional" json:"usingMetrics" yaml:"usingMetrics"`
 }
 
 // A metric emitted by a service.
@@ -11172,9 +11304,10 @@ type MathExpressionProps struct {
 // Example:
 //   var fn function
 //
+//
 //   minuteErrorRate := fn.metricErrors(&metricOptions{
 //   	statistic: jsii.String("avg"),
-//   	period: duration.minutes(jsii.Number(1)),
+//   	period: awscdk.Duration.minutes(jsii.Number(1)),
 //   	label: jsii.String("Lambda failure rate"),
 //   })
 //
@@ -11491,9 +11624,12 @@ func (m *jsiiProxy_Metric) With(props *MetricOptions) Metric {
 // Properties used to construct the Metric identifying part of an Alarm.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var value interface{}
+//
 //   metricAlarmConfig := &metricAlarmConfig{
 //   	metricName: jsii.String("metricName"),
 //   	namespace: jsii.String("namespace"),
@@ -11507,44 +11643,48 @@ func (m *jsiiProxy_Metric) With(props *MetricOptions) Metric {
 //   		},
 //   	},
 //   	extendedStatistic: jsii.String("extendedStatistic"),
-//   	statistic: cloudwatch.statistic_SAMPLE_COUNT,
-//   	unit: cloudwatch.unit_SECONDS,
+//   	statistic: awscdk.Aws_cloudwatch.statistic_SAMPLE_COUNT,
+//   	unit: awscdk.*Aws_cloudwatch.unit_SECONDS,
 //   }
 //
 // Deprecated: Replaced by MetricConfig.
 type MetricAlarmConfig struct {
 	// Name of the metric.
 	// Deprecated: Replaced by MetricConfig.
-	MetricName *string `json:"metricName" yaml:"metricName"`
+	MetricName *string `field:"required" json:"metricName" yaml:"metricName"`
 	// Namespace of the metric.
 	// Deprecated: Replaced by MetricConfig.
-	Namespace *string `json:"namespace" yaml:"namespace"`
+	Namespace *string `field:"required" json:"namespace" yaml:"namespace"`
 	// How many seconds to aggregate over.
 	// Deprecated: Replaced by MetricConfig.
-	Period *float64 `json:"period" yaml:"period"`
+	Period *float64 `field:"required" json:"period" yaml:"period"`
 	// The dimensions to apply to the alarm.
 	// Deprecated: Replaced by MetricConfig.
-	Dimensions *[]*Dimension `json:"dimensions" yaml:"dimensions"`
+	Dimensions *[]*Dimension `field:"optional" json:"dimensions" yaml:"dimensions"`
 	// Percentile aggregation function to use.
 	// Deprecated: Replaced by MetricConfig.
-	ExtendedStatistic *string `json:"extendedStatistic" yaml:"extendedStatistic"`
+	ExtendedStatistic *string `field:"optional" json:"extendedStatistic" yaml:"extendedStatistic"`
 	// Simple aggregation function to use.
 	// Deprecated: Replaced by MetricConfig.
-	Statistic Statistic `json:"statistic" yaml:"statistic"`
+	Statistic Statistic `field:"optional" json:"statistic" yaml:"statistic"`
 	// The unit of the alarm.
 	// Deprecated: Replaced by MetricConfig.
-	Unit Unit `json:"unit" yaml:"unit"`
+	Unit Unit `field:"optional" json:"unit" yaml:"unit"`
 }
 
 // Properties of a rendered metric.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var metric metric
 //   var renderingProperties interface{}
 //   var value interface{}
+//
 //   metricConfig := &metricConfig{
 //   	mathExpression: &metricExpressionConfig{
 //   		expression: jsii.String("expression"),
@@ -11572,7 +11712,7 @@ type MetricAlarmConfig struct {
 //   			},
 //   		},
 //   		region: jsii.String("region"),
-//   		unitFilter: cloudwatch.unit_SECONDS,
+//   		unitFilter: awscdk.Aws_cloudwatch.unit_SECONDS,
 //   	},
 //   	renderingProperties: map[string]interface{}{
 //   		"renderingPropertiesKey": renderingProperties,
@@ -11583,24 +11723,27 @@ type MetricAlarmConfig struct {
 type MetricConfig struct {
 	// In case the metric is a math expression, the details of the math expression.
 	// Experimental.
-	MathExpression *MetricExpressionConfig `json:"mathExpression" yaml:"mathExpression"`
+	MathExpression *MetricExpressionConfig `field:"optional" json:"mathExpression" yaml:"mathExpression"`
 	// In case the metric represents a query, the details of the query.
 	// Experimental.
-	MetricStat *MetricStatConfig `json:"metricStat" yaml:"metricStat"`
+	MetricStat *MetricStatConfig `field:"optional" json:"metricStat" yaml:"metricStat"`
 	// Additional properties which will be rendered if the metric is used in a dashboard.
 	//
 	// Examples are 'label' and 'color', but any key in here will be
 	// added to dashboard graphs.
 	// Experimental.
-	RenderingProperties *map[string]interface{} `json:"renderingProperties" yaml:"renderingProperties"`
+	RenderingProperties *map[string]interface{} `field:"optional" json:"renderingProperties" yaml:"renderingProperties"`
 }
 
 // Properties for a concrete metric.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var metric metric
+//
 //   metricExpressionConfig := &metricExpressionConfig{
 //   	expression: jsii.String("expression"),
 //   	period: jsii.Number(123),
@@ -11617,27 +11760,30 @@ type MetricConfig struct {
 type MetricExpressionConfig struct {
 	// Math expression for the metric.
 	// Experimental.
-	Expression *string `json:"expression" yaml:"expression"`
+	Expression *string `field:"required" json:"expression" yaml:"expression"`
 	// How many seconds to aggregate over.
 	// Experimental.
-	Period *float64 `json:"period" yaml:"period"`
+	Period *float64 `field:"required" json:"period" yaml:"period"`
 	// Metrics used in the math expression.
 	// Experimental.
-	UsingMetrics *map[string]IMetric `json:"usingMetrics" yaml:"usingMetrics"`
+	UsingMetrics *map[string]IMetric `field:"required" json:"usingMetrics" yaml:"usingMetrics"`
 	// Account to evaluate search expressions within.
 	// Experimental.
-	SearchAccount *string `json:"searchAccount" yaml:"searchAccount"`
+	SearchAccount *string `field:"optional" json:"searchAccount" yaml:"searchAccount"`
 	// Region to evaluate search expressions within.
 	// Experimental.
-	SearchRegion *string `json:"searchRegion" yaml:"searchRegion"`
+	SearchRegion *string `field:"optional" json:"searchRegion" yaml:"searchRegion"`
 }
 
 // Properties used to construct the Metric identifying part of a Graph.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var value interface{}
+//
 //   metricGraphConfig := &metricGraphConfig{
 //   	metricName: jsii.String("metricName"),
 //   	namespace: jsii.String("namespace"),
@@ -11661,38 +11807,38 @@ type MetricExpressionConfig struct {
 //   	},
 //   	label: jsii.String("label"),
 //   	statistic: jsii.String("statistic"),
-//   	unit: cloudwatch.unit_SECONDS,
+//   	unit: awscdk.Aws_cloudwatch.unit_SECONDS,
 //   }
 //
 // Deprecated: Replaced by MetricConfig.
 type MetricGraphConfig struct {
 	// Name of the metric.
 	// Deprecated: Replaced by MetricConfig.
-	MetricName *string `json:"metricName" yaml:"metricName"`
+	MetricName *string `field:"required" json:"metricName" yaml:"metricName"`
 	// Namespace of the metric.
 	// Deprecated: Replaced by MetricConfig.
-	Namespace *string `json:"namespace" yaml:"namespace"`
+	Namespace *string `field:"required" json:"namespace" yaml:"namespace"`
 	// How many seconds to aggregate over.
 	// Deprecated: Use `period` in `renderingProperties`.
-	Period *float64 `json:"period" yaml:"period"`
+	Period *float64 `field:"required" json:"period" yaml:"period"`
 	// Rendering properties override yAxis parameter of the widget object.
 	// Deprecated: Replaced by MetricConfig.
-	RenderingProperties *MetricRenderingProperties `json:"renderingProperties" yaml:"renderingProperties"`
+	RenderingProperties *MetricRenderingProperties `field:"required" json:"renderingProperties" yaml:"renderingProperties"`
 	// Color for the graph line.
 	// Deprecated: Use `color` in `renderingProperties`.
-	Color *string `json:"color" yaml:"color"`
+	Color *string `field:"optional" json:"color" yaml:"color"`
 	// The dimensions to apply to the alarm.
 	// Deprecated: Replaced by MetricConfig.
-	Dimensions *[]*Dimension `json:"dimensions" yaml:"dimensions"`
+	Dimensions *[]*Dimension `field:"optional" json:"dimensions" yaml:"dimensions"`
 	// Label for the metric.
 	// Deprecated: Use `label` in `renderingProperties`.
-	Label *string `json:"label" yaml:"label"`
+	Label *string `field:"optional" json:"label" yaml:"label"`
 	// Aggregation function to use (can be either simple or a percentile).
 	// Deprecated: Use `stat` in `renderingProperties`.
-	Statistic *string `json:"statistic" yaml:"statistic"`
+	Statistic *string `field:"optional" json:"statistic" yaml:"statistic"`
 	// The unit of the alarm.
 	// Deprecated: not used in dashboard widgets.
-	Unit Unit `json:"unit" yaml:"unit"`
+	Unit Unit `field:"optional" json:"unit" yaml:"unit"`
 }
 
 // Properties of a metric that can be changed.
@@ -11700,6 +11846,7 @@ type MetricGraphConfig struct {
 // Example:
 //   import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
 //   var deliveryStream deliveryStream
+//
 //
 //   // Alarm that triggers when the per-second average of incoming bytes exceeds 90% of the current service limit
 //   incomingBytesPercentOfLimit := cloudwatch.NewMathExpression(&mathExpressionProps{
@@ -11722,16 +11869,16 @@ type MetricGraphConfig struct {
 type MetricOptions struct {
 	// Account which this metric comes from.
 	// Experimental.
-	Account *string `json:"account" yaml:"account"`
+	Account *string `field:"optional" json:"account" yaml:"account"`
 	// The hex color code, prefixed with '#' (e.g. '#00ff00'), to use when this metric is rendered on a graph. The `Color` class has a set of standard colors that can be used here.
 	// Experimental.
-	Color *string `json:"color" yaml:"color"`
+	Color *string `field:"optional" json:"color" yaml:"color"`
 	// Dimensions of the metric.
 	// Deprecated: Use 'dimensionsMap' instead.
-	Dimensions *map[string]interface{} `json:"dimensions" yaml:"dimensions"`
+	Dimensions *map[string]interface{} `field:"optional" json:"dimensions" yaml:"dimensions"`
 	// Dimensions of the metric.
 	// Experimental.
-	DimensionsMap *map[string]*string `json:"dimensionsMap" yaml:"dimensionsMap"`
+	DimensionsMap *map[string]*string `field:"optional" json:"dimensionsMap" yaml:"dimensionsMap"`
 	// Label for this metric when added to a Graph in a Dashboard.
 	//
 	// You can use [dynamic labels](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/graph-dynamic-labels.html)
@@ -11745,13 +11892,13 @@ type MetricOptions struct {
 	// As the metric label, the maximum value in the visible range will
 	// be shown next to the time series name in the graph's legend.
 	// Experimental.
-	Label *string `json:"label" yaml:"label"`
+	Label *string `field:"optional" json:"label" yaml:"label"`
 	// The period over which the specified statistic is applied.
 	// Experimental.
-	Period awscdk.Duration `json:"period" yaml:"period"`
+	Period awscdk.Duration `field:"optional" json:"period" yaml:"period"`
 	// Region which this metric comes from.
 	// Experimental.
-	Region *string `json:"region" yaml:"region"`
+	Region *string `field:"optional" json:"region" yaml:"region"`
 	// What function to use for aggregating.
 	//
 	// Can be one of the following:
@@ -11763,7 +11910,7 @@ type MetricOptions struct {
 	// - "SampleCount | "n"
 	// - "pNN.NN"
 	// Experimental.
-	Statistic *string `json:"statistic" yaml:"statistic"`
+	Statistic *string `field:"optional" json:"statistic" yaml:"statistic"`
 	// Unit used to filter the metric stream.
 	//
 	// Only refer to datums emitted to the metric stream with the given unit and
@@ -11775,7 +11922,7 @@ type MetricOptions struct {
 	//
 	// CloudWatch does not honor this property for graphs.
 	// Experimental.
-	Unit Unit `json:"unit" yaml:"unit"`
+	Unit Unit `field:"optional" json:"unit" yaml:"unit"`
 }
 
 // Properties for a metric.
@@ -11796,16 +11943,16 @@ type MetricOptions struct {
 type MetricProps struct {
 	// Account which this metric comes from.
 	// Experimental.
-	Account *string `json:"account" yaml:"account"`
+	Account *string `field:"optional" json:"account" yaml:"account"`
 	// The hex color code, prefixed with '#' (e.g. '#00ff00'), to use when this metric is rendered on a graph. The `Color` class has a set of standard colors that can be used here.
 	// Experimental.
-	Color *string `json:"color" yaml:"color"`
+	Color *string `field:"optional" json:"color" yaml:"color"`
 	// Dimensions of the metric.
 	// Deprecated: Use 'dimensionsMap' instead.
-	Dimensions *map[string]interface{} `json:"dimensions" yaml:"dimensions"`
+	Dimensions *map[string]interface{} `field:"optional" json:"dimensions" yaml:"dimensions"`
 	// Dimensions of the metric.
 	// Experimental.
-	DimensionsMap *map[string]*string `json:"dimensionsMap" yaml:"dimensionsMap"`
+	DimensionsMap *map[string]*string `field:"optional" json:"dimensionsMap" yaml:"dimensionsMap"`
 	// Label for this metric when added to a Graph in a Dashboard.
 	//
 	// You can use [dynamic labels](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/graph-dynamic-labels.html)
@@ -11819,13 +11966,13 @@ type MetricProps struct {
 	// As the metric label, the maximum value in the visible range will
 	// be shown next to the time series name in the graph's legend.
 	// Experimental.
-	Label *string `json:"label" yaml:"label"`
+	Label *string `field:"optional" json:"label" yaml:"label"`
 	// The period over which the specified statistic is applied.
 	// Experimental.
-	Period awscdk.Duration `json:"period" yaml:"period"`
+	Period awscdk.Duration `field:"optional" json:"period" yaml:"period"`
 	// Region which this metric comes from.
 	// Experimental.
-	Region *string `json:"region" yaml:"region"`
+	Region *string `field:"optional" json:"region" yaml:"region"`
 	// What function to use for aggregating.
 	//
 	// Can be one of the following:
@@ -11837,7 +11984,7 @@ type MetricProps struct {
 	// - "SampleCount | "n"
 	// - "pNN.NN"
 	// Experimental.
-	Statistic *string `json:"statistic" yaml:"statistic"`
+	Statistic *string `field:"optional" json:"statistic" yaml:"statistic"`
 	// Unit used to filter the metric stream.
 	//
 	// Only refer to datums emitted to the metric stream with the given unit and
@@ -11849,19 +11996,22 @@ type MetricProps struct {
 	//
 	// CloudWatch does not honor this property for graphs.
 	// Experimental.
-	Unit Unit `json:"unit" yaml:"unit"`
+	Unit Unit `field:"optional" json:"unit" yaml:"unit"`
 	// Name of the metric.
 	// Experimental.
-	MetricName *string `json:"metricName" yaml:"metricName"`
+	MetricName *string `field:"required" json:"metricName" yaml:"metricName"`
 	// Namespace of the metric.
 	// Experimental.
-	Namespace *string `json:"namespace" yaml:"namespace"`
+	Namespace *string `field:"required" json:"namespace" yaml:"namespace"`
 }
 
 // Custom rendering properties that override the default rendering properties specified in the yAxis parameter of the widget object.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   metricRenderingProperties := &metricRenderingProperties{
 //   	period: jsii.Number(123),
 //
@@ -11875,16 +12025,16 @@ type MetricProps struct {
 type MetricRenderingProperties struct {
 	// How many seconds to aggregate over.
 	// Deprecated: Replaced by MetricConfig.
-	Period *float64 `json:"period" yaml:"period"`
+	Period *float64 `field:"required" json:"period" yaml:"period"`
 	// The hex color code, prefixed with '#' (e.g. '#00ff00'), to use when this metric is rendered on a graph. The `Color` class has a set of standard colors that can be used here.
 	// Deprecated: Replaced by MetricConfig.
-	Color *string `json:"color" yaml:"color"`
+	Color *string `field:"optional" json:"color" yaml:"color"`
 	// Label for the metric.
 	// Deprecated: Replaced by MetricConfig.
-	Label *string `json:"label" yaml:"label"`
+	Label *string `field:"optional" json:"label" yaml:"label"`
 	// Aggregation function to use (can be either simple or a percentile).
 	// Deprecated: Replaced by MetricConfig.
-	Stat *string `json:"stat" yaml:"stat"`
+	Stat *string `field:"optional" json:"stat" yaml:"stat"`
 }
 
 // Properties for a concrete metric.
@@ -11893,10 +12043,14 @@ type MetricRenderingProperties struct {
 // would expect it to mean there anyway. It is most likely to be misused.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var value interface{}
+//
 //   metricStatConfig := &metricStatConfig{
 //   	metricName: jsii.String("metricName"),
 //   	namespace: jsii.String("namespace"),
@@ -11912,32 +12066,32 @@ type MetricRenderingProperties struct {
 //   		},
 //   	},
 //   	region: jsii.String("region"),
-//   	unitFilter: cloudwatch.unit_SECONDS,
+//   	unitFilter: awscdk.Aws_cloudwatch.unit_SECONDS,
 //   }
 //
 // Experimental.
 type MetricStatConfig struct {
 	// Name of the metric.
 	// Experimental.
-	MetricName *string `json:"metricName" yaml:"metricName"`
+	MetricName *string `field:"required" json:"metricName" yaml:"metricName"`
 	// Namespace of the metric.
 	// Experimental.
-	Namespace *string `json:"namespace" yaml:"namespace"`
+	Namespace *string `field:"required" json:"namespace" yaml:"namespace"`
 	// How many seconds to aggregate over.
 	// Experimental.
-	Period awscdk.Duration `json:"period" yaml:"period"`
+	Period awscdk.Duration `field:"required" json:"period" yaml:"period"`
 	// Aggregation function to use (can be either simple or a percentile).
 	// Experimental.
-	Statistic *string `json:"statistic" yaml:"statistic"`
+	Statistic *string `field:"required" json:"statistic" yaml:"statistic"`
 	// Account which this metric comes from.
 	// Experimental.
-	Account *string `json:"account" yaml:"account"`
+	Account *string `field:"optional" json:"account" yaml:"account"`
 	// The dimensions to apply to the alarm.
 	// Experimental.
-	Dimensions *[]*Dimension `json:"dimensions" yaml:"dimensions"`
+	Dimensions *[]*Dimension `field:"optional" json:"dimensions" yaml:"dimensions"`
 	// Region which this metric comes from.
 	// Experimental.
-	Region *string `json:"region" yaml:"region"`
+	Region *string `field:"optional" json:"region" yaml:"region"`
 	// Unit used to filter the metric stream.
 	//
 	// Only refer to datums emitted to the metric stream with the given unit and
@@ -11947,13 +12101,16 @@ type MetricStatConfig struct {
 	// This field has been renamed from plain `unit` to clearly communicate
 	// its purpose.
 	// Experimental.
-	UnitFilter Unit `json:"unitFilter" yaml:"unitFilter"`
+	UnitFilter Unit `field:"optional" json:"unitFilter" yaml:"unitFilter"`
 }
 
 // Basic properties for widgets that display metrics.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   metricWidgetProps := &metricWidgetProps{
 //   	height: jsii.Number(123),
 //   	region: jsii.String("region"),
@@ -11965,16 +12122,16 @@ type MetricStatConfig struct {
 type MetricWidgetProps struct {
 	// Height of the widget.
 	// Experimental.
-	Height *float64 `json:"height" yaml:"height"`
+	Height *float64 `field:"optional" json:"height" yaml:"height"`
 	// The region the metrics of this graph should be taken from.
 	// Experimental.
-	Region *string `json:"region" yaml:"region"`
+	Region *string `field:"optional" json:"region" yaml:"region"`
 	// Title for the graph.
 	// Experimental.
-	Title *string `json:"title" yaml:"title"`
+	Title *string `field:"optional" json:"title" yaml:"title"`
 	// Width of the widget, in a grid of 24 units wide.
 	// Experimental.
-	Width *float64 `json:"width" yaml:"width"`
+	Width *float64 `field:"optional" json:"width" yaml:"width"`
 }
 
 // Specify the period for graphs when the CloudWatch dashboard loads.
@@ -11995,10 +12152,13 @@ const (
 // Widgets will be laid out next to each other.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var widget iWidget
-//   row := cloudwatch.NewRow(widget)
+//
+//   row := awscdk.Aws_cloudwatch.NewRow(widget)
 //
 // Experimental.
 type Row interface {
@@ -12135,6 +12295,7 @@ const (
 //   var dashboard dashboard
 //   var visitorCount metric
 //   var purchaseCount metric
+//
 //
 //   dashboard.addWidgets(cloudwatch.NewSingleValueWidget(&singleValueWidgetProps{
 //   	metrics: []iMetric{
@@ -12313,6 +12474,7 @@ func (s *jsiiProxy_SingleValueWidget) ToJson() *[]interface{} {
 //   var visitorCount metric
 //   var purchaseCount metric
 //
+//
 //   dashboard.addWidgets(cloudwatch.NewSingleValueWidget(&singleValueWidgetProps{
 //   	metrics: []iMetric{
 //   		visitorCount,
@@ -12324,32 +12486,35 @@ func (s *jsiiProxy_SingleValueWidget) ToJson() *[]interface{} {
 type SingleValueWidgetProps struct {
 	// Height of the widget.
 	// Experimental.
-	Height *float64 `json:"height" yaml:"height"`
+	Height *float64 `field:"optional" json:"height" yaml:"height"`
 	// The region the metrics of this graph should be taken from.
 	// Experimental.
-	Region *string `json:"region" yaml:"region"`
+	Region *string `field:"optional" json:"region" yaml:"region"`
 	// Title for the graph.
 	// Experimental.
-	Title *string `json:"title" yaml:"title"`
+	Title *string `field:"optional" json:"title" yaml:"title"`
 	// Width of the widget, in a grid of 24 units wide.
 	// Experimental.
-	Width *float64 `json:"width" yaml:"width"`
+	Width *float64 `field:"optional" json:"width" yaml:"width"`
 	// Metrics to display.
 	// Experimental.
-	Metrics *[]IMetric `json:"metrics" yaml:"metrics"`
+	Metrics *[]IMetric `field:"required" json:"metrics" yaml:"metrics"`
 	// Whether to show as many digits as can fit, before rounding.
 	// Experimental.
-	FullPrecision *bool `json:"fullPrecision" yaml:"fullPrecision"`
+	FullPrecision *bool `field:"optional" json:"fullPrecision" yaml:"fullPrecision"`
 	// Whether to show the value from the entire time range.
 	// Experimental.
-	SetPeriodToTimeRange *bool `json:"setPeriodToTimeRange" yaml:"setPeriodToTimeRange"`
+	SetPeriodToTimeRange *bool `field:"optional" json:"setPeriodToTimeRange" yaml:"setPeriodToTimeRange"`
 }
 
 // A widget that doesn't display anything but takes up space.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
-//   spacer := cloudwatch.NewSpacer(&spacerProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   spacer := awscdk.Aws_cloudwatch.NewSpacer(&spacerProps{
 //   	height: jsii.Number(123),
 //   	width: jsii.Number(123),
 //   })
@@ -12447,7 +12612,10 @@ func (s *jsiiProxy_Spacer) ToJson() *[]interface{} {
 // Props of the spacer.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   spacerProps := &spacerProps{
 //   	height: jsii.Number(123),
 //   	width: jsii.Number(123),
@@ -12457,10 +12625,10 @@ func (s *jsiiProxy_Spacer) ToJson() *[]interface{} {
 type SpacerProps struct {
 	// Height of the spacer.
 	// Experimental.
-	Height *float64 `json:"height" yaml:"height"`
+	Height *float64 `field:"optional" json:"height" yaml:"height"`
 	// Width of the spacer.
 	// Experimental.
-	Width *float64 `json:"width" yaml:"width"`
+	Width *float64 `field:"optional" json:"width" yaml:"width"`
 }
 
 // Statistic to use over the aggregation period.
@@ -12468,6 +12636,7 @@ type SpacerProps struct {
 // Example:
 //   import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
 //   var deliveryStream deliveryStream
+//
 //
 //   // Alarm that triggers when the per-second average of incoming bytes exceeds 90% of the current service limit
 //   incomingBytesPercentOfLimit := cloudwatch.NewMathExpression(&mathExpressionProps{
@@ -12517,6 +12686,7 @@ const (
 //
 // Example:
 //   var dashboard dashboard
+//
 //
 //   dashboard.addWidgets(cloudwatch.NewTextWidget(&textWidgetProps{
 //   	markdown: jsii.String("# Key Performance Indicators"),
@@ -12690,6 +12860,7 @@ func (t *jsiiProxy_TextWidget) ToJson() *[]interface{} {
 // Example:
 //   var dashboard dashboard
 //
+//
 //   dashboard.addWidgets(cloudwatch.NewTextWidget(&textWidgetProps{
 //   	markdown: jsii.String("# Key Performance Indicators"),
 //   }))
@@ -12698,22 +12869,24 @@ func (t *jsiiProxy_TextWidget) ToJson() *[]interface{} {
 type TextWidgetProps struct {
 	// The text to display, in MarkDown format.
 	// Experimental.
-	Markdown *string `json:"markdown" yaml:"markdown"`
+	Markdown *string `field:"required" json:"markdown" yaml:"markdown"`
 	// Height of the widget.
 	// Experimental.
-	Height *float64 `json:"height" yaml:"height"`
+	Height *float64 `field:"optional" json:"height" yaml:"height"`
 	// Width of the widget, in a grid of 24 units wide.
 	// Experimental.
-	Width *float64 `json:"width" yaml:"width"`
+	Width *float64 `field:"optional" json:"width" yaml:"width"`
 }
 
 // Specify how missing data points are treated during alarm evaluation.
 //
 // Example:
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   fn := lambda.NewFunction(this, jsii.String("MyFunction"), &functionProps{
-//   	runtime: lambda.runtime_NODEJS_12_X(),
+//   	runtime: lambda.runtime_NODEJS_16_X(),
 //   	handler: jsii.String("index.handler"),
 //   	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 //   	timeout: cdk.duration.minutes(jsii.Number(5)),
@@ -12841,7 +13014,10 @@ const (
 // Properties for a Y-Axis.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   yAxisProps := &yAxisProps{
 //   	label: jsii.String("label"),
 //   	max: jsii.Number(123),
@@ -12853,15 +13029,15 @@ const (
 type YAxisProps struct {
 	// The label.
 	// Experimental.
-	Label *string `json:"label" yaml:"label"`
+	Label *string `field:"optional" json:"label" yaml:"label"`
 	// The max value.
 	// Experimental.
-	Max *float64 `json:"max" yaml:"max"`
+	Max *float64 `field:"optional" json:"max" yaml:"max"`
 	// The min value.
 	// Experimental.
-	Min *float64 `json:"min" yaml:"min"`
+	Min *float64 `field:"optional" json:"min" yaml:"min"`
 	// Whether to show units.
 	// Experimental.
-	ShowUnits *bool `json:"showUnits" yaml:"showUnits"`
+	ShowUnits *bool `field:"optional" json:"showUnits" yaml:"showUnits"`
 }
 

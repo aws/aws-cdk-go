@@ -507,7 +507,7 @@ type CfnIncludeProps struct {
 	//
 	// Both JSON and YAML template formats are supported.
 	// Experimental.
-	TemplateFile *string `json:"templateFile" yaml:"templateFile"`
+	TemplateFile *string `field:"required" json:"templateFile" yaml:"templateFile"`
 	// Specifies the template files that define nested stacks that should be included.
 	//
 	// If your template specifies a stack that isn't included here, it won't be created as a NestedStack
@@ -518,14 +518,14 @@ type CfnIncludeProps struct {
 	// or is in the template but is not a nested stack,
 	// template creation will fail and an error will be thrown.
 	// Experimental.
-	LoadNestedStacks *map[string]*CfnIncludeProps `json:"loadNestedStacks" yaml:"loadNestedStacks"`
+	LoadNestedStacks *map[string]*CfnIncludeProps `field:"optional" json:"loadNestedStacks" yaml:"loadNestedStacks"`
 	// Specifies parameters to be replaced by the values in this mapping.
 	//
 	// Any parameters in the template that aren't specified here will be left unmodified.
 	// If you include a parameter here with an ID that isn't in the template,
 	// template creation will fail and an error will be thrown.
 	// Experimental.
-	Parameters *map[string]interface{} `json:"parameters" yaml:"parameters"`
+	Parameters *map[string]interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// Whether the resources should have the same logical IDs in the resulting CDK template as they did in the original CloudFormation template file.
 	//
 	// If you're vending a Construct using an existing CloudFormation template,
@@ -535,13 +535,14 @@ type CfnIncludeProps struct {
 	// the {@link CfnInclude.getResource} and related methods always uses the original logical ID of the resource/element,
 	// as specified in the template file.
 	// Experimental.
-	PreserveLogicalIds *bool `json:"preserveLogicalIds" yaml:"preserveLogicalIds"`
+	PreserveLogicalIds *bool `field:"optional" json:"preserveLogicalIds" yaml:"preserveLogicalIds"`
 }
 
 // The type returned from {@link CfnInclude.getNestedStack}. Contains both the NestedStack object and CfnInclude representations of the child stack.
 //
 // Example:
 //   var parentTemplate cfnInclude
+//
 //
 //   includedChildStack := parentTemplate.getNestedStack(jsii.String("ChildStack"))
 //   childStack := includedChildStack.stack
@@ -551,9 +552,9 @@ type CfnIncludeProps struct {
 type IncludedNestedStack struct {
 	// The CfnInclude that represents the template, which can be used to access Resources and other template elements.
 	// Experimental.
-	IncludedTemplate CfnInclude `json:"includedTemplate" yaml:"includedTemplate"`
+	IncludedTemplate CfnInclude `field:"required" json:"includedTemplate" yaml:"includedTemplate"`
 	// The NestedStack object which represents the scope of the template.
 	// Experimental.
-	Stack awscdk.NestedStack `json:"stack" yaml:"stack"`
+	Stack awscdk.NestedStack `field:"required" json:"stack" yaml:"stack"`
 }
 

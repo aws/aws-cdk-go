@@ -17,7 +17,14 @@ import (
 // Options for S3 record backup of a delivery stream.
 //
 // Example:
-//   import path "github.com/aws-samples/dummy/path"import firehose "github.com/aws/aws-cdk-go/awscdk"import kms "github.com/aws/aws-cdk-go/awscdk"import lambdanodejs "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk"import s3 "github.com/aws/aws-cdk-go/awscdk"import cdk "github.com/aws/aws-cdk-go/awscdk"import destinations "github.com/aws/aws-cdk-go/awscdk"
+//   import path "github.com/aws-samples/dummy/path"
+//   import firehose "github.com/aws/aws-cdk-go/awscdk"
+//   import kms "github.com/aws/aws-cdk-go/awscdk"
+//   import lambdanodejs "github.com/aws/aws-cdk-go/awscdk"
+//   import logs "github.com/aws/aws-cdk-go/awscdk"
+//   import s3 "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import destinations "github.com/aws/aws-cdk-go/awscdk"
 //
 //   app := cdk.NewApp()
 //
@@ -98,7 +105,15 @@ const (
 // Generic properties for defining a delivery stream destination.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose_destinations "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose_destinations"import awscdk "github.com/aws/aws-cdk-go/awscdk"import kms "github.com/aws/aws-cdk-go/awscdk/aws_kms"import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3 "github.com/aws/aws-cdk-go/awscdk/aws_s3"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var bucket bucket
 //   var compression compression
@@ -108,6 +123,7 @@ const (
 //   var logGroup logGroup
 //   var role role
 //   var size size
+//
 //   commonDestinationProps := &commonDestinationProps{
 //   	logging: jsii.Boolean(false),
 //   	logGroup: logGroup,
@@ -123,7 +139,7 @@ const (
 //   		errorOutputPrefix: jsii.String("errorOutputPrefix"),
 //   		logging: jsii.Boolean(false),
 //   		logGroup: logGroup,
-//   		mode: kinesisfirehose_destinations.backupMode_ALL,
+//   		mode: awscdk.Aws_kinesisfirehose_destinations.backupMode_ALL,
 //   	},
 //   }
 //
@@ -133,32 +149,37 @@ type CommonDestinationProps struct {
 	//
 	// If `logGroup` is provided, this will be implicitly set to `true`.
 	// Experimental.
-	Logging *bool `json:"logging" yaml:"logging"`
+	Logging *bool `field:"optional" json:"logging" yaml:"logging"`
 	// The CloudWatch log group where log streams will be created to hold error logs.
 	// Experimental.
-	LogGroup awslogs.ILogGroup `json:"logGroup" yaml:"logGroup"`
+	LogGroup awslogs.ILogGroup `field:"optional" json:"logGroup" yaml:"logGroup"`
 	// The data transformation that should be performed on the data before writing to the destination.
 	// Experimental.
-	Processor awskinesisfirehose.IDataProcessor `json:"processor" yaml:"processor"`
+	Processor awskinesisfirehose.IDataProcessor `field:"optional" json:"processor" yaml:"processor"`
 	// The IAM role associated with this destination.
 	//
 	// Assumed by Kinesis Data Firehose to invoke processors and write to destinations.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The configuration for backing up source records to S3.
 	// Experimental.
-	S3Backup *DestinationS3BackupProps `json:"s3Backup" yaml:"s3Backup"`
+	S3Backup *DestinationS3BackupProps `field:"optional" json:"s3Backup" yaml:"s3Backup"`
 }
 
 // Common properties for defining a backup, intermediary, or final S3 destination for a Kinesis Data Firehose delivery stream.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose_destinations "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose_destinations"import awscdk "github.com/aws/aws-cdk-go/awscdk"import kms "github.com/aws/aws-cdk-go/awscdk/aws_kms"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var compression compression
 //   var duration duration
 //   var key key
 //   var size size
+//
 //   commonDestinationS3Props := &commonDestinationS3Props{
 //   	bufferingInterval: duration,
 //   	bufferingSize: size,
@@ -175,43 +196,50 @@ type CommonDestinationS3Props struct {
 	// Minimum: Duration.seconds(60)
 	// Maximum: Duration.seconds(900)
 	// Experimental.
-	BufferingInterval awscdk.Duration `json:"bufferingInterval" yaml:"bufferingInterval"`
+	BufferingInterval awscdk.Duration `field:"optional" json:"bufferingInterval" yaml:"bufferingInterval"`
 	// The size of the buffer that Kinesis Data Firehose uses for incoming data before delivering it to the S3 bucket.
 	//
 	// Minimum: Size.mebibytes(1)
 	// Maximum: Size.mebibytes(128)
 	// Experimental.
-	BufferingSize awscdk.Size `json:"bufferingSize" yaml:"bufferingSize"`
+	BufferingSize awscdk.Size `field:"optional" json:"bufferingSize" yaml:"bufferingSize"`
 	// The type of compression that Kinesis Data Firehose uses to compress the data that it delivers to the Amazon S3 bucket.
 	//
 	// The compression formats SNAPPY or ZIP cannot be specified for Amazon Redshift
 	// destinations because they are not supported by the Amazon Redshift COPY operation
 	// that reads from the S3 bucket.
 	// Experimental.
-	Compression Compression `json:"compression" yaml:"compression"`
+	Compression Compression `field:"optional" json:"compression" yaml:"compression"`
 	// A prefix that Kinesis Data Firehose evaluates and adds to records before writing them to S3.
 	//
 	// This prefix appears immediately following the bucket name.
 	// See: https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html
 	//
 	// Experimental.
-	DataOutputPrefix *string `json:"dataOutputPrefix" yaml:"dataOutputPrefix"`
+	DataOutputPrefix *string `field:"optional" json:"dataOutputPrefix" yaml:"dataOutputPrefix"`
 	// The AWS KMS key used to encrypt the data that it delivers to your Amazon S3 bucket.
 	// Experimental.
-	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
+	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// A prefix that Kinesis Data Firehose evaluates and adds to failed records before writing them to S3.
 	//
 	// This prefix appears immediately following the bucket name.
 	// See: https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html
 	//
 	// Experimental.
-	ErrorOutputPrefix *string `json:"errorOutputPrefix" yaml:"errorOutputPrefix"`
+	ErrorOutputPrefix *string `field:"optional" json:"errorOutputPrefix" yaml:"errorOutputPrefix"`
 }
 
 // Possible compression options Kinesis Data Firehose can use to compress data on delivery.
 //
 // Example:
-//   import path "github.com/aws-samples/dummy/path"import firehose "github.com/aws/aws-cdk-go/awscdk"import kms "github.com/aws/aws-cdk-go/awscdk"import lambdanodejs "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk"import s3 "github.com/aws/aws-cdk-go/awscdk"import cdk "github.com/aws/aws-cdk-go/awscdk"import destinations "github.com/aws/aws-cdk-go/awscdk"
+//   import path "github.com/aws-samples/dummy/path"
+//   import firehose "github.com/aws/aws-cdk-go/awscdk"
+//   import kms "github.com/aws/aws-cdk-go/awscdk"
+//   import lambdanodejs "github.com/aws/aws-cdk-go/awscdk"
+//   import logs "github.com/aws/aws-cdk-go/awscdk"
+//   import s3 "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import destinations "github.com/aws/aws-cdk-go/awscdk"
 //
 //   app := cdk.NewApp()
 //
@@ -366,7 +394,14 @@ func Compression_ZIP() Compression {
 // S3 backup is available for all destinations, regardless of whether the final destination is S3 or not.
 //
 // Example:
-//   import path "github.com/aws-samples/dummy/path"import firehose "github.com/aws/aws-cdk-go/awscdk"import kms "github.com/aws/aws-cdk-go/awscdk"import lambdanodejs "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk"import s3 "github.com/aws/aws-cdk-go/awscdk"import cdk "github.com/aws/aws-cdk-go/awscdk"import destinations "github.com/aws/aws-cdk-go/awscdk"
+//   import path "github.com/aws-samples/dummy/path"
+//   import firehose "github.com/aws/aws-cdk-go/awscdk"
+//   import kms "github.com/aws/aws-cdk-go/awscdk"
+//   import lambdanodejs "github.com/aws/aws-cdk-go/awscdk"
+//   import logs "github.com/aws/aws-cdk-go/awscdk"
+//   import s3 "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import destinations "github.com/aws/aws-cdk-go/awscdk"
 //
 //   app := cdk.NewApp()
 //
@@ -439,59 +474,60 @@ type DestinationS3BackupProps struct {
 	// Minimum: Duration.seconds(60)
 	// Maximum: Duration.seconds(900)
 	// Experimental.
-	BufferingInterval awscdk.Duration `json:"bufferingInterval" yaml:"bufferingInterval"`
+	BufferingInterval awscdk.Duration `field:"optional" json:"bufferingInterval" yaml:"bufferingInterval"`
 	// The size of the buffer that Kinesis Data Firehose uses for incoming data before delivering it to the S3 bucket.
 	//
 	// Minimum: Size.mebibytes(1)
 	// Maximum: Size.mebibytes(128)
 	// Experimental.
-	BufferingSize awscdk.Size `json:"bufferingSize" yaml:"bufferingSize"`
+	BufferingSize awscdk.Size `field:"optional" json:"bufferingSize" yaml:"bufferingSize"`
 	// The type of compression that Kinesis Data Firehose uses to compress the data that it delivers to the Amazon S3 bucket.
 	//
 	// The compression formats SNAPPY or ZIP cannot be specified for Amazon Redshift
 	// destinations because they are not supported by the Amazon Redshift COPY operation
 	// that reads from the S3 bucket.
 	// Experimental.
-	Compression Compression `json:"compression" yaml:"compression"`
+	Compression Compression `field:"optional" json:"compression" yaml:"compression"`
 	// A prefix that Kinesis Data Firehose evaluates and adds to records before writing them to S3.
 	//
 	// This prefix appears immediately following the bucket name.
 	// See: https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html
 	//
 	// Experimental.
-	DataOutputPrefix *string `json:"dataOutputPrefix" yaml:"dataOutputPrefix"`
+	DataOutputPrefix *string `field:"optional" json:"dataOutputPrefix" yaml:"dataOutputPrefix"`
 	// The AWS KMS key used to encrypt the data that it delivers to your Amazon S3 bucket.
 	// Experimental.
-	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
+	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// A prefix that Kinesis Data Firehose evaluates and adds to failed records before writing them to S3.
 	//
 	// This prefix appears immediately following the bucket name.
 	// See: https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html
 	//
 	// Experimental.
-	ErrorOutputPrefix *string `json:"errorOutputPrefix" yaml:"errorOutputPrefix"`
+	ErrorOutputPrefix *string `field:"optional" json:"errorOutputPrefix" yaml:"errorOutputPrefix"`
 	// The S3 bucket that will store data and failed records.
 	// Experimental.
-	Bucket awss3.IBucket `json:"bucket" yaml:"bucket"`
+	Bucket awss3.IBucket `field:"optional" json:"bucket" yaml:"bucket"`
 	// If true, log errors when data transformation or data delivery fails.
 	//
 	// If `logGroup` is provided, this will be implicitly set to `true`.
 	// Experimental.
-	Logging *bool `json:"logging" yaml:"logging"`
+	Logging *bool `field:"optional" json:"logging" yaml:"logging"`
 	// The CloudWatch log group where log streams will be created to hold error logs.
 	// Experimental.
-	LogGroup awslogs.ILogGroup `json:"logGroup" yaml:"logGroup"`
+	LogGroup awslogs.ILogGroup `field:"optional" json:"logGroup" yaml:"logGroup"`
 	// Indicates the mode by which incoming records should be backed up to S3, if any.
 	//
 	// If `bucket` is provided, this will be implicitly set to `BackupMode.ALL`.
 	// Experimental.
-	Mode BackupMode `json:"mode" yaml:"mode"`
+	Mode BackupMode `field:"optional" json:"mode" yaml:"mode"`
 }
 
 // An S3 bucket destination for data from a Kinesis Data Firehose delivery stream.
 //
 // Example:
-//   var bucket bucket// Provide a Lambda function that will transform records before delivery, with custom
+//   var bucket bucket
+//   // Provide a Lambda function that will transform records before delivery, with custom
 //   // buffering and retry configuration
 //   lambdaFunction := lambda.NewFunction(this, jsii.String("Processor"), &functionProps{
 //   	runtime: lambda.runtime_NODEJS_12_X(),
@@ -499,8 +535,8 @@ type DestinationS3BackupProps struct {
 //   	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("process-records"))),
 //   })
 //   lambdaProcessor := firehose.NewLambdaFunctionProcessor(lambdaFunction, &dataProcessorProps{
-//   	bufferInterval: duration.minutes(jsii.Number(5)),
-//   	bufferSize: size.mebibytes(jsii.Number(5)),
+//   	bufferInterval: awscdk.Duration.minutes(jsii.Number(5)),
+//   	bufferSize: awscdk.Size.mebibytes(jsii.Number(5)),
 //   	retries: jsii.Number(5),
 //   })
 //   s3Destination := destinations.NewS3Bucket(bucket, &s3BucketProps{
@@ -569,7 +605,8 @@ func (s *jsiiProxy_S3Bucket) Bind(scope constructs.Construct, _options *awskines
 // Props for defining an S3 destination of a Kinesis Data Firehose delivery stream.
 //
 // Example:
-//   var bucket bucket// Provide a Lambda function that will transform records before delivery, with custom
+//   var bucket bucket
+//   // Provide a Lambda function that will transform records before delivery, with custom
 //   // buffering and retry configuration
 //   lambdaFunction := lambda.NewFunction(this, jsii.String("Processor"), &functionProps{
 //   	runtime: lambda.runtime_NODEJS_12_X(),
@@ -577,8 +614,8 @@ func (s *jsiiProxy_S3Bucket) Bind(scope constructs.Construct, _options *awskines
 //   	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("process-records"))),
 //   })
 //   lambdaProcessor := firehose.NewLambdaFunctionProcessor(lambdaFunction, &dataProcessorProps{
-//   	bufferInterval: duration.minutes(jsii.Number(5)),
-//   	bufferSize: size.mebibytes(jsii.Number(5)),
+//   	bufferInterval: awscdk.Duration.minutes(jsii.Number(5)),
+//   	bufferSize: awscdk.Size.mebibytes(jsii.Number(5)),
 //   	retries: jsii.Number(5),
 //   })
 //   s3Destination := destinations.NewS3Bucket(bucket, &s3BucketProps{
@@ -597,55 +634,55 @@ type S3BucketProps struct {
 	// Minimum: Duration.seconds(60)
 	// Maximum: Duration.seconds(900)
 	// Experimental.
-	BufferingInterval awscdk.Duration `json:"bufferingInterval" yaml:"bufferingInterval"`
+	BufferingInterval awscdk.Duration `field:"optional" json:"bufferingInterval" yaml:"bufferingInterval"`
 	// The size of the buffer that Kinesis Data Firehose uses for incoming data before delivering it to the S3 bucket.
 	//
 	// Minimum: Size.mebibytes(1)
 	// Maximum: Size.mebibytes(128)
 	// Experimental.
-	BufferingSize awscdk.Size `json:"bufferingSize" yaml:"bufferingSize"`
+	BufferingSize awscdk.Size `field:"optional" json:"bufferingSize" yaml:"bufferingSize"`
 	// The type of compression that Kinesis Data Firehose uses to compress the data that it delivers to the Amazon S3 bucket.
 	//
 	// The compression formats SNAPPY or ZIP cannot be specified for Amazon Redshift
 	// destinations because they are not supported by the Amazon Redshift COPY operation
 	// that reads from the S3 bucket.
 	// Experimental.
-	Compression Compression `json:"compression" yaml:"compression"`
+	Compression Compression `field:"optional" json:"compression" yaml:"compression"`
 	// A prefix that Kinesis Data Firehose evaluates and adds to records before writing them to S3.
 	//
 	// This prefix appears immediately following the bucket name.
 	// See: https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html
 	//
 	// Experimental.
-	DataOutputPrefix *string `json:"dataOutputPrefix" yaml:"dataOutputPrefix"`
+	DataOutputPrefix *string `field:"optional" json:"dataOutputPrefix" yaml:"dataOutputPrefix"`
 	// The AWS KMS key used to encrypt the data that it delivers to your Amazon S3 bucket.
 	// Experimental.
-	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
+	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// A prefix that Kinesis Data Firehose evaluates and adds to failed records before writing them to S3.
 	//
 	// This prefix appears immediately following the bucket name.
 	// See: https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html
 	//
 	// Experimental.
-	ErrorOutputPrefix *string `json:"errorOutputPrefix" yaml:"errorOutputPrefix"`
+	ErrorOutputPrefix *string `field:"optional" json:"errorOutputPrefix" yaml:"errorOutputPrefix"`
 	// If true, log errors when data transformation or data delivery fails.
 	//
 	// If `logGroup` is provided, this will be implicitly set to `true`.
 	// Experimental.
-	Logging *bool `json:"logging" yaml:"logging"`
+	Logging *bool `field:"optional" json:"logging" yaml:"logging"`
 	// The CloudWatch log group where log streams will be created to hold error logs.
 	// Experimental.
-	LogGroup awslogs.ILogGroup `json:"logGroup" yaml:"logGroup"`
+	LogGroup awslogs.ILogGroup `field:"optional" json:"logGroup" yaml:"logGroup"`
 	// The data transformation that should be performed on the data before writing to the destination.
 	// Experimental.
-	Processor awskinesisfirehose.IDataProcessor `json:"processor" yaml:"processor"`
+	Processor awskinesisfirehose.IDataProcessor `field:"optional" json:"processor" yaml:"processor"`
 	// The IAM role associated with this destination.
 	//
 	// Assumed by Kinesis Data Firehose to invoke processors and write to destinations.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The configuration for backing up source records to S3.
 	// Experimental.
-	S3Backup *DestinationS3BackupProps `json:"s3Backup" yaml:"s3Backup"`
+	S3Backup *DestinationS3BackupProps `field:"optional" json:"s3Backup" yaml:"s3Backup"`
 }
 

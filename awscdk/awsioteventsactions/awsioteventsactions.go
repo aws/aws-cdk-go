@@ -13,9 +13,12 @@ import (
 // The action to write the data to an AWS Lambda function.
 //
 // Example:
-//   import iotevents "github.com/aws/aws-cdk-go/awscdk"import actions "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk"
+//   import iotevents "github.com/aws/aws-cdk-go/awscdk"
+//   import actions "github.com/aws/aws-cdk-go/awscdk"
+//   import lambda "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var func iFunction
+//
 //
 //   input := iotevents.NewInput(this, jsii.String("MyInput"), &inputProps{
 //   	inputName: jsii.String("my_input"),
@@ -142,7 +145,8 @@ func (l *jsiiProxy_LambdaInvokeAction) Bind(_scope constructs.Construct, options
 //
 // Example:
 //   // Example automatically generated from non-compiling source. May contain errors.
-//   import iotevents "github.com/aws/aws-cdk-go/awscdk"import actions "github.com/aws/aws-cdk-go/awscdk"
+//   import iotevents "github.com/aws/aws-cdk-go/awscdk"
+//   import actions "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var input iInput
 //

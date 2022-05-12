@@ -21,8 +21,11 @@ import (
 // This resource requires some setup to be done in the AWS Chatbot console. To provide the required Slack workspace ID, you must perform the initial authorization flow with Slack in the AWS Chatbot console, then copy and paste the workspace ID from the console. For more details, see steps 1-4 in [Setting Up AWS Chatbot with Slack](https://docs.aws.amazon.com/chatbot/latest/adminguide/setting-up.html#Setup_intro) in the *AWS Chatbot User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import chatbot "github.com/aws/aws-cdk-go/awscdk/aws_chatbot"
-//   cfnSlackChannelConfiguration := chatbot.NewCfnSlackChannelConfiguration(this, jsii.String("MyCfnSlackChannelConfiguration"), &cfnSlackChannelConfigurationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnSlackChannelConfiguration := awscdk.Aws_chatbot.NewCfnSlackChannelConfiguration(this, jsii.String("MyCfnSlackChannelConfiguration"), &cfnSlackChannelConfigurationProps{
 //   	configurationName: jsii.String("configurationName"),
 //   	iamRoleArn: jsii.String("iamRoleArn"),
 //   	slackChannelId: jsii.String("slackChannelId"),
@@ -836,7 +839,10 @@ func (c *jsiiProxy_CfnSlackChannelConfiguration) ValidateProperties(_properties 
 // Properties for defining a `CfnSlackChannelConfiguration`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import chatbot "github.com/aws/aws-cdk-go/awscdk/aws_chatbot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnSlackChannelConfigurationProps := &cfnSlackChannelConfigurationProps{
 //   	configurationName: jsii.String("configurationName"),
 //   	iamRoleArn: jsii.String("iamRoleArn"),
@@ -856,31 +862,31 @@ func (c *jsiiProxy_CfnSlackChannelConfiguration) ValidateProperties(_properties 
 //
 type CfnSlackChannelConfigurationProps struct {
 	// The name of the configuration.
-	ConfigurationName *string `json:"configurationName" yaml:"configurationName"`
+	ConfigurationName *string `field:"required" json:"configurationName" yaml:"configurationName"`
 	// The ARN of the IAM role that defines the permissions for AWS Chatbot .
 	//
 	// This is a user-definworked role that AWS Chatbot will assume. This is not the service-linked role. For more information, see [IAM Policies for AWS Chatbot](https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html) .
-	IamRoleArn *string `json:"iamRoleArn" yaml:"iamRoleArn"`
+	IamRoleArn *string `field:"required" json:"iamRoleArn" yaml:"iamRoleArn"`
 	// The ID of the Slack channel.
 	//
 	// To get the ID, open Slack, right click on the channel name in the left pane, then choose Copy Link. The channel ID is the 9-character string at the end of the URL. For example, `ABCBBLZZZ` .
-	SlackChannelId *string `json:"slackChannelId" yaml:"slackChannelId"`
+	SlackChannelId *string `field:"required" json:"slackChannelId" yaml:"slackChannelId"`
 	// The ID of the Slack workspace authorized with AWS Chatbot .
 	//
 	// To get the workspace ID, you must perform the initial authorization flow with Slack in the AWS Chatbot console. Then you can copy and paste the workspace ID from the console. For more details, see steps 1-4 in [Setting Up AWS Chatbot with Slack](https://docs.aws.amazon.com/chatbot/latest/adminguide/setting-up.html#Setup_intro) in the *AWS Chatbot User Guide* .
-	SlackWorkspaceId *string `json:"slackWorkspaceId" yaml:"slackWorkspaceId"`
+	SlackWorkspaceId *string `field:"required" json:"slackWorkspaceId" yaml:"slackWorkspaceId"`
 	// The list of IAM policy ARNs that are applied as channel guardrails.
 	//
 	// The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.
-	GuardrailPolicies *[]*string `json:"guardrailPolicies" yaml:"guardrailPolicies"`
+	GuardrailPolicies *[]*string `field:"optional" json:"guardrailPolicies" yaml:"guardrailPolicies"`
 	// Specifies the logging level for this configuration. This property affects the log entries pushed to Amazon CloudWatch Logs.
 	//
 	// Logging levels include `ERROR` , `INFO` , or `NONE` .
-	LoggingLevel *string `json:"loggingLevel" yaml:"loggingLevel"`
+	LoggingLevel *string `field:"optional" json:"loggingLevel" yaml:"loggingLevel"`
 	// The ARNs of the SNS topics that deliver notifications to AWS Chatbot .
-	SnsTopicArns *[]*string `json:"snsTopicArns" yaml:"snsTopicArns"`
+	SnsTopicArns *[]*string `field:"optional" json:"snsTopicArns" yaml:"snsTopicArns"`
 	// Enables use of a user role requirement in your chat configuration.
-	UserRoleRequired interface{} `json:"userRoleRequired" yaml:"userRoleRequired"`
+	UserRoleRequired interface{} `field:"optional" json:"userRoleRequired" yaml:"userRoleRequired"`
 }
 
 // Represents a Slack channel configuration.
@@ -1047,6 +1053,7 @@ const (
 //   import chatbot "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var project project
+//
 //
 //   target := chatbot.NewSlackChannelConfiguration(this, jsii.String("MySlackChannel"), &slackChannelConfigurationProps{
 //   	slackChannelConfigurationName: jsii.String("YOUR_CHANNEL_NAME"),
@@ -1540,6 +1547,7 @@ func (s *jsiiProxy_SlackChannelConfiguration) Validate() *[]*string {
 //
 //   var project project
 //
+//
 //   target := chatbot.NewSlackChannelConfiguration(this, jsii.String("MySlackChannel"), &slackChannelConfigurationProps{
 //   	slackChannelConfigurationName: jsii.String("YOUR_CHANNEL_NAME"),
 //   	slackWorkspaceId: jsii.String("YOUR_SLACK_WORKSPACE_ID"),
@@ -1552,13 +1560,13 @@ func (s *jsiiProxy_SlackChannelConfiguration) Validate() *[]*string {
 type SlackChannelConfigurationProps struct {
 	// The name of Slack channel configuration.
 	// Experimental.
-	SlackChannelConfigurationName *string `json:"slackChannelConfigurationName" yaml:"slackChannelConfigurationName"`
+	SlackChannelConfigurationName *string `field:"required" json:"slackChannelConfigurationName" yaml:"slackChannelConfigurationName"`
 	// The ID of the Slack channel.
 	//
 	// To get the ID, open Slack, right click on the channel name in the left pane, then choose Copy Link.
 	// The channel ID is the 9-character string at the end of the URL. For example, ABCBBLZZZ.
 	// Experimental.
-	SlackChannelId *string `json:"slackChannelId" yaml:"slackChannelId"`
+	SlackChannelId *string `field:"required" json:"slackChannelId" yaml:"slackChannelId"`
 	// The ID of the Slack workspace authorized with AWS Chatbot.
 	//
 	// To get the workspace ID, you must perform the initial authorization flow with Slack in the AWS Chatbot console.
@@ -1567,32 +1575,32 @@ type SlackChannelConfigurationProps struct {
 	// See: https://docs.aws.amazon.com/chatbot/latest/adminguide/setting-up.html#Setup_intro
 	//
 	// Experimental.
-	SlackWorkspaceId *string `json:"slackWorkspaceId" yaml:"slackWorkspaceId"`
+	SlackWorkspaceId *string `field:"required" json:"slackWorkspaceId" yaml:"slackWorkspaceId"`
 	// Specifies the logging level for this configuration.
 	//
 	// This property affects the log entries pushed to Amazon CloudWatch Logs.
 	// Experimental.
-	LoggingLevel LoggingLevel `json:"loggingLevel" yaml:"loggingLevel"`
+	LoggingLevel LoggingLevel `field:"optional" json:"loggingLevel" yaml:"loggingLevel"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `INFINITE`.
 	// Experimental.
-	LogRetention awslogs.RetentionDays `json:"logRetention" yaml:"logRetention"`
+	LogRetention awslogs.RetentionDays `field:"optional" json:"logRetention" yaml:"logRetention"`
 	// When log retention is specified, a custom resource attempts to create the CloudWatch log group.
 	//
 	// These options control the retry policy when interacting with CloudWatch APIs.
 	// Experimental.
-	LogRetentionRetryOptions *awslogs.LogRetentionRetryOptions `json:"logRetentionRetryOptions" yaml:"logRetentionRetryOptions"`
+	LogRetentionRetryOptions *awslogs.LogRetentionRetryOptions `field:"optional" json:"logRetentionRetryOptions" yaml:"logRetentionRetryOptions"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
 	// Experimental.
-	LogRetentionRole awsiam.IRole `json:"logRetentionRole" yaml:"logRetentionRole"`
+	LogRetentionRole awsiam.IRole `field:"optional" json:"logRetentionRole" yaml:"logRetentionRole"`
 	// The SNS topics that deliver notifications to AWS Chatbot.
 	// Experimental.
-	NotificationTopics *[]awssns.ITopic `json:"notificationTopics" yaml:"notificationTopics"`
+	NotificationTopics *[]awssns.ITopic `field:"optional" json:"notificationTopics" yaml:"notificationTopics"`
 	// The permission role of Slack channel configuration.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 }
 

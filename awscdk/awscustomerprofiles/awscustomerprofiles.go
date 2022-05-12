@@ -14,8 +14,11 @@ import (
 // Specifies an Amazon Connect Customer Profiles Domain.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"
-//   cfnDomain := customerprofiles.NewCfnDomain(this, jsii.String("MyCfnDomain"), &cfnDomainProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDomain := awscdk.Aws_customerprofiles.NewCfnDomain(this, jsii.String("MyCfnDomain"), &cfnDomainProps{
 //   	domainName: jsii.String("domainName"),
 //
 //   	// the properties below are optional
@@ -762,7 +765,10 @@ func (c *jsiiProxy_CfnDomain) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnDomain`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDomainProps := &cfnDomainProps{
 //   	domainName: jsii.String("domainName"),
 //
@@ -780,19 +786,19 @@ func (c *jsiiProxy_CfnDomain) ValidateProperties(_properties interface{}) {
 //
 type CfnDomainProps struct {
 	// The unique name of the domain.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 	// The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.
 	//
 	// You must set up a policy on the DeadLetterQueue for the SendMessage operation to enable Amazon Connect Customer Profiles to send messages to the DeadLetterQueue.
-	DeadLetterQueueUrl *string `json:"deadLetterQueueUrl" yaml:"deadLetterQueueUrl"`
+	DeadLetterQueueUrl *string `field:"optional" json:"deadLetterQueueUrl" yaml:"deadLetterQueueUrl"`
 	// The default encryption key, which is an AWS managed key, is used when no specific type of encryption key is specified.
 	//
 	// It is used to encrypt all data before it is placed in permanent or semi-permanent storage.
-	DefaultEncryptionKey *string `json:"defaultEncryptionKey" yaml:"defaultEncryptionKey"`
+	DefaultEncryptionKey *string `field:"optional" json:"defaultEncryptionKey" yaml:"defaultEncryptionKey"`
 	// The default number of days until the data within the domain expires.
-	DefaultExpirationDays *float64 `json:"defaultExpirationDays" yaml:"defaultExpirationDays"`
+	DefaultExpirationDays *float64 `field:"optional" json:"defaultExpirationDays" yaml:"defaultExpirationDays"`
 	// The tags used to organize, track, or control access for this resource.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::CustomerProfiles::Integration`.
@@ -800,8 +806,11 @@ type CfnDomainProps struct {
 // Specifies an Amazon Connect Customer Profiles Integration.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"
-//   cfnIntegration := customerprofiles.NewCfnIntegration(this, jsii.String("MyCfnIntegration"), &cfnIntegrationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnIntegration := awscdk.Aws_customerprofiles.NewCfnIntegration(this, jsii.String("MyCfnIntegration"), &cfnIntegrationProps{
 //   	domainName: jsii.String("domainName"),
 //
 //   	// the properties below are optional
@@ -1652,7 +1661,10 @@ func (c *jsiiProxy_CfnIntegration) ValidateProperties(_properties interface{}) {
 // The operation to be performed on the provided source fields.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   connectorOperatorProperty := &connectorOperatorProperty{
 //   	marketo: jsii.String("marketo"),
 //   	s3: jsii.String("s3"),
@@ -1663,15 +1675,15 @@ func (c *jsiiProxy_CfnIntegration) ValidateProperties(_properties interface{}) {
 //
 type CfnIntegration_ConnectorOperatorProperty struct {
 	// The operation to be performed on the provided Marketo source fields.
-	Marketo *string `json:"marketo" yaml:"marketo"`
+	Marketo *string `field:"optional" json:"marketo" yaml:"marketo"`
 	// The operation to be performed on the provided Amazon S3 source fields.
-	S3 *string `json:"s3" yaml:"s3"`
+	S3 *string `field:"optional" json:"s3" yaml:"s3"`
 	// The operation to be performed on the provided Salesforce source fields.
-	Salesforce *string `json:"salesforce" yaml:"salesforce"`
+	Salesforce *string `field:"optional" json:"salesforce" yaml:"salesforce"`
 	// The operation to be performed on the provided ServiceNow source fields.
-	ServiceNow *string `json:"serviceNow" yaml:"serviceNow"`
+	ServiceNow *string `field:"optional" json:"serviceNow" yaml:"serviceNow"`
 	// The operation to be performed on the provided Zendesk source fields.
-	Zendesk *string `json:"zendesk" yaml:"zendesk"`
+	Zendesk *string `field:"optional" json:"zendesk" yaml:"zendesk"`
 }
 
 // The configurations that control how Customer Profiles retrieves data from the source, Amazon AppFlow.
@@ -1679,7 +1691,10 @@ type CfnIntegration_ConnectorOperatorProperty struct {
 // Customer Profiles uses this information to create an AppFlow flow on behalf of customers.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   flowDefinitionProperty := &flowDefinitionProperty{
 //   	flowName: jsii.String("flowName"),
 //   	kmsArn: jsii.String("kmsArn"),
@@ -1767,49 +1782,58 @@ type CfnIntegration_FlowDefinitionProperty struct {
 	// The specified name of the flow.
 	//
 	// Use underscores (_) or hyphens (-) only. Spaces are not allowed.
-	FlowName *string `json:"flowName" yaml:"flowName"`
+	FlowName *string `field:"required" json:"flowName" yaml:"flowName"`
 	// The Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key you provide for encryption.
-	KmsArn *string `json:"kmsArn" yaml:"kmsArn"`
+	KmsArn *string `field:"required" json:"kmsArn" yaml:"kmsArn"`
 	// The configuration that controls how Customer Profiles retrieves data from the source.
-	SourceFlowConfig interface{} `json:"sourceFlowConfig" yaml:"sourceFlowConfig"`
+	SourceFlowConfig interface{} `field:"required" json:"sourceFlowConfig" yaml:"sourceFlowConfig"`
 	// A list of tasks that Customer Profiles performs while transferring the data in the flow run.
-	Tasks interface{} `json:"tasks" yaml:"tasks"`
+	Tasks interface{} `field:"required" json:"tasks" yaml:"tasks"`
 	// The trigger settings that determine how and when the flow runs.
-	TriggerConfig interface{} `json:"triggerConfig" yaml:"triggerConfig"`
+	TriggerConfig interface{} `field:"required" json:"triggerConfig" yaml:"triggerConfig"`
 	// A description of the flow you want to create.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 
 // Specifies the configuration used when importing incremental records from the source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   incrementalPullConfigProperty := &incrementalPullConfigProperty{
 //   	datetimeTypeFieldName: jsii.String("datetimeTypeFieldName"),
 //   }
 //
 type CfnIntegration_IncrementalPullConfigProperty struct {
 	// A field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
-	DatetimeTypeFieldName *string `json:"datetimeTypeFieldName" yaml:"datetimeTypeFieldName"`
+	DatetimeTypeFieldName *string `field:"optional" json:"datetimeTypeFieldName" yaml:"datetimeTypeFieldName"`
 }
 
 // The properties that are applied when Marketo is being used as a source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   marketoSourcePropertiesProperty := &marketoSourcePropertiesProperty{
 //   	object: jsii.String("object"),
 //   }
 //
 type CfnIntegration_MarketoSourcePropertiesProperty struct {
 	// The object specified in the Marketo flow source.
-	Object *string `json:"object" yaml:"object"`
+	Object *string `field:"required" json:"object" yaml:"object"`
 }
 
 // A map in which each key is an event type from an external application such as Segment or Shopify, and each value is an `ObjectTypeName` (template) used to ingest the event.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   objectTypeMappingProperty := &objectTypeMappingProperty{
 //   	key: jsii.String("key"),
 //   	value: jsii.String("value"),
@@ -1817,15 +1841,18 @@ type CfnIntegration_MarketoSourcePropertiesProperty struct {
 //
 type CfnIntegration_ObjectTypeMappingProperty struct {
 	// The key.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// The value.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // The properties that are applied when Amazon S3 is being used as the flow source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3SourcePropertiesProperty := &s3SourcePropertiesProperty{
 //   	bucketName: jsii.String("bucketName"),
 //
@@ -1835,15 +1862,18 @@ type CfnIntegration_ObjectTypeMappingProperty struct {
 //
 type CfnIntegration_S3SourcePropertiesProperty struct {
 	// The Amazon S3 bucket name where the source files are stored.
-	BucketName *string `json:"bucketName" yaml:"bucketName"`
+	BucketName *string `field:"required" json:"bucketName" yaml:"bucketName"`
 	// The object key for the Amazon S3 bucket in which the source files are stored.
-	BucketPrefix *string `json:"bucketPrefix" yaml:"bucketPrefix"`
+	BucketPrefix *string `field:"optional" json:"bucketPrefix" yaml:"bucketPrefix"`
 }
 
 // The properties that are applied when Salesforce is being used as a source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   salesforceSourcePropertiesProperty := &salesforceSourcePropertiesProperty{
 //   	object: jsii.String("object"),
 //
@@ -1854,11 +1884,11 @@ type CfnIntegration_S3SourcePropertiesProperty struct {
 //
 type CfnIntegration_SalesforceSourcePropertiesProperty struct {
 	// The object specified in the Salesforce flow source.
-	Object *string `json:"object" yaml:"object"`
+	Object *string `field:"required" json:"object" yaml:"object"`
 	// The flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
-	EnableDynamicFieldUpdate interface{} `json:"enableDynamicFieldUpdate" yaml:"enableDynamicFieldUpdate"`
+	EnableDynamicFieldUpdate interface{} `field:"optional" json:"enableDynamicFieldUpdate" yaml:"enableDynamicFieldUpdate"`
 	// Indicates whether Amazon AppFlow includes deleted files in the flow run.
-	IncludeDeletedRecords interface{} `json:"includeDeletedRecords" yaml:"includeDeletedRecords"`
+	IncludeDeletedRecords interface{} `field:"optional" json:"includeDeletedRecords" yaml:"includeDeletedRecords"`
 }
 
 // Specifies the configuration details of a scheduled-trigger flow that you define.
@@ -1866,7 +1896,10 @@ type CfnIntegration_SalesforceSourcePropertiesProperty struct {
 // Currently, these settings only apply to the scheduled-trigger type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   scheduledTriggerPropertiesProperty := &scheduledTriggerPropertiesProperty{
 //   	scheduleExpression: jsii.String("scheduleExpression"),
 //
@@ -1881,32 +1914,35 @@ type CfnIntegration_SalesforceSourcePropertiesProperty struct {
 //
 type CfnIntegration_ScheduledTriggerPropertiesProperty struct {
 	// The scheduling expression that determines the rate at which the schedule will run, for example rate (5 minutes).
-	ScheduleExpression *string `json:"scheduleExpression" yaml:"scheduleExpression"`
+	ScheduleExpression *string `field:"required" json:"scheduleExpression" yaml:"scheduleExpression"`
 	// Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run.
-	DataPullMode *string `json:"dataPullMode" yaml:"dataPullMode"`
+	DataPullMode *string `field:"optional" json:"dataPullMode" yaml:"dataPullMode"`
 	// Specifies the date range for the records to import from the connector in the first flow run.
-	FirstExecutionFrom *float64 `json:"firstExecutionFrom" yaml:"firstExecutionFrom"`
+	FirstExecutionFrom *float64 `field:"optional" json:"firstExecutionFrom" yaml:"firstExecutionFrom"`
 	// Specifies the scheduled end time for a scheduled-trigger flow.
-	ScheduleEndTime *float64 `json:"scheduleEndTime" yaml:"scheduleEndTime"`
+	ScheduleEndTime *float64 `field:"optional" json:"scheduleEndTime" yaml:"scheduleEndTime"`
 	// Specifies the optional offset that is added to the time interval for a schedule-triggered flow.
-	ScheduleOffset *float64 `json:"scheduleOffset" yaml:"scheduleOffset"`
+	ScheduleOffset *float64 `field:"optional" json:"scheduleOffset" yaml:"scheduleOffset"`
 	// Specifies the scheduled start time for a scheduled-trigger flow.
-	ScheduleStartTime *float64 `json:"scheduleStartTime" yaml:"scheduleStartTime"`
+	ScheduleStartTime *float64 `field:"optional" json:"scheduleStartTime" yaml:"scheduleStartTime"`
 	// Specifies the time zone used when referring to the date and time of a scheduled-triggered flow, such as America/New_York.
-	Timezone *string `json:"timezone" yaml:"timezone"`
+	Timezone *string `field:"optional" json:"timezone" yaml:"timezone"`
 }
 
 // The properties that are applied when ServiceNow is being used as a source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   serviceNowSourcePropertiesProperty := &serviceNowSourcePropertiesProperty{
 //   	object: jsii.String("object"),
 //   }
 //
 type CfnIntegration_ServiceNowSourcePropertiesProperty struct {
 	// The object specified in the ServiceNow flow source.
-	Object *string `json:"object" yaml:"object"`
+	Object *string `field:"required" json:"object" yaml:"object"`
 }
 
 // Specifies the information that is required to query a particular Amazon AppFlow connector.
@@ -1914,7 +1950,10 @@ type CfnIntegration_ServiceNowSourcePropertiesProperty struct {
 // Customer Profiles supports Salesforce, Zendesk, Marketo, ServiceNow and Amazon S3.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sourceConnectorPropertiesProperty := &sourceConnectorPropertiesProperty{
 //   	marketo: &marketoSourcePropertiesProperty{
 //   		object: jsii.String("object"),
@@ -1942,21 +1981,24 @@ type CfnIntegration_ServiceNowSourcePropertiesProperty struct {
 //
 type CfnIntegration_SourceConnectorPropertiesProperty struct {
 	// The properties that are applied when Marketo is being used as a source.
-	Marketo interface{} `json:"marketo" yaml:"marketo"`
+	Marketo interface{} `field:"optional" json:"marketo" yaml:"marketo"`
 	// The properties that are applied when Amazon S3 is being used as the flow source.
-	S3 interface{} `json:"s3" yaml:"s3"`
+	S3 interface{} `field:"optional" json:"s3" yaml:"s3"`
 	// The properties that are applied when Salesforce is being used as a source.
-	Salesforce interface{} `json:"salesforce" yaml:"salesforce"`
+	Salesforce interface{} `field:"optional" json:"salesforce" yaml:"salesforce"`
 	// The properties that are applied when ServiceNow is being used as a source.
-	ServiceNow interface{} `json:"serviceNow" yaml:"serviceNow"`
+	ServiceNow interface{} `field:"optional" json:"serviceNow" yaml:"serviceNow"`
 	// The properties that are applied when using Zendesk as a flow source.
-	Zendesk interface{} `json:"zendesk" yaml:"zendesk"`
+	Zendesk interface{} `field:"optional" json:"zendesk" yaml:"zendesk"`
 }
 
 // The configuration that controls how Customer Profiles retrieves data from the source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sourceFlowConfigProperty := &sourceFlowConfigProperty{
 //   	connectorType: jsii.String("connectorType"),
 //   	sourceConnectorProperties: &sourceConnectorPropertiesProperty{
@@ -1993,17 +2035,17 @@ type CfnIntegration_SourceConnectorPropertiesProperty struct {
 //
 type CfnIntegration_SourceFlowConfigProperty struct {
 	// The type of connector, such as Salesforce, Marketo, and so on.
-	ConnectorType *string `json:"connectorType" yaml:"connectorType"`
+	ConnectorType *string `field:"required" json:"connectorType" yaml:"connectorType"`
 	// Specifies the information that is required to query a particular source connector.
-	SourceConnectorProperties interface{} `json:"sourceConnectorProperties" yaml:"sourceConnectorProperties"`
+	SourceConnectorProperties interface{} `field:"required" json:"sourceConnectorProperties" yaml:"sourceConnectorProperties"`
 	// The name of the Amazon AppFlow connector profile.
 	//
 	// This name must be unique for each connector profile in the AWS account .
-	ConnectorProfileName *string `json:"connectorProfileName" yaml:"connectorProfileName"`
+	ConnectorProfileName *string `field:"optional" json:"connectorProfileName" yaml:"connectorProfileName"`
 	// Defines the configuration for a scheduled incremental data pull.
 	//
 	// If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull.
-	IncrementalPullConfig interface{} `json:"incrementalPullConfig" yaml:"incrementalPullConfig"`
+	IncrementalPullConfig interface{} `field:"optional" json:"incrementalPullConfig" yaml:"incrementalPullConfig"`
 }
 
 // A map used to store task-related information.
@@ -2011,7 +2053,10 @@ type CfnIntegration_SourceFlowConfigProperty struct {
 // The execution service looks for particular information based on the `TaskType` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   taskPropertiesMapProperty := &taskPropertiesMapProperty{
 //   	operatorPropertyKey: jsii.String("operatorPropertyKey"),
 //   	property: jsii.String("property"),
@@ -2019,9 +2064,9 @@ type CfnIntegration_SourceFlowConfigProperty struct {
 //
 type CfnIntegration_TaskPropertiesMapProperty struct {
 	// The task property key.
-	OperatorPropertyKey *string `json:"operatorPropertyKey" yaml:"operatorPropertyKey"`
+	OperatorPropertyKey *string `field:"required" json:"operatorPropertyKey" yaml:"operatorPropertyKey"`
 	// The task property value.
-	Property *string `json:"property" yaml:"property"`
+	Property *string `field:"required" json:"property" yaml:"property"`
 }
 
 // The `Task` property type specifies the class for modeling different type of tasks.
@@ -2029,7 +2074,10 @@ type CfnIntegration_TaskPropertiesMapProperty struct {
 // Task implementation varies based on the TaskType.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   taskProperty := &taskProperty{
 //   	sourceFields: []*string{
 //   		jsii.String("sourceFields"),
@@ -2055,23 +2103,26 @@ type CfnIntegration_TaskPropertiesMapProperty struct {
 //
 type CfnIntegration_TaskProperty struct {
 	// The source fields to which a particular task is applied.
-	SourceFields *[]*string `json:"sourceFields" yaml:"sourceFields"`
+	SourceFields *[]*string `field:"required" json:"sourceFields" yaml:"sourceFields"`
 	// Specifies the particular task implementation that Amazon AppFlow performs.
-	TaskType *string `json:"taskType" yaml:"taskType"`
+	TaskType *string `field:"required" json:"taskType" yaml:"taskType"`
 	// The operation to be performed on the provided source fields.
-	ConnectorOperator interface{} `json:"connectorOperator" yaml:"connectorOperator"`
+	ConnectorOperator interface{} `field:"optional" json:"connectorOperator" yaml:"connectorOperator"`
 	// A field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
-	DestinationField *string `json:"destinationField" yaml:"destinationField"`
+	DestinationField *string `field:"optional" json:"destinationField" yaml:"destinationField"`
 	// A map used to store task-related information.
 	//
 	// The service looks for particular information based on the TaskType.
-	TaskProperties interface{} `json:"taskProperties" yaml:"taskProperties"`
+	TaskProperties interface{} `field:"optional" json:"taskProperties" yaml:"taskProperties"`
 }
 
 // The trigger settings that determine how and when Amazon AppFlow runs the specified flow.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   triggerConfigProperty := &triggerConfigProperty{
 //   	triggerType: jsii.String("triggerType"),
 //
@@ -2095,11 +2146,11 @@ type CfnIntegration_TriggerConfigProperty struct {
 	// Specifies the type of flow trigger.
 	//
 	// It can be OnDemand, Scheduled, or Event.
-	TriggerType *string `json:"triggerType" yaml:"triggerType"`
+	TriggerType *string `field:"required" json:"triggerType" yaml:"triggerType"`
 	// Specifies the configuration details of a schedule-triggered flow that you define.
 	//
 	// Currently, these settings only apply to the Scheduled trigger type.
-	TriggerProperties interface{} `json:"triggerProperties" yaml:"triggerProperties"`
+	TriggerProperties interface{} `field:"optional" json:"triggerProperties" yaml:"triggerProperties"`
 }
 
 // Specifies the configuration details that control the trigger for a flow.
@@ -2107,7 +2158,10 @@ type CfnIntegration_TriggerConfigProperty struct {
 // Currently, these settings only apply to the Scheduled trigger type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   triggerPropertiesProperty := &triggerPropertiesProperty{
 //   	scheduled: &scheduledTriggerPropertiesProperty{
 //   		scheduleExpression: jsii.String("scheduleExpression"),
@@ -2124,26 +2178,32 @@ type CfnIntegration_TriggerConfigProperty struct {
 //
 type CfnIntegration_TriggerPropertiesProperty struct {
 	// Specifies the configuration details of a schedule-triggered flow that you define.
-	Scheduled interface{} `json:"scheduled" yaml:"scheduled"`
+	Scheduled interface{} `field:"optional" json:"scheduled" yaml:"scheduled"`
 }
 
 // The properties that are applied when using Zendesk as a flow source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   zendeskSourcePropertiesProperty := &zendeskSourcePropertiesProperty{
 //   	object: jsii.String("object"),
 //   }
 //
 type CfnIntegration_ZendeskSourcePropertiesProperty struct {
 	// The object specified in the Zendesk flow source.
-	Object *string `json:"object" yaml:"object"`
+	Object *string `field:"required" json:"object" yaml:"object"`
 }
 
 // Properties for defining a `CfnIntegration`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnIntegrationProps := &cfnIntegrationProps{
 //   	domainName: jsii.String("domainName"),
 //
@@ -2248,17 +2308,17 @@ type CfnIntegration_ZendeskSourcePropertiesProperty struct {
 //
 type CfnIntegrationProps struct {
 	// The unique name of the domain.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 	// The configuration that controls how Customer Profiles retrieves data from the source.
-	FlowDefinition interface{} `json:"flowDefinition" yaml:"flowDefinition"`
+	FlowDefinition interface{} `field:"optional" json:"flowDefinition" yaml:"flowDefinition"`
 	// The name of the profile object type mapping to use.
-	ObjectTypeName *string `json:"objectTypeName" yaml:"objectTypeName"`
+	ObjectTypeName *string `field:"optional" json:"objectTypeName" yaml:"objectTypeName"`
 	// The object type mapping.
-	ObjectTypeNames interface{} `json:"objectTypeNames" yaml:"objectTypeNames"`
+	ObjectTypeNames interface{} `field:"optional" json:"objectTypeNames" yaml:"objectTypeNames"`
 	// The tags used to organize, track, or control access for this resource.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The URI of the S3 bucket or any other type of data source.
-	Uri *string `json:"uri" yaml:"uri"`
+	Uri *string `field:"optional" json:"uri" yaml:"uri"`
 }
 
 // A CloudFormation `AWS::CustomerProfiles::ObjectType`.
@@ -2266,8 +2326,11 @@ type CfnIntegrationProps struct {
 // Specifies an Amazon Connect Customer Profiles Object Type Mapping.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"
-//   cfnObjectType := customerprofiles.NewCfnObjectType(this, jsii.String("MyCfnObjectType"), &cfnObjectTypeProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnObjectType := awscdk.Aws_customerprofiles.NewCfnObjectType(this, jsii.String("MyCfnObjectType"), &cfnObjectTypeProps{
 //   	domainName: jsii.String("domainName"),
 //
 //   	// the properties below are optional
@@ -3149,7 +3212,10 @@ func (c *jsiiProxy_CfnObjectType) ValidateProperties(_properties interface{}) {
 // A map of the name and ObjectType field.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   fieldMapProperty := &fieldMapProperty{
 //   	name: jsii.String("name"),
 //   	objectTypeField: &objectTypeFieldProperty{
@@ -3161,15 +3227,18 @@ func (c *jsiiProxy_CfnObjectType) ValidateProperties(_properties interface{}) {
 //
 type CfnObjectType_FieldMapProperty struct {
 	// Name of the field.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Represents a field in a ProfileObjectType.
-	ObjectTypeField interface{} `json:"objectTypeField" yaml:"objectTypeField"`
+	ObjectTypeField interface{} `field:"optional" json:"objectTypeField" yaml:"objectTypeField"`
 }
 
 // A unique key map that can be used to map data to the profile.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   keyMapProperty := &keyMapProperty{
 //   	name: jsii.String("name"),
 //   	objectTypeKeyList: []interface{}{
@@ -3186,15 +3255,18 @@ type CfnObjectType_FieldMapProperty struct {
 //
 type CfnObjectType_KeyMapProperty struct {
 	// Name of the key.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// A list of ObjectTypeKey.
-	ObjectTypeKeyList interface{} `json:"objectTypeKeyList" yaml:"objectTypeKeyList"`
+	ObjectTypeKeyList interface{} `field:"optional" json:"objectTypeKeyList" yaml:"objectTypeKeyList"`
 }
 
 // Represents a field in a ProfileObjectType.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   objectTypeFieldProperty := &objectTypeFieldProperty{
 //   	contentType: jsii.String("contentType"),
 //   	source: jsii.String("source"),
@@ -3205,15 +3277,15 @@ type CfnObjectType_ObjectTypeFieldProperty struct {
 	// The content type of the field.
 	//
 	// Used for determining equality when searching.
-	ContentType *string `json:"contentType" yaml:"contentType"`
+	ContentType *string `field:"optional" json:"contentType" yaml:"contentType"`
 	// A field of a ProfileObject.
 	//
 	// For example: _source.FirstName, where “_source” is a ProfileObjectType of a Zendesk user and “FirstName” is a field in that ObjectType.
-	Source *string `json:"source" yaml:"source"`
+	Source *string `field:"optional" json:"source" yaml:"source"`
 	// The location of the data in the standard ProfileObject model.
 	//
 	// For example: _profile.Address.PostalCode.
-	Target *string `json:"target" yaml:"target"`
+	Target *string `field:"optional" json:"target" yaml:"target"`
 }
 
 // An object that defines the Key element of a ProfileObject.
@@ -3221,7 +3293,10 @@ type CfnObjectType_ObjectTypeFieldProperty struct {
 // A Key is a special element that can be used to search for a customer profile.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   objectTypeKeyProperty := &objectTypeKeyProperty{
 //   	fieldNames: []*string{
 //   		jsii.String("fieldNames"),
@@ -3233,17 +3308,20 @@ type CfnObjectType_ObjectTypeFieldProperty struct {
 //
 type CfnObjectType_ObjectTypeKeyProperty struct {
 	// The reference for the key name of the fields map.
-	FieldNames *[]*string `json:"fieldNames" yaml:"fieldNames"`
+	FieldNames *[]*string `field:"optional" json:"fieldNames" yaml:"fieldNames"`
 	// The types of keys that a ProfileObject can have.
 	//
 	// Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
-	StandardIdentifiers *[]*string `json:"standardIdentifiers" yaml:"standardIdentifiers"`
+	StandardIdentifiers *[]*string `field:"optional" json:"standardIdentifiers" yaml:"standardIdentifiers"`
 }
 
 // Properties for defining a `CfnObjectType`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import customerprofiles "github.com/aws/aws-cdk-go/awscdk/aws_customerprofiles"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnObjectTypeProps := &cfnObjectTypeProps{
 //   	domainName: jsii.String("domainName"),
 //
@@ -3289,30 +3367,30 @@ type CfnObjectType_ObjectTypeKeyProperty struct {
 //
 type CfnObjectTypeProps struct {
 	// The unique name of the domain.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 	// Indicates whether a profile should be created when data is received if one doesn’t exist for an object of this type.
 	//
 	// The default is `FALSE` . If the AllowProfileCreation flag is set to `FALSE` , then the service tries to fetch a standard profile and associate this object with the profile. If it is set to `TRUE` , and if no match is found, then the service creates a new standard profile.
-	AllowProfileCreation interface{} `json:"allowProfileCreation" yaml:"allowProfileCreation"`
+	AllowProfileCreation interface{} `field:"optional" json:"allowProfileCreation" yaml:"allowProfileCreation"`
 	// The description of the profile object type mapping.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The customer-provided key to encrypt the profile object that will be created in this profile object type mapping.
 	//
 	// If not specified the system will use the encryption key of the domain.
-	EncryptionKey *string `json:"encryptionKey" yaml:"encryptionKey"`
+	EncryptionKey *string `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// The number of days until the data of this type expires.
-	ExpirationDays *float64 `json:"expirationDays" yaml:"expirationDays"`
+	ExpirationDays *float64 `field:"optional" json:"expirationDays" yaml:"expirationDays"`
 	// A list of field definitions for the object type mapping.
-	Fields interface{} `json:"fields" yaml:"fields"`
+	Fields interface{} `field:"optional" json:"fields" yaml:"fields"`
 	// A list of keys that can be used to map data to the profile or search for the profile.
-	Keys interface{} `json:"keys" yaml:"keys"`
+	Keys interface{} `field:"optional" json:"keys" yaml:"keys"`
 	// The name of the profile object type.
-	ObjectTypeName *string `json:"objectTypeName" yaml:"objectTypeName"`
+	ObjectTypeName *string `field:"optional" json:"objectTypeName" yaml:"objectTypeName"`
 	// The tags used to organize, track, or control access for this resource.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// A unique identifier for the template mapping.
 	//
 	// This can be used instead of specifying the Keys and Fields properties directly.
-	TemplateId *string `json:"templateId" yaml:"templateId"`
+	TemplateId *string `field:"optional" json:"templateId" yaml:"templateId"`
 }
 

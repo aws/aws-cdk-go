@@ -14,8 +14,11 @@ import (
 // The `AWS::AuditManager::Assessment` resource is an AWS Audit Manager resource type that defines the scope of audit evidence collected by Audit Manager . An Audit Manager assessment is an implementation of an Audit Manager framework.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import auditmanager "github.com/aws/aws-cdk-go/awscdk/aws_auditmanager"
-//   cfnAssessment := auditmanager.NewCfnAssessment(this, jsii.String("MyCfnAssessment"), &cfnAssessmentProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnAssessment := awscdk.Aws_auditmanager.NewCfnAssessment(this, jsii.String("MyCfnAssessment"), &cfnAssessmentProps{
 //   	assessmentReportsDestination: &assessmentReportsDestinationProperty{
 //   		destination: jsii.String("destination"),
 //   		destinationType: jsii.String("destinationType"),
@@ -899,7 +902,10 @@ func (c *jsiiProxy_CfnAssessment) ValidateProperties(_properties interface{}) {
 // The `AWSAccount` property type specifies the wrapper of the AWS account details, such as account ID, email address, and so on.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import auditmanager "github.com/aws/aws-cdk-go/awscdk/aws_auditmanager"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   aWSAccountProperty := &aWSAccountProperty{
 //   	emailAddress: jsii.String("emailAddress"),
 //   	id: jsii.String("id"),
@@ -908,30 +914,36 @@ func (c *jsiiProxy_CfnAssessment) ValidateProperties(_properties interface{}) {
 //
 type CfnAssessment_AWSAccountProperty struct {
 	// The email address that's associated with the AWS account .
-	EmailAddress *string `json:"emailAddress" yaml:"emailAddress"`
+	EmailAddress *string `field:"optional" json:"emailAddress" yaml:"emailAddress"`
 	// The identifier for the AWS account .
-	Id *string `json:"id" yaml:"id"`
+	Id *string `field:"optional" json:"id" yaml:"id"`
 	// The name of the AWS account .
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 
 // The `AWSService` property type specifies an AWS service such as Amazon S3 , AWS CloudTrail , and so on.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import auditmanager "github.com/aws/aws-cdk-go/awscdk/aws_auditmanager"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   aWSServiceProperty := &aWSServiceProperty{
 //   	serviceName: jsii.String("serviceName"),
 //   }
 //
 type CfnAssessment_AWSServiceProperty struct {
 	// The name of the AWS service .
-	ServiceName *string `json:"serviceName" yaml:"serviceName"`
+	ServiceName *string `field:"optional" json:"serviceName" yaml:"serviceName"`
 }
 
 // The `AssessmentReportsDestination` property type specifies the location in which AWS Audit Manager saves assessment reports for the given assessment.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import auditmanager "github.com/aws/aws-cdk-go/awscdk/aws_auditmanager"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   assessmentReportsDestinationProperty := &assessmentReportsDestinationProperty{
 //   	destination: jsii.String("destination"),
 //   	destinationType: jsii.String("destinationType"),
@@ -939,15 +951,18 @@ type CfnAssessment_AWSServiceProperty struct {
 //
 type CfnAssessment_AssessmentReportsDestinationProperty struct {
 	// The destination of the assessment report.
-	Destination *string `json:"destination" yaml:"destination"`
+	Destination *string `field:"optional" json:"destination" yaml:"destination"`
 	// The destination type, such as Amazon S3.
-	DestinationType *string `json:"destinationType" yaml:"destinationType"`
+	DestinationType *string `field:"optional" json:"destinationType" yaml:"destinationType"`
 }
 
 // The `Delegation` property type specifies the assignment of a control set to a delegate for review.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import auditmanager "github.com/aws/aws-cdk-go/awscdk/aws_auditmanager"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   delegationProperty := &delegationProperty{
 //   	assessmentId: jsii.String("assessmentId"),
 //   	assessmentName: jsii.String("assessmentName"),
@@ -964,13 +979,13 @@ type CfnAssessment_AssessmentReportsDestinationProperty struct {
 //
 type CfnAssessment_DelegationProperty struct {
 	// The identifier for the assessment that's associated with the delegation.
-	AssessmentId *string `json:"assessmentId" yaml:"assessmentId"`
+	AssessmentId *string `field:"optional" json:"assessmentId" yaml:"assessmentId"`
 	// The name of the assessment that's associated with the delegation.
-	AssessmentName *string `json:"assessmentName" yaml:"assessmentName"`
+	AssessmentName *string `field:"optional" json:"assessmentName" yaml:"assessmentName"`
 	// The comment that's related to the delegation.
-	Comment *string `json:"comment" yaml:"comment"`
+	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// The identifier for the control set that's associated with the delegation.
-	ControlSetId *string `json:"controlSetId" yaml:"controlSetId"`
+	ControlSetId *string `field:"optional" json:"controlSetId" yaml:"controlSetId"`
 	// The IAM user or role that created the delegation.
 	//
 	// *Minimum* : `1`
@@ -978,15 +993,15 @@ type CfnAssessment_DelegationProperty struct {
 	// *Maximum* : `100`
 	//
 	// *Pattern* : `^[a-zA-Z0-9-_()\\[\\]\\s]+$`.
-	CreatedBy *string `json:"createdBy" yaml:"createdBy"`
+	CreatedBy *string `field:"optional" json:"createdBy" yaml:"createdBy"`
 	// Specifies when the delegation was created.
-	CreationTime *float64 `json:"creationTime" yaml:"creationTime"`
+	CreationTime *float64 `field:"optional" json:"creationTime" yaml:"creationTime"`
 	// The unique identifier for the delegation.
-	Id *string `json:"id" yaml:"id"`
+	Id *string `field:"optional" json:"id" yaml:"id"`
 	// Specifies when the delegation was last updated.
-	LastUpdated *float64 `json:"lastUpdated" yaml:"lastUpdated"`
+	LastUpdated *float64 `field:"optional" json:"lastUpdated" yaml:"lastUpdated"`
 	// The Amazon Resource Name (ARN) of the IAM role.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// The type of customer persona.
 	//
 	// > In `CreateAssessment` , `roleType` can only be `PROCESS_OWNER` .
@@ -994,15 +1009,18 @@ type CfnAssessment_DelegationProperty struct {
 	// > In `UpdateSettings` , `roleType` can only be `PROCESS_OWNER` .
 	// >
 	// > In `BatchCreateDelegationByAssessment` , `roleType` can only be `RESOURCE_OWNER` .
-	RoleType *string `json:"roleType" yaml:"roleType"`
+	RoleType *string `field:"optional" json:"roleType" yaml:"roleType"`
 	// The status of the delegation.
-	Status *string `json:"status" yaml:"status"`
+	Status *string `field:"optional" json:"status" yaml:"status"`
 }
 
 // The `Role` property type specifies the wrapper that contains AWS Audit Manager role information, such as the role type and IAM Amazon Resource Name (ARN).
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import auditmanager "github.com/aws/aws-cdk-go/awscdk/aws_auditmanager"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   roleProperty := &roleProperty{
 //   	roleArn: jsii.String("roleArn"),
 //   	roleType: jsii.String("roleType"),
@@ -1010,7 +1028,7 @@ type CfnAssessment_DelegationProperty struct {
 //
 type CfnAssessment_RoleProperty struct {
 	// The Amazon Resource Name (ARN) of the IAM role.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// The type of customer persona.
 	//
 	// > In `CreateAssessment` , `roleType` can only be `PROCESS_OWNER` .
@@ -1018,13 +1036,16 @@ type CfnAssessment_RoleProperty struct {
 	// > In `UpdateSettings` , `roleType` can only be `PROCESS_OWNER` .
 	// >
 	// > In `BatchCreateDelegationByAssessment` , `roleType` can only be `RESOURCE_OWNER` .
-	RoleType *string `json:"roleType" yaml:"roleType"`
+	RoleType *string `field:"optional" json:"roleType" yaml:"roleType"`
 }
 
 // The `Scope` property type specifies the wrapper that contains the AWS accounts and services in scope for the assessment.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import auditmanager "github.com/aws/aws-cdk-go/awscdk/aws_auditmanager"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   scopeProperty := &scopeProperty{
 //   	awsAccounts: []interface{}{
 //   		&aWSAccountProperty{
@@ -1042,15 +1063,18 @@ type CfnAssessment_RoleProperty struct {
 //
 type CfnAssessment_ScopeProperty struct {
 	// The AWS accounts that are included in the scope of the assessment.
-	AwsAccounts interface{} `json:"awsAccounts" yaml:"awsAccounts"`
+	AwsAccounts interface{} `field:"optional" json:"awsAccounts" yaml:"awsAccounts"`
 	// The AWS services that are included in the scope of the assessment.
-	AwsServices interface{} `json:"awsServices" yaml:"awsServices"`
+	AwsServices interface{} `field:"optional" json:"awsServices" yaml:"awsServices"`
 }
 
 // Properties for defining a `CfnAssessment`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import auditmanager "github.com/aws/aws-cdk-go/awscdk/aws_auditmanager"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAssessmentProps := &cfnAssessmentProps{
 //   	assessmentReportsDestination: &assessmentReportsDestinationProperty{
 //   		destination: jsii.String("destination"),
@@ -1095,22 +1119,22 @@ type CfnAssessment_ScopeProperty struct {
 //
 type CfnAssessmentProps struct {
 	// The destination that evidence reports are stored in for the assessment.
-	AssessmentReportsDestination interface{} `json:"assessmentReportsDestination" yaml:"assessmentReportsDestination"`
+	AssessmentReportsDestination interface{} `field:"optional" json:"assessmentReportsDestination" yaml:"assessmentReportsDestination"`
 	// The AWS account that's associated with the assessment.
-	AwsAccount interface{} `json:"awsAccount" yaml:"awsAccount"`
+	AwsAccount interface{} `field:"optional" json:"awsAccount" yaml:"awsAccount"`
 	// The description of the assessment.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The unique identifier for the framework.
-	FrameworkId *string `json:"frameworkId" yaml:"frameworkId"`
+	FrameworkId *string `field:"optional" json:"frameworkId" yaml:"frameworkId"`
 	// The name of the assessment.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The roles that are associated with the assessment.
-	Roles interface{} `json:"roles" yaml:"roles"`
+	Roles interface{} `field:"optional" json:"roles" yaml:"roles"`
 	// The wrapper of AWS accounts and services that are in scope for the assessment.
-	Scope interface{} `json:"scope" yaml:"scope"`
+	Scope interface{} `field:"optional" json:"scope" yaml:"scope"`
 	// The overall status of the assessment.
-	Status *string `json:"status" yaml:"status"`
+	Status *string `field:"optional" json:"status" yaml:"status"`
 	// The tags that are associated with the assessment.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

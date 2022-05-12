@@ -16,8 +16,11 @@ import (
 // > Please note that when a user tries to do an Update operation via CloudFormation, changes to the Data Store name, Type Version, PreloadDataConfig, or SSEConfiguration will delete their existing Data Store for the stack and create a new one. This will lead to potential loss of data.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import healthlake "github.com/aws/aws-cdk-go/awscdk/aws_healthlake"
-//   cfnFHIRDatastore := healthlake.NewCfnFHIRDatastore(this, jsii.String("MyCfnFHIRDatastore"), &cfnFHIRDatastoreProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnFHIRDatastore := awscdk.Aws_healthlake.NewCfnFHIRDatastore(this, jsii.String("MyCfnFHIRDatastore"), &cfnFHIRDatastoreProps{
 //   	datastoreTypeVersion: jsii.String("datastoreTypeVersion"),
 //
 //   	// the properties below are optional
@@ -805,7 +808,10 @@ func (c *jsiiProxy_CfnFHIRDatastore) ValidateProperties(_properties interface{})
 // If a customer owned key is not specified, an Amazon owned key will be used for encryption.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import healthlake "github.com/aws/aws-cdk-go/awscdk/aws_healthlake"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   kmsEncryptionConfigProperty := &kmsEncryptionConfigProperty{
 //   	cmkType: jsii.String("cmkType"),
 //
@@ -817,9 +823,9 @@ type CfnFHIRDatastore_KmsEncryptionConfigProperty struct {
 	// The type of customer-managed-key(CMK) used for encryption.
 	//
 	// The two types of supported CMKs are customer owned CMKs and Amazon owned CMKs. For more information on CMK types, see [KmsEncryptionConfig](https://docs.aws.amazon.com/healthlake/latest/APIReference/API_KmsEncryptionConfig.html#HealthLake-Type-KmsEncryptionConfig-CmkType) .
-	CmkType *string `json:"cmkType" yaml:"cmkType"`
+	CmkType *string `field:"required" json:"cmkType" yaml:"cmkType"`
 	// The KMS encryption key id/alias used to encrypt the Data Store contents at rest.
-	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 }
 
 // Optional parameter to preload data upon creation of the Data Store.
@@ -827,7 +833,10 @@ type CfnFHIRDatastore_KmsEncryptionConfigProperty struct {
 // Currently, the only supported preloaded data is synthetic data generated from Synthea.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import healthlake "github.com/aws/aws-cdk-go/awscdk/aws_healthlake"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   preloadDataConfigProperty := &preloadDataConfigProperty{
 //   	preloadDataType: jsii.String("preloadDataType"),
 //   }
@@ -836,13 +845,16 @@ type CfnFHIRDatastore_PreloadDataConfigProperty struct {
 	// The type of preloaded data.
 	//
 	// Only Synthea preloaded data is supported.
-	PreloadDataType *string `json:"preloadDataType" yaml:"preloadDataType"`
+	PreloadDataType *string `field:"required" json:"preloadDataType" yaml:"preloadDataType"`
 }
 
 // The server-side encryption key configuration for a customer provided encryption key.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import healthlake "github.com/aws/aws-cdk-go/awscdk/aws_healthlake"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sseConfigurationProperty := &sseConfigurationProperty{
 //   	kmsEncryptionConfig: &kmsEncryptionConfigProperty{
 //   		cmkType: jsii.String("cmkType"),
@@ -854,13 +866,16 @@ type CfnFHIRDatastore_PreloadDataConfigProperty struct {
 //
 type CfnFHIRDatastore_SseConfigurationProperty struct {
 	// The server-side encryption key configuration for a customer provided encryption key (CMK).
-	KmsEncryptionConfig interface{} `json:"kmsEncryptionConfig" yaml:"kmsEncryptionConfig"`
+	KmsEncryptionConfig interface{} `field:"required" json:"kmsEncryptionConfig" yaml:"kmsEncryptionConfig"`
 }
 
 // Properties for defining a `CfnFHIRDatastore`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import healthlake "github.com/aws/aws-cdk-go/awscdk/aws_healthlake"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnFHIRDatastoreProps := &cfnFHIRDatastoreProps{
 //   	datastoreTypeVersion: jsii.String("datastoreTypeVersion"),
 //
@@ -889,18 +904,18 @@ type CfnFHIRDatastoreProps struct {
 	// The FHIR version of the Data Store.
 	//
 	// The only supported version is R4.
-	DatastoreTypeVersion *string `json:"datastoreTypeVersion" yaml:"datastoreTypeVersion"`
+	DatastoreTypeVersion *string `field:"required" json:"datastoreTypeVersion" yaml:"datastoreTypeVersion"`
 	// The user generated name for the Data Store.
-	DatastoreName *string `json:"datastoreName" yaml:"datastoreName"`
+	DatastoreName *string `field:"optional" json:"datastoreName" yaml:"datastoreName"`
 	// The preloaded data configuration for the Data Store.
 	//
 	// Only data preloaded from Synthea is supported.
-	PreloadDataConfig interface{} `json:"preloadDataConfig" yaml:"preloadDataConfig"`
+	PreloadDataConfig interface{} `field:"optional" json:"preloadDataConfig" yaml:"preloadDataConfig"`
 	// The server-side encryption key configuration for a customer provided encryption key specified for creating a Data Store.
-	SseConfiguration interface{} `json:"sseConfiguration" yaml:"sseConfiguration"`
+	SseConfiguration interface{} `field:"optional" json:"sseConfiguration" yaml:"sseConfiguration"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

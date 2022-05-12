@@ -14,8 +14,11 @@ import (
 // Creates a running app for the specified UserProfile. Supported apps are `JupyterServer` and `KernelGateway` . This operation is automatically invoked by Amazon SageMaker Studio upon access to the associated Domain, and when new kernel configurations are selected by the user. A user may have multiple Apps active simultaneously.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
-//   cfnApp := sagemaker.NewCfnApp(this, jsii.String("MyCfnApp"), &cfnAppProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnApp := awscdk.Aws_sagemaker.NewCfnApp(this, jsii.String("MyCfnApp"), &cfnAppProps{
 //   	appName: jsii.String("appName"),
 //   	appType: jsii.String("appType"),
 //   	domainId: jsii.String("domainId"),
@@ -776,7 +779,10 @@ func (c *jsiiProxy_CfnApp) ValidateProperties(_properties interface{}) {
 // Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   resourceSpecProperty := &resourceSpecProperty{
 //   	instanceType: jsii.String("instanceType"),
 //   	sageMakerImageArn: jsii.String("sageMakerImageArn"),
@@ -787,11 +793,11 @@ type CfnApp_ResourceSpecProperty struct {
 	// The instance type that the image version runs on.
 	//
 	// > JupyterServer Apps only support the `system` value. KernelGateway Apps do not support the `system` value, but support all other values for available instance types.
-	InstanceType *string `json:"instanceType" yaml:"instanceType"`
+	InstanceType *string `field:"optional" json:"instanceType" yaml:"instanceType"`
 	// The ARN of the SageMaker image that the image version belongs to.
-	SageMakerImageArn *string `json:"sageMakerImageArn" yaml:"sageMakerImageArn"`
+	SageMakerImageArn *string `field:"optional" json:"sageMakerImageArn" yaml:"sageMakerImageArn"`
 	// The ARN of the image version created on the instance.
-	SageMakerImageVersionArn *string `json:"sageMakerImageVersionArn" yaml:"sageMakerImageVersionArn"`
+	SageMakerImageVersionArn *string `field:"optional" json:"sageMakerImageVersionArn" yaml:"sageMakerImageVersionArn"`
 }
 
 // A CloudFormation `AWS::SageMaker::AppImageConfig`.
@@ -799,8 +805,11 @@ type CfnApp_ResourceSpecProperty struct {
 // Creates a configuration for running a SageMaker image as a KernelGateway app. The configuration specifies the Amazon Elastic File System (EFS) storage volume on the image, and a list of the kernels in the image.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
-//   cfnAppImageConfig := sagemaker.NewCfnAppImageConfig(this, jsii.String("MyCfnAppImageConfig"), &cfnAppImageConfigProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnAppImageConfig := awscdk.Aws_sagemaker.NewCfnAppImageConfig(this, jsii.String("MyCfnAppImageConfig"), &cfnAppImageConfigProps{
 //   	appImageConfigName: jsii.String("appImageConfigName"),
 //
 //   	// the properties below are optional
@@ -1507,7 +1516,10 @@ func (c *jsiiProxy_CfnAppImageConfig) ValidateProperties(_properties interface{}
 // The Amazon Elastic File System (EFS) storage configuration for a SageMaker image.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   fileSystemConfigProperty := &fileSystemConfigProperty{
 //   	defaultGid: jsii.Number(123),
 //   	defaultUid: jsii.Number(123),
@@ -1518,21 +1530,24 @@ type CfnAppImageConfig_FileSystemConfigProperty struct {
 	// The default POSIX group ID (GID).
 	//
 	// If not specified, defaults to `100` .
-	DefaultGid *float64 `json:"defaultGid" yaml:"defaultGid"`
+	DefaultGid *float64 `field:"optional" json:"defaultGid" yaml:"defaultGid"`
 	// The default POSIX user ID (UID).
 	//
 	// If not specified, defaults to `1000` .
-	DefaultUid *float64 `json:"defaultUid" yaml:"defaultUid"`
+	DefaultUid *float64 `field:"optional" json:"defaultUid" yaml:"defaultUid"`
 	// The path within the image to mount the user's EFS home directory.
 	//
 	// The directory should be empty. If not specified, defaults to * /home/sagemaker-user* .
-	MountPath *string `json:"mountPath" yaml:"mountPath"`
+	MountPath *string `field:"optional" json:"mountPath" yaml:"mountPath"`
 }
 
 // The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   kernelGatewayImageConfigProperty := &kernelGatewayImageConfigProperty{
 //   	kernelSpecs: []interface{}{
 //   		&kernelSpecProperty{
@@ -1553,15 +1568,18 @@ type CfnAppImageConfig_FileSystemConfigProperty struct {
 //
 type CfnAppImageConfig_KernelGatewayImageConfigProperty struct {
 	// The specification of the Jupyter kernels in the image.
-	KernelSpecs interface{} `json:"kernelSpecs" yaml:"kernelSpecs"`
+	KernelSpecs interface{} `field:"required" json:"kernelSpecs" yaml:"kernelSpecs"`
 	// The Amazon Elastic File System (EFS) storage configuration for a SageMaker image.
-	FileSystemConfig interface{} `json:"fileSystemConfig" yaml:"fileSystemConfig"`
+	FileSystemConfig interface{} `field:"optional" json:"fileSystemConfig" yaml:"fileSystemConfig"`
 }
 
 // The specification of a Jupyter kernel.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   kernelSpecProperty := &kernelSpecProperty{
 //   	name: jsii.String("name"),
 //
@@ -1573,15 +1591,18 @@ type CfnAppImageConfig_KernelSpecProperty struct {
 	// The name of the Jupyter kernel in the image.
 	//
 	// This value is case sensitive.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The display name of the kernel.
-	DisplayName *string `json:"displayName" yaml:"displayName"`
+	DisplayName *string `field:"optional" json:"displayName" yaml:"displayName"`
 }
 
 // Properties for defining a `CfnAppImageConfig`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAppImageConfigProps := &cfnAppImageConfigProps{
 //   	appImageConfigName: jsii.String("appImageConfigName"),
 //
@@ -1615,19 +1636,22 @@ type CfnAppImageConfigProps struct {
 	// The name of the AppImageConfig.
 	//
 	// Must be unique to your account.
-	AppImageConfigName *string `json:"appImageConfigName" yaml:"appImageConfigName"`
+	AppImageConfigName *string `field:"required" json:"appImageConfigName" yaml:"appImageConfigName"`
 	// The configuration for the file system and kernels in the SageMaker image.
-	KernelGatewayImageConfig interface{} `json:"kernelGatewayImageConfig" yaml:"kernelGatewayImageConfig"`
+	KernelGatewayImageConfig interface{} `field:"optional" json:"kernelGatewayImageConfig" yaml:"kernelGatewayImageConfig"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // Properties for defining a `CfnApp`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAppProps := &cfnAppProps{
 //   	appName: jsii.String("appName"),
 //   	appType: jsii.String("appType"),
@@ -1650,21 +1674,21 @@ type CfnAppImageConfigProps struct {
 //
 type CfnAppProps struct {
 	// The name of the app.
-	AppName *string `json:"appName" yaml:"appName"`
+	AppName *string `field:"required" json:"appName" yaml:"appName"`
 	// The type of app.
 	//
 	// *Allowed Values* : `JupyterServer | KernelGateway | RSessionGateway | RStudioServerPro | TensorBoard | Canvas`.
-	AppType *string `json:"appType" yaml:"appType"`
+	AppType *string `field:"required" json:"appType" yaml:"appType"`
 	// The domain ID.
-	DomainId *string `json:"domainId" yaml:"domainId"`
+	DomainId *string `field:"required" json:"domainId" yaml:"domainId"`
 	// The user profile name.
-	UserProfileName *string `json:"userProfileName" yaml:"userProfileName"`
+	UserProfileName *string `field:"required" json:"userProfileName" yaml:"userProfileName"`
 	// Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
-	ResourceSpec interface{} `json:"resourceSpec" yaml:"resourceSpec"`
+	ResourceSpec interface{} `field:"optional" json:"resourceSpec" yaml:"resourceSpec"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::SageMaker::CodeRepository`.
@@ -1674,8 +1698,11 @@ type CfnAppProps struct {
 // The repository can be hosted either in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
-//   cfnCodeRepository := sagemaker.NewCfnCodeRepository(this, jsii.String("MyCfnCodeRepository"), &cfnCodeRepositoryProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnCodeRepository := awscdk.Aws_sagemaker.NewCfnCodeRepository(this, jsii.String("MyCfnCodeRepository"), &cfnCodeRepositoryProps{
 //   	gitConfig: &gitConfigProperty{
 //   		repositoryUrl: jsii.String("repositoryUrl"),
 //
@@ -2368,7 +2395,10 @@ func (c *jsiiProxy_CfnCodeRepository) ValidateProperties(_properties interface{}
 // Specifies configuration details for a Git repository in your AWS account.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   gitConfigProperty := &gitConfigProperty{
 //   	repositoryUrl: jsii.String("repositoryUrl"),
 //
@@ -2379,21 +2409,24 @@ func (c *jsiiProxy_CfnCodeRepository) ValidateProperties(_properties interface{}
 //
 type CfnCodeRepository_GitConfigProperty struct {
 	// The URL where the Git repository is located.
-	RepositoryUrl *string `json:"repositoryUrl" yaml:"repositoryUrl"`
+	RepositoryUrl *string `field:"required" json:"repositoryUrl" yaml:"repositoryUrl"`
 	// The default branch for the Git repository.
-	Branch *string `json:"branch" yaml:"branch"`
+	Branch *string `field:"optional" json:"branch" yaml:"branch"`
 	// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository.
 	//
 	// The secret must have a staging label of `AWSCURRENT` and must be in the following format:
 	//
 	// `{"username": *UserName* , "password": *Password* }`.
-	SecretArn *string `json:"secretArn" yaml:"secretArn"`
+	SecretArn *string `field:"optional" json:"secretArn" yaml:"secretArn"`
 }
 
 // Properties for defining a `CfnCodeRepository`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnCodeRepositoryProps := &cfnCodeRepositoryProps{
 //   	gitConfig: &gitConfigProperty{
 //   		repositoryUrl: jsii.String("repositoryUrl"),
@@ -2415,11 +2448,11 @@ type CfnCodeRepository_GitConfigProperty struct {
 //
 type CfnCodeRepositoryProps struct {
 	// Configuration details for the Git repository, including the URL where it is located and the ARN of the AWS Secrets Manager secret that contains the credentials used to access the repository.
-	GitConfig interface{} `json:"gitConfig" yaml:"gitConfig"`
+	GitConfig interface{} `field:"required" json:"gitConfig" yaml:"gitConfig"`
 	// The name of the Git repository.
-	CodeRepositoryName *string `json:"codeRepositoryName" yaml:"codeRepositoryName"`
+	CodeRepositoryName *string `field:"optional" json:"codeRepositoryName" yaml:"codeRepositoryName"`
 	// List of tags for Code Repository.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::SageMaker::DataQualityJobDefinition`.
@@ -2427,8 +2460,11 @@ type CfnCodeRepositoryProps struct {
 // Creates a definition for a job that monitors data quality and drift. For information about model monitor, see [Amazon SageMaker Model Monitor](https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
-//   cfnDataQualityJobDefinition := sagemaker.NewCfnDataQualityJobDefinition(this, jsii.String("MyCfnDataQualityJobDefinition"), &cfnDataQualityJobDefinitionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDataQualityJobDefinition := awscdk.Aws_sagemaker.NewCfnDataQualityJobDefinition(this, jsii.String("MyCfnDataQualityJobDefinition"), &cfnDataQualityJobDefinitionProps{
 //   	dataQualityAppSpecification: &dataQualityAppSpecificationProperty{
 //   		imageUri: jsii.String("imageUri"),
 //
@@ -3354,7 +3390,10 @@ func (c *jsiiProxy_CfnDataQualityJobDefinition) ValidateProperties(_properties i
 // The configuration for the cluster of resources used to run the processing job.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   clusterConfigProperty := &clusterConfigProperty{
 //   	instanceCount: jsii.Number(123),
 //   	instanceType: jsii.String("instanceType"),
@@ -3368,34 +3407,40 @@ type CfnDataQualityJobDefinition_ClusterConfigProperty struct {
 	// The number of ML compute instances to use in the model monitoring job.
 	//
 	// For distributed processing jobs, specify a value greater than 1. The default value is 1.
-	InstanceCount *float64 `json:"instanceCount" yaml:"instanceCount"`
+	InstanceCount *float64 `field:"required" json:"instanceCount" yaml:"instanceCount"`
 	// `CfnDataQualityJobDefinition.ClusterConfigProperty.InstanceType`.
-	InstanceType *string `json:"instanceType" yaml:"instanceType"`
+	InstanceType *string `field:"required" json:"instanceType" yaml:"instanceType"`
 	// The size of the ML storage volume, in gigabytes, that you want to provision.
 	//
 	// You must specify sufficient ML storage for your scenario.
-	VolumeSizeInGb *float64 `json:"volumeSizeInGb" yaml:"volumeSizeInGb"`
+	VolumeSizeInGb *float64 `field:"required" json:"volumeSizeInGb" yaml:"volumeSizeInGb"`
 	// The AWS Key Management Service ( AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
-	VolumeKmsKeyId *string `json:"volumeKmsKeyId" yaml:"volumeKmsKeyId"`
+	VolumeKmsKeyId *string `field:"optional" json:"volumeKmsKeyId" yaml:"volumeKmsKeyId"`
 }
 
 // The constraints resource for a monitoring job.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   constraintsResourceProperty := &constraintsResourceProperty{
 //   	s3Uri: jsii.String("s3Uri"),
 //   }
 //
 type CfnDataQualityJobDefinition_ConstraintsResourceProperty struct {
 	// The Amazon S3 URI for the constraints resource.
-	S3Uri *string `json:"s3Uri" yaml:"s3Uri"`
+	S3Uri *string `field:"optional" json:"s3Uri" yaml:"s3Uri"`
 }
 
 // Information about the container that a data quality monitoring job runs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dataQualityAppSpecificationProperty := &dataQualityAppSpecificationProperty{
 //   	imageUri: jsii.String("imageUri"),
 //
@@ -3415,21 +3460,21 @@ type CfnDataQualityJobDefinition_ConstraintsResourceProperty struct {
 //
 type CfnDataQualityJobDefinition_DataQualityAppSpecificationProperty struct {
 	// The container image that the data quality monitoring job runs.
-	ImageUri *string `json:"imageUri" yaml:"imageUri"`
+	ImageUri *string `field:"required" json:"imageUri" yaml:"imageUri"`
 	// The arguments to send to the container that the monitoring job runs.
-	ContainerArguments *[]*string `json:"containerArguments" yaml:"containerArguments"`
+	ContainerArguments *[]*string `field:"optional" json:"containerArguments" yaml:"containerArguments"`
 	// The entrypoint for a container used to run a monitoring job.
-	ContainerEntrypoint *[]*string `json:"containerEntrypoint" yaml:"containerEntrypoint"`
+	ContainerEntrypoint *[]*string `field:"optional" json:"containerEntrypoint" yaml:"containerEntrypoint"`
 	// Sets the environment variables in the container that the monitoring job runs.
-	Environment interface{} `json:"environment" yaml:"environment"`
+	Environment interface{} `field:"optional" json:"environment" yaml:"environment"`
 	// An Amazon S3 URI to a script that is called after analysis has been performed.
 	//
 	// Applicable only for the built-in (first party) containers.
-	PostAnalyticsProcessorSourceUri *string `json:"postAnalyticsProcessorSourceUri" yaml:"postAnalyticsProcessorSourceUri"`
+	PostAnalyticsProcessorSourceUri *string `field:"optional" json:"postAnalyticsProcessorSourceUri" yaml:"postAnalyticsProcessorSourceUri"`
 	// An Amazon S3 URI to a script that is called per row prior to running analysis.
 	//
 	// It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.
-	RecordPreprocessorSourceUri *string `json:"recordPreprocessorSourceUri" yaml:"recordPreprocessorSourceUri"`
+	RecordPreprocessorSourceUri *string `field:"optional" json:"recordPreprocessorSourceUri" yaml:"recordPreprocessorSourceUri"`
 }
 
 // Configuration for monitoring constraints and monitoring statistics.
@@ -3437,7 +3482,10 @@ type CfnDataQualityJobDefinition_DataQualityAppSpecificationProperty struct {
 // These baseline resources are compared against the results of the current job from the series of jobs scheduled to collect data periodically.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dataQualityBaselineConfigProperty := &dataQualityBaselineConfigProperty{
 //   	baseliningJobName: jsii.String("baseliningJobName"),
 //   	constraintsResource: &constraintsResourceProperty{
@@ -3450,13 +3498,13 @@ type CfnDataQualityJobDefinition_DataQualityAppSpecificationProperty struct {
 //
 type CfnDataQualityJobDefinition_DataQualityBaselineConfigProperty struct {
 	// The name of the job that performs baselining for the data quality monitoring job.
-	BaseliningJobName *string `json:"baseliningJobName" yaml:"baseliningJobName"`
+	BaseliningJobName *string `field:"optional" json:"baseliningJobName" yaml:"baseliningJobName"`
 	// The constraints resource for a monitoring job.
-	ConstraintsResource interface{} `json:"constraintsResource" yaml:"constraintsResource"`
+	ConstraintsResource interface{} `field:"optional" json:"constraintsResource" yaml:"constraintsResource"`
 	// Configuration for monitoring constraints and monitoring statistics.
 	//
 	// These baseline resources are compared against the results of the current job from the series of jobs scheduled to collect data periodically.
-	StatisticsResource interface{} `json:"statisticsResource" yaml:"statisticsResource"`
+	StatisticsResource interface{} `field:"optional" json:"statisticsResource" yaml:"statisticsResource"`
 }
 
 // The input for the data quality monitoring job.
@@ -3464,7 +3512,10 @@ type CfnDataQualityJobDefinition_DataQualityBaselineConfigProperty struct {
 // Currently endpoints are supported for input.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dataQualityJobInputProperty := &dataQualityJobInputProperty{
 //   	endpointInput: &endpointInputProperty{
 //   		endpointName: jsii.String("endpointName"),
@@ -3478,13 +3529,16 @@ type CfnDataQualityJobDefinition_DataQualityBaselineConfigProperty struct {
 //
 type CfnDataQualityJobDefinition_DataQualityJobInputProperty struct {
 	// `CfnDataQualityJobDefinition.DataQualityJobInputProperty.EndpointInput`.
-	EndpointInput interface{} `json:"endpointInput" yaml:"endpointInput"`
+	EndpointInput interface{} `field:"required" json:"endpointInput" yaml:"endpointInput"`
 }
 
 // Input object for the endpoint.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   endpointInputProperty := &endpointInputProperty{
 //   	endpointName: jsii.String("endpointName"),
 //   	localPath: jsii.String("localPath"),
@@ -3496,23 +3550,26 @@ type CfnDataQualityJobDefinition_DataQualityJobInputProperty struct {
 //
 type CfnDataQualityJobDefinition_EndpointInputProperty struct {
 	// An endpoint in customer's account which has enabled `DataCaptureConfig` enabled.
-	EndpointName *string `json:"endpointName" yaml:"endpointName"`
+	EndpointName *string `field:"required" json:"endpointName" yaml:"endpointName"`
 	// Path to the filesystem where the endpoint data is available to the container.
-	LocalPath *string `json:"localPath" yaml:"localPath"`
+	LocalPath *string `field:"required" json:"localPath" yaml:"localPath"`
 	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key.
 	//
 	// Defaults to `FullyReplicated`.
-	S3DataDistributionType *string `json:"s3DataDistributionType" yaml:"s3DataDistributionType"`
+	S3DataDistributionType *string `field:"optional" json:"s3DataDistributionType" yaml:"s3DataDistributionType"`
 	// Whether the `Pipe` or `File` is used as the input mode for transferring data for the monitoring job.
 	//
 	// `Pipe` mode is recommended for large datasets. `File` mode is useful for small files that fit in memory. Defaults to `File` .
-	S3InputMode *string `json:"s3InputMode" yaml:"s3InputMode"`
+	S3InputMode *string `field:"optional" json:"s3InputMode" yaml:"s3InputMode"`
 }
 
 // The output configuration for monitoring jobs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   monitoringOutputConfigProperty := &monitoringOutputConfigProperty{
 //   	monitoringOutputs: []interface{}{
 //   		&monitoringOutputProperty{
@@ -3534,15 +3591,18 @@ type CfnDataQualityJobDefinition_MonitoringOutputConfigProperty struct {
 	// Monitoring outputs for monitoring jobs.
 	//
 	// This is where the output of the periodic monitoring jobs is uploaded.
-	MonitoringOutputs interface{} `json:"monitoringOutputs" yaml:"monitoringOutputs"`
+	MonitoringOutputs interface{} `field:"required" json:"monitoringOutputs" yaml:"monitoringOutputs"`
 	// The AWS Key Management Service ( AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
-	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 }
 
 // The output object for a monitoring job.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   monitoringOutputProperty := &monitoringOutputProperty{
 //   	s3Output: &s3OutputProperty{
 //   		localPath: jsii.String("localPath"),
@@ -3555,13 +3615,16 @@ type CfnDataQualityJobDefinition_MonitoringOutputConfigProperty struct {
 //
 type CfnDataQualityJobDefinition_MonitoringOutputProperty struct {
 	// The Amazon S3 storage location where the results of a monitoring job are saved.
-	S3Output interface{} `json:"s3Output" yaml:"s3Output"`
+	S3Output interface{} `field:"required" json:"s3Output" yaml:"s3Output"`
 }
 
 // Identifies the resources to deploy for a monitoring job.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   monitoringResourcesProperty := &monitoringResourcesProperty{
 //   	clusterConfig: &clusterConfigProperty{
 //   		instanceCount: jsii.Number(123),
@@ -3575,13 +3638,16 @@ type CfnDataQualityJobDefinition_MonitoringOutputProperty struct {
 //
 type CfnDataQualityJobDefinition_MonitoringResourcesProperty struct {
 	// The configuration for the cluster resources used to run the processing job.
-	ClusterConfig interface{} `json:"clusterConfig" yaml:"clusterConfig"`
+	ClusterConfig interface{} `field:"required" json:"clusterConfig" yaml:"clusterConfig"`
 }
 
 // Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   networkConfigProperty := &networkConfigProperty{
 //   	enableInterContainerTrafficEncryption: jsii.Boolean(false),
 //   	enableNetworkIsolation: jsii.Boolean(false),
@@ -3599,19 +3665,22 @@ type CfnDataQualityJobDefinition_NetworkConfigProperty struct {
 	// Whether to encrypt all communications between distributed processing jobs.
 	//
 	// Choose `True` to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
-	EnableInterContainerTrafficEncryption interface{} `json:"enableInterContainerTrafficEncryption" yaml:"enableInterContainerTrafficEncryption"`
+	EnableInterContainerTrafficEncryption interface{} `field:"optional" json:"enableInterContainerTrafficEncryption" yaml:"enableInterContainerTrafficEncryption"`
 	// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
-	EnableNetworkIsolation interface{} `json:"enableNetworkIsolation" yaml:"enableNetworkIsolation"`
+	EnableNetworkIsolation interface{} `field:"optional" json:"enableNetworkIsolation" yaml:"enableNetworkIsolation"`
 	// Specifies a VPC that your training jobs and hosted models have access to.
 	//
 	// Control access to and from your training and model containers by configuring the VPC.
-	VpcConfig interface{} `json:"vpcConfig" yaml:"vpcConfig"`
+	VpcConfig interface{} `field:"optional" json:"vpcConfig" yaml:"vpcConfig"`
 }
 
 // The Amazon S3 storage location where the results of a monitoring job are saved.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3OutputProperty := &s3OutputProperty{
 //   	localPath: jsii.String("localPath"),
 //   	s3Uri: jsii.String("s3Uri"),
@@ -3624,24 +3693,27 @@ type CfnDataQualityJobDefinition_S3OutputProperty struct {
 	// The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
 	//
 	// LocalPath is an absolute path for the output data.
-	LocalPath *string `json:"localPath" yaml:"localPath"`
+	LocalPath *string `field:"required" json:"localPath" yaml:"localPath"`
 	// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
-	S3Uri *string `json:"s3Uri" yaml:"s3Uri"`
+	S3Uri *string `field:"required" json:"s3Uri" yaml:"s3Uri"`
 	// Whether to upload the results of the monitoring job continuously or after the job completes.
-	S3UploadMode *string `json:"s3UploadMode" yaml:"s3UploadMode"`
+	S3UploadMode *string `field:"optional" json:"s3UploadMode" yaml:"s3UploadMode"`
 }
 
 // The statistics resource for a monitoring job.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   statisticsResourceProperty := &statisticsResourceProperty{
 //   	s3Uri: jsii.String("s3Uri"),
 //   }
 //
 type CfnDataQualityJobDefinition_StatisticsResourceProperty struct {
 	// The Amazon S3 URI for the statistics resource.
-	S3Uri *string `json:"s3Uri" yaml:"s3Uri"`
+	S3Uri *string `field:"optional" json:"s3Uri" yaml:"s3Uri"`
 }
 
 // Specifies a limit to how long a model training job or model compilation job can run.
@@ -3655,7 +3727,10 @@ type CfnDataQualityJobDefinition_StatisticsResourceProperty struct {
 // > The Neural Topic Model (NTM) currently does not support saving intermediate model artifacts. When training NTMs, make sure that the maximum runtime is sufficient for the training job to complete.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   stoppingConditionProperty := &stoppingConditionProperty{
 //   	maxRuntimeInSeconds: jsii.Number(123),
 //   }
@@ -3666,7 +3741,7 @@ type CfnDataQualityJobDefinition_StoppingConditionProperty struct {
 	// For compilation jobs, if the job does not complete during this time, a `TimeOut` error is generated. We recommend starting with 900 seconds and increasing as necessary based on your model.
 	//
 	// For all other jobs, if the job does not complete during this time, SageMaker ends the job. When `RetryStrategy` is specified in the job request, `MaxRuntimeInSeconds` specifies the maximum time for all of the attempts in total, not each individual attempt. The default value is 1 day. The maximum value is 28 days.
-	MaxRuntimeInSeconds *float64 `json:"maxRuntimeInSeconds" yaml:"maxRuntimeInSeconds"`
+	MaxRuntimeInSeconds *float64 `field:"required" json:"maxRuntimeInSeconds" yaml:"maxRuntimeInSeconds"`
 }
 
 // Specifies a VPC that your training jobs and hosted models have access to.
@@ -3674,7 +3749,10 @@ type CfnDataQualityJobDefinition_StoppingConditionProperty struct {
 // Control access to and from your training and model containers by configuring the VPC. For more information, see [Protect Endpoints by Using an Amazon Virtual Private Cloud](https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html) and [Protect Training Jobs by Using an Amazon Virtual Private Cloud](https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   vpcConfigProperty := &vpcConfigProperty{
 //   	securityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
@@ -3688,17 +3766,20 @@ type CfnDataQualityJobDefinition_VpcConfigProperty struct {
 	// The VPC security group IDs, in the form sg-xxxxxxxx.
 	//
 	// Specify the security groups for the VPC that is specified in the `Subnets` field.
-	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
+	SecurityGroupIds *[]*string `field:"required" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// The ID of the subnets in the VPC to which you want to connect your training job or model.
 	//
 	// For information about the availability of specific instance types, see [Supported Instance Types and Availability Zones](https://docs.aws.amazon.com/sagemaker/latest/dg/instance-types-az.html) .
-	Subnets *[]*string `json:"subnets" yaml:"subnets"`
+	Subnets *[]*string `field:"required" json:"subnets" yaml:"subnets"`
 }
 
 // Properties for defining a `CfnDataQualityJobDefinition`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDataQualityJobDefinitionProps := &cfnDataQualityJobDefinitionProps{
 //   	dataQualityAppSpecification: &dataQualityAppSpecificationProperty{
 //   		imageUri: jsii.String("imageUri"),
@@ -3790,29 +3871,29 @@ type CfnDataQualityJobDefinition_VpcConfigProperty struct {
 //
 type CfnDataQualityJobDefinitionProps struct {
 	// Specifies the container that runs the monitoring job.
-	DataQualityAppSpecification interface{} `json:"dataQualityAppSpecification" yaml:"dataQualityAppSpecification"`
+	DataQualityAppSpecification interface{} `field:"required" json:"dataQualityAppSpecification" yaml:"dataQualityAppSpecification"`
 	// A list of inputs for the monitoring job.
 	//
 	// Currently endpoints are supported as monitoring inputs.
-	DataQualityJobInput interface{} `json:"dataQualityJobInput" yaml:"dataQualityJobInput"`
+	DataQualityJobInput interface{} `field:"required" json:"dataQualityJobInput" yaml:"dataQualityJobInput"`
 	// The output configuration for monitoring jobs.
-	DataQualityJobOutputConfig interface{} `json:"dataQualityJobOutputConfig" yaml:"dataQualityJobOutputConfig"`
+	DataQualityJobOutputConfig interface{} `field:"required" json:"dataQualityJobOutputConfig" yaml:"dataQualityJobOutputConfig"`
 	// Identifies the resources to deploy for a monitoring job.
-	JobResources interface{} `json:"jobResources" yaml:"jobResources"`
+	JobResources interface{} `field:"required" json:"jobResources" yaml:"jobResources"`
 	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// Configures the constraints and baselines for the monitoring job.
-	DataQualityBaselineConfig interface{} `json:"dataQualityBaselineConfig" yaml:"dataQualityBaselineConfig"`
+	DataQualityBaselineConfig interface{} `field:"optional" json:"dataQualityBaselineConfig" yaml:"dataQualityBaselineConfig"`
 	// The name for the monitoring job definition.
-	JobDefinitionName *string `json:"jobDefinitionName" yaml:"jobDefinitionName"`
+	JobDefinitionName *string `field:"optional" json:"jobDefinitionName" yaml:"jobDefinitionName"`
 	// Specifies networking configuration for the monitoring job.
-	NetworkConfig interface{} `json:"networkConfig" yaml:"networkConfig"`
+	NetworkConfig interface{} `field:"optional" json:"networkConfig" yaml:"networkConfig"`
 	// A time limit for how long the monitoring job is allowed to run before stopping.
-	StoppingCondition interface{} `json:"stoppingCondition" yaml:"stoppingCondition"`
+	StoppingCondition interface{} `field:"optional" json:"stoppingCondition" yaml:"stoppingCondition"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::SageMaker::Device`.
@@ -3820,8 +3901,11 @@ type CfnDataQualityJobDefinitionProps struct {
 // The `AWS::SageMaker::Device` resource is an Amazon SageMaker resource type that allows you to register your Devices against an existing SageMaker Edge Manager DeviceFleet. Each device must be listed individually in the CFN specification.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
-//   cfnDevice := sagemaker.NewCfnDevice(this, jsii.String("MyCfnDevice"), &cfnDeviceProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDevice := awscdk.Aws_sagemaker.NewCfnDevice(this, jsii.String("MyCfnDevice"), &cfnDeviceProps{
 //   	deviceFleetName: jsii.String("deviceFleetName"),
 //
 //   	// the properties below are optional
@@ -4504,7 +4588,10 @@ func (c *jsiiProxy_CfnDevice) ValidateProperties(_properties interface{}) {
 // Information of a particular device.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   deviceProperty := &deviceProperty{
 //   	deviceName: jsii.String("deviceName"),
 //
@@ -4515,11 +4602,11 @@ func (c *jsiiProxy_CfnDevice) ValidateProperties(_properties interface{}) {
 //
 type CfnDevice_DeviceProperty struct {
 	// The name of the device.
-	DeviceName *string `json:"deviceName" yaml:"deviceName"`
+	DeviceName *string `field:"required" json:"deviceName" yaml:"deviceName"`
 	// Description of the device.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// AWS Internet of Things (IoT) object name.
-	IotThingName *string `json:"iotThingName" yaml:"iotThingName"`
+	IotThingName *string `field:"optional" json:"iotThingName" yaml:"iotThingName"`
 }
 
 // A CloudFormation `AWS::SageMaker::DeviceFleet`.
@@ -4527,8 +4614,11 @@ type CfnDevice_DeviceProperty struct {
 // The `AWS::SageMaker::DeviceFleet` resource is an Amazon SageMaker resource type that allows you to create a DeviceFleet that manages your SageMaker Edge Manager Devices. You must register your devices against the `DeviceFleet` separately.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
-//   cfnDeviceFleet := sagemaker.NewCfnDeviceFleet(this, jsii.String("MyCfnDeviceFleet"), &cfnDeviceFleetProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDeviceFleet := awscdk.Aws_sagemaker.NewCfnDeviceFleet(this, jsii.String("MyCfnDeviceFleet"), &cfnDeviceFleetProps{
 //   	deviceFleetName: jsii.String("deviceFleetName"),
 //   	outputConfig: &edgeOutputConfigProperty{
 //   		s3OutputLocation: jsii.String("s3OutputLocation"),
@@ -5254,7 +5344,10 @@ func (c *jsiiProxy_CfnDeviceFleet) ValidateProperties(_properties interface{}) {
 // The output configuration for storing sample data collected by the fleet.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   edgeOutputConfigProperty := &edgeOutputConfigProperty{
 //   	s3OutputLocation: jsii.String("s3OutputLocation"),
 //
@@ -5264,17 +5357,20 @@ func (c *jsiiProxy_CfnDeviceFleet) ValidateProperties(_properties interface{}) {
 //
 type CfnDeviceFleet_EdgeOutputConfigProperty struct {
 	// The Amazon Simple Storage (S3) bucket URI.
-	S3OutputLocation *string `json:"s3OutputLocation" yaml:"s3OutputLocation"`
+	S3OutputLocation *string `field:"required" json:"s3OutputLocation" yaml:"s3OutputLocation"`
 	// The AWS Key Management Service ( AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume after compilation job.
 	//
 	// If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account.
-	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 }
 
 // Properties for defining a `CfnDeviceFleet`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDeviceFleetProps := &cfnDeviceFleetProps{
 //   	deviceFleetName: jsii.String("deviceFleetName"),
 //   	outputConfig: &edgeOutputConfigProperty{
@@ -5297,23 +5393,26 @@ type CfnDeviceFleet_EdgeOutputConfigProperty struct {
 //
 type CfnDeviceFleetProps struct {
 	// Name of the device fleet.
-	DeviceFleetName *string `json:"deviceFleetName" yaml:"deviceFleetName"`
+	DeviceFleetName *string `field:"required" json:"deviceFleetName" yaml:"deviceFleetName"`
 	// The output configuration for storing sample data collected by the fleet.
-	OutputConfig interface{} `json:"outputConfig" yaml:"outputConfig"`
+	OutputConfig interface{} `field:"required" json:"outputConfig" yaml:"outputConfig"`
 	// The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// A description of the fleet.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// An array of key-value pairs that contain metadata to help you categorize and organize your device fleets.
 	//
 	// Each tag consists of a key and a value, both of which you define.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // Properties for defining a `CfnDevice`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDeviceProps := &cfnDeviceProps{
 //   	deviceFleetName: jsii.String("deviceFleetName"),
 //
@@ -5335,13 +5434,13 @@ type CfnDeviceFleetProps struct {
 //
 type CfnDeviceProps struct {
 	// The name of the fleet the device belongs to.
-	DeviceFleetName *string `json:"deviceFleetName" yaml:"deviceFleetName"`
+	DeviceFleetName *string `field:"required" json:"deviceFleetName" yaml:"deviceFleetName"`
 	// Edge device you want to create.
-	Device interface{} `json:"device" yaml:"device"`
+	Device interface{} `field:"optional" json:"device" yaml:"device"`
 	// An array of key-value pairs that contain metadata to help you categorize and organize your devices.
 	//
 	// Each tag consists of a key and a value, both of which you define.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::SageMaker::Domain`.
@@ -5368,8 +5467,11 @@ type CfnDeviceProps struct {
 // For more information, see [Connect SageMaker Studio Notebooks to Resources in a VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-notebooks-and-internet-access.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
-//   cfnDomain := sagemaker.NewCfnDomain(this, jsii.String("MyCfnDomain"), &cfnDomainProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDomain := awscdk.Aws_sagemaker.NewCfnDomain(this, jsii.String("MyCfnDomain"), &cfnDomainProps{
 //   	authMode: jsii.String("authMode"),
 //   	defaultUserSettings: &userSettingsProperty{
 //   		executionRole: jsii.String("executionRole"),
@@ -6360,7 +6462,10 @@ func (c *jsiiProxy_CfnDomain) ValidateProperties(_properties interface{}) {
 // For more information, see [Bring your own SageMaker image](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   customImageProperty := &customImageProperty{
 //   	appImageConfigName: jsii.String("appImageConfigName"),
 //   	imageName: jsii.String("imageName"),
@@ -6371,13 +6476,13 @@ func (c *jsiiProxy_CfnDomain) ValidateProperties(_properties interface{}) {
 //
 type CfnDomain_CustomImageProperty struct {
 	// The name of the AppImageConfig.
-	AppImageConfigName *string `json:"appImageConfigName" yaml:"appImageConfigName"`
+	AppImageConfigName *string `field:"required" json:"appImageConfigName" yaml:"appImageConfigName"`
 	// The name of the CustomImage.
 	//
 	// Must be unique to your account.
-	ImageName *string `json:"imageName" yaml:"imageName"`
+	ImageName *string `field:"required" json:"imageName" yaml:"imageName"`
 	// The version number of the CustomImage.
-	ImageVersionNumber *float64 `json:"imageVersionNumber" yaml:"imageVersionNumber"`
+	ImageVersionNumber *float64 `field:"optional" json:"imageVersionNumber" yaml:"imageVersionNumber"`
 }
 
 // A collection of settings that apply to the `SageMaker Domain` .
@@ -6385,7 +6490,10 @@ type CfnDomain_CustomImageProperty struct {
 // These settings are specified through the `CreateDomain` API call.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   domainSettingsProperty := &domainSettingsProperty{
 //   	rStudioServerProDomainSettings: &rStudioServerProDomainSettingsProperty{
 //   		domainExecutionRoleArn: jsii.String("domainExecutionRoleArn"),
@@ -6406,15 +6514,18 @@ type CfnDomain_CustomImageProperty struct {
 //
 type CfnDomain_DomainSettingsProperty struct {
 	// A collection of settings that configure the `RStudioServerPro` Domain-level app.
-	RStudioServerProDomainSettings interface{} `json:"rStudioServerProDomainSettings" yaml:"rStudioServerProDomainSettings"`
+	RStudioServerProDomainSettings interface{} `field:"optional" json:"rStudioServerProDomainSettings" yaml:"rStudioServerProDomainSettings"`
 	// The security groups for the Amazon Virtual Private Cloud that the `Domain` uses for communication between Domain-level apps and user apps.
-	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
+	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
 }
 
 // The JupyterServer app settings.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   jupyterServerAppSettingsProperty := &jupyterServerAppSettingsProperty{
 //   	defaultResourceSpec: &resourceSpecProperty{
 //   		instanceType: jsii.String("instanceType"),
@@ -6427,13 +6538,16 @@ type CfnDomain_JupyterServerAppSettingsProperty struct {
 	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app.
 	//
 	// If you use the `LifecycleConfigArns` parameter, then this parameter is also required.
-	DefaultResourceSpec interface{} `json:"defaultResourceSpec" yaml:"defaultResourceSpec"`
+	DefaultResourceSpec interface{} `field:"optional" json:"defaultResourceSpec" yaml:"defaultResourceSpec"`
 }
 
 // The KernelGateway app settings.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   kernelGatewayAppSettingsProperty := &kernelGatewayAppSettingsProperty{
 //   	customImages: []interface{}{
 //   		&customImageProperty{
@@ -6453,11 +6567,11 @@ type CfnDomain_JupyterServerAppSettingsProperty struct {
 //
 type CfnDomain_KernelGatewayAppSettingsProperty struct {
 	// A list of custom SageMaker images that are configured to run as a KernelGateway app.
-	CustomImages interface{} `json:"customImages" yaml:"customImages"`
+	CustomImages interface{} `field:"optional" json:"customImages" yaml:"customImages"`
 	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
 	//
 	// > The Amazon SageMaker Studio UI does not use the default instance type value set here. The default instance type set here is used when Apps are created using the AWS Command Line Interface or AWS CloudFormation and the instance type parameter value is not passed.
-	DefaultResourceSpec interface{} `json:"defaultResourceSpec" yaml:"defaultResourceSpec"`
+	DefaultResourceSpec interface{} `field:"optional" json:"defaultResourceSpec" yaml:"defaultResourceSpec"`
 }
 
 // A collection of settings that configure user interaction with the `RStudioServerPro` app.
@@ -6465,7 +6579,10 @@ type CfnDomain_KernelGatewayAppSettingsProperty struct {
 // `RStudioServerProAppSettings` cannot be updated. The `RStudioServerPro` app must be deleted and a new one created to make any changes.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   rStudioServerProAppSettingsProperty := &rStudioServerProAppSettingsProperty{
 //   	accessStatus: jsii.String("accessStatus"),
 //   	userGroup: jsii.String("userGroup"),
@@ -6473,17 +6590,20 @@ type CfnDomain_KernelGatewayAppSettingsProperty struct {
 //
 type CfnDomain_RStudioServerProAppSettingsProperty struct {
 	// Indicates whether the current user has access to the `RStudioServerPro` app.
-	AccessStatus *string `json:"accessStatus" yaml:"accessStatus"`
+	AccessStatus *string `field:"optional" json:"accessStatus" yaml:"accessStatus"`
 	// The level of permissions that the user has within the `RStudioServerPro` app.
 	//
 	// This value defaults to `User`. The `Admin` value allows the user access to the RStudio Administrative Dashboard.
-	UserGroup *string `json:"userGroup" yaml:"userGroup"`
+	UserGroup *string `field:"optional" json:"userGroup" yaml:"userGroup"`
 }
 
 // A collection of settings that configure the `RStudioServerPro` Domain-level app.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   rStudioServerProDomainSettingsProperty := &rStudioServerProDomainSettingsProperty{
 //   	domainExecutionRoleArn: jsii.String("domainExecutionRoleArn"),
 //
@@ -6499,19 +6619,22 @@ type CfnDomain_RStudioServerProAppSettingsProperty struct {
 //
 type CfnDomain_RStudioServerProDomainSettingsProperty struct {
 	// The ARN of the execution role for the `RStudioServerPro` Domain-level app.
-	DomainExecutionRoleArn *string `json:"domainExecutionRoleArn" yaml:"domainExecutionRoleArn"`
+	DomainExecutionRoleArn *string `field:"required" json:"domainExecutionRoleArn" yaml:"domainExecutionRoleArn"`
 	// A collection that defines the default `InstanceType` , `SageMakerImageArn` , and `SageMakerImageVersionArn` for the Domain.
-	DefaultResourceSpec interface{} `json:"defaultResourceSpec" yaml:"defaultResourceSpec"`
+	DefaultResourceSpec interface{} `field:"optional" json:"defaultResourceSpec" yaml:"defaultResourceSpec"`
 	// A URL pointing to an RStudio Connect server.
-	RStudioConnectUrl *string `json:"rStudioConnectUrl" yaml:"rStudioConnectUrl"`
+	RStudioConnectUrl *string `field:"optional" json:"rStudioConnectUrl" yaml:"rStudioConnectUrl"`
 	// A URL pointing to an RStudio Package Manager server.
-	RStudioPackageManagerUrl *string `json:"rStudioPackageManagerUrl" yaml:"rStudioPackageManagerUrl"`
+	RStudioPackageManagerUrl *string `field:"optional" json:"rStudioPackageManagerUrl" yaml:"rStudioPackageManagerUrl"`
 }
 
 // Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   resourceSpecProperty := &resourceSpecProperty{
 //   	instanceType: jsii.String("instanceType"),
 //   	sageMakerImageArn: jsii.String("sageMakerImageArn"),
@@ -6522,11 +6645,11 @@ type CfnDomain_ResourceSpecProperty struct {
 	// The instance type that the image version runs on.
 	//
 	// > JupyterServer Apps only support the `system` value. KernelGateway Apps do not support the `system` value, but support all other values for available instance types.
-	InstanceType *string `json:"instanceType" yaml:"instanceType"`
+	InstanceType *string `field:"optional" json:"instanceType" yaml:"instanceType"`
 	// The ARN of the SageMaker image that the image version belongs to.
-	SageMakerImageArn *string `json:"sageMakerImageArn" yaml:"sageMakerImageArn"`
+	SageMakerImageArn *string `field:"optional" json:"sageMakerImageArn" yaml:"sageMakerImageArn"`
 	// The ARN of the image version created on the instance.
-	SageMakerImageVersionArn *string `json:"sageMakerImageVersionArn" yaml:"sageMakerImageVersionArn"`
+	SageMakerImageVersionArn *string `field:"optional" json:"sageMakerImageVersionArn" yaml:"sageMakerImageVersionArn"`
 }
 
 // Specifies options when sharing an Amazon SageMaker Studio notebook.
@@ -6534,7 +6657,10 @@ type CfnDomain_ResourceSpecProperty struct {
 // These settings are specified as part of `DefaultUserSettings` when the [CreateDomain](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateDomain.html) API is called, and as part of `UserSettings` when the [CreateUserProfile](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateUserProfile.html) API is called.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sharingSettingsProperty := &sharingSettingsProperty{
 //   	notebookOutputOption: jsii.String("notebookOutputOption"),
 //   	s3KmsKeyId: jsii.String("s3KmsKeyId"),
@@ -6545,11 +6671,11 @@ type CfnDomain_SharingSettingsProperty struct {
 	// Whether to include the notebook cell output when sharing the notebook.
 	//
 	// The default is `Disabled` .
-	NotebookOutputOption *string `json:"notebookOutputOption" yaml:"notebookOutputOption"`
+	NotebookOutputOption *string `field:"optional" json:"notebookOutputOption" yaml:"notebookOutputOption"`
 	// When `NotebookOutputOption` is `Allowed` , the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
-	S3KmsKeyId *string `json:"s3KmsKeyId" yaml:"s3KmsKeyId"`
+	S3KmsKeyId *string `field:"optional" json:"s3KmsKeyId" yaml:"s3KmsKeyId"`
 	// When `NotebookOutputOption` is `Allowed` , the Amazon S3 bucket used to store the shared notebook snapshots.
-	S3OutputPath *string `json:"s3OutputPath" yaml:"s3OutputPath"`
+	S3OutputPath *string `field:"optional" json:"s3OutputPath" yaml:"s3OutputPath"`
 }
 
 // A collection of settings that apply to users of Amazon SageMaker Studio.
@@ -6559,7 +6685,10 @@ type CfnDomain_SharingSettingsProperty struct {
 // `SecurityGroups` is aggregated when specified in both calls. For all other settings in `UserSettings` , the values specified in `CreateUserProfile` take precedence over those specified in `CreateDomain` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   userSettingsProperty := &userSettingsProperty{
 //   	executionRole: jsii.String("executionRole"),
 //   	jupyterServerAppSettings: &jupyterServerAppSettingsProperty{
@@ -6601,13 +6730,13 @@ type CfnDomain_SharingSettingsProperty struct {
 //
 type CfnDomain_UserSettingsProperty struct {
 	// The execution role for the user.
-	ExecutionRole *string `json:"executionRole" yaml:"executionRole"`
+	ExecutionRole *string `field:"optional" json:"executionRole" yaml:"executionRole"`
 	// The Jupyter server's app settings.
-	JupyterServerAppSettings interface{} `json:"jupyterServerAppSettings" yaml:"jupyterServerAppSettings"`
+	JupyterServerAppSettings interface{} `field:"optional" json:"jupyterServerAppSettings" yaml:"jupyterServerAppSettings"`
 	// The kernel gateway app settings.
-	KernelGatewayAppSettings interface{} `json:"kernelGatewayAppSettings" yaml:"kernelGatewayAppSettings"`
+	KernelGatewayAppSettings interface{} `field:"optional" json:"kernelGatewayAppSettings" yaml:"kernelGatewayAppSettings"`
 	// A collection of settings that configure user interaction with the `RStudioServerPro` app.
-	RStudioServerProAppSettings interface{} `json:"rStudioServerProAppSettings" yaml:"rStudioServerProAppSettings"`
+	RStudioServerProAppSettings interface{} `field:"optional" json:"rStudioServerProAppSettings" yaml:"rStudioServerProAppSettings"`
 	// The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
 	//
 	// Optional when the `CreateDomain.AppNetworkAccessType` parameter is set to `PublicInternetOnly` .
@@ -6615,15 +6744,18 @@ type CfnDomain_UserSettingsProperty struct {
 	// Required when the `CreateDomain.AppNetworkAccessType` parameter is set to `VpcOnly` .
 	//
 	// Amazon SageMaker adds a security group to allow NFS traffic from SageMaker Studio. Therefore, the number of security groups that you can specify is one less than the maximum number shown.
-	SecurityGroups *[]*string `json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]*string `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// Specifies options for sharing SageMaker Studio notebooks.
-	SharingSettings interface{} `json:"sharingSettings" yaml:"sharingSettings"`
+	SharingSettings interface{} `field:"optional" json:"sharingSettings" yaml:"sharingSettings"`
 }
 
 // Properties for defining a `CfnDomain`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDomainProps := &cfnDomainProps{
 //   	authMode: jsii.String("authMode"),
 //   	defaultUserSettings: &userSettingsProperty{
@@ -6703,11 +6835,11 @@ type CfnDomainProps struct {
 	// The mode of authentication that members use to access the Domain.
 	//
 	// *Valid Values* : `SSO | IAM`.
-	AuthMode *string `json:"authMode" yaml:"authMode"`
+	AuthMode *string `field:"required" json:"authMode" yaml:"authMode"`
 	// The default user settings.
-	DefaultUserSettings interface{} `json:"defaultUserSettings" yaml:"defaultUserSettings"`
+	DefaultUserSettings interface{} `field:"required" json:"defaultUserSettings" yaml:"defaultUserSettings"`
 	// The domain name.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 	// The VPC subnets that Studio uses for communication.
 	//
 	// *Length Constraints* : Maximum length of 32.
@@ -6715,28 +6847,28 @@ type CfnDomainProps struct {
 	// *Array members* : Minimum number of 1 item. Maximum number of 16 items.
 	//
 	// *Pattern* : `[-0-9a-zA-Z]+`.
-	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
+	SubnetIds *[]*string `field:"required" json:"subnetIds" yaml:"subnetIds"`
 	// The ID of the Amazon Virtual Private Cloud (Amazon VPC) that Studio uses for communication.
 	//
 	// *Length Constraints* : Maximum length of 32.
 	//
 	// *Pattern* : `[-0-9a-zA-Z]+`.
-	VpcId *string `json:"vpcId" yaml:"vpcId"`
+	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
 	// Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly` .
 	//
 	// - `PublicInternetOnly` - Non-EFS traffic is through a VPC managed by Amazon SageMaker , which allows direct internet access
 	// - `VpcOnly` - All Studio traffic is through the specified VPC and subnets
 	//
 	// *Valid Values* : `PublicInternetOnly | VpcOnly`.
-	AppNetworkAccessType *string `json:"appNetworkAccessType" yaml:"appNetworkAccessType"`
+	AppNetworkAccessType *string `field:"optional" json:"appNetworkAccessType" yaml:"appNetworkAccessType"`
 	// The entity that creates and manages the required security groups for inter-app communication in `VpcOnly` mode.
 	//
 	// Required when `CreateDomain.AppNetworkAccessType` is `VpcOnly` and `DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn` is provided.
-	AppSecurityGroupManagement *string `json:"appSecurityGroupManagement" yaml:"appSecurityGroupManagement"`
+	AppSecurityGroupManagement *string `field:"optional" json:"appSecurityGroupManagement" yaml:"appSecurityGroupManagement"`
 	// A collection of settings that apply to the `SageMaker Domain` .
 	//
 	// These settings are specified through the `CreateDomain` API call.
-	DomainSettings interface{} `json:"domainSettings" yaml:"domainSettings"`
+	DomainSettings interface{} `field:"optional" json:"domainSettings" yaml:"domainSettings"`
 	// SageMaker uses AWS KMS to encrypt the EFS volume attached to the Domain with an AWS managed customer master key (CMK) by default.
 	//
 	// For more control, specify a customer managed CMK.
@@ -6744,7 +6876,7 @@ type CfnDomainProps struct {
 	// *Length Constraints* : Maximum length of 2048.
 	//
 	// *Pattern* : `.*`
-	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// Tags to associated with the Domain.
 	//
 	// Each tag consists of a key and an optional value. Tag keys must be unique per resource. Tags are searchable using the Search API.
@@ -6752,7 +6884,7 @@ type CfnDomainProps struct {
 	// Tags that you specify for the Domain are also added to all apps that are launched in the Domain.
 	//
 	// *Array members* : Minimum number of 0 items. Maximum number of 50 items.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::SageMaker::Endpoint`.
@@ -6760,8 +6892,11 @@ type CfnDomainProps struct {
 // Use the `AWS::SageMaker::Endpoint` resource to create an endpoint using the specified configuration in the request. Amazon SageMaker uses the endpoint to provision resources and deploy models. You create the endpoint configuration with the [AWS::SageMaker::EndpointConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html) resource. For more information, see [Deploy a Model on Amazon SageMaker Hosting Services](https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works-hosting.html) in the *Amazon SageMaker Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
-//   cfnEndpoint := sagemaker.NewCfnEndpoint(this, jsii.String("MyCfnEndpoint"), &cfnEndpointProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnEndpoint := awscdk.Aws_sagemaker.NewCfnEndpoint(this, jsii.String("MyCfnEndpoint"), &cfnEndpointProps{
 //   	endpointConfigName: jsii.String("endpointConfigName"),
 //
 //   	// the properties below are optional
@@ -7576,20 +7711,26 @@ func (c *jsiiProxy_CfnEndpoint) ValidateProperties(_properties interface{}) {
 // An Amazon CloudWatch alarm configured to monitor metrics on an endpoint.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   alarmProperty := &alarmProperty{
 //   	alarmName: jsii.String("alarmName"),
 //   }
 //
 type CfnEndpoint_AlarmProperty struct {
 	// The name of a CloudWatch alarm in your account.
-	AlarmName *string `json:"alarmName" yaml:"alarmName"`
+	AlarmName *string `field:"required" json:"alarmName" yaml:"alarmName"`
 }
 
 // Automatic rollback configuration for handling endpoint deployment failures and recovery.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   autoRollbackConfigProperty := &autoRollbackConfigProperty{
 //   	alarms: []interface{}{
 //   		&alarmProperty{
@@ -7602,7 +7743,7 @@ type CfnEndpoint_AutoRollbackConfigProperty struct {
 	// List of CloudWatch alarms in your account that are configured to monitor metrics on an endpoint.
 	//
 	// If any alarms are tripped during a deployment, SageMaker rolls back the deployment.
-	Alarms interface{} `json:"alarms" yaml:"alarms"`
+	Alarms interface{} `field:"required" json:"alarms" yaml:"alarms"`
 }
 
 // Update policy for a blue/green deployment.
@@ -7610,7 +7751,10 @@ type CfnEndpoint_AutoRollbackConfigProperty struct {
 // If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. SageMaker flips traffic to the new fleet according to the specified traffic routing configuration. Only one update policy should be used in the deployment configuration. If no update policy is specified, SageMaker uses a blue/green deployment strategy with all at once traffic shifting by default.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   blueGreenUpdatePolicyProperty := &blueGreenUpdatePolicyProperty{
 //   	trafficRoutingConfiguration: &trafficRoutingConfigProperty{
 //   		type: jsii.String("type"),
@@ -7634,21 +7778,24 @@ type CfnEndpoint_AutoRollbackConfigProperty struct {
 //
 type CfnEndpoint_BlueGreenUpdatePolicyProperty struct {
 	// Defines the traffic routing strategy to shift traffic from the old fleet to the new fleet during an endpoint deployment.
-	TrafficRoutingConfiguration interface{} `json:"trafficRoutingConfiguration" yaml:"trafficRoutingConfiguration"`
+	TrafficRoutingConfiguration interface{} `field:"required" json:"trafficRoutingConfiguration" yaml:"trafficRoutingConfiguration"`
 	// Maximum execution timeout for the deployment.
 	//
 	// Note that the timeout value should be larger than the total waiting time specified in `TerminationWaitInSeconds` and `WaitIntervalInSeconds` .
-	MaximumExecutionTimeoutInSeconds *float64 `json:"maximumExecutionTimeoutInSeconds" yaml:"maximumExecutionTimeoutInSeconds"`
+	MaximumExecutionTimeoutInSeconds *float64 `field:"optional" json:"maximumExecutionTimeoutInSeconds" yaml:"maximumExecutionTimeoutInSeconds"`
 	// Additional waiting time in seconds after the completion of an endpoint deployment before terminating the old endpoint fleet.
 	//
 	// Default is 0.
-	TerminationWaitInSeconds *float64 `json:"terminationWaitInSeconds" yaml:"terminationWaitInSeconds"`
+	TerminationWaitInSeconds *float64 `field:"optional" json:"terminationWaitInSeconds" yaml:"terminationWaitInSeconds"`
 }
 
 // Specifies the endpoint capacity to activate for production.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   capacitySizeProperty := &capacitySizeProperty{
 //   	type: jsii.String("type"),
 //   	value: jsii.Number(123),
@@ -7659,15 +7806,18 @@ type CfnEndpoint_CapacitySizeProperty struct {
 	//
 	// - `INSTANCE_COUNT` : The endpoint activates based on the number of instances.
 	// - `CAPACITY_PERCENT` : The endpoint activates based on the specified percentage of capacity.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// Defines the capacity size, either as a number of instances or a capacity percentage.
-	Value *float64 `json:"value" yaml:"value"`
+	Value *float64 `field:"required" json:"value" yaml:"value"`
 }
 
 // The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   deploymentConfigProperty := &deploymentConfigProperty{
 //   	blueGreenUpdatePolicy: &blueGreenUpdatePolicyProperty{
 //   		trafficRoutingConfiguration: &trafficRoutingConfigProperty{
@@ -7704,15 +7854,18 @@ type CfnEndpoint_DeploymentConfigProperty struct {
 	// Update policy for a blue/green deployment.
 	//
 	// If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. SageMaker flips traffic to the new fleet according to the specified traffic routing configuration. Only one update policy should be used in the deployment configuration. If no update policy is specified, SageMaker uses a blue/green deployment strategy with all at once traffic shifting by default.
-	BlueGreenUpdatePolicy interface{} `json:"blueGreenUpdatePolicy" yaml:"blueGreenUpdatePolicy"`
+	BlueGreenUpdatePolicy interface{} `field:"required" json:"blueGreenUpdatePolicy" yaml:"blueGreenUpdatePolicy"`
 	// Automatic rollback configuration for handling endpoint deployment failures and recovery.
-	AutoRollbackConfiguration interface{} `json:"autoRollbackConfiguration" yaml:"autoRollbackConfiguration"`
+	AutoRollbackConfiguration interface{} `field:"optional" json:"autoRollbackConfiguration" yaml:"autoRollbackConfiguration"`
 }
 
 // Defines the traffic routing strategy during an endpoint deployment to shift traffic from the old fleet to the new fleet.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   trafficRoutingConfigProperty := &trafficRoutingConfigProperty{
 //   	type: jsii.String("type"),
 //
@@ -7734,17 +7887,17 @@ type CfnEndpoint_TrafficRoutingConfigProperty struct {
 	// - `ALL_AT_ONCE` : Endpoint traffic shifts to the new fleet in a single step.
 	// - `CANARY` : Endpoint traffic shifts to the new fleet in two steps. The first step is the canary, which is a small portion of the traffic. The second step is the remainder of the traffic.
 	// - `LINEAR` : Endpoint traffic shifts to the new fleet in n steps of a configurable size.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// Batch size for the first step to turn on traffic on the new endpoint fleet.
 	//
 	// `Value` must be less than or equal to 50% of the variant's total instance count.
-	CanarySize interface{} `json:"canarySize" yaml:"canarySize"`
+	CanarySize interface{} `field:"optional" json:"canarySize" yaml:"canarySize"`
 	// Batch size for each step to turn on traffic on the new endpoint fleet.
 	//
 	// `Value` must be 10-50% of the variant's total instance count.
-	LinearStepSize interface{} `json:"linearStepSize" yaml:"linearStepSize"`
+	LinearStepSize interface{} `field:"optional" json:"linearStepSize" yaml:"linearStepSize"`
 	// The waiting time (in seconds) between incremental steps to turn on traffic on the new endpoint fleet.
-	WaitIntervalInSeconds *float64 `json:"waitIntervalInSeconds" yaml:"waitIntervalInSeconds"`
+	WaitIntervalInSeconds *float64 `field:"optional" json:"waitIntervalInSeconds" yaml:"waitIntervalInSeconds"`
 }
 
 // Specifies a production variant property type for an Endpoint.
@@ -7752,7 +7905,10 @@ type CfnEndpoint_TrafficRoutingConfigProperty struct {
 // If you are updating an Endpoint with the [RetainAllVariantProperties](https://docs.aws.amazon.com/sagemaker/latest/dg/API_UpdateEndpoint.html#SageMaker-UpdateEndpoint-request-RetainAllVariantProperties) option set to `true` , the `VarientProperty` objects listed in [ExcludeRetainedVariantProperties](https://docs.aws.amazon.com/sagemaker/latest/dg/API_UpdateEndpoint.html#SageMaker-UpdateEndpoint-request-ExcludeRetainedVariantProperties) override the existing variant properties of the Endpoint.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   variantPropertyProperty := &variantPropertyProperty{
 //   	variantPropertyType: jsii.String("variantPropertyType"),
 //   }
@@ -7763,7 +7919,7 @@ type CfnEndpoint_VariantPropertyProperty struct {
 	// - `DesiredInstanceCount` : Overrides the existing variant instance counts using the [InitialInstanceCount](https://docs.aws.amazon.com/sagemaker/latest/dg/API_ProductionVariant.html#SageMaker-Type-ProductionVariant-InitialInstanceCount) values in the [ProductionVariants](https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpointConfig.html#SageMaker-CreateEndpointConfig-request-ProductionVariants) .
 	// - `DesiredWeight` : Overrides the existing variant weights using the [InitialVariantWeight](https://docs.aws.amazon.com/sagemaker/latest/dg/API_ProductionVariant.html#SageMaker-Type-ProductionVariant-InitialVariantWeight) values in the [ProductionVariants](https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpointConfig.html#SageMaker-CreateEndpointConfig-request-ProductionVariants) .
 	// - `DataCaptureConfig` : (Not currently supported.)
-	VariantPropertyType *string `json:"variantPropertyType" yaml:"variantPropertyType"`
+	VariantPropertyType *string `field:"optional" json:"variantPropertyType" yaml:"variantPropertyType"`
 }
 
 // A CloudFormation `AWS::SageMaker::EndpointConfig`.
@@ -7771,8 +7927,11 @@ type CfnEndpoint_VariantPropertyProperty struct {
 // The `AWS::SageMaker::EndpointConfig` resource creates a configuration for an Amazon SageMaker endpoint. For more information, see [CreateEndpointConfig](https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpointConfig.html) in the *SageMaker Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
-//   cfnEndpointConfig := sagemaker.NewCfnEndpointConfig(this, jsii.String("MyCfnEndpointConfig"), &cfnEndpointConfigProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnEndpointConfig := awscdk.Aws_sagemaker.NewCfnEndpointConfig(this, jsii.String("MyCfnEndpointConfig"), &cfnEndpointConfigProps{
 //   	productionVariants: []interface{}{
 //   		&productionVariantProperty{
 //   			initialVariantWeight: jsii.Number(123),
@@ -8593,7 +8752,10 @@ func (c *jsiiProxy_CfnEndpointConfig) ValidateProperties(_properties interface{}
 // Configures the behavior of the client used by SageMaker to interact with the model container during asynchronous inference.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   asyncInferenceClientConfigProperty := &asyncInferenceClientConfigProperty{
 //   	maxConcurrentInvocationsPerInstance: jsii.Number(123),
 //   }
@@ -8602,13 +8764,16 @@ type CfnEndpointConfig_AsyncInferenceClientConfigProperty struct {
 	// The maximum number of concurrent requests sent by the SageMaker client to the model container.
 	//
 	// If no value is provided, SageMaker will choose an optimal value for you.
-	MaxConcurrentInvocationsPerInstance *float64 `json:"maxConcurrentInvocationsPerInstance" yaml:"maxConcurrentInvocationsPerInstance"`
+	MaxConcurrentInvocationsPerInstance *float64 `field:"optional" json:"maxConcurrentInvocationsPerInstance" yaml:"maxConcurrentInvocationsPerInstance"`
 }
 
 // Specifies configuration for how an endpoint performs asynchronous inference.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   asyncInferenceConfigProperty := &asyncInferenceConfigProperty{
 //   	outputConfig: &asyncInferenceOutputConfigProperty{
 //   		s3OutputPath: jsii.String("s3OutputPath"),
@@ -8629,15 +8794,18 @@ type CfnEndpointConfig_AsyncInferenceClientConfigProperty struct {
 //
 type CfnEndpointConfig_AsyncInferenceConfigProperty struct {
 	// Specifies the configuration for asynchronous inference invocation outputs.
-	OutputConfig interface{} `json:"outputConfig" yaml:"outputConfig"`
+	OutputConfig interface{} `field:"required" json:"outputConfig" yaml:"outputConfig"`
 	// Configures the behavior of the client used by SageMaker to interact with the model container during asynchronous inference.
-	ClientConfig interface{} `json:"clientConfig" yaml:"clientConfig"`
+	ClientConfig interface{} `field:"optional" json:"clientConfig" yaml:"clientConfig"`
 }
 
 // Specifies the configuration for notifications of inference results for asynchronous inference.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   asyncInferenceNotificationConfigProperty := &asyncInferenceNotificationConfigProperty{
 //   	errorTopic: jsii.String("errorTopic"),
 //   	successTopic: jsii.String("successTopic"),
@@ -8647,17 +8815,20 @@ type CfnEndpointConfig_AsyncInferenceNotificationConfigProperty struct {
 	// Amazon SNS topic to post a notification to when an inference fails.
 	//
 	// If no topic is provided, no notification is sent on failure.
-	ErrorTopic *string `json:"errorTopic" yaml:"errorTopic"`
+	ErrorTopic *string `field:"optional" json:"errorTopic" yaml:"errorTopic"`
 	// Amazon SNS topic to post a notification to when an inference completes successfully.
 	//
 	// If no topic is provided, no notification is sent on success.
-	SuccessTopic *string `json:"successTopic" yaml:"successTopic"`
+	SuccessTopic *string `field:"optional" json:"successTopic" yaml:"successTopic"`
 }
 
 // Specifies the configuration for asynchronous inference invocation outputs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   asyncInferenceOutputConfigProperty := &asyncInferenceOutputConfigProperty{
 //   	s3OutputPath: jsii.String("s3OutputPath"),
 //
@@ -8671,17 +8842,20 @@ type CfnEndpointConfig_AsyncInferenceNotificationConfigProperty struct {
 //
 type CfnEndpointConfig_AsyncInferenceOutputConfigProperty struct {
 	// The Amazon S3 location to upload inference responses to.
-	S3OutputPath *string `json:"s3OutputPath" yaml:"s3OutputPath"`
+	S3OutputPath *string `field:"required" json:"s3OutputPath" yaml:"s3OutputPath"`
 	// The AWS Key Management Service ( AWS KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
-	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// Specifies the configuration for notifications of inference results for asynchronous inference.
-	NotificationConfig interface{} `json:"notificationConfig" yaml:"notificationConfig"`
+	NotificationConfig interface{} `field:"optional" json:"notificationConfig" yaml:"notificationConfig"`
 }
 
 // Specifies the JSON and CSV content types of the data that the endpoint captures.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   captureContentTypeHeaderProperty := &captureContentTypeHeaderProperty{
 //   	csvContentTypes: []*string{
 //   		jsii.String("csvContentTypes"),
@@ -8695,30 +8869,36 @@ type CfnEndpointConfig_CaptureContentTypeHeaderProperty struct {
 	// A list of the CSV content types of the data that the endpoint captures.
 	//
 	// For the endpoint to capture the data, you must also specify the content type when you invoke the endpoint.
-	CsvContentTypes *[]*string `json:"csvContentTypes" yaml:"csvContentTypes"`
+	CsvContentTypes *[]*string `field:"optional" json:"csvContentTypes" yaml:"csvContentTypes"`
 	// A list of the JSON content types of the data that the endpoint captures.
 	//
 	// For the endpoint to capture the data, you must also specify the content type when you invoke the endpoint.
-	JsonContentTypes *[]*string `json:"jsonContentTypes" yaml:"jsonContentTypes"`
+	JsonContentTypes *[]*string `field:"optional" json:"jsonContentTypes" yaml:"jsonContentTypes"`
 }
 
 // Specifies whether the endpoint captures input data or output data.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   captureOptionProperty := &captureOptionProperty{
 //   	captureMode: jsii.String("captureMode"),
 //   }
 //
 type CfnEndpointConfig_CaptureOptionProperty struct {
 	// Specifies whether the endpoint captures input data or output data.
-	CaptureMode *string `json:"captureMode" yaml:"captureMode"`
+	CaptureMode *string `field:"required" json:"captureMode" yaml:"captureMode"`
 }
 
 // Specifies the configuration of your endpoint for model monitor data capture.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dataCaptureConfigProperty := &dataCaptureConfigProperty{
 //   	captureOptions: []interface{}{
 //   		&captureOptionProperty{
@@ -8743,19 +8923,19 @@ type CfnEndpointConfig_CaptureOptionProperty struct {
 //
 type CfnEndpointConfig_DataCaptureConfigProperty struct {
 	// Specifies whether the endpoint captures input data to your model, output data from your model, or both.
-	CaptureOptions interface{} `json:"captureOptions" yaml:"captureOptions"`
+	CaptureOptions interface{} `field:"required" json:"captureOptions" yaml:"captureOptions"`
 	// The S3 bucket where model monitor stores captured data.
-	DestinationS3Uri *string `json:"destinationS3Uri" yaml:"destinationS3Uri"`
+	DestinationS3Uri *string `field:"required" json:"destinationS3Uri" yaml:"destinationS3Uri"`
 	// The percentage of data to capture.
-	InitialSamplingPercentage *float64 `json:"initialSamplingPercentage" yaml:"initialSamplingPercentage"`
+	InitialSamplingPercentage *float64 `field:"required" json:"initialSamplingPercentage" yaml:"initialSamplingPercentage"`
 	// A list of the JSON and CSV content type that the endpoint captures.
-	CaptureContentTypeHeader interface{} `json:"captureContentTypeHeader" yaml:"captureContentTypeHeader"`
+	CaptureContentTypeHeader interface{} `field:"optional" json:"captureContentTypeHeader" yaml:"captureContentTypeHeader"`
 	// Set to `True` to enable data capture.
-	EnableCapture interface{} `json:"enableCapture" yaml:"enableCapture"`
+	EnableCapture interface{} `field:"optional" json:"enableCapture" yaml:"enableCapture"`
 	// The AWS Key Management Service ( AWS KMS) key that Amazon SageMaker uses to encrypt the captured data at rest using Amazon S3 server-side encryption.
 	//
 	// The KmsKeyId can be any of the following formats: Key ID: 1234abcd-12ab-34cd-56ef-1234567890ab Key ARN: arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab Alias name: alias/ExampleAlias Alias name ARN: arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account. For more information, see KMS-Managed Encryption Keys (https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html) in the Amazon Simple Storage Service Developer Guide. The KMS key policy must grant permission to the IAM role that you specify in your CreateModel (https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModel.html) request. For more information, see Using Key Policies in AWS KMS (http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) in the AWS Key Management Service Developer Guide.
-	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 }
 
 // Specifies a model that you want to host and the resources to deploy for hosting it.
@@ -8763,7 +8943,10 @@ type CfnEndpointConfig_DataCaptureConfigProperty struct {
 // If you are deploying multiple models, tell Amazon SageMaker how to distribute traffic among the models by specifying the `InitialVariantWeight` objects.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   productionVariantProperty := &productionVariantProperty{
 //   	initialVariantWeight: jsii.Number(123),
 //   	modelName: jsii.String("modelName"),
@@ -8783,31 +8966,34 @@ type CfnEndpointConfig_ProductionVariantProperty struct {
 	// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration.
 	//
 	// The traffic to a production variant is determined by the ratio of the `VariantWeight` to the sum of all `VariantWeight` values across all ProductionVariants. If unspecified, it defaults to 1.0.
-	InitialVariantWeight *float64 `json:"initialVariantWeight" yaml:"initialVariantWeight"`
+	InitialVariantWeight *float64 `field:"required" json:"initialVariantWeight" yaml:"initialVariantWeight"`
 	// The name of the model that you want to host.
 	//
 	// This is the name that you specified when creating the model.
-	ModelName *string `json:"modelName" yaml:"modelName"`
+	ModelName *string `field:"required" json:"modelName" yaml:"modelName"`
 	// The name of the production variant.
-	VariantName *string `json:"variantName" yaml:"variantName"`
+	VariantName *string `field:"required" json:"variantName" yaml:"variantName"`
 	// The size of the Elastic Inference (EI) instance to use for the production variant.
 	//
 	// EI instances provide on-demand GPU computing for inference. For more information, see [Using Elastic Inference in Amazon SageMaker](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) . For more information, see [Using Elastic Inference in Amazon SageMaker](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) .
-	AcceleratorType *string `json:"acceleratorType" yaml:"acceleratorType"`
+	AcceleratorType *string `field:"optional" json:"acceleratorType" yaml:"acceleratorType"`
 	// Number of instances to launch initially.
-	InitialInstanceCount *float64 `json:"initialInstanceCount" yaml:"initialInstanceCount"`
+	InitialInstanceCount *float64 `field:"optional" json:"initialInstanceCount" yaml:"initialInstanceCount"`
 	// The ML compute instance type.
-	InstanceType *string `json:"instanceType" yaml:"instanceType"`
+	InstanceType *string `field:"optional" json:"instanceType" yaml:"instanceType"`
 	// The serverless configuration for an endpoint.
 	//
 	// Specifies a serverless endpoint configuration instead of an instance-based endpoint configuration.
-	ServerlessConfig interface{} `json:"serverlessConfig" yaml:"serverlessConfig"`
+	ServerlessConfig interface{} `field:"optional" json:"serverlessConfig" yaml:"serverlessConfig"`
 }
 
 // Specifies the serverless configuration for an endpoint variant.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   serverlessConfigProperty := &serverlessConfigProperty{
 //   	maxConcurrency: jsii.Number(123),
 //   	memorySizeInMb: jsii.Number(123),
@@ -8815,17 +9001,20 @@ type CfnEndpointConfig_ProductionVariantProperty struct {
 //
 type CfnEndpointConfig_ServerlessConfigProperty struct {
 	// The maximum number of concurrent invocations your serverless endpoint can process.
-	MaxConcurrency *float64 `json:"maxConcurrency" yaml:"maxConcurrency"`
+	MaxConcurrency *float64 `field:"required" json:"maxConcurrency" yaml:"maxConcurrency"`
 	// The memory size of your serverless endpoint.
 	//
 	// Valid values are in 1 GB increments: 1024 MB, 2048 MB, 3072 MB, 4096 MB, 5120 MB, or 6144 MB.
-	MemorySizeInMb *float64 `json:"memorySizeInMb" yaml:"memorySizeInMb"`
+	MemorySizeInMb *float64 `field:"required" json:"memorySizeInMb" yaml:"memorySizeInMb"`
 }
 
 // Properties for defining a `CfnEndpointConfig`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnEndpointConfigProps := &cfnEndpointConfigProps{
 //   	productionVariants: []interface{}{
 //   		&productionVariantProperty{
@@ -8895,15 +9084,15 @@ type CfnEndpointConfig_ServerlessConfigProperty struct {
 //
 type CfnEndpointConfigProps struct {
 	// A list of `ProductionVariant` objects, one for each model that you want to host at this endpoint.
-	ProductionVariants interface{} `json:"productionVariants" yaml:"productionVariants"`
+	ProductionVariants interface{} `field:"required" json:"productionVariants" yaml:"productionVariants"`
 	// Specifies configuration for how an endpoint performs asynchronous inference.
-	AsyncInferenceConfig interface{} `json:"asyncInferenceConfig" yaml:"asyncInferenceConfig"`
+	AsyncInferenceConfig interface{} `field:"optional" json:"asyncInferenceConfig" yaml:"asyncInferenceConfig"`
 	// Specifies how to capture endpoint data for model monitor.
 	//
 	// The data capture configuration applies to all production variants hosted at the endpoint.
-	DataCaptureConfig interface{} `json:"dataCaptureConfig" yaml:"dataCaptureConfig"`
+	DataCaptureConfig interface{} `field:"optional" json:"dataCaptureConfig" yaml:"dataCaptureConfig"`
 	// The name of the endpoint configuration.
-	EndpointConfigName *string `json:"endpointConfigName" yaml:"endpointConfigName"`
+	EndpointConfigName *string `field:"optional" json:"endpointConfigName" yaml:"endpointConfigName"`
 	// The Amazon Resource Name (ARN) of an AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
 	//
 	// - Key ID: `1234abcd-12ab-34cd-56ef-1234567890ab`
@@ -8918,17 +9107,20 @@ type CfnEndpointConfigProps struct {
 	// > For a list of instance types that support local instance storage, see [Instance Store Volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes) .
 	// >
 	// > For more information about local instance storage encryption, see [SSD Instance Store Volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html) .
-	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// A list of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Resource Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) and [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // Properties for defining a `CfnEndpoint`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnEndpointProps := &cfnEndpointProps{
 //   	endpointConfigName: jsii.String("endpointConfigName"),
 //
@@ -8982,25 +9174,25 @@ type CfnEndpointConfigProps struct {
 //
 type CfnEndpointProps struct {
 	// The name of the [AWS::SageMaker::EndpointConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html) resource that specifies the configuration for the endpoint. For more information, see [CreateEndpointConfig](https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpointConfig.html) .
-	EndpointConfigName *string `json:"endpointConfigName" yaml:"endpointConfigName"`
+	EndpointConfigName *string `field:"required" json:"endpointConfigName" yaml:"endpointConfigName"`
 	// The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations.
-	DeploymentConfig interface{} `json:"deploymentConfig" yaml:"deploymentConfig"`
+	DeploymentConfig interface{} `field:"optional" json:"deploymentConfig" yaml:"deploymentConfig"`
 	// The name of the endpoint.The name must be unique within an AWS Region in your AWS account. The name is case-insensitive in `CreateEndpoint` , but the case is preserved and must be matched in [](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.html) .
-	EndpointName *string `json:"endpointName" yaml:"endpointName"`
+	EndpointName *string `field:"optional" json:"endpointName" yaml:"endpointName"`
 	// When you are updating endpoint resources with [RetainAllVariantProperties](https://docs.aws.amazon.com/sagemaker/latest/dg/API_UpdateEndpoint.html#SageMaker-UpdateEndpoint-request-RetainAllVariantProperties) whose value is set to `true` , `ExcludeRetainedVariantProperties` specifies the list of type [VariantProperty](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-variantproperty.html) to override with the values provided by `EndpointConfig` . If you don't specify a value for `ExcludeAllVariantProperties` , no variant properties are overridden. Don't use this property when creating new endpoint resources or when `RetainAllVariantProperties` is set to `false` .
-	ExcludeRetainedVariantProperties interface{} `json:"excludeRetainedVariantProperties" yaml:"excludeRetainedVariantProperties"`
+	ExcludeRetainedVariantProperties interface{} `field:"optional" json:"excludeRetainedVariantProperties" yaml:"excludeRetainedVariantProperties"`
 	// When updating endpoint resources, enables or disables the retention of variant properties, such as the instance count or the variant weight.
 	//
 	// To retain the variant properties of an endpoint when updating it, set `RetainAllVariantProperties` to `true` . To use the variant properties specified in a new `EndpointConfig` call when updating an endpoint, set `RetainAllVariantProperties` to `false` . Use this property only when updating endpoint resources, not when creating new endpoint resources.
-	RetainAllVariantProperties interface{} `json:"retainAllVariantProperties" yaml:"retainAllVariantProperties"`
+	RetainAllVariantProperties interface{} `field:"optional" json:"retainAllVariantProperties" yaml:"retainAllVariantProperties"`
 	// Specifies whether to reuse the last deployment configuration.
 	//
 	// The default value is false (the configuration is not reused).
-	RetainDeploymentConfig interface{} `json:"retainDeploymentConfig" yaml:"retainDeploymentConfig"`
+	RetainDeploymentConfig interface{} `field:"optional" json:"retainDeploymentConfig" yaml:"retainDeploymentConfig"`
 	// A list of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Resource Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) and [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what) in the *AWS Billing and Cost Management User Guide* .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::SageMaker::FeatureGroup`.
@@ -9012,11 +9204,14 @@ type CfnEndpointProps struct {
 // > You must include at least one of `OnlineStoreConfig` and `OfflineStoreConfig` to create a `FeatureGroup` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var offlineStoreConfig interface{}
 //   var onlineStoreConfig interface{}
-//   cfnFeatureGroup := sagemaker.NewCfnFeatureGroup(this, jsii.String("MyCfnFeatureGroup"), &cfnFeatureGroupProps{
+//
+//   cfnFeatureGroup := awscdk.Aws_sagemaker.NewCfnFeatureGroup(this, jsii.String("MyCfnFeatureGroup"), &cfnFeatureGroupProps{
 //   	eventTimeFeatureName: jsii.String("eventTimeFeatureName"),
 //   	featureDefinitions: []interface{}{
 //   		&featureDefinitionProperty{
@@ -9838,7 +10033,10 @@ func (c *jsiiProxy_CfnFeatureGroup) ValidateProperties(_properties interface{}) 
 // You must include `FeatureName` and `FeatureType` . Valid feature `FeatureType` s are `Integral` , `Fractional` and `String` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   featureDefinitionProperty := &featureDefinitionProperty{
 //   	featureName: jsii.String("featureName"),
 //   	featureType: jsii.String("featureType"),
@@ -9848,20 +10046,23 @@ type CfnFeatureGroup_FeatureDefinitionProperty struct {
 	// The name of a feature.
 	//
 	// The type must be a string. `FeatureName` cannot be any of the following: `is_deleted` , `write_time` , `api_invocation_time` .
-	FeatureName *string `json:"featureName" yaml:"featureName"`
+	FeatureName *string `field:"required" json:"featureName" yaml:"featureName"`
 	// The value type of a feature.
 	//
 	// Valid values are Integral, Fractional, or String.
-	FeatureType *string `json:"featureType" yaml:"featureType"`
+	FeatureType *string `field:"required" json:"featureType" yaml:"featureType"`
 }
 
 // Properties for defining a `CfnFeatureGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var offlineStoreConfig interface{}
 //   var onlineStoreConfig interface{}
+//
 //   cfnFeatureGroupProps := &cfnFeatureGroupProps{
 //   	eventTimeFeatureName: jsii.String("eventTimeFeatureName"),
 //   	featureDefinitions: []interface{}{
@@ -9890,7 +10091,7 @@ type CfnFeatureGroupProps struct {
 	// The name of the feature that stores the `EventTime` of a Record in a `FeatureGroup` .
 	//
 	// A `EventTime` is point in time when a new event occurs that corresponds to the creation or update of a `Record` in `FeatureGroup` . All `Records` in the `FeatureGroup` must have a corresponding `EventTime` .
-	EventTimeFeatureName *string `json:"eventTimeFeatureName" yaml:"eventTimeFeatureName"`
+	EventTimeFeatureName *string `field:"required" json:"eventTimeFeatureName" yaml:"eventTimeFeatureName"`
 	// A list of `Feature` s. Each `Feature` must include a `FeatureName` and a `FeatureType` .
 	//
 	// Valid `FeatureType` s are `Integral` , `Fractional` and `String` .
@@ -9898,21 +10099,21 @@ type CfnFeatureGroupProps struct {
 	// `FeatureName` s cannot be any of the following: `is_deleted` , `write_time` , `api_invocation_time` .
 	//
 	// You can create up to 2,500 `FeatureDefinition` s per `FeatureGroup` .
-	FeatureDefinitions interface{} `json:"featureDefinitions" yaml:"featureDefinitions"`
+	FeatureDefinitions interface{} `field:"required" json:"featureDefinitions" yaml:"featureDefinitions"`
 	// The name of the `FeatureGroup` .
-	FeatureGroupName *string `json:"featureGroupName" yaml:"featureGroupName"`
+	FeatureGroupName *string `field:"required" json:"featureGroupName" yaml:"featureGroupName"`
 	// The name of the `Feature` whose value uniquely identifies a `Record` defined in the `FeatureGroup` `FeatureDefinitions` .
-	RecordIdentifierFeatureName *string `json:"recordIdentifierFeatureName" yaml:"recordIdentifierFeatureName"`
+	RecordIdentifierFeatureName *string `field:"required" json:"recordIdentifierFeatureName" yaml:"recordIdentifierFeatureName"`
 	// A free form description of a `FeatureGroup` .
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The configuration of an `OfflineStore` .
-	OfflineStoreConfig interface{} `json:"offlineStoreConfig" yaml:"offlineStoreConfig"`
+	OfflineStoreConfig interface{} `field:"optional" json:"offlineStoreConfig" yaml:"offlineStoreConfig"`
 	// The configuration of an `OnlineStore` .
-	OnlineStoreConfig interface{} `json:"onlineStoreConfig" yaml:"onlineStoreConfig"`
+	OnlineStoreConfig interface{} `field:"optional" json:"onlineStoreConfig" yaml:"onlineStoreConfig"`
 	// The Amazon Resource Name (ARN) of the IAM execution role used to create the feature group.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// Tags used to define a `FeatureGroup` .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::SageMaker::Image`.
@@ -9920,8 +10121,11 @@ type CfnFeatureGroupProps struct {
 // Creates a custom SageMaker image. A SageMaker image is a set of image versions. Each image version represents a container image stored in Amazon Elastic Container Registry (ECR). For more information, see [Bring your own SageMaker image](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
-//   cfnImage := sagemaker.NewCfnImage(this, jsii.String("MyCfnImage"), &cfnImageProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnImage := awscdk.Aws_sagemaker.NewCfnImage(this, jsii.String("MyCfnImage"), &cfnImageProps{
 //   	imageName: jsii.String("imageName"),
 //   	imageRoleArn: jsii.String("imageRoleArn"),
 //
@@ -10676,7 +10880,10 @@ func (c *jsiiProxy_CfnImage) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnImage`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnImageProps := &cfnImageProps{
 //   	imageName: jsii.String("imageName"),
 //   	imageRoleArn: jsii.String("imageRoleArn"),
@@ -10698,29 +10905,29 @@ type CfnImageProps struct {
 	// *Length Constraints* : Minimum length of 1. Maximum length of 63.
 	//
 	// *Pattern* : `^[a-zA-Z0-9]([-.]?[a-zA-Z0-9]){0,62}$`
-	ImageName *string `json:"imageName" yaml:"imageName"`
+	ImageName *string `field:"required" json:"imageName" yaml:"imageName"`
 	// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
 	//
 	// *Length Constraints* : Minimum length of 20. Maximum length of 2048.
 	//
 	// *Pattern* : `^arn:aws[a-z\-]*:iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+$`
-	ImageRoleArn *string `json:"imageRoleArn" yaml:"imageRoleArn"`
+	ImageRoleArn *string `field:"required" json:"imageRoleArn" yaml:"imageRoleArn"`
 	// The description of the image.
 	//
 	// *Length Constraints* : Minimum length of 1. Maximum length of 512.
 	//
 	// *Pattern* : `.*`
-	ImageDescription *string `json:"imageDescription" yaml:"imageDescription"`
+	ImageDescription *string `field:"optional" json:"imageDescription" yaml:"imageDescription"`
 	// The display name of the image.
 	//
 	// *Length Constraints* : Minimum length of 1. Maximum length of 128.
 	//
 	// *Pattern* : `^\S(.*\S)?$`
-	ImageDisplayName *string `json:"imageDisplayName" yaml:"imageDisplayName"`
+	ImageDisplayName *string `field:"optional" json:"imageDisplayName" yaml:"imageDisplayName"`
 	// A list of key-value pairs to apply to this resource.
 	//
 	// *Array Members* : Minimum number of 0 items. Maximum number of 50 items.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::SageMaker::ImageVersion`.
@@ -10734,8 +10941,11 @@ type CfnImageProps struct {
 // > 2. `DependsOn` can be used to establish order among `ImageVersion` s within the same `Image` namespace. For example, if ImageVersionB `DependsOn` ImageVersionA and both share the same parent `Image` , then ImageVersionA is version N and ImageVersionB is N+1.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
-//   cfnImageVersion := sagemaker.NewCfnImageVersion(this, jsii.String("MyCfnImageVersion"), &cfnImageVersionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnImageVersion := awscdk.Aws_sagemaker.NewCfnImageVersion(this, jsii.String("MyCfnImageVersion"), &cfnImageVersionProps{
 //   	baseImage: jsii.String("baseImage"),
 //   	imageName: jsii.String("imageName"),
 //   })
@@ -11452,7 +11662,10 @@ func (c *jsiiProxy_CfnImageVersion) ValidateProperties(_properties interface{}) 
 // Properties for defining a `CfnImageVersion`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnImageVersionProps := &cfnImageVersionProps{
 //   	baseImage: jsii.String("baseImage"),
 //   	imageName: jsii.String("imageName"),
@@ -11464,13 +11677,13 @@ type CfnImageVersionProps struct {
 	// *Length Constraints* : Minimum length of 1. Maximum length of 255.
 	//
 	// *Pattern* : `.*`
-	BaseImage *string `json:"baseImage" yaml:"baseImage"`
+	BaseImage *string `field:"required" json:"baseImage" yaml:"baseImage"`
 	// The name of the parent image.
 	//
 	// *Length Constraints* : Minimum length of 1. Maximum length of 63.
 	//
 	// *Pattern* : `^[a-zA-Z0-9]([-.]?[a-zA-Z0-9]){0,62}$`
-	ImageName *string `json:"imageName" yaml:"imageName"`
+	ImageName *string `field:"required" json:"imageName" yaml:"imageName"`
 }
 
 // A CloudFormation `AWS::SageMaker::Model`.
@@ -11478,10 +11691,13 @@ type CfnImageVersionProps struct {
 // The `AWS::SageMaker::Model` resource to create a model to host at an Amazon SageMaker endpoint. For more information, see [Deploying a Model on Amazon SageMaker Hosting Services](https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works-hosting.html) in the *Amazon SageMaker Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var environment interface{}
-//   cfnModel := sagemaker.NewCfnModel(this, jsii.String("MyCfnModel"), &cfnModelProps{
+//
+//   cfnModel := awscdk.Aws_sagemaker.NewCfnModel(this, jsii.String("MyCfnModel"), &cfnModelProps{
 //   	executionRoleArn: jsii.String("executionRoleArn"),
 //
 //   	// the properties below are optional
@@ -12335,9 +12551,12 @@ func (c *jsiiProxy_CfnModel) ValidateProperties(_properties interface{}) {
 // Describes the container, as part of model definition.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var environment interface{}
+//
 //   containerDefinitionProperty := &containerDefinitionProperty{
 //   	containerHostname: jsii.String("containerHostname"),
 //   	environment: environment,
@@ -12363,23 +12582,23 @@ type CfnModel_ContainerDefinitionProperty struct {
 	// This parameter is ignored for models that contain only a `PrimaryContainer` .
 	//
 	// When a `ContainerDefinition` is part of an inference pipeline, the value of the parameter uniquely identifies the container for the purposes of logging and metrics. For information, see [Use Logs and Metrics to Monitor an Inference Pipeline](https://docs.aws.amazon.com/sagemaker/latest/dg/inference-pipeline-logs-metrics.html) . If you don't specify a value for this parameter for a `ContainerDefinition` that is part of an inference pipeline, a unique name is automatically assigned based on the position of the `ContainerDefinition` in the pipeline. If you specify a value for the `ContainerHostName` for any `ContainerDefinition` that is part of an inference pipeline, you must specify a value for the `ContainerHostName` parameter of every `ContainerDefinition` in that pipeline.
-	ContainerHostname *string `json:"containerHostname" yaml:"containerHostname"`
+	ContainerHostname *string `field:"optional" json:"containerHostname" yaml:"containerHostname"`
 	// The environment variables to set in the Docker container.
 	//
 	// Each key and value in the `Environment` string to string map can have length of up to 1024. We support up to 16 entries in the map.
-	Environment interface{} `json:"environment" yaml:"environment"`
+	Environment interface{} `field:"optional" json:"environment" yaml:"environment"`
 	// The path where inference code is stored.
 	//
 	// This can be either in Amazon EC2 Container Registry or in a Docker registry that is accessible from the same VPC that you configure for your endpoint. If you are using your own custom algorithm instead of an algorithm provided by SageMaker, the inference code must meet SageMaker requirements. SageMaker supports both `registry/repository[:tag]` and `registry/repository[@digest]` image path formats. For more information, see [Using Your Own Algorithms with Amazon SageMaker](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html)
-	Image *string `json:"image" yaml:"image"`
+	Image *string `field:"optional" json:"image" yaml:"image"`
 	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC).
 	//
 	// For information about storing containers in a private Docker registry, see [Use a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html)
-	ImageConfig interface{} `json:"imageConfig" yaml:"imageConfig"`
+	ImageConfig interface{} `field:"optional" json:"imageConfig" yaml:"imageConfig"`
 	// `CfnModel.ContainerDefinitionProperty.InferenceSpecificationName`.
-	InferenceSpecificationName *string `json:"inferenceSpecificationName" yaml:"inferenceSpecificationName"`
+	InferenceSpecificationName *string `field:"optional" json:"inferenceSpecificationName" yaml:"inferenceSpecificationName"`
 	// Whether the container hosts a single model or multiple models.
-	Mode *string `json:"mode" yaml:"mode"`
+	Mode *string `field:"optional" json:"mode" yaml:"mode"`
 	// The S3 path where the model artifacts, which result from model training, are stored.
 	//
 	// This path must point to a single gzip compressed tar archive (.tar.gz suffix). The S3 path is required for SageMaker built-in algorithms, but not if you use your own algorithms. For more information on built-in algorithms, see [Common Parameters](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html) .
@@ -12389,17 +12608,20 @@ type CfnModel_ContainerDefinitionProperty struct {
 	// If you provide a value for this parameter, SageMaker uses AWS Security Token Service to download model artifacts from the S3 path you provide. AWS STS is activated in your IAM user account by default. If you previously deactivated AWS STS for a region, you need to reactivate AWS STS for that region. For more information, see [Activating and Deactivating AWS STS in an AWS Region](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html) in the *AWS Identity and Access Management User Guide* .
 	//
 	// > If you use a built-in algorithm to create a model, SageMaker requires that you provide a S3 path to the model artifacts in `ModelDataUrl` .
-	ModelDataUrl *string `json:"modelDataUrl" yaml:"modelDataUrl"`
+	ModelDataUrl *string `field:"optional" json:"modelDataUrl" yaml:"modelDataUrl"`
 	// The name or Amazon Resource Name (ARN) of the model package to use to create the model.
-	ModelPackageName *string `json:"modelPackageName" yaml:"modelPackageName"`
+	ModelPackageName *string `field:"optional" json:"modelPackageName" yaml:"modelPackageName"`
 	// Specifies additional configuration for multi-model endpoints.
-	MultiModelConfig interface{} `json:"multiModelConfig" yaml:"multiModelConfig"`
+	MultiModelConfig interface{} `field:"optional" json:"multiModelConfig" yaml:"multiModelConfig"`
 }
 
 // Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC).
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   imageConfigProperty := &imageConfigProperty{
 //   	repositoryAccessMode: jsii.String("repositoryAccessMode"),
 //
@@ -12414,17 +12636,20 @@ type CfnModel_ImageConfigProperty struct {
 	//
 	// - `Platform` - The model image is hosted in Amazon ECR.
 	// - `Vpc` - The model image is hosted in a private Docker registry in your VPC.
-	RepositoryAccessMode *string `json:"repositoryAccessMode" yaml:"repositoryAccessMode"`
+	RepositoryAccessMode *string `field:"required" json:"repositoryAccessMode" yaml:"repositoryAccessMode"`
 	// (Optional) Specifies an authentication configuration for the private docker registry where your model image is hosted.
 	//
 	// Specify a value for this property only if you specified `Vpc` as the value for the `RepositoryAccessMode` field, and the private Docker registry where the model image is hosted requires authentication.
-	RepositoryAuthConfig interface{} `json:"repositoryAuthConfig" yaml:"repositoryAuthConfig"`
+	RepositoryAuthConfig interface{} `field:"optional" json:"repositoryAuthConfig" yaml:"repositoryAuthConfig"`
 }
 
 // Specifies details about how containers in a multi-container endpoint are run.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   inferenceExecutionConfigProperty := &inferenceExecutionConfigProperty{
 //   	mode: jsii.String("mode"),
 //   }
@@ -12434,13 +12659,16 @@ type CfnModel_InferenceExecutionConfigProperty struct {
 	//
 	// - `Serial` - Containers run as a serial pipeline.
 	// - `Direct` - Only the individual container that you specify is run.
-	Mode *string `json:"mode" yaml:"mode"`
+	Mode *string `field:"required" json:"mode" yaml:"mode"`
 }
 
 // Specifies additional configuration for hosting multi-model endpoints.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   multiModelConfigProperty := &multiModelConfigProperty{
 //   	modelCacheSetting: jsii.String("modelCacheSetting"),
 //   }
@@ -12449,7 +12677,7 @@ type CfnModel_MultiModelConfigProperty struct {
 	// Whether to cache models for a multi-model endpoint.
 	//
 	// By default, multi-model endpoints cache models so that a model does not have to be loaded into memory each time it is invoked. Some use cases do not benefit from model caching. For example, if an endpoint hosts a large number of models that are each invoked infrequently, the endpoint might perform better if you disable model caching. To disable model caching, set the value of this parameter to Disabled.
-	ModelCacheSetting *string `json:"modelCacheSetting" yaml:"modelCacheSetting"`
+	ModelCacheSetting *string `field:"optional" json:"modelCacheSetting" yaml:"modelCacheSetting"`
 }
 
 // Specifies an authentication configuration for the private docker registry where your model image is hosted.
@@ -12457,7 +12685,10 @@ type CfnModel_MultiModelConfigProperty struct {
 // Specify a value for this property only if you specified `Vpc` as the value for the `RepositoryAccessMode` field of the `ImageConfig` object that you passed to a call to `CreateModel` and the private Docker registry where the model image is hosted requires authentication.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   repositoryAuthConfigProperty := &repositoryAuthConfigProperty{
 //   	repositoryCredentialsProviderArn: jsii.String("repositoryCredentialsProviderArn"),
 //   }
@@ -12466,7 +12697,7 @@ type CfnModel_RepositoryAuthConfigProperty struct {
 	// The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted.
 	//
 	// For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the *AWS Lambda Developer Guide* .
-	RepositoryCredentialsProviderArn *string `json:"repositoryCredentialsProviderArn" yaml:"repositoryCredentialsProviderArn"`
+	RepositoryCredentialsProviderArn *string `field:"required" json:"repositoryCredentialsProviderArn" yaml:"repositoryCredentialsProviderArn"`
 }
 
 // Specifies a VPC that your training jobs and hosted models have access to.
@@ -12474,7 +12705,10 @@ type CfnModel_RepositoryAuthConfigProperty struct {
 // Control access to and from your training and model containers by configuring the VPC. For more information, see [Protect Endpoints by Using an Amazon Virtual Private Cloud](https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html) and [Protect Training Jobs by Using an Amazon Virtual Private Cloud](https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   vpcConfigProperty := &vpcConfigProperty{
 //   	securityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
@@ -12488,11 +12722,11 @@ type CfnModel_VpcConfigProperty struct {
 	// The VPC security group IDs, in the form sg-xxxxxxxx.
 	//
 	// Specify the security groups for the VPC that is specified in the `Subnets` field.
-	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
+	SecurityGroupIds *[]*string `field:"required" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// The ID of the subnets in the VPC to which you want to connect your training job or model.
 	//
 	// For information about the availability of specific instance types, see [Supported Instance Types and Availability Zones](https://docs.aws.amazon.com/sagemaker/latest/dg/instance-types-az.html) .
-	Subnets *[]*string `json:"subnets" yaml:"subnets"`
+	Subnets *[]*string `field:"required" json:"subnets" yaml:"subnets"`
 }
 
 // A CloudFormation `AWS::SageMaker::ModelBiasJobDefinition`.
@@ -12500,8 +12734,11 @@ type CfnModel_VpcConfigProperty struct {
 // Creates the definition for a model bias job.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
-//   cfnModelBiasJobDefinition := sagemaker.NewCfnModelBiasJobDefinition(this, jsii.String("MyCfnModelBiasJobDefinition"), &cfnModelBiasJobDefinitionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnModelBiasJobDefinition := awscdk.Aws_sagemaker.NewCfnModelBiasJobDefinition(this, jsii.String("MyCfnModelBiasJobDefinition"), &cfnModelBiasJobDefinitionProps{
 //   	jobResources: &monitoringResourcesProperty{
 //   		clusterConfig: &clusterConfigProperty{
 //   			instanceCount: jsii.Number(123),
@@ -13424,7 +13661,10 @@ func (c *jsiiProxy_CfnModelBiasJobDefinition) ValidateProperties(_properties int
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   clusterConfigProperty := &clusterConfigProperty{
 //   	instanceCount: jsii.Number(123),
 //   	instanceType: jsii.String("instanceType"),
@@ -13436,32 +13676,38 @@ func (c *jsiiProxy_CfnModelBiasJobDefinition) ValidateProperties(_properties int
 //
 type CfnModelBiasJobDefinition_ClusterConfigProperty struct {
 	// `CfnModelBiasJobDefinition.ClusterConfigProperty.InstanceCount`.
-	InstanceCount *float64 `json:"instanceCount" yaml:"instanceCount"`
+	InstanceCount *float64 `field:"required" json:"instanceCount" yaml:"instanceCount"`
 	// `CfnModelBiasJobDefinition.ClusterConfigProperty.InstanceType`.
-	InstanceType *string `json:"instanceType" yaml:"instanceType"`
+	InstanceType *string `field:"required" json:"instanceType" yaml:"instanceType"`
 	// `CfnModelBiasJobDefinition.ClusterConfigProperty.VolumeSizeInGB`.
-	VolumeSizeInGb *float64 `json:"volumeSizeInGb" yaml:"volumeSizeInGb"`
+	VolumeSizeInGb *float64 `field:"required" json:"volumeSizeInGb" yaml:"volumeSizeInGb"`
 	// `CfnModelBiasJobDefinition.ClusterConfigProperty.VolumeKmsKeyId`.
-	VolumeKmsKeyId *string `json:"volumeKmsKeyId" yaml:"volumeKmsKeyId"`
+	VolumeKmsKeyId *string `field:"optional" json:"volumeKmsKeyId" yaml:"volumeKmsKeyId"`
 }
 
 // The constraints resource for a monitoring job.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   constraintsResourceProperty := &constraintsResourceProperty{
 //   	s3Uri: jsii.String("s3Uri"),
 //   }
 //
 type CfnModelBiasJobDefinition_ConstraintsResourceProperty struct {
 	// The Amazon S3 URI for the constraints resource.
-	S3Uri *string `json:"s3Uri" yaml:"s3Uri"`
+	S3Uri *string `field:"optional" json:"s3Uri" yaml:"s3Uri"`
 }
 
 // Input object for the endpoint.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   endpointInputProperty := &endpointInputProperty{
 //   	endpointName: jsii.String("endpointName"),
 //   	localPath: jsii.String("localPath"),
@@ -13479,39 +13725,42 @@ type CfnModelBiasJobDefinition_ConstraintsResourceProperty struct {
 //
 type CfnModelBiasJobDefinition_EndpointInputProperty struct {
 	// An endpoint in customer's account which has enabled `DataCaptureConfig` enabled.
-	EndpointName *string `json:"endpointName" yaml:"endpointName"`
+	EndpointName *string `field:"required" json:"endpointName" yaml:"endpointName"`
 	// Path to the filesystem where the endpoint data is available to the container.
-	LocalPath *string `json:"localPath" yaml:"localPath"`
+	LocalPath *string `field:"required" json:"localPath" yaml:"localPath"`
 	// If specified, monitoring jobs substract this time from the end time.
 	//
 	// For information about using offsets for scheduling monitoring jobs, see [Schedule Model Quality Monitoring Jobs](https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-model-quality-schedule.html) .
-	EndTimeOffset *string `json:"endTimeOffset" yaml:"endTimeOffset"`
+	EndTimeOffset *string `field:"optional" json:"endTimeOffset" yaml:"endTimeOffset"`
 	// The attributes of the input data that are the input features.
-	FeaturesAttribute *string `json:"featuresAttribute" yaml:"featuresAttribute"`
+	FeaturesAttribute *string `field:"optional" json:"featuresAttribute" yaml:"featuresAttribute"`
 	// The attribute of the input data that represents the ground truth label.
-	InferenceAttribute *string `json:"inferenceAttribute" yaml:"inferenceAttribute"`
+	InferenceAttribute *string `field:"optional" json:"inferenceAttribute" yaml:"inferenceAttribute"`
 	// In a classification problem, the attribute that represents the class probability.
-	ProbabilityAttribute *string `json:"probabilityAttribute" yaml:"probabilityAttribute"`
+	ProbabilityAttribute *string `field:"optional" json:"probabilityAttribute" yaml:"probabilityAttribute"`
 	// The threshold for the class probability to be evaluated as a positive result.
-	ProbabilityThresholdAttribute *float64 `json:"probabilityThresholdAttribute" yaml:"probabilityThresholdAttribute"`
+	ProbabilityThresholdAttribute *float64 `field:"optional" json:"probabilityThresholdAttribute" yaml:"probabilityThresholdAttribute"`
 	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key.
 	//
 	// Defaults to `FullyReplicated`.
-	S3DataDistributionType *string `json:"s3DataDistributionType" yaml:"s3DataDistributionType"`
+	S3DataDistributionType *string `field:"optional" json:"s3DataDistributionType" yaml:"s3DataDistributionType"`
 	// Whether the `Pipe` or `File` is used as the input mode for transferring data for the monitoring job.
 	//
 	// `Pipe` mode is recommended for large datasets. `File` mode is useful for small files that fit in memory. Defaults to `File` .
-	S3InputMode *string `json:"s3InputMode" yaml:"s3InputMode"`
+	S3InputMode *string `field:"optional" json:"s3InputMode" yaml:"s3InputMode"`
 	// If specified, monitoring jobs substract this time from the start time.
 	//
 	// For information about using offsets for scheduling monitoring jobs, see [Schedule Model Quality Monitoring Jobs](https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-model-quality-schedule.html) .
-	StartTimeOffset *string `json:"startTimeOffset" yaml:"startTimeOffset"`
+	StartTimeOffset *string `field:"optional" json:"startTimeOffset" yaml:"startTimeOffset"`
 }
 
 // Docker container image configuration object for the model bias job.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   modelBiasAppSpecificationProperty := &modelBiasAppSpecificationProperty{
 //   	configUri: jsii.String("configUri"),
 //   	imageUri: jsii.String("imageUri"),
@@ -13526,17 +13775,20 @@ type CfnModelBiasJobDefinition_ModelBiasAppSpecificationProperty struct {
 	// JSON formatted S3 file that defines bias parameters.
 	//
 	// For more information on this JSON configuration file, see [Configure bias parameters](https://docs.aws.amazon.com/sagemaker/latest/json-bias-parameter-config.html) .
-	ConfigUri *string `json:"configUri" yaml:"configUri"`
+	ConfigUri *string `field:"required" json:"configUri" yaml:"configUri"`
 	// The container image to be run by the model bias job.
-	ImageUri *string `json:"imageUri" yaml:"imageUri"`
+	ImageUri *string `field:"required" json:"imageUri" yaml:"imageUri"`
 	// Sets the environment variables in the Docker container.
-	Environment interface{} `json:"environment" yaml:"environment"`
+	Environment interface{} `field:"optional" json:"environment" yaml:"environment"`
 }
 
 // The configuration for a baseline model bias job.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   modelBiasBaselineConfigProperty := &modelBiasBaselineConfigProperty{
 //   	baseliningJobName: jsii.String("baseliningJobName"),
 //   	constraintsResource: &constraintsResourceProperty{
@@ -13546,15 +13798,18 @@ type CfnModelBiasJobDefinition_ModelBiasAppSpecificationProperty struct {
 //
 type CfnModelBiasJobDefinition_ModelBiasBaselineConfigProperty struct {
 	// The name of the baseline model bias job.
-	BaseliningJobName *string `json:"baseliningJobName" yaml:"baseliningJobName"`
+	BaseliningJobName *string `field:"optional" json:"baseliningJobName" yaml:"baseliningJobName"`
 	// The constraints resource for a monitoring job.
-	ConstraintsResource interface{} `json:"constraintsResource" yaml:"constraintsResource"`
+	ConstraintsResource interface{} `field:"optional" json:"constraintsResource" yaml:"constraintsResource"`
 }
 
 // Inputs for the model bias job.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   modelBiasJobInputProperty := &modelBiasJobInputProperty{
 //   	endpointInput: &endpointInputProperty{
 //   		endpointName: jsii.String("endpointName"),
@@ -13577,28 +13832,34 @@ type CfnModelBiasJobDefinition_ModelBiasBaselineConfigProperty struct {
 //
 type CfnModelBiasJobDefinition_ModelBiasJobInputProperty struct {
 	// Input object for the endpoint.
-	EndpointInput interface{} `json:"endpointInput" yaml:"endpointInput"`
+	EndpointInput interface{} `field:"required" json:"endpointInput" yaml:"endpointInput"`
 	// Location of ground truth labels to use in model bias job.
-	GroundTruthS3Input interface{} `json:"groundTruthS3Input" yaml:"groundTruthS3Input"`
+	GroundTruthS3Input interface{} `field:"required" json:"groundTruthS3Input" yaml:"groundTruthS3Input"`
 }
 
 // The ground truth labels for the dataset used for the monitoring job.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   monitoringGroundTruthS3InputProperty := &monitoringGroundTruthS3InputProperty{
 //   	s3Uri: jsii.String("s3Uri"),
 //   }
 //
 type CfnModelBiasJobDefinition_MonitoringGroundTruthS3InputProperty struct {
 	// The address of the Amazon S3 location of the ground truth labels.
-	S3Uri *string `json:"s3Uri" yaml:"s3Uri"`
+	S3Uri *string `field:"required" json:"s3Uri" yaml:"s3Uri"`
 }
 
 // The output configuration for monitoring jobs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   monitoringOutputConfigProperty := &monitoringOutputConfigProperty{
 //   	monitoringOutputs: []interface{}{
 //   		&monitoringOutputProperty{
@@ -13620,15 +13881,18 @@ type CfnModelBiasJobDefinition_MonitoringOutputConfigProperty struct {
 	// Monitoring outputs for monitoring jobs.
 	//
 	// This is where the output of the periodic monitoring jobs is uploaded.
-	MonitoringOutputs interface{} `json:"monitoringOutputs" yaml:"monitoringOutputs"`
+	MonitoringOutputs interface{} `field:"required" json:"monitoringOutputs" yaml:"monitoringOutputs"`
 	// The AWS Key Management Service ( AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
-	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 }
 
 // The output object for a monitoring job.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   monitoringOutputProperty := &monitoringOutputProperty{
 //   	s3Output: &s3OutputProperty{
 //   		localPath: jsii.String("localPath"),
@@ -13641,13 +13905,16 @@ type CfnModelBiasJobDefinition_MonitoringOutputConfigProperty struct {
 //
 type CfnModelBiasJobDefinition_MonitoringOutputProperty struct {
 	// The Amazon S3 storage location where the results of a monitoring job are saved.
-	S3Output interface{} `json:"s3Output" yaml:"s3Output"`
+	S3Output interface{} `field:"required" json:"s3Output" yaml:"s3Output"`
 }
 
 // Identifies the resources to deploy for a monitoring job.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   monitoringResourcesProperty := &monitoringResourcesProperty{
 //   	clusterConfig: &clusterConfigProperty{
 //   		instanceCount: jsii.Number(123),
@@ -13661,13 +13928,16 @@ type CfnModelBiasJobDefinition_MonitoringOutputProperty struct {
 //
 type CfnModelBiasJobDefinition_MonitoringResourcesProperty struct {
 	// The configuration for the cluster resources used to run the processing job.
-	ClusterConfig interface{} `json:"clusterConfig" yaml:"clusterConfig"`
+	ClusterConfig interface{} `field:"required" json:"clusterConfig" yaml:"clusterConfig"`
 }
 
 // Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   networkConfigProperty := &networkConfigProperty{
 //   	enableInterContainerTrafficEncryption: jsii.Boolean(false),
 //   	enableNetworkIsolation: jsii.Boolean(false),
@@ -13685,19 +13955,22 @@ type CfnModelBiasJobDefinition_NetworkConfigProperty struct {
 	// Whether to encrypt all communications between distributed processing jobs.
 	//
 	// Choose `True` to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
-	EnableInterContainerTrafficEncryption interface{} `json:"enableInterContainerTrafficEncryption" yaml:"enableInterContainerTrafficEncryption"`
+	EnableInterContainerTrafficEncryption interface{} `field:"optional" json:"enableInterContainerTrafficEncryption" yaml:"enableInterContainerTrafficEncryption"`
 	// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
-	EnableNetworkIsolation interface{} `json:"enableNetworkIsolation" yaml:"enableNetworkIsolation"`
+	EnableNetworkIsolation interface{} `field:"optional" json:"enableNetworkIsolation" yaml:"enableNetworkIsolation"`
 	// Specifies a VPC that your training jobs and hosted models have access to.
 	//
 	// Control access to and from your training and model containers by configuring the VPC.
-	VpcConfig interface{} `json:"vpcConfig" yaml:"vpcConfig"`
+	VpcConfig interface{} `field:"optional" json:"vpcConfig" yaml:"vpcConfig"`
 }
 
 // The Amazon S3 storage location where the results of a monitoring job are saved.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3OutputProperty := &s3OutputProperty{
 //   	localPath: jsii.String("localPath"),
 //   	s3Uri: jsii.String("s3Uri"),
@@ -13710,11 +13983,11 @@ type CfnModelBiasJobDefinition_S3OutputProperty struct {
 	// The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
 	//
 	// `LocalPath` is an absolute path for the output data.
-	LocalPath *string `json:"localPath" yaml:"localPath"`
+	LocalPath *string `field:"required" json:"localPath" yaml:"localPath"`
 	// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
-	S3Uri *string `json:"s3Uri" yaml:"s3Uri"`
+	S3Uri *string `field:"required" json:"s3Uri" yaml:"s3Uri"`
 	// Whether to upload the results of the monitoring job continuously or after the job completes.
-	S3UploadMode *string `json:"s3UploadMode" yaml:"s3UploadMode"`
+	S3UploadMode *string `field:"optional" json:"s3UploadMode" yaml:"s3UploadMode"`
 }
 
 // Specifies a limit to how long a model training job or model compilation job can run.
@@ -13728,7 +14001,10 @@ type CfnModelBiasJobDefinition_S3OutputProperty struct {
 // > The Neural Topic Model (NTM) currently does not support saving intermediate model artifacts. When training NTMs, make sure that the maximum runtime is sufficient for the training job to complete.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   stoppingConditionProperty := &stoppingConditionProperty{
 //   	maxRuntimeInSeconds: jsii.Number(123),
 //   }
@@ -13739,7 +14015,7 @@ type CfnModelBiasJobDefinition_StoppingConditionProperty struct {
 	// For compilation jobs, if the job does not complete during this time, a `TimeOut` error is generated. We recommend starting with 900 seconds and increasing as necessary based on your model.
 	//
 	// For all other jobs, if the job does not complete during this time, SageMaker ends the job. When `RetryStrategy` is specified in the job request, `MaxRuntimeInSeconds` specifies the maximum time for all of the attempts in total, not each individual attempt. The default value is 1 day. The maximum value is 28 days.
-	MaxRuntimeInSeconds *float64 `json:"maxRuntimeInSeconds" yaml:"maxRuntimeInSeconds"`
+	MaxRuntimeInSeconds *float64 `field:"required" json:"maxRuntimeInSeconds" yaml:"maxRuntimeInSeconds"`
 }
 
 // Specifies a VPC that your training jobs and hosted models have access to.
@@ -13747,7 +14023,10 @@ type CfnModelBiasJobDefinition_StoppingConditionProperty struct {
 // Control access to and from your training and model containers by configuring the VPC. For more information, see [Protect Endpoints by Using an Amazon Virtual Private Cloud](https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html) and [Protect Training Jobs by Using an Amazon Virtual Private Cloud](https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   vpcConfigProperty := &vpcConfigProperty{
 //   	securityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
@@ -13761,17 +14040,20 @@ type CfnModelBiasJobDefinition_VpcConfigProperty struct {
 	// The VPC security group IDs, in the form sg-xxxxxxxx.
 	//
 	// Specify the security groups for the VPC that is specified in the `Subnets` field.
-	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
+	SecurityGroupIds *[]*string `field:"required" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// The ID of the subnets in the VPC to which you want to connect your training job or model.
 	//
 	// For information about the availability of specific instance types, see [Supported Instance Types and Availability Zones](https://docs.aws.amazon.com/sagemaker/latest/dg/instance-types-az.html) .
-	Subnets *[]*string `json:"subnets" yaml:"subnets"`
+	Subnets *[]*string `field:"required" json:"subnets" yaml:"subnets"`
 }
 
 // Properties for defining a `CfnModelBiasJobDefinition`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnModelBiasJobDefinitionProps := &cfnModelBiasJobDefinitionProps{
 //   	jobResources: &monitoringResourcesProperty{
 //   		clusterConfig: &clusterConfigProperty{
@@ -13862,29 +14144,29 @@ type CfnModelBiasJobDefinition_VpcConfigProperty struct {
 //
 type CfnModelBiasJobDefinitionProps struct {
 	// Identifies the resources to deploy for a monitoring job.
-	JobResources interface{} `json:"jobResources" yaml:"jobResources"`
+	JobResources interface{} `field:"required" json:"jobResources" yaml:"jobResources"`
 	// Configures the model bias job to run a specified Docker container image.
-	ModelBiasAppSpecification interface{} `json:"modelBiasAppSpecification" yaml:"modelBiasAppSpecification"`
+	ModelBiasAppSpecification interface{} `field:"required" json:"modelBiasAppSpecification" yaml:"modelBiasAppSpecification"`
 	// Inputs for the model bias job.
-	ModelBiasJobInput interface{} `json:"modelBiasJobInput" yaml:"modelBiasJobInput"`
+	ModelBiasJobInput interface{} `field:"required" json:"modelBiasJobInput" yaml:"modelBiasJobInput"`
 	// The output configuration for monitoring jobs.
-	ModelBiasJobOutputConfig interface{} `json:"modelBiasJobOutputConfig" yaml:"modelBiasJobOutputConfig"`
+	ModelBiasJobOutputConfig interface{} `field:"required" json:"modelBiasJobOutputConfig" yaml:"modelBiasJobOutputConfig"`
 	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The name of the bias job definition.
 	//
 	// The name must be unique within an AWS Region in the AWS account.
-	JobDefinitionName *string `json:"jobDefinitionName" yaml:"jobDefinitionName"`
+	JobDefinitionName *string `field:"optional" json:"jobDefinitionName" yaml:"jobDefinitionName"`
 	// The baseline configuration for a model bias job.
-	ModelBiasBaselineConfig interface{} `json:"modelBiasBaselineConfig" yaml:"modelBiasBaselineConfig"`
+	ModelBiasBaselineConfig interface{} `field:"optional" json:"modelBiasBaselineConfig" yaml:"modelBiasBaselineConfig"`
 	// Networking options for a model bias job.
-	NetworkConfig interface{} `json:"networkConfig" yaml:"networkConfig"`
+	NetworkConfig interface{} `field:"optional" json:"networkConfig" yaml:"networkConfig"`
 	// A time limit for how long the monitoring job is allowed to run before stopping.
-	StoppingCondition interface{} `json:"stoppingCondition" yaml:"stoppingCondition"`
+	StoppingCondition interface{} `field:"optional" json:"stoppingCondition" yaml:"stoppingCondition"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::SageMaker::ModelExplainabilityJobDefinition`.
@@ -13892,8 +14174,11 @@ type CfnModelBiasJobDefinitionProps struct {
 // Creates the definition for a model explainability job.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
-//   cfnModelExplainabilityJobDefinition := sagemaker.NewCfnModelExplainabilityJobDefinition(this, jsii.String("MyCfnModelExplainabilityJobDefinition"), &cfnModelExplainabilityJobDefinitionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnModelExplainabilityJobDefinition := awscdk.Aws_sagemaker.NewCfnModelExplainabilityJobDefinition(this, jsii.String("MyCfnModelExplainabilityJobDefinition"), &cfnModelExplainabilityJobDefinitionProps{
 //   	jobResources: &monitoringResourcesProperty{
 //   		clusterConfig: &clusterConfigProperty{
 //   			instanceCount: jsii.Number(123),
@@ -14812,7 +15097,10 @@ func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) ValidateProperties(_prop
 // The configuration for the cluster resources used to run the processing job.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   clusterConfigProperty := &clusterConfigProperty{
 //   	instanceCount: jsii.Number(123),
 //   	instanceType: jsii.String("instanceType"),
@@ -14826,34 +15114,40 @@ type CfnModelExplainabilityJobDefinition_ClusterConfigProperty struct {
 	// The number of ML compute instances to use in the model monitoring job.
 	//
 	// For distributed processing jobs, specify a value greater than 1. The default value is 1.
-	InstanceCount *float64 `json:"instanceCount" yaml:"instanceCount"`
+	InstanceCount *float64 `field:"required" json:"instanceCount" yaml:"instanceCount"`
 	// The ML compute instance type for the processing job.
-	InstanceType *string `json:"instanceType" yaml:"instanceType"`
+	InstanceType *string `field:"required" json:"instanceType" yaml:"instanceType"`
 	// The size of the ML storage volume, in gigabytes, that you want to provision.
 	//
 	// You must specify sufficient ML storage for your scenario.
-	VolumeSizeInGb *float64 `json:"volumeSizeInGb" yaml:"volumeSizeInGb"`
+	VolumeSizeInGb *float64 `field:"required" json:"volumeSizeInGb" yaml:"volumeSizeInGb"`
 	// The AWS Key Management Service ( AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
-	VolumeKmsKeyId *string `json:"volumeKmsKeyId" yaml:"volumeKmsKeyId"`
+	VolumeKmsKeyId *string `field:"optional" json:"volumeKmsKeyId" yaml:"volumeKmsKeyId"`
 }
 
 // The constraints resource for a monitoring job.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   constraintsResourceProperty := &constraintsResourceProperty{
 //   	s3Uri: jsii.String("s3Uri"),
 //   }
 //
 type CfnModelExplainabilityJobDefinition_ConstraintsResourceProperty struct {
 	// The Amazon S3 URI for the constraints resource.
-	S3Uri *string `json:"s3Uri" yaml:"s3Uri"`
+	S3Uri *string `field:"optional" json:"s3Uri" yaml:"s3Uri"`
 }
 
 // Input object for the endpoint.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   endpointInputProperty := &endpointInputProperty{
 //   	endpointName: jsii.String("endpointName"),
 //   	localPath: jsii.String("localPath"),
@@ -14868,29 +15162,32 @@ type CfnModelExplainabilityJobDefinition_ConstraintsResourceProperty struct {
 //
 type CfnModelExplainabilityJobDefinition_EndpointInputProperty struct {
 	// An endpoint in customer's account which has enabled `DataCaptureConfig` enabled.
-	EndpointName *string `json:"endpointName" yaml:"endpointName"`
+	EndpointName *string `field:"required" json:"endpointName" yaml:"endpointName"`
 	// Path to the filesystem where the endpoint data is available to the container.
-	LocalPath *string `json:"localPath" yaml:"localPath"`
+	LocalPath *string `field:"required" json:"localPath" yaml:"localPath"`
 	// The attributes of the input data that are the input features.
-	FeaturesAttribute *string `json:"featuresAttribute" yaml:"featuresAttribute"`
+	FeaturesAttribute *string `field:"optional" json:"featuresAttribute" yaml:"featuresAttribute"`
 	// The attribute of the input data that represents the ground truth label.
-	InferenceAttribute *string `json:"inferenceAttribute" yaml:"inferenceAttribute"`
+	InferenceAttribute *string `field:"optional" json:"inferenceAttribute" yaml:"inferenceAttribute"`
 	// In a classification problem, the attribute that represents the class probability.
-	ProbabilityAttribute *string `json:"probabilityAttribute" yaml:"probabilityAttribute"`
+	ProbabilityAttribute *string `field:"optional" json:"probabilityAttribute" yaml:"probabilityAttribute"`
 	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key.
 	//
 	// Defaults to `FullyReplicated`.
-	S3DataDistributionType *string `json:"s3DataDistributionType" yaml:"s3DataDistributionType"`
+	S3DataDistributionType *string `field:"optional" json:"s3DataDistributionType" yaml:"s3DataDistributionType"`
 	// Whether the `Pipe` or `File` is used as the input mode for transferring data for the monitoring job.
 	//
 	// `Pipe` mode is recommended for large datasets. `File` mode is useful for small files that fit in memory. Defaults to `File` .
-	S3InputMode *string `json:"s3InputMode" yaml:"s3InputMode"`
+	S3InputMode *string `field:"optional" json:"s3InputMode" yaml:"s3InputMode"`
 }
 
 // Docker container image configuration object for the model explainability job.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   modelExplainabilityAppSpecificationProperty := &modelExplainabilityAppSpecificationProperty{
 //   	configUri: jsii.String("configUri"),
 //   	imageUri: jsii.String("imageUri"),
@@ -14905,17 +15202,20 @@ type CfnModelExplainabilityJobDefinition_ModelExplainabilityAppSpecificationProp
 	// JSON formatted S3 file that defines explainability parameters.
 	//
 	// For more information on this JSON configuration file, see [Configure model explainability parameters](https://docs.aws.amazon.com/sagemaker/latest/json-model-explainability-parameter-config.html) .
-	ConfigUri *string `json:"configUri" yaml:"configUri"`
+	ConfigUri *string `field:"required" json:"configUri" yaml:"configUri"`
 	// The container image to be run by the model explainability job.
-	ImageUri *string `json:"imageUri" yaml:"imageUri"`
+	ImageUri *string `field:"required" json:"imageUri" yaml:"imageUri"`
 	// Sets the environment variables in the Docker container.
-	Environment interface{} `json:"environment" yaml:"environment"`
+	Environment interface{} `field:"optional" json:"environment" yaml:"environment"`
 }
 
 // The configuration for a baseline model explainability job.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   modelExplainabilityBaselineConfigProperty := &modelExplainabilityBaselineConfigProperty{
 //   	baseliningJobName: jsii.String("baseliningJobName"),
 //   	constraintsResource: &constraintsResourceProperty{
@@ -14925,15 +15225,18 @@ type CfnModelExplainabilityJobDefinition_ModelExplainabilityAppSpecificationProp
 //
 type CfnModelExplainabilityJobDefinition_ModelExplainabilityBaselineConfigProperty struct {
 	// The name of the baseline model explainability job.
-	BaseliningJobName *string `json:"baseliningJobName" yaml:"baseliningJobName"`
+	BaseliningJobName *string `field:"optional" json:"baseliningJobName" yaml:"baseliningJobName"`
 	// The constraints resource for a model explainability job.
-	ConstraintsResource interface{} `json:"constraintsResource" yaml:"constraintsResource"`
+	ConstraintsResource interface{} `field:"optional" json:"constraintsResource" yaml:"constraintsResource"`
 }
 
 // Inputs for the model explainability job.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   modelExplainabilityJobInputProperty := &modelExplainabilityJobInputProperty{
 //   	endpointInput: &endpointInputProperty{
 //   		endpointName: jsii.String("endpointName"),
@@ -14950,13 +15253,16 @@ type CfnModelExplainabilityJobDefinition_ModelExplainabilityBaselineConfigProper
 //
 type CfnModelExplainabilityJobDefinition_ModelExplainabilityJobInputProperty struct {
 	// `CfnModelExplainabilityJobDefinition.ModelExplainabilityJobInputProperty.EndpointInput`.
-	EndpointInput interface{} `json:"endpointInput" yaml:"endpointInput"`
+	EndpointInput interface{} `field:"required" json:"endpointInput" yaml:"endpointInput"`
 }
 
 // The output configuration for monitoring jobs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   monitoringOutputConfigProperty := &monitoringOutputConfigProperty{
 //   	monitoringOutputs: []interface{}{
 //   		&monitoringOutputProperty{
@@ -14978,15 +15284,18 @@ type CfnModelExplainabilityJobDefinition_MonitoringOutputConfigProperty struct {
 	// Monitoring outputs for monitoring jobs.
 	//
 	// This is where the output of the periodic monitoring jobs is uploaded.
-	MonitoringOutputs interface{} `json:"monitoringOutputs" yaml:"monitoringOutputs"`
+	MonitoringOutputs interface{} `field:"required" json:"monitoringOutputs" yaml:"monitoringOutputs"`
 	// The AWS Key Management Service ( AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
-	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 }
 
 // The output object for a monitoring job.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   monitoringOutputProperty := &monitoringOutputProperty{
 //   	s3Output: &s3OutputProperty{
 //   		localPath: jsii.String("localPath"),
@@ -14999,13 +15308,16 @@ type CfnModelExplainabilityJobDefinition_MonitoringOutputConfigProperty struct {
 //
 type CfnModelExplainabilityJobDefinition_MonitoringOutputProperty struct {
 	// The Amazon S3 storage location where the results of a monitoring job are saved.
-	S3Output interface{} `json:"s3Output" yaml:"s3Output"`
+	S3Output interface{} `field:"required" json:"s3Output" yaml:"s3Output"`
 }
 
 // Identifies the resources to deploy for a monitoring job.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   monitoringResourcesProperty := &monitoringResourcesProperty{
 //   	clusterConfig: &clusterConfigProperty{
 //   		instanceCount: jsii.Number(123),
@@ -15019,13 +15331,16 @@ type CfnModelExplainabilityJobDefinition_MonitoringOutputProperty struct {
 //
 type CfnModelExplainabilityJobDefinition_MonitoringResourcesProperty struct {
 	// The configuration for the cluster resources used to run the processing job.
-	ClusterConfig interface{} `json:"clusterConfig" yaml:"clusterConfig"`
+	ClusterConfig interface{} `field:"required" json:"clusterConfig" yaml:"clusterConfig"`
 }
 
 // Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   networkConfigProperty := &networkConfigProperty{
 //   	enableInterContainerTrafficEncryption: jsii.Boolean(false),
 //   	enableNetworkIsolation: jsii.Boolean(false),
@@ -15043,17 +15358,20 @@ type CfnModelExplainabilityJobDefinition_NetworkConfigProperty struct {
 	// Whether to encrypt all communications between distributed processing jobs.
 	//
 	// Choose `True` to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
-	EnableInterContainerTrafficEncryption interface{} `json:"enableInterContainerTrafficEncryption" yaml:"enableInterContainerTrafficEncryption"`
+	EnableInterContainerTrafficEncryption interface{} `field:"optional" json:"enableInterContainerTrafficEncryption" yaml:"enableInterContainerTrafficEncryption"`
 	// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
-	EnableNetworkIsolation interface{} `json:"enableNetworkIsolation" yaml:"enableNetworkIsolation"`
+	EnableNetworkIsolation interface{} `field:"optional" json:"enableNetworkIsolation" yaml:"enableNetworkIsolation"`
 	// `CfnModelExplainabilityJobDefinition.NetworkConfigProperty.VpcConfig`.
-	VpcConfig interface{} `json:"vpcConfig" yaml:"vpcConfig"`
+	VpcConfig interface{} `field:"optional" json:"vpcConfig" yaml:"vpcConfig"`
 }
 
 // The Amazon S3 storage location where the results of a monitoring job are saved.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3OutputProperty := &s3OutputProperty{
 //   	localPath: jsii.String("localPath"),
 //   	s3Uri: jsii.String("s3Uri"),
@@ -15066,11 +15384,11 @@ type CfnModelExplainabilityJobDefinition_S3OutputProperty struct {
 	// The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
 	//
 	// LocalPath is an absolute path for the output data.
-	LocalPath *string `json:"localPath" yaml:"localPath"`
+	LocalPath *string `field:"required" json:"localPath" yaml:"localPath"`
 	// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
-	S3Uri *string `json:"s3Uri" yaml:"s3Uri"`
+	S3Uri *string `field:"required" json:"s3Uri" yaml:"s3Uri"`
 	// Whether to upload the results of the monitoring job continuously or after the job completes.
-	S3UploadMode *string `json:"s3UploadMode" yaml:"s3UploadMode"`
+	S3UploadMode *string `field:"optional" json:"s3UploadMode" yaml:"s3UploadMode"`
 }
 
 // Specifies a limit to how long a model training job or model compilation job can run.
@@ -15084,7 +15402,10 @@ type CfnModelExplainabilityJobDefinition_S3OutputProperty struct {
 // > The Neural Topic Model (NTM) currently does not support saving intermediate model artifacts. When training NTMs, make sure that the maximum runtime is sufficient for the training job to complete.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   stoppingConditionProperty := &stoppingConditionProperty{
 //   	maxRuntimeInSeconds: jsii.Number(123),
 //   }
@@ -15095,7 +15416,7 @@ type CfnModelExplainabilityJobDefinition_StoppingConditionProperty struct {
 	// For compilation jobs, if the job does not complete during this time, a `TimeOut` error is generated. We recommend starting with 900 seconds and increasing as necessary based on your model.
 	//
 	// For all other jobs, if the job does not complete during this time, SageMaker ends the job. When `RetryStrategy` is specified in the job request, `MaxRuntimeInSeconds` specifies the maximum time for all of the attempts in total, not each individual attempt. The default value is 1 day. The maximum value is 28 days.
-	MaxRuntimeInSeconds *float64 `json:"maxRuntimeInSeconds" yaml:"maxRuntimeInSeconds"`
+	MaxRuntimeInSeconds *float64 `field:"required" json:"maxRuntimeInSeconds" yaml:"maxRuntimeInSeconds"`
 }
 
 // Specifies a VPC that your training jobs and hosted models have access to.
@@ -15103,7 +15424,10 @@ type CfnModelExplainabilityJobDefinition_StoppingConditionProperty struct {
 // Control access to and from your training and model containers by configuring the VPC. For more information, see [Protect Endpoints by Using an Amazon Virtual Private Cloud](https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html) and [Protect Training Jobs by Using an Amazon Virtual Private Cloud](https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   vpcConfigProperty := &vpcConfigProperty{
 //   	securityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
@@ -15117,17 +15441,20 @@ type CfnModelExplainabilityJobDefinition_VpcConfigProperty struct {
 	// The VPC security group IDs, in the form sg-xxxxxxxx.
 	//
 	// Specify the security groups for the VPC that is specified in the `Subnets` field.
-	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
+	SecurityGroupIds *[]*string `field:"required" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// The ID of the subnets in the VPC to which you want to connect your training job or model.
 	//
 	// For information about the availability of specific instance types, see [Supported Instance Types and Availability Zones](https://docs.aws.amazon.com/sagemaker/latest/dg/instance-types-az.html) .
-	Subnets *[]*string `json:"subnets" yaml:"subnets"`
+	Subnets *[]*string `field:"required" json:"subnets" yaml:"subnets"`
 }
 
 // Properties for defining a `CfnModelExplainabilityJobDefinition`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnModelExplainabilityJobDefinitionProps := &cfnModelExplainabilityJobDefinitionProps{
 //   	jobResources: &monitoringResourcesProperty{
 //   		clusterConfig: &clusterConfigProperty{
@@ -15212,29 +15539,29 @@ type CfnModelExplainabilityJobDefinition_VpcConfigProperty struct {
 //
 type CfnModelExplainabilityJobDefinitionProps struct {
 	// Identifies the resources to deploy for a monitoring job.
-	JobResources interface{} `json:"jobResources" yaml:"jobResources"`
+	JobResources interface{} `field:"required" json:"jobResources" yaml:"jobResources"`
 	// Configures the model explainability job to run a specified Docker container image.
-	ModelExplainabilityAppSpecification interface{} `json:"modelExplainabilityAppSpecification" yaml:"modelExplainabilityAppSpecification"`
+	ModelExplainabilityAppSpecification interface{} `field:"required" json:"modelExplainabilityAppSpecification" yaml:"modelExplainabilityAppSpecification"`
 	// Inputs for the model explainability job.
-	ModelExplainabilityJobInput interface{} `json:"modelExplainabilityJobInput" yaml:"modelExplainabilityJobInput"`
+	ModelExplainabilityJobInput interface{} `field:"required" json:"modelExplainabilityJobInput" yaml:"modelExplainabilityJobInput"`
 	// The output configuration for monitoring jobs.
-	ModelExplainabilityJobOutputConfig interface{} `json:"modelExplainabilityJobOutputConfig" yaml:"modelExplainabilityJobOutputConfig"`
+	ModelExplainabilityJobOutputConfig interface{} `field:"required" json:"modelExplainabilityJobOutputConfig" yaml:"modelExplainabilityJobOutputConfig"`
 	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The name of the model explainability job definition.
 	//
 	// The name must be unique within an AWS Region in the AWS account.
-	JobDefinitionName *string `json:"jobDefinitionName" yaml:"jobDefinitionName"`
+	JobDefinitionName *string `field:"optional" json:"jobDefinitionName" yaml:"jobDefinitionName"`
 	// The baseline configuration for a model explainability job.
-	ModelExplainabilityBaselineConfig interface{} `json:"modelExplainabilityBaselineConfig" yaml:"modelExplainabilityBaselineConfig"`
+	ModelExplainabilityBaselineConfig interface{} `field:"optional" json:"modelExplainabilityBaselineConfig" yaml:"modelExplainabilityBaselineConfig"`
 	// Networking options for a model explainability job.
-	NetworkConfig interface{} `json:"networkConfig" yaml:"networkConfig"`
+	NetworkConfig interface{} `field:"optional" json:"networkConfig" yaml:"networkConfig"`
 	// `AWS::SageMaker::ModelExplainabilityJobDefinition.StoppingCondition`.
-	StoppingCondition interface{} `json:"stoppingCondition" yaml:"stoppingCondition"`
+	StoppingCondition interface{} `field:"optional" json:"stoppingCondition" yaml:"stoppingCondition"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::SageMaker::ModelPackageGroup`.
@@ -15242,10 +15569,13 @@ type CfnModelExplainabilityJobDefinitionProps struct {
 // A group of versioned models in the model registry.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var modelPackageGroupPolicy interface{}
-//   cfnModelPackageGroup := sagemaker.NewCfnModelPackageGroup(this, jsii.String("MyCfnModelPackageGroup"), &cfnModelPackageGroupProps{
+//
+//   cfnModelPackageGroup := awscdk.Aws_sagemaker.NewCfnModelPackageGroup(this, jsii.String("MyCfnModelPackageGroup"), &cfnModelPackageGroupProps{
 //   	modelPackageGroupName: jsii.String("modelPackageGroupName"),
 //
 //   	// the properties below are optional
@@ -15982,9 +16312,12 @@ func (c *jsiiProxy_CfnModelPackageGroup) ValidateProperties(_properties interfac
 // Properties for defining a `CfnModelPackageGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var modelPackageGroupPolicy interface{}
+//
 //   cfnModelPackageGroupProps := &cfnModelPackageGroupProps{
 //   	modelPackageGroupName: jsii.String("modelPackageGroupName"),
 //
@@ -16001,25 +16334,28 @@ func (c *jsiiProxy_CfnModelPackageGroup) ValidateProperties(_properties interfac
 //
 type CfnModelPackageGroupProps struct {
 	// The name of the model group.
-	ModelPackageGroupName *string `json:"modelPackageGroupName" yaml:"modelPackageGroupName"`
+	ModelPackageGroupName *string `field:"required" json:"modelPackageGroupName" yaml:"modelPackageGroupName"`
 	// The description for the model group.
-	ModelPackageGroupDescription *string `json:"modelPackageGroupDescription" yaml:"modelPackageGroupDescription"`
+	ModelPackageGroupDescription *string `field:"optional" json:"modelPackageGroupDescription" yaml:"modelPackageGroupDescription"`
 	// A resouce policy to control access to a model group.
 	//
 	// For information about resoure policies, see [Identity-based policies and resource-based policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html) in the *AWS Identity and Access Management User Guide.* .
-	ModelPackageGroupPolicy interface{} `json:"modelPackageGroupPolicy" yaml:"modelPackageGroupPolicy"`
+	ModelPackageGroupPolicy interface{} `field:"optional" json:"modelPackageGroupPolicy" yaml:"modelPackageGroupPolicy"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // Properties for defining a `CfnModel`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var environment interface{}
+//
 //   cfnModelProps := &cfnModelProps{
 //   	executionRoleArn: jsii.String("executionRoleArn"),
 //
@@ -16093,25 +16429,25 @@ type CfnModelProps struct {
 	// Deploying on ML compute instances is part of model hosting. For more information, see [SageMaker Roles](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html) .
 	//
 	// > To be able to pass this role to SageMaker, the caller of this API must have the `iam:PassRole` permission.
-	ExecutionRoleArn *string `json:"executionRoleArn" yaml:"executionRoleArn"`
+	ExecutionRoleArn *string `field:"required" json:"executionRoleArn" yaml:"executionRoleArn"`
 	// Specifies the containers in the inference pipeline.
-	Containers interface{} `json:"containers" yaml:"containers"`
+	Containers interface{} `field:"optional" json:"containers" yaml:"containers"`
 	// Isolates the model container.
 	//
 	// No inbound or outbound network calls can be made to or from the model container.
-	EnableNetworkIsolation interface{} `json:"enableNetworkIsolation" yaml:"enableNetworkIsolation"`
+	EnableNetworkIsolation interface{} `field:"optional" json:"enableNetworkIsolation" yaml:"enableNetworkIsolation"`
 	// Specifies details of how containers in a multi-container endpoint are called.
-	InferenceExecutionConfig interface{} `json:"inferenceExecutionConfig" yaml:"inferenceExecutionConfig"`
+	InferenceExecutionConfig interface{} `field:"optional" json:"inferenceExecutionConfig" yaml:"inferenceExecutionConfig"`
 	// The name of the new model.
-	ModelName *string `json:"modelName" yaml:"modelName"`
+	ModelName *string `field:"optional" json:"modelName" yaml:"modelName"`
 	// The location of the primary docker image containing inference code, associated artifacts, and custom environment map that the inference code uses when the model is deployed for predictions.
-	PrimaryContainer interface{} `json:"primaryContainer" yaml:"primaryContainer"`
+	PrimaryContainer interface{} `field:"optional" json:"primaryContainer" yaml:"primaryContainer"`
 	// A list of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Resource Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) and [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what) in the *AWS Billing and Cost Management User Guide* .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// A [VpcConfig](https://docs.aws.amazon.com/sagemaker/latest/dg/API_VpcConfig.html) object that specifies the VPC that you want your model to connect to. Control access to and from your model container by configuring the VPC. `VpcConfig` is used in hosting services and in batch transform. For more information, see [Protect Endpoints by Using an Amazon Virtual Private Cloud](https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html) and [Protect Data in Batch Transform Jobs by Using an Amazon Virtual Private Cloud](https://docs.aws.amazon.com/sagemaker/latest/dg/batch-vpc.html) .
-	VpcConfig interface{} `json:"vpcConfig" yaml:"vpcConfig"`
+	VpcConfig interface{} `field:"optional" json:"vpcConfig" yaml:"vpcConfig"`
 }
 
 // A CloudFormation `AWS::SageMaker::ModelQualityJobDefinition`.
@@ -16119,8 +16455,11 @@ type CfnModelProps struct {
 // Creates a definition for a job that monitors model quality and drift. For information about model monitor, see [Amazon SageMaker Model Monitor](https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
-//   cfnModelQualityJobDefinition := sagemaker.NewCfnModelQualityJobDefinition(this, jsii.String("MyCfnModelQualityJobDefinition"), &cfnModelQualityJobDefinitionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnModelQualityJobDefinition := awscdk.Aws_sagemaker.NewCfnModelQualityJobDefinition(this, jsii.String("MyCfnModelQualityJobDefinition"), &cfnModelQualityJobDefinitionProps{
 //   	jobResources: &monitoringResourcesProperty{
 //   		clusterConfig: &clusterConfigProperty{
 //   			instanceCount: jsii.Number(123),
@@ -17052,7 +17391,10 @@ func (c *jsiiProxy_CfnModelQualityJobDefinition) ValidateProperties(_properties 
 // The configuration for the cluster of resources used to run the processing job.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   clusterConfigProperty := &clusterConfigProperty{
 //   	instanceCount: jsii.Number(123),
 //   	instanceType: jsii.String("instanceType"),
@@ -17066,34 +17408,40 @@ type CfnModelQualityJobDefinition_ClusterConfigProperty struct {
 	// The number of ML compute instances to use in the model monitoring job.
 	//
 	// For distributed processing jobs, specify a value greater than 1. The default value is 1.
-	InstanceCount *float64 `json:"instanceCount" yaml:"instanceCount"`
+	InstanceCount *float64 `field:"required" json:"instanceCount" yaml:"instanceCount"`
 	// The ML compute instance type for the processing job.
-	InstanceType *string `json:"instanceType" yaml:"instanceType"`
+	InstanceType *string `field:"required" json:"instanceType" yaml:"instanceType"`
 	// The size of the ML storage volume, in gigabytes, that you want to provision.
 	//
 	// You must specify sufficient ML storage for your scenario.
-	VolumeSizeInGb *float64 `json:"volumeSizeInGb" yaml:"volumeSizeInGb"`
+	VolumeSizeInGb *float64 `field:"required" json:"volumeSizeInGb" yaml:"volumeSizeInGb"`
 	// The AWS Key Management Service ( AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
-	VolumeKmsKeyId *string `json:"volumeKmsKeyId" yaml:"volumeKmsKeyId"`
+	VolumeKmsKeyId *string `field:"optional" json:"volumeKmsKeyId" yaml:"volumeKmsKeyId"`
 }
 
 // The constraints resource for a monitoring job.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   constraintsResourceProperty := &constraintsResourceProperty{
 //   	s3Uri: jsii.String("s3Uri"),
 //   }
 //
 type CfnModelQualityJobDefinition_ConstraintsResourceProperty struct {
 	// The Amazon S3 URI for the constraints resource.
-	S3Uri *string `json:"s3Uri" yaml:"s3Uri"`
+	S3Uri *string `field:"optional" json:"s3Uri" yaml:"s3Uri"`
 }
 
 // Input object for the endpoint.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   endpointInputProperty := &endpointInputProperty{
 //   	endpointName: jsii.String("endpointName"),
 //   	localPath: jsii.String("localPath"),
@@ -17110,37 +17458,40 @@ type CfnModelQualityJobDefinition_ConstraintsResourceProperty struct {
 //
 type CfnModelQualityJobDefinition_EndpointInputProperty struct {
 	// An endpoint in customer's account which has enabled `DataCaptureConfig` enabled.
-	EndpointName *string `json:"endpointName" yaml:"endpointName"`
+	EndpointName *string `field:"required" json:"endpointName" yaml:"endpointName"`
 	// Path to the filesystem where the endpoint data is available to the container.
-	LocalPath *string `json:"localPath" yaml:"localPath"`
+	LocalPath *string `field:"required" json:"localPath" yaml:"localPath"`
 	// If specified, monitoring jobs substract this time from the end time.
 	//
 	// For information about using offsets for scheduling monitoring jobs, see [Schedule Model Quality Monitoring Jobs](https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-model-quality-schedule.html) .
-	EndTimeOffset *string `json:"endTimeOffset" yaml:"endTimeOffset"`
+	EndTimeOffset *string `field:"optional" json:"endTimeOffset" yaml:"endTimeOffset"`
 	// The attribute of the input data that represents the ground truth label.
-	InferenceAttribute *string `json:"inferenceAttribute" yaml:"inferenceAttribute"`
+	InferenceAttribute *string `field:"optional" json:"inferenceAttribute" yaml:"inferenceAttribute"`
 	// In a classification problem, the attribute that represents the class probability.
-	ProbabilityAttribute *string `json:"probabilityAttribute" yaml:"probabilityAttribute"`
+	ProbabilityAttribute *string `field:"optional" json:"probabilityAttribute" yaml:"probabilityAttribute"`
 	// The threshold for the class probability to be evaluated as a positive result.
-	ProbabilityThresholdAttribute *float64 `json:"probabilityThresholdAttribute" yaml:"probabilityThresholdAttribute"`
+	ProbabilityThresholdAttribute *float64 `field:"optional" json:"probabilityThresholdAttribute" yaml:"probabilityThresholdAttribute"`
 	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key.
 	//
 	// Defaults to `FullyReplicated`.
-	S3DataDistributionType *string `json:"s3DataDistributionType" yaml:"s3DataDistributionType"`
+	S3DataDistributionType *string `field:"optional" json:"s3DataDistributionType" yaml:"s3DataDistributionType"`
 	// Whether the `Pipe` or `File` is used as the input mode for transferring data for the monitoring job.
 	//
 	// `Pipe` mode is recommended for large datasets. `File` mode is useful for small files that fit in memory. Defaults to `File` .
-	S3InputMode *string `json:"s3InputMode" yaml:"s3InputMode"`
+	S3InputMode *string `field:"optional" json:"s3InputMode" yaml:"s3InputMode"`
 	// If specified, monitoring jobs substract this time from the start time.
 	//
 	// For information about using offsets for scheduling monitoring jobs, see [Schedule Model Quality Monitoring Jobs](https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-model-quality-schedule.html) .
-	StartTimeOffset *string `json:"startTimeOffset" yaml:"startTimeOffset"`
+	StartTimeOffset *string `field:"optional" json:"startTimeOffset" yaml:"startTimeOffset"`
 }
 
 // Container image configuration object for the monitoring job.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   modelQualityAppSpecificationProperty := &modelQualityAppSpecificationProperty{
 //   	imageUri: jsii.String("imageUri"),
 //   	problemType: jsii.String("problemType"),
@@ -17161,23 +17512,23 @@ type CfnModelQualityJobDefinition_EndpointInputProperty struct {
 //
 type CfnModelQualityJobDefinition_ModelQualityAppSpecificationProperty struct {
 	// The address of the container image that the monitoring job runs.
-	ImageUri *string `json:"imageUri" yaml:"imageUri"`
+	ImageUri *string `field:"required" json:"imageUri" yaml:"imageUri"`
 	// The machine learning problem type of the model that the monitoring job monitors.
-	ProblemType *string `json:"problemType" yaml:"problemType"`
+	ProblemType *string `field:"required" json:"problemType" yaml:"problemType"`
 	// An array of arguments for the container used to run the monitoring job.
-	ContainerArguments *[]*string `json:"containerArguments" yaml:"containerArguments"`
+	ContainerArguments *[]*string `field:"optional" json:"containerArguments" yaml:"containerArguments"`
 	// Specifies the entrypoint for a container that the monitoring job runs.
-	ContainerEntrypoint *[]*string `json:"containerEntrypoint" yaml:"containerEntrypoint"`
+	ContainerEntrypoint *[]*string `field:"optional" json:"containerEntrypoint" yaml:"containerEntrypoint"`
 	// Sets the environment variables in the container that the monitoring job runs.
-	Environment interface{} `json:"environment" yaml:"environment"`
+	Environment interface{} `field:"optional" json:"environment" yaml:"environment"`
 	// An Amazon S3 URI to a script that is called after analysis has been performed.
 	//
 	// Applicable only for the built-in (first party) containers.
-	PostAnalyticsProcessorSourceUri *string `json:"postAnalyticsProcessorSourceUri" yaml:"postAnalyticsProcessorSourceUri"`
+	PostAnalyticsProcessorSourceUri *string `field:"optional" json:"postAnalyticsProcessorSourceUri" yaml:"postAnalyticsProcessorSourceUri"`
 	// An Amazon S3 URI to a script that is called per row prior to running analysis.
 	//
 	// It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.
-	RecordPreprocessorSourceUri *string `json:"recordPreprocessorSourceUri" yaml:"recordPreprocessorSourceUri"`
+	RecordPreprocessorSourceUri *string `field:"optional" json:"recordPreprocessorSourceUri" yaml:"recordPreprocessorSourceUri"`
 }
 
 // Configuration for monitoring constraints and monitoring statistics.
@@ -17185,7 +17536,10 @@ type CfnModelQualityJobDefinition_ModelQualityAppSpecificationProperty struct {
 // These baseline resources are compared against the results of the current job from the series of jobs scheduled to collect data periodically.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   modelQualityBaselineConfigProperty := &modelQualityBaselineConfigProperty{
 //   	baseliningJobName: jsii.String("baseliningJobName"),
 //   	constraintsResource: &constraintsResourceProperty{
@@ -17195,9 +17549,9 @@ type CfnModelQualityJobDefinition_ModelQualityAppSpecificationProperty struct {
 //
 type CfnModelQualityJobDefinition_ModelQualityBaselineConfigProperty struct {
 	// The name of the job that performs baselining for the monitoring job.
-	BaseliningJobName *string `json:"baseliningJobName" yaml:"baseliningJobName"`
+	BaseliningJobName *string `field:"optional" json:"baseliningJobName" yaml:"baseliningJobName"`
 	// The constraints resource for a monitoring job.
-	ConstraintsResource interface{} `json:"constraintsResource" yaml:"constraintsResource"`
+	ConstraintsResource interface{} `field:"optional" json:"constraintsResource" yaml:"constraintsResource"`
 }
 
 // The input for the model quality monitoring job.
@@ -17205,7 +17559,10 @@ type CfnModelQualityJobDefinition_ModelQualityBaselineConfigProperty struct {
 // Currently endponts are supported for input for model quality monitoring jobs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   modelQualityJobInputProperty := &modelQualityJobInputProperty{
 //   	endpointInput: &endpointInputProperty{
 //   		endpointName: jsii.String("endpointName"),
@@ -17227,28 +17584,34 @@ type CfnModelQualityJobDefinition_ModelQualityBaselineConfigProperty struct {
 //
 type CfnModelQualityJobDefinition_ModelQualityJobInputProperty struct {
 	// Input object for the endpoint.
-	EndpointInput interface{} `json:"endpointInput" yaml:"endpointInput"`
+	EndpointInput interface{} `field:"required" json:"endpointInput" yaml:"endpointInput"`
 	// The ground truth label provided for the model.
-	GroundTruthS3Input interface{} `json:"groundTruthS3Input" yaml:"groundTruthS3Input"`
+	GroundTruthS3Input interface{} `field:"required" json:"groundTruthS3Input" yaml:"groundTruthS3Input"`
 }
 
 // The ground truth labels for the dataset used for the monitoring job.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   monitoringGroundTruthS3InputProperty := &monitoringGroundTruthS3InputProperty{
 //   	s3Uri: jsii.String("s3Uri"),
 //   }
 //
 type CfnModelQualityJobDefinition_MonitoringGroundTruthS3InputProperty struct {
 	// The address of the Amazon S3 location of the ground truth labels.
-	S3Uri *string `json:"s3Uri" yaml:"s3Uri"`
+	S3Uri *string `field:"required" json:"s3Uri" yaml:"s3Uri"`
 }
 
 // The output configuration for monitoring jobs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   monitoringOutputConfigProperty := &monitoringOutputConfigProperty{
 //   	monitoringOutputs: []interface{}{
 //   		&monitoringOutputProperty{
@@ -17270,15 +17633,18 @@ type CfnModelQualityJobDefinition_MonitoringOutputConfigProperty struct {
 	// Monitoring outputs for monitoring jobs.
 	//
 	// This is where the output of the periodic monitoring jobs is uploaded.
-	MonitoringOutputs interface{} `json:"monitoringOutputs" yaml:"monitoringOutputs"`
+	MonitoringOutputs interface{} `field:"required" json:"monitoringOutputs" yaml:"monitoringOutputs"`
 	// The AWS Key Management Service ( AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
-	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 }
 
 // The output object for a monitoring job.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   monitoringOutputProperty := &monitoringOutputProperty{
 //   	s3Output: &s3OutputProperty{
 //   		localPath: jsii.String("localPath"),
@@ -17291,13 +17657,16 @@ type CfnModelQualityJobDefinition_MonitoringOutputConfigProperty struct {
 //
 type CfnModelQualityJobDefinition_MonitoringOutputProperty struct {
 	// The Amazon S3 storage location where the results of a monitoring job are saved.
-	S3Output interface{} `json:"s3Output" yaml:"s3Output"`
+	S3Output interface{} `field:"required" json:"s3Output" yaml:"s3Output"`
 }
 
 // Identifies the resources to deploy for a monitoring job.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   monitoringResourcesProperty := &monitoringResourcesProperty{
 //   	clusterConfig: &clusterConfigProperty{
 //   		instanceCount: jsii.Number(123),
@@ -17311,13 +17680,16 @@ type CfnModelQualityJobDefinition_MonitoringOutputProperty struct {
 //
 type CfnModelQualityJobDefinition_MonitoringResourcesProperty struct {
 	// The configuration for the cluster resources used to run the processing job.
-	ClusterConfig interface{} `json:"clusterConfig" yaml:"clusterConfig"`
+	ClusterConfig interface{} `field:"required" json:"clusterConfig" yaml:"clusterConfig"`
 }
 
 // Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   networkConfigProperty := &networkConfigProperty{
 //   	enableInterContainerTrafficEncryption: jsii.Boolean(false),
 //   	enableNetworkIsolation: jsii.Boolean(false),
@@ -17335,19 +17707,22 @@ type CfnModelQualityJobDefinition_NetworkConfigProperty struct {
 	// Whether to encrypt all communications between distributed processing jobs.
 	//
 	// Choose `True` to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
-	EnableInterContainerTrafficEncryption interface{} `json:"enableInterContainerTrafficEncryption" yaml:"enableInterContainerTrafficEncryption"`
+	EnableInterContainerTrafficEncryption interface{} `field:"optional" json:"enableInterContainerTrafficEncryption" yaml:"enableInterContainerTrafficEncryption"`
 	// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
-	EnableNetworkIsolation interface{} `json:"enableNetworkIsolation" yaml:"enableNetworkIsolation"`
+	EnableNetworkIsolation interface{} `field:"optional" json:"enableNetworkIsolation" yaml:"enableNetworkIsolation"`
 	// Specifies a VPC that your training jobs and hosted models have access to.
 	//
 	// Control access to and from your training and model containers by configuring the VPC.
-	VpcConfig interface{} `json:"vpcConfig" yaml:"vpcConfig"`
+	VpcConfig interface{} `field:"optional" json:"vpcConfig" yaml:"vpcConfig"`
 }
 
 // The Amazon S3 storage location where the results of a monitoring job are saved.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3OutputProperty := &s3OutputProperty{
 //   	localPath: jsii.String("localPath"),
 //   	s3Uri: jsii.String("s3Uri"),
@@ -17360,11 +17735,11 @@ type CfnModelQualityJobDefinition_S3OutputProperty struct {
 	// The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
 	//
 	// LocalPath is an absolute path for the output data.
-	LocalPath *string `json:"localPath" yaml:"localPath"`
+	LocalPath *string `field:"required" json:"localPath" yaml:"localPath"`
 	// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
-	S3Uri *string `json:"s3Uri" yaml:"s3Uri"`
+	S3Uri *string `field:"required" json:"s3Uri" yaml:"s3Uri"`
 	// Whether to upload the results of the monitoring job continuously or after the job completes.
-	S3UploadMode *string `json:"s3UploadMode" yaml:"s3UploadMode"`
+	S3UploadMode *string `field:"optional" json:"s3UploadMode" yaml:"s3UploadMode"`
 }
 
 // Specifies a limit to how long a model training job or model compilation job can run.
@@ -17378,7 +17753,10 @@ type CfnModelQualityJobDefinition_S3OutputProperty struct {
 // > The Neural Topic Model (NTM) currently does not support saving intermediate model artifacts. When training NTMs, make sure that the maximum runtime is sufficient for the training job to complete.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   stoppingConditionProperty := &stoppingConditionProperty{
 //   	maxRuntimeInSeconds: jsii.Number(123),
 //   }
@@ -17389,7 +17767,7 @@ type CfnModelQualityJobDefinition_StoppingConditionProperty struct {
 	// For compilation jobs, if the job does not complete during this time, a `TimeOut` error is generated. We recommend starting with 900 seconds and increasing as necessary based on your model.
 	//
 	// For all other jobs, if the job does not complete during this time, SageMaker ends the job. When `RetryStrategy` is specified in the job request, `MaxRuntimeInSeconds` specifies the maximum time for all of the attempts in total, not each individual attempt. The default value is 1 day. The maximum value is 28 days.
-	MaxRuntimeInSeconds *float64 `json:"maxRuntimeInSeconds" yaml:"maxRuntimeInSeconds"`
+	MaxRuntimeInSeconds *float64 `field:"required" json:"maxRuntimeInSeconds" yaml:"maxRuntimeInSeconds"`
 }
 
 // Specifies a VPC that your training jobs and hosted models have access to.
@@ -17397,7 +17775,10 @@ type CfnModelQualityJobDefinition_StoppingConditionProperty struct {
 // Control access to and from your training and model containers by configuring the VPC. For more information, see [Protect Endpoints by Using an Amazon Virtual Private Cloud](https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html) and [Protect Training Jobs by Using an Amazon Virtual Private Cloud](https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   vpcConfigProperty := &vpcConfigProperty{
 //   	securityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
@@ -17411,17 +17792,20 @@ type CfnModelQualityJobDefinition_VpcConfigProperty struct {
 	// The VPC security group IDs, in the form sg-xxxxxxxx.
 	//
 	// Specify the security groups for the VPC that is specified in the `Subnets` field.
-	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
+	SecurityGroupIds *[]*string `field:"required" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// The ID of the subnets in the VPC to which you want to connect your training job or model.
 	//
 	// For information about the availability of specific instance types, see [Supported Instance Types and Availability Zones](https://docs.aws.amazon.com/sagemaker/latest/dg/instance-types-az.html) .
-	Subnets *[]*string `json:"subnets" yaml:"subnets"`
+	Subnets *[]*string `field:"required" json:"subnets" yaml:"subnets"`
 }
 
 // Properties for defining a `CfnModelQualityJobDefinition`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnModelQualityJobDefinitionProps := &cfnModelQualityJobDefinitionProps{
 //   	jobResources: &monitoringResourcesProperty{
 //   		clusterConfig: &clusterConfigProperty{
@@ -17519,29 +17903,29 @@ type CfnModelQualityJobDefinition_VpcConfigProperty struct {
 //
 type CfnModelQualityJobDefinitionProps struct {
 	// Identifies the resources to deploy for a monitoring job.
-	JobResources interface{} `json:"jobResources" yaml:"jobResources"`
+	JobResources interface{} `field:"required" json:"jobResources" yaml:"jobResources"`
 	// Container image configuration object for the monitoring job.
-	ModelQualityAppSpecification interface{} `json:"modelQualityAppSpecification" yaml:"modelQualityAppSpecification"`
+	ModelQualityAppSpecification interface{} `field:"required" json:"modelQualityAppSpecification" yaml:"modelQualityAppSpecification"`
 	// A list of the inputs that are monitored.
 	//
 	// Currently endpoints are supported.
-	ModelQualityJobInput interface{} `json:"modelQualityJobInput" yaml:"modelQualityJobInput"`
+	ModelQualityJobInput interface{} `field:"required" json:"modelQualityJobInput" yaml:"modelQualityJobInput"`
 	// The output configuration for monitoring jobs.
-	ModelQualityJobOutputConfig interface{} `json:"modelQualityJobOutputConfig" yaml:"modelQualityJobOutputConfig"`
+	ModelQualityJobOutputConfig interface{} `field:"required" json:"modelQualityJobOutputConfig" yaml:"modelQualityJobOutputConfig"`
 	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The name of the monitoring job definition.
-	JobDefinitionName *string `json:"jobDefinitionName" yaml:"jobDefinitionName"`
+	JobDefinitionName *string `field:"optional" json:"jobDefinitionName" yaml:"jobDefinitionName"`
 	// Specifies the constraints and baselines for the monitoring job.
-	ModelQualityBaselineConfig interface{} `json:"modelQualityBaselineConfig" yaml:"modelQualityBaselineConfig"`
+	ModelQualityBaselineConfig interface{} `field:"optional" json:"modelQualityBaselineConfig" yaml:"modelQualityBaselineConfig"`
 	// Specifies the network configuration for the monitoring job.
-	NetworkConfig interface{} `json:"networkConfig" yaml:"networkConfig"`
+	NetworkConfig interface{} `field:"optional" json:"networkConfig" yaml:"networkConfig"`
 	// A time limit for how long the monitoring job is allowed to run before stopping.
-	StoppingCondition interface{} `json:"stoppingCondition" yaml:"stoppingCondition"`
+	StoppingCondition interface{} `field:"optional" json:"stoppingCondition" yaml:"stoppingCondition"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::SageMaker::MonitoringSchedule`.
@@ -17549,8 +17933,11 @@ type CfnModelQualityJobDefinitionProps struct {
 // The `AWS::SageMaker::MonitoringSchedule` resource is an Amazon SageMaker resource type that regularly starts SageMaker processing Jobs to monitor the data captured for a SageMaker endpoint.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
-//   cfnMonitoringSchedule := sagemaker.NewCfnMonitoringSchedule(this, jsii.String("MyCfnMonitoringSchedule"), &cfnMonitoringScheduleProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnMonitoringSchedule := awscdk.Aws_sagemaker.NewCfnMonitoringSchedule(this, jsii.String("MyCfnMonitoringSchedule"), &cfnMonitoringScheduleProps{
 //   	monitoringScheduleConfig: &monitoringScheduleConfigProperty{
 //   		monitoringJobDefinition: &monitoringJobDefinitionProperty{
 //   			monitoringAppSpecification: &monitoringAppSpecificationProperty{
@@ -18450,7 +18837,10 @@ func (c *jsiiProxy_CfnMonitoringSchedule) ValidateProperties(_properties interfa
 // Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   baselineConfigProperty := &baselineConfigProperty{
 //   	constraintsResource: &constraintsResourceProperty{
 //   		s3Uri: jsii.String("s3Uri"),
@@ -18462,15 +18852,18 @@ func (c *jsiiProxy_CfnMonitoringSchedule) ValidateProperties(_properties interfa
 //
 type CfnMonitoringSchedule_BaselineConfigProperty struct {
 	// The Amazon S3 URI for the constraints resource.
-	ConstraintsResource interface{} `json:"constraintsResource" yaml:"constraintsResource"`
+	ConstraintsResource interface{} `field:"optional" json:"constraintsResource" yaml:"constraintsResource"`
 	// The baseline statistics file in Amazon S3 that the current monitoring job should be validated against.
-	StatisticsResource interface{} `json:"statisticsResource" yaml:"statisticsResource"`
+	StatisticsResource interface{} `field:"optional" json:"statisticsResource" yaml:"statisticsResource"`
 }
 
 // Configuration for the cluster used to run model monitoring jobs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   clusterConfigProperty := &clusterConfigProperty{
 //   	instanceCount: jsii.Number(123),
 //   	instanceType: jsii.String("instanceType"),
@@ -18484,34 +18877,40 @@ type CfnMonitoringSchedule_ClusterConfigProperty struct {
 	// The number of ML compute instances to use in the model monitoring job.
 	//
 	// For distributed processing jobs, specify a value greater than 1. The default value is 1.
-	InstanceCount *float64 `json:"instanceCount" yaml:"instanceCount"`
+	InstanceCount *float64 `field:"required" json:"instanceCount" yaml:"instanceCount"`
 	// The ML compute instance type for the processing job.
-	InstanceType *string `json:"instanceType" yaml:"instanceType"`
+	InstanceType *string `field:"required" json:"instanceType" yaml:"instanceType"`
 	// The size of the ML storage volume, in gigabytes, that you want to provision.
 	//
 	// You must specify sufficient ML storage for your scenario.
-	VolumeSizeInGb *float64 `json:"volumeSizeInGb" yaml:"volumeSizeInGb"`
+	VolumeSizeInGb *float64 `field:"required" json:"volumeSizeInGb" yaml:"volumeSizeInGb"`
 	// The AWS Key Management Service ( AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
-	VolumeKmsKeyId *string `json:"volumeKmsKeyId" yaml:"volumeKmsKeyId"`
+	VolumeKmsKeyId *string `field:"optional" json:"volumeKmsKeyId" yaml:"volumeKmsKeyId"`
 }
 
 // The Amazon S3 URI for the constraints resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   constraintsResourceProperty := &constraintsResourceProperty{
 //   	s3Uri: jsii.String("s3Uri"),
 //   }
 //
 type CfnMonitoringSchedule_ConstraintsResourceProperty struct {
 	// The Amazon S3 URI for the constraints resource.
-	S3Uri *string `json:"s3Uri" yaml:"s3Uri"`
+	S3Uri *string `field:"optional" json:"s3Uri" yaml:"s3Uri"`
 }
 
 // Input object for the endpoint.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   endpointInputProperty := &endpointInputProperty{
 //   	endpointName: jsii.String("endpointName"),
 //   	localPath: jsii.String("localPath"),
@@ -18523,23 +18922,26 @@ type CfnMonitoringSchedule_ConstraintsResourceProperty struct {
 //
 type CfnMonitoringSchedule_EndpointInputProperty struct {
 	// An endpoint in customer's account which has enabled `DataCaptureConfig` enabled.
-	EndpointName *string `json:"endpointName" yaml:"endpointName"`
+	EndpointName *string `field:"required" json:"endpointName" yaml:"endpointName"`
 	// Path to the filesystem where the endpoint data is available to the container.
-	LocalPath *string `json:"localPath" yaml:"localPath"`
+	LocalPath *string `field:"required" json:"localPath" yaml:"localPath"`
 	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key.
 	//
 	// Defaults to `FullyReplicated`.
-	S3DataDistributionType *string `json:"s3DataDistributionType" yaml:"s3DataDistributionType"`
+	S3DataDistributionType *string `field:"optional" json:"s3DataDistributionType" yaml:"s3DataDistributionType"`
 	// Whether the `Pipe` or `File` is used as the input mode for transferring data for the monitoring job.
 	//
 	// `Pipe` mode is recommended for large datasets. `File` mode is useful for small files that fit in memory. Defaults to `File` .
-	S3InputMode *string `json:"s3InputMode" yaml:"s3InputMode"`
+	S3InputMode *string `field:"optional" json:"s3InputMode" yaml:"s3InputMode"`
 }
 
 // Container image configuration object for the monitoring job.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   monitoringAppSpecificationProperty := &monitoringAppSpecificationProperty{
 //   	imageUri: jsii.String("imageUri"),
 //
@@ -18556,25 +18958,28 @@ type CfnMonitoringSchedule_EndpointInputProperty struct {
 //
 type CfnMonitoringSchedule_MonitoringAppSpecificationProperty struct {
 	// The container image to be run by the monitoring job.
-	ImageUri *string `json:"imageUri" yaml:"imageUri"`
+	ImageUri *string `field:"required" json:"imageUri" yaml:"imageUri"`
 	// An array of arguments for the container used to run the monitoring job.
-	ContainerArguments *[]*string `json:"containerArguments" yaml:"containerArguments"`
+	ContainerArguments *[]*string `field:"optional" json:"containerArguments" yaml:"containerArguments"`
 	// Specifies the entrypoint for a container used to run the monitoring job.
-	ContainerEntrypoint *[]*string `json:"containerEntrypoint" yaml:"containerEntrypoint"`
+	ContainerEntrypoint *[]*string `field:"optional" json:"containerEntrypoint" yaml:"containerEntrypoint"`
 	// An Amazon S3 URI to a script that is called after analysis has been performed.
 	//
 	// Applicable only for the built-in (first party) containers.
-	PostAnalyticsProcessorSourceUri *string `json:"postAnalyticsProcessorSourceUri" yaml:"postAnalyticsProcessorSourceUri"`
+	PostAnalyticsProcessorSourceUri *string `field:"optional" json:"postAnalyticsProcessorSourceUri" yaml:"postAnalyticsProcessorSourceUri"`
 	// An Amazon S3 URI to a script that is called per row prior to running analysis.
 	//
 	// It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.
-	RecordPreprocessorSourceUri *string `json:"recordPreprocessorSourceUri" yaml:"recordPreprocessorSourceUri"`
+	RecordPreprocessorSourceUri *string `field:"optional" json:"recordPreprocessorSourceUri" yaml:"recordPreprocessorSourceUri"`
 }
 
 // Summary of information about the last monitoring job to run.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   monitoringExecutionSummaryProperty := &monitoringExecutionSummaryProperty{
 //   	creationTime: jsii.String("creationTime"),
 //   	lastModifiedTime: jsii.String("lastModifiedTime"),
@@ -18590,27 +18995,30 @@ type CfnMonitoringSchedule_MonitoringAppSpecificationProperty struct {
 //
 type CfnMonitoringSchedule_MonitoringExecutionSummaryProperty struct {
 	// The time at which the monitoring job was created.
-	CreationTime *string `json:"creationTime" yaml:"creationTime"`
+	CreationTime *string `field:"required" json:"creationTime" yaml:"creationTime"`
 	// A timestamp that indicates the last time the monitoring job was modified.
-	LastModifiedTime *string `json:"lastModifiedTime" yaml:"lastModifiedTime"`
+	LastModifiedTime *string `field:"required" json:"lastModifiedTime" yaml:"lastModifiedTime"`
 	// The status of the monitoring job.
-	MonitoringExecutionStatus *string `json:"monitoringExecutionStatus" yaml:"monitoringExecutionStatus"`
+	MonitoringExecutionStatus *string `field:"required" json:"monitoringExecutionStatus" yaml:"monitoringExecutionStatus"`
 	// The name of the monitoring schedule.
-	MonitoringScheduleName *string `json:"monitoringScheduleName" yaml:"monitoringScheduleName"`
+	MonitoringScheduleName *string `field:"required" json:"monitoringScheduleName" yaml:"monitoringScheduleName"`
 	// The time the monitoring job was scheduled.
-	ScheduledTime *string `json:"scheduledTime" yaml:"scheduledTime"`
+	ScheduledTime *string `field:"required" json:"scheduledTime" yaml:"scheduledTime"`
 	// The name of the endpoint used to run the monitoring job.
-	EndpointName *string `json:"endpointName" yaml:"endpointName"`
+	EndpointName *string `field:"optional" json:"endpointName" yaml:"endpointName"`
 	// Contains the reason a monitoring job failed, if it failed.
-	FailureReason *string `json:"failureReason" yaml:"failureReason"`
+	FailureReason *string `field:"optional" json:"failureReason" yaml:"failureReason"`
 	// The Amazon Resource Name (ARN) of the monitoring job.
-	ProcessingJobArn *string `json:"processingJobArn" yaml:"processingJobArn"`
+	ProcessingJobArn *string `field:"optional" json:"processingJobArn" yaml:"processingJobArn"`
 }
 
 // The inputs for a monitoring job.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   monitoringInputProperty := &monitoringInputProperty{
 //   	endpointInput: &endpointInputProperty{
 //   		endpointName: jsii.String("endpointName"),
@@ -18624,13 +19032,16 @@ type CfnMonitoringSchedule_MonitoringExecutionSummaryProperty struct {
 //
 type CfnMonitoringSchedule_MonitoringInputProperty struct {
 	// The endpoint for a monitoring job.
-	EndpointInput interface{} `json:"endpointInput" yaml:"endpointInput"`
+	EndpointInput interface{} `field:"required" json:"endpointInput" yaml:"endpointInput"`
 }
 
 // Defines the monitoring job.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   monitoringJobDefinitionProperty := &monitoringJobDefinitionProperty{
 //   	monitoringAppSpecification: &monitoringAppSpecificationProperty{
 //   		imageUri: jsii.String("imageUri"),
@@ -18716,33 +19127,36 @@ type CfnMonitoringSchedule_MonitoringInputProperty struct {
 //
 type CfnMonitoringSchedule_MonitoringJobDefinitionProperty struct {
 	// Configures the monitoring job to run a specified Docker container image.
-	MonitoringAppSpecification interface{} `json:"monitoringAppSpecification" yaml:"monitoringAppSpecification"`
+	MonitoringAppSpecification interface{} `field:"required" json:"monitoringAppSpecification" yaml:"monitoringAppSpecification"`
 	// The array of inputs for the monitoring job.
 	//
 	// Currently we support monitoring an Amazon SageMaker Endpoint.
-	MonitoringInputs interface{} `json:"monitoringInputs" yaml:"monitoringInputs"`
+	MonitoringInputs interface{} `field:"required" json:"monitoringInputs" yaml:"monitoringInputs"`
 	// The array of outputs from the monitoring job to be uploaded to Amazon Simple Storage Service (Amazon S3).
-	MonitoringOutputConfig interface{} `json:"monitoringOutputConfig" yaml:"monitoringOutputConfig"`
+	MonitoringOutputConfig interface{} `field:"required" json:"monitoringOutputConfig" yaml:"monitoringOutputConfig"`
 	// Identifies the resources, ML compute instances, and ML storage volumes to deploy for a monitoring job.
 	//
 	// In distributed processing, you specify more than one instance.
-	MonitoringResources interface{} `json:"monitoringResources" yaml:"monitoringResources"`
+	MonitoringResources interface{} `field:"required" json:"monitoringResources" yaml:"monitoringResources"`
 	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
-	BaselineConfig interface{} `json:"baselineConfig" yaml:"baselineConfig"`
+	BaselineConfig interface{} `field:"optional" json:"baselineConfig" yaml:"baselineConfig"`
 	// Sets the environment variables in the Docker container.
-	Environment interface{} `json:"environment" yaml:"environment"`
+	Environment interface{} `field:"optional" json:"environment" yaml:"environment"`
 	// Specifies networking options for an monitoring job.
-	NetworkConfig interface{} `json:"networkConfig" yaml:"networkConfig"`
+	NetworkConfig interface{} `field:"optional" json:"networkConfig" yaml:"networkConfig"`
 	// Specifies a time limit for how long the monitoring job is allowed to run.
-	StoppingCondition interface{} `json:"stoppingCondition" yaml:"stoppingCondition"`
+	StoppingCondition interface{} `field:"optional" json:"stoppingCondition" yaml:"stoppingCondition"`
 }
 
 // The output configuration for monitoring jobs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   monitoringOutputConfigProperty := &monitoringOutputConfigProperty{
 //   	monitoringOutputs: []interface{}{
 //   		&monitoringOutputProperty{
@@ -18764,15 +19178,18 @@ type CfnMonitoringSchedule_MonitoringOutputConfigProperty struct {
 	// Monitoring outputs for monitoring jobs.
 	//
 	// This is where the output of the periodic monitoring jobs is uploaded.
-	MonitoringOutputs interface{} `json:"monitoringOutputs" yaml:"monitoringOutputs"`
+	MonitoringOutputs interface{} `field:"required" json:"monitoringOutputs" yaml:"monitoringOutputs"`
 	// The AWS Key Management Service ( AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
-	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 }
 
 // The output object for a monitoring job.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   monitoringOutputProperty := &monitoringOutputProperty{
 //   	s3Output: &s3OutputProperty{
 //   		localPath: jsii.String("localPath"),
@@ -18785,13 +19202,16 @@ type CfnMonitoringSchedule_MonitoringOutputConfigProperty struct {
 //
 type CfnMonitoringSchedule_MonitoringOutputProperty struct {
 	// The Amazon S3 storage location where the results of a monitoring job are saved.
-	S3Output interface{} `json:"s3Output" yaml:"s3Output"`
+	S3Output interface{} `field:"required" json:"s3Output" yaml:"s3Output"`
 }
 
 // Identifies the resources to deploy for a monitoring job.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   monitoringResourcesProperty := &monitoringResourcesProperty{
 //   	clusterConfig: &clusterConfigProperty{
 //   		instanceCount: jsii.Number(123),
@@ -18805,13 +19225,16 @@ type CfnMonitoringSchedule_MonitoringOutputProperty struct {
 //
 type CfnMonitoringSchedule_MonitoringResourcesProperty struct {
 	// The configuration for the cluster resources used to run the processing job.
-	ClusterConfig interface{} `json:"clusterConfig" yaml:"clusterConfig"`
+	ClusterConfig interface{} `field:"required" json:"clusterConfig" yaml:"clusterConfig"`
 }
 
 // Configures the monitoring schedule and defines the monitoring job.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   monitoringScheduleConfigProperty := &monitoringScheduleConfigProperty{
 //   	monitoringJobDefinition: &monitoringJobDefinitionProperty{
 //   		monitoringAppSpecification: &monitoringAppSpecificationProperty{
@@ -18904,19 +19327,22 @@ type CfnMonitoringSchedule_MonitoringResourcesProperty struct {
 //
 type CfnMonitoringSchedule_MonitoringScheduleConfigProperty struct {
 	// Defines the monitoring job.
-	MonitoringJobDefinition interface{} `json:"monitoringJobDefinition" yaml:"monitoringJobDefinition"`
+	MonitoringJobDefinition interface{} `field:"optional" json:"monitoringJobDefinition" yaml:"monitoringJobDefinition"`
 	// The name of the monitoring job definition to schedule.
-	MonitoringJobDefinitionName *string `json:"monitoringJobDefinitionName" yaml:"monitoringJobDefinitionName"`
+	MonitoringJobDefinitionName *string `field:"optional" json:"monitoringJobDefinitionName" yaml:"monitoringJobDefinitionName"`
 	// The type of the monitoring job definition to schedule.
-	MonitoringType *string `json:"monitoringType" yaml:"monitoringType"`
+	MonitoringType *string `field:"optional" json:"monitoringType" yaml:"monitoringType"`
 	// Configures the monitoring schedule.
-	ScheduleConfig interface{} `json:"scheduleConfig" yaml:"scheduleConfig"`
+	ScheduleConfig interface{} `field:"optional" json:"scheduleConfig" yaml:"scheduleConfig"`
 }
 
 // Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   networkConfigProperty := &networkConfigProperty{
 //   	enableInterContainerTrafficEncryption: jsii.Boolean(false),
 //   	enableNetworkIsolation: jsii.Boolean(false),
@@ -18934,19 +19360,22 @@ type CfnMonitoringSchedule_NetworkConfigProperty struct {
 	// Whether to encrypt all communications between distributed processing jobs.
 	//
 	// Choose `True` to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
-	EnableInterContainerTrafficEncryption interface{} `json:"enableInterContainerTrafficEncryption" yaml:"enableInterContainerTrafficEncryption"`
+	EnableInterContainerTrafficEncryption interface{} `field:"optional" json:"enableInterContainerTrafficEncryption" yaml:"enableInterContainerTrafficEncryption"`
 	// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
-	EnableNetworkIsolation interface{} `json:"enableNetworkIsolation" yaml:"enableNetworkIsolation"`
+	EnableNetworkIsolation interface{} `field:"optional" json:"enableNetworkIsolation" yaml:"enableNetworkIsolation"`
 	// Specifies a VPC that your training jobs and hosted models have access to.
 	//
 	// Control access to and from your training and model containers by configuring the VPC. For more information, see [Protect Endpoints by Using an Amazon Virtual Private Cloud](https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html) and [Protect Training Jobs by Using an Amazon Virtual Private Cloud](https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html) .
-	VpcConfig interface{} `json:"vpcConfig" yaml:"vpcConfig"`
+	VpcConfig interface{} `field:"optional" json:"vpcConfig" yaml:"vpcConfig"`
 }
 
 // Information about where and how you want to store the results of a monitoring job.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3OutputProperty := &s3OutputProperty{
 //   	localPath: jsii.String("localPath"),
 //   	s3Uri: jsii.String("s3Uri"),
@@ -18959,17 +19388,20 @@ type CfnMonitoringSchedule_S3OutputProperty struct {
 	// The local path to the S3 storage location where SageMaker saves the results of a monitoring job.
 	//
 	// LocalPath is an absolute path for the output data.
-	LocalPath *string `json:"localPath" yaml:"localPath"`
+	LocalPath *string `field:"required" json:"localPath" yaml:"localPath"`
 	// A URI that identifies the S3 storage location where SageMaker saves the results of a monitoring job.
-	S3Uri *string `json:"s3Uri" yaml:"s3Uri"`
+	S3Uri *string `field:"required" json:"s3Uri" yaml:"s3Uri"`
 	// Whether to upload the results of the monitoring job continuously or after the job completes.
-	S3UploadMode *string `json:"s3UploadMode" yaml:"s3UploadMode"`
+	S3UploadMode *string `field:"optional" json:"s3UploadMode" yaml:"s3UploadMode"`
 }
 
 // Configuration details about the monitoring schedule.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   scheduleConfigProperty := &scheduleConfigProperty{
 //   	scheduleExpression: jsii.String("scheduleExpression"),
 //   }
@@ -19002,20 +19434,23 @@ type CfnMonitoringSchedule_ScheduleConfigProperty struct {
 	//
 	// > - Even though the cron expression is set to start at 5PM UTC, note that there could be a delay of 0-20 minutes from the actual requested time to run the execution.
 	// > - We recommend that if you would like a daily schedule, you do not provide this parameter. Amazon SageMaker will pick a time for running every day.
-	ScheduleExpression *string `json:"scheduleExpression" yaml:"scheduleExpression"`
+	ScheduleExpression *string `field:"required" json:"scheduleExpression" yaml:"scheduleExpression"`
 }
 
 // The baseline statistics file in Amazon S3 that the current monitoring job should be validated against.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   statisticsResourceProperty := &statisticsResourceProperty{
 //   	s3Uri: jsii.String("s3Uri"),
 //   }
 //
 type CfnMonitoringSchedule_StatisticsResourceProperty struct {
 	// The S3 URI for the statistics resource.
-	S3Uri *string `json:"s3Uri" yaml:"s3Uri"`
+	S3Uri *string `field:"optional" json:"s3Uri" yaml:"s3Uri"`
 }
 
 // Specifies a limit to how long a model training job or model compilation job can run.
@@ -19029,7 +19464,10 @@ type CfnMonitoringSchedule_StatisticsResourceProperty struct {
 // > The Neural Topic Model (NTM) currently does not support saving intermediate model artifacts. When training NTMs, make sure that the maximum runtime is sufficient for the training job to complete.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   stoppingConditionProperty := &stoppingConditionProperty{
 //   	maxRuntimeInSeconds: jsii.Number(123),
 //   }
@@ -19040,7 +19478,7 @@ type CfnMonitoringSchedule_StoppingConditionProperty struct {
 	// For compilation jobs, if the job does not complete during this time, a `TimeOut` error is generated. We recommend starting with 900 seconds and increasing as necessary based on your model.
 	//
 	// For all other jobs, if the job does not complete during this time, SageMaker ends the job. When `RetryStrategy` is specified in the job request, `MaxRuntimeInSeconds` specifies the maximum time for all of the attempts in total, not each individual attempt. The default value is 1 day. The maximum value is 28 days.
-	MaxRuntimeInSeconds *float64 `json:"maxRuntimeInSeconds" yaml:"maxRuntimeInSeconds"`
+	MaxRuntimeInSeconds *float64 `field:"required" json:"maxRuntimeInSeconds" yaml:"maxRuntimeInSeconds"`
 }
 
 // Specifies a VPC that your training jobs and hosted models have access to.
@@ -19048,7 +19486,10 @@ type CfnMonitoringSchedule_StoppingConditionProperty struct {
 // Control access to and from your training and model containers by configuring the VPC. For more information, see [Protect Endpoints by Using an Amazon Virtual Private Cloud](https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html) and [Protect Training Jobs by Using an Amazon Virtual Private Cloud](https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   vpcConfigProperty := &vpcConfigProperty{
 //   	securityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
@@ -19062,17 +19503,20 @@ type CfnMonitoringSchedule_VpcConfigProperty struct {
 	// The VPC security group IDs, in the form sg-xxxxxxxx.
 	//
 	// Specify the security groups for the VPC that is specified in the `Subnets` field.
-	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
+	SecurityGroupIds *[]*string `field:"required" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// The ID of the subnets in the VPC to which you want to connect your training job or model.
 	//
 	// For information about the availability of specific instance types, see [Supported Instance Types and Availability Zones](https://docs.aws.amazon.com/sagemaker/latest/dg/instance-types-az.html) .
-	Subnets *[]*string `json:"subnets" yaml:"subnets"`
+	Subnets *[]*string `field:"required" json:"subnets" yaml:"subnets"`
 }
 
 // Properties for defining a `CfnMonitoringSchedule`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnMonitoringScheduleProps := &cfnMonitoringScheduleProps{
 //   	monitoringScheduleConfig: &monitoringScheduleConfigProperty{
 //   		monitoringJobDefinition: &monitoringJobDefinitionProperty{
@@ -19191,21 +19635,21 @@ type CfnMonitoringSchedule_VpcConfigProperty struct {
 //
 type CfnMonitoringScheduleProps struct {
 	// The configuration object that specifies the monitoring schedule and defines the monitoring job.
-	MonitoringScheduleConfig interface{} `json:"monitoringScheduleConfig" yaml:"monitoringScheduleConfig"`
+	MonitoringScheduleConfig interface{} `field:"required" json:"monitoringScheduleConfig" yaml:"monitoringScheduleConfig"`
 	// The name of the monitoring schedule.
-	MonitoringScheduleName *string `json:"monitoringScheduleName" yaml:"monitoringScheduleName"`
+	MonitoringScheduleName *string `field:"required" json:"monitoringScheduleName" yaml:"monitoringScheduleName"`
 	// The name of the endpoint using the monitoring schedule.
-	EndpointName *string `json:"endpointName" yaml:"endpointName"`
+	EndpointName *string `field:"optional" json:"endpointName" yaml:"endpointName"`
 	// Contains the reason a monitoring job failed, if it failed.
-	FailureReason *string `json:"failureReason" yaml:"failureReason"`
+	FailureReason *string `field:"optional" json:"failureReason" yaml:"failureReason"`
 	// Describes metadata on the last execution to run, if there was one.
-	LastMonitoringExecutionSummary interface{} `json:"lastMonitoringExecutionSummary" yaml:"lastMonitoringExecutionSummary"`
+	LastMonitoringExecutionSummary interface{} `field:"optional" json:"lastMonitoringExecutionSummary" yaml:"lastMonitoringExecutionSummary"`
 	// The status of the monitoring schedule.
-	MonitoringScheduleStatus *string `json:"monitoringScheduleStatus" yaml:"monitoringScheduleStatus"`
+	MonitoringScheduleStatus *string `field:"optional" json:"monitoringScheduleStatus" yaml:"monitoringScheduleStatus"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::SageMaker::NotebookInstance`.
@@ -19213,8 +19657,11 @@ type CfnMonitoringScheduleProps struct {
 // The `AWS::SageMaker::NotebookInstance` resource creates an Amazon SageMaker notebook instance. A notebook instance is a machine learning (ML) compute instance running on a Jupyter notebook. For more information, see [Use Notebook Instances](https://docs.aws.amazon.com/sagemaker/latest/dg/nbi.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
-//   cfnNotebookInstance := sagemaker.NewCfnNotebookInstance(this, jsii.String("MyCfnNotebookInstance"), &cfnNotebookInstanceProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnNotebookInstance := awscdk.Aws_sagemaker.NewCfnNotebookInstance(this, jsii.String("MyCfnNotebookInstance"), &cfnNotebookInstanceProps{
 //   	instanceType: jsii.String("instanceType"),
 //   	roleArn: jsii.String("roleArn"),
 //
@@ -20207,8 +20654,11 @@ func (c *jsiiProxy_CfnNotebookInstance) ValidateProperties(_properties interface
 // The `AWS::SageMaker::NotebookInstanceLifecycleConfig` resource creates shell scripts that run when you create and/or start a notebook instance. For information about notebook instance lifecycle configurations, see [Customize a Notebook Instance](https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html) in the *Amazon SageMaker Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
-//   cfnNotebookInstanceLifecycleConfig := sagemaker.NewCfnNotebookInstanceLifecycleConfig(this, jsii.String("MyCfnNotebookInstanceLifecycleConfig"), &cfnNotebookInstanceLifecycleConfigProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnNotebookInstanceLifecycleConfig := awscdk.Aws_sagemaker.NewCfnNotebookInstanceLifecycleConfig(this, jsii.String("MyCfnNotebookInstanceLifecycleConfig"), &cfnNotebookInstanceLifecycleConfigProps{
 //   	notebookInstanceLifecycleConfigName: jsii.String("notebookInstanceLifecycleConfigName"),
 //   	onCreate: []interface{}{
 //   		&notebookInstanceLifecycleHookProperty{
@@ -20911,20 +21361,26 @@ func (c *jsiiProxy_CfnNotebookInstanceLifecycleConfig) ValidateProperties(_prope
 // Each lifecycle configuration script has a limit of 16384 characters.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   notebookInstanceLifecycleHookProperty := &notebookInstanceLifecycleHookProperty{
 //   	content: jsii.String("content"),
 //   }
 //
 type CfnNotebookInstanceLifecycleConfig_NotebookInstanceLifecycleHookProperty struct {
 	// A base64-encoded string that contains a shell script for a notebook instance lifecycle configuration.
-	Content *string `json:"content" yaml:"content"`
+	Content *string `field:"optional" json:"content" yaml:"content"`
 }
 
 // Properties for defining a `CfnNotebookInstanceLifecycleConfig`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnNotebookInstanceLifecycleConfigProps := &cfnNotebookInstanceLifecycleConfigProps{
 //   	notebookInstanceLifecycleConfigName: jsii.String("notebookInstanceLifecycleConfigName"),
 //   	onCreate: []interface{}{
@@ -20941,21 +21397,24 @@ type CfnNotebookInstanceLifecycleConfig_NotebookInstanceLifecycleHookProperty st
 //
 type CfnNotebookInstanceLifecycleConfigProps struct {
 	// The name of the lifecycle configuration.
-	NotebookInstanceLifecycleConfigName *string `json:"notebookInstanceLifecycleConfigName" yaml:"notebookInstanceLifecycleConfigName"`
+	NotebookInstanceLifecycleConfigName *string `field:"optional" json:"notebookInstanceLifecycleConfigName" yaml:"notebookInstanceLifecycleConfigName"`
 	// A shell script that runs only once, when you create a notebook instance.
 	//
 	// The shell script must be a base64-encoded string.
-	OnCreate interface{} `json:"onCreate" yaml:"onCreate"`
+	OnCreate interface{} `field:"optional" json:"onCreate" yaml:"onCreate"`
 	// A shell script that runs every time you start a notebook instance, including when you create the notebook instance.
 	//
 	// The shell script must be a base64-encoded string.
-	OnStart interface{} `json:"onStart" yaml:"onStart"`
+	OnStart interface{} `field:"optional" json:"onStart" yaml:"onStart"`
 }
 
 // Properties for defining a `CfnNotebookInstance`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnNotebookInstanceProps := &cfnNotebookInstanceProps{
 //   	instanceType: jsii.String("instanceType"),
 //   	roleArn: jsii.String("roleArn"),
@@ -20991,67 +21450,67 @@ type CfnNotebookInstanceProps struct {
 	// The type of ML compute instance to launch for the notebook instance.
 	//
 	// > Expect some interruption of service if this parameter is changed as CloudFormation stops a notebook instance and starts it up again to update it.
-	InstanceType *string `json:"instanceType" yaml:"instanceType"`
+	InstanceType *string `field:"required" json:"instanceType" yaml:"instanceType"`
 	// When you send any requests to AWS resources from the notebook instance, SageMaker assumes this role to perform tasks on your behalf.
 	//
 	// You must grant this role necessary permissions so SageMaker can perform these tasks. The policy must allow the SageMaker service principal (sagemaker.amazonaws.com) permissions to assume this role. For more information, see [SageMaker Roles](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html) .
 	//
 	// > To be able to pass this role to SageMaker, the caller of this API must have the `iam:PassRole` permission.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// A list of Amazon Elastic Inference (EI) instance types to associate with the notebook instance.
 	//
 	// Currently, only one instance type can be associated with a notebook instance. For more information, see [Using Elastic Inference in Amazon SageMaker](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) .
 	//
 	// *Valid Values:* `ml.eia1.medium | ml.eia1.large | ml.eia1.xlarge | ml.eia2.medium | ml.eia2.large | ml.eia2.xlarge` .
-	AcceleratorTypes *[]*string `json:"acceleratorTypes" yaml:"acceleratorTypes"`
+	AcceleratorTypes *[]*string `field:"optional" json:"acceleratorTypes" yaml:"acceleratorTypes"`
 	// An array of up to three Git repositories associated with the notebook instance.
 	//
 	// These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance. For more information, see [Associating Git Repositories with SageMaker Notebook Instances](https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html) .
-	AdditionalCodeRepositories *[]*string `json:"additionalCodeRepositories" yaml:"additionalCodeRepositories"`
+	AdditionalCodeRepositories *[]*string `field:"optional" json:"additionalCodeRepositories" yaml:"additionalCodeRepositories"`
 	// The Git repository associated with the notebook instance as its default code repository.
 	//
 	// This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. When you open a notebook instance, it opens in the directory that contains this repository. For more information, see [Associating Git Repositories with SageMaker Notebook Instances](https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html) .
-	DefaultCodeRepository *string `json:"defaultCodeRepository" yaml:"defaultCodeRepository"`
+	DefaultCodeRepository *string `field:"optional" json:"defaultCodeRepository" yaml:"defaultCodeRepository"`
 	// Sets whether SageMaker provides internet access to the notebook instance.
 	//
 	// If you set this to `Disabled` this notebook instance is able to access resources only in your VPC, and is not be able to connect to SageMaker training and endpoint services unless you configure a NAT Gateway in your VPC.
 	//
 	// For more information, see [Notebook Instances Are Internet-Enabled by Default](https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access) . You can set the value of this parameter to `Disabled` only if you set a value for the `SubnetId` parameter.
-	DirectInternetAccess *string `json:"directInternetAccess" yaml:"directInternetAccess"`
+	DirectInternetAccess *string `field:"optional" json:"directInternetAccess" yaml:"directInternetAccess"`
 	// The Amazon Resource Name (ARN) of a AWS Key Management Service key that SageMaker uses to encrypt data on the storage volume attached to your notebook instance.
 	//
 	// The KMS key you provide must be enabled. For information, see [Enabling and Disabling Keys](https://docs.aws.amazon.com/kms/latest/developerguide/enabling-keys.html) in the *AWS Key Management Service Developer Guide* .
-	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// The name of a lifecycle configuration to associate with the notebook instance.
 	//
 	// For information about lifecycle configurations, see [Customize a Notebook Instance](https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html) in the *Amazon SageMaker Developer Guide* .
-	LifecycleConfigName *string `json:"lifecycleConfigName" yaml:"lifecycleConfigName"`
+	LifecycleConfigName *string `field:"optional" json:"lifecycleConfigName" yaml:"lifecycleConfigName"`
 	// The name of the new notebook instance.
-	NotebookInstanceName *string `json:"notebookInstanceName" yaml:"notebookInstanceName"`
+	NotebookInstanceName *string `field:"optional" json:"notebookInstanceName" yaml:"notebookInstanceName"`
 	// The platform identifier of the notebook instance runtime environment.
-	PlatformIdentifier *string `json:"platformIdentifier" yaml:"platformIdentifier"`
+	PlatformIdentifier *string `field:"optional" json:"platformIdentifier" yaml:"platformIdentifier"`
 	// Whether root access is enabled or disabled for users of the notebook instance. The default value is `Enabled` .
 	//
 	// > Lifecycle configurations need root access to be able to set up a notebook instance. Because of this, lifecycle configurations associated with a notebook instance always run with root access even if you disable root access for users.
-	RootAccess *string `json:"rootAccess" yaml:"rootAccess"`
+	RootAccess *string `field:"optional" json:"rootAccess" yaml:"rootAccess"`
 	// The VPC security group IDs, in the form sg-xxxxxxxx.
 	//
 	// The security groups must be for the same VPC as specified in the subnet.
-	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
+	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// The ID of the subnet in a VPC to which you would like to have a connectivity from your ML compute instance.
-	SubnetId *string `json:"subnetId" yaml:"subnetId"`
+	SubnetId *string `field:"optional" json:"subnetId" yaml:"subnetId"`
 	// A list of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Resource Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) and [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what) .
 	//
 	// You can add tags later by using the `CreateTags` API.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The size, in GB, of the ML storage volume to attach to the notebook instance.
 	//
 	// The default value is 5 GB.
 	//
 	// > Expect some interruption of service if this parameter is changed as CloudFormation stops a notebook instance and starts it up again to update it.
-	VolumeSizeInGb *float64 `json:"volumeSizeInGb" yaml:"volumeSizeInGb"`
+	VolumeSizeInGb *float64 `field:"optional" json:"volumeSizeInGb" yaml:"volumeSizeInGb"`
 }
 
 // A CloudFormation `AWS::SageMaker::Pipeline`.
@@ -21059,11 +21518,14 @@ type CfnNotebookInstanceProps struct {
 // The `AWS::SageMaker::Pipeline` resource creates shell scripts that run when you create and/or start a SageMaker Pipeline. For information about SageMaker Pipelines, see [SageMaker Pipelines](https://docs.aws.amazon.com/sagemaker/latest/dg/pipelines.html) in the *Amazon SageMaker Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parallelismConfiguration interface{}
 //   var pipelineDefinition interface{}
-//   cfnPipeline := sagemaker.NewCfnPipeline(this, jsii.String("MyCfnPipeline"), &cfnPipelineProps{
+//
+//   cfnPipeline := awscdk.Aws_sagemaker.NewCfnPipeline(this, jsii.String("MyCfnPipeline"), &cfnPipelineProps{
 //   	pipelineDefinition: pipelineDefinition,
 //   	pipelineName: jsii.String("pipelineName"),
 //   	roleArn: jsii.String("roleArn"),
@@ -21828,10 +22290,13 @@ func (c *jsiiProxy_CfnPipeline) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnPipeline`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parallelismConfiguration interface{}
 //   var pipelineDefinition interface{}
+//
 //   cfnPipelineProps := &cfnPipelineProps{
 //   	pipelineDefinition: pipelineDefinition,
 //   	pipelineName: jsii.String("pipelineName"),
@@ -21853,19 +22318,19 @@ type CfnPipelineProps struct {
 	// The definition of the pipeline.
 	//
 	// This can be either a JSON string or an Amazon S3 location.
-	PipelineDefinition interface{} `json:"pipelineDefinition" yaml:"pipelineDefinition"`
+	PipelineDefinition interface{} `field:"required" json:"pipelineDefinition" yaml:"pipelineDefinition"`
 	// The name of the pipeline.
-	PipelineName *string `json:"pipelineName" yaml:"pipelineName"`
+	PipelineName *string `field:"required" json:"pipelineName" yaml:"pipelineName"`
 	// The Amazon Resource Name (ARN) of the IAM role used to execute the pipeline.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// `AWS::SageMaker::Pipeline.ParallelismConfiguration`.
-	ParallelismConfiguration interface{} `json:"parallelismConfiguration" yaml:"parallelismConfiguration"`
+	ParallelismConfiguration interface{} `field:"optional" json:"parallelismConfiguration" yaml:"parallelismConfiguration"`
 	// The description of the pipeline.
-	PipelineDescription *string `json:"pipelineDescription" yaml:"pipelineDescription"`
+	PipelineDescription *string `field:"optional" json:"pipelineDescription" yaml:"pipelineDescription"`
 	// The display name of the pipeline.
-	PipelineDisplayName *string `json:"pipelineDisplayName" yaml:"pipelineDisplayName"`
+	PipelineDisplayName *string `field:"optional" json:"pipelineDisplayName" yaml:"pipelineDisplayName"`
 	// The tags of the pipeline.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::SageMaker::Project`.
@@ -21873,10 +22338,13 @@ type CfnPipelineProps struct {
 // Creates a machine learning (ML) project that can contain one or more templates that set up an ML pipeline from training to deploying an approved model.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var serviceCatalogProvisioningDetails interface{}
-//   cfnProject := sagemaker.NewCfnProject(this, jsii.String("MyCfnProject"), &cfnProjectProps{
+//
+//   cfnProject := awscdk.Aws_sagemaker.NewCfnProject(this, jsii.String("MyCfnProject"), &cfnProjectProps{
 //   	projectName: jsii.String("projectName"),
 //   	serviceCatalogProvisioningDetails: serviceCatalogProvisioningDetails,
 //
@@ -22627,9 +23095,12 @@ func (c *jsiiProxy_CfnProject) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnProject`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var serviceCatalogProvisioningDetails interface{}
+//
 //   cfnProjectProps := &cfnProjectProps{
 //   	projectName: jsii.String("projectName"),
 //   	serviceCatalogProvisioningDetails: serviceCatalogProvisioningDetails,
@@ -22646,17 +23117,17 @@ func (c *jsiiProxy_CfnProject) ValidateProperties(_properties interface{}) {
 //
 type CfnProjectProps struct {
 	// The name of the project.
-	ProjectName *string `json:"projectName" yaml:"projectName"`
+	ProjectName *string `field:"required" json:"projectName" yaml:"projectName"`
 	// The product ID and provisioning artifact ID to provision a service catalog.
 	//
 	// For information, see [What is AWS Service Catalog](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html) .
-	ServiceCatalogProvisioningDetails interface{} `json:"serviceCatalogProvisioningDetails" yaml:"serviceCatalogProvisioningDetails"`
+	ServiceCatalogProvisioningDetails interface{} `field:"required" json:"serviceCatalogProvisioningDetails" yaml:"serviceCatalogProvisioningDetails"`
 	// The description of the project.
-	ProjectDescription *string `json:"projectDescription" yaml:"projectDescription"`
+	ProjectDescription *string `field:"optional" json:"projectDescription" yaml:"projectDescription"`
 	// A list of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Resource Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) and [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what) in the *AWS Billing and Cost Management User Guide* .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::SageMaker::UserProfile`.
@@ -22664,8 +23135,11 @@ type CfnProjectProps struct {
 // Creates a user profile. A user profile represents a single user within a domain, and is the main way to reference a "person" for the purposes of sharing, reporting, and other user-oriented features. This entity is created when a user onboards to Amazon SageMaker Studio. If an administrator invites a person by email or imports them from SSO, a user profile is automatically created. A user profile is the primary holder of settings for an individual user and has a reference to the user's private Amazon Elastic File System (EFS) home directory.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
-//   cfnUserProfile := sagemaker.NewCfnUserProfile(this, jsii.String("MyCfnUserProfile"), &cfnUserProfileProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnUserProfile := awscdk.Aws_sagemaker.NewCfnUserProfile(this, jsii.String("MyCfnUserProfile"), &cfnUserProfileProps{
 //   	domainId: jsii.String("domainId"),
 //   	userProfileName: jsii.String("userProfileName"),
 //
@@ -23465,7 +23939,10 @@ func (c *jsiiProxy_CfnUserProfile) ValidateProperties(_properties interface{}) {
 // For more information, see [Bring your own SageMaker image](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   customImageProperty := &customImageProperty{
 //   	appImageConfigName: jsii.String("appImageConfigName"),
 //   	imageName: jsii.String("imageName"),
@@ -23476,19 +23953,22 @@ func (c *jsiiProxy_CfnUserProfile) ValidateProperties(_properties interface{}) {
 //
 type CfnUserProfile_CustomImageProperty struct {
 	// The name of the AppImageConfig.
-	AppImageConfigName *string `json:"appImageConfigName" yaml:"appImageConfigName"`
+	AppImageConfigName *string `field:"required" json:"appImageConfigName" yaml:"appImageConfigName"`
 	// The name of the CustomImage.
 	//
 	// Must be unique to your account.
-	ImageName *string `json:"imageName" yaml:"imageName"`
+	ImageName *string `field:"required" json:"imageName" yaml:"imageName"`
 	// The version number of the CustomImage.
-	ImageVersionNumber *float64 `json:"imageVersionNumber" yaml:"imageVersionNumber"`
+	ImageVersionNumber *float64 `field:"optional" json:"imageVersionNumber" yaml:"imageVersionNumber"`
 }
 
 // The JupyterServer app settings.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   jupyterServerAppSettingsProperty := &jupyterServerAppSettingsProperty{
 //   	defaultResourceSpec: &resourceSpecProperty{
 //   		instanceType: jsii.String("instanceType"),
@@ -23501,13 +23981,16 @@ type CfnUserProfile_JupyterServerAppSettingsProperty struct {
 	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app.
 	//
 	// If you use the `LifecycleConfigArns` parameter, then this parameter is also required.
-	DefaultResourceSpec interface{} `json:"defaultResourceSpec" yaml:"defaultResourceSpec"`
+	DefaultResourceSpec interface{} `field:"optional" json:"defaultResourceSpec" yaml:"defaultResourceSpec"`
 }
 
 // The KernelGateway app settings.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   kernelGatewayAppSettingsProperty := &kernelGatewayAppSettingsProperty{
 //   	customImages: []interface{}{
 //   		&customImageProperty{
@@ -23527,11 +24010,11 @@ type CfnUserProfile_JupyterServerAppSettingsProperty struct {
 //
 type CfnUserProfile_KernelGatewayAppSettingsProperty struct {
 	// A list of custom SageMaker images that are configured to run as a KernelGateway app.
-	CustomImages interface{} `json:"customImages" yaml:"customImages"`
+	CustomImages interface{} `field:"optional" json:"customImages" yaml:"customImages"`
 	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
 	//
 	// > The Amazon SageMaker Studio UI does not use the default instance type value set here. The default instance type set here is used when Apps are created using the AWS Command Line Interface or AWS CloudFormation and the instance type parameter value is not passed.
-	DefaultResourceSpec interface{} `json:"defaultResourceSpec" yaml:"defaultResourceSpec"`
+	DefaultResourceSpec interface{} `field:"optional" json:"defaultResourceSpec" yaml:"defaultResourceSpec"`
 }
 
 // A collection of settings that configure user interaction with the `RStudioServerPro` app.
@@ -23539,7 +24022,10 @@ type CfnUserProfile_KernelGatewayAppSettingsProperty struct {
 // `RStudioServerProAppSettings` cannot be updated. The `RStudioServerPro` app must be deleted and a new one created to make any changes.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   rStudioServerProAppSettingsProperty := &rStudioServerProAppSettingsProperty{
 //   	accessStatus: jsii.String("accessStatus"),
 //   	userGroup: jsii.String("userGroup"),
@@ -23547,17 +24033,20 @@ type CfnUserProfile_KernelGatewayAppSettingsProperty struct {
 //
 type CfnUserProfile_RStudioServerProAppSettingsProperty struct {
 	// Indicates whether the current user has access to the `RStudioServerPro` app.
-	AccessStatus *string `json:"accessStatus" yaml:"accessStatus"`
+	AccessStatus *string `field:"optional" json:"accessStatus" yaml:"accessStatus"`
 	// The level of permissions that the user has within the `RStudioServerPro` app.
 	//
 	// This value defaults to `User`. The `Admin` value allows the user access to the RStudio Administrative Dashboard.
-	UserGroup *string `json:"userGroup" yaml:"userGroup"`
+	UserGroup *string `field:"optional" json:"userGroup" yaml:"userGroup"`
 }
 
 // Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   resourceSpecProperty := &resourceSpecProperty{
 //   	instanceType: jsii.String("instanceType"),
 //   	sageMakerImageArn: jsii.String("sageMakerImageArn"),
@@ -23568,11 +24057,11 @@ type CfnUserProfile_ResourceSpecProperty struct {
 	// The instance type that the image version runs on.
 	//
 	// > JupyterServer Apps only support the `system` value. KernelGateway Apps do not support the `system` value, but support all other values for available instance types.
-	InstanceType *string `json:"instanceType" yaml:"instanceType"`
+	InstanceType *string `field:"optional" json:"instanceType" yaml:"instanceType"`
 	// The ARN of the SageMaker image that the image version belongs to.
-	SageMakerImageArn *string `json:"sageMakerImageArn" yaml:"sageMakerImageArn"`
+	SageMakerImageArn *string `field:"optional" json:"sageMakerImageArn" yaml:"sageMakerImageArn"`
 	// The ARN of the image version created on the instance.
-	SageMakerImageVersionArn *string `json:"sageMakerImageVersionArn" yaml:"sageMakerImageVersionArn"`
+	SageMakerImageVersionArn *string `field:"optional" json:"sageMakerImageVersionArn" yaml:"sageMakerImageVersionArn"`
 }
 
 // Specifies options when sharing an Amazon SageMaker Studio notebook.
@@ -23580,7 +24069,10 @@ type CfnUserProfile_ResourceSpecProperty struct {
 // These settings are specified as part of `DefaultUserSettings` when the [CreateDomain](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateDomain.html) API is called, and as part of `UserSettings` when the [CreateUserProfile](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateUserProfile.html) API is called.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sharingSettingsProperty := &sharingSettingsProperty{
 //   	notebookOutputOption: jsii.String("notebookOutputOption"),
 //   	s3KmsKeyId: jsii.String("s3KmsKeyId"),
@@ -23591,11 +24083,11 @@ type CfnUserProfile_SharingSettingsProperty struct {
 	// Whether to include the notebook cell output when sharing the notebook.
 	//
 	// The default is `Disabled` .
-	NotebookOutputOption *string `json:"notebookOutputOption" yaml:"notebookOutputOption"`
+	NotebookOutputOption *string `field:"optional" json:"notebookOutputOption" yaml:"notebookOutputOption"`
 	// When `NotebookOutputOption` is `Allowed` , the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
-	S3KmsKeyId *string `json:"s3KmsKeyId" yaml:"s3KmsKeyId"`
+	S3KmsKeyId *string `field:"optional" json:"s3KmsKeyId" yaml:"s3KmsKeyId"`
 	// When `NotebookOutputOption` is `Allowed` , the Amazon S3 bucket used to store the shared notebook snapshots.
-	S3OutputPath *string `json:"s3OutputPath" yaml:"s3OutputPath"`
+	S3OutputPath *string `field:"optional" json:"s3OutputPath" yaml:"s3OutputPath"`
 }
 
 // A collection of settings that apply to users of Amazon SageMaker Studio.
@@ -23605,7 +24097,10 @@ type CfnUserProfile_SharingSettingsProperty struct {
 // `SecurityGroups` is aggregated when specified in both calls. For all other settings in `UserSettings` , the values specified in `CreateUserProfile` take precedence over those specified in `CreateDomain` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   userSettingsProperty := &userSettingsProperty{
 //   	executionRole: jsii.String("executionRole"),
 //   	jupyterServerAppSettings: &jupyterServerAppSettingsProperty{
@@ -23647,13 +24142,13 @@ type CfnUserProfile_SharingSettingsProperty struct {
 //
 type CfnUserProfile_UserSettingsProperty struct {
 	// The execution role for the user.
-	ExecutionRole *string `json:"executionRole" yaml:"executionRole"`
+	ExecutionRole *string `field:"optional" json:"executionRole" yaml:"executionRole"`
 	// The Jupyter server's app settings.
-	JupyterServerAppSettings interface{} `json:"jupyterServerAppSettings" yaml:"jupyterServerAppSettings"`
+	JupyterServerAppSettings interface{} `field:"optional" json:"jupyterServerAppSettings" yaml:"jupyterServerAppSettings"`
 	// The kernel gateway app settings.
-	KernelGatewayAppSettings interface{} `json:"kernelGatewayAppSettings" yaml:"kernelGatewayAppSettings"`
+	KernelGatewayAppSettings interface{} `field:"optional" json:"kernelGatewayAppSettings" yaml:"kernelGatewayAppSettings"`
 	// A collection of settings that configure user interaction with the `RStudioServerPro` app.
-	RStudioServerProAppSettings interface{} `json:"rStudioServerProAppSettings" yaml:"rStudioServerProAppSettings"`
+	RStudioServerProAppSettings interface{} `field:"optional" json:"rStudioServerProAppSettings" yaml:"rStudioServerProAppSettings"`
 	// The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
 	//
 	// Optional when the `CreateDomain.AppNetworkAccessType` parameter is set to `PublicInternetOnly` .
@@ -23661,15 +24156,18 @@ type CfnUserProfile_UserSettingsProperty struct {
 	// Required when the `CreateDomain.AppNetworkAccessType` parameter is set to `VpcOnly` .
 	//
 	// Amazon SageMaker adds a security group to allow NFS traffic from SageMaker Studio. Therefore, the number of security groups that you can specify is one less than the maximum number shown.
-	SecurityGroups *[]*string `json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]*string `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// Specifies options for sharing SageMaker Studio notebooks.
-	SharingSettings interface{} `json:"sharingSettings" yaml:"sharingSettings"`
+	SharingSettings interface{} `field:"optional" json:"sharingSettings" yaml:"sharingSettings"`
 }
 
 // Properties for defining a `CfnUserProfile`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnUserProfileProps := &cfnUserProfileProps{
 //   	domainId: jsii.String("domainId"),
 //   	userProfileName: jsii.String("userProfileName"),
@@ -23725,25 +24223,25 @@ type CfnUserProfile_UserSettingsProperty struct {
 //
 type CfnUserProfileProps struct {
 	// The domain ID.
-	DomainId *string `json:"domainId" yaml:"domainId"`
+	DomainId *string `field:"required" json:"domainId" yaml:"domainId"`
 	// The user profile name.
-	UserProfileName *string `json:"userProfileName" yaml:"userProfileName"`
+	UserProfileName *string `field:"required" json:"userProfileName" yaml:"userProfileName"`
 	// A specifier for the type of value specified in SingleSignOnUserValue.
 	//
 	// Currently, the only supported value is "UserName". If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
-	SingleSignOnUserIdentifier *string `json:"singleSignOnUserIdentifier" yaml:"singleSignOnUserIdentifier"`
+	SingleSignOnUserIdentifier *string `field:"optional" json:"singleSignOnUserIdentifier" yaml:"singleSignOnUserIdentifier"`
 	// The username of the associated AWS Single Sign-On User for this UserProfile.
 	//
 	// If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
-	SingleSignOnUserValue *string `json:"singleSignOnUserValue" yaml:"singleSignOnUserValue"`
+	SingleSignOnUserValue *string `field:"optional" json:"singleSignOnUserValue" yaml:"singleSignOnUserValue"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// Tags that you specify for the User Profile are also added to all apps that the User Profile launches.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// A collection of settings that apply to users of Amazon SageMaker Studio.
-	UserSettings interface{} `json:"userSettings" yaml:"userSettings"`
+	UserSettings interface{} `field:"optional" json:"userSettings" yaml:"userSettings"`
 }
 
 // A CloudFormation `AWS::SageMaker::Workteam`.
@@ -23753,8 +24251,11 @@ type CfnUserProfileProps struct {
 // You cannot create more than 25 work teams in an account and region.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
-//   cfnWorkteam := sagemaker.NewCfnWorkteam(this, jsii.String("MyCfnWorkteam"), &cfnWorkteamProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnWorkteam := awscdk.Aws_sagemaker.NewCfnWorkteam(this, jsii.String("MyCfnWorkteam"), &cfnWorkteamProps{
 //   	description: jsii.String("description"),
 //   	memberDefinitions: []interface{}{
 //   		&memberDefinitionProperty{
@@ -24497,7 +24998,10 @@ func (c *jsiiProxy_CfnWorkteam) ValidateProperties(_properties interface{}) {
 // A user group can be used in on or more work teams.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cognitoMemberDefinitionProperty := &cognitoMemberDefinitionProperty{
 //   	cognitoClientId: jsii.String("cognitoClientId"),
 //   	cognitoUserGroup: jsii.String("cognitoUserGroup"),
@@ -24508,19 +25012,22 @@ type CfnWorkteam_CognitoMemberDefinitionProperty struct {
 	// An identifier for an application client.
 	//
 	// You must create the app client ID using Amazon Cognito.
-	CognitoClientId *string `json:"cognitoClientId" yaml:"cognitoClientId"`
+	CognitoClientId *string `field:"required" json:"cognitoClientId" yaml:"cognitoClientId"`
 	// An identifier for a user group.
-	CognitoUserGroup *string `json:"cognitoUserGroup" yaml:"cognitoUserGroup"`
+	CognitoUserGroup *string `field:"required" json:"cognitoUserGroup" yaml:"cognitoUserGroup"`
 	// An identifier for a user pool.
 	//
 	// The user pool must be in the same region as the service that you are calling.
-	CognitoUserPool *string `json:"cognitoUserPool" yaml:"cognitoUserPool"`
+	CognitoUserPool *string `field:"required" json:"cognitoUserPool" yaml:"cognitoUserPool"`
 }
 
 // Defines an Amazon Cognito or your own OIDC IdP user group that is part of a work team.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   memberDefinitionProperty := &memberDefinitionProperty{
 //   	cognitoMemberDefinition: &cognitoMemberDefinitionProperty{
 //   		cognitoClientId: jsii.String("cognitoClientId"),
@@ -24531,26 +25038,32 @@ type CfnWorkteam_CognitoMemberDefinitionProperty struct {
 //
 type CfnWorkteam_MemberDefinitionProperty struct {
 	// The Amazon Cognito user group that is part of the work team.
-	CognitoMemberDefinition interface{} `json:"cognitoMemberDefinition" yaml:"cognitoMemberDefinition"`
+	CognitoMemberDefinition interface{} `field:"required" json:"cognitoMemberDefinition" yaml:"cognitoMemberDefinition"`
 }
 
 // Configures Amazon SNS notifications of available or expiring work items for work teams.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   notificationConfigurationProperty := &notificationConfigurationProperty{
 //   	notificationTopicArn: jsii.String("notificationTopicArn"),
 //   }
 //
 type CfnWorkteam_NotificationConfigurationProperty struct {
 	// The ARN for the Amazon SNS topic to which notifications should be published.
-	NotificationTopicArn *string `json:"notificationTopicArn" yaml:"notificationTopicArn"`
+	NotificationTopicArn *string `field:"required" json:"notificationTopicArn" yaml:"notificationTopicArn"`
 }
 
 // Properties for defining a `CfnWorkteam`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sagemaker "github.com/aws/aws-cdk-go/awscdk/aws_sagemaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnWorkteamProps := &cfnWorkteamProps{
 //   	description: jsii.String("description"),
 //   	memberDefinitions: []interface{}{
@@ -24576,16 +25089,16 @@ type CfnWorkteam_NotificationConfigurationProperty struct {
 //
 type CfnWorkteamProps struct {
 	// A description of the work team.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// A list of `MemberDefinition` objects that contains objects that identify the workers that make up the work team.
 	//
 	// Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `CognitoMemberDefinition` . For workforces created using your own OIDC identity provider (IdP) use `OidcMemberDefinition` .
-	MemberDefinitions interface{} `json:"memberDefinitions" yaml:"memberDefinitions"`
+	MemberDefinitions interface{} `field:"optional" json:"memberDefinitions" yaml:"memberDefinitions"`
 	// Configures SNS notifications of available or expiring work items for work teams.
-	NotificationConfiguration interface{} `json:"notificationConfiguration" yaml:"notificationConfiguration"`
+	NotificationConfiguration interface{} `field:"optional" json:"notificationConfiguration" yaml:"notificationConfiguration"`
 	// An array of key-value pairs.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The name of the work team.
-	WorkteamName *string `json:"workteamName" yaml:"workteamName"`
+	WorkteamName *string `field:"optional" json:"workteamName" yaml:"workteamName"`
 }
 

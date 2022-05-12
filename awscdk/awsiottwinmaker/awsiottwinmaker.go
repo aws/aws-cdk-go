@@ -12,12 +12,15 @@ import (
 // A CloudFormation `AWS::IoTTwinMaker::ComponentType`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iottwinmaker "github.com/aws/aws-cdk-go/awscdk/aws_iottwinmaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var dataTypeProperty_ dataTypeProperty
 //   var dataValueProperty_ dataValueProperty
 //   var relationshipValue interface{}
-//   cfnComponentType := iottwinmaker.NewCfnComponentType(this, jsii.String("MyCfnComponentType"), &cfnComponentTypeProps{
+//
+//   cfnComponentType := awscdk.Aws_iottwinmaker.NewCfnComponentType(this, jsii.String("MyCfnComponentType"), &cfnComponentTypeProps{
 //   	componentTypeId: jsii.String("componentTypeId"),
 //   	workspaceId: jsii.String("workspaceId"),
 //
@@ -920,7 +923,10 @@ func (c *jsiiProxy_CfnComponentType) ValidateProperties(_properties interface{})
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iottwinmaker "github.com/aws/aws-cdk-go/awscdk/aws_iottwinmaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dataConnectorProperty := &dataConnectorProperty{
 //   	isNative: jsii.Boolean(false),
 //   	lambda: &lambdaFunctionProperty{
@@ -930,17 +936,20 @@ func (c *jsiiProxy_CfnComponentType) ValidateProperties(_properties interface{})
 //
 type CfnComponentType_DataConnectorProperty struct {
 	// `CfnComponentType.DataConnectorProperty.IsNative`.
-	IsNative interface{} `json:"isNative" yaml:"isNative"`
+	IsNative interface{} `field:"optional" json:"isNative" yaml:"isNative"`
 	// `CfnComponentType.DataConnectorProperty.Lambda`.
-	Lambda interface{} `json:"lambda" yaml:"lambda"`
+	Lambda interface{} `field:"optional" json:"lambda" yaml:"lambda"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iottwinmaker "github.com/aws/aws-cdk-go/awscdk/aws_iottwinmaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var dataTypeProperty_ dataTypeProperty
 //   var dataValueProperty_ dataValueProperty
 //   var relationshipValue interface{}
+//
 //   dataTypeProperty := &dataTypeProperty{
 //   	type: jsii.String("type"),
 //
@@ -999,22 +1008,25 @@ type CfnComponentType_DataConnectorProperty struct {
 //
 type CfnComponentType_DataTypeProperty struct {
 	// `CfnComponentType.DataTypeProperty.Type`.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// `CfnComponentType.DataTypeProperty.AllowedValues`.
-	AllowedValues interface{} `json:"allowedValues" yaml:"allowedValues"`
+	AllowedValues interface{} `field:"optional" json:"allowedValues" yaml:"allowedValues"`
 	// `CfnComponentType.DataTypeProperty.NestedType`.
-	NestedType interface{} `json:"nestedType" yaml:"nestedType"`
+	NestedType interface{} `field:"optional" json:"nestedType" yaml:"nestedType"`
 	// `CfnComponentType.DataTypeProperty.Relationship`.
-	Relationship interface{} `json:"relationship" yaml:"relationship"`
+	Relationship interface{} `field:"optional" json:"relationship" yaml:"relationship"`
 	// `CfnComponentType.DataTypeProperty.UnitOfMeasure`.
-	UnitOfMeasure *string `json:"unitOfMeasure" yaml:"unitOfMeasure"`
+	UnitOfMeasure *string `field:"optional" json:"unitOfMeasure" yaml:"unitOfMeasure"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iottwinmaker "github.com/aws/aws-cdk-go/awscdk/aws_iottwinmaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var dataValueProperty_ dataValueProperty
 //   var relationshipValue interface{}
+//
 //   dataValueProperty := &dataValueProperty{
 //   	booleanValue: jsii.Boolean(false),
 //   	doubleValue: jsii.Number(123),
@@ -1061,27 +1073,30 @@ type CfnComponentType_DataTypeProperty struct {
 //
 type CfnComponentType_DataValueProperty struct {
 	// `CfnComponentType.DataValueProperty.BooleanValue`.
-	BooleanValue interface{} `json:"booleanValue" yaml:"booleanValue"`
+	BooleanValue interface{} `field:"optional" json:"booleanValue" yaml:"booleanValue"`
 	// `CfnComponentType.DataValueProperty.DoubleValue`.
-	DoubleValue *float64 `json:"doubleValue" yaml:"doubleValue"`
+	DoubleValue *float64 `field:"optional" json:"doubleValue" yaml:"doubleValue"`
 	// `CfnComponentType.DataValueProperty.Expression`.
-	Expression *string `json:"expression" yaml:"expression"`
+	Expression *string `field:"optional" json:"expression" yaml:"expression"`
 	// `CfnComponentType.DataValueProperty.IntegerValue`.
-	IntegerValue *float64 `json:"integerValue" yaml:"integerValue"`
+	IntegerValue *float64 `field:"optional" json:"integerValue" yaml:"integerValue"`
 	// `CfnComponentType.DataValueProperty.ListValue`.
-	ListValue interface{} `json:"listValue" yaml:"listValue"`
+	ListValue interface{} `field:"optional" json:"listValue" yaml:"listValue"`
 	// `CfnComponentType.DataValueProperty.LongValue`.
-	LongValue *float64 `json:"longValue" yaml:"longValue"`
+	LongValue *float64 `field:"optional" json:"longValue" yaml:"longValue"`
 	// `CfnComponentType.DataValueProperty.MapValue`.
-	MapValue interface{} `json:"mapValue" yaml:"mapValue"`
+	MapValue interface{} `field:"optional" json:"mapValue" yaml:"mapValue"`
 	// `CfnComponentType.DataValueProperty.RelationshipValue`.
-	RelationshipValue interface{} `json:"relationshipValue" yaml:"relationshipValue"`
+	RelationshipValue interface{} `field:"optional" json:"relationshipValue" yaml:"relationshipValue"`
 	// `CfnComponentType.DataValueProperty.StringValue`.
-	StringValue *string `json:"stringValue" yaml:"stringValue"`
+	StringValue *string `field:"optional" json:"stringValue" yaml:"stringValue"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iottwinmaker "github.com/aws/aws-cdk-go/awscdk/aws_iottwinmaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   functionProperty := &functionProperty{
 //   	implementedBy: &dataConnectorProperty{
 //   		isNative: jsii.Boolean(false),
@@ -1097,30 +1112,36 @@ type CfnComponentType_DataValueProperty struct {
 //
 type CfnComponentType_FunctionProperty struct {
 	// `CfnComponentType.FunctionProperty.ImplementedBy`.
-	ImplementedBy interface{} `json:"implementedBy" yaml:"implementedBy"`
+	ImplementedBy interface{} `field:"optional" json:"implementedBy" yaml:"implementedBy"`
 	// `CfnComponentType.FunctionProperty.RequiredProperties`.
-	RequiredProperties *[]*string `json:"requiredProperties" yaml:"requiredProperties"`
+	RequiredProperties *[]*string `field:"optional" json:"requiredProperties" yaml:"requiredProperties"`
 	// `CfnComponentType.FunctionProperty.Scope`.
-	Scope *string `json:"scope" yaml:"scope"`
+	Scope *string `field:"optional" json:"scope" yaml:"scope"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iottwinmaker "github.com/aws/aws-cdk-go/awscdk/aws_iottwinmaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   lambdaFunctionProperty := &lambdaFunctionProperty{
 //   	arn: jsii.String("arn"),
 //   }
 //
 type CfnComponentType_LambdaFunctionProperty struct {
 	// `CfnComponentType.LambdaFunctionProperty.Arn`.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"required" json:"arn" yaml:"arn"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iottwinmaker "github.com/aws/aws-cdk-go/awscdk/aws_iottwinmaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var dataTypeProperty_ dataTypeProperty
 //   var dataValueProperty_ dataValueProperty
 //   var relationshipValue interface{}
+//
 //   propertyDefinitionProperty := &propertyDefinitionProperty{
 //   	configurations: map[string]*string{
 //   		"configurationsKey": jsii.String("configurations"),
@@ -1176,23 +1197,26 @@ type CfnComponentType_LambdaFunctionProperty struct {
 //
 type CfnComponentType_PropertyDefinitionProperty struct {
 	// `CfnComponentType.PropertyDefinitionProperty.Configurations`.
-	Configurations interface{} `json:"configurations" yaml:"configurations"`
+	Configurations interface{} `field:"optional" json:"configurations" yaml:"configurations"`
 	// `CfnComponentType.PropertyDefinitionProperty.DataType`.
-	DataType interface{} `json:"dataType" yaml:"dataType"`
+	DataType interface{} `field:"optional" json:"dataType" yaml:"dataType"`
 	// `CfnComponentType.PropertyDefinitionProperty.DefaultValue`.
-	DefaultValue interface{} `json:"defaultValue" yaml:"defaultValue"`
+	DefaultValue interface{} `field:"optional" json:"defaultValue" yaml:"defaultValue"`
 	// `CfnComponentType.PropertyDefinitionProperty.IsExternalId`.
-	IsExternalId interface{} `json:"isExternalId" yaml:"isExternalId"`
+	IsExternalId interface{} `field:"optional" json:"isExternalId" yaml:"isExternalId"`
 	// `CfnComponentType.PropertyDefinitionProperty.IsRequiredInEntity`.
-	IsRequiredInEntity interface{} `json:"isRequiredInEntity" yaml:"isRequiredInEntity"`
+	IsRequiredInEntity interface{} `field:"optional" json:"isRequiredInEntity" yaml:"isRequiredInEntity"`
 	// `CfnComponentType.PropertyDefinitionProperty.IsStoredExternally`.
-	IsStoredExternally interface{} `json:"isStoredExternally" yaml:"isStoredExternally"`
+	IsStoredExternally interface{} `field:"optional" json:"isStoredExternally" yaml:"isStoredExternally"`
 	// `CfnComponentType.PropertyDefinitionProperty.IsTimeSeries`.
-	IsTimeSeries interface{} `json:"isTimeSeries" yaml:"isTimeSeries"`
+	IsTimeSeries interface{} `field:"optional" json:"isTimeSeries" yaml:"isTimeSeries"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iottwinmaker "github.com/aws/aws-cdk-go/awscdk/aws_iottwinmaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   relationshipProperty := &relationshipProperty{
 //   	relationshipType: jsii.String("relationshipType"),
 //   	targetComponentTypeId: jsii.String("targetComponentTypeId"),
@@ -1200,19 +1224,22 @@ type CfnComponentType_PropertyDefinitionProperty struct {
 //
 type CfnComponentType_RelationshipProperty struct {
 	// `CfnComponentType.RelationshipProperty.RelationshipType`.
-	RelationshipType *string `json:"relationshipType" yaml:"relationshipType"`
+	RelationshipType *string `field:"optional" json:"relationshipType" yaml:"relationshipType"`
 	// `CfnComponentType.RelationshipProperty.TargetComponentTypeId`.
-	TargetComponentTypeId *string `json:"targetComponentTypeId" yaml:"targetComponentTypeId"`
+	TargetComponentTypeId *string `field:"optional" json:"targetComponentTypeId" yaml:"targetComponentTypeId"`
 }
 
 // Properties for defining a `CfnComponentType`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iottwinmaker "github.com/aws/aws-cdk-go/awscdk/aws_iottwinmaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var dataTypeProperty_ dataTypeProperty
 //   var dataValueProperty_ dataValueProperty
 //   var relationshipValue interface{}
+//
 //   cfnComponentTypeProps := &cfnComponentTypeProps{
 //   	componentTypeId: jsii.String("componentTypeId"),
 //   	workspaceId: jsii.String("workspaceId"),
@@ -1298,33 +1325,36 @@ type CfnComponentType_RelationshipProperty struct {
 //
 type CfnComponentTypeProps struct {
 	// `AWS::IoTTwinMaker::ComponentType.ComponentTypeId`.
-	ComponentTypeId *string `json:"componentTypeId" yaml:"componentTypeId"`
+	ComponentTypeId *string `field:"required" json:"componentTypeId" yaml:"componentTypeId"`
 	// `AWS::IoTTwinMaker::ComponentType.WorkspaceId`.
-	WorkspaceId *string `json:"workspaceId" yaml:"workspaceId"`
+	WorkspaceId *string `field:"required" json:"workspaceId" yaml:"workspaceId"`
 	// `AWS::IoTTwinMaker::ComponentType.Description`.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// `AWS::IoTTwinMaker::ComponentType.ExtendsFrom`.
-	ExtendsFrom *[]*string `json:"extendsFrom" yaml:"extendsFrom"`
+	ExtendsFrom *[]*string `field:"optional" json:"extendsFrom" yaml:"extendsFrom"`
 	// `AWS::IoTTwinMaker::ComponentType.Functions`.
-	Functions interface{} `json:"functions" yaml:"functions"`
+	Functions interface{} `field:"optional" json:"functions" yaml:"functions"`
 	// `AWS::IoTTwinMaker::ComponentType.IsSingleton`.
-	IsSingleton interface{} `json:"isSingleton" yaml:"isSingleton"`
+	IsSingleton interface{} `field:"optional" json:"isSingleton" yaml:"isSingleton"`
 	// `AWS::IoTTwinMaker::ComponentType.PropertyDefinitions`.
-	PropertyDefinitions interface{} `json:"propertyDefinitions" yaml:"propertyDefinitions"`
+	PropertyDefinitions interface{} `field:"optional" json:"propertyDefinitions" yaml:"propertyDefinitions"`
 	// `AWS::IoTTwinMaker::ComponentType.Tags`.
-	Tags *map[string]*string `json:"tags" yaml:"tags"`
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::IoTTwinMaker::Entity`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iottwinmaker "github.com/aws/aws-cdk-go/awscdk/aws_iottwinmaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var dataValueProperty_ dataValueProperty
 //   var definition interface{}
 //   var error interface{}
 //   var relationshipValue interface{}
-//   cfnEntity := iottwinmaker.NewCfnEntity(this, jsii.String("MyCfnEntity"), &cfnEntityProps{
+//
+//   cfnEntity := awscdk.Aws_iottwinmaker.NewCfnEntity(this, jsii.String("MyCfnEntity"), &cfnEntityProps{
 //   	entityName: jsii.String("entityName"),
 //   	workspaceId: jsii.String("workspaceId"),
 //
@@ -2157,12 +2187,15 @@ func (c *jsiiProxy_CfnEntity) ValidateProperties(_properties interface{}) {
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iottwinmaker "github.com/aws/aws-cdk-go/awscdk/aws_iottwinmaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var dataValueProperty_ dataValueProperty
 //   var definition interface{}
 //   var error interface{}
 //   var relationshipValue interface{}
+//
 //   componentProperty := &componentProperty{
 //   	componentName: jsii.String("componentName"),
 //   	componentTypeId: jsii.String("componentTypeId"),
@@ -2196,24 +2229,27 @@ func (c *jsiiProxy_CfnEntity) ValidateProperties(_properties interface{}) {
 //
 type CfnEntity_ComponentProperty struct {
 	// `CfnEntity.ComponentProperty.ComponentName`.
-	ComponentName *string `json:"componentName" yaml:"componentName"`
+	ComponentName *string `field:"optional" json:"componentName" yaml:"componentName"`
 	// `CfnEntity.ComponentProperty.ComponentTypeId`.
-	ComponentTypeId *string `json:"componentTypeId" yaml:"componentTypeId"`
+	ComponentTypeId *string `field:"optional" json:"componentTypeId" yaml:"componentTypeId"`
 	// `CfnEntity.ComponentProperty.DefinedIn`.
-	DefinedIn *string `json:"definedIn" yaml:"definedIn"`
+	DefinedIn *string `field:"optional" json:"definedIn" yaml:"definedIn"`
 	// `CfnEntity.ComponentProperty.Description`.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// `CfnEntity.ComponentProperty.Properties`.
-	Properties interface{} `json:"properties" yaml:"properties"`
+	Properties interface{} `field:"optional" json:"properties" yaml:"properties"`
 	// `CfnEntity.ComponentProperty.Status`.
-	Status interface{} `json:"status" yaml:"status"`
+	Status interface{} `field:"optional" json:"status" yaml:"status"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iottwinmaker "github.com/aws/aws-cdk-go/awscdk/aws_iottwinmaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var dataValueProperty_ dataValueProperty
 //   var relationshipValue interface{}
+//
 //   dataValueProperty := &dataValueProperty{
 //   	booleanValue: jsii.Boolean(false),
 //   	doubleValue: jsii.Number(123),
@@ -2260,31 +2296,34 @@ type CfnEntity_ComponentProperty struct {
 //
 type CfnEntity_DataValueProperty struct {
 	// `CfnEntity.DataValueProperty.BooleanValue`.
-	BooleanValue interface{} `json:"booleanValue" yaml:"booleanValue"`
+	BooleanValue interface{} `field:"optional" json:"booleanValue" yaml:"booleanValue"`
 	// `CfnEntity.DataValueProperty.DoubleValue`.
-	DoubleValue *float64 `json:"doubleValue" yaml:"doubleValue"`
+	DoubleValue *float64 `field:"optional" json:"doubleValue" yaml:"doubleValue"`
 	// `CfnEntity.DataValueProperty.Expression`.
-	Expression *string `json:"expression" yaml:"expression"`
+	Expression *string `field:"optional" json:"expression" yaml:"expression"`
 	// `CfnEntity.DataValueProperty.IntegerValue`.
-	IntegerValue *float64 `json:"integerValue" yaml:"integerValue"`
+	IntegerValue *float64 `field:"optional" json:"integerValue" yaml:"integerValue"`
 	// `CfnEntity.DataValueProperty.ListValue`.
-	ListValue interface{} `json:"listValue" yaml:"listValue"`
+	ListValue interface{} `field:"optional" json:"listValue" yaml:"listValue"`
 	// `CfnEntity.DataValueProperty.LongValue`.
-	LongValue *float64 `json:"longValue" yaml:"longValue"`
+	LongValue *float64 `field:"optional" json:"longValue" yaml:"longValue"`
 	// `CfnEntity.DataValueProperty.MapValue`.
-	MapValue interface{} `json:"mapValue" yaml:"mapValue"`
+	MapValue interface{} `field:"optional" json:"mapValue" yaml:"mapValue"`
 	// `CfnEntity.DataValueProperty.RelationshipValue`.
-	RelationshipValue interface{} `json:"relationshipValue" yaml:"relationshipValue"`
+	RelationshipValue interface{} `field:"optional" json:"relationshipValue" yaml:"relationshipValue"`
 	// `CfnEntity.DataValueProperty.StringValue`.
-	StringValue *string `json:"stringValue" yaml:"stringValue"`
+	StringValue *string `field:"optional" json:"stringValue" yaml:"stringValue"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iottwinmaker "github.com/aws/aws-cdk-go/awscdk/aws_iottwinmaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var dataValueProperty_ dataValueProperty
 //   var definition interface{}
 //   var relationshipValue interface{}
+//
 //   propertyProperty := &propertyProperty{
 //   	definition: definition,
 //   	value: &dataValueProperty{
@@ -2306,15 +2345,18 @@ type CfnEntity_DataValueProperty struct {
 //
 type CfnEntity_PropertyProperty struct {
 	// `CfnEntity.PropertyProperty.Definition`.
-	Definition interface{} `json:"definition" yaml:"definition"`
+	Definition interface{} `field:"optional" json:"definition" yaml:"definition"`
 	// `CfnEntity.PropertyProperty.Value`.
-	Value interface{} `json:"value" yaml:"value"`
+	Value interface{} `field:"optional" json:"value" yaml:"value"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iottwinmaker "github.com/aws/aws-cdk-go/awscdk/aws_iottwinmaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var error interface{}
+//
 //   statusProperty := &statusProperty{
 //   	error: error,
 //   	state: jsii.String("state"),
@@ -2322,20 +2364,23 @@ type CfnEntity_PropertyProperty struct {
 //
 type CfnEntity_StatusProperty struct {
 	// `CfnEntity.StatusProperty.Error`.
-	Error interface{} `json:"error" yaml:"error"`
+	Error interface{} `field:"optional" json:"error" yaml:"error"`
 	// `CfnEntity.StatusProperty.State`.
-	State *string `json:"state" yaml:"state"`
+	State *string `field:"optional" json:"state" yaml:"state"`
 }
 
 // Properties for defining a `CfnEntity`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iottwinmaker "github.com/aws/aws-cdk-go/awscdk/aws_iottwinmaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var dataValueProperty_ dataValueProperty
 //   var definition interface{}
 //   var error interface{}
 //   var relationshipValue interface{}
+//
 //   cfnEntityProps := &cfnEntityProps{
 //   	entityName: jsii.String("entityName"),
 //   	workspaceId: jsii.String("workspaceId"),
@@ -2383,26 +2428,29 @@ type CfnEntity_StatusProperty struct {
 //
 type CfnEntityProps struct {
 	// `AWS::IoTTwinMaker::Entity.EntityName`.
-	EntityName *string `json:"entityName" yaml:"entityName"`
+	EntityName *string `field:"required" json:"entityName" yaml:"entityName"`
 	// `AWS::IoTTwinMaker::Entity.WorkspaceId`.
-	WorkspaceId *string `json:"workspaceId" yaml:"workspaceId"`
+	WorkspaceId *string `field:"required" json:"workspaceId" yaml:"workspaceId"`
 	// `AWS::IoTTwinMaker::Entity.Components`.
-	Components interface{} `json:"components" yaml:"components"`
+	Components interface{} `field:"optional" json:"components" yaml:"components"`
 	// `AWS::IoTTwinMaker::Entity.Description`.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// `AWS::IoTTwinMaker::Entity.EntityId`.
-	EntityId *string `json:"entityId" yaml:"entityId"`
+	EntityId *string `field:"optional" json:"entityId" yaml:"entityId"`
 	// `AWS::IoTTwinMaker::Entity.ParentEntityId`.
-	ParentEntityId *string `json:"parentEntityId" yaml:"parentEntityId"`
+	ParentEntityId *string `field:"optional" json:"parentEntityId" yaml:"parentEntityId"`
 	// `AWS::IoTTwinMaker::Entity.Tags`.
-	Tags *map[string]*string `json:"tags" yaml:"tags"`
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::IoTTwinMaker::Scene`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iottwinmaker "github.com/aws/aws-cdk-go/awscdk/aws_iottwinmaker"
-//   cfnScene := iottwinmaker.NewCfnScene(this, jsii.String("MyCfnScene"), &cfnSceneProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnScene := awscdk.Aws_iottwinmaker.NewCfnScene(this, jsii.String("MyCfnScene"), &cfnSceneProps{
 //   	contentLocation: jsii.String("contentLocation"),
 //   	sceneId: jsii.String("sceneId"),
 //   	workspaceId: jsii.String("workspaceId"),
@@ -3175,7 +3223,10 @@ func (c *jsiiProxy_CfnScene) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnScene`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iottwinmaker "github.com/aws/aws-cdk-go/awscdk/aws_iottwinmaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnSceneProps := &cfnSceneProps{
 //   	contentLocation: jsii.String("contentLocation"),
 //   	sceneId: jsii.String("sceneId"),
@@ -3193,24 +3244,27 @@ func (c *jsiiProxy_CfnScene) ValidateProperties(_properties interface{}) {
 //
 type CfnSceneProps struct {
 	// `AWS::IoTTwinMaker::Scene.ContentLocation`.
-	ContentLocation *string `json:"contentLocation" yaml:"contentLocation"`
+	ContentLocation *string `field:"required" json:"contentLocation" yaml:"contentLocation"`
 	// `AWS::IoTTwinMaker::Scene.SceneId`.
-	SceneId *string `json:"sceneId" yaml:"sceneId"`
+	SceneId *string `field:"required" json:"sceneId" yaml:"sceneId"`
 	// `AWS::IoTTwinMaker::Scene.WorkspaceId`.
-	WorkspaceId *string `json:"workspaceId" yaml:"workspaceId"`
+	WorkspaceId *string `field:"required" json:"workspaceId" yaml:"workspaceId"`
 	// `AWS::IoTTwinMaker::Scene.Capabilities`.
-	Capabilities *[]*string `json:"capabilities" yaml:"capabilities"`
+	Capabilities *[]*string `field:"optional" json:"capabilities" yaml:"capabilities"`
 	// `AWS::IoTTwinMaker::Scene.Description`.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// `AWS::IoTTwinMaker::Scene.Tags`.
-	Tags *map[string]*string `json:"tags" yaml:"tags"`
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::IoTTwinMaker::Workspace`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iottwinmaker "github.com/aws/aws-cdk-go/awscdk/aws_iottwinmaker"
-//   cfnWorkspace := iottwinmaker.NewCfnWorkspace(this, jsii.String("MyCfnWorkspace"), &cfnWorkspaceProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnWorkspace := awscdk.Aws_iottwinmaker.NewCfnWorkspace(this, jsii.String("MyCfnWorkspace"), &cfnWorkspaceProps{
 //   	role: jsii.String("role"),
 //   	s3Location: jsii.String("s3Location"),
 //   	workspaceId: jsii.String("workspaceId"),
@@ -3959,7 +4013,10 @@ func (c *jsiiProxy_CfnWorkspace) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnWorkspace`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iottwinmaker "github.com/aws/aws-cdk-go/awscdk/aws_iottwinmaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnWorkspaceProps := &cfnWorkspaceProps{
 //   	role: jsii.String("role"),
 //   	s3Location: jsii.String("s3Location"),
@@ -3974,14 +4031,14 @@ func (c *jsiiProxy_CfnWorkspace) ValidateProperties(_properties interface{}) {
 //
 type CfnWorkspaceProps struct {
 	// `AWS::IoTTwinMaker::Workspace.Role`.
-	Role *string `json:"role" yaml:"role"`
+	Role *string `field:"required" json:"role" yaml:"role"`
 	// `AWS::IoTTwinMaker::Workspace.S3Location`.
-	S3Location *string `json:"s3Location" yaml:"s3Location"`
+	S3Location *string `field:"required" json:"s3Location" yaml:"s3Location"`
 	// `AWS::IoTTwinMaker::Workspace.WorkspaceId`.
-	WorkspaceId *string `json:"workspaceId" yaml:"workspaceId"`
+	WorkspaceId *string `field:"required" json:"workspaceId" yaml:"workspaceId"`
 	// `AWS::IoTTwinMaker::Workspace.Description`.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// `AWS::IoTTwinMaker::Workspace.Tags`.
-	Tags *map[string]*string `json:"tags" yaml:"tags"`
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 

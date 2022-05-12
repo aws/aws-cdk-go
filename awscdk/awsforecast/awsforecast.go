@@ -12,12 +12,15 @@ import (
 // A CloudFormation `AWS::Forecast::Dataset`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import forecast "github.com/aws/aws-cdk-go/awscdk/aws_forecast"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var encryptionConfig interface{}
 //   var schema interface{}
 //   var tags interface{}
-//   cfnDataset := forecast.NewCfnDataset(this, jsii.String("MyCfnDataset"), &cfnDatasetProps{
+//
+//   cfnDataset := awscdk.Aws_forecast.NewCfnDataset(this, jsii.String("MyCfnDataset"), &cfnDatasetProps{
 //   	datasetName: jsii.String("datasetName"),
 //   	datasetType: jsii.String("datasetType"),
 //   	domain: jsii.String("domain"),
@@ -797,8 +800,11 @@ func (c *jsiiProxy_CfnDataset) ValidateProperties(_properties interface{}) {
 // A CloudFormation `AWS::Forecast::DatasetGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import forecast "github.com/aws/aws-cdk-go/awscdk/aws_forecast"
-//   cfnDatasetGroup := forecast.NewCfnDatasetGroup(this, jsii.String("MyCfnDatasetGroup"), &cfnDatasetGroupProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDatasetGroup := awscdk.Aws_forecast.NewCfnDatasetGroup(this, jsii.String("MyCfnDatasetGroup"), &cfnDatasetGroupProps{
 //   	datasetGroupName: jsii.String("datasetGroupName"),
 //   	domain: jsii.String("domain"),
 //
@@ -1508,7 +1514,10 @@ func (c *jsiiProxy_CfnDatasetGroup) ValidateProperties(_properties interface{}) 
 // Properties for defining a `CfnDatasetGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import forecast "github.com/aws/aws-cdk-go/awscdk/aws_forecast"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDatasetGroupProps := &cfnDatasetGroupProps{
 //   	datasetGroupName: jsii.String("datasetGroupName"),
 //   	domain: jsii.String("domain"),
@@ -1527,23 +1536,26 @@ func (c *jsiiProxy_CfnDatasetGroup) ValidateProperties(_properties interface{}) 
 //
 type CfnDatasetGroupProps struct {
 	// `AWS::Forecast::DatasetGroup.DatasetGroupName`.
-	DatasetGroupName *string `json:"datasetGroupName" yaml:"datasetGroupName"`
+	DatasetGroupName *string `field:"required" json:"datasetGroupName" yaml:"datasetGroupName"`
 	// `AWS::Forecast::DatasetGroup.Domain`.
-	Domain *string `json:"domain" yaml:"domain"`
+	Domain *string `field:"required" json:"domain" yaml:"domain"`
 	// `AWS::Forecast::DatasetGroup.DatasetArns`.
-	DatasetArns *[]*string `json:"datasetArns" yaml:"datasetArns"`
+	DatasetArns *[]*string `field:"optional" json:"datasetArns" yaml:"datasetArns"`
 	// `AWS::Forecast::DatasetGroup.Tags`.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // Properties for defining a `CfnDataset`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import forecast "github.com/aws/aws-cdk-go/awscdk/aws_forecast"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var encryptionConfig interface{}
 //   var schema interface{}
 //   var tags interface{}
+//
 //   cfnDatasetProps := &cfnDatasetProps{
 //   	datasetName: jsii.String("datasetName"),
 //   	datasetType: jsii.String("datasetType"),
@@ -1560,18 +1572,18 @@ type CfnDatasetGroupProps struct {
 //
 type CfnDatasetProps struct {
 	// `AWS::Forecast::Dataset.DatasetName`.
-	DatasetName *string `json:"datasetName" yaml:"datasetName"`
+	DatasetName *string `field:"required" json:"datasetName" yaml:"datasetName"`
 	// `AWS::Forecast::Dataset.DatasetType`.
-	DatasetType *string `json:"datasetType" yaml:"datasetType"`
+	DatasetType *string `field:"required" json:"datasetType" yaml:"datasetType"`
 	// `AWS::Forecast::Dataset.Domain`.
-	Domain *string `json:"domain" yaml:"domain"`
+	Domain *string `field:"required" json:"domain" yaml:"domain"`
 	// `AWS::Forecast::Dataset.Schema`.
-	Schema interface{} `json:"schema" yaml:"schema"`
+	Schema interface{} `field:"required" json:"schema" yaml:"schema"`
 	// `AWS::Forecast::Dataset.DataFrequency`.
-	DataFrequency *string `json:"dataFrequency" yaml:"dataFrequency"`
+	DataFrequency *string `field:"optional" json:"dataFrequency" yaml:"dataFrequency"`
 	// `AWS::Forecast::Dataset.EncryptionConfig`.
-	EncryptionConfig interface{} `json:"encryptionConfig" yaml:"encryptionConfig"`
+	EncryptionConfig interface{} `field:"optional" json:"encryptionConfig" yaml:"encryptionConfig"`
 	// `AWS::Forecast::Dataset.Tags`.
-	Tags *[]interface{} `json:"tags" yaml:"tags"`
+	Tags *[]interface{} `field:"optional" json:"tags" yaml:"tags"`
 }
 

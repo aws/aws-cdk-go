@@ -438,6 +438,7 @@ func (c *jsiiProxy_Certificate) Validate() *[]*string {
 //   import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var myHostedZone hostedZone
+//
 //   certificate := acm.NewCertificate(this, jsii.String("Certificate"), &certificateProps{
 //   	domainName: jsii.String("hello.example.com"),
 //   	validation: acm.certificateValidation.fromDns(myHostedZone),
@@ -454,23 +455,23 @@ type CertificateProps struct {
 	//
 	// May contain wildcards, such as ``*.domain.com``.
 	// Experimental.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 	// Alternative domain names on your certificate.
 	//
 	// Use this to register alternative domain names that represent the same site.
 	// Experimental.
-	SubjectAlternativeNames *[]*string `json:"subjectAlternativeNames" yaml:"subjectAlternativeNames"`
+	SubjectAlternativeNames *[]*string `field:"optional" json:"subjectAlternativeNames" yaml:"subjectAlternativeNames"`
 	// How to validate this certificate.
 	// Experimental.
-	Validation CertificateValidation `json:"validation" yaml:"validation"`
+	Validation CertificateValidation `field:"optional" json:"validation" yaml:"validation"`
 	// What validation domain to use for every requested domain.
 	//
 	// Has to be a superdomain of the requested domain.
 	// Deprecated: use `validation` instead.
-	ValidationDomains *map[string]*string `json:"validationDomains" yaml:"validationDomains"`
+	ValidationDomains *map[string]*string `field:"optional" json:"validationDomains" yaml:"validationDomains"`
 	// Validation method used to assert domain ownership.
 	// Deprecated: use `validation` instead.
-	ValidationMethod ValidationMethod `json:"validationMethod" yaml:"validationMethod"`
+	ValidationMethod ValidationMethod `field:"optional" json:"validationMethod" yaml:"validationMethod"`
 }
 
 // How to validate a certificate.
@@ -592,15 +593,19 @@ func CertificateValidation_FromEmail(validationDomains *map[string]*string) Cert
 // Properties for certificate validation.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import certificatemanager "github.com/aws/aws-cdk-go/awscdk/aws_certificatemanager"import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53 "github.com/aws/aws-cdk-go/awscdk/aws_route53"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var hostedZone hostedZone
+//
 //   certificationValidationProps := &certificationValidationProps{
 //   	hostedZone: hostedZone,
 //   	hostedZones: map[string]iHostedZone{
 //   		"hostedZonesKey": hostedZone,
 //   	},
-//   	method: certificatemanager.validationMethod_EMAIL,
+//   	method: awscdk.Aws_certificatemanager.validationMethod_EMAIL,
 //   	validationDomains: map[string]*string{
 //   		"validationDomainsKey": jsii.String("validationDomains"),
 //   	},
@@ -610,16 +615,16 @@ func CertificateValidation_FromEmail(validationDomains *map[string]*string) Cert
 type CertificationValidationProps struct {
 	// Hosted zone to use for DNS validation.
 	// Experimental.
-	HostedZone awsroute53.IHostedZone `json:"hostedZone" yaml:"hostedZone"`
+	HostedZone awsroute53.IHostedZone `field:"optional" json:"hostedZone" yaml:"hostedZone"`
 	// A map of hosted zones to use for DNS validation.
 	// Experimental.
-	HostedZones *map[string]awsroute53.IHostedZone `json:"hostedZones" yaml:"hostedZones"`
+	HostedZones *map[string]awsroute53.IHostedZone `field:"optional" json:"hostedZones" yaml:"hostedZones"`
 	// Validation method.
 	// Experimental.
-	Method ValidationMethod `json:"method" yaml:"method"`
+	Method ValidationMethod `field:"optional" json:"method" yaml:"method"`
 	// Validation domains to use for email validation.
 	// Experimental.
-	ValidationDomains *map[string]*string `json:"validationDomains" yaml:"validationDomains"`
+	ValidationDomains *map[string]*string `field:"optional" json:"validationDomains" yaml:"validationDomains"`
 }
 
 // A CloudFormation `AWS::CertificateManager::Account`.
@@ -627,8 +632,11 @@ type CertificationValidationProps struct {
 // The `AWS::CertificateManager::Account` resource defines the expiry event configuration that determines the number of days prior to expiry when ACM starts generating EventBridge events.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import certificatemanager "github.com/aws/aws-cdk-go/awscdk/aws_certificatemanager"
-//   cfnAccount := certificatemanager.NewCfnAccount(this, jsii.String("MyCfnAccount"), &cfnAccountProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnAccount := awscdk.Aws_certificatemanager.NewCfnAccount(this, jsii.String("MyCfnAccount"), &cfnAccountProps{
 //   	expiryEventsConfiguration: &expiryEventsConfigurationProperty{
 //   		daysBeforeExpiry: jsii.Number(123),
 //   	},
@@ -1279,7 +1287,10 @@ func (c *jsiiProxy_CfnAccount) ValidateProperties(_properties interface{}) {
 // For more information, see [ExpiryEventsConfiguration](https://docs.aws.amazon.com/acm/latest/APIReference/API_ExpiryEventsConfiguration.html) in the API reference.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import certificatemanager "github.com/aws/aws-cdk-go/awscdk/aws_certificatemanager"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   expiryEventsConfigurationProperty := &expiryEventsConfigurationProperty{
 //   	daysBeforeExpiry: jsii.Number(123),
 //   }
@@ -1288,13 +1299,16 @@ type CfnAccount_ExpiryEventsConfigurationProperty struct {
 	// This option specifies the number of days prior to certificate expiration when ACM starts generating `EventBridge` events.
 	//
 	// ACM sends one event per day per certificate until the certificate expires. By default, accounts receive events starting 45 days before certificate expiration.
-	DaysBeforeExpiry *float64 `json:"daysBeforeExpiry" yaml:"daysBeforeExpiry"`
+	DaysBeforeExpiry *float64 `field:"optional" json:"daysBeforeExpiry" yaml:"daysBeforeExpiry"`
 }
 
 // Properties for defining a `CfnAccount`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import certificatemanager "github.com/aws/aws-cdk-go/awscdk/aws_certificatemanager"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAccountProps := &cfnAccountProps{
 //   	expiryEventsConfiguration: &expiryEventsConfigurationProperty{
 //   		daysBeforeExpiry: jsii.Number(123),
@@ -1305,7 +1319,7 @@ type CfnAccountProps struct {
 	// Object containing expiration events options associated with an AWS account .
 	//
 	// For more information, see [ExpiryEventsConfiguration](https://docs.aws.amazon.com/acm/latest/APIReference/API_ExpiryEventsConfiguration.html) in the API reference.
-	ExpiryEventsConfiguration interface{} `json:"expiryEventsConfiguration" yaml:"expiryEventsConfiguration"`
+	ExpiryEventsConfiguration interface{} `field:"required" json:"expiryEventsConfiguration" yaml:"expiryEventsConfiguration"`
 }
 
 // A CloudFormation `AWS::CertificateManager::Certificate`.
@@ -1317,8 +1331,11 @@ type CfnAccountProps struct {
 // > However, if the certificate uses email validation, or if the domain is not hosted in Route 53, then the stack will remain in the `CREATE_IN_PROGRESS` state. Further stack operations are delayed until you validate the certificate request, either by acting upon the instructions in the validation email, or by adding a CNAME record to your DNS configuration. For more information, see [Option 1: DNS Validation](https://docs.aws.amazon.com/acm/latest/userguide/dns-validation.html) and [Option 2: Email Validation](https://docs.aws.amazon.com/acm/latest/userguide/email-validation.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import certificatemanager "github.com/aws/aws-cdk-go/awscdk/aws_certificatemanager"
-//   cfnCertificate := certificatemanager.NewCfnCertificate(this, jsii.String("MyCfnCertificate"), &cfnCertificateProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnCertificate := awscdk.Aws_certificatemanager.NewCfnCertificate(this, jsii.String("MyCfnCertificate"), &cfnCertificateProps{
 //   	domainName: jsii.String("domainName"),
 //
 //   	// the properties below are optional
@@ -2107,7 +2124,10 @@ func (c *jsiiProxy_CfnCertificate) ValidateProperties(_properties interface{}) {
 // `DomainValidationOption` is a property of the [AWS::CertificateManager::Certificate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html) resource that specifies the AWS Certificate Manager ( ACM ) certificate domain to validate. Depending on the chosen validation method, ACM checks the domain's DNS record for a validation CNAME, or it attempts to send a validation email message to the domain owner.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import certificatemanager "github.com/aws/aws-cdk-go/awscdk/aws_certificatemanager"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   domainValidationOptionProperty := &domainValidationOptionProperty{
 //   	domainName: jsii.String("domainName"),
 //
@@ -2118,7 +2138,7 @@ func (c *jsiiProxy_CfnCertificate) ValidateProperties(_properties interface{}) {
 //
 type CfnCertificate_DomainValidationOptionProperty struct {
 	// A fully qualified domain name (FQDN) in the certificate request.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 	// The `HostedZoneId` option, which is available if you are using Route 53 as your domain registrar, causes ACM to add your CNAME to the domain record.
 	//
 	// Your list of `DomainValidationOptions` must contain one and only one of the domain-validation options, and the `HostedZoneId` can be used only when `DNS` is specified as your validation method.
@@ -2130,7 +2150,7 @@ type CfnCertificate_DomainValidationOptionProperty struct {
 	// > The `ListHostedZones` API returns IDs in the format "/hostedzone/Z111111QQQQQQQ", but CloudFormation requires the IDs to be in the format "Z111111QQQQQQQ".
 	//
 	// When you change your `DomainValidationOptions` , a new resource is created.
-	HostedZoneId *string `json:"hostedZoneId" yaml:"hostedZoneId"`
+	HostedZoneId *string `field:"optional" json:"hostedZoneId" yaml:"hostedZoneId"`
 	// The domain name to which you want ACM to send validation emails.
 	//
 	// This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `DomainName` value or a superdomain of the `DomainName` value. For example, if you request a certificate for `testing.example.com` , you can specify `example.com` as this value. In that case, ACM sends domain validation emails to the following five addresses:
@@ -2140,13 +2160,16 @@ type CfnCertificate_DomainValidationOptionProperty struct {
 	// - hostmaster@example.com
 	// - postmaster@example.com
 	// - webmaster@example.com
-	ValidationDomain *string `json:"validationDomain" yaml:"validationDomain"`
+	ValidationDomain *string `field:"optional" json:"validationDomain" yaml:"validationDomain"`
 }
 
 // Properties for defining a `CfnCertificate`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import certificatemanager "github.com/aws/aws-cdk-go/awscdk/aws_certificatemanager"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnCertificateProps := &cfnCertificateProps{
 //   	domainName: jsii.String("domainName"),
 //
@@ -2176,35 +2199,35 @@ type CfnCertificate_DomainValidationOptionProperty struct {
 //
 type CfnCertificateProps struct {
 	// The fully qualified domain name (FQDN), such as www.example.com, with which you want to secure an ACM certificate. Use an asterisk (*) to create a wildcard certificate that protects several sites in the same domain. For example, `*.example.com` protects `www.example.com` , `site.example.com` , and `images.example.com.`.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 	// The Amazon Resource Name (ARN) of the private certificate authority (CA) that will be used to issue the certificate.
 	//
 	// If you do not provide an ARN and you are trying to request a private certificate, ACM will attempt to issue a public certificate. For more information about private CAs, see the [AWS Certificate Manager Private Certificate Authority (PCA)](https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaWelcome.html) user guide. The ARN must have the following form:
 	//
 	// `arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012`.
-	CertificateAuthorityArn *string `json:"certificateAuthorityArn" yaml:"certificateAuthorityArn"`
+	CertificateAuthorityArn *string `field:"optional" json:"certificateAuthorityArn" yaml:"certificateAuthorityArn"`
 	// You can opt out of certificate transparency logging by specifying the `DISABLED` option. Opt in by specifying `ENABLED` .
 	//
 	// If you do not specify a certificate transparency logging preference on a new CloudFormation template, or if you remove the logging preference from an existing template, this is the same as explicitly enabling the preference.
 	//
 	// Changing the certificate transparency logging preference will update the existing resource by calling `UpdateCertificateOptions` on the certificate. This action will not create a new resource.
-	CertificateTransparencyLoggingPreference *string `json:"certificateTransparencyLoggingPreference" yaml:"certificateTransparencyLoggingPreference"`
+	CertificateTransparencyLoggingPreference *string `field:"optional" json:"certificateTransparencyLoggingPreference" yaml:"certificateTransparencyLoggingPreference"`
 	// Domain information that domain name registrars use to verify your identity.
 	//
 	// > In order for a AWS::CertificateManager::Certificate to be provisioned and validated in CloudFormation automatically, the `DomainName` property needs to be identical to one of the `DomainName` property supplied in DomainValidationOptions, if the ValidationMethod is **DNS**. Failing to keep them like-for-like will result in failure to create the domain validation records in Route53.
-	DomainValidationOptions interface{} `json:"domainValidationOptions" yaml:"domainValidationOptions"`
+	DomainValidationOptions interface{} `field:"optional" json:"domainValidationOptions" yaml:"domainValidationOptions"`
 	// Additional FQDNs to be included in the Subject Alternative Name extension of the ACM certificate.
 	//
 	// For example, you can add www.example.net to a certificate for which the `DomainName` field is www.example.com if users can reach your site by using either name.
-	SubjectAlternativeNames *[]*string `json:"subjectAlternativeNames" yaml:"subjectAlternativeNames"`
+	SubjectAlternativeNames *[]*string `field:"optional" json:"subjectAlternativeNames" yaml:"subjectAlternativeNames"`
 	// Key-value pairs that can identify the certificate.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The method you want to use to validate that you own or control the domain associated with a public certificate.
 	//
 	// You can [validate with DNS](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html) or [validate with email](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html) . We recommend that you use DNS validation.
 	//
 	// If not specified, this property defaults to email validation.
-	ValidationMethod *string `json:"validationMethod" yaml:"validationMethod"`
+	ValidationMethod *string `field:"optional" json:"validationMethod" yaml:"validationMethod"`
 }
 
 // A certificate managed by AWS Certificate Manager.
@@ -2214,6 +2237,7 @@ type CfnCertificateProps struct {
 //
 // Example:
 //   var myHostedZone hostedZone
+//
 //   acm.NewDnsValidatedCertificate(this, jsii.String("CrossRegionCertificate"), &dnsValidatedCertificateProps{
 //   	domainName: jsii.String("hello.example.com"),
 //   	hostedZone: myHostedZone,
@@ -2620,6 +2644,7 @@ func (d *jsiiProxy_DnsValidatedCertificate) Validate() *[]*string {
 //
 // Example:
 //   var myHostedZone hostedZone
+//
 //   acm.NewDnsValidatedCertificate(this, jsii.String("CrossRegionCertificate"), &dnsValidatedCertificateProps{
 //   	domainName: jsii.String("hello.example.com"),
 //   	hostedZone: myHostedZone,
@@ -2632,53 +2657,53 @@ type DnsValidatedCertificateProps struct {
 	//
 	// May contain wildcards, such as ``*.domain.com``.
 	// Experimental.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 	// Alternative domain names on your certificate.
 	//
 	// Use this to register alternative domain names that represent the same site.
 	// Experimental.
-	SubjectAlternativeNames *[]*string `json:"subjectAlternativeNames" yaml:"subjectAlternativeNames"`
+	SubjectAlternativeNames *[]*string `field:"optional" json:"subjectAlternativeNames" yaml:"subjectAlternativeNames"`
 	// How to validate this certificate.
 	// Experimental.
-	Validation CertificateValidation `json:"validation" yaml:"validation"`
+	Validation CertificateValidation `field:"optional" json:"validation" yaml:"validation"`
 	// What validation domain to use for every requested domain.
 	//
 	// Has to be a superdomain of the requested domain.
 	// Deprecated: use `validation` instead.
-	ValidationDomains *map[string]*string `json:"validationDomains" yaml:"validationDomains"`
+	ValidationDomains *map[string]*string `field:"optional" json:"validationDomains" yaml:"validationDomains"`
 	// Validation method used to assert domain ownership.
 	// Deprecated: use `validation` instead.
-	ValidationMethod ValidationMethod `json:"validationMethod" yaml:"validationMethod"`
+	ValidationMethod ValidationMethod `field:"optional" json:"validationMethod" yaml:"validationMethod"`
 	// Route 53 Hosted Zone used to perform DNS validation of the request.
 	//
 	// The zone
 	// must be authoritative for the domain name specified in the Certificate Request.
 	// Experimental.
-	HostedZone awsroute53.IHostedZone `json:"hostedZone" yaml:"hostedZone"`
+	HostedZone awsroute53.IHostedZone `field:"required" json:"hostedZone" yaml:"hostedZone"`
 	// When set to true, when the DnsValidatedCertificate is deleted, the associated Route53 validation records are removed.
 	//
 	// CAUTION: If multiple certificates share the same domains (and same validation records),
 	// this can cause the other certificates to fail renewal and/or not validate.
 	// Not recommended for production use.
 	// Experimental.
-	CleanupRoute53Records *bool `json:"cleanupRoute53Records" yaml:"cleanupRoute53Records"`
+	CleanupRoute53Records *bool `field:"optional" json:"cleanupRoute53Records" yaml:"cleanupRoute53Records"`
 	// Role to use for the custom resource that creates the validated certificate.
 	// Experimental.
-	CustomResourceRole awsiam.IRole `json:"customResourceRole" yaml:"customResourceRole"`
+	CustomResourceRole awsiam.IRole `field:"optional" json:"customResourceRole" yaml:"customResourceRole"`
 	// AWS region that will host the certificate.
 	//
 	// This is needed especially
 	// for certificates used for CloudFront distributions, which require the region
 	// to be us-east-1.
 	// Experimental.
-	Region *string `json:"region" yaml:"region"`
+	Region *string `field:"optional" json:"region" yaml:"region"`
 	// An endpoint of Route53 service, which is not necessary as AWS SDK could figure out the right endpoints for most regions, but for some regions such as those in aws-cn partition, the default endpoint is not working now, hence the right endpoint need to be specified through this prop.
 	//
 	// Route53 is not been officially launched in China, it is only available for AWS
 	// internal accounts now. To make DnsValidatedCertificate work for internal accounts
 	// now, a special endpoint needs to be provided.
 	// Experimental.
-	Route53Endpoint *string `json:"route53Endpoint" yaml:"route53Endpoint"`
+	Route53Endpoint *string `field:"optional" json:"route53Endpoint" yaml:"route53Endpoint"`
 }
 
 // Represents a certificate in AWS Certificate Manager.
@@ -2729,6 +2754,7 @@ func (j *jsiiProxy_ICertificate) CertificateArn() *string {
 //
 // Example:
 //   import acmpca "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   acm.NewPrivateCertificate(this, jsii.String("PrivateCertificate"), &privateCertificateProps{
 //   	domainName: jsii.String("test.example.com"),
@@ -3143,6 +3169,7 @@ func (p *jsiiProxy_PrivateCertificate) Validate() *[]*string {
 // Example:
 //   import acmpca "github.com/aws/aws-cdk-go/awscdk"
 //
+//
 //   acm.NewPrivateCertificate(this, jsii.String("PrivateCertificate"), &privateCertificateProps{
 //   	domainName: jsii.String("test.example.com"),
 //   	subjectAlternativeNames: []*string{
@@ -3157,17 +3184,17 @@ func (p *jsiiProxy_PrivateCertificate) Validate() *[]*string {
 type PrivateCertificateProps struct {
 	// Private certificate authority (CA) that will be used to issue the certificate.
 	// Experimental.
-	CertificateAuthority awsacmpca.ICertificateAuthority `json:"certificateAuthority" yaml:"certificateAuthority"`
+	CertificateAuthority awsacmpca.ICertificateAuthority `field:"required" json:"certificateAuthority" yaml:"certificateAuthority"`
 	// Fully-qualified domain name to request a private certificate for.
 	//
 	// May contain wildcards, such as ``*.domain.com``.
 	// Experimental.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 	// Alternative domain names on your private certificate.
 	//
 	// Use this to register alternative domain names that represent the same site.
 	// Experimental.
-	SubjectAlternativeNames *[]*string `json:"subjectAlternativeNames" yaml:"subjectAlternativeNames"`
+	SubjectAlternativeNames *[]*string `field:"optional" json:"subjectAlternativeNames" yaml:"subjectAlternativeNames"`
 }
 
 // Method used to assert ownership of the domain.

@@ -14,8 +14,11 @@ import (
 // The `AWS::CE::AnomalyMonitor` resource is a Cost Explorer resource type that continuously inspects your account's cost data for anomalies, based on `MonitorType` and `MonitorSpecification` . The content consists of detailed metadata and the current status of the monitor object.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ce "github.com/aws/aws-cdk-go/awscdk/aws_ce"
-//   cfnAnomalyMonitor := ce.NewCfnAnomalyMonitor(this, jsii.String("MyCfnAnomalyMonitor"), &cfnAnomalyMonitorProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnAnomalyMonitor := awscdk.Aws_ce.NewCfnAnomalyMonitor(this, jsii.String("MyCfnAnomalyMonitor"), &cfnAnomalyMonitorProps{
 //   	monitorName: jsii.String("monitorName"),
 //   	monitorType: jsii.String("monitorType"),
 //
@@ -807,7 +810,10 @@ func (c *jsiiProxy_CfnAnomalyMonitor) ValidateProperties(_properties interface{}
 // > Tagging is supported only for the following Cost Explorer resource types: [`AnomalyMonitor`](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AnomalyMonitor.html) , [`AnomalySubscription`](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AnomalySubscription.html) , [`CostCategory`](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategory.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ce "github.com/aws/aws-cdk-go/awscdk/aws_ce"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   resourceTagProperty := &resourceTagProperty{
 //   	key: jsii.String("key"),
 //   	value: jsii.String("value"),
@@ -815,15 +821,18 @@ func (c *jsiiProxy_CfnAnomalyMonitor) ValidateProperties(_properties interface{}
 //
 type CfnAnomalyMonitor_ResourceTagProperty struct {
 	// The key that is associated with the tag.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// The value that is associated with the tag.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // Properties for defining a `CfnAnomalyMonitor`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ce "github.com/aws/aws-cdk-go/awscdk/aws_ce"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAnomalyMonitorProps := &cfnAnomalyMonitorProps{
 //   	monitorName: jsii.String("monitorName"),
 //   	monitorType: jsii.String("monitorType"),
@@ -841,17 +850,17 @@ type CfnAnomalyMonitor_ResourceTagProperty struct {
 //
 type CfnAnomalyMonitorProps struct {
 	// The name of the monitor.
-	MonitorName *string `json:"monitorName" yaml:"monitorName"`
+	MonitorName *string `field:"required" json:"monitorName" yaml:"monitorName"`
 	// The possible type values.
-	MonitorType *string `json:"monitorType" yaml:"monitorType"`
+	MonitorType *string `field:"required" json:"monitorType" yaml:"monitorType"`
 	// The dimensions to evaluate.
-	MonitorDimension *string `json:"monitorDimension" yaml:"monitorDimension"`
+	MonitorDimension *string `field:"optional" json:"monitorDimension" yaml:"monitorDimension"`
 	// The array of `MonitorSpecification` in JSON array format.
 	//
 	// For instance, you can use `MonitorSpecification` to specify a tag, Cost Category, or linked account for your custom anomaly monitor. For further information, see the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html#aws-resource-ce-anomalymonitor--examples) section of this page.
-	MonitorSpecification *string `json:"monitorSpecification" yaml:"monitorSpecification"`
+	MonitorSpecification *string `field:"optional" json:"monitorSpecification" yaml:"monitorSpecification"`
 	// `AWS::CE::AnomalyMonitor.ResourceTags`.
-	ResourceTags interface{} `json:"resourceTags" yaml:"resourceTags"`
+	ResourceTags interface{} `field:"optional" json:"resourceTags" yaml:"resourceTags"`
 }
 
 // A CloudFormation `AWS::CE::AnomalySubscription`.
@@ -859,8 +868,11 @@ type CfnAnomalyMonitorProps struct {
 // The `AWS::CE::AnomalySubscription` resource is a Cost Explorer resource type that associates a monitor, threshold, and list of subscribers. It delivers notifications about anomalies detected by a monitor that exceeds a threshold. The content consists of the detailed metadata and the current status of the `AnomalySubscription` object.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ce "github.com/aws/aws-cdk-go/awscdk/aws_ce"
-//   cfnAnomalySubscription := ce.NewCfnAnomalySubscription(this, jsii.String("MyCfnAnomalySubscription"), &cfnAnomalySubscriptionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnAnomalySubscription := awscdk.Aws_ce.NewCfnAnomalySubscription(this, jsii.String("MyCfnAnomalySubscription"), &cfnAnomalySubscriptionProps{
 //   	frequency: jsii.String("frequency"),
 //   	monitorArnList: []*string{
 //   		jsii.String("monitorArnList"),
@@ -1646,7 +1658,10 @@ func (c *jsiiProxy_CfnAnomalySubscription) ValidateProperties(_properties interf
 // > Tagging is supported only for the following Cost Explorer resource types: [`AnomalyMonitor`](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AnomalyMonitor.html) , [`AnomalySubscription`](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AnomalySubscription.html) , [`CostCategory`](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategory.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ce "github.com/aws/aws-cdk-go/awscdk/aws_ce"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   resourceTagProperty := &resourceTagProperty{
 //   	key: jsii.String("key"),
 //   	value: jsii.String("value"),
@@ -1654,15 +1669,18 @@ func (c *jsiiProxy_CfnAnomalySubscription) ValidateProperties(_properties interf
 //
 type CfnAnomalySubscription_ResourceTagProperty struct {
 	// The key that is associated with the tag.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// The value that is associated with the tag.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // The recipient of `AnomalySubscription` notifications.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ce "github.com/aws/aws-cdk-go/awscdk/aws_ce"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   subscriberProperty := &subscriberProperty{
 //   	address: jsii.String("address"),
 //   	type: jsii.String("type"),
@@ -1673,17 +1691,20 @@ type CfnAnomalySubscription_ResourceTagProperty struct {
 //
 type CfnAnomalySubscription_SubscriberProperty struct {
 	// The email address or SNS Topic Amazon Resource Name (ARN), depending on the `Type` .
-	Address *string `json:"address" yaml:"address"`
+	Address *string `field:"required" json:"address" yaml:"address"`
 	// The notification delivery channel.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// Indicates if the subscriber accepts the notifications.
-	Status *string `json:"status" yaml:"status"`
+	Status *string `field:"optional" json:"status" yaml:"status"`
 }
 
 // Properties for defining a `CfnAnomalySubscription`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ce "github.com/aws/aws-cdk-go/awscdk/aws_ce"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAnomalySubscriptionProps := &cfnAnomalySubscriptionProps{
 //   	frequency: jsii.String("frequency"),
 //   	monitorArnList: []*string{
@@ -1712,17 +1733,17 @@ type CfnAnomalySubscription_SubscriberProperty struct {
 //
 type CfnAnomalySubscriptionProps struct {
 	// The frequency that anomaly reports are sent over email.
-	Frequency *string `json:"frequency" yaml:"frequency"`
+	Frequency *string `field:"required" json:"frequency" yaml:"frequency"`
 	// A list of cost anomaly monitors.
-	MonitorArnList *[]*string `json:"monitorArnList" yaml:"monitorArnList"`
+	MonitorArnList *[]*string `field:"required" json:"monitorArnList" yaml:"monitorArnList"`
 	// A list of subscribers to notify.
-	Subscribers interface{} `json:"subscribers" yaml:"subscribers"`
+	Subscribers interface{} `field:"required" json:"subscribers" yaml:"subscribers"`
 	// The name for the subscription.
-	SubscriptionName *string `json:"subscriptionName" yaml:"subscriptionName"`
+	SubscriptionName *string `field:"required" json:"subscriptionName" yaml:"subscriptionName"`
 	// The dollar value that triggers a notification if the threshold is exceeded.
-	Threshold *float64 `json:"threshold" yaml:"threshold"`
+	Threshold *float64 `field:"required" json:"threshold" yaml:"threshold"`
 	// `AWS::CE::AnomalySubscription.ResourceTags`.
-	ResourceTags interface{} `json:"resourceTags" yaml:"resourceTags"`
+	ResourceTags interface{} `field:"optional" json:"resourceTags" yaml:"resourceTags"`
 }
 
 // A CloudFormation `AWS::CE::CostCategory`.
@@ -1730,8 +1751,11 @@ type CfnAnomalySubscriptionProps struct {
 // The `AWS::CE::CostCategory` resource creates groupings of cost that you can use across products in the AWS Billing and Cost Management console, such as Cost Explorer and AWS Budgets. For more information, see [Managing Your Costs with Cost Categories](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/manage-cost-categories.html) in the *AWS Billing and Cost Management User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ce "github.com/aws/aws-cdk-go/awscdk/aws_ce"
-//   cfnCostCategory := ce.NewCfnCostCategory(this, jsii.String("MyCfnCostCategory"), &cfnCostCategoryProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnCostCategory := awscdk.Aws_ce.NewCfnCostCategory(this, jsii.String("MyCfnCostCategory"), &cfnCostCategoryProps{
 //   	name: jsii.String("name"),
 //   	rules: jsii.String("rules"),
 //   	ruleVersion: jsii.String("ruleVersion"),
@@ -2480,7 +2504,10 @@ func (c *jsiiProxy_CfnCostCategory) ValidateProperties(_properties interface{}) 
 // Properties for defining a `CfnCostCategory`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ce "github.com/aws/aws-cdk-go/awscdk/aws_ce"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnCostCategoryProps := &cfnCostCategoryProps{
 //   	name: jsii.String("name"),
 //   	rules: jsii.String("rules"),
@@ -2493,16 +2520,16 @@ func (c *jsiiProxy_CfnCostCategory) ValidateProperties(_properties interface{}) 
 //
 type CfnCostCategoryProps struct {
 	// The unique name of the Cost Category.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The array of CostCategoryRule in JSON array format.
 	//
 	// > Rules are processed in order. If there are multiple rules that match the line item, then the first rule to match is used to determine that Cost Category value.
-	Rules *string `json:"rules" yaml:"rules"`
+	Rules *string `field:"required" json:"rules" yaml:"rules"`
 	// The rule schema version in this particular Cost Category.
-	RuleVersion *string `json:"ruleVersion" yaml:"ruleVersion"`
+	RuleVersion *string `field:"required" json:"ruleVersion" yaml:"ruleVersion"`
 	// The default value for the cost category.
-	DefaultValue *string `json:"defaultValue" yaml:"defaultValue"`
+	DefaultValue *string `field:"optional" json:"defaultValue" yaml:"defaultValue"`
 	// The split charge rules that are used to allocate your charges between your Cost Category values.
-	SplitChargeRules *string `json:"splitChargeRules" yaml:"splitChargeRules"`
+	SplitChargeRules *string `field:"optional" json:"splitChargeRules" yaml:"splitChargeRules"`
 }
 

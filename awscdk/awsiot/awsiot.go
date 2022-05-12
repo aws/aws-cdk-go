@@ -12,7 +12,10 @@ import (
 // Properties for an topic rule action.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   actionConfig := &actionConfig{
 //   	configuration: &actionProperty{
 //   		cloudwatchAlarm: &cloudwatchAlarmActionProperty{
@@ -224,7 +227,7 @@ import (
 type ActionConfig struct {
 	// The configuration for this action.
 	// Experimental.
-	Configuration *CfnTopicRule_ActionProperty `json:"configuration" yaml:"configuration"`
+	Configuration *CfnTopicRule_ActionProperty `field:"required" json:"configuration" yaml:"configuration"`
 }
 
 // A CloudFormation `AWS::IoT::AccountAuditConfiguration`.
@@ -232,8 +235,11 @@ type ActionConfig struct {
 // Use the `AWS::IoT::AccountAuditConfiguration` resource to configure or reconfigure the Device Defender audit settings for your account. Settings include how audit notifications are sent and which audit checks are enabled or disabled. For API reference, see [UpdateAccountAuditConfiguration](https://docs.aws.amazon.com/iot/latest/apireference/API_UpdateAccountAuditConfiguration.html) and for detailed information on all available audit checks, see [Audit checks](https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-audit-checks.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
-//   cfnAccountAuditConfiguration := iot.NewCfnAccountAuditConfiguration(this, jsii.String("MyCfnAccountAuditConfiguration"), &cfnAccountAuditConfigurationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnAccountAuditConfiguration := awscdk.Aws_iot.NewCfnAccountAuditConfiguration(this, jsii.String("MyCfnAccountAuditConfiguration"), &cfnAccountAuditConfigurationProps{
 //   	accountId: jsii.String("accountId"),
 //   	auditCheckConfigurations: &auditCheckConfigurationsProperty{
 //   		authenticatedCognitoRoleOverlyPermissiveCheck: &auditCheckConfigurationProperty{
@@ -993,20 +999,26 @@ func (c *jsiiProxy_CfnAccountAuditConfiguration) ValidateProperties(_properties 
 // Which audit checks are enabled and disabled for this account.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   auditCheckConfigurationProperty := &auditCheckConfigurationProperty{
 //   	enabled: jsii.Boolean(false),
 //   }
 //
 type CfnAccountAuditConfiguration_AuditCheckConfigurationProperty struct {
 	// True if this audit check is enabled for this account.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 }
 
 // The types of audit checks that can be performed.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   auditCheckConfigurationsProperty := &auditCheckConfigurationsProperty{
 //   	authenticatedCognitoRoleOverlyPermissiveCheck: &auditCheckConfigurationProperty{
 //   		enabled: jsii.Boolean(false),
@@ -1056,47 +1068,50 @@ type CfnAccountAuditConfiguration_AuditCheckConfigurationsProperty struct {
 	// Checks the permissiveness of an authenticated Amazon Cognito identity pool role.
 	//
 	// For this check, AWS IoT Device Defender audits all Amazon Cognito identity pools that have been used to connect to the AWS IoT message broker during the 31 days before the audit is performed.
-	AuthenticatedCognitoRoleOverlyPermissiveCheck interface{} `json:"authenticatedCognitoRoleOverlyPermissiveCheck" yaml:"authenticatedCognitoRoleOverlyPermissiveCheck"`
+	AuthenticatedCognitoRoleOverlyPermissiveCheck interface{} `field:"optional" json:"authenticatedCognitoRoleOverlyPermissiveCheck" yaml:"authenticatedCognitoRoleOverlyPermissiveCheck"`
 	// Checks if a CA certificate is expiring.
 	//
 	// This check applies to CA certificates expiring within 30 days or that have expired.
-	CaCertificateExpiringCheck interface{} `json:"caCertificateExpiringCheck" yaml:"caCertificateExpiringCheck"`
+	CaCertificateExpiringCheck interface{} `field:"optional" json:"caCertificateExpiringCheck" yaml:"caCertificateExpiringCheck"`
 	// Checks the quality of the CA certificate key.
 	//
 	// The quality checks if the key is in a valid format, not expired, and if the key meets a minimum required size. This check applies to CA certificates that are `ACTIVE` or `PENDING_TRANSFER` .
-	CaCertificateKeyQualityCheck interface{} `json:"caCertificateKeyQualityCheck" yaml:"caCertificateKeyQualityCheck"`
+	CaCertificateKeyQualityCheck interface{} `field:"optional" json:"caCertificateKeyQualityCheck" yaml:"caCertificateKeyQualityCheck"`
 	// Checks if multiple devices connect using the same client ID.
-	ConflictingClientIdsCheck interface{} `json:"conflictingClientIdsCheck" yaml:"conflictingClientIdsCheck"`
+	ConflictingClientIdsCheck interface{} `field:"optional" json:"conflictingClientIdsCheck" yaml:"conflictingClientIdsCheck"`
 	// Checks if a device certificate is expiring.
 	//
 	// This check applies to device certificates expiring within 30 days or that have expired.
-	DeviceCertificateExpiringCheck interface{} `json:"deviceCertificateExpiringCheck" yaml:"deviceCertificateExpiringCheck"`
+	DeviceCertificateExpiringCheck interface{} `field:"optional" json:"deviceCertificateExpiringCheck" yaml:"deviceCertificateExpiringCheck"`
 	// Checks the quality of the device certificate key.
 	//
 	// The quality checks if the key is in a valid format, not expired, signed by a registered certificate authority, and if the key meets a minimum required size.
-	DeviceCertificateKeyQualityCheck interface{} `json:"deviceCertificateKeyQualityCheck" yaml:"deviceCertificateKeyQualityCheck"`
+	DeviceCertificateKeyQualityCheck interface{} `field:"optional" json:"deviceCertificateKeyQualityCheck" yaml:"deviceCertificateKeyQualityCheck"`
 	// Checks if multiple concurrent connections use the same X.509 certificate to authenticate with AWS IoT .
-	DeviceCertificateSharedCheck interface{} `json:"deviceCertificateSharedCheck" yaml:"deviceCertificateSharedCheck"`
+	DeviceCertificateSharedCheck interface{} `field:"optional" json:"deviceCertificateSharedCheck" yaml:"deviceCertificateSharedCheck"`
 	// Checks the permissiveness of a policy attached to an authenticated Amazon Cognito identity pool role.
-	IotPolicyOverlyPermissiveCheck interface{} `json:"iotPolicyOverlyPermissiveCheck" yaml:"iotPolicyOverlyPermissiveCheck"`
+	IotPolicyOverlyPermissiveCheck interface{} `field:"optional" json:"iotPolicyOverlyPermissiveCheck" yaml:"iotPolicyOverlyPermissiveCheck"`
 	// Checks if a role alias has access to services that haven't been used for the AWS IoT device in the last year.
-	IotRoleAliasAllowsAccessToUnusedServicesCheck interface{} `json:"iotRoleAliasAllowsAccessToUnusedServicesCheck" yaml:"iotRoleAliasAllowsAccessToUnusedServicesCheck"`
+	IotRoleAliasAllowsAccessToUnusedServicesCheck interface{} `field:"optional" json:"iotRoleAliasAllowsAccessToUnusedServicesCheck" yaml:"iotRoleAliasAllowsAccessToUnusedServicesCheck"`
 	// Checks if the temporary credentials provided by AWS IoT role aliases are overly permissive.
-	IotRoleAliasOverlyPermissiveCheck interface{} `json:"iotRoleAliasOverlyPermissiveCheck" yaml:"iotRoleAliasOverlyPermissiveCheck"`
+	IotRoleAliasOverlyPermissiveCheck interface{} `field:"optional" json:"iotRoleAliasOverlyPermissiveCheck" yaml:"iotRoleAliasOverlyPermissiveCheck"`
 	// Checks if AWS IoT logs are disabled.
-	LoggingDisabledCheck interface{} `json:"loggingDisabledCheck" yaml:"loggingDisabledCheck"`
+	LoggingDisabledCheck interface{} `field:"optional" json:"loggingDisabledCheck" yaml:"loggingDisabledCheck"`
 	// Checks if a revoked CA certificate is still active.
-	RevokedCaCertificateStillActiveCheck interface{} `json:"revokedCaCertificateStillActiveCheck" yaml:"revokedCaCertificateStillActiveCheck"`
+	RevokedCaCertificateStillActiveCheck interface{} `field:"optional" json:"revokedCaCertificateStillActiveCheck" yaml:"revokedCaCertificateStillActiveCheck"`
 	// Checks if a revoked device certificate is still active.
-	RevokedDeviceCertificateStillActiveCheck interface{} `json:"revokedDeviceCertificateStillActiveCheck" yaml:"revokedDeviceCertificateStillActiveCheck"`
+	RevokedDeviceCertificateStillActiveCheck interface{} `field:"optional" json:"revokedDeviceCertificateStillActiveCheck" yaml:"revokedDeviceCertificateStillActiveCheck"`
 	// Checks if policy attached to an unauthenticated Amazon Cognito identity pool role is too permissive.
-	UnauthenticatedCognitoRoleOverlyPermissiveCheck interface{} `json:"unauthenticatedCognitoRoleOverlyPermissiveCheck" yaml:"unauthenticatedCognitoRoleOverlyPermissiveCheck"`
+	UnauthenticatedCognitoRoleOverlyPermissiveCheck interface{} `field:"optional" json:"unauthenticatedCognitoRoleOverlyPermissiveCheck" yaml:"unauthenticatedCognitoRoleOverlyPermissiveCheck"`
 }
 
 // The configuration of the audit notification target.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   auditNotificationTargetConfigurationsProperty := &auditNotificationTargetConfigurationsProperty{
 //   	sns: &auditNotificationTargetProperty{
 //   		enabled: jsii.Boolean(false),
@@ -1107,13 +1122,16 @@ type CfnAccountAuditConfiguration_AuditCheckConfigurationsProperty struct {
 //
 type CfnAccountAuditConfiguration_AuditNotificationTargetConfigurationsProperty struct {
 	// The `Sns` notification target.
-	Sns interface{} `json:"sns" yaml:"sns"`
+	Sns interface{} `field:"optional" json:"sns" yaml:"sns"`
 }
 
 // Information about the targets to which audit notifications are sent.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   auditNotificationTargetProperty := &auditNotificationTargetProperty{
 //   	enabled: jsii.Boolean(false),
 //   	roleArn: jsii.String("roleArn"),
@@ -1122,17 +1140,20 @@ type CfnAccountAuditConfiguration_AuditNotificationTargetConfigurationsProperty 
 //
 type CfnAccountAuditConfiguration_AuditNotificationTargetProperty struct {
 	// True if notifications to the target are enabled.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// The ARN of the role that grants permission to send notifications to the target.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// The ARN of the target (SNS topic) to which audit notifications are sent.
-	TargetArn *string `json:"targetArn" yaml:"targetArn"`
+	TargetArn *string `field:"optional" json:"targetArn" yaml:"targetArn"`
 }
 
 // Properties for defining a `CfnAccountAuditConfiguration`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAccountAuditConfigurationProps := &cfnAccountAuditConfigurationProps{
 //   	accountId: jsii.String("accountId"),
 //   	auditCheckConfigurations: &auditCheckConfigurationsProperty{
@@ -1195,7 +1216,7 @@ type CfnAccountAuditConfigurationProps struct {
 	// The ID of the account.
 	//
 	// You can use the expression `!Sub "${AWS::AccountId}"` to use your account ID.
-	AccountId *string `json:"accountId" yaml:"accountId"`
+	AccountId *string `field:"required" json:"accountId" yaml:"accountId"`
 	// Specifies which audit checks are enabled and disabled for this account.
 	//
 	// Some data collection might start immediately when certain checks are enabled. When a check is disabled, any data collected so far in relation to the check is deleted. To disable a check, set the value of the `Enabled:` key to `false` .
@@ -1205,11 +1226,11 @@ type CfnAccountAuditConfigurationProps struct {
 	// You can't disable a check if it's used by any scheduled audit. You must delete the check from the scheduled audit or delete the scheduled audit itself to disable the check.
 	//
 	// For more information on avialbe auidt checks see [AWS::IoT::AccountAuditConfiguration AuditCheckConfigurations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html)
-	AuditCheckConfigurations interface{} `json:"auditCheckConfigurations" yaml:"auditCheckConfigurations"`
+	AuditCheckConfigurations interface{} `field:"required" json:"auditCheckConfigurations" yaml:"auditCheckConfigurations"`
 	// The Amazon Resource Name (ARN) of the role that grants permission to AWS IoT to access information about your devices, policies, certificates, and other items as required when performing an audit.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// Information about the targets to which audit notifications are sent.
-	AuditNotificationTargetConfigurations interface{} `json:"auditNotificationTargetConfigurations" yaml:"auditNotificationTargetConfigurations"`
+	AuditNotificationTargetConfigurations interface{} `field:"optional" json:"auditNotificationTargetConfigurations" yaml:"auditNotificationTargetConfigurations"`
 }
 
 // A CloudFormation `AWS::IoT::Authorizer`.
@@ -1217,8 +1238,11 @@ type CfnAccountAuditConfigurationProps struct {
 // Specifies an authorizer.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
-//   cfnAuthorizer := iot.NewCfnAuthorizer(this, jsii.String("MyCfnAuthorizer"), &cfnAuthorizerProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnAuthorizer := awscdk.Aws_iot.NewCfnAuthorizer(this, jsii.String("MyCfnAuthorizer"), &cfnAuthorizerProps{
 //   	authorizerFunctionArn: jsii.String("authorizerFunctionArn"),
 //
 //   	// the properties below are optional
@@ -2025,7 +2049,10 @@ func (c *jsiiProxy_CfnAuthorizer) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnAuthorizer`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAuthorizerProps := &cfnAuthorizerProps{
 //   	authorizerFunctionArn: jsii.String("authorizerFunctionArn"),
 //
@@ -2048,17 +2075,17 @@ func (c *jsiiProxy_CfnAuthorizer) ValidateProperties(_properties interface{}) {
 //
 type CfnAuthorizerProps struct {
 	// The authorizer's Lambda function ARN.
-	AuthorizerFunctionArn *string `json:"authorizerFunctionArn" yaml:"authorizerFunctionArn"`
+	AuthorizerFunctionArn *string `field:"required" json:"authorizerFunctionArn" yaml:"authorizerFunctionArn"`
 	// The authorizer name.
-	AuthorizerName *string `json:"authorizerName" yaml:"authorizerName"`
+	AuthorizerName *string `field:"optional" json:"authorizerName" yaml:"authorizerName"`
 	// `AWS::IoT::Authorizer.EnableCachingForHttp`.
-	EnableCachingForHttp interface{} `json:"enableCachingForHttp" yaml:"enableCachingForHttp"`
+	EnableCachingForHttp interface{} `field:"optional" json:"enableCachingForHttp" yaml:"enableCachingForHttp"`
 	// Specifies whether AWS IoT validates the token signature in an authorization request.
-	SigningDisabled interface{} `json:"signingDisabled" yaml:"signingDisabled"`
+	SigningDisabled interface{} `field:"optional" json:"signingDisabled" yaml:"signingDisabled"`
 	// The status of the authorizer.
 	//
 	// Valid values: `ACTIVE` | `INACTIVE`.
-	Status *string `json:"status" yaml:"status"`
+	Status *string `field:"optional" json:"status" yaml:"status"`
 	// Metadata which can be used to manage the custom authorizer.
 	//
 	// > For URI Request parameters use format: ...key1=value1&key2=value2...
@@ -2066,11 +2093,11 @@ type CfnAuthorizerProps struct {
 	// > For the CLI command-line parameter use format: &&tags "key1=value1&key2=value2..."
 	// >
 	// > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The key used to extract the token from the HTTP headers.
-	TokenKeyName *string `json:"tokenKeyName" yaml:"tokenKeyName"`
+	TokenKeyName *string `field:"optional" json:"tokenKeyName" yaml:"tokenKeyName"`
 	// The public keys used to validate the token signature returned by your custom authentication service.
-	TokenSigningPublicKeys interface{} `json:"tokenSigningPublicKeys" yaml:"tokenSigningPublicKeys"`
+	TokenSigningPublicKeys interface{} `field:"optional" json:"tokenSigningPublicKeys" yaml:"tokenSigningPublicKeys"`
 }
 
 // A CloudFormation `AWS::IoT::Certificate`.
@@ -2078,8 +2105,11 @@ type CfnAuthorizerProps struct {
 // Use the `AWS::IoT::Certificate` resource to declare an AWS IoT X.509 certificate. For information about working with X.509 certificates, see [X.509 Client Certificates](https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html) in the *AWS IoT Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
-//   cfnCertificate := iot.NewCfnCertificate(this, jsii.String("MyCfnCertificate"), &cfnCertificateProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnCertificate := awscdk.Aws_iot.NewCfnCertificate(this, jsii.String("MyCfnCertificate"), &cfnCertificateProps{
 //   	status: jsii.String("status"),
 //
 //   	// the properties below are optional
@@ -2840,7 +2870,10 @@ func (c *jsiiProxy_CfnCertificate) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnCertificate`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnCertificateProps := &cfnCertificateProps{
 //   	status: jsii.String("status"),
 //
@@ -2857,19 +2890,19 @@ type CfnCertificateProps struct {
 	// Valid values are ACTIVE, INACTIVE, REVOKED, PENDING_TRANSFER, and PENDING_ACTIVATION.
 	//
 	// The status value REGISTER_INACTIVE is deprecated and should not be used.
-	Status *string `json:"status" yaml:"status"`
+	Status *string `field:"required" json:"status" yaml:"status"`
 	// The CA certificate used to sign the device certificate being registered, not available when CertificateMode is SNI_ONLY.
-	CaCertificatePem *string `json:"caCertificatePem" yaml:"caCertificatePem"`
+	CaCertificatePem *string `field:"optional" json:"caCertificatePem" yaml:"caCertificatePem"`
 	// Specifies which mode of certificate registration to use with this resource.
 	//
 	// Valid options are DEFAULT with CaCertificatePem and CertificatePem, SNI_ONLY with CertificatePem, and Default with CertificateSigningRequest.
-	CertificateMode *string `json:"certificateMode" yaml:"certificateMode"`
+	CertificateMode *string `field:"optional" json:"certificateMode" yaml:"certificateMode"`
 	// The certificate data in PEM format.
 	//
 	// Requires SNI_ONLY for the certificate mode or the accompanying CACertificatePem for registration.
-	CertificatePem *string `json:"certificatePem" yaml:"certificatePem"`
+	CertificatePem *string `field:"optional" json:"certificatePem" yaml:"certificatePem"`
 	// The certificate signing request (CSR).
-	CertificateSigningRequest *string `json:"certificateSigningRequest" yaml:"certificateSigningRequest"`
+	CertificateSigningRequest *string `field:"optional" json:"certificateSigningRequest" yaml:"certificateSigningRequest"`
 }
 
 // A CloudFormation `AWS::IoT::CustomMetric`.
@@ -2877,8 +2910,11 @@ type CfnCertificateProps struct {
 // Use the `AWS::IoT::CustomMetric` resource to define a custom metric published by your devices to Device Defender. For API reference, see [CreateCustomMetric](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCustomMetric.html) and for general information, see [Custom metrics](https://docs.aws.amazon.com/iot/latest/developerguide/dd-detect-custom-metrics.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
-//   cfnCustomMetric := iot.NewCfnCustomMetric(this, jsii.String("MyCfnCustomMetric"), &cfnCustomMetricProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnCustomMetric := awscdk.Aws_iot.NewCfnCustomMetric(this, jsii.String("MyCfnCustomMetric"), &cfnCustomMetricProps{
 //   	metricType: jsii.String("metricType"),
 //
 //   	// the properties below are optional
@@ -3595,7 +3631,10 @@ func (c *jsiiProxy_CfnCustomMetric) ValidateProperties(_properties interface{}) 
 // Properties for defining a `CfnCustomMetric`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnCustomMetricProps := &cfnCustomMetricProps{
 //   	metricType: jsii.String("metricType"),
 //
@@ -3614,17 +3653,17 @@ type CfnCustomMetricProps struct {
 	// The type of the custom metric. Types include `string-list` , `ip-address-list` , `number-list` , and `number` .
 	//
 	// > The type `number` only takes a single metric value as an input, but when you submit the metrics value in the DeviceMetrics report, you must pass it as an array with a single value.
-	MetricType *string `json:"metricType" yaml:"metricType"`
+	MetricType *string `field:"required" json:"metricType" yaml:"metricType"`
 	// The friendly name in the console for the custom metric.
 	//
 	// This name doesn't have to be unique. Don't use this name as the metric identifier in the device metric report. You can update the friendly name after you define it.
-	DisplayName *string `json:"displayName" yaml:"displayName"`
+	DisplayName *string `field:"optional" json:"displayName" yaml:"displayName"`
 	// The name of the custom metric.
 	//
 	// This will be used in the metric report submitted from the device/thing. The name can't begin with `aws:` . You can’t change the name after you define it.
-	MetricName *string `json:"metricName" yaml:"metricName"`
+	MetricName *string `field:"optional" json:"metricName" yaml:"metricName"`
 	// Metadata that can be used to manage the custom metric.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::IoT::Dimension`.
@@ -3632,8 +3671,11 @@ type CfnCustomMetricProps struct {
 // Use the `AWS::IoT::Dimension` to limit the scope of a metric used in a security profile for AWS IoT Device Defender . For example, using a `TOPIC_FILTER` dimension, you can narrow down the scope of the metric to only MQTT topics where the name matches the pattern specified in the dimension. For API reference, see [CreateDimension](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateDimension.html) and for general information, see [Scoping metrics in security profiles using dimensions](https://docs.aws.amazon.com/iot/latest/developerguide/scoping-security-behavior.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
-//   cfnDimension := iot.NewCfnDimension(this, jsii.String("MyCfnDimension"), &cfnDimensionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDimension := awscdk.Aws_iot.NewCfnDimension(this, jsii.String("MyCfnDimension"), &cfnDimensionProps{
 //   	stringValues: []*string{
 //   		jsii.String("stringValues"),
 //   	},
@@ -4348,7 +4390,10 @@ func (c *jsiiProxy_CfnDimension) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnDimension`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDimensionProps := &cfnDimensionProps{
 //   	stringValues: []*string{
 //   		jsii.String("stringValues"),
@@ -4369,15 +4414,15 @@ type CfnDimensionProps struct {
 	// Specifies the value or list of values for the dimension.
 	//
 	// For `TOPIC_FILTER` dimensions, this is a pattern used to match the MQTT topic (for example, "admin/#").
-	StringValues *[]*string `json:"stringValues" yaml:"stringValues"`
+	StringValues *[]*string `field:"required" json:"stringValues" yaml:"stringValues"`
 	// Specifies the type of dimension.
 	//
 	// Supported types: `TOPIC_FILTER.`
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// A unique identifier for the dimension.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Metadata that can be used to manage the dimension.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::IoT::DomainConfiguration`.
@@ -4385,8 +4430,11 @@ type CfnDimensionProps struct {
 // Specifies a domain configuration.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
-//   cfnDomainConfiguration := iot.NewCfnDomainConfiguration(this, jsii.String("MyCfnDomainConfiguration"), &cfnDomainConfigurationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDomainConfiguration := awscdk.Aws_iot.NewCfnDomainConfiguration(this, jsii.String("MyCfnDomainConfiguration"), &cfnDomainConfigurationProps{
 //   	authorizerConfig: &authorizerConfigProperty{
 //   		allowAuthorizerOverride: jsii.Boolean(false),
 //   		defaultAuthorizerName: jsii.String("defaultAuthorizerName"),
@@ -5228,7 +5276,10 @@ func (c *jsiiProxy_CfnDomainConfiguration) ValidateProperties(_properties interf
 // An object that specifies the authorization service for a domain.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   authorizerConfigProperty := &authorizerConfigProperty{
 //   	allowAuthorizerOverride: jsii.Boolean(false),
 //   	defaultAuthorizerName: jsii.String("defaultAuthorizerName"),
@@ -5236,15 +5287,18 @@ func (c *jsiiProxy_CfnDomainConfiguration) ValidateProperties(_properties interf
 //
 type CfnDomainConfiguration_AuthorizerConfigProperty struct {
 	// A Boolean that specifies whether the domain configuration's authorization service can be overridden.
-	AllowAuthorizerOverride interface{} `json:"allowAuthorizerOverride" yaml:"allowAuthorizerOverride"`
+	AllowAuthorizerOverride interface{} `field:"optional" json:"allowAuthorizerOverride" yaml:"allowAuthorizerOverride"`
 	// The name of the authorization service for a domain configuration.
-	DefaultAuthorizerName *string `json:"defaultAuthorizerName" yaml:"defaultAuthorizerName"`
+	DefaultAuthorizerName *string `field:"optional" json:"defaultAuthorizerName" yaml:"defaultAuthorizerName"`
 }
 
 // An object that contains information about a server certificate.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   serverCertificateSummaryProperty := &serverCertificateSummaryProperty{
 //   	serverCertificateArn: jsii.String("serverCertificateArn"),
 //   	serverCertificateStatus: jsii.String("serverCertificateStatus"),
@@ -5253,17 +5307,20 @@ type CfnDomainConfiguration_AuthorizerConfigProperty struct {
 //
 type CfnDomainConfiguration_ServerCertificateSummaryProperty struct {
 	// The ARN of the server certificate.
-	ServerCertificateArn *string `json:"serverCertificateArn" yaml:"serverCertificateArn"`
+	ServerCertificateArn *string `field:"optional" json:"serverCertificateArn" yaml:"serverCertificateArn"`
 	// The status of the server certificate.
-	ServerCertificateStatus *string `json:"serverCertificateStatus" yaml:"serverCertificateStatus"`
+	ServerCertificateStatus *string `field:"optional" json:"serverCertificateStatus" yaml:"serverCertificateStatus"`
 	// Details that explain the status of the server certificate.
-	ServerCertificateStatusDetail *string `json:"serverCertificateStatusDetail" yaml:"serverCertificateStatusDetail"`
+	ServerCertificateStatusDetail *string `field:"optional" json:"serverCertificateStatusDetail" yaml:"serverCertificateStatusDetail"`
 }
 
 // Properties for defining a `CfnDomainConfiguration`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDomainConfigurationProps := &cfnDomainConfigurationProps{
 //   	authorizerConfig: &authorizerConfigProperty{
 //   		allowAuthorizerOverride: jsii.Boolean(false),
@@ -5287,25 +5344,25 @@ type CfnDomainConfiguration_ServerCertificateSummaryProperty struct {
 //
 type CfnDomainConfigurationProps struct {
 	// An object that specifies the authorization service for a domain.
-	AuthorizerConfig interface{} `json:"authorizerConfig" yaml:"authorizerConfig"`
+	AuthorizerConfig interface{} `field:"optional" json:"authorizerConfig" yaml:"authorizerConfig"`
 	// The name of the domain configuration.
 	//
 	// This value must be unique to a region.
-	DomainConfigurationName *string `json:"domainConfigurationName" yaml:"domainConfigurationName"`
+	DomainConfigurationName *string `field:"optional" json:"domainConfigurationName" yaml:"domainConfigurationName"`
 	// The status to which the domain configuration should be updated.
 	//
 	// Valid values: `ENABLED` | `DISABLED`.
-	DomainConfigurationStatus *string `json:"domainConfigurationStatus" yaml:"domainConfigurationStatus"`
+	DomainConfigurationStatus *string `field:"optional" json:"domainConfigurationStatus" yaml:"domainConfigurationStatus"`
 	// The name of the domain.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"optional" json:"domainName" yaml:"domainName"`
 	// The ARNs of the certificates that AWS IoT passes to the device during the TLS handshake.
 	//
 	// Currently you can specify only one certificate ARN. This value is not required for AWS -managed domains.
-	ServerCertificateArns *[]*string `json:"serverCertificateArns" yaml:"serverCertificateArns"`
+	ServerCertificateArns *[]*string `field:"optional" json:"serverCertificateArns" yaml:"serverCertificateArns"`
 	// The type of service delivered by the endpoint.
 	//
 	// > AWS IoT Core currently supports only the `DATA` service type.
-	ServiceType *string `json:"serviceType" yaml:"serviceType"`
+	ServiceType *string `field:"optional" json:"serviceType" yaml:"serviceType"`
 	// Metadata which can be used to manage the domain configuration.
 	//
 	// > For URI Request parameters use format: ...key1=value1&key2=value2...
@@ -5313,11 +5370,11 @@ type CfnDomainConfigurationProps struct {
 	// > For the CLI command-line parameter use format: &&tags "key1=value1&key2=value2..."
 	// >
 	// > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The certificate used to validate the server certificate and prove domain name ownership.
 	//
 	// This certificate must be signed by a public certificate authority. This value is not required for AWS -managed domains.
-	ValidationCertificateArn *string `json:"validationCertificateArn" yaml:"validationCertificateArn"`
+	ValidationCertificateArn *string `field:"optional" json:"validationCertificateArn" yaml:"validationCertificateArn"`
 }
 
 // A CloudFormation `AWS::IoT::FleetMetric`.
@@ -5325,8 +5382,11 @@ type CfnDomainConfigurationProps struct {
 // Use the `AWS::IoT::FleetMetric` resource to declare a fleet metric.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
-//   cfnFleetMetric := iot.NewCfnFleetMetric(this, jsii.String("MyCfnFleetMetric"), &cfnFleetMetricProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnFleetMetric := awscdk.Aws_iot.NewCfnFleetMetric(this, jsii.String("MyCfnFleetMetric"), &cfnFleetMetricProps{
 //   	metricName: jsii.String("metricName"),
 //
 //   	// the properties below are optional
@@ -6212,7 +6272,10 @@ func (c *jsiiProxy_CfnFleetMetric) ValidateProperties(_properties interface{}) {
 // The type of aggregation queries.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   aggregationTypeProperty := &aggregationTypeProperty{
 //   	name: jsii.String("name"),
 //   	values: []*string{
@@ -6222,15 +6285,18 @@ func (c *jsiiProxy_CfnFleetMetric) ValidateProperties(_properties interface{}) {
 //
 type CfnFleetMetric_AggregationTypeProperty struct {
 	// The name of the aggregation type.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// A list of the values of aggregation types.
-	Values *[]*string `json:"values" yaml:"values"`
+	Values *[]*string `field:"required" json:"values" yaml:"values"`
 }
 
 // Properties for defining a `CfnFleetMetric`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnFleetMetricProps := &cfnFleetMetricProps{
 //   	metricName: jsii.String("metricName"),
 //
@@ -6258,29 +6324,29 @@ type CfnFleetMetric_AggregationTypeProperty struct {
 //
 type CfnFleetMetricProps struct {
 	// The name of the fleet metric to create.
-	MetricName *string `json:"metricName" yaml:"metricName"`
+	MetricName *string `field:"required" json:"metricName" yaml:"metricName"`
 	// The field to aggregate.
-	AggregationField *string `json:"aggregationField" yaml:"aggregationField"`
+	AggregationField *string `field:"optional" json:"aggregationField" yaml:"aggregationField"`
 	// The type of the aggregation query.
-	AggregationType interface{} `json:"aggregationType" yaml:"aggregationType"`
+	AggregationType interface{} `field:"optional" json:"aggregationType" yaml:"aggregationType"`
 	// The fleet metric description.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the index to search.
-	IndexName *string `json:"indexName" yaml:"indexName"`
+	IndexName *string `field:"optional" json:"indexName" yaml:"indexName"`
 	// The time in seconds between fleet metric emissions.
 	//
 	// Range [60(1 min), 86400(1 day)] and must be multiple of 60.
-	Period *float64 `json:"period" yaml:"period"`
+	Period *float64 `field:"optional" json:"period" yaml:"period"`
 	// The search query string.
-	QueryString *string `json:"queryString" yaml:"queryString"`
+	QueryString *string `field:"optional" json:"queryString" yaml:"queryString"`
 	// The query version.
-	QueryVersion *string `json:"queryVersion" yaml:"queryVersion"`
+	QueryVersion *string `field:"optional" json:"queryVersion" yaml:"queryVersion"`
 	// Metadata which can be used to manage the fleet metric.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// Used to support unit transformation such as milliseconds to seconds.
 	//
 	// Must be a unit supported by CW metric. Default to null.
-	Unit *string `json:"unit" yaml:"unit"`
+	Unit *string `field:"optional" json:"unit" yaml:"unit"`
 }
 
 // A CloudFormation `AWS::IoT::JobTemplate`.
@@ -6288,14 +6354,17 @@ type CfnFleetMetricProps struct {
 // Represents a job template.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var abortConfig interface{}
 //   var jobExecutionsRetryConfig interface{}
 //   var jobExecutionsRolloutConfig interface{}
 //   var presignedUrlConfig interface{}
 //   var timeoutConfig interface{}
-//   cfnJobTemplate := iot.NewCfnJobTemplate(this, jsii.String("MyCfnJobTemplate"), &cfnJobTemplateProps{
+//
+//   cfnJobTemplate := awscdk.Aws_iot.NewCfnJobTemplate(this, jsii.String("MyCfnJobTemplate"), &cfnJobTemplateProps{
 //   	description: jsii.String("description"),
 //   	jobTemplateId: jsii.String("jobTemplateId"),
 //
@@ -7174,13 +7243,16 @@ func (c *jsiiProxy_CfnJobTemplate) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnJobTemplate`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var abortConfig interface{}
 //   var jobExecutionsRetryConfig interface{}
 //   var jobExecutionsRolloutConfig interface{}
 //   var presignedUrlConfig interface{}
 //   var timeoutConfig interface{}
+//
 //   cfnJobTemplateProps := &cfnJobTemplateProps{
 //   	description: jsii.String("description"),
 //   	jobTemplateId: jsii.String("jobTemplateId"),
@@ -7204,17 +7276,17 @@ func (c *jsiiProxy_CfnJobTemplate) ValidateProperties(_properties interface{}) {
 //
 type CfnJobTemplateProps struct {
 	// A description of the job template.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"required" json:"description" yaml:"description"`
 	// A unique identifier for the job template.
 	//
 	// We recommend using a UUID. Alpha-numeric characters, "-", and "_" are valid for use here.
-	JobTemplateId *string `json:"jobTemplateId" yaml:"jobTemplateId"`
+	JobTemplateId *string `field:"required" json:"jobTemplateId" yaml:"jobTemplateId"`
 	// The criteria that determine when and how a job abort takes place.
-	AbortConfig interface{} `json:"abortConfig" yaml:"abortConfig"`
+	AbortConfig interface{} `field:"optional" json:"abortConfig" yaml:"abortConfig"`
 	// The job document.
 	//
 	// Required if you don't specify a value for `documentSource` .
-	Document *string `json:"document" yaml:"document"`
+	Document *string `field:"optional" json:"document" yaml:"document"`
 	// An S3 link to the job document to use in the template.
 	//
 	// Required if you don't specify a value for `document` .
@@ -7226,21 +7298,21 @@ type CfnJobTemplateProps struct {
 	// > `${aws:iot:s3-presigned-url:https://s3.amazonaws.com/ *bucket* / *key* }`
 	// >
 	// > where *bucket* is your bucket name and *key* is the object in the bucket to which you are linking.
-	DocumentSource *string `json:"documentSource" yaml:"documentSource"`
+	DocumentSource *string `field:"optional" json:"documentSource" yaml:"documentSource"`
 	// The ARN of the job to use as the basis for the job template.
-	JobArn *string `json:"jobArn" yaml:"jobArn"`
+	JobArn *string `field:"optional" json:"jobArn" yaml:"jobArn"`
 	// Allows you to create the criteria to retry a job.
-	JobExecutionsRetryConfig interface{} `json:"jobExecutionsRetryConfig" yaml:"jobExecutionsRetryConfig"`
+	JobExecutionsRetryConfig interface{} `field:"optional" json:"jobExecutionsRetryConfig" yaml:"jobExecutionsRetryConfig"`
 	// Allows you to create a staged rollout of a job.
-	JobExecutionsRolloutConfig interface{} `json:"jobExecutionsRolloutConfig" yaml:"jobExecutionsRolloutConfig"`
+	JobExecutionsRolloutConfig interface{} `field:"optional" json:"jobExecutionsRolloutConfig" yaml:"jobExecutionsRolloutConfig"`
 	// Configuration for pre-signed S3 URLs.
-	PresignedUrlConfig interface{} `json:"presignedUrlConfig" yaml:"presignedUrlConfig"`
+	PresignedUrlConfig interface{} `field:"optional" json:"presignedUrlConfig" yaml:"presignedUrlConfig"`
 	// Metadata that can be used to manage the job template.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// Specifies the amount of time each device has to finish its execution of the job.
 	//
 	// A timer is started when the job execution status is set to `IN_PROGRESS` . If the job execution status is not set to another terminal state before the timer expires, it will be automatically set to `TIMED_OUT` .
-	TimeoutConfig interface{} `json:"timeoutConfig" yaml:"timeoutConfig"`
+	TimeoutConfig interface{} `field:"optional" json:"timeoutConfig" yaml:"timeoutConfig"`
 }
 
 // A CloudFormation `AWS::IoT::Logging`.
@@ -7248,8 +7320,11 @@ type CfnJobTemplateProps struct {
 // Configure logging.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
-//   cfnLogging := iot.NewCfnLogging(this, jsii.String("MyCfnLogging"), &cfnLoggingProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnLogging := awscdk.Aws_iot.NewCfnLogging(this, jsii.String("MyCfnLogging"), &cfnLoggingProps{
 //   	accountId: jsii.String("accountId"),
 //   	defaultLogLevel: jsii.String("defaultLogLevel"),
 //   	roleArn: jsii.String("roleArn"),
@@ -7926,7 +8001,10 @@ func (c *jsiiProxy_CfnLogging) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnLogging`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnLoggingProps := &cfnLoggingProps{
 //   	accountId: jsii.String("accountId"),
 //   	defaultLogLevel: jsii.String("defaultLogLevel"),
@@ -7935,11 +8013,11 @@ func (c *jsiiProxy_CfnLogging) ValidateProperties(_properties interface{}) {
 //
 type CfnLoggingProps struct {
 	// The account ID.
-	AccountId *string `json:"accountId" yaml:"accountId"`
+	AccountId *string `field:"required" json:"accountId" yaml:"accountId"`
 	// The default log level.Valid Values: `DEBUG | INFO | ERROR | WARN | DISABLED`.
-	DefaultLogLevel *string `json:"defaultLogLevel" yaml:"defaultLogLevel"`
+	DefaultLogLevel *string `field:"required" json:"defaultLogLevel" yaml:"defaultLogLevel"`
 	// The role ARN used for the log.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 }
 
 // A CloudFormation `AWS::IoT::MitigationAction`.
@@ -7947,8 +8025,11 @@ type CfnLoggingProps struct {
 // Defines an action that can be applied to audit findings by using StartAuditMitigationActionsTask. For API reference, see [CreateMitigationAction](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateMitigationAction.html) and for general information, see [Mitigation actions](https://docs.aws.amazon.com/iot/latest/developerguide/dd-mitigation-actions.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
-//   cfnMitigationAction := iot.NewCfnMitigationAction(this, jsii.String("MyCfnMitigationAction"), &cfnMitigationActionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnMitigationAction := awscdk.Aws_iot.NewCfnMitigationAction(this, jsii.String("MyCfnMitigationAction"), &cfnMitigationActionProps{
 //   	actionParams: &actionParamsProperty{
 //   		addThingsToThingGroupParams: &addThingsToThingGroupParamsProperty{
 //   			thingGroupNames: []*string{
@@ -8696,7 +8777,10 @@ func (c *jsiiProxy_CfnMitigationAction) ValidateProperties(_properties interface
 // Defines the type of action and the parameters for that action.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   actionParamsProperty := &actionParamsProperty{
 //   	addThingsToThingGroupParams: &addThingsToThingGroupParamsProperty{
 //   		thingGroupNames: []*string{
@@ -8726,31 +8810,34 @@ func (c *jsiiProxy_CfnMitigationAction) ValidateProperties(_properties interface
 //
 type CfnMitigationAction_ActionParamsProperty struct {
 	// Specifies the group to which you want to add the devices.
-	AddThingsToThingGroupParams interface{} `json:"addThingsToThingGroupParams" yaml:"addThingsToThingGroupParams"`
+	AddThingsToThingGroupParams interface{} `field:"optional" json:"addThingsToThingGroupParams" yaml:"addThingsToThingGroupParams"`
 	// Specifies the logging level and the role with permissions for logging.
 	//
 	// You cannot specify a logging level of `DISABLED` .
-	EnableIoTLoggingParams interface{} `json:"enableIoTLoggingParams" yaml:"enableIoTLoggingParams"`
+	EnableIoTLoggingParams interface{} `field:"optional" json:"enableIoTLoggingParams" yaml:"enableIoTLoggingParams"`
 	// Specifies the topic to which the finding should be published.
-	PublishFindingToSnsParams interface{} `json:"publishFindingToSnsParams" yaml:"publishFindingToSnsParams"`
+	PublishFindingToSnsParams interface{} `field:"optional" json:"publishFindingToSnsParams" yaml:"publishFindingToSnsParams"`
 	// Replaces the policy version with a default or blank policy.
 	//
 	// You specify the template name. Only a value of `BLANK_POLICY` is currently supported.
-	ReplaceDefaultPolicyVersionParams interface{} `json:"replaceDefaultPolicyVersionParams" yaml:"replaceDefaultPolicyVersionParams"`
+	ReplaceDefaultPolicyVersionParams interface{} `field:"optional" json:"replaceDefaultPolicyVersionParams" yaml:"replaceDefaultPolicyVersionParams"`
 	// Specifies the new state for the CA certificate.
 	//
 	// Only a value of `DEACTIVATE` is currently supported.
-	UpdateCaCertificateParams interface{} `json:"updateCaCertificateParams" yaml:"updateCaCertificateParams"`
+	UpdateCaCertificateParams interface{} `field:"optional" json:"updateCaCertificateParams" yaml:"updateCaCertificateParams"`
 	// Specifies the new state for a device certificate.
 	//
 	// Only a value of `DEACTIVATE` is currently supported.
-	UpdateDeviceCertificateParams interface{} `json:"updateDeviceCertificateParams" yaml:"updateDeviceCertificateParams"`
+	UpdateDeviceCertificateParams interface{} `field:"optional" json:"updateDeviceCertificateParams" yaml:"updateDeviceCertificateParams"`
 }
 
 // Parameters used when defining a mitigation action that move a set of things to a thing group.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   addThingsToThingGroupParamsProperty := &addThingsToThingGroupParamsProperty{
 //   	thingGroupNames: []*string{
 //   		jsii.String("thingGroupNames"),
@@ -8764,15 +8851,18 @@ type CfnMitigationAction_AddThingsToThingGroupParamsProperty struct {
 	// The list of groups to which you want to add the things that triggered the mitigation action.
 	//
 	// You can add a thing to a maximum of 10 groups, but you can't add a thing to more than one group in the same hierarchy.
-	ThingGroupNames *[]*string `json:"thingGroupNames" yaml:"thingGroupNames"`
+	ThingGroupNames *[]*string `field:"required" json:"thingGroupNames" yaml:"thingGroupNames"`
 	// Specifies if this mitigation action can move the things that triggered the mitigation action even if they are part of one or more dynamic thing groups.
-	OverrideDynamicGroups interface{} `json:"overrideDynamicGroups" yaml:"overrideDynamicGroups"`
+	OverrideDynamicGroups interface{} `field:"optional" json:"overrideDynamicGroups" yaml:"overrideDynamicGroups"`
 }
 
 // Parameters used when defining a mitigation action that enable AWS IoT Core logging.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   enableIoTLoggingParamsProperty := &enableIoTLoggingParamsProperty{
 //   	logLevel: jsii.String("logLevel"),
 //   	roleArnForLogging: jsii.String("roleArnForLogging"),
@@ -8780,9 +8870,9 @@ type CfnMitigationAction_AddThingsToThingGroupParamsProperty struct {
 //
 type CfnMitigationAction_EnableIoTLoggingParamsProperty struct {
 	// Specifies the type of information to be logged.
-	LogLevel *string `json:"logLevel" yaml:"logLevel"`
+	LogLevel *string `field:"required" json:"logLevel" yaml:"logLevel"`
 	// The Amazon Resource Name (ARN) of the IAM role used for logging.
-	RoleArnForLogging *string `json:"roleArnForLogging" yaml:"roleArnForLogging"`
+	RoleArnForLogging *string `field:"required" json:"roleArnForLogging" yaml:"roleArnForLogging"`
 }
 
 // Parameters to define a mitigation action that publishes findings to Amazon SNS.
@@ -8790,20 +8880,26 @@ type CfnMitigationAction_EnableIoTLoggingParamsProperty struct {
 // You can implement your own custom actions in response to the Amazon SNS messages.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   publishFindingToSnsParamsProperty := &publishFindingToSnsParamsProperty{
 //   	topicArn: jsii.String("topicArn"),
 //   }
 //
 type CfnMitigationAction_PublishFindingToSnsParamsProperty struct {
 	// The ARN of the topic to which you want to publish the findings.
-	TopicArn *string `json:"topicArn" yaml:"topicArn"`
+	TopicArn *string `field:"required" json:"topicArn" yaml:"topicArn"`
 }
 
 // Parameters to define a mitigation action that adds a blank policy to restrict permissions.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   replaceDefaultPolicyVersionParamsProperty := &replaceDefaultPolicyVersionParamsProperty{
 //   	templateName: jsii.String("templateName"),
 //   }
@@ -8812,13 +8908,16 @@ type CfnMitigationAction_ReplaceDefaultPolicyVersionParamsProperty struct {
 	// The name of the template to be applied.
 	//
 	// The only supported value is `BLANK_POLICY` .
-	TemplateName *string `json:"templateName" yaml:"templateName"`
+	TemplateName *string `field:"required" json:"templateName" yaml:"templateName"`
 }
 
 // Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   updateCACertificateParamsProperty := &updateCACertificateParamsProperty{
 //   	action: jsii.String("action"),
 //   }
@@ -8827,13 +8926,16 @@ type CfnMitigationAction_UpdateCACertificateParamsProperty struct {
 	// The action that you want to apply to the CA certificate.
 	//
 	// The only supported value is `DEACTIVATE` .
-	Action *string `json:"action" yaml:"action"`
+	Action *string `field:"required" json:"action" yaml:"action"`
 }
 
 // Parameters to define a mitigation action that changes the state of the device certificate to inactive.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   updateDeviceCertificateParamsProperty := &updateDeviceCertificateParamsProperty{
 //   	action: jsii.String("action"),
 //   }
@@ -8842,13 +8944,16 @@ type CfnMitigationAction_UpdateDeviceCertificateParamsProperty struct {
 	// The action that you want to apply to the device certificate.
 	//
 	// The only supported value is `DEACTIVATE` .
-	Action *string `json:"action" yaml:"action"`
+	Action *string `field:"required" json:"action" yaml:"action"`
 }
 
 // Properties for defining a `CfnMitigationAction`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnMitigationActionProps := &cfnMitigationActionProps{
 //   	actionParams: &actionParamsProperty{
 //   		addThingsToThingGroupParams: &addThingsToThingGroupParamsProperty{
@@ -8892,13 +8997,13 @@ type CfnMitigationActionProps struct {
 	// The set of parameters for this mitigation action.
 	//
 	// The parameters vary, depending on the kind of action you apply.
-	ActionParams interface{} `json:"actionParams" yaml:"actionParams"`
+	ActionParams interface{} `field:"required" json:"actionParams" yaml:"actionParams"`
 	// The IAM role ARN used to apply this mitigation action.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The friendly name of the mitigation action.
-	ActionName *string `json:"actionName" yaml:"actionName"`
+	ActionName *string `field:"optional" json:"actionName" yaml:"actionName"`
 	// Metadata that can be used to manage the mitigation action.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::IoT::Policy`.
@@ -8906,10 +9011,13 @@ type CfnMitigationActionProps struct {
 // Use the `AWS::IoT::Policy` resource to declare an AWS IoT policy. For more information about working with AWS IoT policies, see [Authorization](https://docs.aws.amazon.com/iot/latest/developerguide/authorization.html) in the *AWS IoT Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var policyDocument interface{}
-//   cfnPolicy := iot.NewCfnPolicy(this, jsii.String("MyCfnPolicy"), &cfnPolicyProps{
+//
+//   cfnPolicy := awscdk.Aws_iot.NewCfnPolicy(this, jsii.String("MyCfnPolicy"), &cfnPolicyProps{
 //   	policyDocument: policyDocument,
 //
 //   	// the properties below are optional
@@ -9582,8 +9690,11 @@ func (c *jsiiProxy_CfnPolicy) ValidateProperties(_properties interface{}) {
 // For information about working with AWS IoT policies and principals, see [Authorization](https://docs.aws.amazon.com/iot/latest/developerguide/authorization.html) in the *AWS IoT Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
-//   cfnPolicyPrincipalAttachment := iot.NewCfnPolicyPrincipalAttachment(this, jsii.String("MyCfnPolicyPrincipalAttachment"), &cfnPolicyPrincipalAttachmentProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnPolicyPrincipalAttachment := awscdk.Aws_iot.NewCfnPolicyPrincipalAttachment(this, jsii.String("MyCfnPolicyPrincipalAttachment"), &cfnPolicyPrincipalAttachmentProps{
 //   	policyName: jsii.String("policyName"),
 //   	principal: jsii.String("principal"),
 //   })
@@ -10238,7 +10349,10 @@ func (c *jsiiProxy_CfnPolicyPrincipalAttachment) ValidateProperties(_properties 
 // Properties for defining a `CfnPolicyPrincipalAttachment`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnPolicyPrincipalAttachmentProps := &cfnPolicyPrincipalAttachmentProps{
 //   	policyName: jsii.String("policyName"),
 //   	principal: jsii.String("principal"),
@@ -10246,17 +10360,20 @@ func (c *jsiiProxy_CfnPolicyPrincipalAttachment) ValidateProperties(_properties 
 //
 type CfnPolicyPrincipalAttachmentProps struct {
 	// The name of the AWS IoT policy.
-	PolicyName *string `json:"policyName" yaml:"policyName"`
+	PolicyName *string `field:"required" json:"policyName" yaml:"policyName"`
 	// The principal, which can be a certificate ARN (as returned from the `CreateCertificate` operation) or an Amazon Cognito ID.
-	Principal *string `json:"principal" yaml:"principal"`
+	Principal *string `field:"required" json:"principal" yaml:"principal"`
 }
 
 // Properties for defining a `CfnPolicy`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var policyDocument interface{}
+//
 //   cfnPolicyProps := &cfnPolicyProps{
 //   	policyDocument: policyDocument,
 //
@@ -10266,9 +10383,9 @@ type CfnPolicyPrincipalAttachmentProps struct {
 //
 type CfnPolicyProps struct {
 	// The JSON document that describes the policy.
-	PolicyDocument interface{} `json:"policyDocument" yaml:"policyDocument"`
+	PolicyDocument interface{} `field:"required" json:"policyDocument" yaml:"policyDocument"`
 	// The policy name.
-	PolicyName *string `json:"policyName" yaml:"policyName"`
+	PolicyName *string `field:"optional" json:"policyName" yaml:"policyName"`
 }
 
 // A CloudFormation `AWS::IoT::ProvisioningTemplate`.
@@ -10276,8 +10393,11 @@ type CfnPolicyProps struct {
 // Creates a fleet provisioning template.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
-//   cfnProvisioningTemplate := iot.NewCfnProvisioningTemplate(this, jsii.String("MyCfnProvisioningTemplate"), &cfnProvisioningTemplateProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnProvisioningTemplate := awscdk.Aws_iot.NewCfnProvisioningTemplate(this, jsii.String("MyCfnProvisioningTemplate"), &cfnProvisioningTemplateProps{
 //   	provisioningRoleArn: jsii.String("provisioningRoleArn"),
 //   	templateBody: jsii.String("templateBody"),
 //
@@ -11059,7 +11179,10 @@ func (c *jsiiProxy_CfnProvisioningTemplate) ValidateProperties(_properties inter
 // Provisioning hooks can be used when fleet provisioning to validate device parameters before allowing the device to be provisioned.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   provisioningHookProperty := &provisioningHookProperty{
 //   	payloadVersion: jsii.String("payloadVersion"),
 //   	targetArn: jsii.String("targetArn"),
@@ -11069,15 +11192,18 @@ type CfnProvisioningTemplate_ProvisioningHookProperty struct {
 	// The payload that was sent to the target function.
 	//
 	// The valid payload is `"2020-04-01"` .
-	PayloadVersion *string `json:"payloadVersion" yaml:"payloadVersion"`
+	PayloadVersion *string `field:"optional" json:"payloadVersion" yaml:"payloadVersion"`
 	// The ARN of the target function.
-	TargetArn *string `json:"targetArn" yaml:"targetArn"`
+	TargetArn *string `field:"optional" json:"targetArn" yaml:"targetArn"`
 }
 
 // Properties for defining a `CfnProvisioningTemplate`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnProvisioningTemplateProps := &cfnProvisioningTemplateProps{
 //   	provisioningRoleArn: jsii.String("provisioningRoleArn"),
 //   	templateBody: jsii.String("templateBody"),
@@ -11102,19 +11228,19 @@ type CfnProvisioningTemplateProps struct {
 	// The role ARN for the role associated with the fleet provisioning template.
 	//
 	// This IoT role grants permission to provision a device.
-	ProvisioningRoleArn *string `json:"provisioningRoleArn" yaml:"provisioningRoleArn"`
+	ProvisioningRoleArn *string `field:"required" json:"provisioningRoleArn" yaml:"provisioningRoleArn"`
 	// The JSON formatted contents of the fleet provisioning template version.
-	TemplateBody *string `json:"templateBody" yaml:"templateBody"`
+	TemplateBody *string `field:"required" json:"templateBody" yaml:"templateBody"`
 	// The description of the fleet provisioning template.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// True to enable the fleet provisioning template, otherwise false.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// Creates a pre-provisioning hook template.
-	PreProvisioningHook interface{} `json:"preProvisioningHook" yaml:"preProvisioningHook"`
+	PreProvisioningHook interface{} `field:"optional" json:"preProvisioningHook" yaml:"preProvisioningHook"`
 	// Metadata that can be used to manage the fleet provisioning template.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The name of the fleet provisioning template.
-	TemplateName *string `json:"templateName" yaml:"templateName"`
+	TemplateName *string `field:"optional" json:"templateName" yaml:"templateName"`
 }
 
 // A CloudFormation `AWS::IoT::ResourceSpecificLogging`.
@@ -11122,8 +11248,11 @@ type CfnProvisioningTemplateProps struct {
 // Configure resource-specific logging.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
-//   cfnResourceSpecificLogging := iot.NewCfnResourceSpecificLogging(this, jsii.String("MyCfnResourceSpecificLogging"), &cfnResourceSpecificLoggingProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnResourceSpecificLogging := awscdk.Aws_iot.NewCfnResourceSpecificLogging(this, jsii.String("MyCfnResourceSpecificLogging"), &cfnResourceSpecificLoggingProps{
 //   	logLevel: jsii.String("logLevel"),
 //   	targetName: jsii.String("targetName"),
 //   	targetType: jsii.String("targetType"),
@@ -11814,7 +11943,10 @@ func (c *jsiiProxy_CfnResourceSpecificLogging) ValidateProperties(_properties in
 // Properties for defining a `CfnResourceSpecificLogging`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnResourceSpecificLoggingProps := &cfnResourceSpecificLoggingProps{
 //   	logLevel: jsii.String("logLevel"),
 //   	targetName: jsii.String("targetName"),
@@ -11823,13 +11955,13 @@ func (c *jsiiProxy_CfnResourceSpecificLogging) ValidateProperties(_properties in
 //
 type CfnResourceSpecificLoggingProps struct {
 	// The default log level.Valid Values: `DEBUG | INFO | ERROR | WARN | DISABLED`.
-	LogLevel *string `json:"logLevel" yaml:"logLevel"`
+	LogLevel *string `field:"required" json:"logLevel" yaml:"logLevel"`
 	// The target name.
-	TargetName *string `json:"targetName" yaml:"targetName"`
+	TargetName *string `field:"required" json:"targetName" yaml:"targetName"`
 	// The target type.
 	//
 	// Valid Values: `DEFAULT | THING_GROUP`.
-	TargetType *string `json:"targetType" yaml:"targetType"`
+	TargetType *string `field:"required" json:"targetType" yaml:"targetType"`
 }
 
 // A CloudFormation `AWS::IoT::ScheduledAudit`.
@@ -11837,8 +11969,11 @@ type CfnResourceSpecificLoggingProps struct {
 // Use the `AWS::IoT::ScheduledAudit` resource to create a scheduled audit that is run at a specified time interval. For API reference, see [CreateScheduleAudit](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateScheduledAudit.html) and for general information, see [Audit](https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-audit.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
-//   cfnScheduledAudit := iot.NewCfnScheduledAudit(this, jsii.String("MyCfnScheduledAudit"), &cfnScheduledAuditProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnScheduledAudit := awscdk.Aws_iot.NewCfnScheduledAudit(this, jsii.String("MyCfnScheduledAudit"), &cfnScheduledAuditProps{
 //   	frequency: jsii.String("frequency"),
 //   	targetCheckNames: []*string{
 //   		jsii.String("targetCheckNames"),
@@ -12614,7 +12749,10 @@ func (c *jsiiProxy_CfnScheduledAudit) ValidateProperties(_properties interface{}
 // Properties for defining a `CfnScheduledAudit`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnScheduledAuditProps := &cfnScheduledAuditProps{
 //   	frequency: jsii.String("frequency"),
 //   	targetCheckNames: []*string{
@@ -12635,7 +12773,7 @@ func (c *jsiiProxy_CfnScheduledAudit) ValidateProperties(_properties interface{}
 //
 type CfnScheduledAuditProps struct {
 	// How often the scheduled audit occurs.
-	Frequency *string `json:"frequency" yaml:"frequency"`
+	Frequency *string `field:"required" json:"frequency" yaml:"frequency"`
 	// Which checks are performed during the scheduled audit.
 	//
 	// Checks must be enabled for your account. (Use `DescribeAccountAuditConfiguration` to see the list of all checks, including those that are enabled or use `UpdateAccountAuditConfiguration` to select which checks are enabled.)
@@ -12656,17 +12794,17 @@ type CfnScheduledAuditProps struct {
 	// - `REVOKED_CA_CERTIFICATE_STILL_ACTIVE_CHECK`
 	// - `REVOKED_DEVICE_CERTIFICATE_STILL_ACTIVE_CHECK`
 	// - `UNAUTHENTICATED_COGNITO_ROLE_OVERLY_PERMISSIVE_CHECK`.
-	TargetCheckNames *[]*string `json:"targetCheckNames" yaml:"targetCheckNames"`
+	TargetCheckNames *[]*string `field:"required" json:"targetCheckNames" yaml:"targetCheckNames"`
 	// The day of the month on which the scheduled audit is run (if the `frequency` is "MONTHLY").
 	//
 	// If days 29-31 are specified, and the month does not have that many days, the audit takes place on the "LAST" day of the month.
-	DayOfMonth *string `json:"dayOfMonth" yaml:"dayOfMonth"`
+	DayOfMonth *string `field:"optional" json:"dayOfMonth" yaml:"dayOfMonth"`
 	// The day of the week on which the scheduled audit is run (if the `frequency` is "WEEKLY" or "BIWEEKLY").
-	DayOfWeek *string `json:"dayOfWeek" yaml:"dayOfWeek"`
+	DayOfWeek *string `field:"optional" json:"dayOfWeek" yaml:"dayOfWeek"`
 	// The name of the scheduled audit.
-	ScheduledAuditName *string `json:"scheduledAuditName" yaml:"scheduledAuditName"`
+	ScheduledAuditName *string `field:"optional" json:"scheduledAuditName" yaml:"scheduledAuditName"`
 	// Metadata that can be used to manage the scheduled audit.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::IoT::SecurityProfile`.
@@ -12674,8 +12812,11 @@ type CfnScheduledAuditProps struct {
 // Use the `AWS::IoT::SecurityProfile` resource to create a Device Defender security profile. For API reference, see [CreateSecurityProfile](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateSecurityProfile.html) and for general information, see [Detect](https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-detect.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
-//   cfnSecurityProfile := iot.NewCfnSecurityProfile(this, jsii.String("MyCfnSecurityProfile"), &cfnSecurityProfileProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnSecurityProfile := awscdk.Aws_iot.NewCfnSecurityProfile(this, jsii.String("MyCfnSecurityProfile"), &cfnSecurityProfileProps{
 //   	additionalMetricsToRetainV2: []interface{}{
 //   		&metricToRetainProperty{
 //   			metric: jsii.String("metric"),
@@ -13513,7 +13654,10 @@ func (c *jsiiProxy_CfnSecurityProfile) ValidateProperties(_properties interface{
 // A structure containing the alert target ARN and the role ARN.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   alertTargetProperty := &alertTargetProperty{
 //   	alertTargetArn: jsii.String("alertTargetArn"),
 //   	roleArn: jsii.String("roleArn"),
@@ -13521,15 +13665,18 @@ func (c *jsiiProxy_CfnSecurityProfile) ValidateProperties(_properties interface{
 //
 type CfnSecurityProfile_AlertTargetProperty struct {
 	// The Amazon Resource Name (ARN) of the notification target to which alerts are sent.
-	AlertTargetArn *string `json:"alertTargetArn" yaml:"alertTargetArn"`
+	AlertTargetArn *string `field:"required" json:"alertTargetArn" yaml:"alertTargetArn"`
 	// The ARN of the role that grants permission to send alerts to the notification target.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 }
 
 // The criteria by which the behavior is determined to be normal.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   behaviorCriteriaProperty := &behaviorCriteriaProperty{
 //   	comparisonOperator: jsii.String("comparisonOperator"),
 //   	consecutiveDatapointsToAlarm: jsii.Number(123),
@@ -13568,31 +13715,34 @@ type CfnSecurityProfile_BehaviorCriteriaProperty struct {
 	// - `number-list` : `in-set` and `not-in-set`
 	// - `ip-address-list` : `in-cidr-set` and `not-in-cidr-set`
 	// - `number` : `less-than` , `less-than-equals` , `greater-than` , and `greater-than-equals`.
-	ComparisonOperator *string `json:"comparisonOperator" yaml:"comparisonOperator"`
+	ComparisonOperator *string `field:"optional" json:"comparisonOperator" yaml:"comparisonOperator"`
 	// If a device is in violation of the behavior for the specified number of consecutive datapoints, an alarm occurs.
 	//
 	// If not specified, the default is 1.
-	ConsecutiveDatapointsToAlarm *float64 `json:"consecutiveDatapointsToAlarm" yaml:"consecutiveDatapointsToAlarm"`
+	ConsecutiveDatapointsToAlarm *float64 `field:"optional" json:"consecutiveDatapointsToAlarm" yaml:"consecutiveDatapointsToAlarm"`
 	// If an alarm has occurred and the offending device is no longer in violation of the behavior for the specified number of consecutive datapoints, the alarm is cleared.
 	//
 	// If not specified, the default is 1.
-	ConsecutiveDatapointsToClear *float64 `json:"consecutiveDatapointsToClear" yaml:"consecutiveDatapointsToClear"`
+	ConsecutiveDatapointsToClear *float64 `field:"optional" json:"consecutiveDatapointsToClear" yaml:"consecutiveDatapointsToClear"`
 	// Use this to specify the time duration over which the behavior is evaluated, for those criteria that have a time dimension (for example, `NUM_MESSAGES_SENT` ).
 	//
 	// For a `statisticalThreshhold` metric comparison, measurements from all devices are accumulated over this time duration before being used to calculate percentiles, and later, measurements from an individual device are also accumulated over this time duration before being given a percentile rank. Cannot be used with list-based metric datatypes.
-	DurationSeconds *float64 `json:"durationSeconds" yaml:"durationSeconds"`
+	DurationSeconds *float64 `field:"optional" json:"durationSeconds" yaml:"durationSeconds"`
 	// The confidence level of the detection model.
-	MlDetectionConfig interface{} `json:"mlDetectionConfig" yaml:"mlDetectionConfig"`
+	MlDetectionConfig interface{} `field:"optional" json:"mlDetectionConfig" yaml:"mlDetectionConfig"`
 	// A statistical ranking (percentile)that indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
-	StatisticalThreshold interface{} `json:"statisticalThreshold" yaml:"statisticalThreshold"`
+	StatisticalThreshold interface{} `field:"optional" json:"statisticalThreshold" yaml:"statisticalThreshold"`
 	// The value to be compared with the `metric` .
-	Value interface{} `json:"value" yaml:"value"`
+	Value interface{} `field:"optional" json:"value" yaml:"value"`
 }
 
 // A Device Defender security profile behavior.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   behaviorProperty := &behaviorProperty{
 //   	name: jsii.String("name"),
 //
@@ -13637,23 +13787,26 @@ type CfnSecurityProfile_BehaviorCriteriaProperty struct {
 //
 type CfnSecurityProfile_BehaviorProperty struct {
 	// The name you've given to the behavior.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The criteria that determine if a device is behaving normally in regard to the `metric` .
-	Criteria interface{} `json:"criteria" yaml:"criteria"`
+	Criteria interface{} `field:"optional" json:"criteria" yaml:"criteria"`
 	// What is measured by the behavior.
-	Metric *string `json:"metric" yaml:"metric"`
+	Metric *string `field:"optional" json:"metric" yaml:"metric"`
 	// The dimension of the metric.
-	MetricDimension interface{} `json:"metricDimension" yaml:"metricDimension"`
+	MetricDimension interface{} `field:"optional" json:"metricDimension" yaml:"metricDimension"`
 	// The alert status.
 	//
 	// If you set the value to `true` , alerts will be suppressed.
-	SuppressAlerts interface{} `json:"suppressAlerts" yaml:"suppressAlerts"`
+	SuppressAlerts interface{} `field:"optional" json:"suppressAlerts" yaml:"suppressAlerts"`
 }
 
 // The `MachineLearningDetectionConfig` property type controls confidence of the machine learning model.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   machineLearningDetectionConfigProperty := &machineLearningDetectionConfigProperty{
 //   	confidenceLevel: jsii.String("confidenceLevel"),
 //   }
@@ -13664,13 +13817,16 @@ type CfnSecurityProfile_MachineLearningDetectionConfigProperty struct {
 	// There are three levels of confidence, `"high"` , `"medium"` , and `"low"` .
 	//
 	// The higher the confidence level, the lower the sensitivity, and the lower the alarm frequency will be.
-	ConfidenceLevel *string `json:"confidenceLevel" yaml:"confidenceLevel"`
+	ConfidenceLevel *string `field:"optional" json:"confidenceLevel" yaml:"confidenceLevel"`
 }
 
 // The dimension of the metric.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   metricDimensionProperty := &metricDimensionProperty{
 //   	dimensionName: jsii.String("dimensionName"),
 //
@@ -13680,11 +13836,11 @@ type CfnSecurityProfile_MachineLearningDetectionConfigProperty struct {
 //
 type CfnSecurityProfile_MetricDimensionProperty struct {
 	// The name of the dimension.
-	DimensionName *string `json:"dimensionName" yaml:"dimensionName"`
+	DimensionName *string `field:"required" json:"dimensionName" yaml:"dimensionName"`
 	// Operators are constructs that perform logical operations.
 	//
 	// Valid values are `IN` and `NOT_IN` .
-	Operator *string `json:"operator" yaml:"operator"`
+	Operator *string `field:"optional" json:"operator" yaml:"operator"`
 }
 
 // The metric you want to retain.
@@ -13692,7 +13848,10 @@ type CfnSecurityProfile_MetricDimensionProperty struct {
 // Dimensions are optional.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   metricToRetainProperty := &metricToRetainProperty{
 //   	metric: jsii.String("metric"),
 //
@@ -13707,15 +13866,18 @@ type CfnSecurityProfile_MetricDimensionProperty struct {
 //
 type CfnSecurityProfile_MetricToRetainProperty struct {
 	// A standard of measurement.
-	Metric *string `json:"metric" yaml:"metric"`
+	Metric *string `field:"required" json:"metric" yaml:"metric"`
 	// The dimension of the metric.
-	MetricDimension interface{} `json:"metricDimension" yaml:"metricDimension"`
+	MetricDimension interface{} `field:"optional" json:"metricDimension" yaml:"metricDimension"`
 }
 
 // The value to be compared with the `metric` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   metricValueProperty := &metricValueProperty{
 //   	cidrs: []*string{
 //   		jsii.String("cidrs"),
@@ -13735,23 +13897,26 @@ type CfnSecurityProfile_MetricToRetainProperty struct {
 //
 type CfnSecurityProfile_MetricValueProperty struct {
 	// If the `comparisonOperator` calls for a set of CIDRs, use this to specify that set to be compared with the `metric` .
-	Cidrs *[]*string `json:"cidrs" yaml:"cidrs"`
+	Cidrs *[]*string `field:"optional" json:"cidrs" yaml:"cidrs"`
 	// If the `comparisonOperator` calls for a numeric value, use this to specify that numeric value to be compared with the `metric` .
-	Count *string `json:"count" yaml:"count"`
+	Count *string `field:"optional" json:"count" yaml:"count"`
 	// The numeric values of a metric.
-	Number *float64 `json:"number" yaml:"number"`
+	Number *float64 `field:"optional" json:"number" yaml:"number"`
 	// The numeric value of a metric.
-	Numbers interface{} `json:"numbers" yaml:"numbers"`
+	Numbers interface{} `field:"optional" json:"numbers" yaml:"numbers"`
 	// If the `comparisonOperator` calls for a set of ports, use this to specify that set to be compared with the `metric` .
-	Ports interface{} `json:"ports" yaml:"ports"`
+	Ports interface{} `field:"optional" json:"ports" yaml:"ports"`
 	// The string values of a metric.
-	Strings *[]*string `json:"strings" yaml:"strings"`
+	Strings *[]*string `field:"optional" json:"strings" yaml:"strings"`
 }
 
 // A statistical ranking (percentile) that indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   statisticalThresholdProperty := &statisticalThresholdProperty{
 //   	statistic: jsii.String("statistic"),
 //   }
@@ -13760,13 +13925,16 @@ type CfnSecurityProfile_StatisticalThresholdProperty struct {
 	// The percentile that resolves to a threshold value by which compliance with a behavior is determined.
 	//
 	// Metrics are collected over the specified period ( `durationSeconds` ) from all reporting devices in your account and statistical ranks are calculated. Then, the measurements from a device are collected over the same period. If the accumulated measurements from the device fall above or below ( `comparisonOperator` ) the value associated with the percentile specified, then the device is considered to be in compliance with the behavior, otherwise a violation occurs.
-	Statistic *string `json:"statistic" yaml:"statistic"`
+	Statistic *string `field:"optional" json:"statistic" yaml:"statistic"`
 }
 
 // Properties for defining a `CfnSecurityProfile`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnSecurityProfileProps := &cfnSecurityProfileProps{
 //   	additionalMetricsToRetainV2: []interface{}{
 //   		&metricToRetainProperty{
@@ -13847,21 +14015,21 @@ type CfnSecurityProfileProps struct {
 	// A list of metrics whose data is retained (stored).
 	//
 	// By default, data is retained for any metric used in the profile's `behaviors` , but it's also retained for any metric specified here. Can be used with custom metrics; can't be used with dimensions.
-	AdditionalMetricsToRetainV2 interface{} `json:"additionalMetricsToRetainV2" yaml:"additionalMetricsToRetainV2"`
+	AdditionalMetricsToRetainV2 interface{} `field:"optional" json:"additionalMetricsToRetainV2" yaml:"additionalMetricsToRetainV2"`
 	// Specifies the destinations to which alerts are sent.
 	//
 	// (Alerts are always sent to the console.) Alerts are generated when a device (thing) violates a behavior.
-	AlertTargets interface{} `json:"alertTargets" yaml:"alertTargets"`
+	AlertTargets interface{} `field:"optional" json:"alertTargets" yaml:"alertTargets"`
 	// Specifies the behaviors that, when violated by a device (thing), cause an alert.
-	Behaviors interface{} `json:"behaviors" yaml:"behaviors"`
+	Behaviors interface{} `field:"optional" json:"behaviors" yaml:"behaviors"`
 	// A description of the security profile.
-	SecurityProfileDescription *string `json:"securityProfileDescription" yaml:"securityProfileDescription"`
+	SecurityProfileDescription *string `field:"optional" json:"securityProfileDescription" yaml:"securityProfileDescription"`
 	// The name you gave to the security profile.
-	SecurityProfileName *string `json:"securityProfileName" yaml:"securityProfileName"`
+	SecurityProfileName *string `field:"optional" json:"securityProfileName" yaml:"securityProfileName"`
 	// Metadata that can be used to manage the security profile.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The ARN of the target (thing group) to which the security profile is attached.
-	TargetArns *[]*string `json:"targetArns" yaml:"targetArns"`
+	TargetArns *[]*string `field:"optional" json:"targetArns" yaml:"targetArns"`
 }
 
 // A CloudFormation `AWS::IoT::Thing`.
@@ -13871,8 +14039,11 @@ type CfnSecurityProfileProps struct {
 // For information about working with things, see [How AWS IoT Works](https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html) and [Device Registry for AWS IoT](https://docs.aws.amazon.com/iot/latest/developerguide/thing-registry.html) in the *AWS IoT Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
-//   cfnThing := iot.NewCfnThing(this, jsii.String("MyCfnThing"), &cfnThingProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnThing := awscdk.Aws_iot.NewCfnThing(this, jsii.String("MyCfnThing"), &cfnThingProps{
 //   	attributePayload: &attributePayloadProperty{
 //   		attributes: map[string]*string{
 //   			"attributesKey": jsii.String("attributes"),
@@ -14537,7 +14708,10 @@ func (c *jsiiProxy_CfnThing) ValidateProperties(_properties interface{}) {
 // AttributePayload is a property of the [AWS::IoT::Thing](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html) resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   attributePayloadProperty := &attributePayloadProperty{
 //   	attributes: map[string]*string{
 //   		"attributesKey": jsii.String("attributes"),
@@ -14548,7 +14722,7 @@ type CfnThing_AttributePayloadProperty struct {
 	// A JSON string containing up to three key-value pair in JSON format. For example:.
 	//
 	// `{\"attributes\":{\"string1\":\"string2\"}}`.
-	Attributes interface{} `json:"attributes" yaml:"attributes"`
+	Attributes interface{} `field:"optional" json:"attributes" yaml:"attributes"`
 }
 
 // A CloudFormation `AWS::IoT::ThingPrincipalAttachment`.
@@ -14558,8 +14732,11 @@ type CfnThing_AttributePayloadProperty struct {
 // For more information about working with AWS IoT things and principals, see [Authorization](https://docs.aws.amazon.com/iot/latest/developerguide/authorization.html) in the *AWS IoT Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
-//   cfnThingPrincipalAttachment := iot.NewCfnThingPrincipalAttachment(this, jsii.String("MyCfnThingPrincipalAttachment"), &cfnThingPrincipalAttachmentProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnThingPrincipalAttachment := awscdk.Aws_iot.NewCfnThingPrincipalAttachment(this, jsii.String("MyCfnThingPrincipalAttachment"), &cfnThingPrincipalAttachmentProps{
 //   	principal: jsii.String("principal"),
 //   	thingName: jsii.String("thingName"),
 //   })
@@ -15214,7 +15391,10 @@ func (c *jsiiProxy_CfnThingPrincipalAttachment) ValidateProperties(_properties i
 // Properties for defining a `CfnThingPrincipalAttachment`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnThingPrincipalAttachmentProps := &cfnThingPrincipalAttachmentProps{
 //   	principal: jsii.String("principal"),
 //   	thingName: jsii.String("thingName"),
@@ -15222,15 +15402,18 @@ func (c *jsiiProxy_CfnThingPrincipalAttachment) ValidateProperties(_properties i
 //
 type CfnThingPrincipalAttachmentProps struct {
 	// The principal, which can be a certificate ARN (as returned from the `CreateCertificate` operation) or an Amazon Cognito ID.
-	Principal *string `json:"principal" yaml:"principal"`
+	Principal *string `field:"required" json:"principal" yaml:"principal"`
 	// The name of the AWS IoT thing.
-	ThingName *string `json:"thingName" yaml:"thingName"`
+	ThingName *string `field:"required" json:"thingName" yaml:"thingName"`
 }
 
 // Properties for defining a `CfnThing`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnThingProps := &cfnThingProps{
 //   	attributePayload: &attributePayloadProperty{
 //   		attributes: map[string]*string{
@@ -15244,11 +15427,11 @@ type CfnThingProps struct {
 	// A string that contains up to three key value pairs.
 	//
 	// Maximum length of 800. Duplicates not allowed.
-	AttributePayload interface{} `json:"attributePayload" yaml:"attributePayload"`
+	AttributePayload interface{} `field:"optional" json:"attributePayload" yaml:"attributePayload"`
 	// The name of the thing to update.
 	//
 	// You can't change a thing's name. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.
-	ThingName *string `json:"thingName" yaml:"thingName"`
+	ThingName *string `field:"optional" json:"thingName" yaml:"thingName"`
 }
 
 // A CloudFormation `AWS::IoT::TopicRule`.
@@ -15256,8 +15439,11 @@ type CfnThingProps struct {
 // Use the `AWS::IoT::TopicRule` resource to declare an AWS IoT rule. For information about working with AWS IoT rules, see [Rules for AWS IoT](https://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html) in the *AWS IoT Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
-//   cfnTopicRule := iot.NewCfnTopicRule(this, jsii.String("MyCfnTopicRule"), &cfnTopicRuleProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnTopicRule := awscdk.Aws_iot.NewCfnTopicRule(this, jsii.String("MyCfnTopicRule"), &cfnTopicRuleProps{
 //   	topicRulePayload: &topicRulePayloadProperty{
 //   		actions: []interface{}{
 //   			&actionProperty{
@@ -16367,7 +16553,10 @@ func (c *jsiiProxy_CfnTopicRule) ValidateProperties(_properties interface{}) {
 // Describes the actions associated with a rule.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   actionProperty := &actionProperty{
 //   	cloudwatchAlarm: &cloudwatchAlarmActionProperty{
 //   		alarmName: jsii.String("alarmName"),
@@ -16575,57 +16764,60 @@ func (c *jsiiProxy_CfnTopicRule) ValidateProperties(_properties interface{}) {
 //
 type CfnTopicRule_ActionProperty struct {
 	// Change the state of a CloudWatch alarm.
-	CloudwatchAlarm interface{} `json:"cloudwatchAlarm" yaml:"cloudwatchAlarm"`
+	CloudwatchAlarm interface{} `field:"optional" json:"cloudwatchAlarm" yaml:"cloudwatchAlarm"`
 	// Sends data to CloudWatch.
-	CloudwatchLogs interface{} `json:"cloudwatchLogs" yaml:"cloudwatchLogs"`
+	CloudwatchLogs interface{} `field:"optional" json:"cloudwatchLogs" yaml:"cloudwatchLogs"`
 	// Capture a CloudWatch metric.
-	CloudwatchMetric interface{} `json:"cloudwatchMetric" yaml:"cloudwatchMetric"`
+	CloudwatchMetric interface{} `field:"optional" json:"cloudwatchMetric" yaml:"cloudwatchMetric"`
 	// Write to a DynamoDB table.
-	DynamoDb interface{} `json:"dynamoDb" yaml:"dynamoDb"`
+	DynamoDb interface{} `field:"optional" json:"dynamoDb" yaml:"dynamoDb"`
 	// Write to a DynamoDB table.
 	//
 	// This is a new version of the DynamoDB action. It allows you to write each attribute in an MQTT message payload into a separate DynamoDB column.
-	DynamoDBv2 interface{} `json:"dynamoDBv2" yaml:"dynamoDBv2"`
+	DynamoDBv2 interface{} `field:"optional" json:"dynamoDBv2" yaml:"dynamoDBv2"`
 	// Write data to an Amazon OpenSearch Service domain.
 	//
 	// > The `Elasticsearch` action can only be used by existing rule actions. To create a new rule action or to update an existing rule action, use the `OpenSearch` rule action instead. For more information, see [OpenSearchAction](https://docs.aws.amazon.com//iot/latest/apireference/API_OpenSearchAction.html) .
-	Elasticsearch interface{} `json:"elasticsearch" yaml:"elasticsearch"`
+	Elasticsearch interface{} `field:"optional" json:"elasticsearch" yaml:"elasticsearch"`
 	// Write to an Amazon Kinesis Firehose stream.
-	Firehose interface{} `json:"firehose" yaml:"firehose"`
+	Firehose interface{} `field:"optional" json:"firehose" yaml:"firehose"`
 	// Send data to an HTTPS endpoint.
-	Http interface{} `json:"http" yaml:"http"`
+	Http interface{} `field:"optional" json:"http" yaml:"http"`
 	// Sends message data to an AWS IoT Analytics channel.
-	IotAnalytics interface{} `json:"iotAnalytics" yaml:"iotAnalytics"`
+	IotAnalytics interface{} `field:"optional" json:"iotAnalytics" yaml:"iotAnalytics"`
 	// Sends an input to an AWS IoT Events detector.
-	IotEvents interface{} `json:"iotEvents" yaml:"iotEvents"`
+	IotEvents interface{} `field:"optional" json:"iotEvents" yaml:"iotEvents"`
 	// Sends data from the MQTT message that triggered the rule to AWS IoT SiteWise asset properties.
-	IotSiteWise interface{} `json:"iotSiteWise" yaml:"iotSiteWise"`
+	IotSiteWise interface{} `field:"optional" json:"iotSiteWise" yaml:"iotSiteWise"`
 	// Send messages to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) or self-managed Apache Kafka cluster.
-	Kafka interface{} `json:"kafka" yaml:"kafka"`
+	Kafka interface{} `field:"optional" json:"kafka" yaml:"kafka"`
 	// Write data to an Amazon Kinesis stream.
-	Kinesis interface{} `json:"kinesis" yaml:"kinesis"`
+	Kinesis interface{} `field:"optional" json:"kinesis" yaml:"kinesis"`
 	// Invoke a Lambda function.
-	Lambda interface{} `json:"lambda" yaml:"lambda"`
+	Lambda interface{} `field:"optional" json:"lambda" yaml:"lambda"`
 	// Write data to an Amazon OpenSearch Service domain.
-	OpenSearch interface{} `json:"openSearch" yaml:"openSearch"`
+	OpenSearch interface{} `field:"optional" json:"openSearch" yaml:"openSearch"`
 	// Publish to another MQTT topic.
-	Republish interface{} `json:"republish" yaml:"republish"`
+	Republish interface{} `field:"optional" json:"republish" yaml:"republish"`
 	// Write to an Amazon S3 bucket.
-	S3 interface{} `json:"s3" yaml:"s3"`
+	S3 interface{} `field:"optional" json:"s3" yaml:"s3"`
 	// Publish to an Amazon SNS topic.
-	Sns interface{} `json:"sns" yaml:"sns"`
+	Sns interface{} `field:"optional" json:"sns" yaml:"sns"`
 	// Publish to an Amazon SQS queue.
-	Sqs interface{} `json:"sqs" yaml:"sqs"`
+	Sqs interface{} `field:"optional" json:"sqs" yaml:"sqs"`
 	// Starts execution of a Step Functions state machine.
-	StepFunctions interface{} `json:"stepFunctions" yaml:"stepFunctions"`
+	StepFunctions interface{} `field:"optional" json:"stepFunctions" yaml:"stepFunctions"`
 	// Writes attributes from an MQTT message.
-	Timestream interface{} `json:"timestream" yaml:"timestream"`
+	Timestream interface{} `field:"optional" json:"timestream" yaml:"timestream"`
 }
 
 // An asset property timestamp entry containing the following information.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   assetPropertyTimestampProperty := &assetPropertyTimestampProperty{
 //   	timeInSeconds: jsii.String("timeInSeconds"),
 //
@@ -16637,17 +16829,20 @@ type CfnTopicRule_AssetPropertyTimestampProperty struct {
 	// A string that contains the time in seconds since epoch.
 	//
 	// Accepts substitution templates.
-	TimeInSeconds *string `json:"timeInSeconds" yaml:"timeInSeconds"`
+	TimeInSeconds *string `field:"required" json:"timeInSeconds" yaml:"timeInSeconds"`
 	// Optional.
 	//
 	// A string that contains the nanosecond time offset. Accepts substitution templates.
-	OffsetInNanos *string `json:"offsetInNanos" yaml:"offsetInNanos"`
+	OffsetInNanos *string `field:"optional" json:"offsetInNanos" yaml:"offsetInNanos"`
 }
 
 // An asset property value entry containing the following information.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   assetPropertyValueProperty := &assetPropertyValueProperty{
 //   	timestamp: &assetPropertyTimestampProperty{
 //   		timeInSeconds: jsii.String("timeInSeconds"),
@@ -16668,19 +16863,22 @@ type CfnTopicRule_AssetPropertyTimestampProperty struct {
 //
 type CfnTopicRule_AssetPropertyValueProperty struct {
 	// The asset property value timestamp.
-	Timestamp interface{} `json:"timestamp" yaml:"timestamp"`
+	Timestamp interface{} `field:"required" json:"timestamp" yaml:"timestamp"`
 	// The value of the asset property.
-	Value interface{} `json:"value" yaml:"value"`
+	Value interface{} `field:"required" json:"value" yaml:"value"`
 	// Optional.
 	//
 	// A string that describes the quality of the value. Accepts substitution templates. Must be `GOOD` , `BAD` , or `UNCERTAIN` .
-	Quality *string `json:"quality" yaml:"quality"`
+	Quality *string `field:"optional" json:"quality" yaml:"quality"`
 }
 
 // Contains an asset property value (of a single type).
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   assetPropertyVariantProperty := &assetPropertyVariantProperty{
 //   	booleanValue: jsii.String("booleanValue"),
 //   	doubleValue: jsii.String("doubleValue"),
@@ -16692,25 +16890,28 @@ type CfnTopicRule_AssetPropertyVariantProperty struct {
 	// Optional.
 	//
 	// A string that contains the boolean value ( `true` or `false` ) of the value entry. Accepts substitution templates.
-	BooleanValue *string `json:"booleanValue" yaml:"booleanValue"`
+	BooleanValue *string `field:"optional" json:"booleanValue" yaml:"booleanValue"`
 	// Optional.
 	//
 	// A string that contains the double value of the value entry. Accepts substitution templates.
-	DoubleValue *string `json:"doubleValue" yaml:"doubleValue"`
+	DoubleValue *string `field:"optional" json:"doubleValue" yaml:"doubleValue"`
 	// Optional.
 	//
 	// A string that contains the integer value of the value entry. Accepts substitution templates.
-	IntegerValue *string `json:"integerValue" yaml:"integerValue"`
+	IntegerValue *string `field:"optional" json:"integerValue" yaml:"integerValue"`
 	// Optional.
 	//
 	// The string value of the value entry. Accepts substitution templates.
-	StringValue *string `json:"stringValue" yaml:"stringValue"`
+	StringValue *string `field:"optional" json:"stringValue" yaml:"stringValue"`
 }
 
 // Describes an action that updates a CloudWatch alarm.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cloudwatchAlarmActionProperty := &cloudwatchAlarmActionProperty{
 //   	alarmName: jsii.String("alarmName"),
 //   	roleArn: jsii.String("roleArn"),
@@ -16720,21 +16921,24 @@ type CfnTopicRule_AssetPropertyVariantProperty struct {
 //
 type CfnTopicRule_CloudwatchAlarmActionProperty struct {
 	// The CloudWatch alarm name.
-	AlarmName *string `json:"alarmName" yaml:"alarmName"`
+	AlarmName *string `field:"required" json:"alarmName" yaml:"alarmName"`
 	// The IAM role that allows access to the CloudWatch alarm.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The reason for the alarm change.
-	StateReason *string `json:"stateReason" yaml:"stateReason"`
+	StateReason *string `field:"required" json:"stateReason" yaml:"stateReason"`
 	// The value of the alarm state.
 	//
 	// Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
-	StateValue *string `json:"stateValue" yaml:"stateValue"`
+	StateValue *string `field:"required" json:"stateValue" yaml:"stateValue"`
 }
 
 // Describes an action that updates a CloudWatch log.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cloudwatchLogsActionProperty := &cloudwatchLogsActionProperty{
 //   	logGroupName: jsii.String("logGroupName"),
 //   	roleArn: jsii.String("roleArn"),
@@ -16742,15 +16946,18 @@ type CfnTopicRule_CloudwatchAlarmActionProperty struct {
 //
 type CfnTopicRule_CloudwatchLogsActionProperty struct {
 	// The CloudWatch log name.
-	LogGroupName *string `json:"logGroupName" yaml:"logGroupName"`
+	LogGroupName *string `field:"required" json:"logGroupName" yaml:"logGroupName"`
 	// The IAM role that allows access to the CloudWatch log.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 }
 
 // Describes an action that captures a CloudWatch metric.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cloudwatchMetricActionProperty := &cloudwatchMetricActionProperty{
 //   	metricName: jsii.String("metricName"),
 //   	metricNamespace: jsii.String("metricNamespace"),
@@ -16764,17 +16971,17 @@ type CfnTopicRule_CloudwatchLogsActionProperty struct {
 //
 type CfnTopicRule_CloudwatchMetricActionProperty struct {
 	// The CloudWatch metric name.
-	MetricName *string `json:"metricName" yaml:"metricName"`
+	MetricName *string `field:"required" json:"metricName" yaml:"metricName"`
 	// The CloudWatch metric namespace name.
-	MetricNamespace *string `json:"metricNamespace" yaml:"metricNamespace"`
+	MetricNamespace *string `field:"required" json:"metricNamespace" yaml:"metricNamespace"`
 	// The [metric unit](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit) supported by CloudWatch.
-	MetricUnit *string `json:"metricUnit" yaml:"metricUnit"`
+	MetricUnit *string `field:"required" json:"metricUnit" yaml:"metricUnit"`
 	// The CloudWatch metric value.
-	MetricValue *string `json:"metricValue" yaml:"metricValue"`
+	MetricValue *string `field:"required" json:"metricValue" yaml:"metricValue"`
 	// The IAM role that allows access to the CloudWatch metric.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// An optional [Unix timestamp](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp) .
-	MetricTimestamp *string `json:"metricTimestamp" yaml:"metricTimestamp"`
+	MetricTimestamp *string `field:"optional" json:"metricTimestamp" yaml:"metricTimestamp"`
 }
 
 // Describes an action to write to a DynamoDB table.
@@ -16794,7 +17001,10 @@ type CfnTopicRule_CloudwatchMetricActionProperty struct {
 // For more information, see [DynamoDBv2 Action](https://docs.aws.amazon.com/iot/latest/developerguide/iot-rule-actions.html) in the *AWS IoT Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dynamoDBActionProperty := &dynamoDBActionProperty{
 //   	hashKeyField: jsii.String("hashKeyField"),
 //   	hashKeyValue: jsii.String("hashKeyValue"),
@@ -16811,29 +17021,29 @@ type CfnTopicRule_CloudwatchMetricActionProperty struct {
 //
 type CfnTopicRule_DynamoDBActionProperty struct {
 	// The hash key name.
-	HashKeyField *string `json:"hashKeyField" yaml:"hashKeyField"`
+	HashKeyField *string `field:"required" json:"hashKeyField" yaml:"hashKeyField"`
 	// The hash key value.
-	HashKeyValue *string `json:"hashKeyValue" yaml:"hashKeyValue"`
+	HashKeyValue *string `field:"required" json:"hashKeyValue" yaml:"hashKeyValue"`
 	// The ARN of the IAM role that grants access to the DynamoDB table.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The name of the DynamoDB table.
-	TableName *string `json:"tableName" yaml:"tableName"`
+	TableName *string `field:"required" json:"tableName" yaml:"tableName"`
 	// The hash key type.
 	//
 	// Valid values are "STRING" or "NUMBER".
-	HashKeyType *string `json:"hashKeyType" yaml:"hashKeyType"`
+	HashKeyType *string `field:"optional" json:"hashKeyType" yaml:"hashKeyType"`
 	// The action payload.
 	//
 	// This name can be customized.
-	PayloadField *string `json:"payloadField" yaml:"payloadField"`
+	PayloadField *string `field:"optional" json:"payloadField" yaml:"payloadField"`
 	// The range key name.
-	RangeKeyField *string `json:"rangeKeyField" yaml:"rangeKeyField"`
+	RangeKeyField *string `field:"optional" json:"rangeKeyField" yaml:"rangeKeyField"`
 	// The range key type.
 	//
 	// Valid values are "STRING" or "NUMBER".
-	RangeKeyType *string `json:"rangeKeyType" yaml:"rangeKeyType"`
+	RangeKeyType *string `field:"optional" json:"rangeKeyType" yaml:"rangeKeyType"`
 	// The range key value.
-	RangeKeyValue *string `json:"rangeKeyValue" yaml:"rangeKeyValue"`
+	RangeKeyValue *string `field:"optional" json:"rangeKeyValue" yaml:"rangeKeyValue"`
 }
 
 // Describes an action to write to a DynamoDB table.
@@ -16841,7 +17051,10 @@ type CfnTopicRule_DynamoDBActionProperty struct {
 // This DynamoDB action writes each attribute in the message payload into it's own column in the DynamoDB table.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dynamoDBv2ActionProperty := &dynamoDBv2ActionProperty{
 //   	putItem: &putItemInputProperty{
 //   		tableName: jsii.String("tableName"),
@@ -16855,9 +17068,9 @@ type CfnTopicRule_DynamoDBv2ActionProperty struct {
 	// `{ "dynamoDBv2": { "roleArn": "aws:iam:12341251:my-role" "putItem": { "tableName": "my-table" } } }`
 	//
 	// Each attribute in the message payload will be written to a separate column in the DynamoDB database.
-	PutItem interface{} `json:"putItem" yaml:"putItem"`
+	PutItem interface{} `field:"optional" json:"putItem" yaml:"putItem"`
 	// The ARN of the IAM role that grants access to the DynamoDB table.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 }
 
 // Describes an action that writes data to an Amazon OpenSearch Service domain.
@@ -16865,7 +17078,10 @@ type CfnTopicRule_DynamoDBv2ActionProperty struct {
 // > The `Elasticsearch` action can only be used by existing rule actions. To create a new rule action or to update an existing rule action, use the `OpenSearch` rule action instead. For more information, see [OpenSearchAction](https://docs.aws.amazon.com//iot/latest/apireference/API_OpenSearchAction.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   elasticsearchActionProperty := &elasticsearchActionProperty{
 //   	endpoint: jsii.String("endpoint"),
 //   	id: jsii.String("id"),
@@ -16876,21 +17092,24 @@ type CfnTopicRule_DynamoDBv2ActionProperty struct {
 //
 type CfnTopicRule_ElasticsearchActionProperty struct {
 	// The endpoint of your OpenSearch domain.
-	Endpoint *string `json:"endpoint" yaml:"endpoint"`
+	Endpoint *string `field:"required" json:"endpoint" yaml:"endpoint"`
 	// The unique identifier for the document you are storing.
-	Id *string `json:"id" yaml:"id"`
+	Id *string `field:"required" json:"id" yaml:"id"`
 	// The index where you want to store your data.
-	Index *string `json:"index" yaml:"index"`
+	Index *string `field:"required" json:"index" yaml:"index"`
 	// The IAM role ARN that has access to OpenSearch.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The type of document you are storing.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 }
 
 // Describes an action that writes data to an Amazon Kinesis Firehose stream.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   firehoseActionProperty := &firehoseActionProperty{
 //   	deliveryStreamName: jsii.String("deliveryStreamName"),
 //   	roleArn: jsii.String("roleArn"),
@@ -16902,23 +17121,26 @@ type CfnTopicRule_ElasticsearchActionProperty struct {
 //
 type CfnTopicRule_FirehoseActionProperty struct {
 	// The delivery stream name.
-	DeliveryStreamName *string `json:"deliveryStreamName" yaml:"deliveryStreamName"`
+	DeliveryStreamName *string `field:"required" json:"deliveryStreamName" yaml:"deliveryStreamName"`
 	// The IAM role that grants access to the Amazon Kinesis Firehose stream.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// Whether to deliver the Kinesis Data Firehose stream as a batch by using [`PutRecordBatch`](https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html) . The default value is `false` .
 	//
 	// When `batchMode` is `true` and the rule's SQL statement evaluates to an Array, each Array element forms one record in the [`PutRecordBatch`](https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html) request. The resulting array can't have more than 500 records.
-	BatchMode interface{} `json:"batchMode" yaml:"batchMode"`
+	BatchMode interface{} `field:"optional" json:"batchMode" yaml:"batchMode"`
 	// A character separator that will be used to separate records written to the Firehose stream.
 	//
 	// Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
-	Separator *string `json:"separator" yaml:"separator"`
+	Separator *string `field:"optional" json:"separator" yaml:"separator"`
 }
 
 // The HTTP action header.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   httpActionHeaderProperty := &httpActionHeaderProperty{
 //   	key: jsii.String("key"),
 //   	value: jsii.String("value"),
@@ -16926,17 +17148,20 @@ type CfnTopicRule_FirehoseActionProperty struct {
 //
 type CfnTopicRule_HttpActionHeaderProperty struct {
 	// The HTTP header key.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// The HTTP header value.
 	//
 	// Substitution templates are supported.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // Send data to an HTTPS endpoint.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   httpActionProperty := &httpActionProperty{
 //   	url: jsii.String("url"),
 //
@@ -16961,21 +17186,24 @@ type CfnTopicRule_HttpActionProperty struct {
 	// The endpoint URL.
 	//
 	// If substitution templates are used in the URL, you must also specify a `confirmationUrl` . If this is a new destination, a new `TopicRuleDestination` is created if possible.
-	Url *string `json:"url" yaml:"url"`
+	Url *string `field:"required" json:"url" yaml:"url"`
 	// The authentication method to use when sending data to an HTTPS endpoint.
-	Auth interface{} `json:"auth" yaml:"auth"`
+	Auth interface{} `field:"optional" json:"auth" yaml:"auth"`
 	// The URL to which AWS IoT sends a confirmation message.
 	//
 	// The value of the confirmation URL must be a prefix of the endpoint URL. If you do not specify a confirmation URL AWS IoT uses the endpoint URL as the confirmation URL. If you use substitution templates in the confirmationUrl, you must create and enable topic rule destinations that match each possible value of the substitution template before traffic is allowed to your endpoint URL.
-	ConfirmationUrl *string `json:"confirmationUrl" yaml:"confirmationUrl"`
+	ConfirmationUrl *string `field:"optional" json:"confirmationUrl" yaml:"confirmationUrl"`
 	// The HTTP headers to send with the message data.
-	Headers interface{} `json:"headers" yaml:"headers"`
+	Headers interface{} `field:"optional" json:"headers" yaml:"headers"`
 }
 
 // The authorization method used to send messages.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   httpAuthorizationProperty := &httpAuthorizationProperty{
 //   	sigv4: &sigV4AuthorizationProperty{
 //   		roleArn: jsii.String("roleArn"),
@@ -16988,13 +17216,16 @@ type CfnTopicRule_HttpAuthorizationProperty struct {
 	// Use Sig V4 authorization.
 	//
 	// For more information, see [Signature Version 4 Signing Process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) .
-	Sigv4 interface{} `json:"sigv4" yaml:"sigv4"`
+	Sigv4 interface{} `field:"optional" json:"sigv4" yaml:"sigv4"`
 }
 
 // Sends message data to an AWS IoT Analytics channel.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   iotAnalyticsActionProperty := &iotAnalyticsActionProperty{
 //   	channelName: jsii.String("channelName"),
 //   	roleArn: jsii.String("roleArn"),
@@ -17005,19 +17236,22 @@ type CfnTopicRule_HttpAuthorizationProperty struct {
 //
 type CfnTopicRule_IotAnalyticsActionProperty struct {
 	// The name of the IoT Analytics channel to which message data will be sent.
-	ChannelName *string `json:"channelName" yaml:"channelName"`
+	ChannelName *string `field:"required" json:"channelName" yaml:"channelName"`
 	// The ARN of the role which has a policy that grants IoT Analytics permission to send message data via IoT Analytics (iotanalytics:BatchPutMessage).
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// Whether to process the action as a batch. The default value is `false` .
 	//
 	// When `batchMode` is `true` and the rule SQL statement evaluates to an Array, each Array element is delivered as a separate message when passed by [`BatchPutMessage`](https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_BatchPutMessage.html) The resulting array can't have more than 100 messages.
-	BatchMode interface{} `json:"batchMode" yaml:"batchMode"`
+	BatchMode interface{} `field:"optional" json:"batchMode" yaml:"batchMode"`
 }
 
 // Sends an input to an AWS IoT Events detector.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   iotEventsActionProperty := &iotEventsActionProperty{
 //   	inputName: jsii.String("inputName"),
 //   	roleArn: jsii.String("roleArn"),
@@ -17029,29 +17263,32 @@ type CfnTopicRule_IotAnalyticsActionProperty struct {
 //
 type CfnTopicRule_IotEventsActionProperty struct {
 	// The name of the AWS IoT Events input.
-	InputName *string `json:"inputName" yaml:"inputName"`
+	InputName *string `field:"required" json:"inputName" yaml:"inputName"`
 	// The ARN of the role that grants AWS IoT permission to send an input to an AWS IoT Events detector.
 	//
 	// ("Action":"iotevents:BatchPutMessage").
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// Whether to process the event actions as a batch. The default value is `false` .
 	//
 	// When `batchMode` is `true` , you can't specify a `messageId` .
 	//
 	// When `batchMode` is `true` and the rule SQL statement evaluates to an Array, each Array element is treated as a separate message when Events by calling [`BatchPutMessage`](https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchPutMessage.html) . The resulting array can't have more than 10 messages.
-	BatchMode interface{} `json:"batchMode" yaml:"batchMode"`
+	BatchMode interface{} `field:"optional" json:"batchMode" yaml:"batchMode"`
 	// The ID of the message. The default `messageId` is a new UUID value.
 	//
 	// When `batchMode` is `true` , you can't specify a `messageId` --a new UUID value will be assigned.
 	//
 	// Assign a value to this property to ensure that only one input (message) with a given `messageId` will be processed by an AWS IoT Events detector.
-	MessageId *string `json:"messageId" yaml:"messageId"`
+	MessageId *string `field:"optional" json:"messageId" yaml:"messageId"`
 }
 
 // Describes an action to send data from an MQTT message that triggered the rule to AWS IoT SiteWise asset properties.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   iotSiteWiseActionProperty := &iotSiteWiseActionProperty{
 //   	putAssetPropertyValueEntries: []interface{}{
 //   		&putAssetPropertyValueEntryProperty{
@@ -17087,17 +17324,20 @@ type CfnTopicRule_IotEventsActionProperty struct {
 //
 type CfnTopicRule_IotSiteWiseActionProperty struct {
 	// A list of asset property value entries.
-	PutAssetPropertyValueEntries interface{} `json:"putAssetPropertyValueEntries" yaml:"putAssetPropertyValueEntries"`
+	PutAssetPropertyValueEntries interface{} `field:"required" json:"putAssetPropertyValueEntries" yaml:"putAssetPropertyValueEntries"`
 	// The ARN of the role that grants AWS IoT permission to send an asset property value to AWS IoT SiteWise.
 	//
 	// ( `"Action": "iotsitewise:BatchPutAssetPropertyValue"` ). The trust policy can restrict access to specific asset hierarchy paths.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 }
 
 // Send messages to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) or self-managed Apache Kafka cluster.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   kafkaActionProperty := &kafkaActionProperty{
 //   	clientProperties: map[string]*string{
 //   		"clientPropertiesKey": jsii.String("clientProperties"),
@@ -17112,21 +17352,24 @@ type CfnTopicRule_IotSiteWiseActionProperty struct {
 //
 type CfnTopicRule_KafkaActionProperty struct {
 	// Properties of the Apache Kafka producer client.
-	ClientProperties interface{} `json:"clientProperties" yaml:"clientProperties"`
+	ClientProperties interface{} `field:"required" json:"clientProperties" yaml:"clientProperties"`
 	// The ARN of Kafka action's VPC `TopicRuleDestination` .
-	DestinationArn *string `json:"destinationArn" yaml:"destinationArn"`
+	DestinationArn *string `field:"required" json:"destinationArn" yaml:"destinationArn"`
 	// The Kafka topic for messages to be sent to the Kafka broker.
-	Topic *string `json:"topic" yaml:"topic"`
+	Topic *string `field:"required" json:"topic" yaml:"topic"`
 	// The Kafka message key.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"optional" json:"key" yaml:"key"`
 	// The Kafka message partition.
-	Partition *string `json:"partition" yaml:"partition"`
+	Partition *string `field:"optional" json:"partition" yaml:"partition"`
 }
 
 // Describes an action to write data to an Amazon Kinesis stream.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   kinesisActionProperty := &kinesisActionProperty{
 //   	roleArn: jsii.String("roleArn"),
 //   	streamName: jsii.String("streamName"),
@@ -17137,30 +17380,36 @@ type CfnTopicRule_KafkaActionProperty struct {
 //
 type CfnTopicRule_KinesisActionProperty struct {
 	// The ARN of the IAM role that grants access to the Amazon Kinesis stream.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The name of the Amazon Kinesis stream.
-	StreamName *string `json:"streamName" yaml:"streamName"`
+	StreamName *string `field:"required" json:"streamName" yaml:"streamName"`
 	// The partition key.
-	PartitionKey *string `json:"partitionKey" yaml:"partitionKey"`
+	PartitionKey *string `field:"optional" json:"partitionKey" yaml:"partitionKey"`
 }
 
 // Describes an action to invoke a Lambda function.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   lambdaActionProperty := &lambdaActionProperty{
 //   	functionArn: jsii.String("functionArn"),
 //   }
 //
 type CfnTopicRule_LambdaActionProperty struct {
 	// The ARN of the Lambda function.
-	FunctionArn *string `json:"functionArn" yaml:"functionArn"`
+	FunctionArn *string `field:"optional" json:"functionArn" yaml:"functionArn"`
 }
 
 // Describes an action that writes data to an Amazon OpenSearch Service domain.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   openSearchActionProperty := &openSearchActionProperty{
 //   	endpoint: jsii.String("endpoint"),
 //   	id: jsii.String("id"),
@@ -17171,21 +17420,24 @@ type CfnTopicRule_LambdaActionProperty struct {
 //
 type CfnTopicRule_OpenSearchActionProperty struct {
 	// The endpoint of your OpenSearch domain.
-	Endpoint *string `json:"endpoint" yaml:"endpoint"`
+	Endpoint *string `field:"required" json:"endpoint" yaml:"endpoint"`
 	// The unique identifier for the document you are storing.
-	Id *string `json:"id" yaml:"id"`
+	Id *string `field:"required" json:"id" yaml:"id"`
 	// The OpenSearch index where you want to store your data.
-	Index *string `json:"index" yaml:"index"`
+	Index *string `field:"required" json:"index" yaml:"index"`
 	// The IAM role ARN that has access to OpenSearch.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The type of document you are storing.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 }
 
 // An asset property value entry containing the following information.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   putAssetPropertyValueEntryProperty := &putAssetPropertyValueEntryProperty{
 //   	propertyValues: []interface{}{
 //   		&assetPropertyValueProperty{
@@ -17216,42 +17468,48 @@ type CfnTopicRule_OpenSearchActionProperty struct {
 //
 type CfnTopicRule_PutAssetPropertyValueEntryProperty struct {
 	// A list of property values to insert that each contain timestamp, quality, and value (TQV) information.
-	PropertyValues interface{} `json:"propertyValues" yaml:"propertyValues"`
+	PropertyValues interface{} `field:"required" json:"propertyValues" yaml:"propertyValues"`
 	// The ID of the AWS IoT SiteWise asset.
 	//
 	// You must specify either a `propertyAlias` or both an `aliasId` and a `propertyId` . Accepts substitution templates.
-	AssetId *string `json:"assetId" yaml:"assetId"`
+	AssetId *string `field:"optional" json:"assetId" yaml:"assetId"`
 	// Optional.
 	//
 	// A unique identifier for this entry that you can define to better track which message caused an error in case of failure. Accepts substitution templates. Defaults to a new UUID.
-	EntryId *string `json:"entryId" yaml:"entryId"`
+	EntryId *string `field:"optional" json:"entryId" yaml:"entryId"`
 	// The name of the property alias associated with your asset property.
 	//
 	// You must specify either a `propertyAlias` or both an `aliasId` and a `propertyId` . Accepts substitution templates.
-	PropertyAlias *string `json:"propertyAlias" yaml:"propertyAlias"`
+	PropertyAlias *string `field:"optional" json:"propertyAlias" yaml:"propertyAlias"`
 	// The ID of the asset's property.
 	//
 	// You must specify either a `propertyAlias` or both an `aliasId` and a `propertyId` . Accepts substitution templates.
-	PropertyId *string `json:"propertyId" yaml:"propertyId"`
+	PropertyId *string `field:"optional" json:"propertyId" yaml:"propertyId"`
 }
 
 // The input for the DynamoActionVS action that specifies the DynamoDB table to which the message data will be written.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   putItemInputProperty := &putItemInputProperty{
 //   	tableName: jsii.String("tableName"),
 //   }
 //
 type CfnTopicRule_PutItemInputProperty struct {
 	// The table where the message data will be written.
-	TableName *string `json:"tableName" yaml:"tableName"`
+	TableName *string `field:"required" json:"tableName" yaml:"tableName"`
 }
 
 // Describes an action to republish to another topic.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   republishActionProperty := &republishActionProperty{
 //   	roleArn: jsii.String("roleArn"),
 //   	topic: jsii.String("topic"),
@@ -17262,19 +17520,22 @@ type CfnTopicRule_PutItemInputProperty struct {
 //
 type CfnTopicRule_RepublishActionProperty struct {
 	// The ARN of the IAM role that grants access.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The name of the MQTT topic.
-	Topic *string `json:"topic" yaml:"topic"`
+	Topic *string `field:"required" json:"topic" yaml:"topic"`
 	// The Quality of Service (QoS) level to use when republishing messages.
 	//
 	// The default value is 0.
-	Qos *float64 `json:"qos" yaml:"qos"`
+	Qos *float64 `field:"optional" json:"qos" yaml:"qos"`
 }
 
 // Describes an action to write data to an Amazon S3 bucket.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3ActionProperty := &s3ActionProperty{
 //   	bucketName: jsii.String("bucketName"),
 //   	key: jsii.String("key"),
@@ -17286,23 +17547,26 @@ type CfnTopicRule_RepublishActionProperty struct {
 //
 type CfnTopicRule_S3ActionProperty struct {
 	// The Amazon S3 bucket.
-	BucketName *string `json:"bucketName" yaml:"bucketName"`
+	BucketName *string `field:"required" json:"bucketName" yaml:"bucketName"`
 	// The object key.
 	//
 	// For more information, see [Actions, resources, and condition keys for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html) .
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// The ARN of the IAM role that grants access.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The Amazon S3 canned ACL that controls access to the object identified by the object key.
 	//
 	// For more information, see [S3 canned ACLs](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) .
-	CannedAcl *string `json:"cannedAcl" yaml:"cannedAcl"`
+	CannedAcl *string `field:"optional" json:"cannedAcl" yaml:"cannedAcl"`
 }
 
 // For more information, see [Signature Version 4 signing process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sigV4AuthorizationProperty := &sigV4AuthorizationProperty{
 //   	roleArn: jsii.String("roleArn"),
 //   	serviceName: jsii.String("serviceName"),
@@ -17311,17 +17575,20 @@ type CfnTopicRule_S3ActionProperty struct {
 //
 type CfnTopicRule_SigV4AuthorizationProperty struct {
 	// The ARN of the signing role.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The service name to use while signing with Sig V4.
-	ServiceName *string `json:"serviceName" yaml:"serviceName"`
+	ServiceName *string `field:"required" json:"serviceName" yaml:"serviceName"`
 	// The signing region.
-	SigningRegion *string `json:"signingRegion" yaml:"signingRegion"`
+	SigningRegion *string `field:"required" json:"signingRegion" yaml:"signingRegion"`
 }
 
 // Describes an action to publish to an Amazon SNS topic.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   snsActionProperty := &snsActionProperty{
 //   	roleArn: jsii.String("roleArn"),
 //   	targetArn: jsii.String("targetArn"),
@@ -17332,19 +17599,22 @@ type CfnTopicRule_SigV4AuthorizationProperty struct {
 //
 type CfnTopicRule_SnsActionProperty struct {
 	// The ARN of the IAM role that grants access.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The ARN of the SNS topic.
-	TargetArn *string `json:"targetArn" yaml:"targetArn"`
+	TargetArn *string `field:"required" json:"targetArn" yaml:"targetArn"`
 	// (Optional) The message format of the message to publish.
 	//
 	// Accepted values are "JSON" and "RAW". The default value of the attribute is "RAW". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. For more information, see [Amazon SNS Message and JSON Formats](https://docs.aws.amazon.com/sns/latest/dg/json-formats.html) in the *Amazon Simple Notification Service Developer Guide* .
-	MessageFormat *string `json:"messageFormat" yaml:"messageFormat"`
+	MessageFormat *string `field:"optional" json:"messageFormat" yaml:"messageFormat"`
 }
 
 // Describes an action to publish data to an Amazon SQS queue.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sqsActionProperty := &sqsActionProperty{
 //   	queueUrl: jsii.String("queueUrl"),
 //   	roleArn: jsii.String("roleArn"),
@@ -17355,17 +17625,20 @@ type CfnTopicRule_SnsActionProperty struct {
 //
 type CfnTopicRule_SqsActionProperty struct {
 	// The URL of the Amazon SQS queue.
-	QueueUrl *string `json:"queueUrl" yaml:"queueUrl"`
+	QueueUrl *string `field:"required" json:"queueUrl" yaml:"queueUrl"`
 	// The ARN of the IAM role that grants access.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// Specifies whether to use Base64 encoding.
-	UseBase64 interface{} `json:"useBase64" yaml:"useBase64"`
+	UseBase64 interface{} `field:"optional" json:"useBase64" yaml:"useBase64"`
 }
 
 // Starts execution of a Step Functions state machine.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   stepFunctionsActionProperty := &stepFunctionsActionProperty{
 //   	roleArn: jsii.String("roleArn"),
 //   	stateMachineName: jsii.String("stateMachineName"),
@@ -17376,19 +17649,22 @@ type CfnTopicRule_SqsActionProperty struct {
 //
 type CfnTopicRule_StepFunctionsActionProperty struct {
 	// The ARN of the role that grants IoT permission to start execution of a state machine ("Action":"states:StartExecution").
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The name of the Step Functions state machine whose execution will be started.
-	StateMachineName *string `json:"stateMachineName" yaml:"stateMachineName"`
+	StateMachineName *string `field:"required" json:"stateMachineName" yaml:"stateMachineName"`
 	// (Optional) A name will be given to the state machine execution consisting of this prefix followed by a UUID.
 	//
 	// Step Functions automatically creates a unique name for each state machine execution if one is not provided.
-	ExecutionNamePrefix *string `json:"executionNamePrefix" yaml:"executionNamePrefix"`
+	ExecutionNamePrefix *string `field:"optional" json:"executionNamePrefix" yaml:"executionNamePrefix"`
 }
 
 // Describes an action that writes records into an Amazon Timestream table.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   timestreamActionProperty := &timestreamActionProperty{
 //   	databaseName: jsii.String("databaseName"),
 //   	dimensions: []interface{}{
@@ -17410,25 +17686,28 @@ type CfnTopicRule_StepFunctionsActionProperty struct {
 //
 type CfnTopicRule_TimestreamActionProperty struct {
 	// The name of an Amazon Timestream database that has the table to write records into.
-	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
+	DatabaseName *string `field:"required" json:"databaseName" yaml:"databaseName"`
 	// Metadata attributes of the time series that are written in each measure record.
-	Dimensions interface{} `json:"dimensions" yaml:"dimensions"`
+	Dimensions interface{} `field:"required" json:"dimensions" yaml:"dimensions"`
 	// The Amazon Resource Name (ARN) of the role that grants AWS IoT permission to write to the Timestream database table.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The table where the message data will be written.
-	TableName *string `json:"tableName" yaml:"tableName"`
+	TableName *string `field:"required" json:"tableName" yaml:"tableName"`
 	// Whether to process the action as a batch.
-	BatchMode interface{} `json:"batchMode" yaml:"batchMode"`
+	BatchMode interface{} `field:"optional" json:"batchMode" yaml:"batchMode"`
 	// The value to use for the entry's timestamp.
 	//
 	// If blank, the time that the entry was processed is used.
-	Timestamp interface{} `json:"timestamp" yaml:"timestamp"`
+	Timestamp interface{} `field:"optional" json:"timestamp" yaml:"timestamp"`
 }
 
 // Metadata attributes of the time series that are written in each measure record.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   timestreamDimensionProperty := &timestreamDimensionProperty{
 //   	name: jsii.String("name"),
 //   	value: jsii.String("value"),
@@ -17438,9 +17717,9 @@ type CfnTopicRule_TimestreamDimensionProperty struct {
 	// The metadata dimension name.
 	//
 	// This is the name of the column in the Amazon Timestream database table record.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The value to write in this column of the database record.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // The value to use for the entry's timestamp.
@@ -17448,7 +17727,10 @@ type CfnTopicRule_TimestreamDimensionProperty struct {
 // If blank, the time that the entry was processed is used.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   timestreamTimestampProperty := &timestreamTimestampProperty{
 //   	unit: jsii.String("unit"),
 //   	value: jsii.String("value"),
@@ -17456,15 +17738,18 @@ type CfnTopicRule_TimestreamDimensionProperty struct {
 //
 type CfnTopicRule_TimestreamTimestampProperty struct {
 	// The precision of the timestamp value that results from the expression described in `value` .
-	Unit *string `json:"unit" yaml:"unit"`
+	Unit *string `field:"required" json:"unit" yaml:"unit"`
 	// An expression that returns a long epoch time value.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // Describes a rule.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   topicRulePayloadProperty := &topicRulePayloadProperty{
 //   	actions: []interface{}{
 //   		&actionProperty{
@@ -17886,21 +18171,21 @@ type CfnTopicRule_TimestreamTimestampProperty struct {
 //
 type CfnTopicRule_TopicRulePayloadProperty struct {
 	// The actions associated with the rule.
-	Actions interface{} `json:"actions" yaml:"actions"`
+	Actions interface{} `field:"required" json:"actions" yaml:"actions"`
 	// The SQL statement used to query the topic.
 	//
 	// For more information, see [AWS IoT SQL Reference](https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html) in the *AWS IoT Developer Guide* .
-	Sql *string `json:"sql" yaml:"sql"`
+	Sql *string `field:"required" json:"sql" yaml:"sql"`
 	// The version of the SQL rules engine to use when evaluating the rule.
 	//
 	// The default value is 2015-10-08.
-	AwsIotSqlVersion *string `json:"awsIotSqlVersion" yaml:"awsIotSqlVersion"`
+	AwsIotSqlVersion *string `field:"optional" json:"awsIotSqlVersion" yaml:"awsIotSqlVersion"`
 	// The description of the rule.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The action to take when an error occurs.
-	ErrorAction interface{} `json:"errorAction" yaml:"errorAction"`
+	ErrorAction interface{} `field:"optional" json:"errorAction" yaml:"errorAction"`
 	// Specifies whether the rule is disabled.
-	RuleDisabled interface{} `json:"ruleDisabled" yaml:"ruleDisabled"`
+	RuleDisabled interface{} `field:"optional" json:"ruleDisabled" yaml:"ruleDisabled"`
 }
 
 // A CloudFormation `AWS::IoT::TopicRuleDestination`.
@@ -17908,8 +18193,11 @@ type CfnTopicRule_TopicRulePayloadProperty struct {
 // A topic rule destination.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
-//   cfnTopicRuleDestination := iot.NewCfnTopicRuleDestination(this, jsii.String("MyCfnTopicRuleDestination"), &cfnTopicRuleDestinationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnTopicRuleDestination := awscdk.Aws_iot.NewCfnTopicRuleDestination(this, jsii.String("MyCfnTopicRuleDestination"), &cfnTopicRuleDestinationProps{
 //   	httpUrlProperties: &httpUrlDestinationSummaryProperty{
 //   		confirmationUrl: jsii.String("confirmationUrl"),
 //   	},
@@ -18626,20 +18914,26 @@ func (c *jsiiProxy_CfnTopicRuleDestination) ValidateProperties(_properties inter
 // HTTP URL destination properties.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   httpUrlDestinationSummaryProperty := &httpUrlDestinationSummaryProperty{
 //   	confirmationUrl: jsii.String("confirmationUrl"),
 //   }
 //
 type CfnTopicRuleDestination_HttpUrlDestinationSummaryProperty struct {
 	// The URL used to confirm the HTTP topic rule destination URL.
-	ConfirmationUrl *string `json:"confirmationUrl" yaml:"confirmationUrl"`
+	ConfirmationUrl *string `field:"optional" json:"confirmationUrl" yaml:"confirmationUrl"`
 }
 
 // The properties of a virtual private cloud (VPC) destination.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   vpcDestinationPropertiesProperty := &vpcDestinationPropertiesProperty{
 //   	roleArn: jsii.String("roleArn"),
 //   	securityGroups: []*string{
@@ -18653,19 +18947,22 @@ type CfnTopicRuleDestination_HttpUrlDestinationSummaryProperty struct {
 //
 type CfnTopicRuleDestination_VpcDestinationPropertiesProperty struct {
 	// The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// The security groups of the VPC destination.
-	SecurityGroups *[]*string `json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]*string `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// The subnet IDs of the VPC destination.
-	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
+	SubnetIds *[]*string `field:"optional" json:"subnetIds" yaml:"subnetIds"`
 	// The ID of the VPC.
-	VpcId *string `json:"vpcId" yaml:"vpcId"`
+	VpcId *string `field:"optional" json:"vpcId" yaml:"vpcId"`
 }
 
 // Properties for defining a `CfnTopicRuleDestination`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnTopicRuleDestinationProps := &cfnTopicRuleDestinationProps{
 //   	httpUrlProperties: &httpUrlDestinationSummaryProperty{
 //   		confirmationUrl: jsii.String("confirmationUrl"),
@@ -18685,22 +18982,25 @@ type CfnTopicRuleDestination_VpcDestinationPropertiesProperty struct {
 //
 type CfnTopicRuleDestinationProps struct {
 	// Properties of the HTTP URL.
-	HttpUrlProperties interface{} `json:"httpUrlProperties" yaml:"httpUrlProperties"`
+	HttpUrlProperties interface{} `field:"optional" json:"httpUrlProperties" yaml:"httpUrlProperties"`
 	// - **IN_PROGRESS** - A topic rule destination was created but has not been confirmed.
 	//
 	// You can set status to `IN_PROGRESS` by calling `UpdateTopicRuleDestination` . Calling `UpdateTopicRuleDestination` causes a new confirmation challenge to be sent to your confirmation endpoint.
 	// - **ENABLED** - Confirmation was completed, and traffic to this destination is allowed. You can set status to `DISABLED` by calling `UpdateTopicRuleDestination` .
 	// - **DISABLED** - Confirmation was completed, and traffic to this destination is not allowed. You can set status to `ENABLED` by calling `UpdateTopicRuleDestination` .
 	// - **ERROR** - Confirmation could not be completed; for example, if the confirmation timed out. You can call `GetTopicRuleDestination` for details about the error. You can set status to `IN_PROGRESS` by calling `UpdateTopicRuleDestination` . Calling `UpdateTopicRuleDestination` causes a new confirmation challenge to be sent to your confirmation endpoint.
-	Status *string `json:"status" yaml:"status"`
+	Status *string `field:"optional" json:"status" yaml:"status"`
 	// Properties of the virtual private cloud (VPC) connection.
-	VpcProperties interface{} `json:"vpcProperties" yaml:"vpcProperties"`
+	VpcProperties interface{} `field:"optional" json:"vpcProperties" yaml:"vpcProperties"`
 }
 
 // Properties for defining a `CfnTopicRule`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnTopicRuleProps := &cfnTopicRuleProps{
 //   	topicRulePayload: &topicRulePayloadProperty{
 //   		actions: []interface{}{
@@ -19133,9 +19433,9 @@ type CfnTopicRuleDestinationProps struct {
 //
 type CfnTopicRuleProps struct {
 	// The rule payload.
-	TopicRulePayload interface{} `json:"topicRulePayload" yaml:"topicRulePayload"`
+	TopicRulePayload interface{} `field:"required" json:"topicRulePayload" yaml:"topicRulePayload"`
 	// The name of the rule.
-	RuleName *string `json:"ruleName" yaml:"ruleName"`
+	RuleName *string `field:"optional" json:"ruleName" yaml:"ruleName"`
 	// Metadata which can be used to manage the topic rule.
 	//
 	// > For URI Request parameters use format: ...key1=value1&key2=value2...
@@ -19143,7 +19443,7 @@ type CfnTopicRuleProps struct {
 	// > For the CLI command-line parameter use format: --tags "key1=value1&key2=value2..."
 	// >
 	// > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // An abstract action for TopicRule.
@@ -19322,7 +19622,10 @@ func (i *jsiiProxy_IotSql) Bind(scope constructs.Construct) *IotSqlConfig {
 // The type returned from the `bind()` method in {@link IotSql}.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot "github.com/aws/aws-cdk-go/awscdk/aws_iot"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   iotSqlConfig := &iotSqlConfig{
 //   	awsIotSqlVersion: jsii.String("awsIotSqlVersion"),
 //   	sql: jsii.String("sql"),
@@ -19332,10 +19635,10 @@ func (i *jsiiProxy_IotSql) Bind(scope constructs.Construct) *IotSqlConfig {
 type IotSqlConfig struct {
 	// The version of the SQL rules engine to use when evaluating the rule.
 	// Experimental.
-	AwsIotSqlVersion *string `json:"awsIotSqlVersion" yaml:"awsIotSqlVersion"`
+	AwsIotSqlVersion *string `field:"required" json:"awsIotSqlVersion" yaml:"awsIotSqlVersion"`
 	// The SQL statement used to query the topic.
 	// Experimental.
-	Sql *string `json:"sql" yaml:"sql"`
+	Sql *string `field:"required" json:"sql" yaml:"sql"`
 }
 
 // Defines an AWS IoT Rule in this stack.
@@ -19761,21 +20064,21 @@ type TopicRuleProps struct {
 	// See: https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html
 	//
 	// Experimental.
-	Sql IotSql `json:"sql" yaml:"sql"`
+	Sql IotSql `field:"required" json:"sql" yaml:"sql"`
 	// The actions associated with the topic rule.
 	// Experimental.
-	Actions *[]IAction `json:"actions" yaml:"actions"`
+	Actions *[]IAction `field:"optional" json:"actions" yaml:"actions"`
 	// A textual description of the topic rule.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Specifies whether the rule is enabled.
 	// Experimental.
-	Enabled *bool `json:"enabled" yaml:"enabled"`
+	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// The action AWS IoT performs when it is unable to perform a rule's action.
 	// Experimental.
-	ErrorAction IAction `json:"errorAction" yaml:"errorAction"`
+	ErrorAction IAction `field:"optional" json:"errorAction" yaml:"errorAction"`
 	// The name of the topic rule.
 	// Experimental.
-	TopicRuleName *string `json:"topicRuleName" yaml:"topicRuleName"`
+	TopicRuleName *string `field:"optional" json:"topicRuleName" yaml:"topicRuleName"`
 }
 

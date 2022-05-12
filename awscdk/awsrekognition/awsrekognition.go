@@ -14,8 +14,11 @@ import (
 // The `AWS::Rekognition::Collection` type creates a server-side container called a collection. You can use a collection to store information about detected faces and search for known faces in images, stored videos, and streaming videos.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import rekognition "github.com/aws/aws-cdk-go/awscdk/aws_rekognition"
-//   cfnCollection := rekognition.NewCfnCollection(this, jsii.String("MyCfnCollection"), &cfnCollectionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnCollection := awscdk.Aws_rekognition.NewCfnCollection(this, jsii.String("MyCfnCollection"), &cfnCollectionProps{
 //   	collectionId: jsii.String("collectionId"),
 //
 //   	// the properties below are optional
@@ -680,7 +683,10 @@ func (c *jsiiProxy_CfnCollection) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnCollection`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import rekognition "github.com/aws/aws-cdk-go/awscdk/aws_rekognition"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnCollectionProps := &cfnCollectionProps{
 //   	collectionId: jsii.String("collectionId"),
 //
@@ -695,9 +701,9 @@ func (c *jsiiProxy_CfnCollection) ValidateProperties(_properties interface{}) {
 //
 type CfnCollectionProps struct {
 	// ID for the collection that you are creating.
-	CollectionId *string `json:"collectionId" yaml:"collectionId"`
+	CollectionId *string `field:"required" json:"collectionId" yaml:"collectionId"`
 	// A set of tags (key-value pairs) that you want to attach to the collection.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Rekognition::Project`.
@@ -705,8 +711,11 @@ type CfnCollectionProps struct {
 // The `AWS::Rekognition::Project` type creates an Amazon Rekognition Custom Labels project. A project is a group of resources needed to create and manage versions of an Amazon Rekognition Custom Labels model.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import rekognition "github.com/aws/aws-cdk-go/awscdk/aws_rekognition"
-//   cfnProject := rekognition.NewCfnProject(this, jsii.String("MyCfnProject"), &cfnProjectProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnProject := awscdk.Aws_rekognition.NewCfnProject(this, jsii.String("MyCfnProject"), &cfnProjectProps{
 //   	projectName: jsii.String("projectName"),
 //   })
 //
@@ -1351,13 +1360,16 @@ func (c *jsiiProxy_CfnProject) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnProject`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import rekognition "github.com/aws/aws-cdk-go/awscdk/aws_rekognition"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnProjectProps := &cfnProjectProps{
 //   	projectName: jsii.String("projectName"),
 //   }
 //
 type CfnProjectProps struct {
 	// The name of the project to create.
-	ProjectName *string `json:"projectName" yaml:"projectName"`
+	ProjectName *string `field:"required" json:"projectName" yaml:"projectName"`
 }
 

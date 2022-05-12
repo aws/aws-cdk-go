@@ -14,8 +14,11 @@ import (
 // The `AWS::AccessAnalyzer::Analyzer` resource specifies a new analyzer. The analyzer is an object that represents the IAM Access Analyzer feature. An analyzer is required for Access Analyzer to become operational.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import accessanalyzer "github.com/aws/aws-cdk-go/awscdk/aws_accessanalyzer"
-//   cfnAnalyzer := accessanalyzer.NewCfnAnalyzer(this, jsii.String("MyCfnAnalyzer"), &cfnAnalyzerProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnAnalyzer := awscdk.Aws_accessanalyzer.NewCfnAnalyzer(this, jsii.String("MyCfnAnalyzer"), &cfnAnalyzerProps{
 //   	type: jsii.String("type"),
 //
 //   	// the properties below are optional
@@ -746,7 +749,10 @@ func (c *jsiiProxy_CfnAnalyzer) ValidateProperties(_properties interface{}) {
 // The criteria for an archive rule.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import accessanalyzer "github.com/aws/aws-cdk-go/awscdk/aws_accessanalyzer"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   archiveRuleProperty := &archiveRuleProperty{
 //   	filter: []interface{}{
 //   		&filterProperty{
@@ -770,15 +776,18 @@ func (c *jsiiProxy_CfnAnalyzer) ValidateProperties(_properties interface{}) {
 //
 type CfnAnalyzer_ArchiveRuleProperty struct {
 	// The criteria for the rule.
-	Filter interface{} `json:"filter" yaml:"filter"`
+	Filter interface{} `field:"required" json:"filter" yaml:"filter"`
 	// The name of the archive rule.
-	RuleName *string `json:"ruleName" yaml:"ruleName"`
+	RuleName *string `field:"required" json:"ruleName" yaml:"ruleName"`
 }
 
 // The criteria that defines the rule.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import accessanalyzer "github.com/aws/aws-cdk-go/awscdk/aws_accessanalyzer"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   filterProperty := &filterProperty{
 //   	property: jsii.String("property"),
 //
@@ -797,21 +806,24 @@ type CfnAnalyzer_ArchiveRuleProperty struct {
 //
 type CfnAnalyzer_FilterProperty struct {
 	// The property used to define the criteria in the filter for the rule.
-	Property *string `json:"property" yaml:"property"`
+	Property *string `field:"required" json:"property" yaml:"property"`
 	// A "contains" condition to match for the rule.
-	Contains *[]*string `json:"contains" yaml:"contains"`
+	Contains *[]*string `field:"optional" json:"contains" yaml:"contains"`
 	// An "equals" condition to match for the rule.
-	Eq *[]*string `json:"eq" yaml:"eq"`
+	Eq *[]*string `field:"optional" json:"eq" yaml:"eq"`
 	// An "exists" condition to match for the rule.
-	Exists interface{} `json:"exists" yaml:"exists"`
+	Exists interface{} `field:"optional" json:"exists" yaml:"exists"`
 	// A "not equal" condition to match for the rule.
-	Neq *[]*string `json:"neq" yaml:"neq"`
+	Neq *[]*string `field:"optional" json:"neq" yaml:"neq"`
 }
 
 // Properties for defining a `CfnAnalyzer`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import accessanalyzer "github.com/aws/aws-cdk-go/awscdk/aws_accessanalyzer"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAnalyzerProps := &cfnAnalyzerProps{
 //   	type: jsii.String("type"),
 //
@@ -851,12 +863,12 @@ type CfnAnalyzerProps struct {
 	// The type represents the zone of trust for the analyzer.
 	//
 	// *Allowed Values* : ACCOUNT | ORGANIZATION.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// The name of the analyzer.
-	AnalyzerName *string `json:"analyzerName" yaml:"analyzerName"`
+	AnalyzerName *string `field:"optional" json:"analyzerName" yaml:"analyzerName"`
 	// Specifies the archive rules to add for the analyzer.
-	ArchiveRules interface{} `json:"archiveRules" yaml:"archiveRules"`
+	ArchiveRules interface{} `field:"optional" json:"archiveRules" yaml:"archiveRules"`
 	// The tags to apply to the analyzer.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

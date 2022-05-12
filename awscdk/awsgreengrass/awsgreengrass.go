@@ -20,11 +20,14 @@ import (
 // > After you create the connector definition version that contains the connectors you want to deploy, you must add it to your group version. For more information, see [`AWS::Greengrass::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameters interface{}
 //   var tags interface{}
-//   cfnConnectorDefinition := greengrass.NewCfnConnectorDefinition(this, jsii.String("MyCfnConnectorDefinition"), &cfnConnectorDefinitionProps{
+//
+//   cfnConnectorDefinition := awscdk.Aws_greengrass.NewCfnConnectorDefinition(this, jsii.String("MyCfnConnectorDefinition"), &cfnConnectorDefinitionProps{
 //   	name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -769,9 +772,12 @@ func (c *jsiiProxy_CfnConnectorDefinition) ValidateProperties(_properties interf
 // In an AWS CloudFormation template, `ConnectorDefinitionVersion` is the property type of the `InitialVersion` property in the [`AWS::Greengrass::ConnectorDefinition`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-connectordefinition.html) resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameters interface{}
+//
 //   connectorDefinitionVersionProperty := &connectorDefinitionVersionProperty{
 //   	connectors: []interface{}{
 //   		&connectorProperty{
@@ -788,7 +794,7 @@ type CfnConnectorDefinition_ConnectorDefinitionVersionProperty struct {
 	// The connectors in this version.
 	//
 	// Only one instance of a given connector can be added to a connector definition version at a time.
-	Connectors interface{} `json:"connectors" yaml:"connectors"`
+	Connectors interface{} `field:"required" json:"connectors" yaml:"connectors"`
 }
 
 // Connectors are modules that provide built-in integration with local infrastructure, device protocols, AWS , and other cloud services.
@@ -798,9 +804,12 @@ type CfnConnectorDefinition_ConnectorDefinitionVersionProperty struct {
 // In an AWS CloudFormation template, the `Connectors` property of the [`ConnectorDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-connectordefinition-connectordefinitionversion.html) property type contains a list of `Connector` property types.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameters interface{}
+//
 //   connectorProperty := &connectorProperty{
 //   	connectorArn: jsii.String("connectorArn"),
 //   	id: jsii.String("id"),
@@ -813,24 +822,27 @@ type CfnConnectorDefinition_ConnectorProperty struct {
 	// The Amazon Resource Name (ARN) of the connector.
 	//
 	// For more information about connectors provided by AWS , see [Greengrass Connectors Provided by AWS](https://docs.aws.amazon.com/greengrass/latest/developerguide/connectors-list.html) .
-	ConnectorArn *string `json:"connectorArn" yaml:"connectorArn"`
+	ConnectorArn *string `field:"required" json:"connectorArn" yaml:"connectorArn"`
 	// A descriptive or arbitrary ID for the connector.
 	//
 	// This value must be unique within the connector definition version. Maximum length is 128 characters with pattern `[a-zA-Z0-9:_-]+` .
-	Id *string `json:"id" yaml:"id"`
+	Id *string `field:"required" json:"id" yaml:"id"`
 	// The parameters or configuration used by the connector.
 	//
 	// For more information about connectors provided by AWS , see [Greengrass Connectors Provided by AWS](https://docs.aws.amazon.com/greengrass/latest/developerguide/connectors-list.html) .
-	Parameters interface{} `json:"parameters" yaml:"parameters"`
+	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 }
 
 // Properties for defining a `CfnConnectorDefinition`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameters interface{}
 //   var tags interface{}
+//
 //   cfnConnectorDefinitionProps := &cfnConnectorDefinitionProps{
 //   	name: jsii.String("name"),
 //
@@ -851,13 +863,13 @@ type CfnConnectorDefinition_ConnectorProperty struct {
 //
 type CfnConnectorDefinitionProps struct {
 	// The name of the connector definition.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The connector definition version to include when the connector definition is created.
 	//
 	// A connector definition version contains a list of [`connector`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-connectordefinition-connector.html) property types.
 	//
 	// > To associate a connector definition version after the connector definition is created, create an [`AWS::Greengrass::ConnectorDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-connectordefinitionversion.html) resource and specify the ID of this connector definition.
-	InitialVersion interface{} `json:"initialVersion" yaml:"initialVersion"`
+	InitialVersion interface{} `field:"optional" json:"initialVersion" yaml:"initialVersion"`
 	// Application-specific metadata to attach to the connector definition.
 	//
 	// You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tagging Your AWS IoT Greengrass Resources](https://docs.aws.amazon.com/greengrass/latest/developerguide/tagging.html) in the *Developer Guide* .
@@ -868,7 +880,7 @@ type CfnConnectorDefinitionProps struct {
 	// "Tags": { "KeyName0": "value", "KeyName1": "value", "KeyName2": "value"
 	// }
 	// ```.
-	Tags interface{} `json:"tags" yaml:"tags"`
+	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Greengrass::ConnectorDefinitionVersion`.
@@ -880,10 +892,13 @@ type CfnConnectorDefinitionProps struct {
 // > After you create a connector definition version that contains the connectors you want to deploy, you must add it to your group version. For more information, see [`AWS::Greengrass::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameters interface{}
-//   cfnConnectorDefinitionVersion := greengrass.NewCfnConnectorDefinitionVersion(this, jsii.String("MyCfnConnectorDefinitionVersion"), &cfnConnectorDefinitionVersionProps{
+//
+//   cfnConnectorDefinitionVersion := awscdk.Aws_greengrass.NewCfnConnectorDefinitionVersion(this, jsii.String("MyCfnConnectorDefinitionVersion"), &cfnConnectorDefinitionVersionProps{
 //   	connectorDefinitionId: jsii.String("connectorDefinitionId"),
 //   	connectors: []interface{}{
 //   		&connectorProperty{
@@ -1554,9 +1569,12 @@ func (c *jsiiProxy_CfnConnectorDefinitionVersion) ValidateProperties(_properties
 // In an AWS CloudFormation template, the `Connectors` property of the [`AWS::Greengrass::ConnectorDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-connectordefinitionversion.html) resource contains a list of `Connector` property types.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameters interface{}
+//
 //   connectorProperty := &connectorProperty{
 //   	connectorArn: jsii.String("connectorArn"),
 //   	id: jsii.String("id"),
@@ -1569,23 +1587,26 @@ type CfnConnectorDefinitionVersion_ConnectorProperty struct {
 	// The Amazon Resource Name (ARN) of the connector.
 	//
 	// For more information about connectors provided by AWS , see [Greengrass Connectors Provided by AWS](https://docs.aws.amazon.com/greengrass/latest/developerguide/connectors-list.html) .
-	ConnectorArn *string `json:"connectorArn" yaml:"connectorArn"`
+	ConnectorArn *string `field:"required" json:"connectorArn" yaml:"connectorArn"`
 	// A descriptive or arbitrary ID for the connector.
 	//
 	// This value must be unique within the connector definition version. Maximum length is 128 characters with pattern `[a-zA-Z0-9:_-]+` .
-	Id *string `json:"id" yaml:"id"`
+	Id *string `field:"required" json:"id" yaml:"id"`
 	// The parameters or configuration that the connector uses.
 	//
 	// For more information about connectors provided by AWS , see [Greengrass Connectors Provided by AWS](https://docs.aws.amazon.com/greengrass/latest/developerguide/connectors-list.html) .
-	Parameters interface{} `json:"parameters" yaml:"parameters"`
+	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 }
 
 // Properties for defining a `CfnConnectorDefinitionVersion`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameters interface{}
+//
 //   cfnConnectorDefinitionVersionProps := &cfnConnectorDefinitionVersionProps{
 //   	connectorDefinitionId: jsii.String("connectorDefinitionId"),
 //   	connectors: []interface{}{
@@ -1603,11 +1624,11 @@ type CfnConnectorDefinitionVersionProps struct {
 	// The ID of the connector definition associated with this version.
 	//
 	// This value is a GUID.
-	ConnectorDefinitionId *string `json:"connectorDefinitionId" yaml:"connectorDefinitionId"`
+	ConnectorDefinitionId *string `field:"required" json:"connectorDefinitionId" yaml:"connectorDefinitionId"`
 	// The connectors in this version.
 	//
 	// Only one instance of a given connector can be added to the connector definition version at a time.
-	Connectors interface{} `json:"connectors" yaml:"connectors"`
+	Connectors interface{} `field:"required" json:"connectors" yaml:"connectors"`
 }
 
 // A CloudFormation `AWS::Greengrass::CoreDefinition`.
@@ -1621,10 +1642,13 @@ type CfnConnectorDefinitionVersionProps struct {
 // > After you create the core definition version that contains the core you want to deploy, you must add it to your group version. For more information, see [`AWS::Greengrass::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var tags interface{}
-//   cfnCoreDefinition := greengrass.NewCfnCoreDefinition(this, jsii.String("MyCfnCoreDefinition"), &cfnCoreDefinitionProps{
+//
+//   cfnCoreDefinition := awscdk.Aws_greengrass.NewCfnCoreDefinition(this, jsii.String("MyCfnCoreDefinition"), &cfnCoreDefinitionProps{
 //   	name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -2370,7 +2394,10 @@ func (c *jsiiProxy_CfnCoreDefinition) ValidateProperties(_properties interface{}
 // In an AWS CloudFormation template, `CoreDefinitionVersion` is the property type of the `InitialVersion` property in the [`AWS::Greengrass::CoreDefinition`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-coredefinition.html) resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   coreDefinitionVersionProperty := &coreDefinitionVersionProperty{
 //   	cores: []interface{}{
 //   		&coreProperty{
@@ -2388,7 +2415,7 @@ type CfnCoreDefinition_CoreDefinitionVersionProperty struct {
 	// The Greengrass core in this version.
 	//
 	// Currently, the `Cores` property for a core definition version can contain only one core.
-	Cores interface{} `json:"cores" yaml:"cores"`
+	Cores interface{} `field:"required" json:"cores" yaml:"cores"`
 }
 
 // A core is an AWS IoT device that runs the AWS IoT Greengrass core software and manages local processes for a Greengrass group.
@@ -2398,7 +2425,10 @@ type CfnCoreDefinition_CoreDefinitionVersionProperty struct {
 // In an AWS CloudFormation template, the `Cores` property of the [`CoreDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-coredefinition-coredefinitionversion.html) property type contains a list of `Core` property types. Currently, the list can contain only one core.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   coreProperty := &coreProperty{
 //   	certificateArn: jsii.String("certificateArn"),
 //   	id: jsii.String("id"),
@@ -2412,25 +2442,28 @@ type CfnCoreDefinition_CoreProperty struct {
 	// The Amazon Resource Name (ARN) of the device certificate for the core.
 	//
 	// This X.509 certificate is used to authenticate the core with AWS IoT and AWS IoT Greengrass services.
-	CertificateArn *string `json:"certificateArn" yaml:"certificateArn"`
+	CertificateArn *string `field:"required" json:"certificateArn" yaml:"certificateArn"`
 	// A descriptive or arbitrary ID for the core.
 	//
 	// This value must be unique within the core definition version. Maximum length is 128 characters with pattern `[a-zA-Z0-9:_-]+` .
-	Id *string `json:"id" yaml:"id"`
+	Id *string `field:"required" json:"id" yaml:"id"`
 	// The ARN of the core, which is an AWS IoT device (thing).
-	ThingArn *string `json:"thingArn" yaml:"thingArn"`
+	ThingArn *string `field:"required" json:"thingArn" yaml:"thingArn"`
 	// Indicates whether the core's local shadow is synced with the cloud automatically.
 	//
 	// The default is false.
-	SyncShadow interface{} `json:"syncShadow" yaml:"syncShadow"`
+	SyncShadow interface{} `field:"optional" json:"syncShadow" yaml:"syncShadow"`
 }
 
 // Properties for defining a `CfnCoreDefinition`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var tags interface{}
+//
 //   cfnCoreDefinitionProps := &cfnCoreDefinitionProps{
 //   	name: jsii.String("name"),
 //
@@ -2452,13 +2485,13 @@ type CfnCoreDefinition_CoreProperty struct {
 //
 type CfnCoreDefinitionProps struct {
 	// The name of the core definition.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The core definition version to include when the core definition is created.
 	//
 	// Currently, a core definition version can contain only one [`core`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-coredefinition-core.html) .
 	//
 	// > To associate a core definition version after the core definition is created, create an [`AWS::Greengrass::CoreDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-coredefinitionversion.html) resource and specify the ID of this core definition.
-	InitialVersion interface{} `json:"initialVersion" yaml:"initialVersion"`
+	InitialVersion interface{} `field:"optional" json:"initialVersion" yaml:"initialVersion"`
 	// Application-specific metadata to attach to the core definition.
 	//
 	// You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tagging Your AWS IoT Greengrass Resources](https://docs.aws.amazon.com/greengrass/latest/developerguide/tagging.html) in the *Developer Guide* .
@@ -2469,7 +2502,7 @@ type CfnCoreDefinitionProps struct {
 	// "Tags": { "KeyName0": "value", "KeyName1": "value", "KeyName2": "value"
 	// }
 	// ```.
-	Tags interface{} `json:"tags" yaml:"tags"`
+	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Greengrass::CoreDefinitionVersion`.
@@ -2481,8 +2514,11 @@ type CfnCoreDefinitionProps struct {
 // > After you create a core definition version that contains the core you want to deploy, you must add it to your group version. For more information, see [`AWS::Greengrass::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
-//   cfnCoreDefinitionVersion := greengrass.NewCfnCoreDefinitionVersion(this, jsii.String("MyCfnCoreDefinitionVersion"), &cfnCoreDefinitionVersionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnCoreDefinitionVersion := awscdk.Aws_greengrass.NewCfnCoreDefinitionVersion(this, jsii.String("MyCfnCoreDefinitionVersion"), &cfnCoreDefinitionVersionProps{
 //   	coreDefinitionId: jsii.String("coreDefinitionId"),
 //   	cores: []interface{}{
 //   		&coreProperty{
@@ -3154,7 +3190,10 @@ func (c *jsiiProxy_CfnCoreDefinitionVersion) ValidateProperties(_properties inte
 // In an AWS CloudFormation template, the `Cores` property of the [`AWS::Greengrass::CoreDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-coredefinitionversion.html) resource contains a list of `Core` property types. Currently, the list can contain only one core.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   coreProperty := &coreProperty{
 //   	certificateArn: jsii.String("certificateArn"),
 //   	id: jsii.String("id"),
@@ -3168,23 +3207,26 @@ type CfnCoreDefinitionVersion_CoreProperty struct {
 	// The ARN of the device certificate for the core.
 	//
 	// This X.509 certificate is used to authenticate the core with AWS IoT and AWS IoT Greengrass services.
-	CertificateArn *string `json:"certificateArn" yaml:"certificateArn"`
+	CertificateArn *string `field:"required" json:"certificateArn" yaml:"certificateArn"`
 	// A descriptive or arbitrary ID for the core.
 	//
 	// This value must be unique within the core definition version. Maximum length is 128 characters with pattern `[a-zA-Z0-9:_-]+` .
-	Id *string `json:"id" yaml:"id"`
+	Id *string `field:"required" json:"id" yaml:"id"`
 	// The Amazon Resource Name (ARN) of the core, which is an AWS IoT device (thing).
-	ThingArn *string `json:"thingArn" yaml:"thingArn"`
+	ThingArn *string `field:"required" json:"thingArn" yaml:"thingArn"`
 	// Indicates whether the core's local shadow is synced with the cloud automatically.
 	//
 	// The default is false.
-	SyncShadow interface{} `json:"syncShadow" yaml:"syncShadow"`
+	SyncShadow interface{} `field:"optional" json:"syncShadow" yaml:"syncShadow"`
 }
 
 // Properties for defining a `CfnCoreDefinitionVersion`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnCoreDefinitionVersionProps := &cfnCoreDefinitionVersionProps{
 //   	coreDefinitionId: jsii.String("coreDefinitionId"),
 //   	cores: []interface{}{
@@ -3203,11 +3245,11 @@ type CfnCoreDefinitionVersionProps struct {
 	// The ID of the core definition associated with this version.
 	//
 	// This value is a GUID.
-	CoreDefinitionId *string `json:"coreDefinitionId" yaml:"coreDefinitionId"`
+	CoreDefinitionId *string `field:"required" json:"coreDefinitionId" yaml:"coreDefinitionId"`
 	// The Greengrass core in this version.
 	//
 	// Currently, the `Cores` property for a core definition version can contain only one core.
-	Cores interface{} `json:"cores" yaml:"cores"`
+	Cores interface{} `field:"required" json:"cores" yaml:"cores"`
 }
 
 // A CloudFormation `AWS::Greengrass::DeviceDefinition`.
@@ -3221,10 +3263,13 @@ type CfnCoreDefinitionVersionProps struct {
 // > After you create the device definition version that contains the devices you want to deploy, you must add it to your group version. For more information, see [`AWS::Greengrass::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var tags interface{}
-//   cfnDeviceDefinition := greengrass.NewCfnDeviceDefinition(this, jsii.String("MyCfnDeviceDefinition"), &cfnDeviceDefinitionProps{
+//
+//   cfnDeviceDefinition := awscdk.Aws_greengrass.NewCfnDeviceDefinition(this, jsii.String("MyCfnDeviceDefinition"), &cfnDeviceDefinitionProps{
 //   	name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -3970,7 +4015,10 @@ func (c *jsiiProxy_CfnDeviceDefinition) ValidateProperties(_properties interface
 // In an AWS CloudFormation template, `DeviceDefinitionVersion` is the property type of the `InitialVersion` property in the [`AWS::Greengrass::DeviceDefinition`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-devicedefinition.html) resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   deviceDefinitionVersionProperty := &deviceDefinitionVersionProperty{
 //   	devices: []interface{}{
 //   		&deviceProperty{
@@ -3986,7 +4034,7 @@ func (c *jsiiProxy_CfnDeviceDefinition) ValidateProperties(_properties interface
 //
 type CfnDeviceDefinition_DeviceDefinitionVersionProperty struct {
 	// The devices in this version.
-	Devices interface{} `json:"devices" yaml:"devices"`
+	Devices interface{} `field:"required" json:"devices" yaml:"devices"`
 }
 
 // A device is an AWS IoT device (thing) that's added to a Greengrass group.
@@ -3996,7 +4044,10 @@ type CfnDeviceDefinition_DeviceDefinitionVersionProperty struct {
 // In an AWS CloudFormation template, the `Devices` property of the [`DeviceDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-devicedefinition-devicedefinitionversion.html) property type contains a list of `Device` property types.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   deviceProperty := &deviceProperty{
 //   	certificateArn: jsii.String("certificateArn"),
 //   	id: jsii.String("id"),
@@ -4010,23 +4061,26 @@ type CfnDeviceDefinition_DeviceProperty struct {
 	// The Amazon Resource Name (ARN) of the device certificate for the device.
 	//
 	// This X.509 certificate is used to authenticate the device with AWS IoT and AWS IoT Greengrass services.
-	CertificateArn *string `json:"certificateArn" yaml:"certificateArn"`
+	CertificateArn *string `field:"required" json:"certificateArn" yaml:"certificateArn"`
 	// A descriptive or arbitrary ID for the device.
 	//
 	// This value must be unique within the device definition version. Maximum length is 128 characters with pattern `[a-zA-Z0-9:_-]+` .
-	Id *string `json:"id" yaml:"id"`
+	Id *string `field:"required" json:"id" yaml:"id"`
 	// The ARN of the device, which is an AWS IoT device (thing).
-	ThingArn *string `json:"thingArn" yaml:"thingArn"`
+	ThingArn *string `field:"required" json:"thingArn" yaml:"thingArn"`
 	// Indicates whether the device's local shadow is synced with the cloud automatically.
-	SyncShadow interface{} `json:"syncShadow" yaml:"syncShadow"`
+	SyncShadow interface{} `field:"optional" json:"syncShadow" yaml:"syncShadow"`
 }
 
 // Properties for defining a `CfnDeviceDefinition`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var tags interface{}
+//
 //   cfnDeviceDefinitionProps := &cfnDeviceDefinitionProps{
 //   	name: jsii.String("name"),
 //
@@ -4048,13 +4102,13 @@ type CfnDeviceDefinition_DeviceProperty struct {
 //
 type CfnDeviceDefinitionProps struct {
 	// The name of the device definition.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The device definition version to include when the device definition is created.
 	//
 	// A device definition version contains a list of [`device`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-devicedefinition-device.html) property types.
 	//
 	// > To associate a device definition version after the device definition is created, create an [`AWS::Greengrass::DeviceDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-devicedefinitionversion.html) resource and specify the ID of this device definition.
-	InitialVersion interface{} `json:"initialVersion" yaml:"initialVersion"`
+	InitialVersion interface{} `field:"optional" json:"initialVersion" yaml:"initialVersion"`
 	// Application-specific metadata to attach to the device definition.
 	//
 	// You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tagging Your AWS IoT Greengrass Resources](https://docs.aws.amazon.com/greengrass/latest/developerguide/tagging.html) in the *Developer Guide* .
@@ -4065,7 +4119,7 @@ type CfnDeviceDefinitionProps struct {
 	// "Tags": { "KeyName0": "value", "KeyName1": "value", "KeyName2": "value"
 	// }
 	// ```.
-	Tags interface{} `json:"tags" yaml:"tags"`
+	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Greengrass::DeviceDefinitionVersion`.
@@ -4077,8 +4131,11 @@ type CfnDeviceDefinitionProps struct {
 // > After you create a device definition version that contains the devices you want to deploy, you must add it to your group version. For more information, see [`AWS::Greengrass::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
-//   cfnDeviceDefinitionVersion := greengrass.NewCfnDeviceDefinitionVersion(this, jsii.String("MyCfnDeviceDefinitionVersion"), &cfnDeviceDefinitionVersionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDeviceDefinitionVersion := awscdk.Aws_greengrass.NewCfnDeviceDefinitionVersion(this, jsii.String("MyCfnDeviceDefinitionVersion"), &cfnDeviceDefinitionVersionProps{
 //   	deviceDefinitionId: jsii.String("deviceDefinitionId"),
 //   	devices: []interface{}{
 //   		&deviceProperty{
@@ -4748,7 +4805,10 @@ func (c *jsiiProxy_CfnDeviceDefinitionVersion) ValidateProperties(_properties in
 // In an AWS CloudFormation template, the `Devices` property of the [`AWS::Greengrass::DeviceDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-devicedefinitionversion.html) resource contains a list of `Device` property types.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   deviceProperty := &deviceProperty{
 //   	certificateArn: jsii.String("certificateArn"),
 //   	id: jsii.String("id"),
@@ -4762,21 +4822,24 @@ type CfnDeviceDefinitionVersion_DeviceProperty struct {
 	// The ARN of the device certificate for the device.
 	//
 	// This X.509 certificate is used to authenticate the device with AWS IoT and AWS IoT Greengrass services.
-	CertificateArn *string `json:"certificateArn" yaml:"certificateArn"`
+	CertificateArn *string `field:"required" json:"certificateArn" yaml:"certificateArn"`
 	// A descriptive or arbitrary ID for the device.
 	//
 	// This value must be unique within the device definition version. Maximum length is 128 characters with pattern `[a-zA-Z0-9:_-]+` .
-	Id *string `json:"id" yaml:"id"`
+	Id *string `field:"required" json:"id" yaml:"id"`
 	// The Amazon Resource Name (ARN) of the device, which is an AWS IoT device (thing).
-	ThingArn *string `json:"thingArn" yaml:"thingArn"`
+	ThingArn *string `field:"required" json:"thingArn" yaml:"thingArn"`
 	// Indicates whether the device's local shadow is synced with the cloud automatically.
-	SyncShadow interface{} `json:"syncShadow" yaml:"syncShadow"`
+	SyncShadow interface{} `field:"optional" json:"syncShadow" yaml:"syncShadow"`
 }
 
 // Properties for defining a `CfnDeviceDefinitionVersion`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDeviceDefinitionVersionProps := &cfnDeviceDefinitionVersionProps{
 //   	deviceDefinitionId: jsii.String("deviceDefinitionId"),
 //   	devices: []interface{}{
@@ -4795,9 +4858,9 @@ type CfnDeviceDefinitionVersionProps struct {
 	// The ID of the device definition associated with this version.
 	//
 	// This value is a GUID.
-	DeviceDefinitionId *string `json:"deviceDefinitionId" yaml:"deviceDefinitionId"`
+	DeviceDefinitionId *string `field:"required" json:"deviceDefinitionId" yaml:"deviceDefinitionId"`
 	// The devices in this version.
-	Devices interface{} `json:"devices" yaml:"devices"`
+	Devices interface{} `field:"required" json:"devices" yaml:"devices"`
 }
 
 // A CloudFormation `AWS::Greengrass::FunctionDefinition`.
@@ -4811,11 +4874,14 @@ type CfnDeviceDefinitionVersionProps struct {
 // > After you create the function definition version that contains the functions you want to deploy, you must add it to your group version. For more information, see [`AWS::Greengrass::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var tags interface{}
 //   var variables interface{}
-//   cfnFunctionDefinition := greengrass.NewCfnFunctionDefinition(this, jsii.String("MyCfnFunctionDefinition"), &cfnFunctionDefinitionProps{
+//
+//   cfnFunctionDefinition := awscdk.Aws_greengrass.NewCfnFunctionDefinition(this, jsii.String("MyCfnFunctionDefinition"), &cfnFunctionDefinitionProps{
 //   	name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -5595,7 +5661,10 @@ func (c *jsiiProxy_CfnFunctionDefinition) ValidateProperties(_properties interfa
 // In an AWS CloudFormation template, `DefaultConfig` is a property of the [`FunctionDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-functiondefinitionversion.html) property type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   defaultConfigProperty := &defaultConfigProperty{
 //   	execution: &executionProperty{
 //   		isolationMode: jsii.String("isolationMode"),
@@ -5608,7 +5677,7 @@ func (c *jsiiProxy_CfnFunctionDefinition) ValidateProperties(_properties interfa
 //
 type CfnFunctionDefinition_DefaultConfigProperty struct {
 	// Configuration settings for the Lambda execution environment on the AWS IoT Greengrass core.
-	Execution interface{} `json:"execution" yaml:"execution"`
+	Execution interface{} `field:"required" json:"execution" yaml:"execution"`
 }
 
 // The environment configuration for a Lambda function on the AWS IoT Greengrass core.
@@ -5616,9 +5685,12 @@ type CfnFunctionDefinition_DefaultConfigProperty struct {
 // In an AWS CloudFormation template, `Environment` is a property of the [`FunctionConfiguration`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-functionconfiguration.html) property type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var variables interface{}
+//
 //   environmentProperty := &environmentProperty{
 //   	accessSysfs: jsii.Boolean(false),
 //   	execution: &executionProperty{
@@ -5643,15 +5715,15 @@ type CfnFunctionDefinition_EnvironmentProperty struct {
 	// Indicates whether the function is allowed to access the `/sys` directory on the core device, which allows the read device information from `/sys` .
 	//
 	// > This property applies only to Lambda functions that run in a Greengrass container.
-	AccessSysfs interface{} `json:"accessSysfs" yaml:"accessSysfs"`
+	AccessSysfs interface{} `field:"optional" json:"accessSysfs" yaml:"accessSysfs"`
 	// Settings for the Lambda execution environment in AWS IoT Greengrass .
-	Execution interface{} `json:"execution" yaml:"execution"`
+	Execution interface{} `field:"optional" json:"execution" yaml:"execution"`
 	// A list of the [resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourceinstance.html) in the group that the function can access, with the corresponding read-only or read-write permissions. The maximum is 10 resources.
 	//
 	// > This property applies only for Lambda functions that run in a Greengrass container.
-	ResourceAccessPolicies interface{} `json:"resourceAccessPolicies" yaml:"resourceAccessPolicies"`
+	ResourceAccessPolicies interface{} `field:"optional" json:"resourceAccessPolicies" yaml:"resourceAccessPolicies"`
 	// Environment variables for the Lambda function.
-	Variables interface{} `json:"variables" yaml:"variables"`
+	Variables interface{} `field:"optional" json:"variables" yaml:"variables"`
 }
 
 // Configuration settings for the Lambda execution environment on the AWS IoT Greengrass core.
@@ -5659,7 +5731,10 @@ type CfnFunctionDefinition_EnvironmentProperty struct {
 // In an AWS CloudFormation template, `Execution` is a property of the [`DefaultConfig`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-defaultconfig.html) property type for a function definition version and the [`Environment`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-environment.html) property type for a function.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   executionProperty := &executionProperty{
 //   	isolationMode: jsii.String("isolationMode"),
 //   	runAs: &runAsProperty{
@@ -5677,7 +5752,7 @@ type CfnFunctionDefinition_ExecutionProperty struct {
 	// - When set on the [`Environment`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-environment.html) property of a function, this setting applies to the individual function and overrides the default. Omit this value to run the function with the default containerization.
 	//
 	// > We recommend that you run in a Greengrass container unless your business case requires that you run without containerization.
-	IsolationMode *string `json:"isolationMode" yaml:"isolationMode"`
+	IsolationMode *string `field:"optional" json:"isolationMode" yaml:"isolationMode"`
 	// The user and group permissions used to run the Lambda function.
 	//
 	// Typically, this is the ggc_user and ggc_group. For more information, see [Run as](https://docs.aws.amazon.com/greengrass/latest/developerguide/lambda-group-config.html#lambda-access-identity.html) in the *Developer Guide* .
@@ -5686,7 +5761,7 @@ type CfnFunctionDefinition_ExecutionProperty struct {
 	// - When set on the [`Environment`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-environment.html) property of a function, this setting applies to the individual function and overrides the default. You can override the user, group, or both. Omit this value to run the function with the default permissions.
 	//
 	// > Running as the root user increases risks to your data and device. Do not run as root (UID/GID=0) unless your business case requires it. For more information and requirements, see [Running a Lambda Function as Root](https://docs.aws.amazon.com/greengrass/latest/developerguide/lambda-group-config.html#lambda-running-as-root) .
-	RunAs interface{} `json:"runAs" yaml:"runAs"`
+	RunAs interface{} `field:"optional" json:"runAs" yaml:"runAs"`
 }
 
 // The group-specific configuration settings for a Lambda function.
@@ -5696,9 +5771,12 @@ type CfnFunctionDefinition_ExecutionProperty struct {
 // In an AWS CloudFormation template, `FunctionConfiguration` is a property of the [`Function`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-function.html) property type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var variables interface{}
+//
 //   functionConfigurationProperty := &functionConfigurationProperty{
 //   	encodingType: jsii.String("encodingType"),
 //   	environment: &environmentProperty{
@@ -5731,25 +5809,25 @@ type CfnFunctionDefinition_FunctionConfigurationProperty struct {
 	// The expected encoding type of the input payload for the function.
 	//
 	// Valid values are `json` (default) and `binary` .
-	EncodingType *string `json:"encodingType" yaml:"encodingType"`
+	EncodingType *string `field:"optional" json:"encodingType" yaml:"encodingType"`
 	// The environment configuration of the function.
-	Environment interface{} `json:"environment" yaml:"environment"`
+	Environment interface{} `field:"optional" json:"environment" yaml:"environment"`
 	// The execution arguments.
-	ExecArgs *string `json:"execArgs" yaml:"execArgs"`
+	ExecArgs *string `field:"optional" json:"execArgs" yaml:"execArgs"`
 	// The name of the function executable.
-	Executable *string `json:"executable" yaml:"executable"`
+	Executable *string `field:"optional" json:"executable" yaml:"executable"`
 	// The memory size (in KB) required by the function.
 	//
 	// > This property applies only to Lambda functions that run in a Greengrass container.
-	MemorySize *float64 `json:"memorySize" yaml:"memorySize"`
+	MemorySize *float64 `field:"optional" json:"memorySize" yaml:"memorySize"`
 	// Indicates whether the function is pinned (or *long-lived* ).
 	//
 	// Pinned functions start when the core starts and process all requests in the same container. The default value is false.
-	Pinned interface{} `json:"pinned" yaml:"pinned"`
+	Pinned interface{} `field:"optional" json:"pinned" yaml:"pinned"`
 	// The allowed execution time (in seconds) after which the function should terminate.
 	//
 	// For pinned functions, this timeout applies for each request.
-	Timeout *float64 `json:"timeout" yaml:"timeout"`
+	Timeout *float64 `field:"optional" json:"timeout" yaml:"timeout"`
 }
 
 // A function definition version contains a list of functions.
@@ -5759,9 +5837,12 @@ type CfnFunctionDefinition_FunctionConfigurationProperty struct {
 // In an AWS CloudFormation template, `FunctionDefinitionVersion` is the property type of the `InitialVersion` property in the [`AWS::Greengrass::FunctionDefinition`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-functiondefinition.html) resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var variables interface{}
+//
 //   functionDefinitionVersionProperty := &functionDefinitionVersionProperty{
 //   	functions: []interface{}{
 //   		&functionProperty{
@@ -5811,11 +5892,11 @@ type CfnFunctionDefinition_FunctionConfigurationProperty struct {
 //
 type CfnFunctionDefinition_FunctionDefinitionVersionProperty struct {
 	// The functions in this version.
-	Functions interface{} `json:"functions" yaml:"functions"`
+	Functions interface{} `field:"required" json:"functions" yaml:"functions"`
 	// The default configuration that applies to all Lambda functions in the group.
 	//
 	// Individual Lambda functions can override these settings.
-	DefaultConfig interface{} `json:"defaultConfig" yaml:"defaultConfig"`
+	DefaultConfig interface{} `field:"optional" json:"defaultConfig" yaml:"defaultConfig"`
 }
 
 // A function is a Lambda function that's referenced from an AWS IoT Greengrass group.
@@ -5825,9 +5906,12 @@ type CfnFunctionDefinition_FunctionDefinitionVersionProperty struct {
 // In an AWS CloudFormation template, the `Functions` property of the [`FunctionDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-functiondefinitionversion.html) property type contains a list of `Function` property types.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var variables interface{}
+//
 //   functionProperty := &functionProperty{
 //   	functionArn: jsii.String("functionArn"),
 //   	functionConfiguration: &functionConfigurationProperty{
@@ -5862,15 +5946,15 @@ type CfnFunctionDefinition_FunctionDefinitionVersionProperty struct {
 //
 type CfnFunctionDefinition_FunctionProperty struct {
 	// The Amazon Resource Name (ARN) of the alias (recommended) or version of the referenced Lambda function.
-	FunctionArn *string `json:"functionArn" yaml:"functionArn"`
+	FunctionArn *string `field:"required" json:"functionArn" yaml:"functionArn"`
 	// The group-specific settings of the Lambda function.
 	//
 	// These settings configure the function's behavior in the Greengrass group.
-	FunctionConfiguration interface{} `json:"functionConfiguration" yaml:"functionConfiguration"`
+	FunctionConfiguration interface{} `field:"required" json:"functionConfiguration" yaml:"functionConfiguration"`
 	// A descriptive or arbitrary ID for the function.
 	//
 	// This value must be unique within the function definition version. Maximum length is 128 characters with pattern `[a-zA-Z0-9:_-]+` .
-	Id *string `json:"id" yaml:"id"`
+	Id *string `field:"required" json:"id" yaml:"id"`
 }
 
 // A list of the [resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourceinstance.html) in the group that the function can access, with the corresponding read-only or read-write permissions. The maximum is 10 resources.
@@ -5880,7 +5964,10 @@ type CfnFunctionDefinition_FunctionProperty struct {
 // In an AWS CloudFormation template, `ResourceAccessPolicy` is a property of the [`Environment`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-environment.html) property type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   resourceAccessPolicyProperty := &resourceAccessPolicyProperty{
 //   	resourceId: jsii.String("resourceId"),
 //
@@ -5892,11 +5979,11 @@ type CfnFunctionDefinition_ResourceAccessPolicyProperty struct {
 	// The ID of the resource.
 	//
 	// This ID is assigned to the resource when you create the resource definition.
-	ResourceId *string `json:"resourceId" yaml:"resourceId"`
+	ResourceId *string `field:"required" json:"resourceId" yaml:"resourceId"`
 	// The read-only or read-write access that the Lambda function has to the resource.
 	//
 	// Valid values are `ro` or `rw` .
-	Permission *string `json:"permission" yaml:"permission"`
+	Permission *string `field:"optional" json:"permission" yaml:"permission"`
 }
 
 // The access identity whose permissions are used to run the Lambda function.
@@ -5908,7 +5995,10 @@ type CfnFunctionDefinition_ResourceAccessPolicyProperty struct {
 // In an AWS CloudFormation template, `RunAs` is a property of the [`Execution`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-execution.html) property type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   runAsProperty := &runAsProperty{
 //   	gid: jsii.Number(123),
 //   	uid: jsii.Number(123),
@@ -5918,20 +6008,23 @@ type CfnFunctionDefinition_RunAsProperty struct {
 	// The group ID whose permissions are used to run the Lambda function.
 	//
 	// You can use the `getent group` command on your core device to look up the group ID.
-	Gid *float64 `json:"gid" yaml:"gid"`
+	Gid *float64 `field:"optional" json:"gid" yaml:"gid"`
 	// The user ID whose permissions are used to run the Lambda function.
 	//
 	// You can use the `getent passwd` command on your core device to look up the user ID.
-	Uid *float64 `json:"uid" yaml:"uid"`
+	Uid *float64 `field:"optional" json:"uid" yaml:"uid"`
 }
 
 // Properties for defining a `CfnFunctionDefinition`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var tags interface{}
 //   var variables interface{}
+//
 //   cfnFunctionDefinitionProps := &cfnFunctionDefinitionProps{
 //   	name: jsii.String("name"),
 //
@@ -5987,13 +6080,13 @@ type CfnFunctionDefinition_RunAsProperty struct {
 //
 type CfnFunctionDefinitionProps struct {
 	// The name of the function definition.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The function definition version to include when the function definition is created.
 	//
 	// A function definition version contains a list of [`function`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-function.html) property types.
 	//
 	// > To associate a function definition version after the function definition is created, create an [`AWS::Greengrass::FunctionDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-functiondefinitionversion.html) resource and specify the ID of this function definition.
-	InitialVersion interface{} `json:"initialVersion" yaml:"initialVersion"`
+	InitialVersion interface{} `field:"optional" json:"initialVersion" yaml:"initialVersion"`
 	// Application-specific metadata to attach to the function definition.
 	//
 	// You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tagging Your AWS IoT Greengrass Resources](https://docs.aws.amazon.com/greengrass/latest/developerguide/tagging.html) in the *Developer Guide* .
@@ -6004,7 +6097,7 @@ type CfnFunctionDefinitionProps struct {
 	// "Tags": { "KeyName0": "value", "KeyName1": "value", "KeyName2": "value"
 	// }
 	// ```.
-	Tags interface{} `json:"tags" yaml:"tags"`
+	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Greengrass::FunctionDefinitionVersion`.
@@ -6016,10 +6109,13 @@ type CfnFunctionDefinitionProps struct {
 // > After you create a function definition version that contains the functions you want to deploy, you must add it to your group version. For more information, see [`AWS::Greengrass::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var variables interface{}
-//   cfnFunctionDefinitionVersion := greengrass.NewCfnFunctionDefinitionVersion(this, jsii.String("MyCfnFunctionDefinitionVersion"), &cfnFunctionDefinitionVersionProps{
+//
+//   cfnFunctionDefinitionVersion := awscdk.Aws_greengrass.NewCfnFunctionDefinitionVersion(this, jsii.String("MyCfnFunctionDefinitionVersion"), &cfnFunctionDefinitionVersionProps{
 //   	functionDefinitionId: jsii.String("functionDefinitionId"),
 //   	functions: []interface{}{
 //   		&functionProperty{
@@ -6746,7 +6842,10 @@ func (c *jsiiProxy_CfnFunctionDefinitionVersion) ValidateProperties(_properties 
 // In an AWS CloudFormation template, `DefaultConfig` is a property of the [`AWS::Greengrass::FunctionDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-functiondefinitionversion.html) resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   defaultConfigProperty := &defaultConfigProperty{
 //   	execution: &executionProperty{
 //   		isolationMode: jsii.String("isolationMode"),
@@ -6759,7 +6858,7 @@ func (c *jsiiProxy_CfnFunctionDefinitionVersion) ValidateProperties(_properties 
 //
 type CfnFunctionDefinitionVersion_DefaultConfigProperty struct {
 	// Configuration settings for the Lambda execution environment on the AWS IoT Greengrass core.
-	Execution interface{} `json:"execution" yaml:"execution"`
+	Execution interface{} `field:"required" json:"execution" yaml:"execution"`
 }
 
 // The environment configuration for a Lambda function on the AWS IoT Greengrass core.
@@ -6767,9 +6866,12 @@ type CfnFunctionDefinitionVersion_DefaultConfigProperty struct {
 // In an AWS CloudFormation template, `Environment` is a property of the [`FunctionConfiguration`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-functionconfiguration.html) property type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var variables interface{}
+//
 //   environmentProperty := &environmentProperty{
 //   	accessSysfs: jsii.Boolean(false),
 //   	execution: &executionProperty{
@@ -6794,15 +6896,15 @@ type CfnFunctionDefinitionVersion_EnvironmentProperty struct {
 	// Indicates whether the function is allowed to access the `/sys` directory on the core device, which allows the read device information from `/sys` .
 	//
 	// > This property applies only to Lambda functions that run in a Greengrass container.
-	AccessSysfs interface{} `json:"accessSysfs" yaml:"accessSysfs"`
+	AccessSysfs interface{} `field:"optional" json:"accessSysfs" yaml:"accessSysfs"`
 	// Settings for the Lambda execution environment in AWS IoT Greengrass .
-	Execution interface{} `json:"execution" yaml:"execution"`
+	Execution interface{} `field:"optional" json:"execution" yaml:"execution"`
 	// A list of the [resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourceinstance.html) in the group that the function can access, with the corresponding read-only or read-write permissions. The maximum is 10 resources.
 	//
 	// > This property applies only to Lambda functions that run in a Greengrass container.
-	ResourceAccessPolicies interface{} `json:"resourceAccessPolicies" yaml:"resourceAccessPolicies"`
+	ResourceAccessPolicies interface{} `field:"optional" json:"resourceAccessPolicies" yaml:"resourceAccessPolicies"`
 	// Environment variables for the Lambda function.
-	Variables interface{} `json:"variables" yaml:"variables"`
+	Variables interface{} `field:"optional" json:"variables" yaml:"variables"`
 }
 
 // Configuration settings for the Lambda execution environment on the AWS IoT Greengrass core.
@@ -6810,7 +6912,10 @@ type CfnFunctionDefinitionVersion_EnvironmentProperty struct {
 // In an AWS CloudFormation template, `Execution` is a property of the [`DefaultConfig`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-defaultconfig.html) property type for a function definition version and the [`Environment`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-environment.html) property type for a function.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   executionProperty := &executionProperty{
 //   	isolationMode: jsii.String("isolationMode"),
 //   	runAs: &runAsProperty{
@@ -6828,7 +6933,7 @@ type CfnFunctionDefinitionVersion_ExecutionProperty struct {
 	// - When set on the [`Environment`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-environment.html) property of a function, this setting applies to the individual function and overrides the default. Omit this value to run the function with the default containerization.
 	//
 	// > We recommend that you run in a Greengrass container unless your business case requires that you run without containerization.
-	IsolationMode *string `json:"isolationMode" yaml:"isolationMode"`
+	IsolationMode *string `field:"optional" json:"isolationMode" yaml:"isolationMode"`
 	// The user and group permissions used to run the Lambda function.
 	//
 	// Typically, this is the ggc_user and ggc_group. For more information, see [Run as](https://docs.aws.amazon.com/greengrass/latest/developerguide/lambda-group-config.html#lambda-access-identity.html) in the *Developer Guide* .
@@ -6837,7 +6942,7 @@ type CfnFunctionDefinitionVersion_ExecutionProperty struct {
 	// - When set on the [`Environment`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-environment.html) property of a function, this setting applies to the individual function and overrides the default. You can override the user, group, or both. Omit this value to run the function with the default permissions.
 	//
 	// > Running as the root user increases risks to your data and device. Do not run as root (UID/GID=0) unless your business case requires it. For more information and requirements, see [Running a Lambda Function as Root](https://docs.aws.amazon.com/greengrass/latest/developerguide/lambda-group-config.html#lambda-running-as-root) .
-	RunAs interface{} `json:"runAs" yaml:"runAs"`
+	RunAs interface{} `field:"optional" json:"runAs" yaml:"runAs"`
 }
 
 // The group-specific configuration settings for a Lambda function.
@@ -6847,9 +6952,12 @@ type CfnFunctionDefinitionVersion_ExecutionProperty struct {
 // In an AWS CloudFormation template, `FunctionConfiguration` is a property of the [`Function`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-function.html) property type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var variables interface{}
+//
 //   functionConfigurationProperty := &functionConfigurationProperty{
 //   	encodingType: jsii.String("encodingType"),
 //   	environment: &environmentProperty{
@@ -6882,25 +6990,25 @@ type CfnFunctionDefinitionVersion_FunctionConfigurationProperty struct {
 	// The expected encoding type of the input payload for the function.
 	//
 	// Valid values are `json` (default) and `binary` .
-	EncodingType *string `json:"encodingType" yaml:"encodingType"`
+	EncodingType *string `field:"optional" json:"encodingType" yaml:"encodingType"`
 	// The environment configuration of the function.
-	Environment interface{} `json:"environment" yaml:"environment"`
+	Environment interface{} `field:"optional" json:"environment" yaml:"environment"`
 	// The execution arguments.
-	ExecArgs *string `json:"execArgs" yaml:"execArgs"`
+	ExecArgs *string `field:"optional" json:"execArgs" yaml:"execArgs"`
 	// The name of the function executable.
-	Executable *string `json:"executable" yaml:"executable"`
+	Executable *string `field:"optional" json:"executable" yaml:"executable"`
 	// The memory size (in KB) required by the function.
 	//
 	// > This property applies only to Lambda functions that run in a Greengrass container.
-	MemorySize *float64 `json:"memorySize" yaml:"memorySize"`
+	MemorySize *float64 `field:"optional" json:"memorySize" yaml:"memorySize"`
 	// Indicates whether the function is pinned (or *long-lived* ).
 	//
 	// Pinned functions start when the core starts and process all requests in the same container. The default value is false.
-	Pinned interface{} `json:"pinned" yaml:"pinned"`
+	Pinned interface{} `field:"optional" json:"pinned" yaml:"pinned"`
 	// The allowed execution time (in seconds) after which the function should terminate.
 	//
 	// For pinned functions, this timeout applies for each request.
-	Timeout *float64 `json:"timeout" yaml:"timeout"`
+	Timeout *float64 `field:"optional" json:"timeout" yaml:"timeout"`
 }
 
 // A function is a Lambda function that's referenced from an AWS IoT Greengrass group.
@@ -6910,9 +7018,12 @@ type CfnFunctionDefinitionVersion_FunctionConfigurationProperty struct {
 // In an AWS CloudFormation template, the `Functions` property of the [`AWS::Greengrass::FunctionDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-functiondefinitionversion.html) resource contains a list of `Function` property types.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var variables interface{}
+//
 //   functionProperty := &functionProperty{
 //   	functionArn: jsii.String("functionArn"),
 //   	functionConfiguration: &functionConfigurationProperty{
@@ -6947,15 +7058,15 @@ type CfnFunctionDefinitionVersion_FunctionConfigurationProperty struct {
 //
 type CfnFunctionDefinitionVersion_FunctionProperty struct {
 	// The Amazon Resource Name (ARN) of the alias (recommended) or version of the referenced Lambda function.
-	FunctionArn *string `json:"functionArn" yaml:"functionArn"`
+	FunctionArn *string `field:"required" json:"functionArn" yaml:"functionArn"`
 	// The group-specific settings of the Lambda function.
 	//
 	// These settings configure the function's behavior in the Greengrass group.
-	FunctionConfiguration interface{} `json:"functionConfiguration" yaml:"functionConfiguration"`
+	FunctionConfiguration interface{} `field:"required" json:"functionConfiguration" yaml:"functionConfiguration"`
 	// A descriptive or arbitrary ID for the function.
 	//
 	// This value must be unique within the function definition version. Maximum length is 128 characters with pattern `[a-zA-Z0-9:_-]+` .
-	Id *string `json:"id" yaml:"id"`
+	Id *string `field:"required" json:"id" yaml:"id"`
 }
 
 // A list of the [resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourceinstance.html) in the group that the function can access, with the corresponding read-only or read-write permissions. The maximum is 10 resources.
@@ -6965,7 +7076,10 @@ type CfnFunctionDefinitionVersion_FunctionProperty struct {
 // In an AWS CloudFormation template, `ResourceAccessPolicy` is a property of the [`Environment`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-environment.html) property type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   resourceAccessPolicyProperty := &resourceAccessPolicyProperty{
 //   	resourceId: jsii.String("resourceId"),
 //
@@ -6977,11 +7091,11 @@ type CfnFunctionDefinitionVersion_ResourceAccessPolicyProperty struct {
 	// The ID of the resource.
 	//
 	// This ID is assigned to the resource when you create the resource definition.
-	ResourceId *string `json:"resourceId" yaml:"resourceId"`
+	ResourceId *string `field:"required" json:"resourceId" yaml:"resourceId"`
 	// The read-only or read-write access that the Lambda function has to the resource.
 	//
 	// Valid values are `ro` or `rw` .
-	Permission *string `json:"permission" yaml:"permission"`
+	Permission *string `field:"optional" json:"permission" yaml:"permission"`
 }
 
 // The user and group permissions used to run the Lambda function.
@@ -6993,7 +7107,10 @@ type CfnFunctionDefinitionVersion_ResourceAccessPolicyProperty struct {
 // In an AWS CloudFormation template, `RunAs` is a property of the [`Execution`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinitionversion-execution.html) property type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   runAsProperty := &runAsProperty{
 //   	gid: jsii.Number(123),
 //   	uid: jsii.Number(123),
@@ -7003,19 +7120,22 @@ type CfnFunctionDefinitionVersion_RunAsProperty struct {
 	// The group ID whose permissions are used to run the Lambda function.
 	//
 	// You can use the `getent group` command on your core device to look up the group ID.
-	Gid *float64 `json:"gid" yaml:"gid"`
+	Gid *float64 `field:"optional" json:"gid" yaml:"gid"`
 	// The user ID whose permissions are used to run the Lambda function.
 	//
 	// You can use the `getent passwd` command on your core device to look up the user ID.
-	Uid *float64 `json:"uid" yaml:"uid"`
+	Uid *float64 `field:"optional" json:"uid" yaml:"uid"`
 }
 
 // Properties for defining a `CfnFunctionDefinitionVersion`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var variables interface{}
+//
 //   cfnFunctionDefinitionVersionProps := &cfnFunctionDefinitionVersionProps{
 //   	functionDefinitionId: jsii.String("functionDefinitionId"),
 //   	functions: []interface{}{
@@ -7068,13 +7188,13 @@ type CfnFunctionDefinitionVersionProps struct {
 	// The ID of the function definition associated with this version.
 	//
 	// This value is a GUID.
-	FunctionDefinitionId *string `json:"functionDefinitionId" yaml:"functionDefinitionId"`
+	FunctionDefinitionId *string `field:"required" json:"functionDefinitionId" yaml:"functionDefinitionId"`
 	// The functions in this version.
-	Functions interface{} `json:"functions" yaml:"functions"`
+	Functions interface{} `field:"required" json:"functions" yaml:"functions"`
 	// The default configuration that applies to all Lambda functions in the group.
 	//
 	// Individual Lambda functions can override these settings.
-	DefaultConfig interface{} `json:"defaultConfig" yaml:"defaultConfig"`
+	DefaultConfig interface{} `field:"optional" json:"defaultConfig" yaml:"defaultConfig"`
 }
 
 // A CloudFormation `AWS::Greengrass::Group`.
@@ -7098,10 +7218,13 @@ type CfnFunctionDefinitionVersionProps struct {
 // After you create the group version in your AWS CloudFormation template, you can deploy it using the [`aws greengrass create-deployment`](https://docs.aws.amazon.com/greengrass/latest/apireference/createdeployment-post.html) command in the AWS CLI or from the *Greengrass* node in the AWS IoT console. To deploy a group version, you must have a Greengrass service role associated with your AWS account . For more information, see [AWS CloudFormation Support for AWS IoT Greengrass](https://docs.aws.amazon.com/greengrass/latest/developerguide/cloudformation-support.html) in the *Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var tags interface{}
-//   cfnGroup := greengrass.NewCfnGroup(this, jsii.String("MyCfnGroup"), &cfnGroupProps{
+//
+//   cfnGroup := awscdk.Aws_greengrass.NewCfnGroup(this, jsii.String("MyCfnGroup"), &cfnGroupProps{
 //   	name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -7892,7 +8015,10 @@ func (c *jsiiProxy_CfnGroup) ValidateProperties(_properties interface{}) {
 // In an AWS CloudFormation template, `GroupVersion` is the property type of the `InitialVersion` property in the [`AWS::Greengrass::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html) resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   groupVersionProperty := &groupVersionProperty{
 //   	connectorDefinitionVersionArn: jsii.String("connectorDefinitionVersionArn"),
 //   	coreDefinitionVersionArn: jsii.String("coreDefinitionVersionArn"),
@@ -7905,29 +8031,32 @@ func (c *jsiiProxy_CfnGroup) ValidateProperties(_properties interface{}) {
 //
 type CfnGroup_GroupVersionProperty struct {
 	// The Amazon Resource Name (ARN) of the connector definition version that contains the connectors you want to deploy with the group version.
-	ConnectorDefinitionVersionArn *string `json:"connectorDefinitionVersionArn" yaml:"connectorDefinitionVersionArn"`
+	ConnectorDefinitionVersionArn *string `field:"optional" json:"connectorDefinitionVersionArn" yaml:"connectorDefinitionVersionArn"`
 	// The ARN of the core definition version that contains the core you want to deploy with the group version.
 	//
 	// Currently, the core definition version can contain only one core.
-	CoreDefinitionVersionArn *string `json:"coreDefinitionVersionArn" yaml:"coreDefinitionVersionArn"`
+	CoreDefinitionVersionArn *string `field:"optional" json:"coreDefinitionVersionArn" yaml:"coreDefinitionVersionArn"`
 	// The ARN of the device definition version that contains the devices you want to deploy with the group version.
-	DeviceDefinitionVersionArn *string `json:"deviceDefinitionVersionArn" yaml:"deviceDefinitionVersionArn"`
+	DeviceDefinitionVersionArn *string `field:"optional" json:"deviceDefinitionVersionArn" yaml:"deviceDefinitionVersionArn"`
 	// The ARN of the function definition version that contains the functions you want to deploy with the group version.
-	FunctionDefinitionVersionArn *string `json:"functionDefinitionVersionArn" yaml:"functionDefinitionVersionArn"`
+	FunctionDefinitionVersionArn *string `field:"optional" json:"functionDefinitionVersionArn" yaml:"functionDefinitionVersionArn"`
 	// The ARN of the logger definition version that contains the loggers you want to deploy with the group version.
-	LoggerDefinitionVersionArn *string `json:"loggerDefinitionVersionArn" yaml:"loggerDefinitionVersionArn"`
+	LoggerDefinitionVersionArn *string `field:"optional" json:"loggerDefinitionVersionArn" yaml:"loggerDefinitionVersionArn"`
 	// The ARN of the resource definition version that contains the resources you want to deploy with the group version.
-	ResourceDefinitionVersionArn *string `json:"resourceDefinitionVersionArn" yaml:"resourceDefinitionVersionArn"`
+	ResourceDefinitionVersionArn *string `field:"optional" json:"resourceDefinitionVersionArn" yaml:"resourceDefinitionVersionArn"`
 	// The ARN of the subscription definition version that contains the subscriptions you want to deploy with the group version.
-	SubscriptionDefinitionVersionArn *string `json:"subscriptionDefinitionVersionArn" yaml:"subscriptionDefinitionVersionArn"`
+	SubscriptionDefinitionVersionArn *string `field:"optional" json:"subscriptionDefinitionVersionArn" yaml:"subscriptionDefinitionVersionArn"`
 }
 
 // Properties for defining a `CfnGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var tags interface{}
+//
 //   cfnGroupProps := &cfnGroupProps{
 //   	name: jsii.String("name"),
 //
@@ -7947,17 +8076,17 @@ type CfnGroup_GroupVersionProperty struct {
 //
 type CfnGroupProps struct {
 	// The name of the group.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The group version to include when the group is created.
 	//
 	// A group version references the Amazon Resource Name (ARN) of a core definition version, device definition version, subscription definition version, and other version types. The group version must reference a core definition version that contains one core. Other version types are optionally included, depending on your business need.
 	//
 	// > To associate a group version after the group is created, create an [`AWS::Greengrass::GroupVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-groupversion.html) resource and specify the ID of this group.
-	InitialVersion interface{} `json:"initialVersion" yaml:"initialVersion"`
+	InitialVersion interface{} `field:"optional" json:"initialVersion" yaml:"initialVersion"`
 	// The Amazon Resource Name (ARN) of the IAM role attached to the group.
 	//
 	// This role contains the permissions that Lambda functions and connectors use to interact with other AWS services.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// Application-specific metadata to attach to the group.
 	//
 	// You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tagging Your AWS IoT Greengrass Resources](https://docs.aws.amazon.com/greengrass/latest/developerguide/tagging.html) in the *Developer Guide* .
@@ -7968,7 +8097,7 @@ type CfnGroupProps struct {
 	// "Tags": { "KeyName0": "value", "KeyName1": "value", "KeyName2": "value"
 	// }
 	// ```.
-	Tags interface{} `json:"tags" yaml:"tags"`
+	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Greengrass::GroupVersion`.
@@ -7978,8 +8107,11 @@ type CfnGroupProps struct {
 // > To create a group version, you must specify the ID of the group that you want to associate with the version. For information about creating a group, see [`AWS::Greengrass::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
-//   cfnGroupVersion := greengrass.NewCfnGroupVersion(this, jsii.String("MyCfnGroupVersion"), &cfnGroupVersionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnGroupVersion := awscdk.Aws_greengrass.NewCfnGroupVersion(this, jsii.String("MyCfnGroupVersion"), &cfnGroupVersionProps{
 //   	groupId: jsii.String("groupId"),
 //
 //   	// the properties below are optional
@@ -8772,7 +8904,10 @@ func (c *jsiiProxy_CfnGroupVersion) ValidateProperties(_properties interface{}) 
 // Properties for defining a `CfnGroupVersion`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnGroupVersionProps := &cfnGroupVersionProps{
 //   	groupId: jsii.String("groupId"),
 //
@@ -8790,23 +8925,23 @@ type CfnGroupVersionProps struct {
 	// The ID of the group associated with this version.
 	//
 	// This value is a GUID.
-	GroupId *string `json:"groupId" yaml:"groupId"`
+	GroupId *string `field:"required" json:"groupId" yaml:"groupId"`
 	// The Amazon Resource Name (ARN) of the connector definition version that contains the connectors you want to deploy with the group version.
-	ConnectorDefinitionVersionArn *string `json:"connectorDefinitionVersionArn" yaml:"connectorDefinitionVersionArn"`
+	ConnectorDefinitionVersionArn *string `field:"optional" json:"connectorDefinitionVersionArn" yaml:"connectorDefinitionVersionArn"`
 	// The ARN of the core definition version that contains the core you want to deploy with the group version.
 	//
 	// Currently, the core definition version can contain only one core.
-	CoreDefinitionVersionArn *string `json:"coreDefinitionVersionArn" yaml:"coreDefinitionVersionArn"`
+	CoreDefinitionVersionArn *string `field:"optional" json:"coreDefinitionVersionArn" yaml:"coreDefinitionVersionArn"`
 	// The ARN of the device definition version that contains the devices you want to deploy with the group version.
-	DeviceDefinitionVersionArn *string `json:"deviceDefinitionVersionArn" yaml:"deviceDefinitionVersionArn"`
+	DeviceDefinitionVersionArn *string `field:"optional" json:"deviceDefinitionVersionArn" yaml:"deviceDefinitionVersionArn"`
 	// The ARN of the function definition version that contains the functions you want to deploy with the group version.
-	FunctionDefinitionVersionArn *string `json:"functionDefinitionVersionArn" yaml:"functionDefinitionVersionArn"`
+	FunctionDefinitionVersionArn *string `field:"optional" json:"functionDefinitionVersionArn" yaml:"functionDefinitionVersionArn"`
 	// The ARN of the logger definition version that contains the loggers you want to deploy with the group version.
-	LoggerDefinitionVersionArn *string `json:"loggerDefinitionVersionArn" yaml:"loggerDefinitionVersionArn"`
+	LoggerDefinitionVersionArn *string `field:"optional" json:"loggerDefinitionVersionArn" yaml:"loggerDefinitionVersionArn"`
 	// The ARN of the resource definition version that contains the resources you want to deploy with the group version.
-	ResourceDefinitionVersionArn *string `json:"resourceDefinitionVersionArn" yaml:"resourceDefinitionVersionArn"`
+	ResourceDefinitionVersionArn *string `field:"optional" json:"resourceDefinitionVersionArn" yaml:"resourceDefinitionVersionArn"`
 	// The ARN of the subscription definition version that contains the subscriptions you want to deploy with the group version.
-	SubscriptionDefinitionVersionArn *string `json:"subscriptionDefinitionVersionArn" yaml:"subscriptionDefinitionVersionArn"`
+	SubscriptionDefinitionVersionArn *string `field:"optional" json:"subscriptionDefinitionVersionArn" yaml:"subscriptionDefinitionVersionArn"`
 }
 
 // A CloudFormation `AWS::Greengrass::LoggerDefinition`.
@@ -8820,10 +8955,13 @@ type CfnGroupVersionProps struct {
 // > After you create the logger definition version that contains the loggers you want to deploy, you must add it to your group version. For more information, see [`AWS::Greengrass::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var tags interface{}
-//   cfnLoggerDefinition := greengrass.NewCfnLoggerDefinition(this, jsii.String("MyCfnLoggerDefinition"), &cfnLoggerDefinitionProps{
+//
+//   cfnLoggerDefinition := awscdk.Aws_greengrass.NewCfnLoggerDefinition(this, jsii.String("MyCfnLoggerDefinition"), &cfnLoggerDefinitionProps{
 //   	name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -9570,7 +9708,10 @@ func (c *jsiiProxy_CfnLoggerDefinition) ValidateProperties(_properties interface
 // In an AWS CloudFormation template, `LoggerDefinitionVersion` is the property type of the `InitialVersion` property in the [`AWS::Greengrass::LoggerDefinition`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-loggerdefinition.html) resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   loggerDefinitionVersionProperty := &loggerDefinitionVersionProperty{
 //   	loggers: []interface{}{
 //   		&loggerProperty{
@@ -9587,7 +9728,7 @@ func (c *jsiiProxy_CfnLoggerDefinition) ValidateProperties(_properties interface
 //
 type CfnLoggerDefinition_LoggerDefinitionVersionProperty struct {
 	// The loggers in this version.
-	Loggers interface{} `json:"loggers" yaml:"loggers"`
+	Loggers interface{} `field:"required" json:"loggers" yaml:"loggers"`
 }
 
 // A logger represents logging settings for the AWS IoT Greengrass group, which can be stored in CloudWatch and the local file system of your core device.
@@ -9597,7 +9738,10 @@ type CfnLoggerDefinition_LoggerDefinitionVersionProperty struct {
 // In an AWS CloudFormation template, the `Loggers` property of the [`LoggerDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-loggerdefinition-loggerdefinitionversion.html) property type contains a list of `Logger` property types.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   loggerProperty := &loggerProperty{
 //   	component: jsii.String("component"),
 //   	id: jsii.String("id"),
@@ -9612,31 +9756,34 @@ type CfnLoggerDefinition_LoggerProperty struct {
 	// The source of the log event.
 	//
 	// Valid values are `GreengrassSystem` or `Lambda` . When `GreengrassSystem` is used, events from Greengrass system components are logged. When `Lambda` is used, events from user-defined Lambda functions are logged.
-	Component *string `json:"component" yaml:"component"`
+	Component *string `field:"required" json:"component" yaml:"component"`
 	// A descriptive or arbitrary ID for the logger.
 	//
 	// This value must be unique within the logger definition version. Maximum length is 128 characters with pattern `[a-zA-Z0-9:_-]+` .
-	Id *string `json:"id" yaml:"id"`
+	Id *string `field:"required" json:"id" yaml:"id"`
 	// The log-level threshold.
 	//
 	// Log events below this threshold are filtered out and aren't stored. Valid values are `DEBUG` , `INFO` (recommended), `WARN` , `ERROR` , or `FATAL` .
-	Level *string `json:"level" yaml:"level"`
+	Level *string `field:"required" json:"level" yaml:"level"`
 	// The storage mechanism for log events.
 	//
 	// Valid values are `FileSystem` or `AWSCloudWatch` . When `AWSCloudWatch` is used, log events are sent to CloudWatch Logs . When `FileSystem` is used, log events are stored on the local file system.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// The amount of file space (in KB) to use when writing logs to the local file system.
 	//
 	// This property does not apply for CloudWatch Logs .
-	Space *float64 `json:"space" yaml:"space"`
+	Space *float64 `field:"optional" json:"space" yaml:"space"`
 }
 
 // Properties for defining a `CfnLoggerDefinition`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var tags interface{}
+//
 //   cfnLoggerDefinitionProps := &cfnLoggerDefinitionProps{
 //   	name: jsii.String("name"),
 //
@@ -9659,13 +9806,13 @@ type CfnLoggerDefinition_LoggerProperty struct {
 //
 type CfnLoggerDefinitionProps struct {
 	// The name of the logger definition.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The logger definition version to include when the logger definition is created.
 	//
 	// A logger definition version contains a list of [`logger`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-loggerdefinition-logger.html) property types.
 	//
 	// > To associate a logger definition version after the logger definition is created, create an [`AWS::Greengrass::LoggerDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-loggerdefinitionversion.html) resource and specify the ID of this logger definition.
-	InitialVersion interface{} `json:"initialVersion" yaml:"initialVersion"`
+	InitialVersion interface{} `field:"optional" json:"initialVersion" yaml:"initialVersion"`
 	// Application-specific metadata to attach to the logger definition.
 	//
 	// You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tagging Your AWS IoT Greengrass Resources](https://docs.aws.amazon.com/greengrass/latest/developerguide/tagging.html) in the *Developer Guide* .
@@ -9676,7 +9823,7 @@ type CfnLoggerDefinitionProps struct {
 	// "Tags": { "KeyName0": "value", "KeyName1": "value", "KeyName2": "value"
 	// }
 	// ```.
-	Tags interface{} `json:"tags" yaml:"tags"`
+	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Greengrass::LoggerDefinitionVersion`.
@@ -9688,8 +9835,11 @@ type CfnLoggerDefinitionProps struct {
 // > After you create a logger definition version that contains the loggers you want to deploy, you must add it to your group version. For more information, see [`AWS::Greengrass::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
-//   cfnLoggerDefinitionVersion := greengrass.NewCfnLoggerDefinitionVersion(this, jsii.String("MyCfnLoggerDefinitionVersion"), &cfnLoggerDefinitionVersionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnLoggerDefinitionVersion := awscdk.Aws_greengrass.NewCfnLoggerDefinitionVersion(this, jsii.String("MyCfnLoggerDefinitionVersion"), &cfnLoggerDefinitionVersionProps{
 //   	loggerDefinitionId: jsii.String("loggerDefinitionId"),
 //   	loggers: []interface{}{
 //   		&loggerProperty{
@@ -10360,7 +10510,10 @@ func (c *jsiiProxy_CfnLoggerDefinitionVersion) ValidateProperties(_properties in
 // In an AWS CloudFormation template, the `Loggers` property of the [`AWS::Greengrass::LoggerDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-loggerdefinitionversion.html) resource contains a list of `Logger` property types.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   loggerProperty := &loggerProperty{
 //   	component: jsii.String("component"),
 //   	id: jsii.String("id"),
@@ -10375,29 +10528,32 @@ type CfnLoggerDefinitionVersion_LoggerProperty struct {
 	// The source of the log event.
 	//
 	// Valid values are `GreengrassSystem` or `Lambda` . When `GreengrassSystem` is used, events from Greengrass system components are logged. When `Lambda` is used, events from user-defined Lambda functions are logged.
-	Component *string `json:"component" yaml:"component"`
+	Component *string `field:"required" json:"component" yaml:"component"`
 	// A descriptive or arbitrary ID for the logger.
 	//
 	// This value must be unique within the logger definition version. Maximum length is 128 characters with pattern `[a-zA-Z0-9:_-]+` .
-	Id *string `json:"id" yaml:"id"`
+	Id *string `field:"required" json:"id" yaml:"id"`
 	// The log-level threshold.
 	//
 	// Log events below this threshold are filtered out and aren't stored. Valid values are `DEBUG` , `INFO` (recommended), `WARN` , `ERROR` , or `FATAL` .
-	Level *string `json:"level" yaml:"level"`
+	Level *string `field:"required" json:"level" yaml:"level"`
 	// The storage mechanism for log events.
 	//
 	// Valid values are `FileSystem` or `AWSCloudWatch` . When `AWSCloudWatch` is used, log events are sent to CloudWatch Logs . When `FileSystem` is used, log events are stored on the local file system.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// The amount of file space (in KB) to use when writing logs to the local file system.
 	//
 	// This property does not apply for CloudWatch Logs .
-	Space *float64 `json:"space" yaml:"space"`
+	Space *float64 `field:"optional" json:"space" yaml:"space"`
 }
 
 // Properties for defining a `CfnLoggerDefinitionVersion`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnLoggerDefinitionVersionProps := &cfnLoggerDefinitionVersionProps{
 //   	loggerDefinitionId: jsii.String("loggerDefinitionId"),
 //   	loggers: []interface{}{
@@ -10417,9 +10573,9 @@ type CfnLoggerDefinitionVersionProps struct {
 	// The ID of the logger definition associated with this version.
 	//
 	// This value is a GUID.
-	LoggerDefinitionId *string `json:"loggerDefinitionId" yaml:"loggerDefinitionId"`
+	LoggerDefinitionId *string `field:"required" json:"loggerDefinitionId" yaml:"loggerDefinitionId"`
 	// The loggers in this version.
-	Loggers interface{} `json:"loggers" yaml:"loggers"`
+	Loggers interface{} `field:"required" json:"loggers" yaml:"loggers"`
 }
 
 // A CloudFormation `AWS::Greengrass::ResourceDefinition`.
@@ -10433,10 +10589,13 @@ type CfnLoggerDefinitionVersionProps struct {
 // > After you create the resource definition version that contains the resources you want to deploy, you must add it to your group version. For more information, see [`AWS::Greengrass::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var tags interface{}
-//   cfnResourceDefinition := greengrass.NewCfnResourceDefinition(this, jsii.String("MyCfnResourceDefinition"), &cfnResourceDefinitionProps{
+//
+//   cfnResourceDefinition := awscdk.Aws_greengrass.NewCfnResourceDefinition(this, jsii.String("MyCfnResourceDefinition"), &cfnResourceDefinitionProps{
 //   	name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -11231,7 +11390,10 @@ func (c *jsiiProxy_CfnResourceDefinition) ValidateProperties(_properties interfa
 // In an AWS CloudFormation template, `GroupOwnerSetting` is a property of the [`LocalDeviceResourceData`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-localdeviceresourcedata.html) and [`LocalVolumeResourceData`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-localvolumeresourcedata.html) property types.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   groupOwnerSettingProperty := &groupOwnerSettingProperty{
 //   	autoAddGroupOwner: jsii.Boolean(false),
 //
@@ -11243,11 +11405,11 @@ type CfnResourceDefinition_GroupOwnerSettingProperty struct {
 	// Indicates whether to give the privileges of the Linux group that owns the resource to the Lambda process.
 	//
 	// This gives the Lambda process the file access permissions of the Linux group.
-	AutoAddGroupOwner interface{} `json:"autoAddGroupOwner" yaml:"autoAddGroupOwner"`
+	AutoAddGroupOwner interface{} `field:"required" json:"autoAddGroupOwner" yaml:"autoAddGroupOwner"`
 	// The name of the Linux group whose privileges you want to add to the Lambda process.
 	//
 	// This value is ignored if `AutoAddGroupOwner` is true.
-	GroupOwner *string `json:"groupOwner" yaml:"groupOwner"`
+	GroupOwner *string `field:"optional" json:"groupOwner" yaml:"groupOwner"`
 }
 
 // Settings for a local device resource, which represents a file under `/dev` .
@@ -11257,7 +11419,10 @@ type CfnResourceDefinition_GroupOwnerSettingProperty struct {
 // In an AWS CloudFormation template, `LocalDeviceResourceData` can be used in the [`ResourceDataContainer`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourcedatacontainer.html) property type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   localDeviceResourceDataProperty := &localDeviceResourceDataProperty{
 //   	sourcePath: jsii.String("sourcePath"),
 //
@@ -11274,9 +11439,9 @@ type CfnResourceDefinition_LocalDeviceResourceDataProperty struct {
 	// The local absolute path of the device resource.
 	//
 	// The source path for a device resource can refer only to a character device or block device under `/dev` .
-	SourcePath *string `json:"sourcePath" yaml:"sourcePath"`
+	SourcePath *string `field:"required" json:"sourcePath" yaml:"sourcePath"`
 	// Settings that define additional Linux OS group permissions to give to the Lambda function process.
-	GroupOwnerSetting interface{} `json:"groupOwnerSetting" yaml:"groupOwnerSetting"`
+	GroupOwnerSetting interface{} `field:"optional" json:"groupOwnerSetting" yaml:"groupOwnerSetting"`
 }
 
 // Settings for a local volume resource, which represents a file or directory on the root file system.
@@ -11286,7 +11451,10 @@ type CfnResourceDefinition_LocalDeviceResourceDataProperty struct {
 // In an AWS CloudFormation template, `LocalVolumeResourceData` can be used in the [`ResourceDataContainer`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourcedatacontainer.html) property type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   localVolumeResourceDataProperty := &localVolumeResourceDataProperty{
 //   	destinationPath: jsii.String("destinationPath"),
 //   	sourcePath: jsii.String("sourcePath"),
@@ -11302,13 +11470,13 @@ type CfnResourceDefinition_LocalDeviceResourceDataProperty struct {
 //
 type CfnResourceDefinition_LocalVolumeResourceDataProperty struct {
 	// The absolute local path of the resource in the Lambda environment.
-	DestinationPath *string `json:"destinationPath" yaml:"destinationPath"`
+	DestinationPath *string `field:"required" json:"destinationPath" yaml:"destinationPath"`
 	// The local absolute path of the volume resource on the host.
 	//
 	// The source path for a volume resource type cannot start with `/sys` .
-	SourcePath *string `json:"sourcePath" yaml:"sourcePath"`
+	SourcePath *string `field:"required" json:"sourcePath" yaml:"sourcePath"`
 	// Settings that define additional Linux OS group permissions to give to the Lambda function process.
-	GroupOwnerSetting interface{} `json:"groupOwnerSetting" yaml:"groupOwnerSetting"`
+	GroupOwnerSetting interface{} `field:"optional" json:"groupOwnerSetting" yaml:"groupOwnerSetting"`
 }
 
 // A container for resource data, which defines the resource type.
@@ -11320,7 +11488,10 @@ type CfnResourceDefinition_LocalVolumeResourceDataProperty struct {
 // In an AWS CloudFormation template, `ResourceDataContainer` is a property of the [`ResourceInstance`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourceinstance.html) property type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   resourceDataContainerProperty := &resourceDataContainerProperty{
 //   	localDeviceResourceData: &localDeviceResourceDataProperty{
 //   		sourcePath: jsii.String("sourcePath"),
@@ -11377,15 +11548,15 @@ type CfnResourceDefinition_LocalVolumeResourceDataProperty struct {
 //
 type CfnResourceDefinition_ResourceDataContainerProperty struct {
 	// Settings for a local device resource.
-	LocalDeviceResourceData interface{} `json:"localDeviceResourceData" yaml:"localDeviceResourceData"`
+	LocalDeviceResourceData interface{} `field:"optional" json:"localDeviceResourceData" yaml:"localDeviceResourceData"`
 	// Settings for a local volume resource.
-	LocalVolumeResourceData interface{} `json:"localVolumeResourceData" yaml:"localVolumeResourceData"`
+	LocalVolumeResourceData interface{} `field:"optional" json:"localVolumeResourceData" yaml:"localVolumeResourceData"`
 	// Settings for a machine learning resource stored in Amazon S3 .
-	S3MachineLearningModelResourceData interface{} `json:"s3MachineLearningModelResourceData" yaml:"s3MachineLearningModelResourceData"`
+	S3MachineLearningModelResourceData interface{} `field:"optional" json:"s3MachineLearningModelResourceData" yaml:"s3MachineLearningModelResourceData"`
 	// Settings for a machine learning resource saved as an SageMaker training job.
-	SageMakerMachineLearningModelResourceData interface{} `json:"sageMakerMachineLearningModelResourceData" yaml:"sageMakerMachineLearningModelResourceData"`
+	SageMakerMachineLearningModelResourceData interface{} `field:"optional" json:"sageMakerMachineLearningModelResourceData" yaml:"sageMakerMachineLearningModelResourceData"`
 	// Settings for a secret resource.
-	SecretsManagerSecretResourceData interface{} `json:"secretsManagerSecretResourceData" yaml:"secretsManagerSecretResourceData"`
+	SecretsManagerSecretResourceData interface{} `field:"optional" json:"secretsManagerSecretResourceData" yaml:"secretsManagerSecretResourceData"`
 }
 
 // A resource definition version contains a list of resources. (In AWS CloudFormation , resources are named *resource instances* .).
@@ -11395,7 +11566,10 @@ type CfnResourceDefinition_ResourceDataContainerProperty struct {
 // In an AWS CloudFormation template, `ResourceDefinitionVersion` is the property type of the `InitialVersion` property in the [`AWS::Greengrass::ResourceDefinition`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-resourcedefinition.html) resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   resourceDefinitionVersionProperty := &resourceDefinitionVersionProperty{
 //   	resources: []interface{}{
 //   		&resourceInstanceProperty{
@@ -11460,7 +11634,7 @@ type CfnResourceDefinition_ResourceDataContainerProperty struct {
 //
 type CfnResourceDefinition_ResourceDefinitionVersionProperty struct {
 	// The resources in this version.
-	Resources interface{} `json:"resources" yaml:"resources"`
+	Resources interface{} `field:"required" json:"resources" yaml:"resources"`
 }
 
 // The owner setting for a downloaded machine learning resource.
@@ -11470,7 +11644,10 @@ type CfnResourceDefinition_ResourceDefinitionVersionProperty struct {
 // In an AWS CloudFormation template, `ResourceDownloadOwnerSetting` is the property type of the `OwnerSetting` property for the [`S3MachineLearningModelResourceData`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-s3machinelearningmodelresourcedata.html) and [`SageMakerMachineLearningModelResourceData`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-sagemakermachinelearningmodelresourcedata.html) property types.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   resourceDownloadOwnerSettingProperty := &resourceDownloadOwnerSettingProperty{
 //   	groupOwner: jsii.String("groupOwner"),
 //   	groupPermission: jsii.String("groupPermission"),
@@ -11480,11 +11657,11 @@ type CfnResourceDefinition_ResourceDownloadOwnerSettingProperty struct {
 	// The group owner of the machine learning resource.
 	//
 	// This is the group ID (GID) of an existing Linux OS group on the system. The group's permissions are added to the Lambda process.
-	GroupOwner *string `json:"groupOwner" yaml:"groupOwner"`
+	GroupOwner *string `field:"required" json:"groupOwner" yaml:"groupOwner"`
 	// The permissions that the group owner has to the machine learning resource.
 	//
 	// Valid values are `rw` (read-write) or `ro` (read-only).
-	GroupPermission *string `json:"groupPermission" yaml:"groupPermission"`
+	GroupPermission *string `field:"required" json:"groupPermission" yaml:"groupPermission"`
 }
 
 // A local resource, machine learning resource, or secret resource.
@@ -11494,7 +11671,10 @@ type CfnResourceDefinition_ResourceDownloadOwnerSettingProperty struct {
 // In an AWS CloudFormation template, the `Resources` property of the [`AWS::Greengrass::ResourceDefinition`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-resourcedefinition.html) resource contains a list of `ResourceInstance` property types.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   resourceInstanceProperty := &resourceInstanceProperty{
 //   	id: jsii.String("id"),
 //   	name: jsii.String("name"),
@@ -11557,17 +11737,17 @@ type CfnResourceDefinition_ResourceInstanceProperty struct {
 	// A descriptive or arbitrary ID for the resource.
 	//
 	// This value must be unique within the resource definition version. Maximum length is 128 characters with pattern `[a-zA-Z0-9:_-]+` .
-	Id *string `json:"id" yaml:"id"`
+	Id *string `field:"required" json:"id" yaml:"id"`
 	// The descriptive resource name, which is displayed on the AWS IoT Greengrass console.
 	//
 	// Maximum length 128 characters with pattern [a-zA-Z0-9:_-]+. This must be unique within a Greengrass group.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// A container for resource data.
 	//
 	// The container takes only one of the following supported resource data types: `LocalDeviceResourceData` , `LocalVolumeResourceData` , `SageMakerMachineLearningModelResourceData` , `S3MachineLearningModelResourceData` , or `SecretsManagerSecretResourceData` .
 	//
 	// > Only one resource type can be defined for a `ResourceDataContainer` instance.
-	ResourceDataContainer interface{} `json:"resourceDataContainer" yaml:"resourceDataContainer"`
+	ResourceDataContainer interface{} `field:"required" json:"resourceDataContainer" yaml:"resourceDataContainer"`
 }
 
 // Settings for an Amazon S3 machine learning resource.
@@ -11577,7 +11757,10 @@ type CfnResourceDefinition_ResourceInstanceProperty struct {
 // In an AWS CloudFormation template, `S3MachineLearningModelResourceData` can be used in the [`ResourceDataContainer`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourcedatacontainer.html) property type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3MachineLearningModelResourceDataProperty := &s3MachineLearningModelResourceDataProperty{
 //   	destinationPath: jsii.String("destinationPath"),
 //   	s3Uri: jsii.String("s3Uri"),
@@ -11591,15 +11774,15 @@ type CfnResourceDefinition_ResourceInstanceProperty struct {
 //
 type CfnResourceDefinition_S3MachineLearningModelResourceDataProperty struct {
 	// The absolute local path of the resource inside the Lambda environment.
-	DestinationPath *string `json:"destinationPath" yaml:"destinationPath"`
+	DestinationPath *string `field:"required" json:"destinationPath" yaml:"destinationPath"`
 	// The URI of the source model in an Amazon S3 bucket.
 	//
 	// The model package must be in `tar.gz` or `.zip` format.
-	S3Uri *string `json:"s3Uri" yaml:"s3Uri"`
+	S3Uri *string `field:"required" json:"s3Uri" yaml:"s3Uri"`
 	// The owner setting for the downloaded machine learning resource.
 	//
 	// For more information, see [Access Machine Learning Resources from Lambda Functions](https://docs.aws.amazon.com/greengrass/latest/developerguide/access-ml-resources.html) in the *Developer Guide* .
-	OwnerSetting interface{} `json:"ownerSetting" yaml:"ownerSetting"`
+	OwnerSetting interface{} `field:"optional" json:"ownerSetting" yaml:"ownerSetting"`
 }
 
 // Settings for an Secrets Manager machine learning resource.
@@ -11609,7 +11792,10 @@ type CfnResourceDefinition_S3MachineLearningModelResourceDataProperty struct {
 // In an AWS CloudFormation template, `SageMakerMachineLearningModelResourceData` can be used in the [`ResourceDataContainer`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourcedatacontainer.html) property type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sageMakerMachineLearningModelResourceDataProperty := &sageMakerMachineLearningModelResourceDataProperty{
 //   	destinationPath: jsii.String("destinationPath"),
 //   	sageMakerJobArn: jsii.String("sageMakerJobArn"),
@@ -11623,13 +11809,13 @@ type CfnResourceDefinition_S3MachineLearningModelResourceDataProperty struct {
 //
 type CfnResourceDefinition_SageMakerMachineLearningModelResourceDataProperty struct {
 	// The absolute local path of the resource inside the Lambda environment.
-	DestinationPath *string `json:"destinationPath" yaml:"destinationPath"`
+	DestinationPath *string `field:"required" json:"destinationPath" yaml:"destinationPath"`
 	// The Amazon Resource Name (ARN) of the Amazon SageMaker training job that represents the source model.
-	SageMakerJobArn *string `json:"sageMakerJobArn" yaml:"sageMakerJobArn"`
+	SageMakerJobArn *string `field:"required" json:"sageMakerJobArn" yaml:"sageMakerJobArn"`
 	// The owner setting for the downloaded machine learning resource.
 	//
 	// For more information, see [Access Machine Learning Resources from Lambda Functions](https://docs.aws.amazon.com/greengrass/latest/developerguide/access-ml-resources.html) in the *Developer Guide* .
-	OwnerSetting interface{} `json:"ownerSetting" yaml:"ownerSetting"`
+	OwnerSetting interface{} `field:"optional" json:"ownerSetting" yaml:"ownerSetting"`
 }
 
 // Settings for a secret resource, which references a secret from AWS Secrets Manager .
@@ -11639,7 +11825,10 @@ type CfnResourceDefinition_SageMakerMachineLearningModelResourceDataProperty str
 // In an AWS CloudFormation template, `SecretsManagerSecretResourceData` can be used in the [`ResourceDataContainer`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourcedatacontainer.html) property type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   secretsManagerSecretResourceDataProperty := &secretsManagerSecretResourceDataProperty{
 //   	arn: jsii.String("arn"),
 //
@@ -11653,17 +11842,20 @@ type CfnResourceDefinition_SecretsManagerSecretResourceDataProperty struct {
 	// The Amazon Resource Name (ARN) of the Secrets Manager secret to make available on the core.
 	//
 	// The value of the secret's latest version (represented by the `AWSCURRENT` staging label) is included by default.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"required" json:"arn" yaml:"arn"`
 	// The staging labels whose values you want to make available on the core, in addition to `AWSCURRENT` .
-	AdditionalStagingLabelsToDownload *[]*string `json:"additionalStagingLabelsToDownload" yaml:"additionalStagingLabelsToDownload"`
+	AdditionalStagingLabelsToDownload *[]*string `field:"optional" json:"additionalStagingLabelsToDownload" yaml:"additionalStagingLabelsToDownload"`
 }
 
 // Properties for defining a `CfnResourceDefinition`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var tags interface{}
+//
 //   cfnResourceDefinitionProps := &cfnResourceDefinitionProps{
 //   	name: jsii.String("name"),
 //
@@ -11734,13 +11926,13 @@ type CfnResourceDefinition_SecretsManagerSecretResourceDataProperty struct {
 //
 type CfnResourceDefinitionProps struct {
 	// The name of the resource definition.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The resource definition version to include when the resource definition is created.
 	//
 	// A resource definition version contains a list of [`resource instance`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinition-resourceinstance.html) property types.
 	//
 	// > To associate a resource definition version after the resource definition is created, create an [`AWS::Greengrass::ResourceDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-resourcedefinitionversion.html) resource and specify the ID of this resource definition.
-	InitialVersion interface{} `json:"initialVersion" yaml:"initialVersion"`
+	InitialVersion interface{} `field:"optional" json:"initialVersion" yaml:"initialVersion"`
 	// Application-specific metadata to attach to the resource definition.
 	//
 	// You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tagging Your AWS IoT Greengrass Resources](https://docs.aws.amazon.com/greengrass/latest/developerguide/tagging.html) in the *Developer Guide* .
@@ -11751,7 +11943,7 @@ type CfnResourceDefinitionProps struct {
 	// "Tags": { "KeyName0": "value", "KeyName1": "value", "KeyName2": "value"
 	// }
 	// ```.
-	Tags interface{} `json:"tags" yaml:"tags"`
+	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Greengrass::ResourceDefinitionVersion`.
@@ -11763,8 +11955,11 @@ type CfnResourceDefinitionProps struct {
 // > After you create a resource definition version that contains the resources you want to deploy, you must add it to your group version. For more information, see [`AWS::Greengrass::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
-//   cfnResourceDefinitionVersion := greengrass.NewCfnResourceDefinitionVersion(this, jsii.String("MyCfnResourceDefinitionVersion"), &cfnResourceDefinitionVersionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnResourceDefinitionVersion := awscdk.Aws_greengrass.NewCfnResourceDefinitionVersion(this, jsii.String("MyCfnResourceDefinitionVersion"), &cfnResourceDefinitionVersionProps{
 //   	resourceDefinitionId: jsii.String("resourceDefinitionId"),
 //   	resources: []interface{}{
 //   		&resourceInstanceProperty{
@@ -12483,7 +12678,10 @@ func (c *jsiiProxy_CfnResourceDefinitionVersion) ValidateProperties(_properties 
 // In an AWS CloudFormation template, `GroupOwnerSetting` is a property of the [`LocalDeviceResourceData`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-localdeviceresourcedata.html) and [`LocalVolumeResourceData`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-localvolumeresourcedata.html) property types.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   groupOwnerSettingProperty := &groupOwnerSettingProperty{
 //   	autoAddGroupOwner: jsii.Boolean(false),
 //
@@ -12495,11 +12693,11 @@ type CfnResourceDefinitionVersion_GroupOwnerSettingProperty struct {
 	// Indicates whether to give the privileges of the Linux group that owns the resource to the Lambda process.
 	//
 	// This gives the Lambda process the file access permissions of the Linux group.
-	AutoAddGroupOwner interface{} `json:"autoAddGroupOwner" yaml:"autoAddGroupOwner"`
+	AutoAddGroupOwner interface{} `field:"required" json:"autoAddGroupOwner" yaml:"autoAddGroupOwner"`
 	// The name of the Linux group whose privileges you want to add to the Lambda process.
 	//
 	// This value is ignored if `AutoAddGroupOwner` is true.
-	GroupOwner *string `json:"groupOwner" yaml:"groupOwner"`
+	GroupOwner *string `field:"optional" json:"groupOwner" yaml:"groupOwner"`
 }
 
 // Settings for a local device resource, which represents a file under `/dev` .
@@ -12509,7 +12707,10 @@ type CfnResourceDefinitionVersion_GroupOwnerSettingProperty struct {
 // In an AWS CloudFormation template, `LocalDeviceResourceData` can be used in the [`ResourceDataContainer`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourcedatacontainer.html) property type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   localDeviceResourceDataProperty := &localDeviceResourceDataProperty{
 //   	sourcePath: jsii.String("sourcePath"),
 //
@@ -12526,9 +12727,9 @@ type CfnResourceDefinitionVersion_LocalDeviceResourceDataProperty struct {
 	// The local absolute path of the device resource.
 	//
 	// The source path for a device resource can refer only to a character device or block device under `/dev` .
-	SourcePath *string `json:"sourcePath" yaml:"sourcePath"`
+	SourcePath *string `field:"required" json:"sourcePath" yaml:"sourcePath"`
 	// Settings that define additional Linux OS group permissions to give to the Lambda function process.
-	GroupOwnerSetting interface{} `json:"groupOwnerSetting" yaml:"groupOwnerSetting"`
+	GroupOwnerSetting interface{} `field:"optional" json:"groupOwnerSetting" yaml:"groupOwnerSetting"`
 }
 
 // Settings for a local volume resource, which represents a file or directory on the root file system.
@@ -12538,7 +12739,10 @@ type CfnResourceDefinitionVersion_LocalDeviceResourceDataProperty struct {
 // In an AWS CloudFormation template, `LocalVolumeResourceData` can be used in the [`ResourceDataContainer`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourcedatacontainer.html) property type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   localVolumeResourceDataProperty := &localVolumeResourceDataProperty{
 //   	destinationPath: jsii.String("destinationPath"),
 //   	sourcePath: jsii.String("sourcePath"),
@@ -12554,13 +12758,13 @@ type CfnResourceDefinitionVersion_LocalDeviceResourceDataProperty struct {
 //
 type CfnResourceDefinitionVersion_LocalVolumeResourceDataProperty struct {
 	// The absolute local path of the resource in the Lambda environment.
-	DestinationPath *string `json:"destinationPath" yaml:"destinationPath"`
+	DestinationPath *string `field:"required" json:"destinationPath" yaml:"destinationPath"`
 	// The local absolute path of the volume resource on the host.
 	//
 	// The source path for a volume resource type cannot start with `/sys` .
-	SourcePath *string `json:"sourcePath" yaml:"sourcePath"`
+	SourcePath *string `field:"required" json:"sourcePath" yaml:"sourcePath"`
 	// Settings that define additional Linux OS group permissions to give to the Lambda function process.
-	GroupOwnerSetting interface{} `json:"groupOwnerSetting" yaml:"groupOwnerSetting"`
+	GroupOwnerSetting interface{} `field:"optional" json:"groupOwnerSetting" yaml:"groupOwnerSetting"`
 }
 
 // A container for resource data, which defines the resource type.
@@ -12572,7 +12776,10 @@ type CfnResourceDefinitionVersion_LocalVolumeResourceDataProperty struct {
 // In an AWS CloudFormation template, `ResourceDataContainer` is a property of the [`ResourceInstance`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourceinstance.html) property type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   resourceDataContainerProperty := &resourceDataContainerProperty{
 //   	localDeviceResourceData: &localDeviceResourceDataProperty{
 //   		sourcePath: jsii.String("sourcePath"),
@@ -12629,15 +12836,15 @@ type CfnResourceDefinitionVersion_LocalVolumeResourceDataProperty struct {
 //
 type CfnResourceDefinitionVersion_ResourceDataContainerProperty struct {
 	// Settings for a local device resource.
-	LocalDeviceResourceData interface{} `json:"localDeviceResourceData" yaml:"localDeviceResourceData"`
+	LocalDeviceResourceData interface{} `field:"optional" json:"localDeviceResourceData" yaml:"localDeviceResourceData"`
 	// Settings for a local volume resource.
-	LocalVolumeResourceData interface{} `json:"localVolumeResourceData" yaml:"localVolumeResourceData"`
+	LocalVolumeResourceData interface{} `field:"optional" json:"localVolumeResourceData" yaml:"localVolumeResourceData"`
 	// Settings for a machine learning resource stored in Amazon S3 .
-	S3MachineLearningModelResourceData interface{} `json:"s3MachineLearningModelResourceData" yaml:"s3MachineLearningModelResourceData"`
+	S3MachineLearningModelResourceData interface{} `field:"optional" json:"s3MachineLearningModelResourceData" yaml:"s3MachineLearningModelResourceData"`
 	// Settings for a machine learning resource saved as an SageMaker training job.
-	SageMakerMachineLearningModelResourceData interface{} `json:"sageMakerMachineLearningModelResourceData" yaml:"sageMakerMachineLearningModelResourceData"`
+	SageMakerMachineLearningModelResourceData interface{} `field:"optional" json:"sageMakerMachineLearningModelResourceData" yaml:"sageMakerMachineLearningModelResourceData"`
 	// Settings for a secret resource.
-	SecretsManagerSecretResourceData interface{} `json:"secretsManagerSecretResourceData" yaml:"secretsManagerSecretResourceData"`
+	SecretsManagerSecretResourceData interface{} `field:"optional" json:"secretsManagerSecretResourceData" yaml:"secretsManagerSecretResourceData"`
 }
 
 // The owner setting for a downloaded machine learning resource.
@@ -12647,7 +12854,10 @@ type CfnResourceDefinitionVersion_ResourceDataContainerProperty struct {
 // In an AWS CloudFormation template, `ResourceDownloadOwnerSetting` is the property type of the `OwnerSetting` property for the [`S3MachineLearningModelResourceData`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-s3machinelearningmodelresourcedata.html) and [`SageMakerMachineLearningModelResourceData`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-sagemakermachinelearningmodelresourcedata.html) property types.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   resourceDownloadOwnerSettingProperty := &resourceDownloadOwnerSettingProperty{
 //   	groupOwner: jsii.String("groupOwner"),
 //   	groupPermission: jsii.String("groupPermission"),
@@ -12657,11 +12867,11 @@ type CfnResourceDefinitionVersion_ResourceDownloadOwnerSettingProperty struct {
 	// The group owner of the machine learning resource.
 	//
 	// This is the group ID (GID) of an existing Linux OS group on the system. The group's permissions are added to the Lambda process.
-	GroupOwner *string `json:"groupOwner" yaml:"groupOwner"`
+	GroupOwner *string `field:"required" json:"groupOwner" yaml:"groupOwner"`
 	// The permissions that the group owner has to the machine learning resource.
 	//
 	// Valid values are `rw` (read-write) or `ro` (read-only).
-	GroupPermission *string `json:"groupPermission" yaml:"groupPermission"`
+	GroupPermission *string `field:"required" json:"groupPermission" yaml:"groupPermission"`
 }
 
 // A local resource, machine learning resource, or secret resource.
@@ -12671,7 +12881,10 @@ type CfnResourceDefinitionVersion_ResourceDownloadOwnerSettingProperty struct {
 // In an AWS CloudFormation template, the `Resources` property of the [`AWS::Greengrass::ResourceDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-resourcedefinitionversion.html) resource contains a list of `ResourceInstance` property types.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   resourceInstanceProperty := &resourceInstanceProperty{
 //   	id: jsii.String("id"),
 //   	name: jsii.String("name"),
@@ -12734,17 +12947,17 @@ type CfnResourceDefinitionVersion_ResourceInstanceProperty struct {
 	// A descriptive or arbitrary ID for the resource.
 	//
 	// This value must be unique within the resource definition version. Maximum length is 128 characters with pattern `[a-zA-Z0-9:_-]+` .
-	Id *string `json:"id" yaml:"id"`
+	Id *string `field:"required" json:"id" yaml:"id"`
 	// The descriptive resource name, which is displayed on the AWS IoT Greengrass console.
 	//
 	// Maximum length 128 characters with pattern [a-zA-Z0-9:_-]+. This must be unique within a Greengrass group.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// A container for resource data.
 	//
 	// The container takes only one of the following supported resource data types: `LocalDeviceResourceData` , `LocalVolumeResourceData` , `SageMakerMachineLearningModelResourceData` , `S3MachineLearningModelResourceData` , or `SecretsManagerSecretResourceData` .
 	//
 	// > Only one resource type can be defined for a `ResourceDataContainer` instance.
-	ResourceDataContainer interface{} `json:"resourceDataContainer" yaml:"resourceDataContainer"`
+	ResourceDataContainer interface{} `field:"required" json:"resourceDataContainer" yaml:"resourceDataContainer"`
 }
 
 // Settings for an Amazon S3 machine learning resource.
@@ -12754,7 +12967,10 @@ type CfnResourceDefinitionVersion_ResourceInstanceProperty struct {
 // In an AWS CloudFormation template, `S3MachineLearningModelResourceData` can be used in the [`ResourceDataContainer`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourcedatacontainer.html) property type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3MachineLearningModelResourceDataProperty := &s3MachineLearningModelResourceDataProperty{
 //   	destinationPath: jsii.String("destinationPath"),
 //   	s3Uri: jsii.String("s3Uri"),
@@ -12768,15 +12984,15 @@ type CfnResourceDefinitionVersion_ResourceInstanceProperty struct {
 //
 type CfnResourceDefinitionVersion_S3MachineLearningModelResourceDataProperty struct {
 	// The absolute local path of the resource inside the Lambda environment.
-	DestinationPath *string `json:"destinationPath" yaml:"destinationPath"`
+	DestinationPath *string `field:"required" json:"destinationPath" yaml:"destinationPath"`
 	// The URI of the source model in an Amazon S3 bucket.
 	//
 	// The model package must be in `tar.gz` or `.zip` format.
-	S3Uri *string `json:"s3Uri" yaml:"s3Uri"`
+	S3Uri *string `field:"required" json:"s3Uri" yaml:"s3Uri"`
 	// The owner setting for the downloaded machine learning resource.
 	//
 	// For more information, see [Access Machine Learning Resources from Lambda Functions](https://docs.aws.amazon.com/greengrass/latest/developerguide/access-ml-resources.html) in the *Developer Guide* .
-	OwnerSetting interface{} `json:"ownerSetting" yaml:"ownerSetting"`
+	OwnerSetting interface{} `field:"optional" json:"ownerSetting" yaml:"ownerSetting"`
 }
 
 // Settings for an Secrets Manager machine learning resource.
@@ -12786,7 +13002,10 @@ type CfnResourceDefinitionVersion_S3MachineLearningModelResourceDataProperty str
 // In an AWS CloudFormation template, `SageMakerMachineLearningModelResourceData` can be used in the [`ResourceDataContainer`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourcedatacontainer.html) property type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sageMakerMachineLearningModelResourceDataProperty := &sageMakerMachineLearningModelResourceDataProperty{
 //   	destinationPath: jsii.String("destinationPath"),
 //   	sageMakerJobArn: jsii.String("sageMakerJobArn"),
@@ -12800,13 +13019,13 @@ type CfnResourceDefinitionVersion_S3MachineLearningModelResourceDataProperty str
 //
 type CfnResourceDefinitionVersion_SageMakerMachineLearningModelResourceDataProperty struct {
 	// The absolute local path of the resource inside the Lambda environment.
-	DestinationPath *string `json:"destinationPath" yaml:"destinationPath"`
+	DestinationPath *string `field:"required" json:"destinationPath" yaml:"destinationPath"`
 	// The Amazon Resource Name (ARN) of the Amazon SageMaker training job that represents the source model.
-	SageMakerJobArn *string `json:"sageMakerJobArn" yaml:"sageMakerJobArn"`
+	SageMakerJobArn *string `field:"required" json:"sageMakerJobArn" yaml:"sageMakerJobArn"`
 	// The owner setting for the downloaded machine learning resource.
 	//
 	// For more information, see [Access Machine Learning Resources from Lambda Functions](https://docs.aws.amazon.com/greengrass/latest/developerguide/access-ml-resources.html) in the *Developer Guide* .
-	OwnerSetting interface{} `json:"ownerSetting" yaml:"ownerSetting"`
+	OwnerSetting interface{} `field:"optional" json:"ownerSetting" yaml:"ownerSetting"`
 }
 
 // Settings for a secret resource, which references a secret from AWS Secrets Manager .
@@ -12816,7 +13035,10 @@ type CfnResourceDefinitionVersion_SageMakerMachineLearningModelResourceDataPrope
 // In an AWS CloudFormation template, `SecretsManagerSecretResourceData` can be used in the [`ResourceDataContainer`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-resourcedefinitionversion-resourcedatacontainer.html) property type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   secretsManagerSecretResourceDataProperty := &secretsManagerSecretResourceDataProperty{
 //   	arn: jsii.String("arn"),
 //
@@ -12830,15 +13052,18 @@ type CfnResourceDefinitionVersion_SecretsManagerSecretResourceDataProperty struc
 	// The Amazon Resource Name (ARN) of the Secrets Manager secret to make available on the core.
 	//
 	// The value of the secret's latest version (represented by the `AWSCURRENT` staging label) is included by default.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"required" json:"arn" yaml:"arn"`
 	// The staging labels whose values you want to make available on the core, in addition to `AWSCURRENT` .
-	AdditionalStagingLabelsToDownload *[]*string `json:"additionalStagingLabelsToDownload" yaml:"additionalStagingLabelsToDownload"`
+	AdditionalStagingLabelsToDownload *[]*string `field:"optional" json:"additionalStagingLabelsToDownload" yaml:"additionalStagingLabelsToDownload"`
 }
 
 // Properties for defining a `CfnResourceDefinitionVersion`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnResourceDefinitionVersionProps := &cfnResourceDefinitionVersionProps{
 //   	resourceDefinitionId: jsii.String("resourceDefinitionId"),
 //   	resources: []interface{}{
@@ -12906,9 +13131,9 @@ type CfnResourceDefinitionVersionProps struct {
 	// The ID of the resource definition associated with this version.
 	//
 	// This value is a GUID.
-	ResourceDefinitionId *string `json:"resourceDefinitionId" yaml:"resourceDefinitionId"`
+	ResourceDefinitionId *string `field:"required" json:"resourceDefinitionId" yaml:"resourceDefinitionId"`
 	// The resources in this version.
-	Resources interface{} `json:"resources" yaml:"resources"`
+	Resources interface{} `field:"required" json:"resources" yaml:"resources"`
 }
 
 // A CloudFormation `AWS::Greengrass::SubscriptionDefinition`.
@@ -12922,10 +13147,13 @@ type CfnResourceDefinitionVersionProps struct {
 // > After you create the subscription definition version that contains the subscriptions you want to deploy, you must add it to your group version. For more information, see [`AWS::Greengrass::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var tags interface{}
-//   cfnSubscriptionDefinition := greengrass.NewCfnSubscriptionDefinition(this, jsii.String("MyCfnSubscriptionDefinition"), &cfnSubscriptionDefinitionProps{
+//
+//   cfnSubscriptionDefinition := awscdk.Aws_greengrass.NewCfnSubscriptionDefinition(this, jsii.String("MyCfnSubscriptionDefinition"), &cfnSubscriptionDefinitionProps{
 //   	name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -13669,7 +13897,10 @@ func (c *jsiiProxy_CfnSubscriptionDefinition) ValidateProperties(_properties int
 // In an AWS CloudFormation template, `SubscriptionDefinitionVersion` is the property type of the `InitialVersion` property in the [`AWS::Greengrass::SubscriptionDefinition`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-subscriptiondefinition.html) resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   subscriptionDefinitionVersionProperty := &subscriptionDefinitionVersionProperty{
 //   	subscriptions: []interface{}{
 //   		&subscriptionProperty{
@@ -13683,7 +13914,7 @@ func (c *jsiiProxy_CfnSubscriptionDefinition) ValidateProperties(_properties int
 //
 type CfnSubscriptionDefinition_SubscriptionDefinitionVersionProperty struct {
 	// The subscriptions in this version.
-	Subscriptions interface{} `json:"subscriptions" yaml:"subscriptions"`
+	Subscriptions interface{} `field:"required" json:"subscriptions" yaml:"subscriptions"`
 }
 
 // Subscriptions define how MQTT messages can be exchanged between devices, functions, and connectors in the group, and with AWS IoT or the local shadow service.
@@ -13693,7 +13924,10 @@ type CfnSubscriptionDefinition_SubscriptionDefinitionVersionProperty struct {
 // In an AWS CloudFormation template, the `Subscriptions` property of the [`SubscriptionDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-subscriptiondefinition-subscriptiondefinitionversion.html) property type contains a list of `Subscription` property types.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   subscriptionProperty := &subscriptionProperty{
 //   	id: jsii.String("id"),
 //   	source: jsii.String("source"),
@@ -13705,25 +13939,28 @@ type CfnSubscriptionDefinition_SubscriptionProperty struct {
 	// A descriptive or arbitrary ID for the subscription.
 	//
 	// This value must be unique within the subscription definition version. Maximum length is 128 characters with pattern `[a-zA-Z0-9:_-]+` .
-	Id *string `json:"id" yaml:"id"`
+	Id *string `field:"required" json:"id" yaml:"id"`
 	// The originator of the message.
 	//
 	// The value can be a thing ARN, the ARN of a Lambda function alias (recommended) or version, a connector ARN, `cloud` (which represents the AWS IoT cloud), or `GGShadowService` .
-	Source *string `json:"source" yaml:"source"`
+	Source *string `field:"required" json:"source" yaml:"source"`
 	// The MQTT topic used to route the message.
-	Subject *string `json:"subject" yaml:"subject"`
+	Subject *string `field:"required" json:"subject" yaml:"subject"`
 	// The destination of the message.
 	//
 	// The value can be a thing ARN, the ARN of a Lambda function alias (recommended) or version, a connector ARN, `cloud` (which represents the AWS IoT cloud), or `GGShadowService` .
-	Target *string `json:"target" yaml:"target"`
+	Target *string `field:"required" json:"target" yaml:"target"`
 }
 
 // Properties for defining a `CfnSubscriptionDefinition`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var tags interface{}
+//
 //   cfnSubscriptionDefinitionProps := &cfnSubscriptionDefinitionProps{
 //   	name: jsii.String("name"),
 //
@@ -13743,13 +13980,13 @@ type CfnSubscriptionDefinition_SubscriptionProperty struct {
 //
 type CfnSubscriptionDefinitionProps struct {
 	// The name of the subscription definition.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The subscription definition version to include when the subscription definition is created.
 	//
 	// A subscription definition version contains a list of [`subscription`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-subscriptiondefinition-subscription.html) property types.
 	//
 	// > To associate a subscription definition version after the subscription definition is created, create an [`AWS::Greengrass::SubscriptionDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-subscriptiondefinitionversion.html) resource and specify the ID of this subscription definition.
-	InitialVersion interface{} `json:"initialVersion" yaml:"initialVersion"`
+	InitialVersion interface{} `field:"optional" json:"initialVersion" yaml:"initialVersion"`
 	// Application-specific metadata to attach to the subscription definition.
 	//
 	// You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tagging Your AWS IoT Greengrass Resources](https://docs.aws.amazon.com/greengrass/latest/developerguide/tagging.html) in the *Developer Guide* .
@@ -13760,7 +13997,7 @@ type CfnSubscriptionDefinitionProps struct {
 	// "Tags": { "KeyName0": "value", "KeyName1": "value", "KeyName2": "value"
 	// }
 	// ```.
-	Tags interface{} `json:"tags" yaml:"tags"`
+	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Greengrass::SubscriptionDefinitionVersion`.
@@ -13772,8 +14009,11 @@ type CfnSubscriptionDefinitionProps struct {
 // > After you create a subscription definition version that contains the subscriptions you want to deploy, you must add it to your group version. For more information, see [`AWS::Greengrass::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
-//   cfnSubscriptionDefinitionVersion := greengrass.NewCfnSubscriptionDefinitionVersion(this, jsii.String("MyCfnSubscriptionDefinitionVersion"), &cfnSubscriptionDefinitionVersionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnSubscriptionDefinitionVersion := awscdk.Aws_greengrass.NewCfnSubscriptionDefinitionVersion(this, jsii.String("MyCfnSubscriptionDefinitionVersion"), &cfnSubscriptionDefinitionVersionProps{
 //   	subscriptionDefinitionId: jsii.String("subscriptionDefinitionId"),
 //   	subscriptions: []interface{}{
 //   		&subscriptionProperty{
@@ -14441,7 +14681,10 @@ func (c *jsiiProxy_CfnSubscriptionDefinitionVersion) ValidateProperties(_propert
 // In an AWS CloudFormation template, the `Subscriptions` property of the [`AWS::Greengrass::SubscriptionDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-subscriptiondefinitionversion.html) resource contains a list of `Subscription` property types.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   subscriptionProperty := &subscriptionProperty{
 //   	id: jsii.String("id"),
 //   	source: jsii.String("source"),
@@ -14453,23 +14696,26 @@ type CfnSubscriptionDefinitionVersion_SubscriptionProperty struct {
 	// A descriptive or arbitrary ID for the subscription.
 	//
 	// This value must be unique within the subscription definition version. Maximum length is 128 characters with pattern `[a-zA-Z0-9:_-]+` .
-	Id *string `json:"id" yaml:"id"`
+	Id *string `field:"required" json:"id" yaml:"id"`
 	// The originator of the message.
 	//
 	// The value can be a thing ARN, the ARN of a Lambda function alias (recommended) or version, a connector ARN, `cloud` (which represents the AWS IoT cloud), or `GGShadowService` .
-	Source *string `json:"source" yaml:"source"`
+	Source *string `field:"required" json:"source" yaml:"source"`
 	// The MQTT topic used to route the message.
-	Subject *string `json:"subject" yaml:"subject"`
+	Subject *string `field:"required" json:"subject" yaml:"subject"`
 	// The destination of the message.
 	//
 	// The value can be a thing ARN, the ARN of a Lambda function alias (recommended) or version, a connector ARN, `cloud` (which represents the AWS IoT cloud), or `GGShadowService` .
-	Target *string `json:"target" yaml:"target"`
+	Target *string `field:"required" json:"target" yaml:"target"`
 }
 
 // Properties for defining a `CfnSubscriptionDefinitionVersion`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import greengrass "github.com/aws/aws-cdk-go/awscdk/aws_greengrass"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnSubscriptionDefinitionVersionProps := &cfnSubscriptionDefinitionVersionProps{
 //   	subscriptionDefinitionId: jsii.String("subscriptionDefinitionId"),
 //   	subscriptions: []interface{}{
@@ -14486,8 +14732,8 @@ type CfnSubscriptionDefinitionVersionProps struct {
 	// The ID of the subscription definition associated with this version.
 	//
 	// This value is a GUID.
-	SubscriptionDefinitionId *string `json:"subscriptionDefinitionId" yaml:"subscriptionDefinitionId"`
+	SubscriptionDefinitionId *string `field:"required" json:"subscriptionDefinitionId" yaml:"subscriptionDefinitionId"`
 	// The subscriptions in this version.
-	Subscriptions interface{} `json:"subscriptions" yaml:"subscriptions"`
+	Subscriptions interface{} `field:"required" json:"subscriptions" yaml:"subscriptions"`
 }
 

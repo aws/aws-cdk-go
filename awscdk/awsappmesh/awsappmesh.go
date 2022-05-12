@@ -16,7 +16,8 @@ import (
 // Configuration for Envoy Access logs for mesh endpoints.
 //
 // Example:
-//   var mesh meshvpc := ec2.NewVpc(this, jsii.String("vpc"))
+//   var mesh mesh
+//   vpc := ec2.NewVpc(this, jsii.String("vpc"))
 //   namespace := cloudmap.NewPrivateDnsNamespace(this, jsii.String("test-namespace"), &privateDnsNamespaceProps{
 //   	vpc: vpc,
 //   	name: jsii.String("domain.local"),
@@ -100,7 +101,10 @@ func (a *jsiiProxy_AccessLog) Bind(scope awscdk.Construct) *AccessLogConfig {
 // All Properties for Envoy Access logs for mesh endpoints.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   accessLogConfig := &accessLogConfig{
 //   	virtualGatewayAccessLog: &virtualGatewayAccessLogProperty{
 //   		file: &virtualGatewayFileAccessLogProperty{
@@ -118,10 +122,10 @@ func (a *jsiiProxy_AccessLog) Bind(scope awscdk.Construct) *AccessLogConfig {
 type AccessLogConfig struct {
 	// VirtualGateway CFN configuration for Access Logging.
 	// Experimental.
-	VirtualGatewayAccessLog *CfnVirtualGateway_VirtualGatewayAccessLogProperty `json:"virtualGatewayAccessLog" yaml:"virtualGatewayAccessLog"`
+	VirtualGatewayAccessLog *CfnVirtualGateway_VirtualGatewayAccessLogProperty `field:"optional" json:"virtualGatewayAccessLog" yaml:"virtualGatewayAccessLog"`
 	// VirtualNode CFN configuration for Access Logging.
 	// Experimental.
-	VirtualNodeAccessLog *CfnVirtualNode_AccessLogProperty `json:"virtualNodeAccessLog" yaml:"virtualNodeAccessLog"`
+	VirtualNodeAccessLog *CfnVirtualNode_AccessLogProperty `field:"optional" json:"virtualNodeAccessLog" yaml:"virtualNodeAccessLog"`
 }
 
 // Contains static factory methods to create backends.
@@ -130,6 +134,7 @@ type AccessLogConfig struct {
 //   var mesh mesh
 //   var router virtualRouter
 //   var service service
+//
 //
 //   node := appmesh.NewVirtualNode(this, jsii.String("node"), &virtualNodeProps{
 //   	mesh: mesh,
@@ -215,7 +220,10 @@ func (b *jsiiProxy_Backend) Bind(_scope awscdk.Construct) *BackendConfig {
 // Properties for a backend.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   backendConfig := &backendConfig{
 //   	virtualServiceBackend: &backendProperty{
 //   		virtualService: &virtualServiceBackendProperty{
@@ -273,7 +281,7 @@ func (b *jsiiProxy_Backend) Bind(_scope awscdk.Construct) *BackendConfig {
 type BackendConfig struct {
 	// Config for a Virtual Service backend.
 	// Experimental.
-	VirtualServiceBackend *CfnVirtualNode_BackendProperty `json:"virtualServiceBackend" yaml:"virtualServiceBackend"`
+	VirtualServiceBackend *CfnVirtualNode_BackendProperty `field:"required" json:"virtualServiceBackend" yaml:"virtualServiceBackend"`
 }
 
 // Represents the properties needed to define backend defaults.
@@ -281,6 +289,7 @@ type BackendConfig struct {
 // Example:
 //   var mesh mesh
 //   var service service
+//
 //
 //   node := appmesh.NewVirtualNode(this, jsii.String("node"), &virtualNodeProps{
 //   	mesh: mesh,
@@ -316,7 +325,7 @@ type BackendConfig struct {
 type BackendDefaults struct {
 	// TLS properties for Client policy for backend defaults.
 	// Experimental.
-	TlsClientPolicy *TlsClientPolicy `json:"tlsClientPolicy" yaml:"tlsClientPolicy"`
+	TlsClientPolicy *TlsClientPolicy `field:"optional" json:"tlsClientPolicy" yaml:"tlsClientPolicy"`
 }
 
 // A CloudFormation `AWS::AppMesh::GatewayRoute`.
@@ -328,8 +337,11 @@ type BackendDefaults struct {
 // For more information about gateway routes, see [Gateway routes](https://docs.aws.amazon.com/app-mesh/latest/userguide/gateway-routes.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
-//   cfnGatewayRoute := appmesh.NewCfnGatewayRoute(this, jsii.String("MyCfnGatewayRoute"), &cfnGatewayRouteProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnGatewayRoute := awscdk.Aws_appmesh.NewCfnGatewayRoute(this, jsii.String("MyCfnGatewayRoute"), &cfnGatewayRouteProps{
 //   	meshName: jsii.String("meshName"),
 //   	spec: &gatewayRouteSpecProperty{
 //   		grpcRoute: &grpcGatewayRouteProperty{
@@ -1331,7 +1343,10 @@ func (c *jsiiProxy_CfnGatewayRoute) ValidateProperties(_properties interface{}) 
 // An object representing the gateway route host name to match.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   gatewayRouteHostnameMatchProperty := &gatewayRouteHostnameMatchProperty{
 //   	exact: jsii.String("exact"),
 //   	suffix: jsii.String("suffix"),
@@ -1339,28 +1354,34 @@ func (c *jsiiProxy_CfnGatewayRoute) ValidateProperties(_properties interface{}) 
 //
 type CfnGatewayRoute_GatewayRouteHostnameMatchProperty struct {
 	// The exact host name to match on.
-	Exact *string `json:"exact" yaml:"exact"`
+	Exact *string `field:"optional" json:"exact" yaml:"exact"`
 	// The specified ending characters of the host name to match on.
-	Suffix *string `json:"suffix" yaml:"suffix"`
+	Suffix *string `field:"optional" json:"suffix" yaml:"suffix"`
 }
 
 // An object representing the gateway route host name to rewrite.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   gatewayRouteHostnameRewriteProperty := &gatewayRouteHostnameRewriteProperty{
 //   	defaultTargetHostname: jsii.String("defaultTargetHostname"),
 //   }
 //
 type CfnGatewayRoute_GatewayRouteHostnameRewriteProperty struct {
 	// The default target host name to write to.
-	DefaultTargetHostname *string `json:"defaultTargetHostname" yaml:"defaultTargetHostname"`
+	DefaultTargetHostname *string `field:"optional" json:"defaultTargetHostname" yaml:"defaultTargetHostname"`
 }
 
 // An object representing the method header to be matched.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   gatewayRouteMetadataMatchProperty := &gatewayRouteMetadataMatchProperty{
 //   	exact: jsii.String("exact"),
 //   	prefix: jsii.String("prefix"),
@@ -1374,15 +1395,15 @@ type CfnGatewayRoute_GatewayRouteHostnameRewriteProperty struct {
 //
 type CfnGatewayRoute_GatewayRouteMetadataMatchProperty struct {
 	// The exact method header to be matched on.
-	Exact *string `json:"exact" yaml:"exact"`
+	Exact *string `field:"optional" json:"exact" yaml:"exact"`
 	// The specified beginning characters of the method header to be matched on.
-	Prefix *string `json:"prefix" yaml:"prefix"`
+	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 	// An object that represents the range of values to match on.
-	Range interface{} `json:"range" yaml:"range"`
+	Range interface{} `field:"optional" json:"range" yaml:"range"`
 	// The regex used to match the method header.
-	Regex *string `json:"regex" yaml:"regex"`
+	Regex *string `field:"optional" json:"regex" yaml:"regex"`
 	// The specified ending characters of the method header to match on.
-	Suffix *string `json:"suffix" yaml:"suffix"`
+	Suffix *string `field:"optional" json:"suffix" yaml:"suffix"`
 }
 
 // An object that represents the range of values to match on.
@@ -1390,7 +1411,10 @@ type CfnGatewayRoute_GatewayRouteMetadataMatchProperty struct {
 // The first character of the range is included in the range, though the last character is not. For example, if the range specified were 1-100, only values 1-99 would be matched.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   gatewayRouteRangeMatchProperty := &gatewayRouteRangeMatchProperty{
 //   	end: jsii.Number(123),
 //   	start: jsii.Number(123),
@@ -1398,9 +1422,9 @@ type CfnGatewayRoute_GatewayRouteMetadataMatchProperty struct {
 //
 type CfnGatewayRoute_GatewayRouteRangeMatchProperty struct {
 	// The end of the range.
-	End *float64 `json:"end" yaml:"end"`
+	End *float64 `field:"required" json:"end" yaml:"end"`
 	// The start of the range.
-	Start *float64 `json:"start" yaml:"start"`
+	Start *float64 `field:"required" json:"start" yaml:"start"`
 }
 
 // An object that represents a gateway route specification.
@@ -1408,7 +1432,10 @@ type CfnGatewayRoute_GatewayRouteRangeMatchProperty struct {
 // Specify one gateway route type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   gatewayRouteSpecProperty := &gatewayRouteSpecProperty{
 //   	grpcRoute: &grpcGatewayRouteProperty{
 //   		action: &grpcGatewayRouteActionProperty{
@@ -1582,19 +1609,22 @@ type CfnGatewayRoute_GatewayRouteRangeMatchProperty struct {
 //
 type CfnGatewayRoute_GatewayRouteSpecProperty struct {
 	// An object that represents the specification of a gRPC gateway route.
-	GrpcRoute interface{} `json:"grpcRoute" yaml:"grpcRoute"`
+	GrpcRoute interface{} `field:"optional" json:"grpcRoute" yaml:"grpcRoute"`
 	// An object that represents the specification of an HTTP/2 gateway route.
-	Http2Route interface{} `json:"http2Route" yaml:"http2Route"`
+	Http2Route interface{} `field:"optional" json:"http2Route" yaml:"http2Route"`
 	// An object that represents the specification of an HTTP gateway route.
-	HttpRoute interface{} `json:"httpRoute" yaml:"httpRoute"`
+	HttpRoute interface{} `field:"optional" json:"httpRoute" yaml:"httpRoute"`
 	// The ordering of the gateway routes spec.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 }
 
 // An object that represents a gateway route target.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   gatewayRouteTargetProperty := &gatewayRouteTargetProperty{
 //   	virtualService: &gatewayRouteVirtualServiceProperty{
 //   		virtualServiceName: jsii.String("virtualServiceName"),
@@ -1603,26 +1633,32 @@ type CfnGatewayRoute_GatewayRouteSpecProperty struct {
 //
 type CfnGatewayRoute_GatewayRouteTargetProperty struct {
 	// An object that represents a virtual service gateway route target.
-	VirtualService interface{} `json:"virtualService" yaml:"virtualService"`
+	VirtualService interface{} `field:"required" json:"virtualService" yaml:"virtualService"`
 }
 
 // An object that represents the virtual service that traffic is routed to.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   gatewayRouteVirtualServiceProperty := &gatewayRouteVirtualServiceProperty{
 //   	virtualServiceName: jsii.String("virtualServiceName"),
 //   }
 //
 type CfnGatewayRoute_GatewayRouteVirtualServiceProperty struct {
 	// The name of the virtual service that traffic is routed to.
-	VirtualServiceName *string `json:"virtualServiceName" yaml:"virtualServiceName"`
+	VirtualServiceName *string `field:"required" json:"virtualServiceName" yaml:"virtualServiceName"`
 }
 
 // An object that represents the action to take if a match is determined.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   grpcGatewayRouteActionProperty := &grpcGatewayRouteActionProperty{
 //   	target: &gatewayRouteTargetProperty{
 //   		virtualService: &gatewayRouteVirtualServiceProperty{
@@ -1640,15 +1676,18 @@ type CfnGatewayRoute_GatewayRouteVirtualServiceProperty struct {
 //
 type CfnGatewayRoute_GrpcGatewayRouteActionProperty struct {
 	// An object that represents the target that traffic is routed to when a request matches the gateway route.
-	Target interface{} `json:"target" yaml:"target"`
+	Target interface{} `field:"required" json:"target" yaml:"target"`
 	// The gateway route action to rewrite.
-	Rewrite interface{} `json:"rewrite" yaml:"rewrite"`
+	Rewrite interface{} `field:"optional" json:"rewrite" yaml:"rewrite"`
 }
 
 // An object that represents the criteria for determining a request match.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   grpcGatewayRouteMatchProperty := &grpcGatewayRouteMatchProperty{
 //   	hostname: &gatewayRouteHostnameMatchProperty{
 //   		exact: jsii.String("exact"),
@@ -1677,17 +1716,20 @@ type CfnGatewayRoute_GrpcGatewayRouteActionProperty struct {
 //
 type CfnGatewayRoute_GrpcGatewayRouteMatchProperty struct {
 	// The gateway route host name to be matched on.
-	Hostname interface{} `json:"hostname" yaml:"hostname"`
+	Hostname interface{} `field:"optional" json:"hostname" yaml:"hostname"`
 	// The gateway route metadata to be matched on.
-	Metadata interface{} `json:"metadata" yaml:"metadata"`
+	Metadata interface{} `field:"optional" json:"metadata" yaml:"metadata"`
 	// The fully qualified domain name for the service to match from the request.
-	ServiceName *string `json:"serviceName" yaml:"serviceName"`
+	ServiceName *string `field:"optional" json:"serviceName" yaml:"serviceName"`
 }
 
 // An object representing the metadata of the gateway route.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   grpcGatewayRouteMetadataProperty := &grpcGatewayRouteMetadataProperty{
 //   	name: jsii.String("name"),
 //
@@ -1707,19 +1749,22 @@ type CfnGatewayRoute_GrpcGatewayRouteMatchProperty struct {
 //
 type CfnGatewayRoute_GrpcGatewayRouteMetadataProperty struct {
 	// A name for the gateway route metadata.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// Specify `True` to match anything except the match criteria.
 	//
 	// The default value is `False` .
-	Invert interface{} `json:"invert" yaml:"invert"`
+	Invert interface{} `field:"optional" json:"invert" yaml:"invert"`
 	// The criteria for determining a metadata match.
-	Match interface{} `json:"match" yaml:"match"`
+	Match interface{} `field:"optional" json:"match" yaml:"match"`
 }
 
 // An object that represents a gRPC gateway route.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   grpcGatewayRouteProperty := &grpcGatewayRouteProperty{
 //   	action: &grpcGatewayRouteActionProperty{
 //   		target: &gatewayRouteTargetProperty{
@@ -1764,15 +1809,18 @@ type CfnGatewayRoute_GrpcGatewayRouteMetadataProperty struct {
 //
 type CfnGatewayRoute_GrpcGatewayRouteProperty struct {
 	// An object that represents the action to take if a match is determined.
-	Action interface{} `json:"action" yaml:"action"`
+	Action interface{} `field:"required" json:"action" yaml:"action"`
 	// An object that represents the criteria for determining a request match.
-	Match interface{} `json:"match" yaml:"match"`
+	Match interface{} `field:"required" json:"match" yaml:"match"`
 }
 
 // An object that represents the gateway route to rewrite.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   grpcGatewayRouteRewriteProperty := &grpcGatewayRouteRewriteProperty{
 //   	hostname: &gatewayRouteHostnameRewriteProperty{
 //   		defaultTargetHostname: jsii.String("defaultTargetHostname"),
@@ -1781,13 +1829,16 @@ type CfnGatewayRoute_GrpcGatewayRouteProperty struct {
 //
 type CfnGatewayRoute_GrpcGatewayRouteRewriteProperty struct {
 	// The host name of the gateway route to rewrite.
-	Hostname interface{} `json:"hostname" yaml:"hostname"`
+	Hostname interface{} `field:"optional" json:"hostname" yaml:"hostname"`
 }
 
 // An object that represents the action to take if a match is determined.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   httpGatewayRouteActionProperty := &httpGatewayRouteActionProperty{
 //   	target: &gatewayRouteTargetProperty{
 //   		virtualService: &gatewayRouteVirtualServiceProperty{
@@ -1812,9 +1863,9 @@ type CfnGatewayRoute_GrpcGatewayRouteRewriteProperty struct {
 //
 type CfnGatewayRoute_HttpGatewayRouteActionProperty struct {
 	// An object that represents the target that traffic is routed to when a request matches the gateway route.
-	Target interface{} `json:"target" yaml:"target"`
+	Target interface{} `field:"required" json:"target" yaml:"target"`
 	// The gateway route action to rewrite.
-	Rewrite interface{} `json:"rewrite" yaml:"rewrite"`
+	Rewrite interface{} `field:"optional" json:"rewrite" yaml:"rewrite"`
 }
 
 // An object that represents the method and value to match with the header value sent in a request.
@@ -1822,7 +1873,10 @@ type CfnGatewayRoute_HttpGatewayRouteActionProperty struct {
 // Specify one match method.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   httpGatewayRouteHeaderMatchProperty := &httpGatewayRouteHeaderMatchProperty{
 //   	exact: jsii.String("exact"),
 //   	prefix: jsii.String("prefix"),
@@ -1836,21 +1890,24 @@ type CfnGatewayRoute_HttpGatewayRouteActionProperty struct {
 //
 type CfnGatewayRoute_HttpGatewayRouteHeaderMatchProperty struct {
 	// The value sent by the client must match the specified value exactly.
-	Exact *string `json:"exact" yaml:"exact"`
+	Exact *string `field:"optional" json:"exact" yaml:"exact"`
 	// The value sent by the client must begin with the specified characters.
-	Prefix *string `json:"prefix" yaml:"prefix"`
+	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 	// An object that represents the range of values to match on.
-	Range interface{} `json:"range" yaml:"range"`
+	Range interface{} `field:"optional" json:"range" yaml:"range"`
 	// The value sent by the client must include the specified characters.
-	Regex *string `json:"regex" yaml:"regex"`
+	Regex *string `field:"optional" json:"regex" yaml:"regex"`
 	// The value sent by the client must end with the specified characters.
-	Suffix *string `json:"suffix" yaml:"suffix"`
+	Suffix *string `field:"optional" json:"suffix" yaml:"suffix"`
 }
 
 // An object that represents the HTTP header in the gateway route.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   httpGatewayRouteHeaderProperty := &httpGatewayRouteHeaderProperty{
 //   	name: jsii.String("name"),
 //
@@ -1870,21 +1927,24 @@ type CfnGatewayRoute_HttpGatewayRouteHeaderMatchProperty struct {
 //
 type CfnGatewayRoute_HttpGatewayRouteHeaderProperty struct {
 	// A name for the HTTP header in the gateway route that will be matched on.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// Specify `True` to match anything except the match criteria.
 	//
 	// The default value is `False` .
-	Invert interface{} `json:"invert" yaml:"invert"`
+	Invert interface{} `field:"optional" json:"invert" yaml:"invert"`
 	// An object that represents the method and value to match with the header value sent in a request.
 	//
 	// Specify one match method.
-	Match interface{} `json:"match" yaml:"match"`
+	Match interface{} `field:"optional" json:"match" yaml:"match"`
 }
 
 // An object that represents the criteria for determining a request match.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   httpGatewayRouteMatchProperty := &httpGatewayRouteMatchProperty{
 //   	headers: []interface{}{
 //   		&httpGatewayRouteHeaderProperty{
@@ -1928,38 +1988,44 @@ type CfnGatewayRoute_HttpGatewayRouteHeaderProperty struct {
 //
 type CfnGatewayRoute_HttpGatewayRouteMatchProperty struct {
 	// The client request headers to match on.
-	Headers interface{} `json:"headers" yaml:"headers"`
+	Headers interface{} `field:"optional" json:"headers" yaml:"headers"`
 	// The host name to match on.
-	Hostname interface{} `json:"hostname" yaml:"hostname"`
+	Hostname interface{} `field:"optional" json:"hostname" yaml:"hostname"`
 	// The method to match on.
-	Method *string `json:"method" yaml:"method"`
+	Method *string `field:"optional" json:"method" yaml:"method"`
 	// The path to match on.
-	Path interface{} `json:"path" yaml:"path"`
+	Path interface{} `field:"optional" json:"path" yaml:"path"`
 	// Specifies the path to match requests with.
 	//
 	// This parameter must always start with `/` , which by itself matches all requests to the virtual service name. You can also match for path-based routing of requests. For example, if your virtual service name is `my-service.local` and you want the route to match requests to `my-service.local/metrics` , your prefix should be `/metrics` .
-	Prefix *string `json:"prefix" yaml:"prefix"`
+	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 	// The query parameter to match on.
-	QueryParameters interface{} `json:"queryParameters" yaml:"queryParameters"`
+	QueryParameters interface{} `field:"optional" json:"queryParameters" yaml:"queryParameters"`
 }
 
 // An object that represents the path to rewrite.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   httpGatewayRoutePathRewriteProperty := &httpGatewayRoutePathRewriteProperty{
 //   	exact: jsii.String("exact"),
 //   }
 //
 type CfnGatewayRoute_HttpGatewayRoutePathRewriteProperty struct {
 	// The exact path to rewrite.
-	Exact *string `json:"exact" yaml:"exact"`
+	Exact *string `field:"optional" json:"exact" yaml:"exact"`
 }
 
 // An object representing the beginning characters of the route to rewrite.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   httpGatewayRoutePrefixRewriteProperty := &httpGatewayRoutePrefixRewriteProperty{
 //   	defaultPrefix: jsii.String("defaultPrefix"),
 //   	value: jsii.String("value"),
@@ -1967,15 +2033,18 @@ type CfnGatewayRoute_HttpGatewayRoutePathRewriteProperty struct {
 //
 type CfnGatewayRoute_HttpGatewayRoutePrefixRewriteProperty struct {
 	// The default prefix used to replace the incoming route prefix when rewritten.
-	DefaultPrefix *string `json:"defaultPrefix" yaml:"defaultPrefix"`
+	DefaultPrefix *string `field:"optional" json:"defaultPrefix" yaml:"defaultPrefix"`
 	// The value used to replace the incoming route prefix when rewritten.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
 // An object that represents an HTTP gateway route.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   httpGatewayRouteProperty := &httpGatewayRouteProperty{
 //   	action: &httpGatewayRouteActionProperty{
 //   		target: &gatewayRouteTargetProperty{
@@ -2042,15 +2111,18 @@ type CfnGatewayRoute_HttpGatewayRoutePrefixRewriteProperty struct {
 //
 type CfnGatewayRoute_HttpGatewayRouteProperty struct {
 	// An object that represents the action to take if a match is determined.
-	Action interface{} `json:"action" yaml:"action"`
+	Action interface{} `field:"required" json:"action" yaml:"action"`
 	// An object that represents the criteria for determining a request match.
-	Match interface{} `json:"match" yaml:"match"`
+	Match interface{} `field:"required" json:"match" yaml:"match"`
 }
 
 // An object representing the gateway route to rewrite.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   httpGatewayRouteRewriteProperty := &httpGatewayRouteRewriteProperty{
 //   	hostname: &gatewayRouteHostnameRewriteProperty{
 //   		defaultTargetHostname: jsii.String("defaultTargetHostname"),
@@ -2066,17 +2138,20 @@ type CfnGatewayRoute_HttpGatewayRouteProperty struct {
 //
 type CfnGatewayRoute_HttpGatewayRouteRewriteProperty struct {
 	// The host name to rewrite.
-	Hostname interface{} `json:"hostname" yaml:"hostname"`
+	Hostname interface{} `field:"optional" json:"hostname" yaml:"hostname"`
 	// The path to rewrite.
-	Path interface{} `json:"path" yaml:"path"`
+	Path interface{} `field:"optional" json:"path" yaml:"path"`
 	// The specified beginning characters to rewrite.
-	Prefix interface{} `json:"prefix" yaml:"prefix"`
+	Prefix interface{} `field:"optional" json:"prefix" yaml:"prefix"`
 }
 
 // An object representing the path to match in the request.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   httpPathMatchProperty := &httpPathMatchProperty{
 //   	exact: jsii.String("exact"),
 //   	regex: jsii.String("regex"),
@@ -2084,28 +2159,34 @@ type CfnGatewayRoute_HttpGatewayRouteRewriteProperty struct {
 //
 type CfnGatewayRoute_HttpPathMatchProperty struct {
 	// The exact path to match on.
-	Exact *string `json:"exact" yaml:"exact"`
+	Exact *string `field:"optional" json:"exact" yaml:"exact"`
 	// The regex used to match the path.
-	Regex *string `json:"regex" yaml:"regex"`
+	Regex *string `field:"optional" json:"regex" yaml:"regex"`
 }
 
 // An object representing the query parameter to match.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   httpQueryParameterMatchProperty := &httpQueryParameterMatchProperty{
 //   	exact: jsii.String("exact"),
 //   }
 //
 type CfnGatewayRoute_HttpQueryParameterMatchProperty struct {
 	// The exact query parameter to match on.
-	Exact *string `json:"exact" yaml:"exact"`
+	Exact *string `field:"optional" json:"exact" yaml:"exact"`
 }
 
 // An object that represents the query parameter in the request.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   queryParameterProperty := &queryParameterProperty{
 //   	name: jsii.String("name"),
 //
@@ -2117,15 +2198,18 @@ type CfnGatewayRoute_HttpQueryParameterMatchProperty struct {
 //
 type CfnGatewayRoute_QueryParameterProperty struct {
 	// A name for the query parameter that will be matched on.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The query parameter to match on.
-	Match interface{} `json:"match" yaml:"match"`
+	Match interface{} `field:"optional" json:"match" yaml:"match"`
 }
 
 // Properties for defining a `CfnGatewayRoute`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnGatewayRouteProps := &cfnGatewayRouteProps{
 //   	meshName: jsii.String("meshName"),
 //   	spec: &gatewayRouteSpecProperty{
@@ -2313,21 +2397,21 @@ type CfnGatewayRoute_QueryParameterProperty struct {
 //
 type CfnGatewayRouteProps struct {
 	// The name of the service mesh that the resource resides in.
-	MeshName *string `json:"meshName" yaml:"meshName"`
+	MeshName *string `field:"required" json:"meshName" yaml:"meshName"`
 	// The specifications of the gateway route.
-	Spec interface{} `json:"spec" yaml:"spec"`
+	Spec interface{} `field:"required" json:"spec" yaml:"spec"`
 	// The virtual gateway that the gateway route is associated with.
-	VirtualGatewayName *string `json:"virtualGatewayName" yaml:"virtualGatewayName"`
+	VirtualGatewayName *string `field:"required" json:"virtualGatewayName" yaml:"virtualGatewayName"`
 	// The name of the gateway route.
-	GatewayRouteName *string `json:"gatewayRouteName" yaml:"gatewayRouteName"`
+	GatewayRouteName *string `field:"optional" json:"gatewayRouteName" yaml:"gatewayRouteName"`
 	// The AWS IAM account ID of the service mesh owner.
 	//
 	// If the account ID is not your own, then it's the ID of the account that shared the mesh with your account. For more information about mesh sharing, see [Working with shared meshes](https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html) .
-	MeshOwner *string `json:"meshOwner" yaml:"meshOwner"`
+	MeshOwner *string `field:"optional" json:"meshOwner" yaml:"meshOwner"`
 	// Optional metadata that you can apply to the gateway route to assist with categorization and organization.
 	//
 	// Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::AppMesh::Mesh`.
@@ -2339,8 +2423,11 @@ type CfnGatewayRouteProps struct {
 // For more information about service meshes, see [Service meshes](https://docs.aws.amazon.com/app-mesh/latest/userguide/meshes.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
-//   cfnMesh := appmesh.NewCfnMesh(this, jsii.String("MyCfnMesh"), &cfnMeshProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnMesh := awscdk.Aws_appmesh.NewCfnMesh(this, jsii.String("MyCfnMesh"), &cfnMeshProps{
 //   	meshName: jsii.String("meshName"),
 //   	spec: &meshSpecProperty{
 //   		egressFilter: &egressFilterProperty{
@@ -3083,7 +3170,10 @@ func (c *jsiiProxy_CfnMesh) ValidateProperties(_properties interface{}) {
 // An object that represents the egress filter rules for a service mesh.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   egressFilterProperty := &egressFilterProperty{
 //   	type: jsii.String("type"),
 //   }
@@ -3092,11 +3182,14 @@ type CfnMesh_EgressFilterProperty struct {
 	// The egress filter type.
 	//
 	// By default, the type is `DROP_ALL` , which allows egress only from virtual nodes to other defined resources in the service mesh (and any traffic to `*.amazonaws.com` for AWS API calls). You can set the egress filter type to `ALLOW_ALL` to allow egress to any endpoint inside or outside of the service mesh.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   meshServiceDiscoveryProperty := &meshServiceDiscoveryProperty{
 //   }
 //
@@ -3106,7 +3199,10 @@ type CfnMesh_MeshServiceDiscoveryProperty struct {
 // An object that represents the specification of a service mesh.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   meshSpecProperty := &meshSpecProperty{
 //   	egressFilter: &egressFilterProperty{
 //   		type: jsii.String("type"),
@@ -3115,13 +3211,16 @@ type CfnMesh_MeshServiceDiscoveryProperty struct {
 //
 type CfnMesh_MeshSpecProperty struct {
 	// The egress filter rules for the service mesh.
-	EgressFilter interface{} `json:"egressFilter" yaml:"egressFilter"`
+	EgressFilter interface{} `field:"optional" json:"egressFilter" yaml:"egressFilter"`
 }
 
 // Properties for defining a `CfnMesh`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnMeshProps := &cfnMeshProps{
 //   	meshName: jsii.String("meshName"),
 //   	spec: &meshSpecProperty{
@@ -3139,13 +3238,13 @@ type CfnMesh_MeshSpecProperty struct {
 //
 type CfnMeshProps struct {
 	// The name to use for the service mesh.
-	MeshName *string `json:"meshName" yaml:"meshName"`
+	MeshName *string `field:"optional" json:"meshName" yaml:"meshName"`
 	// The service mesh specification to apply.
-	Spec interface{} `json:"spec" yaml:"spec"`
+	Spec interface{} `field:"optional" json:"spec" yaml:"spec"`
 	// Optional metadata that you can apply to the service mesh to assist with categorization and organization.
 	//
 	// Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::AppMesh::Route`.
@@ -3157,8 +3256,11 @@ type CfnMeshProps struct {
 // For more information about routes, see [Routes](https://docs.aws.amazon.com/app-mesh/latest/userguide/routes.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
-//   cfnRoute := appmesh.NewCfnRoute(this, jsii.String("MyCfnRoute"), &cfnRouteProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnRoute := awscdk.Aws_appmesh.NewCfnRoute(this, jsii.String("MyCfnRoute"), &cfnRouteProps{
 //   	meshName: jsii.String("meshName"),
 //   	spec: &routeSpecProperty{
 //   		grpcRoute: &grpcRouteProperty{
@@ -4223,7 +4325,10 @@ func (c *jsiiProxy_CfnRoute) ValidateProperties(_properties interface{}) {
 // An object that represents a duration of time.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   durationProperty := &durationProperty{
 //   	unit: jsii.String("unit"),
 //   	value: jsii.Number(123),
@@ -4231,9 +4336,9 @@ func (c *jsiiProxy_CfnRoute) ValidateProperties(_properties interface{}) {
 //
 type CfnRoute_DurationProperty struct {
 	// A unit of time.
-	Unit *string `json:"unit" yaml:"unit"`
+	Unit *string `field:"required" json:"unit" yaml:"unit"`
 	// A number of time units.
-	Value *float64 `json:"value" yaml:"value"`
+	Value *float64 `field:"required" json:"value" yaml:"value"`
 }
 
 // An object that represents a retry policy.
@@ -4241,7 +4346,10 @@ type CfnRoute_DurationProperty struct {
 // Specify at least one value for at least one of the types of `RetryEvents` , a value for `maxRetries` , and a value for `perRetryTimeout` . Both `server-error` and `gateway-error` under `httpRetryEvents` include the Envoy `reset` policy. For more information on the `reset` policy, see the [Envoy documentation](https://docs.aws.amazon.com/https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_filters/router_filter#x-envoy-retry-on) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   grpcRetryPolicyProperty := &grpcRetryPolicyProperty{
 //   	maxRetries: jsii.Number(123),
 //   	perRetryTimeout: &durationProperty{
@@ -4263,28 +4371,31 @@ type CfnRoute_DurationProperty struct {
 //
 type CfnRoute_GrpcRetryPolicyProperty struct {
 	// The maximum number of retry attempts.
-	MaxRetries *float64 `json:"maxRetries" yaml:"maxRetries"`
+	MaxRetries *float64 `field:"required" json:"maxRetries" yaml:"maxRetries"`
 	// The timeout for each retry attempt.
-	PerRetryTimeout interface{} `json:"perRetryTimeout" yaml:"perRetryTimeout"`
+	PerRetryTimeout interface{} `field:"required" json:"perRetryTimeout" yaml:"perRetryTimeout"`
 	// Specify at least one of the valid values.
-	GrpcRetryEvents *[]*string `json:"grpcRetryEvents" yaml:"grpcRetryEvents"`
+	GrpcRetryEvents *[]*string `field:"optional" json:"grpcRetryEvents" yaml:"grpcRetryEvents"`
 	// Specify at least one of the following values.
 	//
 	// - *server-error* – HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511
 	// - *gateway-error* – HTTP status codes 502, 503, and 504
 	// - *client-error* – HTTP status code 409
 	// - *stream-error* – Retry on refused stream.
-	HttpRetryEvents *[]*string `json:"httpRetryEvents" yaml:"httpRetryEvents"`
+	HttpRetryEvents *[]*string `field:"optional" json:"httpRetryEvents" yaml:"httpRetryEvents"`
 	// Specify a valid value.
 	//
 	// The event occurs before any processing of a request has started and is encountered when the upstream is temporarily or permanently unavailable.
-	TcpRetryEvents *[]*string `json:"tcpRetryEvents" yaml:"tcpRetryEvents"`
+	TcpRetryEvents *[]*string `field:"optional" json:"tcpRetryEvents" yaml:"tcpRetryEvents"`
 }
 
 // An object that represents the action to take if a match is determined.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   grpcRouteActionProperty := &grpcRouteActionProperty{
 //   	weightedTargets: []interface{}{
 //   		&weightedTargetProperty{
@@ -4296,13 +4407,16 @@ type CfnRoute_GrpcRetryPolicyProperty struct {
 //
 type CfnRoute_GrpcRouteActionProperty struct {
 	// An object that represents the targets that traffic is routed to when a request matches the route.
-	WeightedTargets interface{} `json:"weightedTargets" yaml:"weightedTargets"`
+	WeightedTargets interface{} `field:"required" json:"weightedTargets" yaml:"weightedTargets"`
 }
 
 // An object that represents the criteria for determining a request match.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   grpcRouteMatchProperty := &grpcRouteMatchProperty{
 //   	metadata: []interface{}{
 //   		&grpcRouteMetadataProperty{
@@ -4328,13 +4442,13 @@ type CfnRoute_GrpcRouteActionProperty struct {
 //
 type CfnRoute_GrpcRouteMatchProperty struct {
 	// An object that represents the data to match from the request.
-	Metadata interface{} `json:"metadata" yaml:"metadata"`
+	Metadata interface{} `field:"optional" json:"metadata" yaml:"metadata"`
 	// The method name to match from the request.
 	//
 	// If you specify a name, you must also specify a `serviceName` .
-	MethodName *string `json:"methodName" yaml:"methodName"`
+	MethodName *string `field:"optional" json:"methodName" yaml:"methodName"`
 	// The fully qualified domain name for the service to match from the request.
-	ServiceName *string `json:"serviceName" yaml:"serviceName"`
+	ServiceName *string `field:"optional" json:"serviceName" yaml:"serviceName"`
 }
 
 // An object that represents the match method.
@@ -4342,7 +4456,10 @@ type CfnRoute_GrpcRouteMatchProperty struct {
 // Specify one of the match values.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   grpcRouteMetadataMatchMethodProperty := &grpcRouteMetadataMatchMethodProperty{
 //   	exact: jsii.String("exact"),
 //   	prefix: jsii.String("prefix"),
@@ -4356,21 +4473,24 @@ type CfnRoute_GrpcRouteMatchProperty struct {
 //
 type CfnRoute_GrpcRouteMetadataMatchMethodProperty struct {
 	// The value sent by the client must match the specified value exactly.
-	Exact *string `json:"exact" yaml:"exact"`
+	Exact *string `field:"optional" json:"exact" yaml:"exact"`
 	// The value sent by the client must begin with the specified characters.
-	Prefix *string `json:"prefix" yaml:"prefix"`
+	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 	// An object that represents the range of values to match on.
-	Range interface{} `json:"range" yaml:"range"`
+	Range interface{} `field:"optional" json:"range" yaml:"range"`
 	// The value sent by the client must include the specified characters.
-	Regex *string `json:"regex" yaml:"regex"`
+	Regex *string `field:"optional" json:"regex" yaml:"regex"`
 	// The value sent by the client must end with the specified characters.
-	Suffix *string `json:"suffix" yaml:"suffix"`
+	Suffix *string `field:"optional" json:"suffix" yaml:"suffix"`
 }
 
 // An object that represents the match metadata for the route.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   grpcRouteMetadataProperty := &grpcRouteMetadataProperty{
 //   	name: jsii.String("name"),
 //
@@ -4390,19 +4510,22 @@ type CfnRoute_GrpcRouteMetadataMatchMethodProperty struct {
 //
 type CfnRoute_GrpcRouteMetadataProperty struct {
 	// The name of the route.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// Specify `True` to match anything except the match criteria.
 	//
 	// The default value is `False` .
-	Invert interface{} `json:"invert" yaml:"invert"`
+	Invert interface{} `field:"optional" json:"invert" yaml:"invert"`
 	// An object that represents the data to match from the request.
-	Match interface{} `json:"match" yaml:"match"`
+	Match interface{} `field:"optional" json:"match" yaml:"match"`
 }
 
 // An object that represents a gRPC route type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   grpcRouteProperty := &grpcRouteProperty{
 //   	action: &grpcRouteActionProperty{
 //   		weightedTargets: []interface{}{
@@ -4468,19 +4591,22 @@ type CfnRoute_GrpcRouteMetadataProperty struct {
 //
 type CfnRoute_GrpcRouteProperty struct {
 	// An object that represents the action to take if a match is determined.
-	Action interface{} `json:"action" yaml:"action"`
+	Action interface{} `field:"required" json:"action" yaml:"action"`
 	// An object that represents the criteria for determining a request match.
-	Match interface{} `json:"match" yaml:"match"`
+	Match interface{} `field:"required" json:"match" yaml:"match"`
 	// An object that represents a retry policy.
-	RetryPolicy interface{} `json:"retryPolicy" yaml:"retryPolicy"`
+	RetryPolicy interface{} `field:"optional" json:"retryPolicy" yaml:"retryPolicy"`
 	// An object that represents types of timeouts.
-	Timeout interface{} `json:"timeout" yaml:"timeout"`
+	Timeout interface{} `field:"optional" json:"timeout" yaml:"timeout"`
 }
 
 // An object that represents types of timeouts.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   grpcTimeoutProperty := &grpcTimeoutProperty{
 //   	idle: &durationProperty{
 //   		unit: jsii.String("unit"),
@@ -4496,11 +4622,11 @@ type CfnRoute_GrpcTimeoutProperty struct {
 	// An object that represents an idle timeout.
 	//
 	// An idle timeout bounds the amount of time that a connection may be idle. The default value is none.
-	Idle interface{} `json:"idle" yaml:"idle"`
+	Idle interface{} `field:"optional" json:"idle" yaml:"idle"`
 	// An object that represents a per request timeout.
 	//
 	// The default value is 15 seconds. If you set a higher timeout, then make sure that the higher value is set for each App Mesh resource in a conversation. For example, if a virtual node backend uses a virtual router provider to route to another virtual node, then the timeout should be greater than 15 seconds for the source and destination virtual node and the route.
-	PerRequest interface{} `json:"perRequest" yaml:"perRequest"`
+	PerRequest interface{} `field:"optional" json:"perRequest" yaml:"perRequest"`
 }
 
 // An object that represents the method and value to match with the header value sent in a request.
@@ -4508,7 +4634,10 @@ type CfnRoute_GrpcTimeoutProperty struct {
 // Specify one match method.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   headerMatchMethodProperty := &headerMatchMethodProperty{
 //   	exact: jsii.String("exact"),
 //   	prefix: jsii.String("prefix"),
@@ -4522,21 +4651,24 @@ type CfnRoute_GrpcTimeoutProperty struct {
 //
 type CfnRoute_HeaderMatchMethodProperty struct {
 	// The value sent by the client must match the specified value exactly.
-	Exact *string `json:"exact" yaml:"exact"`
+	Exact *string `field:"optional" json:"exact" yaml:"exact"`
 	// The value sent by the client must begin with the specified characters.
-	Prefix *string `json:"prefix" yaml:"prefix"`
+	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 	// An object that represents the range of values to match on.
-	Range interface{} `json:"range" yaml:"range"`
+	Range interface{} `field:"optional" json:"range" yaml:"range"`
 	// The value sent by the client must include the specified characters.
-	Regex *string `json:"regex" yaml:"regex"`
+	Regex *string `field:"optional" json:"regex" yaml:"regex"`
 	// The value sent by the client must end with the specified characters.
-	Suffix *string `json:"suffix" yaml:"suffix"`
+	Suffix *string `field:"optional" json:"suffix" yaml:"suffix"`
 }
 
 // An object representing the path to match in the request.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   httpPathMatchProperty := &httpPathMatchProperty{
 //   	exact: jsii.String("exact"),
 //   	regex: jsii.String("regex"),
@@ -4544,22 +4676,25 @@ type CfnRoute_HeaderMatchMethodProperty struct {
 //
 type CfnRoute_HttpPathMatchProperty struct {
 	// The exact path to match on.
-	Exact *string `json:"exact" yaml:"exact"`
+	Exact *string `field:"optional" json:"exact" yaml:"exact"`
 	// The regex used to match the path.
-	Regex *string `json:"regex" yaml:"regex"`
+	Regex *string `field:"optional" json:"regex" yaml:"regex"`
 }
 
 // An object representing the query parameter to match.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   httpQueryParameterMatchProperty := &httpQueryParameterMatchProperty{
 //   	exact: jsii.String("exact"),
 //   }
 //
 type CfnRoute_HttpQueryParameterMatchProperty struct {
 	// The exact query parameter to match on.
-	Exact *string `json:"exact" yaml:"exact"`
+	Exact *string `field:"optional" json:"exact" yaml:"exact"`
 }
 
 // An object that represents a retry policy.
@@ -4567,7 +4702,10 @@ type CfnRoute_HttpQueryParameterMatchProperty struct {
 // Specify at least one value for at least one of the types of `RetryEvents` , a value for `maxRetries` , and a value for `perRetryTimeout` . Both `server-error` and `gateway-error` under `httpRetryEvents` include the Envoy `reset` policy. For more information on the `reset` policy, see the [Envoy documentation](https://docs.aws.amazon.com/https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_filters/router_filter#x-envoy-retry-on) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   httpRetryPolicyProperty := &httpRetryPolicyProperty{
 //   	maxRetries: jsii.Number(123),
 //   	perRetryTimeout: &durationProperty{
@@ -4586,26 +4724,29 @@ type CfnRoute_HttpQueryParameterMatchProperty struct {
 //
 type CfnRoute_HttpRetryPolicyProperty struct {
 	// The maximum number of retry attempts.
-	MaxRetries *float64 `json:"maxRetries" yaml:"maxRetries"`
+	MaxRetries *float64 `field:"required" json:"maxRetries" yaml:"maxRetries"`
 	// The timeout for each retry attempt.
-	PerRetryTimeout interface{} `json:"perRetryTimeout" yaml:"perRetryTimeout"`
+	PerRetryTimeout interface{} `field:"required" json:"perRetryTimeout" yaml:"perRetryTimeout"`
 	// Specify at least one of the following values.
 	//
 	// - *server-error* – HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511
 	// - *gateway-error* – HTTP status codes 502, 503, and 504
 	// - *client-error* – HTTP status code 409
 	// - *stream-error* – Retry on refused stream.
-	HttpRetryEvents *[]*string `json:"httpRetryEvents" yaml:"httpRetryEvents"`
+	HttpRetryEvents *[]*string `field:"optional" json:"httpRetryEvents" yaml:"httpRetryEvents"`
 	// Specify a valid value.
 	//
 	// The event occurs before any processing of a request has started and is encountered when the upstream is temporarily or permanently unavailable.
-	TcpRetryEvents *[]*string `json:"tcpRetryEvents" yaml:"tcpRetryEvents"`
+	TcpRetryEvents *[]*string `field:"optional" json:"tcpRetryEvents" yaml:"tcpRetryEvents"`
 }
 
 // An object that represents the action to take if a match is determined.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   httpRouteActionProperty := &httpRouteActionProperty{
 //   	weightedTargets: []interface{}{
 //   		&weightedTargetProperty{
@@ -4617,13 +4758,16 @@ type CfnRoute_HttpRetryPolicyProperty struct {
 //
 type CfnRoute_HttpRouteActionProperty struct {
 	// An object that represents the targets that traffic is routed to when a request matches the route.
-	WeightedTargets interface{} `json:"weightedTargets" yaml:"weightedTargets"`
+	WeightedTargets interface{} `field:"required" json:"weightedTargets" yaml:"weightedTargets"`
 }
 
 // An object that represents the HTTP header in the request.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   httpRouteHeaderProperty := &httpRouteHeaderProperty{
 //   	name: jsii.String("name"),
 //
@@ -4643,19 +4787,22 @@ type CfnRoute_HttpRouteActionProperty struct {
 //
 type CfnRoute_HttpRouteHeaderProperty struct {
 	// A name for the HTTP header in the client request that will be matched on.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// Specify `True` to match anything except the match criteria.
 	//
 	// The default value is `False` .
-	Invert interface{} `json:"invert" yaml:"invert"`
+	Invert interface{} `field:"optional" json:"invert" yaml:"invert"`
 	// The `HeaderMatchMethod` object.
-	Match interface{} `json:"match" yaml:"match"`
+	Match interface{} `field:"optional" json:"match" yaml:"match"`
 }
 
 // An object that represents the requirements for a route to match HTTP requests for a virtual router.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   httpRouteMatchProperty := &httpRouteMatchProperty{
 //   	headers: []interface{}{
 //   		&httpRouteHeaderProperty{
@@ -4696,29 +4843,32 @@ type CfnRoute_HttpRouteHeaderProperty struct {
 //
 type CfnRoute_HttpRouteMatchProperty struct {
 	// The client request headers to match on.
-	Headers interface{} `json:"headers" yaml:"headers"`
+	Headers interface{} `field:"optional" json:"headers" yaml:"headers"`
 	// The client request method to match on.
 	//
 	// Specify only one.
-	Method *string `json:"method" yaml:"method"`
+	Method *string `field:"optional" json:"method" yaml:"method"`
 	// The client request path to match on.
-	Path interface{} `json:"path" yaml:"path"`
+	Path interface{} `field:"optional" json:"path" yaml:"path"`
 	// Specifies the path to match requests with.
 	//
 	// This parameter must always start with `/` , which by itself matches all requests to the virtual service name. You can also match for path-based routing of requests. For example, if your virtual service name is `my-service.local` and you want the route to match requests to `my-service.local/metrics` , your prefix should be `/metrics` .
-	Prefix *string `json:"prefix" yaml:"prefix"`
+	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 	// The client request query parameters to match on.
-	QueryParameters interface{} `json:"queryParameters" yaml:"queryParameters"`
+	QueryParameters interface{} `field:"optional" json:"queryParameters" yaml:"queryParameters"`
 	// The client request scheme to match on.
 	//
 	// Specify only one. Applicable only for HTTP2 routes.
-	Scheme *string `json:"scheme" yaml:"scheme"`
+	Scheme *string `field:"optional" json:"scheme" yaml:"scheme"`
 }
 
 // An object that represents an HTTP or HTTP/2 route type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   httpRouteProperty := &httpRouteProperty{
 //   	action: &httpRouteActionProperty{
 //   		weightedTargets: []interface{}{
@@ -4796,19 +4946,22 @@ type CfnRoute_HttpRouteMatchProperty struct {
 //
 type CfnRoute_HttpRouteProperty struct {
 	// An object that represents the action to take if a match is determined.
-	Action interface{} `json:"action" yaml:"action"`
+	Action interface{} `field:"required" json:"action" yaml:"action"`
 	// An object that represents the criteria for determining a request match.
-	Match interface{} `json:"match" yaml:"match"`
+	Match interface{} `field:"required" json:"match" yaml:"match"`
 	// An object that represents a retry policy.
-	RetryPolicy interface{} `json:"retryPolicy" yaml:"retryPolicy"`
+	RetryPolicy interface{} `field:"optional" json:"retryPolicy" yaml:"retryPolicy"`
 	// An object that represents types of timeouts.
-	Timeout interface{} `json:"timeout" yaml:"timeout"`
+	Timeout interface{} `field:"optional" json:"timeout" yaml:"timeout"`
 }
 
 // An object that represents types of timeouts.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   httpTimeoutProperty := &httpTimeoutProperty{
 //   	idle: &durationProperty{
 //   		unit: jsii.String("unit"),
@@ -4824,11 +4977,11 @@ type CfnRoute_HttpTimeoutProperty struct {
 	// An object that represents an idle timeout.
 	//
 	// An idle timeout bounds the amount of time that a connection may be idle. The default value is none.
-	Idle interface{} `json:"idle" yaml:"idle"`
+	Idle interface{} `field:"optional" json:"idle" yaml:"idle"`
 	// An object that represents a per request timeout.
 	//
 	// The default value is 15 seconds. If you set a higher timeout, then make sure that the higher value is set for each App Mesh resource in a conversation. For example, if a virtual node backend uses a virtual router provider to route to another virtual node, then the timeout should be greater than 15 seconds for the source and destination virtual node and the route.
-	PerRequest interface{} `json:"perRequest" yaml:"perRequest"`
+	PerRequest interface{} `field:"optional" json:"perRequest" yaml:"perRequest"`
 }
 
 // An object that represents the range of values to match on.
@@ -4836,7 +4989,10 @@ type CfnRoute_HttpTimeoutProperty struct {
 // The first character of the range is included in the range, though the last character is not. For example, if the range specified were 1-100, only values 1-99 would be matched.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   matchRangeProperty := &matchRangeProperty{
 //   	end: jsii.Number(123),
 //   	start: jsii.Number(123),
@@ -4844,15 +5000,18 @@ type CfnRoute_HttpTimeoutProperty struct {
 //
 type CfnRoute_MatchRangeProperty struct {
 	// The end of the range.
-	End *float64 `json:"end" yaml:"end"`
+	End *float64 `field:"required" json:"end" yaml:"end"`
 	// The start of the range.
-	Start *float64 `json:"start" yaml:"start"`
+	Start *float64 `field:"required" json:"start" yaml:"start"`
 }
 
 // An object that represents the query parameter in the request.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   queryParameterProperty := &queryParameterProperty{
 //   	name: jsii.String("name"),
 //
@@ -4864,9 +5023,9 @@ type CfnRoute_MatchRangeProperty struct {
 //
 type CfnRoute_QueryParameterProperty struct {
 	// A name for the query parameter that will be matched on.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The query parameter to match on.
-	Match interface{} `json:"match" yaml:"match"`
+	Match interface{} `field:"optional" json:"match" yaml:"match"`
 }
 
 // An object that represents a route specification.
@@ -4874,7 +5033,10 @@ type CfnRoute_QueryParameterProperty struct {
 // Specify one route type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   routeSpecProperty := &routeSpecProperty{
 //   	grpcRoute: &grpcRouteProperty{
 //   		action: &grpcRouteActionProperty{
@@ -5109,23 +5271,26 @@ type CfnRoute_QueryParameterProperty struct {
 //
 type CfnRoute_RouteSpecProperty struct {
 	// An object that represents the specification of a gRPC route.
-	GrpcRoute interface{} `json:"grpcRoute" yaml:"grpcRoute"`
+	GrpcRoute interface{} `field:"optional" json:"grpcRoute" yaml:"grpcRoute"`
 	// An object that represents the specification of an HTTP/2 route.
-	Http2Route interface{} `json:"http2Route" yaml:"http2Route"`
+	Http2Route interface{} `field:"optional" json:"http2Route" yaml:"http2Route"`
 	// An object that represents the specification of an HTTP route.
-	HttpRoute interface{} `json:"httpRoute" yaml:"httpRoute"`
+	HttpRoute interface{} `field:"optional" json:"httpRoute" yaml:"httpRoute"`
 	// The priority for the route.
 	//
 	// Routes are matched based on the specified value, where 0 is the highest priority.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 	// An object that represents the specification of a TCP route.
-	TcpRoute interface{} `json:"tcpRoute" yaml:"tcpRoute"`
+	TcpRoute interface{} `field:"optional" json:"tcpRoute" yaml:"tcpRoute"`
 }
 
 // An object that represents the action to take if a match is determined.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tcpRouteActionProperty := &tcpRouteActionProperty{
 //   	weightedTargets: []interface{}{
 //   		&weightedTargetProperty{
@@ -5137,13 +5302,16 @@ type CfnRoute_RouteSpecProperty struct {
 //
 type CfnRoute_TcpRouteActionProperty struct {
 	// An object that represents the targets that traffic is routed to when a request matches the route.
-	WeightedTargets interface{} `json:"weightedTargets" yaml:"weightedTargets"`
+	WeightedTargets interface{} `field:"required" json:"weightedTargets" yaml:"weightedTargets"`
 }
 
 // An object that represents a TCP route type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tcpRouteProperty := &tcpRouteProperty{
 //   	action: &tcpRouteActionProperty{
 //   		weightedTargets: []interface{}{
@@ -5165,15 +5333,18 @@ type CfnRoute_TcpRouteActionProperty struct {
 //
 type CfnRoute_TcpRouteProperty struct {
 	// The action to take if a match is determined.
-	Action interface{} `json:"action" yaml:"action"`
+	Action interface{} `field:"required" json:"action" yaml:"action"`
 	// An object that represents types of timeouts.
-	Timeout interface{} `json:"timeout" yaml:"timeout"`
+	Timeout interface{} `field:"optional" json:"timeout" yaml:"timeout"`
 }
 
 // An object that represents types of timeouts.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tcpTimeoutProperty := &tcpTimeoutProperty{
 //   	idle: &durationProperty{
 //   		unit: jsii.String("unit"),
@@ -5185,7 +5356,7 @@ type CfnRoute_TcpTimeoutProperty struct {
 	// An object that represents an idle timeout.
 	//
 	// An idle timeout bounds the amount of time that a connection may be idle. The default value is none.
-	Idle interface{} `json:"idle" yaml:"idle"`
+	Idle interface{} `field:"optional" json:"idle" yaml:"idle"`
 }
 
 // An object that represents a target and its relative weight.
@@ -5193,7 +5364,10 @@ type CfnRoute_TcpTimeoutProperty struct {
 // Traffic is distributed across targets according to their relative weight. For example, a weighted target with a relative weight of 50 receives five times as much traffic as one with a relative weight of 10. The total weight for all targets combined must be less than or equal to 100.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   weightedTargetProperty := &weightedTargetProperty{
 //   	virtualNode: jsii.String("virtualNode"),
 //   	weight: jsii.Number(123),
@@ -5201,15 +5375,18 @@ type CfnRoute_TcpTimeoutProperty struct {
 //
 type CfnRoute_WeightedTargetProperty struct {
 	// The virtual node to associate with the weighted target.
-	VirtualNode *string `json:"virtualNode" yaml:"virtualNode"`
+	VirtualNode *string `field:"required" json:"virtualNode" yaml:"virtualNode"`
 	// The relative weight of the weighted target.
-	Weight *float64 `json:"weight" yaml:"weight"`
+	Weight *float64 `field:"required" json:"weight" yaml:"weight"`
 }
 
 // Properties for defining a `CfnRoute`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnRouteProps := &cfnRouteProps{
 //   	meshName: jsii.String("meshName"),
 //   	spec: &routeSpecProperty{
@@ -5458,23 +5635,23 @@ type CfnRoute_WeightedTargetProperty struct {
 //
 type CfnRouteProps struct {
 	// The name of the service mesh to create the route in.
-	MeshName *string `json:"meshName" yaml:"meshName"`
+	MeshName *string `field:"required" json:"meshName" yaml:"meshName"`
 	// The route specification to apply.
-	Spec interface{} `json:"spec" yaml:"spec"`
+	Spec interface{} `field:"required" json:"spec" yaml:"spec"`
 	// The name of the virtual router in which to create the route.
 	//
 	// If the virtual router is in a shared mesh, then you must be the owner of the virtual router resource.
-	VirtualRouterName *string `json:"virtualRouterName" yaml:"virtualRouterName"`
+	VirtualRouterName *string `field:"required" json:"virtualRouterName" yaml:"virtualRouterName"`
 	// The AWS IAM account ID of the service mesh owner.
 	//
 	// If the account ID is not your own, then the account that you specify must share the mesh with your account before you can create the resource in the service mesh. For more information about mesh sharing, see [Working with shared meshes](https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html) .
-	MeshOwner *string `json:"meshOwner" yaml:"meshOwner"`
+	MeshOwner *string `field:"optional" json:"meshOwner" yaml:"meshOwner"`
 	// The name to use for the route.
-	RouteName *string `json:"routeName" yaml:"routeName"`
+	RouteName *string `field:"optional" json:"routeName" yaml:"routeName"`
 	// Optional metadata that you can apply to the route to assist with categorization and organization.
 	//
 	// Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::AppMesh::VirtualGateway`.
@@ -5486,8 +5663,11 @@ type CfnRouteProps struct {
 // For more information about virtual gateways, see [Virtual gateways](https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_gateways.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
-//   cfnVirtualGateway := appmesh.NewCfnVirtualGateway(this, jsii.String("MyCfnVirtualGateway"), &cfnVirtualGatewayProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnVirtualGateway := awscdk.Aws_appmesh.NewCfnVirtualGateway(this, jsii.String("MyCfnVirtualGateway"), &cfnVirtualGatewayProps{
 //   	meshName: jsii.String("meshName"),
 //   	spec: &virtualGatewaySpecProperty{
 //   		listeners: []interface{}{
@@ -6412,7 +6592,10 @@ func (c *jsiiProxy_CfnVirtualGateway) ValidateProperties(_properties interface{}
 // An object that represents the methods by which a subject alternative name on a peer Transport Layer Security (TLS) certificate can be matched.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   subjectAlternativeNameMatchersProperty := &subjectAlternativeNameMatchersProperty{
 //   	exact: []*string{
 //   		jsii.String("exact"),
@@ -6421,13 +6604,16 @@ func (c *jsiiProxy_CfnVirtualGateway) ValidateProperties(_properties interface{}
 //
 type CfnVirtualGateway_SubjectAlternativeNameMatchersProperty struct {
 	// The values sent must match the specified values exactly.
-	Exact *[]*string `json:"exact" yaml:"exact"`
+	Exact *[]*string `field:"optional" json:"exact" yaml:"exact"`
 }
 
 // An object that represents the subject alternative names secured by the certificate.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   subjectAlternativeNamesProperty := &subjectAlternativeNamesProperty{
 //   	match: &subjectAlternativeNameMatchersProperty{
 //   		exact: []*string{
@@ -6438,13 +6624,16 @@ type CfnVirtualGateway_SubjectAlternativeNameMatchersProperty struct {
 //
 type CfnVirtualGateway_SubjectAlternativeNamesProperty struct {
 	// An object that represents the criteria for determining a SANs match.
-	Match interface{} `json:"match" yaml:"match"`
+	Match interface{} `field:"required" json:"match" yaml:"match"`
 }
 
 // The access log configuration for a virtual gateway.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   virtualGatewayAccessLogProperty := &virtualGatewayAccessLogProperty{
 //   	file: &virtualGatewayFileAccessLogProperty{
 //   		path: jsii.String("path"),
@@ -6453,13 +6642,16 @@ type CfnVirtualGateway_SubjectAlternativeNamesProperty struct {
 //
 type CfnVirtualGateway_VirtualGatewayAccessLogProperty struct {
 	// The file object to send virtual gateway access logs to.
-	File interface{} `json:"file" yaml:"file"`
+	File interface{} `field:"optional" json:"file" yaml:"file"`
 }
 
 // An object that represents the default properties for a backend.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   virtualGatewayBackendDefaultsProperty := &virtualGatewayBackendDefaultsProperty{
 //   	clientPolicy: &virtualGatewayClientPolicyProperty{
 //   		tls: &virtualGatewayClientPolicyTlsProperty{
@@ -6508,13 +6700,16 @@ type CfnVirtualGateway_VirtualGatewayAccessLogProperty struct {
 //
 type CfnVirtualGateway_VirtualGatewayBackendDefaultsProperty struct {
 	// A reference to an object that represents a client policy.
-	ClientPolicy interface{} `json:"clientPolicy" yaml:"clientPolicy"`
+	ClientPolicy interface{} `field:"optional" json:"clientPolicy" yaml:"clientPolicy"`
 }
 
 // An object that represents a client policy.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   virtualGatewayClientPolicyProperty := &virtualGatewayClientPolicyProperty{
 //   	tls: &virtualGatewayClientPolicyTlsProperty{
 //   		validation: &virtualGatewayTlsValidationContextProperty{
@@ -6561,13 +6756,16 @@ type CfnVirtualGateway_VirtualGatewayBackendDefaultsProperty struct {
 //
 type CfnVirtualGateway_VirtualGatewayClientPolicyProperty struct {
 	// A reference to an object that represents a Transport Layer Security (TLS) client policy.
-	Tls interface{} `json:"tls" yaml:"tls"`
+	Tls interface{} `field:"optional" json:"tls" yaml:"tls"`
 }
 
 // An object that represents a Transport Layer Security (TLS) client policy.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   virtualGatewayClientPolicyTlsProperty := &virtualGatewayClientPolicyTlsProperty{
 //   	validation: &virtualGatewayTlsValidationContextProperty{
 //   		trust: &virtualGatewayTlsValidationContextTrustProperty{
@@ -6612,21 +6810,24 @@ type CfnVirtualGateway_VirtualGatewayClientPolicyProperty struct {
 //
 type CfnVirtualGateway_VirtualGatewayClientPolicyTlsProperty struct {
 	// A reference to an object that represents a Transport Layer Security (TLS) validation context.
-	Validation interface{} `json:"validation" yaml:"validation"`
+	Validation interface{} `field:"required" json:"validation" yaml:"validation"`
 	// A reference to an object that represents a virtual gateway's client's Transport Layer Security (TLS) certificate.
-	Certificate interface{} `json:"certificate" yaml:"certificate"`
+	Certificate interface{} `field:"optional" json:"certificate" yaml:"certificate"`
 	// Whether the policy is enforced.
 	//
 	// The default is `True` , if a value isn't specified.
-	Enforce interface{} `json:"enforce" yaml:"enforce"`
+	Enforce interface{} `field:"optional" json:"enforce" yaml:"enforce"`
 	// One or more ports that the policy is enforced for.
-	Ports interface{} `json:"ports" yaml:"ports"`
+	Ports interface{} `field:"optional" json:"ports" yaml:"ports"`
 }
 
 // An object that represents the virtual gateway's client's Transport Layer Security (TLS) certificate.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   virtualGatewayClientTlsCertificateProperty := &virtualGatewayClientTlsCertificateProperty{
 //   	file: &virtualGatewayListenerTlsFileCertificateProperty{
 //   		certificateChain: jsii.String("certificateChain"),
@@ -6641,9 +6842,9 @@ type CfnVirtualGateway_VirtualGatewayClientTlsCertificateProperty struct {
 	// An object that represents a local file certificate.
 	//
 	// The certificate must meet specific requirements and you must have proxy authorization enabled. For more information, see [Transport Layer Security (TLS)](https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html) .
-	File interface{} `json:"file" yaml:"file"`
+	File interface{} `field:"optional" json:"file" yaml:"file"`
 	// A reference to an object that represents a virtual gateway's client's Secret Discovery Service certificate.
-	Sds interface{} `json:"sds" yaml:"sds"`
+	Sds interface{} `field:"optional" json:"sds" yaml:"sds"`
 }
 
 // An object that represents the type of virtual gateway connection pool.
@@ -6653,7 +6854,10 @@ type CfnVirtualGateway_VirtualGatewayClientTlsCertificateProperty struct {
 // If not present the default value for `maxPendingRequests` is `2147483647` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   virtualGatewayConnectionPoolProperty := &virtualGatewayConnectionPoolProperty{
 //   	grpc: &virtualGatewayGrpcConnectionPoolProperty{
 //   		maxRequests: jsii.Number(123),
@@ -6671,17 +6875,20 @@ type CfnVirtualGateway_VirtualGatewayClientTlsCertificateProperty struct {
 //
 type CfnVirtualGateway_VirtualGatewayConnectionPoolProperty struct {
 	// An object that represents a type of connection pool.
-	Grpc interface{} `json:"grpc" yaml:"grpc"`
+	Grpc interface{} `field:"optional" json:"grpc" yaml:"grpc"`
 	// An object that represents a type of connection pool.
-	Http interface{} `json:"http" yaml:"http"`
+	Http interface{} `field:"optional" json:"http" yaml:"http"`
 	// An object that represents a type of connection pool.
-	Http2 interface{} `json:"http2" yaml:"http2"`
+	Http2 interface{} `field:"optional" json:"http2" yaml:"http2"`
 }
 
 // An object that represents an access log file.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   virtualGatewayFileAccessLogProperty := &virtualGatewayFileAccessLogProperty{
 //   	path: jsii.String("path"),
 //   }
@@ -6690,26 +6897,32 @@ type CfnVirtualGateway_VirtualGatewayFileAccessLogProperty struct {
 	// The file path to write access logs to.
 	//
 	// You can use `/dev/stdout` to send access logs to standard out and configure your Envoy container to use a log driver, such as `awslogs` , to export the access logs to a log storage service such as Amazon CloudWatch Logs. You can also specify a path in the Envoy container's file system to write the files to disk.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"required" json:"path" yaml:"path"`
 }
 
 // An object that represents a type of connection pool.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   virtualGatewayGrpcConnectionPoolProperty := &virtualGatewayGrpcConnectionPoolProperty{
 //   	maxRequests: jsii.Number(123),
 //   }
 //
 type CfnVirtualGateway_VirtualGatewayGrpcConnectionPoolProperty struct {
 	// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster.
-	MaxRequests *float64 `json:"maxRequests" yaml:"maxRequests"`
+	MaxRequests *float64 `field:"required" json:"maxRequests" yaml:"maxRequests"`
 }
 
 // An object that represents the health check policy for a virtual gateway's listener.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   virtualGatewayHealthCheckPolicyProperty := &virtualGatewayHealthCheckPolicyProperty{
 //   	healthyThreshold: jsii.Number(123),
 //   	intervalMillis: jsii.Number(123),
@@ -6724,44 +6937,50 @@ type CfnVirtualGateway_VirtualGatewayGrpcConnectionPoolProperty struct {
 //
 type CfnVirtualGateway_VirtualGatewayHealthCheckPolicyProperty struct {
 	// The number of consecutive successful health checks that must occur before declaring the listener healthy.
-	HealthyThreshold *float64 `json:"healthyThreshold" yaml:"healthyThreshold"`
+	HealthyThreshold *float64 `field:"required" json:"healthyThreshold" yaml:"healthyThreshold"`
 	// The time period in milliseconds between each health check execution.
-	IntervalMillis *float64 `json:"intervalMillis" yaml:"intervalMillis"`
+	IntervalMillis *float64 `field:"required" json:"intervalMillis" yaml:"intervalMillis"`
 	// The protocol for the health check request.
 	//
 	// If you specify `grpc` , then your service must conform to the [GRPC Health Checking Protocol](https://docs.aws.amazon.com/https://github.com/grpc/grpc/blob/master/doc/health-checking.md) .
-	Protocol *string `json:"protocol" yaml:"protocol"`
+	Protocol *string `field:"required" json:"protocol" yaml:"protocol"`
 	// The amount of time to wait when receiving a response from the health check, in milliseconds.
-	TimeoutMillis *float64 `json:"timeoutMillis" yaml:"timeoutMillis"`
+	TimeoutMillis *float64 `field:"required" json:"timeoutMillis" yaml:"timeoutMillis"`
 	// The number of consecutive failed health checks that must occur before declaring a virtual gateway unhealthy.
-	UnhealthyThreshold *float64 `json:"unhealthyThreshold" yaml:"unhealthyThreshold"`
+	UnhealthyThreshold *float64 `field:"required" json:"unhealthyThreshold" yaml:"unhealthyThreshold"`
 	// The destination path for the health check request.
 	//
 	// This value is only used if the specified protocol is HTTP or HTTP/2. For any other protocol, this value is ignored.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 	// The destination port for the health check request.
 	//
 	// This port must match the port defined in the `PortMapping` for the listener.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"optional" json:"port" yaml:"port"`
 }
 
 // An object that represents a type of connection pool.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   virtualGatewayHttp2ConnectionPoolProperty := &virtualGatewayHttp2ConnectionPoolProperty{
 //   	maxRequests: jsii.Number(123),
 //   }
 //
 type CfnVirtualGateway_VirtualGatewayHttp2ConnectionPoolProperty struct {
 	// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster.
-	MaxRequests *float64 `json:"maxRequests" yaml:"maxRequests"`
+	MaxRequests *float64 `field:"required" json:"maxRequests" yaml:"maxRequests"`
 }
 
 // An object that represents a type of connection pool.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   virtualGatewayHttpConnectionPoolProperty := &virtualGatewayHttpConnectionPoolProperty{
 //   	maxConnections: jsii.Number(123),
 //
@@ -6771,15 +6990,18 @@ type CfnVirtualGateway_VirtualGatewayHttp2ConnectionPoolProperty struct {
 //
 type CfnVirtualGateway_VirtualGatewayHttpConnectionPoolProperty struct {
 	// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster.
-	MaxConnections *float64 `json:"maxConnections" yaml:"maxConnections"`
+	MaxConnections *float64 `field:"required" json:"maxConnections" yaml:"maxConnections"`
 	// Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster.
-	MaxPendingRequests *float64 `json:"maxPendingRequests" yaml:"maxPendingRequests"`
+	MaxPendingRequests *float64 `field:"optional" json:"maxPendingRequests" yaml:"maxPendingRequests"`
 }
 
 // An object that represents a listener for a virtual gateway.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   virtualGatewayListenerProperty := &virtualGatewayListenerProperty{
 //   	portMapping: &virtualGatewayPortMappingProperty{
 //   		port: jsii.Number(123),
@@ -6852,19 +7074,22 @@ type CfnVirtualGateway_VirtualGatewayHttpConnectionPoolProperty struct {
 //
 type CfnVirtualGateway_VirtualGatewayListenerProperty struct {
 	// The port mapping information for the listener.
-	PortMapping interface{} `json:"portMapping" yaml:"portMapping"`
+	PortMapping interface{} `field:"required" json:"portMapping" yaml:"portMapping"`
 	// The connection pool information for the listener.
-	ConnectionPool interface{} `json:"connectionPool" yaml:"connectionPool"`
+	ConnectionPool interface{} `field:"optional" json:"connectionPool" yaml:"connectionPool"`
 	// The health check information for the listener.
-	HealthCheck interface{} `json:"healthCheck" yaml:"healthCheck"`
+	HealthCheck interface{} `field:"optional" json:"healthCheck" yaml:"healthCheck"`
 	// A reference to an object that represents the Transport Layer Security (TLS) properties for the listener.
-	Tls interface{} `json:"tls" yaml:"tls"`
+	Tls interface{} `field:"optional" json:"tls" yaml:"tls"`
 }
 
 // An object that represents an AWS Certificate Manager certificate.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   virtualGatewayListenerTlsAcmCertificateProperty := &virtualGatewayListenerTlsAcmCertificateProperty{
 //   	certificateArn: jsii.String("certificateArn"),
 //   }
@@ -6873,13 +7098,16 @@ type CfnVirtualGateway_VirtualGatewayListenerTlsAcmCertificateProperty struct {
 	// The Amazon Resource Name (ARN) for the certificate.
 	//
 	// The certificate must meet specific requirements and you must have proxy authorization enabled. For more information, see [Transport Layer Security (TLS)](https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html#virtual-node-tls-prerequisites) .
-	CertificateArn *string `json:"certificateArn" yaml:"certificateArn"`
+	CertificateArn *string `field:"required" json:"certificateArn" yaml:"certificateArn"`
 }
 
 // An object that represents a listener's Transport Layer Security (TLS) certificate.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   virtualGatewayListenerTlsCertificateProperty := &virtualGatewayListenerTlsCertificateProperty{
 //   	acm: &virtualGatewayListenerTlsAcmCertificateProperty{
 //   		certificateArn: jsii.String("certificateArn"),
@@ -6895,11 +7123,11 @@ type CfnVirtualGateway_VirtualGatewayListenerTlsAcmCertificateProperty struct {
 //
 type CfnVirtualGateway_VirtualGatewayListenerTlsCertificateProperty struct {
 	// A reference to an object that represents an AWS Certificate Manager certificate.
-	Acm interface{} `json:"acm" yaml:"acm"`
+	Acm interface{} `field:"optional" json:"acm" yaml:"acm"`
 	// A reference to an object that represents a local file certificate.
-	File interface{} `json:"file" yaml:"file"`
+	File interface{} `field:"optional" json:"file" yaml:"file"`
 	// A reference to an object that represents a virtual gateway's listener's Secret Discovery Service certificate.
-	Sds interface{} `json:"sds" yaml:"sds"`
+	Sds interface{} `field:"optional" json:"sds" yaml:"sds"`
 }
 
 // An object that represents a local file certificate.
@@ -6907,7 +7135,10 @@ type CfnVirtualGateway_VirtualGatewayListenerTlsCertificateProperty struct {
 // The certificate must meet specific requirements and you must have proxy authorization enabled. For more information, see [Transport Layer Security (TLS)](https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html#virtual-node-tls-prerequisites) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   virtualGatewayListenerTlsFileCertificateProperty := &virtualGatewayListenerTlsFileCertificateProperty{
 //   	certificateChain: jsii.String("certificateChain"),
 //   	privateKey: jsii.String("privateKey"),
@@ -6915,15 +7146,18 @@ type CfnVirtualGateway_VirtualGatewayListenerTlsCertificateProperty struct {
 //
 type CfnVirtualGateway_VirtualGatewayListenerTlsFileCertificateProperty struct {
 	// The certificate chain for the certificate.
-	CertificateChain *string `json:"certificateChain" yaml:"certificateChain"`
+	CertificateChain *string `field:"required" json:"certificateChain" yaml:"certificateChain"`
 	// The private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on.
-	PrivateKey *string `json:"privateKey" yaml:"privateKey"`
+	PrivateKey *string `field:"required" json:"privateKey" yaml:"privateKey"`
 }
 
 // An object that represents the Transport Layer Security (TLS) properties for a listener.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   virtualGatewayListenerTlsProperty := &virtualGatewayListenerTlsProperty{
 //   	certificate: &virtualGatewayListenerTlsCertificateProperty{
 //   		acm: &virtualGatewayListenerTlsAcmCertificateProperty{
@@ -6963,34 +7197,40 @@ type CfnVirtualGateway_VirtualGatewayListenerTlsFileCertificateProperty struct {
 //
 type CfnVirtualGateway_VirtualGatewayListenerTlsProperty struct {
 	// An object that represents a Transport Layer Security (TLS) certificate.
-	Certificate interface{} `json:"certificate" yaml:"certificate"`
+	Certificate interface{} `field:"required" json:"certificate" yaml:"certificate"`
 	// Specify one of the following modes.
 	//
 	// - ** STRICT – Listener only accepts connections with TLS enabled.
 	// - ** PERMISSIVE – Listener accepts connections with or without TLS enabled.
 	// - ** DISABLED – Listener only accepts connections without TLS.
-	Mode *string `json:"mode" yaml:"mode"`
+	Mode *string `field:"required" json:"mode" yaml:"mode"`
 	// A reference to an object that represents a virtual gateway's listener's Transport Layer Security (TLS) validation context.
-	Validation interface{} `json:"validation" yaml:"validation"`
+	Validation interface{} `field:"optional" json:"validation" yaml:"validation"`
 }
 
 // An object that represents the virtual gateway's listener's Secret Discovery Service certificate.The proxy must be configured with a local SDS provider via a Unix Domain Socket. See App Mesh [TLS documentation](https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html) for more info.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   virtualGatewayListenerTlsSdsCertificateProperty := &virtualGatewayListenerTlsSdsCertificateProperty{
 //   	secretName: jsii.String("secretName"),
 //   }
 //
 type CfnVirtualGateway_VirtualGatewayListenerTlsSdsCertificateProperty struct {
 	// A reference to an object that represents the name of the secret secret requested from the Secret Discovery Service provider representing Transport Layer Security (TLS) materials like a certificate or certificate chain.
-	SecretName *string `json:"secretName" yaml:"secretName"`
+	SecretName *string `field:"required" json:"secretName" yaml:"secretName"`
 }
 
 // An object that represents a virtual gateway's listener's Transport Layer Security (TLS) validation context.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   virtualGatewayListenerTlsValidationContextProperty := &virtualGatewayListenerTlsValidationContextProperty{
 //   	trust: &virtualGatewayListenerTlsValidationContextTrustProperty{
 //   		file: &virtualGatewayTlsValidationContextFileTrustProperty{
@@ -7013,15 +7253,18 @@ type CfnVirtualGateway_VirtualGatewayListenerTlsSdsCertificateProperty struct {
 //
 type CfnVirtualGateway_VirtualGatewayListenerTlsValidationContextProperty struct {
 	// A reference to where to retrieve the trust chain when validating a peer’s Transport Layer Security (TLS) certificate.
-	Trust interface{} `json:"trust" yaml:"trust"`
+	Trust interface{} `field:"required" json:"trust" yaml:"trust"`
 	// A reference to an object that represents the SANs for a virtual gateway listener's Transport Layer Security (TLS) validation context.
-	SubjectAlternativeNames interface{} `json:"subjectAlternativeNames" yaml:"subjectAlternativeNames"`
+	SubjectAlternativeNames interface{} `field:"optional" json:"subjectAlternativeNames" yaml:"subjectAlternativeNames"`
 }
 
 // An object that represents a virtual gateway's listener's Transport Layer Security (TLS) validation context trust.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   virtualGatewayListenerTlsValidationContextTrustProperty := &virtualGatewayListenerTlsValidationContextTrustProperty{
 //   	file: &virtualGatewayTlsValidationContextFileTrustProperty{
 //   		certificateChain: jsii.String("certificateChain"),
@@ -7033,15 +7276,18 @@ type CfnVirtualGateway_VirtualGatewayListenerTlsValidationContextProperty struct
 //
 type CfnVirtualGateway_VirtualGatewayListenerTlsValidationContextTrustProperty struct {
 	// An object that represents a Transport Layer Security (TLS) validation context trust for a local file.
-	File interface{} `json:"file" yaml:"file"`
+	File interface{} `field:"optional" json:"file" yaml:"file"`
 	// A reference to an object that represents a virtual gateway's listener's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
-	Sds interface{} `json:"sds" yaml:"sds"`
+	Sds interface{} `field:"optional" json:"sds" yaml:"sds"`
 }
 
 // An object that represents logging information.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   virtualGatewayLoggingProperty := &virtualGatewayLoggingProperty{
 //   	accessLog: &virtualGatewayAccessLogProperty{
 //   		file: &virtualGatewayFileAccessLogProperty{
@@ -7052,13 +7298,16 @@ type CfnVirtualGateway_VirtualGatewayListenerTlsValidationContextTrustProperty s
 //
 type CfnVirtualGateway_VirtualGatewayLoggingProperty struct {
 	// The access log configuration.
-	AccessLog interface{} `json:"accessLog" yaml:"accessLog"`
+	AccessLog interface{} `field:"optional" json:"accessLog" yaml:"accessLog"`
 }
 
 // An object that represents a port mapping.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   virtualGatewayPortMappingProperty := &virtualGatewayPortMappingProperty{
 //   	port: jsii.Number(123),
 //   	protocol: jsii.String("protocol"),
@@ -7068,15 +7317,18 @@ type CfnVirtualGateway_VirtualGatewayPortMappingProperty struct {
 	// The port used for the port mapping.
 	//
 	// Specify one protocol.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"required" json:"port" yaml:"port"`
 	// The protocol used for the port mapping.
-	Protocol *string `json:"protocol" yaml:"protocol"`
+	Protocol *string `field:"required" json:"protocol" yaml:"protocol"`
 }
 
 // An object that represents the specification of a service mesh resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   virtualGatewaySpecProperty := &virtualGatewaySpecProperty{
 //   	listeners: []interface{}{
 //   		&virtualGatewayListenerProperty{
@@ -7209,17 +7461,20 @@ type CfnVirtualGateway_VirtualGatewaySpecProperty struct {
 	// The listeners that the mesh endpoint is expected to receive inbound traffic from.
 	//
 	// You can specify one listener.
-	Listeners interface{} `json:"listeners" yaml:"listeners"`
+	Listeners interface{} `field:"required" json:"listeners" yaml:"listeners"`
 	// A reference to an object that represents the defaults for backends.
-	BackendDefaults interface{} `json:"backendDefaults" yaml:"backendDefaults"`
+	BackendDefaults interface{} `field:"optional" json:"backendDefaults" yaml:"backendDefaults"`
 	// An object that represents logging information.
-	Logging interface{} `json:"logging" yaml:"logging"`
+	Logging interface{} `field:"optional" json:"logging" yaml:"logging"`
 }
 
 // An object that represents a Transport Layer Security (TLS) validation context trust for an AWS Certificate Manager certificate.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   virtualGatewayTlsValidationContextAcmTrustProperty := &virtualGatewayTlsValidationContextAcmTrustProperty{
 //   	certificateAuthorityArns: []*string{
 //   		jsii.String("certificateAuthorityArns"),
@@ -7228,26 +7483,32 @@ type CfnVirtualGateway_VirtualGatewaySpecProperty struct {
 //
 type CfnVirtualGateway_VirtualGatewayTlsValidationContextAcmTrustProperty struct {
 	// One or more ACM Amazon Resource Name (ARN)s.
-	CertificateAuthorityArns *[]*string `json:"certificateAuthorityArns" yaml:"certificateAuthorityArns"`
+	CertificateAuthorityArns *[]*string `field:"required" json:"certificateAuthorityArns" yaml:"certificateAuthorityArns"`
 }
 
 // An object that represents a Transport Layer Security (TLS) validation context trust for a local file.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   virtualGatewayTlsValidationContextFileTrustProperty := &virtualGatewayTlsValidationContextFileTrustProperty{
 //   	certificateChain: jsii.String("certificateChain"),
 //   }
 //
 type CfnVirtualGateway_VirtualGatewayTlsValidationContextFileTrustProperty struct {
 	// The certificate trust chain for a certificate stored on the file system of the virtual node that the proxy is running on.
-	CertificateChain *string `json:"certificateChain" yaml:"certificateChain"`
+	CertificateChain *string `field:"required" json:"certificateChain" yaml:"certificateChain"`
 }
 
 // An object that represents a Transport Layer Security (TLS) validation context.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   virtualGatewayTlsValidationContextProperty := &virtualGatewayTlsValidationContextProperty{
 //   	trust: &virtualGatewayTlsValidationContextTrustProperty{
 //   		acm: &virtualGatewayTlsValidationContextAcmTrustProperty{
@@ -7275,9 +7536,9 @@ type CfnVirtualGateway_VirtualGatewayTlsValidationContextFileTrustProperty struc
 //
 type CfnVirtualGateway_VirtualGatewayTlsValidationContextProperty struct {
 	// A reference to where to retrieve the trust chain when validating a peer’s Transport Layer Security (TLS) certificate.
-	Trust interface{} `json:"trust" yaml:"trust"`
+	Trust interface{} `field:"required" json:"trust" yaml:"trust"`
 	// A reference to an object that represents the SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
-	SubjectAlternativeNames interface{} `json:"subjectAlternativeNames" yaml:"subjectAlternativeNames"`
+	SubjectAlternativeNames interface{} `field:"optional" json:"subjectAlternativeNames" yaml:"subjectAlternativeNames"`
 }
 
 // An object that represents a virtual gateway's listener's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
@@ -7285,20 +7546,26 @@ type CfnVirtualGateway_VirtualGatewayTlsValidationContextProperty struct {
 // The proxy must be configured with a local SDS provider via a Unix Domain Socket. See App Mesh [TLS documentation](https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html) for more info.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   virtualGatewayTlsValidationContextSdsTrustProperty := &virtualGatewayTlsValidationContextSdsTrustProperty{
 //   	secretName: jsii.String("secretName"),
 //   }
 //
 type CfnVirtualGateway_VirtualGatewayTlsValidationContextSdsTrustProperty struct {
 	// A reference to an object that represents the name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
-	SecretName *string `json:"secretName" yaml:"secretName"`
+	SecretName *string `field:"required" json:"secretName" yaml:"secretName"`
 }
 
 // An object that represents a Transport Layer Security (TLS) validation context trust.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   virtualGatewayTlsValidationContextTrustProperty := &virtualGatewayTlsValidationContextTrustProperty{
 //   	acm: &virtualGatewayTlsValidationContextAcmTrustProperty{
 //   		certificateAuthorityArns: []*string{
@@ -7315,17 +7582,20 @@ type CfnVirtualGateway_VirtualGatewayTlsValidationContextSdsTrustProperty struct
 //
 type CfnVirtualGateway_VirtualGatewayTlsValidationContextTrustProperty struct {
 	// A reference to an object that represents a Transport Layer Security (TLS) validation context trust for an AWS Certificate Manager certificate.
-	Acm interface{} `json:"acm" yaml:"acm"`
+	Acm interface{} `field:"optional" json:"acm" yaml:"acm"`
 	// An object that represents a Transport Layer Security (TLS) validation context trust for a local file.
-	File interface{} `json:"file" yaml:"file"`
+	File interface{} `field:"optional" json:"file" yaml:"file"`
 	// A reference to an object that represents a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
-	Sds interface{} `json:"sds" yaml:"sds"`
+	Sds interface{} `field:"optional" json:"sds" yaml:"sds"`
 }
 
 // Properties for defining a `CfnVirtualGateway`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnVirtualGatewayProps := &cfnVirtualGatewayProps{
 //   	meshName: jsii.String("meshName"),
 //   	spec: &virtualGatewaySpecProperty{
@@ -7469,19 +7739,19 @@ type CfnVirtualGateway_VirtualGatewayTlsValidationContextTrustProperty struct {
 //
 type CfnVirtualGatewayProps struct {
 	// The name of the service mesh that the virtual gateway resides in.
-	MeshName *string `json:"meshName" yaml:"meshName"`
+	MeshName *string `field:"required" json:"meshName" yaml:"meshName"`
 	// The specifications of the virtual gateway.
-	Spec interface{} `json:"spec" yaml:"spec"`
+	Spec interface{} `field:"required" json:"spec" yaml:"spec"`
 	// The AWS IAM account ID of the service mesh owner.
 	//
 	// If the account ID is not your own, then it's the ID of the account that shared the mesh with your account. For more information about mesh sharing, see [Working with shared meshes](https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html) .
-	MeshOwner *string `json:"meshOwner" yaml:"meshOwner"`
+	MeshOwner *string `field:"optional" json:"meshOwner" yaml:"meshOwner"`
 	// Optional metadata that you can apply to the virtual gateway to assist with categorization and organization.
 	//
 	// Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The name of the virtual gateway.
-	VirtualGatewayName *string `json:"virtualGatewayName" yaml:"virtualGatewayName"`
+	VirtualGatewayName *string `field:"optional" json:"virtualGatewayName" yaml:"virtualGatewayName"`
 }
 
 // A CloudFormation `AWS::AppMesh::VirtualNode`.
@@ -7499,8 +7769,11 @@ type CfnVirtualGatewayProps struct {
 // For more information about virtual nodes, see [Virtual nodes](https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_nodes.html) . You must be using `1.15.0` or later of the Envoy image when setting these variables. For more information about App Mesh Envoy variables, see [Envoy image](https://docs.aws.amazon.com/app-mesh/latest/userguide/envoy.html) in the AWS App Mesh User Guide.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
-//   cfnVirtualNode := appmesh.NewCfnVirtualNode(this, jsii.String("MyCfnVirtualNode"), &cfnVirtualNodeProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnVirtualNode := awscdk.Aws_appmesh.NewCfnVirtualNode(this, jsii.String("MyCfnVirtualNode"), &cfnVirtualNodeProps{
 //   	meshName: jsii.String("meshName"),
 //   	spec: &virtualNodeSpecProperty{
 //   		backendDefaults: &backendDefaultsProperty{
@@ -8548,7 +8821,10 @@ func (c *jsiiProxy_CfnVirtualNode) ValidateProperties(_properties interface{}) {
 // An object that represents the access logging information for a virtual node.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   accessLogProperty := &accessLogProperty{
 //   	file: &fileAccessLogProperty{
 //   		path: jsii.String("path"),
@@ -8557,7 +8833,7 @@ func (c *jsiiProxy_CfnVirtualNode) ValidateProperties(_properties interface{}) {
 //
 type CfnVirtualNode_AccessLogProperty struct {
 	// The file object to send virtual node access logs to.
-	File interface{} `json:"file" yaml:"file"`
+	File interface{} `field:"optional" json:"file" yaml:"file"`
 }
 
 // An object that represents the AWS Cloud Map attribute information for your virtual node.
@@ -8565,7 +8841,10 @@ type CfnVirtualNode_AccessLogProperty struct {
 // > AWS Cloud Map is not available in the eu-south-1 Region.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   awsCloudMapInstanceAttributeProperty := &awsCloudMapInstanceAttributeProperty{
 //   	key: jsii.String("key"),
 //   	value: jsii.String("value"),
@@ -8575,11 +8854,11 @@ type CfnVirtualNode_AwsCloudMapInstanceAttributeProperty struct {
 	// The name of an AWS Cloud Map service instance attribute key.
 	//
 	// Any AWS Cloud Map service instance that contains the specified key and value is returned.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// The value of an AWS Cloud Map service instance attribute key.
 	//
 	// Any AWS Cloud Map service instance that contains the specified key and value is returned.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // An object that represents the AWS Cloud Map service discovery information for your virtual node.
@@ -8587,7 +8866,10 @@ type CfnVirtualNode_AwsCloudMapInstanceAttributeProperty struct {
 // > AWS Cloud Map is not available in the eu-south-1 Region.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   awsCloudMapServiceDiscoveryProperty := &awsCloudMapServiceDiscoveryProperty{
 //   	namespaceName: jsii.String("namespaceName"),
 //   	serviceName: jsii.String("serviceName"),
@@ -8603,19 +8885,22 @@ type CfnVirtualNode_AwsCloudMapInstanceAttributeProperty struct {
 //
 type CfnVirtualNode_AwsCloudMapServiceDiscoveryProperty struct {
 	// The name of the AWS Cloud Map namespace to use.
-	NamespaceName *string `json:"namespaceName" yaml:"namespaceName"`
+	NamespaceName *string `field:"required" json:"namespaceName" yaml:"namespaceName"`
 	// The name of the AWS Cloud Map service to use.
-	ServiceName *string `json:"serviceName" yaml:"serviceName"`
+	ServiceName *string `field:"required" json:"serviceName" yaml:"serviceName"`
 	// A string map that contains attributes with values that you can use to filter instances by any custom attribute that you specified when you registered the instance.
 	//
 	// Only instances that match all of the specified key/value pairs will be returned.
-	Attributes interface{} `json:"attributes" yaml:"attributes"`
+	Attributes interface{} `field:"optional" json:"attributes" yaml:"attributes"`
 }
 
 // An object that represents the default properties for a backend.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   backendDefaultsProperty := &backendDefaultsProperty{
 //   	clientPolicy: &clientPolicyProperty{
 //   		tls: &clientPolicyTlsProperty{
@@ -8664,13 +8949,16 @@ type CfnVirtualNode_AwsCloudMapServiceDiscoveryProperty struct {
 //
 type CfnVirtualNode_BackendDefaultsProperty struct {
 	// A reference to an object that represents a client policy.
-	ClientPolicy interface{} `json:"clientPolicy" yaml:"clientPolicy"`
+	ClientPolicy interface{} `field:"optional" json:"clientPolicy" yaml:"clientPolicy"`
 }
 
 // An object that represents the backends that a virtual node is expected to send outbound traffic to.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   backendProperty := &backendProperty{
 //   	virtualService: &virtualServiceBackendProperty{
 //   		virtualServiceName: jsii.String("virtualServiceName"),
@@ -8724,13 +9012,16 @@ type CfnVirtualNode_BackendDefaultsProperty struct {
 //
 type CfnVirtualNode_BackendProperty struct {
 	// Specifies a virtual service to use as a backend.
-	VirtualService interface{} `json:"virtualService" yaml:"virtualService"`
+	VirtualService interface{} `field:"optional" json:"virtualService" yaml:"virtualService"`
 }
 
 // An object that represents a client policy.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   clientPolicyProperty := &clientPolicyProperty{
 //   	tls: &clientPolicyTlsProperty{
 //   		validation: &tlsValidationContextProperty{
@@ -8777,13 +9068,16 @@ type CfnVirtualNode_BackendProperty struct {
 //
 type CfnVirtualNode_ClientPolicyProperty struct {
 	// A reference to an object that represents a Transport Layer Security (TLS) client policy.
-	Tls interface{} `json:"tls" yaml:"tls"`
+	Tls interface{} `field:"optional" json:"tls" yaml:"tls"`
 }
 
 // A reference to an object that represents a Transport Layer Security (TLS) client policy.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   clientPolicyTlsProperty := &clientPolicyTlsProperty{
 //   	validation: &tlsValidationContextProperty{
 //   		trust: &tlsValidationContextTrustProperty{
@@ -8828,21 +9122,24 @@ type CfnVirtualNode_ClientPolicyProperty struct {
 //
 type CfnVirtualNode_ClientPolicyTlsProperty struct {
 	// A reference to an object that represents a TLS validation context.
-	Validation interface{} `json:"validation" yaml:"validation"`
+	Validation interface{} `field:"required" json:"validation" yaml:"validation"`
 	// A reference to an object that represents a client's TLS certificate.
-	Certificate interface{} `json:"certificate" yaml:"certificate"`
+	Certificate interface{} `field:"optional" json:"certificate" yaml:"certificate"`
 	// Whether the policy is enforced.
 	//
 	// The default is `True` , if a value isn't specified.
-	Enforce interface{} `json:"enforce" yaml:"enforce"`
+	Enforce interface{} `field:"optional" json:"enforce" yaml:"enforce"`
 	// One or more ports that the policy is enforced for.
-	Ports interface{} `json:"ports" yaml:"ports"`
+	Ports interface{} `field:"optional" json:"ports" yaml:"ports"`
 }
 
 // An object that represents the client's certificate.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   clientTlsCertificateProperty := &clientTlsCertificateProperty{
 //   	file: &listenerTlsFileCertificateProperty{
 //   		certificateChain: jsii.String("certificateChain"),
@@ -8857,15 +9154,18 @@ type CfnVirtualNode_ClientTlsCertificateProperty struct {
 	// An object that represents a local file certificate.
 	//
 	// The certificate must meet specific requirements and you must have proxy authorization enabled. For more information, see [Transport Layer Security (TLS)](https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html) .
-	File interface{} `json:"file" yaml:"file"`
+	File interface{} `field:"optional" json:"file" yaml:"file"`
 	// A reference to an object that represents a client's TLS Secret Discovery Service certificate.
-	Sds interface{} `json:"sds" yaml:"sds"`
+	Sds interface{} `field:"optional" json:"sds" yaml:"sds"`
 }
 
 // An object that represents the DNS service discovery information for your virtual node.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dnsServiceDiscoveryProperty := &dnsServiceDiscoveryProperty{
 //   	hostname: jsii.String("hostname"),
 //
@@ -8875,15 +9175,18 @@ type CfnVirtualNode_ClientTlsCertificateProperty struct {
 //
 type CfnVirtualNode_DnsServiceDiscoveryProperty struct {
 	// Specifies the DNS service discovery hostname for the virtual node.
-	Hostname *string `json:"hostname" yaml:"hostname"`
+	Hostname *string `field:"required" json:"hostname" yaml:"hostname"`
 	// Specifies the DNS response type for the virtual node.
-	ResponseType *string `json:"responseType" yaml:"responseType"`
+	ResponseType *string `field:"optional" json:"responseType" yaml:"responseType"`
 }
 
 // An object that represents a duration of time.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   durationProperty := &durationProperty{
 //   	unit: jsii.String("unit"),
 //   	value: jsii.Number(123),
@@ -8891,15 +9194,18 @@ type CfnVirtualNode_DnsServiceDiscoveryProperty struct {
 //
 type CfnVirtualNode_DurationProperty struct {
 	// A unit of time.
-	Unit *string `json:"unit" yaml:"unit"`
+	Unit *string `field:"required" json:"unit" yaml:"unit"`
 	// A number of time units.
-	Value *float64 `json:"value" yaml:"value"`
+	Value *float64 `field:"required" json:"value" yaml:"value"`
 }
 
 // An object that represents an access log file.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   fileAccessLogProperty := &fileAccessLogProperty{
 //   	path: jsii.String("path"),
 //   }
@@ -8910,13 +9216,16 @@ type CfnVirtualNode_FileAccessLogProperty struct {
 	// You can use `/dev/stdout` to send access logs to standard out and configure your Envoy container to use a log driver, such as `awslogs` , to export the access logs to a log storage service such as Amazon CloudWatch Logs. You can also specify a path in the Envoy container's file system to write the files to disk.
 	//
 	// > The Envoy process must have write permissions to the path that you specify here. Otherwise, Envoy fails to bootstrap properly.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"required" json:"path" yaml:"path"`
 }
 
 // An object that represents types of timeouts.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   grpcTimeoutProperty := &grpcTimeoutProperty{
 //   	idle: &durationProperty{
 //   		unit: jsii.String("unit"),
@@ -8932,17 +9241,20 @@ type CfnVirtualNode_GrpcTimeoutProperty struct {
 	// An object that represents an idle timeout.
 	//
 	// An idle timeout bounds the amount of time that a connection may be idle. The default value is none.
-	Idle interface{} `json:"idle" yaml:"idle"`
+	Idle interface{} `field:"optional" json:"idle" yaml:"idle"`
 	// An object that represents a per request timeout.
 	//
 	// The default value is 15 seconds. If you set a higher timeout, then make sure that the higher value is set for each App Mesh resource in a conversation. For example, if a virtual node backend uses a virtual router provider to route to another virtual node, then the timeout should be greater than 15 seconds for the source and destination virtual node and the route.
-	PerRequest interface{} `json:"perRequest" yaml:"perRequest"`
+	PerRequest interface{} `field:"optional" json:"perRequest" yaml:"perRequest"`
 }
 
 // An object that represents the health check policy for a virtual node's listener.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   healthCheckProperty := &healthCheckProperty{
 //   	healthyThreshold: jsii.Number(123),
 //   	intervalMillis: jsii.Number(123),
@@ -8957,31 +9269,34 @@ type CfnVirtualNode_GrpcTimeoutProperty struct {
 //
 type CfnVirtualNode_HealthCheckProperty struct {
 	// The number of consecutive successful health checks that must occur before declaring listener healthy.
-	HealthyThreshold *float64 `json:"healthyThreshold" yaml:"healthyThreshold"`
+	HealthyThreshold *float64 `field:"required" json:"healthyThreshold" yaml:"healthyThreshold"`
 	// The time period in milliseconds between each health check execution.
-	IntervalMillis *float64 `json:"intervalMillis" yaml:"intervalMillis"`
+	IntervalMillis *float64 `field:"required" json:"intervalMillis" yaml:"intervalMillis"`
 	// The protocol for the health check request.
 	//
 	// If you specify `grpc` , then your service must conform to the [GRPC Health Checking Protocol](https://docs.aws.amazon.com/https://github.com/grpc/grpc/blob/master/doc/health-checking.md) .
-	Protocol *string `json:"protocol" yaml:"protocol"`
+	Protocol *string `field:"required" json:"protocol" yaml:"protocol"`
 	// The amount of time to wait when receiving a response from the health check, in milliseconds.
-	TimeoutMillis *float64 `json:"timeoutMillis" yaml:"timeoutMillis"`
+	TimeoutMillis *float64 `field:"required" json:"timeoutMillis" yaml:"timeoutMillis"`
 	// The number of consecutive failed health checks that must occur before declaring a virtual node unhealthy.
-	UnhealthyThreshold *float64 `json:"unhealthyThreshold" yaml:"unhealthyThreshold"`
+	UnhealthyThreshold *float64 `field:"required" json:"unhealthyThreshold" yaml:"unhealthyThreshold"`
 	// The destination path for the health check request.
 	//
 	// This value is only used if the specified protocol is HTTP or HTTP/2. For any other protocol, this value is ignored.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 	// The destination port for the health check request.
 	//
 	// This port must match the port defined in the `PortMapping` for the listener.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"optional" json:"port" yaml:"port"`
 }
 
 // An object that represents types of timeouts.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   httpTimeoutProperty := &httpTimeoutProperty{
 //   	idle: &durationProperty{
 //   		unit: jsii.String("unit"),
@@ -8997,17 +9312,20 @@ type CfnVirtualNode_HttpTimeoutProperty struct {
 	// An object that represents an idle timeout.
 	//
 	// An idle timeout bounds the amount of time that a connection may be idle. The default value is none.
-	Idle interface{} `json:"idle" yaml:"idle"`
+	Idle interface{} `field:"optional" json:"idle" yaml:"idle"`
 	// An object that represents a per request timeout.
 	//
 	// The default value is 15 seconds. If you set a higher timeout, then make sure that the higher value is set for each App Mesh resource in a conversation. For example, if a virtual node backend uses a virtual router provider to route to another virtual node, then the timeout should be greater than 15 seconds for the source and destination virtual node and the route.
-	PerRequest interface{} `json:"perRequest" yaml:"perRequest"`
+	PerRequest interface{} `field:"optional" json:"perRequest" yaml:"perRequest"`
 }
 
 // An object that represents a listener for a virtual node.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   listenerProperty := &listenerProperty{
 //   	portMapping: &portMappingProperty{
 //   		port: jsii.Number(123),
@@ -9133,23 +9451,26 @@ type CfnVirtualNode_HttpTimeoutProperty struct {
 //
 type CfnVirtualNode_ListenerProperty struct {
 	// The port mapping information for the listener.
-	PortMapping interface{} `json:"portMapping" yaml:"portMapping"`
+	PortMapping interface{} `field:"required" json:"portMapping" yaml:"portMapping"`
 	// The connection pool information for the listener.
-	ConnectionPool interface{} `json:"connectionPool" yaml:"connectionPool"`
+	ConnectionPool interface{} `field:"optional" json:"connectionPool" yaml:"connectionPool"`
 	// The health check information for the listener.
-	HealthCheck interface{} `json:"healthCheck" yaml:"healthCheck"`
+	HealthCheck interface{} `field:"optional" json:"healthCheck" yaml:"healthCheck"`
 	// The outlier detection information for the listener.
-	OutlierDetection interface{} `json:"outlierDetection" yaml:"outlierDetection"`
+	OutlierDetection interface{} `field:"optional" json:"outlierDetection" yaml:"outlierDetection"`
 	// An object that represents timeouts for different protocols.
-	Timeout interface{} `json:"timeout" yaml:"timeout"`
+	Timeout interface{} `field:"optional" json:"timeout" yaml:"timeout"`
 	// A reference to an object that represents the Transport Layer Security (TLS) properties for a listener.
-	Tls interface{} `json:"tls" yaml:"tls"`
+	Tls interface{} `field:"optional" json:"tls" yaml:"tls"`
 }
 
 // An object that represents timeouts for different protocols.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   listenerTimeoutProperty := &listenerTimeoutProperty{
 //   	grpc: &grpcTimeoutProperty{
 //   		idle: &durationProperty{
@@ -9191,19 +9512,22 @@ type CfnVirtualNode_ListenerProperty struct {
 //
 type CfnVirtualNode_ListenerTimeoutProperty struct {
 	// An object that represents types of timeouts.
-	Grpc interface{} `json:"grpc" yaml:"grpc"`
+	Grpc interface{} `field:"optional" json:"grpc" yaml:"grpc"`
 	// An object that represents types of timeouts.
-	Http interface{} `json:"http" yaml:"http"`
+	Http interface{} `field:"optional" json:"http" yaml:"http"`
 	// An object that represents types of timeouts.
-	Http2 interface{} `json:"http2" yaml:"http2"`
+	Http2 interface{} `field:"optional" json:"http2" yaml:"http2"`
 	// An object that represents types of timeouts.
-	Tcp interface{} `json:"tcp" yaml:"tcp"`
+	Tcp interface{} `field:"optional" json:"tcp" yaml:"tcp"`
 }
 
 // An object that represents an AWS Certificate Manager certificate.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   listenerTlsAcmCertificateProperty := &listenerTlsAcmCertificateProperty{
 //   	certificateArn: jsii.String("certificateArn"),
 //   }
@@ -9212,13 +9536,16 @@ type CfnVirtualNode_ListenerTlsAcmCertificateProperty struct {
 	// The Amazon Resource Name (ARN) for the certificate.
 	//
 	// The certificate must meet specific requirements and you must have proxy authorization enabled. For more information, see [Transport Layer Security (TLS)](https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html#virtual-node-tls-prerequisites) .
-	CertificateArn *string `json:"certificateArn" yaml:"certificateArn"`
+	CertificateArn *string `field:"required" json:"certificateArn" yaml:"certificateArn"`
 }
 
 // An object that represents a listener's Transport Layer Security (TLS) certificate.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   listenerTlsCertificateProperty := &listenerTlsCertificateProperty{
 //   	acm: &listenerTlsAcmCertificateProperty{
 //   		certificateArn: jsii.String("certificateArn"),
@@ -9234,11 +9561,11 @@ type CfnVirtualNode_ListenerTlsAcmCertificateProperty struct {
 //
 type CfnVirtualNode_ListenerTlsCertificateProperty struct {
 	// A reference to an object that represents an AWS Certificate Manager certificate.
-	Acm interface{} `json:"acm" yaml:"acm"`
+	Acm interface{} `field:"optional" json:"acm" yaml:"acm"`
 	// A reference to an object that represents a local file certificate.
-	File interface{} `json:"file" yaml:"file"`
+	File interface{} `field:"optional" json:"file" yaml:"file"`
 	// A reference to an object that represents a listener's Secret Discovery Service certificate.
-	Sds interface{} `json:"sds" yaml:"sds"`
+	Sds interface{} `field:"optional" json:"sds" yaml:"sds"`
 }
 
 // An object that represents a local file certificate.
@@ -9246,7 +9573,10 @@ type CfnVirtualNode_ListenerTlsCertificateProperty struct {
 // The certificate must meet specific requirements and you must have proxy authorization enabled. For more information, see [Transport Layer Security (TLS)](https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html#virtual-node-tls-prerequisites) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   listenerTlsFileCertificateProperty := &listenerTlsFileCertificateProperty{
 //   	certificateChain: jsii.String("certificateChain"),
 //   	privateKey: jsii.String("privateKey"),
@@ -9254,15 +9584,18 @@ type CfnVirtualNode_ListenerTlsCertificateProperty struct {
 //
 type CfnVirtualNode_ListenerTlsFileCertificateProperty struct {
 	// The certificate chain for the certificate.
-	CertificateChain *string `json:"certificateChain" yaml:"certificateChain"`
+	CertificateChain *string `field:"required" json:"certificateChain" yaml:"certificateChain"`
 	// The private key for a certificate stored on the file system of the virtual node that the proxy is running on.
-	PrivateKey *string `json:"privateKey" yaml:"privateKey"`
+	PrivateKey *string `field:"required" json:"privateKey" yaml:"privateKey"`
 }
 
 // An object that represents the Transport Layer Security (TLS) properties for a listener.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   listenerTlsProperty := &listenerTlsProperty{
 //   	certificate: &listenerTlsCertificateProperty{
 //   		acm: &listenerTlsAcmCertificateProperty{
@@ -9302,15 +9635,15 @@ type CfnVirtualNode_ListenerTlsFileCertificateProperty struct {
 //
 type CfnVirtualNode_ListenerTlsProperty struct {
 	// A reference to an object that represents a listener's Transport Layer Security (TLS) certificate.
-	Certificate interface{} `json:"certificate" yaml:"certificate"`
+	Certificate interface{} `field:"required" json:"certificate" yaml:"certificate"`
 	// Specify one of the following modes.
 	//
 	// - ** STRICT – Listener only accepts connections with TLS enabled.
 	// - ** PERMISSIVE – Listener accepts connections with or without TLS enabled.
 	// - ** DISABLED – Listener only accepts connections without TLS.
-	Mode *string `json:"mode" yaml:"mode"`
+	Mode *string `field:"required" json:"mode" yaml:"mode"`
 	// A reference to an object that represents a listener's Transport Layer Security (TLS) validation context.
-	Validation interface{} `json:"validation" yaml:"validation"`
+	Validation interface{} `field:"optional" json:"validation" yaml:"validation"`
 }
 
 // An object that represents the listener's Secret Discovery Service certificate.
@@ -9318,20 +9651,26 @@ type CfnVirtualNode_ListenerTlsProperty struct {
 // The proxy must be configured with a local SDS provider via a Unix Domain Socket. See App Mesh [TLS documentation](https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html) for more info.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   listenerTlsSdsCertificateProperty := &listenerTlsSdsCertificateProperty{
 //   	secretName: jsii.String("secretName"),
 //   }
 //
 type CfnVirtualNode_ListenerTlsSdsCertificateProperty struct {
 	// A reference to an object that represents the name of the secret requested from the Secret Discovery Service provider representing Transport Layer Security (TLS) materials like a certificate or certificate chain.
-	SecretName *string `json:"secretName" yaml:"secretName"`
+	SecretName *string `field:"required" json:"secretName" yaml:"secretName"`
 }
 
 // An object that represents a listener's Transport Layer Security (TLS) validation context.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   listenerTlsValidationContextProperty := &listenerTlsValidationContextProperty{
 //   	trust: &listenerTlsValidationContextTrustProperty{
 //   		file: &tlsValidationContextFileTrustProperty{
@@ -9354,15 +9693,18 @@ type CfnVirtualNode_ListenerTlsSdsCertificateProperty struct {
 //
 type CfnVirtualNode_ListenerTlsValidationContextProperty struct {
 	// A reference to where to retrieve the trust chain when validating a peer’s Transport Layer Security (TLS) certificate.
-	Trust interface{} `json:"trust" yaml:"trust"`
+	Trust interface{} `field:"required" json:"trust" yaml:"trust"`
 	// A reference to an object that represents the SANs for a listener's Transport Layer Security (TLS) validation context.
-	SubjectAlternativeNames interface{} `json:"subjectAlternativeNames" yaml:"subjectAlternativeNames"`
+	SubjectAlternativeNames interface{} `field:"optional" json:"subjectAlternativeNames" yaml:"subjectAlternativeNames"`
 }
 
 // An object that represents a listener's Transport Layer Security (TLS) validation context trust.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   listenerTlsValidationContextTrustProperty := &listenerTlsValidationContextTrustProperty{
 //   	file: &tlsValidationContextFileTrustProperty{
 //   		certificateChain: jsii.String("certificateChain"),
@@ -9374,15 +9716,18 @@ type CfnVirtualNode_ListenerTlsValidationContextProperty struct {
 //
 type CfnVirtualNode_ListenerTlsValidationContextTrustProperty struct {
 	// An object that represents a Transport Layer Security (TLS) validation context trust for a local file.
-	File interface{} `json:"file" yaml:"file"`
+	File interface{} `field:"optional" json:"file" yaml:"file"`
 	// A reference to an object that represents a listener's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
-	Sds interface{} `json:"sds" yaml:"sds"`
+	Sds interface{} `field:"optional" json:"sds" yaml:"sds"`
 }
 
 // An object that represents the logging information for a virtual node.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   loggingProperty := &loggingProperty{
 //   	accessLog: &accessLogProperty{
 //   		file: &fileAccessLogProperty{
@@ -9393,13 +9738,16 @@ type CfnVirtualNode_ListenerTlsValidationContextTrustProperty struct {
 //
 type CfnVirtualNode_LoggingProperty struct {
 	// The access log configuration for a virtual node.
-	AccessLog interface{} `json:"accessLog" yaml:"accessLog"`
+	AccessLog interface{} `field:"optional" json:"accessLog" yaml:"accessLog"`
 }
 
 // An object that represents the outlier detection for a virtual node's listener.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   outlierDetectionProperty := &outlierDetectionProperty{
 //   	baseEjectionDuration: &durationProperty{
 //   		unit: jsii.String("unit"),
@@ -9415,21 +9763,24 @@ type CfnVirtualNode_LoggingProperty struct {
 //
 type CfnVirtualNode_OutlierDetectionProperty struct {
 	// The base amount of time for which a host is ejected.
-	BaseEjectionDuration interface{} `json:"baseEjectionDuration" yaml:"baseEjectionDuration"`
+	BaseEjectionDuration interface{} `field:"required" json:"baseEjectionDuration" yaml:"baseEjectionDuration"`
 	// The time interval between ejection sweep analysis.
-	Interval interface{} `json:"interval" yaml:"interval"`
+	Interval interface{} `field:"required" json:"interval" yaml:"interval"`
 	// Maximum percentage of hosts in load balancing pool for upstream service that can be ejected.
 	//
 	// Will eject at least one host regardless of the value.
-	MaxEjectionPercent *float64 `json:"maxEjectionPercent" yaml:"maxEjectionPercent"`
+	MaxEjectionPercent *float64 `field:"required" json:"maxEjectionPercent" yaml:"maxEjectionPercent"`
 	// Number of consecutive `5xx` errors required for ejection.
-	MaxServerErrors *float64 `json:"maxServerErrors" yaml:"maxServerErrors"`
+	MaxServerErrors *float64 `field:"required" json:"maxServerErrors" yaml:"maxServerErrors"`
 }
 
 // An object representing a virtual node or virtual router listener port mapping.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   portMappingProperty := &portMappingProperty{
 //   	port: jsii.Number(123),
 //   	protocol: jsii.String("protocol"),
@@ -9437,17 +9788,20 @@ type CfnVirtualNode_OutlierDetectionProperty struct {
 //
 type CfnVirtualNode_PortMappingProperty struct {
 	// The port used for the port mapping.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"required" json:"port" yaml:"port"`
 	// The protocol used for the port mapping.
 	//
 	// Specify `http` , `http2` , `grpc` , or `tcp` .
-	Protocol *string `json:"protocol" yaml:"protocol"`
+	Protocol *string `field:"required" json:"protocol" yaml:"protocol"`
 }
 
 // An object that represents the service discovery information for a virtual node.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   serviceDiscoveryProperty := &serviceDiscoveryProperty{
 //   	awsCloudMap: &awsCloudMapServiceDiscoveryProperty{
 //   		namespaceName: jsii.String("namespaceName"),
@@ -9471,15 +9825,18 @@ type CfnVirtualNode_PortMappingProperty struct {
 //
 type CfnVirtualNode_ServiceDiscoveryProperty struct {
 	// Specifies any AWS Cloud Map information for the virtual node.
-	AwsCloudMap interface{} `json:"awsCloudMap" yaml:"awsCloudMap"`
+	AwsCloudMap interface{} `field:"optional" json:"awsCloudMap" yaml:"awsCloudMap"`
 	// Specifies the DNS information for the virtual node.
-	Dns interface{} `json:"dns" yaml:"dns"`
+	Dns interface{} `field:"optional" json:"dns" yaml:"dns"`
 }
 
 // An object that represents the methods by which a subject alternative name on a peer Transport Layer Security (TLS) certificate can be matched.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   subjectAlternativeNameMatchersProperty := &subjectAlternativeNameMatchersProperty{
 //   	exact: []*string{
 //   		jsii.String("exact"),
@@ -9488,13 +9845,16 @@ type CfnVirtualNode_ServiceDiscoveryProperty struct {
 //
 type CfnVirtualNode_SubjectAlternativeNameMatchersProperty struct {
 	// The values sent must match the specified values exactly.
-	Exact *[]*string `json:"exact" yaml:"exact"`
+	Exact *[]*string `field:"optional" json:"exact" yaml:"exact"`
 }
 
 // An object that represents the subject alternative names secured by the certificate.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   subjectAlternativeNamesProperty := &subjectAlternativeNamesProperty{
 //   	match: &subjectAlternativeNameMatchersProperty{
 //   		exact: []*string{
@@ -9505,13 +9865,16 @@ type CfnVirtualNode_SubjectAlternativeNameMatchersProperty struct {
 //
 type CfnVirtualNode_SubjectAlternativeNamesProperty struct {
 	// An object that represents the criteria for determining a SANs match.
-	Match interface{} `json:"match" yaml:"match"`
+	Match interface{} `field:"required" json:"match" yaml:"match"`
 }
 
 // An object that represents types of timeouts.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tcpTimeoutProperty := &tcpTimeoutProperty{
 //   	idle: &durationProperty{
 //   		unit: jsii.String("unit"),
@@ -9523,13 +9886,16 @@ type CfnVirtualNode_TcpTimeoutProperty struct {
 	// An object that represents an idle timeout.
 	//
 	// An idle timeout bounds the amount of time that a connection may be idle. The default value is none.
-	Idle interface{} `json:"idle" yaml:"idle"`
+	Idle interface{} `field:"optional" json:"idle" yaml:"idle"`
 }
 
 // An object that represents a Transport Layer Security (TLS) validation context trust for an AWS Certificate Manager certificate.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tlsValidationContextAcmTrustProperty := &tlsValidationContextAcmTrustProperty{
 //   	certificateAuthorityArns: []*string{
 //   		jsii.String("certificateAuthorityArns"),
@@ -9538,26 +9904,32 @@ type CfnVirtualNode_TcpTimeoutProperty struct {
 //
 type CfnVirtualNode_TlsValidationContextAcmTrustProperty struct {
 	// One or more ACM Amazon Resource Name (ARN)s.
-	CertificateAuthorityArns *[]*string `json:"certificateAuthorityArns" yaml:"certificateAuthorityArns"`
+	CertificateAuthorityArns *[]*string `field:"required" json:"certificateAuthorityArns" yaml:"certificateAuthorityArns"`
 }
 
 // An object that represents a Transport Layer Security (TLS) validation context trust for a local file.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tlsValidationContextFileTrustProperty := &tlsValidationContextFileTrustProperty{
 //   	certificateChain: jsii.String("certificateChain"),
 //   }
 //
 type CfnVirtualNode_TlsValidationContextFileTrustProperty struct {
 	// The certificate trust chain for a certificate stored on the file system of the virtual node that the proxy is running on.
-	CertificateChain *string `json:"certificateChain" yaml:"certificateChain"`
+	CertificateChain *string `field:"required" json:"certificateChain" yaml:"certificateChain"`
 }
 
 // An object that represents how the proxy will validate its peer during Transport Layer Security (TLS) negotiation.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tlsValidationContextProperty := &tlsValidationContextProperty{
 //   	trust: &tlsValidationContextTrustProperty{
 //   		acm: &tlsValidationContextAcmTrustProperty{
@@ -9585,9 +9957,9 @@ type CfnVirtualNode_TlsValidationContextFileTrustProperty struct {
 //
 type CfnVirtualNode_TlsValidationContextProperty struct {
 	// A reference to where to retrieve the trust chain when validating a peer’s Transport Layer Security (TLS) certificate.
-	Trust interface{} `json:"trust" yaml:"trust"`
+	Trust interface{} `field:"required" json:"trust" yaml:"trust"`
 	// A reference to an object that represents the SANs for a Transport Layer Security (TLS) validation context.
-	SubjectAlternativeNames interface{} `json:"subjectAlternativeNames" yaml:"subjectAlternativeNames"`
+	SubjectAlternativeNames interface{} `field:"optional" json:"subjectAlternativeNames" yaml:"subjectAlternativeNames"`
 }
 
 // An object that represents a Transport Layer Security (TLS) Secret Discovery Service validation context trust.
@@ -9595,20 +9967,26 @@ type CfnVirtualNode_TlsValidationContextProperty struct {
 // The proxy must be configured with a local SDS provider via a Unix Domain Socket. See App Mesh [TLS documentation](https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html) for more info.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tlsValidationContextSdsTrustProperty := &tlsValidationContextSdsTrustProperty{
 //   	secretName: jsii.String("secretName"),
 //   }
 //
 type CfnVirtualNode_TlsValidationContextSdsTrustProperty struct {
 	// A reference to an object that represents the name of the secret for a Transport Layer Security (TLS) Secret Discovery Service validation context trust.
-	SecretName *string `json:"secretName" yaml:"secretName"`
+	SecretName *string `field:"required" json:"secretName" yaml:"secretName"`
 }
 
 // An object that represents a Transport Layer Security (TLS) validation context trust.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tlsValidationContextTrustProperty := &tlsValidationContextTrustProperty{
 //   	acm: &tlsValidationContextAcmTrustProperty{
 //   		certificateAuthorityArns: []*string{
@@ -9625,11 +10003,11 @@ type CfnVirtualNode_TlsValidationContextSdsTrustProperty struct {
 //
 type CfnVirtualNode_TlsValidationContextTrustProperty struct {
 	// A reference to an object that represents a Transport Layer Security (TLS) validation context trust for an AWS Certificate Manager certificate.
-	Acm interface{} `json:"acm" yaml:"acm"`
+	Acm interface{} `field:"optional" json:"acm" yaml:"acm"`
 	// An object that represents a Transport Layer Security (TLS) validation context trust for a local file.
-	File interface{} `json:"file" yaml:"file"`
+	File interface{} `field:"optional" json:"file" yaml:"file"`
 	// A reference to an object that represents a Transport Layer Security (TLS) Secret Discovery Service validation context trust.
-	Sds interface{} `json:"sds" yaml:"sds"`
+	Sds interface{} `field:"optional" json:"sds" yaml:"sds"`
 }
 
 // An object that represents the type of virtual node connection pool.
@@ -9639,7 +10017,10 @@ type CfnVirtualNode_TlsValidationContextTrustProperty struct {
 // If not present the default value for `maxPendingRequests` is `2147483647` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   virtualNodeConnectionPoolProperty := &virtualNodeConnectionPoolProperty{
 //   	grpc: &virtualNodeGrpcConnectionPoolProperty{
 //   		maxRequests: jsii.Number(123),
@@ -9660,45 +10041,54 @@ type CfnVirtualNode_TlsValidationContextTrustProperty struct {
 //
 type CfnVirtualNode_VirtualNodeConnectionPoolProperty struct {
 	// An object that represents a type of connection pool.
-	Grpc interface{} `json:"grpc" yaml:"grpc"`
+	Grpc interface{} `field:"optional" json:"grpc" yaml:"grpc"`
 	// An object that represents a type of connection pool.
-	Http interface{} `json:"http" yaml:"http"`
+	Http interface{} `field:"optional" json:"http" yaml:"http"`
 	// An object that represents a type of connection pool.
-	Http2 interface{} `json:"http2" yaml:"http2"`
+	Http2 interface{} `field:"optional" json:"http2" yaml:"http2"`
 	// An object that represents a type of connection pool.
-	Tcp interface{} `json:"tcp" yaml:"tcp"`
+	Tcp interface{} `field:"optional" json:"tcp" yaml:"tcp"`
 }
 
 // An object that represents a type of connection pool.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   virtualNodeGrpcConnectionPoolProperty := &virtualNodeGrpcConnectionPoolProperty{
 //   	maxRequests: jsii.Number(123),
 //   }
 //
 type CfnVirtualNode_VirtualNodeGrpcConnectionPoolProperty struct {
 	// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster.
-	MaxRequests *float64 `json:"maxRequests" yaml:"maxRequests"`
+	MaxRequests *float64 `field:"required" json:"maxRequests" yaml:"maxRequests"`
 }
 
 // An object that represents a type of connection pool.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   virtualNodeHttp2ConnectionPoolProperty := &virtualNodeHttp2ConnectionPoolProperty{
 //   	maxRequests: jsii.Number(123),
 //   }
 //
 type CfnVirtualNode_VirtualNodeHttp2ConnectionPoolProperty struct {
 	// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster.
-	MaxRequests *float64 `json:"maxRequests" yaml:"maxRequests"`
+	MaxRequests *float64 `field:"required" json:"maxRequests" yaml:"maxRequests"`
 }
 
 // An object that represents a type of connection pool.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   virtualNodeHttpConnectionPoolProperty := &virtualNodeHttpConnectionPoolProperty{
 //   	maxConnections: jsii.Number(123),
 //
@@ -9708,15 +10098,18 @@ type CfnVirtualNode_VirtualNodeHttp2ConnectionPoolProperty struct {
 //
 type CfnVirtualNode_VirtualNodeHttpConnectionPoolProperty struct {
 	// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster.
-	MaxConnections *float64 `json:"maxConnections" yaml:"maxConnections"`
+	MaxConnections *float64 `field:"required" json:"maxConnections" yaml:"maxConnections"`
 	// Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster.
-	MaxPendingRequests *float64 `json:"maxPendingRequests" yaml:"maxPendingRequests"`
+	MaxPendingRequests *float64 `field:"optional" json:"maxPendingRequests" yaml:"maxPendingRequests"`
 }
 
 // An object that represents the specification of a virtual node.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   virtualNodeSpecProperty := &virtualNodeSpecProperty{
 //   	backendDefaults: &backendDefaultsProperty{
 //   		clientPolicy: &clientPolicyProperty{
@@ -9970,38 +10363,44 @@ type CfnVirtualNode_VirtualNodeHttpConnectionPoolProperty struct {
 //
 type CfnVirtualNode_VirtualNodeSpecProperty struct {
 	// A reference to an object that represents the defaults for backends.
-	BackendDefaults interface{} `json:"backendDefaults" yaml:"backendDefaults"`
+	BackendDefaults interface{} `field:"optional" json:"backendDefaults" yaml:"backendDefaults"`
 	// The backends that the virtual node is expected to send outbound traffic to.
-	Backends interface{} `json:"backends" yaml:"backends"`
+	Backends interface{} `field:"optional" json:"backends" yaml:"backends"`
 	// The listener that the virtual node is expected to receive inbound traffic from.
 	//
 	// You can specify one listener.
-	Listeners interface{} `json:"listeners" yaml:"listeners"`
+	Listeners interface{} `field:"optional" json:"listeners" yaml:"listeners"`
 	// The inbound and outbound access logging information for the virtual node.
-	Logging interface{} `json:"logging" yaml:"logging"`
+	Logging interface{} `field:"optional" json:"logging" yaml:"logging"`
 	// The service discovery information for the virtual node.
 	//
 	// If your virtual node does not expect ingress traffic, you can omit this parameter. If you specify a `listener` , then you must specify service discovery information.
-	ServiceDiscovery interface{} `json:"serviceDiscovery" yaml:"serviceDiscovery"`
+	ServiceDiscovery interface{} `field:"optional" json:"serviceDiscovery" yaml:"serviceDiscovery"`
 }
 
 // An object that represents a type of connection pool.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   virtualNodeTcpConnectionPoolProperty := &virtualNodeTcpConnectionPoolProperty{
 //   	maxConnections: jsii.Number(123),
 //   }
 //
 type CfnVirtualNode_VirtualNodeTcpConnectionPoolProperty struct {
 	// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster.
-	MaxConnections *float64 `json:"maxConnections" yaml:"maxConnections"`
+	MaxConnections *float64 `field:"required" json:"maxConnections" yaml:"maxConnections"`
 }
 
 // An object that represents a virtual service backend for a virtual node.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   virtualServiceBackendProperty := &virtualServiceBackendProperty{
 //   	virtualServiceName: jsii.String("virtualServiceName"),
 //
@@ -10053,15 +10452,18 @@ type CfnVirtualNode_VirtualNodeTcpConnectionPoolProperty struct {
 //
 type CfnVirtualNode_VirtualServiceBackendProperty struct {
 	// The name of the virtual service that is acting as a virtual node backend.
-	VirtualServiceName *string `json:"virtualServiceName" yaml:"virtualServiceName"`
+	VirtualServiceName *string `field:"required" json:"virtualServiceName" yaml:"virtualServiceName"`
 	// A reference to an object that represents the client policy for a backend.
-	ClientPolicy interface{} `json:"clientPolicy" yaml:"clientPolicy"`
+	ClientPolicy interface{} `field:"optional" json:"clientPolicy" yaml:"clientPolicy"`
 }
 
 // Properties for defining a `CfnVirtualNode`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnVirtualNodeProps := &cfnVirtualNodeProps{
 //   	meshName: jsii.String("meshName"),
 //   	spec: &virtualNodeSpecProperty{
@@ -10328,19 +10730,19 @@ type CfnVirtualNode_VirtualServiceBackendProperty struct {
 //
 type CfnVirtualNodeProps struct {
 	// The name of the service mesh to create the virtual node in.
-	MeshName *string `json:"meshName" yaml:"meshName"`
+	MeshName *string `field:"required" json:"meshName" yaml:"meshName"`
 	// The virtual node specification to apply.
-	Spec interface{} `json:"spec" yaml:"spec"`
+	Spec interface{} `field:"required" json:"spec" yaml:"spec"`
 	// The AWS IAM account ID of the service mesh owner.
 	//
 	// If the account ID is not your own, then the account that you specify must share the mesh with your account before you can create the resource in the service mesh. For more information about mesh sharing, see [Working with shared meshes](https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html) .
-	MeshOwner *string `json:"meshOwner" yaml:"meshOwner"`
+	MeshOwner *string `field:"optional" json:"meshOwner" yaml:"meshOwner"`
 	// Optional metadata that you can apply to the virtual node to assist with categorization and organization.
 	//
 	// Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The name to use for the virtual node.
-	VirtualNodeName *string `json:"virtualNodeName" yaml:"virtualNodeName"`
+	VirtualNodeName *string `field:"optional" json:"virtualNodeName" yaml:"virtualNodeName"`
 }
 
 // A CloudFormation `AWS::AppMesh::VirtualRouter`.
@@ -10352,8 +10754,11 @@ type CfnVirtualNodeProps struct {
 // For more information about virtual routers, see [Virtual routers](https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_routers.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
-//   cfnVirtualRouter := appmesh.NewCfnVirtualRouter(this, jsii.String("MyCfnVirtualRouter"), &cfnVirtualRouterProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnVirtualRouter := awscdk.Aws_appmesh.NewCfnVirtualRouter(this, jsii.String("MyCfnVirtualRouter"), &cfnVirtualRouterProps{
 //   	meshName: jsii.String("meshName"),
 //   	spec: &virtualRouterSpecProperty{
 //   		listeners: []interface{}{
@@ -11161,7 +11566,10 @@ func (c *jsiiProxy_CfnVirtualRouter) ValidateProperties(_properties interface{})
 // An object representing a virtual router listener port mapping.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   portMappingProperty := &portMappingProperty{
 //   	port: jsii.Number(123),
 //   	protocol: jsii.String("protocol"),
@@ -11169,17 +11577,20 @@ func (c *jsiiProxy_CfnVirtualRouter) ValidateProperties(_properties interface{})
 //
 type CfnVirtualRouter_PortMappingProperty struct {
 	// The port used for the port mapping.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"required" json:"port" yaml:"port"`
 	// The protocol used for the port mapping.
 	//
 	// Specify one protocol.
-	Protocol *string `json:"protocol" yaml:"protocol"`
+	Protocol *string `field:"required" json:"protocol" yaml:"protocol"`
 }
 
 // An object that represents a virtual router listener.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   virtualRouterListenerProperty := &virtualRouterListenerProperty{
 //   	portMapping: &portMappingProperty{
 //   		port: jsii.Number(123),
@@ -11189,13 +11600,16 @@ type CfnVirtualRouter_PortMappingProperty struct {
 //
 type CfnVirtualRouter_VirtualRouterListenerProperty struct {
 	// The port mapping information for the listener.
-	PortMapping interface{} `json:"portMapping" yaml:"portMapping"`
+	PortMapping interface{} `field:"required" json:"portMapping" yaml:"portMapping"`
 }
 
 // An object that represents the specification of a virtual router.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   virtualRouterSpecProperty := &virtualRouterSpecProperty{
 //   	listeners: []interface{}{
 //   		&virtualRouterListenerProperty{
@@ -11211,13 +11625,16 @@ type CfnVirtualRouter_VirtualRouterSpecProperty struct {
 	// The listeners that the virtual router is expected to receive inbound traffic from.
 	//
 	// You can specify one listener.
-	Listeners interface{} `json:"listeners" yaml:"listeners"`
+	Listeners interface{} `field:"required" json:"listeners" yaml:"listeners"`
 }
 
 // Properties for defining a `CfnVirtualRouter`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnVirtualRouterProps := &cfnVirtualRouterProps{
 //   	meshName: jsii.String("meshName"),
 //   	spec: &virtualRouterSpecProperty{
@@ -11244,19 +11661,19 @@ type CfnVirtualRouter_VirtualRouterSpecProperty struct {
 //
 type CfnVirtualRouterProps struct {
 	// The name of the service mesh to create the virtual router in.
-	MeshName *string `json:"meshName" yaml:"meshName"`
+	MeshName *string `field:"required" json:"meshName" yaml:"meshName"`
 	// The virtual router specification to apply.
-	Spec interface{} `json:"spec" yaml:"spec"`
+	Spec interface{} `field:"required" json:"spec" yaml:"spec"`
 	// The AWS IAM account ID of the service mesh owner.
 	//
 	// If the account ID is not your own, then the account that you specify must share the mesh with your account before you can create the resource in the service mesh. For more information about mesh sharing, see [Working with shared meshes](https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html) .
-	MeshOwner *string `json:"meshOwner" yaml:"meshOwner"`
+	MeshOwner *string `field:"optional" json:"meshOwner" yaml:"meshOwner"`
 	// Optional metadata that you can apply to the virtual router to assist with categorization and organization.
 	//
 	// Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The name to use for the virtual router.
-	VirtualRouterName *string `json:"virtualRouterName" yaml:"virtualRouterName"`
+	VirtualRouterName *string `field:"optional" json:"virtualRouterName" yaml:"virtualRouterName"`
 }
 
 // A CloudFormation `AWS::AppMesh::VirtualService`.
@@ -11268,8 +11685,11 @@ type CfnVirtualRouterProps struct {
 // For more information about virtual services, see [Virtual services](https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_services.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
-//   cfnVirtualService := appmesh.NewCfnVirtualService(this, jsii.String("MyCfnVirtualService"), &cfnVirtualServiceProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnVirtualService := awscdk.Aws_appmesh.NewCfnVirtualService(this, jsii.String("MyCfnVirtualService"), &cfnVirtualServiceProps{
 //   	meshName: jsii.String("meshName"),
 //   	spec: &virtualServiceSpecProperty{
 //   		provider: &virtualServiceProviderProperty{
@@ -12077,33 +12497,42 @@ func (c *jsiiProxy_CfnVirtualService) ValidateProperties(_properties interface{}
 // An object that represents a virtual node service provider.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   virtualNodeServiceProviderProperty := &virtualNodeServiceProviderProperty{
 //   	virtualNodeName: jsii.String("virtualNodeName"),
 //   }
 //
 type CfnVirtualService_VirtualNodeServiceProviderProperty struct {
 	// The name of the virtual node that is acting as a service provider.
-	VirtualNodeName *string `json:"virtualNodeName" yaml:"virtualNodeName"`
+	VirtualNodeName *string `field:"required" json:"virtualNodeName" yaml:"virtualNodeName"`
 }
 
 // An object that represents a virtual node service provider.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   virtualRouterServiceProviderProperty := &virtualRouterServiceProviderProperty{
 //   	virtualRouterName: jsii.String("virtualRouterName"),
 //   }
 //
 type CfnVirtualService_VirtualRouterServiceProviderProperty struct {
 	// The name of the virtual router that is acting as a service provider.
-	VirtualRouterName *string `json:"virtualRouterName" yaml:"virtualRouterName"`
+	VirtualRouterName *string `field:"required" json:"virtualRouterName" yaml:"virtualRouterName"`
 }
 
 // An object that represents the provider for a virtual service.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   virtualServiceProviderProperty := &virtualServiceProviderProperty{
 //   	virtualNode: &virtualNodeServiceProviderProperty{
 //   		virtualNodeName: jsii.String("virtualNodeName"),
@@ -12115,15 +12544,18 @@ type CfnVirtualService_VirtualRouterServiceProviderProperty struct {
 //
 type CfnVirtualService_VirtualServiceProviderProperty struct {
 	// The virtual node associated with a virtual service.
-	VirtualNode interface{} `json:"virtualNode" yaml:"virtualNode"`
+	VirtualNode interface{} `field:"optional" json:"virtualNode" yaml:"virtualNode"`
 	// The virtual router associated with a virtual service.
-	VirtualRouter interface{} `json:"virtualRouter" yaml:"virtualRouter"`
+	VirtualRouter interface{} `field:"optional" json:"virtualRouter" yaml:"virtualRouter"`
 }
 
 // An object that represents the specification of a virtual service.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   virtualServiceSpecProperty := &virtualServiceSpecProperty{
 //   	provider: &virtualServiceProviderProperty{
 //   		virtualNode: &virtualNodeServiceProviderProperty{
@@ -12139,13 +12571,16 @@ type CfnVirtualService_VirtualServiceSpecProperty struct {
 	// The App Mesh object that is acting as the provider for a virtual service.
 	//
 	// You can specify a single virtual node or virtual router.
-	Provider interface{} `json:"provider" yaml:"provider"`
+	Provider interface{} `field:"optional" json:"provider" yaml:"provider"`
 }
 
 // Properties for defining a `CfnVirtualService`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnVirtualServiceProps := &cfnVirtualServiceProps{
 //   	meshName: jsii.String("meshName"),
 //   	spec: &virtualServiceSpecProperty{
@@ -12172,25 +12607,28 @@ type CfnVirtualService_VirtualServiceSpecProperty struct {
 //
 type CfnVirtualServiceProps struct {
 	// The name of the service mesh to create the virtual service in.
-	MeshName *string `json:"meshName" yaml:"meshName"`
+	MeshName *string `field:"required" json:"meshName" yaml:"meshName"`
 	// The virtual service specification to apply.
-	Spec interface{} `json:"spec" yaml:"spec"`
+	Spec interface{} `field:"required" json:"spec" yaml:"spec"`
 	// The name to use for the virtual service.
-	VirtualServiceName *string `json:"virtualServiceName" yaml:"virtualServiceName"`
+	VirtualServiceName *string `field:"required" json:"virtualServiceName" yaml:"virtualServiceName"`
 	// The AWS IAM account ID of the service mesh owner.
 	//
 	// If the account ID is not your own, then the account that you specify must share the mesh with your account before you can create the resource in the service mesh. For more information about mesh sharing, see [Working with shared meshes](https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html) .
-	MeshOwner *string `json:"meshOwner" yaml:"meshOwner"`
+	MeshOwner *string `field:"optional" json:"meshOwner" yaml:"meshOwner"`
 	// Optional metadata that you can apply to the virtual service to assist with categorization and organization.
 	//
 	// Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // Base options for all gateway route specs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   commonGatewayRouteSpecOptions := &commonGatewayRouteSpecOptions{
 //   	priority: jsii.Number(123),
 //   }
@@ -12203,7 +12641,7 @@ type CommonGatewayRouteSpecOptions struct {
 	// is performed in the order of specified value, where 0 is the highest priority,
 	// and first matched gateway route is selected.
 	// Experimental.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 }
 
 // Enum of DNS service discovery response type.
@@ -12211,6 +12649,7 @@ type CommonGatewayRouteSpecOptions struct {
 // Example:
 //   // A Virtual Node with a gRPC listener with a connection pool set
 //   var mesh mesh
+//
 //   node := appmesh.NewVirtualNode(this, jsii.String("node"), &virtualNodeProps{
 //   	mesh: mesh,
 //   	// DNS service discovery can optionally specify the DNS response type as either LOAD_BALANCER or ENDPOINTS.
@@ -12262,11 +12701,14 @@ const (
 // GatewayRoute represents a new or existing gateway route attached to a VirtualGateway and Mesh.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var gatewayRouteSpec gatewayRouteSpec
 //   var virtualGateway virtualGateway
-//   gatewayRoute := appmesh.NewGatewayRoute(this, jsii.String("MyGatewayRoute"), &gatewayRouteProps{
+//
+//   gatewayRoute := awscdk.Aws_appmesh.NewGatewayRoute(this, jsii.String("MyGatewayRoute"), &gatewayRouteProps{
 //   	routeSpec: gatewayRouteSpec,
 //   	virtualGateway: virtualGateway,
 //
@@ -12687,9 +13129,12 @@ func (g *jsiiProxy_GatewayRoute) Validate() *[]*string {
 // Interface with properties necessary to import a reusable GatewayRoute.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var virtualGateway virtualGateway
+//
 //   gatewayRouteAttributes := &gatewayRouteAttributes{
 //   	gatewayRouteName: jsii.String("gatewayRouteName"),
 //   	virtualGateway: virtualGateway,
@@ -12699,10 +13144,10 @@ func (g *jsiiProxy_GatewayRoute) Validate() *[]*string {
 type GatewayRouteAttributes struct {
 	// The name of the GatewayRoute.
 	// Experimental.
-	GatewayRouteName *string `json:"gatewayRouteName" yaml:"gatewayRouteName"`
+	GatewayRouteName *string `field:"required" json:"gatewayRouteName" yaml:"gatewayRouteName"`
 	// The VirtualGateway this GatewayRoute is associated with.
 	// Experimental.
-	VirtualGateway IVirtualGateway `json:"virtualGateway" yaml:"virtualGateway"`
+	VirtualGateway IVirtualGateway `field:"required" json:"virtualGateway" yaml:"virtualGateway"`
 }
 
 // Basic configuration properties for a GatewayRoute.
@@ -12710,6 +13155,7 @@ type GatewayRouteAttributes struct {
 // Example:
 //   var gateway virtualGateway
 //   var virtualService virtualService
+//
 //
 //   gateway.addGatewayRoute(jsii.String("gateway-route-grpc"), &gatewayRouteBaseProps{
 //   	routeSpec: appmesh.gatewayRouteSpec.grpc(&grpcGatewayRouteSpecOptions{
@@ -12726,10 +13172,10 @@ type GatewayRouteAttributes struct {
 type GatewayRouteBaseProps struct {
 	// What protocol the route uses.
 	// Experimental.
-	RouteSpec GatewayRouteSpec `json:"routeSpec" yaml:"routeSpec"`
+	RouteSpec GatewayRouteSpec `field:"required" json:"routeSpec" yaml:"routeSpec"`
 	// The name of the GatewayRoute.
 	// Experimental.
-	GatewayRouteName *string `json:"gatewayRouteName" yaml:"gatewayRouteName"`
+	GatewayRouteName *string `field:"optional" json:"gatewayRouteName" yaml:"gatewayRouteName"`
 }
 
 // Used to generate host name matching methods.
@@ -12737,6 +13183,7 @@ type GatewayRouteBaseProps struct {
 // Example:
 //   var gateway virtualGateway
 //   var virtualService virtualService
+//
 //
 //   gateway.addGatewayRoute(jsii.String("gateway-route-grpc"), &gatewayRouteBaseProps{
 //   	routeSpec: appmesh.gatewayRouteSpec.grpc(&grpcGatewayRouteSpecOptions{
@@ -12820,7 +13267,10 @@ func (g *jsiiProxy_GatewayRouteHostnameMatch) Bind(scope awscdk.Construct) *Gate
 // Configuration for gateway route host name match.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   gatewayRouteHostnameMatchConfig := &gatewayRouteHostnameMatchConfig{
 //   	hostnameMatch: &gatewayRouteHostnameMatchProperty{
 //   		exact: jsii.String("exact"),
@@ -12832,16 +13282,19 @@ func (g *jsiiProxy_GatewayRouteHostnameMatch) Bind(scope awscdk.Construct) *Gate
 type GatewayRouteHostnameMatchConfig struct {
 	// GatewayRoute CFN configuration for host name match.
 	// Experimental.
-	HostnameMatch *CfnGatewayRoute_GatewayRouteHostnameMatchProperty `json:"hostnameMatch" yaml:"hostnameMatch"`
+	HostnameMatch *CfnGatewayRoute_GatewayRouteHostnameMatchProperty `field:"required" json:"hostnameMatch" yaml:"hostnameMatch"`
 }
 
 // Properties to define a new GatewayRoute.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var gatewayRouteSpec gatewayRouteSpec
 //   var virtualGateway virtualGateway
+//
 //   gatewayRouteProps := &gatewayRouteProps{
 //   	routeSpec: gatewayRouteSpec,
 //   	virtualGateway: virtualGateway,
@@ -12854,13 +13307,13 @@ type GatewayRouteHostnameMatchConfig struct {
 type GatewayRouteProps struct {
 	// What protocol the route uses.
 	// Experimental.
-	RouteSpec GatewayRouteSpec `json:"routeSpec" yaml:"routeSpec"`
+	RouteSpec GatewayRouteSpec `field:"required" json:"routeSpec" yaml:"routeSpec"`
 	// The name of the GatewayRoute.
 	// Experimental.
-	GatewayRouteName *string `json:"gatewayRouteName" yaml:"gatewayRouteName"`
+	GatewayRouteName *string `field:"optional" json:"gatewayRouteName" yaml:"gatewayRouteName"`
 	// The VirtualGateway this GatewayRoute is associated with.
 	// Experimental.
-	VirtualGateway IVirtualGateway `json:"virtualGateway" yaml:"virtualGateway"`
+	VirtualGateway IVirtualGateway `field:"required" json:"virtualGateway" yaml:"virtualGateway"`
 }
 
 // Used to generate specs with different protocols for a GatewayRoute.
@@ -12868,6 +13321,7 @@ type GatewayRouteProps struct {
 // Example:
 //   var gateway virtualGateway
 //   var virtualService virtualService
+//
 //
 //   gateway.addGatewayRoute(jsii.String("gateway-route-grpc"), &gatewayRouteBaseProps{
 //   	routeSpec: appmesh.gatewayRouteSpec.grpc(&grpcGatewayRouteSpecOptions{
@@ -12973,7 +13427,10 @@ func (g *jsiiProxy_GatewayRouteSpec) Bind(scope awscdk.Construct) *GatewayRouteS
 // All Properties for GatewayRoute Specs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   gatewayRouteSpecConfig := &gatewayRouteSpecConfig{
 //   	grpcSpecConfig: &grpcGatewayRouteProperty{
 //   		action: &grpcGatewayRouteActionProperty{
@@ -13149,20 +13606,20 @@ func (g *jsiiProxy_GatewayRouteSpec) Bind(scope awscdk.Construct) *GatewayRouteS
 type GatewayRouteSpecConfig struct {
 	// The spec for a grpc gateway route.
 	// Experimental.
-	GrpcSpecConfig *CfnGatewayRoute_GrpcGatewayRouteProperty `json:"grpcSpecConfig" yaml:"grpcSpecConfig"`
+	GrpcSpecConfig *CfnGatewayRoute_GrpcGatewayRouteProperty `field:"optional" json:"grpcSpecConfig" yaml:"grpcSpecConfig"`
 	// The spec for an http2 gateway route.
 	// Experimental.
-	Http2SpecConfig *CfnGatewayRoute_HttpGatewayRouteProperty `json:"http2SpecConfig" yaml:"http2SpecConfig"`
+	Http2SpecConfig *CfnGatewayRoute_HttpGatewayRouteProperty `field:"optional" json:"http2SpecConfig" yaml:"http2SpecConfig"`
 	// The spec for an http gateway route.
 	// Experimental.
-	HttpSpecConfig *CfnGatewayRoute_HttpGatewayRouteProperty `json:"httpSpecConfig" yaml:"httpSpecConfig"`
+	HttpSpecConfig *CfnGatewayRoute_HttpGatewayRouteProperty `field:"optional" json:"httpSpecConfig" yaml:"httpSpecConfig"`
 	// The priority for the gateway route.
 	//
 	// When a Virtual Gateway has multiple gateway routes, gateway route match
 	// is performed in the order of specified value, where 0 is the highest priority,
 	// and first matched gateway route is selected.
 	// Experimental.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 }
 
 // Connection pool properties for gRPC listeners.
@@ -13170,6 +13627,7 @@ type GatewayRouteSpecConfig struct {
 // Example:
 //   // A Virtual Node with a gRPC listener with a connection pool set
 //   var mesh mesh
+//
 //   node := appmesh.NewVirtualNode(this, jsii.String("node"), &virtualNodeProps{
 //   	mesh: mesh,
 //   	// DNS service discovery can optionally specify the DNS response type as either LOAD_BALANCER or ENDPOINTS.
@@ -13206,7 +13664,7 @@ type GatewayRouteSpecConfig struct {
 type GrpcConnectionPool struct {
 	// The maximum requests in the pool.
 	// Experimental.
-	MaxRequests *float64 `json:"maxRequests" yaml:"maxRequests"`
+	MaxRequests *float64 `field:"required" json:"maxRequests" yaml:"maxRequests"`
 }
 
 // Represents the properties needed to define GRPC Listeners for a VirtualGateway.
@@ -13215,6 +13673,7 @@ type GrpcConnectionPool struct {
 //   // A Virtual Node with listener TLS from an ACM provided certificate
 //   var cert certificate
 //   var mesh mesh
+//
 //
 //   node := appmesh.NewVirtualNode(this, jsii.String("node"), &virtualNodeProps{
 //   	mesh: mesh,
@@ -13264,16 +13723,16 @@ type GrpcConnectionPool struct {
 type GrpcGatewayListenerOptions struct {
 	// Connection pool for http listeners.
 	// Experimental.
-	ConnectionPool *GrpcConnectionPool `json:"connectionPool" yaml:"connectionPool"`
+	ConnectionPool *GrpcConnectionPool `field:"optional" json:"connectionPool" yaml:"connectionPool"`
 	// The health check information for the listener.
 	// Experimental.
-	HealthCheck HealthCheck `json:"healthCheck" yaml:"healthCheck"`
+	HealthCheck HealthCheck `field:"optional" json:"healthCheck" yaml:"healthCheck"`
 	// Port to listen for connections on.
 	// Experimental.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// Represents the configuration for enabling TLS on a listener.
 	// Experimental.
-	Tls *ListenerTlsOptions `json:"tls" yaml:"tls"`
+	Tls *ListenerTlsOptions `field:"optional" json:"tls" yaml:"tls"`
 }
 
 // The criterion for determining a request match for this GatewayRoute.
@@ -13281,6 +13740,7 @@ type GrpcGatewayListenerOptions struct {
 // Example:
 //   var gateway virtualGateway
 //   var virtualService virtualService
+//
 //
 //   gateway.addGatewayRoute(jsii.String("gateway-route-grpc"), &gatewayRouteBaseProps{
 //   	routeSpec: appmesh.gatewayRouteSpec.grpc(&grpcGatewayRouteSpecOptions{
@@ -13295,20 +13755,20 @@ type GrpcGatewayListenerOptions struct {
 type GrpcGatewayRouteMatch struct {
 	// Create host name based gRPC gateway route match.
 	// Experimental.
-	Hostname GatewayRouteHostnameMatch `json:"hostname" yaml:"hostname"`
+	Hostname GatewayRouteHostnameMatch `field:"optional" json:"hostname" yaml:"hostname"`
 	// Create metadata based gRPC gateway route match.
 	//
 	// All specified metadata must match for the route to match.
 	// Experimental.
-	Metadata *[]HeaderMatch `json:"metadata" yaml:"metadata"`
+	Metadata *[]HeaderMatch `field:"optional" json:"metadata" yaml:"metadata"`
 	// When `true`, rewrites the original request received at the Virtual Gateway to the destination Virtual Service name.
 	//
 	// When `false`, retains the original hostname from the request.
 	// Experimental.
-	RewriteRequestHostname *bool `json:"rewriteRequestHostname" yaml:"rewriteRequestHostname"`
+	RewriteRequestHostname *bool `field:"optional" json:"rewriteRequestHostname" yaml:"rewriteRequestHostname"`
 	// Create service name based gRPC gateway route match.
 	// Experimental.
-	ServiceName *string `json:"serviceName" yaml:"serviceName"`
+	ServiceName *string `field:"optional" json:"serviceName" yaml:"serviceName"`
 }
 
 // Properties specific for a gRPC GatewayRoute.
@@ -13316,6 +13776,7 @@ type GrpcGatewayRouteMatch struct {
 // Example:
 //   var gateway virtualGateway
 //   var virtualService virtualService
+//
 //
 //   gateway.addGatewayRoute(jsii.String("gateway-route-grpc"), &gatewayRouteBaseProps{
 //   	routeSpec: appmesh.gatewayRouteSpec.grpc(&grpcGatewayRouteSpecOptions{
@@ -13334,21 +13795,25 @@ type GrpcGatewayRouteSpecOptions struct {
 	// is performed in the order of specified value, where 0 is the highest priority,
 	// and first matched gateway route is selected.
 	// Experimental.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 	// The criterion for determining a request match for this GatewayRoute.
 	// Experimental.
-	Match *GrpcGatewayRouteMatch `json:"match" yaml:"match"`
+	Match *GrpcGatewayRouteMatch `field:"required" json:"match" yaml:"match"`
 	// The VirtualService this GatewayRoute directs traffic to.
 	// Experimental.
-	RouteTarget IVirtualService `json:"routeTarget" yaml:"routeTarget"`
+	RouteTarget IVirtualService `field:"required" json:"routeTarget" yaml:"routeTarget"`
 }
 
 // Properties used to define GRPC Based healthchecks.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
+//
 //   grpcHealthCheckOptions := &grpcHealthCheckOptions{
 //   	healthyThreshold: jsii.Number(123),
 //   	interval: duration,
@@ -13360,16 +13825,16 @@ type GrpcGatewayRouteSpecOptions struct {
 type GrpcHealthCheckOptions struct {
 	// The number of consecutive successful health checks that must occur before declaring listener healthy.
 	// Experimental.
-	HealthyThreshold *float64 `json:"healthyThreshold" yaml:"healthyThreshold"`
+	HealthyThreshold *float64 `field:"optional" json:"healthyThreshold" yaml:"healthyThreshold"`
 	// The time period between each health check execution.
 	// Experimental.
-	Interval awscdk.Duration `json:"interval" yaml:"interval"`
+	Interval awscdk.Duration `field:"optional" json:"interval" yaml:"interval"`
 	// The amount of time to wait when receiving a response from the health check.
 	// Experimental.
-	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
+	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 	// The number of consecutive failed health checks that must occur before declaring a listener unhealthy.
 	// Experimental.
-	UnhealthyThreshold *float64 `json:"unhealthyThreshold" yaml:"unhealthyThreshold"`
+	UnhealthyThreshold *float64 `field:"optional" json:"unhealthyThreshold" yaml:"unhealthyThreshold"`
 }
 
 // gRPC events.
@@ -13377,6 +13842,7 @@ type GrpcHealthCheckOptions struct {
 // Example:
 //   var router virtualRouter
 //   var node virtualNode
+//
 //
 //   router.addRoute(jsii.String("route-grpc-retry"), &routeBaseProps{
 //   	routeSpec: appmesh.routeSpec.grpc(&grpcRouteSpecOptions{
@@ -13445,6 +13911,7 @@ const (
 //   var router virtualRouter
 //   var node virtualNode
 //
+//
 //   router.addRoute(jsii.String("route-grpc-retry"), &routeBaseProps{
 //   	routeSpec: appmesh.routeSpec.grpc(&grpcRouteSpecOptions{
 //   		weightedTargets: []weightedTarget{
@@ -13479,16 +13946,16 @@ const (
 type GrpcRetryPolicy struct {
 	// The maximum number of retry attempts.
 	// Experimental.
-	RetryAttempts *float64 `json:"retryAttempts" yaml:"retryAttempts"`
+	RetryAttempts *float64 `field:"required" json:"retryAttempts" yaml:"retryAttempts"`
 	// The timeout for each retry attempt.
 	// Experimental.
-	RetryTimeout awscdk.Duration `json:"retryTimeout" yaml:"retryTimeout"`
+	RetryTimeout awscdk.Duration `field:"required" json:"retryTimeout" yaml:"retryTimeout"`
 	// Specify HTTP events on which to retry.
 	//
 	// You must specify at least one value
 	// for at least one types of retry events.
 	// Experimental.
-	HttpRetryEvents *[]HttpRetryEvent `json:"httpRetryEvents" yaml:"httpRetryEvents"`
+	HttpRetryEvents *[]HttpRetryEvent `field:"optional" json:"httpRetryEvents" yaml:"httpRetryEvents"`
 	// TCP events on which to retry.
 	//
 	// The event occurs before any processing of a
@@ -13496,13 +13963,13 @@ type GrpcRetryPolicy struct {
 	// permanently unavailable. You must specify at least one value for at least
 	// one types of retry events.
 	// Experimental.
-	TcpRetryEvents *[]TcpRetryEvent `json:"tcpRetryEvents" yaml:"tcpRetryEvents"`
+	TcpRetryEvents *[]TcpRetryEvent `field:"optional" json:"tcpRetryEvents" yaml:"tcpRetryEvents"`
 	// gRPC events on which to retry.
 	//
 	// You must specify at least one value
 	// for at least one types of retry events.
 	// Experimental.
-	GrpcRetryEvents *[]GrpcRetryEvent `json:"grpcRetryEvents" yaml:"grpcRetryEvents"`
+	GrpcRetryEvents *[]GrpcRetryEvent `field:"optional" json:"grpcRetryEvents" yaml:"grpcRetryEvents"`
 }
 
 // The criterion for determining a request match for this Route.
@@ -13512,6 +13979,7 @@ type GrpcRetryPolicy struct {
 // Example:
 //   var router virtualRouter
 //   var node virtualNode
+//
 //
 //   router.addRoute(jsii.String("route-http"), &routeBaseProps{
 //   	routeSpec: appmesh.routeSpec.grpc(&grpcRouteSpecOptions{
@@ -13536,15 +14004,15 @@ type GrpcRouteMatch struct {
 	//
 	// All specified metadata must match for the route to match.
 	// Experimental.
-	Metadata *[]HeaderMatch `json:"metadata" yaml:"metadata"`
+	Metadata *[]HeaderMatch `field:"optional" json:"metadata" yaml:"metadata"`
 	// The method name to match from the request.
 	//
 	// If the method name is specified, service name must be also provided.
 	// Experimental.
-	MethodName *string `json:"methodName" yaml:"methodName"`
+	MethodName *string `field:"optional" json:"methodName" yaml:"methodName"`
 	// Create service name based gRPC route match.
 	// Experimental.
-	ServiceName *string `json:"serviceName" yaml:"serviceName"`
+	ServiceName *string `field:"optional" json:"serviceName" yaml:"serviceName"`
 }
 
 // Properties specific for a GRPC Based Routes.
@@ -13552,6 +14020,7 @@ type GrpcRouteMatch struct {
 // Example:
 //   var router virtualRouter
 //   var node virtualNode
+//
 //
 //   router.addRoute(jsii.String("route-http"), &routeBaseProps{
 //   	routeSpec: appmesh.routeSpec.grpc(&grpcRouteSpecOptions{
@@ -13577,19 +14046,19 @@ type GrpcRouteSpecOptions struct {
 	// When a Virtual Router has multiple routes, route match is performed in the
 	// order of specified value, where 0 is the highest priority, and first matched route is selected.
 	// Experimental.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 	// The criterion for determining a request match for this Route.
 	// Experimental.
-	Match *GrpcRouteMatch `json:"match" yaml:"match"`
+	Match *GrpcRouteMatch `field:"required" json:"match" yaml:"match"`
 	// List of targets that traffic is routed to when a request matches the route.
 	// Experimental.
-	WeightedTargets *[]*WeightedTarget `json:"weightedTargets" yaml:"weightedTargets"`
+	WeightedTargets *[]*WeightedTarget `field:"required" json:"weightedTargets" yaml:"weightedTargets"`
 	// The retry policy.
 	// Experimental.
-	RetryPolicy *GrpcRetryPolicy `json:"retryPolicy" yaml:"retryPolicy"`
+	RetryPolicy *GrpcRetryPolicy `field:"optional" json:"retryPolicy" yaml:"retryPolicy"`
 	// An object that represents a grpc timeout.
 	// Experimental.
-	Timeout *GrpcTimeout `json:"timeout" yaml:"timeout"`
+	Timeout *GrpcTimeout `field:"optional" json:"timeout" yaml:"timeout"`
 }
 
 // Represents timeouts for GRPC protocols.
@@ -13597,6 +14066,7 @@ type GrpcRouteSpecOptions struct {
 // Example:
 //   var router virtualRouter
 //   var node virtualNode
+//
 //
 //   router.addRoute(jsii.String("route-http"), &routeBaseProps{
 //   	routeSpec: appmesh.routeSpec.grpc(&grpcRouteSpecOptions{
@@ -13621,10 +14091,10 @@ type GrpcTimeout struct {
 	//
 	// The amount of time that a connection may be idle.
 	// Experimental.
-	Idle awscdk.Duration `json:"idle" yaml:"idle"`
+	Idle awscdk.Duration `field:"optional" json:"idle" yaml:"idle"`
 	// Represents per request timeout.
 	// Experimental.
-	PerRequest awscdk.Duration `json:"perRequest" yaml:"perRequest"`
+	PerRequest awscdk.Duration `field:"optional" json:"perRequest" yaml:"perRequest"`
 }
 
 // Represent the GRPC Node Listener prorperty.
@@ -13633,6 +14103,7 @@ type GrpcTimeout struct {
 //   // A Virtual Node with listener TLS from an ACM provided certificate
 //   var cert certificate
 //   var mesh mesh
+//
 //
 //   node := appmesh.NewVirtualNode(this, jsii.String("node"), &virtualNodeProps{
 //   	mesh: mesh,
@@ -13682,22 +14153,22 @@ type GrpcTimeout struct {
 type GrpcVirtualNodeListenerOptions struct {
 	// Connection pool for http listeners.
 	// Experimental.
-	ConnectionPool *GrpcConnectionPool `json:"connectionPool" yaml:"connectionPool"`
+	ConnectionPool *GrpcConnectionPool `field:"optional" json:"connectionPool" yaml:"connectionPool"`
 	// The health check information for the listener.
 	// Experimental.
-	HealthCheck HealthCheck `json:"healthCheck" yaml:"healthCheck"`
+	HealthCheck HealthCheck `field:"optional" json:"healthCheck" yaml:"healthCheck"`
 	// Represents the configuration for enabling outlier detection.
 	// Experimental.
-	OutlierDetection *OutlierDetection `json:"outlierDetection" yaml:"outlierDetection"`
+	OutlierDetection *OutlierDetection `field:"optional" json:"outlierDetection" yaml:"outlierDetection"`
 	// Port to listen for connections on.
 	// Experimental.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// Timeout for GRPC protocol.
 	// Experimental.
-	Timeout *GrpcTimeout `json:"timeout" yaml:"timeout"`
+	Timeout *GrpcTimeout `field:"optional" json:"timeout" yaml:"timeout"`
 	// Represents the configuration for enabling TLS on a listener.
 	// Experimental.
-	Tls *ListenerTlsOptions `json:"tls" yaml:"tls"`
+	Tls *ListenerTlsOptions `field:"optional" json:"tls" yaml:"tls"`
 }
 
 // Used to generate header matching methods.
@@ -13705,6 +14176,7 @@ type GrpcVirtualNodeListenerOptions struct {
 // Example:
 //   var router virtualRouter
 //   var node virtualNode
+//
 //
 //   router.addRoute(jsii.String("route-http2"), &routeBaseProps{
 //   	routeSpec: appmesh.routeSpec.http2(&httpRouteSpecOptions{
@@ -13937,7 +14409,10 @@ func (h *jsiiProxy_HeaderMatch) Bind(scope awscdk.Construct) *HeaderMatchConfig 
 // Configuration for `HeaderMatch`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   headerMatchConfig := &headerMatchConfig{
 //   	headerMatch: &httpRouteHeaderProperty{
 //   		name: jsii.String("name"),
@@ -13961,13 +14436,14 @@ func (h *jsiiProxy_HeaderMatch) Bind(scope awscdk.Construct) *HeaderMatchConfig 
 type HeaderMatchConfig struct {
 	// Route CFN configuration for the route header match.
 	// Experimental.
-	HeaderMatch *CfnRoute_HttpRouteHeaderProperty `json:"headerMatch" yaml:"headerMatch"`
+	HeaderMatch *CfnRoute_HttpRouteHeaderProperty `field:"required" json:"headerMatch" yaml:"headerMatch"`
 }
 
 // Contains static factory methods for creating health checks for different protocols.
 //
 // Example:
-//   var mesh meshvpc := ec2.NewVpc(this, jsii.String("vpc"))
+//   var mesh mesh
+//   vpc := ec2.NewVpc(this, jsii.String("vpc"))
 //   namespace := cloudmap.NewPrivateDnsNamespace(this, jsii.String("test-namespace"), &privateDnsNamespaceProps{
 //   	vpc: vpc,
 //   	name: jsii.String("domain.local"),
@@ -14102,7 +14578,10 @@ func (h *jsiiProxy_HealthCheck) Bind(scope awscdk.Construct, options *HealthChec
 // Options used for creating the Health Check object.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   healthCheckBindOptions := &healthCheckBindOptions{
 //   	defaultPort: jsii.Number(123),
 //   }
@@ -14111,13 +14590,16 @@ func (h *jsiiProxy_HealthCheck) Bind(scope awscdk.Construct, options *HealthChec
 type HealthCheckBindOptions struct {
 	// Port for Health Check interface.
 	// Experimental.
-	DefaultPort *float64 `json:"defaultPort" yaml:"defaultPort"`
+	DefaultPort *float64 `field:"optional" json:"defaultPort" yaml:"defaultPort"`
 }
 
 // All Properties for Health Checks for mesh endpoints.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   healthCheckConfig := &healthCheckConfig{
 //   	virtualGatewayHealthCheck: &virtualGatewayHealthCheckPolicyProperty{
 //   		healthyThreshold: jsii.Number(123),
@@ -14147,16 +14629,19 @@ type HealthCheckBindOptions struct {
 type HealthCheckConfig struct {
 	// VirtualGateway CFN configuration for Health Checks.
 	// Experimental.
-	VirtualGatewayHealthCheck *CfnVirtualGateway_VirtualGatewayHealthCheckPolicyProperty `json:"virtualGatewayHealthCheck" yaml:"virtualGatewayHealthCheck"`
+	VirtualGatewayHealthCheck *CfnVirtualGateway_VirtualGatewayHealthCheckPolicyProperty `field:"optional" json:"virtualGatewayHealthCheck" yaml:"virtualGatewayHealthCheck"`
 	// VirtualNode CFN configuration for Health Checks.
 	// Experimental.
-	VirtualNodeHealthCheck *CfnVirtualNode_HealthCheckProperty `json:"virtualNodeHealthCheck" yaml:"virtualNodeHealthCheck"`
+	VirtualNodeHealthCheck *CfnVirtualNode_HealthCheckProperty `field:"optional" json:"virtualNodeHealthCheck" yaml:"virtualNodeHealthCheck"`
 }
 
 // Connection pool properties for HTTP2 listeners.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   http2ConnectionPool := &http2ConnectionPool{
 //   	maxRequests: jsii.Number(123),
 //   }
@@ -14165,7 +14650,7 @@ type HealthCheckConfig struct {
 type Http2ConnectionPool struct {
 	// The maximum requests in the pool.
 	// Experimental.
-	MaxRequests *float64 `json:"maxRequests" yaml:"maxRequests"`
+	MaxRequests *float64 `field:"required" json:"maxRequests" yaml:"maxRequests"`
 }
 
 // Represents the properties needed to define HTTP2 Listeners for a VirtualGateway.
@@ -14174,6 +14659,7 @@ type Http2ConnectionPool struct {
 //   // A Virtual Node with listener TLS from an ACM provided certificate
 //   var cert certificate
 //   var mesh mesh
+//
 //
 //   node := appmesh.NewVirtualNode(this, jsii.String("node"), &virtualNodeProps{
 //   	mesh: mesh,
@@ -14223,28 +14709,32 @@ type Http2ConnectionPool struct {
 type Http2GatewayListenerOptions struct {
 	// Connection pool for http listeners.
 	// Experimental.
-	ConnectionPool *Http2ConnectionPool `json:"connectionPool" yaml:"connectionPool"`
+	ConnectionPool *Http2ConnectionPool `field:"optional" json:"connectionPool" yaml:"connectionPool"`
 	// The health check information for the listener.
 	// Experimental.
-	HealthCheck HealthCheck `json:"healthCheck" yaml:"healthCheck"`
+	HealthCheck HealthCheck `field:"optional" json:"healthCheck" yaml:"healthCheck"`
 	// Port to listen for connections on.
 	// Experimental.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// Represents the configuration for enabling TLS on a listener.
 	// Experimental.
-	Tls *ListenerTlsOptions `json:"tls" yaml:"tls"`
+	Tls *ListenerTlsOptions `field:"optional" json:"tls" yaml:"tls"`
 }
 
 // Represent the HTTP2 Node Listener prorperty.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var healthCheck healthCheck
 //   var mutualTlsValidationTrust mutualTlsValidationTrust
 //   var subjectAlternativeNames subjectAlternativeNames
 //   var tlsCertificate tlsCertificate
+//
 //   http2VirtualNodeListenerOptions := &http2VirtualNodeListenerOptions{
 //   	connectionPool: &http2ConnectionPool{
 //   		maxRequests: jsii.Number(123),
@@ -14263,7 +14753,7 @@ type Http2GatewayListenerOptions struct {
 //   	},
 //   	tls: &listenerTlsOptions{
 //   		certificate: tlsCertificate,
-//   		mode: appmesh.tlsMode_STRICT,
+//   		mode: awscdk.Aws_appmesh.tlsMode_STRICT,
 //
 //   		// the properties below are optional
 //   		mutualTlsValidation: &mutualTlsValidation{
@@ -14279,22 +14769,22 @@ type Http2GatewayListenerOptions struct {
 type Http2VirtualNodeListenerOptions struct {
 	// Connection pool for http2 listeners.
 	// Experimental.
-	ConnectionPool *Http2ConnectionPool `json:"connectionPool" yaml:"connectionPool"`
+	ConnectionPool *Http2ConnectionPool `field:"optional" json:"connectionPool" yaml:"connectionPool"`
 	// The health check information for the listener.
 	// Experimental.
-	HealthCheck HealthCheck `json:"healthCheck" yaml:"healthCheck"`
+	HealthCheck HealthCheck `field:"optional" json:"healthCheck" yaml:"healthCheck"`
 	// Represents the configuration for enabling outlier detection.
 	// Experimental.
-	OutlierDetection *OutlierDetection `json:"outlierDetection" yaml:"outlierDetection"`
+	OutlierDetection *OutlierDetection `field:"optional" json:"outlierDetection" yaml:"outlierDetection"`
 	// Port to listen for connections on.
 	// Experimental.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// Timeout for HTTP protocol.
 	// Experimental.
-	Timeout *HttpTimeout `json:"timeout" yaml:"timeout"`
+	Timeout *HttpTimeout `field:"optional" json:"timeout" yaml:"timeout"`
 	// Represents the configuration for enabling TLS on a listener.
 	// Experimental.
-	Tls *ListenerTlsOptions `json:"tls" yaml:"tls"`
+	Tls *ListenerTlsOptions `field:"optional" json:"tls" yaml:"tls"`
 }
 
 // Connection pool properties for HTTP listeners.
@@ -14302,6 +14792,7 @@ type Http2VirtualNodeListenerOptions struct {
 // Example:
 //   // A Virtual Node with a gRPC listener with a connection pool set
 //   var mesh mesh
+//
 //   node := appmesh.NewVirtualNode(this, jsii.String("node"), &virtualNodeProps{
 //   	mesh: mesh,
 //   	// DNS service discovery can optionally specify the DNS response type as either LOAD_BALANCER or ENDPOINTS.
@@ -14338,16 +14829,17 @@ type Http2VirtualNodeListenerOptions struct {
 type HttpConnectionPool struct {
 	// The maximum connections in the pool.
 	// Experimental.
-	MaxConnections *float64 `json:"maxConnections" yaml:"maxConnections"`
+	MaxConnections *float64 `field:"required" json:"maxConnections" yaml:"maxConnections"`
 	// The maximum pending requests in the pool.
 	// Experimental.
-	MaxPendingRequests *float64 `json:"maxPendingRequests" yaml:"maxPendingRequests"`
+	MaxPendingRequests *float64 `field:"required" json:"maxPendingRequests" yaml:"maxPendingRequests"`
 }
 
 // Represents the properties needed to define HTTP Listeners for a VirtualGateway.
 //
 // Example:
 //   var mesh mesh
+//
 //   certificateAuthorityArn := "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012"
 //
 //   gateway := appmesh.NewVirtualGateway(this, jsii.String("gateway"), &virtualGatewayProps{
@@ -14381,16 +14873,16 @@ type HttpConnectionPool struct {
 type HttpGatewayListenerOptions struct {
 	// Connection pool for http listeners.
 	// Experimental.
-	ConnectionPool *HttpConnectionPool `json:"connectionPool" yaml:"connectionPool"`
+	ConnectionPool *HttpConnectionPool `field:"optional" json:"connectionPool" yaml:"connectionPool"`
 	// The health check information for the listener.
 	// Experimental.
-	HealthCheck HealthCheck `json:"healthCheck" yaml:"healthCheck"`
+	HealthCheck HealthCheck `field:"optional" json:"healthCheck" yaml:"healthCheck"`
 	// Port to listen for connections on.
 	// Experimental.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// Represents the configuration for enabling TLS on a listener.
 	// Experimental.
-	Tls *ListenerTlsOptions `json:"tls" yaml:"tls"`
+	Tls *ListenerTlsOptions `field:"optional" json:"tls" yaml:"tls"`
 }
 
 // The criterion for determining a request match for this GatewayRoute.
@@ -14398,6 +14890,7 @@ type HttpGatewayListenerOptions struct {
 // Example:
 //   var gateway virtualGateway
 //   var virtualService virtualService
+//
 //
 //   gateway.addGatewayRoute(jsii.String("gateway-route-http-2"), &gatewayRouteBaseProps{
 //   	routeSpec: appmesh.gatewayRouteSpec.http(&httpGatewayRouteSpecOptions{
@@ -14416,26 +14909,26 @@ type HttpGatewayRouteMatch struct {
 	// All specified headers
 	// must match for the gateway route to match.
 	// Experimental.
-	Headers *[]HeaderMatch `json:"headers" yaml:"headers"`
+	Headers *[]HeaderMatch `field:"optional" json:"headers" yaml:"headers"`
 	// The gateway route host name to be matched on.
 	// Experimental.
-	Hostname GatewayRouteHostnameMatch `json:"hostname" yaml:"hostname"`
+	Hostname GatewayRouteHostnameMatch `field:"optional" json:"hostname" yaml:"hostname"`
 	// The method to match on.
 	// Experimental.
-	Method HttpRouteMethod `json:"method" yaml:"method"`
+	Method HttpRouteMethod `field:"optional" json:"method" yaml:"method"`
 	// Specify how to match requests based on the 'path' part of their URL.
 	// Experimental.
-	Path HttpGatewayRoutePathMatch `json:"path" yaml:"path"`
+	Path HttpGatewayRoutePathMatch `field:"optional" json:"path" yaml:"path"`
 	// The query parameters to match on.
 	//
 	// All specified query parameters must match for the route to match.
 	// Experimental.
-	QueryParameters *[]QueryParameterMatch `json:"queryParameters" yaml:"queryParameters"`
+	QueryParameters *[]QueryParameterMatch `field:"optional" json:"queryParameters" yaml:"queryParameters"`
 	// When `true`, rewrites the original request received at the Virtual Gateway to the destination Virtual Service name.
 	//
 	// When `false`, retains the original hostname from the request.
 	// Experimental.
-	RewriteRequestHostname *bool `json:"rewriteRequestHostname" yaml:"rewriteRequestHostname"`
+	RewriteRequestHostname *bool `field:"optional" json:"rewriteRequestHostname" yaml:"rewriteRequestHostname"`
 }
 
 // Defines HTTP gateway route matching based on the URL path of the request.
@@ -14443,6 +14936,7 @@ type HttpGatewayRouteMatch struct {
 // Example:
 //   var gateway virtualGateway
 //   var virtualService virtualService
+//
 //
 //   gateway.addGatewayRoute(jsii.String("gateway-route-http-2"), &gatewayRouteBaseProps{
 //   	routeSpec: appmesh.gatewayRouteSpec.http(&httpGatewayRouteSpecOptions{
@@ -14546,7 +15040,10 @@ func (h *jsiiProxy_HttpGatewayRoutePathMatch) Bind(scope awscdk.Construct) *Http
 // The type returned from the `bind()` method in {@link HttpGatewayRoutePathMatch}.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   httpGatewayRoutePathMatchConfig := &httpGatewayRoutePathMatchConfig{
 //   	prefixPathMatch: jsii.String("prefixPathMatch"),
 //   	prefixPathRewrite: &httpGatewayRoutePrefixRewriteProperty{
@@ -14566,16 +15063,16 @@ func (h *jsiiProxy_HttpGatewayRoutePathMatch) Bind(scope awscdk.Construct) *Http
 type HttpGatewayRoutePathMatchConfig struct {
 	// Gateway route configuration for matching on the prefix of the URL path of the request.
 	// Experimental.
-	PrefixPathMatch *string `json:"prefixPathMatch" yaml:"prefixPathMatch"`
+	PrefixPathMatch *string `field:"optional" json:"prefixPathMatch" yaml:"prefixPathMatch"`
 	// Gateway route configuration for rewriting the prefix of the URL path of the request.
 	// Experimental.
-	PrefixPathRewrite *CfnGatewayRoute_HttpGatewayRoutePrefixRewriteProperty `json:"prefixPathRewrite" yaml:"prefixPathRewrite"`
+	PrefixPathRewrite *CfnGatewayRoute_HttpGatewayRoutePrefixRewriteProperty `field:"optional" json:"prefixPathRewrite" yaml:"prefixPathRewrite"`
 	// Gateway route configuration for matching on the complete URL path of the request.
 	// Experimental.
-	WholePathMatch *CfnGatewayRoute_HttpPathMatchProperty `json:"wholePathMatch" yaml:"wholePathMatch"`
+	WholePathMatch *CfnGatewayRoute_HttpPathMatchProperty `field:"optional" json:"wholePathMatch" yaml:"wholePathMatch"`
 	// Gateway route configuration for rewriting the complete URL path of the request..
 	// Experimental.
-	WholePathRewrite *CfnGatewayRoute_HttpGatewayRoutePathRewriteProperty `json:"wholePathRewrite" yaml:"wholePathRewrite"`
+	WholePathRewrite *CfnGatewayRoute_HttpGatewayRoutePathRewriteProperty `field:"optional" json:"wholePathRewrite" yaml:"wholePathRewrite"`
 }
 
 // Properties specific for HTTP Based GatewayRoutes.
@@ -14583,6 +15080,7 @@ type HttpGatewayRoutePathMatchConfig struct {
 // Example:
 //   var gateway virtualGateway
 //   var virtualService virtualService
+//
 //
 //   gateway.addGatewayRoute(jsii.String("gateway-route-http-2"), &gatewayRouteBaseProps{
 //   	routeSpec: appmesh.gatewayRouteSpec.http(&httpGatewayRouteSpecOptions{
@@ -14602,21 +15100,22 @@ type HttpGatewayRouteSpecOptions struct {
 	// is performed in the order of specified value, where 0 is the highest priority,
 	// and first matched gateway route is selected.
 	// Experimental.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 	// The VirtualService this GatewayRoute directs traffic to.
 	// Experimental.
-	RouteTarget IVirtualService `json:"routeTarget" yaml:"routeTarget"`
+	RouteTarget IVirtualService `field:"required" json:"routeTarget" yaml:"routeTarget"`
 	// The criterion for determining a request match for this GatewayRoute.
 	//
 	// When path match is defined, this may optionally determine the path rewrite configuration.
 	// Experimental.
-	Match *HttpGatewayRouteMatch `json:"match" yaml:"match"`
+	Match *HttpGatewayRouteMatch `field:"optional" json:"match" yaml:"match"`
 }
 
 // Properties used to define HTTP Based healthchecks.
 //
 // Example:
-//   var mesh meshvpc := ec2.NewVpc(this, jsii.String("vpc"))
+//   var mesh mesh
+//   vpc := ec2.NewVpc(this, jsii.String("vpc"))
 //   namespace := cloudmap.NewPrivateDnsNamespace(this, jsii.String("test-namespace"), &privateDnsNamespaceProps{
 //   	vpc: vpc,
 //   	name: jsii.String("domain.local"),
@@ -14645,19 +15144,19 @@ type HttpGatewayRouteSpecOptions struct {
 type HttpHealthCheckOptions struct {
 	// The number of consecutive successful health checks that must occur before declaring listener healthy.
 	// Experimental.
-	HealthyThreshold *float64 `json:"healthyThreshold" yaml:"healthyThreshold"`
+	HealthyThreshold *float64 `field:"optional" json:"healthyThreshold" yaml:"healthyThreshold"`
 	// The time period between each health check execution.
 	// Experimental.
-	Interval awscdk.Duration `json:"interval" yaml:"interval"`
+	Interval awscdk.Duration `field:"optional" json:"interval" yaml:"interval"`
 	// The destination path for the health check request.
 	// Experimental.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 	// The amount of time to wait when receiving a response from the health check.
 	// Experimental.
-	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
+	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 	// The number of consecutive failed health checks that must occur before declaring a listener unhealthy.
 	// Experimental.
-	UnhealthyThreshold *float64 `json:"unhealthyThreshold" yaml:"unhealthyThreshold"`
+	UnhealthyThreshold *float64 `field:"optional" json:"unhealthyThreshold" yaml:"unhealthyThreshold"`
 }
 
 // HTTP events on which to retry.
@@ -14665,6 +15164,7 @@ type HttpHealthCheckOptions struct {
 // Example:
 //   var router virtualRouter
 //   var node virtualNode
+//
 //
 //   router.addRoute(jsii.String("route-http2-retry"), &routeBaseProps{
 //   	routeSpec: appmesh.routeSpec.http2(&httpRouteSpecOptions{
@@ -14714,6 +15214,7 @@ const (
 //   var router virtualRouter
 //   var node virtualNode
 //
+//
 //   router.addRoute(jsii.String("route-http2-retry"), &routeBaseProps{
 //   	routeSpec: appmesh.routeSpec.http2(&httpRouteSpecOptions{
 //   		weightedTargets: []weightedTarget{
@@ -14742,16 +15243,16 @@ const (
 type HttpRetryPolicy struct {
 	// The maximum number of retry attempts.
 	// Experimental.
-	RetryAttempts *float64 `json:"retryAttempts" yaml:"retryAttempts"`
+	RetryAttempts *float64 `field:"required" json:"retryAttempts" yaml:"retryAttempts"`
 	// The timeout for each retry attempt.
 	// Experimental.
-	RetryTimeout awscdk.Duration `json:"retryTimeout" yaml:"retryTimeout"`
+	RetryTimeout awscdk.Duration `field:"required" json:"retryTimeout" yaml:"retryTimeout"`
 	// Specify HTTP events on which to retry.
 	//
 	// You must specify at least one value
 	// for at least one types of retry events.
 	// Experimental.
-	HttpRetryEvents *[]HttpRetryEvent `json:"httpRetryEvents" yaml:"httpRetryEvents"`
+	HttpRetryEvents *[]HttpRetryEvent `field:"optional" json:"httpRetryEvents" yaml:"httpRetryEvents"`
 	// TCP events on which to retry.
 	//
 	// The event occurs before any processing of a
@@ -14759,7 +15260,7 @@ type HttpRetryPolicy struct {
 	// permanently unavailable. You must specify at least one value for at least
 	// one types of retry events.
 	// Experimental.
-	TcpRetryEvents *[]TcpRetryEvent `json:"tcpRetryEvents" yaml:"tcpRetryEvents"`
+	TcpRetryEvents *[]TcpRetryEvent `field:"optional" json:"tcpRetryEvents" yaml:"tcpRetryEvents"`
 }
 
 // The criterion for determining a request match for this Route.
@@ -14767,6 +15268,7 @@ type HttpRetryPolicy struct {
 // Example:
 //   var router virtualRouter
 //   var node virtualNode
+//
 //
 //   router.addRoute(jsii.String("route-http"), &routeBaseProps{
 //   	routeSpec: appmesh.routeSpec.http(&httpRouteSpecOptions{
@@ -14793,23 +15295,23 @@ type HttpRouteMatch struct {
 	// All specified headers
 	// must match for the route to match.
 	// Experimental.
-	Headers *[]HeaderMatch `json:"headers" yaml:"headers"`
+	Headers *[]HeaderMatch `field:"optional" json:"headers" yaml:"headers"`
 	// The HTTP client request method to match on.
 	// Experimental.
-	Method HttpRouteMethod `json:"method" yaml:"method"`
+	Method HttpRouteMethod `field:"optional" json:"method" yaml:"method"`
 	// Specifies how is the request matched based on the path part of its URL.
 	// Experimental.
-	Path HttpRoutePathMatch `json:"path" yaml:"path"`
+	Path HttpRoutePathMatch `field:"optional" json:"path" yaml:"path"`
 	// The client request protocol to match on.
 	//
 	// Applicable only for HTTP2 routes.
 	// Experimental.
-	Protocol HttpRouteProtocol `json:"protocol" yaml:"protocol"`
+	Protocol HttpRouteProtocol `field:"optional" json:"protocol" yaml:"protocol"`
 	// The query parameters to match on.
 	//
 	// All specified query parameters must match for the route to match.
 	// Experimental.
-	QueryParameters *[]QueryParameterMatch `json:"queryParameters" yaml:"queryParameters"`
+	QueryParameters *[]QueryParameterMatch `field:"optional" json:"queryParameters" yaml:"queryParameters"`
 }
 
 // Supported values for matching routes based on the HTTP request method.
@@ -14817,6 +15319,7 @@ type HttpRouteMatch struct {
 // Example:
 //   var router virtualRouter
 //   var node virtualNode
+//
 //
 //   router.addRoute(jsii.String("route-http2"), &routeBaseProps{
 //   	routeSpec: appmesh.routeSpec.http2(&httpRouteSpecOptions{
@@ -14878,6 +15381,7 @@ const (
 // Example:
 //   var router virtualRouter
 //   var node virtualNode
+//
 //
 //   router.addRoute(jsii.String("route-http"), &routeBaseProps{
 //   	routeSpec: appmesh.routeSpec.http(&httpRouteSpecOptions{
@@ -14989,7 +15493,10 @@ func (h *jsiiProxy_HttpRoutePathMatch) Bind(scope awscdk.Construct) *HttpRoutePa
 // The type returned from the `bind()` method in {@link HttpRoutePathMatch}.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   httpRoutePathMatchConfig := &httpRoutePathMatchConfig{
 //   	prefixPathMatch: jsii.String("prefixPathMatch"),
 //   	wholePathMatch: &httpPathMatchProperty{
@@ -15002,10 +15509,10 @@ func (h *jsiiProxy_HttpRoutePathMatch) Bind(scope awscdk.Construct) *HttpRoutePa
 type HttpRoutePathMatchConfig struct {
 	// Route configuration for matching on the prefix of the URL path of the request.
 	// Experimental.
-	PrefixPathMatch *string `json:"prefixPathMatch" yaml:"prefixPathMatch"`
+	PrefixPathMatch *string `field:"optional" json:"prefixPathMatch" yaml:"prefixPathMatch"`
 	// Route configuration for matching on the complete URL path of the request.
 	// Experimental.
-	WholePathMatch *CfnRoute_HttpPathMatchProperty `json:"wholePathMatch" yaml:"wholePathMatch"`
+	WholePathMatch *CfnRoute_HttpPathMatchProperty `field:"optional" json:"wholePathMatch" yaml:"wholePathMatch"`
 }
 
 // Supported :scheme options for HTTP2.
@@ -15013,6 +15520,7 @@ type HttpRoutePathMatchConfig struct {
 // Example:
 //   var router virtualRouter
 //   var node virtualNode
+//
 //
 //   router.addRoute(jsii.String("route-http2"), &routeBaseProps{
 //   	routeSpec: appmesh.routeSpec.http2(&httpRouteSpecOptions{
@@ -15054,6 +15562,7 @@ const (
 //   var router virtualRouter
 //   var node virtualNode
 //
+//
 //   router.addRoute(jsii.String("route-http2-retry"), &routeBaseProps{
 //   	routeSpec: appmesh.routeSpec.http2(&httpRouteSpecOptions{
 //   		weightedTargets: []weightedTarget{
@@ -15085,19 +15594,19 @@ type HttpRouteSpecOptions struct {
 	// When a Virtual Router has multiple routes, route match is performed in the
 	// order of specified value, where 0 is the highest priority, and first matched route is selected.
 	// Experimental.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 	// List of targets that traffic is routed to when a request matches the route.
 	// Experimental.
-	WeightedTargets *[]*WeightedTarget `json:"weightedTargets" yaml:"weightedTargets"`
+	WeightedTargets *[]*WeightedTarget `field:"required" json:"weightedTargets" yaml:"weightedTargets"`
 	// The criterion for determining a request match for this Route.
 	// Experimental.
-	Match *HttpRouteMatch `json:"match" yaml:"match"`
+	Match *HttpRouteMatch `field:"optional" json:"match" yaml:"match"`
 	// The retry policy.
 	// Experimental.
-	RetryPolicy *HttpRetryPolicy `json:"retryPolicy" yaml:"retryPolicy"`
+	RetryPolicy *HttpRetryPolicy `field:"optional" json:"retryPolicy" yaml:"retryPolicy"`
 	// An object that represents a http timeout.
 	// Experimental.
-	Timeout *HttpTimeout `json:"timeout" yaml:"timeout"`
+	Timeout *HttpTimeout `field:"optional" json:"timeout" yaml:"timeout"`
 }
 
 // Represents timeouts for HTTP protocols.
@@ -15105,6 +15614,7 @@ type HttpRouteSpecOptions struct {
 // Example:
 //   var mesh mesh
 //   var service service
+//
 //
 //   node := appmesh.NewVirtualNode(this, jsii.String("node"), &virtualNodeProps{
 //   	mesh: mesh,
@@ -15142,16 +15652,17 @@ type HttpTimeout struct {
 	//
 	// The amount of time that a connection may be idle.
 	// Experimental.
-	Idle awscdk.Duration `json:"idle" yaml:"idle"`
+	Idle awscdk.Duration `field:"optional" json:"idle" yaml:"idle"`
 	// Represents per request timeout.
 	// Experimental.
-	PerRequest awscdk.Duration `json:"perRequest" yaml:"perRequest"`
+	PerRequest awscdk.Duration `field:"optional" json:"perRequest" yaml:"perRequest"`
 }
 
 // Represent the HTTP Node Listener prorperty.
 //
 // Example:
-//   var mesh meshvpc := ec2.NewVpc(this, jsii.String("vpc"))
+//   var mesh mesh
+//   vpc := ec2.NewVpc(this, jsii.String("vpc"))
 //   namespace := cloudmap.NewPrivateDnsNamespace(this, jsii.String("test-namespace"), &privateDnsNamespaceProps{
 //   	vpc: vpc,
 //   	name: jsii.String("domain.local"),
@@ -15180,22 +15691,22 @@ type HttpTimeout struct {
 type HttpVirtualNodeListenerOptions struct {
 	// Connection pool for http listeners.
 	// Experimental.
-	ConnectionPool *HttpConnectionPool `json:"connectionPool" yaml:"connectionPool"`
+	ConnectionPool *HttpConnectionPool `field:"optional" json:"connectionPool" yaml:"connectionPool"`
 	// The health check information for the listener.
 	// Experimental.
-	HealthCheck HealthCheck `json:"healthCheck" yaml:"healthCheck"`
+	HealthCheck HealthCheck `field:"optional" json:"healthCheck" yaml:"healthCheck"`
 	// Represents the configuration for enabling outlier detection.
 	// Experimental.
-	OutlierDetection *OutlierDetection `json:"outlierDetection" yaml:"outlierDetection"`
+	OutlierDetection *OutlierDetection `field:"optional" json:"outlierDetection" yaml:"outlierDetection"`
 	// Port to listen for connections on.
 	// Experimental.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// Timeout for HTTP protocol.
 	// Experimental.
-	Timeout *HttpTimeout `json:"timeout" yaml:"timeout"`
+	Timeout *HttpTimeout `field:"optional" json:"timeout" yaml:"timeout"`
 	// Represents the configuration for enabling TLS on a listener.
 	// Experimental.
-	Tls *ListenerTlsOptions `json:"tls" yaml:"tls"`
+	Tls *ListenerTlsOptions `field:"optional" json:"tls" yaml:"tls"`
 }
 
 // Interface for which all GatewayRoute based classes MUST implement.
@@ -15667,6 +16178,7 @@ func (j *jsiiProxy_IVirtualService) VirtualServiceName() *string {
 //   var cert certificate
 //   var mesh mesh
 //
+//
 //   node := appmesh.NewVirtualNode(this, jsii.String("node"), &virtualNodeProps{
 //   	mesh: mesh,
 //   	serviceDiscovery: appmesh.serviceDiscovery.dns(jsii.String("node")),
@@ -15715,15 +16227,15 @@ func (j *jsiiProxy_IVirtualService) VirtualServiceName() *string {
 type ListenerTlsOptions struct {
 	// Represents TLS certificate.
 	// Experimental.
-	Certificate TlsCertificate `json:"certificate" yaml:"certificate"`
+	Certificate TlsCertificate `field:"required" json:"certificate" yaml:"certificate"`
 	// The TLS mode.
 	// Experimental.
-	Mode TlsMode `json:"mode" yaml:"mode"`
+	Mode TlsMode `field:"required" json:"mode" yaml:"mode"`
 	// Represents a listener's TLS validation context.
 	//
 	// The client certificate will only be validated if the client provides it, enabling mutual TLS.
 	// Experimental.
-	MutualTlsValidation *MutualTlsValidation `json:"mutualTlsValidation" yaml:"mutualTlsValidation"`
+	MutualTlsValidation *MutualTlsValidation `field:"optional" json:"mutualTlsValidation" yaml:"mutualTlsValidation"`
 }
 
 // Define a new AppMesh mesh.
@@ -16217,16 +16729,17 @@ const (
 type MeshProps struct {
 	// Egress filter to be applied to the Mesh.
 	// Experimental.
-	EgressFilter MeshFilterType `json:"egressFilter" yaml:"egressFilter"`
+	EgressFilter MeshFilterType `field:"optional" json:"egressFilter" yaml:"egressFilter"`
 	// The name of the Mesh being defined.
 	// Experimental.
-	MeshName *string `json:"meshName" yaml:"meshName"`
+	MeshName *string `field:"optional" json:"meshName" yaml:"meshName"`
 }
 
 // Represents a TLS certificate that is supported for mutual TLS authentication.
 //
 // Example:
 //   var mesh mesh
+//
 //
 //   node1 := appmesh.NewVirtualNode(this, jsii.String("node1"), &virtualNodeProps{
 //   	mesh: mesh,
@@ -16374,6 +16887,7 @@ func (m *jsiiProxy_MutualTlsCertificate) Bind(_scope awscdk.Construct) *TlsCerti
 // Example:
 //   var mesh mesh
 //
+//
 //   node1 := appmesh.NewVirtualNode(this, jsii.String("node1"), &virtualNodeProps{
 //   	mesh: mesh,
 //   	serviceDiscovery: appmesh.serviceDiscovery.dns(jsii.String("node")),
@@ -16418,18 +16932,19 @@ func (m *jsiiProxy_MutualTlsCertificate) Bind(_scope awscdk.Construct) *TlsCerti
 type MutualTlsValidation struct {
 	// Reference to where to retrieve the trust chain.
 	// Experimental.
-	Trust MutualTlsValidationTrust `json:"trust" yaml:"trust"`
+	Trust MutualTlsValidationTrust `field:"required" json:"trust" yaml:"trust"`
 	// Represents the subject alternative names (SANs) secured by the certificate.
 	//
 	// SANs must be in the FQDN or URI format.
 	// Experimental.
-	SubjectAlternativeNames SubjectAlternativeNames `json:"subjectAlternativeNames" yaml:"subjectAlternativeNames"`
+	SubjectAlternativeNames SubjectAlternativeNames `field:"optional" json:"subjectAlternativeNames" yaml:"subjectAlternativeNames"`
 }
 
 // Represents a TLS Validation Context Trust that is supported for mutual TLS authentication.
 //
 // Example:
 //   var mesh mesh
+//
 //
 //   node1 := appmesh.NewVirtualNode(this, jsii.String("node1"), &virtualNodeProps{
 //   	mesh: mesh,
@@ -16575,7 +17090,8 @@ func (m *jsiiProxy_MutualTlsValidationTrust) Bind(scope awscdk.Construct) *TlsVa
 // Represents the outlier detection for a listener.
 //
 // Example:
-//   var mesh mesh// Cloud Map service discovery is currently required for host ejection by outlier detection
+//   var mesh mesh
+//   // Cloud Map service discovery is currently required for host ejection by outlier detection
 //   vpc := ec2.NewVpc(this, jsii.String("vpc"))
 //   namespace := cloudmap.NewPrivateDnsNamespace(this, jsii.String("test-namespace"), &privateDnsNamespaceProps{
 //   	vpc: vpc,
@@ -16600,19 +17116,19 @@ func (m *jsiiProxy_MutualTlsValidationTrust) Bind(scope awscdk.Construct) *TlsVa
 type OutlierDetection struct {
 	// The base amount of time for which a host is ejected.
 	// Experimental.
-	BaseEjectionDuration awscdk.Duration `json:"baseEjectionDuration" yaml:"baseEjectionDuration"`
+	BaseEjectionDuration awscdk.Duration `field:"required" json:"baseEjectionDuration" yaml:"baseEjectionDuration"`
 	// The time interval between ejection sweep analysis.
 	// Experimental.
-	Interval awscdk.Duration `json:"interval" yaml:"interval"`
+	Interval awscdk.Duration `field:"required" json:"interval" yaml:"interval"`
 	// Maximum percentage of hosts in load balancing pool for upstream service that can be ejected.
 	//
 	// Will eject at
 	// least one host regardless of the value.
 	// Experimental.
-	MaxEjectionPercent *float64 `json:"maxEjectionPercent" yaml:"maxEjectionPercent"`
+	MaxEjectionPercent *float64 `field:"required" json:"maxEjectionPercent" yaml:"maxEjectionPercent"`
 	// Number of consecutive 5xx errors required for ejection.
 	// Experimental.
-	MaxServerErrors *float64 `json:"maxServerErrors" yaml:"maxServerErrors"`
+	MaxServerErrors *float64 `field:"required" json:"maxServerErrors" yaml:"maxServerErrors"`
 }
 
 // Enum of supported AppMesh protocols.
@@ -16635,6 +17151,7 @@ const (
 // Example:
 //   var router virtualRouter
 //   var node virtualNode
+//
 //
 //   router.addRoute(jsii.String("route-http2"), &routeBaseProps{
 //   	routeSpec: appmesh.routeSpec.http2(&httpRouteSpecOptions{
@@ -16714,7 +17231,10 @@ func (q *jsiiProxy_QueryParameterMatch) Bind(scope awscdk.Construct) *QueryParam
 // Configuration for `QueryParameterMatch`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   queryParameterMatchConfig := &queryParameterMatchConfig{
 //   	queryParameterMatch: &queryParameterProperty{
 //   		name: jsii.String("name"),
@@ -16730,18 +17250,21 @@ func (q *jsiiProxy_QueryParameterMatch) Bind(scope awscdk.Construct) *QueryParam
 type QueryParameterMatchConfig struct {
 	// Route CFN configuration for route query parameter match.
 	// Experimental.
-	QueryParameterMatch *CfnRoute_QueryParameterProperty `json:"queryParameterMatch" yaml:"queryParameterMatch"`
+	QueryParameterMatch *CfnRoute_QueryParameterProperty `field:"required" json:"queryParameterMatch" yaml:"queryParameterMatch"`
 }
 
 // Route represents a new or existing route attached to a VirtualRouter and Mesh.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var mesh mesh
 //   var routeSpec routeSpec
 //   var virtualRouter virtualRouter
-//   route := appmesh.NewRoute(this, jsii.String("MyRoute"), &routeProps{
+//
+//   route := awscdk.Aws_appmesh.NewRoute(this, jsii.String("MyRoute"), &routeProps{
 //   	mesh: mesh,
 //   	routeSpec: routeSpec,
 //   	virtualRouter: virtualRouter,
@@ -17163,9 +17686,12 @@ func (r *jsiiProxy_Route) Validate() *[]*string {
 // Interface with properties ncecessary to import a reusable Route.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var virtualRouter virtualRouter
+//
 //   routeAttributes := &routeAttributes{
 //   	routeName: jsii.String("routeName"),
 //   	virtualRouter: virtualRouter,
@@ -17175,10 +17701,10 @@ func (r *jsiiProxy_Route) Validate() *[]*string {
 type RouteAttributes struct {
 	// The name of the Route.
 	// Experimental.
-	RouteName *string `json:"routeName" yaml:"routeName"`
+	RouteName *string `field:"required" json:"routeName" yaml:"routeName"`
 	// The VirtualRouter the Route belongs to.
 	// Experimental.
-	VirtualRouter IVirtualRouter `json:"virtualRouter" yaml:"virtualRouter"`
+	VirtualRouter IVirtualRouter `field:"required" json:"virtualRouter" yaml:"virtualRouter"`
 }
 
 // Base interface properties for all Routes.
@@ -17186,6 +17712,7 @@ type RouteAttributes struct {
 // Example:
 //   var router virtualRouter
 //   var node virtualNode
+//
 //
 //   router.addRoute(jsii.String("route-http2-retry"), &routeBaseProps{
 //   	routeSpec: appmesh.routeSpec.http2(&httpRouteSpecOptions{
@@ -17215,20 +17742,23 @@ type RouteAttributes struct {
 type RouteBaseProps struct {
 	// Protocol specific spec.
 	// Experimental.
-	RouteSpec RouteSpec `json:"routeSpec" yaml:"routeSpec"`
+	RouteSpec RouteSpec `field:"required" json:"routeSpec" yaml:"routeSpec"`
 	// The name of the route.
 	// Experimental.
-	RouteName *string `json:"routeName" yaml:"routeName"`
+	RouteName *string `field:"optional" json:"routeName" yaml:"routeName"`
 }
 
 // Properties to define new Routes.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var mesh mesh
 //   var routeSpec routeSpec
 //   var virtualRouter virtualRouter
+//
 //   routeProps := &routeProps{
 //   	mesh: mesh,
 //   	routeSpec: routeSpec,
@@ -17242,16 +17772,16 @@ type RouteBaseProps struct {
 type RouteProps struct {
 	// Protocol specific spec.
 	// Experimental.
-	RouteSpec RouteSpec `json:"routeSpec" yaml:"routeSpec"`
+	RouteSpec RouteSpec `field:"required" json:"routeSpec" yaml:"routeSpec"`
 	// The name of the route.
 	// Experimental.
-	RouteName *string `json:"routeName" yaml:"routeName"`
+	RouteName *string `field:"optional" json:"routeName" yaml:"routeName"`
 	// The service mesh to define the route in.
 	// Experimental.
-	Mesh IMesh `json:"mesh" yaml:"mesh"`
+	Mesh IMesh `field:"required" json:"mesh" yaml:"mesh"`
 	// The VirtualRouter the Route belongs to.
 	// Experimental.
-	VirtualRouter IVirtualRouter `json:"virtualRouter" yaml:"virtualRouter"`
+	VirtualRouter IVirtualRouter `field:"required" json:"virtualRouter" yaml:"virtualRouter"`
 }
 
 // Used to generate specs with different protocols for a RouteSpec.
@@ -17259,6 +17789,7 @@ type RouteProps struct {
 // Example:
 //   var router virtualRouter
 //   var node virtualNode
+//
 //
 //   router.addRoute(jsii.String("route-http2-retry"), &routeBaseProps{
 //   	routeSpec: appmesh.routeSpec.http2(&httpRouteSpecOptions{
@@ -17394,7 +17925,10 @@ func (r *jsiiProxy_RouteSpec) Bind(scope awscdk.Construct) *RouteSpecConfig {
 // All Properties for Route Specs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   routeSpecConfig := &routeSpecConfig{
 //   	grpcRouteSpec: &grpcRouteProperty{
 //   		action: &grpcRouteActionProperty{
@@ -17631,28 +18165,31 @@ func (r *jsiiProxy_RouteSpec) Bind(scope awscdk.Construct) *RouteSpecConfig {
 type RouteSpecConfig struct {
 	// The spec for a grpc route.
 	// Experimental.
-	GrpcRouteSpec *CfnRoute_GrpcRouteProperty `json:"grpcRouteSpec" yaml:"grpcRouteSpec"`
+	GrpcRouteSpec *CfnRoute_GrpcRouteProperty `field:"optional" json:"grpcRouteSpec" yaml:"grpcRouteSpec"`
 	// The spec for an http2 route.
 	// Experimental.
-	Http2RouteSpec *CfnRoute_HttpRouteProperty `json:"http2RouteSpec" yaml:"http2RouteSpec"`
+	Http2RouteSpec *CfnRoute_HttpRouteProperty `field:"optional" json:"http2RouteSpec" yaml:"http2RouteSpec"`
 	// The spec for an http route.
 	// Experimental.
-	HttpRouteSpec *CfnRoute_HttpRouteProperty `json:"httpRouteSpec" yaml:"httpRouteSpec"`
+	HttpRouteSpec *CfnRoute_HttpRouteProperty `field:"optional" json:"httpRouteSpec" yaml:"httpRouteSpec"`
 	// The priority for the route.
 	//
 	// When a Virtual Router has multiple routes, route match is performed in the
 	// order of specified value, where 0 is the highest priority, and first matched route is selected.
 	// Experimental.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 	// The spec for a tcp route.
 	// Experimental.
-	TcpRouteSpec *CfnRoute_TcpRouteProperty `json:"tcpRouteSpec" yaml:"tcpRouteSpec"`
+	TcpRouteSpec *CfnRoute_TcpRouteProperty `field:"optional" json:"tcpRouteSpec" yaml:"tcpRouteSpec"`
 }
 
 // Base options for all route specs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   routeSpecOptionsBase := &routeSpecOptionsBase{
 //   	priority: jsii.Number(123),
 //   }
@@ -17664,13 +18201,14 @@ type RouteSpecOptionsBase struct {
 	// When a Virtual Router has multiple routes, route match is performed in the
 	// order of specified value, where 0 is the highest priority, and first matched route is selected.
 	// Experimental.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 }
 
 // Provides the Service Discovery method a VirtualNode uses.
 //
 // Example:
-//   var mesh meshvpc := ec2.NewVpc(this, jsii.String("vpc"))
+//   var mesh mesh
+//   vpc := ec2.NewVpc(this, jsii.String("vpc"))
 //   namespace := cloudmap.NewPrivateDnsNamespace(this, jsii.String("test-namespace"), &privateDnsNamespaceProps{
 //   	vpc: vpc,
 //   	name: jsii.String("domain.local"),
@@ -17768,7 +18306,10 @@ func (s *jsiiProxy_ServiceDiscovery) Bind(scope awscdk.Construct) *ServiceDiscov
 // Properties for VirtualNode Service Discovery.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   serviceDiscoveryConfig := &serviceDiscoveryConfig{
 //   	cloudmap: &awsCloudMapServiceDiscoveryProperty{
 //   		namespaceName: jsii.String("namespaceName"),
@@ -17794,16 +18335,17 @@ func (s *jsiiProxy_ServiceDiscovery) Bind(scope awscdk.Construct) *ServiceDiscov
 type ServiceDiscoveryConfig struct {
 	// Cloud Map based Service Discovery.
 	// Experimental.
-	Cloudmap *CfnVirtualNode_AwsCloudMapServiceDiscoveryProperty `json:"cloudmap" yaml:"cloudmap"`
+	Cloudmap *CfnVirtualNode_AwsCloudMapServiceDiscoveryProperty `field:"optional" json:"cloudmap" yaml:"cloudmap"`
 	// DNS based Service Discovery.
 	// Experimental.
-	Dns *CfnVirtualNode_DnsServiceDiscoveryProperty `json:"dns" yaml:"dns"`
+	Dns *CfnVirtualNode_DnsServiceDiscoveryProperty `field:"optional" json:"dns" yaml:"dns"`
 }
 
 // Used to generate Subject Alternative Names Matchers.
 //
 // Example:
 //   var mesh mesh
+//
 //
 //   node1 := appmesh.NewVirtualNode(this, jsii.String("node1"), &virtualNodeProps{
 //   	mesh: mesh,
@@ -17906,7 +18448,10 @@ func (s *jsiiProxy_SubjectAlternativeNames) Bind(scope awscdk.Construct) *Subjec
 // All Properties for Subject Alternative Names Matcher for both Client Policy and Listener.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   subjectAlternativeNamesMatcherConfig := &subjectAlternativeNamesMatcherConfig{
 //   	subjectAlternativeNamesMatch: &subjectAlternativeNameMatchersProperty{
 //   		exact: []*string{
@@ -17919,13 +18464,16 @@ func (s *jsiiProxy_SubjectAlternativeNames) Bind(scope awscdk.Construct) *Subjec
 type SubjectAlternativeNamesMatcherConfig struct {
 	// VirtualNode CFN configuration for subject alternative names secured by the certificate.
 	// Experimental.
-	SubjectAlternativeNamesMatch *CfnVirtualNode_SubjectAlternativeNameMatchersProperty `json:"subjectAlternativeNamesMatch" yaml:"subjectAlternativeNamesMatch"`
+	SubjectAlternativeNamesMatch *CfnVirtualNode_SubjectAlternativeNameMatchersProperty `field:"required" json:"subjectAlternativeNamesMatch" yaml:"subjectAlternativeNamesMatch"`
 }
 
 // Connection pool properties for TCP listeners.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tcpConnectionPool := &tcpConnectionPool{
 //   	maxConnections: jsii.Number(123),
 //   }
@@ -17934,15 +18482,19 @@ type SubjectAlternativeNamesMatcherConfig struct {
 type TcpConnectionPool struct {
 	// The maximum connections in the pool.
 	// Experimental.
-	MaxConnections *float64 `json:"maxConnections" yaml:"maxConnections"`
+	MaxConnections *float64 `field:"required" json:"maxConnections" yaml:"maxConnections"`
 }
 
 // Properties used to define TCP Based healthchecks.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
+//
 //   tcpHealthCheckOptions := &tcpHealthCheckOptions{
 //   	healthyThreshold: jsii.Number(123),
 //   	interval: duration,
@@ -17954,16 +18506,16 @@ type TcpConnectionPool struct {
 type TcpHealthCheckOptions struct {
 	// The number of consecutive successful health checks that must occur before declaring listener healthy.
 	// Experimental.
-	HealthyThreshold *float64 `json:"healthyThreshold" yaml:"healthyThreshold"`
+	HealthyThreshold *float64 `field:"optional" json:"healthyThreshold" yaml:"healthyThreshold"`
 	// The time period between each health check execution.
 	// Experimental.
-	Interval awscdk.Duration `json:"interval" yaml:"interval"`
+	Interval awscdk.Duration `field:"optional" json:"interval" yaml:"interval"`
 	// The amount of time to wait when receiving a response from the health check.
 	// Experimental.
-	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
+	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 	// The number of consecutive failed health checks that must occur before declaring a listener unhealthy.
 	// Experimental.
-	UnhealthyThreshold *float64 `json:"unhealthyThreshold" yaml:"unhealthyThreshold"`
+	UnhealthyThreshold *float64 `field:"optional" json:"unhealthyThreshold" yaml:"unhealthyThreshold"`
 }
 
 // TCP events on which you may retry.
@@ -17971,6 +18523,7 @@ type TcpHealthCheckOptions struct {
 // Example:
 //   var router virtualRouter
 //   var node virtualNode
+//
 //
 //   router.addRoute(jsii.String("route-http2-retry"), &routeBaseProps{
 //   	routeSpec: appmesh.routeSpec.http2(&httpRouteSpecOptions{
@@ -18008,10 +18561,14 @@ const (
 // Properties specific for a TCP Based Routes.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var virtualNode virtualNode
+//
 //   tcpRouteSpecOptions := &tcpRouteSpecOptions{
 //   	weightedTargets: []weightedTarget{
 //   		&weightedTarget{
@@ -18036,21 +18593,25 @@ type TcpRouteSpecOptions struct {
 	// When a Virtual Router has multiple routes, route match is performed in the
 	// order of specified value, where 0 is the highest priority, and first matched route is selected.
 	// Experimental.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 	// List of targets that traffic is routed to when a request matches the route.
 	// Experimental.
-	WeightedTargets *[]*WeightedTarget `json:"weightedTargets" yaml:"weightedTargets"`
+	WeightedTargets *[]*WeightedTarget `field:"required" json:"weightedTargets" yaml:"weightedTargets"`
 	// An object that represents a tcp timeout.
 	// Experimental.
-	Timeout *TcpTimeout `json:"timeout" yaml:"timeout"`
+	Timeout *TcpTimeout `field:"optional" json:"timeout" yaml:"timeout"`
 }
 
 // Represents timeouts for TCP protocols.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
+//
 //   tcpTimeout := &tcpTimeout{
 //   	idle: duration,
 //   }
@@ -18061,19 +18622,23 @@ type TcpTimeout struct {
 	//
 	// The amount of time that a connection may be idle.
 	// Experimental.
-	Idle awscdk.Duration `json:"idle" yaml:"idle"`
+	Idle awscdk.Duration `field:"optional" json:"idle" yaml:"idle"`
 }
 
 // Represent the TCP Node Listener prorperty.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var healthCheck healthCheck
 //   var mutualTlsValidationTrust mutualTlsValidationTrust
 //   var subjectAlternativeNames subjectAlternativeNames
 //   var tlsCertificate tlsCertificate
+//
 //   tcpVirtualNodeListenerOptions := &tcpVirtualNodeListenerOptions{
 //   	connectionPool: &tcpConnectionPool{
 //   		maxConnections: jsii.Number(123),
@@ -18091,7 +18656,7 @@ type TcpTimeout struct {
 //   	},
 //   	tls: &listenerTlsOptions{
 //   		certificate: tlsCertificate,
-//   		mode: appmesh.tlsMode_STRICT,
+//   		mode: awscdk.Aws_appmesh.tlsMode_STRICT,
 //
 //   		// the properties below are optional
 //   		mutualTlsValidation: &mutualTlsValidation{
@@ -18107,22 +18672,22 @@ type TcpTimeout struct {
 type TcpVirtualNodeListenerOptions struct {
 	// Connection pool for http listeners.
 	// Experimental.
-	ConnectionPool *TcpConnectionPool `json:"connectionPool" yaml:"connectionPool"`
+	ConnectionPool *TcpConnectionPool `field:"optional" json:"connectionPool" yaml:"connectionPool"`
 	// The health check information for the listener.
 	// Experimental.
-	HealthCheck HealthCheck `json:"healthCheck" yaml:"healthCheck"`
+	HealthCheck HealthCheck `field:"optional" json:"healthCheck" yaml:"healthCheck"`
 	// Represents the configuration for enabling outlier detection.
 	// Experimental.
-	OutlierDetection *OutlierDetection `json:"outlierDetection" yaml:"outlierDetection"`
+	OutlierDetection *OutlierDetection `field:"optional" json:"outlierDetection" yaml:"outlierDetection"`
 	// Port to listen for connections on.
 	// Experimental.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// Timeout for TCP protocol.
 	// Experimental.
-	Timeout *TcpTimeout `json:"timeout" yaml:"timeout"`
+	Timeout *TcpTimeout `field:"optional" json:"timeout" yaml:"timeout"`
 	// Represents the configuration for enabling TLS on a listener.
 	// Experimental.
-	Tls *ListenerTlsOptions `json:"tls" yaml:"tls"`
+	Tls *ListenerTlsOptions `field:"optional" json:"tls" yaml:"tls"`
 }
 
 // Represents a TLS certificate.
@@ -18131,6 +18696,7 @@ type TcpVirtualNodeListenerOptions struct {
 //   // A Virtual Node with listener TLS from an ACM provided certificate
 //   var cert certificate
 //   var mesh mesh
+//
 //
 //   node := appmesh.NewVirtualNode(this, jsii.String("node"), &virtualNodeProps{
 //   	mesh: mesh,
@@ -18266,7 +18832,10 @@ func (t *jsiiProxy_TlsCertificate) Bind(_scope awscdk.Construct) *TlsCertificate
 // A wrapper for the tls config returned by {@link TlsCertificate.bind}.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tlsCertificateConfig := &tlsCertificateConfig{
 //   	tlsCertificate: &listenerTlsCertificateProperty{
 //   		acm: &listenerTlsAcmCertificateProperty{
@@ -18286,7 +18855,7 @@ func (t *jsiiProxy_TlsCertificate) Bind(_scope awscdk.Construct) *TlsCertificate
 type TlsCertificateConfig struct {
 	// The CFN shape for a TLS certificate.
 	// Experimental.
-	TlsCertificate *CfnVirtualNode_ListenerTlsCertificateProperty `json:"tlsCertificate" yaml:"tlsCertificate"`
+	TlsCertificate *CfnVirtualNode_ListenerTlsCertificateProperty `field:"required" json:"tlsCertificate" yaml:"tlsCertificate"`
 }
 
 // Represents the properties needed to define client policy.
@@ -18294,6 +18863,7 @@ type TlsCertificateConfig struct {
 // Example:
 //   var mesh mesh
 //   var service service
+//
 //
 //   node := appmesh.NewVirtualNode(this, jsii.String("node"), &virtualNodeProps{
 //   	mesh: mesh,
@@ -18329,20 +18899,20 @@ type TlsCertificateConfig struct {
 type TlsClientPolicy struct {
 	// Represents the object for TLS validation context.
 	// Experimental.
-	Validation *TlsValidation `json:"validation" yaml:"validation"`
+	Validation *TlsValidation `field:"required" json:"validation" yaml:"validation"`
 	// Whether the policy is enforced.
 	// Experimental.
-	Enforce *bool `json:"enforce" yaml:"enforce"`
+	Enforce *bool `field:"optional" json:"enforce" yaml:"enforce"`
 	// Represents a client TLS certificate.
 	//
 	// The certificate will be sent only if the server requests it, enabling mutual TLS.
 	// Experimental.
-	MutualTlsCertificate MutualTlsCertificate `json:"mutualTlsCertificate" yaml:"mutualTlsCertificate"`
+	MutualTlsCertificate MutualTlsCertificate `field:"optional" json:"mutualTlsCertificate" yaml:"mutualTlsCertificate"`
 	// TLS is enforced on the ports specified here.
 	//
 	// If no ports are specified, TLS will be enforced on all the ports.
 	// Experimental.
-	Ports *[]*float64 `json:"ports" yaml:"ports"`
+	Ports *[]*float64 `field:"optional" json:"ports" yaml:"ports"`
 }
 
 // Enum of supported TLS modes.
@@ -18351,6 +18921,7 @@ type TlsClientPolicy struct {
 //   // A Virtual Node with listener TLS from an ACM provided certificate
 //   var cert certificate
 //   var mesh mesh
+//
 //
 //   node := appmesh.NewVirtualNode(this, jsii.String("node"), &virtualNodeProps{
 //   	mesh: mesh,
@@ -18417,6 +18988,7 @@ const (
 //   var mesh mesh
 //   var service service
 //
+//
 //   node := appmesh.NewVirtualNode(this, jsii.String("node"), &virtualNodeProps{
 //   	mesh: mesh,
 //   	serviceDiscovery: appmesh.serviceDiscovery.cloudMap(service),
@@ -18451,12 +19023,12 @@ const (
 type TlsValidation struct {
 	// Reference to where to retrieve the trust chain.
 	// Experimental.
-	Trust TlsValidationTrust `json:"trust" yaml:"trust"`
+	Trust TlsValidationTrust `field:"required" json:"trust" yaml:"trust"`
 	// Represents the subject alternative names (SANs) secured by the certificate.
 	//
 	// SANs must be in the FQDN or URI format.
 	// Experimental.
-	SubjectAlternativeNames SubjectAlternativeNames `json:"subjectAlternativeNames" yaml:"subjectAlternativeNames"`
+	SubjectAlternativeNames SubjectAlternativeNames `field:"optional" json:"subjectAlternativeNames" yaml:"subjectAlternativeNames"`
 }
 
 // Defines the TLS Validation Context Trust.
@@ -18464,6 +19036,7 @@ type TlsValidation struct {
 // Example:
 //   var mesh mesh
 //   var service service
+//
 //
 //   node := appmesh.NewVirtualNode(this, jsii.String("node"), &virtualNodeProps{
 //   	mesh: mesh,
@@ -18585,7 +19158,10 @@ func (t *jsiiProxy_TlsValidationTrust) Bind(scope awscdk.Construct) *TlsValidati
 // All Properties for TLS Validation Trusts for both Client Policy and Listener.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tlsValidationTrustConfig := &tlsValidationTrustConfig{
 //   	tlsValidationTrust: &tlsValidationContextTrustProperty{
 //   		acm: &tlsValidationContextAcmTrustProperty{
@@ -18606,7 +19182,7 @@ func (t *jsiiProxy_TlsValidationTrust) Bind(scope awscdk.Construct) *TlsValidati
 type TlsValidationTrustConfig struct {
 	// VirtualNode CFN configuration for client policy's TLS Validation Trust.
 	// Experimental.
-	TlsValidationTrust *CfnVirtualNode_TlsValidationContextTrustProperty `json:"tlsValidationTrust" yaml:"tlsValidationTrust"`
+	TlsValidationTrust *CfnVirtualNode_TlsValidationContextTrustProperty `field:"required" json:"tlsValidationTrust" yaml:"tlsValidationTrust"`
 }
 
 // VirtualGateway represents a newly defined App Mesh Virtual Gateway.
@@ -18617,6 +19193,7 @@ type TlsValidationTrustConfig struct {
 // Example:
 //   // A Virtual Node with a gRPC listener with a connection pool set
 //   var mesh mesh
+//
 //   node := appmesh.NewVirtualNode(this, jsii.String("node"), &virtualNodeProps{
 //   	mesh: mesh,
 //   	// DNS service discovery can optionally specify the DNS response type as either LOAD_BALANCER or ENDPOINTS.
@@ -19106,9 +19683,12 @@ func (v *jsiiProxy_VirtualGateway) Validate() *[]*string {
 // Unterface with properties necessary to import a reusable VirtualGateway.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var mesh mesh
+//
 //   virtualGatewayAttributes := &virtualGatewayAttributes{
 //   	mesh: mesh,
 //   	virtualGatewayName: jsii.String("virtualGatewayName"),
@@ -19118,16 +19698,17 @@ func (v *jsiiProxy_VirtualGateway) Validate() *[]*string {
 type VirtualGatewayAttributes struct {
 	// The Mesh that the VirtualGateway belongs to.
 	// Experimental.
-	Mesh IMesh `json:"mesh" yaml:"mesh"`
+	Mesh IMesh `field:"required" json:"mesh" yaml:"mesh"`
 	// The name of the VirtualGateway.
 	// Experimental.
-	VirtualGatewayName *string `json:"virtualGatewayName" yaml:"virtualGatewayName"`
+	VirtualGatewayName *string `field:"required" json:"virtualGatewayName" yaml:"virtualGatewayName"`
 }
 
 // Basic configuration properties for a VirtualGateway.
 //
 // Example:
 //   var mesh mesh
+//
 //
 //   gateway := mesh.addVirtualGateway(jsii.String("gateway"), &virtualGatewayBaseProps{
 //   	accessLog: appmesh.accessLog.fromFilePath(jsii.String("/dev/stdout")),
@@ -19146,24 +19727,25 @@ type VirtualGatewayAttributes struct {
 type VirtualGatewayBaseProps struct {
 	// Access Logging Configuration for the VirtualGateway.
 	// Experimental.
-	AccessLog AccessLog `json:"accessLog" yaml:"accessLog"`
+	AccessLog AccessLog `field:"optional" json:"accessLog" yaml:"accessLog"`
 	// Default Configuration Virtual Node uses to communicate with Virtual Service.
 	// Experimental.
-	BackendDefaults *BackendDefaults `json:"backendDefaults" yaml:"backendDefaults"`
+	BackendDefaults *BackendDefaults `field:"optional" json:"backendDefaults" yaml:"backendDefaults"`
 	// Listeners for the VirtualGateway.
 	//
 	// Only one is supported.
 	// Experimental.
-	Listeners *[]VirtualGatewayListener `json:"listeners" yaml:"listeners"`
+	Listeners *[]VirtualGatewayListener `field:"optional" json:"listeners" yaml:"listeners"`
 	// Name of the VirtualGateway.
 	// Experimental.
-	VirtualGatewayName *string `json:"virtualGatewayName" yaml:"virtualGatewayName"`
+	VirtualGatewayName *string `field:"optional" json:"virtualGatewayName" yaml:"virtualGatewayName"`
 }
 
 // Represents the properties needed to define listeners for a VirtualGateway.
 //
 // Example:
 //   var mesh mesh
+//
 //   certificateAuthorityArn := "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012"
 //
 //   gateway := appmesh.NewVirtualGateway(this, jsii.String("gateway"), &virtualGatewayProps{
@@ -19286,7 +19868,10 @@ func (v *jsiiProxy_VirtualGatewayListener) Bind(scope awscdk.Construct) *Virtual
 // Properties for a VirtualGateway listener.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   virtualGatewayListenerConfig := &virtualGatewayListenerConfig{
 //   	listener: &virtualGatewayListenerProperty{
 //   		portMapping: &virtualGatewayPortMappingProperty{
@@ -19363,13 +19948,14 @@ func (v *jsiiProxy_VirtualGatewayListener) Bind(scope awscdk.Construct) *Virtual
 type VirtualGatewayListenerConfig struct {
 	// Single listener config for a VirtualGateway.
 	// Experimental.
-	Listener *CfnVirtualGateway_VirtualGatewayListenerProperty `json:"listener" yaml:"listener"`
+	Listener *CfnVirtualGateway_VirtualGatewayListenerProperty `field:"required" json:"listener" yaml:"listener"`
 }
 
 // Properties used when creating a new VirtualGateway.
 //
 // Example:
 //   var mesh mesh
+//
 //   certificateAuthorityArn := "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012"
 //
 //   gateway := appmesh.NewVirtualGateway(this, jsii.String("gateway"), &virtualGatewayProps{
@@ -19403,21 +19989,21 @@ type VirtualGatewayListenerConfig struct {
 type VirtualGatewayProps struct {
 	// Access Logging Configuration for the VirtualGateway.
 	// Experimental.
-	AccessLog AccessLog `json:"accessLog" yaml:"accessLog"`
+	AccessLog AccessLog `field:"optional" json:"accessLog" yaml:"accessLog"`
 	// Default Configuration Virtual Node uses to communicate with Virtual Service.
 	// Experimental.
-	BackendDefaults *BackendDefaults `json:"backendDefaults" yaml:"backendDefaults"`
+	BackendDefaults *BackendDefaults `field:"optional" json:"backendDefaults" yaml:"backendDefaults"`
 	// Listeners for the VirtualGateway.
 	//
 	// Only one is supported.
 	// Experimental.
-	Listeners *[]VirtualGatewayListener `json:"listeners" yaml:"listeners"`
+	Listeners *[]VirtualGatewayListener `field:"optional" json:"listeners" yaml:"listeners"`
 	// Name of the VirtualGateway.
 	// Experimental.
-	VirtualGatewayName *string `json:"virtualGatewayName" yaml:"virtualGatewayName"`
+	VirtualGatewayName *string `field:"optional" json:"virtualGatewayName" yaml:"virtualGatewayName"`
 	// The Mesh which the VirtualGateway belongs to.
 	// Experimental.
-	Mesh IMesh `json:"mesh" yaml:"mesh"`
+	Mesh IMesh `field:"required" json:"mesh" yaml:"mesh"`
 }
 
 // VirtualNode represents a newly defined AppMesh VirtualNode.
@@ -19427,7 +20013,8 @@ type VirtualGatewayProps struct {
 // should be specified as a backend.
 //
 // Example:
-//   var mesh mesh// Cloud Map service discovery is currently required for host ejection by outlier detection
+//   var mesh mesh
+//   // Cloud Map service discovery is currently required for host ejection by outlier detection
 //   vpc := ec2.NewVpc(this, jsii.String("vpc"))
 //   namespace := cloudmap.NewPrivateDnsNamespace(this, jsii.String("test-namespace"), &privateDnsNamespaceProps{
 //   	vpc: vpc,
@@ -19916,16 +20503,17 @@ func (v *jsiiProxy_VirtualNode) Validate() *[]*string {
 type VirtualNodeAttributes struct {
 	// The Mesh that the VirtualNode belongs to.
 	// Experimental.
-	Mesh IMesh `json:"mesh" yaml:"mesh"`
+	Mesh IMesh `field:"required" json:"mesh" yaml:"mesh"`
 	// The name of the VirtualNode.
 	// Experimental.
-	VirtualNodeName *string `json:"virtualNodeName" yaml:"virtualNodeName"`
+	VirtualNodeName *string `field:"required" json:"virtualNodeName" yaml:"virtualNodeName"`
 }
 
 // Basic configuration properties for a VirtualNode.
 //
 // Example:
-//   var mesh meshvpc := ec2.NewVpc(this, jsii.String("vpc"))
+//   var mesh mesh
+//   vpc := ec2.NewVpc(this, jsii.String("vpc"))
 //   namespace := cloudmap.NewPrivateDnsNamespace(this, jsii.String("test-namespace"), &privateDnsNamespaceProps{
 //   	vpc: vpc,
 //   	name: jsii.String("domain.local"),
@@ -19954,28 +20542,29 @@ type VirtualNodeAttributes struct {
 type VirtualNodeBaseProps struct {
 	// Access Logging Configuration for the virtual node.
 	// Experimental.
-	AccessLog AccessLog `json:"accessLog" yaml:"accessLog"`
+	AccessLog AccessLog `field:"optional" json:"accessLog" yaml:"accessLog"`
 	// Default Configuration Virtual Node uses to communicate with Virtual Service.
 	// Experimental.
-	BackendDefaults *BackendDefaults `json:"backendDefaults" yaml:"backendDefaults"`
+	BackendDefaults *BackendDefaults `field:"optional" json:"backendDefaults" yaml:"backendDefaults"`
 	// Virtual Services that this is node expected to send outbound traffic to.
 	// Experimental.
-	Backends *[]Backend `json:"backends" yaml:"backends"`
+	Backends *[]Backend `field:"optional" json:"backends" yaml:"backends"`
 	// Initial listener for the virtual node.
 	// Experimental.
-	Listeners *[]VirtualNodeListener `json:"listeners" yaml:"listeners"`
+	Listeners *[]VirtualNodeListener `field:"optional" json:"listeners" yaml:"listeners"`
 	// Defines how upstream clients will discover this VirtualNode.
 	// Experimental.
-	ServiceDiscovery ServiceDiscovery `json:"serviceDiscovery" yaml:"serviceDiscovery"`
+	ServiceDiscovery ServiceDiscovery `field:"optional" json:"serviceDiscovery" yaml:"serviceDiscovery"`
 	// The name of the VirtualNode.
 	// Experimental.
-	VirtualNodeName *string `json:"virtualNodeName" yaml:"virtualNodeName"`
+	VirtualNodeName *string `field:"optional" json:"virtualNodeName" yaml:"virtualNodeName"`
 }
 
 // Defines listener for a VirtualNode.
 //
 // Example:
-//   var mesh meshvpc := ec2.NewVpc(this, jsii.String("vpc"))
+//   var mesh mesh
+//   vpc := ec2.NewVpc(this, jsii.String("vpc"))
 //   namespace := cloudmap.NewPrivateDnsNamespace(this, jsii.String("test-namespace"), &privateDnsNamespaceProps{
 //   	vpc: vpc,
 //   	name: jsii.String("domain.local"),
@@ -20107,7 +20696,10 @@ func (v *jsiiProxy_VirtualNodeListener) Bind(scope awscdk.Construct) *VirtualNod
 // Properties for a VirtualNode listener.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   virtualNodeListenerConfig := &virtualNodeListenerConfig{
 //   	listener: &listenerProperty{
 //   		portMapping: &portMappingProperty{
@@ -20237,7 +20829,7 @@ func (v *jsiiProxy_VirtualNodeListener) Bind(scope awscdk.Construct) *VirtualNod
 type VirtualNodeListenerConfig struct {
 	// Single listener config for a VirtualNode.
 	// Experimental.
-	Listener *CfnVirtualNode_ListenerProperty `json:"listener" yaml:"listener"`
+	Listener *CfnVirtualNode_ListenerProperty `field:"required" json:"listener" yaml:"listener"`
 }
 
 // The properties used when creating a new VirtualNode.
@@ -20245,6 +20837,7 @@ type VirtualNodeListenerConfig struct {
 // Example:
 //   // A Virtual Node with a gRPC listener with a connection pool set
 //   var mesh mesh
+//
 //   node := appmesh.NewVirtualNode(this, jsii.String("node"), &virtualNodeProps{
 //   	mesh: mesh,
 //   	// DNS service discovery can optionally specify the DNS response type as either LOAD_BALANCER or ENDPOINTS.
@@ -20281,29 +20874,30 @@ type VirtualNodeListenerConfig struct {
 type VirtualNodeProps struct {
 	// Access Logging Configuration for the virtual node.
 	// Experimental.
-	AccessLog AccessLog `json:"accessLog" yaml:"accessLog"`
+	AccessLog AccessLog `field:"optional" json:"accessLog" yaml:"accessLog"`
 	// Default Configuration Virtual Node uses to communicate with Virtual Service.
 	// Experimental.
-	BackendDefaults *BackendDefaults `json:"backendDefaults" yaml:"backendDefaults"`
+	BackendDefaults *BackendDefaults `field:"optional" json:"backendDefaults" yaml:"backendDefaults"`
 	// Virtual Services that this is node expected to send outbound traffic to.
 	// Experimental.
-	Backends *[]Backend `json:"backends" yaml:"backends"`
+	Backends *[]Backend `field:"optional" json:"backends" yaml:"backends"`
 	// Initial listener for the virtual node.
 	// Experimental.
-	Listeners *[]VirtualNodeListener `json:"listeners" yaml:"listeners"`
+	Listeners *[]VirtualNodeListener `field:"optional" json:"listeners" yaml:"listeners"`
 	// Defines how upstream clients will discover this VirtualNode.
 	// Experimental.
-	ServiceDiscovery ServiceDiscovery `json:"serviceDiscovery" yaml:"serviceDiscovery"`
+	ServiceDiscovery ServiceDiscovery `field:"optional" json:"serviceDiscovery" yaml:"serviceDiscovery"`
 	// The name of the VirtualNode.
 	// Experimental.
-	VirtualNodeName *string `json:"virtualNodeName" yaml:"virtualNodeName"`
+	VirtualNodeName *string `field:"optional" json:"virtualNodeName" yaml:"virtualNodeName"`
 	// The Mesh which the VirtualNode belongs to.
 	// Experimental.
-	Mesh IMesh `json:"mesh" yaml:"mesh"`
+	Mesh IMesh `field:"required" json:"mesh" yaml:"mesh"`
 }
 
 // Example:
 //   var mesh mesh
+//
 //   router := mesh.addVirtualRouter(jsii.String("router"), &virtualRouterBaseProps{
 //   	listeners: []virtualRouterListener{
 //   		appmesh.*virtualRouterListener.http(jsii.Number(8080)),
@@ -20737,9 +21331,12 @@ func (v *jsiiProxy_VirtualRouter) Validate() *[]*string {
 // Interface with properties ncecessary to import a reusable VirtualRouter.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var mesh mesh
+//
 //   virtualRouterAttributes := &virtualRouterAttributes{
 //   	mesh: mesh,
 //   	virtualRouterName: jsii.String("virtualRouterName"),
@@ -20749,16 +21346,17 @@ func (v *jsiiProxy_VirtualRouter) Validate() *[]*string {
 type VirtualRouterAttributes struct {
 	// The Mesh which the VirtualRouter belongs to.
 	// Experimental.
-	Mesh IMesh `json:"mesh" yaml:"mesh"`
+	Mesh IMesh `field:"required" json:"mesh" yaml:"mesh"`
 	// The name of the VirtualRouter.
 	// Experimental.
-	VirtualRouterName *string `json:"virtualRouterName" yaml:"virtualRouterName"`
+	VirtualRouterName *string `field:"required" json:"virtualRouterName" yaml:"virtualRouterName"`
 }
 
 // Interface with base properties all routers willl inherit.
 //
 // Example:
 //   var mesh mesh
+//
 //   router := mesh.addVirtualRouter(jsii.String("router"), &virtualRouterBaseProps{
 //   	listeners: []virtualRouterListener{
 //   		appmesh.*virtualRouterListener.http(jsii.Number(8080)),
@@ -20769,16 +21367,17 @@ type VirtualRouterAttributes struct {
 type VirtualRouterBaseProps struct {
 	// Listener specification for the VirtualRouter.
 	// Experimental.
-	Listeners *[]VirtualRouterListener `json:"listeners" yaml:"listeners"`
+	Listeners *[]VirtualRouterListener `field:"optional" json:"listeners" yaml:"listeners"`
 	// The name of the VirtualRouter.
 	// Experimental.
-	VirtualRouterName *string `json:"virtualRouterName" yaml:"virtualRouterName"`
+	VirtualRouterName *string `field:"optional" json:"virtualRouterName" yaml:"virtualRouterName"`
 }
 
 // Represents the properties needed to define listeners for a VirtualRouter.
 //
 // Example:
 //   var mesh mesh
+//
 //   router := mesh.addVirtualRouter(jsii.String("router"), &virtualRouterBaseProps{
 //   	listeners: []virtualRouterListener{
 //   		appmesh.*virtualRouterListener.http(jsii.Number(8080)),
@@ -20895,7 +21494,10 @@ func (v *jsiiProxy_VirtualRouterListener) Bind(scope awscdk.Construct) *VirtualR
 // Properties for a VirtualRouter listener.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   virtualRouterListenerConfig := &virtualRouterListenerConfig{
 //   	listener: &virtualRouterListenerProperty{
 //   		portMapping: &portMappingProperty{
@@ -20909,7 +21511,7 @@ func (v *jsiiProxy_VirtualRouterListener) Bind(scope awscdk.Construct) *VirtualR
 type VirtualRouterListenerConfig struct {
 	// Single listener config for a VirtualRouter.
 	// Experimental.
-	Listener *CfnVirtualRouter_VirtualRouterListenerProperty `json:"listener" yaml:"listener"`
+	Listener *CfnVirtualRouter_VirtualRouterListenerProperty `field:"required" json:"listener" yaml:"listener"`
 }
 
 // The properties used when creating a new VirtualRouter.
@@ -20917,6 +21519,7 @@ type VirtualRouterListenerConfig struct {
 // Example:
 //   var infraStack stack
 //   var appStack stack
+//
 //
 //   mesh := appmesh.NewMesh(infraStack, jsii.String("AppMesh"), &meshProps{
 //   	meshName: jsii.String("myAwsMesh"),
@@ -20937,13 +21540,13 @@ type VirtualRouterListenerConfig struct {
 type VirtualRouterProps struct {
 	// Listener specification for the VirtualRouter.
 	// Experimental.
-	Listeners *[]VirtualRouterListener `json:"listeners" yaml:"listeners"`
+	Listeners *[]VirtualRouterListener `field:"optional" json:"listeners" yaml:"listeners"`
 	// The name of the VirtualRouter.
 	// Experimental.
-	VirtualRouterName *string `json:"virtualRouterName" yaml:"virtualRouterName"`
+	VirtualRouterName *string `field:"optional" json:"virtualRouterName" yaml:"virtualRouterName"`
 	// The Mesh which the VirtualRouter belongs to.
 	// Experimental.
-	Mesh IMesh `json:"mesh" yaml:"mesh"`
+	Mesh IMesh `field:"required" json:"mesh" yaml:"mesh"`
 }
 
 // VirtualService represents a service inside an AppMesh.
@@ -20952,6 +21555,7 @@ type VirtualRouterProps struct {
 //
 // Example:
 //   var mesh mesh
+//
 //
 //   node := appmesh.NewVirtualNode(this, jsii.String("node"), &virtualNodeProps{
 //   	mesh: mesh,
@@ -21378,9 +21982,12 @@ func (v *jsiiProxy_VirtualService) Validate() *[]*string {
 // Interface with properties ncecessary to import a reusable VirtualService.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var mesh mesh
+//
 //   virtualServiceAttributes := &virtualServiceAttributes{
 //   	mesh: mesh,
 //   	virtualServiceName: jsii.String("virtualServiceName"),
@@ -21390,20 +21997,23 @@ func (v *jsiiProxy_VirtualService) Validate() *[]*string {
 type VirtualServiceAttributes struct {
 	// The Mesh which the VirtualService belongs to.
 	// Experimental.
-	Mesh IMesh `json:"mesh" yaml:"mesh"`
+	Mesh IMesh `field:"required" json:"mesh" yaml:"mesh"`
 	// The name of the VirtualService, it is recommended this follows the fully-qualified domain name format.
 	// Experimental.
-	VirtualServiceName *string `json:"virtualServiceName" yaml:"virtualServiceName"`
+	VirtualServiceName *string `field:"required" json:"virtualServiceName" yaml:"virtualServiceName"`
 }
 
 // Represents the properties needed to define a Virtual Service backend.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var mutualTlsCertificate mutualTlsCertificate
 //   var subjectAlternativeNames subjectAlternativeNames
 //   var tlsValidationTrust tlsValidationTrust
+//
 //   virtualServiceBackendOptions := &virtualServiceBackendOptions{
 //   	tlsClientPolicy: &tlsClientPolicy{
 //   		validation: &tlsValidation{
@@ -21426,13 +22036,14 @@ type VirtualServiceAttributes struct {
 type VirtualServiceBackendOptions struct {
 	// TLS properties for  Client policy for the backend.
 	// Experimental.
-	TlsClientPolicy *TlsClientPolicy `json:"tlsClientPolicy" yaml:"tlsClientPolicy"`
+	TlsClientPolicy *TlsClientPolicy `field:"optional" json:"tlsClientPolicy" yaml:"tlsClientPolicy"`
 }
 
 // The properties applied to the VirtualService being defined.
 //
 // Example:
 //   var mesh mesh
+//
 //
 //   node := appmesh.NewVirtualNode(this, jsii.String("node"), &virtualNodeProps{
 //   	mesh: mesh,
@@ -21450,7 +22061,7 @@ type VirtualServiceBackendOptions struct {
 type VirtualServiceProps struct {
 	// The VirtualNode or VirtualRouter which the VirtualService uses as its provider.
 	// Experimental.
-	VirtualServiceProvider VirtualServiceProvider `json:"virtualServiceProvider" yaml:"virtualServiceProvider"`
+	VirtualServiceProvider VirtualServiceProvider `field:"required" json:"virtualServiceProvider" yaml:"virtualServiceProvider"`
 	// The name of the VirtualService.
 	//
 	// It is recommended this follows the fully-qualified domain name format,
@@ -21458,13 +22069,14 @@ type VirtualServiceProps struct {
 	//
 	// Example value: `service.domain.local`
 	// Experimental.
-	VirtualServiceName *string `json:"virtualServiceName" yaml:"virtualServiceName"`
+	VirtualServiceName *string `field:"optional" json:"virtualServiceName" yaml:"virtualServiceName"`
 }
 
 // Represents the properties needed to define the provider for a VirtualService.
 //
 // Example:
 //   var mesh mesh
+//
 //
 //   node := appmesh.NewVirtualNode(this, jsii.String("node"), &virtualNodeProps{
 //   	mesh: mesh,
@@ -21571,9 +22183,12 @@ func (v *jsiiProxy_VirtualServiceProvider) Bind(_construct constructs.Construct)
 // Properties for a VirtualService provider.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var mesh mesh
+//
 //   virtualServiceProviderConfig := &virtualServiceProviderConfig{
 //   	mesh: mesh,
 //
@@ -21590,21 +22205,24 @@ func (v *jsiiProxy_VirtualServiceProvider) Bind(_construct constructs.Construct)
 type VirtualServiceProviderConfig struct {
 	// Mesh the Provider is using.
 	// Experimental.
-	Mesh IMesh `json:"mesh" yaml:"mesh"`
+	Mesh IMesh `field:"required" json:"mesh" yaml:"mesh"`
 	// Virtual Node based provider.
 	// Experimental.
-	VirtualNodeProvider *CfnVirtualService_VirtualNodeServiceProviderProperty `json:"virtualNodeProvider" yaml:"virtualNodeProvider"`
+	VirtualNodeProvider *CfnVirtualService_VirtualNodeServiceProviderProperty `field:"optional" json:"virtualNodeProvider" yaml:"virtualNodeProvider"`
 	// Virtual Router based provider.
 	// Experimental.
-	VirtualRouterProvider *CfnVirtualService_VirtualRouterServiceProviderProperty `json:"virtualRouterProvider" yaml:"virtualRouterProvider"`
+	VirtualRouterProvider *CfnVirtualService_VirtualRouterServiceProviderProperty `field:"optional" json:"virtualRouterProvider" yaml:"virtualRouterProvider"`
 }
 
 // Properties for the Weighted Targets in the route.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appmesh "github.com/aws/aws-cdk-go/awscdk/aws_appmesh"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var virtualNode virtualNode
+//
 //   weightedTarget := &weightedTarget{
 //   	virtualNode: virtualNode,
 //
@@ -21616,9 +22234,9 @@ type VirtualServiceProviderConfig struct {
 type WeightedTarget struct {
 	// The VirtualNode the route points to.
 	// Experimental.
-	VirtualNode IVirtualNode `json:"virtualNode" yaml:"virtualNode"`
+	VirtualNode IVirtualNode `field:"required" json:"virtualNode" yaml:"virtualNode"`
 	// The weight for the target.
 	// Experimental.
-	Weight *float64 `json:"weight" yaml:"weight"`
+	Weight *float64 `field:"optional" json:"weight" yaml:"weight"`
 }
 

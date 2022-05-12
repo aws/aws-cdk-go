@@ -14,10 +14,13 @@ import (
 // Creates an Amazon Kinesis Data Analytics application. For information about creating a Kinesis Data Analytics application, see [Creating an Application](https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var propertyMap interface{}
-//   cfnApplication := kinesisanalyticsv2.NewCfnApplication(this, jsii.String("MyCfnApplication"), &cfnApplicationProps{
+//
+//   cfnApplication := awscdk.Aws_kinesisanalyticsv2.NewCfnApplication(this, jsii.String("MyCfnApplication"), &cfnApplicationProps{
 //   	runtimeEnvironment: jsii.String("runtimeEnvironment"),
 //   	serviceExecutionRole: jsii.String("serviceExecutionRole"),
 //
@@ -917,7 +920,10 @@ func (c *jsiiProxy_CfnApplication) ValidateProperties(_properties interface{}) {
 // Describes code configuration for an application.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   applicationCodeConfigurationProperty := &applicationCodeConfigurationProperty{
 //   	codeContent: &codeContentProperty{
 //   		s3ContentLocation: &s3ContentLocationProperty{
@@ -933,17 +939,20 @@ func (c *jsiiProxy_CfnApplication) ValidateProperties(_properties interface{}) {
 //
 type CfnApplication_ApplicationCodeConfigurationProperty struct {
 	// The location and type of the application code.
-	CodeContent interface{} `json:"codeContent" yaml:"codeContent"`
+	CodeContent interface{} `field:"required" json:"codeContent" yaml:"codeContent"`
 	// Specifies whether the code content is in text or zip format.
-	CodeContentType *string `json:"codeContentType" yaml:"codeContentType"`
+	CodeContentType *string `field:"required" json:"codeContentType" yaml:"codeContentType"`
 }
 
 // Specifies the creation parameters for a Kinesis Data Analytics application.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var propertyMap interface{}
+//
 //   applicationConfigurationProperty := &applicationConfigurationProperty{
 //   	applicationCodeConfiguration: &applicationCodeConfigurationProperty{
 //   		codeContent: &codeContentProperty{
@@ -1081,30 +1090,33 @@ type CfnApplication_ApplicationCodeConfigurationProperty struct {
 //
 type CfnApplication_ApplicationConfigurationProperty struct {
 	// The code location and type parameters for a Flink-based Kinesis Data Analytics application.
-	ApplicationCodeConfiguration interface{} `json:"applicationCodeConfiguration" yaml:"applicationCodeConfiguration"`
+	ApplicationCodeConfiguration interface{} `field:"optional" json:"applicationCodeConfiguration" yaml:"applicationCodeConfiguration"`
 	// Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
-	ApplicationSnapshotConfiguration interface{} `json:"applicationSnapshotConfiguration" yaml:"applicationSnapshotConfiguration"`
+	ApplicationSnapshotConfiguration interface{} `field:"optional" json:"applicationSnapshotConfiguration" yaml:"applicationSnapshotConfiguration"`
 	// Describes execution properties for a Flink-based Kinesis Data Analytics application.
-	EnvironmentProperties interface{} `json:"environmentProperties" yaml:"environmentProperties"`
+	EnvironmentProperties interface{} `field:"optional" json:"environmentProperties" yaml:"environmentProperties"`
 	// The creation and update parameters for a Flink-based Kinesis Data Analytics application.
-	FlinkApplicationConfiguration interface{} `json:"flinkApplicationConfiguration" yaml:"flinkApplicationConfiguration"`
+	FlinkApplicationConfiguration interface{} `field:"optional" json:"flinkApplicationConfiguration" yaml:"flinkApplicationConfiguration"`
 	// The creation and update parameters for a SQL-based Kinesis Data Analytics application.
-	SqlApplicationConfiguration interface{} `json:"sqlApplicationConfiguration" yaml:"sqlApplicationConfiguration"`
+	SqlApplicationConfiguration interface{} `field:"optional" json:"sqlApplicationConfiguration" yaml:"sqlApplicationConfiguration"`
 	// The configuration parameters for a Kinesis Data Analytics Studio notebook.
-	ZeppelinApplicationConfiguration interface{} `json:"zeppelinApplicationConfiguration" yaml:"zeppelinApplicationConfiguration"`
+	ZeppelinApplicationConfiguration interface{} `field:"optional" json:"zeppelinApplicationConfiguration" yaml:"zeppelinApplicationConfiguration"`
 }
 
 // Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   applicationSnapshotConfigurationProperty := &applicationSnapshotConfigurationProperty{
 //   	snapshotsEnabled: jsii.Boolean(false),
 //   }
 //
 type CfnApplication_ApplicationSnapshotConfigurationProperty struct {
 	// Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
-	SnapshotsEnabled interface{} `json:"snapshotsEnabled" yaml:"snapshotsEnabled"`
+	SnapshotsEnabled interface{} `field:"required" json:"snapshotsEnabled" yaml:"snapshotsEnabled"`
 }
 
 // For a SQL-based Kinesis Data Analytics application, provides additional mapping information when the record format uses delimiters, such as CSV.
@@ -1116,7 +1128,10 @@ type CfnApplication_ApplicationSnapshotConfigurationProperty struct {
 // `"name2", "address2"`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cSVMappingParametersProperty := &cSVMappingParametersProperty{
 //   	recordColumnDelimiter: jsii.String("recordColumnDelimiter"),
 //   	recordRowDelimiter: jsii.String("recordRowDelimiter"),
@@ -1126,11 +1141,11 @@ type CfnApplication_CSVMappingParametersProperty struct {
 	// The column delimiter.
 	//
 	// For example, in a CSV format, a comma (",") is the typical column delimiter.
-	RecordColumnDelimiter *string `json:"recordColumnDelimiter" yaml:"recordColumnDelimiter"`
+	RecordColumnDelimiter *string `field:"required" json:"recordColumnDelimiter" yaml:"recordColumnDelimiter"`
 	// The row delimiter.
 	//
 	// For example, in a CSV format, *'\n'* is the typical row delimiter.
-	RecordRowDelimiter *string `json:"recordRowDelimiter" yaml:"recordRowDelimiter"`
+	RecordRowDelimiter *string `field:"required" json:"recordRowDelimiter" yaml:"recordRowDelimiter"`
 }
 
 // The configuration parameters for the default Amazon Glue database.
@@ -1138,7 +1153,10 @@ type CfnApplication_CSVMappingParametersProperty struct {
 // You use this database for SQL queries that you write in a Kinesis Data Analytics Studio notebook.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   catalogConfigurationProperty := &catalogConfigurationProperty{
 //   	glueDataCatalogConfiguration: &glueDataCatalogConfigurationProperty{
 //   		databaseArn: jsii.String("databaseArn"),
@@ -1149,7 +1167,7 @@ type CfnApplication_CatalogConfigurationProperty struct {
 	// The configuration parameters for the default Amazon Glue database.
 	//
 	// You use this database for Apache Flink SQL queries and table API transforms that you write in a Kinesis Data Analytics Studio notebook.
-	GlueDataCatalogConfiguration interface{} `json:"glueDataCatalogConfiguration" yaml:"glueDataCatalogConfiguration"`
+	GlueDataCatalogConfiguration interface{} `field:"optional" json:"glueDataCatalogConfiguration" yaml:"glueDataCatalogConfiguration"`
 }
 
 // Describes an application's checkpointing configuration.
@@ -1157,7 +1175,10 @@ type CfnApplication_CatalogConfigurationProperty struct {
 // Checkpointing is the process of persisting application state for fault tolerance. For more information, see [Checkpoints for Fault Tolerance](https://docs.aws.amazon.com/https://ci.apache.org/projects/flink/flink-docs-release-1.8/concepts/programming-model.html#checkpoints-for-fault-tolerance) in the [Apache Flink Documentation](https://docs.aws.amazon.com/https://ci.apache.org/projects/flink/flink-docs-release-1.8/) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   checkpointConfigurationProperty := &checkpointConfigurationProperty{
 //   	configurationType: jsii.String("configurationType"),
 //
@@ -1177,27 +1198,30 @@ type CfnApplication_CheckpointConfigurationProperty struct {
 	// > - *CheckpointingEnabled:* true
 	// > - *CheckpointInterval:* 60000
 	// > - *MinPauseBetweenCheckpoints:* 5000.
-	ConfigurationType *string `json:"configurationType" yaml:"configurationType"`
+	ConfigurationType *string `field:"required" json:"configurationType" yaml:"configurationType"`
 	// Describes whether checkpointing is enabled for a Flink-based Kinesis Data Analytics application.
 	//
 	// > If `CheckpointConfiguration.ConfigurationType` is `DEFAULT` , the application will use a `CheckpointingEnabled` value of `true` , even if this value is set to another value using this API or in application code.
-	CheckpointingEnabled interface{} `json:"checkpointingEnabled" yaml:"checkpointingEnabled"`
+	CheckpointingEnabled interface{} `field:"optional" json:"checkpointingEnabled" yaml:"checkpointingEnabled"`
 	// Describes the interval in milliseconds between checkpoint operations.
 	//
 	// > If `CheckpointConfiguration.ConfigurationType` is `DEFAULT` , the application will use a `CheckpointInterval` value of 60000, even if this value is set to another value using this API or in application code.
-	CheckpointInterval *float64 `json:"checkpointInterval" yaml:"checkpointInterval"`
+	CheckpointInterval *float64 `field:"optional" json:"checkpointInterval" yaml:"checkpointInterval"`
 	// Describes the minimum time in milliseconds after a checkpoint operation completes that a new checkpoint operation can start.
 	//
 	// If a checkpoint operation takes longer than the `CheckpointInterval` , the application otherwise performs continual checkpoint operations. For more information, see [Tuning Checkpointing](https://docs.aws.amazon.com/https://ci.apache.org/projects/flink/flink-docs-release-1.8/ops/state/large_state_tuning.html#tuning-checkpointing) in the [Apache Flink Documentation](https://docs.aws.amazon.com/https://ci.apache.org/projects/flink/flink-docs-release-1.8/) .
 	//
 	// > If `CheckpointConfiguration.ConfigurationType` is `DEFAULT` , the application will use a `MinPauseBetweenCheckpoints` value of 5000, even if this value is set using this API or in application code.
-	MinPauseBetweenCheckpoints *float64 `json:"minPauseBetweenCheckpoints" yaml:"minPauseBetweenCheckpoints"`
+	MinPauseBetweenCheckpoints *float64 `field:"optional" json:"minPauseBetweenCheckpoints" yaml:"minPauseBetweenCheckpoints"`
 }
 
 // Specifies either the application code, or the location of the application code, for a Flink-based Kinesis Data Analytics application.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   codeContentProperty := &codeContentProperty{
 //   	s3ContentLocation: &s3ContentLocationProperty{
 //   		bucketArn: jsii.String("bucketArn"),
@@ -1210,17 +1234,20 @@ type CfnApplication_CheckpointConfigurationProperty struct {
 //
 type CfnApplication_CodeContentProperty struct {
 	// Information about the Amazon S3 bucket that contains the application code.
-	S3ContentLocation interface{} `json:"s3ContentLocation" yaml:"s3ContentLocation"`
+	S3ContentLocation interface{} `field:"optional" json:"s3ContentLocation" yaml:"s3ContentLocation"`
 	// The text-format code for a Flink-based Kinesis Data Analytics application.
-	TextContent *string `json:"textContent" yaml:"textContent"`
+	TextContent *string `field:"optional" json:"textContent" yaml:"textContent"`
 	// The zip-format code for a Flink-based Kinesis Data Analytics application.
-	ZipFileContent *string `json:"zipFileContent" yaml:"zipFileContent"`
+	ZipFileContent *string `field:"optional" json:"zipFileContent" yaml:"zipFileContent"`
 }
 
 // The configuration of connectors and user-defined functions.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   customArtifactConfigurationProperty := &customArtifactConfigurationProperty{
 //   	artifactType: jsii.String("artifactType"),
 //
@@ -1241,17 +1268,20 @@ type CfnApplication_CustomArtifactConfigurationProperty struct {
 	// Set this to either `UDF` or `DEPENDENCY_JAR` .
 	//
 	// `UDF` stands for user-defined functions. This type of artifact must be in an S3 bucket. A `DEPENDENCY_JAR` can be in either Maven or an S3 bucket.
-	ArtifactType *string `json:"artifactType" yaml:"artifactType"`
+	ArtifactType *string `field:"required" json:"artifactType" yaml:"artifactType"`
 	// The parameters required to fully specify a Maven reference.
-	MavenReference interface{} `json:"mavenReference" yaml:"mavenReference"`
+	MavenReference interface{} `field:"optional" json:"mavenReference" yaml:"mavenReference"`
 	// The location of the custom artifacts.
-	S3ContentLocation interface{} `json:"s3ContentLocation" yaml:"s3ContentLocation"`
+	S3ContentLocation interface{} `field:"optional" json:"s3ContentLocation" yaml:"s3ContentLocation"`
 }
 
 // The information required to deploy a Kinesis Data Analytics Studio notebook as an application with durable state.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   deployAsApplicationConfigurationProperty := &deployAsApplicationConfigurationProperty{
 //   	s3ContentLocation: &s3ContentBaseLocationProperty{
 //   		basePath: jsii.String("basePath"),
@@ -1261,15 +1291,18 @@ type CfnApplication_CustomArtifactConfigurationProperty struct {
 //
 type CfnApplication_DeployAsApplicationConfigurationProperty struct {
 	// The description of an Amazon S3 object that contains the Amazon Data Analytics application, including the Amazon Resource Name (ARN) of the S3 bucket, the name of the Amazon S3 object that contains the data, and the version number of the Amazon S3 object that contains the data.
-	S3ContentLocation interface{} `json:"s3ContentLocation" yaml:"s3ContentLocation"`
+	S3ContentLocation interface{} `field:"required" json:"s3ContentLocation" yaml:"s3ContentLocation"`
 }
 
 // Describes execution properties for a Flink-based Kinesis Data Analytics application.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var propertyMap interface{}
+//
 //   environmentPropertiesProperty := &environmentPropertiesProperty{
 //   	propertyGroups: []interface{}{
 //   		&propertyGroupProperty{
@@ -1281,13 +1314,16 @@ type CfnApplication_DeployAsApplicationConfigurationProperty struct {
 //
 type CfnApplication_EnvironmentPropertiesProperty struct {
 	// Describes the execution property groups.
-	PropertyGroups interface{} `json:"propertyGroups" yaml:"propertyGroups"`
+	PropertyGroups interface{} `field:"optional" json:"propertyGroups" yaml:"propertyGroups"`
 }
 
 // Describes configuration parameters for a Flink-based Kinesis Data Analytics application or a Studio notebook.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   flinkApplicationConfigurationProperty := &flinkApplicationConfigurationProperty{
 //   	checkpointConfiguration: &checkpointConfigurationProperty{
 //   		configurationType: jsii.String("configurationType"),
@@ -1318,30 +1354,36 @@ type CfnApplication_FlinkApplicationConfigurationProperty struct {
 	// Describes an application's checkpointing configuration.
 	//
 	// Checkpointing is the process of persisting application state for fault tolerance. For more information, see [Checkpoints for Fault Tolerance](https://docs.aws.amazon.com/https://ci.apache.org/projects/flink/flink-docs-release-1.8/concepts/programming-model.html#checkpoints-for-fault-tolerance) in the [Apache Flink Documentation](https://docs.aws.amazon.com/https://ci.apache.org/projects/flink/flink-docs-release-1.8/) .
-	CheckpointConfiguration interface{} `json:"checkpointConfiguration" yaml:"checkpointConfiguration"`
+	CheckpointConfiguration interface{} `field:"optional" json:"checkpointConfiguration" yaml:"checkpointConfiguration"`
 	// Describes configuration parameters for Amazon CloudWatch logging for an application.
-	MonitoringConfiguration interface{} `json:"monitoringConfiguration" yaml:"monitoringConfiguration"`
+	MonitoringConfiguration interface{} `field:"optional" json:"monitoringConfiguration" yaml:"monitoringConfiguration"`
 	// Describes parameters for how an application executes multiple tasks simultaneously.
-	ParallelismConfiguration interface{} `json:"parallelismConfiguration" yaml:"parallelismConfiguration"`
+	ParallelismConfiguration interface{} `field:"optional" json:"parallelismConfiguration" yaml:"parallelismConfiguration"`
 }
 
 // The configuration of the Glue Data Catalog that you use for Apache Flink SQL queries and table API transforms that you write in an application.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   glueDataCatalogConfigurationProperty := &glueDataCatalogConfigurationProperty{
 //   	databaseArn: jsii.String("databaseArn"),
 //   }
 //
 type CfnApplication_GlueDataCatalogConfigurationProperty struct {
 	// The Amazon Resource Name (ARN) of the database.
-	DatabaseArn *string `json:"databaseArn" yaml:"databaseArn"`
+	DatabaseArn *string `field:"optional" json:"databaseArn" yaml:"databaseArn"`
 }
 
 // An object that contains the Amazon Resource Name (ARN) of the Amazon Lambda function that is used to preprocess records in the stream in a SQL-based Kinesis Data Analytics application.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   inputLambdaProcessorProperty := &inputLambdaProcessorProperty{
 //   	resourceArn: jsii.String("resourceArn"),
 //   }
@@ -1350,20 +1392,23 @@ type CfnApplication_InputLambdaProcessorProperty struct {
 	// The ARN of the Amazon Lambda function that operates on records in the stream.
 	//
 	// > To specify an earlier version of the Lambda function than the latest, include the Lambda function version in the Lambda function ARN. For more information about Lambda ARNs, see [Example ARNs: Amazon Lambda](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda)
-	ResourceArn *string `json:"resourceArn" yaml:"resourceArn"`
+	ResourceArn *string `field:"required" json:"resourceArn" yaml:"resourceArn"`
 }
 
 // For a SQL-based Kinesis Data Analytics application, describes the number of in-application streams to create for a given streaming source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   inputParallelismProperty := &inputParallelismProperty{
 //   	count: jsii.Number(123),
 //   }
 //
 type CfnApplication_InputParallelismProperty struct {
 	// The number of in-application streams to create.
-	Count *float64 `json:"count" yaml:"count"`
+	Count *float64 `field:"optional" json:"count" yaml:"count"`
 }
 
 // For an SQL-based Amazon Kinesis Data Analytics application, describes a processor that is used to preprocess the records in the stream before being processed by your application code.
@@ -1371,7 +1416,10 @@ type CfnApplication_InputParallelismProperty struct {
 // Currently, the only input processor available is [Amazon Lambda](https://docs.aws.amazon.com/lambda/) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   inputProcessingConfigurationProperty := &inputProcessingConfigurationProperty{
 //   	inputLambdaProcessor: &inputLambdaProcessorProperty{
 //   		resourceArn: jsii.String("resourceArn"),
@@ -1380,13 +1428,16 @@ type CfnApplication_InputParallelismProperty struct {
 //
 type CfnApplication_InputProcessingConfigurationProperty struct {
 	// The [InputLambdaProcessor](https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/API_InputLambdaProcessor.html) that is used to preprocess the records in the stream before being processed by your application code.
-	InputLambdaProcessor interface{} `json:"inputLambdaProcessor" yaml:"inputLambdaProcessor"`
+	InputLambdaProcessor interface{} `field:"optional" json:"inputLambdaProcessor" yaml:"inputLambdaProcessor"`
 }
 
 // When you configure the application input for a SQL-based Kinesis Data Analytics application, you specify the streaming source, the in-application stream name that is created, and the mapping between the two.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   inputProperty := &inputProperty{
 //   	inputSchema: &inputSchemaProperty{
 //   		recordColumns: []interface{}{
@@ -1439,25 +1490,28 @@ type CfnApplication_InputProperty struct {
 	// Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
 	//
 	// Also used to describe the format of the reference data source.
-	InputSchema interface{} `json:"inputSchema" yaml:"inputSchema"`
+	InputSchema interface{} `field:"required" json:"inputSchema" yaml:"inputSchema"`
 	// The name prefix to use when creating an in-application stream.
 	//
 	// Suppose that you specify a prefix " `MyInApplicationStream` ." Kinesis Data Analytics then creates one or more (as per the `InputParallelism` count you specified) in-application streams with the names " `MyInApplicationStream_001` ," " `MyInApplicationStream_002` ," and so on.
-	NamePrefix *string `json:"namePrefix" yaml:"namePrefix"`
+	NamePrefix *string `field:"required" json:"namePrefix" yaml:"namePrefix"`
 	// Describes the number of in-application streams to create.
-	InputParallelism interface{} `json:"inputParallelism" yaml:"inputParallelism"`
+	InputParallelism interface{} `field:"optional" json:"inputParallelism" yaml:"inputParallelism"`
 	// The [InputProcessingConfiguration](https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/API_InputProcessingConfiguration.html) for the input. An input processor transforms records as they are received from the stream, before the application's SQL code executes. Currently, the only input processing configuration available is [InputLambdaProcessor](https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/API_InputLambdaProcessor.html) .
-	InputProcessingConfiguration interface{} `json:"inputProcessingConfiguration" yaml:"inputProcessingConfiguration"`
+	InputProcessingConfiguration interface{} `field:"optional" json:"inputProcessingConfiguration" yaml:"inputProcessingConfiguration"`
 	// If the streaming source is an Amazon Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
-	KinesisFirehoseInput interface{} `json:"kinesisFirehoseInput" yaml:"kinesisFirehoseInput"`
+	KinesisFirehoseInput interface{} `field:"optional" json:"kinesisFirehoseInput" yaml:"kinesisFirehoseInput"`
 	// If the streaming source is an Amazon Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
-	KinesisStreamsInput interface{} `json:"kinesisStreamsInput" yaml:"kinesisStreamsInput"`
+	KinesisStreamsInput interface{} `field:"optional" json:"kinesisStreamsInput" yaml:"kinesisStreamsInput"`
 }
 
 // For a SQL-based Kinesis Data Analytics application, describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   inputSchemaProperty := &inputSchemaProperty{
 //   	recordColumns: []interface{}{
 //   		&recordColumnProperty{
@@ -1489,26 +1543,29 @@ type CfnApplication_InputProperty struct {
 //
 type CfnApplication_InputSchemaProperty struct {
 	// A list of `RecordColumn` objects.
-	RecordColumns interface{} `json:"recordColumns" yaml:"recordColumns"`
+	RecordColumns interface{} `field:"required" json:"recordColumns" yaml:"recordColumns"`
 	// Specifies the format of the records on the streaming source.
-	RecordFormat interface{} `json:"recordFormat" yaml:"recordFormat"`
+	RecordFormat interface{} `field:"required" json:"recordFormat" yaml:"recordFormat"`
 	// Specifies the encoding of the records in the streaming source.
 	//
 	// For example, UTF-8.
-	RecordEncoding *string `json:"recordEncoding" yaml:"recordEncoding"`
+	RecordEncoding *string `field:"optional" json:"recordEncoding" yaml:"recordEncoding"`
 }
 
 // For a SQL-based Kinesis Data Analytics application, provides additional mapping information when JSON is the record format on the streaming source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   jSONMappingParametersProperty := &jSONMappingParametersProperty{
 //   	recordRowPath: jsii.String("recordRowPath"),
 //   }
 //
 type CfnApplication_JSONMappingParametersProperty struct {
 	// The path to the top-level parent that contains the records.
-	RecordRowPath *string `json:"recordRowPath" yaml:"recordRowPath"`
+	RecordRowPath *string `field:"required" json:"recordRowPath" yaml:"recordRowPath"`
 }
 
 // For a SQL-based Kinesis Data Analytics application, identifies a Kinesis Data Firehose delivery stream as the streaming source.
@@ -1516,14 +1573,17 @@ type CfnApplication_JSONMappingParametersProperty struct {
 // You provide the delivery stream's Amazon Resource Name (ARN).
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   kinesisFirehoseInputProperty := &kinesisFirehoseInputProperty{
 //   	resourceArn: jsii.String("resourceArn"),
 //   }
 //
 type CfnApplication_KinesisFirehoseInputProperty struct {
 	// The Amazon Resource Name (ARN) of the delivery stream.
-	ResourceArn *string `json:"resourceArn" yaml:"resourceArn"`
+	ResourceArn *string `field:"required" json:"resourceArn" yaml:"resourceArn"`
 }
 
 // Identifies a Kinesis data stream as the streaming source.
@@ -1531,20 +1591,26 @@ type CfnApplication_KinesisFirehoseInputProperty struct {
 // You provide the stream's Amazon Resource Name (ARN).
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   kinesisStreamsInputProperty := &kinesisStreamsInputProperty{
 //   	resourceArn: jsii.String("resourceArn"),
 //   }
 //
 type CfnApplication_KinesisStreamsInputProperty struct {
 	// The ARN of the input Kinesis data stream to read.
-	ResourceArn *string `json:"resourceArn" yaml:"resourceArn"`
+	ResourceArn *string `field:"required" json:"resourceArn" yaml:"resourceArn"`
 }
 
 // When you configure a SQL-based Kinesis Data Analytics application's input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   mappingParametersProperty := &mappingParametersProperty{
 //   	csvMappingParameters: &cSVMappingParametersProperty{
 //   		recordColumnDelimiter: jsii.String("recordColumnDelimiter"),
@@ -1557,9 +1623,9 @@ type CfnApplication_KinesisStreamsInputProperty struct {
 //
 type CfnApplication_MappingParametersProperty struct {
 	// Provides additional mapping information when the record format uses delimiters (for example, CSV).
-	CsvMappingParameters interface{} `json:"csvMappingParameters" yaml:"csvMappingParameters"`
+	CsvMappingParameters interface{} `field:"optional" json:"csvMappingParameters" yaml:"csvMappingParameters"`
 	// Provides additional mapping information when JSON is the record format on the streaming source.
-	JsonMappingParameters interface{} `json:"jsonMappingParameters" yaml:"jsonMappingParameters"`
+	JsonMappingParameters interface{} `field:"optional" json:"jsonMappingParameters" yaml:"jsonMappingParameters"`
 }
 
 // The information required to specify a Maven reference.
@@ -1567,7 +1633,10 @@ type CfnApplication_MappingParametersProperty struct {
 // You can use Maven references to specify dependency JAR files.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   mavenReferenceProperty := &mavenReferenceProperty{
 //   	artifactId: jsii.String("artifactId"),
 //   	groupId: jsii.String("groupId"),
@@ -1576,11 +1645,11 @@ type CfnApplication_MappingParametersProperty struct {
 //
 type CfnApplication_MavenReferenceProperty struct {
 	// The artifact ID of the Maven reference.
-	ArtifactId *string `json:"artifactId" yaml:"artifactId"`
+	ArtifactId *string `field:"required" json:"artifactId" yaml:"artifactId"`
 	// The group ID of the Maven reference.
-	GroupId *string `json:"groupId" yaml:"groupId"`
+	GroupId *string `field:"required" json:"groupId" yaml:"groupId"`
 	// The version of the Maven reference.
-	Version *string `json:"version" yaml:"version"`
+	Version *string `field:"required" json:"version" yaml:"version"`
 }
 
 // Describes configuration parameters for Amazon CloudWatch logging for a Java-based Kinesis Data Analytics application.
@@ -1588,7 +1657,10 @@ type CfnApplication_MavenReferenceProperty struct {
 // For more information about CloudWatch logging, see [Monitoring](https://docs.aws.amazon.com/kinesisanalytics/latest/java/monitoring-overview) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   monitoringConfigurationProperty := &monitoringConfigurationProperty{
 //   	configurationType: jsii.String("configurationType"),
 //
@@ -1601,13 +1673,13 @@ type CfnApplication_MonitoringConfigurationProperty struct {
 	// Describes whether to use the default CloudWatch logging configuration for an application.
 	//
 	// You must set this property to `CUSTOM` in order to set the `LogLevel` or `MetricsLevel` parameters.
-	ConfigurationType *string `json:"configurationType" yaml:"configurationType"`
+	ConfigurationType *string `field:"required" json:"configurationType" yaml:"configurationType"`
 	// Describes the verbosity of the CloudWatch Logs for an application.
-	LogLevel *string `json:"logLevel" yaml:"logLevel"`
+	LogLevel *string `field:"optional" json:"logLevel" yaml:"logLevel"`
 	// Describes the granularity of the CloudWatch Logs for an application.
 	//
 	// The `Parallelism` level is not recommended for applications with a Parallelism over 64 due to excessive costs.
-	MetricsLevel *string `json:"metricsLevel" yaml:"metricsLevel"`
+	MetricsLevel *string `field:"optional" json:"metricsLevel" yaml:"metricsLevel"`
 }
 
 // Describes parameters for how a Flink-based Kinesis Data Analytics application executes multiple tasks simultaneously.
@@ -1615,7 +1687,10 @@ type CfnApplication_MonitoringConfigurationProperty struct {
 // For more information about parallelism, see [Parallel Execution](https://docs.aws.amazon.com/https://ci.apache.org/projects/flink/flink-docs-release-1.8/dev/parallel.html) in the [Apache Flink Documentation](https://docs.aws.amazon.com/https://ci.apache.org/projects/flink/flink-docs-release-1.8/) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   parallelismConfigurationProperty := &parallelismConfigurationProperty{
 //   	configurationType: jsii.String("configurationType"),
 //
@@ -1629,25 +1704,28 @@ type CfnApplication_ParallelismConfigurationProperty struct {
 	// Describes whether the application uses the default parallelism for the Kinesis Data Analytics service.
 	//
 	// You must set this property to `CUSTOM` in order to change your application's `AutoScalingEnabled` , `Parallelism` , or `ParallelismPerKPU` properties.
-	ConfigurationType *string `json:"configurationType" yaml:"configurationType"`
+	ConfigurationType *string `field:"required" json:"configurationType" yaml:"configurationType"`
 	// Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.
-	AutoScalingEnabled interface{} `json:"autoScalingEnabled" yaml:"autoScalingEnabled"`
+	AutoScalingEnabled interface{} `field:"optional" json:"autoScalingEnabled" yaml:"autoScalingEnabled"`
 	// Describes the initial number of parallel tasks that a Java-based Kinesis Data Analytics application can perform.
 	//
 	// The Kinesis Data Analytics service can increase this number automatically if [ParallelismConfiguration:AutoScalingEnabled](https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/API_ParallelismConfiguration.html#kinesisanalytics-Type-ParallelismConfiguration-AutoScalingEnabled.html) is set to `true` .
-	Parallelism *float64 `json:"parallelism" yaml:"parallelism"`
+	Parallelism *float64 `field:"optional" json:"parallelism" yaml:"parallelism"`
 	// Describes the number of parallel tasks that a Java-based Kinesis Data Analytics application can perform per Kinesis Processing Unit (KPU) used by the application.
 	//
 	// For more information about KPUs, see [Amazon Kinesis Data Analytics Pricing](https://docs.aws.amazon.com/kinesis/data-analytics/pricing/) .
-	ParallelismPerKpu *float64 `json:"parallelismPerKpu" yaml:"parallelismPerKpu"`
+	ParallelismPerKpu *float64 `field:"optional" json:"parallelismPerKpu" yaml:"parallelismPerKpu"`
 }
 
 // Property key-value pairs passed into an application.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var propertyMap interface{}
+//
 //   propertyGroupProperty := &propertyGroupProperty{
 //   	propertyGroupId: jsii.String("propertyGroupId"),
 //   	propertyMap: propertyMap,
@@ -1655,9 +1733,9 @@ type CfnApplication_ParallelismConfigurationProperty struct {
 //
 type CfnApplication_PropertyGroupProperty struct {
 	// Describes the key of an application execution property key-value pair.
-	PropertyGroupId *string `json:"propertyGroupId" yaml:"propertyGroupId"`
+	PropertyGroupId *string `field:"optional" json:"propertyGroupId" yaml:"propertyGroupId"`
 	// Describes the value of an application execution property key-value pair.
-	PropertyMap interface{} `json:"propertyMap" yaml:"propertyMap"`
+	PropertyMap interface{} `field:"optional" json:"propertyMap" yaml:"propertyMap"`
 }
 
 // For a SQL-based Kinesis Data Analytics application, describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
@@ -1665,7 +1743,10 @@ type CfnApplication_PropertyGroupProperty struct {
 // Also used to describe the format of the reference data source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   recordColumnProperty := &recordColumnProperty{
 //   	name: jsii.String("name"),
 //   	sqlType: jsii.String("sqlType"),
@@ -1676,17 +1757,20 @@ type CfnApplication_PropertyGroupProperty struct {
 //
 type CfnApplication_RecordColumnProperty struct {
 	// The name of the column that is created in the in-application input stream or reference table.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The type of column created in the in-application input stream or reference table.
-	SqlType *string `json:"sqlType" yaml:"sqlType"`
+	SqlType *string `field:"required" json:"sqlType" yaml:"sqlType"`
 	// A reference to the data element in the streaming input or the reference data source.
-	Mapping *string `json:"mapping" yaml:"mapping"`
+	Mapping *string `field:"optional" json:"mapping" yaml:"mapping"`
 }
 
 // For a SQL-based Kinesis Data Analytics application, describes the record format and relevant mapping information that should be applied to schematize the records on the stream.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   recordFormatProperty := &recordFormatProperty{
 //   	recordFormatType: jsii.String("recordFormatType"),
 //
@@ -1704,15 +1788,18 @@ type CfnApplication_RecordColumnProperty struct {
 //
 type CfnApplication_RecordFormatProperty struct {
 	// The type of record format.
-	RecordFormatType *string `json:"recordFormatType" yaml:"recordFormatType"`
+	RecordFormatType *string `field:"required" json:"recordFormatType" yaml:"recordFormatType"`
 	// When you configure application input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
-	MappingParameters interface{} `json:"mappingParameters" yaml:"mappingParameters"`
+	MappingParameters interface{} `field:"optional" json:"mappingParameters" yaml:"mappingParameters"`
 }
 
 // The base location of the Amazon Data Analytics application.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3ContentBaseLocationProperty := &s3ContentBaseLocationProperty{
 //   	basePath: jsii.String("basePath"),
 //   	bucketArn: jsii.String("bucketArn"),
@@ -1720,15 +1807,18 @@ type CfnApplication_RecordFormatProperty struct {
 //
 type CfnApplication_S3ContentBaseLocationProperty struct {
 	// The base path for the S3 bucket.
-	BasePath *string `json:"basePath" yaml:"basePath"`
+	BasePath *string `field:"required" json:"basePath" yaml:"basePath"`
 	// The Amazon Resource Name (ARN) of the S3 bucket.
-	BucketArn *string `json:"bucketArn" yaml:"bucketArn"`
+	BucketArn *string `field:"required" json:"bucketArn" yaml:"bucketArn"`
 }
 
 // The location of an application or a custom artifact.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3ContentLocationProperty := &s3ContentLocationProperty{
 //   	bucketArn: jsii.String("bucketArn"),
 //   	fileKey: jsii.String("fileKey"),
@@ -1737,17 +1827,20 @@ type CfnApplication_S3ContentBaseLocationProperty struct {
 //
 type CfnApplication_S3ContentLocationProperty struct {
 	// The Amazon Resource Name (ARN) for the S3 bucket containing the application code.
-	BucketArn *string `json:"bucketArn" yaml:"bucketArn"`
+	BucketArn *string `field:"optional" json:"bucketArn" yaml:"bucketArn"`
 	// The file key for the object containing the application code.
-	FileKey *string `json:"fileKey" yaml:"fileKey"`
+	FileKey *string `field:"optional" json:"fileKey" yaml:"fileKey"`
 	// The version of the object containing the application code.
-	ObjectVersion *string `json:"objectVersion" yaml:"objectVersion"`
+	ObjectVersion *string `field:"optional" json:"objectVersion" yaml:"objectVersion"`
 }
 
 // Describes the inputs, outputs, and reference data sources for a SQL-based Kinesis Data Analytics application.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sqlApplicationConfigurationProperty := &sqlApplicationConfigurationProperty{
 //   	inputs: []interface{}{
 //   		&inputProperty{
@@ -1802,13 +1895,16 @@ type CfnApplication_S3ContentLocationProperty struct {
 //
 type CfnApplication_SqlApplicationConfigurationProperty struct {
 	// The array of [Input](https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/API_Input.html) objects describing the input streams used by the application.
-	Inputs interface{} `json:"inputs" yaml:"inputs"`
+	Inputs interface{} `field:"optional" json:"inputs" yaml:"inputs"`
 }
 
 // The configuration of a Kinesis Data Analytics Studio notebook.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   zeppelinApplicationConfigurationProperty := &zeppelinApplicationConfigurationProperty{
 //   	catalogConfiguration: &catalogConfigurationProperty{
 //   		glueDataCatalogConfiguration: &glueDataCatalogConfigurationProperty{
@@ -1845,13 +1941,13 @@ type CfnApplication_SqlApplicationConfigurationProperty struct {
 //
 type CfnApplication_ZeppelinApplicationConfigurationProperty struct {
 	// The Amazon Glue Data Catalog that you use in queries in a Kinesis Data Analytics Studio notebook.
-	CatalogConfiguration interface{} `json:"catalogConfiguration" yaml:"catalogConfiguration"`
+	CatalogConfiguration interface{} `field:"optional" json:"catalogConfiguration" yaml:"catalogConfiguration"`
 	// A list of `CustomArtifactConfiguration` objects.
-	CustomArtifactsConfiguration interface{} `json:"customArtifactsConfiguration" yaml:"customArtifactsConfiguration"`
+	CustomArtifactsConfiguration interface{} `field:"optional" json:"customArtifactsConfiguration" yaml:"customArtifactsConfiguration"`
 	// The information required to deploy a Kinesis Data Analytics Studio notebook as an application with durable state.
-	DeployAsApplicationConfiguration interface{} `json:"deployAsApplicationConfiguration" yaml:"deployAsApplicationConfiguration"`
+	DeployAsApplicationConfiguration interface{} `field:"optional" json:"deployAsApplicationConfiguration" yaml:"deployAsApplicationConfiguration"`
 	// The monitoring configuration of a Kinesis Data Analytics Studio notebook.
-	MonitoringConfiguration interface{} `json:"monitoringConfiguration" yaml:"monitoringConfiguration"`
+	MonitoringConfiguration interface{} `field:"optional" json:"monitoringConfiguration" yaml:"monitoringConfiguration"`
 }
 
 // Describes configuration parameters for Amazon CloudWatch logging for a Kinesis Data Analytics Studio notebook.
@@ -1859,7 +1955,10 @@ type CfnApplication_ZeppelinApplicationConfigurationProperty struct {
 // For more information about CloudWatch logging, see [Monitoring](https://docs.aws.amazon.com/kinesisanalytics/latest/java/monitoring-overview.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   zeppelinMonitoringConfigurationProperty := &zeppelinMonitoringConfigurationProperty{
 //   	logLevel: jsii.String("logLevel"),
 //   }
@@ -1868,7 +1967,7 @@ type CfnApplication_ZeppelinMonitoringConfigurationProperty struct {
 	// The verbosity of the CloudWatch Logs for an application.
 	//
 	// You can set it to `INFO` , `WARN` , `ERROR` , or `DEBUG` .
-	LogLevel *string `json:"logLevel" yaml:"logLevel"`
+	LogLevel *string `field:"optional" json:"logLevel" yaml:"logLevel"`
 }
 
 // A CloudFormation `AWS::KinesisAnalyticsV2::ApplicationCloudWatchLoggingOption`.
@@ -1876,8 +1975,11 @@ type CfnApplication_ZeppelinMonitoringConfigurationProperty struct {
 // Adds an Amazon CloudWatch log stream to monitor application configuration errors.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
-//   cfnApplicationCloudWatchLoggingOption := kinesisanalyticsv2.NewCfnApplicationCloudWatchLoggingOption(this, jsii.String("MyCfnApplicationCloudWatchLoggingOption"), &cfnApplicationCloudWatchLoggingOptionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnApplicationCloudWatchLoggingOption := awscdk.Aws_kinesisanalyticsv2.NewCfnApplicationCloudWatchLoggingOption(this, jsii.String("MyCfnApplicationCloudWatchLoggingOption"), &cfnApplicationCloudWatchLoggingOptionProps{
 //   	applicationName: jsii.String("applicationName"),
 //   	cloudWatchLoggingOption: &cloudWatchLoggingOptionProperty{
 //   		logStreamArn: jsii.String("logStreamArn"),
@@ -2534,20 +2636,26 @@ func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) ValidateProperties(_pr
 // Provides a description of Amazon CloudWatch logging options, including the log stream Amazon Resource Name (ARN).
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cloudWatchLoggingOptionProperty := &cloudWatchLoggingOptionProperty{
 //   	logStreamArn: jsii.String("logStreamArn"),
 //   }
 //
 type CfnApplicationCloudWatchLoggingOption_CloudWatchLoggingOptionProperty struct {
 	// The ARN of the CloudWatch log to receive application messages.
-	LogStreamArn *string `json:"logStreamArn" yaml:"logStreamArn"`
+	LogStreamArn *string `field:"required" json:"logStreamArn" yaml:"logStreamArn"`
 }
 
 // Properties for defining a `CfnApplicationCloudWatchLoggingOption`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnApplicationCloudWatchLoggingOptionProps := &cfnApplicationCloudWatchLoggingOptionProps{
 //   	applicationName: jsii.String("applicationName"),
 //   	cloudWatchLoggingOption: &cloudWatchLoggingOptionProperty{
@@ -2557,9 +2665,9 @@ type CfnApplicationCloudWatchLoggingOption_CloudWatchLoggingOptionProperty struc
 //
 type CfnApplicationCloudWatchLoggingOptionProps struct {
 	// The name of the application.
-	ApplicationName *string `json:"applicationName" yaml:"applicationName"`
+	ApplicationName *string `field:"required" json:"applicationName" yaml:"applicationName"`
 	// Provides a description of Amazon CloudWatch logging options, including the log stream Amazon Resource Name (ARN).
-	CloudWatchLoggingOption interface{} `json:"cloudWatchLoggingOption" yaml:"cloudWatchLoggingOption"`
+	CloudWatchLoggingOption interface{} `field:"required" json:"cloudWatchLoggingOption" yaml:"cloudWatchLoggingOption"`
 }
 
 // A CloudFormation `AWS::KinesisAnalyticsV2::ApplicationOutput`.
@@ -2573,8 +2681,11 @@ type CfnApplicationCloudWatchLoggingOptionProps struct {
 // Any configuration update, including adding a streaming source using this operation, results in a new version of the application. You can use the [DescribeApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/API_DescribeApplication.html) operation to find the current application version.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
-//   cfnApplicationOutput := kinesisanalyticsv2.NewCfnApplicationOutput(this, jsii.String("MyCfnApplicationOutput"), &cfnApplicationOutputProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnApplicationOutput := awscdk.Aws_kinesisanalyticsv2.NewCfnApplicationOutput(this, jsii.String("MyCfnApplicationOutput"), &cfnApplicationOutputProps{
 //   	applicationName: jsii.String("applicationName"),
 //   	output: &outputProperty{
 //   		destinationSchema: &destinationSchemaProperty{
@@ -3247,14 +3358,17 @@ func (c *jsiiProxy_CfnApplicationOutput) ValidateProperties(_properties interfac
 // Describes the data format when records are written to the destination in a SQL-based Kinesis Data Analytics application.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   destinationSchemaProperty := &destinationSchemaProperty{
 //   	recordFormatType: jsii.String("recordFormatType"),
 //   }
 //
 type CfnApplicationOutput_DestinationSchemaProperty struct {
 	// Specifies the format of the records on the output stream.
-	RecordFormatType *string `json:"recordFormatType" yaml:"recordFormatType"`
+	RecordFormatType *string `field:"optional" json:"recordFormatType" yaml:"recordFormatType"`
 }
 
 // For a SQL-based Kinesis Data Analytics application, when configuring application output, identifies a Kinesis Data Firehose delivery stream as the destination.
@@ -3262,14 +3376,17 @@ type CfnApplicationOutput_DestinationSchemaProperty struct {
 // You provide the stream Amazon Resource Name (ARN) of the delivery stream.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   kinesisFirehoseOutputProperty := &kinesisFirehoseOutputProperty{
 //   	resourceArn: jsii.String("resourceArn"),
 //   }
 //
 type CfnApplicationOutput_KinesisFirehoseOutputProperty struct {
 	// The ARN of the destination delivery stream to write to.
-	ResourceArn *string `json:"resourceArn" yaml:"resourceArn"`
+	ResourceArn *string `field:"required" json:"resourceArn" yaml:"resourceArn"`
 }
 
 // When you configure a SQL-based Kinesis Data Analytics application's output, identifies a Kinesis data stream as the destination.
@@ -3277,14 +3394,17 @@ type CfnApplicationOutput_KinesisFirehoseOutputProperty struct {
 // You provide the stream Amazon Resource Name (ARN).
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   kinesisStreamsOutputProperty := &kinesisStreamsOutputProperty{
 //   	resourceArn: jsii.String("resourceArn"),
 //   }
 //
 type CfnApplicationOutput_KinesisStreamsOutputProperty struct {
 	// The ARN of the destination Kinesis data stream to write to.
-	ResourceArn *string `json:"resourceArn" yaml:"resourceArn"`
+	ResourceArn *string `field:"required" json:"resourceArn" yaml:"resourceArn"`
 }
 
 // When you configure a SQL-based Kinesis Data Analytics application's output, identifies an Amazon Lambda function as the destination.
@@ -3292,7 +3412,10 @@ type CfnApplicationOutput_KinesisStreamsOutputProperty struct {
 // You provide the function Amazon Resource Name (ARN) of the Lambda function.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   lambdaOutputProperty := &lambdaOutputProperty{
 //   	resourceArn: jsii.String("resourceArn"),
 //   }
@@ -3301,7 +3424,7 @@ type CfnApplicationOutput_LambdaOutputProperty struct {
 	// The Amazon Resource Name (ARN) of the destination Lambda function to write to.
 	//
 	// > To specify an earlier version of the Lambda function than the latest, include the Lambda function version in the Lambda function ARN. For more information about Lambda ARNs, see [Example ARNs: Amazon Lambda](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda)
-	ResourceArn *string `json:"resourceArn" yaml:"resourceArn"`
+	ResourceArn *string `field:"required" json:"resourceArn" yaml:"resourceArn"`
 }
 
 // Describes a SQL-based Kinesis Data Analytics application's output configuration, in which you identify an in-application stream and a destination where you want the in-application stream data to be written.
@@ -3309,7 +3432,10 @@ type CfnApplicationOutput_LambdaOutputProperty struct {
 // The destination can be a Kinesis data stream or a Kinesis Data Firehose delivery stream.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   outputProperty := &outputProperty{
 //   	destinationSchema: &destinationSchemaProperty{
 //   		recordFormatType: jsii.String("recordFormatType"),
@@ -3330,21 +3456,24 @@ type CfnApplicationOutput_LambdaOutputProperty struct {
 //
 type CfnApplicationOutput_OutputProperty struct {
 	// Describes the data format when records are written to the destination.
-	DestinationSchema interface{} `json:"destinationSchema" yaml:"destinationSchema"`
+	DestinationSchema interface{} `field:"required" json:"destinationSchema" yaml:"destinationSchema"`
 	// Identifies a Kinesis Data Firehose delivery stream as the destination.
-	KinesisFirehoseOutput interface{} `json:"kinesisFirehoseOutput" yaml:"kinesisFirehoseOutput"`
+	KinesisFirehoseOutput interface{} `field:"optional" json:"kinesisFirehoseOutput" yaml:"kinesisFirehoseOutput"`
 	// Identifies a Kinesis data stream as the destination.
-	KinesisStreamsOutput interface{} `json:"kinesisStreamsOutput" yaml:"kinesisStreamsOutput"`
+	KinesisStreamsOutput interface{} `field:"optional" json:"kinesisStreamsOutput" yaml:"kinesisStreamsOutput"`
 	// Identifies an Amazon Lambda function as the destination.
-	LambdaOutput interface{} `json:"lambdaOutput" yaml:"lambdaOutput"`
+	LambdaOutput interface{} `field:"optional" json:"lambdaOutput" yaml:"lambdaOutput"`
 	// The name of the in-application stream.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 
 // Properties for defining a `CfnApplicationOutput`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnApplicationOutputProps := &cfnApplicationOutputProps{
 //   	applicationName: jsii.String("applicationName"),
 //   	output: &outputProperty{
@@ -3368,19 +3497,22 @@ type CfnApplicationOutput_OutputProperty struct {
 //
 type CfnApplicationOutputProps struct {
 	// The name of the application.
-	ApplicationName *string `json:"applicationName" yaml:"applicationName"`
+	ApplicationName *string `field:"required" json:"applicationName" yaml:"applicationName"`
 	// Describes a SQL-based Kinesis Data Analytics application's output configuration, in which you identify an in-application stream and a destination where you want the in-application stream data to be written.
 	//
 	// The destination can be a Kinesis data stream or a Kinesis Data Firehose delivery stream.
-	Output interface{} `json:"output" yaml:"output"`
+	Output interface{} `field:"required" json:"output" yaml:"output"`
 }
 
 // Properties for defining a `CfnApplication`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var propertyMap interface{}
+//
 //   cfnApplicationProps := &cfnApplicationProps{
 //   	runtimeEnvironment: jsii.String("runtimeEnvironment"),
 //   	serviceExecutionRole: jsii.String("serviceExecutionRole"),
@@ -3533,23 +3665,23 @@ type CfnApplicationOutputProps struct {
 //
 type CfnApplicationProps struct {
 	// The runtime environment for the application.
-	RuntimeEnvironment *string `json:"runtimeEnvironment" yaml:"runtimeEnvironment"`
+	RuntimeEnvironment *string `field:"required" json:"runtimeEnvironment" yaml:"runtimeEnvironment"`
 	// Specifies the IAM role that the application uses to access external resources.
-	ServiceExecutionRole *string `json:"serviceExecutionRole" yaml:"serviceExecutionRole"`
+	ServiceExecutionRole *string `field:"required" json:"serviceExecutionRole" yaml:"serviceExecutionRole"`
 	// Use this parameter to configure the application.
-	ApplicationConfiguration interface{} `json:"applicationConfiguration" yaml:"applicationConfiguration"`
+	ApplicationConfiguration interface{} `field:"optional" json:"applicationConfiguration" yaml:"applicationConfiguration"`
 	// The description of the application.
-	ApplicationDescription *string `json:"applicationDescription" yaml:"applicationDescription"`
+	ApplicationDescription *string `field:"optional" json:"applicationDescription" yaml:"applicationDescription"`
 	// To create a Kinesis Data Analytics Studio notebook, you must set the mode to `INTERACTIVE` .
 	//
 	// However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional.
-	ApplicationMode *string `json:"applicationMode" yaml:"applicationMode"`
+	ApplicationMode *string `field:"optional" json:"applicationMode" yaml:"applicationMode"`
 	// The name of the application.
-	ApplicationName *string `json:"applicationName" yaml:"applicationName"`
+	ApplicationName *string `field:"optional" json:"applicationName" yaml:"applicationName"`
 	// A list of one or more tags to assign to the application.
 	//
 	// A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource`.
@@ -3559,8 +3691,11 @@ type CfnApplicationProps struct {
 // Kinesis Data Analytics reads reference data (that is, an Amazon S3 object) and creates an in-application table within your application. In the request, you provide the source (S3 bucket name and object key name), name of the in-application table to create, and the necessary mapping information that describes how data in an Amazon S3 object maps to columns in the resulting in-application table.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
-//   cfnApplicationReferenceDataSource := kinesisanalyticsv2.NewCfnApplicationReferenceDataSource(this, jsii.String("MyCfnApplicationReferenceDataSource"), &cfnApplicationReferenceDataSourceProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnApplicationReferenceDataSource := awscdk.Aws_kinesisanalyticsv2.NewCfnApplicationReferenceDataSource(this, jsii.String("MyCfnApplicationReferenceDataSource"), &cfnApplicationReferenceDataSourceProps{
 //   	applicationName: jsii.String("applicationName"),
 //   	referenceDataSource: &referenceDataSourceProperty{
 //   		referenceSchema: &referenceSchemaProperty{
@@ -4257,7 +4392,10 @@ func (c *jsiiProxy_CfnApplicationReferenceDataSource) ValidateProperties(_proper
 // `"name2", "address2"`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cSVMappingParametersProperty := &cSVMappingParametersProperty{
 //   	recordColumnDelimiter: jsii.String("recordColumnDelimiter"),
 //   	recordRowDelimiter: jsii.String("recordRowDelimiter"),
@@ -4267,30 +4405,36 @@ type CfnApplicationReferenceDataSource_CSVMappingParametersProperty struct {
 	// The column delimiter.
 	//
 	// For example, in a CSV format, a comma (",") is the typical column delimiter.
-	RecordColumnDelimiter *string `json:"recordColumnDelimiter" yaml:"recordColumnDelimiter"`
+	RecordColumnDelimiter *string `field:"required" json:"recordColumnDelimiter" yaml:"recordColumnDelimiter"`
 	// The row delimiter.
 	//
 	// For example, in a CSV format, *'\n'* is the typical row delimiter.
-	RecordRowDelimiter *string `json:"recordRowDelimiter" yaml:"recordRowDelimiter"`
+	RecordRowDelimiter *string `field:"required" json:"recordRowDelimiter" yaml:"recordRowDelimiter"`
 }
 
 // For a SQL-based Kinesis Data Analytics application, provides additional mapping information when JSON is the record format on the streaming source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   jSONMappingParametersProperty := &jSONMappingParametersProperty{
 //   	recordRowPath: jsii.String("recordRowPath"),
 //   }
 //
 type CfnApplicationReferenceDataSource_JSONMappingParametersProperty struct {
 	// The path to the top-level parent that contains the records.
-	RecordRowPath *string `json:"recordRowPath" yaml:"recordRowPath"`
+	RecordRowPath *string `field:"required" json:"recordRowPath" yaml:"recordRowPath"`
 }
 
 // When you configure a SQL-based Kinesis Data Analytics application's input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   mappingParametersProperty := &mappingParametersProperty{
 //   	csvMappingParameters: &cSVMappingParametersProperty{
 //   		recordColumnDelimiter: jsii.String("recordColumnDelimiter"),
@@ -4303,9 +4447,9 @@ type CfnApplicationReferenceDataSource_JSONMappingParametersProperty struct {
 //
 type CfnApplicationReferenceDataSource_MappingParametersProperty struct {
 	// Provides additional mapping information when the record format uses delimiters (for example, CSV).
-	CsvMappingParameters interface{} `json:"csvMappingParameters" yaml:"csvMappingParameters"`
+	CsvMappingParameters interface{} `field:"optional" json:"csvMappingParameters" yaml:"csvMappingParameters"`
 	// Provides additional mapping information when JSON is the record format on the streaming source.
-	JsonMappingParameters interface{} `json:"jsonMappingParameters" yaml:"jsonMappingParameters"`
+	JsonMappingParameters interface{} `field:"optional" json:"jsonMappingParameters" yaml:"jsonMappingParameters"`
 }
 
 // For a SQL-based Kinesis Data Analytics application, describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
@@ -4313,7 +4457,10 @@ type CfnApplicationReferenceDataSource_MappingParametersProperty struct {
 // Also used to describe the format of the reference data source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   recordColumnProperty := &recordColumnProperty{
 //   	name: jsii.String("name"),
 //   	sqlType: jsii.String("sqlType"),
@@ -4324,17 +4471,20 @@ type CfnApplicationReferenceDataSource_MappingParametersProperty struct {
 //
 type CfnApplicationReferenceDataSource_RecordColumnProperty struct {
 	// The name of the column that is created in the in-application input stream or reference table.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The type of column created in the in-application input stream or reference table.
-	SqlType *string `json:"sqlType" yaml:"sqlType"`
+	SqlType *string `field:"required" json:"sqlType" yaml:"sqlType"`
 	// A reference to the data element in the streaming input or the reference data source.
-	Mapping *string `json:"mapping" yaml:"mapping"`
+	Mapping *string `field:"optional" json:"mapping" yaml:"mapping"`
 }
 
 // For a SQL-based Kinesis Data Analytics application, describes the record format and relevant mapping information that should be applied to schematize the records on the stream.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   recordFormatProperty := &recordFormatProperty{
 //   	recordFormatType: jsii.String("recordFormatType"),
 //
@@ -4352,15 +4502,18 @@ type CfnApplicationReferenceDataSource_RecordColumnProperty struct {
 //
 type CfnApplicationReferenceDataSource_RecordFormatProperty struct {
 	// The type of record format.
-	RecordFormatType *string `json:"recordFormatType" yaml:"recordFormatType"`
+	RecordFormatType *string `field:"required" json:"recordFormatType" yaml:"recordFormatType"`
 	// When you configure application input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
-	MappingParameters interface{} `json:"mappingParameters" yaml:"mappingParameters"`
+	MappingParameters interface{} `field:"optional" json:"mappingParameters" yaml:"mappingParameters"`
 }
 
 // For a SQL-based Kinesis Data Analytics application, describes the reference data source by providing the source information (Amazon S3 bucket name and object key name), the resulting in-application table name that is created, and the necessary schema to map the data elements in the Amazon S3 object to the in-application table.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   referenceDataSourceProperty := &referenceDataSourceProperty{
 //   	referenceSchema: &referenceSchemaProperty{
 //   		recordColumns: []interface{}{
@@ -4401,19 +4554,22 @@ type CfnApplicationReferenceDataSource_RecordFormatProperty struct {
 //
 type CfnApplicationReferenceDataSource_ReferenceDataSourceProperty struct {
 	// Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
-	ReferenceSchema interface{} `json:"referenceSchema" yaml:"referenceSchema"`
+	ReferenceSchema interface{} `field:"required" json:"referenceSchema" yaml:"referenceSchema"`
 	// Identifies the S3 bucket and object that contains the reference data.
 	//
 	// A Kinesis Data Analytics application loads reference data only once. If the data changes, you call the [UpdateApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/API_UpdateApplication.html) operation to trigger reloading of data into your application.
-	S3ReferenceDataSource interface{} `json:"s3ReferenceDataSource" yaml:"s3ReferenceDataSource"`
+	S3ReferenceDataSource interface{} `field:"optional" json:"s3ReferenceDataSource" yaml:"s3ReferenceDataSource"`
 	// The name of the in-application table to create.
-	TableName *string `json:"tableName" yaml:"tableName"`
+	TableName *string `field:"optional" json:"tableName" yaml:"tableName"`
 }
 
 // For a SQL-based Kinesis Data Analytics application, describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   referenceSchemaProperty := &referenceSchemaProperty{
 //   	recordColumns: []interface{}{
 //   		&recordColumnProperty{
@@ -4445,13 +4601,13 @@ type CfnApplicationReferenceDataSource_ReferenceDataSourceProperty struct {
 //
 type CfnApplicationReferenceDataSource_ReferenceSchemaProperty struct {
 	// A list of `RecordColumn` objects.
-	RecordColumns interface{} `json:"recordColumns" yaml:"recordColumns"`
+	RecordColumns interface{} `field:"required" json:"recordColumns" yaml:"recordColumns"`
 	// Specifies the format of the records on the streaming source.
-	RecordFormat interface{} `json:"recordFormat" yaml:"recordFormat"`
+	RecordFormat interface{} `field:"required" json:"recordFormat" yaml:"recordFormat"`
 	// Specifies the encoding of the records in the streaming source.
 	//
 	// For example, UTF-8.
-	RecordEncoding *string `json:"recordEncoding" yaml:"recordEncoding"`
+	RecordEncoding *string `field:"optional" json:"recordEncoding" yaml:"recordEncoding"`
 }
 
 // For an SQL-based Amazon Kinesis Data Analytics application, identifies the Amazon S3 bucket and object that contains the reference data.
@@ -4459,7 +4615,10 @@ type CfnApplicationReferenceDataSource_ReferenceSchemaProperty struct {
 // A Kinesis Data Analytics application loads reference data only once. If the data changes, you call the [UpdateApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/API_UpdateApplication.html) operation to trigger reloading of data into your application.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3ReferenceDataSourceProperty := &s3ReferenceDataSourceProperty{
 //   	bucketArn: jsii.String("bucketArn"),
 //   	fileKey: jsii.String("fileKey"),
@@ -4467,15 +4626,18 @@ type CfnApplicationReferenceDataSource_ReferenceSchemaProperty struct {
 //
 type CfnApplicationReferenceDataSource_S3ReferenceDataSourceProperty struct {
 	// The Amazon Resource Name (ARN) of the S3 bucket.
-	BucketArn *string `json:"bucketArn" yaml:"bucketArn"`
+	BucketArn *string `field:"required" json:"bucketArn" yaml:"bucketArn"`
 	// The object key name containing the reference data.
-	FileKey *string `json:"fileKey" yaml:"fileKey"`
+	FileKey *string `field:"required" json:"fileKey" yaml:"fileKey"`
 }
 
 // Properties for defining a `CfnApplicationReferenceDataSource`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalyticsv2 "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalyticsv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnApplicationReferenceDataSourceProps := &cfnApplicationReferenceDataSourceProps{
 //   	applicationName: jsii.String("applicationName"),
 //   	referenceDataSource: &referenceDataSourceProperty{
@@ -4519,8 +4681,8 @@ type CfnApplicationReferenceDataSource_S3ReferenceDataSourceProperty struct {
 //
 type CfnApplicationReferenceDataSourceProps struct {
 	// The name of the application.
-	ApplicationName *string `json:"applicationName" yaml:"applicationName"`
+	ApplicationName *string `field:"required" json:"applicationName" yaml:"applicationName"`
 	// For a SQL-based Kinesis Data Analytics application, describes the reference data source by providing the source information (Amazon S3 bucket name and object key name), the resulting in-application table name that is created, and the necessary schema to map the data elements in the Amazon S3 object to the in-application table.
-	ReferenceDataSource interface{} `json:"referenceDataSource" yaml:"referenceDataSource"`
+	ReferenceDataSource interface{} `field:"required" json:"referenceDataSource" yaml:"referenceDataSource"`
 }
 

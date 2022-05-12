@@ -21,7 +21,7 @@ import (
 //   // the activity.
 //   // Read this CloudFormation Output from your application and use it to poll for work on
 //   // the activity.
-//   NewCfnOutput(this, jsii.String("ActivityArn"), &cfnOutputProps{
+//   awscdk.NewCfnOutput(this, jsii.String("ActivityArn"), &cfnOutputProps{
 //   	value: activity.activityArn,
 //   })
 //
@@ -604,7 +604,10 @@ func (a *jsiiProxy_Activity) Validate() *[]*string {
 // Properties for defining a new Step Functions Activity.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   activityProps := &activityProps{
 //   	activityName: jsii.String("activityName"),
 //   }
@@ -613,13 +616,16 @@ func (a *jsiiProxy_Activity) Validate() *[]*string {
 type ActivityProps struct {
 	// The name for this activity.
 	// Experimental.
-	ActivityName *string `json:"activityName" yaml:"activityName"`
+	ActivityName *string `field:"optional" json:"activityName" yaml:"activityName"`
 }
 
 // Options for selecting the choice paths.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   afterwardsOptions := &afterwardsOptions{
 //   	includeErrorHandlers: jsii.Boolean(false),
 //   	includeOtherwise: jsii.Boolean(false),
@@ -632,19 +638,22 @@ type AfterwardsOptions struct {
 	// If this is true, all states which are error handlers (added through 'onError')
 	// and states reachable via error handlers will be included as well.
 	// Experimental.
-	IncludeErrorHandlers *bool `json:"includeErrorHandlers" yaml:"includeErrorHandlers"`
+	IncludeErrorHandlers *bool `field:"optional" json:"includeErrorHandlers" yaml:"includeErrorHandlers"`
 	// Whether to include the default/otherwise transition for the current Choice state.
 	//
 	// If this is true and the current Choice does not have a default outgoing
 	// transition, one will be added included when .next() is called on the chain.
 	// Experimental.
-	IncludeOtherwise *bool `json:"includeOtherwise" yaml:"includeOtherwise"`
+	IncludeOtherwise *bool `field:"optional" json:"includeOtherwise" yaml:"includeOtherwise"`
 }
 
 // Error handler details.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   catchProps := &catchProps{
 //   	errors: []*string{
 //   		jsii.String("errors"),
@@ -659,13 +668,13 @@ type CatchProps struct {
 	// A list of error strings to retry, which can be either predefined errors
 	// (for example Errors.NoChoiceMatched) or a self-defined error.
 	// Experimental.
-	Errors *[]*string `json:"errors" yaml:"errors"`
+	Errors *[]*string `field:"optional" json:"errors" yaml:"errors"`
 	// JSONPath expression to indicate where to inject the error data.
 	//
 	// May also be the special value DISCARD, which will cause the error
 	// data to be discarded.
 	// Experimental.
-	ResultPath *string `json:"resultPath" yaml:"resultPath"`
+	ResultPath *string `field:"optional" json:"resultPath" yaml:"resultPath"`
 }
 
 // A CloudFormation `AWS::StepFunctions::Activity`.
@@ -675,8 +684,11 @@ type CatchProps struct {
 // For information about creating an activity, see [Creating an Activity State Machine](https://docs.aws.amazon.com/step-functions/latest/dg/tutorial-creating-activity-state-machine.html) in the *AWS Step Functions Developer Guide* and [CreateActivity](https://docs.aws.amazon.com/step-functions/latest/apireference/API_CreateActivity.html) in the *AWS Step Functions API Reference* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"
-//   cfnActivity := stepfunctions.NewCfnActivity(this, jsii.String("MyCfnActivity"), &cfnActivityProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnActivity := awscdk.Aws_stepfunctions.NewCfnActivity(this, jsii.String("MyCfnActivity"), &cfnActivityProps{
 //   	name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -1372,7 +1384,10 @@ func (c *jsiiProxy_CfnActivity) ValidateProperties(_properties interface{}) {
 // The `TagsEntry` property specifies *tags* to identify an activity.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tagsEntryProperty := &tagsEntryProperty{
 //   	key: jsii.String("key"),
 //   	value: jsii.String("value"),
@@ -1380,15 +1395,18 @@ func (c *jsiiProxy_CfnActivity) ValidateProperties(_properties interface{}) {
 //
 type CfnActivity_TagsEntryProperty struct {
 	// The `key` for a key-value pair in a tag entry.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// The `value` for a key-value pair in a tag entry.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // Properties for defining a `CfnActivity`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnActivityProps := &cfnActivityProps{
 //   	name: jsii.String("name"),
 //
@@ -1413,11 +1431,11 @@ type CfnActivityProps struct {
 	// - control characters ( `U+0000-001F` , `U+007F-009F` )
 	//
 	// To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The list of tags to add to a resource.
 	//
 	// Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
-	Tags *[]*CfnActivity_TagsEntryProperty `json:"tags" yaml:"tags"`
+	Tags *[]*CfnActivity_TagsEntryProperty `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::StepFunctions::StateMachine`.
@@ -1425,10 +1443,13 @@ type CfnActivityProps struct {
 // Provisions a state machine. A state machine consists of a collection of states that can do work ( `Task` states), determine to which states to transition next ( `Choice` states), stop an execution with an error ( `Fail` states), and so on. State machines are specified using a JSON-based, structured language.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var definition interface{}
-//   cfnStateMachine := stepfunctions.NewCfnStateMachine(this, jsii.String("MyCfnStateMachine"), &cfnStateMachineProps{
+//
+//   cfnStateMachine := awscdk.Aws_stepfunctions.NewCfnStateMachine(this, jsii.String("MyCfnStateMachine"), &cfnStateMachineProps{
 //   	roleArn: jsii.String("roleArn"),
 //
 //   	// the properties below are optional
@@ -2338,7 +2359,10 @@ func (c *jsiiProxy_CfnStateMachine) ValidateProperties(_properties interface{}) 
 // > For more information see [Standard Versus Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-standard-vs-express.html) in the AWS Step Functions Developer Guide.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cloudWatchLogsLogGroupProperty := &cloudWatchLogsLogGroupProperty{
 //   	logGroupArn: jsii.String("logGroupArn"),
 //   }
@@ -2347,7 +2371,7 @@ type CfnStateMachine_CloudWatchLogsLogGroupProperty struct {
 	// The ARN of the the CloudWatch log group to which you want your logs emitted to.
 	//
 	// The ARN must end with `:*`.
-	LogGroupArn *string `json:"logGroupArn" yaml:"logGroupArn"`
+	LogGroupArn *string `field:"optional" json:"logGroupArn" yaml:"logGroupArn"`
 }
 
 // Defines a destination for `LoggingConfiguration` .
@@ -2355,7 +2379,10 @@ type CfnStateMachine_CloudWatchLogsLogGroupProperty struct {
 // > For more information on logging with `EXPRESS` workflows, see [Logging Express Workflows Using CloudWatch Logs](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   logDestinationProperty := &logDestinationProperty{
 //   	cloudWatchLogsLogGroup: &cloudWatchLogsLogGroupProperty{
 //   		logGroupArn: jsii.String("logGroupArn"),
@@ -2366,7 +2393,7 @@ type CfnStateMachine_LogDestinationProperty struct {
 	// An object describing a CloudWatch log group.
 	//
 	// For more information, see [AWS::Logs::LogGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html) in the AWS CloudFormation User Guide.
-	CloudWatchLogsLogGroup interface{} `json:"cloudWatchLogsLogGroup" yaml:"cloudWatchLogsLogGroup"`
+	CloudWatchLogsLogGroup interface{} `field:"optional" json:"cloudWatchLogsLogGroup" yaml:"cloudWatchLogsLogGroup"`
 }
 
 // Defines what execution history events are logged and where they are logged.
@@ -2374,7 +2401,10 @@ type CfnStateMachine_LogDestinationProperty struct {
 // > By default, the `level` is set to `OFF` . For more information see [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   loggingConfigurationProperty := &loggingConfigurationProperty{
 //   	destinations: []interface{}{
 //   		&logDestinationProperty{
@@ -2391,13 +2421,13 @@ type CfnStateMachine_LoggingConfigurationProperty struct {
 	// An array of objects that describes where your execution history events will be logged.
 	//
 	// Limited to size 1. Required, if your log level is not set to `OFF` .
-	Destinations interface{} `json:"destinations" yaml:"destinations"`
+	Destinations interface{} `field:"optional" json:"destinations" yaml:"destinations"`
 	// Determines whether execution data is included in your log.
 	//
 	// When set to `false` , data is excluded.
-	IncludeExecutionData interface{} `json:"includeExecutionData" yaml:"includeExecutionData"`
+	IncludeExecutionData interface{} `field:"optional" json:"includeExecutionData" yaml:"includeExecutionData"`
 	// Defines which category of execution history events are logged.
-	Level *string `json:"level" yaml:"level"`
+	Level *string `field:"optional" json:"level" yaml:"level"`
 }
 
 // Defines the S3 bucket location where a state machine definition is stored.
@@ -2405,7 +2435,10 @@ type CfnStateMachine_LoggingConfigurationProperty struct {
 // The state machine definition must be a JSON or YAML file.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3LocationProperty := &s3LocationProperty{
 //   	bucket: jsii.String("bucket"),
 //   	key: jsii.String("key"),
@@ -2416,17 +2449,20 @@ type CfnStateMachine_LoggingConfigurationProperty struct {
 //
 type CfnStateMachine_S3LocationProperty struct {
 	// The name of the S3 bucket where the state machine definition JSON or YAML file is stored.
-	Bucket *string `json:"bucket" yaml:"bucket"`
+	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
 	// The name of the state machine definition file (Amazon S3 object name).
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// For versioning-enabled buckets, a specific version of the state machine definition.
-	Version *string `json:"version" yaml:"version"`
+	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 
 // The `TagsEntry` property specifies *tags* to identify a state machine.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tagsEntryProperty := &tagsEntryProperty{
 //   	key: jsii.String("key"),
 //   	value: jsii.String("value"),
@@ -2434,9 +2470,9 @@ type CfnStateMachine_S3LocationProperty struct {
 //
 type CfnStateMachine_TagsEntryProperty struct {
 	// The `key` for a key-value pair in a tag entry.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// The `value` for a key-value pair in a tag entry.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // Selects whether or not the state machine's AWS X-Ray tracing is enabled.
@@ -2444,22 +2480,28 @@ type CfnStateMachine_TagsEntryProperty struct {
 // To configure your state machine to send trace data to X-Ray, set `Enabled` to `true` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tracingConfigurationProperty := &tracingConfigurationProperty{
 //   	enabled: jsii.Boolean(false),
 //   }
 //
 type CfnStateMachine_TracingConfigurationProperty struct {
 	// When set to `true` , X-Ray tracing is enabled.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 }
 
 // Properties for defining a `CfnStateMachine`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var definition interface{}
+//
 //   cfnStateMachineProps := &cfnStateMachineProps{
 //   	roleArn: jsii.String("roleArn"),
 //
@@ -2502,27 +2544,27 @@ type CfnStateMachine_TracingConfigurationProperty struct {
 //
 type CfnStateMachineProps struct {
 	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The Amazon States Language definition of the state machine.
 	//
 	// The state machine definition must be in JSON or YAML, and the format of the object must match the format of your AWS Step Functions template file. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) .
-	Definition interface{} `json:"definition" yaml:"definition"`
+	Definition interface{} `field:"optional" json:"definition" yaml:"definition"`
 	// The name of the S3 bucket where the state machine definition is stored.
 	//
 	// The state machine definition must be a JSON or YAML file.
-	DefinitionS3Location interface{} `json:"definitionS3Location" yaml:"definitionS3Location"`
+	DefinitionS3Location interface{} `field:"optional" json:"definitionS3Location" yaml:"definitionS3Location"`
 	// The Amazon States Language definition of the state machine.
 	//
 	// The state machine definition must be in JSON. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) .
-	DefinitionString *string `json:"definitionString" yaml:"definitionString"`
+	DefinitionString *string `field:"optional" json:"definitionString" yaml:"definitionString"`
 	// A map (string to string) that specifies the mappings for placeholder variables in the state machine definition.
 	//
 	// This enables the customer to inject values obtained at runtime, for example from intrinsic functions, in the state machine definition. Variables can be template parameter names, resource logical IDs, resource attributes, or a variable in a key-value map.
-	DefinitionSubstitutions interface{} `json:"definitionSubstitutions" yaml:"definitionSubstitutions"`
+	DefinitionSubstitutions interface{} `field:"optional" json:"definitionSubstitutions" yaml:"definitionSubstitutions"`
 	// Defines what execution history events are logged and where they are logged.
 	//
 	// > By default, the `level` is set to `OFF` . For more information see [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
-	LoggingConfiguration interface{} `json:"loggingConfiguration" yaml:"loggingConfiguration"`
+	LoggingConfiguration interface{} `field:"optional" json:"loggingConfiguration" yaml:"loggingConfiguration"`
 	// The name of the state machine.
 	//
 	// A name must *not* contain:
@@ -2534,17 +2576,17 @@ type CfnStateMachineProps struct {
 	// - control characters ( `U+0000-001F` , `U+007F-009F` )
 	//
 	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-	StateMachineName *string `json:"stateMachineName" yaml:"stateMachineName"`
+	StateMachineName *string `field:"optional" json:"stateMachineName" yaml:"stateMachineName"`
 	// Determines whether a `STANDARD` or `EXPRESS` state machine is created.
 	//
 	// The default is `STANDARD` . You cannot update the `type` of a state machine once it has been created. For more information on `STANDARD` and `EXPRESS` workflows, see [Standard Versus Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-standard-vs-express.html) in the AWS Step Functions Developer Guide.
-	StateMachineType *string `json:"stateMachineType" yaml:"stateMachineType"`
+	StateMachineType *string `field:"optional" json:"stateMachineType" yaml:"stateMachineType"`
 	// The list of tags to add to a resource.
 	//
 	// Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
-	Tags *[]*CfnStateMachine_TagsEntryProperty `json:"tags" yaml:"tags"`
+	Tags *[]*CfnStateMachine_TagsEntryProperty `field:"optional" json:"tags" yaml:"tags"`
 	// Selects whether or not the state machine's AWS X-Ray tracing is enabled.
-	TracingConfiguration interface{} `json:"tracingConfiguration" yaml:"tracingConfiguration"`
+	TracingConfiguration interface{} `field:"optional" json:"tracingConfiguration" yaml:"tracingConfiguration"`
 }
 
 // A collection of states to chain onto.
@@ -2726,6 +2768,7 @@ func (c *jsiiProxy_Chain) ToSingleState(id *string, props *ParallelProps) Parall
 //   var submitLambda function
 //   var getStatusLambda function
 //
+//
 //   submitJob := tasks.NewLambdaInvoke(this, jsii.String("Submit Job"), &lambdaInvokeProps{
 //   	lambdaFunction: submitLambda,
 //   	// Lambda's result is in the attribute `Payload`
@@ -2760,7 +2803,7 @@ func (c *jsiiProxy_Chain) ToSingleState(id *string, props *ParallelProps) Parall
 //
 //   sfn.NewStateMachine(this, jsii.String("StateMachine"), &stateMachineProps{
 //   	definition: definition,
-//   	timeout: duration.minutes(jsii.Number(5)),
+//   	timeout: awscdk.Duration.minutes(jsii.Number(5)),
 //   })
 //
 // Experimental.
@@ -3474,7 +3517,10 @@ func (c *jsiiProxy_Choice) WhenBoundToGraph(graph StateGraph) {
 // Properties for defining a Choice state.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   choiceProps := &choiceProps{
 //   	comment: jsii.String("comment"),
 //   	inputPath: jsii.String("inputPath"),
@@ -3485,19 +3531,19 @@ func (c *jsiiProxy_Choice) WhenBoundToGraph(graph StateGraph) {
 type ChoiceProps struct {
 	// An optional description for this state.
 	// Experimental.
-	Comment *string `json:"comment" yaml:"comment"`
+	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value DISCARD, which will cause the effective
 	// input to be the empty object {}.
 	// Experimental.
-	InputPath *string `json:"inputPath" yaml:"inputPath"`
+	InputPath *string `field:"optional" json:"inputPath" yaml:"inputPath"`
 	// JSONPath expression to select part of the state to be the output to this state.
 	//
 	// May also be the special value DISCARD, which will cause the effective
 	// output to be the empty object {}.
 	// Experimental.
-	OutputPath *string `json:"outputPath" yaml:"outputPath"`
+	OutputPath *string `field:"optional" json:"outputPath" yaml:"outputPath"`
 }
 
 // A Condition for use in a Choice state branch.
@@ -3507,6 +3553,7 @@ type ChoiceProps struct {
 //
 //   var submitLambda function
 //   var getStatusLambda function
+//
 //
 //   submitJob := tasks.NewLambdaInvoke(this, jsii.String("Submit Job"), &lambdaInvokeProps{
 //   	lambdaFunction: submitLambda,
@@ -3542,7 +3589,7 @@ type ChoiceProps struct {
 //
 //   sfn.NewStateMachine(this, jsii.String("StateMachine"), &stateMachineProps{
 //   	definition: definition,
-//   	timeout: duration.minutes(jsii.Number(5)),
+//   	timeout: awscdk.Duration.minutes(jsii.Number(5)),
 //   })
 //
 // Experimental.
@@ -4480,6 +4527,7 @@ func Context_TaskToken() *string {
 // Example:
 //   import dynamodb "github.com/aws/aws-cdk-go/awscdk"
 //
+//
 //   // create a table
 //   table := dynamodb.NewTable(this, jsii.String("montable"), &tableProps{
 //   	partitionKey: &attribute{
@@ -4515,7 +4563,7 @@ func Context_TaskToken() *string {
 //
 //   sm := sfn.NewStateMachine(this, jsii.String("StateMachine"), &stateMachineProps{
 //   	definition: chain,
-//   	timeout: duration.seconds(jsii.Number(30)),
+//   	timeout: awscdk.Duration.seconds(jsii.Number(30)),
 //   })
 //
 //   // don't forget permissions. You need to assign them
@@ -5201,6 +5249,7 @@ func (c *jsiiProxy_CustomState) WhenBoundToGraph(graph StateGraph) {
 // Example:
 //   import dynamodb "github.com/aws/aws-cdk-go/awscdk"
 //
+//
 //   // create a table
 //   table := dynamodb.NewTable(this, jsii.String("montable"), &tableProps{
 //   	partitionKey: &attribute{
@@ -5236,7 +5285,7 @@ func (c *jsiiProxy_CustomState) WhenBoundToGraph(graph StateGraph) {
 //
 //   sm := sfn.NewStateMachine(this, jsii.String("StateMachine"), &stateMachineProps{
 //   	definition: chain,
-//   	timeout: duration.seconds(jsii.Number(30)),
+//   	timeout: awscdk.Duration.seconds(jsii.Number(30)),
 //   })
 //
 //   // don't forget permissions. You need to assign them
@@ -5248,7 +5297,7 @@ type CustomStateProps struct {
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html
 	//
 	// Experimental.
-	StateJson *map[string]interface{} `json:"stateJson" yaml:"stateJson"`
+	StateJson *map[string]interface{} `field:"required" json:"stateJson" yaml:"stateJson"`
 }
 
 // Extract a field from the State Machine data that gets passed around between states.
@@ -5343,8 +5392,11 @@ func Data_EntirePayload() *string {
 // Predefined error strings Error names in Amazon States Language - https://states-language.net/spec.html#appendix-a Error handling in Step Functions - https://docs.aws.amazon.com/step-functions/latest/dg/concepts-error-handling.html.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"
-//   errors := stepfunctions.NewErrors()
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   errors := awscdk.Aws_stepfunctions.NewErrors()
 //
 // Experimental.
 type Errors interface {
@@ -5490,6 +5542,7 @@ func Errors_TIMEOUT() *string {
 //   var submitLambda function
 //   var getStatusLambda function
 //
+//
 //   submitJob := tasks.NewLambdaInvoke(this, jsii.String("Submit Job"), &lambdaInvokeProps{
 //   	lambdaFunction: submitLambda,
 //   	// Lambda's result is in the attribute `Payload`
@@ -5524,7 +5577,7 @@ func Errors_TIMEOUT() *string {
 //
 //   sfn.NewStateMachine(this, jsii.String("StateMachine"), &stateMachineProps{
 //   	definition: definition,
-//   	timeout: duration.minutes(jsii.Number(5)),
+//   	timeout: awscdk.Duration.minutes(jsii.Number(5)),
 //   })
 //
 // Experimental.
@@ -6190,6 +6243,7 @@ func (f *jsiiProxy_Fail) WhenBoundToGraph(graph StateGraph) {
 //   var submitLambda function
 //   var getStatusLambda function
 //
+//
 //   submitJob := tasks.NewLambdaInvoke(this, jsii.String("Submit Job"), &lambdaInvokeProps{
 //   	lambdaFunction: submitLambda,
 //   	// Lambda's result is in the attribute `Payload`
@@ -6224,20 +6278,20 @@ func (f *jsiiProxy_Fail) WhenBoundToGraph(graph StateGraph) {
 //
 //   sfn.NewStateMachine(this, jsii.String("StateMachine"), &stateMachineProps{
 //   	definition: definition,
-//   	timeout: duration.minutes(jsii.Number(5)),
+//   	timeout: awscdk.Duration.minutes(jsii.Number(5)),
 //   })
 //
 // Experimental.
 type FailProps struct {
 	// A description for the cause of the failure.
 	// Experimental.
-	Cause *string `json:"cause" yaml:"cause"`
+	Cause *string `field:"optional" json:"cause" yaml:"cause"`
 	// An optional description for this state.
 	// Experimental.
-	Comment *string `json:"comment" yaml:"comment"`
+	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// Error code used to represent this failure.
 	// Experimental.
-	Error *string `json:"error" yaml:"error"`
+	Error *string `field:"optional" json:"error" yaml:"error"`
 }
 
 // Helper functions to work with structures containing fields.
@@ -6307,7 +6361,10 @@ func FieldUtils_RenderObject(obj *map[string]interface{}) *map[string]interface{
 // Options for finding reachable states.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   findStateOptions := &findStateOptions{
 //   	includeErrorHandlers: jsii.Boolean(false),
 //   }
@@ -6316,7 +6373,7 @@ func FieldUtils_RenderObject(obj *map[string]interface{}) *map[string]interface{
 type FindStateOptions struct {
 	// Whether or not to follow error-handling transitions.
 	// Experimental.
-	IncludeErrorHandlers *bool `json:"includeErrorHandlers" yaml:"includeErrorHandlers"`
+	IncludeErrorHandlers *bool `field:"optional" json:"includeErrorHandlers" yaml:"includeErrorHandlers"`
 }
 
 // Represents a Step Functions Activity https://docs.aws.amazon.com/step-functions/latest/dg/concepts-activities.html.
@@ -6849,6 +6906,7 @@ const (
 //
 // Example:
 //   var fn function
+//
 //   tasks.NewLambdaInvoke(this, jsii.String("Invoke Handler"), &lambdaInvokeProps{
 //   	lambdaFunction: fn,
 //   	resultSelector: map[string]interface{}{
@@ -7126,6 +7184,7 @@ func JsonPath_TaskToken() *string {
 // Example:
 //   import logs "github.com/aws/aws-cdk-go/awscdk"
 //
+//
 //   logGroup := logs.NewLogGroup(this, jsii.String("MyLogGroup"))
 //
 //   sfn.NewStateMachine(this, jsii.String("MyStateMachine"), &stateMachineProps{
@@ -7161,6 +7220,7 @@ const (
 // Example:
 //   import logs "github.com/aws/aws-cdk-go/awscdk"
 //
+//
 //   logGroup := logs.NewLogGroup(this, jsii.String("MyLogGroup"))
 //
 //   sfn.NewStateMachine(this, jsii.String("MyStateMachine"), &stateMachineProps{
@@ -7175,13 +7235,13 @@ const (
 type LogOptions struct {
 	// The log group where the execution history events will be logged.
 	// Experimental.
-	Destination awslogs.ILogGroup `json:"destination" yaml:"destination"`
+	Destination awslogs.ILogGroup `field:"required" json:"destination" yaml:"destination"`
 	// Determines whether execution data is included in your log.
 	// Experimental.
-	IncludeExecutionData *bool `json:"includeExecutionData" yaml:"includeExecutionData"`
+	IncludeExecutionData *bool `field:"optional" json:"includeExecutionData" yaml:"includeExecutionData"`
 	// Defines which category of execution history events are logged.
 	// Experimental.
-	Level LogLevel `json:"level" yaml:"level"`
+	Level LogLevel `field:"optional" json:"level" yaml:"level"`
 }
 
 // Define a Map state in the state machine.
@@ -7936,36 +7996,36 @@ func (m *jsiiProxy_Map) WhenBoundToGraph(graph StateGraph) {
 type MapProps struct {
 	// An optional description for this state.
 	// Experimental.
-	Comment *string `json:"comment" yaml:"comment"`
+	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
 	// Experimental.
-	InputPath *string `json:"inputPath" yaml:"inputPath"`
+	InputPath *string `field:"optional" json:"inputPath" yaml:"inputPath"`
 	// JSONPath expression to select the array to iterate over.
 	// Experimental.
-	ItemsPath *string `json:"itemsPath" yaml:"itemsPath"`
+	ItemsPath *string `field:"optional" json:"itemsPath" yaml:"itemsPath"`
 	// MaxConcurrency.
 	//
 	// An upper bound on the number of iterations you want running at once.
 	// Experimental.
-	MaxConcurrency *float64 `json:"maxConcurrency" yaml:"maxConcurrency"`
+	MaxConcurrency *float64 `field:"optional" json:"maxConcurrency" yaml:"maxConcurrency"`
 	// JSONPath expression to select part of the state to be the output to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
 	// Experimental.
-	OutputPath *string `json:"outputPath" yaml:"outputPath"`
+	OutputPath *string `field:"optional" json:"outputPath" yaml:"outputPath"`
 	// The JSON that you want to override your default iteration input.
 	// Experimental.
-	Parameters *map[string]interface{} `json:"parameters" yaml:"parameters"`
+	Parameters *map[string]interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
 	// Experimental.
-	ResultPath *string `json:"resultPath" yaml:"resultPath"`
+	ResultPath *string `field:"optional" json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
@@ -7973,7 +8033,7 @@ type MapProps struct {
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
 	// Experimental.
-	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
+	ResultSelector *map[string]interface{} `field:"optional" json:"resultSelector" yaml:"resultSelector"`
 }
 
 // Define a Parallel state in the state machine.
@@ -7984,7 +8044,9 @@ type MapProps struct {
 // The Result of a Parallel state is an array of the results of its substatemachines.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type Stack awscdk.Stackimport constructs "github.com/aws/constructs-go/constructs"type Construct constructs.Constructimport sfn "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/constructs-go/constructs"
+//   import sfn "github.com/aws/aws-cdk-go/awscdk"
 //
 //   type myJobProps struct {
 //   	jobFlavor *string
@@ -8758,9 +8820,12 @@ func (p *jsiiProxy_Parallel) WhenBoundToGraph(graph StateGraph) {
 // Properties for defining a Parallel state.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var resultSelector interface{}
+//
 //   parallelProps := &parallelProps{
 //   	comment: jsii.String("comment"),
 //   	inputPath: jsii.String("inputPath"),
@@ -8775,25 +8840,25 @@ func (p *jsiiProxy_Parallel) WhenBoundToGraph(graph StateGraph) {
 type ParallelProps struct {
 	// An optional description for this state.
 	// Experimental.
-	Comment *string `json:"comment" yaml:"comment"`
+	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
 	// Experimental.
-	InputPath *string `json:"inputPath" yaml:"inputPath"`
+	InputPath *string `field:"optional" json:"inputPath" yaml:"inputPath"`
 	// JSONPath expression to select part of the state to be the output to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
 	// Experimental.
-	OutputPath *string `json:"outputPath" yaml:"outputPath"`
+	OutputPath *string `field:"optional" json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
 	// Experimental.
-	ResultPath *string `json:"resultPath" yaml:"resultPath"`
+	ResultPath *string `field:"optional" json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
@@ -8801,7 +8866,7 @@ type ParallelProps struct {
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
 	// Experimental.
-	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
+	ResultSelector *map[string]interface{} `field:"optional" json:"resultSelector" yaml:"resultSelector"`
 }
 
 // Define a Pass in the state machine.
@@ -9513,35 +9578,35 @@ func (p *jsiiProxy_Pass) WhenBoundToGraph(graph StateGraph) {
 type PassProps struct {
 	// An optional description for this state.
 	// Experimental.
-	Comment *string `json:"comment" yaml:"comment"`
+	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
 	// Experimental.
-	InputPath *string `json:"inputPath" yaml:"inputPath"`
+	InputPath *string `field:"optional" json:"inputPath" yaml:"inputPath"`
 	// JSONPath expression to select part of the state to be the output to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
 	// Experimental.
-	OutputPath *string `json:"outputPath" yaml:"outputPath"`
+	OutputPath *string `field:"optional" json:"outputPath" yaml:"outputPath"`
 	// Parameters pass a collection of key-value pairs, either static values or JSONPath expressions that select from the input.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-parameters
 	//
 	// Experimental.
-	Parameters *map[string]interface{} `json:"parameters" yaml:"parameters"`
+	Parameters *map[string]interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// If given, treat as the result of this operation.
 	//
 	// Can be used to inject or replace the current execution state.
 	// Experimental.
-	Result Result `json:"result" yaml:"result"`
+	Result Result `field:"optional" json:"result" yaml:"result"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
 	// Experimental.
-	ResultPath *string `json:"resultPath" yaml:"resultPath"`
+	ResultPath *string `field:"optional" json:"resultPath" yaml:"resultPath"`
 }
 
 // The result of a Pass operation.
@@ -9723,22 +9788,22 @@ func Result_FromString(value *string) Result {
 type RetryProps struct {
 	// Multiplication for how much longer the wait interval gets on every retry.
 	// Experimental.
-	BackoffRate *float64 `json:"backoffRate" yaml:"backoffRate"`
+	BackoffRate *float64 `field:"optional" json:"backoffRate" yaml:"backoffRate"`
 	// Errors to retry.
 	//
 	// A list of error strings to retry, which can be either predefined errors
 	// (for example Errors.NoChoiceMatched) or a self-defined error.
 	// Experimental.
-	Errors *[]*string `json:"errors" yaml:"errors"`
+	Errors *[]*string `field:"optional" json:"errors" yaml:"errors"`
 	// How many seconds to wait initially before retrying.
 	// Experimental.
-	Interval awscdk.Duration `json:"interval" yaml:"interval"`
+	Interval awscdk.Duration `field:"optional" json:"interval" yaml:"interval"`
 	// How many times to retry this particular error.
 	//
 	// May be 0 to disable retry for specific errors (in case you have
 	// a catch-all retry policy).
 	// Experimental.
-	MaxAttempts *float64 `json:"maxAttempts" yaml:"maxAttempts"`
+	MaxAttempts *float64 `field:"optional" json:"maxAttempts" yaml:"maxAttempts"`
 }
 
 // Three ways to call an integrated service: Request Response, Run a Job and Wait for a Callback with Task Token.
@@ -9764,9 +9829,12 @@ const (
 // Options for creating a single state.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var resultSelector interface{}
+//
 //   singleStateOptions := &singleStateOptions{
 //   	comment: jsii.String("comment"),
 //   	inputPath: jsii.String("inputPath"),
@@ -9783,25 +9851,25 @@ const (
 type SingleStateOptions struct {
 	// An optional description for this state.
 	// Experimental.
-	Comment *string `json:"comment" yaml:"comment"`
+	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
 	// Experimental.
-	InputPath *string `json:"inputPath" yaml:"inputPath"`
+	InputPath *string `field:"optional" json:"inputPath" yaml:"inputPath"`
 	// JSONPath expression to select part of the state to be the output to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
 	// Experimental.
-	OutputPath *string `json:"outputPath" yaml:"outputPath"`
+	OutputPath *string `field:"optional" json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
 	// Experimental.
-	ResultPath *string `json:"resultPath" yaml:"resultPath"`
+	ResultPath *string `field:"optional" json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
@@ -9809,13 +9877,13 @@ type SingleStateOptions struct {
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
 	// Experimental.
-	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
+	ResultSelector *map[string]interface{} `field:"optional" json:"resultSelector" yaml:"resultSelector"`
 	// String to prefix all stateIds in the state machine with.
 	// Experimental.
-	PrefixStates *string `json:"prefixStates" yaml:"prefixStates"`
+	PrefixStates *string `field:"optional" json:"prefixStates" yaml:"prefixStates"`
 	// ID of newly created containing state.
 	// Experimental.
-	StateId *string `json:"stateId" yaml:"stateId"`
+	StateId *string `field:"optional" json:"stateId" yaml:"stateId"`
 }
 
 // Base class for all other state classes.
@@ -10483,10 +10551,13 @@ func (s *jsiiProxy_State) WhenBoundToGraph(graph StateGraph) {
 // You do not need to instantiate this class; it is used internally.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var state state
-//   stateGraph := stepfunctions.NewStateGraph(state, jsii.String("graphDescription"))
+//
+//   stateGraph := awscdk.Aws_stepfunctions.NewStateGraph(state, jsii.String("graphDescription"))
 //
 // Experimental.
 type StateGraph interface {
@@ -10649,6 +10720,7 @@ func (s *jsiiProxy_StateGraph) ToString() *string {
 //
 // Example:
 //   import stepfunctions "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
 //   inputArtifact := codepipeline.NewArtifact()
@@ -11333,7 +11405,9 @@ func (s *jsiiProxy_StateMachine) Validate() *[]*string {
 // Base class for reusable state machine fragments.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type Stack awscdk.Stackimport constructs "github.com/aws/constructs-go/constructs"type Construct constructs.Constructimport sfn "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/constructs-go/constructs"
+//   import sfn "github.com/aws/aws-cdk-go/awscdk"
 //
 //   type myJobProps struct {
 //   	jobFlavor *string
@@ -11659,6 +11733,7 @@ func (s *jsiiProxy_StateMachineFragment) Validate() *[]*string {
 // Example:
 //   import stepfunctions "github.com/aws/aws-cdk-go/awscdk"
 //
+//
 //   pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
 //   inputArtifact := codepipeline.NewArtifact()
 //   startState := stepfunctions.NewPass(this, jsii.String("StartState"))
@@ -11681,25 +11756,25 @@ func (s *jsiiProxy_StateMachineFragment) Validate() *[]*string {
 type StateMachineProps struct {
 	// Definition for this state machine.
 	// Experimental.
-	Definition IChainable `json:"definition" yaml:"definition"`
+	Definition IChainable `field:"required" json:"definition" yaml:"definition"`
 	// Defines what execution history events are logged and where they are logged.
 	// Experimental.
-	Logs *LogOptions `json:"logs" yaml:"logs"`
+	Logs *LogOptions `field:"optional" json:"logs" yaml:"logs"`
 	// The execution role for the state machine service.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// A name for the state machine.
 	// Experimental.
-	StateMachineName *string `json:"stateMachineName" yaml:"stateMachineName"`
+	StateMachineName *string `field:"optional" json:"stateMachineName" yaml:"stateMachineName"`
 	// Type of the state machine.
 	// Experimental.
-	StateMachineType StateMachineType `json:"stateMachineType" yaml:"stateMachineType"`
+	StateMachineType StateMachineType `field:"optional" json:"stateMachineType" yaml:"stateMachineType"`
 	// Maximum run time for this state machine.
 	// Experimental.
-	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
+	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 	// Specifies whether Amazon X-Ray tracing is enabled for this state machine.
 	// Experimental.
-	TracingEnabled *bool `json:"tracingEnabled" yaml:"tracingEnabled"`
+	TracingEnabled *bool `field:"optional" json:"tracingEnabled" yaml:"tracingEnabled"`
 }
 
 // Two types of state machines are available in AWS Step Functions: EXPRESS AND STANDARD.
@@ -11734,10 +11809,13 @@ const (
 // Properties shared by all states.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameters interface{}
 //   var resultSelector interface{}
+//
 //   stateProps := &stateProps{
 //   	comment: jsii.String("comment"),
 //   	inputPath: jsii.String("inputPath"),
@@ -11755,30 +11833,30 @@ const (
 type StateProps struct {
 	// A comment describing this state.
 	// Experimental.
-	Comment *string `json:"comment" yaml:"comment"`
+	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
 	// Experimental.
-	InputPath *string `json:"inputPath" yaml:"inputPath"`
+	InputPath *string `field:"optional" json:"inputPath" yaml:"inputPath"`
 	// JSONPath expression to select part of the state to be the output to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
 	// Experimental.
-	OutputPath *string `json:"outputPath" yaml:"outputPath"`
+	OutputPath *string `field:"optional" json:"outputPath" yaml:"outputPath"`
 	// Parameters pass a collection of key-value pairs, either static values or JSONPath expressions that select from the input.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-parameters
 	//
 	// Experimental.
-	Parameters *map[string]interface{} `json:"parameters" yaml:"parameters"`
+	Parameters *map[string]interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
 	// Experimental.
-	ResultPath *string `json:"resultPath" yaml:"resultPath"`
+	ResultPath *string `field:"optional" json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
@@ -11786,7 +11864,7 @@ type StateProps struct {
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
 	// Experimental.
-	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
+	ResultSelector *map[string]interface{} `field:"optional" json:"resultSelector" yaml:"resultSelector"`
 }
 
 // Metrics on the rate limiting performed on state machine execution.
@@ -11923,12 +12001,17 @@ func StateTransitionMetric_MetricThrottledEvents(props *awscloudwatch.MetricOpti
 // Properties that define what kind of task should be created.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var metricDimensions interface{}
 //   var parameters interface{}
 //   var policyStatement policyStatement
+//
 //   stepFunctionsTaskConfig := &stepFunctionsTaskConfig{
 //   	resourceArn: jsii.String("resourceArn"),
 //
@@ -11954,23 +12037,23 @@ type StepFunctionsTaskConfig struct {
 	// Either the ARN of a Lambda Function or Activity, or a special
 	// ARN.
 	// Deprecated: used by `IStepFunctionsTask`. `IStepFunctionsTask` is deprecated and replaced by `TaskStateBase`.
-	ResourceArn *string `json:"resourceArn" yaml:"resourceArn"`
+	ResourceArn *string `field:"required" json:"resourceArn" yaml:"resourceArn"`
 	// Maximum time between heart beats.
 	//
 	// If the time between heart beats takes longer than this, a 'Timeout' error is raised.
 	//
 	// This is only relevant when using an Activity type as resource.
 	// Deprecated: used by `IStepFunctionsTask`. `IStepFunctionsTask` is deprecated and replaced by `TaskStateBase`.
-	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
+	Heartbeat awscdk.Duration `field:"optional" json:"heartbeat" yaml:"heartbeat"`
 	// The dimensions to attach to metrics.
 	// Deprecated: used by `IStepFunctionsTask`. `IStepFunctionsTask` is deprecated and replaced by `TaskStateBase`.
-	MetricDimensions *map[string]interface{} `json:"metricDimensions" yaml:"metricDimensions"`
+	MetricDimensions *map[string]interface{} `field:"optional" json:"metricDimensions" yaml:"metricDimensions"`
 	// Prefix for plural metric names of activity actions.
 	// Deprecated: used by `IStepFunctionsTask`. `IStepFunctionsTask` is deprecated and replaced by `TaskStateBase`.
-	MetricPrefixPlural *string `json:"metricPrefixPlural" yaml:"metricPrefixPlural"`
+	MetricPrefixPlural *string `field:"optional" json:"metricPrefixPlural" yaml:"metricPrefixPlural"`
 	// Prefix for singular metric names of activity actions.
 	// Deprecated: used by `IStepFunctionsTask`. `IStepFunctionsTask` is deprecated and replaced by `TaskStateBase`.
-	MetricPrefixSingular *string `json:"metricPrefixSingular" yaml:"metricPrefixSingular"`
+	MetricPrefixSingular *string `field:"optional" json:"metricPrefixSingular" yaml:"metricPrefixSingular"`
 	// Parameters pass a collection of key-value pairs, either static values or JSONPath expressions that select from the input.
 	//
 	// The meaning of these parameters is task-dependent.
@@ -11980,10 +12063,10 @@ type StepFunctionsTaskConfig struct {
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-parameters
 	//
 	// Deprecated: used by `IStepFunctionsTask`. `IStepFunctionsTask` is deprecated and replaced by `TaskStateBase`.
-	Parameters *map[string]interface{} `json:"parameters" yaml:"parameters"`
+	Parameters *map[string]interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// Additional policy statements to add to the execution role.
 	// Deprecated: used by `IStepFunctionsTask`. `IStepFunctionsTask` is deprecated and replaced by `TaskStateBase`.
-	PolicyStatements *[]awsiam.PolicyStatement `json:"policyStatements" yaml:"policyStatements"`
+	PolicyStatements *[]awsiam.PolicyStatement `field:"optional" json:"policyStatements" yaml:"policyStatements"`
 }
 
 // Define a Succeed state in the state machine.
@@ -12651,7 +12734,10 @@ func (s *jsiiProxy_Succeed) WhenBoundToGraph(graph StateGraph) {
 // Properties for defining a Succeed state.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   succeedProps := &succeedProps{
 //   	comment: jsii.String("comment"),
 //   	inputPath: jsii.String("inputPath"),
@@ -12662,19 +12748,19 @@ func (s *jsiiProxy_Succeed) WhenBoundToGraph(graph StateGraph) {
 type SucceedProps struct {
 	// An optional description for this state.
 	// Experimental.
-	Comment *string `json:"comment" yaml:"comment"`
+	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
 	// Experimental.
-	InputPath *string `json:"inputPath" yaml:"inputPath"`
+	InputPath *string `field:"optional" json:"inputPath" yaml:"inputPath"`
 	// JSONPath expression to select part of the state to be the output to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
 	// Experimental.
-	OutputPath *string `json:"outputPath" yaml:"outputPath"`
+	OutputPath *string `field:"optional" json:"outputPath" yaml:"outputPath"`
 }
 
 // Define a Task state in the state machine.
@@ -12687,12 +12773,16 @@ type SucceedProps struct {
 // which are more convenient to use.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var parameters interface{}
 //   var stepFunctionsTask iStepFunctionsTask
-//   task := stepfunctions.NewTask(this, jsii.String("MyTask"), &taskProps{
+//
+//   task := awscdk.Aws_stepfunctions.NewTask(this, jsii.String("MyTask"), &taskProps{
 //   	task: stepFunctionsTask,
 //
 //   	// the properties below are optional
@@ -13581,6 +13671,7 @@ func (t *jsiiProxy_Task) WhenBoundToGraph(graph StateGraph) {
 //
 // Example:
 //   var fn function
+//
 //   tasks.NewLambdaInvoke(this, jsii.String("Invoke with callback"), &lambdaInvokeProps{
 //   	lambdaFunction: fn,
 //   	integrationPattern: sfn.integrationPattern_WAIT_FOR_TASK_TOKEN,
@@ -13732,9 +13823,12 @@ func TaskInput_FromText(text *string) TaskInput {
 // Task Metrics.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var metricDimensions interface{}
+//
 //   taskMetricsConfig := &taskMetricsConfig{
 //   	metricDimensions: map[string]interface{}{
 //   		"metricDimensionsKey": metricDimensions,
@@ -13747,23 +13841,27 @@ func TaskInput_FromText(text *string) TaskInput {
 type TaskMetricsConfig struct {
 	// The dimensions to attach to metrics.
 	// Experimental.
-	MetricDimensions *map[string]interface{} `json:"metricDimensions" yaml:"metricDimensions"`
+	MetricDimensions *map[string]interface{} `field:"optional" json:"metricDimensions" yaml:"metricDimensions"`
 	// Prefix for plural metric names of activity actions.
 	// Experimental.
-	MetricPrefixPlural *string `json:"metricPrefixPlural" yaml:"metricPrefixPlural"`
+	MetricPrefixPlural *string `field:"optional" json:"metricPrefixPlural" yaml:"metricPrefixPlural"`
 	// Prefix for singular metric names of activity actions.
 	// Experimental.
-	MetricPrefixSingular *string `json:"metricPrefixSingular" yaml:"metricPrefixSingular"`
+	MetricPrefixSingular *string `field:"optional" json:"metricPrefixSingular" yaml:"metricPrefixSingular"`
 }
 
 // Props that are common to all tasks.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var parameters interface{}
 //   var stepFunctionsTask iStepFunctionsTask
+//
 //   taskProps := &taskProps{
 //   	task: stepFunctionsTask,
 //
@@ -13782,22 +13880,22 @@ type TaskMetricsConfig struct {
 type TaskProps struct {
 	// Actual task to be invoked in this workflow.
 	// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
-	Task IStepFunctionsTask `json:"task" yaml:"task"`
+	Task IStepFunctionsTask `field:"required" json:"task" yaml:"task"`
 	// An optional description for this state.
 	// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
-	Comment *string `json:"comment" yaml:"comment"`
+	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
 	// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
-	InputPath *string `json:"inputPath" yaml:"inputPath"`
+	InputPath *string `field:"optional" json:"inputPath" yaml:"inputPath"`
 	// JSONPath expression to select part of the state to be the output to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
 	// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
-	OutputPath *string `json:"outputPath" yaml:"outputPath"`
+	OutputPath *string `field:"optional" json:"outputPath" yaml:"outputPath"`
 	// Parameters to invoke the task with.
 	//
 	// It is not recommended to use this field. The object that is passed in
@@ -13816,18 +13914,18 @@ type TaskProps struct {
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-parameters
 	//
 	// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
-	Parameters *map[string]interface{} `json:"parameters" yaml:"parameters"`
+	Parameters *map[string]interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
 	// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
-	ResultPath *string `json:"resultPath" yaml:"resultPath"`
+	ResultPath *string `field:"optional" json:"resultPath" yaml:"resultPath"`
 	// Maximum run time of this state.
 	//
 	// If the state takes longer than this amount of time to complete, a 'Timeout' error is raised.
 	// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
-	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
+	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 }
 
 // Define a Task state in the state machine.
@@ -14721,15 +14819,19 @@ func (t *jsiiProxy_TaskStateBase) WhenBoundToGraph(graph StateGraph) {
 // Props that are common to all tasks.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import stepfunctions "github.com/aws/aws-cdk-go/awscdk/aws_stepfunctions"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var resultSelector interface{}
+//
 //   taskStateBaseProps := &taskStateBaseProps{
 //   	comment: jsii.String("comment"),
 //   	heartbeat: duration,
 //   	inputPath: jsii.String("inputPath"),
-//   	integrationPattern: stepfunctions.integrationPattern_REQUEST_RESPONSE,
+//   	integrationPattern: awscdk.Aws_stepfunctions.integrationPattern_REQUEST_RESPONSE,
 //   	outputPath: jsii.String("outputPath"),
 //   	resultPath: jsii.String("resultPath"),
 //   	resultSelector: map[string]interface{}{
@@ -14742,35 +14844,35 @@ func (t *jsiiProxy_TaskStateBase) WhenBoundToGraph(graph StateGraph) {
 type TaskStateBaseProps struct {
 	// An optional description for this state.
 	// Experimental.
-	Comment *string `json:"comment" yaml:"comment"`
+	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 	// Timeout for the heartbeat.
 	// Experimental.
-	Heartbeat awscdk.Duration `json:"heartbeat" yaml:"heartbeat"`
+	Heartbeat awscdk.Duration `field:"optional" json:"heartbeat" yaml:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
 	// Experimental.
-	InputPath *string `json:"inputPath" yaml:"inputPath"`
+	InputPath *string `field:"optional" json:"inputPath" yaml:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
 	// Experimental.
-	IntegrationPattern IntegrationPattern `json:"integrationPattern" yaml:"integrationPattern"`
+	IntegrationPattern IntegrationPattern `field:"optional" json:"integrationPattern" yaml:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
 	// Experimental.
-	OutputPath *string `json:"outputPath" yaml:"outputPath"`
+	OutputPath *string `field:"optional" json:"outputPath" yaml:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
 	// Experimental.
-	ResultPath *string `json:"resultPath" yaml:"resultPath"`
+	ResultPath *string `field:"optional" json:"resultPath" yaml:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
 	// You can use ResultSelector to create a payload with values that are static
@@ -14778,10 +14880,10 @@ type TaskStateBaseProps struct {
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
 	// Experimental.
-	ResultSelector *map[string]interface{} `json:"resultSelector" yaml:"resultSelector"`
+	ResultSelector *map[string]interface{} `field:"optional" json:"resultSelector" yaml:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
-	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
+	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 }
 
 // Define a Wait state in the state machine.
@@ -15521,10 +15623,10 @@ func (w *jsiiProxy_Wait) WhenBoundToGraph(graph StateGraph) {
 type WaitProps struct {
 	// Wait duration.
 	// Experimental.
-	Time WaitTime `json:"time" yaml:"time"`
+	Time WaitTime `field:"required" json:"time" yaml:"time"`
 	// An optional description for this state.
 	// Experimental.
-	Comment *string `json:"comment" yaml:"comment"`
+	Comment *string `field:"optional" json:"comment" yaml:"comment"`
 }
 
 // Represents the Wait state which delays a state machine from continuing for a specified time.

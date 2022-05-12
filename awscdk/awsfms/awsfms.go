@@ -16,8 +16,11 @@ import (
 // To perform this action outside of the console, you must configure the SNS topic to allow the role `AWSServiceRoleForFMS` to publish SNS logs. For more information, see [Firewall Manager required permissions for API actions](https://docs.aws.amazon.com/waf/latest/developerguide/fms-api-permissions-ref.html) in the *AWS Firewall Manager Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import fms "github.com/aws/aws-cdk-go/awscdk/aws_fms"
-//   cfnNotificationChannel := fms.NewCfnNotificationChannel(this, jsii.String("MyCfnNotificationChannel"), &cfnNotificationChannelProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnNotificationChannel := awscdk.Aws_fms.NewCfnNotificationChannel(this, jsii.String("MyCfnNotificationChannel"), &cfnNotificationChannelProps{
 //   	snsRoleName: jsii.String("snsRoleName"),
 //   	snsTopicArn: jsii.String("snsTopicArn"),
 //   })
@@ -672,7 +675,10 @@ func (c *jsiiProxy_CfnNotificationChannel) ValidateProperties(_properties interf
 // Properties for defining a `CfnNotificationChannel`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import fms "github.com/aws/aws-cdk-go/awscdk/aws_fms"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnNotificationChannelProps := &cfnNotificationChannelProps{
 //   	snsRoleName: jsii.String("snsRoleName"),
 //   	snsTopicArn: jsii.String("snsTopicArn"),
@@ -680,9 +686,9 @@ func (c *jsiiProxy_CfnNotificationChannel) ValidateProperties(_properties interf
 //
 type CfnNotificationChannelProps struct {
 	// The Amazon Resource Name (ARN) of the IAM role that allows Amazon SNS to record AWS Firewall Manager activity.
-	SnsRoleName *string `json:"snsRoleName" yaml:"snsRoleName"`
+	SnsRoleName *string `field:"required" json:"snsRoleName" yaml:"snsRoleName"`
 	// The Amazon Resource Name (ARN) of the SNS topic that collects notifications from AWS Firewall Manager .
-	SnsTopicArn *string `json:"snsTopicArn" yaml:"snsTopicArn"`
+	SnsTopicArn *string `field:"required" json:"snsTopicArn" yaml:"snsTopicArn"`
 }
 
 // A CloudFormation `AWS::FMS::Policy`.
@@ -703,10 +709,13 @@ type CfnNotificationChannelProps struct {
 // These policies require some setup to use. For more information, see the sections on prerequisites and getting started under [AWS Firewall Manager](https://docs.aws.amazon.com/waf/latest/developerguide/fms-prereq.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import fms "github.com/aws/aws-cdk-go/awscdk/aws_fms"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var securityServicePolicyData interface{}
-//   cfnPolicy := fms.NewCfnPolicy(this, jsii.String("MyCfnPolicy"), &cfnPolicyProps{
+//
+//   cfnPolicy := awscdk.Aws_fms.NewCfnPolicy(this, jsii.String("MyCfnPolicy"), &cfnPolicyProps{
 //   	excludeResourceTags: jsii.Boolean(false),
 //   	policyName: jsii.String("policyName"),
 //   	remediationEnabled: jsii.Boolean(false),
@@ -1740,7 +1749,10 @@ func (c *jsiiProxy_CfnPolicy) ValidateProperties(_properties interface{}) {
 // - Specify accounts and OUs together in a single map, separated with a comma. For example, the following is a valid map: `{“ACCOUNT” : [“accountID1”, “accountID2”], “ORGUNIT” : [“ouid111”, “ouid112”]}` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import fms "github.com/aws/aws-cdk-go/awscdk/aws_fms"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   iEMapProperty := map[string][]*string{
 //   	"account": []*string{
 //   		jsii.String("account"),
@@ -1752,9 +1764,9 @@ func (c *jsiiProxy_CfnPolicy) ValidateProperties(_properties interface{}) {
 //
 type CfnPolicy_IEMapProperty struct {
 	// The account list for the map.
-	Account *[]*string `json:"account" yaml:"account"`
+	Account *[]*string `field:"optional" json:"account" yaml:"account"`
 	// The organizational unit list for the map.
-	Orgunit *[]*string `json:"orgunit" yaml:"orgunit"`
+	Orgunit *[]*string `field:"optional" json:"orgunit" yaml:"orgunit"`
 }
 
 // A collection of key:value pairs associated with an AWS resource.
@@ -1762,7 +1774,10 @@ type CfnPolicy_IEMapProperty struct {
 // The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import fms "github.com/aws/aws-cdk-go/awscdk/aws_fms"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   policyTagProperty := &policyTagProperty{
 //   	key: jsii.String("key"),
 //   	value: jsii.String("value"),
@@ -1772,11 +1787,11 @@ type CfnPolicy_PolicyTagProperty struct {
 	// Part of the key:value pair that defines a tag.
 	//
 	// You can use a tag key to describe a category of information, such as "customer." Tag keys are case-sensitive.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// Part of the key:value pair that defines a tag.
 	//
 	// You can use a tag value to describe a specific value within a category, such as "companyA" or "companyB." Tag values are case-sensitive.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // The resource tags that AWS Firewall Manager uses to determine if a particular resource should be included or excluded from the AWS Firewall Manager policy.
@@ -1784,7 +1799,10 @@ type CfnPolicy_PolicyTagProperty struct {
 // Tags enable you to categorize your AWS resources in different ways, for example, by purpose, owner, or environment. Each tag consists of a key and an optional value. Firewall Manager combines the tags with "AND" so that, if you add more than one tag to a policy scope, a resource must have all the specified tags to be included or excluded. For more information, see [Working with Tag Editor](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/tag-editor.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import fms "github.com/aws/aws-cdk-go/awscdk/aws_fms"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   resourceTagProperty := &resourceTagProperty{
 //   	key: jsii.String("key"),
 //
@@ -1794,17 +1812,20 @@ type CfnPolicy_PolicyTagProperty struct {
 //
 type CfnPolicy_ResourceTagProperty struct {
 	// The resource tag key.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// The resource tag value.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
 // Properties for defining a `CfnPolicy`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import fms "github.com/aws/aws-cdk-go/awscdk/aws_fms"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var securityServicePolicyData interface{}
+//
 //   cfnPolicyProps := &cfnPolicyProps{
 //   	excludeResourceTags: jsii.Boolean(false),
 //   	policyName: jsii.String("policyName"),
@@ -1854,17 +1875,17 @@ type CfnPolicyProps struct {
 	// Used only when tags are specified in the `ResourceTags` property.
 	//
 	// If this property is `True` , resources with the specified tags are not in scope of the policy. If it's `False` , only resources with the specified tags are in scope of the policy.
-	ExcludeResourceTags interface{} `json:"excludeResourceTags" yaml:"excludeResourceTags"`
+	ExcludeResourceTags interface{} `field:"required" json:"excludeResourceTags" yaml:"excludeResourceTags"`
 	// The name of the AWS Firewall Manager policy.
-	PolicyName *string `json:"policyName" yaml:"policyName"`
+	PolicyName *string `field:"required" json:"policyName" yaml:"policyName"`
 	// Indicates if the policy should be automatically applied to new resources.
-	RemediationEnabled interface{} `json:"remediationEnabled" yaml:"remediationEnabled"`
+	RemediationEnabled interface{} `field:"required" json:"remediationEnabled" yaml:"remediationEnabled"`
 	// The type of resource protected by or in scope of the policy.
 	//
 	// This is in the format shown in the [AWS Resource Types Reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html) . To apply this policy to multiple resource types, specify a resource type of `ResourceTypeList` and then specify the resource types in a `ResourceTypeList` .
 	//
 	// For AWS WAF and Shield Advanced, example resource types include `AWS::ElasticLoadBalancingV2::LoadBalancer` and `AWS::CloudFront::Distribution` . For a security group common policy, valid values are `AWS::EC2::NetworkInterface` and `AWS::EC2::Instance` . For a security group content audit policy, valid values are `AWS::EC2::SecurityGroup` , `AWS::EC2::NetworkInterface` , and `AWS::EC2::Instance` . For a security group usage audit policy, the value is `AWS::EC2::SecurityGroup` . For an AWS Network Firewall policy or DNS Firewall policy, the value is `AWS::EC2::VPC` .
-	ResourceType *string `json:"resourceType" yaml:"resourceType"`
+	ResourceType *string `field:"required" json:"resourceType" yaml:"resourceType"`
 	// Details about the security service that is being used to protect the resources.
 	//
 	// This contains the following settings:
@@ -1910,7 +1931,7 @@ type CfnPolicyProps struct {
 	// `"ManagedServiceData": "{\"type\": \"WAF\", \"ruleGroups\": [{\"id\":\"12345678-1bcd-9012-efga-0987654321ab\", \"overrideAction\" : {\"type\": \"COUNT\"}}],\"defaultAction\": {\"type\": \"BLOCK\"}}`
 	//
 	// AWS WAF Classic doesn't support rule groups in CloudFront . To create a WAF Classic policy through CloudFormation, create your rule groups outside of CloudFront , then provide the rule group IDs in the WAF managed service data specification.
-	SecurityServicePolicyData interface{} `json:"securityServicePolicyData" yaml:"securityServicePolicyData"`
+	SecurityServicePolicyData interface{} `field:"required" json:"securityServicePolicyData" yaml:"securityServicePolicyData"`
 	// Used when deleting a policy. If `true` , Firewall Manager performs cleanup according to the policy type.
 	//
 	// For AWS WAF and Shield Advanced policies, Firewall Manager does the following:
@@ -1925,7 +1946,7 @@ type CfnPolicyProps struct {
 	// - Deletes the security group if it was created through Firewall Manager and if it's no longer associated with any resources through another policy
 	//
 	// After the cleanup, in-scope resources are no longer protected by web ACLs in this policy. Protection of out-of-scope resources remains unchanged. Scope is determined by tags that you create and accounts that you associate with the policy. When creating the policy, if you specify that only resources in specific accounts or with specific tags are in scope of the policy, those accounts and resources are handled by the policy. All others are out of scope. If you don't specify tags or accounts, all resources are in scope.
-	DeleteAllPolicyResources interface{} `json:"deleteAllPolicyResources" yaml:"deleteAllPolicyResources"`
+	DeleteAllPolicyResources interface{} `field:"optional" json:"deleteAllPolicyResources" yaml:"deleteAllPolicyResources"`
 	// Specifies the AWS account IDs and AWS Organizations organizational units (OUs) to exclude from the policy.
 	//
 	// Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
@@ -1937,7 +1958,7 @@ type CfnPolicyProps struct {
 	// - Specify account IDs by setting the key to `ACCOUNT` . For example, the following is a valid map: `{“ACCOUNT” : [“accountID1”, “accountID2”]}` .
 	// - Specify OUs by setting the key to `ORGUNIT` . For example, the following is a valid map: `{“ORGUNIT” : [“ouid111”, “ouid112”]}` .
 	// - Specify accounts and OUs together in a single map, separated with a comma. For example, the following is a valid map: `{“ACCOUNT” : [“accountID1”, “accountID2”], “ORGUNIT” : [“ouid111”, “ouid112”]}` .
-	ExcludeMap interface{} `json:"excludeMap" yaml:"excludeMap"`
+	ExcludeMap interface{} `field:"optional" json:"excludeMap" yaml:"excludeMap"`
 	// Specifies the AWS account IDs and AWS Organizations organizational units (OUs) to include in the policy.
 	//
 	// Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
@@ -1949,7 +1970,7 @@ type CfnPolicyProps struct {
 	// - Specify account IDs by setting the key to `ACCOUNT` . For example, the following is a valid map: `{“ACCOUNT” : [“accountID1”, “accountID2”]}` .
 	// - Specify OUs by setting the key to `ORGUNIT` . For example, the following is a valid map: `{“ORGUNIT” : [“ouid111”, “ouid112”]}` .
 	// - Specify accounts and OUs together in a single map, separated with a comma. For example, the following is a valid map: `{“ACCOUNT” : [“accountID1”, “accountID2”], “ORGUNIT” : [“ouid111”, “ouid112”]}` .
-	IncludeMap interface{} `json:"includeMap" yaml:"includeMap"`
+	IncludeMap interface{} `field:"optional" json:"includeMap" yaml:"includeMap"`
 	// Indicates whether AWS Firewall Manager should automatically remove protections from resources that leave the policy scope and clean up resources that Firewall Manager is managing for accounts when those accounts leave policy scope.
 	//
 	// For example, Firewall Manager will disassociate a Firewall Manager managed web ACL from a protected customer resource when the customer resource leaves policy scope.
@@ -1957,18 +1978,18 @@ type CfnPolicyProps struct {
 	// By default, Firewall Manager doesn't remove protections or delete Firewall Manager managed resources.
 	//
 	// This option is not available for Shield Advanced or AWS WAF Classic policies.
-	ResourcesCleanUp interface{} `json:"resourcesCleanUp" yaml:"resourcesCleanUp"`
+	ResourcesCleanUp interface{} `field:"optional" json:"resourcesCleanUp" yaml:"resourcesCleanUp"`
 	// An array of `ResourceTag` objects, used to explicitly include resources in the policy scope or explicitly exclude them.
 	//
 	// If this isn't set, then tags aren't used to modify policy scope. See also `ExcludeResourceTags` .
-	ResourceTags interface{} `json:"resourceTags" yaml:"resourceTags"`
+	ResourceTags interface{} `field:"optional" json:"resourceTags" yaml:"resourceTags"`
 	// An array of `ResourceType` objects.
 	//
 	// Use this only to specify multiple resource types. To specify a single resource type, use `ResourceType` .
-	ResourceTypeList *[]*string `json:"resourceTypeList" yaml:"resourceTypeList"`
+	ResourceTypeList *[]*string `field:"optional" json:"resourceTypeList" yaml:"resourceTypeList"`
 	// A collection of key:value pairs associated with an AWS resource.
 	//
 	// The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
-	Tags *[]*CfnPolicy_PolicyTagProperty `json:"tags" yaml:"tags"`
+	Tags *[]*CfnPolicy_PolicyTagProperty `field:"optional" json:"tags" yaml:"tags"`
 }
 

@@ -16,8 +16,11 @@ import (
 // A `Session` must exist for the account before you can create a `CustomDataIdentifier` . Use a [DependsOn attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) to ensure that the `Session` is created before the other resources. For example, `"DependsOn: Session"` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import macie "github.com/aws/aws-cdk-go/awscdk/aws_macie"
-//   cfnCustomDataIdentifier := macie.NewCfnCustomDataIdentifier(this, jsii.String("MyCfnCustomDataIdentifier"), &cfnCustomDataIdentifierProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnCustomDataIdentifier := awscdk.Aws_macie.NewCfnCustomDataIdentifier(this, jsii.String("MyCfnCustomDataIdentifier"), &cfnCustomDataIdentifierProps{
 //   	name: jsii.String("name"),
 //   	regex: jsii.String("regex"),
 //
@@ -802,7 +805,10 @@ func (c *jsiiProxy_CfnCustomDataIdentifier) ValidateProperties(_properties inter
 // Properties for defining a `CfnCustomDataIdentifier`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import macie "github.com/aws/aws-cdk-go/awscdk/aws_macie"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnCustomDataIdentifierProps := &cfnCustomDataIdentifierProps{
 //   	name: jsii.String("name"),
 //   	regex: jsii.String("regex"),
@@ -822,27 +828,27 @@ type CfnCustomDataIdentifierProps struct {
 	// A custom name for the custom data identifier. The name can contain as many as 128 characters.
 	//
 	// We strongly recommend that you avoid including any sensitive data in the name of a custom data identifier. Other users of your account might be able to see the identifier's name, depending on the actions that they're allowed to perform in Amazon Macie .
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The regular expression ( *regex* ) that defines the pattern to match.
 	//
 	// The expression can contain as many as 512 characters.
-	Regex *string `json:"regex" yaml:"regex"`
+	Regex *string `field:"required" json:"regex" yaml:"regex"`
 	// The description of the custom data identifier.
 	//
 	// The description can contain as many as 512 characters.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// An array that lists specific character sequences (ignore words) to exclude from the results.
 	//
 	// If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4-90 characters. Ignore words are case sensitive.
-	IgnoreWords *[]*string `json:"ignoreWords" yaml:"ignoreWords"`
+	IgnoreWords *[]*string `field:"optional" json:"ignoreWords" yaml:"ignoreWords"`
 	// An array that lists specific character sequences (keywords), one of which must be within proximity ( `MaximumMatchDistance` ) of the regular expression to match.
 	//
 	// The array can contain as many as 50 keywords. Each keyword can contain 3-90 characters. Keywords aren't case sensitive.
-	Keywords *[]*string `json:"keywords" yaml:"keywords"`
+	Keywords *[]*string `field:"optional" json:"keywords" yaml:"keywords"`
 	// The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the `Keywords` array.
 	//
 	// Amazon Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1-300 characters. The default value is 50.
-	MaximumMatchDistance *float64 `json:"maximumMatchDistance" yaml:"maximumMatchDistance"`
+	MaximumMatchDistance *float64 `field:"optional" json:"maximumMatchDistance" yaml:"maximumMatchDistance"`
 }
 
 // A CloudFormation `AWS::Macie::FindingsFilter`.
@@ -852,10 +858,13 @@ type CfnCustomDataIdentifierProps struct {
 // A `Session` must exist for the account before you can create a `FindingsFilter` . Use a [DependsOn attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) to ensure that the `Session` is created before the other resources. For example, `"DependsOn: Session"` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import macie "github.com/aws/aws-cdk-go/awscdk/aws_macie"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var criterion interface{}
-//   cfnFindingsFilter := macie.NewCfnFindingsFilter(this, jsii.String("MyCfnFindingsFilter"), &cfnFindingsFilterProps{
+//
+//   cfnFindingsFilter := awscdk.Aws_macie.NewCfnFindingsFilter(this, jsii.String("MyCfnFindingsFilter"), &cfnFindingsFilterProps{
 //   	findingCriteria: &findingCriteriaProperty{
 //   		criterion: criterion,
 //   	},
@@ -1627,22 +1636,28 @@ func (c *jsiiProxy_CfnFindingsFilter) ValidateProperties(_properties interface{}
 // Specifies, as a map, one or more property-based conditions that filter the results of a query for findings.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import macie "github.com/aws/aws-cdk-go/awscdk/aws_macie"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var criterion interface{}
+//
 //   findingCriteriaProperty := &findingCriteriaProperty{
 //   	criterion: criterion,
 //   }
 //
 type CfnFindingsFilter_FindingCriteriaProperty struct {
 	// Specifies a condition that defines the property, operator, and value to use to filter the results.
-	Criterion interface{} `json:"criterion" yaml:"criterion"`
+	Criterion interface{} `field:"optional" json:"criterion" yaml:"criterion"`
 }
 
 // Specifies the unique identifier and custom name of a findings filter.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import macie "github.com/aws/aws-cdk-go/awscdk/aws_macie"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   findingsFilterListItemProperty := &findingsFilterListItemProperty{
 //   	id: jsii.String("id"),
 //   	name: jsii.String("name"),
@@ -1650,17 +1665,20 @@ type CfnFindingsFilter_FindingCriteriaProperty struct {
 //
 type CfnFindingsFilter_FindingsFilterListItemProperty struct {
 	// The unique identifier for the filter.
-	Id *string `json:"id" yaml:"id"`
+	Id *string `field:"optional" json:"id" yaml:"id"`
 	// The custom name of the filter.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 
 // Properties for defining a `CfnFindingsFilter`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import macie "github.com/aws/aws-cdk-go/awscdk/aws_macie"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var criterion interface{}
+//
 //   cfnFindingsFilterProps := &cfnFindingsFilterProps{
 //   	findingCriteria: &findingCriteriaProperty{
 //   		criterion: criterion,
@@ -1675,26 +1693,26 @@ type CfnFindingsFilter_FindingsFilterListItemProperty struct {
 //
 type CfnFindingsFilterProps struct {
 	// The criteria to use to filter findings.
-	FindingCriteria interface{} `json:"findingCriteria" yaml:"findingCriteria"`
+	FindingCriteria interface{} `field:"required" json:"findingCriteria" yaml:"findingCriteria"`
 	// A custom name for the filter.
 	//
 	// The name must contain at least 3 characters and can contain as many as 64 characters.
 	//
 	// We strongly recommend that you avoid including any sensitive data in the name of a filter. Other users might be able to see the filter's name, depending on the actions that they're allowed to perform in Amazon Macie .
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The action to perform on findings that meet the filter criteria ( `FindingCriteria` ). Valid values are:.
 	//
 	// - ARCHIVE - Suppress (automatically archive) the findings.
 	// - NOOP - Don't perform any action on the findings.
-	Action *string `json:"action" yaml:"action"`
+	Action *string `field:"optional" json:"action" yaml:"action"`
 	// A custom description of the filter. The description can contain as many as 512 characters.
 	//
 	// We strongly recommend that you avoid including any sensitive data in the description of a filter. Other users might be able to see the filter's description, depending on the actions that they're allowed to perform in Amazon Macie .
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The position of the filter in the list of saved filters on the Amazon Macie console.
 	//
 	// This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
-	Position *float64 `json:"position" yaml:"position"`
+	Position *float64 `field:"optional" json:"position" yaml:"position"`
 }
 
 // A CloudFormation `AWS::Macie::Session`.
@@ -1704,8 +1722,11 @@ type CfnFindingsFilterProps struct {
 // You must create a `Session` for an account before you can create an `AWS::Macie::FindingsFilter` or `AWS::Macie::CustomDataIdentifier` resource. Use a [DependsOn attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) to ensure that the `Session` is created before the other resources. For example, `"DependsOn: Session"` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import macie "github.com/aws/aws-cdk-go/awscdk/aws_macie"
-//   cfnSession := macie.NewCfnSession(this, jsii.String("MyCfnSession"), &cfnSessionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnSession := awscdk.Aws_macie.NewCfnSession(this, jsii.String("MyCfnSession"), &cfnSessionProps{
 //   	findingPublishingFrequency: jsii.String("findingPublishingFrequency"),
 //   	status: jsii.String("status"),
 //   })
@@ -2392,7 +2413,10 @@ func (c *jsiiProxy_CfnSession) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnSession`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import macie "github.com/aws/aws-cdk-go/awscdk/aws_macie"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnSessionProps := &cfnSessionProps{
 //   	findingPublishingFrequency: jsii.String("findingPublishingFrequency"),
 //   	status: jsii.String("status"),
@@ -2406,10 +2430,10 @@ type CfnSessionProps struct {
 	// - FIFTEEN_MINUTES
 	// - ONE_HOUR
 	// - SIX_HOURS.
-	FindingPublishingFrequency *string `json:"findingPublishingFrequency" yaml:"findingPublishingFrequency"`
+	FindingPublishingFrequency *string `field:"optional" json:"findingPublishingFrequency" yaml:"findingPublishingFrequency"`
 	// The `MacieStatus` of the `Session` .
 	//
 	// Valid values include `ENABLED` and `PAUSED` .
-	Status *string `json:"status" yaml:"status"`
+	Status *string `field:"optional" json:"status" yaml:"status"`
 }
 

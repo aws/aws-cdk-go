@@ -16,8 +16,11 @@ import (
 // After you create an app monitor, sign in to the CloudWatch RUM console to get the JavaScript code snippet to add to your web application. For more information, see [How do I find a code snippet that I've already generated?](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-find-code-snippet.html)
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import rum "github.com/aws/aws-cdk-go/awscdk/aws_rum"
-//   cfnAppMonitor := rum.NewCfnAppMonitor(this, jsii.String("MyCfnAppMonitor"), &cfnAppMonitorProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnAppMonitor := awscdk.Aws_rum.NewCfnAppMonitor(this, jsii.String("MyCfnAppMonitor"), &cfnAppMonitorProps{
 //   	domain: jsii.String("domain"),
 //   	name: jsii.String("name"),
 //
@@ -774,7 +777,10 @@ func (c *jsiiProxy_CfnAppMonitor) ValidateProperties(_properties interface{}) {
 // This structure contains much of the configuration data for the app monitor.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import rum "github.com/aws/aws-cdk-go/awscdk/aws_rum"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   appMonitorConfigurationProperty := &appMonitorConfigurationProperty{
 //   	allowCookies: jsii.Boolean(false),
 //   	enableXRay: jsii.Boolean(false),
@@ -799,25 +805,25 @@ type CfnAppMonitor_AppMonitorConfigurationProperty struct {
 	// If you set this to `true` , the CloudWatch RUM web client sets two cookies, a session cookie and a user cookie.
 	//
 	// The cookies allow the CloudWatch RUM web client to collect data relating to the number of users an application has and the behavior of the application across a sequence of events. Cookies are stored in the top-level domain of the current page.
-	AllowCookies interface{} `json:"allowCookies" yaml:"allowCookies"`
+	AllowCookies interface{} `field:"optional" json:"allowCookies" yaml:"allowCookies"`
 	// If you set this to `true` , CloudWatch RUM sends client-side traces to X-Ray for each sampled session.
 	//
 	// You can then see traces and segments from these user sessions in the RUM dashboard and the CloudWatch ServiceLens console. For more information, see [What is AWS X-Ray ?](https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html)
-	EnableXRay interface{} `json:"enableXRay" yaml:"enableXRay"`
+	EnableXRay interface{} `field:"optional" json:"enableXRay" yaml:"enableXRay"`
 	// A list of URLs in your website or application to exclude from RUM data collection.
 	//
 	// You can't include both `ExcludedPages` and `IncludedPages` in the same app monitor.
-	ExcludedPages *[]*string `json:"excludedPages" yaml:"excludedPages"`
+	ExcludedPages *[]*string `field:"optional" json:"excludedPages" yaml:"excludedPages"`
 	// A list of pages in your application that are to be displayed with a "favorite" icon in the CloudWatch RUM console.
-	FavoritePages *[]*string `json:"favoritePages" yaml:"favoritePages"`
+	FavoritePages *[]*string `field:"optional" json:"favoritePages" yaml:"favoritePages"`
 	// The ARN of the guest IAM role that is attached to the Amazon Cognito identity pool that is used to authorize the sending of data to CloudWatch RUM.
-	GuestRoleArn *string `json:"guestRoleArn" yaml:"guestRoleArn"`
+	GuestRoleArn *string `field:"optional" json:"guestRoleArn" yaml:"guestRoleArn"`
 	// The ID of the Amazon Cognito identity pool that is used to authorize the sending of data to CloudWatch RUM.
-	IdentityPoolId *string `json:"identityPoolId" yaml:"identityPoolId"`
+	IdentityPoolId *string `field:"optional" json:"identityPoolId" yaml:"identityPoolId"`
 	// If this app monitor is to collect data from only certain pages in your application, this structure lists those pages.
 	//
 	// You can't include both `ExcludedPages` and `IncludedPages` in the same app monitor.
-	IncludedPages *[]*string `json:"includedPages" yaml:"includedPages"`
+	IncludedPages *[]*string `field:"optional" json:"includedPages" yaml:"includedPages"`
 	// Specifies the portion of user sessions to use for CloudWatch RUM data collection.
 	//
 	// Choosing a higher portion gives you more data but also incurs more costs.
@@ -825,19 +831,22 @@ type CfnAppMonitor_AppMonitorConfigurationProperty struct {
 	// The range for this value is 0 to 1 inclusive. Setting this to 1 means that 100% of user sessions are sampled, and setting it to 0.1 means that 10% of user sessions are sampled.
 	//
 	// If you omit this parameter, the default of 0.1 is used, and 10% of sessions will be sampled.
-	SessionSampleRate *float64 `json:"sessionSampleRate" yaml:"sessionSampleRate"`
+	SessionSampleRate *float64 `field:"optional" json:"sessionSampleRate" yaml:"sessionSampleRate"`
 	// An array that lists the types of telemetry data that this app monitor is to collect.
 	//
 	// - `errors` indicates that RUM collects data about unhandled JavaScript errors raised by your application.
 	// - `performance` indicates that RUM collects performance data about how your application and its resources are loaded and rendered. This includes Core Web Vitals.
 	// - `http` indicates that RUM collects data about HTTP errors thrown by your application.
-	Telemetries *[]*string `json:"telemetries" yaml:"telemetries"`
+	Telemetries *[]*string `field:"optional" json:"telemetries" yaml:"telemetries"`
 }
 
 // Properties for defining a `CfnAppMonitor`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import rum "github.com/aws/aws-cdk-go/awscdk/aws_rum"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAppMonitorProps := &cfnAppMonitorProps{
 //   	domain: jsii.String("domain"),
 //   	name: jsii.String("name"),
@@ -875,23 +884,23 @@ type CfnAppMonitorProps struct {
 	// The top-level internet domain name for which your application has administrative authority.
 	//
 	// This parameter is required.
-	Domain *string `json:"domain" yaml:"domain"`
+	Domain *string `field:"required" json:"domain" yaml:"domain"`
 	// A name for the app monitor.
 	//
 	// This parameter is required.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// A structure that contains much of the configuration data for the app monitor.
 	//
 	// If you are using Amazon Cognito for authorization, you must include this structure in your request, and it must include the ID of the Amazon Cognito identity pool to use for authorization. If you don't include `AppMonitorConfiguration` , you must set up your own authorization method. For more information, see [Authorize your application to send data to AWS](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-get-started-authorization.html) .
 	//
 	// If you omit this argument, the sample rate used for CloudWatch RUM is set to 10% of the user sessions.
-	AppMonitorConfiguration interface{} `json:"appMonitorConfiguration" yaml:"appMonitorConfiguration"`
+	AppMonitorConfiguration interface{} `field:"optional" json:"appMonitorConfiguration" yaml:"appMonitorConfiguration"`
 	// Data collected by CloudWatch RUM is kept by RUM for 30 days and then deleted.
 	//
 	// This parameter specifies whether CloudWatch RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges.
 	//
 	// If you omit this parameter, the default is `false` .
-	CwLogEnabled interface{} `json:"cwLogEnabled" yaml:"cwLogEnabled"`
+	CwLogEnabled interface{} `field:"optional" json:"cwLogEnabled" yaml:"cwLogEnabled"`
 	// Assigns one or more tags (key-value pairs) to the app monitor.
 	//
 	// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
@@ -901,6 +910,6 @@ type CfnAppMonitorProps struct {
 	// You can associate as many as 50 tags with an app monitor.
 	//
 	// For more information, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

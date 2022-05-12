@@ -16,6 +16,7 @@ import (
 //   var alb applicationLoadBalancer
 //   var listener listener
 //
+//
 //   listener.addEndpointGroup(jsii.String("Group"), &endpointGroupOptions{
 //   	endpoints: []iEndpoint{
 //   		ga_endpoints.NewApplicationLoadBalancerEndpoint(alb, &applicationLoadBalancerEndpointOptions{
@@ -99,6 +100,7 @@ func (a *jsiiProxy_ApplicationLoadBalancerEndpoint) RenderEndpointConfiguration(
 //   var alb applicationLoadBalancer
 //   var listener listener
 //
+//
 //   listener.addEndpointGroup(jsii.String("Group"), &endpointGroupOptions{
 //   	endpoints: []iEndpoint{
 //   		ga_endpoints.NewApplicationLoadBalancerEndpoint(alb, &applicationLoadBalancerEndpointOptions{
@@ -118,12 +120,12 @@ type ApplicationLoadBalancerEndpointOptions struct {
 	// Client IP address preservation is supported only in specific AWS Regions.
 	// See the GlobalAccelerator Developer Guide for a list.
 	// Experimental.
-	PreserveClientIp *bool `json:"preserveClientIp" yaml:"preserveClientIp"`
+	PreserveClientIp *bool `field:"optional" json:"preserveClientIp" yaml:"preserveClientIp"`
 	// Endpoint weight across all endpoints in the group.
 	//
 	// Must be a value between 0 and 255.
 	// Experimental.
-	Weight *float64 `json:"weight" yaml:"weight"`
+	Weight *float64 `field:"optional" json:"weight" yaml:"weight"`
 }
 
 // Use an EC2 Instance as a Global Accelerator Endpoint.
@@ -131,6 +133,7 @@ type ApplicationLoadBalancerEndpointOptions struct {
 // Example:
 //   var listener listener
 //   var eip cfnEIP
+//
 //
 //   listener.addEndpointGroup(jsii.String("Group"), &endpointGroupOptions{
 //   	endpoints: []iEndpoint{
@@ -214,6 +217,7 @@ func (c *jsiiProxy_CfnEipEndpoint) RenderEndpointConfiguration() interface{} {
 //   var listener listener
 //   var eip cfnEIP
 //
+//
 //   listener.addEndpointGroup(jsii.String("Group"), &endpointGroupOptions{
 //   	endpoints: []iEndpoint{
 //   		ga_endpoints.NewCfnEipEndpoint(eip, &cfnEipEndpointProps{
@@ -228,7 +232,7 @@ type CfnEipEndpointProps struct {
 	//
 	// Must be a value between 0 and 255.
 	// Experimental.
-	Weight *float64 `json:"weight" yaml:"weight"`
+	Weight *float64 `field:"optional" json:"weight" yaml:"weight"`
 }
 
 // Use an EC2 Instance as a Global Accelerator Endpoint.
@@ -236,6 +240,7 @@ type CfnEipEndpointProps struct {
 // Example:
 //   var listener listener
 //   var instance instance
+//
 //
 //   listener.addEndpointGroup(jsii.String("Group"), &endpointGroupOptions{
 //   	endpoints: []iEndpoint{
@@ -320,6 +325,7 @@ func (i *jsiiProxy_InstanceEndpoint) RenderEndpointConfiguration() interface{} {
 //   var listener listener
 //   var instance instance
 //
+//
 //   listener.addEndpointGroup(jsii.String("Group"), &endpointGroupOptions{
 //   	endpoints: []iEndpoint{
 //   		ga_endpoints.NewInstanceEndpoint(instance, &instanceEndpointProps{
@@ -339,12 +345,12 @@ type InstanceEndpointProps struct {
 	// Client IP address preservation is supported only in specific AWS Regions.
 	// See the GlobalAccelerator Developer Guide for a list.
 	// Experimental.
-	PreserveClientIp *bool `json:"preserveClientIp" yaml:"preserveClientIp"`
+	PreserveClientIp *bool `field:"optional" json:"preserveClientIp" yaml:"preserveClientIp"`
 	// Endpoint weight across all endpoints in the group.
 	//
 	// Must be a value between 0 and 255.
 	// Experimental.
-	Weight *float64 `json:"weight" yaml:"weight"`
+	Weight *float64 `field:"optional" json:"weight" yaml:"weight"`
 }
 
 // Use a Network Load Balancer as a Global Accelerator Endpoint.
@@ -462,6 +468,7 @@ func (n *jsiiProxy_NetworkLoadBalancerEndpoint) RenderEndpointConfiguration() in
 //   var nlb networkLoadBalancer
 //   var listener listener
 //
+//
 //   listener.addEndpointGroup(jsii.String("Group"), &endpointGroupOptions{
 //   	endpoints: []iEndpoint{
 //   		ga_endpoints.NewNetworkLoadBalancerEndpoint(nlb, &networkLoadBalancerEndpointProps{
@@ -476,6 +483,6 @@ type NetworkLoadBalancerEndpointProps struct {
 	//
 	// Must be a value between 0 and 255.
 	// Experimental.
-	Weight *float64 `json:"weight" yaml:"weight"`
+	Weight *float64 `field:"optional" json:"weight" yaml:"weight"`
 }
 

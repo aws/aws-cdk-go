@@ -14,10 +14,13 @@ import (
 // Use the `AWS::XRay::Group` resource to specify a group with a name and a filter expression.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import xray "github.com/aws/aws-cdk-go/awscdk/aws_xray"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var tags interface{}
-//   cfnGroup := xray.NewCfnGroup(this, jsii.String("MyCfnGroup"), &cfnGroupProps{
+//
+//   cfnGroup := awscdk.Aws_xray.NewCfnGroup(this, jsii.String("MyCfnGroup"), &cfnGroupProps{
 //   	filterExpression: jsii.String("filterExpression"),
 //   	groupName: jsii.String("groupName"),
 //   	insightsConfiguration: &insightsConfigurationProperty{
@@ -738,7 +741,10 @@ func (c *jsiiProxy_CfnGroup) ValidateProperties(_properties interface{}) {
 // The structure containing configurations related to insights.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import xray "github.com/aws/aws-cdk-go/awscdk/aws_xray"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   insightsConfigurationProperty := &insightsConfigurationProperty{
 //   	insightsEnabled: jsii.Boolean(false),
 //   	notificationsEnabled: jsii.Boolean(false),
@@ -746,19 +752,22 @@ func (c *jsiiProxy_CfnGroup) ValidateProperties(_properties interface{}) {
 //
 type CfnGroup_InsightsConfigurationProperty struct {
 	// Set the InsightsEnabled value to true to enable insights or false to disable insights.
-	InsightsEnabled interface{} `json:"insightsEnabled" yaml:"insightsEnabled"`
+	InsightsEnabled interface{} `field:"optional" json:"insightsEnabled" yaml:"insightsEnabled"`
 	// Set the NotificationsEnabled value to true to enable insights notifications.
 	//
 	// Notifications can only be enabled on a group with InsightsEnabled set to true.
-	NotificationsEnabled interface{} `json:"notificationsEnabled" yaml:"notificationsEnabled"`
+	NotificationsEnabled interface{} `field:"optional" json:"notificationsEnabled" yaml:"notificationsEnabled"`
 }
 
 // Properties for defining a `CfnGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import xray "github.com/aws/aws-cdk-go/awscdk/aws_xray"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var tags interface{}
+//
 //   cfnGroupProps := &cfnGroupProps{
 //   	filterExpression: jsii.String("filterExpression"),
 //   	groupName: jsii.String("groupName"),
@@ -773,18 +782,18 @@ type CfnGroup_InsightsConfigurationProperty struct {
 //
 type CfnGroupProps struct {
 	// The filter expression defining the parameters to include traces.
-	FilterExpression *string `json:"filterExpression" yaml:"filterExpression"`
+	FilterExpression *string `field:"optional" json:"filterExpression" yaml:"filterExpression"`
 	// The unique case-sensitive name of the group.
-	GroupName *string `json:"groupName" yaml:"groupName"`
+	GroupName *string `field:"optional" json:"groupName" yaml:"groupName"`
 	// The structure containing configurations related to insights.
 	//
 	// - The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.
 	// - The NotificationsEnabled boolean can be set to true to enable insights notifications through Amazon EventBridge for the group.
-	InsightsConfiguration interface{} `json:"insightsConfiguration" yaml:"insightsConfiguration"`
+	InsightsConfiguration interface{} `field:"optional" json:"insightsConfiguration" yaml:"insightsConfiguration"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]interface{} `json:"tags" yaml:"tags"`
+	Tags *[]interface{} `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::XRay::SamplingRule`.
@@ -794,10 +803,13 @@ type CfnGroupProps struct {
 // Services retrieve rules with [GetSamplingRules](https://docs.aws.amazon.com//xray/latest/api/API_GetSamplingRules.html) , and evaluate each rule in ascending order of *priority* for each request. If a rule matches, the service records a trace, borrowing it from the reservoir size. After 10 seconds, the service reports back to X-Ray with [GetSamplingTargets](https://docs.aws.amazon.com//xray/latest/api/API_GetSamplingTargets.html) to get updated versions of each in-use rule. The updated rule contains a trace quota that the service can use instead of borrowing from the reservoir.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import xray "github.com/aws/aws-cdk-go/awscdk/aws_xray"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var tags interface{}
-//   cfnSamplingRule := xray.NewCfnSamplingRule(this, jsii.String("MyCfnSamplingRule"), &cfnSamplingRuleProps{
+//
+//   cfnSamplingRule := awscdk.Aws_xray.NewCfnSamplingRule(this, jsii.String("MyCfnSamplingRule"), &cfnSamplingRuleProps{
 //   	ruleName: jsii.String("ruleName"),
 //   	samplingRule: &samplingRuleProperty{
 //   		attributes: map[string]*string{
@@ -1595,7 +1607,10 @@ func (c *jsiiProxy_CfnSamplingRule) ValidateProperties(_properties interface{}) 
 // Rule fields can match properties of the service, or properties of a request. The service can ignore rules that don't match its properties.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import xray "github.com/aws/aws-cdk-go/awscdk/aws_xray"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   samplingRuleProperty := &samplingRuleProperty{
 //   	attributes: map[string]*string{
 //   		"attributesKey": jsii.String("attributes"),
@@ -1622,43 +1637,46 @@ type CfnSamplingRule_SamplingRuleProperty struct {
 	// *Key Length Constraints:* Minimum length of 1. Maximum length of 32.
 	//
 	// *Value Length Constraints:* Minimum length of 1. Maximum length of 32.
-	Attributes interface{} `json:"attributes" yaml:"attributes"`
+	Attributes interface{} `field:"optional" json:"attributes" yaml:"attributes"`
 	// The percentage of matching requests to instrument, after the reservoir is exhausted.
-	FixedRate *float64 `json:"fixedRate" yaml:"fixedRate"`
+	FixedRate *float64 `field:"optional" json:"fixedRate" yaml:"fixedRate"`
 	// Matches the hostname from a request URL.
-	Host *string `json:"host" yaml:"host"`
+	Host *string `field:"optional" json:"host" yaml:"host"`
 	// Matches the HTTP method of a request.
-	HttpMethod *string `json:"httpMethod" yaml:"httpMethod"`
+	HttpMethod *string `field:"optional" json:"httpMethod" yaml:"httpMethod"`
 	// The priority of the sampling rule.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 	// A fixed number of matching requests to instrument per second, prior to applying the fixed rate.
 	//
 	// The reservoir is not used directly by services, but applies to all services using the rule collectively.
-	ReservoirSize *float64 `json:"reservoirSize" yaml:"reservoirSize"`
+	ReservoirSize *float64 `field:"optional" json:"reservoirSize" yaml:"reservoirSize"`
 	// Matches the ARN of the AWS resource on which the service runs.
-	ResourceArn *string `json:"resourceArn" yaml:"resourceArn"`
+	ResourceArn *string `field:"optional" json:"resourceArn" yaml:"resourceArn"`
 	// The ARN of the sampling rule.
 	//
 	// You must specify either RuleARN or RuleName, but not both.
-	RuleArn *string `json:"ruleArn" yaml:"ruleArn"`
+	RuleArn *string `field:"optional" json:"ruleArn" yaml:"ruleArn"`
 	// The name of the sampling rule.
 	//
 	// You must specify either RuleARN or RuleName, but not both.
-	RuleName *string `json:"ruleName" yaml:"ruleName"`
+	RuleName *string `field:"optional" json:"ruleName" yaml:"ruleName"`
 	// Matches the `name` that the service uses to identify itself in segments.
-	ServiceName *string `json:"serviceName" yaml:"serviceName"`
+	ServiceName *string `field:"optional" json:"serviceName" yaml:"serviceName"`
 	// Matches the `origin` that the service uses to identify its type in segments.
-	ServiceType *string `json:"serviceType" yaml:"serviceType"`
+	ServiceType *string `field:"optional" json:"serviceType" yaml:"serviceType"`
 	// Matches the path from a request URL.
-	UrlPath *string `json:"urlPath" yaml:"urlPath"`
+	UrlPath *string `field:"optional" json:"urlPath" yaml:"urlPath"`
 	// The version of the sampling rule format ( `1` ).
-	Version *float64 `json:"version" yaml:"version"`
+	Version *float64 `field:"optional" json:"version" yaml:"version"`
 }
 
 // A [SamplingRule](https://docs.aws.amazon.com//xray/latest/api/API_SamplingRule.html) and its metadata.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import xray "github.com/aws/aws-cdk-go/awscdk/aws_xray"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   samplingRuleRecordProperty := &samplingRuleRecordProperty{
 //   	createdAt: jsii.String("createdAt"),
 //   	modifiedAt: jsii.String("modifiedAt"),
@@ -1683,17 +1701,20 @@ type CfnSamplingRule_SamplingRuleProperty struct {
 //
 type CfnSamplingRule_SamplingRuleRecordProperty struct {
 	// When the rule was created, in Unix time seconds.
-	CreatedAt *string `json:"createdAt" yaml:"createdAt"`
+	CreatedAt *string `field:"optional" json:"createdAt" yaml:"createdAt"`
 	// When the rule was last modified, in Unix time seconds.
-	ModifiedAt *string `json:"modifiedAt" yaml:"modifiedAt"`
+	ModifiedAt *string `field:"optional" json:"modifiedAt" yaml:"modifiedAt"`
 	// The sampling rule.
-	SamplingRule interface{} `json:"samplingRule" yaml:"samplingRule"`
+	SamplingRule interface{} `field:"optional" json:"samplingRule" yaml:"samplingRule"`
 }
 
 // A document specifying changes to a sampling rule's configuration.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import xray "github.com/aws/aws-cdk-go/awscdk/aws_xray"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   samplingRuleUpdateProperty := &samplingRuleUpdateProperty{
 //   	attributes: map[string]*string{
 //   		"attributesKey": jsii.String("attributes"),
@@ -1719,43 +1740,46 @@ type CfnSamplingRule_SamplingRuleUpdateProperty struct {
 	// *Key Length Constraints:* Minimum length of 1. Maximum length of 32.
 	//
 	// *Value Length Constraints:* Minimum length of 1. Maximum length of 32.
-	Attributes interface{} `json:"attributes" yaml:"attributes"`
+	Attributes interface{} `field:"optional" json:"attributes" yaml:"attributes"`
 	// The percentage of matching requests to instrument, after the reservoir is exhausted.
-	FixedRate *float64 `json:"fixedRate" yaml:"fixedRate"`
+	FixedRate *float64 `field:"optional" json:"fixedRate" yaml:"fixedRate"`
 	// Matches the hostname from a request URL.
-	Host *string `json:"host" yaml:"host"`
+	Host *string `field:"optional" json:"host" yaml:"host"`
 	// Matches the HTTP method of a request.
-	HttpMethod *string `json:"httpMethod" yaml:"httpMethod"`
+	HttpMethod *string `field:"optional" json:"httpMethod" yaml:"httpMethod"`
 	// The priority of the sampling rule.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 	// A fixed number of matching requests to instrument per second, prior to applying the fixed rate.
 	//
 	// The reservoir is not used directly by services, but applies to all services using the rule collectively.
-	ReservoirSize *float64 `json:"reservoirSize" yaml:"reservoirSize"`
+	ReservoirSize *float64 `field:"optional" json:"reservoirSize" yaml:"reservoirSize"`
 	// Matches the ARN of the AWS resource on which the service runs.
-	ResourceArn *string `json:"resourceArn" yaml:"resourceArn"`
+	ResourceArn *string `field:"optional" json:"resourceArn" yaml:"resourceArn"`
 	// The ARN of the sampling rule.
 	//
 	// You must specify either RuleARN or RuleName, but not both.
-	RuleArn *string `json:"ruleArn" yaml:"ruleArn"`
+	RuleArn *string `field:"optional" json:"ruleArn" yaml:"ruleArn"`
 	// The name of the sampling rule.
 	//
 	// You must specify either RuleARN or RuleName, but not both.
-	RuleName *string `json:"ruleName" yaml:"ruleName"`
+	RuleName *string `field:"optional" json:"ruleName" yaml:"ruleName"`
 	// Matches the `name` that the service uses to identify itself in segments.
-	ServiceName *string `json:"serviceName" yaml:"serviceName"`
+	ServiceName *string `field:"optional" json:"serviceName" yaml:"serviceName"`
 	// Matches the `origin` that the service uses to identify its type in segments.
-	ServiceType *string `json:"serviceType" yaml:"serviceType"`
+	ServiceType *string `field:"optional" json:"serviceType" yaml:"serviceType"`
 	// Matches the path from a request URL.
-	UrlPath *string `json:"urlPath" yaml:"urlPath"`
+	UrlPath *string `field:"optional" json:"urlPath" yaml:"urlPath"`
 }
 
 // Properties for defining a `CfnSamplingRule`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import xray "github.com/aws/aws-cdk-go/awscdk/aws_xray"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var tags interface{}
+//
 //   cfnSamplingRuleProps := &cfnSamplingRuleProps{
 //   	ruleName: jsii.String("ruleName"),
 //   	samplingRule: &samplingRuleProperty{
@@ -1821,22 +1845,22 @@ type CfnSamplingRuleProps struct {
 	// The name of the sampling rule.
 	//
 	// Specify a rule by either name or ARN, but not both. Used only when deleting a sampling rule. When creating or updating a sampling rule, use the `RuleName` or `RuleARN` properties within `SamplingRule` or `SamplingRuleUpdate` .
-	RuleName *string `json:"ruleName" yaml:"ruleName"`
+	RuleName *string `field:"optional" json:"ruleName" yaml:"ruleName"`
 	// The sampling rule to be created.
 	//
 	// Must be provided if creating a new sampling rule. Not valid when updating an existing sampling rule.
-	SamplingRule interface{} `json:"samplingRule" yaml:"samplingRule"`
+	SamplingRule interface{} `field:"optional" json:"samplingRule" yaml:"samplingRule"`
 	// `AWS::XRay::SamplingRule.SamplingRuleRecord`.
-	SamplingRuleRecord interface{} `json:"samplingRuleRecord" yaml:"samplingRuleRecord"`
+	SamplingRuleRecord interface{} `field:"optional" json:"samplingRuleRecord" yaml:"samplingRuleRecord"`
 	// A document specifying changes to a sampling rule's configuration.
 	//
 	// Must be provided if updating an existing sampling rule. Not valid when creating a new sampling rule.
 	//
 	// > The `Version` of a sampling rule cannot be updated, and is not part of `SamplingRuleUpdate` .
-	SamplingRuleUpdate interface{} `json:"samplingRuleUpdate" yaml:"samplingRuleUpdate"`
+	SamplingRuleUpdate interface{} `field:"optional" json:"samplingRuleUpdate" yaml:"samplingRuleUpdate"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]interface{} `json:"tags" yaml:"tags"`
+	Tags *[]interface{} `field:"optional" json:"tags" yaml:"tags"`
 }
 

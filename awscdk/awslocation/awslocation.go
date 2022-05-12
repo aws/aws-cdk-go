@@ -14,8 +14,11 @@ import (
 // The `AWS::Location::GeofenceCollection` resource specifies the ability to detect and act when a tracked device enters or exits a defined geographical boundary known as a geofence.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import location "github.com/aws/aws-cdk-go/awscdk/aws_location"
-//   cfnGeofenceCollection := location.NewCfnGeofenceCollection(this, jsii.String("MyCfnGeofenceCollection"), &cfnGeofenceCollectionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnGeofenceCollection := awscdk.Aws_location.NewCfnGeofenceCollection(this, jsii.String("MyCfnGeofenceCollection"), &cfnGeofenceCollectionProps{
 //   	collectionName: jsii.String("collectionName"),
 //
 //   	// the properties below are optional
@@ -796,7 +799,10 @@ func (c *jsiiProxy_CfnGeofenceCollection) ValidateProperties(_properties interfa
 // Properties for defining a `CfnGeofenceCollection`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import location "github.com/aws/aws-cdk-go/awscdk/aws_location"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnGeofenceCollectionProps := &cfnGeofenceCollectionProps{
 //   	collectionName: jsii.String("collectionName"),
 //
@@ -809,17 +815,17 @@ func (c *jsiiProxy_CfnGeofenceCollection) ValidateProperties(_properties interfa
 //
 type CfnGeofenceCollectionProps struct {
 	// The name for the geofence collection.
-	CollectionName *string `json:"collectionName" yaml:"collectionName"`
+	CollectionName *string `field:"required" json:"collectionName" yaml:"collectionName"`
 	// An optional description for the geofence collection.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// A key identifier for an [AWS KMS customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) . Enter a key ID, key ARN, alias name, or alias ARN.
-	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// No longer used. If included, the only allowed value is `RequestBasedUsage` .
 	//
 	// *Allowed Values* : `RequestBasedUsage`.
-	PricingPlan *string `json:"pricingPlan" yaml:"pricingPlan"`
+	PricingPlan *string `field:"optional" json:"pricingPlan" yaml:"pricingPlan"`
 	// This parameter is no longer used.
-	PricingPlanDataSource *string `json:"pricingPlanDataSource" yaml:"pricingPlanDataSource"`
+	PricingPlanDataSource *string `field:"optional" json:"pricingPlanDataSource" yaml:"pricingPlanDataSource"`
 }
 
 // A CloudFormation `AWS::Location::Map`.
@@ -827,8 +833,11 @@ type CfnGeofenceCollectionProps struct {
 // The `AWS::Location::Map` resource specifies a map resource in your AWS account, which provides map tiles of different styles sourced from global location data providers.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import location "github.com/aws/aws-cdk-go/awscdk/aws_location"
-//   cfnMap := location.NewCfnMap(this, jsii.String("MyCfnMap"), &cfnMapProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnMap := awscdk.Aws_location.NewCfnMap(this, jsii.String("MyCfnMap"), &cfnMapProps{
 //   	configuration: &mapConfigurationProperty{
 //   		style: jsii.String("style"),
 //   	},
@@ -1605,7 +1614,10 @@ func (c *jsiiProxy_CfnMap) ValidateProperties(_properties interface{}) {
 // Specifies the map tile style selected from an available provider.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import location "github.com/aws/aws-cdk-go/awscdk/aws_location"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   mapConfigurationProperty := &mapConfigurationProperty{
 //   	style: jsii.String("style"),
 //   }
@@ -1627,13 +1639,16 @@ type CfnMap_MapConfigurationProperty struct {
 	// - `VectorHereBerlin` – The HERE Berlin map style is a high contrast detailed base map of the world that blends 3D and 2D rendering.
 	// - `VectorHereExplore` – A default HERE map style containing a neutral, global map and its features including roads, buildings, landmarks, and water features. It also now includes a fully designed map of Japan.
 	// - `VectorHereExploreTruck` – A global map containing truck restrictions and attributes (e.g. width / height / HAZMAT) symbolized with highlighted segments and icons on top of HERE Explore to support use cases within transport and logistics.
-	Style *string `json:"style" yaml:"style"`
+	Style *string `field:"required" json:"style" yaml:"style"`
 }
 
 // Properties for defining a `CfnMap`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import location "github.com/aws/aws-cdk-go/awscdk/aws_location"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnMapProps := &cfnMapProps{
 //   	configuration: &mapConfigurationProperty{
 //   		style: jsii.String("style"),
@@ -1647,7 +1662,7 @@ type CfnMap_MapConfigurationProperty struct {
 //
 type CfnMapProps struct {
 	// Specifies the map style selected from an available data provider.
-	Configuration interface{} `json:"configuration" yaml:"configuration"`
+	Configuration interface{} `field:"required" json:"configuration" yaml:"configuration"`
 	// The name for the map resource.
 	//
 	// Requirements:
@@ -1655,13 +1670,13 @@ type CfnMapProps struct {
 	// - Must contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
 	// - Must be a unique map resource name.
 	// - No spaces allowed. For example, `ExampleMap` .
-	MapName *string `json:"mapName" yaml:"mapName"`
+	MapName *string `field:"required" json:"mapName" yaml:"mapName"`
 	// An optional description for the map resource.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// No longer used. If included, the only allowed value is `RequestBasedUsage` .
 	//
 	// *Allowed Values* : `RequestBasedUsage`.
-	PricingPlan *string `json:"pricingPlan" yaml:"pricingPlan"`
+	PricingPlan *string `field:"optional" json:"pricingPlan" yaml:"pricingPlan"`
 }
 
 // A CloudFormation `AWS::Location::PlaceIndex`.
@@ -1669,8 +1684,11 @@ type CfnMapProps struct {
 // The `AWS::Location::PlaceIndex` resource specifies a place index resource in your AWS account, which supports Places functions with geospatial data sourced from your chosen data provider.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import location "github.com/aws/aws-cdk-go/awscdk/aws_location"
-//   cfnPlaceIndex := location.NewCfnPlaceIndex(this, jsii.String("MyCfnPlaceIndex"), &cfnPlaceIndexProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnPlaceIndex := awscdk.Aws_location.NewCfnPlaceIndex(this, jsii.String("MyCfnPlaceIndex"), &cfnPlaceIndexProps{
 //   	dataSource: jsii.String("dataSource"),
 //   	indexName: jsii.String("indexName"),
 //
@@ -2468,7 +2486,10 @@ func (c *jsiiProxy_CfnPlaceIndex) ValidateProperties(_properties interface{}) {
 // Specifies the data storage option for requesting Places.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import location "github.com/aws/aws-cdk-go/awscdk/aws_location"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dataSourceConfigurationProperty := &dataSourceConfigurationProperty{
 //   	intendedUse: jsii.String("intendedUse"),
 //   }
@@ -2484,13 +2505,16 @@ type CfnPlaceIndex_DataSourceConfigurationProperty struct {
 	// > Place index resources using HERE as a data provider can't be configured to store results for locations in Japan when choosing `Storage` for the `IntendedUse` parameter.
 	//
 	// Default value: `SingleUse`.
-	IntendedUse *string `json:"intendedUse" yaml:"intendedUse"`
+	IntendedUse *string `field:"optional" json:"intendedUse" yaml:"intendedUse"`
 }
 
 // Properties for defining a `CfnPlaceIndex`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import location "github.com/aws/aws-cdk-go/awscdk/aws_location"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnPlaceIndexProps := &cfnPlaceIndexProps{
 //   	dataSource: jsii.String("dataSource"),
 //   	indexName: jsii.String("indexName"),
@@ -2516,7 +2540,7 @@ type CfnPlaceIndexProps struct {
 	// > Place index resources using HERE as a data provider can't be used to [store](https://docs.aws.amazon.com/location-places/latest/APIReference/API_DataSourceConfiguration.html) results for locations in Japan. For more information, see the [AWS Service Terms](https://docs.aws.amazon.com/service-terms/) for Amazon Location Service.
 	//
 	// For additional details on data providers, see the [Amazon Location Service data providers page](https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html) .
-	DataSource *string `json:"dataSource" yaml:"dataSource"`
+	DataSource *string `field:"required" json:"dataSource" yaml:"dataSource"`
 	// The name of the place index resource.
 	//
 	// Requirements:
@@ -2524,15 +2548,15 @@ type CfnPlaceIndexProps struct {
 	// - Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).
 	// - Must be a unique place index resource name.
 	// - No spaces allowed. For example, `ExamplePlaceIndex` .
-	IndexName *string `json:"indexName" yaml:"indexName"`
+	IndexName *string `field:"required" json:"indexName" yaml:"indexName"`
 	// Specifies the data storage option for requesting Places.
-	DataSourceConfiguration interface{} `json:"dataSourceConfiguration" yaml:"dataSourceConfiguration"`
+	DataSourceConfiguration interface{} `field:"optional" json:"dataSourceConfiguration" yaml:"dataSourceConfiguration"`
 	// The optional description for the place index resource.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// No longer used. If included, the only allowed value is `RequestBasedUsage` .
 	//
 	// *Allowed Values* : `RequestBasedUsage`.
-	PricingPlan *string `json:"pricingPlan" yaml:"pricingPlan"`
+	PricingPlan *string `field:"optional" json:"pricingPlan" yaml:"pricingPlan"`
 }
 
 // A CloudFormation `AWS::Location::RouteCalculator`.
@@ -2542,8 +2566,11 @@ type CfnPlaceIndexProps struct {
 // You can send requests to a route calculator resource to estimate travel time, distance, and get directions. A route calculator sources traffic and road network data from your chosen data provider.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import location "github.com/aws/aws-cdk-go/awscdk/aws_location"
-//   cfnRouteCalculator := location.NewCfnRouteCalculator(this, jsii.String("MyCfnRouteCalculator"), &cfnRouteCalculatorProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnRouteCalculator := awscdk.Aws_location.NewCfnRouteCalculator(this, jsii.String("MyCfnRouteCalculator"), &cfnRouteCalculatorProps{
 //   	calculatorName: jsii.String("calculatorName"),
 //   	dataSource: jsii.String("dataSource"),
 //
@@ -3317,7 +3344,10 @@ func (c *jsiiProxy_CfnRouteCalculator) ValidateProperties(_properties interface{
 // Properties for defining a `CfnRouteCalculator`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import location "github.com/aws/aws-cdk-go/awscdk/aws_location"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnRouteCalculatorProps := &cfnRouteCalculatorProps{
 //   	calculatorName: jsii.String("calculatorName"),
 //   	dataSource: jsii.String("dataSource"),
@@ -3335,7 +3365,7 @@ type CfnRouteCalculatorProps struct {
 	// - Can use alphanumeric characters (A–Z, a–z, 0–9) , hyphens (-), periods (.), and underscores (_).
 	// - Must be a unique route calculator resource name.
 	// - No spaces allowed. For example, `ExampleRouteCalculator` .
-	CalculatorName *string `json:"calculatorName" yaml:"calculatorName"`
+	CalculatorName *string `field:"required" json:"calculatorName" yaml:"calculatorName"`
 	// Specifies the data provider of traffic and road network data.
 	//
 	// > This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error.
@@ -3346,13 +3376,13 @@ type CfnRouteCalculatorProps struct {
 	// - `Here`
 	//
 	// For more information about data providers, see the [Amazon Location Service data providers page](https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html) .
-	DataSource *string `json:"dataSource" yaml:"dataSource"`
+	DataSource *string `field:"required" json:"dataSource" yaml:"dataSource"`
 	// The optional description for the route calculator resource.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// No longer used. If included, the only allowed value is `RequestBasedUsage` .
 	//
 	// *Allowed Values* : `RequestBasedUsage`.
-	PricingPlan *string `json:"pricingPlan" yaml:"pricingPlan"`
+	PricingPlan *string `field:"optional" json:"pricingPlan" yaml:"pricingPlan"`
 }
 
 // A CloudFormation `AWS::Location::Tracker`.
@@ -3360,8 +3390,11 @@ type CfnRouteCalculatorProps struct {
 // The `AWS::Location::Tracker` resource specifies a tracker resource in your AWS account , which lets you receive current and historical location of devices.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import location "github.com/aws/aws-cdk-go/awscdk/aws_location"
-//   cfnTracker := location.NewCfnTracker(this, jsii.String("MyCfnTracker"), &cfnTrackerProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnTracker := awscdk.Aws_location.NewCfnTracker(this, jsii.String("MyCfnTracker"), &cfnTrackerProps{
 //   	trackerName: jsii.String("trackerName"),
 //
 //   	// the properties below are optional
@@ -4182,8 +4215,11 @@ func (c *jsiiProxy_CfnTracker) ValidateProperties(_properties interface{}) {
 // > Currently not supported — Cross-account configurations, such as creating associations between a tracker resource in one account and a geofence collection in another account.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import location "github.com/aws/aws-cdk-go/awscdk/aws_location"
-//   cfnTrackerConsumer := location.NewCfnTrackerConsumer(this, jsii.String("MyCfnTrackerConsumer"), &cfnTrackerConsumerProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnTrackerConsumer := awscdk.Aws_location.NewCfnTrackerConsumer(this, jsii.String("MyCfnTrackerConsumer"), &cfnTrackerConsumerProps{
 //   	consumerArn: jsii.String("consumerArn"),
 //   	trackerName: jsii.String("trackerName"),
 //   })
@@ -4846,7 +4882,10 @@ func (c *jsiiProxy_CfnTrackerConsumer) ValidateProperties(_properties interface{
 // Properties for defining a `CfnTrackerConsumer`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import location "github.com/aws/aws-cdk-go/awscdk/aws_location"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnTrackerConsumerProps := &cfnTrackerConsumerProps{
 //   	consumerArn: jsii.String("consumerArn"),
 //   	trackerName: jsii.String("trackerName"),
@@ -4856,7 +4895,7 @@ type CfnTrackerConsumerProps struct {
 	// The Amazon Resource Name (ARN) for the geofence collection that consumes the tracker resource updates.
 	//
 	// - Format example: `arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer`.
-	ConsumerArn *string `json:"consumerArn" yaml:"consumerArn"`
+	ConsumerArn *string `field:"required" json:"consumerArn" yaml:"consumerArn"`
 	// The name for the tracker resource.
 	//
 	// Requirements:
@@ -4864,13 +4903,16 @@ type CfnTrackerConsumerProps struct {
 	// - Contain only alphanumeric characters (A-Z, a-z, 0-9) , hyphens (-), periods (.), and underscores (_).
 	// - Must be a unique tracker resource name.
 	// - No spaces allowed. For example, `ExampleTracker` .
-	TrackerName *string `json:"trackerName" yaml:"trackerName"`
+	TrackerName *string `field:"required" json:"trackerName" yaml:"trackerName"`
 }
 
 // Properties for defining a `CfnTracker`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import location "github.com/aws/aws-cdk-go/awscdk/aws_location"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnTrackerProps := &cfnTrackerProps{
 //   	trackerName: jsii.String("trackerName"),
 //
@@ -4890,11 +4932,11 @@ type CfnTrackerProps struct {
 	// - Contain only alphanumeric characters (A-Z, a-z, 0-9) , hyphens (-), periods (.), and underscores (_).
 	// - Must be a unique tracker resource name.
 	// - No spaces allowed. For example, `ExampleTracker` .
-	TrackerName *string `json:"trackerName" yaml:"trackerName"`
+	TrackerName *string `field:"required" json:"trackerName" yaml:"trackerName"`
 	// An optional description for the tracker resource.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// A key identifier for an [AWS KMS customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) . Enter a key ID, key ARN, alias name, or alias ARN.
-	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// Specifies the position filtering for the tracker resource.
 	//
 	// Valid values:
@@ -4904,12 +4946,12 @@ type CfnTrackerProps struct {
 	// - `AccuracyBased` - If the device has moved less than the measured accuracy, location updates are ignored. For example, if two consecutive updates from a device have a horizontal accuracy of 5 m and 10 m, the second update is ignored if the device has moved less than 15 m. Ignored location updates are neither evaluated against linked geofence collections, nor stored. This can reduce the effects of GPS noise when displaying device trajectories on a map, and can help control your costs by reducing the number of geofence evaluations.
 	//
 	// This field is optional. If not specified, the default value is `TimeBased` .
-	PositionFiltering *string `json:"positionFiltering" yaml:"positionFiltering"`
+	PositionFiltering *string `field:"optional" json:"positionFiltering" yaml:"positionFiltering"`
 	// No longer used.
 	//
 	// If included, the only allowed value is `RequestBasedUsage` .
-	PricingPlan *string `json:"pricingPlan" yaml:"pricingPlan"`
+	PricingPlan *string `field:"optional" json:"pricingPlan" yaml:"pricingPlan"`
 	// This parameter is no longer used.
-	PricingPlanDataSource *string `json:"pricingPlanDataSource" yaml:"pricingPlanDataSource"`
+	PricingPlanDataSource *string `field:"optional" json:"pricingPlanDataSource" yaml:"pricingPlanDataSource"`
 }
 

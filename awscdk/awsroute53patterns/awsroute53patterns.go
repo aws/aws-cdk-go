@@ -238,7 +238,7 @@ type HttpsRedirectProps struct {
 	// will be created that points to your CloudFront distribution. Root domain
 	// or sub-domain can be supplied.
 	// Experimental.
-	TargetDomain *string `json:"targetDomain" yaml:"targetDomain"`
+	TargetDomain *string `field:"required" json:"targetDomain" yaml:"targetDomain"`
 	// Hosted zone of the domain which will be used to create alias record(s) from domain names in the hosted zone to the target domain.
 	//
 	// The hosted zone must
@@ -248,15 +248,15 @@ type HttpsRedirectProps struct {
 	// Domain names in the hosted zone can include a specific domain (example.com)
 	// and its subdomains (acme.example.com, zenith.example.com).
 	// Experimental.
-	Zone awsroute53.IHostedZone `json:"zone" yaml:"zone"`
+	Zone awsroute53.IHostedZone `field:"required" json:"zone" yaml:"zone"`
 	// The AWS Certificate Manager (ACM) certificate that will be associated with the CloudFront distribution that will be created.
 	//
 	// If provided, the certificate must be
 	// stored in us-east-1 (N. Virginia)
 	// Experimental.
-	Certificate awscertificatemanager.ICertificate `json:"certificate" yaml:"certificate"`
+	Certificate awscertificatemanager.ICertificate `field:"optional" json:"certificate" yaml:"certificate"`
 	// The domain names that will redirect to `targetDomain`.
 	// Experimental.
-	RecordNames *[]*string `json:"recordNames" yaml:"recordNames"`
+	RecordNames *[]*string `field:"optional" json:"recordNames" yaml:"recordNames"`
 }
 

@@ -16,8 +16,11 @@ import (
 // A grant shares the use of license entitlements with specific AWS accounts . For more information, see [Granted licenses](https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html) in the *AWS License Manager User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import licensemanager "github.com/aws/aws-cdk-go/awscdk/aws_licensemanager"
-//   cfnGrant := licensemanager.NewCfnGrant(this, jsii.String("MyCfnGrant"), &cfnGrantProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnGrant := awscdk.Aws_licensemanager.NewCfnGrant(this, jsii.String("MyCfnGrant"), &cfnGrantProps{
 //   	allowedOperations: []*string{
 //   		jsii.String("allowedOperations"),
 //   	},
@@ -788,7 +791,10 @@ func (c *jsiiProxy_CfnGrant) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnGrant`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import licensemanager "github.com/aws/aws-cdk-go/awscdk/aws_licensemanager"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnGrantProps := &cfnGrantProps{
 //   	allowedOperations: []*string{
 //   		jsii.String("allowedOperations"),
@@ -804,17 +810,17 @@ func (c *jsiiProxy_CfnGrant) ValidateProperties(_properties interface{}) {
 //
 type CfnGrantProps struct {
 	// Allowed operations for the grant.
-	AllowedOperations *[]*string `json:"allowedOperations" yaml:"allowedOperations"`
+	AllowedOperations *[]*string `field:"optional" json:"allowedOperations" yaml:"allowedOperations"`
 	// Grant name.
-	GrantName *string `json:"grantName" yaml:"grantName"`
+	GrantName *string `field:"optional" json:"grantName" yaml:"grantName"`
 	// Home Region of the grant.
-	HomeRegion *string `json:"homeRegion" yaml:"homeRegion"`
+	HomeRegion *string `field:"optional" json:"homeRegion" yaml:"homeRegion"`
 	// License ARN.
-	LicenseArn *string `json:"licenseArn" yaml:"licenseArn"`
+	LicenseArn *string `field:"optional" json:"licenseArn" yaml:"licenseArn"`
 	// The grant principals.
-	Principals *[]*string `json:"principals" yaml:"principals"`
+	Principals *[]*string `field:"optional" json:"principals" yaml:"principals"`
 	// Granted license status.
-	Status *string `json:"status" yaml:"status"`
+	Status *string `field:"optional" json:"status" yaml:"status"`
 }
 
 // A CloudFormation `AWS::LicenseManager::License`.
@@ -824,8 +830,11 @@ type CfnGrantProps struct {
 // Granted licenses are licenses for products that your organization purchased from AWS Marketplace or directly from a seller who integrated their software with managed entitlements. For more information, see [Granted licenses](https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html) in the *AWS License Manager User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import licensemanager "github.com/aws/aws-cdk-go/awscdk/aws_licensemanager"
-//   cfnLicense := licensemanager.NewCfnLicense(this, jsii.String("MyCfnLicense"), &cfnLicenseProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnLicense := awscdk.Aws_licensemanager.NewCfnLicense(this, jsii.String("MyCfnLicense"), &cfnLicenseProps{
 //   	consumptionConfiguration: &consumptionConfigurationProperty{
 //   		borrowConfiguration: &borrowConfigurationProperty{
 //   			allowEarlyCheckIn: jsii.Boolean(false),
@@ -1737,7 +1746,10 @@ func (c *jsiiProxy_CfnLicense) ValidateProperties(_properties interface{}) {
 // Details about a borrow configuration.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import licensemanager "github.com/aws/aws-cdk-go/awscdk/aws_licensemanager"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   borrowConfigurationProperty := &borrowConfigurationProperty{
 //   	allowEarlyCheckIn: jsii.Boolean(false),
 //   	maxTimeToLiveInMinutes: jsii.Number(123),
@@ -1745,15 +1757,18 @@ func (c *jsiiProxy_CfnLicense) ValidateProperties(_properties interface{}) {
 //
 type CfnLicense_BorrowConfigurationProperty struct {
 	// Indicates whether early check-ins are allowed.
-	AllowEarlyCheckIn interface{} `json:"allowEarlyCheckIn" yaml:"allowEarlyCheckIn"`
+	AllowEarlyCheckIn interface{} `field:"required" json:"allowEarlyCheckIn" yaml:"allowEarlyCheckIn"`
 	// Maximum time for the borrow configuration, in minutes.
-	MaxTimeToLiveInMinutes *float64 `json:"maxTimeToLiveInMinutes" yaml:"maxTimeToLiveInMinutes"`
+	MaxTimeToLiveInMinutes *float64 `field:"required" json:"maxTimeToLiveInMinutes" yaml:"maxTimeToLiveInMinutes"`
 }
 
 // Details about a consumption configuration.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import licensemanager "github.com/aws/aws-cdk-go/awscdk/aws_licensemanager"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   consumptionConfigurationProperty := &consumptionConfigurationProperty{
 //   	borrowConfiguration: &borrowConfigurationProperty{
 //   		allowEarlyCheckIn: jsii.Boolean(false),
@@ -1767,17 +1782,20 @@ type CfnLicense_BorrowConfigurationProperty struct {
 //
 type CfnLicense_ConsumptionConfigurationProperty struct {
 	// Details about a borrow configuration.
-	BorrowConfiguration interface{} `json:"borrowConfiguration" yaml:"borrowConfiguration"`
+	BorrowConfiguration interface{} `field:"optional" json:"borrowConfiguration" yaml:"borrowConfiguration"`
 	// Details about a provisional configuration.
-	ProvisionalConfiguration interface{} `json:"provisionalConfiguration" yaml:"provisionalConfiguration"`
+	ProvisionalConfiguration interface{} `field:"optional" json:"provisionalConfiguration" yaml:"provisionalConfiguration"`
 	// Renewal frequency.
-	RenewType *string `json:"renewType" yaml:"renewType"`
+	RenewType *string `field:"optional" json:"renewType" yaml:"renewType"`
 }
 
 // Describes a resource entitled for use with a license.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import licensemanager "github.com/aws/aws-cdk-go/awscdk/aws_licensemanager"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   entitlementProperty := &entitlementProperty{
 //   	name: jsii.String("name"),
 //   	unit: jsii.String("unit"),
@@ -1791,27 +1809,30 @@ type CfnLicense_ConsumptionConfigurationProperty struct {
 //
 type CfnLicense_EntitlementProperty struct {
 	// Entitlement name.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// Entitlement unit.
-	Unit *string `json:"unit" yaml:"unit"`
+	Unit *string `field:"required" json:"unit" yaml:"unit"`
 	// Indicates whether check-ins are allowed.
-	AllowCheckIn interface{} `json:"allowCheckIn" yaml:"allowCheckIn"`
+	AllowCheckIn interface{} `field:"optional" json:"allowCheckIn" yaml:"allowCheckIn"`
 	// Maximum entitlement count.
 	//
 	// Use if the unit is not None.
-	MaxCount *float64 `json:"maxCount" yaml:"maxCount"`
+	MaxCount *float64 `field:"optional" json:"maxCount" yaml:"maxCount"`
 	// Indicates whether overages are allowed.
-	Overage interface{} `json:"overage" yaml:"overage"`
+	Overage interface{} `field:"optional" json:"overage" yaml:"overage"`
 	// Entitlement resource.
 	//
 	// Use only if the unit is None.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
 // Details associated with the issuer of a license.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import licensemanager "github.com/aws/aws-cdk-go/awscdk/aws_licensemanager"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   issuerDataProperty := &issuerDataProperty{
 //   	name: jsii.String("name"),
 //
@@ -1821,17 +1842,20 @@ type CfnLicense_EntitlementProperty struct {
 //
 type CfnLicense_IssuerDataProperty struct {
 	// Issuer name.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// Asymmetric KMS key from AWS Key Management Service .
 	//
 	// The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
-	SignKey *string `json:"signKey" yaml:"signKey"`
+	SignKey *string `field:"optional" json:"signKey" yaml:"signKey"`
 }
 
 // Describes key/value pairs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import licensemanager "github.com/aws/aws-cdk-go/awscdk/aws_licensemanager"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   metadataProperty := &metadataProperty{
 //   	name: jsii.String("name"),
 //   	value: jsii.String("value"),
@@ -1839,28 +1863,34 @@ type CfnLicense_IssuerDataProperty struct {
 //
 type CfnLicense_MetadataProperty struct {
 	// The key name.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The value.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // Details about a provisional configuration.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import licensemanager "github.com/aws/aws-cdk-go/awscdk/aws_licensemanager"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   provisionalConfigurationProperty := &provisionalConfigurationProperty{
 //   	maxTimeToLiveInMinutes: jsii.Number(123),
 //   }
 //
 type CfnLicense_ProvisionalConfigurationProperty struct {
 	// Maximum time for the provisional configuration, in minutes.
-	MaxTimeToLiveInMinutes *float64 `json:"maxTimeToLiveInMinutes" yaml:"maxTimeToLiveInMinutes"`
+	MaxTimeToLiveInMinutes *float64 `field:"required" json:"maxTimeToLiveInMinutes" yaml:"maxTimeToLiveInMinutes"`
 }
 
 // Date and time range during which the license is valid, in ISO8601-UTC format.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import licensemanager "github.com/aws/aws-cdk-go/awscdk/aws_licensemanager"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   validityDateFormatProperty := &validityDateFormatProperty{
 //   	begin: jsii.String("begin"),
 //   	end: jsii.String("end"),
@@ -1868,15 +1898,18 @@ type CfnLicense_ProvisionalConfigurationProperty struct {
 //
 type CfnLicense_ValidityDateFormatProperty struct {
 	// Start of the time range.
-	Begin *string `json:"begin" yaml:"begin"`
+	Begin *string `field:"required" json:"begin" yaml:"begin"`
 	// End of the time range.
-	End *string `json:"end" yaml:"end"`
+	End *string `field:"required" json:"end" yaml:"end"`
 }
 
 // Properties for defining a `CfnLicense`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import licensemanager "github.com/aws/aws-cdk-go/awscdk/aws_licensemanager"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnLicenseProps := &cfnLicenseProps{
 //   	consumptionConfiguration: &consumptionConfigurationProperty{
 //   		borrowConfiguration: &borrowConfigurationProperty{
@@ -1928,26 +1961,26 @@ type CfnLicense_ValidityDateFormatProperty struct {
 //
 type CfnLicenseProps struct {
 	// Configuration for consumption of the license.
-	ConsumptionConfiguration interface{} `json:"consumptionConfiguration" yaml:"consumptionConfiguration"`
+	ConsumptionConfiguration interface{} `field:"required" json:"consumptionConfiguration" yaml:"consumptionConfiguration"`
 	// License entitlements.
-	Entitlements interface{} `json:"entitlements" yaml:"entitlements"`
+	Entitlements interface{} `field:"required" json:"entitlements" yaml:"entitlements"`
 	// Home Region of the license.
-	HomeRegion *string `json:"homeRegion" yaml:"homeRegion"`
+	HomeRegion *string `field:"required" json:"homeRegion" yaml:"homeRegion"`
 	// License issuer.
-	Issuer interface{} `json:"issuer" yaml:"issuer"`
+	Issuer interface{} `field:"required" json:"issuer" yaml:"issuer"`
 	// License name.
-	LicenseName *string `json:"licenseName" yaml:"licenseName"`
+	LicenseName *string `field:"required" json:"licenseName" yaml:"licenseName"`
 	// Product name.
-	ProductName *string `json:"productName" yaml:"productName"`
+	ProductName *string `field:"required" json:"productName" yaml:"productName"`
 	// Date and time range during which the license is valid, in ISO8601-UTC format.
-	Validity interface{} `json:"validity" yaml:"validity"`
+	Validity interface{} `field:"required" json:"validity" yaml:"validity"`
 	// License beneficiary.
-	Beneficiary *string `json:"beneficiary" yaml:"beneficiary"`
+	Beneficiary *string `field:"optional" json:"beneficiary" yaml:"beneficiary"`
 	// License metadata.
-	LicenseMetadata interface{} `json:"licenseMetadata" yaml:"licenseMetadata"`
+	LicenseMetadata interface{} `field:"optional" json:"licenseMetadata" yaml:"licenseMetadata"`
 	// Product SKU.
-	ProductSku *string `json:"productSku" yaml:"productSku"`
+	ProductSku *string `field:"optional" json:"productSku" yaml:"productSku"`
 	// License status.
-	Status *string `json:"status" yaml:"status"`
+	Status *string `field:"optional" json:"status" yaml:"status"`
 }
 

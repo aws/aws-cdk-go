@@ -15,6 +15,7 @@ import (
 //   import acmpca "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var vpc vpc
+//
 //   cluster := msk.NewCluster(this, jsii.String("Cluster"), &clusterProps{
 //   	clusterName: jsii.String("myCluster"),
 //   	kafkaVersion: msk.kafkaVersion_V2_8_1(),
@@ -60,8 +61,11 @@ func CertificateAuthority_FromCertificateAuthorityArn(scope constructs.Construct
 // The `AWS::ACMPCA::Certificate` resource is used to issue a certificate using your private certificate authority. For more information, see the [IssueCertificate](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_IssueCertificate.html) action.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import acmpca "github.com/aws/aws-cdk-go/awscdk/aws_acmpca"
-//   cfnCertificate := acmpca.NewCfnCertificate(this, jsii.String("MyCfnCertificate"), &cfnCertificateProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnCertificate := awscdk.Aws_acmpca.NewCfnCertificate(this, jsii.String("MyCfnCertificate"), &cfnCertificateProps{
 //   	certificateAuthorityArn: jsii.String("certificateAuthorityArn"),
 //   	certificateSigningRequest: jsii.String("certificateSigningRequest"),
 //   	signingAlgorithm: jsii.String("signingAlgorithm"),
@@ -979,7 +983,10 @@ func (c *jsiiProxy_CfnCertificate) ValidateProperties(_properties interface{}) {
 // If conflicting or duplicate certificate information is supplied from other sources, ACM Private CA applies [order of operation rules](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html#template-order-of-operations) to determine what information is used.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import acmpca "github.com/aws/aws-cdk-go/awscdk/aws_acmpca"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   apiPassthroughProperty := &apiPassthroughProperty{
 //   	extensions: &extensionsProperty{
 //   		certificatePolicies: []interface{}{
@@ -1089,17 +1096,20 @@ func (c *jsiiProxy_CfnCertificate) ValidateProperties(_properties interface{}) {
 //
 type CfnCertificate_ApiPassthroughProperty struct {
 	// Specifies X.509 extension information for a certificate.
-	Extensions interface{} `json:"extensions" yaml:"extensions"`
+	Extensions interface{} `field:"optional" json:"extensions" yaml:"extensions"`
 	// Contains information about the certificate subject.
 	//
 	// The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
-	Subject interface{} `json:"subject" yaml:"subject"`
+	Subject interface{} `field:"optional" json:"subject" yaml:"subject"`
 }
 
 // Defines the X.500 relative distinguished name (RDN).
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import acmpca "github.com/aws/aws-cdk-go/awscdk/aws_acmpca"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   customAttributeProperty := &customAttributeProperty{
 //   	objectIdentifier: jsii.String("objectIdentifier"),
 //   	value: jsii.String("value"),
@@ -1107,9 +1117,9 @@ type CfnCertificate_ApiPassthroughProperty struct {
 //
 type CfnCertificate_CustomAttributeProperty struct {
 	// Specifies the object identifier (OID) of the attribute type of the relative distinguished name (RDN).
-	ObjectIdentifier *string `json:"objectIdentifier" yaml:"objectIdentifier"`
+	ObjectIdentifier *string `field:"required" json:"objectIdentifier" yaml:"objectIdentifier"`
 	// Specifies the attribute value of relative distinguished name (RDN).
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // Specifies the X.509 extension information for a certificate.
@@ -1117,7 +1127,10 @@ type CfnCertificate_CustomAttributeProperty struct {
 // Extensions present in `CustomExtensions` follow the `ApiPassthrough` [template rules](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html#template-order-of-operations) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import acmpca "github.com/aws/aws-cdk-go/awscdk/aws_acmpca"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   customExtensionProperty := &customExtensionProperty{
 //   	objectIdentifier: jsii.String("objectIdentifier"),
 //   	value: jsii.String("value"),
@@ -1128,17 +1141,20 @@ type CfnCertificate_CustomAttributeProperty struct {
 //
 type CfnCertificate_CustomExtensionProperty struct {
 	// Specifies the object identifier (OID) of the X.509 extension. For more information, see the [Global OID reference database.](https://docs.aws.amazon.com/https://oidref.com/2.5.29).
-	ObjectIdentifier *string `json:"objectIdentifier" yaml:"objectIdentifier"`
+	ObjectIdentifier *string `field:"required" json:"objectIdentifier" yaml:"objectIdentifier"`
 	// Specifies the base64-encoded value of the X.509 extension.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 	// Specifies the critical flag of the X.509 extension.
-	Critical interface{} `json:"critical" yaml:"critical"`
+	Critical interface{} `field:"optional" json:"critical" yaml:"critical"`
 }
 
 // Describes an Electronic Data Interchange (EDI) entity as described in as defined in [Subject Alternative Name](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280) in RFC 5280.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import acmpca "github.com/aws/aws-cdk-go/awscdk/aws_acmpca"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   ediPartyNameProperty := &ediPartyNameProperty{
 //   	nameAssigner: jsii.String("nameAssigner"),
 //   	partyName: jsii.String("partyName"),
@@ -1146,15 +1162,18 @@ type CfnCertificate_CustomExtensionProperty struct {
 //
 type CfnCertificate_EdiPartyNameProperty struct {
 	// Specifies the name assigner.
-	NameAssigner *string `json:"nameAssigner" yaml:"nameAssigner"`
+	NameAssigner *string `field:"required" json:"nameAssigner" yaml:"nameAssigner"`
 	// Specifies the party name.
-	PartyName *string `json:"partyName" yaml:"partyName"`
+	PartyName *string `field:"required" json:"partyName" yaml:"partyName"`
 }
 
 // Specifies additional purposes for which the certified public key may be used other than basic purposes indicated in the `KeyUsage` extension.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import acmpca "github.com/aws/aws-cdk-go/awscdk/aws_acmpca"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   extendedKeyUsageProperty := &extendedKeyUsageProperty{
 //   	extendedKeyUsageObjectIdentifier: jsii.String("extendedKeyUsageObjectIdentifier"),
 //   	extendedKeyUsageType: jsii.String("extendedKeyUsageType"),
@@ -1162,15 +1181,18 @@ type CfnCertificate_EdiPartyNameProperty struct {
 //
 type CfnCertificate_ExtendedKeyUsageProperty struct {
 	// Specifies a custom `ExtendedKeyUsage` with an object identifier (OID).
-	ExtendedKeyUsageObjectIdentifier *string `json:"extendedKeyUsageObjectIdentifier" yaml:"extendedKeyUsageObjectIdentifier"`
+	ExtendedKeyUsageObjectIdentifier *string `field:"optional" json:"extendedKeyUsageObjectIdentifier" yaml:"extendedKeyUsageObjectIdentifier"`
 	// Specifies a standard `ExtendedKeyUsage` as defined as in [RFC 5280](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.12) .
-	ExtendedKeyUsageType *string `json:"extendedKeyUsageType" yaml:"extendedKeyUsageType"`
+	ExtendedKeyUsageType *string `field:"optional" json:"extendedKeyUsageType" yaml:"extendedKeyUsageType"`
 }
 
 // Contains X.509 extension information for a certificate.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import acmpca "github.com/aws/aws-cdk-go/awscdk/aws_acmpca"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   extensionsProperty := &extensionsProperty{
 //   	certificatePolicies: []interface{}{
 //   		&policyInformationProperty{
@@ -1260,27 +1282,30 @@ type CfnCertificate_ExtensionsProperty struct {
 	// For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier) .
 	//
 	// In an end-entity certificate, these terms indicate the policy under which the certificate was issued and the purposes for which it may be used. In a CA certificate, these terms limit the set of policies for certification paths that include this certificate.
-	CertificatePolicies interface{} `json:"certificatePolicies" yaml:"certificatePolicies"`
+	CertificatePolicies interface{} `field:"optional" json:"certificatePolicies" yaml:"certificatePolicies"`
 	// Contains a sequence of one or more X.509 extensions, each of which consists of an object identifier (OID), a base64-encoded value, and the critical flag. For more information, see the [Global OID reference database.](https://docs.aws.amazon.com/https://oidref.com/2.5.29).
 	//
 	// > The OID value of a [CustomExtension](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CustomExtension.html) must not match the OID of a predefined extension.
-	CustomExtensions interface{} `json:"customExtensions" yaml:"customExtensions"`
+	CustomExtensions interface{} `field:"optional" json:"customExtensions" yaml:"customExtensions"`
 	// Specifies additional purposes for which the certified public key may be used other than basic purposes indicated in the `KeyUsage` extension.
-	ExtendedKeyUsage interface{} `json:"extendedKeyUsage" yaml:"extendedKeyUsage"`
+	ExtendedKeyUsage interface{} `field:"optional" json:"extendedKeyUsage" yaml:"extendedKeyUsage"`
 	// Defines one or more purposes for which the key contained in the certificate can be used.
 	//
 	// Default value for each option is false.
-	KeyUsage interface{} `json:"keyUsage" yaml:"keyUsage"`
+	KeyUsage interface{} `field:"optional" json:"keyUsage" yaml:"keyUsage"`
 	// The subject alternative name extension allows identities to be bound to the subject of the certificate.
 	//
 	// These identities may be included in addition to or in place of the identity in the subject field of the certificate.
-	SubjectAlternativeNames interface{} `json:"subjectAlternativeNames" yaml:"subjectAlternativeNames"`
+	SubjectAlternativeNames interface{} `field:"optional" json:"subjectAlternativeNames" yaml:"subjectAlternativeNames"`
 }
 
 // Describes an ASN.1 X.400 `GeneralName` as defined in [RFC 5280](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280) . Only one of the following naming options should be provided. Providing more than one option results in an `InvalidArgsException` error.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import acmpca "github.com/aws/aws-cdk-go/awscdk/aws_acmpca"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   generalNameProperty := &generalNameProperty{
 //   	directoryName: &subjectProperty{
 //   		commonName: jsii.String("commonName"),
@@ -1323,21 +1348,21 @@ type CfnCertificate_GeneralNameProperty struct {
 	// Contains information about the certificate subject.
 	//
 	// The certificate can be one issued by your private certificate authority (CA) or it can be your private CA certificate. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate. The DN must be unique for each entity, but your private CA can issue more than one certificate with the same DN to the same entity.
-	DirectoryName interface{} `json:"directoryName" yaml:"directoryName"`
+	DirectoryName interface{} `field:"optional" json:"directoryName" yaml:"directoryName"`
 	// Represents `GeneralName` as a DNS name.
-	DnsName *string `json:"dnsName" yaml:"dnsName"`
+	DnsName *string `field:"optional" json:"dnsName" yaml:"dnsName"`
 	// Represents `GeneralName` as an `EdiPartyName` object.
-	EdiPartyName interface{} `json:"ediPartyName" yaml:"ediPartyName"`
+	EdiPartyName interface{} `field:"optional" json:"ediPartyName" yaml:"ediPartyName"`
 	// Represents `GeneralName` as an IPv4 or IPv6 address.
-	IpAddress *string `json:"ipAddress" yaml:"ipAddress"`
+	IpAddress *string `field:"optional" json:"ipAddress" yaml:"ipAddress"`
 	// Represents `GeneralName` using an `OtherName` object.
-	OtherName interface{} `json:"otherName" yaml:"otherName"`
+	OtherName interface{} `field:"optional" json:"otherName" yaml:"otherName"`
 	// Represents `GeneralName` as an object identifier (OID).
-	RegisteredId *string `json:"registeredId" yaml:"registeredId"`
+	RegisteredId *string `field:"optional" json:"registeredId" yaml:"registeredId"`
 	// Represents `GeneralName` as an [RFC 822](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc822) email address.
-	Rfc822Name *string `json:"rfc822Name" yaml:"rfc822Name"`
+	Rfc822Name *string `field:"optional" json:"rfc822Name" yaml:"rfc822Name"`
 	// Represents `GeneralName` as a URI.
-	UniformResourceIdentifier *string `json:"uniformResourceIdentifier" yaml:"uniformResourceIdentifier"`
+	UniformResourceIdentifier *string `field:"optional" json:"uniformResourceIdentifier" yaml:"uniformResourceIdentifier"`
 }
 
 // Defines one or more purposes for which the key contained in the certificate can be used.
@@ -1345,7 +1370,10 @@ type CfnCertificate_GeneralNameProperty struct {
 // Default value for each option is false.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import acmpca "github.com/aws/aws-cdk-go/awscdk/aws_acmpca"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   keyUsageProperty := &keyUsageProperty{
 //   	crlSign: jsii.Boolean(false),
 //   	dataEncipherment: jsii.Boolean(false),
@@ -1360,29 +1388,32 @@ type CfnCertificate_GeneralNameProperty struct {
 //
 type CfnCertificate_KeyUsageProperty struct {
 	// Key can be used to sign CRLs.
-	CrlSign interface{} `json:"crlSign" yaml:"crlSign"`
+	CrlSign interface{} `field:"optional" json:"crlSign" yaml:"crlSign"`
 	// Key can be used to decipher data.
-	DataEncipherment interface{} `json:"dataEncipherment" yaml:"dataEncipherment"`
+	DataEncipherment interface{} `field:"optional" json:"dataEncipherment" yaml:"dataEncipherment"`
 	// Key can be used only to decipher data.
-	DecipherOnly interface{} `json:"decipherOnly" yaml:"decipherOnly"`
+	DecipherOnly interface{} `field:"optional" json:"decipherOnly" yaml:"decipherOnly"`
 	// Key can be used for digital signing.
-	DigitalSignature interface{} `json:"digitalSignature" yaml:"digitalSignature"`
+	DigitalSignature interface{} `field:"optional" json:"digitalSignature" yaml:"digitalSignature"`
 	// Key can be used only to encipher data.
-	EncipherOnly interface{} `json:"encipherOnly" yaml:"encipherOnly"`
+	EncipherOnly interface{} `field:"optional" json:"encipherOnly" yaml:"encipherOnly"`
 	// Key can be used in a key-agreement protocol.
-	KeyAgreement interface{} `json:"keyAgreement" yaml:"keyAgreement"`
+	KeyAgreement interface{} `field:"optional" json:"keyAgreement" yaml:"keyAgreement"`
 	// Key can be used to sign certificates.
-	KeyCertSign interface{} `json:"keyCertSign" yaml:"keyCertSign"`
+	KeyCertSign interface{} `field:"optional" json:"keyCertSign" yaml:"keyCertSign"`
 	// Key can be used to encipher data.
-	KeyEncipherment interface{} `json:"keyEncipherment" yaml:"keyEncipherment"`
+	KeyEncipherment interface{} `field:"optional" json:"keyEncipherment" yaml:"keyEncipherment"`
 	// Key can be used for non-repudiation.
-	NonRepudiation interface{} `json:"nonRepudiation" yaml:"nonRepudiation"`
+	NonRepudiation interface{} `field:"optional" json:"nonRepudiation" yaml:"nonRepudiation"`
 }
 
 // Defines a custom ASN.1 X.400 `GeneralName` using an object identifier (OID) and value. The OID must satisfy the regular expression shown below. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import acmpca "github.com/aws/aws-cdk-go/awscdk/aws_acmpca"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   otherNameProperty := &otherNameProperty{
 //   	typeId: jsii.String("typeId"),
 //   	value: jsii.String("value"),
@@ -1390,15 +1421,18 @@ type CfnCertificate_KeyUsageProperty struct {
 //
 type CfnCertificate_OtherNameProperty struct {
 	// Specifies an OID.
-	TypeId *string `json:"typeId" yaml:"typeId"`
+	TypeId *string `field:"required" json:"typeId" yaml:"typeId"`
 	// Specifies an OID value.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // Defines the X.509 `CertificatePolicies` extension.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import acmpca "github.com/aws/aws-cdk-go/awscdk/aws_acmpca"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   policyInformationProperty := &policyInformationProperty{
 //   	certPolicyId: jsii.String("certPolicyId"),
 //
@@ -1417,11 +1451,11 @@ type CfnCertificate_PolicyInformationProperty struct {
 	// Specifies the object identifier (OID) of the certificate policy under which the certificate was issued.
 	//
 	// For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier) .
-	CertPolicyId *string `json:"certPolicyId" yaml:"certPolicyId"`
+	CertPolicyId *string `field:"required" json:"certPolicyId" yaml:"certPolicyId"`
 	// Modifies the given `CertPolicyId` with a qualifier.
 	//
 	// ACM Private CA supports the certification practice statement (CPS) qualifier.
-	PolicyQualifiers interface{} `json:"policyQualifiers" yaml:"policyQualifiers"`
+	PolicyQualifiers interface{} `field:"optional" json:"policyQualifiers" yaml:"policyQualifiers"`
 }
 
 // Modifies the `CertPolicyId` of a `PolicyInformation` object with a qualifier.
@@ -1429,7 +1463,10 @@ type CfnCertificate_PolicyInformationProperty struct {
 // ACM Private CA supports the certification practice statement (CPS) qualifier.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import acmpca "github.com/aws/aws-cdk-go/awscdk/aws_acmpca"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   policyQualifierInfoProperty := &policyQualifierInfoProperty{
 //   	policyQualifierId: jsii.String("policyQualifierId"),
 //   	qualifier: &qualifierProperty{
@@ -1439,11 +1476,11 @@ type CfnCertificate_PolicyInformationProperty struct {
 //
 type CfnCertificate_PolicyQualifierInfoProperty struct {
 	// Identifies the qualifier modifying a `CertPolicyId` .
-	PolicyQualifierId *string `json:"policyQualifierId" yaml:"policyQualifierId"`
+	PolicyQualifierId *string `field:"required" json:"policyQualifierId" yaml:"policyQualifierId"`
 	// Defines the qualifier type.
 	//
 	// ACM Private CA supports the use of a URI for a CPS qualifier in this field.
-	Qualifier interface{} `json:"qualifier" yaml:"qualifier"`
+	Qualifier interface{} `field:"required" json:"qualifier" yaml:"qualifier"`
 }
 
 // Defines a `PolicyInformation` qualifier.
@@ -1451,14 +1488,17 @@ type CfnCertificate_PolicyQualifierInfoProperty struct {
 // ACM Private CA supports the [certification practice statement (CPS) qualifier](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.4) defined in RFC 5280.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import acmpca "github.com/aws/aws-cdk-go/awscdk/aws_acmpca"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   qualifierProperty := &qualifierProperty{
 //   	cpsUri: jsii.String("cpsUri"),
 //   }
 //
 type CfnCertificate_QualifierProperty struct {
 	// Contains a pointer to a certification practice statement (CPS) published by the CA.
-	CpsUri *string `json:"cpsUri" yaml:"cpsUri"`
+	CpsUri *string `field:"required" json:"cpsUri" yaml:"cpsUri"`
 }
 
 // Contains information about the certificate subject.
@@ -1466,7 +1506,10 @@ type CfnCertificate_QualifierProperty struct {
 // The `Subject` field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The `Subject` must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import acmpca "github.com/aws/aws-cdk-go/awscdk/aws_acmpca"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   subjectProperty := &subjectProperty{
 //   	commonName: jsii.String("commonName"),
 //   	country: jsii.String("country"),
@@ -1494,45 +1537,45 @@ type CfnCertificate_SubjectProperty struct {
 	// For CA and end-entity certificates in a private PKI, the common name (CN) can be any string within the length limit.
 	//
 	// Note: In publicly trusted certificates, the common name must be a fully qualified domain name (FQDN) associated with the certificate subject.
-	CommonName *string `json:"commonName" yaml:"commonName"`
+	CommonName *string `field:"optional" json:"commonName" yaml:"commonName"`
 	// Two-digit code that specifies the country in which the certificate subject located.
-	Country *string `json:"country" yaml:"country"`
+	Country *string `field:"optional" json:"country" yaml:"country"`
 	// Contains a sequence of one or more X.500 relative distinguished names (RDNs), each of which consists of an object identifier (OID) and a value. For more information, see NIST’s definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier) .
 	//
 	// > Custom attributes cannot be used in combination with standard attributes.
-	CustomAttributes interface{} `json:"customAttributes" yaml:"customAttributes"`
+	CustomAttributes interface{} `field:"optional" json:"customAttributes" yaml:"customAttributes"`
 	// Disambiguating information for the certificate subject.
-	DistinguishedNameQualifier *string `json:"distinguishedNameQualifier" yaml:"distinguishedNameQualifier"`
+	DistinguishedNameQualifier *string `field:"optional" json:"distinguishedNameQualifier" yaml:"distinguishedNameQualifier"`
 	// Typically a qualifier appended to the name of an individual.
 	//
 	// Examples include Jr. for junior, Sr. for senior, and III for third.
-	GenerationQualifier *string `json:"generationQualifier" yaml:"generationQualifier"`
+	GenerationQualifier *string `field:"optional" json:"generationQualifier" yaml:"generationQualifier"`
 	// First name.
-	GivenName *string `json:"givenName" yaml:"givenName"`
+	GivenName *string `field:"optional" json:"givenName" yaml:"givenName"`
 	// Concatenation that typically contains the first letter of the *GivenName* , the first letter of the middle name if one exists, and the first letter of the *Surname* .
-	Initials *string `json:"initials" yaml:"initials"`
+	Initials *string `field:"optional" json:"initials" yaml:"initials"`
 	// The locality (such as a city or town) in which the certificate subject is located.
-	Locality *string `json:"locality" yaml:"locality"`
+	Locality *string `field:"optional" json:"locality" yaml:"locality"`
 	// Legal name of the organization with which the certificate subject is affiliated.
-	Organization *string `json:"organization" yaml:"organization"`
+	Organization *string `field:"optional" json:"organization" yaml:"organization"`
 	// A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
-	OrganizationalUnit *string `json:"organizationalUnit" yaml:"organizationalUnit"`
+	OrganizationalUnit *string `field:"optional" json:"organizationalUnit" yaml:"organizationalUnit"`
 	// Typically a shortened version of a longer *GivenName* .
 	//
 	// For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
-	Pseudonym *string `json:"pseudonym" yaml:"pseudonym"`
+	Pseudonym *string `field:"optional" json:"pseudonym" yaml:"pseudonym"`
 	// The certificate serial number.
-	SerialNumber *string `json:"serialNumber" yaml:"serialNumber"`
+	SerialNumber *string `field:"optional" json:"serialNumber" yaml:"serialNumber"`
 	// State in which the subject of the certificate is located.
-	State *string `json:"state" yaml:"state"`
+	State *string `field:"optional" json:"state" yaml:"state"`
 	// Family name.
 	//
 	// In the US and the UK, for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first.
-	Surname *string `json:"surname" yaml:"surname"`
+	Surname *string `field:"optional" json:"surname" yaml:"surname"`
 	// A title such as Mr.
 	//
 	// or Ms., which is pre-pended to the name to refer formally to the certificate subject.
-	Title *string `json:"title" yaml:"title"`
+	Title *string `field:"optional" json:"title" yaml:"title"`
 }
 
 // Length of time for which the certificate issued by your private certificate authority (CA), or by the private CA itself, is valid in days, months, or years.
@@ -1540,7 +1583,10 @@ type CfnCertificate_SubjectProperty struct {
 // You can issue a certificate by calling the `IssueCertificate` operation.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import acmpca "github.com/aws/aws-cdk-go/awscdk/aws_acmpca"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   validityProperty := &validityProperty{
 //   	type: jsii.String("type"),
 //   	value: jsii.Number(123),
@@ -1548,9 +1594,9 @@ type CfnCertificate_SubjectProperty struct {
 //
 type CfnCertificate_ValidityProperty struct {
 	// Specifies whether the `Value` parameter represents days, months, or years.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// A long integer interpreted according to the value of `Type` , below.
-	Value *float64 `json:"value" yaml:"value"`
+	Value *float64 `field:"required" json:"value" yaml:"value"`
 }
 
 // A CloudFormation `AWS::ACMPCA::CertificateAuthority`.
@@ -2385,7 +2431,10 @@ func (c *jsiiProxy_CfnCertificateAuthority) ValidateProperties(_properties inter
 // Provides access information used by the `authorityInfoAccess` and `subjectInfoAccess` extensions described in [RFC 5280](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import acmpca "github.com/aws/aws-cdk-go/awscdk/aws_acmpca"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   accessDescriptionProperty := &accessDescriptionProperty{
 //   	accessLocation: &generalNameProperty{
 //   		directoryName: &subjectProperty{
@@ -2432,9 +2481,9 @@ func (c *jsiiProxy_CfnCertificateAuthority) ValidateProperties(_properties inter
 //
 type CfnCertificateAuthority_AccessDescriptionProperty struct {
 	// The location of `AccessDescription` information.
-	AccessLocation interface{} `json:"accessLocation" yaml:"accessLocation"`
+	AccessLocation interface{} `field:"required" json:"accessLocation" yaml:"accessLocation"`
 	// The type and format of `AccessDescription` information.
-	AccessMethod interface{} `json:"accessMethod" yaml:"accessMethod"`
+	AccessMethod interface{} `field:"required" json:"accessMethod" yaml:"accessMethod"`
 }
 
 // Describes the type and format of extension access.
@@ -2442,7 +2491,10 @@ type CfnCertificateAuthority_AccessDescriptionProperty struct {
 // Only one of `CustomObjectIdentifier` or `AccessMethodType` may be provided. Providing both results in `InvalidArgsException` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import acmpca "github.com/aws/aws-cdk-go/awscdk/aws_acmpca"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   accessMethodProperty := &accessMethodProperty{
 //   	accessMethodType: jsii.String("accessMethodType"),
 //   	customObjectIdentifier: jsii.String("customObjectIdentifier"),
@@ -2450,11 +2502,11 @@ type CfnCertificateAuthority_AccessDescriptionProperty struct {
 //
 type CfnCertificateAuthority_AccessMethodProperty struct {
 	// Specifies the `AccessMethod` .
-	AccessMethodType *string `json:"accessMethodType" yaml:"accessMethodType"`
+	AccessMethodType *string `field:"optional" json:"accessMethodType" yaml:"accessMethodType"`
 	// An object identifier (OID) specifying the `AccessMethod` .
 	//
 	// The OID must satisfy the regular expression shown below. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier) .
-	CustomObjectIdentifier *string `json:"customObjectIdentifier" yaml:"customObjectIdentifier"`
+	CustomObjectIdentifier *string `field:"optional" json:"customObjectIdentifier" yaml:"customObjectIdentifier"`
 }
 
 // Contains configuration information for a certificate revocation list (CRL).
@@ -2495,7 +2547,10 @@ type CfnCertificateAuthority_AccessMethodProperty struct {
 // For more information, see [Planning a certificate revocation list (CRL)](https://docs.aws.amazon.com/acm-pca/latest/userguide/crl-planning.html) in the *AWS Certificate Manager Private Certificate Authority (PCA) User Guide*
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import acmpca "github.com/aws/aws-cdk-go/awscdk/aws_acmpca"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   crlConfigurationProperty := &crlConfigurationProperty{
 //   	customCname: jsii.String("customCname"),
 //   	enabled: jsii.Boolean(false),
@@ -2508,17 +2563,17 @@ type CfnCertificateAuthority_CrlConfigurationProperty struct {
 	// Name inserted into the certificate *CRL Distribution Points* extension that enables the use of an alias for the CRL distribution point.
 	//
 	// Use this value if you don't want the name of your S3 bucket to be public.
-	CustomCname *string `json:"customCname" yaml:"customCname"`
+	CustomCname *string `field:"optional" json:"customCname" yaml:"customCname"`
 	// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
 	//
 	// You can use this value to enable certificate revocation for a new CA when you call the `CreateCertificateAuthority` operation or for an existing CA when you call the `UpdateCertificateAuthority` operation.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// Validity period of the CRL in days.
-	ExpirationInDays *float64 `json:"expirationInDays" yaml:"expirationInDays"`
+	ExpirationInDays *float64 `field:"optional" json:"expirationInDays" yaml:"expirationInDays"`
 	// Name of the S3 bucket that contains the CRL.
 	//
 	// If you do not provide a value for the *CustomCname* argument, the name of your S3 bucket is placed into the *CRL Distribution Points* extension of the issued certificate. You can change the name of your bucket by calling the [UpdateCertificateAuthority](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_UpdateCertificateAuthority.html) operation. You must specify a [bucket policy](https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCreateCa.html#s3-policies) that allows ACM Private CA to write the CRL to your bucket.
-	S3BucketName *string `json:"s3BucketName" yaml:"s3BucketName"`
+	S3BucketName *string `field:"optional" json:"s3BucketName" yaml:"s3BucketName"`
 	// Determines whether the CRL will be publicly readable or privately held in the CRL Amazon S3 bucket.
 	//
 	// If you choose PUBLIC_READ, the CRL will be accessible over the public internet. If you choose BUCKET_OWNER_FULL_CONTROL, only the owner of the CRL S3 bucket can access the CRL, and your PKI clients may need an alternative method of access.
@@ -2528,13 +2583,16 @@ type CfnCertificateAuthority_CrlConfigurationProperty struct {
 	// > This default can cause CA creation to fail in some circumstances. If you have enabled the Block Public Access (BPA) feature in your S3 account, then you must specify the value of this parameter as `BUCKET_OWNER_FULL_CONTROL` , and not doing so results in an error. If you have disabled BPA in S3, then you can specify either `BUCKET_OWNER_FULL_CONTROL` or `PUBLIC_READ` as the value.
 	//
 	// For more information, see [Blocking public access to the S3 bucket](https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCreateCa.html#s3-bpa) .
-	S3ObjectAcl *string `json:"s3ObjectAcl" yaml:"s3ObjectAcl"`
+	S3ObjectAcl *string `field:"optional" json:"s3ObjectAcl" yaml:"s3ObjectAcl"`
 }
 
 // Describes the certificate extensions to be added to the certificate signing request (CSR).
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import acmpca "github.com/aws/aws-cdk-go/awscdk/aws_acmpca"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   csrExtensionsProperty := &csrExtensionsProperty{
 //   	keyUsage: &keyUsageProperty{
 //   		crlSign: jsii.Boolean(false),
@@ -2596,17 +2654,20 @@ type CfnCertificateAuthority_CrlConfigurationProperty struct {
 //
 type CfnCertificateAuthority_CsrExtensionsProperty struct {
 	// Indicates the purpose of the certificate and of the key contained in the certificate.
-	KeyUsage interface{} `json:"keyUsage" yaml:"keyUsage"`
+	KeyUsage interface{} `field:"optional" json:"keyUsage" yaml:"keyUsage"`
 	// For CA certificates, provides a path to additional information pertaining to the CA, such as revocation and policy.
 	//
 	// For more information, see [Subject Information Access](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.2.2) in RFC 5280.
-	SubjectInformationAccess interface{} `json:"subjectInformationAccess" yaml:"subjectInformationAccess"`
+	SubjectInformationAccess interface{} `field:"optional" json:"subjectInformationAccess" yaml:"subjectInformationAccess"`
 }
 
 // Defines the X.500 relative distinguished name (RDN).
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import acmpca "github.com/aws/aws-cdk-go/awscdk/aws_acmpca"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   customAttributeProperty := &customAttributeProperty{
 //   	objectIdentifier: jsii.String("objectIdentifier"),
 //   	value: jsii.String("value"),
@@ -2614,15 +2675,18 @@ type CfnCertificateAuthority_CsrExtensionsProperty struct {
 //
 type CfnCertificateAuthority_CustomAttributeProperty struct {
 	// Specifies the object identifier (OID) of the attribute type of the relative distinguished name (RDN).
-	ObjectIdentifier *string `json:"objectIdentifier" yaml:"objectIdentifier"`
+	ObjectIdentifier *string `field:"required" json:"objectIdentifier" yaml:"objectIdentifier"`
 	// Specifies the attribute value of relative distinguished name (RDN).
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // Describes an Electronic Data Interchange (EDI) entity as described in as defined in [Subject Alternative Name](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280) in RFC 5280.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import acmpca "github.com/aws/aws-cdk-go/awscdk/aws_acmpca"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   ediPartyNameProperty := &ediPartyNameProperty{
 //   	nameAssigner: jsii.String("nameAssigner"),
 //   	partyName: jsii.String("partyName"),
@@ -2630,15 +2694,18 @@ type CfnCertificateAuthority_CustomAttributeProperty struct {
 //
 type CfnCertificateAuthority_EdiPartyNameProperty struct {
 	// Specifies the name assigner.
-	NameAssigner *string `json:"nameAssigner" yaml:"nameAssigner"`
+	NameAssigner *string `field:"required" json:"nameAssigner" yaml:"nameAssigner"`
 	// Specifies the party name.
-	PartyName *string `json:"partyName" yaml:"partyName"`
+	PartyName *string `field:"required" json:"partyName" yaml:"partyName"`
 }
 
 // Describes an ASN.1 X.400 `GeneralName` as defined in [RFC 5280](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280) . Only one of the following naming options should be provided. Providing more than one option results in an `InvalidArgsException` error.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import acmpca "github.com/aws/aws-cdk-go/awscdk/aws_acmpca"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   generalNameProperty := &generalNameProperty{
 //   	directoryName: &subjectProperty{
 //   		commonName: jsii.String("commonName"),
@@ -2681,21 +2748,21 @@ type CfnCertificateAuthority_GeneralNameProperty struct {
 	// Contains information about the certificate subject.
 	//
 	// The certificate can be one issued by your private certificate authority (CA) or it can be your private CA certificate. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate. The DN must be unique for each entity, but your private CA can issue more than one certificate with the same DN to the same entity.
-	DirectoryName interface{} `json:"directoryName" yaml:"directoryName"`
+	DirectoryName interface{} `field:"optional" json:"directoryName" yaml:"directoryName"`
 	// Represents `GeneralName` as a DNS name.
-	DnsName *string `json:"dnsName" yaml:"dnsName"`
+	DnsName *string `field:"optional" json:"dnsName" yaml:"dnsName"`
 	// Represents `GeneralName` as an `EdiPartyName` object.
-	EdiPartyName interface{} `json:"ediPartyName" yaml:"ediPartyName"`
+	EdiPartyName interface{} `field:"optional" json:"ediPartyName" yaml:"ediPartyName"`
 	// Represents `GeneralName` as an IPv4 or IPv6 address.
-	IpAddress *string `json:"ipAddress" yaml:"ipAddress"`
+	IpAddress *string `field:"optional" json:"ipAddress" yaml:"ipAddress"`
 	// Represents `GeneralName` using an `OtherName` object.
-	OtherName interface{} `json:"otherName" yaml:"otherName"`
+	OtherName interface{} `field:"optional" json:"otherName" yaml:"otherName"`
 	// Represents `GeneralName` as an object identifier (OID).
-	RegisteredId *string `json:"registeredId" yaml:"registeredId"`
+	RegisteredId *string `field:"optional" json:"registeredId" yaml:"registeredId"`
 	// Represents `GeneralName` as an [RFC 822](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc822) email address.
-	Rfc822Name *string `json:"rfc822Name" yaml:"rfc822Name"`
+	Rfc822Name *string `field:"optional" json:"rfc822Name" yaml:"rfc822Name"`
 	// Represents `GeneralName` as a URI.
-	UniformResourceIdentifier *string `json:"uniformResourceIdentifier" yaml:"uniformResourceIdentifier"`
+	UniformResourceIdentifier *string `field:"optional" json:"uniformResourceIdentifier" yaml:"uniformResourceIdentifier"`
 }
 
 // Defines one or more purposes for which the key contained in the certificate can be used.
@@ -2703,7 +2770,10 @@ type CfnCertificateAuthority_GeneralNameProperty struct {
 // Default value for each option is false.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import acmpca "github.com/aws/aws-cdk-go/awscdk/aws_acmpca"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   keyUsageProperty := &keyUsageProperty{
 //   	crlSign: jsii.Boolean(false),
 //   	dataEncipherment: jsii.Boolean(false),
@@ -2718,29 +2788,32 @@ type CfnCertificateAuthority_GeneralNameProperty struct {
 //
 type CfnCertificateAuthority_KeyUsageProperty struct {
 	// Key can be used to sign CRLs.
-	CrlSign interface{} `json:"crlSign" yaml:"crlSign"`
+	CrlSign interface{} `field:"optional" json:"crlSign" yaml:"crlSign"`
 	// Key can be used to decipher data.
-	DataEncipherment interface{} `json:"dataEncipherment" yaml:"dataEncipherment"`
+	DataEncipherment interface{} `field:"optional" json:"dataEncipherment" yaml:"dataEncipherment"`
 	// Key can be used only to decipher data.
-	DecipherOnly interface{} `json:"decipherOnly" yaml:"decipherOnly"`
+	DecipherOnly interface{} `field:"optional" json:"decipherOnly" yaml:"decipherOnly"`
 	// Key can be used for digital signing.
-	DigitalSignature interface{} `json:"digitalSignature" yaml:"digitalSignature"`
+	DigitalSignature interface{} `field:"optional" json:"digitalSignature" yaml:"digitalSignature"`
 	// Key can be used only to encipher data.
-	EncipherOnly interface{} `json:"encipherOnly" yaml:"encipherOnly"`
+	EncipherOnly interface{} `field:"optional" json:"encipherOnly" yaml:"encipherOnly"`
 	// Key can be used in a key-agreement protocol.
-	KeyAgreement interface{} `json:"keyAgreement" yaml:"keyAgreement"`
+	KeyAgreement interface{} `field:"optional" json:"keyAgreement" yaml:"keyAgreement"`
 	// Key can be used to sign certificates.
-	KeyCertSign interface{} `json:"keyCertSign" yaml:"keyCertSign"`
+	KeyCertSign interface{} `field:"optional" json:"keyCertSign" yaml:"keyCertSign"`
 	// Key can be used to encipher data.
-	KeyEncipherment interface{} `json:"keyEncipherment" yaml:"keyEncipherment"`
+	KeyEncipherment interface{} `field:"optional" json:"keyEncipherment" yaml:"keyEncipherment"`
 	// Key can be used for non-repudiation.
-	NonRepudiation interface{} `json:"nonRepudiation" yaml:"nonRepudiation"`
+	NonRepudiation interface{} `field:"optional" json:"nonRepudiation" yaml:"nonRepudiation"`
 }
 
 // Contains information to enable and configure Online Certificate Status Protocol (OCSP) for validating certificate revocation status.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import acmpca "github.com/aws/aws-cdk-go/awscdk/aws_acmpca"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   ocspConfigurationProperty := &ocspConfigurationProperty{
 //   	enabled: jsii.Boolean(false),
 //   	ocspCustomCname: jsii.String("ocspCustomCname"),
@@ -2748,19 +2821,22 @@ type CfnCertificateAuthority_KeyUsageProperty struct {
 //
 type CfnCertificateAuthority_OcspConfigurationProperty struct {
 	// Flag enabling use of the Online Certificate Status Protocol (OCSP) for validating certificate revocation status.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// By default, ACM Private CA injects an Amazon domain into certificates being validated by the Online Certificate Status Protocol (OCSP).
 	//
 	// A customer can alternatively use this object to define a CNAME specifying a customized OCSP domain.
 	//
 	// Note: The value of the CNAME must not include a protocol prefix such as "http://" or "https://".
-	OcspCustomCname *string `json:"ocspCustomCname" yaml:"ocspCustomCname"`
+	OcspCustomCname *string `field:"optional" json:"ocspCustomCname" yaml:"ocspCustomCname"`
 }
 
 // Defines a custom ASN.1 X.400 `GeneralName` using an object identifier (OID) and value. The OID must satisfy the regular expression shown below. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import acmpca "github.com/aws/aws-cdk-go/awscdk/aws_acmpca"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   otherNameProperty := &otherNameProperty{
 //   	typeId: jsii.String("typeId"),
 //   	value: jsii.String("value"),
@@ -2768,9 +2844,9 @@ type CfnCertificateAuthority_OcspConfigurationProperty struct {
 //
 type CfnCertificateAuthority_OtherNameProperty struct {
 	// Specifies an OID.
-	TypeId *string `json:"typeId" yaml:"typeId"`
+	TypeId *string `field:"required" json:"typeId" yaml:"typeId"`
 	// Specifies an OID value.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // Certificate revocation information used by the CreateCertificateAuthority and UpdateCertificateAuthority actions.
@@ -2778,7 +2854,10 @@ type CfnCertificateAuthority_OtherNameProperty struct {
 // Your private certificate authority (CA) can configure Online Certificate Status Protocol (OCSP) support and/or maintain a certificate revocation list (CRL). OCSP returns validation information about certificates as requested by clients, and a CRL contains an updated list of certificates revoked by your CA. For more information, see [RevokeCertificate](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_RevokeCertificate.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import acmpca "github.com/aws/aws-cdk-go/awscdk/aws_acmpca"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   revocationConfigurationProperty := &revocationConfigurationProperty{
 //   	crlConfiguration: &crlConfigurationProperty{
 //   		customCname: jsii.String("customCname"),
@@ -2795,15 +2874,18 @@ type CfnCertificateAuthority_OtherNameProperty struct {
 //
 type CfnCertificateAuthority_RevocationConfigurationProperty struct {
 	// Configuration of the certificate revocation list (CRL), if any, maintained by your private CA.
-	CrlConfiguration interface{} `json:"crlConfiguration" yaml:"crlConfiguration"`
+	CrlConfiguration interface{} `field:"optional" json:"crlConfiguration" yaml:"crlConfiguration"`
 	// Configuration of Online Certificate Status Protocol (OCSP) support, if any, maintained by your private CA.
-	OcspConfiguration interface{} `json:"ocspConfiguration" yaml:"ocspConfiguration"`
+	OcspConfiguration interface{} `field:"optional" json:"ocspConfiguration" yaml:"ocspConfiguration"`
 }
 
 // ASN1 subject for the certificate authority.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import acmpca "github.com/aws/aws-cdk-go/awscdk/aws_acmpca"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   subjectProperty := &subjectProperty{
 //   	commonName: jsii.String("commonName"),
 //   	country: jsii.String("country"),
@@ -2829,41 +2911,41 @@ type CfnCertificateAuthority_RevocationConfigurationProperty struct {
 //
 type CfnCertificateAuthority_SubjectProperty struct {
 	// Fully qualified domain name (FQDN) associated with the certificate subject.
-	CommonName *string `json:"commonName" yaml:"commonName"`
+	CommonName *string `field:"optional" json:"commonName" yaml:"commonName"`
 	// Two-digit code that specifies the country in which the certificate subject located.
-	Country *string `json:"country" yaml:"country"`
+	Country *string `field:"optional" json:"country" yaml:"country"`
 	// Contains a sequence of one or more X.500 relative distinguished names (RDNs), each of which consists of an object identifier (OID) and a value. For more information, see NIST’s definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier) .
 	//
 	// > Custom attributes cannot be used in combination with standard attributes.
-	CustomAttributes interface{} `json:"customAttributes" yaml:"customAttributes"`
+	CustomAttributes interface{} `field:"optional" json:"customAttributes" yaml:"customAttributes"`
 	// Disambiguating information for the certificate subject.
-	DistinguishedNameQualifier *string `json:"distinguishedNameQualifier" yaml:"distinguishedNameQualifier"`
+	DistinguishedNameQualifier *string `field:"optional" json:"distinguishedNameQualifier" yaml:"distinguishedNameQualifier"`
 	// Typically a qualifier appended to the name of an individual.
 	//
 	// Examples include Jr. for junior, Sr. for senior, and III for third.
-	GenerationQualifier *string `json:"generationQualifier" yaml:"generationQualifier"`
+	GenerationQualifier *string `field:"optional" json:"generationQualifier" yaml:"generationQualifier"`
 	// First name.
-	GivenName *string `json:"givenName" yaml:"givenName"`
+	GivenName *string `field:"optional" json:"givenName" yaml:"givenName"`
 	// Concatenation that typically contains the first letter of the GivenName, the first letter of the middle name if one exists, and the first letter of the SurName.
-	Initials *string `json:"initials" yaml:"initials"`
+	Initials *string `field:"optional" json:"initials" yaml:"initials"`
 	// The locality (such as a city or town) in which the certificate subject is located.
-	Locality *string `json:"locality" yaml:"locality"`
+	Locality *string `field:"optional" json:"locality" yaml:"locality"`
 	// Legal name of the organization with which the certificate subject is affiliated.
-	Organization *string `json:"organization" yaml:"organization"`
+	Organization *string `field:"optional" json:"organization" yaml:"organization"`
 	// A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
-	OrganizationalUnit *string `json:"organizationalUnit" yaml:"organizationalUnit"`
+	OrganizationalUnit *string `field:"optional" json:"organizationalUnit" yaml:"organizationalUnit"`
 	// Typically a shortened version of a longer GivenName.
 	//
 	// For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
-	Pseudonym *string `json:"pseudonym" yaml:"pseudonym"`
+	Pseudonym *string `field:"optional" json:"pseudonym" yaml:"pseudonym"`
 	// The certificate serial number.
-	SerialNumber *string `json:"serialNumber" yaml:"serialNumber"`
+	SerialNumber *string `field:"optional" json:"serialNumber" yaml:"serialNumber"`
 	// State in which the subject of the certificate is located.
-	State *string `json:"state" yaml:"state"`
+	State *string `field:"optional" json:"state" yaml:"state"`
 	// Family name.
-	Surname *string `json:"surname" yaml:"surname"`
+	Surname *string `field:"optional" json:"surname" yaml:"surname"`
 	// A personal title such as Mr.
-	Title *string `json:"title" yaml:"title"`
+	Title *string `field:"optional" json:"title" yaml:"title"`
 }
 
 // A CloudFormation `AWS::ACMPCA::CertificateAuthorityActivation`.
@@ -2871,8 +2953,11 @@ type CfnCertificateAuthority_SubjectProperty struct {
 // The `AWS::ACMPCA::CertificateAuthorityActivation` resource creates and installs a CA certificate on a CA. If no status is specified, the `AWS::ACMPCA::CertificateAuthorityActivation` resource status defaults to ACTIVE. Once the CA has a CA certificate installed, you can use the resource to toggle the CA status field between `ACTIVE` and `DISABLED` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import acmpca "github.com/aws/aws-cdk-go/awscdk/aws_acmpca"
-//   cfnCertificateAuthorityActivation := acmpca.NewCfnCertificateAuthorityActivation(this, jsii.String("MyCfnCertificateAuthorityActivation"), &cfnCertificateAuthorityActivationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnCertificateAuthorityActivation := awscdk.Aws_acmpca.NewCfnCertificateAuthorityActivation(this, jsii.String("MyCfnCertificateAuthorityActivation"), &cfnCertificateAuthorityActivationProps{
 //   	certificate: jsii.String("certificate"),
 //   	certificateAuthorityArn: jsii.String("certificateAuthorityArn"),
 //
@@ -3585,7 +3670,10 @@ func (c *jsiiProxy_CfnCertificateAuthorityActivation) ValidateProperties(_proper
 // Properties for defining a `CfnCertificateAuthorityActivation`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import acmpca "github.com/aws/aws-cdk-go/awscdk/aws_acmpca"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnCertificateAuthorityActivationProps := &cfnCertificateAuthorityActivationProps{
 //   	certificate: jsii.String("certificate"),
 //   	certificateAuthorityArn: jsii.String("certificateAuthorityArn"),
@@ -3597,13 +3685,13 @@ func (c *jsiiProxy_CfnCertificateAuthorityActivation) ValidateProperties(_proper
 //
 type CfnCertificateAuthorityActivationProps struct {
 	// The Base64 PEM-encoded certificate authority certificate.
-	Certificate *string `json:"certificate" yaml:"certificate"`
+	Certificate *string `field:"required" json:"certificate" yaml:"certificate"`
 	// The Amazon Resource Name (ARN) of your private CA.
-	CertificateAuthorityArn *string `json:"certificateAuthorityArn" yaml:"certificateAuthorityArn"`
+	CertificateAuthorityArn *string `field:"required" json:"certificateAuthorityArn" yaml:"certificateAuthorityArn"`
 	// The Base64 PEM-encoded certificate chain that chains up to the root CA certificate that you used to sign your private CA certificate.
-	CertificateChain *string `json:"certificateChain" yaml:"certificateChain"`
+	CertificateChain *string `field:"optional" json:"certificateChain" yaml:"certificateChain"`
 	// Status of your private CA.
-	Status *string `json:"status" yaml:"status"`
+	Status *string `field:"optional" json:"status" yaml:"status"`
 }
 
 // Properties for defining a `CfnCertificateAuthority`.
@@ -3635,37 +3723,40 @@ type CfnCertificateAuthorityProps struct {
 	// Type of the public key algorithm and size, in bits, of the key pair that your CA creates when it issues a certificate.
 	//
 	// When you create a subordinate CA, you must use a key algorithm supported by the parent CA.
-	KeyAlgorithm *string `json:"keyAlgorithm" yaml:"keyAlgorithm"`
+	KeyAlgorithm *string `field:"required" json:"keyAlgorithm" yaml:"keyAlgorithm"`
 	// Name of the algorithm your private CA uses to sign certificate requests.
 	//
 	// This parameter should not be confused with the `SigningAlgorithm` parameter used to sign certificates when they are issued.
-	SigningAlgorithm *string `json:"signingAlgorithm" yaml:"signingAlgorithm"`
+	SigningAlgorithm *string `field:"required" json:"signingAlgorithm" yaml:"signingAlgorithm"`
 	// Structure that contains X.500 distinguished name information for your private CA.
-	Subject interface{} `json:"subject" yaml:"subject"`
+	Subject interface{} `field:"required" json:"subject" yaml:"subject"`
 	// Type of your private CA.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// Specifies information to be added to the extension section of the certificate signing request (CSR).
-	CsrExtensions interface{} `json:"csrExtensions" yaml:"csrExtensions"`
+	CsrExtensions interface{} `field:"optional" json:"csrExtensions" yaml:"csrExtensions"`
 	// Specifies a cryptographic key management compliance standard used for handling CA keys.
 	//
 	// Default: FIPS_140_2_LEVEL_3_OR_HIGHER
 	//
 	// Note: `FIPS_140_2_LEVEL_3_OR_HIGHER` is not supported in Region ap-northeast-3. When creating a CA in the ap-northeast-3, you must provide `FIPS_140_2_LEVEL_2_OR_HIGHER` as the argument for `KeyStorageSecurityStandard` . Failure to do this results in an `InvalidArgsException` with the message, "A certificate authority cannot be created in this region with the specified security standard."
-	KeyStorageSecurityStandard *string `json:"keyStorageSecurityStandard" yaml:"keyStorageSecurityStandard"`
+	KeyStorageSecurityStandard *string `field:"optional" json:"keyStorageSecurityStandard" yaml:"keyStorageSecurityStandard"`
 	// Information about the certificate revocation list (CRL) created and maintained by your private CA.
 	//
 	// Certificate revocation information used by the CreateCertificateAuthority and UpdateCertificateAuthority actions. Your certificate authority can create and maintain a certificate revocation list (CRL). A CRL contains information about certificates that have been revoked.
-	RevocationConfiguration interface{} `json:"revocationConfiguration" yaml:"revocationConfiguration"`
+	RevocationConfiguration interface{} `field:"optional" json:"revocationConfiguration" yaml:"revocationConfiguration"`
 	// Key-value pairs that will be attached to the new private CA.
 	//
 	// You can associate up to 50 tags with a private CA. For information using tags with IAM to manage permissions, see [Controlling Access Using IAM Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // Properties for defining a `CfnCertificate`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import acmpca "github.com/aws/aws-cdk-go/awscdk/aws_acmpca"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnCertificateProps := &cfnCertificateProps{
 //   	certificateAuthorityArn: jsii.String("certificateAuthorityArn"),
 //   	certificateSigningRequest: jsii.String("certificateSigningRequest"),
@@ -3791,23 +3882,23 @@ type CfnCertificateAuthorityProps struct {
 //
 type CfnCertificateProps struct {
 	// The Amazon Resource Name (ARN) for the private CA issues the certificate.
-	CertificateAuthorityArn *string `json:"certificateAuthorityArn" yaml:"certificateAuthorityArn"`
+	CertificateAuthorityArn *string `field:"required" json:"certificateAuthorityArn" yaml:"certificateAuthorityArn"`
 	// The certificate signing request (CSR) for the certificate.
-	CertificateSigningRequest *string `json:"certificateSigningRequest" yaml:"certificateSigningRequest"`
+	CertificateSigningRequest *string `field:"required" json:"certificateSigningRequest" yaml:"certificateSigningRequest"`
 	// The name of the algorithm that will be used to sign the certificate to be issued.
 	//
 	// This parameter should not be confused with the `SigningAlgorithm` parameter used to sign a CSR in the `CreateCertificateAuthority` action.
 	//
 	// > The specified signing algorithm family (RSA or ECDSA) must match the algorithm family of the CA's secret key.
-	SigningAlgorithm *string `json:"signingAlgorithm" yaml:"signingAlgorithm"`
+	SigningAlgorithm *string `field:"required" json:"signingAlgorithm" yaml:"signingAlgorithm"`
 	// The period of time during which the certificate will be valid.
-	Validity interface{} `json:"validity" yaml:"validity"`
+	Validity interface{} `field:"required" json:"validity" yaml:"validity"`
 	// Specifies X.509 certificate information to be included in the issued certificate. An `APIPassthrough` or `APICSRPassthrough` template variant must be selected, or else this parameter is ignored.
-	ApiPassthrough interface{} `json:"apiPassthrough" yaml:"apiPassthrough"`
+	ApiPassthrough interface{} `field:"optional" json:"apiPassthrough" yaml:"apiPassthrough"`
 	// Specifies a custom configuration template to use when issuing a certificate.
 	//
 	// If this parameter is not provided, ACM Private CA defaults to the `EndEntityCertificate/V1` template. For more information about ACM Private CA templates, see [Using Templates](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html) .
-	TemplateArn *string `json:"templateArn" yaml:"templateArn"`
+	TemplateArn *string `field:"optional" json:"templateArn" yaml:"templateArn"`
 	// Information describing the start of the validity period of the certificate.
 	//
 	// This parameter sets the “Not Before" date for the certificate.
@@ -3817,7 +3908,7 @@ type CfnCertificateProps struct {
 	// Unlike the `Validity` parameter, the `ValidityNotBefore` parameter is optional.
 	//
 	// The `ValidityNotBefore` value is expressed as an explicit date and time, using the `Validity` type value `ABSOLUTE` .
-	ValidityNotBefore interface{} `json:"validityNotBefore" yaml:"validityNotBefore"`
+	ValidityNotBefore interface{} `field:"optional" json:"validityNotBefore" yaml:"validityNotBefore"`
 }
 
 // A CloudFormation `AWS::ACMPCA::Permission`.
@@ -3831,8 +3922,11 @@ type CfnCertificateProps struct {
 // > To update an `AWS::ACMPCA::Permission` resource, you must first delete the existing permission resource from the CloudFormation stack and then create a new permission resource with updated properties.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import acmpca "github.com/aws/aws-cdk-go/awscdk/aws_acmpca"
-//   cfnPermission := acmpca.NewCfnPermission(this, jsii.String("MyCfnPermission"), &cfnPermissionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnPermission := awscdk.Aws_acmpca.NewCfnPermission(this, jsii.String("MyCfnPermission"), &cfnPermissionProps{
 //   	actions: []*string{
 //   		jsii.String("actions"),
 //   	},
@@ -4539,7 +4633,10 @@ func (c *jsiiProxy_CfnPermission) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnPermission`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import acmpca "github.com/aws/aws-cdk-go/awscdk/aws_acmpca"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnPermissionProps := &cfnPermissionProps{
 //   	actions: []*string{
 //   		jsii.String("actions"),
@@ -4555,15 +4652,15 @@ type CfnPermissionProps struct {
 	// The private CA actions that can be performed by the designated AWS service.
 	//
 	// Supported actions are `IssueCertificate` , `GetCertificate` , and `ListPermissions` .
-	Actions *[]*string `json:"actions" yaml:"actions"`
+	Actions *[]*string `field:"required" json:"actions" yaml:"actions"`
 	// The Amazon Resource Number (ARN) of the private CA from which the permission was issued.
-	CertificateAuthorityArn *string `json:"certificateAuthorityArn" yaml:"certificateAuthorityArn"`
+	CertificateAuthorityArn *string `field:"required" json:"certificateAuthorityArn" yaml:"certificateAuthorityArn"`
 	// The AWS service or entity that holds the permission.
 	//
 	// At this time, the only valid principal is `acm.amazonaws.com` .
-	Principal *string `json:"principal" yaml:"principal"`
+	Principal *string `field:"required" json:"principal" yaml:"principal"`
 	// The ID of the account that assigned the permission.
-	SourceAccount *string `json:"sourceAccount" yaml:"sourceAccount"`
+	SourceAccount *string `field:"optional" json:"sourceAccount" yaml:"sourceAccount"`
 }
 
 // Interface which all CertificateAuthority based class must implement.

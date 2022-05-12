@@ -15,7 +15,9 @@ import (
 // Adds a header to the received email.
 //
 // Example:
-//   import s3 "github.com/aws/aws-cdk-go/awscdk"import actions "github.com/aws/aws-cdk-go/awscdk"
+//   import s3 "github.com/aws/aws-cdk-go/awscdk"
+//   import actions "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   bucket := s3.NewBucket(this, jsii.String("Bucket"))
 //   topic := sns.NewTopic(this, jsii.String("Topic"))
@@ -106,7 +108,9 @@ func (a *jsiiProxy_AddHeader) Bind(_rule awsses.IReceiptRule) *awsses.ReceiptRul
 // Construction properties for a add header action.
 //
 // Example:
-//   import s3 "github.com/aws/aws-cdk-go/awscdk"import actions "github.com/aws/aws-cdk-go/awscdk"
+//   import s3 "github.com/aws/aws-cdk-go/awscdk"
+//   import actions "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   bucket := s3.NewBucket(this, jsii.String("Bucket"))
 //   topic := sns.NewTopic(this, jsii.String("Topic"))
@@ -150,23 +154,27 @@ type AddHeaderProps struct {
 	// inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters
 	// and dashes only.
 	// Experimental.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The value of the header to add.
 	//
 	// Must be less than 2048 characters,
 	// and must not contain newline characters ("\r" or "\n").
 	// Experimental.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // Rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon SNS.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ses_actions "github.com/aws/aws-cdk-go/awscdk/aws_ses_actions"import awscdk "github.com/aws/aws-cdk-go/awscdk"import sns "github.com/aws/aws-cdk-go/awscdk/aws_sns"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var bounceTemplate bounceTemplate
 //   var topic topic
-//   bounce := ses_actions.NewBounce(&bounceProps{
+//
+//   bounce := awscdk.Aws_ses_actions.NewBounce(&bounceProps{
 //   	sender: jsii.String("sender"),
 //   	template: bounceTemplate,
 //
@@ -229,10 +237,14 @@ func (b *jsiiProxy_Bounce) Bind(_rule awsses.IReceiptRule) *awsses.ReceiptRuleAc
 // Construction properties for a bounce action.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ses_actions "github.com/aws/aws-cdk-go/awscdk/aws_ses_actions"import awscdk "github.com/aws/aws-cdk-go/awscdk"import sns "github.com/aws/aws-cdk-go/awscdk/aws_sns"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var bounceTemplate bounceTemplate
 //   var topic topic
+//
 //   bounceProps := &bounceProps{
 //   	sender: jsii.String("sender"),
 //   	template: bounceTemplate,
@@ -248,20 +260,23 @@ type BounceProps struct {
 	// This is the address
 	// from which the bounce message will be sent.
 	// Experimental.
-	Sender *string `json:"sender" yaml:"sender"`
+	Sender *string `field:"required" json:"sender" yaml:"sender"`
 	// The template containing the message, reply code and status code.
 	// Experimental.
-	Template BounceTemplate `json:"template" yaml:"template"`
+	Template BounceTemplate `field:"required" json:"template" yaml:"template"`
 	// The SNS topic to notify when the bounce action is taken.
 	// Experimental.
-	Topic awssns.ITopic `json:"topic" yaml:"topic"`
+	Topic awssns.ITopic `field:"optional" json:"topic" yaml:"topic"`
 }
 
 // A bounce template.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ses_actions "github.com/aws/aws-cdk-go/awscdk/aws_ses_actions"
-//   bounceTemplate := ses_actions.bounceTemplate_MAILBOX_DOES_NOT_EXIST()
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   bounceTemplate := awscdk.Aws_ses_actions.bounceTemplate_MAILBOX_DOES_NOT_EXIST()
 //
 // Experimental.
 type BounceTemplate interface {
@@ -369,7 +384,10 @@ func BounceTemplate_TEMPORARY_FAILURE() BounceTemplate {
 // Construction properties for a BounceTemplate.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ses_actions "github.com/aws/aws-cdk-go/awscdk/aws_ses_actions"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   bounceTemplateProps := &bounceTemplateProps{
 //   	message: jsii.String("message"),
 //   	smtpReplyCode: jsii.String("smtpReplyCode"),
@@ -382,17 +400,17 @@ func BounceTemplate_TEMPORARY_FAILURE() BounceTemplate {
 type BounceTemplateProps struct {
 	// Human-readable text to include in the bounce message.
 	// Experimental.
-	Message *string `json:"message" yaml:"message"`
+	Message *string `field:"required" json:"message" yaml:"message"`
 	// The SMTP reply code, as defined by RFC 5321.
 	// See: https://tools.ietf.org/html/rfc5321
 	//
 	// Experimental.
-	SmtpReplyCode *string `json:"smtpReplyCode" yaml:"smtpReplyCode"`
+	SmtpReplyCode *string `field:"required" json:"smtpReplyCode" yaml:"smtpReplyCode"`
 	// The SMTP enhanced status code, as defined by RFC 3463.
 	// See: https://tools.ietf.org/html/rfc3463
 	//
 	// Experimental.
-	StatusCode *string `json:"statusCode" yaml:"statusCode"`
+	StatusCode *string `field:"optional" json:"statusCode" yaml:"statusCode"`
 }
 
 // The type of email encoding to use for a SNS action.
@@ -411,15 +429,20 @@ const (
 // Calls an AWS Lambda function, and optionally, publishes a notification to Amazon SNS.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ses_actions "github.com/aws/aws-cdk-go/awscdk/aws_ses_actions"import awscdk "github.com/aws/aws-cdk-go/awscdk"import sns "github.com/aws/aws-cdk-go/awscdk/aws_sns"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var function_ function
 //   var topic topic
-//   lambda := ses_actions.NewLambda(&lambdaProps{
+//
+//   lambda := awscdk.Aws_ses_actions.NewLambda(&lambdaProps{
 //   	function: function_,
 //
 //   	// the properties below are optional
-//   	invocationType: ses_actions.lambdaInvocationType_EVENT,
+//   	invocationType: awscdk.*Aws_ses_actions.lambdaInvocationType_EVENT,
 //   	topic: topic,
 //   })
 //
@@ -495,15 +518,20 @@ const (
 // Construction properties for a Lambda action.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ses_actions "github.com/aws/aws-cdk-go/awscdk/aws_ses_actions"import awscdk "github.com/aws/aws-cdk-go/awscdk"import sns "github.com/aws/aws-cdk-go/awscdk/aws_sns"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var function_ function
 //   var topic topic
+//
 //   lambdaProps := &lambdaProps{
 //   	function: function_,
 //
 //   	// the properties below are optional
-//   	invocationType: ses_actions.lambdaInvocationType_EVENT,
+//   	invocationType: awscdk.Aws_ses_actions.lambdaInvocationType_EVENT,
 //   	topic: topic,
 //   }
 //
@@ -511,19 +539,21 @@ const (
 type LambdaProps struct {
 	// The Lambda function to invoke.
 	// Experimental.
-	Function awslambda.IFunction `json:"function" yaml:"function"`
+	Function awslambda.IFunction `field:"required" json:"function" yaml:"function"`
 	// The invocation type of the Lambda function.
 	// Experimental.
-	InvocationType LambdaInvocationType `json:"invocationType" yaml:"invocationType"`
+	InvocationType LambdaInvocationType `field:"optional" json:"invocationType" yaml:"invocationType"`
 	// The SNS topic to notify when the Lambda action is taken.
 	// Experimental.
-	Topic awssns.ITopic `json:"topic" yaml:"topic"`
+	Topic awssns.ITopic `field:"optional" json:"topic" yaml:"topic"`
 }
 
 // Saves the received message to an Amazon S3 bucket and, optionally, publishes a notification to Amazon SNS.
 //
 // Example:
-//   import s3 "github.com/aws/aws-cdk-go/awscdk"import actions "github.com/aws/aws-cdk-go/awscdk"
+//   import s3 "github.com/aws/aws-cdk-go/awscdk"
+//   import actions "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   bucket := s3.NewBucket(this, jsii.String("Bucket"))
 //   topic := sns.NewTopic(this, jsii.String("Topic"))
@@ -614,7 +644,9 @@ func (s *jsiiProxy_S3) Bind(rule awsses.IReceiptRule) *awsses.ReceiptRuleActionC
 // Construction properties for a S3 action.
 //
 // Example:
-//   import s3 "github.com/aws/aws-cdk-go/awscdk"import actions "github.com/aws/aws-cdk-go/awscdk"
+//   import s3 "github.com/aws/aws-cdk-go/awscdk"
+//   import actions "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   bucket := s3.NewBucket(this, jsii.String("Bucket"))
 //   topic := sns.NewTopic(this, jsii.String("Topic"))
@@ -654,22 +686,24 @@ func (s *jsiiProxy_S3) Bind(rule awsses.IReceiptRule) *awsses.ReceiptRuleActionC
 type S3Props struct {
 	// The S3 bucket that incoming email will be saved to.
 	// Experimental.
-	Bucket awss3.IBucket `json:"bucket" yaml:"bucket"`
+	Bucket awss3.IBucket `field:"required" json:"bucket" yaml:"bucket"`
 	// The master key that SES should use to encrypt your emails before saving them to the S3 bucket.
 	// Experimental.
-	KmsKey awskms.IKey `json:"kmsKey" yaml:"kmsKey"`
+	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 	// The key prefix of the S3 bucket.
 	// Experimental.
-	ObjectKeyPrefix *string `json:"objectKeyPrefix" yaml:"objectKeyPrefix"`
+	ObjectKeyPrefix *string `field:"optional" json:"objectKeyPrefix" yaml:"objectKeyPrefix"`
 	// The SNS topic to notify when the S3 action is taken.
 	// Experimental.
-	Topic awssns.ITopic `json:"topic" yaml:"topic"`
+	Topic awssns.ITopic `field:"optional" json:"topic" yaml:"topic"`
 }
 
 // Publishes the email content within a notification to Amazon SNS.
 //
 // Example:
-//   import s3 "github.com/aws/aws-cdk-go/awscdk"import actions "github.com/aws/aws-cdk-go/awscdk"
+//   import s3 "github.com/aws/aws-cdk-go/awscdk"
+//   import actions "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   bucket := s3.NewBucket(this, jsii.String("Bucket"))
 //   topic := sns.NewTopic(this, jsii.String("Topic"))
@@ -760,7 +794,9 @@ func (s *jsiiProxy_Sns) Bind(_rule awsses.IReceiptRule) *awsses.ReceiptRuleActio
 // Construction properties for a SNS action.
 //
 // Example:
-//   import s3 "github.com/aws/aws-cdk-go/awscdk"import actions "github.com/aws/aws-cdk-go/awscdk"
+//   import s3 "github.com/aws/aws-cdk-go/awscdk"
+//   import actions "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   bucket := s3.NewBucket(this, jsii.String("Bucket"))
 //   topic := sns.NewTopic(this, jsii.String("Topic"))
@@ -800,19 +836,23 @@ func (s *jsiiProxy_Sns) Bind(_rule awsses.IReceiptRule) *awsses.ReceiptRuleActio
 type SnsProps struct {
 	// The SNS topic to notify.
 	// Experimental.
-	Topic awssns.ITopic `json:"topic" yaml:"topic"`
+	Topic awssns.ITopic `field:"required" json:"topic" yaml:"topic"`
 	// The encoding to use for the email within the Amazon SNS notification.
 	// Experimental.
-	Encoding EmailEncoding `json:"encoding" yaml:"encoding"`
+	Encoding EmailEncoding `field:"optional" json:"encoding" yaml:"encoding"`
 }
 
 // Terminates the evaluation of the receipt rule set and optionally publishes a notification to Amazon SNS.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ses_actions "github.com/aws/aws-cdk-go/awscdk/aws_ses_actions"import awscdk "github.com/aws/aws-cdk-go/awscdk"import sns "github.com/aws/aws-cdk-go/awscdk/aws_sns"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var topic topic
-//   stop := ses_actions.NewStop(&stopProps{
+//
+//   stop := awscdk.Aws_ses_actions.NewStop(&stopProps{
 //   	topic: topic,
 //   })
 //
@@ -871,9 +911,13 @@ func (s *jsiiProxy_Stop) Bind(_rule awsses.IReceiptRule) *awsses.ReceiptRuleActi
 // Construction properties for a stop action.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ses_actions "github.com/aws/aws-cdk-go/awscdk/aws_ses_actions"import awscdk "github.com/aws/aws-cdk-go/awscdk"import sns "github.com/aws/aws-cdk-go/awscdk/aws_sns"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var topic topic
+//
 //   stopProps := &stopProps{
 //   	topic: topic,
 //   }
@@ -882,6 +926,6 @@ func (s *jsiiProxy_Stop) Bind(_rule awsses.IReceiptRule) *awsses.ReceiptRuleActi
 type StopProps struct {
 	// The SNS topic to notify when the stop action is taken.
 	// Experimental.
-	Topic awssns.ITopic `json:"topic" yaml:"topic"`
+	Topic awssns.ITopic `field:"optional" json:"topic" yaml:"topic"`
 }
 

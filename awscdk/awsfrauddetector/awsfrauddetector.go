@@ -14,8 +14,11 @@ import (
 // Manages a detector and associated detector versions.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import frauddetector "github.com/aws/aws-cdk-go/awscdk/aws_frauddetector"
-//   cfnDetector := frauddetector.NewCfnDetector(this, jsii.String("MyCfnDetector"), &cfnDetectorProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDetector := awscdk.Aws_frauddetector.NewCfnDetector(this, jsii.String("MyCfnDetector"), &cfnDetectorProps{
 //   	detectorId: jsii.String("detectorId"),
 //   	eventType: &eventTypeProperty{
 //   		arn: jsii.String("arn"),
@@ -1000,7 +1003,10 @@ func (c *jsiiProxy_CfnDetector) ValidateProperties(_properties interface{}) {
 // The entity type details.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import frauddetector "github.com/aws/aws-cdk-go/awscdk/aws_frauddetector"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   entityTypeProperty := &entityTypeProperty{
 //   	arn: jsii.String("arn"),
 //   	createdTime: jsii.String("createdTime"),
@@ -1018,31 +1024,34 @@ func (c *jsiiProxy_CfnDetector) ValidateProperties(_properties interface{}) {
 //
 type CfnDetector_EntityTypeProperty struct {
 	// The entity type ARN.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"optional" json:"arn" yaml:"arn"`
 	// Timestamp of when the entity type was created.
-	CreatedTime *string `json:"createdTime" yaml:"createdTime"`
+	CreatedTime *string `field:"optional" json:"createdTime" yaml:"createdTime"`
 	// The entity type description.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack.
 	//
 	// If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
 	//
 	// For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these Variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
-	Inline interface{} `json:"inline" yaml:"inline"`
+	Inline interface{} `field:"optional" json:"inline" yaml:"inline"`
 	// Timestamp of when the entity type was last updated.
-	LastUpdatedTime *string `json:"lastUpdatedTime" yaml:"lastUpdatedTime"`
+	LastUpdatedTime *string `field:"optional" json:"lastUpdatedTime" yaml:"lastUpdatedTime"`
 	// The entity type name.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // The event type details.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import frauddetector "github.com/aws/aws-cdk-go/awscdk/aws_frauddetector"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   eventTypeProperty := &eventTypeProperty{
 //   	arn: jsii.String("arn"),
 //   	createdTime: jsii.String("createdTime"),
@@ -1112,37 +1121,40 @@ type CfnDetector_EntityTypeProperty struct {
 //
 type CfnDetector_EventTypeProperty struct {
 	// The entity type ARN.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"optional" json:"arn" yaml:"arn"`
 	// Timestamp of when the event type was created.
-	CreatedTime *string `json:"createdTime" yaml:"createdTime"`
+	CreatedTime *string `field:"optional" json:"createdTime" yaml:"createdTime"`
 	// The event type description.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The event type entity types.
-	EntityTypes interface{} `json:"entityTypes" yaml:"entityTypes"`
+	EntityTypes interface{} `field:"optional" json:"entityTypes" yaml:"entityTypes"`
 	// The event type event variables.
-	EventVariables interface{} `json:"eventVariables" yaml:"eventVariables"`
+	EventVariables interface{} `field:"optional" json:"eventVariables" yaml:"eventVariables"`
 	// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack.
 	//
 	// If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
 	//
 	// For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the Variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
-	Inline interface{} `json:"inline" yaml:"inline"`
+	Inline interface{} `field:"optional" json:"inline" yaml:"inline"`
 	// The event type labels.
-	Labels interface{} `json:"labels" yaml:"labels"`
+	Labels interface{} `field:"optional" json:"labels" yaml:"labels"`
 	// Timestamp of when the event type was last updated.
-	LastUpdatedTime *string `json:"lastUpdatedTime" yaml:"lastUpdatedTime"`
+	LastUpdatedTime *string `field:"optional" json:"lastUpdatedTime" yaml:"lastUpdatedTime"`
 	// The event type name.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // The event type variable for the detector.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import frauddetector "github.com/aws/aws-cdk-go/awscdk/aws_frauddetector"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   eventVariableProperty := &eventVariableProperty{
 //   	arn: jsii.String("arn"),
 //   	createdTime: jsii.String("createdTime"),
@@ -1164,49 +1176,52 @@ type CfnDetector_EventTypeProperty struct {
 //
 type CfnDetector_EventVariableProperty struct {
 	// The event variable ARN.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"optional" json:"arn" yaml:"arn"`
 	// Timestamp for when the event variable was created.
-	CreatedTime *string `json:"createdTime" yaml:"createdTime"`
+	CreatedTime *string `field:"optional" json:"createdTime" yaml:"createdTime"`
 	// The data source of the event variable.
 	//
 	// Valid values: `EVENT | EXTERNAL_MODEL_SCORE`
 	//
 	// When defining a variable within a detector, you can only use the `EVENT` value for DataSource when the *Inline* property is set to true. If the *Inline* property is set false, you can use either `EVENT` or `MODEL_SCORE` for DataSource.
-	DataSource *string `json:"dataSource" yaml:"dataSource"`
+	DataSource *string `field:"optional" json:"dataSource" yaml:"dataSource"`
 	// The data type of the event variable.
 	//
 	// Valid values: `STRING | INTEGER | BOOLEAN | FLOAT`.
-	DataType *string `json:"dataType" yaml:"dataType"`
+	DataType *string `field:"optional" json:"dataType" yaml:"dataType"`
 	// The default value of the event variable.
 	//
 	// This is required if you are providing the details of your variables instead of the ARN.
-	DefaultValue *string `json:"defaultValue" yaml:"defaultValue"`
+	DefaultValue *string `field:"optional" json:"defaultValue" yaml:"defaultValue"`
 	// The description of the event variable.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack.
 	//
 	// If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
 	//
 	// For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
-	Inline interface{} `json:"inline" yaml:"inline"`
+	Inline interface{} `field:"optional" json:"inline" yaml:"inline"`
 	// Timestamp for when the event variable was last updated.
-	LastUpdatedTime *string `json:"lastUpdatedTime" yaml:"lastUpdatedTime"`
+	LastUpdatedTime *string `field:"optional" json:"lastUpdatedTime" yaml:"lastUpdatedTime"`
 	// The name of the event variable.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The type of event variable.
 	//
 	// For more information, see [Variable types](https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types) .
-	VariableType *string `json:"variableType" yaml:"variableType"`
+	VariableType *string `field:"optional" json:"variableType" yaml:"variableType"`
 }
 
 // The label details.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import frauddetector "github.com/aws/aws-cdk-go/awscdk/aws_frauddetector"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   labelProperty := &labelProperty{
 //   	arn: jsii.String("arn"),
 //   	createdTime: jsii.String("createdTime"),
@@ -1224,44 +1239,50 @@ type CfnDetector_EventVariableProperty struct {
 //
 type CfnDetector_LabelProperty struct {
 	// The label ARN.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"optional" json:"arn" yaml:"arn"`
 	// Timestamp of when the event type was created.
-	CreatedTime *string `json:"createdTime" yaml:"createdTime"`
+	CreatedTime *string `field:"optional" json:"createdTime" yaml:"createdTime"`
 	// The label description.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack.
 	//
 	// If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
 	//
 	// For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
-	Inline interface{} `json:"inline" yaml:"inline"`
+	Inline interface{} `field:"optional" json:"inline" yaml:"inline"`
 	// Timestamp of when the label was last updated.
-	LastUpdatedTime *string `json:"lastUpdatedTime" yaml:"lastUpdatedTime"`
+	LastUpdatedTime *string `field:"optional" json:"lastUpdatedTime" yaml:"lastUpdatedTime"`
 	// The label name.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // The model.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import frauddetector "github.com/aws/aws-cdk-go/awscdk/aws_frauddetector"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   modelProperty := &modelProperty{
 //   	arn: jsii.String("arn"),
 //   }
 //
 type CfnDetector_ModelProperty struct {
 	// The ARN of the model.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"optional" json:"arn" yaml:"arn"`
 }
 
 // The outcome.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import frauddetector "github.com/aws/aws-cdk-go/awscdk/aws_frauddetector"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   outcomeProperty := &outcomeProperty{
 //   	arn: jsii.String("arn"),
 //   	createdTime: jsii.String("createdTime"),
@@ -1279,25 +1300,25 @@ type CfnDetector_ModelProperty struct {
 //
 type CfnDetector_OutcomeProperty struct {
 	// The outcome ARN.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"optional" json:"arn" yaml:"arn"`
 	// The timestamp when the outcome was created.
-	CreatedTime *string `json:"createdTime" yaml:"createdTime"`
+	CreatedTime *string `field:"optional" json:"createdTime" yaml:"createdTime"`
 	// The outcome description.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack.
 	//
 	// If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
 	//
 	// For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
-	Inline interface{} `json:"inline" yaml:"inline"`
+	Inline interface{} `field:"optional" json:"inline" yaml:"inline"`
 	// The timestamp when the outcome was last updated.
-	LastUpdatedTime *string `json:"lastUpdatedTime" yaml:"lastUpdatedTime"`
+	LastUpdatedTime *string `field:"optional" json:"lastUpdatedTime" yaml:"lastUpdatedTime"`
 	// The outcome name.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A rule.
@@ -1305,7 +1326,10 @@ type CfnDetector_OutcomeProperty struct {
 // Rule is a condition that tells Amazon Fraud Detector how to interpret variables values during a fraud prediction.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import frauddetector "github.com/aws/aws-cdk-go/awscdk/aws_frauddetector"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   ruleProperty := &ruleProperty{
 //   	arn: jsii.String("arn"),
 //   	createdTime: jsii.String("createdTime"),
@@ -1342,37 +1366,40 @@ type CfnDetector_OutcomeProperty struct {
 //
 type CfnDetector_RuleProperty struct {
 	// The rule ARN.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"optional" json:"arn" yaml:"arn"`
 	// Timestamp for when the rule was created.
-	CreatedTime *string `json:"createdTime" yaml:"createdTime"`
+	CreatedTime *string `field:"optional" json:"createdTime" yaml:"createdTime"`
 	// The rule description.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The detector for which the rule is associated.
-	DetectorId *string `json:"detectorId" yaml:"detectorId"`
+	DetectorId *string `field:"optional" json:"detectorId" yaml:"detectorId"`
 	// The rule expression.
 	//
 	// A rule expression captures the business logic. For more information, see [Rule language reference](https://docs.aws.amazon.com/frauddetector/latest/ug/rule-language-reference.html) .
-	Expression *string `json:"expression" yaml:"expression"`
+	Expression *string `field:"optional" json:"expression" yaml:"expression"`
 	// The rule language.
-	Language *string `json:"language" yaml:"language"`
+	Language *string `field:"optional" json:"language" yaml:"language"`
 	// Timestamp for when the rule was last updated.
-	LastUpdatedTime *string `json:"lastUpdatedTime" yaml:"lastUpdatedTime"`
+	LastUpdatedTime *string `field:"optional" json:"lastUpdatedTime" yaml:"lastUpdatedTime"`
 	// The rule outcome.
-	Outcomes interface{} `json:"outcomes" yaml:"outcomes"`
+	Outcomes interface{} `field:"optional" json:"outcomes" yaml:"outcomes"`
 	// The rule ID.
-	RuleId *string `json:"ruleId" yaml:"ruleId"`
+	RuleId *string `field:"optional" json:"ruleId" yaml:"ruleId"`
 	// The rule version.
-	RuleVersion *string `json:"ruleVersion" yaml:"ruleVersion"`
+	RuleVersion *string `field:"optional" json:"ruleVersion" yaml:"ruleVersion"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // Properties for defining a `CfnDetector`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import frauddetector "github.com/aws/aws-cdk-go/awscdk/aws_frauddetector"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDetectorProps := &cfnDetectorProps{
 //   	detectorId: jsii.String("detectorId"),
 //   	eventType: &eventTypeProperty{
@@ -1496,23 +1523,23 @@ type CfnDetector_RuleProperty struct {
 //
 type CfnDetectorProps struct {
 	// The name of the detector.
-	DetectorId *string `json:"detectorId" yaml:"detectorId"`
+	DetectorId *string `field:"required" json:"detectorId" yaml:"detectorId"`
 	// The event type associated with this detector.
-	EventType interface{} `json:"eventType" yaml:"eventType"`
+	EventType interface{} `field:"required" json:"eventType" yaml:"eventType"`
 	// The rules to include in the detector version.
-	Rules interface{} `json:"rules" yaml:"rules"`
+	Rules interface{} `field:"required" json:"rules" yaml:"rules"`
 	// The models to associate with this detector.
 	//
 	// You must provide the ARNs of all the models you want to associate.
-	AssociatedModels interface{} `json:"associatedModels" yaml:"associatedModels"`
+	AssociatedModels interface{} `field:"optional" json:"associatedModels" yaml:"associatedModels"`
 	// The detector description.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The status of the detector version.
 	//
 	// If a value is not provided for this property, AWS CloudFormation assumes `DRAFT` status.
 	//
 	// Valid values: `ACTIVE | DRAFT`.
-	DetectorVersionStatus *string `json:"detectorVersionStatus" yaml:"detectorVersionStatus"`
+	DetectorVersionStatus *string `field:"optional" json:"detectorVersionStatus" yaml:"detectorVersionStatus"`
 	// The rule execution mode for the rules included in the detector version.
 	//
 	// Valid values: `FIRST_MATCHED | ALL_MATCHED` Default value: `FIRST_MATCHED`
@@ -1522,11 +1549,11 @@ type CfnDetectorProps struct {
 	// If you specify `FIRST_MATCHED` , Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.
 	//
 	// If you specifiy `ALL_MATCHED` , Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules.
-	RuleExecutionMode *string `json:"ruleExecutionMode" yaml:"ruleExecutionMode"`
+	RuleExecutionMode *string `field:"optional" json:"ruleExecutionMode" yaml:"ruleExecutionMode"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::FraudDetector::EntityType`.
@@ -1534,8 +1561,11 @@ type CfnDetectorProps struct {
 // Manages an entity type. An entity represents who is performing the event. As part of a fraud prediction, you pass the entity ID to indicate the specific entity who performed the event. An entity type classifies the entity. Example classifications include customer, merchant, or account.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import frauddetector "github.com/aws/aws-cdk-go/awscdk/aws_frauddetector"
-//   cfnEntityType := frauddetector.NewCfnEntityType(this, jsii.String("MyCfnEntityType"), &cfnEntityTypeProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnEntityType := awscdk.Aws_frauddetector.NewCfnEntityType(this, jsii.String("MyCfnEntityType"), &cfnEntityTypeProps{
 //   	name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -2248,7 +2278,10 @@ func (c *jsiiProxy_CfnEntityType) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnEntityType`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import frauddetector "github.com/aws/aws-cdk-go/awscdk/aws_frauddetector"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnEntityTypeProps := &cfnEntityTypeProps{
 //   	name: jsii.String("name"),
 //
@@ -2266,11 +2299,11 @@ type CfnEntityTypeProps struct {
 	// The entity type name.
 	//
 	// Pattern: `^[0-9a-z_-]+$`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The entity type description.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// A key and value pair.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::FraudDetector::EventType`.
@@ -2278,8 +2311,11 @@ type CfnEntityTypeProps struct {
 // Manages an event type. An event is a business activity that is evaluated for fraud risk. With Amazon Fraud Detector, you generate fraud predictions for events. An event type defines the structure for an event sent to Amazon Fraud Detector. This includes the variables sent as part of the event, the entity performing the event (such as a customer), and the labels that classify the event. Example event types include online payment transactions, account registrations, and authentications.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import frauddetector "github.com/aws/aws-cdk-go/awscdk/aws_frauddetector"
-//   cfnEventType := frauddetector.NewCfnEventType(this, jsii.String("MyCfnEventType"), &cfnEventTypeProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnEventType := awscdk.Aws_frauddetector.NewCfnEventType(this, jsii.String("MyCfnEventType"), &cfnEventTypeProps{
 //   	entityTypes: []interface{}{
 //   		&entityTypeProperty{
 //   			arn: jsii.String("arn"),
@@ -3109,7 +3145,10 @@ func (c *jsiiProxy_CfnEventType) ValidateProperties(_properties interface{}) {
 // The entity type details.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import frauddetector "github.com/aws/aws-cdk-go/awscdk/aws_frauddetector"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   entityTypeProperty := &entityTypeProperty{
 //   	arn: jsii.String("arn"),
 //   	createdTime: jsii.String("createdTime"),
@@ -3127,33 +3166,36 @@ func (c *jsiiProxy_CfnEventType) ValidateProperties(_properties interface{}) {
 //
 type CfnEventType_EntityTypeProperty struct {
 	// The entity type ARN.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"optional" json:"arn" yaml:"arn"`
 	// Timestamp of when the entity type was created.
-	CreatedTime *string `json:"createdTime" yaml:"createdTime"`
+	CreatedTime *string `field:"optional" json:"createdTime" yaml:"createdTime"`
 	// The entity type description.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack.
 	//
 	// If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
 	//
 	// For example, when creating `AWS::FraudDetector::EventType` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your event type but not execute any changes to the variables.
-	Inline interface{} `json:"inline" yaml:"inline"`
+	Inline interface{} `field:"optional" json:"inline" yaml:"inline"`
 	// Timestamp of when the entity type was last updated.
-	LastUpdatedTime *string `json:"lastUpdatedTime" yaml:"lastUpdatedTime"`
+	LastUpdatedTime *string `field:"optional" json:"lastUpdatedTime" yaml:"lastUpdatedTime"`
 	// The entity type name.
 	//
 	// `^[0-9a-z_-]+$`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // The variables associated with this event type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import frauddetector "github.com/aws/aws-cdk-go/awscdk/aws_frauddetector"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   eventVariableProperty := &eventVariableProperty{
 //   	arn: jsii.String("arn"),
 //   	createdTime: jsii.String("createdTime"),
@@ -3175,45 +3217,48 @@ type CfnEventType_EntityTypeProperty struct {
 //
 type CfnEventType_EventVariableProperty struct {
 	// The event variable ARN.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"optional" json:"arn" yaml:"arn"`
 	// Timestamp for when event variable was created.
-	CreatedTime *string `json:"createdTime" yaml:"createdTime"`
+	CreatedTime *string `field:"optional" json:"createdTime" yaml:"createdTime"`
 	// The source of the event variable.
 	//
 	// Valid values: `EVENT | EXTERNAL_MODEL_SCORE`
 	//
 	// When defining a variable within a event type, you can only use the `EVENT` value for DataSource when the *Inline* property is set to true. If the *Inline* property is set false, you can use either `EVENT` or `MODEL_SCORE` for DataSource.
-	DataSource *string `json:"dataSource" yaml:"dataSource"`
+	DataSource *string `field:"optional" json:"dataSource" yaml:"dataSource"`
 	// The data type of the event variable.
-	DataType *string `json:"dataType" yaml:"dataType"`
+	DataType *string `field:"optional" json:"dataType" yaml:"dataType"`
 	// The default value of the event variable.
-	DefaultValue *string `json:"defaultValue" yaml:"defaultValue"`
+	DefaultValue *string `field:"optional" json:"defaultValue" yaml:"defaultValue"`
 	// The event variable description.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack.
 	//
 	// If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
 	//
 	// For example, when creating `AWS::FraudDetector::EventType` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the Variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your event type but not execute any changes to the variables.
-	Inline interface{} `json:"inline" yaml:"inline"`
+	Inline interface{} `field:"optional" json:"inline" yaml:"inline"`
 	// Timestamp for when the event variable was last updated.
-	LastUpdatedTime *string `json:"lastUpdatedTime" yaml:"lastUpdatedTime"`
+	LastUpdatedTime *string `field:"optional" json:"lastUpdatedTime" yaml:"lastUpdatedTime"`
 	// The name of the event variable.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The type of event variable.
 	//
 	// For more information, see [Variable types](https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types) .
-	VariableType *string `json:"variableType" yaml:"variableType"`
+	VariableType *string `field:"optional" json:"variableType" yaml:"variableType"`
 }
 
 // The label associated with the event type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import frauddetector "github.com/aws/aws-cdk-go/awscdk/aws_frauddetector"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   labelProperty := &labelProperty{
 //   	arn: jsii.String("arn"),
 //   	createdTime: jsii.String("createdTime"),
@@ -3231,31 +3276,34 @@ type CfnEventType_EventVariableProperty struct {
 //
 type CfnEventType_LabelProperty struct {
 	// The label ARN.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"optional" json:"arn" yaml:"arn"`
 	// Timestamp of when the event type was created.
-	CreatedTime *string `json:"createdTime" yaml:"createdTime"`
+	CreatedTime *string `field:"optional" json:"createdTime" yaml:"createdTime"`
 	// The label description.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack.
 	//
 	// If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
 	//
 	// For example, when creating `AWS::FraudDetector::EventType` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your EventType but not execute any changes to the variables.
-	Inline interface{} `json:"inline" yaml:"inline"`
+	Inline interface{} `field:"optional" json:"inline" yaml:"inline"`
 	// Timestamp of when the label was last updated.
-	LastUpdatedTime *string `json:"lastUpdatedTime" yaml:"lastUpdatedTime"`
+	LastUpdatedTime *string `field:"optional" json:"lastUpdatedTime" yaml:"lastUpdatedTime"`
 	// The label name.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // Properties for defining a `CfnEventType`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import frauddetector "github.com/aws/aws-cdk-go/awscdk/aws_frauddetector"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnEventTypeProps := &cfnEventTypeProps{
 //   	entityTypes: []interface{}{
 //   		&entityTypeProperty{
@@ -3323,21 +3371,21 @@ type CfnEventType_LabelProperty struct {
 //
 type CfnEventTypeProps struct {
 	// The event type entity types.
-	EntityTypes interface{} `json:"entityTypes" yaml:"entityTypes"`
+	EntityTypes interface{} `field:"required" json:"entityTypes" yaml:"entityTypes"`
 	// The event type event variables.
-	EventVariables interface{} `json:"eventVariables" yaml:"eventVariables"`
+	EventVariables interface{} `field:"required" json:"eventVariables" yaml:"eventVariables"`
 	// The event type labels.
-	Labels interface{} `json:"labels" yaml:"labels"`
+	Labels interface{} `field:"required" json:"labels" yaml:"labels"`
 	// The event type name.
 	//
 	// Pattern : `^[0-9a-z_-]+$`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The event type description.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::FraudDetector::Label`.
@@ -3345,8 +3393,11 @@ type CfnEventTypeProps struct {
 // Creates or updates label. A label classifies an event as fraudulent or legitimate. Labels are associated with event types and used to train supervised machine learning models in Amazon Fraud Detector.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import frauddetector "github.com/aws/aws-cdk-go/awscdk/aws_frauddetector"
-//   cfnLabel := frauddetector.NewCfnLabel(this, jsii.String("MyCfnLabel"), &cfnLabelProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnLabel := awscdk.Aws_frauddetector.NewCfnLabel(this, jsii.String("MyCfnLabel"), &cfnLabelProps{
 //   	name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -4061,7 +4112,10 @@ func (c *jsiiProxy_CfnLabel) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnLabel`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import frauddetector "github.com/aws/aws-cdk-go/awscdk/aws_frauddetector"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnLabelProps := &cfnLabelProps{
 //   	name: jsii.String("name"),
 //
@@ -4079,13 +4133,13 @@ type CfnLabelProps struct {
 	// The label name.
 	//
 	// Pattern: `^[0-9a-z_-]+$`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The label description.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::FraudDetector::Outcome`.
@@ -4093,8 +4147,11 @@ type CfnLabelProps struct {
 // Creates or updates an outcome.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import frauddetector "github.com/aws/aws-cdk-go/awscdk/aws_frauddetector"
-//   cfnOutcome := frauddetector.NewCfnOutcome(this, jsii.String("MyCfnOutcome"), &cfnOutcomeProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnOutcome := awscdk.Aws_frauddetector.NewCfnOutcome(this, jsii.String("MyCfnOutcome"), &cfnOutcomeProps{
 //   	name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -4807,7 +4864,10 @@ func (c *jsiiProxy_CfnOutcome) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnOutcome`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import frauddetector "github.com/aws/aws-cdk-go/awscdk/aws_frauddetector"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnOutcomeProps := &cfnOutcomeProps{
 //   	name: jsii.String("name"),
 //
@@ -4823,13 +4883,13 @@ func (c *jsiiProxy_CfnOutcome) ValidateProperties(_properties interface{}) {
 //
 type CfnOutcomeProps struct {
 	// The outcome name.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The outcome description.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::FraudDetector::Variable`.
@@ -4837,8 +4897,11 @@ type CfnOutcomeProps struct {
 // Manages a variable.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import frauddetector "github.com/aws/aws-cdk-go/awscdk/aws_frauddetector"
-//   cfnVariable := frauddetector.NewCfnVariable(this, jsii.String("MyCfnVariable"), &cfnVariableProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnVariable := awscdk.Aws_frauddetector.NewCfnVariable(this, jsii.String("MyCfnVariable"), &cfnVariableProps{
 //   	dataSource: jsii.String("dataSource"),
 //   	dataType: jsii.String("dataType"),
 //   	defaultValue: jsii.String("defaultValue"),
@@ -5649,7 +5712,10 @@ func (c *jsiiProxy_CfnVariable) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnVariable`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import frauddetector "github.com/aws/aws-cdk-go/awscdk/aws_frauddetector"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnVariableProps := &cfnVariableProps{
 //   	dataSource: jsii.String("dataSource"),
 //   	dataType: jsii.String("dataType"),
@@ -5673,26 +5739,26 @@ type CfnVariableProps struct {
 	// Valid values: `EVENT | EXTERNAL_MODEL_SCORE`
 	//
 	// When defining a variable within a detector, you can only use the `EVENT` value for DataSource when the *Inline* property is set to true. If the *Inline* property is set false, you can use either `EVENT` or `MODEL_SCORE` for DataSource.
-	DataSource *string `json:"dataSource" yaml:"dataSource"`
+	DataSource *string `field:"required" json:"dataSource" yaml:"dataSource"`
 	// The data type of the variable.
 	//
 	// Valid data types: `STRING | INTEGER | BOOLEAN | FLOAT`.
-	DataType *string `json:"dataType" yaml:"dataType"`
+	DataType *string `field:"required" json:"dataType" yaml:"dataType"`
 	// The default value of the variable.
-	DefaultValue *string `json:"defaultValue" yaml:"defaultValue"`
+	DefaultValue *string `field:"required" json:"defaultValue" yaml:"defaultValue"`
 	// The name of the variable.
 	//
 	// Pattern: `^[0-9a-z_-]+$`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The description of the variable.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The type of the variable. For more information see [Variable types](https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types) .
 	//
 	// Valid Values: `AUTH_CODE | AVS | BILLING_ADDRESS_L1 | BILLING_ADDRESS_L2 | BILLING_CITY | BILLING_COUNTRY | BILLING_NAME | BILLING_PHONE | BILLING_STATE | BILLING_ZIP | CARD_BIN | CATEGORICAL | CURRENCY_CODE | EMAIL_ADDRESS | FINGERPRINT | FRAUD_LABEL | FREE_FORM_TEXT | IP_ADDRESS | NUMERIC | ORDER_ID | PAYMENT_TYPE | PHONE_NUMBER | PRICE | PRODUCT_CATEGORY | SHIPPING_ADDRESS_L1 | SHIPPING_ADDRESS_L2 | SHIPPING_CITY | SHIPPING_COUNTRY | SHIPPING_NAME | SHIPPING_PHONE | SHIPPING_STATE | SHIPPING_ZIP | USERAGENT`.
-	VariableType *string `json:"variableType" yaml:"variableType"`
+	VariableType *string `field:"optional" json:"variableType" yaml:"variableType"`
 }
 

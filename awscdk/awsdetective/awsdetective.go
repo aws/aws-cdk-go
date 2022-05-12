@@ -14,8 +14,11 @@ import (
 // The `AWS::Detective::Graph` resource is an Amazon Detective resource type that creates a Detective behavior graph. The requesting account becomes the administrator account for the behavior graph.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import detective "github.com/aws/aws-cdk-go/awscdk/aws_detective"
-//   cfnGraph := detective.NewCfnGraph(this, jsii.String("MyCfnGraph"), &cfnGraphProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnGraph := awscdk.Aws_detective.NewCfnGraph(this, jsii.String("MyCfnGraph"), &cfnGraphProps{
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -656,7 +659,10 @@ func (c *jsiiProxy_CfnGraph) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnGraph`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import detective "github.com/aws/aws-cdk-go/awscdk/aws_detective"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnGraphProps := &cfnGraphProps{
 //   	tags: []cfnTag{
 //   		&cfnTag{
@@ -668,7 +674,7 @@ func (c *jsiiProxy_CfnGraph) ValidateProperties(_properties interface{}) {
 //
 type CfnGraphProps struct {
 	// The tag values to assign to the new behavior graph.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Detective::MemberInvitation`.
@@ -676,8 +682,11 @@ type CfnGraphProps struct {
 // The `AWS::Detective::MemberInvitation` resource is an Amazon Detective resource type that creates an invitation to join a Detective behavior graph. The administrator account can choose whether to send an email notification of the invitation to the root user email address of the AWS account.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import detective "github.com/aws/aws-cdk-go/awscdk/aws_detective"
-//   cfnMemberInvitation := detective.NewCfnMemberInvitation(this, jsii.String("MyCfnMemberInvitation"), &cfnMemberInvitationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnMemberInvitation := awscdk.Aws_detective.NewCfnMemberInvitation(this, jsii.String("MyCfnMemberInvitation"), &cfnMemberInvitationProps{
 //   	graphArn: jsii.String("graphArn"),
 //   	memberEmailAddress: jsii.String("memberEmailAddress"),
 //   	memberId: jsii.String("memberId"),
@@ -1404,7 +1413,10 @@ func (c *jsiiProxy_CfnMemberInvitation) ValidateProperties(_properties interface
 // Properties for defining a `CfnMemberInvitation`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import detective "github.com/aws/aws-cdk-go/awscdk/aws_detective"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnMemberInvitationProps := &cfnMemberInvitationProps{
 //   	graphArn: jsii.String("graphArn"),
 //   	memberEmailAddress: jsii.String("memberEmailAddress"),
@@ -1417,18 +1429,18 @@ func (c *jsiiProxy_CfnMemberInvitation) ValidateProperties(_properties interface
 //
 type CfnMemberInvitationProps struct {
 	// The ARN of the behavior graph to invite the account to contribute data to.
-	GraphArn *string `json:"graphArn" yaml:"graphArn"`
+	GraphArn *string `field:"required" json:"graphArn" yaml:"graphArn"`
 	// The root user email address of the invited account.
 	//
 	// If the email address provided is not the root user email address for the provided account, the invitation creation fails.
-	MemberEmailAddress *string `json:"memberEmailAddress" yaml:"memberEmailAddress"`
+	MemberEmailAddress *string `field:"required" json:"memberEmailAddress" yaml:"memberEmailAddress"`
 	// The AWS account identifier of the invited account.
-	MemberId *string `json:"memberId" yaml:"memberId"`
+	MemberId *string `field:"required" json:"memberId" yaml:"memberId"`
 	// Whether to send an invitation email to the member account.
 	//
 	// If set to true, the member account does not receive an invitation email.
-	DisableEmailNotification interface{} `json:"disableEmailNotification" yaml:"disableEmailNotification"`
+	DisableEmailNotification interface{} `field:"optional" json:"disableEmailNotification" yaml:"disableEmailNotification"`
 	// Customized text to include in the invitation email message.
-	Message *string `json:"message" yaml:"message"`
+	Message *string `field:"optional" json:"message" yaml:"message"`
 }
 

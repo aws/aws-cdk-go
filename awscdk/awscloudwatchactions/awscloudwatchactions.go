@@ -15,10 +15,14 @@ import (
 // Use an ApplicationAutoScaling StepScalingAction as an Alarm Action.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import applicationautoscaling "github.com/aws/aws-cdk-go/awscdk/aws_applicationautoscaling"import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch_actions "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch_actions"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var stepScalingAction stepScalingAction
-//   applicationScalingAction := cloudwatch_actions.NewApplicationScalingAction(stepScalingAction)
+//
+//   applicationScalingAction := awscdk.Aws_cloudwatch_actions.NewApplicationScalingAction(stepScalingAction)
 //
 // Experimental.
 type ApplicationScalingAction interface {
@@ -75,10 +79,14 @@ func (a *jsiiProxy_ApplicationScalingAction) Bind(_scope awscdk.Construct, _alar
 // Use an AutoScaling StepScalingAction as an Alarm Action.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import autoscaling "github.com/aws/aws-cdk-go/awscdk/aws_autoscaling"import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudwatch_actions "github.com/aws/aws-cdk-go/awscdk/aws_cloudwatch_actions"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var stepScalingAction stepScalingAction
-//   autoScalingAction := cloudwatch_actions.NewAutoScalingAction(stepScalingAction)
+//
+//   autoScalingAction := awscdk.Aws_cloudwatch_actions.NewAutoScalingAction(stepScalingAction)
 //
 // Experimental.
 type AutoScalingAction interface {
@@ -137,6 +145,7 @@ func (a *jsiiProxy_AutoScalingAction) Bind(_scope awscdk.Construct, _alarm awscl
 // Example:
 //   // Alarm must be configured with an EC2 per-instance metric
 //   var alarm alarm
+//
 //   // Attach a reboot when alarm triggers
 //   alarm.addAlarmAction(
 //   actions.NewEc2Action(actions.ec2InstanceAction_REBOOT))
@@ -198,6 +207,7 @@ func (e *jsiiProxy_Ec2Action) Bind(_scope awscdk.Construct, _alarm awscloudwatch
 // Example:
 //   // Alarm must be configured with an EC2 per-instance metric
 //   var alarm alarm
+//
 //   // Attach a reboot when alarm triggers
 //   alarm.addAlarmAction(
 //   actions.NewEc2Action(actions.ec2InstanceAction_REBOOT))
@@ -224,6 +234,7 @@ const (
 //
 // Example:
 //   var alarm alarm
+//
 //   // Create an OpsItem with specific severity and category when alarm triggers
 //   alarm.addAlarmAction(
 //   actions.NewSsmAction(actions.opsItemSeverity_CRITICAL, actions.opsItemCategory_PERFORMANCE))
@@ -253,6 +264,7 @@ const (
 //
 // Example:
 //   var alarm alarm
+//
 //   // Create an OpsItem with specific severity and category when alarm triggers
 //   alarm.addAlarmAction(
 //   actions.NewSsmAction(actions.opsItemSeverity_CRITICAL, actions.opsItemCategory_PERFORMANCE))
@@ -280,6 +292,7 @@ const (
 // Example:
 //   import cw_actions "github.com/aws/aws-cdk-go/awscdk"
 //   var alarm alarm
+//
 //
 //   topic := sns.NewTopic(this, jsii.String("Topic"))
 //   alarm.addAlarmAction(cw_actions.NewSnsAction(topic))
@@ -340,6 +353,7 @@ func (s *jsiiProxy_SnsAction) Bind(_scope awscdk.Construct, _alarm awscloudwatch
 //
 // Example:
 //   var alarm alarm
+//
 //   // Create an OpsItem with specific severity and category when alarm triggers
 //   alarm.addAlarmAction(
 //   actions.NewSsmAction(actions.opsItemSeverity_CRITICAL, actions.opsItemCategory_PERFORMANCE))

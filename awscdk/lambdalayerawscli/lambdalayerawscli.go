@@ -13,10 +13,12 @@ import (
 // An AWS Lambda layer that includes the AWS CLI.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type AwsCliLayer awscdk.AwsCliLayer
+//   // AwsCliLayer bundles the AWS CLI in a lambda layer
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var fn function
-//   fn.addLayers(NewAwsCliLayer(this, jsii.String("AwsCliLayer")))
+//
+//   fn.addLayers(awscdk.NewAwsCliLayer(this, jsii.String("AwsCliLayer")))
 //
 // Experimental.
 type AwsCliLayer interface {

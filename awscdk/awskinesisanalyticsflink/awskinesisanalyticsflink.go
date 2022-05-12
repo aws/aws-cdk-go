@@ -18,7 +18,10 @@ import (
 // The L2 construct for Flink Kinesis Data Applications.
 //
 // Example:
-//   import path "github.com/aws-samples/dummy/path"import core "github.com/aws/aws-cdk-go/awscdk"import flink "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
+//   import path "github.com/aws-samples/dummy/path"
+//   import core "github.com/aws/aws-cdk-go/awscdk"
+//   import flink "github.com/aws/aws-cdk-go/awscdk"
+//   import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
 //
 //   app := core.NewApp()
 //   stack := core.NewStack(app, jsii.String("FlinkAppTest"))
@@ -1011,7 +1014,10 @@ func (a *jsiiProxy_Application) Validate() *[]*string {
 // Code configuration providing the location to a Flink application JAR file.
 //
 // Example:
-//   import path "github.com/aws-samples/dummy/path"import core "github.com/aws/aws-cdk-go/awscdk"import flink "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
+//   import path "github.com/aws-samples/dummy/path"
+//   import core "github.com/aws/aws-cdk-go/awscdk"
+//   import flink "github.com/aws/aws-cdk-go/awscdk"
+//   import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
 //
 //   app := core.NewApp()
 //   stack := core.NewStack(app, jsii.String("FlinkAppTest"))
@@ -1102,10 +1108,14 @@ func (a *jsiiProxy_ApplicationCode) Bind(scope awscdk.Construct) *ApplicationCod
 // The return type of {@link ApplicationCode.bind}. This represents CloudFormation configuration and an s3 bucket holding the Flink application JAR file.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisanalytics_flink "github.com/aws/aws-cdk-go/awscdk/aws_kinesisanalytics_flink"import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3 "github.com/aws/aws-cdk-go/awscdk/aws_s3"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var bucket bucket
 //   var propertyMap interface{}
+//
 //   applicationCodeConfig := &applicationCodeConfig{
 //   	applicationCodeConfigurationProperty: &applicationConfigurationProperty{
 //   		applicationCodeConfiguration: &applicationCodeConfigurationProperty{
@@ -1248,16 +1258,19 @@ func (a *jsiiProxy_ApplicationCode) Bind(scope awscdk.Construct) *ApplicationCod
 type ApplicationCodeConfig struct {
 	// Low-level Cloudformation ApplicationConfigurationProperty.
 	// Experimental.
-	ApplicationCodeConfigurationProperty *awskinesisanalytics.CfnApplicationV2_ApplicationConfigurationProperty `json:"applicationCodeConfigurationProperty" yaml:"applicationCodeConfigurationProperty"`
+	ApplicationCodeConfigurationProperty *awskinesisanalytics.CfnApplicationV2_ApplicationConfigurationProperty `field:"required" json:"applicationCodeConfigurationProperty" yaml:"applicationCodeConfigurationProperty"`
 	// S3 Bucket that stores the Flink application code.
 	// Experimental.
-	Bucket awss3.IBucket `json:"bucket" yaml:"bucket"`
+	Bucket awss3.IBucket `field:"required" json:"bucket" yaml:"bucket"`
 }
 
 // Props for creating an Application construct.
 //
 // Example:
-//   import path "github.com/aws-samples/dummy/path"import core "github.com/aws/aws-cdk-go/awscdk"import flink "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
+//   import path "github.com/aws-samples/dummy/path"
+//   import core "github.com/aws/aws-cdk-go/awscdk"
+//   import flink "github.com/aws/aws-cdk-go/awscdk"
+//   import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
 //
 //   app := core.NewApp()
 //   stack := core.NewStack(app, jsii.String("FlinkAppTest"))
@@ -1279,66 +1292,66 @@ type ApplicationCodeConfig struct {
 type ApplicationProps struct {
 	// The Flink code asset to run.
 	// Experimental.
-	Code ApplicationCode `json:"code" yaml:"code"`
+	Code ApplicationCode `field:"required" json:"code" yaml:"code"`
 	// The Flink version to use for this application.
 	// Experimental.
-	Runtime Runtime `json:"runtime" yaml:"runtime"`
+	Runtime Runtime `field:"required" json:"runtime" yaml:"runtime"`
 	// A name for your Application that is unique to an AWS account.
 	// Experimental.
-	ApplicationName *string `json:"applicationName" yaml:"applicationName"`
+	ApplicationName *string `field:"optional" json:"applicationName" yaml:"applicationName"`
 	// Whether the Kinesis Data Analytics service can increase the parallelism of the application in response to resource usage.
 	// Experimental.
-	AutoScalingEnabled *bool `json:"autoScalingEnabled" yaml:"autoScalingEnabled"`
+	AutoScalingEnabled *bool `field:"optional" json:"autoScalingEnabled" yaml:"autoScalingEnabled"`
 	// Whether checkpointing is enabled while your application runs.
 	// Experimental.
-	CheckpointingEnabled *bool `json:"checkpointingEnabled" yaml:"checkpointingEnabled"`
+	CheckpointingEnabled *bool `field:"optional" json:"checkpointingEnabled" yaml:"checkpointingEnabled"`
 	// The interval between checkpoints.
 	// Experimental.
-	CheckpointInterval awscdk.Duration `json:"checkpointInterval" yaml:"checkpointInterval"`
+	CheckpointInterval awscdk.Duration `field:"optional" json:"checkpointInterval" yaml:"checkpointInterval"`
 	// The log group to send log entries to.
 	// Experimental.
-	LogGroup awslogs.ILogGroup `json:"logGroup" yaml:"logGroup"`
+	LogGroup awslogs.ILogGroup `field:"optional" json:"logGroup" yaml:"logGroup"`
 	// The level of log verbosity from the Flink application.
 	// Experimental.
-	LogLevel LogLevel `json:"logLevel" yaml:"logLevel"`
+	LogLevel LogLevel `field:"optional" json:"logLevel" yaml:"logLevel"`
 	// Describes the granularity of the CloudWatch metrics for an application.
 	//
 	// Use caution with Parallelism level metrics. Parallelism granularity logs
 	// metrics for each parallel thread and can quickly become expensive when
 	// parallelism is high (e.g. > 64).
 	// Experimental.
-	MetricsLevel MetricsLevel `json:"metricsLevel" yaml:"metricsLevel"`
+	MetricsLevel MetricsLevel `field:"optional" json:"metricsLevel" yaml:"metricsLevel"`
 	// The minimum amount of time in to wait after a checkpoint finishes to start a new checkpoint.
 	// Experimental.
-	MinPauseBetweenCheckpoints awscdk.Duration `json:"minPauseBetweenCheckpoints" yaml:"minPauseBetweenCheckpoints"`
+	MinPauseBetweenCheckpoints awscdk.Duration `field:"optional" json:"minPauseBetweenCheckpoints" yaml:"minPauseBetweenCheckpoints"`
 	// The initial parallelism for the application.
 	//
 	// Kinesis Data Analytics can
 	// stop the app, increase the parallelism, and start the app again if
 	// autoScalingEnabled is true (the default value).
 	// Experimental.
-	Parallelism *float64 `json:"parallelism" yaml:"parallelism"`
+	Parallelism *float64 `field:"optional" json:"parallelism" yaml:"parallelism"`
 	// The Flink parallelism allowed per Kinesis Processing Unit (KPU).
 	// Experimental.
-	ParallelismPerKpu *float64 `json:"parallelismPerKpu" yaml:"parallelismPerKpu"`
+	ParallelismPerKpu *float64 `field:"optional" json:"parallelismPerKpu" yaml:"parallelismPerKpu"`
 	// Configuration PropertyGroups.
 	//
 	// You can use these property groups to pass
 	// arbitrary runtime configuration values to your Flink app.
 	// Experimental.
-	PropertyGroups *PropertyGroups `json:"propertyGroups" yaml:"propertyGroups"`
+	PropertyGroups *PropertyGroups `field:"optional" json:"propertyGroups" yaml:"propertyGroups"`
 	// Provide a RemovalPolicy to override the default.
 	// Experimental.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// A role to use to grant permissions to your application.
 	//
 	// Prefer omitting
 	// this property and using the default role.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// Determines if Flink snapshots are enabled.
 	// Experimental.
-	SnapshotsEnabled *bool `json:"snapshotsEnabled" yaml:"snapshotsEnabled"`
+	SnapshotsEnabled *bool `field:"optional" json:"snapshotsEnabled" yaml:"snapshotsEnabled"`
 }
 
 // An interface expressing the public properties on both an imported and CDK-created Flink application.
@@ -1996,14 +2009,15 @@ func (j *jsiiProxy_IApplication) Stack() awscdk.Stack {
 //
 // Example:
 //   var bucket bucket
+//
 //   flinkApp := flink.NewApplication(this, jsii.String("Application"), &applicationProps{
 //   	code: flink.applicationCode.fromBucket(bucket, jsii.String("my-app.jar")),
 //   	runtime: flink.runtime_FLINK_1_13(),
 //   	checkpointingEnabled: jsii.Boolean(true),
 //   	 // default is true
-//   	checkpointInterval: duration.seconds(jsii.Number(30)),
+//   	checkpointInterval: awscdk.Duration.seconds(jsii.Number(30)),
 //   	 // default is 1 minute
-//   	minPauseBetweenCheckpoints: *duration.seconds(jsii.Number(10)),
+//   	minPauseBetweenCheckpoints: awscdk.Duration.seconds(jsii.Number(10)),
 //   	 // default is 5 seconds
 //   	logLevel: flink.logLevel_ERROR,
 //   	 // default is INFO
@@ -2042,14 +2056,15 @@ const (
 //
 // Example:
 //   var bucket bucket
+//
 //   flinkApp := flink.NewApplication(this, jsii.String("Application"), &applicationProps{
 //   	code: flink.applicationCode.fromBucket(bucket, jsii.String("my-app.jar")),
 //   	runtime: flink.runtime_FLINK_1_13(),
 //   	checkpointingEnabled: jsii.Boolean(true),
 //   	 // default is true
-//   	checkpointInterval: duration.seconds(jsii.Number(30)),
+//   	checkpointInterval: awscdk.Duration.seconds(jsii.Number(30)),
 //   	 // default is 1 minute
-//   	minPauseBetweenCheckpoints: *duration.seconds(jsii.Number(10)),
+//   	minPauseBetweenCheckpoints: awscdk.Duration.seconds(jsii.Number(10)),
 //   	 // default is 5 seconds
 //   	logLevel: flink.logLevel_ERROR,
 //   	 // default is INFO
@@ -2088,6 +2103,7 @@ const (
 //
 // Example:
 //   var bucket bucket
+//
 //   flinkApp := flink.NewApplication(this, jsii.String("Application"), &applicationProps{
 //   	propertyGroups: &propertyGroups{
 //   		flinkApplicationProperties: map[string]*string{
@@ -2107,7 +2123,10 @@ type PropertyGroups struct {
 // Available Flink runtimes for Kinesis Analytics.
 //
 // Example:
-//   import path "github.com/aws-samples/dummy/path"import core "github.com/aws/aws-cdk-go/awscdk"import flink "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
+//   import path "github.com/aws-samples/dummy/path"
+//   import core "github.com/aws/aws-cdk-go/awscdk"
+//   import flink "github.com/aws/aws-cdk-go/awscdk"
+//   import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
 //
 //   app := core.NewApp()
 //   stack := core.NewStack(app, jsii.String("FlinkAppTest"))

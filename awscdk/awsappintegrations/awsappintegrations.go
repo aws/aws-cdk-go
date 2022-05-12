@@ -14,8 +14,11 @@ import (
 // Creates and persists a DataIntegration resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appintegrations "github.com/aws/aws-cdk-go/awscdk/aws_appintegrations"
-//   cfnDataIntegration := appintegrations.NewCfnDataIntegration(this, jsii.String("MyCfnDataIntegration"), &cfnDataIntegrationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDataIntegration := awscdk.Aws_appintegrations.NewCfnDataIntegration(this, jsii.String("MyCfnDataIntegration"), &cfnDataIntegrationProps{
 //   	kmsKey: jsii.String("kmsKey"),
 //   	name: jsii.String("name"),
 //   	scheduleConfig: &scheduleConfigProperty{
@@ -786,7 +789,10 @@ func (c *jsiiProxy_CfnDataIntegration) ValidateProperties(_properties interface{
 // The name of the data and how often it should be pulled from the source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appintegrations "github.com/aws/aws-cdk-go/awscdk/aws_appintegrations"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   scheduleConfigProperty := &scheduleConfigProperty{
 //   	firstExecutionFrom: jsii.String("firstExecutionFrom"),
 //   	object: jsii.String("object"),
@@ -795,17 +801,20 @@ func (c *jsiiProxy_CfnDataIntegration) ValidateProperties(_properties interface{
 //
 type CfnDataIntegration_ScheduleConfigProperty struct {
 	// The start date for objects to import in the first flow run as an Unix/epoch timestamp in milliseconds or in ISO-8601 format.
-	FirstExecutionFrom *string `json:"firstExecutionFrom" yaml:"firstExecutionFrom"`
+	FirstExecutionFrom *string `field:"required" json:"firstExecutionFrom" yaml:"firstExecutionFrom"`
 	// The name of the object to pull from the data source.
-	Object *string `json:"object" yaml:"object"`
+	Object *string `field:"required" json:"object" yaml:"object"`
 	// How often the data should be pulled from data source.
-	ScheduleExpression *string `json:"scheduleExpression" yaml:"scheduleExpression"`
+	ScheduleExpression *string `field:"required" json:"scheduleExpression" yaml:"scheduleExpression"`
 }
 
 // Properties for defining a `CfnDataIntegration`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appintegrations "github.com/aws/aws-cdk-go/awscdk/aws_appintegrations"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDataIntegrationProps := &cfnDataIntegrationProps{
 //   	kmsKey: jsii.String("kmsKey"),
 //   	name: jsii.String("name"),
@@ -828,19 +837,19 @@ type CfnDataIntegration_ScheduleConfigProperty struct {
 //
 type CfnDataIntegrationProps struct {
 	// The KMS key for the DataIntegration.
-	KmsKey *string `json:"kmsKey" yaml:"kmsKey"`
+	KmsKey *string `field:"required" json:"kmsKey" yaml:"kmsKey"`
 	// The name of the DataIntegration.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The name of the data and how often it should be pulled from the source.
-	ScheduleConfig interface{} `json:"scheduleConfig" yaml:"scheduleConfig"`
+	ScheduleConfig interface{} `field:"required" json:"scheduleConfig" yaml:"scheduleConfig"`
 	// The URI of the data source.
-	SourceUri *string `json:"sourceUri" yaml:"sourceUri"`
+	SourceUri *string `field:"required" json:"sourceUri" yaml:"sourceUri"`
 	// A description of the DataIntegration.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::AppIntegrations::EventIntegration`.
@@ -848,8 +857,11 @@ type CfnDataIntegrationProps struct {
 // Creates an event integration. You provide a name, description, and a reference to an Amazon EventBridge bus in your account and a partner event source that will push events to that bus. No objects are created in your account, only metadata that is persisted on the EventIntegration control plane.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appintegrations "github.com/aws/aws-cdk-go/awscdk/aws_appintegrations"
-//   cfnEventIntegration := appintegrations.NewCfnEventIntegration(this, jsii.String("MyCfnEventIntegration"), &cfnEventIntegrationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnEventIntegration := awscdk.Aws_appintegrations.NewCfnEventIntegration(this, jsii.String("MyCfnEventIntegration"), &cfnEventIntegrationProps{
 //   	eventBridgeBus: jsii.String("eventBridgeBus"),
 //   	eventFilter: &eventFilterProperty{
 //   		source: jsii.String("source"),
@@ -1596,20 +1608,26 @@ func (c *jsiiProxy_CfnEventIntegration) ValidateProperties(_properties interface
 // The event integration filter.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appintegrations "github.com/aws/aws-cdk-go/awscdk/aws_appintegrations"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   eventFilterProperty := &eventFilterProperty{
 //   	source: jsii.String("source"),
 //   }
 //
 type CfnEventIntegration_EventFilterProperty struct {
 	// The source of the events.
-	Source *string `json:"source" yaml:"source"`
+	Source *string `field:"required" json:"source" yaml:"source"`
 }
 
 // The event integration association.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appintegrations "github.com/aws/aws-cdk-go/awscdk/aws_appintegrations"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   eventIntegrationAssociationProperty := &eventIntegrationAssociationProperty{
 //   	clientAssociationMetadata: []interface{}{
 //   		&metadataProperty{
@@ -1625,21 +1643,24 @@ type CfnEventIntegration_EventFilterProperty struct {
 //
 type CfnEventIntegration_EventIntegrationAssociationProperty struct {
 	// The metadata associated with the client.
-	ClientAssociationMetadata interface{} `json:"clientAssociationMetadata" yaml:"clientAssociationMetadata"`
+	ClientAssociationMetadata interface{} `field:"optional" json:"clientAssociationMetadata" yaml:"clientAssociationMetadata"`
 	// The identifier for the client that is associated with the event integration.
-	ClientId *string `json:"clientId" yaml:"clientId"`
+	ClientId *string `field:"optional" json:"clientId" yaml:"clientId"`
 	// The name of the EventBridge rule.
-	EventBridgeRuleName *string `json:"eventBridgeRuleName" yaml:"eventBridgeRuleName"`
+	EventBridgeRuleName *string `field:"optional" json:"eventBridgeRuleName" yaml:"eventBridgeRuleName"`
 	// The Amazon Resource Name (ARN) for the event integration association.
-	EventIntegrationAssociationArn *string `json:"eventIntegrationAssociationArn" yaml:"eventIntegrationAssociationArn"`
+	EventIntegrationAssociationArn *string `field:"optional" json:"eventIntegrationAssociationArn" yaml:"eventIntegrationAssociationArn"`
 	// The identifier for the event integration association.
-	EventIntegrationAssociationId *string `json:"eventIntegrationAssociationId" yaml:"eventIntegrationAssociationId"`
+	EventIntegrationAssociationId *string `field:"optional" json:"eventIntegrationAssociationId" yaml:"eventIntegrationAssociationId"`
 }
 
 // The metadata associated with the client.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appintegrations "github.com/aws/aws-cdk-go/awscdk/aws_appintegrations"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   metadataProperty := &metadataProperty{
 //   	key: jsii.String("key"),
 //   	value: jsii.String("value"),
@@ -1647,15 +1668,18 @@ type CfnEventIntegration_EventIntegrationAssociationProperty struct {
 //
 type CfnEventIntegration_MetadataProperty struct {
 	// The key name.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// The value.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // Properties for defining a `CfnEventIntegration`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appintegrations "github.com/aws/aws-cdk-go/awscdk/aws_appintegrations"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnEventIntegrationProps := &cfnEventIntegrationProps{
 //   	eventBridgeBus: jsii.String("eventBridgeBus"),
 //   	eventFilter: &eventFilterProperty{
@@ -1675,16 +1699,16 @@ type CfnEventIntegration_MetadataProperty struct {
 //
 type CfnEventIntegrationProps struct {
 	// The Amazon EventBridge bus for the event integration.
-	EventBridgeBus *string `json:"eventBridgeBus" yaml:"eventBridgeBus"`
+	EventBridgeBus *string `field:"required" json:"eventBridgeBus" yaml:"eventBridgeBus"`
 	// The event integration filter.
-	EventFilter interface{} `json:"eventFilter" yaml:"eventFilter"`
+	EventFilter interface{} `field:"required" json:"eventFilter" yaml:"eventFilter"`
 	// The name of the event integration.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The event integration description.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

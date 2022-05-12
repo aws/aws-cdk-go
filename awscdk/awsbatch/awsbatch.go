@@ -33,8 +33,11 @@ const (
 // A CloudFormation `AWS::Batch::ComputeEnvironment`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import batch "github.com/aws/aws-cdk-go/awscdk/aws_batch"
-//   cfnComputeEnvironment := batch.NewCfnComputeEnvironment(this, jsii.String("MyCfnComputeEnvironment"), &cfnComputeEnvironmentProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnComputeEnvironment := awscdk.Aws_batch.NewCfnComputeEnvironment(this, jsii.String("MyCfnComputeEnvironment"), &cfnComputeEnvironmentProps{
 //   	type: jsii.String("type"),
 //
 //   	// the properties below are optional
@@ -890,7 +893,10 @@ func (c *jsiiProxy_CfnComputeEnvironment) ValidateProperties(_properties interfa
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import batch "github.com/aws/aws-cdk-go/awscdk/aws_batch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   computeResourcesProperty := &computeResourcesProperty{
 //   	maxvCpus: jsii.Number(123),
 //   	subnets: []*string{
@@ -935,45 +941,48 @@ func (c *jsiiProxy_CfnComputeEnvironment) ValidateProperties(_properties interfa
 //
 type CfnComputeEnvironment_ComputeResourcesProperty struct {
 	// `CfnComputeEnvironment.ComputeResourcesProperty.MaxvCpus`.
-	MaxvCpus *float64 `json:"maxvCpus" yaml:"maxvCpus"`
+	MaxvCpus *float64 `field:"required" json:"maxvCpus" yaml:"maxvCpus"`
 	// `CfnComputeEnvironment.ComputeResourcesProperty.Subnets`.
-	Subnets *[]*string `json:"subnets" yaml:"subnets"`
+	Subnets *[]*string `field:"required" json:"subnets" yaml:"subnets"`
 	// `CfnComputeEnvironment.ComputeResourcesProperty.Type`.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// `CfnComputeEnvironment.ComputeResourcesProperty.AllocationStrategy`.
-	AllocationStrategy *string `json:"allocationStrategy" yaml:"allocationStrategy"`
+	AllocationStrategy *string `field:"optional" json:"allocationStrategy" yaml:"allocationStrategy"`
 	// `CfnComputeEnvironment.ComputeResourcesProperty.BidPercentage`.
-	BidPercentage *float64 `json:"bidPercentage" yaml:"bidPercentage"`
+	BidPercentage *float64 `field:"optional" json:"bidPercentage" yaml:"bidPercentage"`
 	// `CfnComputeEnvironment.ComputeResourcesProperty.DesiredvCpus`.
-	DesiredvCpus *float64 `json:"desiredvCpus" yaml:"desiredvCpus"`
+	DesiredvCpus *float64 `field:"optional" json:"desiredvCpus" yaml:"desiredvCpus"`
 	// `CfnComputeEnvironment.ComputeResourcesProperty.Ec2Configuration`.
-	Ec2Configuration interface{} `json:"ec2Configuration" yaml:"ec2Configuration"`
+	Ec2Configuration interface{} `field:"optional" json:"ec2Configuration" yaml:"ec2Configuration"`
 	// `CfnComputeEnvironment.ComputeResourcesProperty.Ec2KeyPair`.
-	Ec2KeyPair *string `json:"ec2KeyPair" yaml:"ec2KeyPair"`
+	Ec2KeyPair *string `field:"optional" json:"ec2KeyPair" yaml:"ec2KeyPair"`
 	// `CfnComputeEnvironment.ComputeResourcesProperty.ImageId`.
-	ImageId *string `json:"imageId" yaml:"imageId"`
+	ImageId *string `field:"optional" json:"imageId" yaml:"imageId"`
 	// `CfnComputeEnvironment.ComputeResourcesProperty.InstanceRole`.
-	InstanceRole *string `json:"instanceRole" yaml:"instanceRole"`
+	InstanceRole *string `field:"optional" json:"instanceRole" yaml:"instanceRole"`
 	// `CfnComputeEnvironment.ComputeResourcesProperty.InstanceTypes`.
-	InstanceTypes *[]*string `json:"instanceTypes" yaml:"instanceTypes"`
+	InstanceTypes *[]*string `field:"optional" json:"instanceTypes" yaml:"instanceTypes"`
 	// `CfnComputeEnvironment.ComputeResourcesProperty.LaunchTemplate`.
-	LaunchTemplate interface{} `json:"launchTemplate" yaml:"launchTemplate"`
+	LaunchTemplate interface{} `field:"optional" json:"launchTemplate" yaml:"launchTemplate"`
 	// `CfnComputeEnvironment.ComputeResourcesProperty.MinvCpus`.
-	MinvCpus *float64 `json:"minvCpus" yaml:"minvCpus"`
+	MinvCpus *float64 `field:"optional" json:"minvCpus" yaml:"minvCpus"`
 	// `CfnComputeEnvironment.ComputeResourcesProperty.PlacementGroup`.
-	PlacementGroup *string `json:"placementGroup" yaml:"placementGroup"`
+	PlacementGroup *string `field:"optional" json:"placementGroup" yaml:"placementGroup"`
 	// `CfnComputeEnvironment.ComputeResourcesProperty.SecurityGroupIds`.
-	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
+	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// `CfnComputeEnvironment.ComputeResourcesProperty.SpotIamFleetRole`.
-	SpotIamFleetRole *string `json:"spotIamFleetRole" yaml:"spotIamFleetRole"`
+	SpotIamFleetRole *string `field:"optional" json:"spotIamFleetRole" yaml:"spotIamFleetRole"`
 	// `CfnComputeEnvironment.ComputeResourcesProperty.Tags`.
-	Tags *map[string]*string `json:"tags" yaml:"tags"`
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 	// `CfnComputeEnvironment.ComputeResourcesProperty.UpdateToLatestImageVersion`.
-	UpdateToLatestImageVersion interface{} `json:"updateToLatestImageVersion" yaml:"updateToLatestImageVersion"`
+	UpdateToLatestImageVersion interface{} `field:"optional" json:"updateToLatestImageVersion" yaml:"updateToLatestImageVersion"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import batch "github.com/aws/aws-cdk-go/awscdk/aws_batch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   ec2ConfigurationObjectProperty := &ec2ConfigurationObjectProperty{
 //   	imageType: jsii.String("imageType"),
 //
@@ -983,13 +992,16 @@ type CfnComputeEnvironment_ComputeResourcesProperty struct {
 //
 type CfnComputeEnvironment_Ec2ConfigurationObjectProperty struct {
 	// `CfnComputeEnvironment.Ec2ConfigurationObjectProperty.ImageType`.
-	ImageType *string `json:"imageType" yaml:"imageType"`
+	ImageType *string `field:"required" json:"imageType" yaml:"imageType"`
 	// `CfnComputeEnvironment.Ec2ConfigurationObjectProperty.ImageIdOverride`.
-	ImageIdOverride *string `json:"imageIdOverride" yaml:"imageIdOverride"`
+	ImageIdOverride *string `field:"optional" json:"imageIdOverride" yaml:"imageIdOverride"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import batch "github.com/aws/aws-cdk-go/awscdk/aws_batch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   launchTemplateSpecificationProperty := &launchTemplateSpecificationProperty{
 //   	launchTemplateId: jsii.String("launchTemplateId"),
 //   	launchTemplateName: jsii.String("launchTemplateName"),
@@ -998,15 +1010,18 @@ type CfnComputeEnvironment_Ec2ConfigurationObjectProperty struct {
 //
 type CfnComputeEnvironment_LaunchTemplateSpecificationProperty struct {
 	// `CfnComputeEnvironment.LaunchTemplateSpecificationProperty.LaunchTemplateId`.
-	LaunchTemplateId *string `json:"launchTemplateId" yaml:"launchTemplateId"`
+	LaunchTemplateId *string `field:"optional" json:"launchTemplateId" yaml:"launchTemplateId"`
 	// `CfnComputeEnvironment.LaunchTemplateSpecificationProperty.LaunchTemplateName`.
-	LaunchTemplateName *string `json:"launchTemplateName" yaml:"launchTemplateName"`
+	LaunchTemplateName *string `field:"optional" json:"launchTemplateName" yaml:"launchTemplateName"`
 	// `CfnComputeEnvironment.LaunchTemplateSpecificationProperty.Version`.
-	Version *string `json:"version" yaml:"version"`
+	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import batch "github.com/aws/aws-cdk-go/awscdk/aws_batch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   updatePolicyProperty := &updatePolicyProperty{
 //   	jobExecutionTimeoutMinutes: jsii.Number(123),
 //   	terminateJobsOnUpdate: jsii.Boolean(false),
@@ -1014,15 +1029,18 @@ type CfnComputeEnvironment_LaunchTemplateSpecificationProperty struct {
 //
 type CfnComputeEnvironment_UpdatePolicyProperty struct {
 	// `CfnComputeEnvironment.UpdatePolicyProperty.JobExecutionTimeoutMinutes`.
-	JobExecutionTimeoutMinutes *float64 `json:"jobExecutionTimeoutMinutes" yaml:"jobExecutionTimeoutMinutes"`
+	JobExecutionTimeoutMinutes *float64 `field:"optional" json:"jobExecutionTimeoutMinutes" yaml:"jobExecutionTimeoutMinutes"`
 	// `CfnComputeEnvironment.UpdatePolicyProperty.TerminateJobsOnUpdate`.
-	TerminateJobsOnUpdate interface{} `json:"terminateJobsOnUpdate" yaml:"terminateJobsOnUpdate"`
+	TerminateJobsOnUpdate interface{} `field:"optional" json:"terminateJobsOnUpdate" yaml:"terminateJobsOnUpdate"`
 }
 
 // Properties for defining a `CfnComputeEnvironment`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import batch "github.com/aws/aws-cdk-go/awscdk/aws_batch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnComputeEnvironmentProps := &cfnComputeEnvironmentProps{
 //   	type: jsii.String("type"),
 //
@@ -1084,34 +1102,37 @@ type CfnComputeEnvironment_UpdatePolicyProperty struct {
 //
 type CfnComputeEnvironmentProps struct {
 	// `AWS::Batch::ComputeEnvironment.Type`.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// `AWS::Batch::ComputeEnvironment.ComputeEnvironmentName`.
-	ComputeEnvironmentName *string `json:"computeEnvironmentName" yaml:"computeEnvironmentName"`
+	ComputeEnvironmentName *string `field:"optional" json:"computeEnvironmentName" yaml:"computeEnvironmentName"`
 	// `AWS::Batch::ComputeEnvironment.ComputeResources`.
-	ComputeResources interface{} `json:"computeResources" yaml:"computeResources"`
+	ComputeResources interface{} `field:"optional" json:"computeResources" yaml:"computeResources"`
 	// `AWS::Batch::ComputeEnvironment.ReplaceComputeEnvironment`.
-	ReplaceComputeEnvironment interface{} `json:"replaceComputeEnvironment" yaml:"replaceComputeEnvironment"`
+	ReplaceComputeEnvironment interface{} `field:"optional" json:"replaceComputeEnvironment" yaml:"replaceComputeEnvironment"`
 	// `AWS::Batch::ComputeEnvironment.ServiceRole`.
-	ServiceRole *string `json:"serviceRole" yaml:"serviceRole"`
+	ServiceRole *string `field:"optional" json:"serviceRole" yaml:"serviceRole"`
 	// `AWS::Batch::ComputeEnvironment.State`.
-	State *string `json:"state" yaml:"state"`
+	State *string `field:"optional" json:"state" yaml:"state"`
 	// `AWS::Batch::ComputeEnvironment.Tags`.
-	Tags *map[string]*string `json:"tags" yaml:"tags"`
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 	// `AWS::Batch::ComputeEnvironment.UnmanagedvCpus`.
-	UnmanagedvCpus *float64 `json:"unmanagedvCpus" yaml:"unmanagedvCpus"`
+	UnmanagedvCpus *float64 `field:"optional" json:"unmanagedvCpus" yaml:"unmanagedvCpus"`
 	// `AWS::Batch::ComputeEnvironment.UpdatePolicy`.
-	UpdatePolicy interface{} `json:"updatePolicy" yaml:"updatePolicy"`
+	UpdatePolicy interface{} `field:"optional" json:"updatePolicy" yaml:"updatePolicy"`
 }
 
 // A CloudFormation `AWS::Batch::JobDefinition`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import batch "github.com/aws/aws-cdk-go/awscdk/aws_batch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var options interface{}
 //   var parameters interface{}
 //   var tags interface{}
-//   cfnJobDefinition := batch.NewCfnJobDefinition(this, jsii.String("MyCfnJobDefinition"), &cfnJobDefinitionProps{
+//
+//   cfnJobDefinition := awscdk.Aws_batch.NewCfnJobDefinition(this, jsii.String("MyCfnJobDefinition"), &cfnJobDefinitionProps{
 //   	type: jsii.String("type"),
 //
 //   	// the properties below are optional
@@ -2204,7 +2225,10 @@ func (c *jsiiProxy_CfnJobDefinition) ValidateProperties(_properties interface{})
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import batch "github.com/aws/aws-cdk-go/awscdk/aws_batch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   authorizationConfigProperty := &authorizationConfigProperty{
 //   	accessPointId: jsii.String("accessPointId"),
 //   	iam: jsii.String("iam"),
@@ -2212,15 +2236,18 @@ func (c *jsiiProxy_CfnJobDefinition) ValidateProperties(_properties interface{})
 //
 type CfnJobDefinition_AuthorizationConfigProperty struct {
 	// `CfnJobDefinition.AuthorizationConfigProperty.AccessPointId`.
-	AccessPointId *string `json:"accessPointId" yaml:"accessPointId"`
+	AccessPointId *string `field:"optional" json:"accessPointId" yaml:"accessPointId"`
 	// `CfnJobDefinition.AuthorizationConfigProperty.Iam`.
-	Iam *string `json:"iam" yaml:"iam"`
+	Iam *string `field:"optional" json:"iam" yaml:"iam"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import batch "github.com/aws/aws-cdk-go/awscdk/aws_batch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var options interface{}
+//
 //   containerPropertiesProperty := &containerPropertiesProperty{
 //   	image: jsii.String("image"),
 //
@@ -2336,49 +2363,52 @@ type CfnJobDefinition_AuthorizationConfigProperty struct {
 //
 type CfnJobDefinition_ContainerPropertiesProperty struct {
 	// `CfnJobDefinition.ContainerPropertiesProperty.Image`.
-	Image *string `json:"image" yaml:"image"`
+	Image *string `field:"required" json:"image" yaml:"image"`
 	// `CfnJobDefinition.ContainerPropertiesProperty.Command`.
-	Command *[]*string `json:"command" yaml:"command"`
+	Command *[]*string `field:"optional" json:"command" yaml:"command"`
 	// `CfnJobDefinition.ContainerPropertiesProperty.Environment`.
-	Environment interface{} `json:"environment" yaml:"environment"`
+	Environment interface{} `field:"optional" json:"environment" yaml:"environment"`
 	// `CfnJobDefinition.ContainerPropertiesProperty.ExecutionRoleArn`.
-	ExecutionRoleArn *string `json:"executionRoleArn" yaml:"executionRoleArn"`
+	ExecutionRoleArn *string `field:"optional" json:"executionRoleArn" yaml:"executionRoleArn"`
 	// `CfnJobDefinition.ContainerPropertiesProperty.FargatePlatformConfiguration`.
-	FargatePlatformConfiguration interface{} `json:"fargatePlatformConfiguration" yaml:"fargatePlatformConfiguration"`
+	FargatePlatformConfiguration interface{} `field:"optional" json:"fargatePlatformConfiguration" yaml:"fargatePlatformConfiguration"`
 	// `CfnJobDefinition.ContainerPropertiesProperty.InstanceType`.
-	InstanceType *string `json:"instanceType" yaml:"instanceType"`
+	InstanceType *string `field:"optional" json:"instanceType" yaml:"instanceType"`
 	// `CfnJobDefinition.ContainerPropertiesProperty.JobRoleArn`.
-	JobRoleArn *string `json:"jobRoleArn" yaml:"jobRoleArn"`
+	JobRoleArn *string `field:"optional" json:"jobRoleArn" yaml:"jobRoleArn"`
 	// `CfnJobDefinition.ContainerPropertiesProperty.LinuxParameters`.
-	LinuxParameters interface{} `json:"linuxParameters" yaml:"linuxParameters"`
+	LinuxParameters interface{} `field:"optional" json:"linuxParameters" yaml:"linuxParameters"`
 	// `CfnJobDefinition.ContainerPropertiesProperty.LogConfiguration`.
-	LogConfiguration interface{} `json:"logConfiguration" yaml:"logConfiguration"`
+	LogConfiguration interface{} `field:"optional" json:"logConfiguration" yaml:"logConfiguration"`
 	// `CfnJobDefinition.ContainerPropertiesProperty.Memory`.
-	Memory *float64 `json:"memory" yaml:"memory"`
+	Memory *float64 `field:"optional" json:"memory" yaml:"memory"`
 	// `CfnJobDefinition.ContainerPropertiesProperty.MountPoints`.
-	MountPoints interface{} `json:"mountPoints" yaml:"mountPoints"`
+	MountPoints interface{} `field:"optional" json:"mountPoints" yaml:"mountPoints"`
 	// `CfnJobDefinition.ContainerPropertiesProperty.NetworkConfiguration`.
-	NetworkConfiguration interface{} `json:"networkConfiguration" yaml:"networkConfiguration"`
+	NetworkConfiguration interface{} `field:"optional" json:"networkConfiguration" yaml:"networkConfiguration"`
 	// `CfnJobDefinition.ContainerPropertiesProperty.Privileged`.
-	Privileged interface{} `json:"privileged" yaml:"privileged"`
+	Privileged interface{} `field:"optional" json:"privileged" yaml:"privileged"`
 	// `CfnJobDefinition.ContainerPropertiesProperty.ReadonlyRootFilesystem`.
-	ReadonlyRootFilesystem interface{} `json:"readonlyRootFilesystem" yaml:"readonlyRootFilesystem"`
+	ReadonlyRootFilesystem interface{} `field:"optional" json:"readonlyRootFilesystem" yaml:"readonlyRootFilesystem"`
 	// `CfnJobDefinition.ContainerPropertiesProperty.ResourceRequirements`.
-	ResourceRequirements interface{} `json:"resourceRequirements" yaml:"resourceRequirements"`
+	ResourceRequirements interface{} `field:"optional" json:"resourceRequirements" yaml:"resourceRequirements"`
 	// `CfnJobDefinition.ContainerPropertiesProperty.Secrets`.
-	Secrets interface{} `json:"secrets" yaml:"secrets"`
+	Secrets interface{} `field:"optional" json:"secrets" yaml:"secrets"`
 	// `CfnJobDefinition.ContainerPropertiesProperty.Ulimits`.
-	Ulimits interface{} `json:"ulimits" yaml:"ulimits"`
+	Ulimits interface{} `field:"optional" json:"ulimits" yaml:"ulimits"`
 	// `CfnJobDefinition.ContainerPropertiesProperty.User`.
-	User *string `json:"user" yaml:"user"`
+	User *string `field:"optional" json:"user" yaml:"user"`
 	// `CfnJobDefinition.ContainerPropertiesProperty.Vcpus`.
-	Vcpus *float64 `json:"vcpus" yaml:"vcpus"`
+	Vcpus *float64 `field:"optional" json:"vcpus" yaml:"vcpus"`
 	// `CfnJobDefinition.ContainerPropertiesProperty.Volumes`.
-	Volumes interface{} `json:"volumes" yaml:"volumes"`
+	Volumes interface{} `field:"optional" json:"volumes" yaml:"volumes"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import batch "github.com/aws/aws-cdk-go/awscdk/aws_batch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   deviceProperty := &deviceProperty{
 //   	containerPath: jsii.String("containerPath"),
 //   	hostPath: jsii.String("hostPath"),
@@ -2389,15 +2419,18 @@ type CfnJobDefinition_ContainerPropertiesProperty struct {
 //
 type CfnJobDefinition_DeviceProperty struct {
 	// `CfnJobDefinition.DeviceProperty.ContainerPath`.
-	ContainerPath *string `json:"containerPath" yaml:"containerPath"`
+	ContainerPath *string `field:"optional" json:"containerPath" yaml:"containerPath"`
 	// `CfnJobDefinition.DeviceProperty.HostPath`.
-	HostPath *string `json:"hostPath" yaml:"hostPath"`
+	HostPath *string `field:"optional" json:"hostPath" yaml:"hostPath"`
 	// `CfnJobDefinition.DeviceProperty.Permissions`.
-	Permissions *[]*string `json:"permissions" yaml:"permissions"`
+	Permissions *[]*string `field:"optional" json:"permissions" yaml:"permissions"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import batch "github.com/aws/aws-cdk-go/awscdk/aws_batch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   efsVolumeConfigurationProperty := &efsVolumeConfigurationProperty{
 //   	fileSystemId: jsii.String("fileSystemId"),
 //
@@ -2413,19 +2446,22 @@ type CfnJobDefinition_DeviceProperty struct {
 //
 type CfnJobDefinition_EfsVolumeConfigurationProperty struct {
 	// `CfnJobDefinition.EfsVolumeConfigurationProperty.FileSystemId`.
-	FileSystemId *string `json:"fileSystemId" yaml:"fileSystemId"`
+	FileSystemId *string `field:"required" json:"fileSystemId" yaml:"fileSystemId"`
 	// `CfnJobDefinition.EfsVolumeConfigurationProperty.AuthorizationConfig`.
-	AuthorizationConfig interface{} `json:"authorizationConfig" yaml:"authorizationConfig"`
+	AuthorizationConfig interface{} `field:"optional" json:"authorizationConfig" yaml:"authorizationConfig"`
 	// `CfnJobDefinition.EfsVolumeConfigurationProperty.RootDirectory`.
-	RootDirectory *string `json:"rootDirectory" yaml:"rootDirectory"`
+	RootDirectory *string `field:"optional" json:"rootDirectory" yaml:"rootDirectory"`
 	// `CfnJobDefinition.EfsVolumeConfigurationProperty.TransitEncryption`.
-	TransitEncryption *string `json:"transitEncryption" yaml:"transitEncryption"`
+	TransitEncryption *string `field:"optional" json:"transitEncryption" yaml:"transitEncryption"`
 	// `CfnJobDefinition.EfsVolumeConfigurationProperty.TransitEncryptionPort`.
-	TransitEncryptionPort *float64 `json:"transitEncryptionPort" yaml:"transitEncryptionPort"`
+	TransitEncryptionPort *float64 `field:"optional" json:"transitEncryptionPort" yaml:"transitEncryptionPort"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import batch "github.com/aws/aws-cdk-go/awscdk/aws_batch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   environmentProperty := &environmentProperty{
 //   	name: jsii.String("name"),
 //   	value: jsii.String("value"),
@@ -2433,13 +2469,16 @@ type CfnJobDefinition_EfsVolumeConfigurationProperty struct {
 //
 type CfnJobDefinition_EnvironmentProperty struct {
 	// `CfnJobDefinition.EnvironmentProperty.Name`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// `CfnJobDefinition.EnvironmentProperty.Value`.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import batch "github.com/aws/aws-cdk-go/awscdk/aws_batch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   evaluateOnExitProperty := &evaluateOnExitProperty{
 //   	action: jsii.String("action"),
 //
@@ -2451,28 +2490,34 @@ type CfnJobDefinition_EnvironmentProperty struct {
 //
 type CfnJobDefinition_EvaluateOnExitProperty struct {
 	// `CfnJobDefinition.EvaluateOnExitProperty.Action`.
-	Action *string `json:"action" yaml:"action"`
+	Action *string `field:"required" json:"action" yaml:"action"`
 	// `CfnJobDefinition.EvaluateOnExitProperty.OnExitCode`.
-	OnExitCode *string `json:"onExitCode" yaml:"onExitCode"`
+	OnExitCode *string `field:"optional" json:"onExitCode" yaml:"onExitCode"`
 	// `CfnJobDefinition.EvaluateOnExitProperty.OnReason`.
-	OnReason *string `json:"onReason" yaml:"onReason"`
+	OnReason *string `field:"optional" json:"onReason" yaml:"onReason"`
 	// `CfnJobDefinition.EvaluateOnExitProperty.OnStatusReason`.
-	OnStatusReason *string `json:"onStatusReason" yaml:"onStatusReason"`
+	OnStatusReason *string `field:"optional" json:"onStatusReason" yaml:"onStatusReason"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import batch "github.com/aws/aws-cdk-go/awscdk/aws_batch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   fargatePlatformConfigurationProperty := &fargatePlatformConfigurationProperty{
 //   	platformVersion: jsii.String("platformVersion"),
 //   }
 //
 type CfnJobDefinition_FargatePlatformConfigurationProperty struct {
 	// `CfnJobDefinition.FargatePlatformConfigurationProperty.PlatformVersion`.
-	PlatformVersion *string `json:"platformVersion" yaml:"platformVersion"`
+	PlatformVersion *string `field:"optional" json:"platformVersion" yaml:"platformVersion"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import batch "github.com/aws/aws-cdk-go/awscdk/aws_batch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   linuxParametersProperty := &linuxParametersProperty{
 //   	devices: []interface{}{
 //   		&deviceProperty{
@@ -2502,23 +2547,26 @@ type CfnJobDefinition_FargatePlatformConfigurationProperty struct {
 //
 type CfnJobDefinition_LinuxParametersProperty struct {
 	// `CfnJobDefinition.LinuxParametersProperty.Devices`.
-	Devices interface{} `json:"devices" yaml:"devices"`
+	Devices interface{} `field:"optional" json:"devices" yaml:"devices"`
 	// `CfnJobDefinition.LinuxParametersProperty.InitProcessEnabled`.
-	InitProcessEnabled interface{} `json:"initProcessEnabled" yaml:"initProcessEnabled"`
+	InitProcessEnabled interface{} `field:"optional" json:"initProcessEnabled" yaml:"initProcessEnabled"`
 	// `CfnJobDefinition.LinuxParametersProperty.MaxSwap`.
-	MaxSwap *float64 `json:"maxSwap" yaml:"maxSwap"`
+	MaxSwap *float64 `field:"optional" json:"maxSwap" yaml:"maxSwap"`
 	// `CfnJobDefinition.LinuxParametersProperty.SharedMemorySize`.
-	SharedMemorySize *float64 `json:"sharedMemorySize" yaml:"sharedMemorySize"`
+	SharedMemorySize *float64 `field:"optional" json:"sharedMemorySize" yaml:"sharedMemorySize"`
 	// `CfnJobDefinition.LinuxParametersProperty.Swappiness`.
-	Swappiness *float64 `json:"swappiness" yaml:"swappiness"`
+	Swappiness *float64 `field:"optional" json:"swappiness" yaml:"swappiness"`
 	// `CfnJobDefinition.LinuxParametersProperty.Tmpfs`.
-	Tmpfs interface{} `json:"tmpfs" yaml:"tmpfs"`
+	Tmpfs interface{} `field:"optional" json:"tmpfs" yaml:"tmpfs"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import batch "github.com/aws/aws-cdk-go/awscdk/aws_batch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var options interface{}
+//
 //   logConfigurationProperty := &logConfigurationProperty{
 //   	logDriver: jsii.String("logDriver"),
 //
@@ -2534,15 +2582,18 @@ type CfnJobDefinition_LinuxParametersProperty struct {
 //
 type CfnJobDefinition_LogConfigurationProperty struct {
 	// `CfnJobDefinition.LogConfigurationProperty.LogDriver`.
-	LogDriver *string `json:"logDriver" yaml:"logDriver"`
+	LogDriver *string `field:"required" json:"logDriver" yaml:"logDriver"`
 	// `CfnJobDefinition.LogConfigurationProperty.Options`.
-	Options interface{} `json:"options" yaml:"options"`
+	Options interface{} `field:"optional" json:"options" yaml:"options"`
 	// `CfnJobDefinition.LogConfigurationProperty.SecretOptions`.
-	SecretOptions interface{} `json:"secretOptions" yaml:"secretOptions"`
+	SecretOptions interface{} `field:"optional" json:"secretOptions" yaml:"secretOptions"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import batch "github.com/aws/aws-cdk-go/awscdk/aws_batch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   mountPointsProperty := &mountPointsProperty{
 //   	containerPath: jsii.String("containerPath"),
 //   	readOnly: jsii.Boolean(false),
@@ -2551,28 +2602,34 @@ type CfnJobDefinition_LogConfigurationProperty struct {
 //
 type CfnJobDefinition_MountPointsProperty struct {
 	// `CfnJobDefinition.MountPointsProperty.ContainerPath`.
-	ContainerPath *string `json:"containerPath" yaml:"containerPath"`
+	ContainerPath *string `field:"optional" json:"containerPath" yaml:"containerPath"`
 	// `CfnJobDefinition.MountPointsProperty.ReadOnly`.
-	ReadOnly interface{} `json:"readOnly" yaml:"readOnly"`
+	ReadOnly interface{} `field:"optional" json:"readOnly" yaml:"readOnly"`
 	// `CfnJobDefinition.MountPointsProperty.SourceVolume`.
-	SourceVolume *string `json:"sourceVolume" yaml:"sourceVolume"`
+	SourceVolume *string `field:"optional" json:"sourceVolume" yaml:"sourceVolume"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import batch "github.com/aws/aws-cdk-go/awscdk/aws_batch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   networkConfigurationProperty := &networkConfigurationProperty{
 //   	assignPublicIp: jsii.String("assignPublicIp"),
 //   }
 //
 type CfnJobDefinition_NetworkConfigurationProperty struct {
 	// `CfnJobDefinition.NetworkConfigurationProperty.AssignPublicIp`.
-	AssignPublicIp *string `json:"assignPublicIp" yaml:"assignPublicIp"`
+	AssignPublicIp *string `field:"optional" json:"assignPublicIp" yaml:"assignPublicIp"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import batch "github.com/aws/aws-cdk-go/awscdk/aws_batch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var options interface{}
+//
 //   nodePropertiesProperty := &nodePropertiesProperty{
 //   	mainNode: jsii.Number(123),
 //   	nodeRangeProperties: []interface{}{
@@ -2699,17 +2756,20 @@ type CfnJobDefinition_NetworkConfigurationProperty struct {
 //
 type CfnJobDefinition_NodePropertiesProperty struct {
 	// `CfnJobDefinition.NodePropertiesProperty.MainNode`.
-	MainNode *float64 `json:"mainNode" yaml:"mainNode"`
+	MainNode *float64 `field:"required" json:"mainNode" yaml:"mainNode"`
 	// `CfnJobDefinition.NodePropertiesProperty.NodeRangeProperties`.
-	NodeRangeProperties interface{} `json:"nodeRangeProperties" yaml:"nodeRangeProperties"`
+	NodeRangeProperties interface{} `field:"required" json:"nodeRangeProperties" yaml:"nodeRangeProperties"`
 	// `CfnJobDefinition.NodePropertiesProperty.NumNodes`.
-	NumNodes *float64 `json:"numNodes" yaml:"numNodes"`
+	NumNodes *float64 `field:"required" json:"numNodes" yaml:"numNodes"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import batch "github.com/aws/aws-cdk-go/awscdk/aws_batch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var options interface{}
+//
 //   nodeRangePropertyProperty := &nodeRangePropertyProperty{
 //   	targetNodes: jsii.String("targetNodes"),
 //
@@ -2830,13 +2890,16 @@ type CfnJobDefinition_NodePropertiesProperty struct {
 //
 type CfnJobDefinition_NodeRangePropertyProperty struct {
 	// `CfnJobDefinition.NodeRangePropertyProperty.TargetNodes`.
-	TargetNodes *string `json:"targetNodes" yaml:"targetNodes"`
+	TargetNodes *string `field:"required" json:"targetNodes" yaml:"targetNodes"`
 	// `CfnJobDefinition.NodeRangePropertyProperty.Container`.
-	Container interface{} `json:"container" yaml:"container"`
+	Container interface{} `field:"optional" json:"container" yaml:"container"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import batch "github.com/aws/aws-cdk-go/awscdk/aws_batch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   resourceRequirementProperty := &resourceRequirementProperty{
 //   	type: jsii.String("type"),
 //   	value: jsii.String("value"),
@@ -2844,13 +2907,16 @@ type CfnJobDefinition_NodeRangePropertyProperty struct {
 //
 type CfnJobDefinition_ResourceRequirementProperty struct {
 	// `CfnJobDefinition.ResourceRequirementProperty.Type`.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 	// `CfnJobDefinition.ResourceRequirementProperty.Value`.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import batch "github.com/aws/aws-cdk-go/awscdk/aws_batch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   retryStrategyProperty := &retryStrategyProperty{
 //   	attempts: jsii.Number(123),
 //   	evaluateOnExit: []interface{}{
@@ -2867,13 +2933,16 @@ type CfnJobDefinition_ResourceRequirementProperty struct {
 //
 type CfnJobDefinition_RetryStrategyProperty struct {
 	// `CfnJobDefinition.RetryStrategyProperty.Attempts`.
-	Attempts *float64 `json:"attempts" yaml:"attempts"`
+	Attempts *float64 `field:"optional" json:"attempts" yaml:"attempts"`
 	// `CfnJobDefinition.RetryStrategyProperty.EvaluateOnExit`.
-	EvaluateOnExit interface{} `json:"evaluateOnExit" yaml:"evaluateOnExit"`
+	EvaluateOnExit interface{} `field:"optional" json:"evaluateOnExit" yaml:"evaluateOnExit"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import batch "github.com/aws/aws-cdk-go/awscdk/aws_batch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   secretProperty := &secretProperty{
 //   	name: jsii.String("name"),
 //   	valueFrom: jsii.String("valueFrom"),
@@ -2881,24 +2950,30 @@ type CfnJobDefinition_RetryStrategyProperty struct {
 //
 type CfnJobDefinition_SecretProperty struct {
 	// `CfnJobDefinition.SecretProperty.Name`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// `CfnJobDefinition.SecretProperty.ValueFrom`.
-	ValueFrom *string `json:"valueFrom" yaml:"valueFrom"`
+	ValueFrom *string `field:"required" json:"valueFrom" yaml:"valueFrom"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import batch "github.com/aws/aws-cdk-go/awscdk/aws_batch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   timeoutProperty := &timeoutProperty{
 //   	attemptDurationSeconds: jsii.Number(123),
 //   }
 //
 type CfnJobDefinition_TimeoutProperty struct {
 	// `CfnJobDefinition.TimeoutProperty.AttemptDurationSeconds`.
-	AttemptDurationSeconds *float64 `json:"attemptDurationSeconds" yaml:"attemptDurationSeconds"`
+	AttemptDurationSeconds *float64 `field:"optional" json:"attemptDurationSeconds" yaml:"attemptDurationSeconds"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import batch "github.com/aws/aws-cdk-go/awscdk/aws_batch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tmpfsProperty := &tmpfsProperty{
 //   	containerPath: jsii.String("containerPath"),
 //   	size: jsii.Number(123),
@@ -2911,15 +2986,18 @@ type CfnJobDefinition_TimeoutProperty struct {
 //
 type CfnJobDefinition_TmpfsProperty struct {
 	// `CfnJobDefinition.TmpfsProperty.ContainerPath`.
-	ContainerPath *string `json:"containerPath" yaml:"containerPath"`
+	ContainerPath *string `field:"required" json:"containerPath" yaml:"containerPath"`
 	// `CfnJobDefinition.TmpfsProperty.Size`.
-	Size *float64 `json:"size" yaml:"size"`
+	Size *float64 `field:"required" json:"size" yaml:"size"`
 	// `CfnJobDefinition.TmpfsProperty.MountOptions`.
-	MountOptions *[]*string `json:"mountOptions" yaml:"mountOptions"`
+	MountOptions *[]*string `field:"optional" json:"mountOptions" yaml:"mountOptions"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import batch "github.com/aws/aws-cdk-go/awscdk/aws_batch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   ulimitProperty := &ulimitProperty{
 //   	hardLimit: jsii.Number(123),
 //   	name: jsii.String("name"),
@@ -2928,26 +3006,32 @@ type CfnJobDefinition_TmpfsProperty struct {
 //
 type CfnJobDefinition_UlimitProperty struct {
 	// `CfnJobDefinition.UlimitProperty.HardLimit`.
-	HardLimit *float64 `json:"hardLimit" yaml:"hardLimit"`
+	HardLimit *float64 `field:"required" json:"hardLimit" yaml:"hardLimit"`
 	// `CfnJobDefinition.UlimitProperty.Name`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// `CfnJobDefinition.UlimitProperty.SoftLimit`.
-	SoftLimit *float64 `json:"softLimit" yaml:"softLimit"`
+	SoftLimit *float64 `field:"required" json:"softLimit" yaml:"softLimit"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import batch "github.com/aws/aws-cdk-go/awscdk/aws_batch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   volumesHostProperty := &volumesHostProperty{
 //   	sourcePath: jsii.String("sourcePath"),
 //   }
 //
 type CfnJobDefinition_VolumesHostProperty struct {
 	// `CfnJobDefinition.VolumesHostProperty.SourcePath`.
-	SourcePath *string `json:"sourcePath" yaml:"sourcePath"`
+	SourcePath *string `field:"optional" json:"sourcePath" yaml:"sourcePath"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import batch "github.com/aws/aws-cdk-go/awscdk/aws_batch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   volumesProperty := &volumesProperty{
 //   	efsVolumeConfiguration: &efsVolumeConfigurationProperty{
 //   		fileSystemId: jsii.String("fileSystemId"),
@@ -2969,21 +3053,24 @@ type CfnJobDefinition_VolumesHostProperty struct {
 //
 type CfnJobDefinition_VolumesProperty struct {
 	// `CfnJobDefinition.VolumesProperty.EfsVolumeConfiguration`.
-	EfsVolumeConfiguration interface{} `json:"efsVolumeConfiguration" yaml:"efsVolumeConfiguration"`
+	EfsVolumeConfiguration interface{} `field:"optional" json:"efsVolumeConfiguration" yaml:"efsVolumeConfiguration"`
 	// `CfnJobDefinition.VolumesProperty.Host`.
-	Host interface{} `json:"host" yaml:"host"`
+	Host interface{} `field:"optional" json:"host" yaml:"host"`
 	// `CfnJobDefinition.VolumesProperty.Name`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 
 // Properties for defining a `CfnJobDefinition`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import batch "github.com/aws/aws-cdk-go/awscdk/aws_batch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var options interface{}
 //   var parameters interface{}
 //   var tags interface{}
+//
 //   cfnJobDefinitionProps := &cfnJobDefinitionProps{
 //   	type: jsii.String("type"),
 //
@@ -3251,34 +3338,37 @@ type CfnJobDefinition_VolumesProperty struct {
 //
 type CfnJobDefinitionProps struct {
 	// `AWS::Batch::JobDefinition.Type`.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// `AWS::Batch::JobDefinition.ContainerProperties`.
-	ContainerProperties interface{} `json:"containerProperties" yaml:"containerProperties"`
+	ContainerProperties interface{} `field:"optional" json:"containerProperties" yaml:"containerProperties"`
 	// `AWS::Batch::JobDefinition.JobDefinitionName`.
-	JobDefinitionName *string `json:"jobDefinitionName" yaml:"jobDefinitionName"`
+	JobDefinitionName *string `field:"optional" json:"jobDefinitionName" yaml:"jobDefinitionName"`
 	// `AWS::Batch::JobDefinition.NodeProperties`.
-	NodeProperties interface{} `json:"nodeProperties" yaml:"nodeProperties"`
+	NodeProperties interface{} `field:"optional" json:"nodeProperties" yaml:"nodeProperties"`
 	// `AWS::Batch::JobDefinition.Parameters`.
-	Parameters interface{} `json:"parameters" yaml:"parameters"`
+	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// `AWS::Batch::JobDefinition.PlatformCapabilities`.
-	PlatformCapabilities *[]*string `json:"platformCapabilities" yaml:"platformCapabilities"`
+	PlatformCapabilities *[]*string `field:"optional" json:"platformCapabilities" yaml:"platformCapabilities"`
 	// `AWS::Batch::JobDefinition.PropagateTags`.
-	PropagateTags interface{} `json:"propagateTags" yaml:"propagateTags"`
+	PropagateTags interface{} `field:"optional" json:"propagateTags" yaml:"propagateTags"`
 	// `AWS::Batch::JobDefinition.RetryStrategy`.
-	RetryStrategy interface{} `json:"retryStrategy" yaml:"retryStrategy"`
+	RetryStrategy interface{} `field:"optional" json:"retryStrategy" yaml:"retryStrategy"`
 	// `AWS::Batch::JobDefinition.SchedulingPriority`.
-	SchedulingPriority *float64 `json:"schedulingPriority" yaml:"schedulingPriority"`
+	SchedulingPriority *float64 `field:"optional" json:"schedulingPriority" yaml:"schedulingPriority"`
 	// `AWS::Batch::JobDefinition.Tags`.
-	Tags interface{} `json:"tags" yaml:"tags"`
+	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
 	// `AWS::Batch::JobDefinition.Timeout`.
-	Timeout interface{} `json:"timeout" yaml:"timeout"`
+	Timeout interface{} `field:"optional" json:"timeout" yaml:"timeout"`
 }
 
 // A CloudFormation `AWS::Batch::JobQueue`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import batch "github.com/aws/aws-cdk-go/awscdk/aws_batch"
-//   cfnJobQueue := batch.NewCfnJobQueue(this, jsii.String("MyCfnJobQueue"), &cfnJobQueueProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnJobQueue := awscdk.Aws_batch.NewCfnJobQueue(this, jsii.String("MyCfnJobQueue"), &cfnJobQueueProps{
 //   	computeEnvironmentOrder: []interface{}{
 //   		&computeEnvironmentOrderProperty{
 //   			computeEnvironment: jsii.String("computeEnvironment"),
@@ -4030,7 +4120,10 @@ func (c *jsiiProxy_CfnJobQueue) ValidateProperties(_properties interface{}) {
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import batch "github.com/aws/aws-cdk-go/awscdk/aws_batch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   computeEnvironmentOrderProperty := &computeEnvironmentOrderProperty{
 //   	computeEnvironment: jsii.String("computeEnvironment"),
 //   	order: jsii.Number(123),
@@ -4038,15 +4131,18 @@ func (c *jsiiProxy_CfnJobQueue) ValidateProperties(_properties interface{}) {
 //
 type CfnJobQueue_ComputeEnvironmentOrderProperty struct {
 	// `CfnJobQueue.ComputeEnvironmentOrderProperty.ComputeEnvironment`.
-	ComputeEnvironment *string `json:"computeEnvironment" yaml:"computeEnvironment"`
+	ComputeEnvironment *string `field:"required" json:"computeEnvironment" yaml:"computeEnvironment"`
 	// `CfnJobQueue.ComputeEnvironmentOrderProperty.Order`.
-	Order *float64 `json:"order" yaml:"order"`
+	Order *float64 `field:"required" json:"order" yaml:"order"`
 }
 
 // Properties for defining a `CfnJobQueue`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import batch "github.com/aws/aws-cdk-go/awscdk/aws_batch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnJobQueueProps := &cfnJobQueueProps{
 //   	computeEnvironmentOrder: []interface{}{
 //   		&computeEnvironmentOrderProperty{
@@ -4067,24 +4163,27 @@ type CfnJobQueue_ComputeEnvironmentOrderProperty struct {
 //
 type CfnJobQueueProps struct {
 	// `AWS::Batch::JobQueue.ComputeEnvironmentOrder`.
-	ComputeEnvironmentOrder interface{} `json:"computeEnvironmentOrder" yaml:"computeEnvironmentOrder"`
+	ComputeEnvironmentOrder interface{} `field:"required" json:"computeEnvironmentOrder" yaml:"computeEnvironmentOrder"`
 	// `AWS::Batch::JobQueue.Priority`.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"required" json:"priority" yaml:"priority"`
 	// `AWS::Batch::JobQueue.JobQueueName`.
-	JobQueueName *string `json:"jobQueueName" yaml:"jobQueueName"`
+	JobQueueName *string `field:"optional" json:"jobQueueName" yaml:"jobQueueName"`
 	// `AWS::Batch::JobQueue.SchedulingPolicyArn`.
-	SchedulingPolicyArn *string `json:"schedulingPolicyArn" yaml:"schedulingPolicyArn"`
+	SchedulingPolicyArn *string `field:"optional" json:"schedulingPolicyArn" yaml:"schedulingPolicyArn"`
 	// `AWS::Batch::JobQueue.State`.
-	State *string `json:"state" yaml:"state"`
+	State *string `field:"optional" json:"state" yaml:"state"`
 	// `AWS::Batch::JobQueue.Tags`.
-	Tags *map[string]*string `json:"tags" yaml:"tags"`
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Batch::SchedulingPolicy`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import batch "github.com/aws/aws-cdk-go/awscdk/aws_batch"
-//   cfnSchedulingPolicy := batch.NewCfnSchedulingPolicy(this, jsii.String("MyCfnSchedulingPolicy"), &cfnSchedulingPolicyProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnSchedulingPolicy := awscdk.Aws_batch.NewCfnSchedulingPolicy(this, jsii.String("MyCfnSchedulingPolicy"), &cfnSchedulingPolicyProps{
 //   	fairsharePolicy: &fairsharePolicyProperty{
 //   		computeReservation: jsii.Number(123),
 //   		shareDecaySeconds: jsii.Number(123),
@@ -4772,7 +4871,10 @@ func (c *jsiiProxy_CfnSchedulingPolicy) ValidateProperties(_properties interface
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import batch "github.com/aws/aws-cdk-go/awscdk/aws_batch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   fairsharePolicyProperty := &fairsharePolicyProperty{
 //   	computeReservation: jsii.Number(123),
 //   	shareDecaySeconds: jsii.Number(123),
@@ -4786,15 +4888,18 @@ func (c *jsiiProxy_CfnSchedulingPolicy) ValidateProperties(_properties interface
 //
 type CfnSchedulingPolicy_FairsharePolicyProperty struct {
 	// `CfnSchedulingPolicy.FairsharePolicyProperty.ComputeReservation`.
-	ComputeReservation *float64 `json:"computeReservation" yaml:"computeReservation"`
+	ComputeReservation *float64 `field:"optional" json:"computeReservation" yaml:"computeReservation"`
 	// `CfnSchedulingPolicy.FairsharePolicyProperty.ShareDecaySeconds`.
-	ShareDecaySeconds *float64 `json:"shareDecaySeconds" yaml:"shareDecaySeconds"`
+	ShareDecaySeconds *float64 `field:"optional" json:"shareDecaySeconds" yaml:"shareDecaySeconds"`
 	// `CfnSchedulingPolicy.FairsharePolicyProperty.ShareDistribution`.
-	ShareDistribution interface{} `json:"shareDistribution" yaml:"shareDistribution"`
+	ShareDistribution interface{} `field:"optional" json:"shareDistribution" yaml:"shareDistribution"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import batch "github.com/aws/aws-cdk-go/awscdk/aws_batch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   shareAttributesProperty := &shareAttributesProperty{
 //   	shareIdentifier: jsii.String("shareIdentifier"),
 //   	weightFactor: jsii.Number(123),
@@ -4802,15 +4907,18 @@ type CfnSchedulingPolicy_FairsharePolicyProperty struct {
 //
 type CfnSchedulingPolicy_ShareAttributesProperty struct {
 	// `CfnSchedulingPolicy.ShareAttributesProperty.ShareIdentifier`.
-	ShareIdentifier *string `json:"shareIdentifier" yaml:"shareIdentifier"`
+	ShareIdentifier *string `field:"optional" json:"shareIdentifier" yaml:"shareIdentifier"`
 	// `CfnSchedulingPolicy.ShareAttributesProperty.WeightFactor`.
-	WeightFactor *float64 `json:"weightFactor" yaml:"weightFactor"`
+	WeightFactor *float64 `field:"optional" json:"weightFactor" yaml:"weightFactor"`
 }
 
 // Properties for defining a `CfnSchedulingPolicy`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import batch "github.com/aws/aws-cdk-go/awscdk/aws_batch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnSchedulingPolicyProps := &cfnSchedulingPolicyProps{
 //   	fairsharePolicy: &fairsharePolicyProperty{
 //   		computeReservation: jsii.Number(123),
@@ -4830,11 +4938,11 @@ type CfnSchedulingPolicy_ShareAttributesProperty struct {
 //
 type CfnSchedulingPolicyProps struct {
 	// `AWS::Batch::SchedulingPolicy.FairsharePolicy`.
-	FairsharePolicy interface{} `json:"fairsharePolicy" yaml:"fairsharePolicy"`
+	FairsharePolicy interface{} `field:"optional" json:"fairsharePolicy" yaml:"fairsharePolicy"`
 	// `AWS::Batch::SchedulingPolicy.Name`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// `AWS::Batch::SchedulingPolicy.Tags`.
-	Tags *map[string]*string `json:"tags" yaml:"tags"`
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // Batch Compute Environment.
@@ -4843,6 +4951,7 @@ type CfnSchedulingPolicyProps struct {
 //
 // Example:
 //   var vpc vpc
+//
 //   myComputeEnv := batch.NewComputeEnvironment(this, jsii.String("ComputeEnv"), &computeEnvironmentProps{
 //   	computeResources: &computeResources{
 //   		image: ecs.NewEcsOptimizedAmi(&ecsOptimizedAmiProps{
@@ -5234,6 +5343,7 @@ func (c *jsiiProxy_ComputeEnvironment) Validate() *[]*string {
 //
 // Example:
 //   var vpc vpc
+//
 //   myComputeEnv := batch.NewComputeEnvironment(this, jsii.String("ComputeEnv"), &computeEnvironmentProps{
 //   	computeResources: &computeResources{
 //   		image: ecs.NewEcsOptimizedAmi(&ecsOptimizedAmiProps{
@@ -5249,7 +5359,7 @@ type ComputeEnvironmentProps struct {
 	//
 	// Up to 128 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
 	// Experimental.
-	ComputeEnvironmentName *string `json:"computeEnvironmentName" yaml:"computeEnvironmentName"`
+	ComputeEnvironmentName *string `field:"optional" json:"computeEnvironmentName" yaml:"computeEnvironmentName"`
 	// The details of the required compute resources for the managed compute environment.
 	//
 	// If specified, and this is an unmanaged compute environment, will throw an error.
@@ -5257,24 +5367,24 @@ type ComputeEnvironmentProps struct {
 	// By default, AWS Batch managed compute environments use a recent, approved version of the
 	// Amazon ECS-optimized AMI for compute resources.
 	// Experimental.
-	ComputeResources *ComputeResources `json:"computeResources" yaml:"computeResources"`
+	ComputeResources *ComputeResources `field:"optional" json:"computeResources" yaml:"computeResources"`
 	// The state of the compute environment.
 	//
 	// If the state is set to true, then the compute
 	// environment accepts jobs from a queue and can scale out automatically based on queues.
 	// Experimental.
-	Enabled *bool `json:"enabled" yaml:"enabled"`
+	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// Determines if AWS should manage the allocation of compute resources for processing jobs.
 	//
 	// If set to false, then you are in charge of providing the compute resource details.
 	// Experimental.
-	Managed *bool `json:"managed" yaml:"managed"`
+	Managed *bool `field:"optional" json:"managed" yaml:"managed"`
 	// The IAM role used by Batch to make calls to other AWS services on your behalf for managing the resources that you use with the service.
 	//
 	// By default, this role is created for you using
 	// the AWS managed service policy for Batch.
 	// Experimental.
-	ServiceRole awsiam.IRole `json:"serviceRole" yaml:"serviceRole"`
+	ServiceRole awsiam.IRole `field:"optional" json:"serviceRole" yaml:"serviceRole"`
 }
 
 // Property to specify if the compute environment uses On-Demand, SpotFleet, Fargate, or Fargate Spot compute resources.
@@ -5317,6 +5427,7 @@ const (
 //
 // Example:
 //   var vpc vpc
+//
 //   myComputeEnv := batch.NewComputeEnvironment(this, jsii.String("ComputeEnv"), &computeEnvironmentProps{
 //   	computeResources: &computeResources{
 //   		image: ecs.NewEcsOptimizedAmi(&ecsOptimizedAmiProps{
@@ -5330,7 +5441,7 @@ const (
 type ComputeResources struct {
 	// The VPC network that all compute resources will be connected to.
 	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
+	Vpc awsec2.IVpc `field:"required" json:"vpc" yaml:"vpc"`
 	// The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated.
 	//
 	// This could be due to availability of the instance type in
@@ -5345,7 +5456,7 @@ type ComputeResources struct {
 	// to meet the requirements of the jobs in the queue, with a preference for an instance type that is
 	// less likely to be interrupted.
 	// Experimental.
-	AllocationStrategy AllocationStrategy `json:"allocationStrategy" yaml:"allocationStrategy"`
+	AllocationStrategy AllocationStrategy `field:"optional" json:"allocationStrategy" yaml:"allocationStrategy"`
 	// This property will be ignored if you set the environment type to ON_DEMAND.
 	//
 	// The maximum percentage that a Spot Instance price can be when compared with the On-Demand price for
@@ -5354,24 +5465,24 @@ type ComputeResources struct {
 	// pay the lowest (market) price and never more than your maximum percentage. If you leave this field empty,
 	// the default value is 100% of the On-Demand price.
 	// Experimental.
-	BidPercentage *float64 `json:"bidPercentage" yaml:"bidPercentage"`
+	BidPercentage *float64 `field:"optional" json:"bidPercentage" yaml:"bidPercentage"`
 	// Key-value pair tags to be applied to resources that are launched in the compute environment.
 	//
 	// For AWS Batch, these take the form of "String1": "String2", where String1 is the tag key and
 	// String2 is the tag value—for example, { "Name": "AWS Batch Instance - C4OnDemand" }.
 	// Experimental.
-	ComputeResourcesTags *map[string]*string `json:"computeResourcesTags" yaml:"computeResourcesTags"`
+	ComputeResourcesTags *map[string]*string `field:"optional" json:"computeResourcesTags" yaml:"computeResourcesTags"`
 	// The desired number of EC2 vCPUS in the compute environment.
 	// Experimental.
-	DesiredvCpus *float64 `json:"desiredvCpus" yaml:"desiredvCpus"`
+	DesiredvCpus *float64 `field:"optional" json:"desiredvCpus" yaml:"desiredvCpus"`
 	// The EC2 key pair that is used for instances launched in the compute environment.
 	//
 	// If no key is defined, then SSH access is not allowed to provisioned compute resources.
 	// Experimental.
-	Ec2KeyPair *string `json:"ec2KeyPair" yaml:"ec2KeyPair"`
+	Ec2KeyPair *string `field:"optional" json:"ec2KeyPair" yaml:"ec2KeyPair"`
 	// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment.
 	// Experimental.
-	Image awsec2.IMachineImage `json:"image" yaml:"image"`
+	Image awsec2.IMachineImage `field:"optional" json:"image" yaml:"image"`
 	// The Amazon ECS instance profile applied to Amazon EC2 instances in a compute environment.
 	//
 	// You can specify
@@ -5379,7 +5490,7 @@ type ComputeResources struct {
 	// arn:aws:iam::<aws_account_id>:instance-profile/ecsInstanceRole . For more information, see Amazon ECS
 	// Instance Role in the AWS Batch User Guide.
 	// Experimental.
-	InstanceRole *string `json:"instanceRole" yaml:"instanceRole"`
+	InstanceRole *string `field:"optional" json:"instanceRole" yaml:"instanceRole"`
 	// The types of EC2 instances that may be launched in the compute environment.
 	//
 	// You can specify instance
@@ -5387,48 +5498,49 @@ type ComputeResources struct {
 	// specific sizes within a family (such as c4.8xlarge). You can also choose optimal to pick instance types
 	// (from the C, M, and R instance families) on the fly that match the demand of your job queues.
 	// Experimental.
-	InstanceTypes *[]awsec2.InstanceType `json:"instanceTypes" yaml:"instanceTypes"`
+	InstanceTypes *[]awsec2.InstanceType `field:"optional" json:"instanceTypes" yaml:"instanceTypes"`
 	// An optional launch template to associate with your compute resources.
 	//
 	// For more information, see README file.
 	// Experimental.
-	LaunchTemplate *LaunchTemplateSpecification `json:"launchTemplate" yaml:"launchTemplate"`
+	LaunchTemplate *LaunchTemplateSpecification `field:"optional" json:"launchTemplate" yaml:"launchTemplate"`
 	// The maximum number of EC2 vCPUs that an environment can reach.
 	//
 	// Each vCPU is equivalent to
 	// 1,024 CPU shares. You must specify at least one vCPU.
 	// Experimental.
-	MaxvCpus *float64 `json:"maxvCpus" yaml:"maxvCpus"`
+	MaxvCpus *float64 `field:"optional" json:"maxvCpus" yaml:"maxvCpus"`
 	// The minimum number of EC2 vCPUs that an environment should maintain (even if the compute environment state is DISABLED).
 	//
 	// Each vCPU is equivalent to 1,024 CPU shares. By keeping this set to 0 you will not have instance time wasted when
 	// there is no work to be run. If you set this above zero you will maintain that number of vCPUs at all times.
 	// Experimental.
-	MinvCpus *float64 `json:"minvCpus" yaml:"minvCpus"`
+	MinvCpus *float64 `field:"optional" json:"minvCpus" yaml:"minvCpus"`
 	// The Amazon EC2 placement group to associate with your compute resources.
 	// Experimental.
-	PlacementGroup *string `json:"placementGroup" yaml:"placementGroup"`
+	PlacementGroup *string `field:"optional" json:"placementGroup" yaml:"placementGroup"`
 	// The EC2 security group(s) associated with instances launched in the compute environment.
 	// Experimental.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// This property will be ignored if you set the environment type to ON_DEMAND.
 	//
 	// The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment.
 	// For more information, see Amazon EC2 Spot Fleet Role in the AWS Batch User Guide.
 	// Experimental.
-	SpotFleetRole awsiam.IRole `json:"spotFleetRole" yaml:"spotFleetRole"`
+	SpotFleetRole awsiam.IRole `field:"optional" json:"spotFleetRole" yaml:"spotFleetRole"`
 	// The type of compute environment: ON_DEMAND, SPOT, FARGATE, or FARGATE_SPOT.
 	// Experimental.
-	Type ComputeResourceType `json:"type" yaml:"type"`
+	Type ComputeResourceType `field:"optional" json:"type" yaml:"type"`
 	// The VPC subnets into which the compute resources are launched.
 	// Experimental.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
 // Exposed secret for log configuration.
 //
 // Example:
 //   import ssm "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   batch.NewJobDefinition(this, jsii.String("job-def"), &jobDefinitionProps{
 //   	container: &jobDefinitionContainer{
@@ -5846,6 +5958,7 @@ func (j *jsiiProxy_INodeRangeProps) SetToNodeIndex(val *float64) {
 // Example:
 //   import ecr "github.com/aws/aws-cdk-go/awscdk"
 //
+//
 //   repo := ecr.repository.fromRepositoryName(this, jsii.String("batch-job-repo"), jsii.String("todo-list"))
 //
 //   batch.NewJobDefinition(this, jsii.String("batch-job-def-from-ecr"), &jobDefinitionProps{
@@ -6256,6 +6369,7 @@ func (j *jsiiProxy_JobDefinition) Validate() *[]*string {
 // Example:
 //   import ssm "github.com/aws/aws-cdk-go/awscdk"
 //
+//
 //   batch.NewJobDefinition(this, jsii.String("job-def"), &jobDefinitionProps{
 //   	container: &jobDefinitionContainer{
 //   		image: ecs.ecrImage.fromRegistry(jsii.String("docker/whalesay")),
@@ -6275,86 +6389,87 @@ func (j *jsiiProxy_JobDefinition) Validate() *[]*string {
 type JobDefinitionContainer struct {
 	// The image used to start a container.
 	// Experimental.
-	Image awsecs.ContainerImage `json:"image" yaml:"image"`
+	Image awsecs.ContainerImage `field:"required" json:"image" yaml:"image"`
 	// Whether or not to assign a public IP to the job.
 	// Experimental.
-	AssignPublicIp *bool `json:"assignPublicIp" yaml:"assignPublicIp"`
+	AssignPublicIp *bool `field:"optional" json:"assignPublicIp" yaml:"assignPublicIp"`
 	// The command that is passed to the container.
 	//
 	// If you provide a shell command as a single string, you have to quote command-line arguments.
 	// Experimental.
-	Command *[]*string `json:"command" yaml:"command"`
+	Command *[]*string `field:"optional" json:"command" yaml:"command"`
 	// The environment variables to pass to the container.
 	// Experimental.
-	Environment *map[string]*string `json:"environment" yaml:"environment"`
+	Environment *map[string]*string `field:"optional" json:"environment" yaml:"environment"`
 	// The IAM role that AWS Batch can assume.
 	//
 	// Required when using Fargate.
 	// Experimental.
-	ExecutionRole awsiam.IRole `json:"executionRole" yaml:"executionRole"`
+	ExecutionRole awsiam.IRole `field:"optional" json:"executionRole" yaml:"executionRole"`
 	// The number of physical GPUs to reserve for the container.
 	//
 	// The number of GPUs reserved for all
 	// containers in a job should not exceed the number of available GPUs on the compute resource that the job is launched on.
 	// Experimental.
-	GpuCount *float64 `json:"gpuCount" yaml:"gpuCount"`
+	GpuCount *float64 `field:"optional" json:"gpuCount" yaml:"gpuCount"`
 	// The instance type to use for a multi-node parallel job.
 	//
 	// Currently all node groups in a
 	// multi-node parallel job must use the same instance type. This parameter is not valid
 	// for single-node container jobs.
 	// Experimental.
-	InstanceType awsec2.InstanceType `json:"instanceType" yaml:"instanceType"`
+	InstanceType awsec2.InstanceType `field:"optional" json:"instanceType" yaml:"instanceType"`
 	// The IAM role that the container can assume for AWS permissions.
 	// Experimental.
-	JobRole awsiam.IRole `json:"jobRole" yaml:"jobRole"`
+	JobRole awsiam.IRole `field:"optional" json:"jobRole" yaml:"jobRole"`
 	// Linux-specific modifications that are applied to the container, such as details for device mappings.
 	//
 	// For now, only the `devices` property is supported.
 	// Experimental.
-	LinuxParams awsecs.LinuxParameters `json:"linuxParams" yaml:"linuxParams"`
+	LinuxParams awsecs.LinuxParameters `field:"optional" json:"linuxParams" yaml:"linuxParams"`
 	// The log configuration specification for the container.
 	// Experimental.
-	LogConfiguration *LogConfiguration `json:"logConfiguration" yaml:"logConfiguration"`
+	LogConfiguration *LogConfiguration `field:"optional" json:"logConfiguration" yaml:"logConfiguration"`
 	// The hard limit (in MiB) of memory to present to the container.
 	//
 	// If your container attempts to exceed
 	// the memory specified here, the container is killed. You must specify at least 4 MiB of memory for EC2 and 512 MiB for Fargate.
 	// Experimental.
-	MemoryLimitMiB *float64 `json:"memoryLimitMiB" yaml:"memoryLimitMiB"`
+	MemoryLimitMiB *float64 `field:"optional" json:"memoryLimitMiB" yaml:"memoryLimitMiB"`
 	// The mount points for data volumes in your container.
 	// Experimental.
-	MountPoints *[]*awsecs.MountPoint `json:"mountPoints" yaml:"mountPoints"`
+	MountPoints *[]*awsecs.MountPoint `field:"optional" json:"mountPoints" yaml:"mountPoints"`
 	// Fargate platform version.
 	// Experimental.
-	PlatformVersion awsecs.FargatePlatformVersion `json:"platformVersion" yaml:"platformVersion"`
+	PlatformVersion awsecs.FargatePlatformVersion `field:"optional" json:"platformVersion" yaml:"platformVersion"`
 	// When this parameter is true, the container is given elevated privileges on the host container instance (similar to the root user).
 	// Experimental.
-	Privileged *bool `json:"privileged" yaml:"privileged"`
+	Privileged *bool `field:"optional" json:"privileged" yaml:"privileged"`
 	// When this parameter is true, the container is given read-only access to its root file system.
 	// Experimental.
-	ReadOnly *bool `json:"readOnly" yaml:"readOnly"`
+	ReadOnly *bool `field:"optional" json:"readOnly" yaml:"readOnly"`
 	// A list of ulimits to set in the container.
 	// Experimental.
-	Ulimits *[]*awsecs.Ulimit `json:"ulimits" yaml:"ulimits"`
+	Ulimits *[]*awsecs.Ulimit `field:"optional" json:"ulimits" yaml:"ulimits"`
 	// The user name to use inside the container.
 	// Experimental.
-	User *string `json:"user" yaml:"user"`
+	User *string `field:"optional" json:"user" yaml:"user"`
 	// The number of vCPUs reserved for the container.
 	//
 	// Each vCPU is equivalent to
 	// 1,024 CPU shares. You must specify at least one vCPU for EC2 and 0.25 for Fargate.
 	// Experimental.
-	Vcpus *float64 `json:"vcpus" yaml:"vcpus"`
+	Vcpus *float64 `field:"optional" json:"vcpus" yaml:"vcpus"`
 	// A list of data volumes used in a job.
 	// Experimental.
-	Volumes *[]*awsecs.Volume `json:"volumes" yaml:"volumes"`
+	Volumes *[]*awsecs.Volume `field:"optional" json:"volumes" yaml:"volumes"`
 }
 
 // Construction properties of the {@link JobDefinition} construct.
 //
 // Example:
 //   import ssm "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   batch.NewJobDefinition(this, jsii.String("job-def"), &jobDefinitionProps{
 //   	container: &jobDefinitionContainer{
@@ -6375,15 +6490,15 @@ type JobDefinitionContainer struct {
 type JobDefinitionProps struct {
 	// An object with various properties specific to container-based jobs.
 	// Experimental.
-	Container *JobDefinitionContainer `json:"container" yaml:"container"`
+	Container *JobDefinitionContainer `field:"required" json:"container" yaml:"container"`
 	// The name of the job definition.
 	//
 	// Up to 128 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
 	// Experimental.
-	JobDefinitionName *string `json:"jobDefinitionName" yaml:"jobDefinitionName"`
+	JobDefinitionName *string `field:"optional" json:"jobDefinitionName" yaml:"jobDefinitionName"`
 	// An object with various properties specific to multi-node parallel jobs.
 	// Experimental.
-	NodeProps IMultiNodeProps `json:"nodeProps" yaml:"nodeProps"`
+	NodeProps IMultiNodeProps `field:"optional" json:"nodeProps" yaml:"nodeProps"`
 	// When you submit a job, you can specify parameters that should replace the placeholders or override the default job definition parameters.
 	//
 	// Parameters
@@ -6391,23 +6506,23 @@ type JobDefinitionProps struct {
 	// This allows you to use the same job definition for multiple jobs that use the same
 	// format, and programmatically change values in the command at submission time.
 	// Experimental.
-	Parameters *map[string]*string `json:"parameters" yaml:"parameters"`
+	Parameters *map[string]*string `field:"optional" json:"parameters" yaml:"parameters"`
 	// The platform capabilities required by the job definition.
 	// Experimental.
-	PlatformCapabilities *[]PlatformCapabilities `json:"platformCapabilities" yaml:"platformCapabilities"`
+	PlatformCapabilities *[]PlatformCapabilities `field:"optional" json:"platformCapabilities" yaml:"platformCapabilities"`
 	// The number of times to move a job to the RUNNABLE status.
 	//
 	// You may specify between 1 and
 	// 10 attempts. If the value of attempts is greater than one, the job is retried on failure
 	// the same number of attempts as the value.
 	// Experimental.
-	RetryAttempts *float64 `json:"retryAttempts" yaml:"retryAttempts"`
+	RetryAttempts *float64 `field:"optional" json:"retryAttempts" yaml:"retryAttempts"`
 	// The timeout configuration for jobs that are submitted with this job definition.
 	//
 	// You can specify
 	// a timeout duration after which AWS Batch terminates your jobs if they have not finished.
 	// Experimental.
-	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
+	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 }
 
 // Batch Job Queue.
@@ -6417,6 +6532,7 @@ type JobDefinitionProps struct {
 //
 // Example:
 //   var sharedComputeEnvs computeEnvironment
+//
 //   highPrioQueue := batch.NewJobQueue(this, jsii.String("JobQueue"), &jobQueueProps{
 //   	computeEnvironments: []jobQueueComputeEnvironment{
 //   		&jobQueueComputeEnvironment{
@@ -6820,9 +6936,12 @@ func (j *jsiiProxy_JobQueue) Validate() *[]*string {
 // Properties for mapping a compute environment to a job queue.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import batch "github.com/aws/aws-cdk-go/awscdk/aws_batch"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var computeEnvironment computeEnvironment
+//
 //   jobQueueComputeEnvironment := &jobQueueComputeEnvironment{
 //   	computeEnvironment: computeEnvironment,
 //   	order: jsii.Number(123),
@@ -6832,16 +6951,17 @@ func (j *jsiiProxy_JobQueue) Validate() *[]*string {
 type JobQueueComputeEnvironment struct {
 	// The batch compute environment to use for processing submitted jobs to this queue.
 	// Experimental.
-	ComputeEnvironment IComputeEnvironment `json:"computeEnvironment" yaml:"computeEnvironment"`
+	ComputeEnvironment IComputeEnvironment `field:"required" json:"computeEnvironment" yaml:"computeEnvironment"`
 	// The order in which this compute environment will be selected for dynamic allocation of resources to process submitted jobs.
 	// Experimental.
-	Order *float64 `json:"order" yaml:"order"`
+	Order *float64 `field:"required" json:"order" yaml:"order"`
 }
 
 // Properties of a batch job queue.
 //
 // Example:
 //   var sharedComputeEnvs computeEnvironment
+//
 //   highPrioQueue := batch.NewJobQueue(this, jsii.String("JobQueue"), &jobQueueProps{
 //   	computeEnvironments: []jobQueueComputeEnvironment{
 //   		&jobQueueComputeEnvironment{
@@ -6870,24 +6990,24 @@ type JobQueueProps struct {
 	// determine which compute environment should execute a given job. Compute environments must be in the VALID state before you can associate them
 	// with a job queue. You can associate up to three compute environments with a job queue.
 	// Experimental.
-	ComputeEnvironments *[]*JobQueueComputeEnvironment `json:"computeEnvironments" yaml:"computeEnvironments"`
+	ComputeEnvironments *[]*JobQueueComputeEnvironment `field:"required" json:"computeEnvironments" yaml:"computeEnvironments"`
 	// The state of the job queue.
 	//
 	// If set to true, it is able to accept jobs.
 	// Experimental.
-	Enabled *bool `json:"enabled" yaml:"enabled"`
+	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// A name for the job queue.
 	//
 	// Up to 128 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
 	// Experimental.
-	JobQueueName *string `json:"jobQueueName" yaml:"jobQueueName"`
+	JobQueueName *string `field:"optional" json:"jobQueueName" yaml:"jobQueueName"`
 	// The priority of the job queue.
 	//
 	// Job queues with a higher priority (or a higher integer value for the priority parameter) are evaluated first
 	// when associated with the same compute environment. Priority is determined in descending order, for example, a job queue with a priority value
 	// of 10 is given scheduling preference over a job queue with a priority value of 1.
 	// Experimental.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 }
 
 // Launch template property specification.
@@ -6895,6 +7015,7 @@ type JobQueueProps struct {
 // Example:
 //   var vpc vpc
 //   var myLaunchTemplate cfnLaunchTemplate
+//
 //
 //   myComputeEnv := batch.NewComputeEnvironment(this, jsii.String("ComputeEnv"), &computeEnvironmentProps{
 //   	computeResources: &computeResources{
@@ -6910,16 +7031,17 @@ type JobQueueProps struct {
 type LaunchTemplateSpecification struct {
 	// The Launch template name.
 	// Experimental.
-	LaunchTemplateName *string `json:"launchTemplateName" yaml:"launchTemplateName"`
+	LaunchTemplateName *string `field:"required" json:"launchTemplateName" yaml:"launchTemplateName"`
 	// The launch template version to be used (optional).
 	// Experimental.
-	Version *string `json:"version" yaml:"version"`
+	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 
 // Log configuration options to send to a custom log driver for the container.
 //
 // Example:
 //   import ssm "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   batch.NewJobDefinition(this, jsii.String("job-def"), &jobDefinitionProps{
 //   	container: &jobDefinitionContainer{
@@ -6940,21 +7062,22 @@ type LaunchTemplateSpecification struct {
 type LogConfiguration struct {
 	// The log driver to use for the container.
 	// Experimental.
-	LogDriver LogDriver `json:"logDriver" yaml:"logDriver"`
+	LogDriver LogDriver `field:"required" json:"logDriver" yaml:"logDriver"`
 	// The configuration options to send to the log driver.
 	// Experimental.
-	Options interface{} `json:"options" yaml:"options"`
+	Options interface{} `field:"optional" json:"options" yaml:"options"`
 	// The secrets to pass to the log configuration as options.
 	//
 	// For more information, see https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data-secrets.html#secrets-logconfig
 	// Experimental.
-	SecretOptions *[]ExposedSecret `json:"secretOptions" yaml:"secretOptions"`
+	SecretOptions *[]ExposedSecret `field:"optional" json:"secretOptions" yaml:"secretOptions"`
 }
 
 // The log driver to use for the container.
 //
 // Example:
 //   import ssm "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   batch.NewJobDefinition(this, jsii.String("job-def"), &jobDefinitionProps{
 //   	container: &jobDefinitionContainer{

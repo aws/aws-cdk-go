@@ -16,10 +16,13 @@ import (
 // Requires permission to access the [CreateSuiteDefinition](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotcoredeviceadvisor "github.com/aws/aws-cdk-go/awscdk/aws_iotcoredeviceadvisor"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var suiteDefinitionConfiguration interface{}
-//   cfnSuiteDefinition := iotcoredeviceadvisor.NewCfnSuiteDefinition(this, jsii.String("MyCfnSuiteDefinition"), &cfnSuiteDefinitionProps{
+//
+//   cfnSuiteDefinition := awscdk.Aws_iotcoredeviceadvisor.NewCfnSuiteDefinition(this, jsii.String("MyCfnSuiteDefinition"), &cfnSuiteDefinitionProps{
 //   	suiteDefinitionConfiguration: suiteDefinitionConfiguration,
 //
 //   	// the properties below are optional
@@ -734,9 +737,12 @@ func (c *jsiiProxy_CfnSuiteDefinition) ValidateProperties(_properties interface{
 // Properties for defining a `CfnSuiteDefinition`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotcoredeviceadvisor "github.com/aws/aws-cdk-go/awscdk/aws_iotcoredeviceadvisor"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var suiteDefinitionConfiguration interface{}
+//
 //   cfnSuiteDefinitionProps := &cfnSuiteDefinitionProps{
 //   	suiteDefinitionConfiguration: suiteDefinitionConfiguration,
 //
@@ -777,8 +783,8 @@ type CfnSuiteDefinitionProps struct {
 	// This is a required element.
 	//
 	// *Type:* String.
-	SuiteDefinitionConfiguration interface{} `json:"suiteDefinitionConfiguration" yaml:"suiteDefinitionConfiguration"`
+	SuiteDefinitionConfiguration interface{} `field:"required" json:"suiteDefinitionConfiguration" yaml:"suiteDefinitionConfiguration"`
 	// Metadata that can be used to manage the the Suite Definition.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

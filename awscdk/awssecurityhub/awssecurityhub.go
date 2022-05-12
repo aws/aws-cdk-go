@@ -16,10 +16,13 @@ import (
 // The CIS AWS Foundations Benchmark standard and the Foundational Security Best Practices standard are also enabled in each Region where you enable Security Hub .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import securityhub "github.com/aws/aws-cdk-go/awscdk/aws_securityhub"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var tags interface{}
-//   cfnHub := securityhub.NewCfnHub(this, jsii.String("MyCfnHub"), &cfnHubProps{
+//
+//   cfnHub := awscdk.Aws_securityhub.NewCfnHub(this, jsii.String("MyCfnHub"), &cfnHubProps{
 //   	tags: tags,
 //   })
 //
@@ -643,15 +646,18 @@ func (c *jsiiProxy_CfnHub) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnHub`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import securityhub "github.com/aws/aws-cdk-go/awscdk/aws_securityhub"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var tags interface{}
+//
 //   cfnHubProps := &cfnHubProps{
 //   	tags: tags,
 //   }
 //
 type CfnHubProps struct {
 	// The tags to add to the hub resource.
-	Tags interface{} `json:"tags" yaml:"tags"`
+	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
 }
 

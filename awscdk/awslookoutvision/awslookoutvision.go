@@ -12,8 +12,11 @@ import (
 // A CloudFormation `AWS::LookoutVision::Project`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lookoutvision "github.com/aws/aws-cdk-go/awscdk/aws_lookoutvision"
-//   cfnProject := lookoutvision.NewCfnProject(this, jsii.String("MyCfnProject"), &cfnProjectProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnProject := awscdk.Aws_lookoutvision.NewCfnProject(this, jsii.String("MyCfnProject"), &cfnProjectProps{
 //   	projectName: jsii.String("projectName"),
 //   })
 //
@@ -657,13 +660,16 @@ func (c *jsiiProxy_CfnProject) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnProject`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lookoutvision "github.com/aws/aws-cdk-go/awscdk/aws_lookoutvision"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnProjectProps := &cfnProjectProps{
 //   	projectName: jsii.String("projectName"),
 //   }
 //
 type CfnProjectProps struct {
 	// `AWS::LookoutVision::Project.ProjectName`.
-	ProjectName *string `json:"projectName" yaml:"projectName"`
+	ProjectName *string `field:"required" json:"projectName" yaml:"projectName"`
 }
 

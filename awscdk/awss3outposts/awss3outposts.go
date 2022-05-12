@@ -16,10 +16,13 @@ import (
 // > S3 on Outposts supports only VPC-style access points.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3outposts "github.com/aws/aws-cdk-go/awscdk/aws_s3outposts"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var policy interface{}
-//   cfnAccessPoint := s3outposts.NewCfnAccessPoint(this, jsii.String("MyCfnAccessPoint"), &cfnAccessPointProps{
+//
+//   cfnAccessPoint := awscdk.Aws_s3outposts.NewCfnAccessPoint(this, jsii.String("MyCfnAccessPoint"), &cfnAccessPointProps{
 //   	bucket: jsii.String("bucket"),
 //   	name: jsii.String("name"),
 //   	vpcConfiguration: &vpcConfigurationProperty{
@@ -736,22 +739,28 @@ func (c *jsiiProxy_CfnAccessPoint) ValidateProperties(_properties interface{}) {
 // Contains the virtual private cloud (VPC) configuration for the specified access point.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3outposts "github.com/aws/aws-cdk-go/awscdk/aws_s3outposts"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   vpcConfigurationProperty := &vpcConfigurationProperty{
 //   	vpcId: jsii.String("vpcId"),
 //   }
 //
 type CfnAccessPoint_VpcConfigurationProperty struct {
 	// The ID of the VPC configuration.
-	VpcId *string `json:"vpcId" yaml:"vpcId"`
+	VpcId *string `field:"optional" json:"vpcId" yaml:"vpcId"`
 }
 
 // Properties for defining a `CfnAccessPoint`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3outposts "github.com/aws/aws-cdk-go/awscdk/aws_s3outposts"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var policy interface{}
+//
 //   cfnAccessPointProps := &cfnAccessPointProps{
 //   	bucket: jsii.String("bucket"),
 //   	name: jsii.String("name"),
@@ -765,13 +774,13 @@ type CfnAccessPoint_VpcConfigurationProperty struct {
 //
 type CfnAccessPointProps struct {
 	// The Amazon Resource Name (ARN) of the S3 on Outposts bucket that is associated with this access point.
-	Bucket *string `json:"bucket" yaml:"bucket"`
+	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
 	// The name of this access point.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The virtual private cloud (VPC) configuration for this access point, if one exists.
-	VpcConfiguration interface{} `json:"vpcConfiguration" yaml:"vpcConfiguration"`
+	VpcConfiguration interface{} `field:"required" json:"vpcConfiguration" yaml:"vpcConfiguration"`
 	// The access point policy associated with this access point.
-	Policy interface{} `json:"policy" yaml:"policy"`
+	Policy interface{} `field:"optional" json:"policy" yaml:"policy"`
 }
 
 // A CloudFormation `AWS::S3Outposts::Bucket`.
@@ -786,10 +795,13 @@ type CfnAccessPointProps struct {
 // For a complete list of restrictions and Amazon S3 feature limitations on S3 on Outposts, see [Amazon S3 on Outposts Restrictions and Limitations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OnOutpostsRestrictionsLimitations.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3outposts "github.com/aws/aws-cdk-go/awscdk/aws_s3outposts"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var filter interface{}
-//   cfnBucket := s3outposts.NewCfnBucket(this, jsii.String("MyCfnBucket"), &cfnBucketProps{
+//
+//   cfnBucket := awscdk.Aws_s3outposts.NewCfnBucket(this, jsii.String("MyCfnBucket"), &cfnBucketProps{
 //   	bucketName: jsii.String("bucketName"),
 //   	outpostId: jsii.String("outpostId"),
 //
@@ -1527,22 +1539,28 @@ func (c *jsiiProxy_CfnBucket) ValidateProperties(_properties interface{}) {
 // For more information, see [Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy](https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3outposts "github.com/aws/aws-cdk-go/awscdk/aws_s3outposts"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   abortIncompleteMultipartUploadProperty := &abortIncompleteMultipartUploadProperty{
 //   	daysAfterInitiation: jsii.Number(123),
 //   }
 //
 type CfnBucket_AbortIncompleteMultipartUploadProperty struct {
 	// Specifies the number of days after initiation that Amazon S3 on Outposts aborts an incomplete multipart upload.
-	DaysAfterInitiation *float64 `json:"daysAfterInitiation" yaml:"daysAfterInitiation"`
+	DaysAfterInitiation *float64 `field:"required" json:"daysAfterInitiation" yaml:"daysAfterInitiation"`
 }
 
 // The container for the lifecycle configuration for the objects stored in an S3 on Outposts bucket.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3outposts "github.com/aws/aws-cdk-go/awscdk/aws_s3outposts"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var filter interface{}
+//
 //   lifecycleConfigurationProperty := &lifecycleConfigurationProperty{
 //   	rules: []interface{}{
 //   		&ruleProperty{
@@ -1560,15 +1578,18 @@ type CfnBucket_AbortIncompleteMultipartUploadProperty struct {
 //
 type CfnBucket_LifecycleConfigurationProperty struct {
 	// The container for the lifecycle configuration rules for the objects stored in the S3 on Outposts bucket.
-	Rules interface{} `json:"rules" yaml:"rules"`
+	Rules interface{} `field:"required" json:"rules" yaml:"rules"`
 }
 
 // A container for an Amazon S3 on Outposts bucket lifecycle rule.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3outposts "github.com/aws/aws-cdk-go/awscdk/aws_s3outposts"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var filter interface{}
+//
 //   ruleProperty := &ruleProperty{
 //   	abortIncompleteMultipartUpload: &abortIncompleteMultipartUploadProperty{
 //   		daysAfterInitiation: jsii.Number(123),
@@ -1582,21 +1603,21 @@ type CfnBucket_LifecycleConfigurationProperty struct {
 //
 type CfnBucket_RuleProperty struct {
 	// The container for the abort incomplete multipart upload rule.
-	AbortIncompleteMultipartUpload interface{} `json:"abortIncompleteMultipartUpload" yaml:"abortIncompleteMultipartUpload"`
+	AbortIncompleteMultipartUpload interface{} `field:"optional" json:"abortIncompleteMultipartUpload" yaml:"abortIncompleteMultipartUpload"`
 	// Specifies the expiration for the lifecycle of the object by specifying an expiry date.
-	ExpirationDate *string `json:"expirationDate" yaml:"expirationDate"`
+	ExpirationDate *string `field:"optional" json:"expirationDate" yaml:"expirationDate"`
 	// Specifies the expiration for the lifecycle of the object in the form of days that the object has been in the S3 on Outposts bucket.
-	ExpirationInDays *float64 `json:"expirationInDays" yaml:"expirationInDays"`
+	ExpirationInDays *float64 `field:"optional" json:"expirationInDays" yaml:"expirationInDays"`
 	// The container for the filter of the lifecycle rule.
-	Filter interface{} `json:"filter" yaml:"filter"`
+	Filter interface{} `field:"optional" json:"filter" yaml:"filter"`
 	// The unique identifier for the lifecycle rule.
 	//
 	// The value can't be longer than 255 characters.
-	Id *string `json:"id" yaml:"id"`
+	Id *string `field:"optional" json:"id" yaml:"id"`
 	// If `Enabled` , the rule is currently being applied.
 	//
 	// If `Disabled` , the rule is not currently being applied.
-	Status *string `json:"status" yaml:"status"`
+	Status *string `field:"optional" json:"status" yaml:"status"`
 }
 
 // A CloudFormation `AWS::S3Outposts::BucketPolicy`.
@@ -1612,10 +1633,13 @@ type CfnBucket_RuleProperty struct {
 // For more information, see the AWS::IAM::Policy [PolicyDocument](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html#cfn-iam-policy-policydocument) resource description in this guide and [Access Policy Language Overview](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-policy-language-overview.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3outposts "github.com/aws/aws-cdk-go/awscdk/aws_s3outposts"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var policyDocument interface{}
-//   cfnBucketPolicy := s3outposts.NewCfnBucketPolicy(this, jsii.String("MyCfnBucketPolicy"), &cfnBucketPolicyProps{
+//
+//   cfnBucketPolicy := awscdk.Aws_s3outposts.NewCfnBucketPolicy(this, jsii.String("MyCfnBucketPolicy"), &cfnBucketPolicyProps{
 //   	bucket: jsii.String("bucket"),
 //   	policyDocument: policyDocument,
 //   })
@@ -2272,9 +2296,12 @@ func (c *jsiiProxy_CfnBucketPolicy) ValidateProperties(_properties interface{}) 
 // Properties for defining a `CfnBucketPolicy`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3outposts "github.com/aws/aws-cdk-go/awscdk/aws_s3outposts"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var policyDocument interface{}
+//
 //   cfnBucketPolicyProps := &cfnBucketPolicyProps{
 //   	bucket: jsii.String("bucket"),
 //   	policyDocument: policyDocument,
@@ -2282,19 +2309,22 @@ func (c *jsiiProxy_CfnBucketPolicy) ValidateProperties(_properties interface{}) 
 //
 type CfnBucketPolicyProps struct {
 	// The name of the Amazon S3 Outposts bucket to which the policy applies.
-	Bucket *string `json:"bucket" yaml:"bucket"`
+	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
 	// A policy document containing permissions to add to the specified bucket.
 	//
 	// In IAM, you must provide policy documents in JSON format. However, in CloudFormation, you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM. For more information, see the AWS::IAM::Policy [PolicyDocument](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html#cfn-iam-policy-policydocument) resource description in this guide and [Access Policy Language Overview](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-policy-language-overview.html) .
-	PolicyDocument interface{} `json:"policyDocument" yaml:"policyDocument"`
+	PolicyDocument interface{} `field:"required" json:"policyDocument" yaml:"policyDocument"`
 }
 
 // Properties for defining a `CfnBucket`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3outposts "github.com/aws/aws-cdk-go/awscdk/aws_s3outposts"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var filter interface{}
+//
 //   cfnBucketProps := &cfnBucketProps{
 //   	bucketName: jsii.String("bucketName"),
 //   	outpostId: jsii.String("outpostId"),
@@ -2328,13 +2358,13 @@ type CfnBucketProps struct {
 	// If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/BucketRestrictions.html) . For more information, see [Bucket naming rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/BucketRestrictions.html#bucketnamingrules) .
 	//
 	// > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
-	BucketName *string `json:"bucketName" yaml:"bucketName"`
+	BucketName *string `field:"required" json:"bucketName" yaml:"bucketName"`
 	// The ID of the Outpost of the specified bucket.
-	OutpostId *string `json:"outpostId" yaml:"outpostId"`
+	OutpostId *string `field:"required" json:"outpostId" yaml:"outpostId"`
 	// Creates a new lifecycle configuration for the S3 on Outposts bucket or replaces an existing lifecycle configuration.
 	//
 	// Outposts buckets only support lifecycle configurations that delete/expire objects after a certain period of time and abort incomplete multipart uploads.
-	LifecycleConfiguration interface{} `json:"lifecycleConfiguration" yaml:"lifecycleConfiguration"`
+	LifecycleConfiguration interface{} `field:"optional" json:"lifecycleConfiguration" yaml:"lifecycleConfiguration"`
 	// Sets the tags for an S3 on Outposts bucket. For more information, see [Using Amazon S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html) .
 	//
 	// Use tags to organize your AWS bill to reflect your own cost structure. To do this, sign up to get your AWS account bill with tag key values included. Then, to see the cost of combined resources, organize your billing information according to resources with the same tag key values. For example, you can tag several resources with a specific application name, and then organize your billing information to see the total cost of that application across several services. For more information, see [Cost allocation and tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) .
@@ -2342,7 +2372,7 @@ type CfnBucketProps struct {
 	// > Within a bucket, if you add a tag that has the same key as an existing tag, the new value overwrites the old value. For more information, see [Using cost allocation and bucket tags](https://docs.aws.amazon.com/AmazonS3/latest/userguide/CostAllocTagging.html) .
 	//
 	// To use this resource, you must have permissions to perform the `s3-outposts:PutBucketTagging` . The S3 on Outposts bucket owner has this permission by default and can grant this permission to others. For more information about permissions, see [Permissions Related to Bucket Subresource Operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources) and [Managing access permissions to your Amazon S3 resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::S3Outposts::Endpoint`.
@@ -2354,8 +2384,11 @@ type CfnBucketProps struct {
 // > It can take up to 5 minutes for this resource to be created.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3outposts "github.com/aws/aws-cdk-go/awscdk/aws_s3outposts"
-//   cfnEndpoint := s3outposts.NewCfnEndpoint(this, jsii.String("MyCfnEndpoint"), &cfnEndpointProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnEndpoint := awscdk.Aws_s3outposts.NewCfnEndpoint(this, jsii.String("MyCfnEndpoint"), &cfnEndpointProps{
 //   	outpostId: jsii.String("outpostId"),
 //   	securityGroupId: jsii.String("securityGroupId"),
 //   	subnetId: jsii.String("subnetId"),
@@ -3156,20 +3189,26 @@ func (c *jsiiProxy_CfnEndpoint) ValidateProperties(_properties interface{}) {
 // The container for the network interface.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3outposts "github.com/aws/aws-cdk-go/awscdk/aws_s3outposts"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   networkInterfaceProperty := &networkInterfaceProperty{
 //   	networkInterfaceId: jsii.String("networkInterfaceId"),
 //   }
 //
 type CfnEndpoint_NetworkInterfaceProperty struct {
 	// The ID for the network interface.
-	NetworkInterfaceId *string `json:"networkInterfaceId" yaml:"networkInterfaceId"`
+	NetworkInterfaceId *string `field:"required" json:"networkInterfaceId" yaml:"networkInterfaceId"`
 }
 
 // Properties for defining a `CfnEndpoint`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3outposts "github.com/aws/aws-cdk-go/awscdk/aws_s3outposts"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnEndpointProps := &cfnEndpointProps{
 //   	outpostId: jsii.String("outpostId"),
 //   	securityGroupId: jsii.String("securityGroupId"),
@@ -3182,20 +3221,20 @@ type CfnEndpoint_NetworkInterfaceProperty struct {
 //
 type CfnEndpointProps struct {
 	// The ID of the Outpost.
-	OutpostId *string `json:"outpostId" yaml:"outpostId"`
+	OutpostId *string `field:"required" json:"outpostId" yaml:"outpostId"`
 	// The ID of the security group to use with the endpoint.
-	SecurityGroupId *string `json:"securityGroupId" yaml:"securityGroupId"`
+	SecurityGroupId *string `field:"required" json:"securityGroupId" yaml:"securityGroupId"`
 	// The ID of the subnet.
-	SubnetId *string `json:"subnetId" yaml:"subnetId"`
+	SubnetId *string `field:"required" json:"subnetId" yaml:"subnetId"`
 	// The container for the type of connectivity used to access the Amazon S3 on Outposts endpoint.
 	//
 	// To use the Amazon VPC , choose `Private` . To use the endpoint with an on-premises network, choose `CustomerOwnedIp` . If you choose `CustomerOwnedIp` , you must also provide the customer-owned IP address pool (CoIP pool).
 	//
 	// > `Private` is the default access type value.
-	AccessType *string `json:"accessType" yaml:"accessType"`
+	AccessType *string `field:"optional" json:"accessType" yaml:"accessType"`
 	// The ID of the customer-owned IPv4 address pool (CoIP pool) for the endpoint.
 	//
 	// IP addresses are allocated from this pool for the endpoint.
-	CustomerOwnedIpv4Pool *string `json:"customerOwnedIpv4Pool" yaml:"customerOwnedIpv4Pool"`
+	CustomerOwnedIpv4Pool *string `field:"optional" json:"customerOwnedIpv4Pool" yaml:"customerOwnedIpv4Pool"`
 }
 

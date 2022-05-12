@@ -404,19 +404,19 @@ type AccessKeyProps struct {
 	// access key (with a different ID and secret value) being assigned to the new
 	// user.
 	// Experimental.
-	User IUser `json:"user" yaml:"user"`
+	User IUser `field:"required" json:"user" yaml:"user"`
 	// A CloudFormation-specific value that signifies the access key should be replaced/rotated.
 	//
 	// This value can only be incremented. Incrementing this
 	// value will cause CloudFormation to replace the Access Key resource.
 	// Experimental.
-	Serial *float64 `json:"serial" yaml:"serial"`
+	Serial *float64 `field:"optional" json:"serial" yaml:"serial"`
 	// The status of the access key.
 	//
 	// An Active access key is allowed to be used
 	// to make API calls; An Inactive key cannot.
 	// Experimental.
-	Status AccessKeyStatus `json:"status" yaml:"status"`
+	Status AccessKeyStatus `field:"optional" json:"status" yaml:"status"`
 }
 
 // Valid statuses for an IAM Access Key.
@@ -978,9 +978,13 @@ func (a *jsiiProxy_AccountRootPrincipal) WithSessionTags() PrincipalBase {
 // Result of calling `addToPrincipalPolicy`.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var dependable iDependable
+//
 //   addToPrincipalPolicyResult := &addToPrincipalPolicyResult{
 //   	statementAdded: jsii.Boolean(false),
 //
@@ -992,10 +996,10 @@ func (a *jsiiProxy_AccountRootPrincipal) WithSessionTags() PrincipalBase {
 type AddToPrincipalPolicyResult struct {
 	// Whether the statement was added to the identity's policies.
 	// Experimental.
-	StatementAdded *bool `json:"statementAdded" yaml:"statementAdded"`
+	StatementAdded *bool `field:"required" json:"statementAdded" yaml:"statementAdded"`
 	// Dependable which allows depending on the policy change being applied.
 	// Experimental.
-	PolicyDependable awscdk.IDependable `json:"policyDependable" yaml:"policyDependable"`
+	PolicyDependable awscdk.IDependable `field:"optional" json:"policyDependable" yaml:"policyDependable"`
 }
 
 // Result of calling addToResourcePolicy.
@@ -1020,10 +1024,10 @@ type AddToPrincipalPolicyResult struct {
 type AddToResourcePolicyResult struct {
 	// Whether the statement was added.
 	// Experimental.
-	StatementAdded *bool `json:"statementAdded" yaml:"statementAdded"`
+	StatementAdded *bool `field:"required" json:"statementAdded" yaml:"statementAdded"`
 	// Dependable which allows depending on the policy change being applied.
 	// Experimental.
-	PolicyDependable awscdk.IDependable `json:"policyDependable" yaml:"policyDependable"`
+	PolicyDependable awscdk.IDependable `field:"optional" json:"policyDependable" yaml:"policyDependable"`
 }
 
 // A principal representing all AWS identities in all accounts.
@@ -1300,8 +1304,11 @@ func (a *jsiiProxy_AnyPrincipal) WithSessionTags() PrincipalBase {
 // A principal representing all identities in all accounts.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
-//   anyone := iam.NewAnyone()
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   anyone := awscdk.Aws_iam.NewAnyone()
 //
 // Deprecated: use `AnyPrincipal`.
 type Anyone interface {
@@ -1553,6 +1560,7 @@ func (a *jsiiProxy_Anyone) WithSessionTags() PrincipalBase {
 // Example:
 //   var networkLoadBalancer1 networkLoadBalancer
 //   var networkLoadBalancer2 networkLoadBalancer
+//
 //
 //   ec2.NewVpcEndpointService(this, jsii.String("EndpointService"), &vpcEndpointServiceProps{
 //   	vpcEndpointServiceLoadBalancers: []iVpcEndpointServiceLoadBalancer{
@@ -1820,8 +1828,11 @@ func (a *jsiiProxy_ArnPrincipal) WithSessionTags() PrincipalBase {
 // for more details.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
-//   canonicalUserPrincipal := iam.NewCanonicalUserPrincipal(jsii.String("canonicalUserId"))
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   canonicalUserPrincipal := awscdk.Aws_iam.NewCanonicalUserPrincipal(jsii.String("canonicalUserId"))
 //
 // Experimental.
 type CanonicalUserPrincipal interface {
@@ -2063,8 +2074,11 @@ func (c *jsiiProxy_CanonicalUserPrincipal) WithSessionTags() PrincipalBase {
 // > To ensure the security of your AWS account , the secret access key is accessible only during key and user creation. You must save the key (for example, in a text file) if you want to be able to access it again. If a secret key is lost, you can delete the access keys for the associated user and then create new keys.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
-//   cfnAccessKey := iam.NewCfnAccessKey(this, jsii.String("MyCfnAccessKey"), &cfnAccessKeyProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnAccessKey := awscdk.Aws_iam.NewCfnAccessKey(this, jsii.String("MyCfnAccessKey"), &cfnAccessKeyProps{
 //   	userName: jsii.String("userName"),
 //
 //   	// the properties below are optional
@@ -2763,7 +2777,10 @@ func (c *jsiiProxy_CfnAccessKey) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnAccessKey`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAccessKeyProps := &cfnAccessKeyProps{
 //   	userName: jsii.String("userName"),
 //
@@ -2776,15 +2793,15 @@ type CfnAccessKeyProps struct {
 	// The name of the IAM user that the new key will belong to.
 	//
 	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-	UserName *string `json:"userName" yaml:"userName"`
+	UserName *string `field:"required" json:"userName" yaml:"userName"`
 	// This value is specific to CloudFormation and can only be *incremented* .
 	//
 	// Incrementing this value notifies CloudFormation that you want to rotate your access key. When you update your stack, CloudFormation will replace the existing access key with a new key.
-	Serial *float64 `json:"serial" yaml:"serial"`
+	Serial *float64 `field:"optional" json:"serial" yaml:"serial"`
 	// The status of the access key.
 	//
 	// `Active` means that the key is valid for API calls, while `Inactive` means it is not.
-	Status *string `json:"status" yaml:"status"`
+	Status *string `field:"optional" json:"status" yaml:"status"`
 }
 
 // A CloudFormation `AWS::IAM::Group`.
@@ -2794,10 +2811,13 @@ type CfnAccessKeyProps struct {
 // For information about the number of groups you can create, see [Limitations on IAM Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html) in the *IAM User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var policyDocument interface{}
-//   cfnGroup := iam.NewCfnGroup(this, jsii.String("MyCfnGroup"), &cfnGroupProps{
+//
+//   cfnGroup := awscdk.Aws_iam.NewCfnGroup(this, jsii.String("MyCfnGroup"), &cfnGroupProps{
 //   	groupName: jsii.String("groupName"),
 //   	managedPolicyArns: []*string{
 //   		jsii.String("managedPolicyArns"),
@@ -3541,9 +3561,12 @@ func (c *jsiiProxy_CfnGroup) ValidateProperties(_properties interface{}) {
 // For more information about managed policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *IAM User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var policyDocument interface{}
+//
 //   policyProperty := &policyProperty{
 //   	policyDocument: policyDocument,
 //   	policyName: jsii.String("policyName"),
@@ -3551,17 +3574,20 @@ func (c *jsiiProxy_CfnGroup) ValidateProperties(_properties interface{}) {
 //
 type CfnGroup_PolicyProperty struct {
 	// The policy document.
-	PolicyDocument interface{} `json:"policyDocument" yaml:"policyDocument"`
+	PolicyDocument interface{} `field:"required" json:"policyDocument" yaml:"policyDocument"`
 	// The friendly name (not ARN) identifying the policy.
-	PolicyName *string `json:"policyName" yaml:"policyName"`
+	PolicyName *string `field:"required" json:"policyName" yaml:"policyName"`
 }
 
 // Properties for defining a `CfnGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var policyDocument interface{}
+//
 //   cfnGroupProps := &cfnGroupProps{
 //   	groupName: jsii.String("groupName"),
 //   	managedPolicyArns: []*string{
@@ -3586,17 +3612,17 @@ type CfnGroupProps struct {
 	// If you specify a name, you must specify the `CAPABILITY_NAMED_IAM` value to acknowledge your template's capabilities. For more information, see [Acknowledging IAM Resources in AWS CloudFormation Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities) .
 	//
 	// > Naming an IAM resource can cause an unrecoverable error if you reuse the same template in multiple Regions. To prevent this, we recommend using `Fn::Join` and `AWS::Region` to create a Region-specific name, as in the following example: `{"Fn::Join": ["", [{"Ref": "AWS::Region"}, {"Ref": "MyResourceName"}]]}` .
-	GroupName *string `json:"groupName" yaml:"groupName"`
+	GroupName *string `field:"optional" json:"groupName" yaml:"groupName"`
 	// The Amazon Resource Name (ARN) of the IAM policy you want to attach.
 	//
 	// For more information about ARNs, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *AWS General Reference* .
-	ManagedPolicyArns *[]*string `json:"managedPolicyArns" yaml:"managedPolicyArns"`
+	ManagedPolicyArns *[]*string `field:"optional" json:"managedPolicyArns" yaml:"managedPolicyArns"`
 	// The path to the group. For more information about paths, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide* .
 	//
 	// This parameter is optional. If it is not included, it defaults to a slash (/).
 	//
 	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! ( `\ u0021` ) through the DEL character ( `\ u007F` ), including most punctuation characters, digits, and upper and lowercased letters.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 	// Adds or updates an inline policy document that is embedded in the specified IAM group.
 	//
 	// To view AWS::IAM::Group snippets, see [Declaring an IAM Group Resource](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-iam-group) .
@@ -3604,7 +3630,7 @@ type CfnGroupProps struct {
 	// > The name of each inline policy for a role, user, or group must be unique. If you don't choose unique names, updates to the IAM identity will fail.
 	//
 	// For information about limits on the number of inline policies that you can embed in a group, see [Limitations on IAM Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html) in the *IAM User Guide* .
-	Policies interface{} `json:"policies" yaml:"policies"`
+	Policies interface{} `field:"optional" json:"policies" yaml:"policies"`
 }
 
 // A CloudFormation `AWS::IAM::InstanceProfile`.
@@ -3614,8 +3640,11 @@ type CfnGroupProps struct {
 // For information about the number of instance profiles you can create, see [IAM object quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) in the *IAM User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
-//   cfnInstanceProfile := iam.NewCfnInstanceProfile(this, jsii.String("MyCfnInstanceProfile"), &cfnInstanceProfileProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnInstanceProfile := awscdk.Aws_iam.NewCfnInstanceProfile(this, jsii.String("MyCfnInstanceProfile"), &cfnInstanceProfileProps{
 //   	roles: []*string{
 //   		jsii.String("roles"),
 //   	},
@@ -4322,7 +4351,10 @@ func (c *jsiiProxy_CfnInstanceProfile) ValidateProperties(_properties interface{
 // Properties for defining a `CfnInstanceProfile`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnInstanceProfileProps := &cfnInstanceProfileProps{
 //   	roles: []*string{
 //   		jsii.String("roles"),
@@ -4337,11 +4369,11 @@ type CfnInstanceProfileProps struct {
 	// The name of the role to associate with the instance profile.
 	//
 	// Only one role can be assigned to an EC2 instance at a time, and all applications on the instance share the same role and permissions.
-	Roles *[]*string `json:"roles" yaml:"roles"`
+	Roles *[]*string `field:"required" json:"roles" yaml:"roles"`
 	// The name of the instance profile to create.
 	//
 	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-	InstanceProfileName *string `json:"instanceProfileName" yaml:"instanceProfileName"`
+	InstanceProfileName *string `field:"optional" json:"instanceProfileName" yaml:"instanceProfileName"`
 	// The path to the instance profile.
 	//
 	// For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide* .
@@ -4349,7 +4381,7 @@ type CfnInstanceProfileProps struct {
 	// This parameter is optional. If it is not included, it defaults to a slash (/).
 	//
 	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! ( `\ u0021` ) through the DEL character ( `\ u007F` ), including most punctuation characters, digits, and upper and lowercased letters.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 }
 
 // A CloudFormation `AWS::IAM::ManagedPolicy`.
@@ -4363,10 +4395,13 @@ type CfnInstanceProfileProps struct {
 // For more information about managed policies in general, see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *IAM User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var policyDocument interface{}
-//   cfnManagedPolicy := iam.NewCfnManagedPolicy(this, jsii.String("MyCfnManagedPolicy"), &cfnManagedPolicyProps{
+//
+//   cfnManagedPolicy := awscdk.Aws_iam.NewCfnManagedPolicy(this, jsii.String("MyCfnManagedPolicy"), &cfnManagedPolicyProps{
 //   	policyDocument: policyDocument,
 //
 //   	// the properties below are optional
@@ -5177,9 +5212,12 @@ func (c *jsiiProxy_CfnManagedPolicy) ValidateProperties(_properties interface{})
 // Properties for defining a `CfnManagedPolicy`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var policyDocument interface{}
+//
 //   cfnManagedPolicyProps := &cfnManagedPolicyProps{
 //   	policyDocument: policyDocument,
 //
@@ -5212,17 +5250,17 @@ type CfnManagedPolicyProps struct {
 	// - Any printable ASCII character ranging from the space character ( `\ u0020` ) through the end of the ASCII character range
 	// - The printable characters in the Basic Latin and Latin-1 Supplement character set (through `\ u00FF` )
 	// - The special characters tab ( `\ u0009` ), line feed ( `\ u000A` ), and carriage return ( `\ u000D` ).
-	PolicyDocument interface{} `json:"policyDocument" yaml:"policyDocument"`
+	PolicyDocument interface{} `field:"required" json:"policyDocument" yaml:"policyDocument"`
 	// A friendly description of the policy.
 	//
 	// Typically used to store information about the permissions defined in the policy. For example, "Grants access to production DynamoDB tables."
 	//
 	// The policy description is immutable. After a value is assigned, it cannot be changed.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name (friendly name, not ARN) of the group to attach the policy to.
 	//
 	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-	Groups *[]*string `json:"groups" yaml:"groups"`
+	Groups *[]*string `field:"optional" json:"groups" yaml:"groups"`
 	// The friendly name of the policy.
 	//
 	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
@@ -5230,7 +5268,7 @@ type CfnManagedPolicyProps struct {
 	// If you specify a name, you must specify the `CAPABILITY_NAMED_IAM` value to acknowledge your template's capabilities. For more information, see [Acknowledging IAM Resources in AWS CloudFormation Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities) .
 	//
 	// > Naming an IAM resource can cause an unrecoverable error if you reuse the same template in multiple Regions. To prevent this, we recommend using `Fn::Join` and `AWS::Region` to create a Region-specific name, as in the following example: `{"Fn::Join": ["", [{"Ref": "AWS::Region"}, {"Ref": "MyResourceName"}]]}` .
-	ManagedPolicyName *string `json:"managedPolicyName" yaml:"managedPolicyName"`
+	ManagedPolicyName *string `field:"optional" json:"managedPolicyName" yaml:"managedPolicyName"`
 	// The path for the policy.
 	//
 	// For more information about paths, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide* .
@@ -5240,17 +5278,17 @@ type CfnManagedPolicyProps struct {
 	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! ( `\ u0021` ) through the DEL character ( `\ u007F` ), including most punctuation characters, digits, and upper and lowercased letters.
 	//
 	// > You cannot use an asterisk (*) in the path name.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 	// The name (friendly name, not ARN) of the role to attach the policy to.
 	//
 	// This parameter allows (per its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 	//
 	// > If an external policy (such as `AWS::IAM::Policy` or `AWS::IAM::ManagedPolicy` ) has a `Ref` to a role and if a resource (such as `AWS::ECS::Service` ) also has a `Ref` to the same role, add a `DependsOn` attribute to the resource to make the resource depend on the external policy. This dependency ensures that the role's policy is available throughout the resource's lifecycle. For example, when you delete a stack with an `AWS::ECS::Service` resource, the `DependsOn` attribute ensures that AWS CloudFormation deletes the `AWS::ECS::Service` resource before deleting its role's policy.
-	Roles *[]*string `json:"roles" yaml:"roles"`
+	Roles *[]*string `field:"optional" json:"roles" yaml:"roles"`
 	// The name (friendly name, not ARN) of the IAM user to attach the policy to.
 	//
 	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-	Users *[]*string `json:"users" yaml:"users"`
+	Users *[]*string `field:"optional" json:"users" yaml:"users"`
 }
 
 // A CloudFormation `AWS::IAM::OIDCProvider`.
@@ -5270,8 +5308,11 @@ type CfnManagedPolicyProps struct {
 // > The trust for the OIDC provider is derived from the IAM provider that this operation creates. Therefore, it is best to limit access to the [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) operation to highly privileged users.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
-//   cfnOIDCProvider := iam.NewCfnOIDCProvider(this, jsii.String("MyCfnOIDCProvider"), &cfnOIDCProviderProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnOIDCProvider := awscdk.Aws_iam.NewCfnOIDCProvider(this, jsii.String("MyCfnOIDCProvider"), &cfnOIDCProviderProps{
 //   	thumbprintList: []*string{
 //   		jsii.String("thumbprintList"),
 //   	},
@@ -5992,7 +6033,10 @@ func (c *jsiiProxy_CfnOIDCProvider) ValidateProperties(_properties interface{}) 
 // Properties for defining a `CfnOIDCProvider`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnOIDCProviderProps := &cfnOIDCProviderProps{
 //   	thumbprintList: []*string{
 //   		jsii.String("thumbprintList"),
@@ -6015,19 +6059,19 @@ type CfnOIDCProviderProps struct {
 	// A list of certificate thumbprints that are associated with the specified IAM OIDC provider resource object.
 	//
 	// For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
-	ThumbprintList *[]*string `json:"thumbprintList" yaml:"thumbprintList"`
+	ThumbprintList *[]*string `field:"required" json:"thumbprintList" yaml:"thumbprintList"`
 	// A list of client IDs (also known as audiences) that are associated with the specified IAM OIDC provider resource object.
 	//
 	// For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
-	ClientIdList *[]*string `json:"clientIdList" yaml:"clientIdList"`
+	ClientIdList *[]*string `field:"optional" json:"clientIdList" yaml:"clientIdList"`
 	// A list of tags that are attached to the specified IAM OIDC provider.
 	//
 	// The returned list of tags is sorted by tag key. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The URL that the IAM OIDC provider resource object is associated with.
 	//
 	// For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
-	Url *string `json:"url" yaml:"url"`
+	Url *string `field:"optional" json:"url" yaml:"url"`
 }
 
 // A CloudFormation `AWS::IAM::Policy`.
@@ -6041,10 +6085,13 @@ type CfnOIDCProviderProps struct {
 // For information about limits on the number of inline policies that you can embed in an identity, see [Limitations on IAM Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html) in the *IAM User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var policyDocument interface{}
-//   cfnPolicy := iam.NewCfnPolicy(this, jsii.String("MyCfnPolicy"), &cfnPolicyProps{
+//
+//   cfnPolicy := awscdk.Aws_iam.NewCfnPolicy(this, jsii.String("MyCfnPolicy"), &cfnPolicyProps{
 //   	policyDocument: policyDocument,
 //   	policyName: jsii.String("policyName"),
 //
@@ -6791,9 +6838,12 @@ func (c *jsiiProxy_CfnPolicy) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnPolicy`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var policyDocument interface{}
+//
 //   cfnPolicyProps := &cfnPolicyProps{
 //   	policyDocument: policyDocument,
 //   	policyName: jsii.String("policyName"),
@@ -6820,25 +6870,25 @@ type CfnPolicyProps struct {
 	// - Any printable ASCII character ranging from the space character ( `\ u0020` ) through the end of the ASCII character range
 	// - The printable characters in the Basic Latin and Latin-1 Supplement character set (through `\ u00FF` )
 	// - The special characters tab ( `\ u0009` ), line feed ( `\ u000A` ), and carriage return ( `\ u000D` ).
-	PolicyDocument interface{} `json:"policyDocument" yaml:"policyDocument"`
+	PolicyDocument interface{} `field:"required" json:"policyDocument" yaml:"policyDocument"`
 	// The name of the policy document.
 	//
 	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-	PolicyName *string `json:"policyName" yaml:"policyName"`
+	PolicyName *string `field:"required" json:"policyName" yaml:"policyName"`
 	// The name of the group to associate the policy with.
 	//
 	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-.
-	Groups *[]*string `json:"groups" yaml:"groups"`
+	Groups *[]*string `field:"optional" json:"groups" yaml:"groups"`
 	// The name of the role to associate the policy with.
 	//
 	// This parameter allows (per its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 	//
 	// > If an external policy (such as `AWS::IAM::Policy` or `AWS::IAM::ManagedPolicy` ) has a `Ref` to a role and if a resource (such as `AWS::ECS::Service` ) also has a `Ref` to the same role, add a `DependsOn` attribute to the resource to make the resource depend on the external policy. This dependency ensures that the role's policy is available throughout the resource's lifecycle. For example, when you delete a stack with an `AWS::ECS::Service` resource, the `DependsOn` attribute ensures that AWS CloudFormation deletes the `AWS::ECS::Service` resource before deleting its role's policy.
-	Roles *[]*string `json:"roles" yaml:"roles"`
+	Roles *[]*string `field:"optional" json:"roles" yaml:"roles"`
 	// The name of the user to associate the policy with.
 	//
 	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-	Users *[]*string `json:"users" yaml:"users"`
+	Users *[]*string `field:"optional" json:"users" yaml:"users"`
 }
 
 // A CloudFormation `AWS::IAM::Role`.
@@ -6846,11 +6896,14 @@ type CfnPolicyProps struct {
 // Creates a new role for your AWS account . For more information about roles, see [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html) . For information about quotas for role names and the number of roles you can create, see [IAM and AWS STS quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) in the *IAM User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var assumeRolePolicyDocument interface{}
 //   var policyDocument interface{}
-//   cfnRole := iam.NewCfnRole(this, jsii.String("MyCfnRole"), &cfnRoleProps{
+//
+//   cfnRole := awscdk.Aws_iam.NewCfnRole(this, jsii.String("MyCfnRole"), &cfnRoleProps{
 //   	assumeRolePolicyDocument: assumeRolePolicyDocument,
 //
 //   	// the properties below are optional
@@ -7732,9 +7785,12 @@ func (c *jsiiProxy_CfnRole) ValidateProperties(_properties interface{}) {
 // For more information about managed policies, refer to [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *IAM User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var policyDocument interface{}
+//
 //   policyProperty := &policyProperty{
 //   	policyDocument: policyDocument,
 //   	policyName: jsii.String("policyName"),
@@ -7742,18 +7798,21 @@ func (c *jsiiProxy_CfnRole) ValidateProperties(_properties interface{}) {
 //
 type CfnRole_PolicyProperty struct {
 	// The policy document.
-	PolicyDocument interface{} `json:"policyDocument" yaml:"policyDocument"`
+	PolicyDocument interface{} `field:"required" json:"policyDocument" yaml:"policyDocument"`
 	// The friendly name (not ARN) identifying the policy.
-	PolicyName *string `json:"policyName" yaml:"policyName"`
+	PolicyName *string `field:"required" json:"policyName" yaml:"policyName"`
 }
 
 // Properties for defining a `CfnRole`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var assumeRolePolicyDocument interface{}
 //   var policyDocument interface{}
+//
 //   cfnRoleProps := &cfnRoleProps{
 //   	assumeRolePolicyDocument: assumeRolePolicyDocument,
 //
@@ -7784,29 +7843,29 @@ type CfnRoleProps struct {
 	// The trust policy that is associated with this role.
 	//
 	// Trust policies define which entities can assume the role. You can associate only one trust policy with a role. For an example of a policy that can be used to assume a role, see [Template Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#aws-resource-iam-role--examples) . For more information about the elements that you can use in an IAM policy, see [IAM Policy Elements Reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html) in the *IAM User Guide* .
-	AssumeRolePolicyDocument interface{} `json:"assumeRolePolicyDocument" yaml:"assumeRolePolicyDocument"`
+	AssumeRolePolicyDocument interface{} `field:"required" json:"assumeRolePolicyDocument" yaml:"assumeRolePolicyDocument"`
 	// A description of the role that you provide.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role.
 	//
 	// For more information about ARNs, see [Amazon Resource Names (ARNs) and AWS Service Namespaces](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *AWS General Reference* .
-	ManagedPolicyArns *[]*string `json:"managedPolicyArns" yaml:"managedPolicyArns"`
+	ManagedPolicyArns *[]*string `field:"optional" json:"managedPolicyArns" yaml:"managedPolicyArns"`
 	// The maximum session duration (in seconds) that you want to set for the specified role.
 	//
 	// If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
 	//
 	// Anyone who assumes the role from the or API can use the `DurationSeconds` API parameter or the `duration-seconds` CLI parameter to request a longer session. The `MaxSessionDuration` setting determines the maximum duration that can be requested using the `DurationSeconds` parameter. If users don't specify a value for the `DurationSeconds` parameter, their security credentials are valid for one hour by default. This applies when you use the `AssumeRole*` API operations or the `assume-role*` CLI operations but does not apply when you use those operations to create a console URL. For more information, see [Using IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html) in the *IAM User Guide* .
-	MaxSessionDuration *float64 `json:"maxSessionDuration" yaml:"maxSessionDuration"`
+	MaxSessionDuration *float64 `field:"optional" json:"maxSessionDuration" yaml:"maxSessionDuration"`
 	// The path to the role. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide* .
 	//
 	// This parameter is optional. If it is not included, it defaults to a slash (/).
 	//
 	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! ( `\ u0021` ) through the DEL character ( `\ u007F` ), including most punctuation characters, digits, and upper and lowercased letters.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 	// The ARN of the policy used to set the permissions boundary for the role.
 	//
 	// For more information about permissions boundaries, see [Permissions boundaries for IAM identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) in the *IAM User Guide* .
-	PermissionsBoundary *string `json:"permissionsBoundary" yaml:"permissionsBoundary"`
+	PermissionsBoundary *string `field:"optional" json:"permissionsBoundary" yaml:"permissionsBoundary"`
 	// Adds or updates an inline policy document that is embedded in the specified IAM role.
 	//
 	// When you embed an inline policy in a role, the inline policy is used as part of the role's access (permissions) policy. The role's trust policy is created at the same time as the role. You can update a role's trust policy later. For more information about IAM roles, go to [Using Roles to Delegate Permissions and Federate Identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html) .
@@ -7816,7 +7875,7 @@ type CfnRoleProps struct {
 	// For information about limits on the number of inline policies that you can embed with a role, see [Limitations on IAM Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html) in the *IAM User Guide* .
 	//
 	// > If an external policy (such as `AWS::IAM::Policy` or `AWS::IAM::ManagedPolicy` ) has a `Ref` to a role and if a resource (such as `AWS::ECS::Service` ) also has a `Ref` to the same role, add a `DependsOn` attribute to the resource to make the resource depend on the external policy. This dependency ensures that the role's policy is available throughout the resource's lifecycle. For example, when you delete a stack with an `AWS::ECS::Service` resource, the `DependsOn` attribute ensures that AWS CloudFormation deletes the `AWS::ECS::Service` resource before deleting its role's policy.
-	Policies interface{} `json:"policies" yaml:"policies"`
+	Policies interface{} `field:"optional" json:"policies" yaml:"policies"`
 	// A name for the IAM role, up to 64 characters in length.
 	//
 	// For valid values, see the `RoleName` parameter for the [`CreateRole`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html) action in the *IAM User Guide* .
@@ -7828,11 +7887,11 @@ type CfnRoleProps struct {
 	// If you specify a name, you must specify the `CAPABILITY_NAMED_IAM` value to acknowledge your template's capabilities. For more information, see [Acknowledging IAM Resources in AWS CloudFormation Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities) .
 	//
 	// > Naming an IAM resource can cause an unrecoverable error if you reuse the same template in multiple Regions. To prevent this, we recommend using `Fn::Join` and `AWS::Region` to create a Region-specific name, as in the following example: `{"Fn::Join": ["", [{"Ref": "AWS::Region"}, {"Ref": "MyResourceName"}]]}` .
-	RoleName *string `json:"roleName" yaml:"roleName"`
+	RoleName *string `field:"optional" json:"roleName" yaml:"roleName"`
 	// A list of tags that are attached to the role.
 	//
 	// For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::IAM::SAMLProvider`.
@@ -7848,8 +7907,11 @@ type CfnRoleProps struct {
 // For more information, see [Enabling SAML 2.0 federated users to access the AWS Management Console](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-saml.html) and [About SAML 2.0-based federation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html) in the *IAM User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
-//   cfnSAMLProvider := iam.NewCfnSAMLProvider(this, jsii.String("MyCfnSAMLProvider"), &cfnSAMLProviderProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnSAMLProvider := awscdk.Aws_iam.NewCfnSAMLProvider(this, jsii.String("MyCfnSAMLProvider"), &cfnSAMLProviderProps{
 //   	samlMetadataDocument: jsii.String("samlMetadataDocument"),
 //
 //   	// the properties below are optional
@@ -8544,7 +8606,10 @@ func (c *jsiiProxy_CfnSAMLProvider) ValidateProperties(_properties interface{}) 
 // Properties for defining a `CfnSAMLProvider`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnSAMLProviderProps := &cfnSAMLProviderProps{
 //   	samlMetadataDocument: jsii.String("samlMetadataDocument"),
 //
@@ -8562,17 +8627,17 @@ type CfnSAMLProviderProps struct {
 	// An XML document generated by an identity provider (IdP) that supports SAML 2.0. The document includes the issuer's name, expiration information, and keys that can be used to validate the SAML authentication response (assertions) that are received from the IdP. You must generate the metadata document using the identity management software that is used as your organization's IdP.
 	//
 	// For more information, see [About SAML 2.0-based federation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html) in the *IAM User Guide*
-	SamlMetadataDocument *string `json:"samlMetadataDocument" yaml:"samlMetadataDocument"`
+	SamlMetadataDocument *string `field:"required" json:"samlMetadataDocument" yaml:"samlMetadataDocument"`
 	// The name of the provider to create.
 	//
 	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// A list of tags that you want to attach to the new IAM SAML provider.
 	//
 	// Each tag consists of a key name and an associated value. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
 	//
 	// > If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::IAM::ServerCertificate`.
@@ -8588,8 +8653,11 @@ type CfnSAMLProviderProps struct {
 // > Because the body of the public key certificate, private key, and the certificate chain can be large, you should use POST rather than GET when calling `UploadServerCertificate` . For information about setting up signatures and authorization through the API, see [Signing AWS API requests](https://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html) in the *AWS General Reference* . For general information about using the Query API with IAM, see [Calling the API by making HTTP query requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/programming.html) in the *IAM User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
-//   cfnServerCertificate := iam.NewCfnServerCertificate(this, jsii.String("MyCfnServerCertificate"), &cfnServerCertificateProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnServerCertificate := awscdk.Aws_iam.NewCfnServerCertificate(this, jsii.String("MyCfnServerCertificate"), &cfnServerCertificateProps{
 //   	certificateBody: jsii.String("certificateBody"),
 //   	certificateChain: jsii.String("certificateChain"),
 //   	path: jsii.String("path"),
@@ -9358,7 +9426,10 @@ func (c *jsiiProxy_CfnServerCertificate) ValidateProperties(_properties interfac
 // Properties for defining a `CfnServerCertificate`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnServerCertificateProps := &cfnServerCertificateProps{
 //   	certificateBody: jsii.String("certificateBody"),
 //   	certificateChain: jsii.String("certificateChain"),
@@ -9375,9 +9446,9 @@ func (c *jsiiProxy_CfnServerCertificate) ValidateProperties(_properties interfac
 //
 type CfnServerCertificateProps struct {
 	// The contents of the public key certificate.
-	CertificateBody *string `json:"certificateBody" yaml:"certificateBody"`
+	CertificateBody *string `field:"optional" json:"certificateBody" yaml:"certificateBody"`
 	// The contents of the public key certificate chain.
-	CertificateChain *string `json:"certificateChain" yaml:"certificateChain"`
+	CertificateChain *string `field:"optional" json:"certificateChain" yaml:"certificateChain"`
 	// The path for the server certificate.
 	//
 	// For more information about paths, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide* .
@@ -9385,7 +9456,7 @@ type CfnServerCertificateProps struct {
 	// This parameter is optional. If it is not included, it defaults to a slash (/). This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! ( `\ u0021` ) through the DEL character ( `\ u007F` ), including most punctuation characters, digits, and upper and lowercased letters.
 	//
 	// > If you are uploading a server certificate specifically for use with Amazon CloudFront distributions, you must specify a path using the `path` parameter. The path must begin with `/cloudfront` and must include a trailing slash (for example, `/cloudfront/test/` ).
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 	// The contents of the private key in PEM-encoded format.
 	//
 	// The [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) used to validate this parameter is a string of characters consisting of the following:
@@ -9393,17 +9464,17 @@ type CfnServerCertificateProps struct {
 	// - Any printable ASCII character ranging from the space character ( `\ u0020` ) through the end of the ASCII character range
 	// - The printable characters in the Basic Latin and Latin-1 Supplement character set (through `\ u00FF` )
 	// - The special characters tab ( `\ u0009` ), line feed ( `\ u000A` ), and carriage return ( `\ u000D` ).
-	PrivateKey *string `json:"privateKey" yaml:"privateKey"`
+	PrivateKey *string `field:"optional" json:"privateKey" yaml:"privateKey"`
 	// The name for the server certificate.
 	//
 	// Do not include the path in this value. The name of the certificate cannot contain any spaces.
 	//
 	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-	ServerCertificateName *string `json:"serverCertificateName" yaml:"serverCertificateName"`
+	ServerCertificateName *string `field:"optional" json:"serverCertificateName" yaml:"serverCertificateName"`
 	// A list of tags that are attached to the server certificate.
 	//
 	// For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::IAM::ServiceLinkedRole`.
@@ -10106,15 +10177,15 @@ type CfnServiceLinkedRoleProps struct {
 	// You use a string similar to a URL but without the http:// in front. For example: `elasticbeanstalk.amazonaws.com` .
 	//
 	// Service principals are unique and case-sensitive. To find the exact service principal for your service-linked role, see [AWS services that work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html) in the *IAM User Guide* . Look for the services that have *Yes* in the *Service-Linked Role* column. Choose the *Yes* link to view the service-linked role documentation for that service.
-	AwsServiceName *string `json:"awsServiceName" yaml:"awsServiceName"`
+	AwsServiceName *string `field:"required" json:"awsServiceName" yaml:"awsServiceName"`
 	// A string that you provide, which is combined with the service-provided prefix to form the complete role name.
 	//
 	// If you make multiple requests for the same service, then you must supply a different `CustomSuffix` for each request. Otherwise the request fails with a duplicate role name error. For example, you could add `-1` or `-debug` to the suffix.
 	//
 	// Some services do not support the `CustomSuffix` parameter. If you provide an optional suffix and the operation fails, try the operation again without the suffix.
-	CustomSuffix *string `json:"customSuffix" yaml:"customSuffix"`
+	CustomSuffix *string `field:"optional" json:"customSuffix" yaml:"customSuffix"`
 	// The description of the role.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 
 // A CloudFormation `AWS::IAM::User`.
@@ -10124,10 +10195,13 @@ type CfnServiceLinkedRoleProps struct {
 // For information about quotas for the number of IAM users you can create, see [IAM and AWS STS quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) in the *IAM User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var policyDocument interface{}
-//   cfnUser := iam.NewCfnUser(this, jsii.String("MyCfnUser"), &cfnUserProps{
+//
+//   cfnUser := awscdk.Aws_iam.NewCfnUser(this, jsii.String("MyCfnUser"), &cfnUserProps{
 //   	groups: []*string{
 //   		jsii.String("groups"),
 //   	},
@@ -10972,7 +11046,10 @@ func (c *jsiiProxy_CfnUser) ValidateProperties(_properties interface{}) {
 // For more information about managing passwords, see [Managing Passwords](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html) in the *IAM User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   loginProfileProperty := &loginProfileProperty{
 //   	password: jsii.String("password"),
 //
@@ -10982,9 +11059,9 @@ func (c *jsiiProxy_CfnUser) ValidateProperties(_properties interface{}) {
 //
 type CfnUser_LoginProfileProperty struct {
 	// The user's password.
-	Password *string `json:"password" yaml:"password"`
+	Password *string `field:"required" json:"password" yaml:"password"`
 	// Specifies whether the user is required to set a new password on next sign-in.
-	PasswordResetRequired interface{} `json:"passwordResetRequired" yaml:"passwordResetRequired"`
+	PasswordResetRequired interface{} `field:"optional" json:"passwordResetRequired" yaml:"passwordResetRequired"`
 }
 
 // Contains information about an attached policy.
@@ -10994,9 +11071,12 @@ type CfnUser_LoginProfileProperty struct {
 // For more information about managed policies, refer to [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *IAM User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var policyDocument interface{}
+//
 //   policyProperty := &policyProperty{
 //   	policyDocument: policyDocument,
 //   	policyName: jsii.String("policyName"),
@@ -11004,17 +11084,20 @@ type CfnUser_LoginProfileProperty struct {
 //
 type CfnUser_PolicyProperty struct {
 	// The policy document.
-	PolicyDocument interface{} `json:"policyDocument" yaml:"policyDocument"`
+	PolicyDocument interface{} `field:"required" json:"policyDocument" yaml:"policyDocument"`
 	// The friendly name (not ARN) identifying the policy.
-	PolicyName *string `json:"policyName" yaml:"policyName"`
+	PolicyName *string `field:"required" json:"policyName" yaml:"policyName"`
 }
 
 // Properties for defining a `CfnUser`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var policyDocument interface{}
+//
 //   cfnUserProps := &cfnUserProps{
 //   	groups: []*string{
 //   		jsii.String("groups"),
@@ -11047,7 +11130,7 @@ type CfnUser_PolicyProperty struct {
 //
 type CfnUserProps struct {
 	// A list of group names to which you want to add the user.
-	Groups *[]*string `json:"groups" yaml:"groups"`
+	Groups *[]*string `field:"optional" json:"groups" yaml:"groups"`
 	// Creates a password for the specified IAM user.
 	//
 	// A password allows an IAM user to access AWS services through the AWS Management Console .
@@ -11055,11 +11138,11 @@ type CfnUserProps struct {
 	// You can use the AWS CLI , the AWS API, or the *Users* page in the IAM console to create a password for any IAM user. Use [ChangePassword](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ChangePassword.html) to update your own existing password in the *My Security Credentials* page in the AWS Management Console .
 	//
 	// For more information about managing passwords, see [Managing passwords](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html) in the *IAM User Guide* .
-	LoginProfile interface{} `json:"loginProfile" yaml:"loginProfile"`
+	LoginProfile interface{} `field:"optional" json:"loginProfile" yaml:"loginProfile"`
 	// A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the user.
 	//
 	// For more information about ARNs, see [Amazon Resource Names (ARNs) and AWS Service Namespaces](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *AWS General Reference* .
-	ManagedPolicyArns *[]*string `json:"managedPolicyArns" yaml:"managedPolicyArns"`
+	ManagedPolicyArns *[]*string `field:"optional" json:"managedPolicyArns" yaml:"managedPolicyArns"`
 	// The path for the user name.
 	//
 	// For more information about paths, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide* .
@@ -11067,9 +11150,9 @@ type CfnUserProps struct {
 	// This parameter is optional. If it is not included, it defaults to a slash (/).
 	//
 	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! ( `\ u0021` ) through the DEL character ( `\ u007F` ), including most punctuation characters, digits, and upper and lowercased letters.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 	// The ARN of the policy that is used to set the permissions boundary for the user.
-	PermissionsBoundary *string `json:"permissionsBoundary" yaml:"permissionsBoundary"`
+	PermissionsBoundary *string `field:"optional" json:"permissionsBoundary" yaml:"permissionsBoundary"`
 	// Adds or updates an inline policy document that is embedded in the specified IAM user.
 	//
 	// To view AWS::IAM::User snippets, see [Declaring an IAM User Resource](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-iam-user) .
@@ -11077,13 +11160,13 @@ type CfnUserProps struct {
 	// > The name of each policy for a role, user, or group must be unique. If you don't choose unique names, updates to the IAM identity will fail.
 	//
 	// For information about limits on the number of inline policies that you can embed in a user, see [Limitations on IAM Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html) in the *IAM User Guide* .
-	Policies interface{} `json:"policies" yaml:"policies"`
+	Policies interface{} `field:"optional" json:"policies" yaml:"policies"`
 	// A list of tags that you want to attach to the new user.
 	//
 	// Each tag consists of a key name and an associated value. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
 	//
 	// > If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The name of the user to create. Do not include the path in this value.
 	//
 	// This parameter allows (per its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-. The user name must be unique within the account. User names are not distinguished by case. For example, you cannot create users named both "John" and "john".
@@ -11093,7 +11176,7 @@ type CfnUserProps struct {
 	// If you specify a name, you must specify the `CAPABILITY_NAMED_IAM` value to acknowledge your template's capabilities. For more information, see [Acknowledging IAM Resources in AWS CloudFormation Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities) .
 	//
 	// > Naming an IAM resource can cause an unrecoverable error if you reuse the same template in multiple Regions. To prevent this, we recommend using `Fn::Join` and `AWS::Region` to create a Region-specific name, as in the following example: `{"Fn::Join": ["", [{"Ref": "AWS::Region"}, {"Ref": "MyResourceName"}]]}` .
-	UserName *string `json:"userName" yaml:"userName"`
+	UserName *string `field:"optional" json:"userName" yaml:"userName"`
 }
 
 // A CloudFormation `AWS::IAM::UserToGroupAddition`.
@@ -11101,8 +11184,11 @@ type CfnUserProps struct {
 // Adds the specified user to the specified group.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
-//   cfnUserToGroupAddition := iam.NewCfnUserToGroupAddition(this, jsii.String("MyCfnUserToGroupAddition"), &cfnUserToGroupAdditionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnUserToGroupAddition := awscdk.Aws_iam.NewCfnUserToGroupAddition(this, jsii.String("MyCfnUserToGroupAddition"), &cfnUserToGroupAdditionProps{
 //   	groupName: jsii.String("groupName"),
 //   	users: []*string{
 //   		jsii.String("users"),
@@ -11761,7 +11847,10 @@ func (c *jsiiProxy_CfnUserToGroupAddition) ValidateProperties(_properties interf
 // Properties for defining a `CfnUserToGroupAddition`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnUserToGroupAdditionProps := &cfnUserToGroupAdditionProps{
 //   	groupName: jsii.String("groupName"),
 //   	users: []*string{
@@ -11773,9 +11862,9 @@ type CfnUserToGroupAdditionProps struct {
 	// The name of the group to update.
 	//
 	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-	GroupName *string `json:"groupName" yaml:"groupName"`
+	GroupName *string `field:"required" json:"groupName" yaml:"groupName"`
 	// A list of the names of the users that you want to add to the group.
-	Users *[]*string `json:"users" yaml:"users"`
+	Users *[]*string `field:"required" json:"users" yaml:"users"`
 }
 
 // A CloudFormation `AWS::IAM::VirtualMFADevice`.
@@ -11787,8 +11876,11 @@ type CfnUserToGroupAdditionProps struct {
 // > The seed information contained in the QR code and the Base32 string should be treated like any other secret access information. In other words, protect the seed information as you would your AWS access keys or your passwords. After you provision your virtual device, you should ensure that the information is destroyed following secure procedures.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
-//   cfnVirtualMFADevice := iam.NewCfnVirtualMFADevice(this, jsii.String("MyCfnVirtualMFADevice"), &cfnVirtualMFADeviceProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnVirtualMFADevice := awscdk.Aws_iam.NewCfnVirtualMFADevice(this, jsii.String("MyCfnVirtualMFADevice"), &cfnVirtualMFADeviceProps{
 //   	users: []*string{
 //   		jsii.String("users"),
 //   	},
@@ -12511,7 +12603,10 @@ func (c *jsiiProxy_CfnVirtualMFADevice) ValidateProperties(_properties interface
 // Properties for defining a `CfnVirtualMFADevice`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnVirtualMFADeviceProps := &cfnVirtualMFADeviceProps{
 //   	users: []*string{
 //   		jsii.String("users"),
@@ -12530,7 +12625,7 @@ func (c *jsiiProxy_CfnVirtualMFADevice) ValidateProperties(_properties interface
 //
 type CfnVirtualMFADeviceProps struct {
 	// The IAM user associated with this virtual MFA device.
-	Users *[]*string `json:"users" yaml:"users"`
+	Users *[]*string `field:"required" json:"users" yaml:"users"`
 	// The path for the virtual MFA device.
 	//
 	// For more information about paths, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide* .
@@ -12538,25 +12633,28 @@ type CfnVirtualMFADeviceProps struct {
 	// This parameter is optional. If it is not included, it defaults to a slash (/).
 	//
 	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! ( `\ u0021` ) through the DEL character ( `\ u007F` ), including most punctuation characters, digits, and upper and lowercased letters.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 	// A list of tags that you want to attach to the new IAM virtual MFA device.
 	//
 	// Each tag consists of a key name and an associated value. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
 	//
 	// > If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request fails and the resource is not created.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
 	//
 	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-	VirtualMfaDeviceName *string `json:"virtualMfaDeviceName" yaml:"virtualMfaDeviceName"`
+	VirtualMfaDeviceName *string `field:"optional" json:"virtualMfaDeviceName" yaml:"virtualMfaDeviceName"`
 }
 
 // Basic options for a grant operation.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var grantable iGrantable
+//
 //   commonGrantOptions := &commonGrantOptions{
 //   	actions: []*string{
 //   		jsii.String("actions"),
@@ -12571,13 +12669,13 @@ type CfnVirtualMFADeviceProps struct {
 type CommonGrantOptions struct {
 	// The actions to grant.
 	// Experimental.
-	Actions *[]*string `json:"actions" yaml:"actions"`
+	Actions *[]*string `field:"required" json:"actions" yaml:"actions"`
 	// The principal to grant to.
 	// Experimental.
-	Grantee IGrantable `json:"grantee" yaml:"grantee"`
+	Grantee IGrantable `field:"required" json:"grantee" yaml:"grantee"`
 	// The resource ARNs to grant to.
 	// Experimental.
-	ResourceArns *[]*string `json:"resourceArns" yaml:"resourceArns"`
+	ResourceArns *[]*string `field:"required" json:"resourceArns" yaml:"resourceArns"`
 }
 
 // Composite dependable.
@@ -12587,10 +12685,14 @@ type CommonGrantOptions struct {
 // the query.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var dependable iDependable
-//   compositeDependable := iam.NewCompositeDependable(dependable)
+//
+//   compositeDependable := awscdk.Aws_iam.NewCompositeDependable(dependable)
 //
 // Experimental.
 type CompositeDependable interface {
@@ -12903,6 +13005,7 @@ func (c *jsiiProxy_CompositePrincipal) WithSessionTags() PrincipalBase {
 //   var books resource
 //   var iamUser user
 //
+//
 //   getBooks := books.addMethod(jsii.String("GET"), apigateway.NewHttpIntegration(jsii.String("http://amazon.com")), &methodOptions{
 //   	authorizationType: apigateway.authorizationType_IAM,
 //   })
@@ -12947,10 +13050,13 @@ const (
 // You can use these keys to write policies that limit the access of federated users.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var conditions interface{}
-//   federatedPrincipal := iam.NewFederatedPrincipal(jsii.String("federated"), map[string]interface{}{
+//
+//   federatedPrincipal := awscdk.Aws_iam.NewFederatedPrincipal(jsii.String("federated"), map[string]interface{}{
 //   	"conditionsKey": conditions,
 //   }, jsii.String("assumeRoleAction"))
 //
@@ -13216,10 +13322,10 @@ type FromRoleArnOptions struct {
 	//
 	// If this is `true`, any grant permissions will be added to the resource instead.
 	// Experimental.
-	AddGrantsToResources *bool `json:"addGrantsToResources" yaml:"addGrantsToResources"`
+	AddGrantsToResources *bool `field:"optional" json:"addGrantsToResources" yaml:"addGrantsToResources"`
 	// Whether the imported role can be modified by attaching policy resources to it.
 	// Experimental.
-	Mutable *bool `json:"mutable" yaml:"mutable"`
+	Mutable *bool `field:"optional" json:"mutable" yaml:"mutable"`
 }
 
 // Result of a grant() operation.
@@ -13230,6 +13336,7 @@ type FromRoleArnOptions struct {
 // Example:
 //   var instance instance
 //   var volume volume
+//
 //
 //   attachGrant := volume.grantAttachVolumeByResourceTag(instance.grantPrincipal, []construct{
 //   	instance,
@@ -13415,11 +13522,14 @@ func (g *jsiiProxy_Grant) AssertSuccess() {
 // Options for a grant operation to both identity and resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var grantable iGrantable
 //   var principal iPrincipal
 //   var resourceWithPolicy iResourceWithPolicy
+//
 //   grantOnPrincipalAndResourceOptions := &grantOnPrincipalAndResourceOptions{
 //   	actions: []*string{
 //   		jsii.String("actions"),
@@ -13441,35 +13551,39 @@ func (g *jsiiProxy_Grant) AssertSuccess() {
 type GrantOnPrincipalAndResourceOptions struct {
 	// The actions to grant.
 	// Experimental.
-	Actions *[]*string `json:"actions" yaml:"actions"`
+	Actions *[]*string `field:"required" json:"actions" yaml:"actions"`
 	// The principal to grant to.
 	// Experimental.
-	Grantee IGrantable `json:"grantee" yaml:"grantee"`
+	Grantee IGrantable `field:"required" json:"grantee" yaml:"grantee"`
 	// The resource ARNs to grant to.
 	// Experimental.
-	ResourceArns *[]*string `json:"resourceArns" yaml:"resourceArns"`
+	ResourceArns *[]*string `field:"required" json:"resourceArns" yaml:"resourceArns"`
 	// The resource with a resource policy.
 	//
 	// The statement will always be added to the resource policy.
 	// Experimental.
-	Resource IResourceWithPolicy `json:"resource" yaml:"resource"`
+	Resource IResourceWithPolicy `field:"required" json:"resource" yaml:"resource"`
 	// The principal to use in the statement for the resource policy.
 	// Experimental.
-	ResourcePolicyPrincipal IPrincipal `json:"resourcePolicyPrincipal" yaml:"resourcePolicyPrincipal"`
+	ResourcePolicyPrincipal IPrincipal `field:"optional" json:"resourcePolicyPrincipal" yaml:"resourcePolicyPrincipal"`
 	// When referring to the resource in a resource policy, use this as ARN.
 	//
 	// (Depending on the resource type, this needs to be '*' in a resource policy).
 	// Experimental.
-	ResourceSelfArns *[]*string `json:"resourceSelfArns" yaml:"resourceSelfArns"`
+	ResourceSelfArns *[]*string `field:"optional" json:"resourceSelfArns" yaml:"resourceSelfArns"`
 }
 
 // Options for a grant operation that only applies to principals.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var construct construct
 //   var grantable iGrantable
+//
 //   grantOnPrincipalOptions := &grantOnPrincipalOptions{
 //   	actions: []*string{
 //   		jsii.String("actions"),
@@ -13487,25 +13601,28 @@ type GrantOnPrincipalAndResourceOptions struct {
 type GrantOnPrincipalOptions struct {
 	// The actions to grant.
 	// Experimental.
-	Actions *[]*string `json:"actions" yaml:"actions"`
+	Actions *[]*string `field:"required" json:"actions" yaml:"actions"`
 	// The principal to grant to.
 	// Experimental.
-	Grantee IGrantable `json:"grantee" yaml:"grantee"`
+	Grantee IGrantable `field:"required" json:"grantee" yaml:"grantee"`
 	// The resource ARNs to grant to.
 	// Experimental.
-	ResourceArns *[]*string `json:"resourceArns" yaml:"resourceArns"`
+	ResourceArns *[]*string `field:"required" json:"resourceArns" yaml:"resourceArns"`
 	// Construct to report warnings on in case grant could not be registered.
 	// Experimental.
-	Scope awscdk.IConstruct `json:"scope" yaml:"scope"`
+	Scope awscdk.IConstruct `field:"optional" json:"scope" yaml:"scope"`
 }
 
 // Options for a grant operation.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var grantable iGrantable
 //   var resourceWithPolicy iResourceWithPolicy
+//
 //   grantWithResourceOptions := &grantWithResourceOptions{
 //   	actions: []*string{
 //   		jsii.String("actions"),
@@ -13526,24 +13643,24 @@ type GrantOnPrincipalOptions struct {
 type GrantWithResourceOptions struct {
 	// The actions to grant.
 	// Experimental.
-	Actions *[]*string `json:"actions" yaml:"actions"`
+	Actions *[]*string `field:"required" json:"actions" yaml:"actions"`
 	// The principal to grant to.
 	// Experimental.
-	Grantee IGrantable `json:"grantee" yaml:"grantee"`
+	Grantee IGrantable `field:"required" json:"grantee" yaml:"grantee"`
 	// The resource ARNs to grant to.
 	// Experimental.
-	ResourceArns *[]*string `json:"resourceArns" yaml:"resourceArns"`
+	ResourceArns *[]*string `field:"required" json:"resourceArns" yaml:"resourceArns"`
 	// The resource with a resource policy.
 	//
 	// The statement will be added to the resource policy if it couldn't be
 	// added to the principal policy.
 	// Experimental.
-	Resource IResourceWithPolicy `json:"resource" yaml:"resource"`
+	Resource IResourceWithPolicy `field:"required" json:"resource" yaml:"resource"`
 	// When referring to the resource in a resource policy, use this as ARN.
 	//
 	// (Depending on the resource type, this needs to be '*' in a resource policy).
 	// Experimental.
-	ResourceSelfArns *[]*string `json:"resourceSelfArns" yaml:"resourceSelfArns"`
+	ResourceSelfArns *[]*string `field:"optional" json:"resourceSelfArns" yaml:"resourceSelfArns"`
 }
 
 // An IAM Group (collection of IAM users) lets you specify permissions for multiple users, which can make it easier to manage permissions for those users.
@@ -14089,9 +14206,12 @@ func (g *jsiiProxy_Group) Validate() *[]*string {
 // Properties for defining an IAM group.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var managedPolicy managedPolicy
+//
 //   groupProps := &groupProps{
 //   	groupName: jsii.String("groupName"),
 //   	managedPolicies: []iManagedPolicy{
@@ -14113,20 +14233,20 @@ type GroupProps struct {
 	// acknowledge your template's capabilities. For more information, see
 	// Acknowledging IAM Resources in AWS CloudFormation Templates.
 	// Experimental.
-	GroupName *string `json:"groupName" yaml:"groupName"`
+	GroupName *string `field:"optional" json:"groupName" yaml:"groupName"`
 	// A list of managed policies associated with this role.
 	//
 	// You can add managed policies later using
 	// `addManagedPolicy(ManagedPolicy.fromAwsManagedPolicyName(policyName))`.
 	// Experimental.
-	ManagedPolicies *[]IManagedPolicy `json:"managedPolicies" yaml:"managedPolicies"`
+	ManagedPolicies *[]IManagedPolicy `field:"optional" json:"managedPolicies" yaml:"managedPolicies"`
 	// The path to the group.
 	//
 	// For more information about paths, see [IAM
 	// Identifiers](http://docs.aws.amazon.com/IAM/latest/UserGuide/index.html?Using_Identifiers.html)
 	// in the IAM User Guide.
 	// Experimental.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 }
 
 // Represents an IAM Access Key.
@@ -14776,13 +14896,17 @@ func (j *jsiiProxy_IUser) UserName() *string {
 // not be synthesized or deployed.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var managedPolicy managedPolicy
 //   var policyDocument policyDocument
 //   var principal iPrincipal
-//   lazyRole := iam.NewLazyRole(this, jsii.String("MyLazyRole"), &lazyRoleProps{
+//
+//   lazyRole := awscdk.Aws_iam.NewLazyRole(this, jsii.String("MyLazyRole"), &lazyRoleProps{
 //   	assumedBy: principal,
 //
 //   	// the properties below are optional
@@ -15330,12 +15454,16 @@ func (l *jsiiProxy_LazyRole) Validate() *[]*string {
 // Properties for defining a LazyRole.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var managedPolicy managedPolicy
 //   var policyDocument policyDocument
 //   var principal iPrincipal
+//
 //   lazyRoleProps := &lazyRoleProps{
 //   	assumedBy: principal,
 //
@@ -15364,24 +15492,24 @@ type LazyRoleProps struct {
 	// You can later modify the assume role policy document by accessing it via
 	// the `assumeRolePolicy` property.
 	// Experimental.
-	AssumedBy IPrincipal `json:"assumedBy" yaml:"assumedBy"`
+	AssumedBy IPrincipal `field:"required" json:"assumedBy" yaml:"assumedBy"`
 	// A description of the role.
 	//
 	// It can be up to 1000 characters long.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// ID that the role assumer needs to provide when assuming this role.
 	//
 	// If the configured and provided external IDs do not match, the
 	// AssumeRole operation will fail.
 	// Deprecated: see {@link externalIds}.
-	ExternalId *string `json:"externalId" yaml:"externalId"`
+	ExternalId *string `field:"optional" json:"externalId" yaml:"externalId"`
 	// List of IDs that the role assumer needs to provide one of when assuming this role.
 	//
 	// If the configured and provided external IDs do not match, the
 	// AssumeRole operation will fail.
 	// Experimental.
-	ExternalIds *[]*string `json:"externalIds" yaml:"externalIds"`
+	ExternalIds *[]*string `field:"optional" json:"externalIds" yaml:"externalIds"`
 	// A list of named policies to inline into this role.
 	//
 	// These policies will be
@@ -15389,13 +15517,13 @@ type LazyRoleProps struct {
 	// using a separate CloudFormation resource (allowing a way around circular
 	// dependencies that could otherwise be introduced).
 	// Experimental.
-	InlinePolicies *map[string]PolicyDocument `json:"inlinePolicies" yaml:"inlinePolicies"`
+	InlinePolicies *map[string]PolicyDocument `field:"optional" json:"inlinePolicies" yaml:"inlinePolicies"`
 	// A list of managed policies associated with this role.
 	//
 	// You can add managed policies later using
 	// `addManagedPolicy(ManagedPolicy.fromAwsManagedPolicyName(policyName))`.
 	// Experimental.
-	ManagedPolicies *[]IManagedPolicy `json:"managedPolicies" yaml:"managedPolicies"`
+	ManagedPolicies *[]IManagedPolicy `field:"optional" json:"managedPolicies" yaml:"managedPolicies"`
 	// The maximum session duration that you want to set for the specified role.
 	//
 	// This setting can have a value from 1 hour (3600sec) to 12 (43200sec) hours.
@@ -15411,13 +15539,13 @@ type LazyRoleProps struct {
 	// you use the AssumeRole* API operations or the assume-role* CLI operations
 	// but does not apply when you use those operations to create a console URL.
 	// Experimental.
-	MaxSessionDuration awscdk.Duration `json:"maxSessionDuration" yaml:"maxSessionDuration"`
+	MaxSessionDuration awscdk.Duration `field:"optional" json:"maxSessionDuration" yaml:"maxSessionDuration"`
 	// The path associated with this role.
 	//
 	// For information about IAM paths, see
 	// Friendly Names and Paths in IAM User Guide.
 	// Experimental.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 	// AWS supports permissions boundaries for IAM entities (users or roles).
 	//
 	// A permissions boundary is an advanced feature for using a managed policy
@@ -15426,7 +15554,7 @@ type LazyRoleProps struct {
 	// the actions that are allowed by both its identity-based policies and its
 	// permissions boundaries.
 	// Experimental.
-	PermissionsBoundary IManagedPolicy `json:"permissionsBoundary" yaml:"permissionsBoundary"`
+	PermissionsBoundary IManagedPolicy `field:"optional" json:"permissionsBoundary" yaml:"permissionsBoundary"`
 	// A name for the IAM role.
 	//
 	// For valid values, see the RoleName parameter for
@@ -15440,7 +15568,7 @@ type LazyRoleProps struct {
 	// acknowledge your template's capabilities. For more information, see
 	// Acknowledging IAM Resources in AWS CloudFormation Templates.
 	// Experimental.
-	RoleName *string `json:"roleName" yaml:"roleName"`
+	RoleName *string `field:"optional" json:"roleName" yaml:"roleName"`
 }
 
 // Managed policy.
@@ -15451,7 +15579,7 @@ type LazyRoleProps struct {
 //   })
 //
 //   fn := lambda.NewFunction(this, jsii.String("MyFunction"), &functionProps{
-//   	runtime: lambda.runtime_NODEJS_12_X(),
+//   	runtime: lambda.runtime_NODEJS_16_X(),
 //   	handler: jsii.String("index.handler"),
 //   	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 //   	role: myRole,
@@ -16037,26 +16165,26 @@ type ManagedPolicyProps struct {
 	// permissions defined in the policy. For example, "Grants access to production DynamoDB tables."
 	// The policy description is immutable. After a value is assigned, it cannot be changed.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Initial PolicyDocument to use for this ManagedPolicy.
 	//
 	// If omited, any
 	// `PolicyStatement` provided in the `statements` property will be applied
 	// against the empty default `PolicyDocument`.
 	// Experimental.
-	Document PolicyDocument `json:"document" yaml:"document"`
+	Document PolicyDocument `field:"optional" json:"document" yaml:"document"`
 	// Groups to attach this policy to.
 	//
 	// You can also use `attachToGroup(group)` to attach this policy to a group.
 	// Experimental.
-	Groups *[]IGroup `json:"groups" yaml:"groups"`
+	Groups *[]IGroup `field:"optional" json:"groups" yaml:"groups"`
 	// The name of the managed policy.
 	//
 	// If you specify multiple policies for an entity,
 	// specify unique names. For example, if you specify a list of policies for
 	// an IAM role, each policy must have a unique name.
 	// Experimental.
-	ManagedPolicyName *string `json:"managedPolicyName" yaml:"managedPolicyName"`
+	ManagedPolicyName *string `field:"optional" json:"managedPolicyName" yaml:"managedPolicyName"`
 	// The path for the policy.
 	//
 	// This parameter allows (through its regex pattern) a string of characters
@@ -16066,22 +16194,22 @@ type ManagedPolicyProps struct {
 	//
 	// For more information about paths, see IAM Identifiers in the IAM User Guide.
 	// Experimental.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 	// Roles to attach this policy to.
 	//
 	// You can also use `attachToRole(role)` to attach this policy to a role.
 	// Experimental.
-	Roles *[]IRole `json:"roles" yaml:"roles"`
+	Roles *[]IRole `field:"optional" json:"roles" yaml:"roles"`
 	// Initial set of permissions to add to this policy document.
 	//
 	// You can also use `addPermission(statement)` to add permissions later.
 	// Experimental.
-	Statements *[]PolicyStatement `json:"statements" yaml:"statements"`
+	Statements *[]PolicyStatement `field:"optional" json:"statements" yaml:"statements"`
 	// Users to attach this policy to.
 	//
 	// You can also use `attachToUser(user)` to attach this policy to a user.
 	// Experimental.
-	Users *[]IUser `json:"users" yaml:"users"`
+	Users *[]IUser `field:"optional" json:"users" yaml:"users"`
 }
 
 // A principal that represents a federated identity provider as from a OpenID Connect provider.
@@ -16761,7 +16889,7 @@ type OpenIdConnectProviderProps struct {
 	// account. If you try to submit a URL that has already been used for an
 	// OpenID Connect provider in the AWS account, you will get an error.
 	// Experimental.
-	Url *string `json:"url" yaml:"url"`
+	Url *string `field:"required" json:"url" yaml:"url"`
 	// A list of client IDs (also known as audiences).
 	//
 	// When a mobile or web app
@@ -16775,7 +16903,7 @@ type OpenIdConnectProviderProps struct {
 	//
 	// Client IDs are up to 255 characters long.
 	// Experimental.
-	ClientIds *[]*string `json:"clientIds" yaml:"clientIds"`
+	ClientIds *[]*string `field:"optional" json:"clientIds" yaml:"clientIds"`
 	// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificates.
 	//
 	// Typically this list includes only one entry. However, IAM lets you have up
@@ -16793,14 +16921,17 @@ type OpenIdConnectProviderProps struct {
 	// thumbprint string would be the hex-encoded SHA-1 hash value of the
 	// certificate used by https://keys.server.example.com.
 	// Experimental.
-	Thumbprints *[]*string `json:"thumbprints" yaml:"thumbprints"`
+	Thumbprints *[]*string `field:"optional" json:"thumbprints" yaml:"thumbprints"`
 }
 
 // A principal that represents an AWS Organization.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
-//   organizationPrincipal := iam.NewOrganizationPrincipal(jsii.String("organizationId"))
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   organizationPrincipal := awscdk.Aws_iam.NewOrganizationPrincipal(jsii.String("organizationId"))
 //
 // Experimental.
 type OrganizationPrincipal interface {
@@ -17037,6 +17168,7 @@ func (o *jsiiProxy_OrganizationPrincipal) WithSessionTags() PrincipalBase {
 //
 // Example:
 //   var project project
+//
 //   iam.permissionsBoundary.of(project).apply(codebuild.NewUntrustedCodeBoundaryPolicy(this, jsii.String("Boundary")))
 //
 // Experimental.
@@ -17099,6 +17231,7 @@ func (p *jsiiProxy_PermissionsBoundary) Clear() {
 //
 // Example:
 //   var postAuthFn function
+//
 //
 //   userpool := cognito.NewUserPool(this, jsii.String("myuserpool"), &userPoolProps{
 //   	lambdaTriggers: &userPoolTriggers{
@@ -17825,7 +17958,7 @@ func (p *jsiiProxy_PolicyDocument) ValidateForResourcePolicy() *[]*string {
 type PolicyDocumentProps struct {
 	// Automatically assign Statement Ids to all statements.
 	// Experimental.
-	AssignSids *bool `json:"assignSids" yaml:"assignSids"`
+	AssignSids *bool `field:"optional" json:"assignSids" yaml:"assignSids"`
 	// Try to minimize the policy by merging statements.
 	//
 	// To avoid overrunning the maximum policy size, combine statements if they produce
@@ -17839,16 +17972,17 @@ type PolicyDocumentProps struct {
 	// - We will never combine NotPrincipals, NotResources or NotActions, because doing
 	//    so would change the meaning of the policy document.
 	// Experimental.
-	Minimize *bool `json:"minimize" yaml:"minimize"`
+	Minimize *bool `field:"optional" json:"minimize" yaml:"minimize"`
 	// Initial statements to add to the policy document.
 	// Experimental.
-	Statements *[]PolicyStatement `json:"statements" yaml:"statements"`
+	Statements *[]PolicyStatement `field:"optional" json:"statements" yaml:"statements"`
 }
 
 // Properties for defining an IAM inline policy document.
 //
 // Example:
 //   var postAuthFn function
+//
 //
 //   userpool := cognito.NewUserPool(this, jsii.String("myuserpool"), &userPoolProps{
 //   	lambdaTriggers: &userPoolTriggers{
@@ -17878,7 +18012,7 @@ type PolicyProps struct {
 	// `PolicyStatement` provided in the `statements` property will be applied
 	// against the empty default `PolicyDocument`.
 	// Experimental.
-	Document PolicyDocument `json:"document" yaml:"document"`
+	Document PolicyDocument `field:"optional" json:"document" yaml:"document"`
 	// Force creation of an `AWS::IAM::Policy`.
 	//
 	// Unless set to `true`, this `Policy` construct will not materialize to an
@@ -17890,34 +18024,34 @@ type PolicyProps struct {
 	// In cases where you know the policy must be created and it is actually
 	// an error if no statements have been added to it, you can set this to `true`.
 	// Experimental.
-	Force *bool `json:"force" yaml:"force"`
+	Force *bool `field:"optional" json:"force" yaml:"force"`
 	// Groups to attach this policy to.
 	//
 	// You can also use `attachToGroup(group)` to attach this policy to a group.
 	// Experimental.
-	Groups *[]IGroup `json:"groups" yaml:"groups"`
+	Groups *[]IGroup `field:"optional" json:"groups" yaml:"groups"`
 	// The name of the policy.
 	//
 	// If you specify multiple policies for an entity,
 	// specify unique names. For example, if you specify a list of policies for
 	// an IAM role, each policy must have a unique name.
 	// Experimental.
-	PolicyName *string `json:"policyName" yaml:"policyName"`
+	PolicyName *string `field:"optional" json:"policyName" yaml:"policyName"`
 	// Roles to attach this policy to.
 	//
 	// You can also use `attachToRole(role)` to attach this policy to a role.
 	// Experimental.
-	Roles *[]IRole `json:"roles" yaml:"roles"`
+	Roles *[]IRole `field:"optional" json:"roles" yaml:"roles"`
 	// Initial set of permissions to add to this policy document.
 	//
 	// You can also use `addStatements(...statement)` to add permissions later.
 	// Experimental.
-	Statements *[]PolicyStatement `json:"statements" yaml:"statements"`
+	Statements *[]PolicyStatement `field:"optional" json:"statements" yaml:"statements"`
 	// Users to attach this policy to.
 	//
 	// You can also use `attachToUser(user)` to attach this policy to a user.
 	// Experimental.
-	Users *[]IUser `json:"users" yaml:"users"`
+	Users *[]IUser `field:"optional" json:"users" yaml:"users"`
 }
 
 // Represents a statement in an IAM policy document.
@@ -18514,28 +18648,28 @@ func (p *jsiiProxy_PolicyStatement) ValidateForResourcePolicy() *[]*string {
 type PolicyStatementProps struct {
 	// List of actions to add to the statement.
 	// Experimental.
-	Actions *[]*string `json:"actions" yaml:"actions"`
+	Actions *[]*string `field:"optional" json:"actions" yaml:"actions"`
 	// Conditions to add to the statement.
 	// Experimental.
-	Conditions *map[string]interface{} `json:"conditions" yaml:"conditions"`
+	Conditions *map[string]interface{} `field:"optional" json:"conditions" yaml:"conditions"`
 	// Whether to allow or deny the actions in this statement.
 	// Experimental.
-	Effect Effect `json:"effect" yaml:"effect"`
+	Effect Effect `field:"optional" json:"effect" yaml:"effect"`
 	// List of not actions to add to the statement.
 	// Experimental.
-	NotActions *[]*string `json:"notActions" yaml:"notActions"`
+	NotActions *[]*string `field:"optional" json:"notActions" yaml:"notActions"`
 	// List of not principals to add to the statement.
 	// Experimental.
-	NotPrincipals *[]IPrincipal `json:"notPrincipals" yaml:"notPrincipals"`
+	NotPrincipals *[]IPrincipal `field:"optional" json:"notPrincipals" yaml:"notPrincipals"`
 	// NotResource ARNs to add to the statement.
 	// Experimental.
-	NotResources *[]*string `json:"notResources" yaml:"notResources"`
+	NotResources *[]*string `field:"optional" json:"notResources" yaml:"notResources"`
 	// List of principals to add to the statement.
 	// Experimental.
-	Principals *[]IPrincipal `json:"principals" yaml:"principals"`
+	Principals *[]IPrincipal `field:"optional" json:"principals" yaml:"principals"`
 	// Resource ARNs to add to the statement.
 	// Experimental.
-	Resources *[]*string `json:"resources" yaml:"resources"`
+	Resources *[]*string `field:"optional" json:"resources" yaml:"resources"`
 	// The Sid (statement ID) is an optional identifier that you provide for the policy statement.
 	//
 	// You can assign a Sid value to each statement in a
@@ -18543,7 +18677,7 @@ type PolicyStatementProps struct {
 	// SQS and SNS, the Sid value is just a sub-ID of the policy document's ID. In
 	// IAM, the Sid value must be unique within a JSON policy.
 	// Experimental.
-	Sid *string `json:"sid" yaml:"sid"`
+	Sid *string `field:"optional" json:"sid" yaml:"sid"`
 }
 
 // Base class for policy principals.
@@ -18768,10 +18902,13 @@ func (p *jsiiProxy_PrincipalBase) WithSessionTags() PrincipalBase {
 // should contain `{ 'LiteralString': ['*'] }`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var conditions interface{}
-//   principalPolicyFragment := iam.NewPrincipalPolicyFragment(map[string][]*string{
+//
+//   principalPolicyFragment := awscdk.Aws_iam.NewPrincipalPolicyFragment(map[string][]*string{
 //   	"principalJsonKey": []*string{
 //   		jsii.String("principalJson"),
 //   	},
@@ -18850,11 +18987,14 @@ func NewPrincipalPolicyFragment_Override(p PrincipalPolicyFragment, principalJso
 // https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var conditions interface{}
 //   var principal iPrincipal
-//   principalWithConditions := iam.NewPrincipalWithConditions(principal, map[string]interface{}{
+//
+//   principalWithConditions := awscdk.Aws_iam.NewPrincipalWithConditions(principal, map[string]interface{}{
 //   	"conditionsKey": conditions,
 //   })
 //
@@ -19770,24 +19910,24 @@ type RoleProps struct {
 	// You can later modify the assume role policy document by accessing it via
 	// the `assumeRolePolicy` property.
 	// Experimental.
-	AssumedBy IPrincipal `json:"assumedBy" yaml:"assumedBy"`
+	AssumedBy IPrincipal `field:"required" json:"assumedBy" yaml:"assumedBy"`
 	// A description of the role.
 	//
 	// It can be up to 1000 characters long.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// ID that the role assumer needs to provide when assuming this role.
 	//
 	// If the configured and provided external IDs do not match, the
 	// AssumeRole operation will fail.
 	// Deprecated: see {@link externalIds}.
-	ExternalId *string `json:"externalId" yaml:"externalId"`
+	ExternalId *string `field:"optional" json:"externalId" yaml:"externalId"`
 	// List of IDs that the role assumer needs to provide one of when assuming this role.
 	//
 	// If the configured and provided external IDs do not match, the
 	// AssumeRole operation will fail.
 	// Experimental.
-	ExternalIds *[]*string `json:"externalIds" yaml:"externalIds"`
+	ExternalIds *[]*string `field:"optional" json:"externalIds" yaml:"externalIds"`
 	// A list of named policies to inline into this role.
 	//
 	// These policies will be
@@ -19795,13 +19935,13 @@ type RoleProps struct {
 	// using a separate CloudFormation resource (allowing a way around circular
 	// dependencies that could otherwise be introduced).
 	// Experimental.
-	InlinePolicies *map[string]PolicyDocument `json:"inlinePolicies" yaml:"inlinePolicies"`
+	InlinePolicies *map[string]PolicyDocument `field:"optional" json:"inlinePolicies" yaml:"inlinePolicies"`
 	// A list of managed policies associated with this role.
 	//
 	// You can add managed policies later using
 	// `addManagedPolicy(ManagedPolicy.fromAwsManagedPolicyName(policyName))`.
 	// Experimental.
-	ManagedPolicies *[]IManagedPolicy `json:"managedPolicies" yaml:"managedPolicies"`
+	ManagedPolicies *[]IManagedPolicy `field:"optional" json:"managedPolicies" yaml:"managedPolicies"`
 	// The maximum session duration that you want to set for the specified role.
 	//
 	// This setting can have a value from 1 hour (3600sec) to 12 (43200sec) hours.
@@ -19817,13 +19957,13 @@ type RoleProps struct {
 	// you use the AssumeRole* API operations or the assume-role* CLI operations
 	// but does not apply when you use those operations to create a console URL.
 	// Experimental.
-	MaxSessionDuration awscdk.Duration `json:"maxSessionDuration" yaml:"maxSessionDuration"`
+	MaxSessionDuration awscdk.Duration `field:"optional" json:"maxSessionDuration" yaml:"maxSessionDuration"`
 	// The path associated with this role.
 	//
 	// For information about IAM paths, see
 	// Friendly Names and Paths in IAM User Guide.
 	// Experimental.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 	// AWS supports permissions boundaries for IAM entities (users or roles).
 	//
 	// A permissions boundary is an advanced feature for using a managed policy
@@ -19832,7 +19972,7 @@ type RoleProps struct {
 	// the actions that are allowed by both its identity-based policies and its
 	// permissions boundaries.
 	// Experimental.
-	PermissionsBoundary IManagedPolicy `json:"permissionsBoundary" yaml:"permissionsBoundary"`
+	PermissionsBoundary IManagedPolicy `field:"optional" json:"permissionsBoundary" yaml:"permissionsBoundary"`
 	// A name for the IAM role.
 	//
 	// For valid values, see the RoleName parameter for
@@ -19846,7 +19986,7 @@ type RoleProps struct {
 	// acknowledge your template's capabilities. For more information, see
 	// Acknowledging IAM Resources in AWS CloudFormation Templates.
 	// Experimental.
-	RoleName *string `json:"roleName" yaml:"roleName"`
+	RoleName *string `field:"optional" json:"roleName" yaml:"roleName"`
 }
 
 // Principal entity that represents a SAML federated identity provider for programmatic and AWS Management Console access.
@@ -20822,7 +20962,7 @@ func (s *jsiiProxy_SamlProvider) Validate() *[]*string {
 type SamlProviderProps struct {
 	// An XML document generated by an identity provider (IdP) that supports SAML 2.0. The document includes the issuer's name, expiration information, and keys that can be used to validate the SAML authentication response (assertions) that are received from the IdP. You must generate the metadata document using the identity management software that is used as your organization's IdP.
 	// Experimental.
-	MetadataDocument SamlMetadataDocument `json:"metadataDocument" yaml:"metadataDocument"`
+	MetadataDocument SamlMetadataDocument `field:"required" json:"metadataDocument" yaml:"metadataDocument"`
 	// The name of the provider to create.
 	//
 	// This parameter allows a string of characters consisting of upper and
@@ -20831,7 +20971,7 @@ type SamlProviderProps struct {
 	//
 	// Length must be between 1 and 128 characters.
 	// Experimental.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 
 // An IAM principal that represents an AWS service (i.e. sqs.amazonaws.com).
@@ -21078,9 +21218,12 @@ func (s *jsiiProxy_ServicePrincipal) WithSessionTags() PrincipalBase {
 // Options for a service principal.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var conditions interface{}
+//
 //   servicePrincipalOpts := &servicePrincipalOpts{
 //   	conditions: map[string]interface{}{
 //   		"conditionsKey": conditions,
@@ -21092,10 +21235,10 @@ func (s *jsiiProxy_ServicePrincipal) WithSessionTags() PrincipalBase {
 type ServicePrincipalOpts struct {
 	// Additional conditions to add to the Service Principal.
 	// Experimental.
-	Conditions *map[string]interface{} `json:"conditions" yaml:"conditions"`
+	Conditions *map[string]interface{} `field:"optional" json:"conditions" yaml:"conditions"`
 	// The region in which the service is operating.
 	// Deprecated: You should not need to set this. The stack's region is always correct.
-	Region *string `json:"region" yaml:"region"`
+	Region *string `field:"optional" json:"region" yaml:"region"`
 }
 
 // Enables session tags on role assumptions from a principal.
@@ -21104,10 +21247,13 @@ type ServicePrincipalOpts struct {
 // https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var principal iPrincipal
-//   sessionTagsPrincipal := iam.NewSessionTagsPrincipal(principal)
+//
+//   sessionTagsPrincipal := awscdk.Aws_iam.NewSessionTagsPrincipal(principal)
 //
 // Experimental.
 type SessionTagsPrincipal interface {
@@ -21331,8 +21477,11 @@ func (s *jsiiProxy_SessionTagsPrincipal) WithSessionTags() PrincipalBase {
 // should use `AnyPrincipal` instead.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
-//   starPrincipal := iam.NewStarPrincipal()
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   starPrincipal := awscdk.Aws_iam.NewStarPrincipal()
 //
 // Experimental.
 type StarPrincipal interface {
@@ -21558,10 +21707,14 @@ func (s *jsiiProxy_StarPrincipal) WithSessionTags() PrincipalBase {
 // added to it.
 //
 // Example:
-//   import constructs "github.com/aws/constructs-go/constructs"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import constructs "github.com/aws/constructs-go/constructs"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var construct construct
-//   unknownPrincipal := iam.NewUnknownPrincipal(&unknownPrincipalProps{
+//
+//   unknownPrincipal := awscdk.Aws_iam.NewUnknownPrincipal(&unknownPrincipalProps{
 //   	resource: construct,
 //   })
 //
@@ -21676,9 +21829,13 @@ func (u *jsiiProxy_UnknownPrincipal) AddToPrincipalPolicy(statement PolicyStatem
 // Properties for an UnknownPrincipal.
 //
 // Example:
-//   import constructs "github.com/aws/constructs-go/constructs"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import constructs "github.com/aws/constructs-go/constructs"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var construct construct
+//
 //   unknownPrincipalProps := &unknownPrincipalProps{
 //   	resource: construct,
 //   }
@@ -21687,7 +21844,7 @@ func (u *jsiiProxy_UnknownPrincipal) AddToPrincipalPolicy(statement PolicyStatem
 type UnknownPrincipalProps struct {
 	// The resource the role proxy is for.
 	// Experimental.
-	Resource constructs.IConstruct `json:"resource" yaml:"resource"`
+	Resource constructs.IConstruct `field:"required" json:"resource" yaml:"resource"`
 }
 
 // Define a new IAM user.
@@ -22270,18 +22427,18 @@ type UserAttributes struct {
 	//
 	// Format: arn:<partition>:iam::<account-id>:user/<user-name-with-path>.
 	// Experimental.
-	UserArn *string `json:"userArn" yaml:"userArn"`
+	UserArn *string `field:"required" json:"userArn" yaml:"userArn"`
 }
 
 // Properties for defining an IAM user.
 //
 // Example:
-//   user := NewUser(this, jsii.String("MyUser"), &userProps{
+//   user := awscdk.NewUser(this, jsii.String("MyUser"), &userProps{
 //   	password: cdk.secretValue.unsafePlainText(jsii.String("1234")),
 //   })
-//   group := NewGroup(this, jsii.String("MyGroup"))
+//   group := awscdk.NewGroup(this, jsii.String("MyGroup"))
 //
-//   policy := NewPolicy(this, jsii.String("MyPolicy"))
+//   policy := awscdk.NewPolicy(this, jsii.String("MyPolicy"))
 //   policy.attachToUser(user)
 //   group.attachInlinePolicy(policy)
 //
@@ -22292,31 +22449,31 @@ type UserProps struct {
 	// You can also use `addToGroup` to add this
 	// user to a group.
 	// Experimental.
-	Groups *[]IGroup `json:"groups" yaml:"groups"`
+	Groups *[]IGroup `field:"optional" json:"groups" yaml:"groups"`
 	// A list of managed policies associated with this role.
 	//
 	// You can add managed policies later using
 	// `addManagedPolicy(ManagedPolicy.fromAwsManagedPolicyName(policyName))`.
 	// Experimental.
-	ManagedPolicies *[]IManagedPolicy `json:"managedPolicies" yaml:"managedPolicies"`
+	ManagedPolicies *[]IManagedPolicy `field:"optional" json:"managedPolicies" yaml:"managedPolicies"`
 	// The password for the user. This is required so the user can access the AWS Management Console.
 	//
 	// You can use `SecretValue.unsafePlainText` to specify a password in plain text or
 	// use `secretsmanager.Secret.fromSecretAttributes` to reference a secret in
 	// Secrets Manager.
 	// Experimental.
-	Password awscdk.SecretValue `json:"password" yaml:"password"`
+	Password awscdk.SecretValue `field:"optional" json:"password" yaml:"password"`
 	// Specifies whether the user is required to set a new password the next time the user logs in to the AWS Management Console.
 	//
 	// If this is set to 'true', you must also specify "initialPassword".
 	// Experimental.
-	PasswordResetRequired *bool `json:"passwordResetRequired" yaml:"passwordResetRequired"`
+	PasswordResetRequired *bool `field:"optional" json:"passwordResetRequired" yaml:"passwordResetRequired"`
 	// The path for the user name.
 	//
 	// For more information about paths, see IAM
 	// Identifiers in the IAM User Guide.
 	// Experimental.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 	// AWS supports permissions boundaries for IAM entities (users or roles).
 	//
 	// A permissions boundary is an advanced feature for using a managed policy
@@ -22325,7 +22482,7 @@ type UserProps struct {
 	// the actions that are allowed by both its identity-based policies and its
 	// permissions boundaries.
 	// Experimental.
-	PermissionsBoundary IManagedPolicy `json:"permissionsBoundary" yaml:"permissionsBoundary"`
+	PermissionsBoundary IManagedPolicy `field:"optional" json:"permissionsBoundary" yaml:"permissionsBoundary"`
 	// A name for the IAM user.
 	//
 	// For valid values, see the UserName parameter for
@@ -22341,7 +22498,7 @@ type UserProps struct {
 	// acknowledge your template's capabilities. For more information, see
 	// Acknowledging IAM Resources in AWS CloudFormation Templates.
 	// Experimental.
-	UserName *string `json:"userName" yaml:"userName"`
+	UserName *string `field:"optional" json:"userName" yaml:"userName"`
 }
 
 // A principal that represents a federated identity provider as Web Identity such as Cognito, Amazon, Facebook, Google, etc.
@@ -22600,7 +22757,10 @@ func (w *jsiiProxy_WebIdentityPrincipal) WithSessionTags() PrincipalBase {
 // Options for the `withoutPolicyUpdates()` modifier of a Role.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   withoutPolicyUpdatesOptions := &withoutPolicyUpdatesOptions{
 //   	addGrantsToResources: jsii.Boolean(false),
 //   }
@@ -22614,6 +22774,6 @@ type WithoutPolicyUpdatesOptions struct {
 	//
 	// If this is `true`, any grant permissions will be added to the resource instead.
 	// Experimental.
-	AddGrantsToResources *bool `json:"addGrantsToResources" yaml:"addGrantsToResources"`
+	AddGrantsToResources *bool `field:"optional" json:"addGrantsToResources" yaml:"addGrantsToResources"`
 }
 

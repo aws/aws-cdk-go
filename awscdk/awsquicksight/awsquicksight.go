@@ -14,8 +14,11 @@ import (
 // Creates an analysis in Amazon QuickSight.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
-//   cfnAnalysis := quicksight.NewCfnAnalysis(this, jsii.String("MyCfnAnalysis"), &cfnAnalysisProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnAnalysis := awscdk.Aws_quicksight.NewCfnAnalysis(this, jsii.String("MyCfnAnalysis"), &cfnAnalysisProps{
 //   	analysisId: jsii.String("analysisId"),
 //   	awsAccountId: jsii.String("awsAccountId"),
 //   	sourceEntity: &analysisSourceEntityProperty{
@@ -960,7 +963,10 @@ func (c *jsiiProxy_CfnAnalysis) ValidateProperties(_properties interface{}) {
 // Analysis error.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   analysisErrorProperty := &analysisErrorProperty{
 //   	message: jsii.String("message"),
 //   	type: jsii.String("type"),
@@ -968,15 +974,18 @@ func (c *jsiiProxy_CfnAnalysis) ValidateProperties(_properties interface{}) {
 //
 type CfnAnalysis_AnalysisErrorProperty struct {
 	// The message associated with the analysis error.
-	Message *string `json:"message" yaml:"message"`
+	Message *string `field:"optional" json:"message" yaml:"message"`
 	// The type of the analysis error.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 
 // The source entity of an analysis.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   analysisSourceEntityProperty := &analysisSourceEntityProperty{
 //   	sourceTemplate: &analysisSourceTemplateProperty{
 //   		arn: jsii.String("arn"),
@@ -991,13 +1000,16 @@ type CfnAnalysis_AnalysisErrorProperty struct {
 //
 type CfnAnalysis_AnalysisSourceEntityProperty struct {
 	// The source template for the source entity of the analysis.
-	SourceTemplate interface{} `json:"sourceTemplate" yaml:"sourceTemplate"`
+	SourceTemplate interface{} `field:"optional" json:"sourceTemplate" yaml:"sourceTemplate"`
 }
 
 // The source template of an analysis.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   analysisSourceTemplateProperty := &analysisSourceTemplateProperty{
 //   	arn: jsii.String("arn"),
 //   	dataSetReferences: []interface{}{
@@ -1010,15 +1022,18 @@ type CfnAnalysis_AnalysisSourceEntityProperty struct {
 //
 type CfnAnalysis_AnalysisSourceTemplateProperty struct {
 	// The Amazon Resource Name (ARN) of the source template of an analysis.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"required" json:"arn" yaml:"arn"`
 	// The dataset references of the source template of an analysis.
-	DataSetReferences interface{} `json:"dataSetReferences" yaml:"dataSetReferences"`
+	DataSetReferences interface{} `field:"required" json:"dataSetReferences" yaml:"dataSetReferences"`
 }
 
 // Dataset reference.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dataSetReferenceProperty := &dataSetReferenceProperty{
 //   	dataSetArn: jsii.String("dataSetArn"),
 //   	dataSetPlaceholder: jsii.String("dataSetPlaceholder"),
@@ -1026,15 +1041,18 @@ type CfnAnalysis_AnalysisSourceTemplateProperty struct {
 //
 type CfnAnalysis_DataSetReferenceProperty struct {
 	// Dataset Amazon Resource Name (ARN).
-	DataSetArn *string `json:"dataSetArn" yaml:"dataSetArn"`
+	DataSetArn *string `field:"required" json:"dataSetArn" yaml:"dataSetArn"`
 	// Dataset placeholder.
-	DataSetPlaceholder *string `json:"dataSetPlaceholder" yaml:"dataSetPlaceholder"`
+	DataSetPlaceholder *string `field:"required" json:"dataSetPlaceholder" yaml:"dataSetPlaceholder"`
 }
 
 // A date-time parameter.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dateTimeParameterProperty := &dateTimeParameterProperty{
 //   	name: jsii.String("name"),
 //   	values: []*string{
@@ -1044,15 +1062,18 @@ type CfnAnalysis_DataSetReferenceProperty struct {
 //
 type CfnAnalysis_DateTimeParameterProperty struct {
 	// A display name for the date-time parameter.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The values for the date-time parameter.
-	Values *[]*string `json:"values" yaml:"values"`
+	Values *[]*string `field:"required" json:"values" yaml:"values"`
 }
 
 // A decimal parameter.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   decimalParameterProperty := &decimalParameterProperty{
 //   	name: jsii.String("name"),
 //   	values: []interface{}{
@@ -1062,15 +1083,18 @@ type CfnAnalysis_DateTimeParameterProperty struct {
 //
 type CfnAnalysis_DecimalParameterProperty struct {
 	// A display name for the decimal parameter.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The values for the decimal parameter.
-	Values interface{} `json:"values" yaml:"values"`
+	Values interface{} `field:"required" json:"values" yaml:"values"`
 }
 
 // An integer parameter.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   integerParameterProperty := &integerParameterProperty{
 //   	name: jsii.String("name"),
 //   	values: []interface{}{
@@ -1080,15 +1104,18 @@ type CfnAnalysis_DecimalParameterProperty struct {
 //
 type CfnAnalysis_IntegerParameterProperty struct {
 	// The name of the integer parameter.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The values for the integer parameter.
-	Values interface{} `json:"values" yaml:"values"`
+	Values interface{} `field:"required" json:"values" yaml:"values"`
 }
 
 // A list of Amazon QuickSight parameters and the list's override values.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   parametersProperty := &parametersProperty{
 //   	dateTimeParameters: []interface{}{
 //   		&dateTimeParameterProperty{
@@ -1126,19 +1153,22 @@ type CfnAnalysis_IntegerParameterProperty struct {
 //
 type CfnAnalysis_ParametersProperty struct {
 	// The parameters that have a data type of date-time.
-	DateTimeParameters interface{} `json:"dateTimeParameters" yaml:"dateTimeParameters"`
+	DateTimeParameters interface{} `field:"optional" json:"dateTimeParameters" yaml:"dateTimeParameters"`
 	// The parameters that have a data type of decimal.
-	DecimalParameters interface{} `json:"decimalParameters" yaml:"decimalParameters"`
+	DecimalParameters interface{} `field:"optional" json:"decimalParameters" yaml:"decimalParameters"`
 	// The parameters that have a data type of integer.
-	IntegerParameters interface{} `json:"integerParameters" yaml:"integerParameters"`
+	IntegerParameters interface{} `field:"optional" json:"integerParameters" yaml:"integerParameters"`
 	// The parameters that have a data type of string.
-	StringParameters interface{} `json:"stringParameters" yaml:"stringParameters"`
+	StringParameters interface{} `field:"optional" json:"stringParameters" yaml:"stringParameters"`
 }
 
 // Permission for the resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   resourcePermissionProperty := &resourcePermissionProperty{
 //   	actions: []*string{
 //   		jsii.String("actions"),
@@ -1148,13 +1178,13 @@ type CfnAnalysis_ParametersProperty struct {
 //
 type CfnAnalysis_ResourcePermissionProperty struct {
 	// The IAM action to grant or revoke permissions on.
-	Actions *[]*string `json:"actions" yaml:"actions"`
+	Actions *[]*string `field:"required" json:"actions" yaml:"actions"`
 	// The Amazon Resource Name (ARN) of the principal. This can be one of the following:.
 	//
 	// - The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)
 	// - The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)
 	// - The ARN of an AWS account root: This is an IAM ARN rather than a Amazon QuickSight ARN. Use this option only to share resources (templates) across AWS accounts . (This is less common.)
-	Principal *string `json:"principal" yaml:"principal"`
+	Principal *string `field:"required" json:"principal" yaml:"principal"`
 }
 
 // A *sheet* , which is an object that contains a set of visuals that are viewed together on one page in Amazon QuickSight.
@@ -1162,7 +1192,10 @@ type CfnAnalysis_ResourcePermissionProperty struct {
 // Every analysis and dashboard contains at least one sheet. Each sheet contains at least one visualization widget, for example a chart, pivot table, or narrative insight. Sheets can be associated with other components, such as controls, filters, and so on.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sheetProperty := &sheetProperty{
 //   	name: jsii.String("name"),
 //   	sheetId: jsii.String("sheetId"),
@@ -1172,15 +1205,18 @@ type CfnAnalysis_SheetProperty struct {
 	// The name of a sheet.
 	//
 	// This name is displayed on the sheet's tab in the Amazon QuickSight console.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The unique identifier associated with a sheet.
-	SheetId *string `json:"sheetId" yaml:"sheetId"`
+	SheetId *string `field:"optional" json:"sheetId" yaml:"sheetId"`
 }
 
 // A string parameter.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   stringParameterProperty := &stringParameterProperty{
 //   	name: jsii.String("name"),
 //   	values: []*string{
@@ -1190,15 +1226,18 @@ type CfnAnalysis_SheetProperty struct {
 //
 type CfnAnalysis_StringParameterProperty struct {
 	// A display name for a string parameter.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The values of a string parameter.
-	Values *[]*string `json:"values" yaml:"values"`
+	Values *[]*string `field:"required" json:"values" yaml:"values"`
 }
 
 // Properties for defining a `CfnAnalysis`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAnalysisProps := &cfnAnalysisProps{
 //   	analysisId: jsii.String("analysisId"),
 //   	awsAccountId: jsii.String("awsAccountId"),
@@ -1277,35 +1316,35 @@ type CfnAnalysisProps struct {
 	// The ID for the analysis that you're creating.
 	//
 	// This ID displays in the URL of the analysis.
-	AnalysisId *string `json:"analysisId" yaml:"analysisId"`
+	AnalysisId *string `field:"required" json:"analysisId" yaml:"analysisId"`
 	// The ID of the AWS account where you are creating an analysis.
-	AwsAccountId *string `json:"awsAccountId" yaml:"awsAccountId"`
+	AwsAccountId *string `field:"required" json:"awsAccountId" yaml:"awsAccountId"`
 	// A source entity to use for the analysis that you're creating.
 	//
 	// This metadata structure contains details that describe a source template and one or more datasets.
-	SourceEntity interface{} `json:"sourceEntity" yaml:"sourceEntity"`
+	SourceEntity interface{} `field:"required" json:"sourceEntity" yaml:"sourceEntity"`
 	// `AWS::QuickSight::Analysis.Errors`.
-	Errors interface{} `json:"errors" yaml:"errors"`
+	Errors interface{} `field:"optional" json:"errors" yaml:"errors"`
 	// A descriptive name for the analysis that you're creating.
 	//
 	// This name displays for the analysis in the Amazon QuickSight console.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The parameter names and override values that you want to use.
 	//
 	// An analysis can have any parameter type, and some parameters might accept multiple values.
-	Parameters interface{} `json:"parameters" yaml:"parameters"`
+	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// A structure that describes the principals and the resource-level permissions on an analysis.
 	//
 	// You can use the `Permissions` structure to grant permissions by providing a list of AWS Identity and Access Management (IAM) action information for each principal listed by Amazon Resource Name (ARN).
 	//
 	// To specify no permissions, omit `Permissions` .
-	Permissions interface{} `json:"permissions" yaml:"permissions"`
+	Permissions interface{} `field:"optional" json:"permissions" yaml:"permissions"`
 	// Contains a map of the key-value pairs for the resource tag or tags assigned to the analysis.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The ARN for the theme to apply to the analysis that you're creating.
 	//
 	// To see the theme in the Amazon QuickSight console, make sure that you have access to it.
-	ThemeArn *string `json:"themeArn" yaml:"themeArn"`
+	ThemeArn *string `field:"optional" json:"themeArn" yaml:"themeArn"`
 }
 
 // A CloudFormation `AWS::QuickSight::Dashboard`.
@@ -1315,8 +1354,11 @@ type CfnAnalysisProps struct {
 // A dashboard is an entity in Amazon QuickSight that identifies Amazon QuickSight reports, created from analyses. You can share Amazon QuickSight dashboards. With the right permissions, you can create scheduled email reports from them. If you have the correct permissions, you can create a dashboard from a template that exists in a different AWS account .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
-//   cfnDashboard := quicksight.NewCfnDashboard(this, jsii.String("MyCfnDashboard"), &cfnDashboardProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDashboard := awscdk.Aws_quicksight.NewCfnDashboard(this, jsii.String("MyCfnDashboard"), &cfnDashboardProps{
 //   	awsAccountId: jsii.String("awsAccountId"),
 //   	dashboardId: jsii.String("dashboardId"),
 //   	sourceEntity: &dashboardSourceEntityProperty{
@@ -2269,20 +2311,26 @@ func (c *jsiiProxy_CfnDashboard) ValidateProperties(_properties interface{}) {
 // Ad hoc (one-time) filtering option.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   adHocFilteringOptionProperty := &adHocFilteringOptionProperty{
 //   	availabilityStatus: jsii.String("availabilityStatus"),
 //   }
 //
 type CfnDashboard_AdHocFilteringOptionProperty struct {
 	// Availability status.
-	AvailabilityStatus *string `json:"availabilityStatus" yaml:"availabilityStatus"`
+	AvailabilityStatus *string `field:"optional" json:"availabilityStatus" yaml:"availabilityStatus"`
 }
 
 // Dashboard publish options.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dashboardPublishOptionsProperty := &dashboardPublishOptionsProperty{
 //   	adHocFilteringOption: &adHocFilteringOptionProperty{
 //   		availabilityStatus: jsii.String("availabilityStatus"),
@@ -2297,17 +2345,20 @@ type CfnDashboard_AdHocFilteringOptionProperty struct {
 //
 type CfnDashboard_DashboardPublishOptionsProperty struct {
 	// Ad hoc (one-time) filtering option.
-	AdHocFilteringOption interface{} `json:"adHocFilteringOption" yaml:"adHocFilteringOption"`
+	AdHocFilteringOption interface{} `field:"optional" json:"adHocFilteringOption" yaml:"adHocFilteringOption"`
 	// Export to .csv option.
-	ExportToCsvOption interface{} `json:"exportToCsvOption" yaml:"exportToCsvOption"`
+	ExportToCsvOption interface{} `field:"optional" json:"exportToCsvOption" yaml:"exportToCsvOption"`
 	// Sheet controls option.
-	SheetControlsOption interface{} `json:"sheetControlsOption" yaml:"sheetControlsOption"`
+	SheetControlsOption interface{} `field:"optional" json:"sheetControlsOption" yaml:"sheetControlsOption"`
 }
 
 // Dashboard source entity.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dashboardSourceEntityProperty := &dashboardSourceEntityProperty{
 //   	sourceTemplate: &dashboardSourceTemplateProperty{
 //   		arn: jsii.String("arn"),
@@ -2322,13 +2373,16 @@ type CfnDashboard_DashboardPublishOptionsProperty struct {
 //
 type CfnDashboard_DashboardSourceEntityProperty struct {
 	// Source template.
-	SourceTemplate interface{} `json:"sourceTemplate" yaml:"sourceTemplate"`
+	SourceTemplate interface{} `field:"optional" json:"sourceTemplate" yaml:"sourceTemplate"`
 }
 
 // Dashboard source template.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dashboardSourceTemplateProperty := &dashboardSourceTemplateProperty{
 //   	arn: jsii.String("arn"),
 //   	dataSetReferences: []interface{}{
@@ -2341,15 +2395,18 @@ type CfnDashboard_DashboardSourceEntityProperty struct {
 //
 type CfnDashboard_DashboardSourceTemplateProperty struct {
 	// The Amazon Resource Name (ARN) of the resource.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"required" json:"arn" yaml:"arn"`
 	// Dataset references.
-	DataSetReferences interface{} `json:"dataSetReferences" yaml:"dataSetReferences"`
+	DataSetReferences interface{} `field:"required" json:"dataSetReferences" yaml:"dataSetReferences"`
 }
 
 // Dataset reference.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dataSetReferenceProperty := &dataSetReferenceProperty{
 //   	dataSetArn: jsii.String("dataSetArn"),
 //   	dataSetPlaceholder: jsii.String("dataSetPlaceholder"),
@@ -2357,15 +2414,18 @@ type CfnDashboard_DashboardSourceTemplateProperty struct {
 //
 type CfnDashboard_DataSetReferenceProperty struct {
 	// Dataset Amazon Resource Name (ARN).
-	DataSetArn *string `json:"dataSetArn" yaml:"dataSetArn"`
+	DataSetArn *string `field:"required" json:"dataSetArn" yaml:"dataSetArn"`
 	// Dataset placeholder.
-	DataSetPlaceholder *string `json:"dataSetPlaceholder" yaml:"dataSetPlaceholder"`
+	DataSetPlaceholder *string `field:"required" json:"dataSetPlaceholder" yaml:"dataSetPlaceholder"`
 }
 
 // A date-time parameter.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dateTimeParameterProperty := &dateTimeParameterProperty{
 //   	name: jsii.String("name"),
 //   	values: []*string{
@@ -2375,15 +2435,18 @@ type CfnDashboard_DataSetReferenceProperty struct {
 //
 type CfnDashboard_DateTimeParameterProperty struct {
 	// A display name for the date-time parameter.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The values for the date-time parameter.
-	Values *[]*string `json:"values" yaml:"values"`
+	Values *[]*string `field:"required" json:"values" yaml:"values"`
 }
 
 // A decimal parameter.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   decimalParameterProperty := &decimalParameterProperty{
 //   	name: jsii.String("name"),
 //   	values: []interface{}{
@@ -2393,28 +2456,34 @@ type CfnDashboard_DateTimeParameterProperty struct {
 //
 type CfnDashboard_DecimalParameterProperty struct {
 	// A display name for the decimal parameter.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The values for the decimal parameter.
-	Values interface{} `json:"values" yaml:"values"`
+	Values interface{} `field:"required" json:"values" yaml:"values"`
 }
 
 // Export to .csv option.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   exportToCSVOptionProperty := &exportToCSVOptionProperty{
 //   	availabilityStatus: jsii.String("availabilityStatus"),
 //   }
 //
 type CfnDashboard_ExportToCSVOptionProperty struct {
 	// Availability status.
-	AvailabilityStatus *string `json:"availabilityStatus" yaml:"availabilityStatus"`
+	AvailabilityStatus *string `field:"optional" json:"availabilityStatus" yaml:"availabilityStatus"`
 }
 
 // An integer parameter.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   integerParameterProperty := &integerParameterProperty{
 //   	name: jsii.String("name"),
 //   	values: []interface{}{
@@ -2424,15 +2493,18 @@ type CfnDashboard_ExportToCSVOptionProperty struct {
 //
 type CfnDashboard_IntegerParameterProperty struct {
 	// The name of the integer parameter.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The values for the integer parameter.
-	Values interface{} `json:"values" yaml:"values"`
+	Values interface{} `field:"required" json:"values" yaml:"values"`
 }
 
 // A list of Amazon QuickSight parameters and the list's override values.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   parametersProperty := &parametersProperty{
 //   	dateTimeParameters: []interface{}{
 //   		&dateTimeParameterProperty{
@@ -2470,19 +2542,22 @@ type CfnDashboard_IntegerParameterProperty struct {
 //
 type CfnDashboard_ParametersProperty struct {
 	// The parameters that have a data type of date-time.
-	DateTimeParameters interface{} `json:"dateTimeParameters" yaml:"dateTimeParameters"`
+	DateTimeParameters interface{} `field:"optional" json:"dateTimeParameters" yaml:"dateTimeParameters"`
 	// The parameters that have a data type of decimal.
-	DecimalParameters interface{} `json:"decimalParameters" yaml:"decimalParameters"`
+	DecimalParameters interface{} `field:"optional" json:"decimalParameters" yaml:"decimalParameters"`
 	// The parameters that have a data type of integer.
-	IntegerParameters interface{} `json:"integerParameters" yaml:"integerParameters"`
+	IntegerParameters interface{} `field:"optional" json:"integerParameters" yaml:"integerParameters"`
 	// The parameters that have a data type of string.
-	StringParameters interface{} `json:"stringParameters" yaml:"stringParameters"`
+	StringParameters interface{} `field:"optional" json:"stringParameters" yaml:"stringParameters"`
 }
 
 // Permission for the resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   resourcePermissionProperty := &resourcePermissionProperty{
 //   	actions: []*string{
 //   		jsii.String("actions"),
@@ -2492,32 +2567,38 @@ type CfnDashboard_ParametersProperty struct {
 //
 type CfnDashboard_ResourcePermissionProperty struct {
 	// The IAM action to grant or revoke permissions on.
-	Actions *[]*string `json:"actions" yaml:"actions"`
+	Actions *[]*string `field:"required" json:"actions" yaml:"actions"`
 	// The Amazon Resource Name (ARN) of the principal. This can be one of the following:.
 	//
 	// - The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)
 	// - The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)
 	// - The ARN of an AWS account root: This is an IAM ARN rather than a Amazon QuickSight ARN. Use this option only to share resources (templates) across AWS accounts . (This is less common.)
-	Principal *string `json:"principal" yaml:"principal"`
+	Principal *string `field:"required" json:"principal" yaml:"principal"`
 }
 
 // Sheet controls option.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sheetControlsOptionProperty := &sheetControlsOptionProperty{
 //   	visibilityState: jsii.String("visibilityState"),
 //   }
 //
 type CfnDashboard_SheetControlsOptionProperty struct {
 	// Visibility state.
-	VisibilityState *string `json:"visibilityState" yaml:"visibilityState"`
+	VisibilityState *string `field:"optional" json:"visibilityState" yaml:"visibilityState"`
 }
 
 // A string parameter.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   stringParameterProperty := &stringParameterProperty{
 //   	name: jsii.String("name"),
 //   	values: []*string{
@@ -2527,15 +2608,18 @@ type CfnDashboard_SheetControlsOptionProperty struct {
 //
 type CfnDashboard_StringParameterProperty struct {
 	// A display name for a string parameter.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The values of a string parameter.
-	Values *[]*string `json:"values" yaml:"values"`
+	Values *[]*string `field:"required" json:"values" yaml:"values"`
 }
 
 // Properties for defining a `CfnDashboard`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDashboardProps := &cfnDashboardProps{
 //   	awsAccountId: jsii.String("awsAccountId"),
 //   	dashboardId: jsii.String("dashboardId"),
@@ -2618,41 +2702,41 @@ type CfnDashboard_StringParameterProperty struct {
 //
 type CfnDashboardProps struct {
 	// The ID of the AWS account where you want to create the dashboard.
-	AwsAccountId *string `json:"awsAccountId" yaml:"awsAccountId"`
+	AwsAccountId *string `field:"required" json:"awsAccountId" yaml:"awsAccountId"`
 	// The ID for the dashboard, also added to the IAM policy.
-	DashboardId *string `json:"dashboardId" yaml:"dashboardId"`
+	DashboardId *string `field:"required" json:"dashboardId" yaml:"dashboardId"`
 	// The entity that you are using as a source when you create the dashboard.
 	//
 	// In `SourceEntity` , you specify the type of object that you want to use. You can only create a dashboard from a template, so you use a `SourceTemplate` entity. If you need to create a dashboard from an analysis, first convert the analysis to a template by using the `CreateTemplate` API operation. For `SourceTemplate` , specify the Amazon Resource Name (ARN) of the source template. The `SourceTemplate` ARN can contain any AWS account; and any QuickSight-supported AWS Region .
 	//
 	// Use the `DataSetReferences` entity within `SourceTemplate` to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.
-	SourceEntity interface{} `json:"sourceEntity" yaml:"sourceEntity"`
+	SourceEntity interface{} `field:"required" json:"sourceEntity" yaml:"sourceEntity"`
 	// Options for publishing the dashboard when you create it:.
 	//
 	// - `AvailabilityStatus` for `AdHocFilteringOption` - This status can be either `ENABLED` or `DISABLED` . When this is set to `DISABLED` , Amazon QuickSight disables the left filter pane on the published dashboard, which can be used for ad hoc (one-time) filtering. This option is `ENABLED` by default.
 	// - `AvailabilityStatus` for `ExportToCSVOption` - This status can be either `ENABLED` or `DISABLED` . The visual option to export data to .CSV format isn't enabled when this is set to `DISABLED` . This option is `ENABLED` by default.
 	// - `VisibilityState` for `SheetControlsOption` - This visibility state can be either `COLLAPSED` or `EXPANDED` . This option is `COLLAPSED` by default.
-	DashboardPublishOptions interface{} `json:"dashboardPublishOptions" yaml:"dashboardPublishOptions"`
+	DashboardPublishOptions interface{} `field:"optional" json:"dashboardPublishOptions" yaml:"dashboardPublishOptions"`
 	// The display name of the dashboard.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The parameters for the creation of the dashboard, which you want to use to override the default settings.
 	//
 	// A dashboard can have any type of parameters, and some parameters might accept multiple values.
-	Parameters interface{} `json:"parameters" yaml:"parameters"`
+	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// A structure that contains the permissions of the dashboard.
 	//
 	// You can use this structure for granting permissions by providing a list of IAM action information for each principal ARN.
 	//
 	// To specify no permissions, omit the permissions list.
-	Permissions interface{} `json:"permissions" yaml:"permissions"`
+	Permissions interface{} `field:"optional" json:"permissions" yaml:"permissions"`
 	// Contains a map of the key-value pairs for the resource tag or tags assigned to the dashboard.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The Amazon Resource Name (ARN) of the theme that is being used for this dashboard.
 	//
 	// If you add a value for this field, it overrides the value that is used in the source entity. The theme ARN must exist in the same AWS account where you create the dashboard.
-	ThemeArn *string `json:"themeArn" yaml:"themeArn"`
+	ThemeArn *string `field:"optional" json:"themeArn" yaml:"themeArn"`
 	// A description for the first version of the dashboard being created.
-	VersionDescription *string `json:"versionDescription" yaml:"versionDescription"`
+	VersionDescription *string `field:"optional" json:"versionDescription" yaml:"versionDescription"`
 }
 
 // A CloudFormation `AWS::QuickSight::DataSet`.
@@ -2660,8 +2744,11 @@ type CfnDashboardProps struct {
 // Creates a dataset. This operation doesn't support datasets that include uploaded files as a source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
-//   cfnDataSet := quicksight.NewCfnDataSet(this, jsii.String("MyCfnDataSet"), &cfnDataSetProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDataSet := awscdk.Aws_quicksight.NewCfnDataSet(this, jsii.String("MyCfnDataSet"), &cfnDataSetProps{
 //   	awsAccountId: jsii.String("awsAccountId"),
 //   	columnGroups: []interface{}{
 //   		&columnGroupProperty{
@@ -3775,7 +3862,10 @@ func (c *jsiiProxy_CfnDataSet) ValidateProperties(_properties interface{}) {
 // A calculated column for a dataset.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   calculatedColumnProperty := &calculatedColumnProperty{
 //   	columnId: jsii.String("columnId"),
 //   	columnName: jsii.String("columnName"),
@@ -3786,17 +3876,20 @@ type CfnDataSet_CalculatedColumnProperty struct {
 	// A unique ID to identify a calculated column.
 	//
 	// During a dataset update, if the column ID of a calculated column matches that of an existing calculated column, Amazon QuickSight preserves the existing calculated column.
-	ColumnId *string `json:"columnId" yaml:"columnId"`
+	ColumnId *string `field:"required" json:"columnId" yaml:"columnId"`
 	// Column name.
-	ColumnName *string `json:"columnName" yaml:"columnName"`
+	ColumnName *string `field:"required" json:"columnName" yaml:"columnName"`
 	// An expression that defines the calculated column.
-	Expression *string `json:"expression" yaml:"expression"`
+	Expression *string `field:"required" json:"expression" yaml:"expression"`
 }
 
 // A transform operation that casts a column to a different type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   castColumnTypeOperationProperty := &castColumnTypeOperationProperty{
 //   	columnName: jsii.String("columnName"),
 //   	newColumnType: jsii.String("newColumnType"),
@@ -3807,24 +3900,27 @@ type CfnDataSet_CalculatedColumnProperty struct {
 //
 type CfnDataSet_CastColumnTypeOperationProperty struct {
 	// Column name.
-	ColumnName *string `json:"columnName" yaml:"columnName"`
+	ColumnName *string `field:"required" json:"columnName" yaml:"columnName"`
 	// New column data type.
-	NewColumnType *string `json:"newColumnType" yaml:"newColumnType"`
+	NewColumnType *string `field:"required" json:"newColumnType" yaml:"newColumnType"`
 	// When casting a column from string to datetime type, you can supply a string in a format supported by Amazon QuickSight to denote the source data format.
-	Format *string `json:"format" yaml:"format"`
+	Format *string `field:"optional" json:"format" yaml:"format"`
 }
 
 // Metadata that contains a description for a column.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   columnDescriptionProperty := &columnDescriptionProperty{
 //   	text: jsii.String("text"),
 //   }
 //
 type CfnDataSet_ColumnDescriptionProperty struct {
 	// The text of a description for a column.
-	Text *string `json:"text" yaml:"text"`
+	Text *string `field:"optional" json:"text" yaml:"text"`
 }
 
 // Groupings of columns that work together in certain Amazon QuickSight features.
@@ -3832,7 +3928,10 @@ type CfnDataSet_ColumnDescriptionProperty struct {
 // This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   columnGroupProperty := &columnGroupProperty{
 //   	geoSpatialColumnGroup: &geoSpatialColumnGroupProperty{
 //   		columns: []*string{
@@ -3847,7 +3946,7 @@ type CfnDataSet_ColumnDescriptionProperty struct {
 //
 type CfnDataSet_ColumnGroupProperty struct {
 	// Geospatial column group that denotes a hierarchy.
-	GeoSpatialColumnGroup interface{} `json:"geoSpatialColumnGroup" yaml:"geoSpatialColumnGroup"`
+	GeoSpatialColumnGroup interface{} `field:"optional" json:"geoSpatialColumnGroup" yaml:"geoSpatialColumnGroup"`
 }
 
 // A rule defined to grant access on one or more restricted columns.
@@ -3855,7 +3954,10 @@ type CfnDataSet_ColumnGroupProperty struct {
 // Each dataset can have multiple rules. To create a restricted column, you add it to one or more rules. Each rule must contain at least one column and at least one user or group. To be able to see a restricted column, a user or group needs to be added to a rule for that column.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   columnLevelPermissionRuleProperty := &columnLevelPermissionRuleProperty{
 //   	columnNames: []*string{
 //   		jsii.String("columnNames"),
@@ -3867,15 +3969,18 @@ type CfnDataSet_ColumnGroupProperty struct {
 //
 type CfnDataSet_ColumnLevelPermissionRuleProperty struct {
 	// An array of column names.
-	ColumnNames *[]*string `json:"columnNames" yaml:"columnNames"`
+	ColumnNames *[]*string `field:"optional" json:"columnNames" yaml:"columnNames"`
 	// An array of Amazon Resource Names (ARNs) for Amazon QuickSight users or groups.
-	Principals *[]*string `json:"principals" yaml:"principals"`
+	Principals *[]*string `field:"optional" json:"principals" yaml:"principals"`
 }
 
 // A tag for a column in a `[TagColumnOperation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_TagColumnOperation.html)` structure. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   columnTagProperty := &columnTagProperty{
 //   	columnDescription: &columnDescriptionProperty{
 //   		text: jsii.String("text"),
@@ -3885,9 +3990,9 @@ type CfnDataSet_ColumnLevelPermissionRuleProperty struct {
 //
 type CfnDataSet_ColumnTagProperty struct {
 	// A description for a column.
-	ColumnDescription interface{} `json:"columnDescription" yaml:"columnDescription"`
+	ColumnDescription interface{} `field:"optional" json:"columnDescription" yaml:"columnDescription"`
 	// A geospatial role for a column.
-	ColumnGeographicRole *string `json:"columnGeographicRole" yaml:"columnGeographicRole"`
+	ColumnGeographicRole *string `field:"optional" json:"columnGeographicRole" yaml:"columnGeographicRole"`
 }
 
 // A transform operation that creates calculated columns.
@@ -3895,7 +4000,10 @@ type CfnDataSet_ColumnTagProperty struct {
 // Columns created in one such operation form a lexical closure.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   createColumnsOperationProperty := &createColumnsOperationProperty{
 //   	columns: []interface{}{
 //   		&calculatedColumnProperty{
@@ -3908,13 +4016,16 @@ type CfnDataSet_ColumnTagProperty struct {
 //
 type CfnDataSet_CreateColumnsOperationProperty struct {
 	// Calculated columns to create.
-	Columns interface{} `json:"columns" yaml:"columns"`
+	Columns interface{} `field:"required" json:"columns" yaml:"columns"`
 }
 
 // A physical table type built from the results of the custom SQL query.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   customSqlProperty := &customSqlProperty{
 //   	columns: []interface{}{
 //   		&inputColumnProperty{
@@ -3929,19 +4040,22 @@ type CfnDataSet_CreateColumnsOperationProperty struct {
 //
 type CfnDataSet_CustomSqlProperty struct {
 	// The column schema from the SQL query result set.
-	Columns interface{} `json:"columns" yaml:"columns"`
+	Columns interface{} `field:"required" json:"columns" yaml:"columns"`
 	// The Amazon Resource Name (ARN) of the data source.
-	DataSourceArn *string `json:"dataSourceArn" yaml:"dataSourceArn"`
+	DataSourceArn *string `field:"required" json:"dataSourceArn" yaml:"dataSourceArn"`
 	// A display name for the SQL query result.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The SQL query.
-	SqlQuery *string `json:"sqlQuery" yaml:"sqlQuery"`
+	SqlQuery *string `field:"required" json:"sqlQuery" yaml:"sqlQuery"`
 }
 
 // A FieldFolder element is a folder that contains fields and nested subfolders.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   fieldFolderProperty := &fieldFolderProperty{
 //   	columns: []*string{
 //   		jsii.String("columns"),
@@ -3953,15 +4067,18 @@ type CfnDataSet_FieldFolderProperty struct {
 	// A folder has a list of columns.
 	//
 	// A column can only be in one folder.
-	Columns *[]*string `json:"columns" yaml:"columns"`
+	Columns *[]*string `field:"optional" json:"columns" yaml:"columns"`
 	// The description for a field folder.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 
 // A transform operation that filters rows based on a condition.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   filterOperationProperty := &filterOperationProperty{
 //   	conditionExpression: jsii.String("conditionExpression"),
 //   }
@@ -3970,13 +4087,16 @@ type CfnDataSet_FilterOperationProperty struct {
 	// An expression that must evaluate to a Boolean value.
 	//
 	// Rows for which the expression evaluates to true are kept in the dataset.
-	ConditionExpression *string `json:"conditionExpression" yaml:"conditionExpression"`
+	ConditionExpression *string `field:"required" json:"conditionExpression" yaml:"conditionExpression"`
 }
 
 // Geospatial column group that denotes a hierarchy.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   geoSpatialColumnGroupProperty := &geoSpatialColumnGroupProperty{
 //   	columns: []*string{
 //   		jsii.String("columns"),
@@ -3989,11 +4109,11 @@ type CfnDataSet_FilterOperationProperty struct {
 //
 type CfnDataSet_GeoSpatialColumnGroupProperty struct {
 	// Columns in this hierarchy.
-	Columns *[]*string `json:"columns" yaml:"columns"`
+	Columns *[]*string `field:"required" json:"columns" yaml:"columns"`
 	// A display name for the hierarchy.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// Country code.
-	CountryCode *string `json:"countryCode" yaml:"countryCode"`
+	CountryCode *string `field:"optional" json:"countryCode" yaml:"countryCode"`
 }
 
 // The wait policy to use when creating or updating a Dataset.
@@ -4001,7 +4121,10 @@ type CfnDataSet_GeoSpatialColumnGroupProperty struct {
 // The default is to wait for SPICE ingestion to finish with timeout of 36 hours.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   ingestionWaitPolicyProperty := &ingestionWaitPolicyProperty{
 //   	ingestionWaitTimeInHours: jsii.Number(123),
 //   	waitForSpiceIngestion: jsii.Boolean(false),
@@ -4011,17 +4134,20 @@ type CfnDataSet_IngestionWaitPolicyProperty struct {
 	// The maximum time (in hours) to wait for Ingestion to complete.
 	//
 	// Default timeout is 36 hours. Applicable only when `DataSetImportMode` mode is set to SPICE and `WaitForSpiceIngestion` is set to true.
-	IngestionWaitTimeInHours *float64 `json:"ingestionWaitTimeInHours" yaml:"ingestionWaitTimeInHours"`
+	IngestionWaitTimeInHours *float64 `field:"optional" json:"ingestionWaitTimeInHours" yaml:"ingestionWaitTimeInHours"`
 	// Wait for SPICE ingestion to finish to mark dataset creation or update as successful.
 	//
 	// Default (true). Applicable only when `DataSetImportMode` mode is set to SPICE.
-	WaitForSpiceIngestion interface{} `json:"waitForSpiceIngestion" yaml:"waitForSpiceIngestion"`
+	WaitForSpiceIngestion interface{} `field:"optional" json:"waitForSpiceIngestion" yaml:"waitForSpiceIngestion"`
 }
 
 // Metadata for a column that is used as the input of a transform operation.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   inputColumnProperty := &inputColumnProperty{
 //   	name: jsii.String("name"),
 //   	type: jsii.String("type"),
@@ -4029,15 +4155,18 @@ type CfnDataSet_IngestionWaitPolicyProperty struct {
 //
 type CfnDataSet_InputColumnProperty struct {
 	// The name of this column in the underlying data source.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The data type of the column.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 }
 
 // The instructions associated with a join.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   joinInstructionProperty := &joinInstructionProperty{
 //   	leftOperand: jsii.String("leftOperand"),
 //   	onClause: jsii.String("onClause"),
@@ -4055,23 +4184,26 @@ type CfnDataSet_InputColumnProperty struct {
 //
 type CfnDataSet_JoinInstructionProperty struct {
 	// The operand on the left side of a join.
-	LeftOperand *string `json:"leftOperand" yaml:"leftOperand"`
+	LeftOperand *string `field:"required" json:"leftOperand" yaml:"leftOperand"`
 	// The join instructions provided in the `ON` clause of a join.
-	OnClause *string `json:"onClause" yaml:"onClause"`
+	OnClause *string `field:"required" json:"onClause" yaml:"onClause"`
 	// The operand on the right side of a join.
-	RightOperand *string `json:"rightOperand" yaml:"rightOperand"`
+	RightOperand *string `field:"required" json:"rightOperand" yaml:"rightOperand"`
 	// The type of join that it is.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// Join key properties of the left operand.
-	LeftJoinKeyProperties interface{} `json:"leftJoinKeyProperties" yaml:"leftJoinKeyProperties"`
+	LeftJoinKeyProperties interface{} `field:"optional" json:"leftJoinKeyProperties" yaml:"leftJoinKeyProperties"`
 	// Join key properties of the right operand.
-	RightJoinKeyProperties interface{} `json:"rightJoinKeyProperties" yaml:"rightJoinKeyProperties"`
+	RightJoinKeyProperties interface{} `field:"optional" json:"rightJoinKeyProperties" yaml:"rightJoinKeyProperties"`
 }
 
 // Properties associated with the columns participating in a join.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   joinKeyPropertiesProperty := &joinKeyPropertiesProperty{
 //   	uniqueKey: jsii.Boolean(false),
 //   }
@@ -4080,7 +4212,7 @@ type CfnDataSet_JoinKeyPropertiesProperty struct {
 	// A value that indicates that a row in a table is uniquely identified by the columns in a join key.
 	//
 	// This is used by Amazon QuickSight to optimize query performance.
-	UniqueKey interface{} `json:"uniqueKey" yaml:"uniqueKey"`
+	UniqueKey interface{} `field:"optional" json:"uniqueKey" yaml:"uniqueKey"`
 }
 
 // A *logical table* is a unit that joins and that data transformations operate on.
@@ -4088,7 +4220,10 @@ type CfnDataSet_JoinKeyPropertiesProperty struct {
 // A logical table has a source, which can be either a physical table or result of a join. When a logical table points to a physical table, the logical table acts as a mutable copy of that physical table through transform operations.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   logicalTableProperty := &logicalTableProperty{
 //   	alias: jsii.String("alias"),
 //   	source: &logicalTableSourceProperty{
@@ -4157,11 +4292,11 @@ type CfnDataSet_JoinKeyPropertiesProperty struct {
 //
 type CfnDataSet_LogicalTableProperty struct {
 	// A display name for the logical table.
-	Alias *string `json:"alias" yaml:"alias"`
+	Alias *string `field:"required" json:"alias" yaml:"alias"`
 	// Source of this logical table.
-	Source interface{} `json:"source" yaml:"source"`
+	Source interface{} `field:"required" json:"source" yaml:"source"`
 	// Transform operations that act on this logical table.
-	DataTransforms interface{} `json:"dataTransforms" yaml:"dataTransforms"`
+	DataTransforms interface{} `field:"optional" json:"dataTransforms" yaml:"dataTransforms"`
 }
 
 // Information about the source of a logical table.
@@ -4169,7 +4304,10 @@ type CfnDataSet_LogicalTableProperty struct {
 // This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   logicalTableSourceProperty := &logicalTableSourceProperty{
 //   	joinInstruction: &joinInstructionProperty{
 //   		leftOperand: jsii.String("leftOperand"),
@@ -4190,15 +4328,18 @@ type CfnDataSet_LogicalTableProperty struct {
 //
 type CfnDataSet_LogicalTableSourceProperty struct {
 	// Specifies the result of a join of two logical tables.
-	JoinInstruction interface{} `json:"joinInstruction" yaml:"joinInstruction"`
+	JoinInstruction interface{} `field:"optional" json:"joinInstruction" yaml:"joinInstruction"`
 	// Physical table ID.
-	PhysicalTableId *string `json:"physicalTableId" yaml:"physicalTableId"`
+	PhysicalTableId *string `field:"optional" json:"physicalTableId" yaml:"physicalTableId"`
 }
 
 // Output column.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   outputColumnProperty := &outputColumnProperty{
 //   	description: jsii.String("description"),
 //   	name: jsii.String("name"),
@@ -4207,11 +4348,11 @@ type CfnDataSet_LogicalTableSourceProperty struct {
 //
 type CfnDataSet_OutputColumnProperty struct {
 	// A description for a column.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// A display name for the dataset.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Type.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 
 // A view of a data source that contains information about the shape of the data in the underlying source.
@@ -4219,7 +4360,10 @@ type CfnDataSet_OutputColumnProperty struct {
 // This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   physicalTableProperty := &physicalTableProperty{
 //   	customSql: &customSqlProperty{
 //   		columns: []interface{}{
@@ -4268,11 +4412,11 @@ type CfnDataSet_OutputColumnProperty struct {
 //
 type CfnDataSet_PhysicalTableProperty struct {
 	// A physical table type built from the results of the custom SQL query.
-	CustomSql interface{} `json:"customSql" yaml:"customSql"`
+	CustomSql interface{} `field:"optional" json:"customSql" yaml:"customSql"`
 	// A physical table type for relational data sources.
-	RelationalTable interface{} `json:"relationalTable" yaml:"relationalTable"`
+	RelationalTable interface{} `field:"optional" json:"relationalTable" yaml:"relationalTable"`
 	// A physical table type for as S3 data source.
-	S3Source interface{} `json:"s3Source" yaml:"s3Source"`
+	S3Source interface{} `field:"optional" json:"s3Source" yaml:"s3Source"`
 }
 
 // A transform operation that projects columns.
@@ -4280,7 +4424,10 @@ type CfnDataSet_PhysicalTableProperty struct {
 // Operations that come after a projection can only refer to projected columns.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   projectOperationProperty := &projectOperationProperty{
 //   	projectedColumns: []*string{
 //   		jsii.String("projectedColumns"),
@@ -4289,13 +4436,16 @@ type CfnDataSet_PhysicalTableProperty struct {
 //
 type CfnDataSet_ProjectOperationProperty struct {
 	// Projected columns.
-	ProjectedColumns *[]*string `json:"projectedColumns" yaml:"projectedColumns"`
+	ProjectedColumns *[]*string `field:"required" json:"projectedColumns" yaml:"projectedColumns"`
 }
 
 // A physical table type for relational data sources.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   relationalTableProperty := &relationalTableProperty{
 //   	dataSourceArn: jsii.String("dataSourceArn"),
 //   	inputColumns: []interface{}{
@@ -4313,23 +4463,26 @@ type CfnDataSet_ProjectOperationProperty struct {
 //
 type CfnDataSet_RelationalTableProperty struct {
 	// The Amazon Resource Name (ARN) for the data source.
-	DataSourceArn *string `json:"dataSourceArn" yaml:"dataSourceArn"`
+	DataSourceArn *string `field:"required" json:"dataSourceArn" yaml:"dataSourceArn"`
 	// The column schema of the table.
-	InputColumns interface{} `json:"inputColumns" yaml:"inputColumns"`
+	InputColumns interface{} `field:"required" json:"inputColumns" yaml:"inputColumns"`
 	// The name of the relational table.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// `CfnDataSet.RelationalTableProperty.Catalog`.
-	Catalog *string `json:"catalog" yaml:"catalog"`
+	Catalog *string `field:"optional" json:"catalog" yaml:"catalog"`
 	// The schema name.
 	//
 	// This name applies to certain relational database engines.
-	Schema *string `json:"schema" yaml:"schema"`
+	Schema *string `field:"optional" json:"schema" yaml:"schema"`
 }
 
 // A transform operation that renames a column.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   renameColumnOperationProperty := &renameColumnOperationProperty{
 //   	columnName: jsii.String("columnName"),
 //   	newColumnName: jsii.String("newColumnName"),
@@ -4337,15 +4490,18 @@ type CfnDataSet_RelationalTableProperty struct {
 //
 type CfnDataSet_RenameColumnOperationProperty struct {
 	// The name of the column to be renamed.
-	ColumnName *string `json:"columnName" yaml:"columnName"`
+	ColumnName *string `field:"required" json:"columnName" yaml:"columnName"`
 	// The new name for the column.
-	NewColumnName *string `json:"newColumnName" yaml:"newColumnName"`
+	NewColumnName *string `field:"required" json:"newColumnName" yaml:"newColumnName"`
 }
 
 // Permission for the resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   resourcePermissionProperty := &resourcePermissionProperty{
 //   	actions: []*string{
 //   		jsii.String("actions"),
@@ -4355,13 +4511,13 @@ type CfnDataSet_RenameColumnOperationProperty struct {
 //
 type CfnDataSet_ResourcePermissionProperty struct {
 	// The IAM action to grand or revoke permisions on.
-	Actions *[]*string `json:"actions" yaml:"actions"`
+	Actions *[]*string `field:"required" json:"actions" yaml:"actions"`
 	// The Amazon Resource Name (ARN) of the principal. This can be one of the following:.
 	//
 	// - The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)
 	// - The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)
 	// - The ARN of an AWS account root: This is an IAM ARN rather than a Amazon QuickSight ARN. Use this option only to share resources (templates) across AWS accounts . (This is less common.)
-	Principal *string `json:"principal" yaml:"principal"`
+	Principal *string `field:"required" json:"principal" yaml:"principal"`
 }
 
 // Information about a dataset that contains permissions for row-level security (RLS).
@@ -4371,7 +4527,10 @@ type CfnDataSet_ResourcePermissionProperty struct {
 // The option to deny permissions by setting `PermissionPolicy` to `DENY_ACCESS` is not supported for new RLS datasets.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   rowLevelPermissionDataSetProperty := &rowLevelPermissionDataSetProperty{
 //   	arn: jsii.String("arn"),
 //   	permissionPolicy: jsii.String("permissionPolicy"),
@@ -4383,23 +4542,26 @@ type CfnDataSet_ResourcePermissionProperty struct {
 //
 type CfnDataSet_RowLevelPermissionDataSetProperty struct {
 	// The Amazon Resource Name (ARN) of the dataset that contains permissions for RLS.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"required" json:"arn" yaml:"arn"`
 	// The type of permissions to use when interpreting the permissions for RLS.
 	//
 	// `DENY_ACCESS` is included for backward compatibility only.
-	PermissionPolicy *string `json:"permissionPolicy" yaml:"permissionPolicy"`
+	PermissionPolicy *string `field:"required" json:"permissionPolicy" yaml:"permissionPolicy"`
 	// The user or group rules associated with the dataset that contains permissions for RLS.
 	//
 	// By default, `FormatVersion` is `VERSION_1` . When `FormatVersion` is `VERSION_1` , `UserName` and `GroupName` are required. When `FormatVersion` is `VERSION_2` , `UserARN` and `GroupARN` are required, and `Namespace` must not exist.
-	FormatVersion *string `json:"formatVersion" yaml:"formatVersion"`
+	FormatVersion *string `field:"optional" json:"formatVersion" yaml:"formatVersion"`
 	// The namespace associated with the dataset that contains permissions for RLS.
-	Namespace *string `json:"namespace" yaml:"namespace"`
+	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`
 }
 
 // A physical table type for an S3 data source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3SourceProperty := &s3SourceProperty{
 //   	dataSourceArn: jsii.String("dataSourceArn"),
 //   	inputColumns: []interface{}{
@@ -4421,19 +4583,22 @@ type CfnDataSet_RowLevelPermissionDataSetProperty struct {
 //
 type CfnDataSet_S3SourceProperty struct {
 	// The Amazon Resource Name (ARN) for the data source.
-	DataSourceArn *string `json:"dataSourceArn" yaml:"dataSourceArn"`
+	DataSourceArn *string `field:"required" json:"dataSourceArn" yaml:"dataSourceArn"`
 	// A physical table type for an S3 data source.
 	//
 	// > For files that aren't JSON, only `STRING` data types are supported in input columns.
-	InputColumns interface{} `json:"inputColumns" yaml:"inputColumns"`
+	InputColumns interface{} `field:"required" json:"inputColumns" yaml:"inputColumns"`
 	// Information about the format for the S3 source file or files.
-	UploadSettings interface{} `json:"uploadSettings" yaml:"uploadSettings"`
+	UploadSettings interface{} `field:"optional" json:"uploadSettings" yaml:"uploadSettings"`
 }
 
 // A transform operation that tags a column with additional information.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tagColumnOperationProperty := &tagColumnOperationProperty{
 //   	columnName: jsii.String("columnName"),
 //   	tags: []columnTagProperty{
@@ -4448,11 +4613,11 @@ type CfnDataSet_S3SourceProperty struct {
 //
 type CfnDataSet_TagColumnOperationProperty struct {
 	// The column that this operation acts on.
-	ColumnName *string `json:"columnName" yaml:"columnName"`
+	ColumnName *string `field:"required" json:"columnName" yaml:"columnName"`
 	// The dataset column tag, currently only used for geospatial type tagging.
 	//
 	// > This is not tags for the AWS tagging feature.
-	Tags *[]*CfnDataSet_ColumnTagProperty `json:"tags" yaml:"tags"`
+	Tags *[]*CfnDataSet_ColumnTagProperty `field:"required" json:"tags" yaml:"tags"`
 }
 
 // A data transformation on a logical table.
@@ -4460,7 +4625,10 @@ type CfnDataSet_TagColumnOperationProperty struct {
 // This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   transformOperationProperty := &transformOperationProperty{
 //   	castColumnTypeOperation: &castColumnTypeOperationProperty{
 //   		columnName: jsii.String("columnName"),
@@ -4505,27 +4673,30 @@ type CfnDataSet_TagColumnOperationProperty struct {
 //
 type CfnDataSet_TransformOperationProperty struct {
 	// A transform operation that casts a column to a different type.
-	CastColumnTypeOperation interface{} `json:"castColumnTypeOperation" yaml:"castColumnTypeOperation"`
+	CastColumnTypeOperation interface{} `field:"optional" json:"castColumnTypeOperation" yaml:"castColumnTypeOperation"`
 	// An operation that creates calculated columns.
 	//
 	// Columns created in one such operation form a lexical closure.
-	CreateColumnsOperation interface{} `json:"createColumnsOperation" yaml:"createColumnsOperation"`
+	CreateColumnsOperation interface{} `field:"optional" json:"createColumnsOperation" yaml:"createColumnsOperation"`
 	// An operation that filters rows based on some condition.
-	FilterOperation interface{} `json:"filterOperation" yaml:"filterOperation"`
+	FilterOperation interface{} `field:"optional" json:"filterOperation" yaml:"filterOperation"`
 	// An operation that projects columns.
 	//
 	// Operations that come after a projection can only refer to projected columns.
-	ProjectOperation interface{} `json:"projectOperation" yaml:"projectOperation"`
+	ProjectOperation interface{} `field:"optional" json:"projectOperation" yaml:"projectOperation"`
 	// An operation that renames a column.
-	RenameColumnOperation interface{} `json:"renameColumnOperation" yaml:"renameColumnOperation"`
+	RenameColumnOperation interface{} `field:"optional" json:"renameColumnOperation" yaml:"renameColumnOperation"`
 	// An operation that tags a column with additional information.
-	TagColumnOperation interface{} `json:"tagColumnOperation" yaml:"tagColumnOperation"`
+	TagColumnOperation interface{} `field:"optional" json:"tagColumnOperation" yaml:"tagColumnOperation"`
 }
 
 // Information about the format for a source file or files.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   uploadSettingsProperty := &uploadSettingsProperty{
 //   	containsHeader: jsii.Boolean(false),
 //   	delimiter: jsii.String("delimiter"),
@@ -4536,21 +4707,24 @@ type CfnDataSet_TransformOperationProperty struct {
 //
 type CfnDataSet_UploadSettingsProperty struct {
 	// Whether the file has a header row, or the files each have a header row.
-	ContainsHeader interface{} `json:"containsHeader" yaml:"containsHeader"`
+	ContainsHeader interface{} `field:"optional" json:"containsHeader" yaml:"containsHeader"`
 	// The delimiter between values in the file.
-	Delimiter *string `json:"delimiter" yaml:"delimiter"`
+	Delimiter *string `field:"optional" json:"delimiter" yaml:"delimiter"`
 	// File format.
-	Format *string `json:"format" yaml:"format"`
+	Format *string `field:"optional" json:"format" yaml:"format"`
 	// A row number to start reading data from.
-	StartFromRow *float64 `json:"startFromRow" yaml:"startFromRow"`
+	StartFromRow *float64 `field:"optional" json:"startFromRow" yaml:"startFromRow"`
 	// Text qualifier.
-	TextQualifier *string `json:"textQualifier" yaml:"textQualifier"`
+	TextQualifier *string `field:"optional" json:"textQualifier" yaml:"textQualifier"`
 }
 
 // Properties for defining a `CfnDataSet`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDataSetProps := &cfnDataSetProps{
 //   	awsAccountId: jsii.String("awsAccountId"),
 //   	columnGroups: []interface{}{
@@ -4731,37 +4905,37 @@ type CfnDataSet_UploadSettingsProperty struct {
 //
 type CfnDataSetProps struct {
 	// The AWS account ID.
-	AwsAccountId *string `json:"awsAccountId" yaml:"awsAccountId"`
+	AwsAccountId *string `field:"optional" json:"awsAccountId" yaml:"awsAccountId"`
 	// Groupings of columns that work together in certain Amazon QuickSight features.
 	//
 	// Currently, only geospatial hierarchy is supported.
-	ColumnGroups interface{} `json:"columnGroups" yaml:"columnGroups"`
+	ColumnGroups interface{} `field:"optional" json:"columnGroups" yaml:"columnGroups"`
 	// A set of one or more definitions of a `ColumnLevelPermissionRule` .
-	ColumnLevelPermissionRules interface{} `json:"columnLevelPermissionRules" yaml:"columnLevelPermissionRules"`
+	ColumnLevelPermissionRules interface{} `field:"optional" json:"columnLevelPermissionRules" yaml:"columnLevelPermissionRules"`
 	// An ID for the dataset that you want to create.
 	//
 	// This ID is unique per AWS Region for each AWS account.
-	DataSetId *string `json:"dataSetId" yaml:"dataSetId"`
+	DataSetId *string `field:"optional" json:"dataSetId" yaml:"dataSetId"`
 	// The folder that contains fields and nested subfolders for your dataset.
-	FieldFolders interface{} `json:"fieldFolders" yaml:"fieldFolders"`
+	FieldFolders interface{} `field:"optional" json:"fieldFolders" yaml:"fieldFolders"`
 	// Indicates whether you want to import the data into SPICE.
-	ImportMode *string `json:"importMode" yaml:"importMode"`
+	ImportMode *string `field:"optional" json:"importMode" yaml:"importMode"`
 	// The wait policy to use when creating or updating a Dataset.
 	//
 	// The default is to wait for SPICE ingestion to finish with timeout of 36 hours.
-	IngestionWaitPolicy interface{} `json:"ingestionWaitPolicy" yaml:"ingestionWaitPolicy"`
+	IngestionWaitPolicy interface{} `field:"optional" json:"ingestionWaitPolicy" yaml:"ingestionWaitPolicy"`
 	// Configures the combination and transformation of the data from the physical tables.
-	LogicalTableMap interface{} `json:"logicalTableMap" yaml:"logicalTableMap"`
+	LogicalTableMap interface{} `field:"optional" json:"logicalTableMap" yaml:"logicalTableMap"`
 	// The display name for the dataset.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// A list of resource permissions on the dataset.
-	Permissions interface{} `json:"permissions" yaml:"permissions"`
+	Permissions interface{} `field:"optional" json:"permissions" yaml:"permissions"`
 	// Declares the physical tables that are available in the underlying data sources.
-	PhysicalTableMap interface{} `json:"physicalTableMap" yaml:"physicalTableMap"`
+	PhysicalTableMap interface{} `field:"optional" json:"physicalTableMap" yaml:"physicalTableMap"`
 	// The row-level security configuration for the data that you want to create.
-	RowLevelPermissionDataSet interface{} `json:"rowLevelPermissionDataSet" yaml:"rowLevelPermissionDataSet"`
+	RowLevelPermissionDataSet interface{} `field:"optional" json:"rowLevelPermissionDataSet" yaml:"rowLevelPermissionDataSet"`
 	// Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::QuickSight::DataSource`.
@@ -4769,8 +4943,11 @@ type CfnDataSetProps struct {
 // Creates a data source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
-//   cfnDataSource := quicksight.NewCfnDataSource(this, jsii.String("MyCfnDataSource"), &cfnDataSourceProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDataSource := awscdk.Aws_quicksight.NewCfnDataSource(this, jsii.String("MyCfnDataSource"), &cfnDataSourceProps{
 //   	alternateDataSourceParameters: []interface{}{
 //   		&dataSourceParametersProperty{
 //   			amazonElasticsearchParameters: &amazonElasticsearchParametersProperty{
@@ -5970,46 +6147,58 @@ func (c *jsiiProxy_CfnDataSource) ValidateProperties(_properties interface{}) {
 // The parameters for OpenSearch.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   amazonElasticsearchParametersProperty := &amazonElasticsearchParametersProperty{
 //   	domain: jsii.String("domain"),
 //   }
 //
 type CfnDataSource_AmazonElasticsearchParametersProperty struct {
 	// The OpenSearch domain.
-	Domain *string `json:"domain" yaml:"domain"`
+	Domain *string `field:"required" json:"domain" yaml:"domain"`
 }
 
 // The parameters for OpenSearch.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   amazonOpenSearchParametersProperty := &amazonOpenSearchParametersProperty{
 //   	domain: jsii.String("domain"),
 //   }
 //
 type CfnDataSource_AmazonOpenSearchParametersProperty struct {
 	// The OpenSearch domain.
-	Domain *string `json:"domain" yaml:"domain"`
+	Domain *string `field:"required" json:"domain" yaml:"domain"`
 }
 
 // Parameters for Amazon Athena.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   athenaParametersProperty := &athenaParametersProperty{
 //   	workGroup: jsii.String("workGroup"),
 //   }
 //
 type CfnDataSource_AthenaParametersProperty struct {
 	// The workgroup that Amazon Athena uses.
-	WorkGroup *string `json:"workGroup" yaml:"workGroup"`
+	WorkGroup *string `field:"optional" json:"workGroup" yaml:"workGroup"`
 }
 
 // Parameters for Amazon Aurora.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   auroraParametersProperty := &auroraParametersProperty{
 //   	database: jsii.String("database"),
 //   	host: jsii.String("host"),
@@ -6018,17 +6207,20 @@ type CfnDataSource_AthenaParametersProperty struct {
 //
 type CfnDataSource_AuroraParametersProperty struct {
 	// Database.
-	Database *string `json:"database" yaml:"database"`
+	Database *string `field:"required" json:"database" yaml:"database"`
 	// Host.
-	Host *string `json:"host" yaml:"host"`
+	Host *string `field:"required" json:"host" yaml:"host"`
 	// Port.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"required" json:"port" yaml:"port"`
 }
 
 // Parameters for Amazon Aurora PostgreSQL-Compatible Edition.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   auroraPostgreSqlParametersProperty := &auroraPostgreSqlParametersProperty{
 //   	database: jsii.String("database"),
 //   	host: jsii.String("host"),
@@ -6037,17 +6229,20 @@ type CfnDataSource_AuroraParametersProperty struct {
 //
 type CfnDataSource_AuroraPostgreSqlParametersProperty struct {
 	// The Amazon Aurora PostgreSQL database to connect to.
-	Database *string `json:"database" yaml:"database"`
+	Database *string `field:"required" json:"database" yaml:"database"`
 	// The Amazon Aurora PostgreSQL-Compatible host to connect to.
-	Host *string `json:"host" yaml:"host"`
+	Host *string `field:"required" json:"host" yaml:"host"`
 	// The port that Amazon Aurora PostgreSQL is listening on.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"required" json:"port" yaml:"port"`
 }
 
 // The combination of user name and password that are used as credentials.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   credentialPairProperty := &credentialPairProperty{
 //   	password: jsii.String("password"),
 //   	username: jsii.String("username"),
@@ -6142,13 +6337,13 @@ type CfnDataSource_AuroraPostgreSqlParametersProperty struct {
 //
 type CfnDataSource_CredentialPairProperty struct {
 	// Password.
-	Password *string `json:"password" yaml:"password"`
+	Password *string `field:"required" json:"password" yaml:"password"`
 	// User name.
-	Username *string `json:"username" yaml:"username"`
+	Username *string `field:"required" json:"username" yaml:"username"`
 	// A set of alternate data source parameters that you want to share for these credentials.
 	//
 	// The credentials are applied in tandem with the data source parameters when you copy a data source by using a create or update request. The API operation compares the `DataSourceParameters` structure that's in the request with the structures in the `AlternateDataSourceParameters` allow list. If the structures are an exact match, the request is allowed to use the new data source with the existing credentials. If the `AlternateDataSourceParameters` list is null, the `DataSourceParameters` originally used with these `Credentials` is automatically allowed.
-	AlternateDataSourceParameters interface{} `json:"alternateDataSourceParameters" yaml:"alternateDataSourceParameters"`
+	AlternateDataSourceParameters interface{} `field:"optional" json:"alternateDataSourceParameters" yaml:"alternateDataSourceParameters"`
 }
 
 // Data source credentials.
@@ -6156,7 +6351,10 @@ type CfnDataSource_CredentialPairProperty struct {
 // This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dataSourceCredentialsProperty := &dataSourceCredentialsProperty{
 //   	copySourceArn: jsii.String("copySourceArn"),
 //   	credentialPair: &credentialPairProperty{
@@ -6256,17 +6454,20 @@ type CfnDataSource_DataSourceCredentialsProperty struct {
 	// The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
 	//
 	// When `CopySourceArn` is not null, the credential pair from the data source in the ARN is used as the credentials for the `DataSourceCredentials` structure.
-	CopySourceArn *string `json:"copySourceArn" yaml:"copySourceArn"`
+	CopySourceArn *string `field:"optional" json:"copySourceArn" yaml:"copySourceArn"`
 	// Credential pair.
 	//
 	// For more information, see `[CredentialPair](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CredentialPair.html)` .
-	CredentialPair interface{} `json:"credentialPair" yaml:"credentialPair"`
+	CredentialPair interface{} `field:"optional" json:"credentialPair" yaml:"credentialPair"`
 }
 
 // Error information for the data source creation or update.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dataSourceErrorInfoProperty := &dataSourceErrorInfoProperty{
 //   	message: jsii.String("message"),
 //   	type: jsii.String("type"),
@@ -6274,9 +6475,9 @@ type CfnDataSource_DataSourceCredentialsProperty struct {
 //
 type CfnDataSource_DataSourceErrorInfoProperty struct {
 	// Error message.
-	Message *string `json:"message" yaml:"message"`
+	Message *string `field:"optional" json:"message" yaml:"message"`
 	// Error type.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 
 // The parameters that Amazon QuickSight uses to connect to your underlying data source.
@@ -6284,7 +6485,10 @@ type CfnDataSource_DataSourceErrorInfoProperty struct {
 // This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dataSourceParametersProperty := &dataSourceParametersProperty{
 //   	amazonElasticsearchParameters: &amazonElasticsearchParametersProperty{
 //   		domain: jsii.String("domain"),
@@ -6371,45 +6575,48 @@ type CfnDataSource_DataSourceErrorInfoProperty struct {
 //
 type CfnDataSource_DataSourceParametersProperty struct {
 	// The parameters for OpenSearch.
-	AmazonElasticsearchParameters interface{} `json:"amazonElasticsearchParameters" yaml:"amazonElasticsearchParameters"`
+	AmazonElasticsearchParameters interface{} `field:"optional" json:"amazonElasticsearchParameters" yaml:"amazonElasticsearchParameters"`
 	// The parameters for OpenSearch.
-	AmazonOpenSearchParameters interface{} `json:"amazonOpenSearchParameters" yaml:"amazonOpenSearchParameters"`
+	AmazonOpenSearchParameters interface{} `field:"optional" json:"amazonOpenSearchParameters" yaml:"amazonOpenSearchParameters"`
 	// The parameters for Amazon Athena.
-	AthenaParameters interface{} `json:"athenaParameters" yaml:"athenaParameters"`
+	AthenaParameters interface{} `field:"optional" json:"athenaParameters" yaml:"athenaParameters"`
 	// The parameters for Amazon Aurora MySQL.
-	AuroraParameters interface{} `json:"auroraParameters" yaml:"auroraParameters"`
+	AuroraParameters interface{} `field:"optional" json:"auroraParameters" yaml:"auroraParameters"`
 	// The parameters for Amazon Aurora.
-	AuroraPostgreSqlParameters interface{} `json:"auroraPostgreSqlParameters" yaml:"auroraPostgreSqlParameters"`
+	AuroraPostgreSqlParameters interface{} `field:"optional" json:"auroraPostgreSqlParameters" yaml:"auroraPostgreSqlParameters"`
 	// The parameters for MariaDB.
-	MariaDbParameters interface{} `json:"mariaDbParameters" yaml:"mariaDbParameters"`
+	MariaDbParameters interface{} `field:"optional" json:"mariaDbParameters" yaml:"mariaDbParameters"`
 	// The parameters for MySQL.
-	MySqlParameters interface{} `json:"mySqlParameters" yaml:"mySqlParameters"`
+	MySqlParameters interface{} `field:"optional" json:"mySqlParameters" yaml:"mySqlParameters"`
 	// Oracle parameters.
-	OracleParameters interface{} `json:"oracleParameters" yaml:"oracleParameters"`
+	OracleParameters interface{} `field:"optional" json:"oracleParameters" yaml:"oracleParameters"`
 	// The parameters for PostgreSQL.
-	PostgreSqlParameters interface{} `json:"postgreSqlParameters" yaml:"postgreSqlParameters"`
+	PostgreSqlParameters interface{} `field:"optional" json:"postgreSqlParameters" yaml:"postgreSqlParameters"`
 	// The parameters for Presto.
-	PrestoParameters interface{} `json:"prestoParameters" yaml:"prestoParameters"`
+	PrestoParameters interface{} `field:"optional" json:"prestoParameters" yaml:"prestoParameters"`
 	// The parameters for Amazon RDS.
-	RdsParameters interface{} `json:"rdsParameters" yaml:"rdsParameters"`
+	RdsParameters interface{} `field:"optional" json:"rdsParameters" yaml:"rdsParameters"`
 	// The parameters for Amazon Redshift.
-	RedshiftParameters interface{} `json:"redshiftParameters" yaml:"redshiftParameters"`
+	RedshiftParameters interface{} `field:"optional" json:"redshiftParameters" yaml:"redshiftParameters"`
 	// The parameters for S3.
-	S3Parameters interface{} `json:"s3Parameters" yaml:"s3Parameters"`
+	S3Parameters interface{} `field:"optional" json:"s3Parameters" yaml:"s3Parameters"`
 	// The parameters for Snowflake.
-	SnowflakeParameters interface{} `json:"snowflakeParameters" yaml:"snowflakeParameters"`
+	SnowflakeParameters interface{} `field:"optional" json:"snowflakeParameters" yaml:"snowflakeParameters"`
 	// The parameters for Spark.
-	SparkParameters interface{} `json:"sparkParameters" yaml:"sparkParameters"`
+	SparkParameters interface{} `field:"optional" json:"sparkParameters" yaml:"sparkParameters"`
 	// The parameters for SQL Server.
-	SqlServerParameters interface{} `json:"sqlServerParameters" yaml:"sqlServerParameters"`
+	SqlServerParameters interface{} `field:"optional" json:"sqlServerParameters" yaml:"sqlServerParameters"`
 	// The parameters for Teradata.
-	TeradataParameters interface{} `json:"teradataParameters" yaml:"teradataParameters"`
+	TeradataParameters interface{} `field:"optional" json:"teradataParameters" yaml:"teradataParameters"`
 }
 
 // Amazon S3 manifest file location.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   manifestFileLocationProperty := &manifestFileLocationProperty{
 //   	bucket: jsii.String("bucket"),
 //   	key: jsii.String("key"),
@@ -6417,15 +6624,18 @@ type CfnDataSource_DataSourceParametersProperty struct {
 //
 type CfnDataSource_ManifestFileLocationProperty struct {
 	// Amazon S3 bucket.
-	Bucket *string `json:"bucket" yaml:"bucket"`
+	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
 	// Amazon S3 key that identifies an object.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 }
 
 // The parameters for MariaDB.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   mariaDbParametersProperty := &mariaDbParametersProperty{
 //   	database: jsii.String("database"),
 //   	host: jsii.String("host"),
@@ -6434,17 +6644,20 @@ type CfnDataSource_ManifestFileLocationProperty struct {
 //
 type CfnDataSource_MariaDbParametersProperty struct {
 	// Database.
-	Database *string `json:"database" yaml:"database"`
+	Database *string `field:"required" json:"database" yaml:"database"`
 	// Host.
-	Host *string `json:"host" yaml:"host"`
+	Host *string `field:"required" json:"host" yaml:"host"`
 	// Port.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"required" json:"port" yaml:"port"`
 }
 
 // The parameters for MySQL.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   mySqlParametersProperty := &mySqlParametersProperty{
 //   	database: jsii.String("database"),
 //   	host: jsii.String("host"),
@@ -6453,17 +6666,20 @@ type CfnDataSource_MariaDbParametersProperty struct {
 //
 type CfnDataSource_MySqlParametersProperty struct {
 	// Database.
-	Database *string `json:"database" yaml:"database"`
+	Database *string `field:"required" json:"database" yaml:"database"`
 	// Host.
-	Host *string `json:"host" yaml:"host"`
+	Host *string `field:"required" json:"host" yaml:"host"`
 	// Port.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"required" json:"port" yaml:"port"`
 }
 
 // Oracle parameters.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   oracleParametersProperty := &oracleParametersProperty{
 //   	database: jsii.String("database"),
 //   	host: jsii.String("host"),
@@ -6472,17 +6688,20 @@ type CfnDataSource_MySqlParametersProperty struct {
 //
 type CfnDataSource_OracleParametersProperty struct {
 	// Database.
-	Database *string `json:"database" yaml:"database"`
+	Database *string `field:"required" json:"database" yaml:"database"`
 	// Host.
-	Host *string `json:"host" yaml:"host"`
+	Host *string `field:"required" json:"host" yaml:"host"`
 	// Port.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"required" json:"port" yaml:"port"`
 }
 
 // The parameters for PostgreSQL.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   postgreSqlParametersProperty := &postgreSqlParametersProperty{
 //   	database: jsii.String("database"),
 //   	host: jsii.String("host"),
@@ -6491,17 +6710,20 @@ type CfnDataSource_OracleParametersProperty struct {
 //
 type CfnDataSource_PostgreSqlParametersProperty struct {
 	// Database.
-	Database *string `json:"database" yaml:"database"`
+	Database *string `field:"required" json:"database" yaml:"database"`
 	// Host.
-	Host *string `json:"host" yaml:"host"`
+	Host *string `field:"required" json:"host" yaml:"host"`
 	// Port.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"required" json:"port" yaml:"port"`
 }
 
 // The parameters for Presto.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   prestoParametersProperty := &prestoParametersProperty{
 //   	catalog: jsii.String("catalog"),
 //   	host: jsii.String("host"),
@@ -6510,17 +6732,20 @@ type CfnDataSource_PostgreSqlParametersProperty struct {
 //
 type CfnDataSource_PrestoParametersProperty struct {
 	// Catalog.
-	Catalog *string `json:"catalog" yaml:"catalog"`
+	Catalog *string `field:"required" json:"catalog" yaml:"catalog"`
 	// Host.
-	Host *string `json:"host" yaml:"host"`
+	Host *string `field:"required" json:"host" yaml:"host"`
 	// Port.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"required" json:"port" yaml:"port"`
 }
 
 // The parameters for Amazon RDS.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   rdsParametersProperty := &rdsParametersProperty{
 //   	database: jsii.String("database"),
 //   	instanceId: jsii.String("instanceId"),
@@ -6528,9 +6753,9 @@ type CfnDataSource_PrestoParametersProperty struct {
 //
 type CfnDataSource_RdsParametersProperty struct {
 	// Database.
-	Database *string `json:"database" yaml:"database"`
+	Database *string `field:"required" json:"database" yaml:"database"`
 	// Instance ID.
-	InstanceId *string `json:"instanceId" yaml:"instanceId"`
+	InstanceId *string `field:"required" json:"instanceId" yaml:"instanceId"`
 }
 
 // The parameters for Amazon Redshift.
@@ -6538,7 +6763,10 @@ type CfnDataSource_RdsParametersProperty struct {
 // The `ClusterId` field can be blank if `Host` and `Port` are both set. The `Host` and `Port` fields can be blank if the `ClusterId` field is set.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   redshiftParametersProperty := &redshiftParametersProperty{
 //   	database: jsii.String("database"),
 //
@@ -6550,25 +6778,28 @@ type CfnDataSource_RdsParametersProperty struct {
 //
 type CfnDataSource_RedshiftParametersProperty struct {
 	// Database.
-	Database *string `json:"database" yaml:"database"`
+	Database *string `field:"required" json:"database" yaml:"database"`
 	// Cluster ID.
 	//
 	// This field can be blank if the `Host` and `Port` are provided.
-	ClusterId *string `json:"clusterId" yaml:"clusterId"`
+	ClusterId *string `field:"optional" json:"clusterId" yaml:"clusterId"`
 	// Host.
 	//
 	// This field can be blank if `ClusterId` is provided.
-	Host *string `json:"host" yaml:"host"`
+	Host *string `field:"optional" json:"host" yaml:"host"`
 	// Port.
 	//
 	// This field can be blank if the `ClusterId` is provided.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"optional" json:"port" yaml:"port"`
 }
 
 // Permission for the resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   resourcePermissionProperty := &resourcePermissionProperty{
 //   	actions: []*string{
 //   		jsii.String("actions"),
@@ -6578,19 +6809,22 @@ type CfnDataSource_RedshiftParametersProperty struct {
 //
 type CfnDataSource_ResourcePermissionProperty struct {
 	// The IAM action to grant or revoke permissions on.
-	Actions *[]*string `json:"actions" yaml:"actions"`
+	Actions *[]*string `field:"required" json:"actions" yaml:"actions"`
 	// The Amazon Resource Name (ARN) of the principal. This can be one of the following:.
 	//
 	// - The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)
 	// - The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)
 	// - The ARN of an AWS account root: This is an IAM ARN rather than a Amazon QuickSight ARN. Use this option only to share resources (templates) across AWS accounts . (This is less common.)
-	Principal *string `json:"principal" yaml:"principal"`
+	Principal *string `field:"required" json:"principal" yaml:"principal"`
 }
 
 // The parameters for S3.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3ParametersProperty := &s3ParametersProperty{
 //   	manifestFileLocation: &manifestFileLocationProperty{
 //   		bucket: jsii.String("bucket"),
@@ -6602,13 +6836,16 @@ type CfnDataSource_S3ParametersProperty struct {
 	// Location of the Amazon S3 manifest file.
 	//
 	// This is NULL if the manifest file was uploaded into Amazon QuickSight.
-	ManifestFileLocation interface{} `json:"manifestFileLocation" yaml:"manifestFileLocation"`
+	ManifestFileLocation interface{} `field:"required" json:"manifestFileLocation" yaml:"manifestFileLocation"`
 }
 
 // The parameters for Snowflake.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   snowflakeParametersProperty := &snowflakeParametersProperty{
 //   	database: jsii.String("database"),
 //   	host: jsii.String("host"),
@@ -6617,17 +6854,20 @@ type CfnDataSource_S3ParametersProperty struct {
 //
 type CfnDataSource_SnowflakeParametersProperty struct {
 	// Database.
-	Database *string `json:"database" yaml:"database"`
+	Database *string `field:"required" json:"database" yaml:"database"`
 	// Host.
-	Host *string `json:"host" yaml:"host"`
+	Host *string `field:"required" json:"host" yaml:"host"`
 	// Warehouse.
-	Warehouse *string `json:"warehouse" yaml:"warehouse"`
+	Warehouse *string `field:"required" json:"warehouse" yaml:"warehouse"`
 }
 
 // The parameters for Spark.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sparkParametersProperty := &sparkParametersProperty{
 //   	host: jsii.String("host"),
 //   	port: jsii.Number(123),
@@ -6635,15 +6875,18 @@ type CfnDataSource_SnowflakeParametersProperty struct {
 //
 type CfnDataSource_SparkParametersProperty struct {
 	// Host.
-	Host *string `json:"host" yaml:"host"`
+	Host *string `field:"required" json:"host" yaml:"host"`
 	// Port.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"required" json:"port" yaml:"port"`
 }
 
 // The parameters for SQL Server.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sqlServerParametersProperty := &sqlServerParametersProperty{
 //   	database: jsii.String("database"),
 //   	host: jsii.String("host"),
@@ -6652,30 +6895,36 @@ type CfnDataSource_SparkParametersProperty struct {
 //
 type CfnDataSource_SqlServerParametersProperty struct {
 	// Database.
-	Database *string `json:"database" yaml:"database"`
+	Database *string `field:"required" json:"database" yaml:"database"`
 	// Host.
-	Host *string `json:"host" yaml:"host"`
+	Host *string `field:"required" json:"host" yaml:"host"`
 	// Port.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"required" json:"port" yaml:"port"`
 }
 
 // Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying data source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sslPropertiesProperty := &sslPropertiesProperty{
 //   	disableSsl: jsii.Boolean(false),
 //   }
 //
 type CfnDataSource_SslPropertiesProperty struct {
 	// A Boolean option to control whether SSL should be disabled.
-	DisableSsl interface{} `json:"disableSsl" yaml:"disableSsl"`
+	DisableSsl interface{} `field:"optional" json:"disableSsl" yaml:"disableSsl"`
 }
 
 // The parameters for Teradata.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   teradataParametersProperty := &teradataParametersProperty{
 //   	database: jsii.String("database"),
 //   	host: jsii.String("host"),
@@ -6684,30 +6933,36 @@ type CfnDataSource_SslPropertiesProperty struct {
 //
 type CfnDataSource_TeradataParametersProperty struct {
 	// Database.
-	Database *string `json:"database" yaml:"database"`
+	Database *string `field:"required" json:"database" yaml:"database"`
 	// Host.
-	Host *string `json:"host" yaml:"host"`
+	Host *string `field:"required" json:"host" yaml:"host"`
 	// Port.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"required" json:"port" yaml:"port"`
 }
 
 // VPC connection properties.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   vpcConnectionPropertiesProperty := &vpcConnectionPropertiesProperty{
 //   	vpcConnectionArn: jsii.String("vpcConnectionArn"),
 //   }
 //
 type CfnDataSource_VpcConnectionPropertiesProperty struct {
 	// The Amazon Resource Name (ARN) for the VPC connection.
-	VpcConnectionArn *string `json:"vpcConnectionArn" yaml:"vpcConnectionArn"`
+	VpcConnectionArn *string `field:"required" json:"vpcConnectionArn" yaml:"vpcConnectionArn"`
 }
 
 // Properties for defining a `CfnDataSource`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDataSourceProps := &cfnDataSourceProps{
 //   	alternateDataSourceParameters: []interface{}{
 //   		&dataSourceParametersProperty{
@@ -7005,35 +7260,35 @@ type CfnDataSourceProps struct {
 	// A set of alternate data source parameters that you want to share for the credentials stored with this data source.
 	//
 	// The credentials are applied in tandem with the data source parameters when you copy a data source by using a create or update request. The API operation compares the `DataSourceParameters` structure that's in the request with the structures in the `AlternateDataSourceParameters` allow list. If the structures are an exact match, the request is allowed to use the credentials from this existing data source. If the `AlternateDataSourceParameters` list is null, the `Credentials` originally used with this `DataSourceParameters` are automatically allowed.
-	AlternateDataSourceParameters interface{} `json:"alternateDataSourceParameters" yaml:"alternateDataSourceParameters"`
+	AlternateDataSourceParameters interface{} `field:"optional" json:"alternateDataSourceParameters" yaml:"alternateDataSourceParameters"`
 	// The AWS account ID.
-	AwsAccountId *string `json:"awsAccountId" yaml:"awsAccountId"`
+	AwsAccountId *string `field:"optional" json:"awsAccountId" yaml:"awsAccountId"`
 	// The credentials Amazon QuickSight that uses to connect to your underlying source.
 	//
 	// Currently, only credentials based on user name and password are supported.
-	Credentials interface{} `json:"credentials" yaml:"credentials"`
+	Credentials interface{} `field:"optional" json:"credentials" yaml:"credentials"`
 	// An ID for the data source.
 	//
 	// This ID is unique per AWS Region for each AWS account.
-	DataSourceId *string `json:"dataSourceId" yaml:"dataSourceId"`
+	DataSourceId *string `field:"optional" json:"dataSourceId" yaml:"dataSourceId"`
 	// The parameters that Amazon QuickSight uses to connect to your underlying source.
-	DataSourceParameters interface{} `json:"dataSourceParameters" yaml:"dataSourceParameters"`
+	DataSourceParameters interface{} `field:"optional" json:"dataSourceParameters" yaml:"dataSourceParameters"`
 	// Error information from the last update or the creation of the data source.
-	ErrorInfo interface{} `json:"errorInfo" yaml:"errorInfo"`
+	ErrorInfo interface{} `field:"optional" json:"errorInfo" yaml:"errorInfo"`
 	// A display name for the data source.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// A list of resource permissions on the data source.
-	Permissions interface{} `json:"permissions" yaml:"permissions"`
+	Permissions interface{} `field:"optional" json:"permissions" yaml:"permissions"`
 	// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source.
-	SslProperties interface{} `json:"sslProperties" yaml:"sslProperties"`
+	SslProperties interface{} `field:"optional" json:"sslProperties" yaml:"sslProperties"`
 	// Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The type of the data source. To return a list of all data sources, use `ListDataSources` .
 	//
 	// Use `AMAZON_ELASTICSEARCH` for Amazon OpenSearch Service.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 	// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source.
-	VpcConnectionProperties interface{} `json:"vpcConnectionProperties" yaml:"vpcConnectionProperties"`
+	VpcConnectionProperties interface{} `field:"optional" json:"vpcConnectionProperties" yaml:"vpcConnectionProperties"`
 }
 
 // A CloudFormation `AWS::QuickSight::Template`.
@@ -7043,8 +7298,11 @@ type CfnDataSourceProps struct {
 // A *template* is an entity in Amazon QuickSight that encapsulates the metadata required to create an analysis and that you can use to create s dashboard. A template adds a layer of abstraction by using placeholders to replace the dataset associated with the analysis. You can use templates to create dashboards by replacing dataset placeholders with datasets that follow the same schema that was used to create the source analysis and template.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
-//   cfnTemplate := quicksight.NewCfnTemplate(this, jsii.String("MyCfnTemplate"), &cfnTemplateProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnTemplate := awscdk.Aws_quicksight.NewCfnTemplate(this, jsii.String("MyCfnTemplate"), &cfnTemplateProps{
 //   	awsAccountId: jsii.String("awsAccountId"),
 //   	sourceEntity: &templateSourceEntityProperty{
 //   		sourceAnalysis: &templateSourceAnalysisProperty{
@@ -7873,7 +8131,10 @@ func (c *jsiiProxy_CfnTemplate) ValidateProperties(_properties interface{}) {
 // Dataset reference.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dataSetReferenceProperty := &dataSetReferenceProperty{
 //   	dataSetArn: jsii.String("dataSetArn"),
 //   	dataSetPlaceholder: jsii.String("dataSetPlaceholder"),
@@ -7881,15 +8142,18 @@ func (c *jsiiProxy_CfnTemplate) ValidateProperties(_properties interface{}) {
 //
 type CfnTemplate_DataSetReferenceProperty struct {
 	// Dataset Amazon Resource Name (ARN).
-	DataSetArn *string `json:"dataSetArn" yaml:"dataSetArn"`
+	DataSetArn *string `field:"required" json:"dataSetArn" yaml:"dataSetArn"`
 	// Dataset placeholder.
-	DataSetPlaceholder *string `json:"dataSetPlaceholder" yaml:"dataSetPlaceholder"`
+	DataSetPlaceholder *string `field:"required" json:"dataSetPlaceholder" yaml:"dataSetPlaceholder"`
 }
 
 // Permission for the resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   resourcePermissionProperty := &resourcePermissionProperty{
 //   	actions: []*string{
 //   		jsii.String("actions"),
@@ -7899,19 +8163,22 @@ type CfnTemplate_DataSetReferenceProperty struct {
 //
 type CfnTemplate_ResourcePermissionProperty struct {
 	// The IAM action to grant or revoke permissions on.
-	Actions *[]*string `json:"actions" yaml:"actions"`
+	Actions *[]*string `field:"required" json:"actions" yaml:"actions"`
 	// The Amazon Resource Name (ARN) of the principal. This can be one of the following:.
 	//
 	// - The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)
 	// - The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)
 	// - The ARN of an AWS account root: This is an IAM ARN rather than a Amazon QuickSight ARN. Use this option only to share resources (templates) across AWS accounts . (This is less common.)
-	Principal *string `json:"principal" yaml:"principal"`
+	Principal *string `field:"required" json:"principal" yaml:"principal"`
 }
 
 // The source analysis of the template.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   templateSourceAnalysisProperty := &templateSourceAnalysisProperty{
 //   	arn: jsii.String("arn"),
 //   	dataSetReferences: []interface{}{
@@ -7924,15 +8191,18 @@ type CfnTemplate_ResourcePermissionProperty struct {
 //
 type CfnTemplate_TemplateSourceAnalysisProperty struct {
 	// The Amazon Resource Name (ARN) of the resource.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"required" json:"arn" yaml:"arn"`
 	// A structure containing information about the dataset references used as placeholders in the template.
-	DataSetReferences interface{} `json:"dataSetReferences" yaml:"dataSetReferences"`
+	DataSetReferences interface{} `field:"required" json:"dataSetReferences" yaml:"dataSetReferences"`
 }
 
 // The source entity of the template.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   templateSourceEntityProperty := &templateSourceEntityProperty{
 //   	sourceAnalysis: &templateSourceAnalysisProperty{
 //   		arn: jsii.String("arn"),
@@ -7950,28 +8220,34 @@ type CfnTemplate_TemplateSourceAnalysisProperty struct {
 //
 type CfnTemplate_TemplateSourceEntityProperty struct {
 	// The source analysis, if it is based on an analysis.
-	SourceAnalysis interface{} `json:"sourceAnalysis" yaml:"sourceAnalysis"`
+	SourceAnalysis interface{} `field:"optional" json:"sourceAnalysis" yaml:"sourceAnalysis"`
 	// The source template, if it is based on an template.
-	SourceTemplate interface{} `json:"sourceTemplate" yaml:"sourceTemplate"`
+	SourceTemplate interface{} `field:"optional" json:"sourceTemplate" yaml:"sourceTemplate"`
 }
 
 // The source template of the template.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   templateSourceTemplateProperty := &templateSourceTemplateProperty{
 //   	arn: jsii.String("arn"),
 //   }
 //
 type CfnTemplate_TemplateSourceTemplateProperty struct {
 	// The Amazon Resource Name (ARN) of the resource.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"required" json:"arn" yaml:"arn"`
 }
 
 // Properties for defining a `CfnTemplate`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnTemplateProps := &cfnTemplateProps{
 //   	awsAccountId: jsii.String("awsAccountId"),
 //   	sourceEntity: &templateSourceEntityProperty{
@@ -8013,27 +8289,27 @@ type CfnTemplateProps struct {
 	// The ID for the AWS account that the group is in.
 	//
 	// You use the ID for the AWS account that contains your Amazon QuickSight account.
-	AwsAccountId *string `json:"awsAccountId" yaml:"awsAccountId"`
+	AwsAccountId *string `field:"required" json:"awsAccountId" yaml:"awsAccountId"`
 	// The entity that you are using as a source when you create the template.
 	//
 	// In `SourceEntity` , you specify the type of object you're using as source: `SourceTemplate` for a template or `SourceAnalysis` for an analysis. Both of these require an Amazon Resource Name (ARN). For `SourceTemplate` , specify the ARN of the source template. For `SourceAnalysis` , specify the ARN of the source analysis. The `SourceTemplate` ARN can contain any AWS account and any Amazon QuickSight-supported AWS Region .
 	//
 	// Use the `DataSetReferences` entity within `SourceTemplate` or `SourceAnalysis` to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.
-	SourceEntity interface{} `json:"sourceEntity" yaml:"sourceEntity"`
+	SourceEntity interface{} `field:"required" json:"sourceEntity" yaml:"sourceEntity"`
 	// An ID for the template that you want to create.
 	//
 	// This template is unique per AWS Region ; in each AWS account.
-	TemplateId *string `json:"templateId" yaml:"templateId"`
+	TemplateId *string `field:"required" json:"templateId" yaml:"templateId"`
 	// A display name for the template.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// A list of resource permissions to be set on the template.
-	Permissions interface{} `json:"permissions" yaml:"permissions"`
+	Permissions interface{} `field:"optional" json:"permissions" yaml:"permissions"`
 	// Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// A description of the current template version being created.
 	//
 	// This API operation creates the first version of the template. Every time `UpdateTemplate` is called, a new version is created. Each version of the template maintains a description of the version in the `VersionDescription` field.
-	VersionDescription *string `json:"versionDescription" yaml:"versionDescription"`
+	VersionDescription *string `field:"optional" json:"versionDescription" yaml:"versionDescription"`
 }
 
 // A CloudFormation `AWS::QuickSight::Theme`.
@@ -8043,8 +8319,11 @@ type CfnTemplateProps struct {
 // A *theme* is set of configuration options for color and layout. Themes apply to analyses and dashboards. For more information, see [Using Themes in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html) in the *Amazon QuickSight User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
-//   cfnTheme := quicksight.NewCfnTheme(this, jsii.String("MyCfnTheme"), &cfnThemeProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnTheme := awscdk.Aws_quicksight.NewCfnTheme(this, jsii.String("MyCfnTheme"), &cfnThemeProps{
 //   	awsAccountId: jsii.String("awsAccountId"),
 //   	themeId: jsii.String("themeId"),
 //
@@ -8940,14 +9219,17 @@ func (c *jsiiProxy_CfnTheme) ValidateProperties(_properties interface{}) {
 // The display options for tile borders for visuals.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   borderStyleProperty := &borderStyleProperty{
 //   	show: jsii.Boolean(false),
 //   }
 //
 type CfnTheme_BorderStyleProperty struct {
 	// The option to enable display of borders for visuals.
-	Show interface{} `json:"show" yaml:"show"`
+	Show interface{} `field:"optional" json:"show" yaml:"show"`
 }
 
 // The theme colors that are used for data colors in charts.
@@ -8955,7 +9237,10 @@ type CfnTheme_BorderStyleProperty struct {
 // The colors description is a hexadecimal color code that consists of six alphanumerical characters, prefixed with `#` , for example #37BFF5.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dataColorPaletteProperty := &dataColorPaletteProperty{
 //   	colors: []*string{
 //   		jsii.String("colors"),
@@ -8968,54 +9253,66 @@ type CfnTheme_BorderStyleProperty struct {
 //
 type CfnTheme_DataColorPaletteProperty struct {
 	// The hexadecimal codes for the colors.
-	Colors *[]*string `json:"colors" yaml:"colors"`
+	Colors *[]*string `field:"optional" json:"colors" yaml:"colors"`
 	// The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
-	EmptyFillColor *string `json:"emptyFillColor" yaml:"emptyFillColor"`
+	EmptyFillColor *string `field:"optional" json:"emptyFillColor" yaml:"emptyFillColor"`
 	// The minimum and maximum hexadecimal codes that describe a color gradient.
-	MinMaxGradient *[]*string `json:"minMaxGradient" yaml:"minMaxGradient"`
+	MinMaxGradient *[]*string `field:"optional" json:"minMaxGradient" yaml:"minMaxGradient"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   fontProperty := &fontProperty{
 //   	fontFamily: jsii.String("fontFamily"),
 //   }
 //
 type CfnTheme_FontProperty struct {
 	// `CfnTheme.FontProperty.FontFamily`.
-	FontFamily *string `json:"fontFamily" yaml:"fontFamily"`
+	FontFamily *string `field:"optional" json:"fontFamily" yaml:"fontFamily"`
 }
 
 // The display options for gutter spacing between tiles on a sheet.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   gutterStyleProperty := &gutterStyleProperty{
 //   	show: jsii.Boolean(false),
 //   }
 //
 type CfnTheme_GutterStyleProperty struct {
 	// This Boolean value controls whether to display a gutter space between sheet tiles.
-	Show interface{} `json:"show" yaml:"show"`
+	Show interface{} `field:"optional" json:"show" yaml:"show"`
 }
 
 // The display options for margins around the outside edge of sheets.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   marginStyleProperty := &marginStyleProperty{
 //   	show: jsii.Boolean(false),
 //   }
 //
 type CfnTheme_MarginStyleProperty struct {
 	// This Boolean value controls whether to display sheet margins.
-	Show interface{} `json:"show" yaml:"show"`
+	Show interface{} `field:"optional" json:"show" yaml:"show"`
 }
 
 // Permission for the resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   resourcePermissionProperty := &resourcePermissionProperty{
 //   	actions: []*string{
 //   		jsii.String("actions"),
@@ -9025,19 +9322,22 @@ type CfnTheme_MarginStyleProperty struct {
 //
 type CfnTheme_ResourcePermissionProperty struct {
 	// The IAM action to grant or revoke permissions on.
-	Actions *[]*string `json:"actions" yaml:"actions"`
+	Actions *[]*string `field:"required" json:"actions" yaml:"actions"`
 	// The Amazon Resource Name (ARN) of the principal. This can be one of the following:.
 	//
 	// - The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)
 	// - The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)
 	// - The ARN of an AWS account root: This is an IAM ARN rather than a Amazon QuickSight ARN. Use this option only to share resources (templates) across AWS accounts . (This is less common.)
-	Principal *string `json:"principal" yaml:"principal"`
+	Principal *string `field:"required" json:"principal" yaml:"principal"`
 }
 
 // The theme display options for sheets.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sheetStyleProperty := &sheetStyleProperty{
 //   	tile: &tileStyleProperty{
 //   		border: &borderStyleProperty{
@@ -9056,9 +9356,9 @@ type CfnTheme_ResourcePermissionProperty struct {
 //
 type CfnTheme_SheetStyleProperty struct {
 	// The display options for tiles.
-	Tile interface{} `json:"tile" yaml:"tile"`
+	Tile interface{} `field:"optional" json:"tile" yaml:"tile"`
 	// The layout options for tiles.
-	TileLayout interface{} `json:"tileLayout" yaml:"tileLayout"`
+	TileLayout interface{} `field:"optional" json:"tileLayout" yaml:"tileLayout"`
 }
 
 // The theme configuration.
@@ -9066,7 +9366,10 @@ type CfnTheme_SheetStyleProperty struct {
 // This configuration contains all of the display properties for a theme.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   themeConfigurationProperty := &themeConfigurationProperty{
 //   	dataColorPalette: &dataColorPaletteProperty{
 //   		colors: []*string{
@@ -9121,19 +9424,22 @@ type CfnTheme_SheetStyleProperty struct {
 //
 type CfnTheme_ThemeConfigurationProperty struct {
 	// Color properties that apply to chart data colors.
-	DataColorPalette interface{} `json:"dataColorPalette" yaml:"dataColorPalette"`
+	DataColorPalette interface{} `field:"optional" json:"dataColorPalette" yaml:"dataColorPalette"`
 	// Display options related to sheets.
-	Sheet interface{} `json:"sheet" yaml:"sheet"`
+	Sheet interface{} `field:"optional" json:"sheet" yaml:"sheet"`
 	// `CfnTheme.ThemeConfigurationProperty.Typography`.
-	Typography interface{} `json:"typography" yaml:"typography"`
+	Typography interface{} `field:"optional" json:"typography" yaml:"typography"`
 	// Color properties that apply to the UI and to charts, excluding the colors that apply to data.
-	UiColorPalette interface{} `json:"uiColorPalette" yaml:"uiColorPalette"`
+	UiColorPalette interface{} `field:"optional" json:"uiColorPalette" yaml:"uiColorPalette"`
 }
 
 // The display options for the layout of tiles on a sheet.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tileLayoutStyleProperty := &tileLayoutStyleProperty{
 //   	gutter: &gutterStyleProperty{
 //   		show: jsii.Boolean(false),
@@ -9145,15 +9451,18 @@ type CfnTheme_ThemeConfigurationProperty struct {
 //
 type CfnTheme_TileLayoutStyleProperty struct {
 	// The gutter settings that apply between tiles.
-	Gutter interface{} `json:"gutter" yaml:"gutter"`
+	Gutter interface{} `field:"optional" json:"gutter" yaml:"gutter"`
 	// The margin settings that apply around the outside edge of sheets.
-	Margin interface{} `json:"margin" yaml:"margin"`
+	Margin interface{} `field:"optional" json:"margin" yaml:"margin"`
 }
 
 // Display options related to tiles on a sheet.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tileStyleProperty := &tileStyleProperty{
 //   	border: &borderStyleProperty{
 //   		show: jsii.Boolean(false),
@@ -9162,11 +9471,14 @@ type CfnTheme_TileLayoutStyleProperty struct {
 //
 type CfnTheme_TileStyleProperty struct {
 	// The border around a tile.
-	Border interface{} `json:"border" yaml:"border"`
+	Border interface{} `field:"optional" json:"border" yaml:"border"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   typographyProperty := &typographyProperty{
 //   	fontFamilies: []interface{}{
 //   		&fontProperty{
@@ -9177,7 +9489,7 @@ type CfnTheme_TileStyleProperty struct {
 //
 type CfnTheme_TypographyProperty struct {
 	// `CfnTheme.TypographyProperty.FontFamilies`.
-	FontFamilies interface{} `json:"fontFamilies" yaml:"fontFamilies"`
+	FontFamilies interface{} `field:"optional" json:"fontFamilies" yaml:"fontFamilies"`
 }
 
 // The theme colors that apply to UI and to charts, excluding data colors.
@@ -9185,7 +9497,10 @@ type CfnTheme_TypographyProperty struct {
 // The colors description is a hexadecimal color code that consists of six alphanumerical characters, prefixed with `#` , for example #37BFF5. For more information, see [Using Themes in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html) in the *Amazon QuickSight User Guide.*
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   uIColorPaletteProperty := &uIColorPaletteProperty{
 //   	accent: jsii.String("accent"),
 //   	accentForeground: jsii.String("accentForeground"),
@@ -9207,43 +9522,46 @@ type CfnTheme_TypographyProperty struct {
 //
 type CfnTheme_UIColorPaletteProperty struct {
 	// This color is that applies to selected states and buttons.
-	Accent *string `json:"accent" yaml:"accent"`
+	Accent *string `field:"optional" json:"accent" yaml:"accent"`
 	// The foreground color that applies to any text or other elements that appear over the accent color.
-	AccentForeground *string `json:"accentForeground" yaml:"accentForeground"`
+	AccentForeground *string `field:"optional" json:"accentForeground" yaml:"accentForeground"`
 	// The color that applies to error messages.
-	Danger *string `json:"danger" yaml:"danger"`
+	Danger *string `field:"optional" json:"danger" yaml:"danger"`
 	// The foreground color that applies to any text or other elements that appear over the error color.
-	DangerForeground *string `json:"dangerForeground" yaml:"dangerForeground"`
+	DangerForeground *string `field:"optional" json:"dangerForeground" yaml:"dangerForeground"`
 	// The color that applies to the names of fields that are identified as dimensions.
-	Dimension *string `json:"dimension" yaml:"dimension"`
+	Dimension *string `field:"optional" json:"dimension" yaml:"dimension"`
 	// The foreground color that applies to any text or other elements that appear over the dimension color.
-	DimensionForeground *string `json:"dimensionForeground" yaml:"dimensionForeground"`
+	DimensionForeground *string `field:"optional" json:"dimensionForeground" yaml:"dimensionForeground"`
 	// The color that applies to the names of fields that are identified as measures.
-	Measure *string `json:"measure" yaml:"measure"`
+	Measure *string `field:"optional" json:"measure" yaml:"measure"`
 	// The foreground color that applies to any text or other elements that appear over the measure color.
-	MeasureForeground *string `json:"measureForeground" yaml:"measureForeground"`
+	MeasureForeground *string `field:"optional" json:"measureForeground" yaml:"measureForeground"`
 	// The background color that applies to visuals and other high emphasis UI.
-	PrimaryBackground *string `json:"primaryBackground" yaml:"primaryBackground"`
+	PrimaryBackground *string `field:"optional" json:"primaryBackground" yaml:"primaryBackground"`
 	// The color of text and other foreground elements that appear over the primary background regions, such as grid lines, borders, table banding, icons, and so on.
-	PrimaryForeground *string `json:"primaryForeground" yaml:"primaryForeground"`
+	PrimaryForeground *string `field:"optional" json:"primaryForeground" yaml:"primaryForeground"`
 	// The background color that applies to the sheet background and sheet controls.
-	SecondaryBackground *string `json:"secondaryBackground" yaml:"secondaryBackground"`
+	SecondaryBackground *string `field:"optional" json:"secondaryBackground" yaml:"secondaryBackground"`
 	// The foreground color that applies to any sheet title, sheet control text, or UI that appears over the secondary background.
-	SecondaryForeground *string `json:"secondaryForeground" yaml:"secondaryForeground"`
+	SecondaryForeground *string `field:"optional" json:"secondaryForeground" yaml:"secondaryForeground"`
 	// The color that applies to success messages, for example the check mark for a successful download.
-	Success *string `json:"success" yaml:"success"`
+	Success *string `field:"optional" json:"success" yaml:"success"`
 	// The foreground color that applies to any text or other elements that appear over the success color.
-	SuccessForeground *string `json:"successForeground" yaml:"successForeground"`
+	SuccessForeground *string `field:"optional" json:"successForeground" yaml:"successForeground"`
 	// This color that applies to warning and informational messages.
-	Warning *string `json:"warning" yaml:"warning"`
+	Warning *string `field:"optional" json:"warning" yaml:"warning"`
 	// The foreground color that applies to any text or other elements that appear over the warning color.
-	WarningForeground *string `json:"warningForeground" yaml:"warningForeground"`
+	WarningForeground *string `field:"optional" json:"warningForeground" yaml:"warningForeground"`
 }
 
 // Properties for defining a `CfnTheme`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import quicksight "github.com/aws/aws-cdk-go/awscdk/aws_quicksight"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnThemeProps := &cfnThemeProps{
 //   	awsAccountId: jsii.String("awsAccountId"),
 //   	themeId: jsii.String("themeId"),
@@ -9321,26 +9639,26 @@ type CfnTheme_UIColorPaletteProperty struct {
 //
 type CfnThemeProps struct {
 	// The ID of the AWS account where you want to store the new theme.
-	AwsAccountId *string `json:"awsAccountId" yaml:"awsAccountId"`
+	AwsAccountId *string `field:"required" json:"awsAccountId" yaml:"awsAccountId"`
 	// An ID for the theme that you want to create.
 	//
 	// The theme ID is unique per AWS Region in each AWS account.
-	ThemeId *string `json:"themeId" yaml:"themeId"`
+	ThemeId *string `field:"required" json:"themeId" yaml:"themeId"`
 	// The ID of the theme that a custom theme will inherit from.
 	//
 	// All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
-	BaseThemeId *string `json:"baseThemeId" yaml:"baseThemeId"`
+	BaseThemeId *string `field:"optional" json:"baseThemeId" yaml:"baseThemeId"`
 	// The theme configuration, which contains the theme display properties.
-	Configuration interface{} `json:"configuration" yaml:"configuration"`
+	Configuration interface{} `field:"optional" json:"configuration" yaml:"configuration"`
 	// A display name for the theme.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// A valid grouping of resource permissions to apply to the new theme.
-	Permissions interface{} `json:"permissions" yaml:"permissions"`
+	Permissions interface{} `field:"optional" json:"permissions" yaml:"permissions"`
 	// A map of the key-value pairs for the resource tag or tags that you want to add to the resource.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// A description of the first version of the theme that you're creating.
 	//
 	// Every time `UpdateTheme` is called, a new version is created. Each version of the theme has a description of the version in the `VersionDescription` field.
-	VersionDescription *string `json:"versionDescription" yaml:"versionDescription"`
+	VersionDescription *string `field:"optional" json:"versionDescription" yaml:"versionDescription"`
 }
 

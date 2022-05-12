@@ -21,8 +21,8 @@ import (
 //
 // Example:
 //   // Passing an encrypted replication bucket created in a different stack.
-//   app := NewApp()
-//   replicationStack := NewStack(app, jsii.String("ReplicationStack"), &stackProps{
+//   app := awscdk.NewApp()
+//   replicationStack := awscdk.Newstack(app, jsii.String("ReplicationStack"), &stackProps{
 //   	env: &environment{
 //   		region: jsii.String("us-west-1"),
 //   	},
@@ -30,11 +30,11 @@ import (
 //   key := kms.NewKey(replicationStack, jsii.String("ReplicationKey"))
 //   alias := kms.NewAlias(replicationStack, jsii.String("ReplicationAlias"), &aliasProps{
 //   	// aliasName is required
-//   	aliasName: physicalName_GENERATE_IF_NEEDED(),
+//   	aliasName: awscdk.PhysicalName_GENERATE_IF_NEEDED(),
 //   	targetKey: key,
 //   })
 //   replicationBucket := s3.NewBucket(replicationStack, jsii.String("ReplicationBucket"), &bucketProps{
-//   	bucketName: *physicalName_GENERATE_IF_NEEDED(),
+//   	bucketName: awscdk.PhysicalName_GENERATE_IF_NEEDED(),
 //   	encryptionKey: alias,
 //   })
 //
@@ -567,9 +567,12 @@ func (a *jsiiProxy_Alias) Validate() *[]*string {
 // Properties of a reference to an existing KMS Alias.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kms "github.com/aws/aws-cdk-go/awscdk/aws_kms"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var key key
+//
 //   aliasAttributes := &aliasAttributes{
 //   	aliasName: jsii.String("aliasName"),
 //   	aliasTargetKey: key,
@@ -581,18 +584,18 @@ type AliasAttributes struct {
 	//
 	// This value must begin with alias/ followed by a name (i.e. alias/ExampleAlias)
 	// Experimental.
-	AliasName *string `json:"aliasName" yaml:"aliasName"`
+	AliasName *string `field:"required" json:"aliasName" yaml:"aliasName"`
 	// The customer master key (CMK) to which the Alias refers.
 	// Experimental.
-	AliasTargetKey IKey `json:"aliasTargetKey" yaml:"aliasTargetKey"`
+	AliasTargetKey IKey `field:"required" json:"aliasTargetKey" yaml:"aliasTargetKey"`
 }
 
 // Construction properties for a KMS Key Alias object.
 //
 // Example:
 //   // Passing an encrypted replication bucket created in a different stack.
-//   app := NewApp()
-//   replicationStack := NewStack(app, jsii.String("ReplicationStack"), &stackProps{
+//   app := awscdk.NewApp()
+//   replicationStack := awscdk.Newstack(app, jsii.String("ReplicationStack"), &stackProps{
 //   	env: &environment{
 //   		region: jsii.String("us-west-1"),
 //   	},
@@ -600,11 +603,11 @@ type AliasAttributes struct {
 //   key := kms.NewKey(replicationStack, jsii.String("ReplicationKey"))
 //   alias := kms.NewAlias(replicationStack, jsii.String("ReplicationAlias"), &aliasProps{
 //   	// aliasName is required
-//   	aliasName: physicalName_GENERATE_IF_NEEDED(),
+//   	aliasName: awscdk.PhysicalName_GENERATE_IF_NEEDED(),
 //   	targetKey: key,
 //   })
 //   replicationBucket := s3.NewBucket(replicationStack, jsii.String("ReplicationBucket"), &bucketProps{
-//   	bucketName: *physicalName_GENERATE_IF_NEEDED(),
+//   	bucketName: awscdk.PhysicalName_GENERATE_IF_NEEDED(),
 //   	encryptionKey: alias,
 //   })
 //
@@ -616,17 +619,17 @@ type AliasProps struct {
 	// forward slash, such as alias/. You can't specify aliases that begin with
 	// alias/AWS. These aliases are reserved.
 	// Experimental.
-	AliasName *string `json:"aliasName" yaml:"aliasName"`
+	AliasName *string `field:"required" json:"aliasName" yaml:"aliasName"`
 	// The ID of the key for which you are creating the alias.
 	//
 	// Specify the key's
 	// globally unique identifier or Amazon Resource Name (ARN). You can't
 	// specify another alias.
 	// Experimental.
-	TargetKey IKey `json:"targetKey" yaml:"targetKey"`
+	TargetKey IKey `field:"required" json:"targetKey" yaml:"targetKey"`
 	// Policy to apply when the alias is removed from this stack.
 	// Experimental.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 }
 
 // A CloudFormation `AWS::KMS::Alias`.
@@ -645,8 +648,11 @@ type AliasProps struct {
 // - Each alias name must begin with `alias/` followed by a name, such as `alias/exampleKey` . The alias name can contain only alphanumeric characters, forward slashes (/), underscores (_), and dashes (-). Alias names cannot begin with `alias/aws/` . That alias name prefix is reserved for [AWS managed keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kms "github.com/aws/aws-cdk-go/awscdk/aws_kms"
-//   cfnAlias := kms.NewCfnAlias(this, jsii.String("MyCfnAlias"), &cfnAliasProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnAlias := awscdk.Aws_kms.NewCfnAlias(this, jsii.String("MyCfnAlias"), &cfnAliasProps{
 //   	aliasName: jsii.String("aliasName"),
 //   	targetKeyId: jsii.String("targetKeyId"),
 //   })
@@ -1324,7 +1330,10 @@ func (c *jsiiProxy_CfnAlias) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnAlias`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kms "github.com/aws/aws-cdk-go/awscdk/aws_kms"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAliasProps := &cfnAliasProps{
 //   	aliasName: jsii.String("aliasName"),
 //   	targetKeyId: jsii.String("targetKeyId"),
@@ -1342,7 +1351,7 @@ type CfnAliasProps struct {
 	// *Minimum* : `1`
 	//
 	// *Maximum* : `256`.
-	AliasName *string `json:"aliasName" yaml:"aliasName"`
+	AliasName *string `field:"required" json:"aliasName" yaml:"aliasName"`
 	// Associates the alias with the specified [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) . The KMS key must be in the same AWS account and Region.
 	//
 	// A valid key ID is required. If you supply a null or empty string value, this operation returns an error.
@@ -1357,7 +1366,7 @@ type CfnAliasProps struct {
 	// - Key ARN: `arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
 	//
 	// To get the key ID and key ARN for a KMS key, use [ListKeys](https://docs.aws.amazon.com/kms/latest/APIReference/API_ListKeys.html) or [DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html) .
-	TargetKeyId *string `json:"targetKeyId" yaml:"targetKeyId"`
+	TargetKeyId *string `field:"required" json:"targetKeyId" yaml:"targetKeyId"`
 }
 
 // A CloudFormation `AWS::KMS::Key`.
@@ -1386,6 +1395,7 @@ type CfnAliasProps struct {
 //
 // Example:
 //   var cfnTemplate cfnInclude
+//
 //   cfnKey := cfnTemplate.getResource(jsii.String("Key")).(cfnKey)
 //   key := kms.key.fromCfnKey(cfnKey)
 //
@@ -1442,14 +1452,13 @@ type CfnKey interface {
 	// - The key policy must allow the caller to make a subsequent [PutKeyPolicy](https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html) request on the KMS key. This reduces the risk that the KMS key becomes unmanageable. For more information, refer to the scenario in the [Default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section of the **AWS Key Management Service Developer Guide** .
 	// - Each statement in the key policy must contain one or more principals. The principals in the key policy must exist and be visible to AWS KMS . When you create a new AWS principal (for example, an IAM user or role), you might need to enforce a delay before including the new principal in a key policy because the new principal might not be immediately visible to AWS KMS . For more information, see [Changes that I make are not always immediately visible](https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency) in the *AWS Identity and Access Management User Guide* .
 	//
-	// A key policy document must conform to the following rules.
-	//
-	// - Up to 32 kilobytes (32768 bytes)
-	// - Must be UTF-8 encoded
-	// - The only Unicode characters that are permitted in a key policy document are the horizontal tab (U+0009), linefeed (U+000A), carriage return (U+000D), and characters in the range U+0020 to U+00FF.
-	// - The `Sid` element in a key policy statement can include spaces. (Spaces are prohibited in the `Sid` element of an IAM policy document.)
-	//
 	// If you are unsure of which policy to use, consider the *default key policy* . This is the key policy that AWS KMS applies to KMS keys that are created by using the CreateKey API with no specified key policy. It gives the AWS account that owns the key permission to perform all operations on the key. It also allows you write IAM policies to authorize access to the key. For details, see [Default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) in the *AWS Key Management Service Developer Guide* .
+	//
+	// A key policy document can include only the following characters:
+	//
+	// - Printable ASCII characters
+	// - Printable characters in the Basic Latin and Latin-1 Supplement character set
+	// - The tab ( `\ u0009` ), line feed ( `\ u000A` ), and carriage return ( `\ u000D` ) special characters
 	//
 	// *Minimum* : `1`
 	//
@@ -2307,9 +2316,12 @@ func (c *jsiiProxy_CfnKey) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnKey`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kms "github.com/aws/aws-cdk-go/awscdk/aws_kms"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var keyPolicy interface{}
+//
 //   cfnKeyProps := &cfnKeyProps{
 //   	keyPolicy: keyPolicy,
 //
@@ -2335,23 +2347,22 @@ type CfnKeyProps struct {
 	// - The key policy must allow the caller to make a subsequent [PutKeyPolicy](https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html) request on the KMS key. This reduces the risk that the KMS key becomes unmanageable. For more information, refer to the scenario in the [Default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section of the **AWS Key Management Service Developer Guide** .
 	// - Each statement in the key policy must contain one or more principals. The principals in the key policy must exist and be visible to AWS KMS . When you create a new AWS principal (for example, an IAM user or role), you might need to enforce a delay before including the new principal in a key policy because the new principal might not be immediately visible to AWS KMS . For more information, see [Changes that I make are not always immediately visible](https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency) in the *AWS Identity and Access Management User Guide* .
 	//
-	// A key policy document must conform to the following rules.
-	//
-	// - Up to 32 kilobytes (32768 bytes)
-	// - Must be UTF-8 encoded
-	// - The only Unicode characters that are permitted in a key policy document are the horizontal tab (U+0009), linefeed (U+000A), carriage return (U+000D), and characters in the range U+0020 to U+00FF.
-	// - The `Sid` element in a key policy statement can include spaces. (Spaces are prohibited in the `Sid` element of an IAM policy document.)
-	//
 	// If you are unsure of which policy to use, consider the *default key policy* . This is the key policy that AWS KMS applies to KMS keys that are created by using the CreateKey API with no specified key policy. It gives the AWS account that owns the key permission to perform all operations on the key. It also allows you write IAM policies to authorize access to the key. For details, see [Default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) in the *AWS Key Management Service Developer Guide* .
+	//
+	// A key policy document can include only the following characters:
+	//
+	// - Printable ASCII characters
+	// - Printable characters in the Basic Latin and Latin-1 Supplement character set
+	// - The tab ( `\ u0009` ), line feed ( `\ u000A` ), and carriage return ( `\ u000D` ) special characters
 	//
 	// *Minimum* : `1`
 	//
 	// *Maximum* : `32768`.
-	KeyPolicy interface{} `json:"keyPolicy" yaml:"keyPolicy"`
+	KeyPolicy interface{} `field:"required" json:"keyPolicy" yaml:"keyPolicy"`
 	// A description of the KMS key.
 	//
 	// Use a description that helps you to distinguish this KMS key from others in the account, such as its intended use.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Specifies whether the KMS key is enabled. Disabled KMS keys cannot be used in cryptographic operations.
 	//
 	// When `Enabled` is `true` , the *key state* of the KMS key is `Enabled` . When `Enabled` is `false` , the key state of the KMS key is `Disabled` . The default value is `true` .
@@ -2359,7 +2370,7 @@ type CfnKeyProps struct {
 	// The actual key state of the KMS key might be affected by actions taken outside of CloudFormation, such as running the [EnableKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_EnableKey.html) , [DisableKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DisableKey.html) , or [ScheduleKeyDeletion](https://docs.aws.amazon.com/kms/latest/APIReference/API_ScheduleKeyDeletion.html) operations.
 	//
 	// For information about the key states of a KMS key, see [Key state: Effect on your KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the *AWS Key Management Service Developer Guide* .
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// Enables automatic rotation of the key material for the specified KMS key.
 	//
 	// By default, automatic key rotation is not enabled.
@@ -2369,7 +2380,7 @@ type CfnKeyProps struct {
 	// To enable automatic key rotation of the key material for a multi-Region KMS key, set `EnableKeyRotation` to `true` on the primary key (created by using `AWS::KMS::Key` ). AWS KMS copies the rotation status to all replica keys. For details, see [Rotating multi-Region keys](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-manage.html#multi-region-rotate) in the *AWS Key Management Service Developer Guide* .
 	//
 	// When you enable automatic rotation, AWS KMS automatically creates new key material for the KMS key one year after the enable date and every year thereafter. AWS KMS retains all key material until you delete the KMS key. For detailed information about automatic key rotation, see [Rotating KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) in the *AWS Key Management Service Developer Guide* .
-	EnableKeyRotation interface{} `json:"enableKeyRotation" yaml:"enableKeyRotation"`
+	EnableKeyRotation interface{} `field:"optional" json:"enableKeyRotation" yaml:"enableKeyRotation"`
 	// Specifies the type of KMS key to create.
 	//
 	// The default value, `SYMMETRIC_DEFAULT` , creates a KMS key with a 256-bit symmetric key for encryption and decryption. You can't change the `KeySpec` value after the KMS key is created. For help choosing a key spec for your KMS key, see [Choosing a KMS key type](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html) in the *AWS Key Management Service Developer Guide* .
@@ -2402,7 +2413,7 @@ type CfnKeyProps struct {
 	// - Other asymmetric elliptic curve key pairs
 	//
 	// - `ECC_SECG_P256K1` (secp256k1), commonly used for cryptocurrencies.
-	KeySpec *string `json:"keySpec" yaml:"keySpec"`
+	KeySpec *string `field:"optional" json:"keySpec" yaml:"keySpec"`
 	// Determines the [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. The default value is `ENCRYPT_DECRYPT` . This property is required for asymmetric KMS keys and HMAC KMS keys. You can't change the `KeyUsage` value after the KMS key is created.
 	//
 	// > If you change the `KeyUsage` value of an existing KMS key, the existing KMS key is scheduled for deletion and a new KMS key is created with the specified `KeyUsage` value. While the scheduled deletion is pending, you can't use the existing KMS key. Unless you [cancel the scheduled deletion](https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html#deleting-keys-scheduling-key-deletion) of the KMS key outside of CloudFormation, all data encrypted under the existing KMS key becomes unrecoverable when the KMS key is deleted.
@@ -2413,7 +2424,7 @@ type CfnKeyProps struct {
 	// - For asymmetric KMS keys with RSA key material, specify `ENCRYPT_DECRYPT` or `SIGN_VERIFY` .
 	// - For asymmetric KMS keys with ECC key material, specify `SIGN_VERIFY` .
 	// - For HMAC KMS keys, specify `GENERATE_VERIFY_MAC` .
-	KeyUsage *string `json:"keyUsage" yaml:"keyUsage"`
+	KeyUsage *string `field:"optional" json:"keyUsage" yaml:"keyUsage"`
 	// Creates a multi-Region primary key that you can replicate in other AWS Regions .
 	//
 	// You can't change the `MultiRegion` value after the KMS key is created.
@@ -2427,7 +2438,7 @@ type CfnKeyProps struct {
 	// You can create a symmetric encryption, HMAC, or asymmetric multi-Region KMS key, and you can create a multi-Region key with imported key material. However, you cannot create a multi-Region key in a custom key store.
 	//
 	// To create a replica of this primary key in a different AWS Region , create an [AWS::KMS::ReplicaKey](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html) resource in a CloudFormation stack in the replica Region. Specify the key ARN of this primary key.
-	MultiRegion interface{} `json:"multiRegion" yaml:"multiRegion"`
+	MultiRegion interface{} `field:"optional" json:"multiRegion" yaml:"multiRegion"`
 	// Specifies the number of days in the waiting period before AWS KMS deletes a KMS key that has been removed from a CloudFormation stack.
 	//
 	// Enter a value between 7 and 30 days. The default value is 30 days.
@@ -2443,13 +2454,13 @@ type CfnKeyProps struct {
 	// *Minimum* : 7
 	//
 	// *Maximum* : 30.
-	PendingWindowInDays *float64 `json:"pendingWindowInDays" yaml:"pendingWindowInDays"`
+	PendingWindowInDays *float64 `field:"optional" json:"pendingWindowInDays" yaml:"pendingWindowInDays"`
 	// Assigns one or more tags to the replica key.
 	//
 	// > Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see [ABAC for AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/abac.html) in the *AWS Key Management Service Developer Guide* .
 	//
 	// For information about tags in AWS KMS , see [Tagging keys](https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html) in the *AWS Key Management Service Developer Guide* . For information about tags in CloudFormation, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::KMS::ReplicaKey`.
@@ -2473,10 +2484,13 @@ type CfnKeyProps struct {
 // AWS KMS CloudFormation resources are supported in all Regions in which AWS CloudFormation is supported. However, in the  (ap-southeast-3), you cannot use a CloudFormation template to create or manage multi-Region KMS keys (primary or replica).
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kms "github.com/aws/aws-cdk-go/awscdk/aws_kms"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var keyPolicy interface{}
-//   cfnReplicaKey := kms.NewCfnReplicaKey(this, jsii.String("MyCfnReplicaKey"), &cfnReplicaKeyProps{
+//
+//   cfnReplicaKey := awscdk.Aws_kms.NewCfnReplicaKey(this, jsii.String("MyCfnReplicaKey"), &cfnReplicaKeyProps{
 //   	keyPolicy: keyPolicy,
 //   	primaryKeyArn: jsii.String("primaryKeyArn"),
 //
@@ -2540,12 +2554,11 @@ type CfnReplicaKey interface {
 	// - The key policy must give the caller [PutKeyPolicy](https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html) permission on the KMS key. This reduces the risk that the KMS key becomes unmanageable. For more information, refer to the scenario in the [Default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section of the **AWS Key Management Service Developer Guide** .
 	// - Each statement in the key policy must contain one or more principals. The principals in the key policy must exist and be visible to AWS KMS . When you create a new AWS principal (for example, an IAM user or role), you might need to enforce a delay before including the new principal in a key policy because the new principal might not be immediately visible to AWS KMS . For more information, see [Changes that I make are not always immediately visible](https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency) in the *AWS Identity and Access Management User Guide* .
 	//
-	// A key policy document must conform to the following rules.
+	// A key policy document can include only the following characters:
 	//
-	// - Up to 32 kilobytes (32768 bytes)
-	// - Must be UTF-8 encoded
-	// - The only Unicode characters that are permitted in a key policy document are the horizontal tab (U+0009), linefeed (U+000A), carriage return (U+000D), and characters in the range U+0020 to U+00FF.
-	// - The `Sid` element in a key policy statement can include spaces. (Spaces are prohibited in the `Sid` element of an IAM policy document.)
+	// - Printable ASCII characters from the space character ( `\ u0020` ) through the end of the ASCII character range.
+	// - Printable characters in the Basic Latin and Latin-1 Supplement character set (through `\ u00FF` ).
+	// - The tab ( `\ u0009` ), line feed ( `\ u000A` ), and carriage return ( `\ u000D` ) special characters
 	//
 	// *Minimum* : `1`
 	//
@@ -3305,9 +3318,12 @@ func (c *jsiiProxy_CfnReplicaKey) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnReplicaKey`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kms "github.com/aws/aws-cdk-go/awscdk/aws_kms"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var keyPolicy interface{}
+//
 //   cfnReplicaKeyProps := &cfnReplicaKeyProps{
 //   	keyPolicy: keyPolicy,
 //   	primaryKeyArn: jsii.String("primaryKeyArn"),
@@ -3334,17 +3350,16 @@ type CfnReplicaKeyProps struct {
 	// - The key policy must give the caller [PutKeyPolicy](https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html) permission on the KMS key. This reduces the risk that the KMS key becomes unmanageable. For more information, refer to the scenario in the [Default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section of the **AWS Key Management Service Developer Guide** .
 	// - Each statement in the key policy must contain one or more principals. The principals in the key policy must exist and be visible to AWS KMS . When you create a new AWS principal (for example, an IAM user or role), you might need to enforce a delay before including the new principal in a key policy because the new principal might not be immediately visible to AWS KMS . For more information, see [Changes that I make are not always immediately visible](https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency) in the *AWS Identity and Access Management User Guide* .
 	//
-	// A key policy document must conform to the following rules.
+	// A key policy document can include only the following characters:
 	//
-	// - Up to 32 kilobytes (32768 bytes)
-	// - Must be UTF-8 encoded
-	// - The only Unicode characters that are permitted in a key policy document are the horizontal tab (U+0009), linefeed (U+000A), carriage return (U+000D), and characters in the range U+0020 to U+00FF.
-	// - The `Sid` element in a key policy statement can include spaces. (Spaces are prohibited in the `Sid` element of an IAM policy document.)
+	// - Printable ASCII characters from the space character ( `\ u0020` ) through the end of the ASCII character range.
+	// - Printable characters in the Basic Latin and Latin-1 Supplement character set (through `\ u00FF` ).
+	// - The tab ( `\ u0009` ), line feed ( `\ u000A` ), and carriage return ( `\ u000D` ) special characters
 	//
 	// *Minimum* : `1`
 	//
 	// *Maximum* : `32768`.
-	KeyPolicy interface{} `json:"keyPolicy" yaml:"keyPolicy"`
+	KeyPolicy interface{} `field:"required" json:"keyPolicy" yaml:"keyPolicy"`
 	// Specifies the multi-Region primary key to replicate.
 	//
 	// The primary key must be in a different AWS Region of the same AWS partition. You can create only one replica of a given primary key in each AWS Region .
@@ -3354,13 +3369,13 @@ type CfnReplicaKeyProps struct {
 	// > However, if you inadvertently delete a replica key, you can decrypt ciphertext encrypted by that replica key by using any related multi-Region key. If necessary, you can recreate the replica in the same Region after the previous one is completely deleted. For details, see [Deleting multi-Region keys](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-delete.html) in the *AWS Key Management Service Developer Guide*
 	//
 	// Specify the key ARN of an existing multi-Region primary key. For example, `arn:aws:kms:us-east-2:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab` .
-	PrimaryKeyArn *string `json:"primaryKeyArn" yaml:"primaryKeyArn"`
+	PrimaryKeyArn *string `field:"required" json:"primaryKeyArn" yaml:"primaryKeyArn"`
 	// A description of the KMS key.
 	//
 	// The default value is an empty string (no description).
 	//
 	// The description is not a shared property of multi-Region keys. You can specify the same description or a different description for each key in a set of related multi-Region keys. AWS Key Management Service does not synchronize this property.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations.
 	//
 	// When `Enabled` is `true` , the *key state* of the KMS key is `Enabled` . When `Enabled` is `false` , the key state of the KMS key is `Disabled` . The default value is `true` .
@@ -3368,7 +3383,7 @@ type CfnReplicaKeyProps struct {
 	// The actual key state of the replica might be affected by actions taken outside of CloudFormation, such as running the [EnableKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_EnableKey.html) , [DisableKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DisableKey.html) , or [ScheduleKeyDeletion](https://docs.aws.amazon.com/kms/latest/APIReference/API_ScheduleKeyDeletion.html) operations. Also, while the replica key is being created, its key state is `Creating` . When the process is complete, the key state of the replica key changes to `Enabled` .
 	//
 	// For information about the key states of a KMS key, see [Key state: Effect on your KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the *AWS Key Management Service Developer Guide* .
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// Specifies the number of days in the waiting period before AWS KMS deletes a replica key that has been removed from a CloudFormation stack.
 	//
 	// Enter a value between 7 and 30 days. The default value is 30 days.
@@ -3386,7 +3401,7 @@ type CfnReplicaKeyProps struct {
 	// *Minimum* : 7
 	//
 	// *Maximum* : 30.
-	PendingWindowInDays *float64 `json:"pendingWindowInDays" yaml:"pendingWindowInDays"`
+	PendingWindowInDays *float64 `field:"optional" json:"pendingWindowInDays" yaml:"pendingWindowInDays"`
 	// Assigns one or more tags to the replica key.
 	//
 	// > Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see [ABAC for AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/abac.html) in the *AWS Key Management Service Developer Guide* .
@@ -3396,7 +3411,7 @@ type CfnReplicaKeyProps struct {
 	// Each tag consists of a tag key and a tag value. Both the tag key and the tag value are required, but the tag value can be an empty (null) string. You cannot have more than one tag on a KMS key with the same tag key. If you specify an existing tag key with a different tag value, AWS KMS replaces the current tag value with the specified one.
 	//
 	// When you assign tags to an AWS resource, AWS generates a cost allocation report with usage and costs aggregated by tags. Tags can also be used to control access to a KMS key. For details, see [Tagging keys](https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A KMS Key alias.
@@ -3580,6 +3595,7 @@ func (j *jsiiProxy_IKey) KeyId() *string {
 //
 // Example:
 //   import kms "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   encryptionKey := kms.NewKey(this, jsii.String("Key"), &keyProps{
 //   	enableKeyRotation: jsii.Boolean(true),
@@ -4201,7 +4217,7 @@ func (k *jsiiProxy_Key) Validate() *[]*string {
 type KeyLookupOptions struct {
 	// The alias name of the Key.
 	// Experimental.
-	AliasName *string `json:"aliasName" yaml:"aliasName"`
+	AliasName *string `field:"required" json:"aliasName" yaml:"aliasName"`
 }
 
 // Construction properties for a KMS Key object.
@@ -4241,36 +4257,36 @@ type KeyProps struct {
 	//
 	// These principals will be added to the default key policy (if none specified), or to the specified policy (if provided).
 	// Experimental.
-	Admins *[]awsiam.IPrincipal `json:"admins" yaml:"admins"`
+	Admins *[]awsiam.IPrincipal `field:"optional" json:"admins" yaml:"admins"`
 	// Initial alias to add to the key.
 	//
 	// More aliases can be added later by calling `addAlias`.
 	// Experimental.
-	Alias *string `json:"alias" yaml:"alias"`
+	Alias *string `field:"optional" json:"alias" yaml:"alias"`
 	// A description of the key.
 	//
 	// Use a description that helps your users decide
 	// whether the key is appropriate for a particular task.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Indicates whether the key is available for use.
 	// Experimental.
-	Enabled *bool `json:"enabled" yaml:"enabled"`
+	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// Indicates whether AWS KMS rotates the key.
 	// Experimental.
-	EnableKeyRotation *bool `json:"enableKeyRotation" yaml:"enableKeyRotation"`
+	EnableKeyRotation *bool `field:"optional" json:"enableKeyRotation" yaml:"enableKeyRotation"`
 	// The cryptographic configuration of the key. The valid value depends on usage of the key.
 	//
 	// IMPORTANT: If you change this property of an existing key, the existing key is scheduled for deletion
 	// and a new key is created with the specified value.
 	// Experimental.
-	KeySpec KeySpec `json:"keySpec" yaml:"keySpec"`
+	KeySpec KeySpec `field:"optional" json:"keySpec" yaml:"keySpec"`
 	// The cryptographic operations for which the key can be used.
 	//
 	// IMPORTANT: If you change this property of an existing key, the existing key is scheduled for deletion
 	// and a new key is created with the specified value.
 	// Experimental.
-	KeyUsage KeyUsage `json:"keyUsage" yaml:"keyUsage"`
+	KeyUsage KeyUsage `field:"optional" json:"keyUsage" yaml:"keyUsage"`
 	// Specifies the number of days in the waiting period before AWS KMS deletes a CMK that has been removed from a CloudFormation stack.
 	//
 	// When you remove a customer master key (CMK) from a CloudFormation stack, AWS KMS schedules the CMK for deletion
@@ -4282,20 +4298,20 @@ type KeyProps struct {
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-pendingwindowindays
 	//
 	// Experimental.
-	PendingWindow awscdk.Duration `json:"pendingWindow" yaml:"pendingWindow"`
+	PendingWindow awscdk.Duration `field:"optional" json:"pendingWindow" yaml:"pendingWindow"`
 	// Custom policy document to attach to the KMS key.
 	//
 	// NOTE - If the `@aws-cdk/aws-kms:defaultKeyPolicies` feature flag is set (the default for new projects),
 	// this policy will *override* the default key policy and become the only key policy for the key. If the
 	// feature flag is not set, this policy will be appended to the default key policy.
 	// Experimental.
-	Policy awsiam.PolicyDocument `json:"policy" yaml:"policy"`
+	Policy awsiam.PolicyDocument `field:"optional" json:"policy" yaml:"policy"`
 	// Whether the encryption key should be retained when it is removed from the Stack.
 	//
 	// This is useful when one wants to
 	// retain access to data that was encrypted with a key that is being retired.
 	// Experimental.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// Whether the key usage can be granted by IAM policies.
 	//
 	// Setting this to true adds a default statement which delegates key
@@ -4308,7 +4324,7 @@ type KeyProps struct {
 	// See: https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam
 	//
 	// Deprecated: redundant with the `@aws-cdk/aws-kms:defaultKeyPolicies` feature flag.
-	TrustAccountIdentities *bool `json:"trustAccountIdentities" yaml:"trustAccountIdentities"`
+	TrustAccountIdentities *bool `field:"optional" json:"trustAccountIdentities" yaml:"trustAccountIdentities"`
 }
 
 // The key spec, represents the cryptographic configuration of keys.
@@ -4390,10 +4406,14 @@ const (
 // A principal to allow access to a key if it's being used through another AWS service.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"import awscdk "github.com/aws/aws-cdk-go/awscdk"import kms "github.com/aws/aws-cdk-go/awscdk/aws_kms"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var principal iPrincipal
-//   viaServicePrincipal := kms.NewViaServicePrincipal(jsii.String("serviceName"), principal)
+//
+//   viaServicePrincipal := awscdk.Aws_kms.NewViaServicePrincipal(jsii.String("serviceName"), principal)
 //
 // Experimental.
 type ViaServicePrincipal interface {

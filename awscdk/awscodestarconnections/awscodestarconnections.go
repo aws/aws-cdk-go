@@ -16,8 +16,11 @@ import (
 // *Note:* A connection created through AWS CloudFormation is in `PENDING` status by default. You can make its status `AVAILABLE` by updating the connection in the console.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codestarconnections "github.com/aws/aws-cdk-go/awscdk/aws_codestarconnections"
-//   cfnConnection := codestarconnections.NewCfnConnection(this, jsii.String("MyCfnConnection"), &cfnConnectionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnConnection := awscdk.Aws_codestarconnections.NewCfnConnection(this, jsii.String("MyCfnConnection"), &cfnConnectionProps{
 //   	connectionName: jsii.String("connectionName"),
 //
 //   	// the properties below are optional
@@ -758,7 +761,10 @@ func (c *jsiiProxy_CfnConnection) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnConnection`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codestarconnections "github.com/aws/aws-cdk-go/awscdk/aws_codestarconnections"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnConnectionProps := &cfnConnectionProps{
 //   	connectionName: jsii.String("connectionName"),
 //
@@ -777,12 +783,12 @@ type CfnConnectionProps struct {
 	// The name of the connection.
 	//
 	// Connection names must be unique in an AWS user account.
-	ConnectionName *string `json:"connectionName" yaml:"connectionName"`
+	ConnectionName *string `field:"required" json:"connectionName" yaml:"connectionName"`
 	// The Amazon Resource Name (ARN) of the host associated with the connection.
-	HostArn *string `json:"hostArn" yaml:"hostArn"`
+	HostArn *string `field:"optional" json:"hostArn" yaml:"hostArn"`
 	// The name of the external provider where your third-party code repository is configured.
-	ProviderType *string `json:"providerType" yaml:"providerType"`
+	ProviderType *string `field:"optional" json:"providerType" yaml:"providerType"`
 	// Specifies the tags applied to the resource.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

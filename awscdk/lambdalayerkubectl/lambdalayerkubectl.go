@@ -13,10 +13,12 @@ import (
 // An AWS Lambda layer that includes `kubectl` and `helm`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type KubectlLayer awscdk.KubectlLayer
+//   // KubectlLayer bundles the 'kubectl' and 'helm' command lines
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var fn function
-//   fn.addLayers(NewKubectlLayer(this, jsii.String("KubectlLayer")))
+//
+//   fn.addLayers(awscdk.NewKubectlLayer(this, jsii.String("KubectlLayer")))
 //
 // Experimental.
 type KubectlLayer interface {

@@ -14,8 +14,11 @@ import (
 // The `AWS::LakeFormation::DataLakeSettings` resource is an AWS Lake Formation resource type that manages the data lake settings for your account. Note that the CloudFormation template only supports updating the `Admins` list. It does not support updating the [CreateDatabaseDefaultPermissions](https://docs.aws.amazon.com/lake-formation/latest/dg/aws-lake-formation-api-aws-lake-formation-api-settings.html#aws-lake-formation-api-aws-lake-formation-api-settings-DataLakeSettings) or [CreateTableDefaultPermissions](https://docs.aws.amazon.com/lake-formation/latest/dg/aws-lake-formation-api-aws-lake-formation-api-settings.html#aws-lake-formation-api-aws-lake-formation-api-settings-DataLakeSettings) . Those permissions can only be edited in the DataLakeSettings resource via the API.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lakeformation "github.com/aws/aws-cdk-go/awscdk/aws_lakeformation"
-//   cfnDataLakeSettings := lakeformation.NewCfnDataLakeSettings(this, jsii.String("MyCfnDataLakeSettings"), &cfnDataLakeSettingsProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDataLakeSettings := awscdk.Aws_lakeformation.NewCfnDataLakeSettings(this, jsii.String("MyCfnDataLakeSettings"), &cfnDataLakeSettingsProps{
 //   	admins: []interface{}{
 //   		&dataLakePrincipalProperty{
 //   			dataLakePrincipalIdentifier: jsii.String("dataLakePrincipalIdentifier"),
@@ -676,20 +679,26 @@ func (c *jsiiProxy_CfnDataLakeSettings) ValidateProperties(_properties interface
 // The Lake Formation principal.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lakeformation "github.com/aws/aws-cdk-go/awscdk/aws_lakeformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dataLakePrincipalProperty := &dataLakePrincipalProperty{
 //   	dataLakePrincipalIdentifier: jsii.String("dataLakePrincipalIdentifier"),
 //   }
 //
 type CfnDataLakeSettings_DataLakePrincipalProperty struct {
 	// An identifier for the Lake Formation principal.
-	DataLakePrincipalIdentifier *string `json:"dataLakePrincipalIdentifier" yaml:"dataLakePrincipalIdentifier"`
+	DataLakePrincipalIdentifier *string `field:"optional" json:"dataLakePrincipalIdentifier" yaml:"dataLakePrincipalIdentifier"`
 }
 
 // Properties for defining a `CfnDataLakeSettings`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lakeformation "github.com/aws/aws-cdk-go/awscdk/aws_lakeformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDataLakeSettingsProps := &cfnDataLakeSettingsProps{
 //   	admins: []interface{}{
 //   		&dataLakePrincipalProperty{
@@ -703,9 +712,9 @@ type CfnDataLakeSettings_DataLakePrincipalProperty struct {
 //
 type CfnDataLakeSettingsProps struct {
 	// A list of AWS Lake Formation principals.
-	Admins interface{} `json:"admins" yaml:"admins"`
+	Admins interface{} `field:"optional" json:"admins" yaml:"admins"`
 	// `AWS::LakeFormation::DataLakeSettings.TrustedResourceOwners`.
-	TrustedResourceOwners *[]*string `json:"trustedResourceOwners" yaml:"trustedResourceOwners"`
+	TrustedResourceOwners *[]*string `field:"optional" json:"trustedResourceOwners" yaml:"trustedResourceOwners"`
 }
 
 // A CloudFormation `AWS::LakeFormation::Permissions`.
@@ -713,8 +722,11 @@ type CfnDataLakeSettingsProps struct {
 // The `AWS::LakeFormation::Permissions` resource represents the permissions that a principal has on an AWS Glue Data Catalog resource (such as AWS Glue database or AWS Glue tables). When you upload a permissions stack, the permissions are granted to the principal and when you remove the stack, the permissions are revoked from the principal. If you remove a stack, and the principal does not have the permissions referenced in the stack then AWS Lake Formation will throw an error because you can’t call revoke on non-existing permissions. To successfully remove the stack, you’ll need to regrant those permissions and then remove the stack.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lakeformation "github.com/aws/aws-cdk-go/awscdk/aws_lakeformation"
-//   cfnPermissions := lakeformation.NewCfnPermissions(this, jsii.String("MyCfnPermissions"), &cfnPermissionsProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnPermissions := awscdk.Aws_lakeformation.NewCfnPermissions(this, jsii.String("MyCfnPermissions"), &cfnPermissionsProps{
 //   	dataLakePrincipal: &dataLakePrincipalProperty{
 //   		dataLakePrincipalIdentifier: jsii.String("dataLakePrincipalIdentifier"),
 //   	},
@@ -1450,7 +1462,10 @@ func (c *jsiiProxy_CfnPermissions) ValidateProperties(_properties interface{}) {
 // A wildcard object, consisting of an optional list of excluded column names or indexes.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lakeformation "github.com/aws/aws-cdk-go/awscdk/aws_lakeformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   columnWildcardProperty := &columnWildcardProperty{
 //   	excludedColumnNames: []*string{
 //   		jsii.String("excludedColumnNames"),
@@ -1461,26 +1476,32 @@ type CfnPermissions_ColumnWildcardProperty struct {
 	// Excludes column names.
 	//
 	// Any column with this name will be excluded.
-	ExcludedColumnNames *[]*string `json:"excludedColumnNames" yaml:"excludedColumnNames"`
+	ExcludedColumnNames *[]*string `field:"optional" json:"excludedColumnNames" yaml:"excludedColumnNames"`
 }
 
 // The Lake Formation principal.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lakeformation "github.com/aws/aws-cdk-go/awscdk/aws_lakeformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dataLakePrincipalProperty := &dataLakePrincipalProperty{
 //   	dataLakePrincipalIdentifier: jsii.String("dataLakePrincipalIdentifier"),
 //   }
 //
 type CfnPermissions_DataLakePrincipalProperty struct {
 	// An identifier for the Lake Formation principal.
-	DataLakePrincipalIdentifier *string `json:"dataLakePrincipalIdentifier" yaml:"dataLakePrincipalIdentifier"`
+	DataLakePrincipalIdentifier *string `field:"optional" json:"dataLakePrincipalIdentifier" yaml:"dataLakePrincipalIdentifier"`
 }
 
 // A structure for a data location object where permissions are granted or revoked.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lakeformation "github.com/aws/aws-cdk-go/awscdk/aws_lakeformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dataLocationResourceProperty := &dataLocationResourceProperty{
 //   	catalogId: jsii.String("catalogId"),
 //   	s3Resource: jsii.String("s3Resource"),
@@ -1488,15 +1509,18 @@ type CfnPermissions_DataLakePrincipalProperty struct {
 //
 type CfnPermissions_DataLocationResourceProperty struct {
 	// `CfnPermissions.DataLocationResourceProperty.CatalogId`.
-	CatalogId *string `json:"catalogId" yaml:"catalogId"`
+	CatalogId *string `field:"optional" json:"catalogId" yaml:"catalogId"`
 	// Currently not supported by AWS CloudFormation .
-	S3Resource *string `json:"s3Resource" yaml:"s3Resource"`
+	S3Resource *string `field:"optional" json:"s3Resource" yaml:"s3Resource"`
 }
 
 // A structure for the database object.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lakeformation "github.com/aws/aws-cdk-go/awscdk/aws_lakeformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   databaseResourceProperty := &databaseResourceProperty{
 //   	catalogId: jsii.String("catalogId"),
 //   	name: jsii.String("name"),
@@ -1504,17 +1528,20 @@ type CfnPermissions_DataLocationResourceProperty struct {
 //
 type CfnPermissions_DatabaseResourceProperty struct {
 	// `CfnPermissions.DatabaseResourceProperty.CatalogId`.
-	CatalogId *string `json:"catalogId" yaml:"catalogId"`
+	CatalogId *string `field:"optional" json:"catalogId" yaml:"catalogId"`
 	// The name of the database resource.
 	//
 	// Unique to the Data Catalog.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 
 // A structure for the resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lakeformation "github.com/aws/aws-cdk-go/awscdk/aws_lakeformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   resourceProperty := &resourceProperty{
 //   	databaseResource: &databaseResourceProperty{
 //   		catalogId: jsii.String("catalogId"),
@@ -1548,15 +1575,15 @@ type CfnPermissions_DatabaseResourceProperty struct {
 //
 type CfnPermissions_ResourceProperty struct {
 	// A structure for the database object.
-	DatabaseResource interface{} `json:"databaseResource" yaml:"databaseResource"`
+	DatabaseResource interface{} `field:"optional" json:"databaseResource" yaml:"databaseResource"`
 	// A structure for a data location object where permissions are granted or revoked.
-	DataLocationResource interface{} `json:"dataLocationResource" yaml:"dataLocationResource"`
+	DataLocationResource interface{} `field:"optional" json:"dataLocationResource" yaml:"dataLocationResource"`
 	// A structure for the table object.
 	//
 	// A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
-	TableResource interface{} `json:"tableResource" yaml:"tableResource"`
+	TableResource interface{} `field:"optional" json:"tableResource" yaml:"tableResource"`
 	// Currently not supported by AWS CloudFormation .
-	TableWithColumnsResource interface{} `json:"tableWithColumnsResource" yaml:"tableWithColumnsResource"`
+	TableWithColumnsResource interface{} `field:"optional" json:"tableWithColumnsResource" yaml:"tableWithColumnsResource"`
 }
 
 // A structure for the table object.
@@ -1564,7 +1591,10 @@ type CfnPermissions_ResourceProperty struct {
 // A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lakeformation "github.com/aws/aws-cdk-go/awscdk/aws_lakeformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tableResourceProperty := &tableResourceProperty{
 //   	catalogId: jsii.String("catalogId"),
 //   	databaseName: jsii.String("databaseName"),
@@ -1575,23 +1605,26 @@ type CfnPermissions_ResourceProperty struct {
 //
 type CfnPermissions_TableResourceProperty struct {
 	// `CfnPermissions.TableResourceProperty.CatalogId`.
-	CatalogId *string `json:"catalogId" yaml:"catalogId"`
+	CatalogId *string `field:"optional" json:"catalogId" yaml:"catalogId"`
 	// The name of the database for the table.
 	//
 	// Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
-	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
+	DatabaseName *string `field:"optional" json:"databaseName" yaml:"databaseName"`
 	// The name of the table.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// An empty object representing all tables under a database.
 	//
 	// If this field is specified instead of the `Name` field, all tables under `DatabaseName` will have permission changes applied.
-	TableWildcard interface{} `json:"tableWildcard" yaml:"tableWildcard"`
+	TableWildcard interface{} `field:"optional" json:"tableWildcard" yaml:"tableWildcard"`
 }
 
 // A wildcard object representing every table under a database.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lakeformation "github.com/aws/aws-cdk-go/awscdk/aws_lakeformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tableWildcardProperty := &tableWildcardProperty{
 //   }
 //
@@ -1603,7 +1636,10 @@ type CfnPermissions_TableWildcardProperty struct {
 // This object must take a value for at least one of `ColumnsNames` , `ColumnsIndexes` , or `ColumnsWildcard` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lakeformation "github.com/aws/aws-cdk-go/awscdk/aws_lakeformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tableWithColumnsResourceProperty := &tableWithColumnsResourceProperty{
 //   	catalogId: jsii.String("catalogId"),
 //   	columnNames: []*string{
@@ -1620,29 +1656,32 @@ type CfnPermissions_TableWildcardProperty struct {
 //
 type CfnPermissions_TableWithColumnsResourceProperty struct {
 	// `CfnPermissions.TableWithColumnsResourceProperty.CatalogId`.
-	CatalogId *string `json:"catalogId" yaml:"catalogId"`
+	CatalogId *string `field:"optional" json:"catalogId" yaml:"catalogId"`
 	// The list of column names for the table.
 	//
 	// At least one of `ColumnNames` or `ColumnWildcard` is required.
-	ColumnNames *[]*string `json:"columnNames" yaml:"columnNames"`
+	ColumnNames *[]*string `field:"optional" json:"columnNames" yaml:"columnNames"`
 	// A wildcard specified by a `ColumnWildcard` object.
 	//
 	// At least one of `ColumnNames` or `ColumnWildcard` is required.
-	ColumnWildcard interface{} `json:"columnWildcard" yaml:"columnWildcard"`
+	ColumnWildcard interface{} `field:"optional" json:"columnWildcard" yaml:"columnWildcard"`
 	// The name of the database for the table with columns resource.
 	//
 	// Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
-	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
+	DatabaseName *string `field:"optional" json:"databaseName" yaml:"databaseName"`
 	// The name of the table resource.
 	//
 	// A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 
 // Properties for defining a `CfnPermissions`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lakeformation "github.com/aws/aws-cdk-go/awscdk/aws_lakeformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnPermissionsProps := &cfnPermissionsProps{
 //   	dataLakePrincipal: &dataLakePrincipalProperty{
 //   		dataLakePrincipalIdentifier: jsii.String("dataLakePrincipalIdentifier"),
@@ -1689,13 +1728,13 @@ type CfnPermissions_TableWithColumnsResourceProperty struct {
 //
 type CfnPermissionsProps struct {
 	// The AWS Lake Formation principal.
-	DataLakePrincipal interface{} `json:"dataLakePrincipal" yaml:"dataLakePrincipal"`
+	DataLakePrincipal interface{} `field:"required" json:"dataLakePrincipal" yaml:"dataLakePrincipal"`
 	// A structure for the resource.
-	Resource interface{} `json:"resource" yaml:"resource"`
+	Resource interface{} `field:"required" json:"resource" yaml:"resource"`
 	// The permissions granted or revoked.
-	Permissions *[]*string `json:"permissions" yaml:"permissions"`
+	Permissions *[]*string `field:"optional" json:"permissions" yaml:"permissions"`
 	// Indicates whether to grant the ability to grant permissions (as a subset of permissions granted).
-	PermissionsWithGrantOption *[]*string `json:"permissionsWithGrantOption" yaml:"permissionsWithGrantOption"`
+	PermissionsWithGrantOption *[]*string `field:"optional" json:"permissionsWithGrantOption" yaml:"permissionsWithGrantOption"`
 }
 
 // A CloudFormation `AWS::LakeFormation::Resource`.
@@ -1703,8 +1742,11 @@ type CfnPermissionsProps struct {
 // The `AWS::LakeFormation::Resource` represents the data (Amazon S3 buckets and folders) that is being registered with AWS Lake Formation . When a `Resource` type CloudFormation template is uploaded, an AWS Lake Formation [`RegisterResource`](https://docs.aws.amazon.com/lake-formation/latest/dg/aws-lake-formation-api-credential-vending.html#aws-lake-formation-api-credential-vending-RegisterResource) API call is made to register the resource. When a `Resource` type CloudFormation template is removed, the AWS Lake Formation [`DeregisterResource`](https://docs.aws.amazon.com/lake-formation/latest/dg/aws-lake-formation-api-credential-vending.html#aws-lake-formation-api-credential-vending-DeregisterResource) API is called.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lakeformation "github.com/aws/aws-cdk-go/awscdk/aws_lakeformation"
-//   cfnResource := lakeformation.NewCfnResource(this, jsii.String("MyCfnResource"), &cfnResourceProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnResource := awscdk.Aws_lakeformation.NewCfnResource(this, jsii.String("MyCfnResource"), &cfnResourceProps{
 //   	resourceArn: jsii.String("resourceArn"),
 //   	useServiceLinkedRole: jsii.Boolean(false),
 //
@@ -2383,7 +2425,10 @@ func (c *jsiiProxy_CfnResource) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnResource`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lakeformation "github.com/aws/aws-cdk-go/awscdk/aws_lakeformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnResourceProps := &cfnResourceProps{
 //   	resourceArn: jsii.String("resourceArn"),
 //   	useServiceLinkedRole: jsii.Boolean(false),
@@ -2394,10 +2439,10 @@ func (c *jsiiProxy_CfnResource) ValidateProperties(_properties interface{}) {
 //
 type CfnResourceProps struct {
 	// The Amazon Resource Name (ARN) of the resource.
-	ResourceArn *string `json:"resourceArn" yaml:"resourceArn"`
+	ResourceArn *string `field:"required" json:"resourceArn" yaml:"resourceArn"`
 	// Designates a trusted caller, an IAM principal, by registering this caller with the Data Catalog.
-	UseServiceLinkedRole interface{} `json:"useServiceLinkedRole" yaml:"useServiceLinkedRole"`
+	UseServiceLinkedRole interface{} `field:"required" json:"useServiceLinkedRole" yaml:"useServiceLinkedRole"`
 	// The IAM role that registered a resource.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 }
 

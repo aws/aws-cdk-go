@@ -14,8 +14,11 @@ import (
 // Represents a workflow template. Workflows can be created only in the user's namespace. (The public namespace contains only entities.) The workflow can contain only entities in the specified namespace. The workflow is validated against the entities in the latest version of the user's namespace unless another namespace version is specified in the request.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotthingsgraph "github.com/aws/aws-cdk-go/awscdk/aws_iotthingsgraph"
-//   cfnFlowTemplate := iotthingsgraph.NewCfnFlowTemplate(this, jsii.String("MyCfnFlowTemplate"), &cfnFlowTemplateProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnFlowTemplate := awscdk.Aws_iotthingsgraph.NewCfnFlowTemplate(this, jsii.String("MyCfnFlowTemplate"), &cfnFlowTemplateProps{
 //   	definition: &definitionDocumentProperty{
 //   		language: jsii.String("language"),
 //   		text: jsii.String("text"),
@@ -677,7 +680,10 @@ func (c *jsiiProxy_CfnFlowTemplate) ValidateProperties(_properties interface{}) 
 // A document that defines an entity.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotthingsgraph "github.com/aws/aws-cdk-go/awscdk/aws_iotthingsgraph"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   definitionDocumentProperty := &definitionDocumentProperty{
 //   	language: jsii.String("language"),
 //   	text: jsii.String("text"),
@@ -687,15 +693,18 @@ type CfnFlowTemplate_DefinitionDocumentProperty struct {
 	// The language used to define the entity.
 	//
 	// `GRAPHQL` is the only valid value.
-	Language *string `json:"language" yaml:"language"`
+	Language *string `field:"required" json:"language" yaml:"language"`
 	// The GraphQL text that defines the entity.
-	Text *string `json:"text" yaml:"text"`
+	Text *string `field:"required" json:"text" yaml:"text"`
 }
 
 // Properties for defining a `CfnFlowTemplate`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotthingsgraph "github.com/aws/aws-cdk-go/awscdk/aws_iotthingsgraph"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnFlowTemplateProps := &cfnFlowTemplateProps{
 //   	definition: &definitionDocumentProperty{
 //   		language: jsii.String("language"),
@@ -708,10 +717,10 @@ type CfnFlowTemplate_DefinitionDocumentProperty struct {
 //
 type CfnFlowTemplateProps struct {
 	// A workflow's definition document.
-	Definition interface{} `json:"definition" yaml:"definition"`
+	Definition interface{} `field:"required" json:"definition" yaml:"definition"`
 	// The version of the user's namespace against which the workflow was validated.
 	//
 	// Use this value in your system instance.
-	CompatibleNamespaceVersion *float64 `json:"compatibleNamespaceVersion" yaml:"compatibleNamespaceVersion"`
+	CompatibleNamespaceVersion *float64 `field:"optional" json:"compatibleNamespaceVersion" yaml:"compatibleNamespaceVersion"`
 }
 

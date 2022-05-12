@@ -20,9 +20,13 @@ import (
 // be updated once the canary is created.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3 "github.com/aws/aws-cdk-go/awscdk/aws_s3"import awscdk "github.com/aws/aws-cdk-go/awscdk"import synthetics "github.com/aws/aws-cdk-go/awscdk/aws_synthetics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var bucket bucket
+//
 //   artifactsBucketLocation := &artifactsBucketLocation{
 //   	bucket: bucket,
 //
@@ -34,23 +38,29 @@ import (
 type ArtifactsBucketLocation struct {
 	// The s3 location that stores the data of each run.
 	// Experimental.
-	Bucket awss3.IBucket `json:"bucket" yaml:"bucket"`
+	Bucket awss3.IBucket `field:"required" json:"bucket" yaml:"bucket"`
 	// The S3 bucket prefix.
 	//
 	// Specify this if you want a more specific path within the artifacts bucket.
 	// Experimental.
-	Prefix *string `json:"prefix" yaml:"prefix"`
+	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 }
 
 // Canary code from an Asset.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import assets "github.com/aws/aws-cdk-go/awscdk/assets"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"import awscdk "github.com/aws/aws-cdk-go/awscdk"import synthetics "github.com/aws/aws-cdk-go/awscdk/aws_synthetics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var dockerImage dockerImage
 //   var grantable iGrantable
 //   var localBundling iLocalBundling
-//   assetCode := synthetics.NewAssetCode(jsii.String("assetPath"), &assetOptions{
+//
+//   assetCode := awscdk.Aws_synthetics.NewAssetCode(jsii.String("assetPath"), &assetOptions{
 //   	assetHash: jsii.String("assetHash"),
 //   	assetHashType: monocdk.assetHashType_SOURCE,
 //   	bundling: &bundlingOptions{
@@ -84,7 +94,7 @@ type ArtifactsBucketLocation struct {
 //   	exclude: []*string{
 //   		jsii.String("exclude"),
 //   	},
-//   	follow: assets.followMode_NEVER,
+//   	follow: awscdk.Assets.followMode_NEVER,
 //   	followSymlinks: monocdk.symlinkFollowMode_NEVER,
 //   	ignoreMode: monocdk.ignoreMode_GLOB,
 //   	readers: []*iGrantable{
@@ -215,7 +225,7 @@ func (a *jsiiProxy_AssetCode) Bind(scope constructs.Construct, handler *string, 
 //
 // Example:
 //   canary := synthetics.NewCanary(this, jsii.String("MyCanary"), &canaryProps{
-//   	schedule: synthetics.schedule.rate(duration.minutes(jsii.Number(5))),
+//   	schedule: synthetics.schedule.rate(awscdk.Duration.minutes(jsii.Number(5))),
 //   	test: synthetics.test.custom(&customTestOptions{
 //   		code: synthetics.code.fromAsset(path.join(__dirname, jsii.String("canary"))),
 //   		handler: jsii.String("index.handler"),
@@ -697,7 +707,7 @@ func (c *jsiiProxy_Canary) Validate() *[]*string {
 //
 // Example:
 //   canary := synthetics.NewCanary(this, jsii.String("MyCanary"), &canaryProps{
-//   	schedule: synthetics.schedule.rate(duration.minutes(jsii.Number(5))),
+//   	schedule: synthetics.schedule.rate(awscdk.Duration.minutes(jsii.Number(5))),
 //   	test: synthetics.test.custom(&customTestOptions{
 //   		code: synthetics.code.fromAsset(path.join(__dirname, jsii.String("canary"))),
 //   		handler: jsii.String("index.handler"),
@@ -714,15 +724,15 @@ type CanaryProps struct {
 	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html
 	//
 	// Experimental.
-	Runtime Runtime `json:"runtime" yaml:"runtime"`
+	Runtime Runtime `field:"required" json:"runtime" yaml:"runtime"`
 	// The type of test that you want your canary to run.
 	//
 	// Use `Test.custom()` to specify the test to run.
 	// Experimental.
-	Test Test `json:"test" yaml:"test"`
+	Test Test `field:"required" json:"test" yaml:"test"`
 	// The s3 location that stores the data of the canary runs.
 	// Experimental.
-	ArtifactsBucketLocation *ArtifactsBucketLocation `json:"artifactsBucketLocation" yaml:"artifactsBucketLocation"`
+	ArtifactsBucketLocation *ArtifactsBucketLocation `field:"optional" json:"artifactsBucketLocation" yaml:"artifactsBucketLocation"`
 	// The name of the canary.
 	//
 	// Be sure to give it a descriptive name that distinguishes it from
@@ -733,17 +743,17 @@ type CanaryProps struct {
 	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/servicelens_canaries_security.html
 	//
 	// Experimental.
-	CanaryName *string `json:"canaryName" yaml:"canaryName"`
+	CanaryName *string `field:"optional" json:"canaryName" yaml:"canaryName"`
 	// Key-value pairs that the Synthetics caches and makes available for your canary scripts.
 	//
 	// Use environment variables
 	// to apply configuration changes, such as test and production environment configurations, without changing your
 	// Canary script source code.
 	// Experimental.
-	EnvironmentVariables *map[string]*string `json:"environmentVariables" yaml:"environmentVariables"`
+	EnvironmentVariables *map[string]*string `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`
 	// How many days should failed runs be retained.
 	// Experimental.
-	FailureRetentionPeriod awscdk.Duration `json:"failureRetentionPeriod" yaml:"failureRetentionPeriod"`
+	FailureRetentionPeriod awscdk.Duration `field:"optional" json:"failureRetentionPeriod" yaml:"failureRetentionPeriod"`
 	// Canary execution role.
 	//
 	// This is the role that will be assumed by the canary upon execution.
@@ -755,40 +765,40 @@ type CanaryProps struct {
 	// See: required permissions: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-executionrolearn
 	//
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// Specify the schedule for how often the canary runs.
 	//
 	// For example, if you set `schedule` to `rate(10 minutes)`, then the canary will run every 10 minutes.
 	// You can set the schedule with `Schedule.rate(Duration)` (recommended) or you can specify an expression using `Schedule.expression()`.
 	// Experimental.
-	Schedule Schedule `json:"schedule" yaml:"schedule"`
+	Schedule Schedule `field:"optional" json:"schedule" yaml:"schedule"`
 	// The list of security groups to associate with the canary's network interfaces.
 	//
 	// You must provide `vpc` when using this prop.
 	// Experimental.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// Whether or not the canary should start after creation.
 	// Experimental.
-	StartAfterCreation *bool `json:"startAfterCreation" yaml:"startAfterCreation"`
+	StartAfterCreation *bool `field:"optional" json:"startAfterCreation" yaml:"startAfterCreation"`
 	// How many days should successful runs be retained.
 	// Experimental.
-	SuccessRetentionPeriod awscdk.Duration `json:"successRetentionPeriod" yaml:"successRetentionPeriod"`
+	SuccessRetentionPeriod awscdk.Duration `field:"optional" json:"successRetentionPeriod" yaml:"successRetentionPeriod"`
 	// How long the canary will be in a 'RUNNING' state.
 	//
 	// For example, if you set `timeToLive` to be 1 hour and `schedule` to be `rate(10 minutes)`,
 	// your canary will run at 10 minute intervals for an hour, for a total of 6 times.
 	// Experimental.
-	TimeToLive awscdk.Duration `json:"timeToLive" yaml:"timeToLive"`
+	TimeToLive awscdk.Duration `field:"optional" json:"timeToLive" yaml:"timeToLive"`
 	// The VPC where this canary is run.
 	//
 	// Specify this if the canary needs to access resources in a VPC.
 	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
+	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 	// Where to place the network interfaces within the VPC.
 	//
 	// You must provide `vpc` when using this prop.
 	// Experimental.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
 // A CloudFormation `AWS::Synthetics::Canary`.
@@ -800,8 +810,11 @@ type CanaryProps struct {
 // Do not include secrets or proprietary information in your canary names. The canary name makes up part of the Amazon Resource Name (ARN) for the canary, and the ARN is included in outbound calls over the internet. For more information, see [Security Considerations for Synthetics Canaries](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/servicelens_canaries_security.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import synthetics "github.com/aws/aws-cdk-go/awscdk/aws_synthetics"
-//   cfnCanary := synthetics.NewCfnCanary(this, jsii.String("MyCfnCanary"), &cfnCanaryProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnCanary := awscdk.Aws_synthetics.NewCfnCanary(this, jsii.String("MyCfnCanary"), &cfnCanaryProps{
 //   	artifactS3Location: jsii.String("artifactS3Location"),
 //   	code: &codeProperty{
 //   		handler: jsii.String("handler"),
@@ -1823,7 +1836,10 @@ func (c *jsiiProxy_CfnCanary) ValidateProperties(_properties interface{}) {
 // A structure that contains the configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3 .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import synthetics "github.com/aws/aws-cdk-go/awscdk/aws_synthetics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   artifactConfigProperty := &artifactConfigProperty{
 //   	s3Encryption: &s3EncryptionProperty{
 //   		encryptionMode: jsii.String("encryptionMode"),
@@ -1835,13 +1851,16 @@ type CfnCanary_ArtifactConfigProperty struct {
 	// A structure that contains the configuration of the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3 .
 	//
 	// Artifact encryption functionality is available only for canaries that use Synthetics runtime version syn-nodejs-puppeteer-3.3 or later. For more information, see [Encrypting canary artifacts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_artifact_encryption.html) .
-	S3Encryption interface{} `json:"s3Encryption" yaml:"s3Encryption"`
+	S3Encryption interface{} `field:"optional" json:"s3Encryption" yaml:"s3Encryption"`
 }
 
 // A structure representing a screenshot that is used as a baseline during visual monitoring comparisons made by the canary.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import synthetics "github.com/aws/aws-cdk-go/awscdk/aws_synthetics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   baseScreenshotProperty := &baseScreenshotProperty{
 //   	screenshotName: jsii.String("screenshotName"),
 //
@@ -1855,11 +1874,11 @@ type CfnCanary_BaseScreenshotProperty struct {
 	// The name of the screenshot.
 	//
 	// This is generated the first time the canary is run after the `UpdateCanary` operation that specified for this canary to perform visual monitoring.
-	ScreenshotName *string `json:"screenshotName" yaml:"screenshotName"`
+	ScreenshotName *string `field:"required" json:"screenshotName" yaml:"screenshotName"`
 	// Coordinates that define the part of a screen to ignore during screenshot comparisons.
 	//
 	// To obtain the coordinates to use here, use the CloudWatch Logs console to draw the boundaries on the screen. For more information, see {LINK}
-	IgnoreCoordinates *[]*string `json:"ignoreCoordinates" yaml:"ignoreCoordinates"`
+	IgnoreCoordinates *[]*string `field:"optional" json:"ignoreCoordinates" yaml:"ignoreCoordinates"`
 }
 
 // Use this structure to input your script code for the canary.
@@ -1867,7 +1886,10 @@ type CfnCanary_BaseScreenshotProperty struct {
 // This structure contains the Lambda handler with the location where the canary should start running the script. If the script is stored in an S3 bucket, the bucket name, key, and version are also included. If the script is passed into the canary directly, the script code is contained in the value of `Script` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import synthetics "github.com/aws/aws-cdk-go/awscdk/aws_synthetics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   codeProperty := &codeProperty{
 //   	handler: jsii.String("handler"),
 //
@@ -1882,21 +1904,21 @@ type CfnCanary_CodeProperty struct {
 	// The entry point to use for the source code when running the canary.
 	//
 	// For canaries that use the `syn-python-selenium-1.0` runtime or a `syn-nodejs.puppeteer` runtime earlier than `syn-nodejs.puppeteer-3.4` , the handler must be specified as `*fileName* .handler` . For `syn-python-selenium-1.1` , `syn-nodejs.puppeteer-3.4` , and later runtimes, the handler can be specified as `*fileName* . *functionName*` , or you can specify a folder where canary scripts reside as `*folder* / *fileName* . *functionName*` .
-	Handler *string `json:"handler" yaml:"handler"`
+	Handler *string `field:"required" json:"handler" yaml:"handler"`
 	// If your canary script is located in S3, specify the bucket name here.
 	//
 	// The bucket must already exist.
-	S3Bucket *string `json:"s3Bucket" yaml:"s3Bucket"`
+	S3Bucket *string `field:"optional" json:"s3Bucket" yaml:"s3Bucket"`
 	// The S3 key of your script.
 	//
 	// For more information, see [Working with Amazon S3 Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html) .
-	S3Key *string `json:"s3Key" yaml:"s3Key"`
+	S3Key *string `field:"optional" json:"s3Key" yaml:"s3Key"`
 	// The S3 version ID of your script.
-	S3ObjectVersion *string `json:"s3ObjectVersion" yaml:"s3ObjectVersion"`
+	S3ObjectVersion *string `field:"optional" json:"s3ObjectVersion" yaml:"s3ObjectVersion"`
 	// If you input your canary script directly into the canary instead of referring to an S3 location, the value of this parameter is the script in plain text.
 	//
 	// It can be up to 5 MB.
-	Script *string `json:"script" yaml:"script"`
+	Script *string `field:"optional" json:"script" yaml:"script"`
 }
 
 // A structure that contains input information for a canary run.
@@ -1904,7 +1926,10 @@ type CfnCanary_CodeProperty struct {
 // This structure is required.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import synthetics "github.com/aws/aws-cdk-go/awscdk/aws_synthetics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   runConfigProperty := &runConfigProperty{
 //   	activeTracing: jsii.Boolean(false),
 //   	environmentVariables: map[string]*string{
@@ -1920,7 +1945,7 @@ type CfnCanary_RunConfigProperty struct {
 	// Active tracing enables this canary run to be displayed in the ServiceLens and X-Ray service maps even if the canary does not hit an endpoint that has X-Ray tracing enabled. Using X-Ray tracing incurs charges. For more information, see [Canaries and X-Ray tracing](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_tracing.html) .
 	//
 	// You can enable active tracing only for canaries that use version `syn-nodejs-2.0` or later for their canary runtime.
-	ActiveTracing interface{} `json:"activeTracing" yaml:"activeTracing"`
+	ActiveTracing interface{} `field:"optional" json:"activeTracing" yaml:"activeTracing"`
 	// Specifies the keys and values to use for any environment variables used in the canary script.
 	//
 	// Use the following format:
@@ -1928,17 +1953,17 @@ type CfnCanary_RunConfigProperty struct {
 	// { "key1" : "value1", "key2" : "value2", ...}
 	//
 	// Keys must start with a letter and be at least two characters. The total size of your environment variables cannot exceed 4 KB. You can't specify any Lambda reserved environment variables as the keys for your environment variables. For more information about reserved keys, see [Runtime environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime) .
-	EnvironmentVariables interface{} `json:"environmentVariables" yaml:"environmentVariables"`
+	EnvironmentVariables interface{} `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`
 	// The maximum amount of memory that the canary can use while running.
 	//
 	// This value must be a multiple of 64. The range is 960 to 3008.
-	MemoryInMb *float64 `json:"memoryInMb" yaml:"memoryInMb"`
+	MemoryInMb *float64 `field:"optional" json:"memoryInMb" yaml:"memoryInMb"`
 	// How long the canary is allowed to run before it must stop.
 	//
 	// You can't set this time to be longer than the frequency of the runs of this canary.
 	//
 	// If you omit this field, the frequency of the canary is used as this value, up to a maximum of 900 seconds.
-	TimeoutInSeconds *float64 `json:"timeoutInSeconds" yaml:"timeoutInSeconds"`
+	TimeoutInSeconds *float64 `field:"optional" json:"timeoutInSeconds" yaml:"timeoutInSeconds"`
 }
 
 // A structure that contains the configuration of the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3 .
@@ -1946,7 +1971,10 @@ type CfnCanary_RunConfigProperty struct {
 // Artifact encryption functionality is available only for canaries that use Synthetics runtime version syn-nodejs-puppeteer-3.3 or later. For more information, see [Encrypting canary artifacts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_artifact_encryption.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import synthetics "github.com/aws/aws-cdk-go/awscdk/aws_synthetics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3EncryptionProperty := &s3EncryptionProperty{
 //   	encryptionMode: jsii.String("encryptionMode"),
 //   	kmsKeyArn: jsii.String("kmsKeyArn"),
@@ -1958,15 +1986,18 @@ type CfnCanary_S3EncryptionProperty struct {
 	// Specify `SSE_S3` to use server-side encryption (SSE) with an Amazon S3-managed key. Specify `SSE-KMS` to use server-side encryption with a customer-managed AWS KMS key.
 	//
 	// If you omit this parameter, an AWS -managed AWS KMS key is used.
-	EncryptionMode *string `json:"encryptionMode" yaml:"encryptionMode"`
+	EncryptionMode *string `field:"optional" json:"encryptionMode" yaml:"encryptionMode"`
 	// The ARN of the customer-managed AWS KMS key to use, if you specify `SSE-KMS` for `EncryptionMode`.
-	KmsKeyArn *string `json:"kmsKeyArn" yaml:"kmsKeyArn"`
+	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
 }
 
 // This structure specifies how often a canary is to make runs and the date and time when it should stop making runs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import synthetics "github.com/aws/aws-cdk-go/awscdk/aws_synthetics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   scheduleProperty := &scheduleProperty{
 //   	expression: jsii.String("expression"),
 //
@@ -1984,11 +2015,11 @@ type CfnCanary_ScheduleProperty struct {
 	// Specifying `rate(0 minute)` or `rate(0 hour)` is a special value that causes the canary to run only once when it is started.
 	//
 	// Use `cron( *expression* )` to specify a cron expression. You can't schedule a canary to wait for more than a year before running. For information about the syntax for cron expressions, see [Scheduling canary runs using cron](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html) .
-	Expression *string `json:"expression" yaml:"expression"`
+	Expression *string `field:"required" json:"expression" yaml:"expression"`
 	// How long, in seconds, for the canary to continue making regular runs according to the schedule in the `Expression` value.
 	//
 	// If you specify 0, the canary continues making runs until you stop it. If you omit this field, the default of 0 is used.
-	DurationInSeconds *string `json:"durationInSeconds" yaml:"durationInSeconds"`
+	DurationInSeconds *string `field:"optional" json:"durationInSeconds" yaml:"durationInSeconds"`
 }
 
 // If this canary is to test an endpoint in a VPC, this structure contains information about the subnet and security groups of the VPC endpoint.
@@ -1996,7 +2027,10 @@ type CfnCanary_ScheduleProperty struct {
 // For more information, see [Running a Canary in a VPC](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_VPC.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import synthetics "github.com/aws/aws-cdk-go/awscdk/aws_synthetics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   vPCConfigProperty := &vPCConfigProperty{
 //   	securityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
@@ -2011,11 +2045,11 @@ type CfnCanary_ScheduleProperty struct {
 //
 type CfnCanary_VPCConfigProperty struct {
 	// The IDs of the security groups for this canary.
-	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
+	SecurityGroupIds *[]*string `field:"required" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// The IDs of the subnets where this canary is to run.
-	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
+	SubnetIds *[]*string `field:"required" json:"subnetIds" yaml:"subnetIds"`
 	// The ID of the VPC where this canary is to run.
-	VpcId *string `json:"vpcId" yaml:"vpcId"`
+	VpcId *string `field:"optional" json:"vpcId" yaml:"vpcId"`
 }
 
 // Defines the screenshots to use as the baseline for comparisons during visual monitoring comparisons during future runs of this canary.
@@ -2025,7 +2059,10 @@ type CfnCanary_VPCConfigProperty struct {
 // Visual monitoring is supported only on canaries running the *syn-puppeteer-node-3.2* runtime or later. For more information, see [Visual monitoring](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Library_SyntheticsLogger_VisualTesting.html) and [Visual monitoring blueprint](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Blueprints_VisualTesting.html)
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import synthetics "github.com/aws/aws-cdk-go/awscdk/aws_synthetics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   visualReferenceProperty := &visualReferenceProperty{
 //   	baseCanaryRunId: jsii.String("baseCanaryRunId"),
 //
@@ -2046,15 +2083,18 @@ type CfnCanary_VisualReferenceProperty struct {
 	// Specifies which canary run to use the screenshots from as the baseline for future visual monitoring with this canary.
 	//
 	// Valid values are `nextrun` to use the screenshots from the next run after this update is made, `lastrun` to use the screenshots from the most recent run before this update was made, or the value of `Id` in the [CanaryRun](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CanaryRun.html) from any past run of this canary.
-	BaseCanaryRunId *string `json:"baseCanaryRunId" yaml:"baseCanaryRunId"`
+	BaseCanaryRunId *string `field:"required" json:"baseCanaryRunId" yaml:"baseCanaryRunId"`
 	// An array of screenshots that are used as the baseline for comparisons during visual monitoring.
-	BaseScreenshots interface{} `json:"baseScreenshots" yaml:"baseScreenshots"`
+	BaseScreenshots interface{} `field:"optional" json:"baseScreenshots" yaml:"baseScreenshots"`
 }
 
 // Properties for defining a `CfnCanary`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import synthetics "github.com/aws/aws-cdk-go/awscdk/aws_synthetics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnCanaryProps := &cfnCanaryProps{
 //   	artifactS3Location: jsii.String("artifactS3Location"),
 //   	code: &codeProperty{
@@ -2132,11 +2172,11 @@ type CfnCanaryProps struct {
 	// The location in Amazon S3 where Synthetics stores artifacts from the runs of this canary.
 	//
 	// Artifacts include the log file, screenshots, and HAR files. Specify the full location path, including `s3://` at the beginning of the path.
-	ArtifactS3Location *string `json:"artifactS3Location" yaml:"artifactS3Location"`
+	ArtifactS3Location *string `field:"required" json:"artifactS3Location" yaml:"artifactS3Location"`
 	// Use this structure to input your script code for the canary.
 	//
 	// This structure contains the Lambda handler with the location where the canary should start running the script. If the script is stored in an S3 bucket, the bucket name, key, and version are also included. If the script is passed into the canary directly, the script code is contained in the value of `Script` .
-	Code interface{} `json:"code" yaml:"code"`
+	Code interface{} `field:"required" json:"code" yaml:"code"`
 	// The ARN of the IAM role to be used to run the canary.
 	//
 	// This role must already exist, and must include `lambda.amazonaws.com` as a principal in the trust policy. The role must also have the following permissions:
@@ -2148,52 +2188,52 @@ type CfnCanaryProps struct {
 	// - `logs:CreateLogGroup`
 	// - `logs:CreateLogStream`
 	// - `logs:PutLogEvents`.
-	ExecutionRoleArn *string `json:"executionRoleArn" yaml:"executionRoleArn"`
+	ExecutionRoleArn *string `field:"required" json:"executionRoleArn" yaml:"executionRoleArn"`
 	// The name for this canary.
 	//
 	// Be sure to give it a descriptive name that distinguishes it from other canaries in your account.
 	//
 	// Do not include secrets or proprietary information in your canary names. The canary name makes up part of the canary ARN, and the ARN is included in outbound calls over the internet. For more information, see [Security Considerations for Synthetics Canaries](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/servicelens_canaries_security.html) .
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// Specifies the runtime version to use for the canary.
 	//
 	// For more information about runtime versions, see [Canary Runtime Versions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html) .
-	RuntimeVersion *string `json:"runtimeVersion" yaml:"runtimeVersion"`
+	RuntimeVersion *string `field:"required" json:"runtimeVersion" yaml:"runtimeVersion"`
 	// A structure that contains information about how often the canary is to run, and when these runs are to stop.
-	Schedule interface{} `json:"schedule" yaml:"schedule"`
+	Schedule interface{} `field:"required" json:"schedule" yaml:"schedule"`
 	// Specify TRUE to have the canary start making runs immediately after it is created.
 	//
 	// A canary that you create using CloudFormation can't be used to monitor the CloudFormation stack that creates the canary or to roll back that stack if there is a failure.
-	StartCanaryAfterCreation interface{} `json:"startCanaryAfterCreation" yaml:"startCanaryAfterCreation"`
+	StartCanaryAfterCreation interface{} `field:"required" json:"startCanaryAfterCreation" yaml:"startCanaryAfterCreation"`
 	// A structure that contains the configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3.
-	ArtifactConfig interface{} `json:"artifactConfig" yaml:"artifactConfig"`
+	ArtifactConfig interface{} `field:"optional" json:"artifactConfig" yaml:"artifactConfig"`
 	// The number of days to retain data about failed runs of this canary.
 	//
 	// If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
-	FailureRetentionPeriod *float64 `json:"failureRetentionPeriod" yaml:"failureRetentionPeriod"`
+	FailureRetentionPeriod *float64 `field:"optional" json:"failureRetentionPeriod" yaml:"failureRetentionPeriod"`
 	// A structure that contains input information for a canary run.
 	//
 	// If you omit this structure, the frequency of the canary is used as canary's timeout value, up to a maximum of 900 seconds.
-	RunConfig interface{} `json:"runConfig" yaml:"runConfig"`
+	RunConfig interface{} `field:"optional" json:"runConfig" yaml:"runConfig"`
 	// The number of days to retain data about successful runs of this canary.
 	//
 	// If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
-	SuccessRetentionPeriod *float64 `json:"successRetentionPeriod" yaml:"successRetentionPeriod"`
+	SuccessRetentionPeriod *float64 `field:"optional" json:"successRetentionPeriod" yaml:"successRetentionPeriod"`
 	// The list of key-value pairs that are associated with the canary.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// If this canary performs visual monitoring by comparing screenshots, this structure contains the ID of the canary run to use as the baseline for screenshots, and the coordinates of any parts of the screen to ignore during the visual monitoring comparison.
-	VisualReference interface{} `json:"visualReference" yaml:"visualReference"`
+	VisualReference interface{} `field:"optional" json:"visualReference" yaml:"visualReference"`
 	// If this canary is to test an endpoint in a VPC, this structure contains information about the subnet and security groups of the VPC endpoint.
 	//
 	// For more information, see [Running a Canary in a VPC](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_VPC.html) .
-	VpcConfig interface{} `json:"vpcConfig" yaml:"vpcConfig"`
+	VpcConfig interface{} `field:"optional" json:"vpcConfig" yaml:"vpcConfig"`
 }
 
 // The code the canary should execute.
 //
 // Example:
 //   canary := synthetics.NewCanary(this, jsii.String("MyCanary"), &canaryProps{
-//   	schedule: synthetics.schedule.rate(duration.minutes(jsii.Number(5))),
+//   	schedule: synthetics.schedule.rate(awscdk.Duration.minutes(jsii.Number(5))),
 //   	test: synthetics.test.custom(&customTestOptions{
 //   		code: synthetics.code.fromAsset(path.join(__dirname, jsii.String("canary"))),
 //   		handler: jsii.String("index.handler"),
@@ -2311,7 +2351,10 @@ func (c *jsiiProxy_Code) Bind(scope constructs.Construct, handler *string, famil
 // Configuration of the code class.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import synthetics "github.com/aws/aws-cdk-go/awscdk/aws_synthetics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   codeConfig := &codeConfig{
 //   	inlineCode: jsii.String("inlineCode"),
 //   	s3Location: &location{
@@ -2327,10 +2370,10 @@ func (c *jsiiProxy_Code) Bind(scope constructs.Construct, handler *string, famil
 type CodeConfig struct {
 	// Inline code (mutually exclusive with `s3Location`).
 	// Experimental.
-	InlineCode *string `json:"inlineCode" yaml:"inlineCode"`
+	InlineCode *string `field:"optional" json:"inlineCode" yaml:"inlineCode"`
 	// The location of the code in S3 (mutually exclusive with `inlineCode`).
 	// Experimental.
-	S3Location *awss3.Location `json:"s3Location" yaml:"s3Location"`
+	S3Location *awss3.Location `field:"optional" json:"s3Location" yaml:"s3Location"`
 }
 
 // Options to configure a cron expression.
@@ -2349,26 +2392,26 @@ type CodeConfig struct {
 type CronOptions struct {
 	// The day of the month to run this rule at.
 	// Experimental.
-	Day *string `json:"day" yaml:"day"`
+	Day *string `field:"optional" json:"day" yaml:"day"`
 	// The hour to run this rule at.
 	// Experimental.
-	Hour *string `json:"hour" yaml:"hour"`
+	Hour *string `field:"optional" json:"hour" yaml:"hour"`
 	// The minute to run this rule at.
 	// Experimental.
-	Minute *string `json:"minute" yaml:"minute"`
+	Minute *string `field:"optional" json:"minute" yaml:"minute"`
 	// The month to run this rule at.
 	// Experimental.
-	Month *string `json:"month" yaml:"month"`
+	Month *string `field:"optional" json:"month" yaml:"month"`
 	// The day of the week to run this rule at.
 	// Experimental.
-	WeekDay *string `json:"weekDay" yaml:"weekDay"`
+	WeekDay *string `field:"optional" json:"weekDay" yaml:"weekDay"`
 }
 
 // Properties for specifying a test.
 //
 // Example:
 //   canary := synthetics.NewCanary(this, jsii.String("MyCanary"), &canaryProps{
-//   	schedule: synthetics.schedule.rate(duration.minutes(jsii.Number(5))),
+//   	schedule: synthetics.schedule.rate(awscdk.Duration.minutes(jsii.Number(5))),
 //   	test: synthetics.test.custom(&customTestOptions{
 //   		code: synthetics.code.fromAsset(path.join(__dirname, jsii.String("canary"))),
 //   		handler: jsii.String("index.handler"),
@@ -2383,19 +2426,22 @@ type CronOptions struct {
 type CustomTestOptions struct {
 	// The code of the canary script.
 	// Experimental.
-	Code Code `json:"code" yaml:"code"`
+	Code Code `field:"required" json:"code" yaml:"code"`
 	// The handler for the code.
 	//
 	// Must end with `.handler`.
 	// Experimental.
-	Handler *string `json:"handler" yaml:"handler"`
+	Handler *string `field:"required" json:"handler" yaml:"handler"`
 }
 
 // Canary code from an inline string.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import synthetics "github.com/aws/aws-cdk-go/awscdk/aws_synthetics"
-//   inlineCode := synthetics.NewInlineCode(jsii.String("code"))
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   inlineCode := awscdk.Aws_synthetics.NewInlineCode(jsii.String("code"))
 //
 // Experimental.
 type InlineCode interface {
@@ -2519,7 +2565,7 @@ func (i *jsiiProxy_InlineCode) Bind(_scope constructs.Construct, handler *string
 //
 // Example:
 //   canary := synthetics.NewCanary(this, jsii.String("MyCanary"), &canaryProps{
-//   	schedule: synthetics.schedule.rate(duration.minutes(jsii.Number(5))),
+//   	schedule: synthetics.schedule.rate(awscdk.Duration.minutes(jsii.Number(5))),
 //   	test: synthetics.test.custom(&customTestOptions{
 //   		code: synthetics.code.fromAsset(path.join(__dirname, jsii.String("canary"))),
 //   		handler: jsii.String("index.handler"),
@@ -2732,10 +2778,14 @@ const (
 // S3 bucket path to the code zip file.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3 "github.com/aws/aws-cdk-go/awscdk/aws_s3"import awscdk "github.com/aws/aws-cdk-go/awscdk"import synthetics "github.com/aws/aws-cdk-go/awscdk/aws_synthetics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var bucket bucket
-//   s3Code := synthetics.NewS3Code(bucket, jsii.String("key"), jsii.String("objectVersion"))
+//
+//   s3Code := awscdk.Aws_synthetics.NewS3Code(bucket, jsii.String("key"), jsii.String("objectVersion"))
 //
 // Experimental.
 type S3Code interface {
@@ -2858,7 +2908,7 @@ func (s *jsiiProxy_S3Code) Bind(_scope constructs.Construct, _handler *string, _
 // Schedule for canary runs.
 //
 // Example:
-//   schedule := synthetics.schedule.rate(duration.minutes(jsii.Number(5)))
+//   schedule := synthetics.schedule.rate(awscdk.Duration.minutes(jsii.Number(5)))
 //
 // Experimental.
 type Schedule interface {
@@ -2961,7 +3011,7 @@ func Schedule_Rate(interval awscdk.Duration) Schedule {
 //
 // Example:
 //   canary := synthetics.NewCanary(this, jsii.String("MyCanary"), &canaryProps{
-//   	schedule: synthetics.schedule.rate(duration.minutes(jsii.Number(5))),
+//   	schedule: synthetics.schedule.rate(awscdk.Duration.minutes(jsii.Number(5))),
 //   	test: synthetics.test.custom(&customTestOptions{
 //   		code: synthetics.code.fromAsset(path.join(__dirname, jsii.String("canary"))),
 //   		handler: jsii.String("index.handler"),

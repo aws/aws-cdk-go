@@ -12,8 +12,11 @@ import (
 // A CloudFormation `AWS::KinesisVideo::SignalingChannel`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisvideo "github.com/aws/aws-cdk-go/awscdk/aws_kinesisvideo"
-//   cfnSignalingChannel := kinesisvideo.NewCfnSignalingChannel(this, jsii.String("MyCfnSignalingChannel"), &cfnSignalingChannelProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnSignalingChannel := awscdk.Aws_kinesisvideo.NewCfnSignalingChannel(this, jsii.String("MyCfnSignalingChannel"), &cfnSignalingChannelProps{
 //   	messageTtlSeconds: jsii.Number(123),
 //   	name: jsii.String("name"),
 //   	tags: []cfnTag{
@@ -719,7 +722,10 @@ func (c *jsiiProxy_CfnSignalingChannel) ValidateProperties(_properties interface
 // Properties for defining a `CfnSignalingChannel`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisvideo "github.com/aws/aws-cdk-go/awscdk/aws_kinesisvideo"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnSignalingChannelProps := &cfnSignalingChannelProps{
 //   	messageTtlSeconds: jsii.Number(123),
 //   	name: jsii.String("name"),
@@ -734,20 +740,23 @@ func (c *jsiiProxy_CfnSignalingChannel) ValidateProperties(_properties interface
 //
 type CfnSignalingChannelProps struct {
 	// `AWS::KinesisVideo::SignalingChannel.MessageTtlSeconds`.
-	MessageTtlSeconds *float64 `json:"messageTtlSeconds" yaml:"messageTtlSeconds"`
+	MessageTtlSeconds *float64 `field:"optional" json:"messageTtlSeconds" yaml:"messageTtlSeconds"`
 	// `AWS::KinesisVideo::SignalingChannel.Name`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// `AWS::KinesisVideo::SignalingChannel.Tags`.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// `AWS::KinesisVideo::SignalingChannel.Type`.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 
 // A CloudFormation `AWS::KinesisVideo::Stream`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisvideo "github.com/aws/aws-cdk-go/awscdk/aws_kinesisvideo"
-//   cfnStream := kinesisvideo.NewCfnStream(this, jsii.String("MyCfnStream"), &cfnStreamProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnStream := awscdk.Aws_kinesisvideo.NewCfnStream(this, jsii.String("MyCfnStream"), &cfnStreamProps{
 //   	dataRetentionInHours: jsii.Number(123),
 //   	deviceName: jsii.String("deviceName"),
 //   	kmsKeyId: jsii.String("kmsKeyId"),
@@ -1497,7 +1506,10 @@ func (c *jsiiProxy_CfnStream) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnStream`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisvideo "github.com/aws/aws-cdk-go/awscdk/aws_kinesisvideo"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnStreamProps := &cfnStreamProps{
 //   	dataRetentionInHours: jsii.Number(123),
 //   	deviceName: jsii.String("deviceName"),
@@ -1514,16 +1526,16 @@ func (c *jsiiProxy_CfnStream) ValidateProperties(_properties interface{}) {
 //
 type CfnStreamProps struct {
 	// `AWS::KinesisVideo::Stream.DataRetentionInHours`.
-	DataRetentionInHours *float64 `json:"dataRetentionInHours" yaml:"dataRetentionInHours"`
+	DataRetentionInHours *float64 `field:"optional" json:"dataRetentionInHours" yaml:"dataRetentionInHours"`
 	// `AWS::KinesisVideo::Stream.DeviceName`.
-	DeviceName *string `json:"deviceName" yaml:"deviceName"`
+	DeviceName *string `field:"optional" json:"deviceName" yaml:"deviceName"`
 	// `AWS::KinesisVideo::Stream.KmsKeyId`.
-	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// `AWS::KinesisVideo::Stream.MediaType`.
-	MediaType *string `json:"mediaType" yaml:"mediaType"`
+	MediaType *string `field:"optional" json:"mediaType" yaml:"mediaType"`
 	// `AWS::KinesisVideo::Stream.Name`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// `AWS::KinesisVideo::Stream.Tags`.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

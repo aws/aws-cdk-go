@@ -17,9 +17,13 @@ import (
 // Backup configuration for DocumentDB databases.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import docdb "github.com/aws/aws-cdk-go/awscdk/aws_docdb"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
+//
 //   backupProps := &backupProps{
 //   	retention: duration,
 //
@@ -33,14 +37,14 @@ import (
 type BackupProps struct {
 	// How many days to retain the backup.
 	// Experimental.
-	Retention awscdk.Duration `json:"retention" yaml:"retention"`
+	Retention awscdk.Duration `field:"required" json:"retention" yaml:"retention"`
 	// A daily time range in 24-hours UTC format in which backups preferably execute.
 	//
 	// Must be at least 30 minutes long.
 	//
 	// Example: '01:00-02:00'.
 	// Experimental.
-	PreferredWindow *string `json:"preferredWindow" yaml:"preferredWindow"`
+	PreferredWindow *string `field:"optional" json:"preferredWindow" yaml:"preferredWindow"`
 }
 
 // A CloudFormation `AWS::DocDB::DBCluster`.
@@ -48,8 +52,11 @@ type BackupProps struct {
 // The `AWS::DocDB::DBCluster` Amazon DocumentDB (with MongoDB compatibility) resource describes a DBCluster. Amazon DocumentDB is a fully managed, MongoDB-compatible document database engine. For more information, see [DBCluster](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBCluster.html) in the *Amazon DocumentDB Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import docdb "github.com/aws/aws-cdk-go/awscdk/aws_docdb"
-//   cfnDBCluster := docdb.NewCfnDBCluster(this, jsii.String("MyCfnDBCluster"), &cfnDBClusterProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDBCluster := awscdk.Aws_docdb.NewCfnDBCluster(this, jsii.String("MyCfnDBCluster"), &cfnDBClusterProps{
 //   	availabilityZones: []*string{
 //   		jsii.String("availabilityZones"),
 //   	},
@@ -1207,10 +1214,13 @@ func (c *jsiiProxy_CfnDBCluster) ValidateProperties(_properties interface{}) {
 // > After you create a cluster parameter group, you should wait at least 5 minutes before creating your first cluster that uses that cluster parameter group as the default parameter group. This allows Amazon DocumentDB to fully complete the create action before the cluster parameter group is used as the default for a new cluster. This step is especially important for parameters that are critical when creating the default database for a cluster, such as the character set for the default database defined by the `character_set_database` parameter.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import docdb "github.com/aws/aws-cdk-go/awscdk/aws_docdb"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameters interface{}
-//   cfnDBClusterParameterGroup := docdb.NewCfnDBClusterParameterGroup(this, jsii.String("MyCfnDBClusterParameterGroup"), &cfnDBClusterParameterGroupProps{
+//
+//   cfnDBClusterParameterGroup := awscdk.Aws_docdb.NewCfnDBClusterParameterGroup(this, jsii.String("MyCfnDBClusterParameterGroup"), &cfnDBClusterParameterGroupProps{
 //   	description: jsii.String("description"),
 //   	family: jsii.String("family"),
 //   	parameters: parameters,
@@ -1935,9 +1945,12 @@ func (c *jsiiProxy_CfnDBClusterParameterGroup) ValidateProperties(_properties in
 // Properties for defining a `CfnDBClusterParameterGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import docdb "github.com/aws/aws-cdk-go/awscdk/aws_docdb"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameters interface{}
+//
 //   cfnDBClusterParameterGroupProps := &cfnDBClusterParameterGroupProps{
 //   	description: jsii.String("description"),
 //   	family: jsii.String("family"),
@@ -1955,11 +1968,11 @@ func (c *jsiiProxy_CfnDBClusterParameterGroup) ValidateProperties(_properties in
 //
 type CfnDBClusterParameterGroupProps struct {
 	// The description for the cluster parameter group.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"required" json:"description" yaml:"description"`
 	// The cluster parameter group family name.
-	Family *string `json:"family" yaml:"family"`
+	Family *string `field:"required" json:"family" yaml:"family"`
 	// Provides a list of parameters for the cluster parameter group.
-	Parameters interface{} `json:"parameters" yaml:"parameters"`
+	Parameters interface{} `field:"required" json:"parameters" yaml:"parameters"`
 	// The name of the DB cluster parameter group.
 	//
 	// Constraints:
@@ -1967,15 +1980,18 @@ type CfnDBClusterParameterGroupProps struct {
 	// - Must not match the name of an existing `DBClusterParameterGroup` .
 	//
 	// > This value is stored as a lowercase string.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The tags to be assigned to the cluster parameter group.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // Properties for defining a `CfnDBCluster`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import docdb "github.com/aws/aws-cdk-go/awscdk/aws_docdb"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDBClusterProps := &cfnDBClusterProps{
 //   	availabilityZones: []*string{
 //   		jsii.String("availabilityZones"),
@@ -2011,7 +2027,7 @@ type CfnDBClusterParameterGroupProps struct {
 //
 type CfnDBClusterProps struct {
 	// A list of Amazon EC2 Availability Zones that instances in the cluster can be created in.
-	AvailabilityZones *[]*string `json:"availabilityZones" yaml:"availabilityZones"`
+	AvailabilityZones *[]*string `field:"optional" json:"availabilityZones" yaml:"availabilityZones"`
 	// The number of days for which automated backups are retained. You must specify a minimum value of 1.
 	//
 	// Default: 1
@@ -2019,9 +2035,9 @@ type CfnDBClusterProps struct {
 	// Constraints:
 	//
 	// - Must be a value from 1 to 35.
-	BackupRetentionPeriod *float64 `json:"backupRetentionPeriod" yaml:"backupRetentionPeriod"`
+	BackupRetentionPeriod *float64 `field:"optional" json:"backupRetentionPeriod" yaml:"backupRetentionPeriod"`
 	// `AWS::DocDB::DBCluster.CopyTagsToSnapshot`.
-	CopyTagsToSnapshot interface{} `json:"copyTagsToSnapshot" yaml:"copyTagsToSnapshot"`
+	CopyTagsToSnapshot interface{} `field:"optional" json:"copyTagsToSnapshot" yaml:"copyTagsToSnapshot"`
 	// The cluster identifier. This parameter is stored as a lowercase string.
 	//
 	// Constraints:
@@ -2031,27 +2047,27 @@ type CfnDBClusterProps struct {
 	// - Cannot end with a hyphen or contain two consecutive hyphens.
 	//
 	// Example: `my-cluster`.
-	DbClusterIdentifier *string `json:"dbClusterIdentifier" yaml:"dbClusterIdentifier"`
+	DbClusterIdentifier *string `field:"optional" json:"dbClusterIdentifier" yaml:"dbClusterIdentifier"`
 	// The name of the cluster parameter group to associate with this cluster.
-	DbClusterParameterGroupName *string `json:"dbClusterParameterGroupName" yaml:"dbClusterParameterGroupName"`
+	DbClusterParameterGroupName *string `field:"optional" json:"dbClusterParameterGroupName" yaml:"dbClusterParameterGroupName"`
 	// A subnet group to associate with this cluster.
 	//
 	// Constraints: Must match the name of an existing `DBSubnetGroup` . Must not be default.
 	//
 	// Example: `mySubnetgroup`.
-	DbSubnetGroupName *string `json:"dbSubnetGroupName" yaml:"dbSubnetGroupName"`
+	DbSubnetGroupName *string `field:"optional" json:"dbSubnetGroupName" yaml:"dbSubnetGroupName"`
 	// Protects clusters from being accidentally deleted.
 	//
 	// If enabled, the cluster cannot be deleted unless it is modified and `DeletionProtection` is disabled.
-	DeletionProtection interface{} `json:"deletionProtection" yaml:"deletionProtection"`
+	DeletionProtection interface{} `field:"optional" json:"deletionProtection" yaml:"deletionProtection"`
 	// The list of log types that need to be enabled for exporting to Amazon CloudWatch Logs.
 	//
 	// You can enable audit logs or profiler logs. For more information, see [Auditing Amazon DocumentDB Events](https://docs.aws.amazon.com/documentdb/latest/developerguide/event-auditing.html) and [Profiling Amazon DocumentDB Operations](https://docs.aws.amazon.com/documentdb/latest/developerguide/profiling.html) .
-	EnableCloudwatchLogsExports *[]*string `json:"enableCloudwatchLogsExports" yaml:"enableCloudwatchLogsExports"`
+	EnableCloudwatchLogsExports *[]*string `field:"optional" json:"enableCloudwatchLogsExports" yaml:"enableCloudwatchLogsExports"`
 	// The version number of the database engine to use.
 	//
 	// The `--engine-version` will default to the latest major engine version. For production workloads, we recommend explicitly declaring this parameter with the intended major engine version.
-	EngineVersion *string `json:"engineVersion" yaml:"engineVersion"`
+	EngineVersion *string `field:"optional" json:"engineVersion" yaml:"engineVersion"`
 	// The AWS KMS key identifier for an encrypted cluster.
 	//
 	// The AWS KMS key identifier is the Amazon Resource Name (ARN) for the AWS KMS encryption key. If you are creating a cluster using the same AWS account that owns the AWS KMS encryption key that is used to encrypt the new cluster, you can use the AWS KMS key alias instead of the ARN for the AWS KMS encryption key.
@@ -2061,7 +2077,7 @@ type CfnDBClusterProps struct {
 	// - If the `StorageEncrypted` parameter is `true` , Amazon DocumentDB uses your default encryption key.
 	//
 	// AWS KMS creates the default encryption key for your AWS account . Your AWS account has a different default encryption key for each AWS Regions .
-	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// The name of the master user for the cluster.
 	//
 	// Constraints:
@@ -2069,15 +2085,15 @@ type CfnDBClusterProps struct {
 	// - Must be from 1 to 63 letters or numbers.
 	// - The first character must be a letter.
 	// - Cannot be a reserved word for the chosen database engine.
-	MasterUsername *string `json:"masterUsername" yaml:"masterUsername"`
+	MasterUsername *string `field:"optional" json:"masterUsername" yaml:"masterUsername"`
 	// The password for the master database user.
 	//
 	// This password can contain any printable ASCII character except forward slash (/), double quote ("), or the "at" symbol (@).
 	//
 	// Constraints: Must contain from 8 to 100 characters.
-	MasterUserPassword *string `json:"masterUserPassword" yaml:"masterUserPassword"`
+	MasterUserPassword *string `field:"optional" json:"masterUserPassword" yaml:"masterUserPassword"`
 	// Specifies the port that the database engine is listening on.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// The daily time range during which automated backups are created if automated backups are enabled using the `BackupRetentionPeriod` parameter.
 	//
 	// The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region .
@@ -2088,7 +2104,7 @@ type CfnDBClusterProps struct {
 	// - Must be in Universal Coordinated Time (UTC).
 	// - Must not conflict with the preferred maintenance window.
 	// - Must be at least 30 minutes.
-	PreferredBackupWindow *string `json:"preferredBackupWindow" yaml:"preferredBackupWindow"`
+	PreferredBackupWindow *string `field:"optional" json:"preferredBackupWindow" yaml:"preferredBackupWindow"`
 	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
 	//
 	// Format: `ddd:hh24:mi-ddd:hh24:mi`
@@ -2098,7 +2114,7 @@ type CfnDBClusterProps struct {
 	// Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun
 	//
 	// Constraints: Minimum 30-minute window.
-	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
+	PreferredMaintenanceWindow *string `field:"optional" json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
 	// The identifier for the snapshot or cluster snapshot to restore from.
 	//
 	// You can use either the name or the Amazon Resource Name (ARN) to specify a cluster snapshot. However, you can use only the ARN to specify a snapshot.
@@ -2106,13 +2122,13 @@ type CfnDBClusterProps struct {
 	// Constraints:
 	//
 	// - Must match the identifier of an existing snapshot.
-	SnapshotIdentifier *string `json:"snapshotIdentifier" yaml:"snapshotIdentifier"`
+	SnapshotIdentifier *string `field:"optional" json:"snapshotIdentifier" yaml:"snapshotIdentifier"`
 	// Specifies whether the cluster is encrypted.
-	StorageEncrypted interface{} `json:"storageEncrypted" yaml:"storageEncrypted"`
+	StorageEncrypted interface{} `field:"optional" json:"storageEncrypted" yaml:"storageEncrypted"`
 	// The tags to be assigned to the cluster.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// A list of EC2 VPC security groups to associate with this cluster.
-	VpcSecurityGroupIds *[]*string `json:"vpcSecurityGroupIds" yaml:"vpcSecurityGroupIds"`
+	VpcSecurityGroupIds *[]*string `field:"optional" json:"vpcSecurityGroupIds" yaml:"vpcSecurityGroupIds"`
 }
 
 // A CloudFormation `AWS::DocDB::DBInstance`.
@@ -2120,8 +2136,11 @@ type CfnDBClusterProps struct {
 // The `AWS::DocDB::DBInstance` Amazon DocumentDB (with MongoDB compatibility) resource describes a DBInstance. For more information, see [DBInstance](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html) in the *Amazon DocumentDB Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import docdb "github.com/aws/aws-cdk-go/awscdk/aws_docdb"
-//   cfnDBInstance := docdb.NewCfnDBInstance(this, jsii.String("MyCfnDBInstance"), &cfnDBInstanceProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDBInstance := awscdk.Aws_docdb.NewCfnDBInstance(this, jsii.String("MyCfnDBInstance"), &cfnDBInstanceProps{
 //   	dbClusterIdentifier: jsii.String("dbClusterIdentifier"),
 //   	dbInstanceClass: jsii.String("dbInstanceClass"),
 //
@@ -2960,7 +2979,10 @@ func (c *jsiiProxy_CfnDBInstance) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnDBInstance`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import docdb "github.com/aws/aws-cdk-go/awscdk/aws_docdb"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDBInstanceProps := &cfnDBInstanceProps{
 //   	dbClusterIdentifier: jsii.String("dbClusterIdentifier"),
 //   	dbInstanceClass: jsii.String("dbInstanceClass"),
@@ -2981,23 +3003,23 @@ func (c *jsiiProxy_CfnDBInstance) ValidateProperties(_properties interface{}) {
 //
 type CfnDBInstanceProps struct {
 	// The identifier of the cluster that the instance will belong to.
-	DbClusterIdentifier *string `json:"dbClusterIdentifier" yaml:"dbClusterIdentifier"`
+	DbClusterIdentifier *string `field:"required" json:"dbClusterIdentifier" yaml:"dbClusterIdentifier"`
 	// The compute and memory capacity of the instance;
 	//
 	// for example, `db.m4.large` . If you change the class of an instance there can be some interruption in the cluster's service.
-	DbInstanceClass *string `json:"dbInstanceClass" yaml:"dbInstanceClass"`
+	DbInstanceClass *string `field:"required" json:"dbInstanceClass" yaml:"dbInstanceClass"`
 	// This parameter does not apply to Amazon DocumentDB.
 	//
 	// Amazon DocumentDB does not perform minor version upgrades regardless of the value set.
 	//
 	// Default: `false`.
-	AutoMinorVersionUpgrade interface{} `json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
+	AutoMinorVersionUpgrade interface{} `field:"optional" json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
 	// The Amazon EC2 Availability Zone that the instance is created in.
 	//
 	// Default: A random, system-chosen Availability Zone in the endpoint's AWS Region .
 	//
 	// Example: `us-east-1d`.
-	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
+	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
 	// The instance identifier. This parameter is stored as a lowercase string.
 	//
 	// Constraints:
@@ -3007,9 +3029,9 @@ type CfnDBInstanceProps struct {
 	// - Cannot end with a hyphen or contain two consecutive hyphens.
 	//
 	// Example: `mydbinstance`.
-	DbInstanceIdentifier *string `json:"dbInstanceIdentifier" yaml:"dbInstanceIdentifier"`
+	DbInstanceIdentifier *string `field:"optional" json:"dbInstanceIdentifier" yaml:"dbInstanceIdentifier"`
 	// `AWS::DocDB::DBInstance.EnablePerformanceInsights`.
-	EnablePerformanceInsights interface{} `json:"enablePerformanceInsights" yaml:"enablePerformanceInsights"`
+	EnablePerformanceInsights interface{} `field:"optional" json:"enablePerformanceInsights" yaml:"enablePerformanceInsights"`
 	// The time range each week during which system maintenance can occur, in Universal Coordinated Time (UTC).
 	//
 	// Format: `ddd:hh24:mi-ddd:hh24:mi`
@@ -3019,11 +3041,11 @@ type CfnDBInstanceProps struct {
 	// Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun
 	//
 	// Constraints: Minimum 30-minute window.
-	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
+	PreferredMaintenanceWindow *string `field:"optional" json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
 	// The tags to be assigned to the instance.
 	//
 	// You can assign up to 10 tags to an instance.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::DocDB::DBSubnetGroup`.
@@ -3031,8 +3053,11 @@ type CfnDBInstanceProps struct {
 // The `AWS::DocDB::DBSubnetGroup` Amazon DocumentDB (with MongoDB compatibility) resource describes a DBSubnetGroup. subnet groups must contain at least one subnet in at least two Availability Zones in the AWS Region . For more information, see [DBSubnetGroup](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBSubnetGroup.html) in the *Amazon DocumentDB Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import docdb "github.com/aws/aws-cdk-go/awscdk/aws_docdb"
-//   cfnDBSubnetGroup := docdb.NewCfnDBSubnetGroup(this, jsii.String("MyCfnDBSubnetGroup"), &cfnDBSubnetGroupProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDBSubnetGroup := awscdk.Aws_docdb.NewCfnDBSubnetGroup(this, jsii.String("MyCfnDBSubnetGroup"), &cfnDBSubnetGroupProps{
 //   	dbSubnetGroupDescription: jsii.String("dbSubnetGroupDescription"),
 //   	subnetIds: []*string{
 //   		jsii.String("subnetIds"),
@@ -3735,7 +3760,10 @@ func (c *jsiiProxy_CfnDBSubnetGroup) ValidateProperties(_properties interface{})
 // Properties for defining a `CfnDBSubnetGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import docdb "github.com/aws/aws-cdk-go/awscdk/aws_docdb"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDBSubnetGroupProps := &cfnDBSubnetGroupProps{
 //   	dbSubnetGroupDescription: jsii.String("dbSubnetGroupDescription"),
 //   	subnetIds: []*string{
@@ -3754,24 +3782,27 @@ func (c *jsiiProxy_CfnDBSubnetGroup) ValidateProperties(_properties interface{})
 //
 type CfnDBSubnetGroupProps struct {
 	// The description for the subnet group.
-	DbSubnetGroupDescription *string `json:"dbSubnetGroupDescription" yaml:"dbSubnetGroupDescription"`
+	DbSubnetGroupDescription *string `field:"required" json:"dbSubnetGroupDescription" yaml:"dbSubnetGroupDescription"`
 	// The Amazon EC2 subnet IDs for the subnet group.
-	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
+	SubnetIds *[]*string `field:"required" json:"subnetIds" yaml:"subnetIds"`
 	// The name for the subnet group. This value is stored as a lowercase string.
 	//
 	// Constraints: Must contain no more than 255 letters, numbers, periods, underscores, spaces, or hyphens. Must not be default.
 	//
 	// Example: `mySubnetgroup`.
-	DbSubnetGroupName *string `json:"dbSubnetGroupName" yaml:"dbSubnetGroupName"`
+	DbSubnetGroupName *string `field:"optional" json:"dbSubnetGroupName" yaml:"dbSubnetGroupName"`
 	// The tags to be assigned to the subnet group.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A cluster parameter group.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import docdb "github.com/aws/aws-cdk-go/awscdk/aws_docdb"
-//   clusterParameterGroup := docdb.NewClusterParameterGroup(this, jsii.String("MyClusterParameterGroup"), &clusterParameterGroupProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   clusterParameterGroup := awscdk.Aws_docdb.NewClusterParameterGroup(this, jsii.String("MyClusterParameterGroup"), &clusterParameterGroupProps{
 //   	family: jsii.String("family"),
 //   	parameters: map[string]*string{
 //   		"parametersKey": jsii.String("parameters"),
@@ -4150,7 +4181,10 @@ func (c *jsiiProxy_ClusterParameterGroup) Validate() *[]*string {
 // Properties for a cluster parameter group.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import docdb "github.com/aws/aws-cdk-go/awscdk/aws_docdb"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   clusterParameterGroupProps := &clusterParameterGroupProps{
 //   	family: jsii.String("family"),
 //   	parameters: map[string]*string{
@@ -4166,22 +4200,23 @@ func (c *jsiiProxy_ClusterParameterGroup) Validate() *[]*string {
 type ClusterParameterGroupProps struct {
 	// Database family of this parameter group.
 	// Experimental.
-	Family *string `json:"family" yaml:"family"`
+	Family *string `field:"required" json:"family" yaml:"family"`
 	// The parameters in this parameter group.
 	// Experimental.
-	Parameters *map[string]*string `json:"parameters" yaml:"parameters"`
+	Parameters *map[string]*string `field:"required" json:"parameters" yaml:"parameters"`
 	// The name of the cluster parameter group.
 	// Experimental.
-	DbClusterParameterGroupName *string `json:"dbClusterParameterGroupName" yaml:"dbClusterParameterGroupName"`
+	DbClusterParameterGroupName *string `field:"optional" json:"dbClusterParameterGroupName" yaml:"dbClusterParameterGroupName"`
 	// Description for this parameter group.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 
 // Create a clustered database with a given number of instances.
 //
 // Example:
 //   var vpc vpc
+//
 //   cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &databaseClusterProps{
 //   	masterUser: &login{
 //   		username: jsii.String("myuser"),
@@ -4758,9 +4793,13 @@ func (d *jsiiProxy_DatabaseCluster) Validate() *[]*string {
 // Properties that describe an existing cluster instance.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import docdb "github.com/aws/aws-cdk-go/awscdk/aws_docdb"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var securityGroup securityGroup
+//
 //   databaseClusterAttributes := &databaseClusterAttributes{
 //   	clusterIdentifier: jsii.String("clusterIdentifier"),
 //
@@ -4781,31 +4820,32 @@ func (d *jsiiProxy_DatabaseCluster) Validate() *[]*string {
 type DatabaseClusterAttributes struct {
 	// Identifier for the cluster.
 	// Experimental.
-	ClusterIdentifier *string `json:"clusterIdentifier" yaml:"clusterIdentifier"`
+	ClusterIdentifier *string `field:"required" json:"clusterIdentifier" yaml:"clusterIdentifier"`
 	// Cluster endpoint address.
 	// Experimental.
-	ClusterEndpointAddress *string `json:"clusterEndpointAddress" yaml:"clusterEndpointAddress"`
+	ClusterEndpointAddress *string `field:"optional" json:"clusterEndpointAddress" yaml:"clusterEndpointAddress"`
 	// Endpoint addresses of individual instances.
 	// Experimental.
-	InstanceEndpointAddresses *[]*string `json:"instanceEndpointAddresses" yaml:"instanceEndpointAddresses"`
+	InstanceEndpointAddresses *[]*string `field:"optional" json:"instanceEndpointAddresses" yaml:"instanceEndpointAddresses"`
 	// Identifier for the instances.
 	// Experimental.
-	InstanceIdentifiers *[]*string `json:"instanceIdentifiers" yaml:"instanceIdentifiers"`
+	InstanceIdentifiers *[]*string `field:"optional" json:"instanceIdentifiers" yaml:"instanceIdentifiers"`
 	// The database port.
 	// Experimental.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// Reader endpoint address.
 	// Experimental.
-	ReaderEndpointAddress *string `json:"readerEndpointAddress" yaml:"readerEndpointAddress"`
+	ReaderEndpointAddress *string `field:"optional" json:"readerEndpointAddress" yaml:"readerEndpointAddress"`
 	// The security group of the database cluster.
 	// Experimental.
-	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup" yaml:"securityGroup"`
+	SecurityGroup awsec2.ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
 }
 
 // Properties for a new database cluster.
 //
 // Example:
 //   var vpc vpc
+//
 //   cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &databaseClusterProps{
 //   	masterUser: &login{
 //   		username: jsii.String("myuser"),
@@ -4825,33 +4865,33 @@ type DatabaseClusterAttributes struct {
 type DatabaseClusterProps struct {
 	// What type of instance to start for the replicas.
 	// Experimental.
-	InstanceType awsec2.InstanceType `json:"instanceType" yaml:"instanceType"`
+	InstanceType awsec2.InstanceType `field:"required" json:"instanceType" yaml:"instanceType"`
 	// Username and password for the administrative user.
 	// Experimental.
-	MasterUser *Login `json:"masterUser" yaml:"masterUser"`
+	MasterUser *Login `field:"required" json:"masterUser" yaml:"masterUser"`
 	// What subnets to run the DocumentDB instances in.
 	//
 	// Must be at least 2 subnets in two different AZs.
 	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
+	Vpc awsec2.IVpc `field:"required" json:"vpc" yaml:"vpc"`
 	// Backup settings.
 	// See: https://docs.aws.amazon.com/documentdb/latest/developerguide/backup-restore.db-cluster-snapshots.html#backup-restore.backup-window
 	//
 	// Experimental.
-	Backup *BackupProps `json:"backup" yaml:"backup"`
+	Backup *BackupProps `field:"optional" json:"backup" yaml:"backup"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `Infinity`.
 	// Experimental.
-	CloudWatchLogsRetention awslogs.RetentionDays `json:"cloudWatchLogsRetention" yaml:"cloudWatchLogsRetention"`
+	CloudWatchLogsRetention awslogs.RetentionDays `field:"optional" json:"cloudWatchLogsRetention" yaml:"cloudWatchLogsRetention"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
 	// Experimental.
-	CloudWatchLogsRetentionRole awsiam.IRole `json:"cloudWatchLogsRetentionRole" yaml:"cloudWatchLogsRetentionRole"`
+	CloudWatchLogsRetentionRole awsiam.IRole `field:"optional" json:"cloudWatchLogsRetentionRole" yaml:"cloudWatchLogsRetentionRole"`
 	// An optional identifier for the cluster.
 	// Experimental.
-	DbClusterName *string `json:"dbClusterName" yaml:"dbClusterName"`
+	DbClusterName *string `field:"optional" json:"dbClusterName" yaml:"dbClusterName"`
 	// Specifies whether this cluster can be deleted.
 	//
 	// If deletionProtection is
@@ -4859,41 +4899,41 @@ type DatabaseClusterProps struct {
 	// deletionProtection is disabled. deletionProtection protects clusters from
 	// being accidentally deleted.
 	// Experimental.
-	DeletionProtection *bool `json:"deletionProtection" yaml:"deletionProtection"`
+	DeletionProtection *bool `field:"optional" json:"deletionProtection" yaml:"deletionProtection"`
 	// What version of the database to start.
 	// Experimental.
-	EngineVersion *string `json:"engineVersion" yaml:"engineVersion"`
+	EngineVersion *string `field:"optional" json:"engineVersion" yaml:"engineVersion"`
 	// Whether the audit logs should be exported to CloudWatch.
 	//
 	// Note that you also have to configure the audit log export in the Cluster's Parameter Group.
 	// See: https://docs.aws.amazon.com/documentdb/latest/developerguide/event-auditing.html#event-auditing-enabling-auditing
 	//
 	// Experimental.
-	ExportAuditLogsToCloudWatch *bool `json:"exportAuditLogsToCloudWatch" yaml:"exportAuditLogsToCloudWatch"`
+	ExportAuditLogsToCloudWatch *bool `field:"optional" json:"exportAuditLogsToCloudWatch" yaml:"exportAuditLogsToCloudWatch"`
 	// Whether the profiler logs should be exported to CloudWatch.
 	//
 	// Note that you also have to configure the profiler log export in the Cluster's Parameter Group.
 	// See: https://docs.aws.amazon.com/documentdb/latest/developerguide/profiling.html#profiling.enable-profiling
 	//
 	// Experimental.
-	ExportProfilerLogsToCloudWatch *bool `json:"exportProfilerLogsToCloudWatch" yaml:"exportProfilerLogsToCloudWatch"`
+	ExportProfilerLogsToCloudWatch *bool `field:"optional" json:"exportProfilerLogsToCloudWatch" yaml:"exportProfilerLogsToCloudWatch"`
 	// Base identifier for instances.
 	//
 	// Every replica is named by appending the replica number to this string, 1-based.
 	// Experimental.
-	InstanceIdentifierBase *string `json:"instanceIdentifierBase" yaml:"instanceIdentifierBase"`
+	InstanceIdentifierBase *string `field:"optional" json:"instanceIdentifierBase" yaml:"instanceIdentifierBase"`
 	// Number of DocDB compute instances.
 	// Experimental.
-	Instances *float64 `json:"instances" yaml:"instances"`
+	Instances *float64 `field:"optional" json:"instances" yaml:"instances"`
 	// The KMS key for storage encryption.
 	// Experimental.
-	KmsKey awskms.IKey `json:"kmsKey" yaml:"kmsKey"`
+	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 	// The DB parameter group to associate with the instance.
 	// Experimental.
-	ParameterGroup IClusterParameterGroup `json:"parameterGroup" yaml:"parameterGroup"`
+	ParameterGroup IClusterParameterGroup `field:"optional" json:"parameterGroup" yaml:"parameterGroup"`
 	// The port the DocumentDB cluster will listen on.
 	// Experimental.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// A weekly time range in which maintenance should preferably execute.
 	//
 	// Must be at least 30 minutes long.
@@ -4902,33 +4942,38 @@ type DatabaseClusterProps struct {
 	// See: https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-maintain.html#maintenance-window
 	//
 	// Experimental.
-	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
+	PreferredMaintenanceWindow *string `field:"optional" json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
 	// The removal policy to apply when the cluster and its instances are removed or replaced during a stack update, or when the stack is deleted.
 	//
 	// This
 	// removal policy also applies to the implicit security group created for the
 	// cluster if one is not supplied as a parameter.
 	// Experimental.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// Security group.
 	// Experimental.
-	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup" yaml:"securityGroup"`
+	SecurityGroup awsec2.ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
 	// Whether to enable storage encryption.
 	// Experimental.
-	StorageEncrypted *bool `json:"storageEncrypted" yaml:"storageEncrypted"`
+	StorageEncrypted *bool `field:"optional" json:"storageEncrypted" yaml:"storageEncrypted"`
 	// Where to place the instances within the VPC.
 	// Experimental.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
 // A database instance.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import docdb "github.com/aws/aws-cdk-go/awscdk/aws_docdb"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var databaseCluster databaseCluster
 //   var instanceType instanceType
-//   databaseInstance := docdb.NewDatabaseInstance(this, jsii.String("MyDatabaseInstance"), &databaseInstanceProps{
+//
+//   databaseInstance := awscdk.Aws_docdb.NewDatabaseInstance(this, jsii.String("MyDatabaseInstance"), &databaseInstanceProps{
 //   	cluster: databaseCluster,
 //   	instanceType: instanceType,
 //
@@ -5373,7 +5418,10 @@ func (d *jsiiProxy_DatabaseInstance) Validate() *[]*string {
 // Properties that describe an existing instance.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import docdb "github.com/aws/aws-cdk-go/awscdk/aws_docdb"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   databaseInstanceAttributes := &databaseInstanceAttributes{
 //   	instanceEndpointAddress: jsii.String("instanceEndpointAddress"),
 //   	instanceIdentifier: jsii.String("instanceIdentifier"),
@@ -5384,22 +5432,27 @@ func (d *jsiiProxy_DatabaseInstance) Validate() *[]*string {
 type DatabaseInstanceAttributes struct {
 	// The endpoint address.
 	// Experimental.
-	InstanceEndpointAddress *string `json:"instanceEndpointAddress" yaml:"instanceEndpointAddress"`
+	InstanceEndpointAddress *string `field:"required" json:"instanceEndpointAddress" yaml:"instanceEndpointAddress"`
 	// The instance identifier.
 	// Experimental.
-	InstanceIdentifier *string `json:"instanceIdentifier" yaml:"instanceIdentifier"`
+	InstanceIdentifier *string `field:"required" json:"instanceIdentifier" yaml:"instanceIdentifier"`
 	// The database port.
 	// Experimental.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"required" json:"port" yaml:"port"`
 }
 
 // Construction properties for a DatabaseInstanceNew.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import docdb "github.com/aws/aws-cdk-go/awscdk/aws_docdb"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var databaseCluster databaseCluster
 //   var instanceType instanceType
+//
 //   databaseInstanceProps := &databaseInstanceProps{
 //   	cluster: databaseCluster,
 //   	instanceType: instanceType,
@@ -5416,37 +5469,38 @@ type DatabaseInstanceAttributes struct {
 type DatabaseInstanceProps struct {
 	// The DocumentDB database cluster the instance should launch into.
 	// Experimental.
-	Cluster IDatabaseCluster `json:"cluster" yaml:"cluster"`
+	Cluster IDatabaseCluster `field:"required" json:"cluster" yaml:"cluster"`
 	// The name of the compute and memory capacity classes.
 	// Experimental.
-	InstanceType awsec2.InstanceType `json:"instanceType" yaml:"instanceType"`
+	InstanceType awsec2.InstanceType `field:"required" json:"instanceType" yaml:"instanceType"`
 	// Indicates that minor engine upgrades are applied automatically to the DB instance during the maintenance window.
 	// Experimental.
-	AutoMinorVersionUpgrade *bool `json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
+	AutoMinorVersionUpgrade *bool `field:"optional" json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
 	// The name of the Availability Zone where the DB instance will be located.
 	// Experimental.
-	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
+	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
 	// A name for the DB instance.
 	//
 	// If you specify a name, AWS CloudFormation
 	// converts it to lowercase.
 	// Experimental.
-	DbInstanceName *string `json:"dbInstanceName" yaml:"dbInstanceName"`
+	DbInstanceName *string `field:"optional" json:"dbInstanceName" yaml:"dbInstanceName"`
 	// The weekly time range (in UTC) during which system maintenance can occur.
 	//
 	// Format: `ddd:hh24:mi-ddd:hh24:mi`
 	// Constraint: Minimum 30-minute window.
 	// Experimental.
-	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
+	PreferredMaintenanceWindow *string `field:"optional" json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
 	// The CloudFormation policy to apply when the instance is removed from the stack or replaced during an update.
 	// Experimental.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 }
 
 // A database secret.
 //
 // Example:
 //   var cluster databaseCluster
+//
 //   myUserSecret := docdb.NewDatabaseSecret(this, jsii.String("MyUserSecret"), &databaseSecretProps{
 //   	username: jsii.String("myuser"),
 //   	masterSecret: cluster.secret,
@@ -6151,6 +6205,7 @@ func (d *jsiiProxy_DatabaseSecret) Validate() *[]*string {
 //
 // Example:
 //   var cluster databaseCluster
+//
 //   myUserSecret := docdb.NewDatabaseSecret(this, jsii.String("MyUserSecret"), &databaseSecretProps{
 //   	username: jsii.String("myuser"),
 //   	masterSecret: cluster.secret,
@@ -6166,19 +6221,19 @@ func (d *jsiiProxy_DatabaseSecret) Validate() *[]*string {
 type DatabaseSecretProps struct {
 	// The username.
 	// Experimental.
-	Username *string `json:"username" yaml:"username"`
+	Username *string `field:"required" json:"username" yaml:"username"`
 	// The KMS key to use to encrypt the secret.
 	// Experimental.
-	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
+	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// Characters to not include in the generated password.
 	// Experimental.
-	ExcludeCharacters *string `json:"excludeCharacters" yaml:"excludeCharacters"`
+	ExcludeCharacters *string `field:"optional" json:"excludeCharacters" yaml:"excludeCharacters"`
 	// The master secret which will be used to rotate this secret.
 	// Experimental.
-	MasterSecret awssecretsmanager.ISecret `json:"masterSecret" yaml:"masterSecret"`
+	MasterSecret awssecretsmanager.ISecret `field:"optional" json:"masterSecret" yaml:"masterSecret"`
 	// The physical name of the secret.
 	// Experimental.
-	SecretName *string `json:"secretName" yaml:"secretName"`
+	SecretName *string `field:"optional" json:"secretName" yaml:"secretName"`
 }
 
 // Connection endpoint of a database cluster or instance.
@@ -6186,8 +6241,11 @@ type DatabaseSecretProps struct {
 // Consists of a combination of hostname and port.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import docdb "github.com/aws/aws-cdk-go/awscdk/aws_docdb"
-//   endpoint := docdb.NewEndpoint(jsii.String("address"), jsii.Number(123))
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   endpoint := awscdk.Aws_docdb.NewEndpoint(jsii.String("address"), jsii.Number(123))
 //
 // Experimental.
 type Endpoint interface {
@@ -6549,6 +6607,7 @@ func (j *jsiiProxy_IDatabaseInstance) InstanceIdentifier() *string {
 //
 // Example:
 //   var vpc vpc
+//
 //   cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &databaseClusterProps{
 //   	masterUser: &login{
 //   		username: jsii.String("myuser"),
@@ -6568,21 +6627,21 @@ func (j *jsiiProxy_IDatabaseInstance) InstanceIdentifier() *string {
 type Login struct {
 	// Username.
 	// Experimental.
-	Username *string `json:"username" yaml:"username"`
+	Username *string `field:"required" json:"username" yaml:"username"`
 	// Specifies characters to not include in generated passwords.
 	// Experimental.
-	ExcludeCharacters *string `json:"excludeCharacters" yaml:"excludeCharacters"`
+	ExcludeCharacters *string `field:"optional" json:"excludeCharacters" yaml:"excludeCharacters"`
 	// KMS encryption key to encrypt the generated secret.
 	// Experimental.
-	KmsKey awskms.IKey `json:"kmsKey" yaml:"kmsKey"`
+	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 	// Password.
 	//
 	// Do not put passwords in your CDK code directly.
 	// Experimental.
-	Password awscdk.SecretValue `json:"password" yaml:"password"`
+	Password awscdk.SecretValue `field:"optional" json:"password" yaml:"password"`
 	// The physical name of the secret, that will be generated.
 	// Experimental.
-	SecretName *string `json:"secretName" yaml:"secretName"`
+	SecretName *string `field:"optional" json:"secretName" yaml:"secretName"`
 }
 
 // Options to add the multi user rotation.
@@ -6592,6 +6651,7 @@ type Login struct {
 //
 //   var myImportedSecret secret
 //   var cluster databaseCluster
+//
 //
 //   cluster.addRotationMultiUser(jsii.String("MyUser"), &rotationMultiUserOptions{
 //   	secret: myImportedSecret,
@@ -6616,9 +6676,9 @@ type RotationMultiUserOptions struct {
 	// }
 	// ```.
 	// Experimental.
-	Secret awssecretsmanager.ISecret `json:"secret" yaml:"secret"`
+	Secret awssecretsmanager.ISecret `field:"required" json:"secret" yaml:"secret"`
 	// Specifies the number of days after the previous rotation before Secrets Manager triggers the next automatic rotation.
 	// Experimental.
-	AutomaticallyAfter awscdk.Duration `json:"automaticallyAfter" yaml:"automaticallyAfter"`
+	AutomaticallyAfter awscdk.Duration `field:"optional" json:"automaticallyAfter" yaml:"automaticallyAfter"`
 }
 

@@ -14,10 +14,13 @@ import (
 // Creates a DAX cluster. All nodes in the cluster run the same DAX caching software.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dax "github.com/aws/aws-cdk-go/awscdk/aws_dax"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var tags interface{}
-//   cfnCluster := dax.NewCfnCluster(this, jsii.String("MyCfnCluster"), &cfnClusterProps{
+//
+//   cfnCluster := awscdk.Aws_dax.NewCfnCluster(this, jsii.String("MyCfnCluster"), &cfnClusterProps{
 //   	iamRoleArn: jsii.String("iamRoleArn"),
 //   	nodeType: jsii.String("nodeType"),
 //   	replicationFactor: jsii.Number(123),
@@ -1008,22 +1011,28 @@ func (c *jsiiProxy_CfnCluster) ValidateProperties(_properties interface{}) {
 // Represents the settings used to enable server-side encryption.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dax "github.com/aws/aws-cdk-go/awscdk/aws_dax"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sSESpecificationProperty := &sSESpecificationProperty{
 //   	sseEnabled: jsii.Boolean(false),
 //   }
 //
 type CfnCluster_SSESpecificationProperty struct {
 	// Indicates whether server-side encryption is enabled (true) or disabled (false) on the cluster.
-	SseEnabled interface{} `json:"sseEnabled" yaml:"sseEnabled"`
+	SseEnabled interface{} `field:"optional" json:"sseEnabled" yaml:"sseEnabled"`
 }
 
 // Properties for defining a `CfnCluster`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dax "github.com/aws/aws-cdk-go/awscdk/aws_dax"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var tags interface{}
+//
 //   cfnClusterProps := &cfnClusterProps{
 //   	iamRoleArn: jsii.String("iamRoleArn"),
 //   	nodeType: jsii.String("nodeType"),
@@ -1053,56 +1062,56 @@ type CfnClusterProps struct {
 	// A valid Amazon Resource Name (ARN) that identifies an IAM role.
 	//
 	// At runtime, DAX will assume this role and use the role's permissions to access DynamoDB on your behalf.
-	IamRoleArn *string `json:"iamRoleArn" yaml:"iamRoleArn"`
+	IamRoleArn *string `field:"required" json:"iamRoleArn" yaml:"iamRoleArn"`
 	// The node type for the nodes in the cluster.
 	//
 	// (All nodes in a DAX cluster are of the same type.)
-	NodeType *string `json:"nodeType" yaml:"nodeType"`
+	NodeType *string `field:"required" json:"nodeType" yaml:"nodeType"`
 	// The number of nodes in the DAX cluster.
 	//
 	// A replication factor of 1 will create a single-node cluster, without any read replicas. For additional fault tolerance, you can create a multiple node cluster with one or more read replicas. To do this, set `ReplicationFactor` to a number between 3 (one primary and two read replicas) and 10 (one primary and nine read replicas). `If the AvailabilityZones` parameter is provided, its length must equal the `ReplicationFactor` .
 	//
 	// > AWS recommends that you have at least two read replicas per cluster.
-	ReplicationFactor *float64 `json:"replicationFactor" yaml:"replicationFactor"`
+	ReplicationFactor *float64 `field:"required" json:"replicationFactor" yaml:"replicationFactor"`
 	// The Availability Zones (AZs) in which the cluster nodes will reside after the cluster has been created or updated.
 	//
 	// If provided, the length of this list must equal the `ReplicationFactor` parameter. If you omit this parameter, DAX will spread the nodes across Availability Zones for the highest availability.
-	AvailabilityZones *[]*string `json:"availabilityZones" yaml:"availabilityZones"`
+	AvailabilityZones *[]*string `field:"optional" json:"availabilityZones" yaml:"availabilityZones"`
 	// The encryption type of the cluster's endpoint. Available values are:.
 	//
 	// - `NONE` - The cluster's endpoint will be unencrypted.
 	// - `TLS` - The cluster's endpoint will be encrypted with Transport Layer Security, and will provide an x509 certificate for authentication.
 	//
 	// The default value is `NONE` .
-	ClusterEndpointEncryptionType *string `json:"clusterEndpointEncryptionType" yaml:"clusterEndpointEncryptionType"`
+	ClusterEndpointEncryptionType *string `field:"optional" json:"clusterEndpointEncryptionType" yaml:"clusterEndpointEncryptionType"`
 	// The name of the DAX cluster.
-	ClusterName *string `json:"clusterName" yaml:"clusterName"`
+	ClusterName *string `field:"optional" json:"clusterName" yaml:"clusterName"`
 	// The description of the cluster.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications will be sent.
 	//
 	// > The Amazon SNS topic owner must be same as the DAX cluster owner.
-	NotificationTopicArn *string `json:"notificationTopicArn" yaml:"notificationTopicArn"`
+	NotificationTopicArn *string `field:"optional" json:"notificationTopicArn" yaml:"notificationTopicArn"`
 	// The parameter group to be associated with the DAX cluster.
-	ParameterGroupName *string `json:"parameterGroupName" yaml:"parameterGroupName"`
+	ParameterGroupName *string `field:"optional" json:"parameterGroupName" yaml:"parameterGroupName"`
 	// A range of time when maintenance of DAX cluster software will be performed.
 	//
 	// For example: `sun:01:00-sun:09:00` . Cluster maintenance normally takes less than 30 minutes, and is performed automatically within the maintenance window.
-	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
+	PreferredMaintenanceWindow *string `field:"optional" json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
 	// A list of security group IDs to be assigned to each node in the DAX cluster.
 	//
 	// (Each of the security group ID is system-generated.)
 	//
 	// If this parameter is not specified, DAX assigns the default VPC security group to each node.
-	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
+	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// Represents the settings used to enable server-side encryption on the cluster.
-	SseSpecification interface{} `json:"sseSpecification" yaml:"sseSpecification"`
+	SseSpecification interface{} `field:"optional" json:"sseSpecification" yaml:"sseSpecification"`
 	// The name of the subnet group to be used for the replication group.
 	//
 	// > DAX clusters can only run in an Amazon VPC environment. All of the subnets that you specify in a subnet group must exist in the same VPC.
-	SubnetGroupName *string `json:"subnetGroupName" yaml:"subnetGroupName"`
+	SubnetGroupName *string `field:"optional" json:"subnetGroupName" yaml:"subnetGroupName"`
 	// A set of tags to associate with the DAX cluster.
-	Tags interface{} `json:"tags" yaml:"tags"`
+	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::DAX::ParameterGroup`.
@@ -1110,10 +1119,13 @@ type CfnClusterProps struct {
 // A named set of parameters that are applied to all of the nodes in a DAX cluster.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dax "github.com/aws/aws-cdk-go/awscdk/aws_dax"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameterNameValues interface{}
-//   cfnParameterGroup := dax.NewCfnParameterGroup(this, jsii.String("MyCfnParameterGroup"), &cfnParameterGroupProps{
+//
+//   cfnParameterGroup := awscdk.Aws_dax.NewCfnParameterGroup(this, jsii.String("MyCfnParameterGroup"), &cfnParameterGroupProps{
 //   	description: jsii.String("description"),
 //   	parameterGroupName: jsii.String("parameterGroupName"),
 //   	parameterNameValues: parameterNameValues,
@@ -1794,9 +1806,12 @@ func (c *jsiiProxy_CfnParameterGroup) ValidateProperties(_properties interface{}
 // Properties for defining a `CfnParameterGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dax "github.com/aws/aws-cdk-go/awscdk/aws_dax"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameterNameValues interface{}
+//
 //   cfnParameterGroupProps := &cfnParameterGroupProps{
 //   	description: jsii.String("description"),
 //   	parameterGroupName: jsii.String("parameterGroupName"),
@@ -1805,15 +1820,15 @@ func (c *jsiiProxy_CfnParameterGroup) ValidateProperties(_properties interface{}
 //
 type CfnParameterGroupProps struct {
 	// A description of the parameter group.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the parameter group.
-	ParameterGroupName *string `json:"parameterGroupName" yaml:"parameterGroupName"`
+	ParameterGroupName *string `field:"optional" json:"parameterGroupName" yaml:"parameterGroupName"`
 	// An array of name-value pairs for the parameters in the group.
 	//
 	// Each element in the array represents a single parameter.
 	//
 	// > `record-ttl-millis` and `query-ttl-millis` are the only supported parameter names. For more details, see [Configuring TTL Settings](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.cluster-management.html#DAX.cluster-management.custom-settings.ttl) .
-	ParameterNameValues interface{} `json:"parameterNameValues" yaml:"parameterNameValues"`
+	ParameterNameValues interface{} `field:"optional" json:"parameterNameValues" yaml:"parameterNameValues"`
 }
 
 // A CloudFormation `AWS::DAX::SubnetGroup`.
@@ -1821,8 +1836,11 @@ type CfnParameterGroupProps struct {
 // Creates a new subnet group.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dax "github.com/aws/aws-cdk-go/awscdk/aws_dax"
-//   cfnSubnetGroup := dax.NewCfnSubnetGroup(this, jsii.String("MyCfnSubnetGroup"), &cfnSubnetGroupProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnSubnetGroup := awscdk.Aws_dax.NewCfnSubnetGroup(this, jsii.String("MyCfnSubnetGroup"), &cfnSubnetGroupProps{
 //   	subnetIds: []*string{
 //   		jsii.String("subnetIds"),
 //   	},
@@ -2503,7 +2521,10 @@ func (c *jsiiProxy_CfnSubnetGroup) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnSubnetGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import dax "github.com/aws/aws-cdk-go/awscdk/aws_dax"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnSubnetGroupProps := &cfnSubnetGroupProps{
 //   	subnetIds: []*string{
 //   		jsii.String("subnetIds"),
@@ -2516,10 +2537,10 @@ func (c *jsiiProxy_CfnSubnetGroup) ValidateProperties(_properties interface{}) {
 //
 type CfnSubnetGroupProps struct {
 	// A list of VPC subnet IDs for the subnet group.
-	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
+	SubnetIds *[]*string `field:"required" json:"subnetIds" yaml:"subnetIds"`
 	// The description of the subnet group.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the subnet group.
-	SubnetGroupName *string `json:"subnetGroupName" yaml:"subnetGroupName"`
+	SubnetGroupName *string `field:"optional" json:"subnetGroupName" yaml:"subnetGroupName"`
 }
 

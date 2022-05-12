@@ -16,8 +16,11 @@ import (
 // Applies only to Hyperledger Fabric.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import managedblockchain "github.com/aws/aws-cdk-go/awscdk/aws_managedblockchain"
-//   cfnMember := managedblockchain.NewCfnMember(this, jsii.String("MyCfnMember"), &cfnMemberProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnMember := awscdk.Aws_managedblockchain.NewCfnMember(this, jsii.String("MyCfnMember"), &cfnMemberProps{
 //   	memberConfiguration: &memberConfigurationProperty{
 //   		name: jsii.String("name"),
 //
@@ -776,7 +779,10 @@ func (c *jsiiProxy_CfnMember) ValidateProperties(_properties interface{}) {
 // Applies only to Hyperledger Fabric.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import managedblockchain "github.com/aws/aws-cdk-go/awscdk/aws_managedblockchain"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   approvalThresholdPolicyProperty := &approvalThresholdPolicyProperty{
 //   	proposalDurationInHours: jsii.Number(123),
 //   	thresholdComparator: jsii.String("thresholdComparator"),
@@ -787,13 +793,13 @@ type CfnMember_ApprovalThresholdPolicyProperty struct {
 	// The duration from the time that a proposal is created until it expires.
 	//
 	// If members cast neither the required number of `YES` votes to approve the proposal nor the number of `NO` votes required to reject it before the duration expires, the proposal is `EXPIRED` and `ProposalActions` are not carried out.
-	ProposalDurationInHours *float64 `json:"proposalDurationInHours" yaml:"proposalDurationInHours"`
+	ProposalDurationInHours *float64 `field:"optional" json:"proposalDurationInHours" yaml:"proposalDurationInHours"`
 	// Determines whether the vote percentage must be greater than the `ThresholdPercentage` or must be greater than or equal to the `ThreholdPercentage` to be approved.
-	ThresholdComparator *string `json:"thresholdComparator" yaml:"thresholdComparator"`
+	ThresholdComparator *string `field:"optional" json:"thresholdComparator" yaml:"thresholdComparator"`
 	// The percentage of votes among all members that must be `YES` for a proposal to be approved.
 	//
 	// For example, a `ThresholdPercentage` value of `50` indicates 50%. The `ThresholdComparator` determines the precise comparison. If a `ThresholdPercentage` value of `50` is specified on a network with 10 members, along with a `ThresholdComparator` value of `GREATER_THAN` , this indicates that 6 `YES` votes are required for the proposal to be approved.
-	ThresholdPercentage *float64 `json:"thresholdPercentage" yaml:"thresholdPercentage"`
+	ThresholdPercentage *float64 `field:"optional" json:"thresholdPercentage" yaml:"thresholdPercentage"`
 }
 
 // Configuration properties of the member.
@@ -801,7 +807,10 @@ type CfnMember_ApprovalThresholdPolicyProperty struct {
 // Applies only to Hyperledger Fabric.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import managedblockchain "github.com/aws/aws-cdk-go/awscdk/aws_managedblockchain"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   memberConfigurationProperty := &memberConfigurationProperty{
 //   	name: jsii.String("name"),
 //
@@ -817,17 +826,20 @@ type CfnMember_ApprovalThresholdPolicyProperty struct {
 //
 type CfnMember_MemberConfigurationProperty struct {
 	// The name of the member.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// An optional description of the member.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Configuration properties of the blockchain framework relevant to the member.
-	MemberFrameworkConfiguration interface{} `json:"memberFrameworkConfiguration" yaml:"memberFrameworkConfiguration"`
+	MemberFrameworkConfiguration interface{} `field:"optional" json:"memberFrameworkConfiguration" yaml:"memberFrameworkConfiguration"`
 }
 
 // Configuration properties for Hyperledger Fabric for a member in a Managed Blockchain network using the Hyperledger Fabric framework.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import managedblockchain "github.com/aws/aws-cdk-go/awscdk/aws_managedblockchain"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   memberFabricConfigurationProperty := &memberFabricConfigurationProperty{
 //   	adminPassword: jsii.String("adminPassword"),
 //   	adminUsername: jsii.String("adminUsername"),
@@ -837,15 +849,18 @@ type CfnMember_MemberFabricConfigurationProperty struct {
 	// The password for the member's initial administrative user.
 	//
 	// The `AdminPassword` must be at least eight characters long and no more than 32 characters. It must contain at least one uppercase letter, one lowercase letter, and one digit. It cannot have a single quotation mark (‘), a double quotation marks (“), a forward slash(/), a backward slash(\), @, or a space.
-	AdminPassword *string `json:"adminPassword" yaml:"adminPassword"`
+	AdminPassword *string `field:"required" json:"adminPassword" yaml:"adminPassword"`
 	// The user name for the member's initial administrative user.
-	AdminUsername *string `json:"adminUsername" yaml:"adminUsername"`
+	AdminUsername *string `field:"required" json:"adminUsername" yaml:"adminUsername"`
 }
 
 // Configuration properties relevant to a member for the blockchain framework that the Managed Blockchain network uses.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import managedblockchain "github.com/aws/aws-cdk-go/awscdk/aws_managedblockchain"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   memberFrameworkConfigurationProperty := &memberFrameworkConfigurationProperty{
 //   	memberFabricConfiguration: &memberFabricConfigurationProperty{
 //   		adminPassword: jsii.String("adminPassword"),
@@ -855,13 +870,16 @@ type CfnMember_MemberFabricConfigurationProperty struct {
 //
 type CfnMember_MemberFrameworkConfigurationProperty struct {
 	// Configuration properties for Hyperledger Fabric.
-	MemberFabricConfiguration interface{} `json:"memberFabricConfiguration" yaml:"memberFabricConfiguration"`
+	MemberFabricConfiguration interface{} `field:"optional" json:"memberFabricConfiguration" yaml:"memberFabricConfiguration"`
 }
 
 // Configuration properties of the network to which the member belongs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import managedblockchain "github.com/aws/aws-cdk-go/awscdk/aws_managedblockchain"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   networkConfigurationProperty := &networkConfigurationProperty{
 //   	framework: jsii.String("framework"),
 //   	frameworkVersion: jsii.String("frameworkVersion"),
@@ -885,23 +903,26 @@ type CfnMember_MemberFrameworkConfigurationProperty struct {
 //
 type CfnMember_NetworkConfigurationProperty struct {
 	// The blockchain framework that the network uses.
-	Framework *string `json:"framework" yaml:"framework"`
+	Framework *string `field:"required" json:"framework" yaml:"framework"`
 	// The version of the blockchain framework that the network uses.
-	FrameworkVersion *string `json:"frameworkVersion" yaml:"frameworkVersion"`
+	FrameworkVersion *string `field:"required" json:"frameworkVersion" yaml:"frameworkVersion"`
 	// The name of the network.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The voting rules for the network to decide if a proposal is accepted.
-	VotingPolicy interface{} `json:"votingPolicy" yaml:"votingPolicy"`
+	VotingPolicy interface{} `field:"required" json:"votingPolicy" yaml:"votingPolicy"`
 	// Attributes of the blockchain framework for the network.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Configuration properties relevant to the network for the blockchain framework that the network uses.
-	NetworkFrameworkConfiguration interface{} `json:"networkFrameworkConfiguration" yaml:"networkFrameworkConfiguration"`
+	NetworkFrameworkConfiguration interface{} `field:"optional" json:"networkFrameworkConfiguration" yaml:"networkFrameworkConfiguration"`
 }
 
 // Hyperledger Fabric configuration properties for the network.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import managedblockchain "github.com/aws/aws-cdk-go/awscdk/aws_managedblockchain"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   networkFabricConfigurationProperty := &networkFabricConfigurationProperty{
 //   	edition: jsii.String("edition"),
 //   }
@@ -910,13 +931,16 @@ type CfnMember_NetworkFabricConfigurationProperty struct {
 	// The edition of Amazon Managed Blockchain that the network uses.
 	//
 	// Valid values are `standard` and `starter` . For more information, see
-	Edition *string `json:"edition" yaml:"edition"`
+	Edition *string `field:"required" json:"edition" yaml:"edition"`
 }
 
 // Configuration properties relevant to the network for the blockchain framework that the network uses.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import managedblockchain "github.com/aws/aws-cdk-go/awscdk/aws_managedblockchain"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   networkFrameworkConfigurationProperty := &networkFrameworkConfigurationProperty{
 //   	networkFabricConfiguration: &networkFabricConfigurationProperty{
 //   		edition: jsii.String("edition"),
@@ -925,7 +949,7 @@ type CfnMember_NetworkFabricConfigurationProperty struct {
 //
 type CfnMember_NetworkFrameworkConfigurationProperty struct {
 	// Configuration properties for Hyperledger Fabric for a member in a Managed Blockchain network using the Hyperledger Fabric framework.
-	NetworkFabricConfiguration interface{} `json:"networkFabricConfiguration" yaml:"networkFabricConfiguration"`
+	NetworkFabricConfiguration interface{} `field:"optional" json:"networkFabricConfiguration" yaml:"networkFabricConfiguration"`
 }
 
 // The voting rules for the network to decide if a proposal is accepted.
@@ -933,7 +957,10 @@ type CfnMember_NetworkFrameworkConfigurationProperty struct {
 // Applies only to Hyperledger Fabric.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import managedblockchain "github.com/aws/aws-cdk-go/awscdk/aws_managedblockchain"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   votingPolicyProperty := &votingPolicyProperty{
 //   	approvalThresholdPolicy: &approvalThresholdPolicyProperty{
 //   		proposalDurationInHours: jsii.Number(123),
@@ -946,13 +973,16 @@ type CfnMember_VotingPolicyProperty struct {
 	// Defines the rules for the network for voting on proposals, such as the percentage of `YES` votes required for the proposal to be approved and the duration of the proposal.
 	//
 	// The policy applies to all proposals and is specified when the network is created.
-	ApprovalThresholdPolicy interface{} `json:"approvalThresholdPolicy" yaml:"approvalThresholdPolicy"`
+	ApprovalThresholdPolicy interface{} `field:"optional" json:"approvalThresholdPolicy" yaml:"approvalThresholdPolicy"`
 }
 
 // Properties for defining a `CfnMember`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import managedblockchain "github.com/aws/aws-cdk-go/awscdk/aws_managedblockchain"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnMemberProps := &cfnMemberProps{
 //   	memberConfiguration: &memberConfigurationProperty{
 //   		name: jsii.String("name"),
@@ -994,13 +1024,13 @@ type CfnMember_VotingPolicyProperty struct {
 //
 type CfnMemberProps struct {
 	// Configuration properties of the member.
-	MemberConfiguration interface{} `json:"memberConfiguration" yaml:"memberConfiguration"`
+	MemberConfiguration interface{} `field:"required" json:"memberConfiguration" yaml:"memberConfiguration"`
 	// The unique identifier of the invitation to join the network sent to the account that creates the member.
-	InvitationId *string `json:"invitationId" yaml:"invitationId"`
+	InvitationId *string `field:"optional" json:"invitationId" yaml:"invitationId"`
 	// Configuration properties of the network to which the member belongs.
-	NetworkConfiguration interface{} `json:"networkConfiguration" yaml:"networkConfiguration"`
+	NetworkConfiguration interface{} `field:"optional" json:"networkConfiguration" yaml:"networkConfiguration"`
 	// The unique identifier of the network to which the member belongs.
-	NetworkId *string `json:"networkId" yaml:"networkId"`
+	NetworkId *string `field:"optional" json:"networkId" yaml:"networkId"`
 }
 
 // A CloudFormation `AWS::ManagedBlockchain::Node`.
@@ -1010,8 +1040,11 @@ type CfnMemberProps struct {
 // Applies to Hyperledger Fabric and Ethereum.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import managedblockchain "github.com/aws/aws-cdk-go/awscdk/aws_managedblockchain"
-//   cfnNode := managedblockchain.NewCfnNode(this, jsii.String("MyCfnNode"), &cfnNodeProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnNode := awscdk.Aws_managedblockchain.NewCfnNode(this, jsii.String("MyCfnNode"), &cfnNodeProps{
 //   	networkId: jsii.String("networkId"),
 //   	nodeConfiguration: &nodeConfigurationProperty{
 //   		availabilityZone: jsii.String("availabilityZone"),
@@ -1751,7 +1784,10 @@ func (c *jsiiProxy_CfnNode) ValidateProperties(_properties interface{}) {
 // Configuration properties of a peer node within a membership.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import managedblockchain "github.com/aws/aws-cdk-go/awscdk/aws_managedblockchain"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   nodeConfigurationProperty := &nodeConfigurationProperty{
 //   	availabilityZone: jsii.String("availabilityZone"),
 //   	instanceType: jsii.String("instanceType"),
@@ -1761,15 +1797,18 @@ type CfnNode_NodeConfigurationProperty struct {
 	// The Availability Zone in which the node exists.
 	//
 	// Required for Ethereum nodes.
-	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
+	AvailabilityZone *string `field:"required" json:"availabilityZone" yaml:"availabilityZone"`
 	// The Amazon Managed Blockchain instance type for the node.
-	InstanceType *string `json:"instanceType" yaml:"instanceType"`
+	InstanceType *string `field:"required" json:"instanceType" yaml:"instanceType"`
 }
 
 // Properties for defining a `CfnNode`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import managedblockchain "github.com/aws/aws-cdk-go/awscdk/aws_managedblockchain"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnNodeProps := &cfnNodeProps{
 //   	networkId: jsii.String("networkId"),
 //   	nodeConfiguration: &nodeConfigurationProperty{
@@ -1789,12 +1828,12 @@ type CfnNodeProps struct {
 	// - `n-ethereum-mainnet`
 	// - `n-ethereum-rinkeby`
 	// - `n-ethereum-ropsten`.
-	NetworkId *string `json:"networkId" yaml:"networkId"`
+	NetworkId *string `field:"required" json:"networkId" yaml:"networkId"`
 	// Configuration properties of a peer node.
-	NodeConfiguration interface{} `json:"nodeConfiguration" yaml:"nodeConfiguration"`
+	NodeConfiguration interface{} `field:"required" json:"nodeConfiguration" yaml:"nodeConfiguration"`
 	// The unique identifier of the member to which the node belongs.
 	//
 	// Applies only to Hyperledger Fabric.
-	MemberId *string `json:"memberId" yaml:"memberId"`
+	MemberId *string `field:"optional" json:"memberId" yaml:"memberId"`
 }
 

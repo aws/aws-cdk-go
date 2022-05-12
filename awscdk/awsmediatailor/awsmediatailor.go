@@ -12,10 +12,13 @@ import (
 // A CloudFormation `AWS::MediaTailor::PlaybackConfiguration`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediatailor "github.com/aws/aws-cdk-go/awscdk/aws_mediatailor"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var configurationAliases interface{}
-//   cfnPlaybackConfiguration := mediatailor.NewCfnPlaybackConfiguration(this, jsii.String("MyCfnPlaybackConfiguration"), &cfnPlaybackConfigurationProps{
+//
+//   cfnPlaybackConfiguration := awscdk.Aws_mediatailor.NewCfnPlaybackConfiguration(this, jsii.String("MyCfnPlaybackConfiguration"), &cfnPlaybackConfigurationProps{
 //   	adDecisionServerUrl: jsii.String("adDecisionServerUrl"),
 //   	name: jsii.String("name"),
 //   	videoContentSourceUrl: jsii.String("videoContentSourceUrl"),
@@ -973,18 +976,24 @@ func (c *jsiiProxy_CfnPlaybackConfiguration) ValidateProperties(_properties inte
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediatailor "github.com/aws/aws-cdk-go/awscdk/aws_mediatailor"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   adMarkerPassthroughProperty := &adMarkerPassthroughProperty{
 //   	enabled: jsii.Boolean(false),
 //   }
 //
 type CfnPlaybackConfiguration_AdMarkerPassthroughProperty struct {
 	// `CfnPlaybackConfiguration.AdMarkerPassthroughProperty.Enabled`.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediatailor "github.com/aws/aws-cdk-go/awscdk/aws_mediatailor"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   availSuppressionProperty := &availSuppressionProperty{
 //   	mode: jsii.String("mode"),
 //   	value: jsii.String("value"),
@@ -992,13 +1001,16 @@ type CfnPlaybackConfiguration_AdMarkerPassthroughProperty struct {
 //
 type CfnPlaybackConfiguration_AvailSuppressionProperty struct {
 	// `CfnPlaybackConfiguration.AvailSuppressionProperty.Mode`.
-	Mode *string `json:"mode" yaml:"mode"`
+	Mode *string `field:"optional" json:"mode" yaml:"mode"`
 	// `CfnPlaybackConfiguration.AvailSuppressionProperty.Value`.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediatailor "github.com/aws/aws-cdk-go/awscdk/aws_mediatailor"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   bumperProperty := &bumperProperty{
 //   	endUrl: jsii.String("endUrl"),
 //   	startUrl: jsii.String("startUrl"),
@@ -1006,13 +1018,16 @@ type CfnPlaybackConfiguration_AvailSuppressionProperty struct {
 //
 type CfnPlaybackConfiguration_BumperProperty struct {
 	// `CfnPlaybackConfiguration.BumperProperty.EndUrl`.
-	EndUrl *string `json:"endUrl" yaml:"endUrl"`
+	EndUrl *string `field:"optional" json:"endUrl" yaml:"endUrl"`
 	// `CfnPlaybackConfiguration.BumperProperty.StartUrl`.
-	StartUrl *string `json:"startUrl" yaml:"startUrl"`
+	StartUrl *string `field:"optional" json:"startUrl" yaml:"startUrl"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediatailor "github.com/aws/aws-cdk-go/awscdk/aws_mediatailor"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cdnConfigurationProperty := &cdnConfigurationProperty{
 //   	adSegmentUrlPrefix: jsii.String("adSegmentUrlPrefix"),
 //   	contentSegmentUrlPrefix: jsii.String("contentSegmentUrlPrefix"),
@@ -1020,13 +1035,16 @@ type CfnPlaybackConfiguration_BumperProperty struct {
 //
 type CfnPlaybackConfiguration_CdnConfigurationProperty struct {
 	// `CfnPlaybackConfiguration.CdnConfigurationProperty.AdSegmentUrlPrefix`.
-	AdSegmentUrlPrefix *string `json:"adSegmentUrlPrefix" yaml:"adSegmentUrlPrefix"`
+	AdSegmentUrlPrefix *string `field:"optional" json:"adSegmentUrlPrefix" yaml:"adSegmentUrlPrefix"`
 	// `CfnPlaybackConfiguration.CdnConfigurationProperty.ContentSegmentUrlPrefix`.
-	ContentSegmentUrlPrefix *string `json:"contentSegmentUrlPrefix" yaml:"contentSegmentUrlPrefix"`
+	ContentSegmentUrlPrefix *string `field:"optional" json:"contentSegmentUrlPrefix" yaml:"contentSegmentUrlPrefix"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediatailor "github.com/aws/aws-cdk-go/awscdk/aws_mediatailor"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dashConfigurationForPutProperty := &dashConfigurationForPutProperty{
 //   	mpdLocation: jsii.String("mpdLocation"),
 //   	originManifestType: jsii.String("originManifestType"),
@@ -1034,13 +1052,16 @@ type CfnPlaybackConfiguration_CdnConfigurationProperty struct {
 //
 type CfnPlaybackConfiguration_DashConfigurationForPutProperty struct {
 	// `CfnPlaybackConfiguration.DashConfigurationForPutProperty.MpdLocation`.
-	MpdLocation *string `json:"mpdLocation" yaml:"mpdLocation"`
+	MpdLocation *string `field:"optional" json:"mpdLocation" yaml:"mpdLocation"`
 	// `CfnPlaybackConfiguration.DashConfigurationForPutProperty.OriginManifestType`.
-	OriginManifestType *string `json:"originManifestType" yaml:"originManifestType"`
+	OriginManifestType *string `field:"optional" json:"originManifestType" yaml:"originManifestType"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediatailor "github.com/aws/aws-cdk-go/awscdk/aws_mediatailor"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   livePreRollConfigurationProperty := &livePreRollConfigurationProperty{
 //   	adDecisionServerUrl: jsii.String("adDecisionServerUrl"),
 //   	maxDurationSeconds: jsii.Number(123),
@@ -1048,13 +1069,16 @@ type CfnPlaybackConfiguration_DashConfigurationForPutProperty struct {
 //
 type CfnPlaybackConfiguration_LivePreRollConfigurationProperty struct {
 	// `CfnPlaybackConfiguration.LivePreRollConfigurationProperty.AdDecisionServerUrl`.
-	AdDecisionServerUrl *string `json:"adDecisionServerUrl" yaml:"adDecisionServerUrl"`
+	AdDecisionServerUrl *string `field:"optional" json:"adDecisionServerUrl" yaml:"adDecisionServerUrl"`
 	// `CfnPlaybackConfiguration.LivePreRollConfigurationProperty.MaxDurationSeconds`.
-	MaxDurationSeconds *float64 `json:"maxDurationSeconds" yaml:"maxDurationSeconds"`
+	MaxDurationSeconds *float64 `field:"optional" json:"maxDurationSeconds" yaml:"maxDurationSeconds"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediatailor "github.com/aws/aws-cdk-go/awscdk/aws_mediatailor"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   manifestProcessingRulesProperty := &manifestProcessingRulesProperty{
 //   	adMarkerPassthrough: &adMarkerPassthroughProperty{
 //   		enabled: jsii.Boolean(false),
@@ -1063,15 +1087,18 @@ type CfnPlaybackConfiguration_LivePreRollConfigurationProperty struct {
 //
 type CfnPlaybackConfiguration_ManifestProcessingRulesProperty struct {
 	// `CfnPlaybackConfiguration.ManifestProcessingRulesProperty.AdMarkerPassthrough`.
-	AdMarkerPassthrough interface{} `json:"adMarkerPassthrough" yaml:"adMarkerPassthrough"`
+	AdMarkerPassthrough interface{} `field:"optional" json:"adMarkerPassthrough" yaml:"adMarkerPassthrough"`
 }
 
 // Properties for defining a `CfnPlaybackConfiguration`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediatailor "github.com/aws/aws-cdk-go/awscdk/aws_mediatailor"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var configurationAliases interface{}
+//
 //   cfnPlaybackConfigurationProps := &cfnPlaybackConfigurationProps{
 //   	adDecisionServerUrl: jsii.String("adDecisionServerUrl"),
 //   	name: jsii.String("name"),
@@ -1120,34 +1147,34 @@ type CfnPlaybackConfiguration_ManifestProcessingRulesProperty struct {
 //
 type CfnPlaybackConfigurationProps struct {
 	// `AWS::MediaTailor::PlaybackConfiguration.AdDecisionServerUrl`.
-	AdDecisionServerUrl *string `json:"adDecisionServerUrl" yaml:"adDecisionServerUrl"`
+	AdDecisionServerUrl *string `field:"required" json:"adDecisionServerUrl" yaml:"adDecisionServerUrl"`
 	// `AWS::MediaTailor::PlaybackConfiguration.Name`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// `AWS::MediaTailor::PlaybackConfiguration.VideoContentSourceUrl`.
-	VideoContentSourceUrl *string `json:"videoContentSourceUrl" yaml:"videoContentSourceUrl"`
+	VideoContentSourceUrl *string `field:"required" json:"videoContentSourceUrl" yaml:"videoContentSourceUrl"`
 	// `AWS::MediaTailor::PlaybackConfiguration.AvailSuppression`.
-	AvailSuppression interface{} `json:"availSuppression" yaml:"availSuppression"`
+	AvailSuppression interface{} `field:"optional" json:"availSuppression" yaml:"availSuppression"`
 	// `AWS::MediaTailor::PlaybackConfiguration.Bumper`.
-	Bumper interface{} `json:"bumper" yaml:"bumper"`
+	Bumper interface{} `field:"optional" json:"bumper" yaml:"bumper"`
 	// `AWS::MediaTailor::PlaybackConfiguration.CdnConfiguration`.
-	CdnConfiguration interface{} `json:"cdnConfiguration" yaml:"cdnConfiguration"`
+	CdnConfiguration interface{} `field:"optional" json:"cdnConfiguration" yaml:"cdnConfiguration"`
 	// `AWS::MediaTailor::PlaybackConfiguration.ConfigurationAliases`.
-	ConfigurationAliases interface{} `json:"configurationAliases" yaml:"configurationAliases"`
+	ConfigurationAliases interface{} `field:"optional" json:"configurationAliases" yaml:"configurationAliases"`
 	// `AWS::MediaTailor::PlaybackConfiguration.DashConfiguration`.
-	DashConfiguration interface{} `json:"dashConfiguration" yaml:"dashConfiguration"`
+	DashConfiguration interface{} `field:"optional" json:"dashConfiguration" yaml:"dashConfiguration"`
 	// `AWS::MediaTailor::PlaybackConfiguration.LivePreRollConfiguration`.
-	LivePreRollConfiguration interface{} `json:"livePreRollConfiguration" yaml:"livePreRollConfiguration"`
+	LivePreRollConfiguration interface{} `field:"optional" json:"livePreRollConfiguration" yaml:"livePreRollConfiguration"`
 	// `AWS::MediaTailor::PlaybackConfiguration.ManifestProcessingRules`.
-	ManifestProcessingRules interface{} `json:"manifestProcessingRules" yaml:"manifestProcessingRules"`
+	ManifestProcessingRules interface{} `field:"optional" json:"manifestProcessingRules" yaml:"manifestProcessingRules"`
 	// `AWS::MediaTailor::PlaybackConfiguration.PersonalizationThresholdSeconds`.
-	PersonalizationThresholdSeconds *float64 `json:"personalizationThresholdSeconds" yaml:"personalizationThresholdSeconds"`
+	PersonalizationThresholdSeconds *float64 `field:"optional" json:"personalizationThresholdSeconds" yaml:"personalizationThresholdSeconds"`
 	// `AWS::MediaTailor::PlaybackConfiguration.SessionInitializationEndpointPrefix`.
-	SessionInitializationEndpointPrefix *string `json:"sessionInitializationEndpointPrefix" yaml:"sessionInitializationEndpointPrefix"`
+	SessionInitializationEndpointPrefix *string `field:"optional" json:"sessionInitializationEndpointPrefix" yaml:"sessionInitializationEndpointPrefix"`
 	// `AWS::MediaTailor::PlaybackConfiguration.SlateAdUrl`.
-	SlateAdUrl *string `json:"slateAdUrl" yaml:"slateAdUrl"`
+	SlateAdUrl *string `field:"optional" json:"slateAdUrl" yaml:"slateAdUrl"`
 	// `AWS::MediaTailor::PlaybackConfiguration.Tags`.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// `AWS::MediaTailor::PlaybackConfiguration.TranscodeProfileName`.
-	TranscodeProfileName *string `json:"transcodeProfileName" yaml:"transcodeProfileName"`
+	TranscodeProfileName *string `field:"optional" json:"transcodeProfileName" yaml:"transcodeProfileName"`
 }
 

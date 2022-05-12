@@ -18,8 +18,11 @@ import (
 // The `AWS::WAFRegional::ByteMatchSet` resource creates an AWS WAF `ByteMatchSet` that identifies a part of a web request that you want to inspect.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafregional "github.com/aws/aws-cdk-go/awscdk/aws_wafregional"
-//   cfnByteMatchSet := wafregional.NewCfnByteMatchSet(this, jsii.String("MyCfnByteMatchSet"), &cfnByteMatchSetProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnByteMatchSet := awscdk.Aws_wafregional.NewCfnByteMatchSet(this, jsii.String("MyCfnByteMatchSet"), &cfnByteMatchSetProps{
 //   	name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -699,7 +702,10 @@ func (c *jsiiProxy_CfnByteMatchSet) ValidateProperties(_properties interface{}) 
 // The bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafregional "github.com/aws/aws-cdk-go/awscdk/aws_wafregional"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   byteMatchTupleProperty := &byteMatchTupleProperty{
 //   	fieldToMatch: &fieldToMatchProperty{
 //   		type: jsii.String("type"),
@@ -717,7 +723,7 @@ func (c *jsiiProxy_CfnByteMatchSet) ValidateProperties(_properties interface{}) 
 //
 type CfnByteMatchSet_ByteMatchTupleProperty struct {
 	// The part of a web request that you want AWS WAF to inspect, such as a specific header or a query string.
-	FieldToMatch interface{} `json:"fieldToMatch" yaml:"fieldToMatch"`
+	FieldToMatch interface{} `field:"required" json:"fieldToMatch" yaml:"fieldToMatch"`
 	// Within the portion of a web request that you want to search (for example, in the query string, if any), specify where you want AWS WAF to search.
 	//
 	// Valid values include the following:
@@ -746,7 +752,7 @@ type CfnByteMatchSet_ByteMatchTupleProperty struct {
 	// *ENDS_WITH*
 	//
 	// The value of `TargetString` must appear at the end of the specified part of the web request.
-	PositionalConstraint *string `json:"positionalConstraint" yaml:"positionalConstraint"`
+	PositionalConstraint *string `field:"required" json:"positionalConstraint" yaml:"positionalConstraint"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass AWS WAF .
 	//
 	// If you specify a transformation, AWS WAF performs the transformation on `FieldToMatch` before inspecting it for a match.
@@ -798,7 +804,7 @@ type CfnByteMatchSet_ByteMatchTupleProperty struct {
 	// *NONE*
 	//
 	// Specify `NONE` if you don't want to perform any text transformations.
-	TextTransformation *string `json:"textTransformation" yaml:"textTransformation"`
+	TextTransformation *string `field:"required" json:"textTransformation" yaml:"textTransformation"`
 	// The value that you want AWS WAF to search for.
 	//
 	// AWS WAF searches for the specified string in the part of web requests that you specified in `FieldToMatch` . The maximum length of the value is 50 bytes.
@@ -816,7 +822,7 @@ type CfnByteMatchSet_ByteMatchTupleProperty struct {
 	// - `ALL_QUERY_ARGS` : Similar to `SINGLE_QUERY_ARG` , but instead of inspecting a single parameter, AWS WAF inspects all parameters within the query string for the value or regex pattern that you specify in `TargetString` .
 	//
 	// If `TargetString` includes alphabetic characters A-Z and a-z, note that the value is case sensitive.
-	TargetString *string `json:"targetString" yaml:"targetString"`
+	TargetString *string `field:"optional" json:"targetString" yaml:"targetString"`
 	// The base64-encoded value that AWS WAF searches for. AWS CloudFormation sends this value to AWS WAF without encoding it.
 	//
 	// You must specify this property or the `TargetString` property.
@@ -824,7 +830,7 @@ type CfnByteMatchSet_ByteMatchTupleProperty struct {
 	// AWS WAF searches for this value in a specific part of web requests, which you define in the `FieldToMatch` property.
 	//
 	// Valid values depend on the Type value in the `FieldToMatch` property. For example, for a `METHOD` type, you must specify HTTP methods such as `DELETE, GET, HEAD, OPTIONS, PATCH, POST` , and `PUT` .
-	TargetStringBase64 *string `json:"targetStringBase64" yaml:"targetStringBase64"`
+	TargetStringBase64 *string `field:"optional" json:"targetStringBase64" yaml:"targetStringBase64"`
 }
 
 // > This is *AWS WAF Classic* documentation.
@@ -836,7 +842,10 @@ type CfnByteMatchSet_ByteMatchTupleProperty struct {
 // Specifies where in a web request to look for `TargetString` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafregional "github.com/aws/aws-cdk-go/awscdk/aws_wafregional"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   fieldToMatchProperty := &fieldToMatchProperty{
 //   	type: jsii.String("type"),
 //
@@ -856,7 +865,7 @@ type CfnByteMatchSet_FieldToMatchProperty struct {
 	// - `BODY` : The part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form. The request body immediately follows the request headers. Note that only the first `8192` bytes of the request body are forwarded to AWS WAF for inspection. To allow or block requests based on the length of the body, you can create a size constraint set.
 	// - `SINGLE_QUERY_ARG` : The parameter in the query string that you will inspect, such as *UserName* or *SalesRegion* . The maximum length for `SINGLE_QUERY_ARG` is 30 characters.
 	// - `ALL_QUERY_ARGS` : Similar to `SINGLE_QUERY_ARG` , but rather than inspecting a single parameter, AWS WAF will inspect all parameters within the query for the value or regex pattern that you specify in `TargetString` .
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// When the value of `Type` is `HEADER` , enter the name of the header that you want AWS WAF to search, for example, `User-Agent` or `Referer` .
 	//
 	// The name of the header is not case sensitive.
@@ -864,13 +873,16 @@ type CfnByteMatchSet_FieldToMatchProperty struct {
 	// When the value of `Type` is `SINGLE_QUERY_ARG` , enter the name of the parameter that you want AWS WAF to search, for example, `UserName` or `SalesRegion` . The parameter name is not case sensitive.
 	//
 	// If the value of `Type` is any other value, omit `Data` .
-	Data *string `json:"data" yaml:"data"`
+	Data *string `field:"optional" json:"data" yaml:"data"`
 }
 
 // Properties for defining a `CfnByteMatchSet`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafregional "github.com/aws/aws-cdk-go/awscdk/aws_wafregional"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnByteMatchSetProps := &cfnByteMatchSetProps{
 //   	name: jsii.String("name"),
 //
@@ -897,9 +909,9 @@ type CfnByteMatchSetProps struct {
 	// A friendly name or description of the `ByteMatchSet` .
 	//
 	// You can't change `Name` after you create a `ByteMatchSet` .
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// Specifies the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings.
-	ByteMatchTuples interface{} `json:"byteMatchTuples" yaml:"byteMatchTuples"`
+	ByteMatchTuples interface{} `field:"optional" json:"byteMatchTuples" yaml:"byteMatchTuples"`
 }
 
 // A CloudFormation `AWS::WAFRegional::GeoMatchSet`.
@@ -911,8 +923,11 @@ type CfnByteMatchSetProps struct {
 // Contains one or more countries that AWS WAF will search for.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafregional "github.com/aws/aws-cdk-go/awscdk/aws_wafregional"
-//   cfnGeoMatchSet := wafregional.NewCfnGeoMatchSet(this, jsii.String("MyCfnGeoMatchSet"), &cfnGeoMatchSetProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnGeoMatchSet := awscdk.Aws_wafregional.NewCfnGeoMatchSet(this, jsii.String("MyCfnGeoMatchSet"), &cfnGeoMatchSetProps{
 //   	name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -1582,7 +1597,10 @@ func (c *jsiiProxy_CfnGeoMatchSet) ValidateProperties(_properties interface{}) {
 // The country from which web requests originate that you want AWS WAF to search for.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafregional "github.com/aws/aws-cdk-go/awscdk/aws_wafregional"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   geoMatchConstraintProperty := &geoMatchConstraintProperty{
 //   	type: jsii.String("type"),
 //   	value: jsii.String("value"),
@@ -1592,15 +1610,18 @@ type CfnGeoMatchSet_GeoMatchConstraintProperty struct {
 	// The type of geographical area you want AWS WAF to search for.
 	//
 	// Currently `Country` is the only valid value.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// The country that you want AWS WAF to search for.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // Properties for defining a `CfnGeoMatchSet`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafregional "github.com/aws/aws-cdk-go/awscdk/aws_wafregional"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnGeoMatchSetProps := &cfnGeoMatchSetProps{
 //   	name: jsii.String("name"),
 //
@@ -1617,9 +1638,9 @@ type CfnGeoMatchSetProps struct {
 	// A friendly name or description of the `GeoMatchSet` .
 	//
 	// You can't change the name of an `GeoMatchSet` after you create it.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// An array of `GeoMatchConstraint` objects, which contain the country that you want AWS WAF to search for.
-	GeoMatchConstraints interface{} `json:"geoMatchConstraints" yaml:"geoMatchConstraints"`
+	GeoMatchConstraints interface{} `field:"optional" json:"geoMatchConstraints" yaml:"geoMatchConstraints"`
 }
 
 // A CloudFormation `AWS::WAFRegional::IPSet`.
@@ -1633,8 +1654,11 @@ type CfnGeoMatchSetProps struct {
 // To specify an individual IP address, you specify the four-part IP address followed by a `/32` , for example, 192.0.2.0/32. To block a range of IP addresses, you can specify /8 or any range between /16 through /32 (for IPv4) or /24, /32, /48, /56, /64, or /128 (for IPv6). For more information about CIDR notation, see the Wikipedia entry [Classless Inter-Domain Routing](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafregional "github.com/aws/aws-cdk-go/awscdk/aws_wafregional"
-//   cfnIPSet := wafregional.NewCfnIPSet(this, jsii.String("MyCfnIPSet"), &cfnIPSetProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnIPSet := awscdk.Aws_wafregional.NewCfnIPSet(this, jsii.String("MyCfnIPSet"), &cfnIPSetProps{
 //   	name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -2304,7 +2328,10 @@ func (c *jsiiProxy_CfnIPSet) ValidateProperties(_properties interface{}) {
 // Specifies the IP address type ( `IPV4` or `IPV6` ) and the IP address range (in CIDR format) that web requests originate from.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafregional "github.com/aws/aws-cdk-go/awscdk/aws_wafregional"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   iPSetDescriptorProperty := map[string]*string{
 //   	"type": jsii.String("type"),
 //   	"value": jsii.String("value"),
@@ -2312,7 +2339,7 @@ func (c *jsiiProxy_CfnIPSet) ValidateProperties(_properties interface{}) {
 //
 type CfnIPSet_IPSetDescriptorProperty struct {
 	// Specify `IPV4` or `IPV6` .
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// Specify an IPv4 address by using CIDR notation. For example:.
 	//
 	// - To configure AWS WAF to allow, block, or count requests that originated from the IP address 192.0.2.44, specify `192.0.2.44/32` .
@@ -2324,13 +2351,16 @@ type CfnIPSet_IPSetDescriptorProperty struct {
 	//
 	// - To configure AWS WAF to allow, block, or count requests that originated from the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify `1111:0000:0000:0000:0000:0000:0000:0111/128` .
 	// - To configure AWS WAF to allow, block, or count requests that originated from IP addresses 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify `1111:0000:0000:0000:0000:0000:0000:0000/64` .
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // Properties for defining a `CfnIPSet`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafregional "github.com/aws/aws-cdk-go/awscdk/aws_wafregional"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnIPSetProps := &cfnIPSetProps{
 //   	name: jsii.String("name"),
 //
@@ -2347,9 +2377,9 @@ type CfnIPSetProps struct {
 	// A friendly name or description of the `IPSet` .
 	//
 	// You can't change the name of an `IPSet` after you create it.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The IP address type ( `IPV4` or `IPV6` ) and the IP address range (in CIDR notation) that web requests originate from.
-	IpSetDescriptors interface{} `json:"ipSetDescriptors" yaml:"ipSetDescriptors"`
+	IpSetDescriptors interface{} `field:"optional" json:"ipSetDescriptors" yaml:"ipSetDescriptors"`
 }
 
 // A CloudFormation `AWS::WAFRegional::RateBasedRule`.
@@ -2370,8 +2400,11 @@ type CfnIPSetProps struct {
 // Note you can only create rate-based rules using an AWS CloudFormation template. To add the rate-based rules created through AWS CloudFormation to a web ACL, use the AWS WAF console, API, or command line interface (CLI). For more information, see [UpdateWebACL](https://docs.aws.amazon.com/waf/latest/APIReference/API_regional_UpdateWebACL.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafregional "github.com/aws/aws-cdk-go/awscdk/aws_wafregional"
-//   cfnRateBasedRule := wafregional.NewCfnRateBasedRule(this, jsii.String("MyCfnRateBasedRule"), &cfnRateBasedRuleProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnRateBasedRule := awscdk.Aws_wafregional.NewCfnRateBasedRule(this, jsii.String("MyCfnRateBasedRule"), &cfnRateBasedRuleProps{
 //   	metricName: jsii.String("metricName"),
 //   	name: jsii.String("name"),
 //   	rateKey: jsii.String("rateKey"),
@@ -3108,7 +3141,10 @@ func (c *jsiiProxy_CfnRateBasedRule) ValidateProperties(_properties interface{})
 // Specifies the `ByteMatchSet` , `IPSet` , `SqlInjectionMatchSet` , `XssMatchSet` , `RegexMatchSet` , `GeoMatchSet` , and `SizeConstraintSet` objects that you want to add to a `Rule` and, for each object, indicates whether you want to negate the settings, for example, requests that do NOT originate from the IP address 192.0.2.44.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafregional "github.com/aws/aws-cdk-go/awscdk/aws_wafregional"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   predicateProperty := &predicateProperty{
 //   	dataId: jsii.String("dataId"),
 //   	negated: jsii.Boolean(false),
@@ -3119,21 +3155,24 @@ type CfnRateBasedRule_PredicateProperty struct {
 	// A unique identifier for a predicate in a `Rule` , such as `ByteMatchSetId` or `IPSetId` .
 	//
 	// The ID is returned by the corresponding `Create` or `List` command.
-	DataId *string `json:"dataId" yaml:"dataId"`
+	DataId *string `field:"required" json:"dataId" yaml:"dataId"`
 	// Set `Negated` to `False` if you want AWS WAF to allow, block, or count requests based on the settings in the specified `ByteMatchSet` , `IPSet` , `SqlInjectionMatchSet` , `XssMatchSet` , `RegexMatchSet` , `GeoMatchSet` , or `SizeConstraintSet` .
 	//
 	// For example, if an `IPSet` includes the IP address `192.0.2.44` , AWS WAF will allow or block requests based on that IP address.
 	//
 	// Set `Negated` to `True` if you want AWS WAF to allow or block a request based on the negation of the settings in the `ByteMatchSet` , `IPSet` , `SqlInjectionMatchSet` , `XssMatchSet` , `RegexMatchSet` , `GeoMatchSet` , or `SizeConstraintSet` >. For example, if an `IPSet` includes the IP address `192.0.2.44` , AWS WAF will allow, block, or count requests based on all IP addresses *except* `192.0.2.44` .
-	Negated interface{} `json:"negated" yaml:"negated"`
+	Negated interface{} `field:"required" json:"negated" yaml:"negated"`
 	// The type of predicate in a `Rule` , such as `ByteMatch` or `IPSet` .
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 }
 
 // Properties for defining a `CfnRateBasedRule`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafregional "github.com/aws/aws-cdk-go/awscdk/aws_wafregional"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnRateBasedRuleProps := &cfnRateBasedRuleProps{
 //   	metricName: jsii.String("metricName"),
 //   	name: jsii.String("name"),
@@ -3154,21 +3193,21 @@ type CfnRateBasedRuleProps struct {
 	// A name for the metrics for a `RateBasedRule` .
 	//
 	// The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF , including "All" and "Default_Action." You can't change the name of the metric after you create the `RateBasedRule` .
-	MetricName *string `json:"metricName" yaml:"metricName"`
+	MetricName *string `field:"required" json:"metricName" yaml:"metricName"`
 	// A friendly name or description for a `RateBasedRule` .
 	//
 	// You can't change the name of a `RateBasedRule` after you create it.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The field that AWS WAF uses to determine if requests are likely arriving from single source and thus subject to rate monitoring.
 	//
 	// The only valid value for `RateKey` is `IP` . `IP` indicates that requests arriving from the same IP address are subject to the `RateLimit` that is specified in the `RateBasedRule` .
-	RateKey *string `json:"rateKey" yaml:"rateKey"`
+	RateKey *string `field:"required" json:"rateKey" yaml:"rateKey"`
 	// The maximum number of requests, which have an identical value in the field specified by the `RateKey` , allowed in a five-minute period.
 	//
 	// If the number of requests exceeds the `RateLimit` and the other predicates specified in the rule are also met, AWS WAF triggers the action that is specified for this rule.
-	RateLimit *float64 `json:"rateLimit" yaml:"rateLimit"`
+	RateLimit *float64 `field:"required" json:"rateLimit" yaml:"rateLimit"`
 	// The `Predicates` object contains one `Predicate` element for each `ByteMatchSet` , `IPSet` , or `SqlInjectionMatchSet>` object that you want to include in a `RateBasedRule` .
-	MatchPredicates interface{} `json:"matchPredicates" yaml:"matchPredicates"`
+	MatchPredicates interface{} `field:"optional" json:"matchPredicates" yaml:"matchPredicates"`
 }
 
 // A CloudFormation `AWS::WAFRegional::RegexPatternSet`.
@@ -3178,8 +3217,11 @@ type CfnRateBasedRuleProps struct {
 // Note that you can only create regex pattern sets using a AWS CloudFormation template. To add the regex pattern sets created through AWS CloudFormation to a RegexMatchSet, use the AWS WAF console, API, or command line interface (CLI). For more information, see [UpdateRegexMatchSet](https://docs.aws.amazon.com/waf/latest/APIReference/API_regional_UpdateRegexMatchSet.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafregional "github.com/aws/aws-cdk-go/awscdk/aws_wafregional"
-//   cfnRegexPatternSet := wafregional.NewCfnRegexPatternSet(this, jsii.String("MyCfnRegexPatternSet"), &cfnRegexPatternSetProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnRegexPatternSet := awscdk.Aws_wafregional.NewCfnRegexPatternSet(this, jsii.String("MyCfnRegexPatternSet"), &cfnRegexPatternSetProps{
 //   	name: jsii.String("name"),
 //   	regexPatternStrings: []*string{
 //   		jsii.String("regexPatternStrings"),
@@ -3838,7 +3880,10 @@ func (c *jsiiProxy_CfnRegexPatternSet) ValidateProperties(_properties interface{
 // Properties for defining a `CfnRegexPatternSet`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafregional "github.com/aws/aws-cdk-go/awscdk/aws_wafregional"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnRegexPatternSetProps := &cfnRegexPatternSetProps{
 //   	name: jsii.String("name"),
 //   	regexPatternStrings: []*string{
@@ -3850,9 +3895,9 @@ type CfnRegexPatternSetProps struct {
 	// A friendly name or description of the `RegexPatternSet` .
 	//
 	// You can't change `Name` after you create a `RegexPatternSet` .
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// Specifies the regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t` .
-	RegexPatternStrings *[]*string `json:"regexPatternStrings" yaml:"regexPatternStrings"`
+	RegexPatternStrings *[]*string `field:"required" json:"regexPatternStrings" yaml:"regexPatternStrings"`
 }
 
 // A CloudFormation `AWS::WAFRegional::Rule`.
@@ -3869,8 +3914,11 @@ type CfnRegexPatternSetProps struct {
 // To match the settings in this `Rule` , a request must originate from `192.0.2.44` AND include a `User-Agent` header for which the value is `BadBot` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafregional "github.com/aws/aws-cdk-go/awscdk/aws_wafregional"
-//   cfnRule := wafregional.NewCfnRule(this, jsii.String("MyCfnRule"), &cfnRuleProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnRule := awscdk.Aws_wafregional.NewCfnRule(this, jsii.String("MyCfnRule"), &cfnRuleProps{
 //   	metricName: jsii.String("metricName"),
 //   	name: jsii.String("name"),
 //
@@ -4559,7 +4607,10 @@ func (c *jsiiProxy_CfnRule) ValidateProperties(_properties interface{}) {
 // Specifies the `ByteMatchSet` , `IPSet` , `SqlInjectionMatchSet` , `XssMatchSet` , `RegexMatchSet` , `GeoMatchSet` , and `SizeConstraintSet` objects that you want to add to a `Rule` and, for each object, indicates whether you want to negate the settings, for example, requests that do NOT originate from the IP address 192.0.2.44.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafregional "github.com/aws/aws-cdk-go/awscdk/aws_wafregional"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   predicateProperty := &predicateProperty{
 //   	dataId: jsii.String("dataId"),
 //   	negated: jsii.Boolean(false),
@@ -4570,21 +4621,24 @@ type CfnRule_PredicateProperty struct {
 	// A unique identifier for a predicate in a `Rule` , such as `ByteMatchSetId` or `IPSetId` .
 	//
 	// The ID is returned by the corresponding `Create` or `List` command.
-	DataId *string `json:"dataId" yaml:"dataId"`
+	DataId *string `field:"required" json:"dataId" yaml:"dataId"`
 	// Set `Negated` to `False` if you want AWS WAF to allow, block, or count requests based on the settings in the specified `ByteMatchSet` , `IPSet` , `SqlInjectionMatchSet` , `XssMatchSet` , `RegexMatchSet` , `GeoMatchSet` , or `SizeConstraintSet` .
 	//
 	// For example, if an `IPSet` includes the IP address `192.0.2.44` , AWS WAF will allow or block requests based on that IP address.
 	//
 	// Set `Negated` to `True` if you want AWS WAF to allow or block a request based on the negation of the settings in the `ByteMatchSet` , `IPSet` , `SqlInjectionMatchSet` , `XssMatchSet` , `RegexMatchSet` , `GeoMatchSet` , or `SizeConstraintSet` . For example, if an `IPSet` includes the IP address `192.0.2.44` , AWS WAF will allow, block, or count requests based on all IP addresses *except* `192.0.2.44` .
-	Negated interface{} `json:"negated" yaml:"negated"`
+	Negated interface{} `field:"required" json:"negated" yaml:"negated"`
 	// The type of predicate in a `Rule` , such as `ByteMatch` or `IPSet` .
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 }
 
 // Properties for defining a `CfnRule`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafregional "github.com/aws/aws-cdk-go/awscdk/aws_wafregional"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnRuleProps := &cfnRuleProps{
 //   	metricName: jsii.String("metricName"),
 //   	name: jsii.String("name"),
@@ -4603,13 +4657,13 @@ type CfnRuleProps struct {
 	// A name for the metrics for this `Rule` .
 	//
 	// The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change `MetricName` after you create the `Rule` .
-	MetricName *string `json:"metricName" yaml:"metricName"`
+	MetricName *string `field:"required" json:"metricName" yaml:"metricName"`
 	// The friendly name or description for the `Rule` .
 	//
 	// You can't change the name of a `Rule` after you create it.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The `Predicates` object contains one `Predicate` element for each `ByteMatchSet` , `IPSet` , or `SqlInjectionMatchSet` object that you want to include in a `Rule` .
-	Predicates interface{} `json:"predicates" yaml:"predicates"`
+	Predicates interface{} `field:"optional" json:"predicates" yaml:"predicates"`
 }
 
 // A CloudFormation `AWS::WAFRegional::SizeConstraintSet`.
@@ -4621,8 +4675,11 @@ type CfnRuleProps struct {
 // A complex type that contains `SizeConstraint` objects, which specify the parts of web requests that you want AWS WAF to inspect the size of. If a `SizeConstraintSet` contains more than one `SizeConstraint` object, a request only needs to match one constraint to be considered a match.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafregional "github.com/aws/aws-cdk-go/awscdk/aws_wafregional"
-//   cfnSizeConstraintSet := wafregional.NewCfnSizeConstraintSet(this, jsii.String("MyCfnSizeConstraintSet"), &cfnSizeConstraintSetProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnSizeConstraintSet := awscdk.Aws_wafregional.NewCfnSizeConstraintSet(this, jsii.String("MyCfnSizeConstraintSet"), &cfnSizeConstraintSetProps{
 //   	name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -5291,7 +5348,10 @@ func (c *jsiiProxy_CfnSizeConstraintSet) ValidateProperties(_properties interfac
 // The part of a web request that you want AWS WAF to inspect, such as a specific header or a query string.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafregional "github.com/aws/aws-cdk-go/awscdk/aws_wafregional"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   fieldToMatchProperty := &fieldToMatchProperty{
 //   	type: jsii.String("type"),
 //
@@ -5311,7 +5371,7 @@ type CfnSizeConstraintSet_FieldToMatchProperty struct {
 	// - `BODY` : The part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form. The request body immediately follows the request headers. Note that only the first `8192` bytes of the request body are forwarded to AWS WAF for inspection. To allow or block requests based on the length of the body, you can create a size constraint set.
 	// - `SINGLE_QUERY_ARG` : The parameter in the query string that you will inspect, such as *UserName* or *SalesRegion* . The maximum length for `SINGLE_QUERY_ARG` is 30 characters.
 	// - `ALL_QUERY_ARGS` : Similar to `SINGLE_QUERY_ARG` , but rather than inspecting a single parameter, AWS WAF will inspect all parameters within the query for the value or regex pattern that you specify in `TargetString` .
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// When the value of `Type` is `HEADER` , enter the name of the header that you want AWS WAF to search, for example, `User-Agent` or `Referer` .
 	//
 	// The name of the header is not case sensitive.
@@ -5319,7 +5379,7 @@ type CfnSizeConstraintSet_FieldToMatchProperty struct {
 	// When the value of `Type` is `SINGLE_QUERY_ARG` , enter the name of the parameter that you want AWS WAF to search, for example, `UserName` or `SalesRegion` . The parameter name is not case sensitive.
 	//
 	// If the value of `Type` is any other value, omit `Data` .
-	Data *string `json:"data" yaml:"data"`
+	Data *string `field:"optional" json:"data" yaml:"data"`
 }
 
 // > This is *AWS WAF Classic* documentation.
@@ -5331,7 +5391,10 @@ type CfnSizeConstraintSet_FieldToMatchProperty struct {
 // Specifies a constraint on the size of a part of the web request. AWS WAF uses the `Size` , `ComparisonOperator` , and `FieldToMatch` to build an expression in the form of " `Size` `ComparisonOperator` size in bytes of `FieldToMatch` ". If that expression is true, the `SizeConstraint` is considered to match.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafregional "github.com/aws/aws-cdk-go/awscdk/aws_wafregional"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sizeConstraintProperty := &sizeConstraintProperty{
 //   	comparisonOperator: jsii.String("comparisonOperator"),
 //   	fieldToMatch: &fieldToMatchProperty{
@@ -5360,9 +5423,9 @@ type CfnSizeConstraintSet_SizeConstraintProperty struct {
 	// *GE* : Used to test if the `Size` is greater than or equal to the size of the `FieldToMatch`
 	//
 	// *GT* : Used to test if the `Size` is strictly greater than the size of the `FieldToMatch`.
-	ComparisonOperator *string `json:"comparisonOperator" yaml:"comparisonOperator"`
+	ComparisonOperator *string `field:"required" json:"comparisonOperator" yaml:"comparisonOperator"`
 	// The part of a web request that you want AWS WAF to inspect, such as a specific header or a query string.
-	FieldToMatch interface{} `json:"fieldToMatch" yaml:"fieldToMatch"`
+	FieldToMatch interface{} `field:"required" json:"fieldToMatch" yaml:"fieldToMatch"`
 	// The size in bytes that you want AWS WAF to compare against the size of the specified `FieldToMatch` .
 	//
 	// AWS WAF uses this in combination with `ComparisonOperator` and `FieldToMatch` to build an expression in the form of " `Size` `ComparisonOperator` size in bytes of `FieldToMatch` ". If that expression is true, the `SizeConstraint` is considered to match.
@@ -5370,7 +5433,7 @@ type CfnSizeConstraintSet_SizeConstraintProperty struct {
 	// Valid values for size are 0 - 21474836480 bytes (0 - 20 GB).
 	//
 	// If you specify `URI` for the value of `Type` , the / in the URI path that you specify counts as one character. For example, the URI `/logo.jpg` is nine characters long.
-	Size *float64 `json:"size" yaml:"size"`
+	Size *float64 `field:"required" json:"size" yaml:"size"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass AWS WAF .
 	//
 	// If you specify a transformation, AWS WAF performs the transformation on `FieldToMatch` before inspecting a request for a match.
@@ -5424,13 +5487,16 @@ type CfnSizeConstraintSet_SizeConstraintProperty struct {
 	// *URL_DECODE*
 	//
 	// Use this option to decode a URL-encoded value.
-	TextTransformation *string `json:"textTransformation" yaml:"textTransformation"`
+	TextTransformation *string `field:"required" json:"textTransformation" yaml:"textTransformation"`
 }
 
 // Properties for defining a `CfnSizeConstraintSet`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafregional "github.com/aws/aws-cdk-go/awscdk/aws_wafregional"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnSizeConstraintSetProps := &cfnSizeConstraintSetProps{
 //   	name: jsii.String("name"),
 //
@@ -5452,9 +5518,9 @@ type CfnSizeConstraintSet_SizeConstraintProperty struct {
 //
 type CfnSizeConstraintSetProps struct {
 	// The name, if any, of the `SizeConstraintSet` .
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The size constraint and the part of the web request to check.
-	SizeConstraints interface{} `json:"sizeConstraints" yaml:"sizeConstraints"`
+	SizeConstraints interface{} `field:"optional" json:"sizeConstraints" yaml:"sizeConstraints"`
 }
 
 // A CloudFormation `AWS::WAFRegional::SqlInjectionMatchSet`.
@@ -5466,8 +5532,11 @@ type CfnSizeConstraintSetProps struct {
 // A complex type that contains `SqlInjectionMatchTuple` objects, which specify the parts of web requests that you want AWS WAF to inspect for snippets of malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header. If a `SqlInjectionMatchSet` contains more than one `SqlInjectionMatchTuple` object, a request needs to include snippets of SQL code in only one of the specified parts of the request to be considered a match.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafregional "github.com/aws/aws-cdk-go/awscdk/aws_wafregional"
-//   cfnSqlInjectionMatchSet := wafregional.NewCfnSqlInjectionMatchSet(this, jsii.String("MyCfnSqlInjectionMatchSet"), &cfnSqlInjectionMatchSetProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnSqlInjectionMatchSet := awscdk.Aws_wafregional.NewCfnSqlInjectionMatchSet(this, jsii.String("MyCfnSqlInjectionMatchSet"), &cfnSqlInjectionMatchSetProps{
 //   	name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -6134,7 +6203,10 @@ func (c *jsiiProxy_CfnSqlInjectionMatchSet) ValidateProperties(_properties inter
 // The part of a web request that you want AWS WAF to inspect, such as a specific header or a query string.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafregional "github.com/aws/aws-cdk-go/awscdk/aws_wafregional"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   fieldToMatchProperty := &fieldToMatchProperty{
 //   	type: jsii.String("type"),
 //
@@ -6154,7 +6226,7 @@ type CfnSqlInjectionMatchSet_FieldToMatchProperty struct {
 	// - `BODY` : The part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form. The request body immediately follows the request headers. Note that only the first `8192` bytes of the request body are forwarded to AWS WAF for inspection. To allow or block requests based on the length of the body, you can create a size constraint set.
 	// - `SINGLE_QUERY_ARG` : The parameter in the query string that you will inspect, such as *UserName* or *SalesRegion* . The maximum length for `SINGLE_QUERY_ARG` is 30 characters.
 	// - `ALL_QUERY_ARGS` : Similar to `SINGLE_QUERY_ARG` , but rather than inspecting a single parameter, AWS WAF will inspect all parameters within the query for the value or regex pattern that you specify in `TargetString` .
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// When the value of `Type` is `HEADER` , enter the name of the header that you want AWS WAF to search, for example, `User-Agent` or `Referer` .
 	//
 	// The name of the header is not case sensitive.
@@ -6162,7 +6234,7 @@ type CfnSqlInjectionMatchSet_FieldToMatchProperty struct {
 	// When the value of `Type` is `SINGLE_QUERY_ARG` , enter the name of the parameter that you want AWS WAF to search, for example, `UserName` or `SalesRegion` . The parameter name is not case sensitive.
 	//
 	// If the value of `Type` is any other value, omit `Data` .
-	Data *string `json:"data" yaml:"data"`
+	Data *string `field:"optional" json:"data" yaml:"data"`
 }
 
 // > This is *AWS WAF Classic* documentation.
@@ -6174,7 +6246,10 @@ type CfnSqlInjectionMatchSet_FieldToMatchProperty struct {
 // Specifies the part of a web request that you want AWS WAF to inspect for snippets of malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafregional "github.com/aws/aws-cdk-go/awscdk/aws_wafregional"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sqlInjectionMatchTupleProperty := &sqlInjectionMatchTupleProperty{
 //   	fieldToMatch: &fieldToMatchProperty{
 //   		type: jsii.String("type"),
@@ -6187,7 +6262,7 @@ type CfnSqlInjectionMatchSet_FieldToMatchProperty struct {
 //
 type CfnSqlInjectionMatchSet_SqlInjectionMatchTupleProperty struct {
 	// The part of a web request that you want AWS WAF to inspect, such as a specific header or a query string.
-	FieldToMatch interface{} `json:"fieldToMatch" yaml:"fieldToMatch"`
+	FieldToMatch interface{} `field:"required" json:"fieldToMatch" yaml:"fieldToMatch"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass AWS WAF .
 	//
 	// If you specify a transformation, AWS WAF performs the transformation on `FieldToMatch` before inspecting it for a match.
@@ -6239,13 +6314,16 @@ type CfnSqlInjectionMatchSet_SqlInjectionMatchTupleProperty struct {
 	// *NONE*
 	//
 	// Specify `NONE` if you don't want to perform any text transformations.
-	TextTransformation *string `json:"textTransformation" yaml:"textTransformation"`
+	TextTransformation *string `field:"required" json:"textTransformation" yaml:"textTransformation"`
 }
 
 // Properties for defining a `CfnSqlInjectionMatchSet`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafregional "github.com/aws/aws-cdk-go/awscdk/aws_wafregional"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnSqlInjectionMatchSetProps := &cfnSqlInjectionMatchSetProps{
 //   	name: jsii.String("name"),
 //
@@ -6265,9 +6343,9 @@ type CfnSqlInjectionMatchSet_SqlInjectionMatchTupleProperty struct {
 //
 type CfnSqlInjectionMatchSetProps struct {
 	// The name, if any, of the `SqlInjectionMatchSet` .
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// Specifies the parts of web requests that you want to inspect for snippets of malicious SQL code.
-	SqlInjectionMatchTuples interface{} `json:"sqlInjectionMatchTuples" yaml:"sqlInjectionMatchTuples"`
+	SqlInjectionMatchTuples interface{} `field:"optional" json:"sqlInjectionMatchTuples" yaml:"sqlInjectionMatchTuples"`
 }
 
 // A CloudFormation `AWS::WAFRegional::WebACL`.
@@ -6281,8 +6359,11 @@ type CfnSqlInjectionMatchSetProps struct {
 // To identify the requests that you want AWS WAF to filter, you associate the `WebACL` with an API Gateway API or an Application Load Balancer.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafregional "github.com/aws/aws-cdk-go/awscdk/aws_wafregional"
-//   cfnWebACL := wafregional.NewCfnWebACL(this, jsii.String("MyCfnWebACL"), &cfnWebACLProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnWebACL := awscdk.Aws_wafregional.NewCfnWebACL(this, jsii.String("MyCfnWebACL"), &cfnWebACLProps{
 //   	defaultAction: &actionProperty{
 //   		type: jsii.String("type"),
 //   	},
@@ -6999,7 +7080,10 @@ func (c *jsiiProxy_CfnWebACL) ValidateProperties(_properties interface{}) {
 // Specifies the action AWS WAF takes when a web request matches or doesn't match all rule conditions.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafregional "github.com/aws/aws-cdk-go/awscdk/aws_wafregional"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   actionProperty := &actionProperty{
 //   	type: jsii.String("type"),
 //   }
@@ -7014,7 +7098,7 @@ type CfnWebACL_ActionProperty struct {
 	// - `ALLOW` : AWS WAF allows requests
 	// - `BLOCK` : AWS WAF blocks requests
 	// - `COUNT` : AWS WAF increments a counter of the requests that match all of the conditions in the rule. AWS WAF then continues to inspect the web request based on the remaining rules in the web ACL. You can't specify `COUNT` for the default action for a WebACL.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 }
 
 // A combination of `ByteMatchSet` , `IPSet` , and/or `SqlInjectionMatchSet` objects that identify the web requests that you want to allow, block, or count.
@@ -7027,7 +7111,10 @@ type CfnWebACL_ActionProperty struct {
 // To match the settings in this `Rule` , a request must originate from `192.0.2.44` AND include a `User-Agent` header for which the value is `BadBot` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafregional "github.com/aws/aws-cdk-go/awscdk/aws_wafregional"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   ruleProperty := &ruleProperty{
 //   	action: &actionProperty{
 //   		type: jsii.String("type"),
@@ -7038,13 +7125,13 @@ type CfnWebACL_ActionProperty struct {
 //
 type CfnWebACL_RuleProperty struct {
 	// The action that AWS WAF takes when a web request matches all conditions in the rule, such as allow, block, or count the request.
-	Action interface{} `json:"action" yaml:"action"`
+	Action interface{} `field:"required" json:"action" yaml:"action"`
 	// The order in which AWS WAF evaluates the rules in a web ACL.
 	//
 	// AWS WAF evaluates rules with a lower value before rules with a higher value. The value must be a unique integer. If you have multiple rules in a web ACL, the priority numbers do not need to be consecutive.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"required" json:"priority" yaml:"priority"`
 	// The ID of an AWS WAF Regional rule to associate with a web ACL.
-	RuleId *string `json:"ruleId" yaml:"ruleId"`
+	RuleId *string `field:"required" json:"ruleId" yaml:"ruleId"`
 }
 
 // A CloudFormation `AWS::WAFRegional::WebACLAssociation`.
@@ -7056,8 +7143,11 @@ type CfnWebACL_RuleProperty struct {
 // The AWS::WAFRegional::WebACLAssociation resource associates an AWS WAF Regional web access control group (ACL) with a resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafregional "github.com/aws/aws-cdk-go/awscdk/aws_wafregional"
-//   cfnWebACLAssociation := wafregional.NewCfnWebACLAssociation(this, jsii.String("MyCfnWebACLAssociation"), &cfnWebACLAssociationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnWebACLAssociation := awscdk.Aws_wafregional.NewCfnWebACLAssociation(this, jsii.String("MyCfnWebACLAssociation"), &cfnWebACLAssociationProps{
 //   	resourceArn: jsii.String("resourceArn"),
 //   	webAclId: jsii.String("webAclId"),
 //   })
@@ -7712,7 +7802,10 @@ func (c *jsiiProxy_CfnWebACLAssociation) ValidateProperties(_properties interfac
 // Properties for defining a `CfnWebACLAssociation`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafregional "github.com/aws/aws-cdk-go/awscdk/aws_wafregional"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnWebACLAssociationProps := &cfnWebACLAssociationProps{
 //   	resourceArn: jsii.String("resourceArn"),
 //   	webAclId: jsii.String("webAclId"),
@@ -7720,15 +7813,18 @@ func (c *jsiiProxy_CfnWebACLAssociation) ValidateProperties(_properties interfac
 //
 type CfnWebACLAssociationProps struct {
 	// The Amazon Resource Name (ARN) of the resource to protect with the web ACL.
-	ResourceArn *string `json:"resourceArn" yaml:"resourceArn"`
+	ResourceArn *string `field:"required" json:"resourceArn" yaml:"resourceArn"`
 	// A unique identifier (ID) for the web ACL.
-	WebAclId *string `json:"webAclId" yaml:"webAclId"`
+	WebAclId *string `field:"required" json:"webAclId" yaml:"webAclId"`
 }
 
 // Properties for defining a `CfnWebACL`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafregional "github.com/aws/aws-cdk-go/awscdk/aws_wafregional"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnWebACLProps := &cfnWebACLProps{
 //   	defaultAction: &actionProperty{
 //   		type: jsii.String("type"),
@@ -7752,17 +7848,17 @@ type CfnWebACLProps struct {
 	// The action to perform if none of the `Rules` contained in the `WebACL` match.
 	//
 	// The action is specified by the `WafAction` object.
-	DefaultAction interface{} `json:"defaultAction" yaml:"defaultAction"`
+	DefaultAction interface{} `field:"required" json:"defaultAction" yaml:"defaultAction"`
 	// A name for the metrics for this `WebACL` .
 	//
 	// The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change `MetricName` after you create the `WebACL` .
-	MetricName *string `json:"metricName" yaml:"metricName"`
+	MetricName *string `field:"required" json:"metricName" yaml:"metricName"`
 	// A friendly name or description of the `WebACL` .
 	//
 	// You can't change the name of a `WebACL` after you create it.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// An array that contains the action for each `Rule` in a `WebACL` , the priority of the `Rule` , and the ID of the `Rule` .
-	Rules interface{} `json:"rules" yaml:"rules"`
+	Rules interface{} `field:"optional" json:"rules" yaml:"rules"`
 }
 
 // A CloudFormation `AWS::WAFRegional::XssMatchSet`.
@@ -7774,8 +7870,11 @@ type CfnWebACLProps struct {
 // A complex type that contains `XssMatchTuple` objects, which specify the parts of web requests that you want AWS WAF to inspect for cross-site scripting attacks and, if you want AWS WAF to inspect a header, the name of the header. If a `XssMatchSet` contains more than one `XssMatchTuple` object, a request needs to include cross-site scripting attacks in only one of the specified parts of the request to be considered a match.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafregional "github.com/aws/aws-cdk-go/awscdk/aws_wafregional"
-//   cfnXssMatchSet := wafregional.NewCfnXssMatchSet(this, jsii.String("MyCfnXssMatchSet"), &cfnXssMatchSetProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnXssMatchSet := awscdk.Aws_wafregional.NewCfnXssMatchSet(this, jsii.String("MyCfnXssMatchSet"), &cfnXssMatchSetProps{
 //   	name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -8442,7 +8541,10 @@ func (c *jsiiProxy_CfnXssMatchSet) ValidateProperties(_properties interface{}) {
 // The part of a web request that you want AWS WAF to inspect, such as a specific header or a query string.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafregional "github.com/aws/aws-cdk-go/awscdk/aws_wafregional"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   fieldToMatchProperty := &fieldToMatchProperty{
 //   	type: jsii.String("type"),
 //
@@ -8462,7 +8564,7 @@ type CfnXssMatchSet_FieldToMatchProperty struct {
 	// - `BODY` : The part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form. The request body immediately follows the request headers. Note that only the first `8192` bytes of the request body are forwarded to AWS WAF for inspection. To allow or block requests based on the length of the body, you can create a size constraint set.
 	// - `SINGLE_QUERY_ARG` : The parameter in the query string that you will inspect, such as *UserName* or *SalesRegion* . The maximum length for `SINGLE_QUERY_ARG` is 30 characters.
 	// - `ALL_QUERY_ARGS` : Similar to `SINGLE_QUERY_ARG` , but rather than inspecting a single parameter, AWS WAF will inspect all parameters within the query for the value or regex pattern that you specify in `TargetString` .
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// When the value of `Type` is `HEADER` , enter the name of the header that you want AWS WAF to search, for example, `User-Agent` or `Referer` .
 	//
 	// The name of the header is not case sensitive.
@@ -8470,7 +8572,7 @@ type CfnXssMatchSet_FieldToMatchProperty struct {
 	// When the value of `Type` is `SINGLE_QUERY_ARG` , enter the name of the parameter that you want AWS WAF to search, for example, `UserName` or `SalesRegion` . The parameter name is not case sensitive.
 	//
 	// If the value of `Type` is any other value, omit `Data` .
-	Data *string `json:"data" yaml:"data"`
+	Data *string `field:"optional" json:"data" yaml:"data"`
 }
 
 // > This is *AWS WAF Classic* documentation.
@@ -8482,7 +8584,10 @@ type CfnXssMatchSet_FieldToMatchProperty struct {
 // Specifies the part of a web request that you want AWS WAF to inspect for cross-site scripting attacks and, if you want AWS WAF to inspect a header, the name of the header.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafregional "github.com/aws/aws-cdk-go/awscdk/aws_wafregional"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   xssMatchTupleProperty := &xssMatchTupleProperty{
 //   	fieldToMatch: &fieldToMatchProperty{
 //   		type: jsii.String("type"),
@@ -8495,7 +8600,7 @@ type CfnXssMatchSet_FieldToMatchProperty struct {
 //
 type CfnXssMatchSet_XssMatchTupleProperty struct {
 	// The part of a web request that you want AWS WAF to inspect, such as a specified header or a query string.
-	FieldToMatch interface{} `json:"fieldToMatch" yaml:"fieldToMatch"`
+	FieldToMatch interface{} `field:"required" json:"fieldToMatch" yaml:"fieldToMatch"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass AWS WAF .
 	//
 	// If you specify a transformation, AWS WAF performs the transformation on `FieldToMatch` before inspecting it for a match.
@@ -8547,13 +8652,16 @@ type CfnXssMatchSet_XssMatchTupleProperty struct {
 	// *NONE*
 	//
 	// Specify `NONE` if you don't want to perform any text transformations.
-	TextTransformation *string `json:"textTransformation" yaml:"textTransformation"`
+	TextTransformation *string `field:"required" json:"textTransformation" yaml:"textTransformation"`
 }
 
 // Properties for defining a `CfnXssMatchSet`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wafregional "github.com/aws/aws-cdk-go/awscdk/aws_wafregional"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnXssMatchSetProps := &cfnXssMatchSetProps{
 //   	name: jsii.String("name"),
 //
@@ -8573,8 +8681,8 @@ type CfnXssMatchSet_XssMatchTupleProperty struct {
 //
 type CfnXssMatchSetProps struct {
 	// The name, if any, of the `XssMatchSet` .
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// Specifies the parts of web requests that you want to inspect for cross-site scripting attacks.
-	XssMatchTuples interface{} `json:"xssMatchTuples" yaml:"xssMatchTuples"`
+	XssMatchTuples interface{} `field:"optional" json:"xssMatchTuples" yaml:"xssMatchTuples"`
 }
 

@@ -17,10 +17,14 @@ import (
 // If no event bus is specified, the default event bus is used.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import events "github.com/aws/aws-cdk-go/awscdk/aws_events"import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda_destinations "github.com/aws/aws-cdk-go/awscdk/aws_lambda_destinations"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var eventBus eventBus
-//   eventBridgeDestination := lambda_destinations.NewEventBridgeDestination(eventBus)
+//
+//   eventBridgeDestination := awscdk.Aws_lambda_destinations.NewEventBridgeDestination(eventBus)
 //
 // Experimental.
 type EventBridgeDestination interface {
@@ -79,6 +83,7 @@ func (e *jsiiProxy_EventBridgeDestination) Bind(_scope awscdk.Construct, fn awsl
 // Example:
 //   // Auto-extract response payload with a lambda destination
 //   var destinationFn function
+//
 //
 //   sourceFn := lambda.NewFunction(this, jsii.String("Source"), &functionProps{
 //   	runtime: lambda.runtime_NODEJS_12_X(),
@@ -148,6 +153,7 @@ func (l *jsiiProxy_LambdaDestination) Bind(scope awscdk.Construct, fn awslambda.
 //   // Auto-extract response payload with a lambda destination
 //   var destinationFn function
 //
+//
 //   sourceFn := lambda.NewFunction(this, jsii.String("Source"), &functionProps{
 //   	runtime: lambda.runtime_NODEJS_12_X(),
 //   	handler: jsii.String("index.handler"),
@@ -170,13 +176,15 @@ type LambdaDestinationOptions struct {
 	//
 	// See the README of this module to see a full explanation of this option.
 	// Experimental.
-	ResponseOnly *bool `json:"responseOnly" yaml:"responseOnly"`
+	ResponseOnly *bool `field:"optional" json:"responseOnly" yaml:"responseOnly"`
 }
 
 // Use a SNS topic as a Lambda destination.
 //
 // Example:
+//   // An sns topic for successful invocations of a lambda function
 //   import sns "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   myTopic := sns.NewTopic(this, jsii.String("Topic"))
 //
@@ -243,7 +251,9 @@ func (s *jsiiProxy_SnsDestination) Bind(_scope awscdk.Construct, fn awslambda.IF
 // Use a SQS queue as a Lambda destination.
 //
 // Example:
+//   // An sqs queue for unsuccessful invocations of a lambda function
 //   import sqs "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   deadLetterQueue := sqs.NewQueue(this, jsii.String("DeadLetterQueue"))
 //

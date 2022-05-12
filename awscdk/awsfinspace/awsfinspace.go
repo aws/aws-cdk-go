@@ -14,10 +14,13 @@ import (
 // The `AWS::FinSpace::Environment` resource represents an Amazon FinSpace environment.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import finspace "github.com/aws/aws-cdk-go/awscdk/aws_finspace"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var attributeMap interface{}
-//   cfnEnvironment := finspace.NewCfnEnvironment(this, jsii.String("MyCfnEnvironment"), &cfnEnvironmentProps{
+//
+//   cfnEnvironment := awscdk.Aws_finspace.NewCfnEnvironment(this, jsii.String("MyCfnEnvironment"), &cfnEnvironmentProps{
 //   	name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -884,9 +887,12 @@ func (c *jsiiProxy_CfnEnvironment) ValidateProperties(_properties interface{}) {
 // Configuration information when authentication mode is FEDERATED.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import finspace "github.com/aws/aws-cdk-go/awscdk/aws_finspace"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var attributeMap interface{}
+//
 //   federationParametersProperty := &federationParametersProperty{
 //   	applicationCallBackUrl: jsii.String("applicationCallBackUrl"),
 //   	attributeMap: attributeMap,
@@ -898,27 +904,30 @@ func (c *jsiiProxy_CfnEnvironment) ValidateProperties(_properties interface{}) {
 //
 type CfnEnvironment_FederationParametersProperty struct {
 	// The redirect or sign-in URL that should be entered into the SAML 2.0 compliant identity provider configuration (IdP).
-	ApplicationCallBackUrl *string `json:"applicationCallBackUrl" yaml:"applicationCallBackUrl"`
+	ApplicationCallBackUrl *string `field:"optional" json:"applicationCallBackUrl" yaml:"applicationCallBackUrl"`
 	// SAML attribute name and value.
 	//
 	// The name must always be `Email` and the value should be set to the attribute definition in which user email is set. For example, name would be `Email` and value `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` . Please check your SAML 2.0 compliant identity provider (IdP) documentation for details.
-	AttributeMap interface{} `json:"attributeMap" yaml:"attributeMap"`
+	AttributeMap interface{} `field:"optional" json:"attributeMap" yaml:"attributeMap"`
 	// Name of the identity provider (IdP).
-	FederationProviderName *string `json:"federationProviderName" yaml:"federationProviderName"`
+	FederationProviderName *string `field:"optional" json:"federationProviderName" yaml:"federationProviderName"`
 	// The Uniform Resource Name (URN).
 	//
 	// Also referred as Service Provider URN or Audience URI or Service Provider Entity ID.
-	FederationUrn *string `json:"federationUrn" yaml:"federationUrn"`
+	FederationUrn *string `field:"optional" json:"federationUrn" yaml:"federationUrn"`
 	// SAML 2.0 Metadata document from identity provider (IdP).
-	SamlMetadataDocument *string `json:"samlMetadataDocument" yaml:"samlMetadataDocument"`
+	SamlMetadataDocument *string `field:"optional" json:"samlMetadataDocument" yaml:"samlMetadataDocument"`
 	// Provide the metadata URL from your SAML 2.0 compliant identity provider (IdP).
-	SamlMetadataUrl *string `json:"samlMetadataUrl" yaml:"samlMetadataUrl"`
+	SamlMetadataUrl *string `field:"optional" json:"samlMetadataUrl" yaml:"samlMetadataUrl"`
 }
 
 // Configuration information for the superuser.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import finspace "github.com/aws/aws-cdk-go/awscdk/aws_finspace"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   superuserParametersProperty := &superuserParametersProperty{
 //   	emailAddress: jsii.String("emailAddress"),
 //   	firstName: jsii.String("firstName"),
@@ -927,19 +936,22 @@ type CfnEnvironment_FederationParametersProperty struct {
 //
 type CfnEnvironment_SuperuserParametersProperty struct {
 	// The email address of the superuser.
-	EmailAddress *string `json:"emailAddress" yaml:"emailAddress"`
+	EmailAddress *string `field:"optional" json:"emailAddress" yaml:"emailAddress"`
 	// The first name of the superuser.
-	FirstName *string `json:"firstName" yaml:"firstName"`
+	FirstName *string `field:"optional" json:"firstName" yaml:"firstName"`
 	// The last name of the superuser.
-	LastName *string `json:"lastName" yaml:"lastName"`
+	LastName *string `field:"optional" json:"lastName" yaml:"lastName"`
 }
 
 // Properties for defining a `CfnEnvironment`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import finspace "github.com/aws/aws-cdk-go/awscdk/aws_finspace"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var attributeMap interface{}
+//
 //   cfnEnvironmentProps := &cfnEnvironmentProps{
 //   	name: jsii.String("name"),
 //
@@ -967,21 +979,21 @@ type CfnEnvironment_SuperuserParametersProperty struct {
 //
 type CfnEnvironmentProps struct {
 	// The name of the FinSpace environment.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The list of Amazon Resource Names (ARN) of the data bundles to install. Currently supported data bundle ARNs:.
 	//
 	// - `arn:aws:finspace:${Region}::data-bundle/capital-markets-sample` - Contains sample Capital Markets datasets, categories and controlled vocabularies.
 	// - `arn:aws:finspace:${Region}::data-bundle/taq` (default) - Contains trades and quotes data in addition to sample Capital Markets data.
-	DataBundles *[]*string `json:"dataBundles" yaml:"dataBundles"`
+	DataBundles *[]*string `field:"optional" json:"dataBundles" yaml:"dataBundles"`
 	// The description of the FinSpace environment.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The authentication mode for the environment.
-	FederationMode *string `json:"federationMode" yaml:"federationMode"`
+	FederationMode *string `field:"optional" json:"federationMode" yaml:"federationMode"`
 	// Configuration information when authentication mode is FEDERATED.
-	FederationParameters interface{} `json:"federationParameters" yaml:"federationParameters"`
+	FederationParameters interface{} `field:"optional" json:"federationParameters" yaml:"federationParameters"`
 	// The KMS key id used to encrypt in the FinSpace environment.
-	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// Configuration information for the superuser.
-	SuperuserParameters interface{} `json:"superuserParameters" yaml:"superuserParameters"`
+	SuperuserParameters interface{} `field:"optional" json:"superuserParameters" yaml:"superuserParameters"`
 }
 

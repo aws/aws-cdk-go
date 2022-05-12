@@ -17,10 +17,15 @@ import (
 // Configuration details related to broker logs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3 "github.com/aws/aws-cdk-go/awscdk/aws_s3"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var bucket bucket
 //   var logGroup logGroup
+//
 //   brokerLogging := &brokerLogging{
 //   	cloudwatchLogGroup: logGroup,
 //   	firehoseDeliveryStreamName: jsii.String("firehoseDeliveryStreamName"),
@@ -36,13 +41,13 @@ import (
 type BrokerLogging struct {
 	// The CloudWatch Logs group that is the destination for broker logs.
 	// Experimental.
-	CloudwatchLogGroup awslogs.ILogGroup `json:"cloudwatchLogGroup" yaml:"cloudwatchLogGroup"`
+	CloudwatchLogGroup awslogs.ILogGroup `field:"optional" json:"cloudwatchLogGroup" yaml:"cloudwatchLogGroup"`
 	// The Kinesis Data Firehose delivery stream that is the destination for broker logs.
 	// Experimental.
-	FirehoseDeliveryStreamName *string `json:"firehoseDeliveryStreamName" yaml:"firehoseDeliveryStreamName"`
+	FirehoseDeliveryStreamName *string `field:"optional" json:"firehoseDeliveryStreamName" yaml:"firehoseDeliveryStreamName"`
 	// Details of the Amazon S3 destination for broker logs.
 	// Experimental.
-	S3 *S3LoggingConfiguration `json:"s3" yaml:"s3"`
+	S3 *S3LoggingConfiguration `field:"optional" json:"s3" yaml:"s3"`
 }
 
 // A CloudFormation `AWS::MSK::BatchScramSecret`.
@@ -50,8 +55,11 @@ type BrokerLogging struct {
 // Represents a secret stored in the Amazon Secrets Manager that can be used to authenticate with a cluster using a user name and a password.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"
-//   cfnBatchScramSecret := msk.NewCfnBatchScramSecret(this, jsii.String("MyCfnBatchScramSecret"), &cfnBatchScramSecretProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnBatchScramSecret := awscdk.Aws_msk.NewCfnBatchScramSecret(this, jsii.String("MyCfnBatchScramSecret"), &cfnBatchScramSecretProps{
 //   	clusterArn: jsii.String("clusterArn"),
 //
 //   	// the properties below are optional
@@ -710,7 +718,10 @@ func (c *jsiiProxy_CfnBatchScramSecret) ValidateProperties(_properties interface
 // Properties for defining a `CfnBatchScramSecret`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnBatchScramSecretProps := &cfnBatchScramSecretProps{
 //   	clusterArn: jsii.String("clusterArn"),
 //
@@ -722,9 +733,9 @@ func (c *jsiiProxy_CfnBatchScramSecret) ValidateProperties(_properties interface
 //
 type CfnBatchScramSecretProps struct {
 	// The Amazon Resource Name (ARN) of the MSK cluster.
-	ClusterArn *string `json:"clusterArn" yaml:"clusterArn"`
+	ClusterArn *string `field:"required" json:"clusterArn" yaml:"clusterArn"`
 	// A list of Amazon Secrets Manager secret ARNs.
-	SecretArnList *[]*string `json:"secretArnList" yaml:"secretArnList"`
+	SecretArnList *[]*string `field:"optional" json:"secretArnList" yaml:"secretArnList"`
 }
 
 // A CloudFormation `AWS::MSK::Cluster`.
@@ -732,8 +743,11 @@ type CfnBatchScramSecretProps struct {
 // The `AWS::MSK::Cluster` resource creates an Amazon MSK cluster . For more information, see [What Is Amazon MSK?](https://docs.aws.amazon.com/msk/latest/developerguide/what-is-msk.html) in the *Amazon MSK Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"
-//   cfnCluster := msk.NewCfnCluster(this, jsii.String("MyCfnCluster"), &cfnClusterProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnCluster := awscdk.Aws_msk.NewCfnCluster(this, jsii.String("MyCfnCluster"), &cfnClusterProps{
 //   	brokerNodeGroupInfo: &brokerNodeGroupInfoProperty{
 //   		clientSubnets: []*string{
 //   			jsii.String("clientSubnets"),
@@ -1713,7 +1727,10 @@ func (c *jsiiProxy_CfnCluster) ValidateProperties(_properties interface{}) {
 // This configuration specifies the details of these destinations.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   brokerLogsProperty := &brokerLogsProperty{
 //   	cloudWatchLogs: &cloudWatchLogsProperty{
 //   		enabled: jsii.Boolean(false),
@@ -1738,17 +1755,20 @@ func (c *jsiiProxy_CfnCluster) ValidateProperties(_properties interface{}) {
 //
 type CfnCluster_BrokerLogsProperty struct {
 	// Details of the CloudWatch Logs destination for broker logs.
-	CloudWatchLogs interface{} `json:"cloudWatchLogs" yaml:"cloudWatchLogs"`
+	CloudWatchLogs interface{} `field:"optional" json:"cloudWatchLogs" yaml:"cloudWatchLogs"`
 	// Details of the Kinesis Data Firehose delivery stream that is the destination for broker logs.
-	Firehose interface{} `json:"firehose" yaml:"firehose"`
+	Firehose interface{} `field:"optional" json:"firehose" yaml:"firehose"`
 	// Details of the Amazon MSK destination for broker logs.
-	S3 interface{} `json:"s3" yaml:"s3"`
+	S3 interface{} `field:"optional" json:"s3" yaml:"s3"`
 }
 
 // The setup to be used for brokers in the cluster.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   brokerNodeGroupInfoProperty := &brokerNodeGroupInfoProperty{
 //   	clientSubnets: []*string{
 //   		jsii.String("clientSubnets"),
@@ -1784,27 +1804,30 @@ type CfnCluster_BrokerNodeGroupInfoProperty struct {
 	// Specify exactly two subnets if you are using the US West (N. California) Region. For other Regions where Amazon MSK is available, you can specify either two or three subnets. The subnets that you specify must be in distinct Availability Zones. When you create a cluster, Amazon MSK distributes the broker nodes evenly across the subnets that you specify.
 	//
 	// Client subnets can't be in Availability Zone us-east-1e.
-	ClientSubnets *[]*string `json:"clientSubnets" yaml:"clientSubnets"`
+	ClientSubnets *[]*string `field:"required" json:"clientSubnets" yaml:"clientSubnets"`
 	// The type of Amazon EC2 instances to use for brokers.
 	//
 	// The following instance types are allowed: kafka.m5.large, kafka.m5.xlarge, kafka.m5.2xlarge, kafka.m5.4xlarge, kafka.m5.8xlarge, kafka.m5.12xlarge, kafka.m5.16xlarge, and kafka.m5.24xlarge.
-	InstanceType *string `json:"instanceType" yaml:"instanceType"`
+	InstanceType *string `field:"required" json:"instanceType" yaml:"instanceType"`
 	// This parameter is currently not in use.
-	BrokerAzDistribution *string `json:"brokerAzDistribution" yaml:"brokerAzDistribution"`
+	BrokerAzDistribution *string `field:"optional" json:"brokerAzDistribution" yaml:"brokerAzDistribution"`
 	// Information about the cluster's connectivity setting.
-	ConnectivityInfo interface{} `json:"connectivityInfo" yaml:"connectivityInfo"`
+	ConnectivityInfo interface{} `field:"optional" json:"connectivityInfo" yaml:"connectivityInfo"`
 	// The security groups to associate with the elastic network interfaces in order to specify who can connect to and communicate with the Amazon MSK cluster.
 	//
 	// If you don't specify a security group, Amazon MSK uses the default security group associated with the VPC. If you specify security groups that were shared with you, you must ensure that you have permissions to them. Specifically, you need the `ec2:DescribeSecurityGroups` permission.
-	SecurityGroups *[]*string `json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]*string `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// Contains information about storage volumes attached to MSK broker nodes.
-	StorageInfo interface{} `json:"storageInfo" yaml:"storageInfo"`
+	StorageInfo interface{} `field:"optional" json:"storageInfo" yaml:"storageInfo"`
 }
 
 // Includes information related to client authentication.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   clientAuthenticationProperty := &clientAuthenticationProperty{
 //   	sasl: &saslProperty{
 //   		iam: &iamProperty{
@@ -1827,17 +1850,20 @@ type CfnCluster_BrokerNodeGroupInfoProperty struct {
 //
 type CfnCluster_ClientAuthenticationProperty struct {
 	// Details for ClientAuthentication using SASL.
-	Sasl interface{} `json:"sasl" yaml:"sasl"`
+	Sasl interface{} `field:"optional" json:"sasl" yaml:"sasl"`
 	// Details for client authentication using TLS.
-	Tls interface{} `json:"tls" yaml:"tls"`
+	Tls interface{} `field:"optional" json:"tls" yaml:"tls"`
 	// Details for ClientAuthentication using no authentication.
-	Unauthenticated interface{} `json:"unauthenticated" yaml:"unauthenticated"`
+	Unauthenticated interface{} `field:"optional" json:"unauthenticated" yaml:"unauthenticated"`
 }
 
 // Details of the CloudWatch Logs destination for broker logs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cloudWatchLogsProperty := &cloudWatchLogsProperty{
 //   	enabled: jsii.Boolean(false),
 //
@@ -1847,15 +1873,18 @@ type CfnCluster_ClientAuthenticationProperty struct {
 //
 type CfnCluster_CloudWatchLogsProperty struct {
 	// Specifies whether broker logs get sent to the specified CloudWatch Logs destination.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
 	// The CloudWatch Logs group that is the destination for broker logs.
-	LogGroup *string `json:"logGroup" yaml:"logGroup"`
+	LogGroup *string `field:"optional" json:"logGroup" yaml:"logGroup"`
 }
 
 // Specifies the Amazon MSK configuration to use for the brokers.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   configurationInfoProperty := &configurationInfoProperty{
 //   	arn: jsii.String("arn"),
 //   	revision: jsii.Number(123),
@@ -1865,9 +1894,9 @@ type CfnCluster_ConfigurationInfoProperty struct {
 	// The Amazon Resource Name (ARN) of the MSK configuration to use.
 	//
 	// For example, `arn:aws:kafka:us-east-1:123456789012:configuration/example-configuration-name/abcdabcd-1234-abcd-1234-abcd123e8e8e-1` .
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"required" json:"arn" yaml:"arn"`
 	// The revision of the Amazon MSK configuration to use.
-	Revision *float64 `json:"revision" yaml:"revision"`
+	Revision *float64 `field:"required" json:"revision" yaml:"revision"`
 }
 
 // Specifies whether the cluster's brokers are publicly accessible.
@@ -1875,7 +1904,10 @@ type CfnCluster_ConfigurationInfoProperty struct {
 // By default, they are not.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   connectivityInfoProperty := &connectivityInfoProperty{
 //   	publicAccess: &publicAccessProperty{
 //   		type: jsii.String("type"),
@@ -1886,13 +1918,16 @@ type CfnCluster_ConnectivityInfoProperty struct {
 	// Specifies whether the cluster's brokers are accessible from the internet.
 	//
 	// Public access is off by default.
-	PublicAccess interface{} `json:"publicAccess" yaml:"publicAccess"`
+	PublicAccess interface{} `field:"optional" json:"publicAccess" yaml:"publicAccess"`
 }
 
 // Contains information about the EBS storage volumes attached to brokers.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   eBSStorageInfoProperty := &eBSStorageInfoProperty{
 //   	provisionedThroughput: &provisionedThroughputProperty{
 //   		enabled: jsii.Boolean(false),
@@ -1903,15 +1938,18 @@ type CfnCluster_ConnectivityInfoProperty struct {
 //
 type CfnCluster_EBSStorageInfoProperty struct {
 	// Specifies whether provisioned throughput is turned on and the volume throughput target.
-	ProvisionedThroughput interface{} `json:"provisionedThroughput" yaml:"provisionedThroughput"`
+	ProvisionedThroughput interface{} `field:"optional" json:"provisionedThroughput" yaml:"provisionedThroughput"`
 	// The size in GiB of the EBS volume for the data drive on each broker node.
-	VolumeSize *float64 `json:"volumeSize" yaml:"volumeSize"`
+	VolumeSize *float64 `field:"optional" json:"volumeSize" yaml:"volumeSize"`
 }
 
 // The data volume encryption details.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   encryptionAtRestProperty := &encryptionAtRestProperty{
 //   	dataVolumeKmsKeyId: jsii.String("dataVolumeKmsKeyId"),
 //   }
@@ -1920,13 +1958,16 @@ type CfnCluster_EncryptionAtRestProperty struct {
 	// The ARN of the Amazon KMS key for encrypting data at rest.
 	//
 	// If you don't specify a KMS key, MSK creates one for you and uses it on your behalf.
-	DataVolumeKmsKeyId *string `json:"dataVolumeKmsKeyId" yaml:"dataVolumeKmsKeyId"`
+	DataVolumeKmsKeyId *string `field:"required" json:"dataVolumeKmsKeyId" yaml:"dataVolumeKmsKeyId"`
 }
 
 // The settings for encrypting data in transit.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   encryptionInTransitProperty := &encryptionInTransitProperty{
 //   	clientBroker: jsii.String("clientBroker"),
 //   	inCluster: jsii.Boolean(false),
@@ -1940,17 +1981,20 @@ type CfnCluster_EncryptionInTransitProperty struct {
 	// - `PLAINTEXT` means that client-broker communication is enabled in plain text only.
 	//
 	// The default value is `TLS` .
-	ClientBroker *string `json:"clientBroker" yaml:"clientBroker"`
+	ClientBroker *string `field:"optional" json:"clientBroker" yaml:"clientBroker"`
 	// When set to true, it indicates that data communication among the broker nodes of the cluster is encrypted.
 	//
 	// When set to false, the communication happens in plain text. The default value is true.
-	InCluster interface{} `json:"inCluster" yaml:"inCluster"`
+	InCluster interface{} `field:"optional" json:"inCluster" yaml:"inCluster"`
 }
 
 // Includes encryption-related information, such as the Amazon KMS key used for encrypting data at rest and whether you want MSK to encrypt your data in transit.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   encryptionInfoProperty := &encryptionInfoProperty{
 //   	encryptionAtRest: &encryptionAtRestProperty{
 //   		dataVolumeKmsKeyId: jsii.String("dataVolumeKmsKeyId"),
@@ -1963,15 +2007,18 @@ type CfnCluster_EncryptionInTransitProperty struct {
 //
 type CfnCluster_EncryptionInfoProperty struct {
 	// The data-volume encryption details.
-	EncryptionAtRest interface{} `json:"encryptionAtRest" yaml:"encryptionAtRest"`
+	EncryptionAtRest interface{} `field:"optional" json:"encryptionAtRest" yaml:"encryptionAtRest"`
 	// The details for encryption in transit.
-	EncryptionInTransit interface{} `json:"encryptionInTransit" yaml:"encryptionInTransit"`
+	EncryptionInTransit interface{} `field:"optional" json:"encryptionInTransit" yaml:"encryptionInTransit"`
 }
 
 // Details of the Kinesis Data Firehose delivery stream that is the destination for broker logs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   firehoseProperty := &firehoseProperty{
 //   	enabled: jsii.Boolean(false),
 //
@@ -1981,35 +2028,41 @@ type CfnCluster_EncryptionInfoProperty struct {
 //
 type CfnCluster_FirehoseProperty struct {
 	// Specifies whether broker logs get sent to the specified Kinesis Data Firehose delivery stream.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
 	// The Kinesis Data Firehose delivery stream that is the destination for broker logs.
-	DeliveryStream *string `json:"deliveryStream" yaml:"deliveryStream"`
+	DeliveryStream *string `field:"optional" json:"deliveryStream" yaml:"deliveryStream"`
 }
 
 // Details for IAM access control.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   iamProperty := &iamProperty{
 //   	enabled: jsii.Boolean(false),
 //   }
 //
 type CfnCluster_IamProperty struct {
 	// Whether IAM access control is enabled.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
 }
 
 // Indicates whether you want to enable or disable the JMX Exporter.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   jmxExporterProperty := &jmxExporterProperty{
 //   	enabledInBroker: jsii.Boolean(false),
 //   }
 //
 type CfnCluster_JmxExporterProperty struct {
 	// Indicates whether you want to enable or disable the JMX Exporter.
-	EnabledInBroker interface{} `json:"enabledInBroker" yaml:"enabledInBroker"`
+	EnabledInBroker interface{} `field:"required" json:"enabledInBroker" yaml:"enabledInBroker"`
 }
 
 // You can configure your Amazon MSK cluster to send broker logs to different destination types.
@@ -2017,7 +2070,10 @@ type CfnCluster_JmxExporterProperty struct {
 // This is a container for the configuration details related to broker logs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   loggingInfoProperty := &loggingInfoProperty{
 //   	brokerLogs: &brokerLogsProperty{
 //   		cloudWatchLogs: &cloudWatchLogsProperty{
@@ -2046,26 +2102,32 @@ type CfnCluster_LoggingInfoProperty struct {
 	// You can configure your Amazon MSK cluster to send broker logs to different destination types.
 	//
 	// This configuration specifies the details of these destinations.
-	BrokerLogs interface{} `json:"brokerLogs" yaml:"brokerLogs"`
+	BrokerLogs interface{} `field:"required" json:"brokerLogs" yaml:"brokerLogs"`
 }
 
 // Indicates whether you want to enable or disable the Node Exporter.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   nodeExporterProperty := &nodeExporterProperty{
 //   	enabledInBroker: jsii.Boolean(false),
 //   }
 //
 type CfnCluster_NodeExporterProperty struct {
 	// Indicates whether you want to enable or disable the Node Exporter.
-	EnabledInBroker interface{} `json:"enabledInBroker" yaml:"enabledInBroker"`
+	EnabledInBroker interface{} `field:"required" json:"enabledInBroker" yaml:"enabledInBroker"`
 }
 
 // JMX and Node monitoring for the MSK cluster.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   openMonitoringProperty := &openMonitoringProperty{
 //   	prometheus: &prometheusProperty{
 //   		jmxExporter: &jmxExporterProperty{
@@ -2079,13 +2141,16 @@ type CfnCluster_NodeExporterProperty struct {
 //
 type CfnCluster_OpenMonitoringProperty struct {
 	// Prometheus exporter settings.
-	Prometheus interface{} `json:"prometheus" yaml:"prometheus"`
+	Prometheus interface{} `field:"required" json:"prometheus" yaml:"prometheus"`
 }
 
 // Prometheus settings for open monitoring.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   prometheusProperty := &prometheusProperty{
 //   	jmxExporter: &jmxExporterProperty{
 //   		enabledInBroker: jsii.Boolean(false),
@@ -2097,15 +2162,18 @@ type CfnCluster_OpenMonitoringProperty struct {
 //
 type CfnCluster_PrometheusProperty struct {
 	// Indicates whether you want to enable or disable the JMX Exporter.
-	JmxExporter interface{} `json:"jmxExporter" yaml:"jmxExporter"`
+	JmxExporter interface{} `field:"optional" json:"jmxExporter" yaml:"jmxExporter"`
 	// Indicates whether you want to enable or disable the Node Exporter.
-	NodeExporter interface{} `json:"nodeExporter" yaml:"nodeExporter"`
+	NodeExporter interface{} `field:"optional" json:"nodeExporter" yaml:"nodeExporter"`
 }
 
 // Specifies whether provisioned throughput is turned on and the volume throughput target.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   provisionedThroughputProperty := &provisionedThroughputProperty{
 //   	enabled: jsii.Boolean(false),
 //   	volumeThroughput: jsii.Number(123),
@@ -2113,9 +2181,9 @@ type CfnCluster_PrometheusProperty struct {
 //
 type CfnCluster_ProvisionedThroughputProperty struct {
 	// Specifies whether provisioned throughput is turned on for the cluster.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// The provisioned throughput rate in MiB per second.
-	VolumeThroughput *float64 `json:"volumeThroughput" yaml:"volumeThroughput"`
+	VolumeThroughput *float64 `field:"optional" json:"volumeThroughput" yaml:"volumeThroughput"`
 }
 
 // Specifies whether the cluster's brokers are accessible from the internet.
@@ -2123,7 +2191,10 @@ type CfnCluster_ProvisionedThroughputProperty struct {
 // Public access is off by default.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   publicAccessProperty := &publicAccessProperty{
 //   	type: jsii.String("type"),
 //   }
@@ -2132,13 +2203,16 @@ type CfnCluster_PublicAccessProperty struct {
 	// Set to `DISABLED` to turn off public access or to `SERVICE_PROVIDED_EIPS` to turn it on.
 	//
 	// Public access if off by default.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 
 // The details of the Amazon S3 destination for broker logs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3Property := &s3Property{
 //   	enabled: jsii.Boolean(false),
 //
@@ -2149,11 +2223,11 @@ type CfnCluster_PublicAccessProperty struct {
 //
 type CfnCluster_S3Property struct {
 	// Specifies whether broker logs get sent to the specified Amazon S3 destination.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
 	// The name of the S3 bucket that is the destination for broker logs.
-	Bucket *string `json:"bucket" yaml:"bucket"`
+	Bucket *string `field:"optional" json:"bucket" yaml:"bucket"`
 	// The S3 prefix that is the destination for broker logs.
-	Prefix *string `json:"prefix" yaml:"prefix"`
+	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 }
 
 // Details for client authentication using SASL.
@@ -2161,7 +2235,10 @@ type CfnCluster_S3Property struct {
 // To turn on SASL, you must also turn on `EncryptionInTransit` by setting `inCluster` to true. You must set `clientBroker` to either `TLS` or `TLS_PLAINTEXT` . If you choose `TLS_PLAINTEXT` , then you must also set `unauthenticated` to true.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   saslProperty := &saslProperty{
 //   	iam: &iamProperty{
 //   		enabled: jsii.Boolean(false),
@@ -2173,28 +2250,34 @@ type CfnCluster_S3Property struct {
 //
 type CfnCluster_SaslProperty struct {
 	// Details for IAM access control.
-	Iam interface{} `json:"iam" yaml:"iam"`
+	Iam interface{} `field:"optional" json:"iam" yaml:"iam"`
 	// Details for SASL/SCRAM client authentication.
-	Scram interface{} `json:"scram" yaml:"scram"`
+	Scram interface{} `field:"optional" json:"scram" yaml:"scram"`
 }
 
 // Details for SASL/SCRAM client authentication.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   scramProperty := &scramProperty{
 //   	enabled: jsii.Boolean(false),
 //   }
 //
 type CfnCluster_ScramProperty struct {
 	// SASL/SCRAM authentication is enabled or not.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
 }
 
 // Contains information about storage volumes attached to MSK broker nodes.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   storageInfoProperty := &storageInfoProperty{
 //   	ebsStorageInfo: &eBSStorageInfoProperty{
 //   		provisionedThroughput: &provisionedThroughputProperty{
@@ -2207,13 +2290,16 @@ type CfnCluster_ScramProperty struct {
 //
 type CfnCluster_StorageInfoProperty struct {
 	// EBS volume information.
-	EbsStorageInfo interface{} `json:"ebsStorageInfo" yaml:"ebsStorageInfo"`
+	EbsStorageInfo interface{} `field:"optional" json:"ebsStorageInfo" yaml:"ebsStorageInfo"`
 }
 
 // Details for client authentication using TLS.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tlsProperty := &tlsProperty{
 //   	certificateAuthorityArnList: []*string{
 //   		jsii.String("certificateAuthorityArnList"),
@@ -2223,28 +2309,34 @@ type CfnCluster_StorageInfoProperty struct {
 //
 type CfnCluster_TlsProperty struct {
 	// List of ACM Certificate Authority ARNs.
-	CertificateAuthorityArnList *[]*string `json:"certificateAuthorityArnList" yaml:"certificateAuthorityArnList"`
+	CertificateAuthorityArnList *[]*string `field:"optional" json:"certificateAuthorityArnList" yaml:"certificateAuthorityArnList"`
 	// TLS authentication is enabled or not.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 }
 
 // Details for allowing no client authentication.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   unauthenticatedProperty := &unauthenticatedProperty{
 //   	enabled: jsii.Boolean(false),
 //   }
 //
 type CfnCluster_UnauthenticatedProperty struct {
 	// Unauthenticated is enabled or not.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
 }
 
 // Properties for defining a `CfnCluster`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnClusterProps := &cfnClusterProps{
 //   	brokerNodeGroupInfo: &brokerNodeGroupInfoProperty{
 //   		clientSubnets: []*string{
@@ -2353,39 +2445,39 @@ type CfnClusterProps struct {
 	// The setup to be used for brokers in the cluster.
 	//
 	// AWS CloudFormation may replace the cluster when you update certain `BrokerNodeGroupInfo` properties. To understand the update behavior for your use case, you should review the child properties for [`BrokerNodeGroupInfo`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokernodegroupinfo.html#aws-properties-msk-cluster-brokernodegroupinfo-properties) .
-	BrokerNodeGroupInfo interface{} `json:"brokerNodeGroupInfo" yaml:"brokerNodeGroupInfo"`
+	BrokerNodeGroupInfo interface{} `field:"required" json:"brokerNodeGroupInfo" yaml:"brokerNodeGroupInfo"`
 	// The name of the cluster.
-	ClusterName *string `json:"clusterName" yaml:"clusterName"`
+	ClusterName *string `field:"required" json:"clusterName" yaml:"clusterName"`
 	// The version of Apache Kafka.
 	//
 	// For more information, see [Supported Apache Kafka versions](https://docs.aws.amazon.com/msk/latest/developerguide/supported-kafka-versions.html) in the Amazon MSK Developer Guide.
-	KafkaVersion *string `json:"kafkaVersion" yaml:"kafkaVersion"`
+	KafkaVersion *string `field:"required" json:"kafkaVersion" yaml:"kafkaVersion"`
 	// The number of broker nodes you want in the Amazon MSK cluster.
 	//
 	// You can submit an update to increase the number of broker nodes in a cluster.
-	NumberOfBrokerNodes *float64 `json:"numberOfBrokerNodes" yaml:"numberOfBrokerNodes"`
+	NumberOfBrokerNodes *float64 `field:"required" json:"numberOfBrokerNodes" yaml:"numberOfBrokerNodes"`
 	// Includes information related to client authentication.
-	ClientAuthentication interface{} `json:"clientAuthentication" yaml:"clientAuthentication"`
+	ClientAuthentication interface{} `field:"optional" json:"clientAuthentication" yaml:"clientAuthentication"`
 	// The Amazon MSK configuration to use for the cluster.
-	ConfigurationInfo interface{} `json:"configurationInfo" yaml:"configurationInfo"`
+	ConfigurationInfo interface{} `field:"optional" json:"configurationInfo" yaml:"configurationInfo"`
 	// The version of the cluster that you want to update.
-	CurrentVersion *string `json:"currentVersion" yaml:"currentVersion"`
+	CurrentVersion *string `field:"optional" json:"currentVersion" yaml:"currentVersion"`
 	// Includes all encryption-related information.
-	EncryptionInfo interface{} `json:"encryptionInfo" yaml:"encryptionInfo"`
+	EncryptionInfo interface{} `field:"optional" json:"encryptionInfo" yaml:"encryptionInfo"`
 	// Specifies the level of monitoring for the MSK cluster.
 	//
 	// The possible values are `DEFAULT` , `PER_BROKER` , and `PER_TOPIC_PER_BROKER` .
-	EnhancedMonitoring *string `json:"enhancedMonitoring" yaml:"enhancedMonitoring"`
+	EnhancedMonitoring *string `field:"optional" json:"enhancedMonitoring" yaml:"enhancedMonitoring"`
 	// You can configure your Amazon MSK cluster to send broker logs to different destination types.
 	//
 	// This is a container for the configuration details related to broker logs.
-	LoggingInfo interface{} `json:"loggingInfo" yaml:"loggingInfo"`
+	LoggingInfo interface{} `field:"optional" json:"loggingInfo" yaml:"loggingInfo"`
 	// The settings for open monitoring.
-	OpenMonitoring interface{} `json:"openMonitoring" yaml:"openMonitoring"`
+	OpenMonitoring interface{} `field:"optional" json:"openMonitoring" yaml:"openMonitoring"`
 	// A map of key:value pairs to apply to this resource.
 	//
 	// Both key and value are of type String.
-	Tags *map[string]*string `json:"tags" yaml:"tags"`
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::MSK::Configuration`.
@@ -2393,8 +2485,11 @@ type CfnClusterProps struct {
 // Creates a new MSK configuration.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"
-//   cfnConfiguration := msk.NewCfnConfiguration(this, jsii.String("MyCfnConfiguration"), &cfnConfigurationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnConfiguration := awscdk.Aws_msk.NewCfnConfiguration(this, jsii.String("MyCfnConfiguration"), &cfnConfigurationProps{
 //   	name: jsii.String("name"),
 //   	serverProperties: jsii.String("serverProperties"),
 //
@@ -3113,7 +3208,10 @@ func (c *jsiiProxy_CfnConfiguration) ValidateProperties(_properties interface{})
 // Properties for defining a `CfnConfiguration`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnConfigurationProps := &cfnConfigurationProps{
 //   	name: jsii.String("name"),
 //   	serverProperties: jsii.String("serverProperties"),
@@ -3129,21 +3227,22 @@ type CfnConfigurationProps struct {
 	// The name of the configuration.
 	//
 	// Configuration names are strings that match the regex "^[0-9A-Za-z][0-9A-Za-z-]{0,}$".
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// Contents of the server.properties file. When using the API, you must ensure that the contents of the file are base64 encoded. When using the console, the SDK, or the CLI, the contents of server.properties can be in plaintext.
-	ServerProperties *string `json:"serverProperties" yaml:"serverProperties"`
+	ServerProperties *string `field:"required" json:"serverProperties" yaml:"serverProperties"`
 	// The description of the configuration.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// A list of the versions of Apache Kafka with which you can use this MSK configuration.
 	//
 	// You can use this configuration for an MSK cluster only if the Apache Kafka version specified for the cluster appears in this list.
-	KafkaVersionsList *[]*string `json:"kafkaVersionsList" yaml:"kafkaVersionsList"`
+	KafkaVersionsList *[]*string `field:"optional" json:"kafkaVersionsList" yaml:"kafkaVersionsList"`
 }
 
 // Configuration properties for client authentication.
 //
 // Example:
 //   var vpc vpc
+//
 //   cluster := msk.NewCluster(this, jsii.String("cluster"), &clusterProps{
 //   	clusterName: jsii.String("myCluster"),
 //   	kafkaVersion: msk.kafkaVersion_V2_8_1(),
@@ -3230,6 +3329,7 @@ func ClientAuthentication_Tls(props *TlsAuthProps) ClientAuthentication {
 //
 // Example:
 //   var vpc vpc
+//
 //   cluster := msk.NewCluster(this, jsii.String("cluster"), &clusterProps{
 //   	clusterName: jsii.String("myCluster"),
 //   	kafkaVersion: msk.kafkaVersion_V2_8_1(),
@@ -3261,6 +3361,7 @@ const (
 //
 // Example:
 //   var vpc vpc
+//
 //   cluster := msk.NewCluster(this, jsii.String("cluster"), &clusterProps{
 //   	clusterName: jsii.String("myCluster"),
 //   	kafkaVersion: msk.kafkaVersion_V2_8_1(),
@@ -3788,7 +3889,10 @@ func (c *jsiiProxy_Cluster) Validate() *[]*string {
 // Note: There is currently no Cloudformation Resource to create a Configuration.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   clusterConfigurationInfo := &clusterConfigurationInfo{
 //   	arn: jsii.String("arn"),
 //   	revision: jsii.Number(123),
@@ -3800,10 +3904,10 @@ type ClusterConfigurationInfo struct {
 	//
 	// For example, arn:aws:kafka:us-east-1:123456789012:configuration/example-configuration-name/abcdabcd-1234-abcd-1234-abcd123e8e8e-1.
 	// Experimental.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"required" json:"arn" yaml:"arn"`
 	// The revision of the Amazon MSK configuration to use.
 	// Experimental.
-	Revision *float64 `json:"revision" yaml:"revision"`
+	Revision *float64 `field:"required" json:"revision" yaml:"revision"`
 }
 
 // The level of monitoring for the MSK cluster.
@@ -3831,6 +3935,7 @@ const (
 //
 // Example:
 //   var vpc vpc
+//
 //   cluster := msk.NewCluster(this, jsii.String("cluster"), &clusterProps{
 //   	clusterName: jsii.String("myCluster"),
 //   	kafkaVersion: msk.kafkaVersion_V2_8_1(),
@@ -3847,64 +3952,68 @@ const (
 type ClusterProps struct {
 	// The physical name of the cluster.
 	// Experimental.
-	ClusterName *string `json:"clusterName" yaml:"clusterName"`
+	ClusterName *string `field:"required" json:"clusterName" yaml:"clusterName"`
 	// The version of Apache Kafka.
 	// Experimental.
-	KafkaVersion KafkaVersion `json:"kafkaVersion" yaml:"kafkaVersion"`
+	KafkaVersion KafkaVersion `field:"required" json:"kafkaVersion" yaml:"kafkaVersion"`
 	// Defines the virtual networking environment for this cluster.
 	//
 	// Must have at least 2 subnets in two different AZs.
 	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
+	Vpc awsec2.IVpc `field:"required" json:"vpc" yaml:"vpc"`
 	// Configuration properties for client authentication.
 	//
 	// MSK supports using private TLS certificates or SASL/SCRAM to authenticate the identity of clients.
 	// Experimental.
-	ClientAuthentication ClientAuthentication `json:"clientAuthentication" yaml:"clientAuthentication"`
+	ClientAuthentication ClientAuthentication `field:"optional" json:"clientAuthentication" yaml:"clientAuthentication"`
 	// The Amazon MSK configuration to use for the cluster.
 	// Experimental.
-	ConfigurationInfo *ClusterConfigurationInfo `json:"configurationInfo" yaml:"configurationInfo"`
+	ConfigurationInfo *ClusterConfigurationInfo `field:"optional" json:"configurationInfo" yaml:"configurationInfo"`
 	// Information about storage volumes attached to MSK broker nodes.
 	// Experimental.
-	EbsStorageInfo *EbsStorageInfo `json:"ebsStorageInfo" yaml:"ebsStorageInfo"`
+	EbsStorageInfo *EbsStorageInfo `field:"optional" json:"ebsStorageInfo" yaml:"ebsStorageInfo"`
 	// Config details for encryption in transit.
 	// Experimental.
-	EncryptionInTransit *EncryptionInTransitConfig `json:"encryptionInTransit" yaml:"encryptionInTransit"`
+	EncryptionInTransit *EncryptionInTransitConfig `field:"optional" json:"encryptionInTransit" yaml:"encryptionInTransit"`
 	// The EC2 instance type that you want Amazon MSK to use when it creates your brokers.
 	// See: https://docs.aws.amazon.com/msk/latest/developerguide/msk-create-cluster.html#broker-instance-types
 	//
 	// Experimental.
-	InstanceType awsec2.InstanceType `json:"instanceType" yaml:"instanceType"`
+	InstanceType awsec2.InstanceType `field:"optional" json:"instanceType" yaml:"instanceType"`
 	// Configure your MSK cluster to send broker logs to different destination types.
 	// Experimental.
-	Logging *BrokerLogging `json:"logging" yaml:"logging"`
+	Logging *BrokerLogging `field:"optional" json:"logging" yaml:"logging"`
 	// Cluster monitoring configuration.
 	// Experimental.
-	Monitoring *MonitoringConfiguration `json:"monitoring" yaml:"monitoring"`
+	Monitoring *MonitoringConfiguration `field:"optional" json:"monitoring" yaml:"monitoring"`
 	// Number of Apache Kafka brokers deployed in each Availability Zone.
 	// Experimental.
-	NumberOfBrokerNodes *float64 `json:"numberOfBrokerNodes" yaml:"numberOfBrokerNodes"`
+	NumberOfBrokerNodes *float64 `field:"optional" json:"numberOfBrokerNodes" yaml:"numberOfBrokerNodes"`
 	// What to do when this resource is deleted from a stack.
 	// Experimental.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// The AWS security groups to associate with the elastic network interfaces in order to specify who can connect to and communicate with the Amazon MSK cluster.
 	// Experimental.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// Where to place the nodes within the VPC.
 	//
 	// Amazon MSK distributes the broker nodes evenly across the subnets that you specify.
 	// The subnets that you specify must be in distinct Availability Zones.
 	// Client subnets can't be in Availability Zone us-east-1e.
 	// Experimental.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
 // EBS volume information.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kms "github.com/aws/aws-cdk-go/awscdk/aws_kms"import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var key key
+//
 //   ebsStorageInfo := &ebsStorageInfo{
 //   	encryptionKey: key,
 //   	volumeSize: jsii.Number(123),
@@ -3914,16 +4023,17 @@ type ClusterProps struct {
 type EbsStorageInfo struct {
 	// The AWS KMS key for encrypting data at rest.
 	// Experimental.
-	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
+	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// The size in GiB of the EBS volume for the data drive on each broker node.
 	// Experimental.
-	VolumeSize *float64 `json:"volumeSize" yaml:"volumeSize"`
+	VolumeSize *float64 `field:"optional" json:"volumeSize" yaml:"volumeSize"`
 }
 
 // The settings for encrypting data in transit.
 //
 // Example:
 //   var vpc vpc
+//
 //   cluster := msk.NewCluster(this, jsii.String("cluster"), &clusterProps{
 //   	clusterName: jsii.String("myCluster"),
 //   	kafkaVersion: msk.kafkaVersion_V2_8_1(),
@@ -3942,10 +4052,10 @@ type EbsStorageInfo struct {
 type EncryptionInTransitConfig struct {
 	// Indicates the encryption setting for data in transit between clients and brokers.
 	// Experimental.
-	ClientBroker ClientBrokerEncryption `json:"clientBroker" yaml:"clientBroker"`
+	ClientBroker ClientBrokerEncryption `field:"optional" json:"clientBroker" yaml:"clientBroker"`
 	// Indicates that data communication among the broker nodes of the cluster is encrypted.
 	// Experimental.
-	EnableInCluster *bool `json:"enableInCluster" yaml:"enableInCluster"`
+	EnableInCluster *bool `field:"optional" json:"enableInCluster" yaml:"enableInCluster"`
 }
 
 // Represents a MSK Cluster.
@@ -4039,6 +4149,7 @@ func (j *jsiiProxy_ICluster) Stack() awscdk.Stack {
 //
 // Example:
 //   var vpc vpc
+//
 //   cluster := msk.NewCluster(this, jsii.String("cluster"), &clusterProps{
 //   	clusterName: jsii.String("myCluster"),
 //   	kafkaVersion: msk.kafkaVersion_V2_8_1(),
@@ -4248,9 +4359,12 @@ func KafkaVersion_V2_8_1() KafkaVersion {
 // Monitoring Configuration.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   monitoringConfiguration := &monitoringConfiguration{
-//   	clusterMonitoringLevel: msk.clusterMonitoringLevel_DEFAULT,
+//   	clusterMonitoringLevel: awscdk.Aws_msk.clusterMonitoringLevel_DEFAULT,
 //   	enablePrometheusJmxExporter: jsii.Boolean(false),
 //   	enablePrometheusNodeExporter: jsii.Boolean(false),
 //   }
@@ -4259,23 +4373,27 @@ func KafkaVersion_V2_8_1() KafkaVersion {
 type MonitoringConfiguration struct {
 	// Specifies the level of monitoring for the MSK cluster.
 	// Experimental.
-	ClusterMonitoringLevel ClusterMonitoringLevel `json:"clusterMonitoringLevel" yaml:"clusterMonitoringLevel"`
+	ClusterMonitoringLevel ClusterMonitoringLevel `field:"optional" json:"clusterMonitoringLevel" yaml:"clusterMonitoringLevel"`
 	// Indicates whether you want to enable or disable the JMX Exporter.
 	// Experimental.
-	EnablePrometheusJmxExporter *bool `json:"enablePrometheusJmxExporter" yaml:"enablePrometheusJmxExporter"`
+	EnablePrometheusJmxExporter *bool `field:"optional" json:"enablePrometheusJmxExporter" yaml:"enablePrometheusJmxExporter"`
 	// Indicates whether you want to enable or disable the Prometheus Node Exporter.
 	//
 	// You can use the Prometheus Node Exporter to get CPU and disk metrics for the broker nodes.
 	// Experimental.
-	EnablePrometheusNodeExporter *bool `json:"enablePrometheusNodeExporter" yaml:"enablePrometheusNodeExporter"`
+	EnablePrometheusNodeExporter *bool `field:"optional" json:"enablePrometheusNodeExporter" yaml:"enablePrometheusNodeExporter"`
 }
 
 // Details of the Amazon S3 destination for broker logs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import msk "github.com/aws/aws-cdk-go/awscdk/aws_msk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3 "github.com/aws/aws-cdk-go/awscdk/aws_s3"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var bucket bucket
+//
 //   s3LoggingConfiguration := &s3LoggingConfiguration{
 //   	bucket: bucket,
 //
@@ -4287,16 +4405,17 @@ type MonitoringConfiguration struct {
 type S3LoggingConfiguration struct {
 	// The S3 bucket that is the destination for broker logs.
 	// Experimental.
-	Bucket awss3.IBucket `json:"bucket" yaml:"bucket"`
+	Bucket awss3.IBucket `field:"required" json:"bucket" yaml:"bucket"`
 	// The S3 prefix that is the destination for broker logs.
 	// Experimental.
-	Prefix *string `json:"prefix" yaml:"prefix"`
+	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 }
 
 // SASL authentication properties.
 //
 // Example:
 //   var vpc vpc
+//
 //   cluster := msk.NewCluster(this, jsii.String("cluster"), &clusterProps{
 //   	clusterName: jsii.String("myCluster"),
 //   	kafkaVersion: msk.kafkaVersion_V2_8_1(),
@@ -4313,16 +4432,16 @@ type S3LoggingConfiguration struct {
 type SaslAuthProps struct {
 	// Enable IAM access control.
 	// Experimental.
-	Iam *bool `json:"iam" yaml:"iam"`
+	Iam *bool `field:"optional" json:"iam" yaml:"iam"`
 	// KMS Key to encrypt SASL/SCRAM secrets.
 	//
 	// You must use a customer master key (CMK) when creating users in secrets manager.
 	// You cannot use a Secret with Amazon MSK that uses the default Secrets Manager encryption key.
 	// Experimental.
-	Key awskms.IKey `json:"key" yaml:"key"`
+	Key awskms.IKey `field:"optional" json:"key" yaml:"key"`
 	// Enable SASL/SCRAM authentication.
 	// Experimental.
-	Scram *bool `json:"scram" yaml:"scram"`
+	Scram *bool `field:"optional" json:"scram" yaml:"scram"`
 }
 
 // TLS authentication properties.
@@ -4331,6 +4450,7 @@ type SaslAuthProps struct {
 //   import acmpca "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var vpc vpc
+//
 //   cluster := msk.NewCluster(this, jsii.String("Cluster"), &clusterProps{
 //   	clusterName: jsii.String("myCluster"),
 //   	kafkaVersion: msk.kafkaVersion_V2_8_1(),
@@ -4349,6 +4469,6 @@ type SaslAuthProps struct {
 type TlsAuthProps struct {
 	// List of ACM Certificate Authorities to enable TLS authentication.
 	// Experimental.
-	CertificateAuthorities *[]awsacmpca.ICertificateAuthority `json:"certificateAuthorities" yaml:"certificateAuthorities"`
+	CertificateAuthorities *[]awsacmpca.ICertificateAuthority `field:"optional" json:"certificateAuthorities" yaml:"certificateAuthorities"`
 }
 

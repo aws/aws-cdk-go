@@ -14,8 +14,11 @@ import (
 // The `AWS::APS::RuleGroupsNamespace` resource creates or updates a rule groups namespace within a Amazon Managed Service for Prometheus workspace. For more information, see [Recording rules and alerting rules](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import aps "github.com/aws/aws-cdk-go/awscdk/aws_aps"
-//   cfnRuleGroupsNamespace := aps.NewCfnRuleGroupsNamespace(this, jsii.String("MyCfnRuleGroupsNamespace"), &cfnRuleGroupsNamespaceProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnRuleGroupsNamespace := awscdk.Aws_aps.NewCfnRuleGroupsNamespace(this, jsii.String("MyCfnRuleGroupsNamespace"), &cfnRuleGroupsNamespaceProps{
 //   	data: jsii.String("data"),
 //   	name: jsii.String("name"),
 //   	workspace: jsii.String("workspace"),
@@ -728,7 +731,10 @@ func (c *jsiiProxy_CfnRuleGroupsNamespace) ValidateProperties(_properties interf
 // Properties for defining a `CfnRuleGroupsNamespace`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import aps "github.com/aws/aws-cdk-go/awscdk/aws_aps"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnRuleGroupsNamespaceProps := &cfnRuleGroupsNamespaceProps{
 //   	data: jsii.String("data"),
 //   	name: jsii.String("name"),
@@ -745,15 +751,15 @@ func (c *jsiiProxy_CfnRuleGroupsNamespace) ValidateProperties(_properties interf
 //
 type CfnRuleGroupsNamespaceProps struct {
 	// The rules definition file for this namespace.
-	Data *string `json:"data" yaml:"data"`
+	Data *string `field:"required" json:"data" yaml:"data"`
 	// The name of the rule groups namespace.
 	//
 	// This property is required.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The ARN of the workspace that contains this rule groups namespace.
-	Workspace *string `json:"workspace" yaml:"workspace"`
+	Workspace *string `field:"required" json:"workspace" yaml:"workspace"`
 	// A list of key and value pairs for the workspace resources.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::APS::Workspace`.
@@ -761,8 +767,11 @@ type CfnRuleGroupsNamespaceProps struct {
 // The `AWS::APS::Workspace` type specifies an Amazon Managed Service for Prometheus ( Amazon Managed Service for Prometheus ) workspace. A *workspace* is a logical and isolated Prometheus server dedicated to Prometheus resources such as metrics. You can have one or more workspaces in each Region in your account.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import aps "github.com/aws/aws-cdk-go/awscdk/aws_aps"
-//   cfnWorkspace := aps.NewCfnWorkspace(this, jsii.String("MyCfnWorkspace"), &cfnWorkspaceProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnWorkspace := awscdk.Aws_aps.NewCfnWorkspace(this, jsii.String("MyCfnWorkspace"), &cfnWorkspaceProps{
 //   	alertManagerDefinition: jsii.String("alertManagerDefinition"),
 //   	alias: jsii.String("alias"),
 //   	tags: []cfnTag{
@@ -1483,7 +1492,10 @@ func (c *jsiiProxy_CfnWorkspace) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnWorkspace`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import aps "github.com/aws/aws-cdk-go/awscdk/aws_aps"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnWorkspaceProps := &cfnWorkspaceProps{
 //   	alertManagerDefinition: jsii.String("alertManagerDefinition"),
 //   	alias: jsii.String("alias"),
@@ -1499,14 +1511,14 @@ type CfnWorkspaceProps struct {
 	// The alert manager definition for the workspace, as a string.
 	//
 	// For more information, see [Alert manager and templating](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html) .
-	AlertManagerDefinition *string `json:"alertManagerDefinition" yaml:"alertManagerDefinition"`
+	AlertManagerDefinition *string `field:"optional" json:"alertManagerDefinition" yaml:"alertManagerDefinition"`
 	// An alias that you assign to this workspace to help you identify it.
 	//
 	// It does not need to be unique.
 	//
 	// The alias can be as many as 100 characters and can include any type of characters. Amazon Managed Service for Prometheus automatically strips any blank spaces from the beginning and end of the alias that you specify.
-	Alias *string `json:"alias" yaml:"alias"`
+	Alias *string `field:"optional" json:"alias" yaml:"alias"`
 	// A list of tag keys and values to associate with the workspace.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

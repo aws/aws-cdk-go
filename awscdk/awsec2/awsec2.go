@@ -19,8 +19,11 @@ import (
 // Either an IPv4 or an IPv6 CIDR.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   aclCidr := ec2.aclCidr.anyIpv4()
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   aclCidr := awscdk.Aws_ec2.aclCidr.anyIpv4()
 //
 // Experimental.
 type AclCidr interface {
@@ -128,7 +131,10 @@ func (a *jsiiProxy_AclCidr) ToCidrConfig() *AclCidrConfig {
 // Acl Configuration for CIDR.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   aclCidrConfig := &aclCidrConfig{
 //   	cidrBlock: jsii.String("cidrBlock"),
 //   	ipv6CidrBlock: jsii.String("ipv6CidrBlock"),
@@ -138,16 +144,19 @@ func (a *jsiiProxy_AclCidr) ToCidrConfig() *AclCidrConfig {
 type AclCidrConfig struct {
 	// Ipv4 CIDR.
 	// Experimental.
-	CidrBlock *string `json:"cidrBlock" yaml:"cidrBlock"`
+	CidrBlock *string `field:"optional" json:"cidrBlock" yaml:"cidrBlock"`
 	// Ipv6 CIDR.
 	// Experimental.
-	Ipv6CidrBlock *string `json:"ipv6CidrBlock" yaml:"ipv6CidrBlock"`
+	Ipv6CidrBlock *string `field:"optional" json:"ipv6CidrBlock" yaml:"ipv6CidrBlock"`
 }
 
 // Properties to create Icmp.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   aclIcmp := &aclIcmp{
 //   	code: jsii.Number(123),
 //   	type: jsii.Number(123),
@@ -161,19 +170,22 @@ type AclIcmp struct {
 	// codes for the given ICMP type. Requirement is conditional: Required if you
 	// specify 1 (ICMP) for the protocol parameter.
 	// Experimental.
-	Code *float64 `json:"code" yaml:"code"`
+	Code *float64 `field:"optional" json:"code" yaml:"code"`
 	// The Internet Control Message Protocol (ICMP) type.
 	//
 	// You can use -1 to specify all ICMP types.
 	// Conditional requirement: Required if you specify 1 (ICMP) for the CreateNetworkAclEntry protocol parameter.
 	// Experimental.
-	Type *float64 `json:"type" yaml:"type"`
+	Type *float64 `field:"optional" json:"type" yaml:"type"`
 }
 
 // Properties to create PortRange.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   aclPortRange := &aclPortRange{
 //   	from: jsii.Number(123),
 //   	to: jsii.Number(123),
@@ -185,19 +197,22 @@ type AclPortRange struct {
 	//
 	// Required if you specify 6 (TCP) or 17 (UDP) for the protocol parameter.
 	// Experimental.
-	From *float64 `json:"from" yaml:"from"`
+	From *float64 `field:"optional" json:"from" yaml:"from"`
 	// The last port in the range.
 	//
 	// Required if you specify 6 (TCP) or 17 (UDP) for the protocol parameter.
 	// Experimental.
-	To *float64 `json:"to" yaml:"to"`
+	To *float64 `field:"optional" json:"to" yaml:"to"`
 }
 
 // The traffic that is configured using a Network ACL entry.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   aclTraffic := ec2.aclTraffic.allTraffic()
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   aclTraffic := awscdk.Aws_ec2.aclTraffic.allTraffic()
 //
 // Experimental.
 type AclTraffic interface {
@@ -358,7 +373,10 @@ func (a *jsiiProxy_AclTraffic) ToTrafficConfig() *AclTrafficConfig {
 // Acl Configuration for traffic.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   aclTrafficConfig := &aclTrafficConfig{
 //   	protocol: jsii.Number(123),
 //
@@ -388,13 +406,13 @@ type AclTrafficConfig struct {
 	// you specify. If you specify protocol "58" (ICMPv6) and specify an IPv6 CIDR
 	// block, you must specify an ICMP type and code.
 	// Experimental.
-	Protocol *float64 `json:"protocol" yaml:"protocol"`
+	Protocol *float64 `field:"required" json:"protocol" yaml:"protocol"`
 	// The Internet Control Message Protocol (ICMP) code and type.
 	// Experimental.
-	Icmp *AclIcmp `json:"icmp" yaml:"icmp"`
+	Icmp *AclIcmp `field:"optional" json:"icmp" yaml:"icmp"`
 	// The range of port numbers for the UDP/TCP protocol.
 	// Experimental.
-	PortRange *AclPortRange `json:"portRange" yaml:"portRange"`
+	PortRange *AclPortRange `field:"optional" json:"portRange" yaml:"portRange"`
 }
 
 // What action to apply to traffic matching the ACL.
@@ -438,22 +456,22 @@ type AddRouteOptions struct {
 	//
 	// Can be an instance ID, gateway ID, etc, depending on the router type.
 	// Experimental.
-	RouterId *string `json:"routerId" yaml:"routerId"`
+	RouterId *string `field:"required" json:"routerId" yaml:"routerId"`
 	// What type of router to route this traffic to.
 	// Experimental.
-	RouterType RouterType `json:"routerType" yaml:"routerType"`
+	RouterType RouterType `field:"required" json:"routerType" yaml:"routerType"`
 	// IPv4 range this route applies to.
 	// Experimental.
-	DestinationCidrBlock *string `json:"destinationCidrBlock" yaml:"destinationCidrBlock"`
+	DestinationCidrBlock *string `field:"optional" json:"destinationCidrBlock" yaml:"destinationCidrBlock"`
 	// IPv6 range this route applies to.
 	// Experimental.
-	DestinationIpv6CidrBlock *string `json:"destinationIpv6CidrBlock" yaml:"destinationIpv6CidrBlock"`
+	DestinationIpv6CidrBlock *string `field:"optional" json:"destinationIpv6CidrBlock" yaml:"destinationIpv6CidrBlock"`
 	// Whether this route will enable internet connectivity.
 	//
 	// If true, this route will be added before any AWS resources that depend
 	// on internet connectivity in the VPC will be created.
 	// Experimental.
-	EnablesInternetConnectivity *bool `json:"enablesInternetConnectivity" yaml:"enablesInternetConnectivity"`
+	EnablesInternetConnectivity *bool `field:"optional" json:"enablesInternetConnectivity" yaml:"enablesInternetConnectivity"`
 }
 
 // CPU type.
@@ -752,28 +770,28 @@ type AmazonLinuxImageProps struct {
 	//
 	// Can not be set to `true` in environment-agnostic stacks.
 	// Experimental.
-	CachedInContext *bool `json:"cachedInContext" yaml:"cachedInContext"`
+	CachedInContext *bool `field:"optional" json:"cachedInContext" yaml:"cachedInContext"`
 	// CPU Type.
 	// Experimental.
-	CpuType AmazonLinuxCpuType `json:"cpuType" yaml:"cpuType"`
+	CpuType AmazonLinuxCpuType `field:"optional" json:"cpuType" yaml:"cpuType"`
 	// What edition of Amazon Linux to use.
 	// Experimental.
-	Edition AmazonLinuxEdition `json:"edition" yaml:"edition"`
+	Edition AmazonLinuxEdition `field:"optional" json:"edition" yaml:"edition"`
 	// What generation of Amazon Linux to use.
 	// Experimental.
-	Generation AmazonLinuxGeneration `json:"generation" yaml:"generation"`
+	Generation AmazonLinuxGeneration `field:"optional" json:"generation" yaml:"generation"`
 	// What kernel version of Amazon Linux to use.
 	// Experimental.
-	Kernel AmazonLinuxKernel `json:"kernel" yaml:"kernel"`
+	Kernel AmazonLinuxKernel `field:"optional" json:"kernel" yaml:"kernel"`
 	// What storage backed image to use.
 	// Experimental.
-	Storage AmazonLinuxStorage `json:"storage" yaml:"storage"`
+	Storage AmazonLinuxStorage `field:"optional" json:"storage" yaml:"storage"`
 	// Initial user data.
 	// Experimental.
-	UserData UserData `json:"userData" yaml:"userData"`
+	UserData UserData `field:"optional" json:"userData" yaml:"userData"`
 	// Virtualization type.
 	// Experimental.
-	Virtualization AmazonLinuxVirt `json:"virtualization" yaml:"virtualization"`
+	Virtualization AmazonLinuxVirt `field:"optional" json:"virtualization" yaml:"virtualization"`
 }
 
 // Amazon Linux Kernel.
@@ -781,6 +799,7 @@ type AmazonLinuxImageProps struct {
 // Example:
 //   var vpc vpc
 //   var instanceType instanceType
+//
 //
 //   // AWS Linux
 //   // AWS Linux
@@ -908,6 +927,7 @@ const (
 //   var instanceType instanceType
 //   var machineImage iMachineImage
 //
+//
 //   ec2.NewInstance(this, jsii.String("Instance"), &instanceProps{
 //   	vpc: vpc,
 //   	instanceType: instanceType,
@@ -929,9 +949,9 @@ const (
 //   			}),
 //   			"config": ec2.NewInitConfig([]InitElement{
 //   				ec2.InitFile.fromObject(jsii.String("/etc/stack.json"), map[string]interface{}{
-//   					"stackId": *stack.of(this).stackId,
-//   					"stackName": *stack.of(this).stackName,
-//   					"region": *stack.of(this).region,
+//   					"stackId": awscdk.*stack.of(this).stackId,
+//   					"stackName": awscdk.*stack.of(this).stackName,
+//   					"region": awscdk.*stack.of(this).region,
 //   				}),
 //   				ec2.InitGroup.fromName(jsii.String("my-group")),
 //   				ec2.InitUser.fromName(jsii.String("my-user")),
@@ -946,7 +966,7 @@ const (
 //   		},
 //
 //   		// Optional, how long the installation is expected to take (5 minutes by default)
-//   		timeout: duration.minutes(jsii.Number(30)),
+//   		timeout: awscdk.Duration.minutes(jsii.Number(30)),
 //
 //   		// Optional, whether to include the --url argument when running cfn-init and cfn-signal commands (false by default)
 //   		includeUrl: jsii.Boolean(true),
@@ -960,7 +980,7 @@ const (
 type ApplyCloudFormationInitOptions struct {
 	// ConfigSet to activate.
 	// Experimental.
-	ConfigSets *[]*string `json:"configSets" yaml:"configSets"`
+	ConfigSets *[]*string `field:"optional" json:"configSets" yaml:"configSets"`
 	// Force instance replacement by embedding a config fingerprint.
 	//
 	// If `true` (the default), a hash of the config will be embedded into the
@@ -979,24 +999,24 @@ type ApplyCloudFormationInitOptions struct {
 	// CloudFormation deployment successfully finishes and the next instance
 	// fails to launch.
 	// Experimental.
-	EmbedFingerprint *bool `json:"embedFingerprint" yaml:"embedFingerprint"`
+	EmbedFingerprint *bool `field:"optional" json:"embedFingerprint" yaml:"embedFingerprint"`
 	// Don't fail the instance creation when cfn-init fails.
 	//
 	// You can use this to prevent CloudFormation from rolling back when
 	// instances fail to start up, to help in debugging.
 	// Experimental.
-	IgnoreFailures *bool `json:"ignoreFailures" yaml:"ignoreFailures"`
+	IgnoreFailures *bool `field:"optional" json:"ignoreFailures" yaml:"ignoreFailures"`
 	// Include --role argument when running cfn-init and cfn-signal commands.
 	//
 	// This will be the IAM instance profile attached to the EC2 instance.
 	// Experimental.
-	IncludeRole *bool `json:"includeRole" yaml:"includeRole"`
+	IncludeRole *bool `field:"optional" json:"includeRole" yaml:"includeRole"`
 	// Include --url argument when running cfn-init and cfn-signal commands.
 	//
 	// This will be the cloudformation endpoint in the deployed region
 	// e.g. https://cloudformation.us-east-1.amazonaws.com
 	// Experimental.
-	IncludeUrl *bool `json:"includeUrl" yaml:"includeUrl"`
+	IncludeUrl *bool `field:"optional" json:"includeUrl" yaml:"includeUrl"`
 	// Print the results of running cfn-init to the Instance System Log.
 	//
 	// By default, the output of running cfn-init is written to a log file
@@ -1007,23 +1027,28 @@ type ApplyCloudFormationInitOptions struct {
 	// time of the instance life cycle, and successful execution may
 	// not always show up).
 	// Experimental.
-	PrintLog *bool `json:"printLog" yaml:"printLog"`
+	PrintLog *bool `field:"optional" json:"printLog" yaml:"printLog"`
 	// Timeout waiting for the configuration to be applied.
 	// Experimental.
-	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
+	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 }
 
 // Options for attaching a CloudFormationInit to a resource.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var cfnResource cfnResource
 //   var role role
 //   var userData userData
+//
 //   attachInitOptions := &attachInitOptions{
 //   	instanceRole: role,
-//   	platform: ec2.operatingSystemType_LINUX,
+//   	platform: awscdk.Aws_ec2.operatingSystemType_LINUX,
 //   	userData: userData,
 //
 //   	// the properties below are optional
@@ -1042,16 +1067,16 @@ type ApplyCloudFormationInitOptions struct {
 type AttachInitOptions struct {
 	// Instance role of the consuming instance or fleet.
 	// Experimental.
-	InstanceRole awsiam.IRole `json:"instanceRole" yaml:"instanceRole"`
+	InstanceRole awsiam.IRole `field:"required" json:"instanceRole" yaml:"instanceRole"`
 	// OS Platform the init config will be used for.
 	// Experimental.
-	Platform OperatingSystemType `json:"platform" yaml:"platform"`
+	Platform OperatingSystemType `field:"required" json:"platform" yaml:"platform"`
 	// UserData to add commands to.
 	// Experimental.
-	UserData UserData `json:"userData" yaml:"userData"`
+	UserData UserData `field:"required" json:"userData" yaml:"userData"`
 	// ConfigSet to activate.
 	// Experimental.
-	ConfigSets *[]*string `json:"configSets" yaml:"configSets"`
+	ConfigSets *[]*string `field:"optional" json:"configSets" yaml:"configSets"`
 	// Whether to embed a hash into the userData.
 	//
 	// If `true` (the default), a hash of the config will be embedded into the
@@ -1061,24 +1086,24 @@ type AttachInitOptions struct {
 	// If `false`, no such hash will be embedded, and if the CloudFormation Init
 	// config changes nothing will happen to the running instance.
 	// Experimental.
-	EmbedFingerprint *bool `json:"embedFingerprint" yaml:"embedFingerprint"`
+	EmbedFingerprint *bool `field:"optional" json:"embedFingerprint" yaml:"embedFingerprint"`
 	// Don't fail the instance creation when cfn-init fails.
 	//
 	// You can use this to prevent CloudFormation from rolling back when
 	// instances fail to start up, to help in debugging.
 	// Experimental.
-	IgnoreFailures *bool `json:"ignoreFailures" yaml:"ignoreFailures"`
+	IgnoreFailures *bool `field:"optional" json:"ignoreFailures" yaml:"ignoreFailures"`
 	// Include --role argument when running cfn-init and cfn-signal commands.
 	//
 	// This will be the IAM instance profile attached to the EC2 instance.
 	// Experimental.
-	IncludeRole *bool `json:"includeRole" yaml:"includeRole"`
+	IncludeRole *bool `field:"optional" json:"includeRole" yaml:"includeRole"`
 	// Include --url argument when running cfn-init and cfn-signal commands.
 	//
 	// This will be the cloudformation endpoint in the deployed region
 	// e.g. https://cloudformation.us-east-1.amazonaws.com
 	// Experimental.
-	IncludeUrl *bool `json:"includeUrl" yaml:"includeUrl"`
+	IncludeUrl *bool `field:"optional" json:"includeUrl" yaml:"includeUrl"`
 	// Print the results of running cfn-init to the Instance System Log.
 	//
 	// By default, the output of running cfn-init is written to a log file
@@ -1089,12 +1114,12 @@ type AttachInitOptions struct {
 	// time of the instance life cycle, and successful execution may
 	// not always show up).
 	// Experimental.
-	PrintLog *bool `json:"printLog" yaml:"printLog"`
+	PrintLog *bool `field:"optional" json:"printLog" yaml:"printLog"`
 	// When provided, signals this resource instead of the attached resource.
 	//
 	// You can use this to support signaling LaunchTemplate while attaching AutoScalingGroup.
 	// Experimental.
-	SignalResource awscdk.CfnResource `json:"signalResource" yaml:"signalResource"`
+	SignalResource awscdk.CfnResource `field:"optional" json:"signalResource" yaml:"signalResource"`
 }
 
 // This creates a linux bastion host you can use to connect to other instances or services in your VPC.
@@ -1625,10 +1650,10 @@ func (b *jsiiProxy_BastionHostLinux) Validate() *[]*string {
 type BastionHostLinuxProps struct {
 	// VPC to launch the instance in.
 	// Experimental.
-	Vpc IVpc `json:"vpc" yaml:"vpc"`
+	Vpc IVpc `field:"required" json:"vpc" yaml:"vpc"`
 	// In which AZ to place the instance within the VPC.
 	// Experimental.
-	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
+	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
 	// Specifies how block devices are exposed to the instance. You can specify virtual devices and EBS volumes.
 	//
 	// Each instance that is launched has an associated root device volume,
@@ -1638,44 +1663,47 @@ type BastionHostLinuxProps struct {
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html
 	//
 	// Experimental.
-	BlockDevices *[]*BlockDevice `json:"blockDevices" yaml:"blockDevices"`
+	BlockDevices *[]*BlockDevice `field:"optional" json:"blockDevices" yaml:"blockDevices"`
 	// Apply the given CloudFormation Init configuration to the instance at startup.
 	// Experimental.
-	Init CloudFormationInit `json:"init" yaml:"init"`
+	Init CloudFormationInit `field:"optional" json:"init" yaml:"init"`
 	// Use the given options for applying CloudFormation Init.
 	//
 	// Describes the configsets to use and the timeout to wait.
 	// Experimental.
-	InitOptions *ApplyCloudFormationInitOptions `json:"initOptions" yaml:"initOptions"`
+	InitOptions *ApplyCloudFormationInitOptions `field:"optional" json:"initOptions" yaml:"initOptions"`
 	// The name of the instance.
 	// Experimental.
-	InstanceName *string `json:"instanceName" yaml:"instanceName"`
+	InstanceName *string `field:"optional" json:"instanceName" yaml:"instanceName"`
 	// Type of instance to launch.
 	// Experimental.
-	InstanceType InstanceType `json:"instanceType" yaml:"instanceType"`
+	InstanceType InstanceType `field:"optional" json:"instanceType" yaml:"instanceType"`
 	// The machine image to use, assumed to have SSM Agent preinstalled.
 	// Experimental.
-	MachineImage IMachineImage `json:"machineImage" yaml:"machineImage"`
+	MachineImage IMachineImage `field:"optional" json:"machineImage" yaml:"machineImage"`
 	// Whether IMDSv2 should be required on this instance.
 	// Experimental.
-	RequireImdsv2 *bool `json:"requireImdsv2" yaml:"requireImdsv2"`
+	RequireImdsv2 *bool `field:"optional" json:"requireImdsv2" yaml:"requireImdsv2"`
 	// Security Group to assign to this instance.
 	// Experimental.
-	SecurityGroup ISecurityGroup `json:"securityGroup" yaml:"securityGroup"`
+	SecurityGroup ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
 	// Select the subnets to run the bastion host in.
 	//
 	// Set this to PUBLIC if you need to connect to this instance via the internet and cannot use SSM.
 	// You have to allow port 22 manually by using the connections field.
 	// Experimental.
-	SubnetSelection *SubnetSelection `json:"subnetSelection" yaml:"subnetSelection"`
+	SubnetSelection *SubnetSelection `field:"optional" json:"subnetSelection" yaml:"subnetSelection"`
 }
 
 // Block device.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var blockDeviceVolume blockDeviceVolume
+//
 //   blockDevice := &blockDevice{
 //   	deviceName: jsii.String("deviceName"),
 //   	volume: blockDeviceVolume,
@@ -1692,18 +1720,18 @@ type BlockDevice struct {
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html
 	//
 	// Experimental.
-	DeviceName *string `json:"deviceName" yaml:"deviceName"`
+	DeviceName *string `field:"required" json:"deviceName" yaml:"deviceName"`
 	// Defines the block device volume, to be either an Amazon EBS volume or an ephemeral instance store volume.
 	//
 	// For example, a value like `BlockDeviceVolume.ebs(15)`, `BlockDeviceVolume.ephemeral(0)`.
 	// Experimental.
-	Volume BlockDeviceVolume `json:"volume" yaml:"volume"`
+	Volume BlockDeviceVolume `field:"required" json:"volume" yaml:"volume"`
 	// If false, the device mapping will be suppressed.
 	//
 	// If set to false for the root device, the instance might fail the Amazon EC2 health check.
 	// Amazon EC2 Auto Scaling launches a replacement instance if the instance fails the health check.
 	// Experimental.
-	MappingEnabled *bool `json:"mappingEnabled" yaml:"mappingEnabled"`
+	MappingEnabled *bool `field:"optional" json:"mappingEnabled" yaml:"mappingEnabled"`
 }
 
 // Describes a block device mapping for an EC2 instance or Auto Scaling group.
@@ -1712,6 +1740,7 @@ type BlockDevice struct {
 //   var vpc vpc
 //   var instanceType instanceType
 //   var machineImage iMachineImage
+//
 //
 //   ec2.NewInstance(this, jsii.String("Instance"), &instanceProps{
 //   	vpc: vpc,
@@ -1852,8 +1881,11 @@ func BlockDeviceVolume_Ephemeral(volumeIndex *float64) BlockDeviceVolume {
 // Creates a new Capacity Reservation with the specified attributes. For more information, see [Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html) in the *Amazon EC2 User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnCapacityReservation := ec2.NewCfnCapacityReservation(this, jsii.String("MyCfnCapacityReservation"), &cfnCapacityReservationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnCapacityReservation := awscdk.Aws_ec2.NewCfnCapacityReservation(this, jsii.String("MyCfnCapacityReservation"), &cfnCapacityReservationProps{
 //   	availabilityZone: jsii.String("availabilityZone"),
 //   	instanceCount: jsii.Number(123),
 //   	instancePlatform: jsii.String("instancePlatform"),
@@ -2861,7 +2893,10 @@ func (c *jsiiProxy_CfnCapacityReservation) ValidateProperties(_properties interf
 // For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tagSpecificationProperty := &tagSpecificationProperty{
 //   	resourceType: jsii.String("resourceType"),
 //   	tags: []cfnTag{
@@ -2876,9 +2911,9 @@ type CfnCapacityReservation_TagSpecificationProperty struct {
 	// The type of resource to tag.
 	//
 	// Specify `capacity-reservation` .
-	ResourceType *string `json:"resourceType" yaml:"resourceType"`
+	ResourceType *string `field:"optional" json:"resourceType" yaml:"resourceType"`
 	// The tags to apply to the resource.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::EC2::CapacityReservationFleet`.
@@ -2886,8 +2921,11 @@ type CfnCapacityReservation_TagSpecificationProperty struct {
 // Creates a new Capacity Reservation Fleet with the specified attributes. For more information, see [Capacity Reservation Fleets](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-fleets.html) in the *Amazon EC2 User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnCapacityReservationFleet := ec2.NewCfnCapacityReservationFleet(this, jsii.String("MyCfnCapacityReservationFleet"), &cfnCapacityReservationFleetProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnCapacityReservationFleet := awscdk.Aws_ec2.NewCfnCapacityReservationFleet(this, jsii.String("MyCfnCapacityReservationFleet"), &cfnCapacityReservationFleetProps{
 //   	allocationStrategy: jsii.String("allocationStrategy"),
 //   	endDate: jsii.String("endDate"),
 //   	instanceMatchCriteria: jsii.String("instanceMatchCriteria"),
@@ -3751,7 +3789,10 @@ func (c *jsiiProxy_CfnCapacityReservationFleet) ValidateProperties(_properties i
 // `InstanceTypeSpecification` is a property of the [AWS::EC2::CapacityReservationFleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservationfleet.html) resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   instanceTypeSpecificationProperty := &instanceTypeSpecificationProperty{
 //   	availabilityZone: jsii.String("availabilityZone"),
 //   	availabilityZoneId: jsii.String("availabilityZoneId"),
@@ -3766,35 +3807,38 @@ type CfnCapacityReservationFleet_InstanceTypeSpecificationProperty struct {
 	// The Availability Zone in which the Capacity Reservation Fleet reserves the capacity.
 	//
 	// A Capacity Reservation Fleet can't span Availability Zones. All instance type specifications that you specify for the Fleet must use the same Availability Zone.
-	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
+	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
 	// The ID of the Availability Zone in which the Capacity Reservation Fleet reserves the capacity.
 	//
 	// A Capacity Reservation Fleet can't span Availability Zones. All instance type specifications that you specify for the Fleet must use the same Availability Zone.
-	AvailabilityZoneId *string `json:"availabilityZoneId" yaml:"availabilityZoneId"`
+	AvailabilityZoneId *string `field:"optional" json:"availabilityZoneId" yaml:"availabilityZoneId"`
 	// Indicates whether the Capacity Reservation Fleet supports EBS-optimized instances types.
 	//
 	// This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using EBS-optimized instance types.
-	EbsOptimized interface{} `json:"ebsOptimized" yaml:"ebsOptimized"`
+	EbsOptimized interface{} `field:"optional" json:"ebsOptimized" yaml:"ebsOptimized"`
 	// The type of operating system for which the Capacity Reservation Fleet reserves capacity.
-	InstancePlatform *string `json:"instancePlatform" yaml:"instancePlatform"`
+	InstancePlatform *string `field:"optional" json:"instancePlatform" yaml:"instancePlatform"`
 	// The instance type for which the Capacity Reservation Fleet reserves capacity.
-	InstanceType *string `json:"instanceType" yaml:"instanceType"`
+	InstanceType *string `field:"optional" json:"instanceType" yaml:"instanceType"`
 	// The priority to assign to the instance type.
 	//
 	// This value is used to determine which of the instance types specified for the Fleet should be prioritized for use. A lower value indicates a high priority. For more information, see [Instance type priority](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-priority) in the Amazon EC2 User Guide.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 	// The number of capacity units provided by the specified instance type.
 	//
 	// This value, together with the total target capacity that you specify for the Fleet determine the number of instances for which the Fleet reserves capacity. Both values are based on units that make sense for your workload. For more information, see [Total target capacity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity) in the Amazon EC2 User Guide.
 	//
 	// Valid Range: Minimum value of `0.001` . Maximum value of `99.999` .
-	Weight *float64 `json:"weight" yaml:"weight"`
+	Weight *float64 `field:"optional" json:"weight" yaml:"weight"`
 }
 
 // The tags to apply to a resource when the resource is being created.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tagSpecificationProperty := &tagSpecificationProperty{
 //   	resourceType: jsii.String("resourceType"),
 //   	tags: []cfnTag{
@@ -3809,15 +3853,18 @@ type CfnCapacityReservationFleet_TagSpecificationProperty struct {
 	// The type of resource to tag on creation. Specify `capacity-reservation-fleet` .
 	//
 	// To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html) .
-	ResourceType *string `json:"resourceType" yaml:"resourceType"`
+	ResourceType *string `field:"optional" json:"resourceType" yaml:"resourceType"`
 	// The tags to apply to the resource.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // Properties for defining a `CfnCapacityReservationFleet`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnCapacityReservationFleetProps := &cfnCapacityReservationFleetProps{
 //   	allocationStrategy: jsii.String("allocationStrategy"),
 //   	endDate: jsii.String("endDate"),
@@ -3856,46 +3903,49 @@ type CfnCapacityReservationFleetProps struct {
 	// Currently, only the `prioritized` allocation strategy is supported. For more information, see [Allocation strategy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#allocation-strategy) in the Amazon EC2 User Guide.
 	//
 	// Valid values: `prioritized`.
-	AllocationStrategy *string `json:"allocationStrategy" yaml:"allocationStrategy"`
+	AllocationStrategy *string `field:"optional" json:"allocationStrategy" yaml:"allocationStrategy"`
 	// The date and time at which the Capacity Reservation Fleet expires.
 	//
 	// When the Capacity Reservation Fleet expires, its state changes to `expired` and all of the Capacity Reservations in the Fleet expire.
 	//
 	// The Capacity Reservation Fleet expires within an hour after the specified time. For example, if you specify `5/31/2019` , `13:30:55` , the Capacity Reservation Fleet is guaranteed to expire between `13:30:55` and `14:30:55` on `5/31/2019` .
-	EndDate *string `json:"endDate" yaml:"endDate"`
+	EndDate *string `field:"optional" json:"endDate" yaml:"endDate"`
 	// Indicates the type of instance launches that the Capacity Reservation Fleet accepts.
 	//
 	// All Capacity Reservations in the Fleet inherit this instance matching criteria.
 	//
 	// Currently, Capacity Reservation Fleets support `open` instance matching criteria only. This means that instances that have matching attributes (instance type, platform, and Availability Zone) run in the Capacity Reservations automatically. Instances do not need to explicitly target a Capacity Reservation Fleet to use its reserved capacity.
-	InstanceMatchCriteria *string `json:"instanceMatchCriteria" yaml:"instanceMatchCriteria"`
+	InstanceMatchCriteria *string `field:"optional" json:"instanceMatchCriteria" yaml:"instanceMatchCriteria"`
 	// Information about the instance types for which to reserve the capacity.
-	InstanceTypeSpecifications interface{} `json:"instanceTypeSpecifications" yaml:"instanceTypeSpecifications"`
+	InstanceTypeSpecifications interface{} `field:"optional" json:"instanceTypeSpecifications" yaml:"instanceTypeSpecifications"`
 	// `AWS::EC2::CapacityReservationFleet.NoRemoveEndDate`.
-	NoRemoveEndDate interface{} `json:"noRemoveEndDate" yaml:"noRemoveEndDate"`
+	NoRemoveEndDate interface{} `field:"optional" json:"noRemoveEndDate" yaml:"noRemoveEndDate"`
 	// `AWS::EC2::CapacityReservationFleet.RemoveEndDate`.
-	RemoveEndDate interface{} `json:"removeEndDate" yaml:"removeEndDate"`
+	RemoveEndDate interface{} `field:"optional" json:"removeEndDate" yaml:"removeEndDate"`
 	// The tags to assign to the Capacity Reservation Fleet.
 	//
 	// The tags are automatically assigned to the Capacity Reservations in the Fleet.
-	TagSpecifications interface{} `json:"tagSpecifications" yaml:"tagSpecifications"`
+	TagSpecifications interface{} `field:"optional" json:"tagSpecifications" yaml:"tagSpecifications"`
 	// Indicates the tenancy of the Capacity Reservation Fleet.
 	//
 	// All Capacity Reservations in the Fleet inherit this tenancy. The Capacity Reservation Fleet can have one of the following tenancy settings:
 	//
 	// - `default` - The Capacity Reservation Fleet is created on hardware that is shared with other AWS accounts .
 	// - `dedicated` - The Capacity Reservations are created on single-tenant hardware that is dedicated to a single AWS account .
-	Tenancy *string `json:"tenancy" yaml:"tenancy"`
+	Tenancy *string `field:"optional" json:"tenancy" yaml:"tenancy"`
 	// The total number of capacity units to be reserved by the Capacity Reservation Fleet.
 	//
 	// This value, together with the instance type weights that you assign to each instance type used by the Fleet determine the number of instances for which the Fleet reserves capacity. Both values are based on units that make sense for your workload. For more information, see [Total target capacity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity) in the Amazon EC2 User Guide.
-	TotalTargetCapacity *float64 `json:"totalTargetCapacity" yaml:"totalTargetCapacity"`
+	TotalTargetCapacity *float64 `field:"optional" json:"totalTargetCapacity" yaml:"totalTargetCapacity"`
 }
 
 // Properties for defining a `CfnCapacityReservation`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnCapacityReservationProps := &cfnCapacityReservationProps{
 //   	availabilityZone: jsii.String("availabilityZone"),
 //   	instanceCount: jsii.Number(123),
@@ -3926,21 +3976,21 @@ type CfnCapacityReservationFleetProps struct {
 //
 type CfnCapacityReservationProps struct {
 	// The Availability Zone in which to create the Capacity Reservation.
-	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
+	AvailabilityZone *string `field:"required" json:"availabilityZone" yaml:"availabilityZone"`
 	// The number of instances for which to reserve capacity.
 	//
 	// Valid range: 1 - 1000.
-	InstanceCount *float64 `json:"instanceCount" yaml:"instanceCount"`
+	InstanceCount *float64 `field:"required" json:"instanceCount" yaml:"instanceCount"`
 	// The type of operating system for which to reserve capacity.
-	InstancePlatform *string `json:"instancePlatform" yaml:"instancePlatform"`
+	InstancePlatform *string `field:"required" json:"instancePlatform" yaml:"instancePlatform"`
 	// The instance type for which to reserve capacity.
 	//
 	// For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
-	InstanceType *string `json:"instanceType" yaml:"instanceType"`
+	InstanceType *string `field:"required" json:"instanceType" yaml:"instanceType"`
 	// Indicates whether the Capacity Reservation supports EBS-optimized instances.
 	//
 	// This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
-	EbsOptimized interface{} `json:"ebsOptimized" yaml:"ebsOptimized"`
+	EbsOptimized interface{} `field:"optional" json:"ebsOptimized" yaml:"ebsOptimized"`
 	// The date and time at which the Capacity Reservation expires.
 	//
 	// When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to `expired` when it reaches its end date and time.
@@ -3948,36 +3998,36 @@ type CfnCapacityReservationProps struct {
 	// You must provide an `EndDate` value if `EndDateType` is `limited` . Omit `EndDate` if `EndDateType` is `unlimited` .
 	//
 	// If the `EndDateType` is `limited` , the Capacity Reservation is cancelled within an hour from the specified time. For example, if you specify 5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55 and 14:30:55 on 5/31/2019.
-	EndDate *string `json:"endDate" yaml:"endDate"`
+	EndDate *string `field:"optional" json:"endDate" yaml:"endDate"`
 	// Indicates the way in which the Capacity Reservation ends.
 	//
 	// A Capacity Reservation can have one of the following end types:
 	//
 	// - `unlimited` - The Capacity Reservation remains active until you explicitly cancel it. Do not provide an `EndDate` if the `EndDateType` is `unlimited` .
 	// - `limited` - The Capacity Reservation expires automatically at a specified date and time. You must provide an `EndDate` value if the `EndDateType` value is `limited` .
-	EndDateType *string `json:"endDateType" yaml:"endDateType"`
+	EndDateType *string `field:"optional" json:"endDateType" yaml:"endDateType"`
 	// Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.
-	EphemeralStorage interface{} `json:"ephemeralStorage" yaml:"ephemeralStorage"`
+	EphemeralStorage interface{} `field:"optional" json:"ephemeralStorage" yaml:"ephemeralStorage"`
 	// Indicates the type of instance launches that the Capacity Reservation accepts. The options include:.
 	//
 	// - `open` - The Capacity Reservation automatically matches all instances that have matching attributes (instance type, platform, and Availability Zone). Instances that have matching attributes run in the Capacity Reservation automatically without specifying any additional parameters.
 	// - `targeted` - The Capacity Reservation only accepts instances that have matching attributes (instance type, platform, and Availability Zone), and explicitly target the Capacity Reservation. This ensures that only permitted instances can use the reserved capacity.
 	//
 	// Default: `open`.
-	InstanceMatchCriteria *string `json:"instanceMatchCriteria" yaml:"instanceMatchCriteria"`
+	InstanceMatchCriteria *string `field:"optional" json:"instanceMatchCriteria" yaml:"instanceMatchCriteria"`
 	// The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
-	OutPostArn *string `json:"outPostArn" yaml:"outPostArn"`
+	OutPostArn *string `field:"optional" json:"outPostArn" yaml:"outPostArn"`
 	// The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
 	//
 	// For more information, see [Capacity Reservations for cluster placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html) in the *Amazon EC2 User Guide* .
-	PlacementGroupArn *string `json:"placementGroupArn" yaml:"placementGroupArn"`
+	PlacementGroupArn *string `field:"optional" json:"placementGroupArn" yaml:"placementGroupArn"`
 	// The tags to apply to the Capacity Reservation during launch.
-	TagSpecifications interface{} `json:"tagSpecifications" yaml:"tagSpecifications"`
+	TagSpecifications interface{} `field:"optional" json:"tagSpecifications" yaml:"tagSpecifications"`
 	// Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:.
 	//
 	// - `default` - The Capacity Reservation is created on hardware that is shared with other AWS accounts .
 	// - `dedicated` - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single AWS account .
-	Tenancy *string `json:"tenancy" yaml:"tenancy"`
+	Tenancy *string `field:"optional" json:"tenancy" yaml:"tenancy"`
 }
 
 // A CloudFormation `AWS::EC2::CarrierGateway`.
@@ -3985,8 +4035,11 @@ type CfnCapacityReservationProps struct {
 // Creates a carrier gateway. For more information about carrier gateways, see [Carrier gateways](https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#wavelength-carrier-gateway) in the *AWS Wavelength Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnCarrierGateway := ec2.NewCfnCarrierGateway(this, jsii.String("MyCfnCarrierGateway"), &cfnCarrierGatewayProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnCarrierGateway := awscdk.Aws_ec2.NewCfnCarrierGateway(this, jsii.String("MyCfnCarrierGateway"), &cfnCarrierGatewayProps{
 //   	vpcId: jsii.String("vpcId"),
 //
 //   	// the properties below are optional
@@ -4675,7 +4728,10 @@ func (c *jsiiProxy_CfnCarrierGateway) ValidateProperties(_properties interface{}
 // Properties for defining a `CfnCarrierGateway`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnCarrierGatewayProps := &cfnCarrierGatewayProps{
 //   	vpcId: jsii.String("vpcId"),
 //
@@ -4690,9 +4746,9 @@ func (c *jsiiProxy_CfnCarrierGateway) ValidateProperties(_properties interface{}
 //
 type CfnCarrierGatewayProps struct {
 	// The ID of the VPC associated with the carrier gateway.
-	VpcId *string `json:"vpcId" yaml:"vpcId"`
+	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
 	// The tags assigned to the carrier gateway.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::EC2::ClientVpnAuthorizationRule`.
@@ -4700,8 +4756,11 @@ type CfnCarrierGatewayProps struct {
 // Specifies an ingress authorization rule to add to a Client VPN endpoint. Ingress authorization rules act as firewall rules that grant access to networks. You must configure ingress authorization rules to enable clients to access resources in AWS or on-premises networks.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnClientVpnAuthorizationRule := ec2.NewCfnClientVpnAuthorizationRule(this, jsii.String("MyCfnClientVpnAuthorizationRule"), &cfnClientVpnAuthorizationRuleProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnClientVpnAuthorizationRule := awscdk.Aws_ec2.NewCfnClientVpnAuthorizationRule(this, jsii.String("MyCfnClientVpnAuthorizationRule"), &cfnClientVpnAuthorizationRuleProps{
 //   	clientVpnEndpointId: jsii.String("clientVpnEndpointId"),
 //   	targetNetworkCidr: jsii.String("targetNetworkCidr"),
 //
@@ -5428,7 +5487,10 @@ func (c *jsiiProxy_CfnClientVpnAuthorizationRule) ValidateProperties(_properties
 // Properties for defining a `CfnClientVpnAuthorizationRule`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnClientVpnAuthorizationRuleProps := &cfnClientVpnAuthorizationRuleProps{
 //   	clientVpnEndpointId: jsii.String("clientVpnEndpointId"),
 //   	targetNetworkCidr: jsii.String("targetNetworkCidr"),
@@ -5441,19 +5503,19 @@ func (c *jsiiProxy_CfnClientVpnAuthorizationRule) ValidateProperties(_properties
 //
 type CfnClientVpnAuthorizationRuleProps struct {
 	// The ID of the Client VPN endpoint.
-	ClientVpnEndpointId *string `json:"clientVpnEndpointId" yaml:"clientVpnEndpointId"`
+	ClientVpnEndpointId *string `field:"required" json:"clientVpnEndpointId" yaml:"clientVpnEndpointId"`
 	// The IPv4 address range, in CIDR notation, of the network for which access is being authorized.
-	TargetNetworkCidr *string `json:"targetNetworkCidr" yaml:"targetNetworkCidr"`
+	TargetNetworkCidr *string `field:"required" json:"targetNetworkCidr" yaml:"targetNetworkCidr"`
 	// The ID of the group to grant access to, for example, the Active Directory group or identity provider (IdP) group.
 	//
 	// Required if `AuthorizeAllGroups` is `false` or not specified.
-	AccessGroupId *string `json:"accessGroupId" yaml:"accessGroupId"`
+	AccessGroupId *string `field:"optional" json:"accessGroupId" yaml:"accessGroupId"`
 	// Indicates whether to grant access to all clients.
 	//
 	// Specify `true` to grant all clients who successfully establish a VPN connection access to the network. Must be set to `true` if `AccessGroupId` is not specified.
-	AuthorizeAllGroups interface{} `json:"authorizeAllGroups" yaml:"authorizeAllGroups"`
+	AuthorizeAllGroups interface{} `field:"optional" json:"authorizeAllGroups" yaml:"authorizeAllGroups"`
 	// A brief description of the authorization rule.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 
 // A CloudFormation `AWS::EC2::ClientVpnEndpoint`.
@@ -5461,8 +5523,11 @@ type CfnClientVpnAuthorizationRuleProps struct {
 // Specifies a Client VPN endpoint. A Client VPN endpoint is the resource you create and configure to enable and manage client VPN sessions. It is the destination endpoint at which all client VPN sessions are terminated.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnClientVpnEndpoint := ec2.NewCfnClientVpnEndpoint(this, jsii.String("MyCfnClientVpnEndpoint"), &cfnClientVpnEndpointProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnClientVpnEndpoint := awscdk.Aws_ec2.NewCfnClientVpnEndpoint(this, jsii.String("MyCfnClientVpnEndpoint"), &cfnClientVpnEndpointProps{
 //   	authenticationOptions: []interface{}{
 //   		&clientAuthenticationRequestProperty{
 //   			type: jsii.String("type"),
@@ -6508,7 +6573,10 @@ func (c *jsiiProxy_CfnClientVpnEndpoint) ValidateProperties(_properties interfac
 // Information about the client certificate to be used for authentication.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   certificateAuthenticationRequestProperty := &certificateAuthenticationRequestProperty{
 //   	clientRootCertificateChainArn: jsii.String("clientRootCertificateChainArn"),
 //   }
@@ -6517,7 +6585,7 @@ type CfnClientVpnEndpoint_CertificateAuthenticationRequestProperty struct {
 	// The ARN of the client certificate.
 	//
 	// The certificate must be signed by a certificate authority (CA) and it must be provisioned in AWS Certificate Manager (ACM).
-	ClientRootCertificateChainArn *string `json:"clientRootCertificateChainArn" yaml:"clientRootCertificateChainArn"`
+	ClientRootCertificateChainArn *string `field:"required" json:"clientRootCertificateChainArn" yaml:"clientRootCertificateChainArn"`
 }
 
 // Describes the authentication method to be used by a Client VPN endpoint.
@@ -6525,7 +6593,10 @@ type CfnClientVpnEndpoint_CertificateAuthenticationRequestProperty struct {
 // For more information, see [Authentication](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/authentication-authrization.html#client-authentication) in the *AWS Client VPN Administrator Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   clientAuthenticationRequestProperty := &clientAuthenticationRequestProperty{
 //   	type: jsii.String("type"),
 //
@@ -6546,17 +6617,17 @@ type CfnClientVpnEndpoint_CertificateAuthenticationRequestProperty struct {
 //
 type CfnClientVpnEndpoint_ClientAuthenticationRequestProperty struct {
 	// The type of client authentication to be used.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// Information about the Active Directory to be used, if applicable.
 	//
 	// You must provide this information if *Type* is `directory-service-authentication` .
-	ActiveDirectory interface{} `json:"activeDirectory" yaml:"activeDirectory"`
+	ActiveDirectory interface{} `field:"optional" json:"activeDirectory" yaml:"activeDirectory"`
 	// Information about the IAM SAML identity provider, if applicable.
-	FederatedAuthentication interface{} `json:"federatedAuthentication" yaml:"federatedAuthentication"`
+	FederatedAuthentication interface{} `field:"optional" json:"federatedAuthentication" yaml:"federatedAuthentication"`
 	// Information about the authentication certificates to be used, if applicable.
 	//
 	// You must provide this information if *Type* is `certificate-authentication` .
-	MutualAuthentication interface{} `json:"mutualAuthentication" yaml:"mutualAuthentication"`
+	MutualAuthentication interface{} `field:"optional" json:"mutualAuthentication" yaml:"mutualAuthentication"`
 }
 
 // Indicates whether client connect options are enabled.
@@ -6564,7 +6635,10 @@ type CfnClientVpnEndpoint_ClientAuthenticationRequestProperty struct {
 // The default is `false` (not enabled).
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   clientConnectOptionsProperty := &clientConnectOptionsProperty{
 //   	enabled: jsii.Boolean(false),
 //
@@ -6576,15 +6650,18 @@ type CfnClientVpnEndpoint_ClientConnectOptionsProperty struct {
 	// Indicates whether client connect options are enabled.
 	//
 	// The default is `false` (not enabled).
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
 	// The Amazon Resource Name (ARN) of the AWS Lambda function used for connection authorization.
-	LambdaFunctionArn *string `json:"lambdaFunctionArn" yaml:"lambdaFunctionArn"`
+	LambdaFunctionArn *string `field:"optional" json:"lambdaFunctionArn" yaml:"lambdaFunctionArn"`
 }
 
 // Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   clientLoginBannerOptionsProperty := &clientLoginBannerOptionsProperty{
 //   	enabled: jsii.Boolean(false),
 //
@@ -6598,17 +6675,20 @@ type CfnClientVpnEndpoint_ClientLoginBannerOptionsProperty struct {
 	// Valid values: `true | false`
 	//
 	// Default value: `false`.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
 	// Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established.
 	//
 	// UTF-8 encoded characters only. Maximum of 1400 characters.
-	BannerText *string `json:"bannerText" yaml:"bannerText"`
+	BannerText *string `field:"optional" json:"bannerText" yaml:"bannerText"`
 }
 
 // Describes the client connection logging options for the Client VPN endpoint.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   connectionLogOptionsProperty := &connectionLogOptionsProperty{
 //   	enabled: jsii.Boolean(false),
 //
@@ -6619,32 +6699,38 @@ type CfnClientVpnEndpoint_ClientLoginBannerOptionsProperty struct {
 //
 type CfnClientVpnEndpoint_ConnectionLogOptionsProperty struct {
 	// Indicates whether connection logging is enabled.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
 	// The name of the CloudWatch Logs log group.
 	//
 	// Required if connection logging is enabled.
-	CloudwatchLogGroup *string `json:"cloudwatchLogGroup" yaml:"cloudwatchLogGroup"`
+	CloudwatchLogGroup *string `field:"optional" json:"cloudwatchLogGroup" yaml:"cloudwatchLogGroup"`
 	// The name of the CloudWatch Logs log stream to which the connection data is published.
-	CloudwatchLogStream *string `json:"cloudwatchLogStream" yaml:"cloudwatchLogStream"`
+	CloudwatchLogStream *string `field:"optional" json:"cloudwatchLogStream" yaml:"cloudwatchLogStream"`
 }
 
 // Describes the Active Directory to be used for client authentication.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   directoryServiceAuthenticationRequestProperty := &directoryServiceAuthenticationRequestProperty{
 //   	directoryId: jsii.String("directoryId"),
 //   }
 //
 type CfnClientVpnEndpoint_DirectoryServiceAuthenticationRequestProperty struct {
 	// The ID of the Active Directory to be used for authentication.
-	DirectoryId *string `json:"directoryId" yaml:"directoryId"`
+	DirectoryId *string `field:"required" json:"directoryId" yaml:"directoryId"`
 }
 
 // The IAM SAML identity provider used for federated authentication.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   federatedAuthenticationRequestProperty := &federatedAuthenticationRequestProperty{
 //   	samlProviderArn: jsii.String("samlProviderArn"),
 //
@@ -6654,15 +6740,18 @@ type CfnClientVpnEndpoint_DirectoryServiceAuthenticationRequestProperty struct {
 //
 type CfnClientVpnEndpoint_FederatedAuthenticationRequestProperty struct {
 	// The Amazon Resource Name (ARN) of the IAM SAML identity provider.
-	SamlProviderArn *string `json:"samlProviderArn" yaml:"samlProviderArn"`
+	SamlProviderArn *string `field:"required" json:"samlProviderArn" yaml:"samlProviderArn"`
 	// The Amazon Resource Name (ARN) of the IAM SAML identity provider for the self-service portal.
-	SelfServiceSamlProviderArn *string `json:"selfServiceSamlProviderArn" yaml:"selfServiceSamlProviderArn"`
+	SelfServiceSamlProviderArn *string `field:"optional" json:"selfServiceSamlProviderArn" yaml:"selfServiceSamlProviderArn"`
 }
 
 // The tags to apply to a resource when the resource is being created.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tagSpecificationProperty := &tagSpecificationProperty{
 //   	resourceType: jsii.String("resourceType"),
 //   	tags: []cfnTag{
@@ -6675,15 +6764,18 @@ type CfnClientVpnEndpoint_FederatedAuthenticationRequestProperty struct {
 //
 type CfnClientVpnEndpoint_TagSpecificationProperty struct {
 	// The type of resource to tag.
-	ResourceType *string `json:"resourceType" yaml:"resourceType"`
+	ResourceType *string `field:"required" json:"resourceType" yaml:"resourceType"`
 	// The tags to apply to the resource.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"required" json:"tags" yaml:"tags"`
 }
 
 // Properties for defining a `CfnClientVpnEndpoint`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnClientVpnEndpointProps := &cfnClientVpnEndpointProps{
 //   	authenticationOptions: []interface{}{
 //   		&clientAuthenticationRequestProperty{
@@ -6755,11 +6847,11 @@ type CfnClientVpnEndpoint_TagSpecificationProperty struct {
 //
 type CfnClientVpnEndpointProps struct {
 	// Information about the authentication method to be used to authenticate clients.
-	AuthenticationOptions interface{} `json:"authenticationOptions" yaml:"authenticationOptions"`
+	AuthenticationOptions interface{} `field:"required" json:"authenticationOptions" yaml:"authenticationOptions"`
 	// The IPv4 address range, in CIDR notation, from which to assign client IP addresses.
 	//
 	// The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
-	ClientCidrBlock *string `json:"clientCidrBlock" yaml:"clientCidrBlock"`
+	ClientCidrBlock *string `field:"required" json:"clientCidrBlock" yaml:"clientCidrBlock"`
 	// Information about the client connection logging options.
 	//
 	// If you enable client connection logging, data about client connections is sent to a Cloudwatch Logs log stream. The following information is logged:
@@ -6768,57 +6860,57 @@ type CfnClientVpnEndpointProps struct {
 	// - Client connection results (successful and unsuccessful)
 	// - Reasons for unsuccessful client connection requests
 	// - Client connection termination time.
-	ConnectionLogOptions interface{} `json:"connectionLogOptions" yaml:"connectionLogOptions"`
+	ConnectionLogOptions interface{} `field:"required" json:"connectionLogOptions" yaml:"connectionLogOptions"`
 	// The ARN of the server certificate.
 	//
 	// For more information, see the [AWS Certificate Manager User Guide](https://docs.aws.amazon.com/acm/latest/userguide/) .
-	ServerCertificateArn *string `json:"serverCertificateArn" yaml:"serverCertificateArn"`
+	ServerCertificateArn *string `field:"required" json:"serverCertificateArn" yaml:"serverCertificateArn"`
 	// The options for managing connection authorization for new client connections.
-	ClientConnectOptions interface{} `json:"clientConnectOptions" yaml:"clientConnectOptions"`
+	ClientConnectOptions interface{} `field:"optional" json:"clientConnectOptions" yaml:"clientConnectOptions"`
 	// Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
-	ClientLoginBannerOptions interface{} `json:"clientLoginBannerOptions" yaml:"clientLoginBannerOptions"`
+	ClientLoginBannerOptions interface{} `field:"optional" json:"clientLoginBannerOptions" yaml:"clientLoginBannerOptions"`
 	// A brief description of the Client VPN endpoint.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Information about the DNS servers to be used for DNS resolution.
 	//
 	// A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address configured on the device is used for the DNS server.
-	DnsServers *[]*string `json:"dnsServers" yaml:"dnsServers"`
+	DnsServers *[]*string `field:"optional" json:"dnsServers" yaml:"dnsServers"`
 	// The IDs of one or more security groups to apply to the target network.
 	//
 	// You must also specify the ID of the VPC that contains the security groups.
-	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
+	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// Specify whether to enable the self-service portal for the Client VPN endpoint.
 	//
 	// Default Value: `enabled`.
-	SelfServicePortal *string `json:"selfServicePortal" yaml:"selfServicePortal"`
+	SelfServicePortal *string `field:"optional" json:"selfServicePortal" yaml:"selfServicePortal"`
 	// The maximum VPN session duration time in hours.
 	//
 	// Valid values: `8 | 10 | 12 | 24`
 	//
 	// Default value: `24`.
-	SessionTimeoutHours *float64 `json:"sessionTimeoutHours" yaml:"sessionTimeoutHours"`
+	SessionTimeoutHours *float64 `field:"optional" json:"sessionTimeoutHours" yaml:"sessionTimeoutHours"`
 	// Indicates whether split-tunnel is enabled on the AWS Client VPN endpoint.
 	//
 	// By default, split-tunnel on a VPN endpoint is disabled.
 	//
 	// For information about split-tunnel VPN endpoints, see [Split-tunnel AWS Client VPN endpoint](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html) in the *AWS Client VPN Administrator Guide* .
-	SplitTunnel interface{} `json:"splitTunnel" yaml:"splitTunnel"`
+	SplitTunnel interface{} `field:"optional" json:"splitTunnel" yaml:"splitTunnel"`
 	// The tags to apply to the Client VPN endpoint during creation.
-	TagSpecifications interface{} `json:"tagSpecifications" yaml:"tagSpecifications"`
+	TagSpecifications interface{} `field:"optional" json:"tagSpecifications" yaml:"tagSpecifications"`
 	// The transport protocol to be used by the VPN session.
 	//
 	// Default value: `udp`.
-	TransportProtocol *string `json:"transportProtocol" yaml:"transportProtocol"`
+	TransportProtocol *string `field:"optional" json:"transportProtocol" yaml:"transportProtocol"`
 	// The ID of the VPC to associate with the Client VPN endpoint.
 	//
 	// If no security group IDs are specified in the request, the default security group for the VPC is applied.
-	VpcId *string `json:"vpcId" yaml:"vpcId"`
+	VpcId *string `field:"optional" json:"vpcId" yaml:"vpcId"`
 	// The port number to assign to the Client VPN endpoint for TCP and UDP traffic.
 	//
 	// Valid Values: `443` | `1194`
 	//
 	// Default Value: `443`.
-	VpnPort *float64 `json:"vpnPort" yaml:"vpnPort"`
+	VpnPort *float64 `field:"optional" json:"vpnPort" yaml:"vpnPort"`
 }
 
 // A CloudFormation `AWS::EC2::ClientVpnRoute`.
@@ -6828,8 +6920,11 @@ type CfnClientVpnEndpointProps struct {
 // A target network association must be created before you can specify a route. If you're setting up all the components of a Client VPN endpoint at the same time, you must use the [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) to declare a dependency on the `AWS::EC2::ClientVpnTargetNetworkAssociation` resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnClientVpnRoute := ec2.NewCfnClientVpnRoute(this, jsii.String("MyCfnClientVpnRoute"), &cfnClientVpnRouteProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnClientVpnRoute := awscdk.Aws_ec2.NewCfnClientVpnRoute(this, jsii.String("MyCfnClientVpnRoute"), &cfnClientVpnRouteProps{
 //   	clientVpnEndpointId: jsii.String("clientVpnEndpointId"),
 //   	destinationCidrBlock: jsii.String("destinationCidrBlock"),
 //   	targetVpcSubnetId: jsii.String("targetVpcSubnetId"),
@@ -7539,7 +7634,10 @@ func (c *jsiiProxy_CfnClientVpnRoute) ValidateProperties(_properties interface{}
 // Properties for defining a `CfnClientVpnRoute`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnClientVpnRouteProps := &cfnClientVpnRouteProps{
 //   	clientVpnEndpointId: jsii.String("clientVpnEndpointId"),
 //   	destinationCidrBlock: jsii.String("destinationCidrBlock"),
@@ -7551,22 +7649,22 @@ func (c *jsiiProxy_CfnClientVpnRoute) ValidateProperties(_properties interface{}
 //
 type CfnClientVpnRouteProps struct {
 	// The ID of the Client VPN endpoint to which to add the route.
-	ClientVpnEndpointId *string `json:"clientVpnEndpointId" yaml:"clientVpnEndpointId"`
+	ClientVpnEndpointId *string `field:"required" json:"clientVpnEndpointId" yaml:"clientVpnEndpointId"`
 	// The IPv4 address range, in CIDR notation, of the route destination. For example:.
 	//
 	// - To add a route for Internet access, enter `0.0.0.0/0`
 	// - To add a route for a peered VPC, enter the peered VPC's IPv4 CIDR range
 	// - To add a route for an on-premises network, enter the AWS Site-to-Site VPN connection's IPv4 CIDR range
 	// - To add a route for the local network, enter the client CIDR range.
-	DestinationCidrBlock *string `json:"destinationCidrBlock" yaml:"destinationCidrBlock"`
+	DestinationCidrBlock *string `field:"required" json:"destinationCidrBlock" yaml:"destinationCidrBlock"`
 	// The ID of the subnet through which you want to route traffic.
 	//
 	// The specified subnet must be an existing target network of the Client VPN endpoint.
 	//
 	// Alternatively, if you're adding a route for the local network, specify `local` .
-	TargetVpcSubnetId *string `json:"targetVpcSubnetId" yaml:"targetVpcSubnetId"`
+	TargetVpcSubnetId *string `field:"required" json:"targetVpcSubnetId" yaml:"targetVpcSubnetId"`
 	// A brief description of the route.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 
 // A CloudFormation `AWS::EC2::ClientVpnTargetNetworkAssociation`.
@@ -7574,8 +7672,11 @@ type CfnClientVpnRouteProps struct {
 // Specifies a target network to associate with a Client VPN endpoint. A target network is a subnet in a VPC. You can associate multiple subnets from the same VPC with a Client VPN endpoint. You can associate only one subnet in each Availability Zone. We recommend that you associate at least two subnets to provide Availability Zone redundancy.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnClientVpnTargetNetworkAssociation := ec2.NewCfnClientVpnTargetNetworkAssociation(this, jsii.String("MyCfnClientVpnTargetNetworkAssociation"), &cfnClientVpnTargetNetworkAssociationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnClientVpnTargetNetworkAssociation := awscdk.Aws_ec2.NewCfnClientVpnTargetNetworkAssociation(this, jsii.String("MyCfnClientVpnTargetNetworkAssociation"), &cfnClientVpnTargetNetworkAssociationProps{
 //   	clientVpnEndpointId: jsii.String("clientVpnEndpointId"),
 //   	subnetId: jsii.String("subnetId"),
 //   })
@@ -8230,7 +8331,10 @@ func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) ValidateProperties(_pro
 // Properties for defining a `CfnClientVpnTargetNetworkAssociation`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnClientVpnTargetNetworkAssociationProps := &cfnClientVpnTargetNetworkAssociationProps{
 //   	clientVpnEndpointId: jsii.String("clientVpnEndpointId"),
 //   	subnetId: jsii.String("subnetId"),
@@ -8238,9 +8342,9 @@ func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) ValidateProperties(_pro
 //
 type CfnClientVpnTargetNetworkAssociationProps struct {
 	// The ID of the Client VPN endpoint.
-	ClientVpnEndpointId *string `json:"clientVpnEndpointId" yaml:"clientVpnEndpointId"`
+	ClientVpnEndpointId *string `field:"required" json:"clientVpnEndpointId" yaml:"clientVpnEndpointId"`
 	// The ID of the subnet to associate with the Client VPN endpoint.
-	SubnetId *string `json:"subnetId" yaml:"subnetId"`
+	SubnetId *string `field:"required" json:"subnetId" yaml:"subnetId"`
 }
 
 // A CloudFormation `AWS::EC2::CustomerGateway`.
@@ -8248,8 +8352,11 @@ type CfnClientVpnTargetNetworkAssociationProps struct {
 // Specifies a customer gateway.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnCustomerGateway := ec2.NewCfnCustomerGateway(this, jsii.String("MyCfnCustomerGateway"), &cfnCustomerGatewayProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnCustomerGateway := awscdk.Aws_ec2.NewCfnCustomerGateway(this, jsii.String("MyCfnCustomerGateway"), &cfnCustomerGatewayProps{
 //   	bgpAsn: jsii.Number(123),
 //   	ipAddress: jsii.String("ipAddress"),
 //   	type: jsii.String("type"),
@@ -8950,7 +9057,10 @@ func (c *jsiiProxy_CfnCustomerGateway) ValidateProperties(_properties interface{
 // Properties for defining a `CfnCustomerGateway`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnCustomerGatewayProps := &cfnCustomerGatewayProps{
 //   	bgpAsn: jsii.Number(123),
 //   	ipAddress: jsii.String("ipAddress"),
@@ -8969,15 +9079,15 @@ type CfnCustomerGatewayProps struct {
 	// For devices that support BGP, the customer gateway's BGP ASN.
 	//
 	// Default: 65000.
-	BgpAsn *float64 `json:"bgpAsn" yaml:"bgpAsn"`
+	BgpAsn *float64 `field:"required" json:"bgpAsn" yaml:"bgpAsn"`
 	// The Internet-routable IP address for the customer gateway's outside interface.
 	//
 	// The address must be static.
-	IpAddress *string `json:"ipAddress" yaml:"ipAddress"`
+	IpAddress *string `field:"required" json:"ipAddress" yaml:"ipAddress"`
 	// The type of VPN connection that this customer gateway supports ( `ipsec.1` ).
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// One or more tags for the customer gateway.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::EC2::DHCPOptions`.
@@ -8987,8 +9097,11 @@ type CfnCustomerGatewayProps struct {
 // You must specify at least one of the following properties: `DomainNameServers` , `NetbiosNameServers` , `NtpServers` . If you specify `NetbiosNameServers` , you must specify `NetbiosNodeType` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnDHCPOptions := ec2.NewCfnDHCPOptions(this, jsii.String("MyCfnDHCPOptions"), &cfnDHCPOptionsProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDHCPOptions := awscdk.Aws_ec2.NewCfnDHCPOptions(this, jsii.String("MyCfnDHCPOptions"), &cfnDHCPOptionsProps{
 //   	domainName: jsii.String("domainName"),
 //   	domainNameServers: []*string{
 //   		jsii.String("domainNameServers"),
@@ -9751,7 +9864,10 @@ func (c *jsiiProxy_CfnDHCPOptions) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnDHCPOptions`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDHCPOptionsProps := &cfnDHCPOptionsProps{
 //   	domainName: jsii.String("domainName"),
 //   	domainNameServers: []*string{
@@ -9776,21 +9892,21 @@ type CfnDHCPOptionsProps struct {
 	// This value is used to complete unqualified DNS hostnames.
 	//
 	// If you're using AmazonProvidedDNS in `us-east-1` , specify `ec2.internal` . If you're using AmazonProvidedDNS in another Region, specify *region* . `compute.internal` (for example, `ap-northeast-1.compute.internal` ). Otherwise, specify a domain name (for example, *MyCompany.com* ).
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"optional" json:"domainName" yaml:"domainName"`
 	// The IPv4 addresses of up to four domain name servers, or `AmazonProvidedDNS` .
 	//
 	// The default is `AmazonProvidedDNS` . To have your instance receive a custom DNS hostname as specified in `DomainName` , you must set this property to a custom DNS server.
-	DomainNameServers *[]*string `json:"domainNameServers" yaml:"domainNameServers"`
+	DomainNameServers *[]*string `field:"optional" json:"domainNameServers" yaml:"domainNameServers"`
 	// The IPv4 addresses of up to four NetBIOS name servers.
-	NetbiosNameServers *[]*string `json:"netbiosNameServers" yaml:"netbiosNameServers"`
+	NetbiosNameServers *[]*string `field:"optional" json:"netbiosNameServers" yaml:"netbiosNameServers"`
 	// The NetBIOS node type (1, 2, 4, or 8).
 	//
 	// We recommend that you specify 2 (broadcast and multicast are not currently supported).
-	NetbiosNodeType *float64 `json:"netbiosNodeType" yaml:"netbiosNodeType"`
+	NetbiosNodeType *float64 `field:"optional" json:"netbiosNodeType" yaml:"netbiosNodeType"`
 	// The IPv4 addresses of up to four Network Time Protocol (NTP) servers.
-	NtpServers *[]*string `json:"ntpServers" yaml:"ntpServers"`
+	NtpServers *[]*string `field:"optional" json:"ntpServers" yaml:"ntpServers"`
 	// Any tags assigned to the DHCP options set.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::EC2::EC2Fleet`.
@@ -9798,8 +9914,11 @@ type CfnDHCPOptionsProps struct {
 // Specifies the configuration information to launch a fleet--or group--of instances. An EC2 Fleet can launch multiple instance types across multiple Availability Zones, using the On-Demand Instance, Reserved Instance, and Spot Instance purchasing models together. Using EC2 Fleet, you can define separate On-Demand and Spot capacity targets, specify the instance types that work best for your applications, and specify how Amazon EC2 should distribute your fleet capacity within each purchasing model. For more information, see [Launching an EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html) in the *Amazon EC2 User Guide for Linux Instances* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnEC2Fleet := ec2.NewCfnEC2Fleet(this, jsii.String("MyCfnEC2Fleet"), &cfnEC2FleetProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnEC2Fleet := awscdk.Aws_ec2.NewCfnEC2Fleet(this, jsii.String("MyCfnEC2Fleet"), &cfnEC2FleetProps{
 //   	launchTemplateConfigs: []interface{}{
 //   		&fleetLaunchTemplateConfigRequestProperty{
 //   			launchTemplateSpecification: &fleetLaunchTemplateSpecificationRequestProperty{
@@ -10836,7 +10955,10 @@ func (c *jsiiProxy_CfnEC2Fleet) ValidateProperties(_properties interface{}) {
 // To exclude accelerator-enabled instance types, set `Max` to `0` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   acceleratorCountRequestProperty := &acceleratorCountRequestProperty{
 //   	max: jsii.Number(123),
 //   	min: jsii.Number(123),
@@ -10846,17 +10968,20 @@ type CfnEC2Fleet_AcceleratorCountRequestProperty struct {
 	// The maximum number of accelerators.
 	//
 	// To specify no maximum limit, omit this parameter. To exclude accelerator-enabled instance types, set `Max` to `0` .
-	Max *float64 `json:"max" yaml:"max"`
+	Max *float64 `field:"optional" json:"max" yaml:"max"`
 	// The minimum number of accelerators.
 	//
 	// To specify no minimum limit, omit this parameter.
-	Min *float64 `json:"min" yaml:"min"`
+	Min *float64 `field:"optional" json:"min" yaml:"min"`
 }
 
 // The minimum and maximum amount of total accelerator memory, in MiB.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   acceleratorTotalMemoryMiBRequestProperty := &acceleratorTotalMemoryMiBRequestProperty{
 //   	max: jsii.Number(123),
 //   	min: jsii.Number(123),
@@ -10866,11 +10991,11 @@ type CfnEC2Fleet_AcceleratorTotalMemoryMiBRequestProperty struct {
 	// The maximum amount of accelerator memory, in MiB.
 	//
 	// To specify no maximum limit, omit this parameter.
-	Max *float64 `json:"max" yaml:"max"`
+	Max *float64 `field:"optional" json:"max" yaml:"max"`
 	// The minimum amount of accelerator memory, in MiB.
 	//
 	// To specify no minimum limit, omit this parameter.
-	Min *float64 `json:"min" yaml:"min"`
+	Min *float64 `field:"optional" json:"min" yaml:"min"`
 }
 
 // The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps.
@@ -10878,7 +11003,10 @@ type CfnEC2Fleet_AcceleratorTotalMemoryMiBRequestProperty struct {
 // For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   baselineEbsBandwidthMbpsRequestProperty := &baselineEbsBandwidthMbpsRequestProperty{
 //   	max: jsii.Number(123),
 //   	min: jsii.Number(123),
@@ -10888,11 +11016,11 @@ type CfnEC2Fleet_BaselineEbsBandwidthMbpsRequestProperty struct {
 	// The maximum baseline bandwidth, in Mbps.
 	//
 	// To specify no maximum limit, omit this parameter.
-	Max *float64 `json:"max" yaml:"max"`
+	Max *float64 `field:"optional" json:"max" yaml:"max"`
 	// The minimum baseline bandwidth, in Mbps.
 	//
 	// To specify no minimum limit, omit this parameter.
-	Min *float64 `json:"min" yaml:"min"`
+	Min *float64 `field:"optional" json:"min" yaml:"min"`
 }
 
 // The Spot Instance replacement strategy to use when Amazon EC2 emits a rebalance notification signal that your Spot Instance is at an elevated risk of being interrupted.
@@ -10900,7 +11028,10 @@ type CfnEC2Fleet_BaselineEbsBandwidthMbpsRequestProperty struct {
 // For more information, see [Capacity rebalancing](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-capacity-rebalance.html) in the *Amazon EC2 User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   capacityRebalanceProperty := &capacityRebalanceProperty{
 //   	replacementStrategy: jsii.String("replacementStrategy"),
 //   	terminationDelay: jsii.Number(123),
@@ -10912,7 +11043,7 @@ type CfnEC2Fleet_CapacityRebalanceProperty struct {
 	// `launch` - EC2 Fleet launches a replacement Spot Instance when a rebalance notification is emitted for an existing Spot Instance in the fleet. EC2 Fleet does not terminate the instances that receive a rebalance notification. You can terminate the old instances, or you can leave them running. You are charged for all instances while they are running.
 	//
 	// `launch-before-terminate` - EC2 Fleet launches a replacement Spot Instance when a rebalance notification is emitted for an existing Spot Instance in the fleet, and then, after a delay that you specify (in `TerminationDelay` ), terminates the instances that received a rebalance notification.
-	ReplacementStrategy *string `json:"replacementStrategy" yaml:"replacementStrategy"`
+	ReplacementStrategy *string `field:"optional" json:"replacementStrategy" yaml:"replacementStrategy"`
 	// The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot Instance after launching a new replacement Spot Instance.
 	//
 	// Required when `ReplacementStrategy` is set to `launch-before-terminate` .
@@ -10920,7 +11051,7 @@ type CfnEC2Fleet_CapacityRebalanceProperty struct {
 	// Not valid when `ReplacementStrategy` is set to `launch` .
 	//
 	// Valid values: Minimum value of `120` seconds. Maximum value of `7200` seconds.
-	TerminationDelay *float64 `json:"terminationDelay" yaml:"terminationDelay"`
+	TerminationDelay *float64 `field:"optional" json:"terminationDelay" yaml:"terminationDelay"`
 }
 
 // Describes the strategy for using unused Capacity Reservations for fulfilling On-Demand capacity.
@@ -10930,7 +11061,10 @@ type CfnEC2Fleet_CapacityRebalanceProperty struct {
 // For more information about Capacity Reservations, see [On-Demand Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html) in the *Amazon EC2 User Guide* . For examples of using Capacity Reservations in an EC2 Fleet, see [EC2 Fleet example configurations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-examples.html) in the *Amazon EC2 User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   capacityReservationOptionsRequestProperty := &capacityReservationOptionsRequestProperty{
 //   	usageStrategy: jsii.String("usageStrategy"),
 //   }
@@ -10941,7 +11075,7 @@ type CfnEC2Fleet_CapacityReservationOptionsRequestProperty struct {
 	// If you specify `use-capacity-reservations-first` , the fleet uses unused Capacity Reservations to fulfill On-Demand capacity up to the target On-Demand capacity. If multiple instance pools have unused Capacity Reservations, the On-Demand allocation strategy ( `lowest-price` or `prioritized` ) is applied. If the number of unused Capacity Reservations is less than the On-Demand target capacity, the remaining On-Demand target capacity is launched according to the On-Demand allocation strategy ( `lowest-price` or `prioritized` ).
 	//
 	// If you do not specify a value, the fleet fulfils the On-Demand capacity according to the chosen On-Demand allocation strategy.
-	UsageStrategy *string `json:"usageStrategy" yaml:"usageStrategy"`
+	UsageStrategy *string `field:"optional" json:"usageStrategy" yaml:"usageStrategy"`
 }
 
 // Specifies a launch template and overrides for an EC2 Fleet.
@@ -10949,7 +11083,10 @@ type CfnEC2Fleet_CapacityReservationOptionsRequestProperty struct {
 // `FleetLaunchTemplateConfigRequest` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   fleetLaunchTemplateConfigRequestProperty := &fleetLaunchTemplateConfigRequestProperty{
 //   	launchTemplateSpecification: &fleetLaunchTemplateSpecificationRequestProperty{
 //   		launchTemplateId: jsii.String("launchTemplateId"),
@@ -11043,11 +11180,11 @@ type CfnEC2Fleet_FleetLaunchTemplateConfigRequestProperty struct {
 	// The launch template to use.
 	//
 	// You must specify either the launch template ID or launch template name in the request.
-	LaunchTemplateSpecification interface{} `json:"launchTemplateSpecification" yaml:"launchTemplateSpecification"`
+	LaunchTemplateSpecification interface{} `field:"optional" json:"launchTemplateSpecification" yaml:"launchTemplateSpecification"`
 	// Any parameters that you specify override the same parameters in the launch template.
 	//
 	// For fleets of type `request` and `maintain` , a maximum of 300 items is allowed across all launch templates.
-	Overrides interface{} `json:"overrides" yaml:"overrides"`
+	Overrides interface{} `field:"optional" json:"overrides" yaml:"overrides"`
 }
 
 // Specifies overrides for a launch template for an EC2 Fleet.
@@ -11055,7 +11192,10 @@ type CfnEC2Fleet_FleetLaunchTemplateConfigRequestProperty struct {
 // `FleetLaunchTemplateOverridesRequest` is a property of the [FleetLaunchTemplateConfigRequest](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html) property type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   fleetLaunchTemplateOverridesRequestProperty := &fleetLaunchTemplateOverridesRequestProperty{
 //   	availabilityZone: jsii.String("availabilityZone"),
 //   	instanceRequirements: &instanceRequirementsRequestProperty{
@@ -11138,21 +11278,21 @@ type CfnEC2Fleet_FleetLaunchTemplateConfigRequestProperty struct {
 //
 type CfnEC2Fleet_FleetLaunchTemplateOverridesRequestProperty struct {
 	// The Availability Zone in which to launch the instances.
-	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
+	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
 	// The attributes for the instance types.
 	//
 	// When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.
 	//
 	// > If you specify `InstanceRequirements` , you can't specify `InstanceTypes` .
-	InstanceRequirements interface{} `json:"instanceRequirements" yaml:"instanceRequirements"`
+	InstanceRequirements interface{} `field:"optional" json:"instanceRequirements" yaml:"instanceRequirements"`
 	// The instance type.
 	//
 	// > If you specify `InstanceTypes` , you can't specify `InstanceRequirements` .
-	InstanceType *string `json:"instanceType" yaml:"instanceType"`
+	InstanceType *string `field:"optional" json:"instanceType" yaml:"instanceType"`
 	// The maximum price per unit hour that you are willing to pay for a Spot Instance.
-	MaxPrice *string `json:"maxPrice" yaml:"maxPrice"`
+	MaxPrice *string `field:"optional" json:"maxPrice" yaml:"maxPrice"`
 	// The location where the instance launched, if applicable.
-	Placement interface{} `json:"placement" yaml:"placement"`
+	Placement interface{} `field:"optional" json:"placement" yaml:"placement"`
 	// The priority for the launch template override. The highest priority is launched first.
 	//
 	// If the On-Demand `AllocationStrategy` is set to `prioritized` , EC2 Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity.
@@ -11160,13 +11300,13 @@ type CfnEC2Fleet_FleetLaunchTemplateOverridesRequestProperty struct {
 	// If the Spot `AllocationStrategy` is set to `capacity-optimized-prioritized` , EC2 Fleet uses priority on a best-effort basis to determine which launch template override to use in fulfilling Spot capacity, but optimizes for capacity first.
 	//
 	// Valid values are whole numbers starting at `0` . The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority. You can set the same priority for different launch template overrides.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 	// The IDs of the subnets in which to launch the instances.
 	//
 	// Separate multiple subnet IDs using commas (for example, `subnet-1234abcdeexample1, subnet-0987cdef6example2` ). A request of type `instant` can have only one subnet ID.
-	SubnetId *string `json:"subnetId" yaml:"subnetId"`
+	SubnetId *string `field:"optional" json:"subnetId" yaml:"subnetId"`
 	// The number of units provided by the specified instance type.
-	WeightedCapacity *float64 `json:"weightedCapacity" yaml:"weightedCapacity"`
+	WeightedCapacity *float64 `field:"optional" json:"weightedCapacity" yaml:"weightedCapacity"`
 }
 
 // Specifies the launch template to use for an EC2 Fleet.
@@ -11176,7 +11316,10 @@ type CfnEC2Fleet_FleetLaunchTemplateOverridesRequestProperty struct {
 // `FleetLaunchTemplateSpecificationRequest` is a property of the [FleetLaunchTemplateConfigRequest](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html) property type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   fleetLaunchTemplateSpecificationRequestProperty := &fleetLaunchTemplateSpecificationRequestProperty{
 //   	launchTemplateId: jsii.String("launchTemplateId"),
 //   	launchTemplateName: jsii.String("launchTemplateName"),
@@ -11187,17 +11330,17 @@ type CfnEC2Fleet_FleetLaunchTemplateSpecificationRequestProperty struct {
 	// The ID of the launch template.
 	//
 	// If you specify the template ID, you can't specify the template name.
-	LaunchTemplateId *string `json:"launchTemplateId" yaml:"launchTemplateId"`
+	LaunchTemplateId *string `field:"optional" json:"launchTemplateId" yaml:"launchTemplateId"`
 	// The name of the launch template.
 	//
 	// If you specify the template name, you can't specify the template ID.
-	LaunchTemplateName *string `json:"launchTemplateName" yaml:"launchTemplateName"`
+	LaunchTemplateName *string `field:"optional" json:"launchTemplateName" yaml:"launchTemplateName"`
 	// The launch template version number, `$Latest` , or `$Default` . You must specify a value, otherwise the request fails.
 	//
 	// If the value is `$Latest` , Amazon EC2 uses the latest version of the launch template.
 	//
 	// If the value is `$Default` , Amazon EC2 uses the default version of the launch template.
-	Version *string `json:"version" yaml:"version"`
+	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 
 // The attributes for the instance types.
@@ -11211,7 +11354,10 @@ type CfnEC2Fleet_FleetLaunchTemplateSpecificationRequestProperty struct {
 // For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) , [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html) , and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   instanceRequirementsRequestProperty := &instanceRequirementsRequestProperty{
 //   	acceleratorCount: &acceleratorCountRequestProperty{
 //   		max: jsii.Number(123),
@@ -11280,7 +11426,7 @@ type CfnEC2Fleet_InstanceRequirementsRequestProperty struct {
 	// To exclude accelerator-enabled instance types, set `Max` to `0` .
 	//
 	// Default: No minimum or maximum limits.
-	AcceleratorCount interface{} `json:"acceleratorCount" yaml:"acceleratorCount"`
+	AcceleratorCount interface{} `field:"optional" json:"acceleratorCount" yaml:"acceleratorCount"`
 	// Indicates whether instance types must have accelerators by specific manufacturers.
 	//
 	// - For instance types with NVIDIA devices, specify `nvidia` .
@@ -11289,7 +11435,7 @@ type CfnEC2Fleet_InstanceRequirementsRequestProperty struct {
 	// - For instance types with Xilinx devices, specify `xilinx` .
 	//
 	// Default: Any manufacturer.
-	AcceleratorManufacturers *[]*string `json:"acceleratorManufacturers" yaml:"acceleratorManufacturers"`
+	AcceleratorManufacturers *[]*string `field:"optional" json:"acceleratorManufacturers" yaml:"acceleratorManufacturers"`
 	// The accelerators that must be on the instance type.
 	//
 	// - For instance types with NVIDIA A100 GPUs, specify `a100` .
@@ -11301,11 +11447,11 @@ type CfnEC2Fleet_InstanceRequirementsRequestProperty struct {
 	// - For instance types with Xilinx VU9P FPGAs, specify `vu9p` .
 	//
 	// Default: Any accelerator.
-	AcceleratorNames *[]*string `json:"acceleratorNames" yaml:"acceleratorNames"`
+	AcceleratorNames *[]*string `field:"optional" json:"acceleratorNames" yaml:"acceleratorNames"`
 	// The minimum and maximum amount of total accelerator memory, in MiB.
 	//
 	// Default: No minimum or maximum limits.
-	AcceleratorTotalMemoryMiB interface{} `json:"acceleratorTotalMemoryMiB" yaml:"acceleratorTotalMemoryMiB"`
+	AcceleratorTotalMemoryMiB interface{} `field:"optional" json:"acceleratorTotalMemoryMiB" yaml:"acceleratorTotalMemoryMiB"`
 	// The accelerator types that must be on the instance type.
 	//
 	// - To include instance types with GPU hardware, specify `gpu` .
@@ -11313,7 +11459,7 @@ type CfnEC2Fleet_InstanceRequirementsRequestProperty struct {
 	// - To include instance types with inference hardware, specify `inference` .
 	//
 	// Default: Any accelerator type.
-	AcceleratorTypes *[]*string `json:"acceleratorTypes" yaml:"acceleratorTypes"`
+	AcceleratorTypes *[]*string `field:"optional" json:"acceleratorTypes" yaml:"acceleratorTypes"`
 	// Indicates whether bare metal instance types must be included, excluded, or required.
 	//
 	// - To include bare metal instance types, specify `included` .
@@ -11321,13 +11467,13 @@ type CfnEC2Fleet_InstanceRequirementsRequestProperty struct {
 	// - To exclude bare metal instance types, specify `excluded` .
 	//
 	// Default: `excluded`.
-	BareMetal *string `json:"bareMetal" yaml:"bareMetal"`
+	BareMetal *string `field:"optional" json:"bareMetal" yaml:"bareMetal"`
 	// The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps.
 	//
 	// For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide* .
 	//
 	// Default: No minimum or maximum limits.
-	BaselineEbsBandwidthMbps interface{} `json:"baselineEbsBandwidthMbps" yaml:"baselineEbsBandwidthMbps"`
+	BaselineEbsBandwidthMbps interface{} `field:"optional" json:"baselineEbsBandwidthMbps" yaml:"baselineEbsBandwidthMbps"`
 	// Indicates whether burstable performance T instance types are included, excluded, or required.
 	//
 	// For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) .
@@ -11337,7 +11483,7 @@ type CfnEC2Fleet_InstanceRequirementsRequestProperty struct {
 	// - To exclude burstable performance instance types, specify `excluded` .
 	//
 	// Default: `excluded`.
-	BurstablePerformance *string `json:"burstablePerformance" yaml:"burstablePerformance"`
+	BurstablePerformance *string `field:"optional" json:"burstablePerformance" yaml:"burstablePerformance"`
 	// The CPU manufacturers to include.
 	//
 	// - For instance types with Intel CPUs, specify `intel` .
@@ -11347,7 +11493,7 @@ type CfnEC2Fleet_InstanceRequirementsRequestProperty struct {
 	// > Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
 	//
 	// Default: Any manufacturer.
-	CpuManufacturers *[]*string `json:"cpuManufacturers" yaml:"cpuManufacturers"`
+	CpuManufacturers *[]*string `field:"optional" json:"cpuManufacturers" yaml:"cpuManufacturers"`
 	// The instance types to exclude.
 	//
 	// You can use strings with one or more wild cards, represented by an asterisk ( `*` ), to exclude an instance family, type, size, or generation. The following are examples: `m5.8xlarge` , `c5*.*` , `m5a.*` , `r*` , `*3*` .
@@ -11355,7 +11501,7 @@ type CfnEC2Fleet_InstanceRequirementsRequestProperty struct {
 	// For example, if you specify `c5*` ,Amazon EC2 will exclude the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*` , Amazon EC2 will exclude all the M5a instance types, but not the M5n instance types.
 	//
 	// Default: No excluded instance types.
-	ExcludedInstanceTypes *[]*string `json:"excludedInstanceTypes" yaml:"excludedInstanceTypes"`
+	ExcludedInstanceTypes *[]*string `field:"optional" json:"excludedInstanceTypes" yaml:"excludedInstanceTypes"`
 	// Indicates whether current or previous generation instance types are included.
 	//
 	// The current generation instance types are recommended for use. Current generation instance types are typically the latest two to three generations in each instance family. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
@@ -11365,7 +11511,7 @@ type CfnEC2Fleet_InstanceRequirementsRequestProperty struct {
 	// For previous generation instance types, specify `previous` .
 	//
 	// Default: Current and previous generation instance types.
-	InstanceGenerations *[]*string `json:"instanceGenerations" yaml:"instanceGenerations"`
+	InstanceGenerations *[]*string `field:"optional" json:"instanceGenerations" yaml:"instanceGenerations"`
 	// Indicates whether instance types with instance store volumes are included, excluded, or required.
 	//
 	// For more information, [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) in the *Amazon EC2 User Guide* .
@@ -11375,24 +11521,24 @@ type CfnEC2Fleet_InstanceRequirementsRequestProperty struct {
 	// - To exclude instance types with instance store volumes, specify `excluded` .
 	//
 	// Default: `included`.
-	LocalStorage *string `json:"localStorage" yaml:"localStorage"`
+	LocalStorage *string `field:"optional" json:"localStorage" yaml:"localStorage"`
 	// The type of local storage that is required.
 	//
 	// - For instance types with hard disk drive (HDD) storage, specify `hdd` .
 	// - For instance types with solid state drive (SDD) storage, specify `sdd` .
 	//
 	// Default: `hdd` and `sdd`.
-	LocalStorageTypes *[]*string `json:"localStorageTypes" yaml:"localStorageTypes"`
+	LocalStorageTypes *[]*string `field:"optional" json:"localStorageTypes" yaml:"localStorageTypes"`
 	// The minimum and maximum amount of memory per vCPU, in GiB.
 	//
 	// Default: No minimum or maximum limits.
-	MemoryGiBPerVCpu interface{} `json:"memoryGiBPerVCpu" yaml:"memoryGiBPerVCpu"`
+	MemoryGiBPerVCpu interface{} `field:"optional" json:"memoryGiBPerVCpu" yaml:"memoryGiBPerVCpu"`
 	// The minimum and maximum amount of memory, in MiB.
-	MemoryMiB interface{} `json:"memoryMiB" yaml:"memoryMiB"`
+	MemoryMiB interface{} `field:"optional" json:"memoryMiB" yaml:"memoryMiB"`
 	// The minimum and maximum number of network interfaces.
 	//
 	// Default: No minimum or maximum limits.
-	NetworkInterfaceCount interface{} `json:"networkInterfaceCount" yaml:"networkInterfaceCount"`
+	NetworkInterfaceCount interface{} `field:"optional" json:"networkInterfaceCount" yaml:"networkInterfaceCount"`
 	// The price protection threshold for On-Demand Instances.
 	//
 	// This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage above the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance types priced above your threshold.
@@ -11406,13 +11552,13 @@ type CfnEC2Fleet_InstanceRequirementsRequestProperty struct {
 	// > If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
 	//
 	// Default: `20`.
-	OnDemandMaxPricePercentageOverLowestPrice *float64 `json:"onDemandMaxPricePercentageOverLowestPrice" yaml:"onDemandMaxPricePercentageOverLowestPrice"`
+	OnDemandMaxPricePercentageOverLowestPrice *float64 `field:"optional" json:"onDemandMaxPricePercentageOverLowestPrice" yaml:"onDemandMaxPricePercentageOverLowestPrice"`
 	// Indicates whether instance types must support hibernation for On-Demand Instances.
 	//
 	// This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) .
 	//
 	// Default: `false`.
-	RequireHibernateSupport interface{} `json:"requireHibernateSupport" yaml:"requireHibernateSupport"`
+	RequireHibernateSupport interface{} `field:"optional" json:"requireHibernateSupport" yaml:"requireHibernateSupport"`
 	// The price protection threshold for Spot Instance.
 	//
 	// This is the maximum you’ll pay for an Spot Instance, expressed as a percentage above the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance types priced above your threshold.
@@ -11426,19 +11572,22 @@ type CfnEC2Fleet_InstanceRequirementsRequestProperty struct {
 	// > If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
 	//
 	// Default: `100`.
-	SpotMaxPricePercentageOverLowestPrice *float64 `json:"spotMaxPricePercentageOverLowestPrice" yaml:"spotMaxPricePercentageOverLowestPrice"`
+	SpotMaxPricePercentageOverLowestPrice *float64 `field:"optional" json:"spotMaxPricePercentageOverLowestPrice" yaml:"spotMaxPricePercentageOverLowestPrice"`
 	// The minimum and maximum amount of total local storage, in GB.
 	//
 	// Default: No minimum or maximum limits.
-	TotalLocalStorageGb interface{} `json:"totalLocalStorageGb" yaml:"totalLocalStorageGb"`
+	TotalLocalStorageGb interface{} `field:"optional" json:"totalLocalStorageGb" yaml:"totalLocalStorageGb"`
 	// The minimum and maximum number of vCPUs.
-	VCpuCount interface{} `json:"vCpuCount" yaml:"vCpuCount"`
+	VCpuCount interface{} `field:"optional" json:"vCpuCount" yaml:"vCpuCount"`
 }
 
 // The strategies for managing your Spot Instances that are at an elevated risk of being interrupted.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   maintenanceStrategiesProperty := &maintenanceStrategiesProperty{
 //   	capacityRebalance: &capacityRebalanceProperty{
 //   		replacementStrategy: jsii.String("replacementStrategy"),
@@ -11448,13 +11597,16 @@ type CfnEC2Fleet_InstanceRequirementsRequestProperty struct {
 //
 type CfnEC2Fleet_MaintenanceStrategiesProperty struct {
 	// The strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted.
-	CapacityRebalance interface{} `json:"capacityRebalance" yaml:"capacityRebalance"`
+	CapacityRebalance interface{} `field:"optional" json:"capacityRebalance" yaml:"capacityRebalance"`
 }
 
 // The minimum and maximum amount of memory per vCPU, in GiB.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   memoryGiBPerVCpuRequestProperty := &memoryGiBPerVCpuRequestProperty{
 //   	max: jsii.Number(123),
 //   	min: jsii.Number(123),
@@ -11464,17 +11616,20 @@ type CfnEC2Fleet_MemoryGiBPerVCpuRequestProperty struct {
 	// The maximum amount of memory per vCPU, in GiB.
 	//
 	// To specify no maximum limit, omit this parameter.
-	Max *float64 `json:"max" yaml:"max"`
+	Max *float64 `field:"optional" json:"max" yaml:"max"`
 	// The minimum amount of memory per vCPU, in GiB.
 	//
 	// To specify no minimum limit, omit this parameter.
-	Min *float64 `json:"min" yaml:"min"`
+	Min *float64 `field:"optional" json:"min" yaml:"min"`
 }
 
 // The minimum and maximum amount of memory, in MiB.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   memoryMiBRequestProperty := &memoryMiBRequestProperty{
 //   	max: jsii.Number(123),
 //   	min: jsii.Number(123),
@@ -11484,17 +11639,20 @@ type CfnEC2Fleet_MemoryMiBRequestProperty struct {
 	// The maximum amount of memory, in MiB.
 	//
 	// To specify no maximum limit, omit this parameter.
-	Max *float64 `json:"max" yaml:"max"`
+	Max *float64 `field:"optional" json:"max" yaml:"max"`
 	// The minimum amount of memory, in MiB.
 	//
 	// To specify no minimum limit, specify `0` .
-	Min *float64 `json:"min" yaml:"min"`
+	Min *float64 `field:"optional" json:"min" yaml:"min"`
 }
 
 // The minimum and maximum number of network interfaces.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   networkInterfaceCountRequestProperty := &networkInterfaceCountRequestProperty{
 //   	max: jsii.Number(123),
 //   	min: jsii.Number(123),
@@ -11504,11 +11662,11 @@ type CfnEC2Fleet_NetworkInterfaceCountRequestProperty struct {
 	// The maximum number of network interfaces.
 	//
 	// To specify no maximum limit, omit this parameter.
-	Max *float64 `json:"max" yaml:"max"`
+	Max *float64 `field:"optional" json:"max" yaml:"max"`
 	// The minimum number of network interfaces.
 	//
 	// To specify no minimum limit, omit this parameter.
-	Min *float64 `json:"min" yaml:"min"`
+	Min *float64 `field:"optional" json:"min" yaml:"min"`
 }
 
 // Specifies the allocation strategy of On-Demand Instances in an EC2 Fleet.
@@ -11516,7 +11674,10 @@ type CfnEC2Fleet_NetworkInterfaceCountRequestProperty struct {
 // `OnDemandOptionsRequest` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   onDemandOptionsRequestProperty := &onDemandOptionsRequestProperty{
 //   	allocationStrategy: jsii.String("allocationStrategy"),
 //   	capacityReservationOptions: &capacityReservationOptionsRequestProperty{
@@ -11536,13 +11697,13 @@ type CfnEC2Fleet_OnDemandOptionsRequestProperty struct {
 	// `prioritized` - EC2 Fleet uses the priority that you assigned to each launch template override, launching the highest priority first.
 	//
 	// Default: `lowest-price`.
-	AllocationStrategy *string `json:"allocationStrategy" yaml:"allocationStrategy"`
+	AllocationStrategy *string `field:"optional" json:"allocationStrategy" yaml:"allocationStrategy"`
 	// The strategy for using unused Capacity Reservations for fulfilling On-Demand capacity.
 	//
 	// Supported only for fleets of type `instant` .
-	CapacityReservationOptions interface{} `json:"capacityReservationOptions" yaml:"capacityReservationOptions"`
+	CapacityReservationOptions interface{} `field:"optional" json:"capacityReservationOptions" yaml:"capacityReservationOptions"`
 	// The maximum amount per hour for On-Demand Instances that you're willing to pay.
-	MaxTotalPrice *string `json:"maxTotalPrice" yaml:"maxTotalPrice"`
+	MaxTotalPrice *string `field:"optional" json:"maxTotalPrice" yaml:"maxTotalPrice"`
 	// The minimum target capacity for On-Demand Instances in the fleet.
 	//
 	// If the minimum target capacity is not reached, the fleet launches no instances.
@@ -11550,21 +11711,24 @@ type CfnEC2Fleet_OnDemandOptionsRequestProperty struct {
 	// Supported only for fleets of type `instant` .
 	//
 	// At least one of the following must be specified: `SingleAvailabilityZone` | `SingleInstanceType`.
-	MinTargetCapacity *float64 `json:"minTargetCapacity" yaml:"minTargetCapacity"`
+	MinTargetCapacity *float64 `field:"optional" json:"minTargetCapacity" yaml:"minTargetCapacity"`
 	// Indicates that the fleet launches all On-Demand Instances into a single Availability Zone.
 	//
 	// Supported only for fleets of type `instant` .
-	SingleAvailabilityZone interface{} `json:"singleAvailabilityZone" yaml:"singleAvailabilityZone"`
+	SingleAvailabilityZone interface{} `field:"optional" json:"singleAvailabilityZone" yaml:"singleAvailabilityZone"`
 	// Indicates that the fleet uses a single instance type to launch all On-Demand Instances in the fleet.
 	//
 	// Supported only for fleets of type `instant` .
-	SingleInstanceType interface{} `json:"singleInstanceType" yaml:"singleInstanceType"`
+	SingleInstanceType interface{} `field:"optional" json:"singleInstanceType" yaml:"singleInstanceType"`
 }
 
 // Describes the placement of an instance.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   placementProperty := &placementProperty{
 //   	affinity: jsii.String("affinity"),
 //   	availabilityZone: jsii.String("availabilityZone"),
@@ -11580,37 +11744,37 @@ type CfnEC2Fleet_PlacementProperty struct {
 	// The affinity setting for the instance on the Dedicated Host. This parameter is not supported for the [ImportInstance](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html) command.
 	//
 	// This parameter is not supported by [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
-	Affinity *string `json:"affinity" yaml:"affinity"`
+	Affinity *string `field:"optional" json:"affinity" yaml:"affinity"`
 	// The Availability Zone of the instance.
 	//
 	// If not specified, an Availability Zone will be automatically chosen for you based on the load balancing criteria for the Region.
 	//
 	// This parameter is not supported by [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
-	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
+	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
 	// The name of the placement group the instance is in.
-	GroupName *string `json:"groupName" yaml:"groupName"`
+	GroupName *string `field:"optional" json:"groupName" yaml:"groupName"`
 	// The ID of the Dedicated Host on which the instance resides.
 	//
 	// This parameter is not supported for the [ImportInstance](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html) command.
 	//
 	// This parameter is not supported by [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
-	HostId *string `json:"hostId" yaml:"hostId"`
+	HostId *string `field:"optional" json:"hostId" yaml:"hostId"`
 	// The ARN of the host resource group in which to launch the instances.
 	//
 	// If you specify a host resource group ARN, omit the *Tenancy* parameter or set it to `host` .
 	//
 	// This parameter is not supported by [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
-	HostResourceGroupArn *string `json:"hostResourceGroupArn" yaml:"hostResourceGroupArn"`
+	HostResourceGroupArn *string `field:"optional" json:"hostResourceGroupArn" yaml:"hostResourceGroupArn"`
 	// The number of the partition that the instance is in.
 	//
 	// Valid only if the placement group strategy is set to `partition` .
 	//
 	// This parameter is not supported by [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
-	PartitionNumber *float64 `json:"partitionNumber" yaml:"partitionNumber"`
+	PartitionNumber *float64 `field:"optional" json:"partitionNumber" yaml:"partitionNumber"`
 	// Reserved for future use.
 	//
 	// This parameter is not supported by [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
-	SpreadDomain *string `json:"spreadDomain" yaml:"spreadDomain"`
+	SpreadDomain *string `field:"optional" json:"spreadDomain" yaml:"spreadDomain"`
 	// The tenancy of the instance (if the instance is running in a VPC).
 	//
 	// An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the [ImportInstance](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html) command.
@@ -11618,7 +11782,7 @@ type CfnEC2Fleet_PlacementProperty struct {
 	// This parameter is not supported by [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet) .
 	//
 	// T3 instances that use the `unlimited` CPU credit option do not support `host` tenancy.
-	Tenancy *string `json:"tenancy" yaml:"tenancy"`
+	Tenancy *string `field:"optional" json:"tenancy" yaml:"tenancy"`
 }
 
 // Specifies the configuration of Spot Instances for an EC2 Fleet.
@@ -11626,7 +11790,10 @@ type CfnEC2Fleet_PlacementProperty struct {
 // `SpotOptionsRequest` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com//AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   spotOptionsRequestProperty := &spotOptionsRequestProperty{
 //   	allocationStrategy: jsii.String("allocationStrategy"),
 //   	instanceInterruptionBehavior: jsii.String("instanceInterruptionBehavior"),
@@ -11653,21 +11820,21 @@ type CfnEC2Fleet_SpotOptionsRequestProperty struct {
 	// If the allocation strategy is `capacityOptimized` , EC2 Fleet launches instances from Spot Instance pools that are optimally chosen based on the available Spot Instance capacity.
 	//
 	// *Allowed Values* : `lowestPrice` | `diversified` | `capacityOptimized` | `capacityOptimizedPrioritized`.
-	AllocationStrategy *string `json:"allocationStrategy" yaml:"allocationStrategy"`
+	AllocationStrategy *string `field:"optional" json:"allocationStrategy" yaml:"allocationStrategy"`
 	// The behavior when a Spot Instance is interrupted.
 	//
 	// Default: `terminate`.
-	InstanceInterruptionBehavior *string `json:"instanceInterruptionBehavior" yaml:"instanceInterruptionBehavior"`
+	InstanceInterruptionBehavior *string `field:"optional" json:"instanceInterruptionBehavior" yaml:"instanceInterruptionBehavior"`
 	// The number of Spot pools across which to allocate your target Spot capacity.
 	//
 	// Supported only when Spot `AllocationStrategy` is set to `lowest-price` . EC2 Fleet selects the cheapest Spot pools and evenly allocates your target Spot capacity across the number of Spot pools that you specify.
 	//
 	// Note that EC2 Fleet attempts to draw Spot Instances from the number of pools that you specify on a best effort basis. If a pool runs out of Spot capacity before fulfilling your target capacity, EC2 Fleet will continue to fulfill your request by drawing from the next cheapest pool. To ensure that your target capacity is met, you might receive Spot Instances from more than the number of pools that you specified. Similarly, if most of the pools have no Spot capacity, you might receive your full target capacity from fewer than the number of pools that you specified.
-	InstancePoolsToUseCount *float64 `json:"instancePoolsToUseCount" yaml:"instancePoolsToUseCount"`
+	InstancePoolsToUseCount *float64 `field:"optional" json:"instancePoolsToUseCount" yaml:"instancePoolsToUseCount"`
 	// The strategies for managing your Spot Instances that are at an elevated risk of being interrupted.
-	MaintenanceStrategies interface{} `json:"maintenanceStrategies" yaml:"maintenanceStrategies"`
+	MaintenanceStrategies interface{} `field:"optional" json:"maintenanceStrategies" yaml:"maintenanceStrategies"`
 	// The maximum amount per hour for Spot Instances that you're willing to pay.
-	MaxTotalPrice *string `json:"maxTotalPrice" yaml:"maxTotalPrice"`
+	MaxTotalPrice *string `field:"optional" json:"maxTotalPrice" yaml:"maxTotalPrice"`
 	// The minimum target capacity for Spot Instances in the fleet.
 	//
 	// If the minimum target capacity is not reached, the fleet launches no instances.
@@ -11675,15 +11842,15 @@ type CfnEC2Fleet_SpotOptionsRequestProperty struct {
 	// Supported only for fleets of type `instant` .
 	//
 	// At least one of the following must be specified: `SingleAvailabilityZone` | `SingleInstanceType`.
-	MinTargetCapacity *float64 `json:"minTargetCapacity" yaml:"minTargetCapacity"`
+	MinTargetCapacity *float64 `field:"optional" json:"minTargetCapacity" yaml:"minTargetCapacity"`
 	// Indicates that the fleet launches all Spot Instances into a single Availability Zone.
 	//
 	// Supported only for fleets of type `instant` .
-	SingleAvailabilityZone interface{} `json:"singleAvailabilityZone" yaml:"singleAvailabilityZone"`
+	SingleAvailabilityZone interface{} `field:"optional" json:"singleAvailabilityZone" yaml:"singleAvailabilityZone"`
 	// Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet.
 	//
 	// Supported only for fleets of type `instant` .
-	SingleInstanceType interface{} `json:"singleInstanceType" yaml:"singleInstanceType"`
+	SingleInstanceType interface{} `field:"optional" json:"singleInstanceType" yaml:"singleInstanceType"`
 }
 
 // Specifies the tags to apply to a resource when the resource is being created for an EC2 Fleet.
@@ -11691,7 +11858,10 @@ type CfnEC2Fleet_SpotOptionsRequestProperty struct {
 // `TagSpecification` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tagSpecificationProperty := &tagSpecificationProperty{
 //   	resourceType: jsii.String("resourceType"),
 //   	tags: []cfnTag{
@@ -11706,9 +11876,9 @@ type CfnEC2Fleet_TagSpecificationProperty struct {
 	// The type of resource to tag.
 	//
 	// `ResourceType` must be `fleet` .
-	ResourceType *string `json:"resourceType" yaml:"resourceType"`
+	ResourceType *string `field:"optional" json:"resourceType" yaml:"resourceType"`
 	// The tags to apply to the resource.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // Specifies the number of units to request for an EC2 Fleet.
@@ -11718,7 +11888,10 @@ type CfnEC2Fleet_TagSpecificationProperty struct {
 // `TargetCapacitySpecificationRequest` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   targetCapacitySpecificationRequestProperty := &targetCapacitySpecificationRequestProperty{
 //   	totalTargetCapacity: jsii.Number(123),
 //
@@ -11731,23 +11904,26 @@ type CfnEC2Fleet_TagSpecificationProperty struct {
 //
 type CfnEC2Fleet_TargetCapacitySpecificationRequestProperty struct {
 	// The number of units to request, filled using `DefaultTargetCapacityType` .
-	TotalTargetCapacity *float64 `json:"totalTargetCapacity" yaml:"totalTargetCapacity"`
+	TotalTargetCapacity *float64 `field:"required" json:"totalTargetCapacity" yaml:"totalTargetCapacity"`
 	// The default `TotalTargetCapacity` , which is either `Spot` or `On-Demand` .
-	DefaultTargetCapacityType *string `json:"defaultTargetCapacityType" yaml:"defaultTargetCapacityType"`
+	DefaultTargetCapacityType *string `field:"optional" json:"defaultTargetCapacityType" yaml:"defaultTargetCapacityType"`
 	// The number of On-Demand units to request.
-	OnDemandTargetCapacity *float64 `json:"onDemandTargetCapacity" yaml:"onDemandTargetCapacity"`
+	OnDemandTargetCapacity *float64 `field:"optional" json:"onDemandTargetCapacity" yaml:"onDemandTargetCapacity"`
 	// The number of Spot units to request.
-	SpotTargetCapacity *float64 `json:"spotTargetCapacity" yaml:"spotTargetCapacity"`
+	SpotTargetCapacity *float64 `field:"optional" json:"spotTargetCapacity" yaml:"spotTargetCapacity"`
 	// The unit for the target capacity.
 	//
 	// Default: `units` (translates to number of instances).
-	TargetCapacityUnitType *string `json:"targetCapacityUnitType" yaml:"targetCapacityUnitType"`
+	TargetCapacityUnitType *string `field:"optional" json:"targetCapacityUnitType" yaml:"targetCapacityUnitType"`
 }
 
 // The minimum and maximum amount of total local storage, in GB.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   totalLocalStorageGBRequestProperty := &totalLocalStorageGBRequestProperty{
 //   	max: jsii.Number(123),
 //   	min: jsii.Number(123),
@@ -11757,17 +11933,20 @@ type CfnEC2Fleet_TotalLocalStorageGBRequestProperty struct {
 	// The maximum amount of total local storage, in GB.
 	//
 	// To specify no maximum limit, omit this parameter.
-	Max *float64 `json:"max" yaml:"max"`
+	Max *float64 `field:"optional" json:"max" yaml:"max"`
 	// The minimum amount of total local storage, in GB.
 	//
 	// To specify no minimum limit, omit this parameter.
-	Min *float64 `json:"min" yaml:"min"`
+	Min *float64 `field:"optional" json:"min" yaml:"min"`
 }
 
 // The minimum and maximum number of vCPUs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   vCpuCountRangeRequestProperty := &vCpuCountRangeRequestProperty{
 //   	max: jsii.Number(123),
 //   	min: jsii.Number(123),
@@ -11777,17 +11956,20 @@ type CfnEC2Fleet_VCpuCountRangeRequestProperty struct {
 	// The maximum number of vCPUs.
 	//
 	// To specify no maximum limit, omit this parameter.
-	Max *float64 `json:"max" yaml:"max"`
+	Max *float64 `field:"optional" json:"max" yaml:"max"`
 	// The minimum number of vCPUs.
 	//
 	// To specify no minimum limit, specify `0` .
-	Min *float64 `json:"min" yaml:"min"`
+	Min *float64 `field:"optional" json:"min" yaml:"min"`
 }
 
 // Properties for defining a `CfnEC2Fleet`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnEC2FleetProps := &cfnEC2FleetProps{
 //   	launchTemplateConfigs: []interface{}{
 //   		&fleetLaunchTemplateConfigRequestProperty{
@@ -11937,29 +12119,29 @@ type CfnEC2Fleet_VCpuCountRangeRequestProperty struct {
 //
 type CfnEC2FleetProps struct {
 	// The configuration for the EC2 Fleet.
-	LaunchTemplateConfigs interface{} `json:"launchTemplateConfigs" yaml:"launchTemplateConfigs"`
+	LaunchTemplateConfigs interface{} `field:"required" json:"launchTemplateConfigs" yaml:"launchTemplateConfigs"`
 	// The number of units to request.
-	TargetCapacitySpecification interface{} `json:"targetCapacitySpecification" yaml:"targetCapacitySpecification"`
+	TargetCapacitySpecification interface{} `field:"required" json:"targetCapacitySpecification" yaml:"targetCapacitySpecification"`
 	// Reserved.
-	Context *string `json:"context" yaml:"context"`
+	Context *string `field:"optional" json:"context" yaml:"context"`
 	// Indicates whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.
-	ExcessCapacityTerminationPolicy *string `json:"excessCapacityTerminationPolicy" yaml:"excessCapacityTerminationPolicy"`
+	ExcessCapacityTerminationPolicy *string `field:"optional" json:"excessCapacityTerminationPolicy" yaml:"excessCapacityTerminationPolicy"`
 	// Describes the configuration of On-Demand Instances in an EC2 Fleet.
-	OnDemandOptions interface{} `json:"onDemandOptions" yaml:"onDemandOptions"`
+	OnDemandOptions interface{} `field:"optional" json:"onDemandOptions" yaml:"onDemandOptions"`
 	// Indicates whether EC2 Fleet should replace unhealthy Spot Instances.
 	//
 	// Supported only for fleets of type `maintain` . For more information, see [EC2 Fleet health checks](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#ec2-fleet-health-checks) in the *Amazon EC2 User Guide* .
-	ReplaceUnhealthyInstances interface{} `json:"replaceUnhealthyInstances" yaml:"replaceUnhealthyInstances"`
+	ReplaceUnhealthyInstances interface{} `field:"optional" json:"replaceUnhealthyInstances" yaml:"replaceUnhealthyInstances"`
 	// Describes the configuration of Spot Instances in an EC2 Fleet.
-	SpotOptions interface{} `json:"spotOptions" yaml:"spotOptions"`
+	SpotOptions interface{} `field:"optional" json:"spotOptions" yaml:"spotOptions"`
 	// The key-value pair for tagging the EC2 Fleet request on creation. For more information, see [Tagging your resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources) .
 	//
 	// If the fleet type is `instant` , specify a resource type of `fleet` to tag the fleet or `instance` to tag the instances at launch.
 	//
 	// If the fleet type is `maintain` or `request` , specify a resource type of `fleet` to tag the fleet. You cannot specify a resource type of `instance` . To tag instances at launch, specify the tags in a [launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template) .
-	TagSpecifications interface{} `json:"tagSpecifications" yaml:"tagSpecifications"`
+	TagSpecifications interface{} `field:"optional" json:"tagSpecifications" yaml:"tagSpecifications"`
 	// Indicates whether running instances should be terminated when the EC2 Fleet expires.
-	TerminateInstancesWithExpiration interface{} `json:"terminateInstancesWithExpiration" yaml:"terminateInstancesWithExpiration"`
+	TerminateInstancesWithExpiration interface{} `field:"optional" json:"terminateInstancesWithExpiration" yaml:"terminateInstancesWithExpiration"`
 	// The fleet type. The default value is `maintain` .
 	//
 	// - `maintain` - The EC2 Fleet places an asynchronous request for your desired capacity, and continues to maintain your desired Spot capacity by replenishing interrupted Spot Instances.
@@ -11967,15 +12149,15 @@ type CfnEC2FleetProps struct {
 	// - `instant` - The EC2 Fleet places a synchronous one-time request for your desired capacity, and returns errors for any instances that could not be launched.
 	//
 	// For more information, see [EC2 Fleet request types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-request-type.html) in the *Amazon EC2 User Guide* .
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 	// The start date and time of the request, in UTC format (for example, *YYYY* - *MM* - *DD* T *HH* : *MM* : *SS* Z).
 	//
 	// The default is to start fulfilling the request immediately.
-	ValidFrom *string `json:"validFrom" yaml:"validFrom"`
+	ValidFrom *string `field:"optional" json:"validFrom" yaml:"validFrom"`
 	// The end date and time of the request, in UTC format (for example, *YYYY* - *MM* - *DD* T *HH* : *MM* : *SS* Z).
 	//
 	// At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
-	ValidUntil *string `json:"validUntil" yaml:"validUntil"`
+	ValidUntil *string `field:"optional" json:"validUntil" yaml:"validUntil"`
 }
 
 // A CloudFormation `AWS::EC2::EIP`.
@@ -11993,6 +12175,7 @@ type CfnEC2FleetProps struct {
 // Example:
 //   var listener listener
 //   var eip cfnEIP
+//
 //
 //   listener.addEndpointGroup(jsii.String("Group"), &endpointGroupOptions{
 //   	endpoints: []iEndpoint{
@@ -12721,8 +12904,11 @@ func (c *jsiiProxy_CfnEIP) ValidateProperties(_properties interface{}) {
 // [VPC in an EC2-Classic account] If you don't specify a private IP address, the Elastic IP address is associated with the primary IP address. If the Elastic IP address is already associated with a different instance or a network interface, you get an error unless you allow reassociation. You cannot associate an Elastic IP address with an instance or network interface that has an existing Elastic IP address.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnEIPAssociation := ec2.NewCfnEIPAssociation(this, jsii.String("MyCfnEIPAssociation"), &cfnEIPAssociationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnEIPAssociation := awscdk.Aws_ec2.NewCfnEIPAssociation(this, jsii.String("MyCfnEIPAssociation"), &cfnEIPAssociationProps{
 //   	allocationId: jsii.String("allocationId"),
 //   	eip: jsii.String("eip"),
 //   	instanceId: jsii.String("instanceId"),
@@ -13455,7 +13641,10 @@ func (c *jsiiProxy_CfnEIPAssociation) ValidateProperties(_properties interface{}
 // Properties for defining a `CfnEIPAssociation`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnEIPAssociationProps := &cfnEIPAssociationProps{
 //   	allocationId: jsii.String("allocationId"),
 //   	eip: jsii.String("eip"),
@@ -13468,25 +13657,25 @@ type CfnEIPAssociationProps struct {
 	// [EC2-VPC] The allocation ID.
 	//
 	// This is required for EC2-VPC.
-	AllocationId *string `json:"allocationId" yaml:"allocationId"`
+	AllocationId *string `field:"optional" json:"allocationId" yaml:"allocationId"`
 	// [EC2-Classic] The Elastic IP address to associate with the instance.
 	//
 	// This is required for EC2-Classic.
-	Eip *string `json:"eip" yaml:"eip"`
+	Eip *string `field:"optional" json:"eip" yaml:"eip"`
 	// The ID of the instance.
 	//
 	// The instance must have exactly one attached network interface. For EC2-VPC, you can specify either the instance ID or the network interface ID, but not both. For EC2-Classic, you must specify an instance ID and the instance must be in the running state.
-	InstanceId *string `json:"instanceId" yaml:"instanceId"`
+	InstanceId *string `field:"optional" json:"instanceId" yaml:"instanceId"`
 	// [EC2-VPC] The ID of the network interface.
 	//
 	// If the instance has more than one network interface, you must specify a network interface ID.
 	//
 	// For EC2-VPC, you can specify either the instance ID or the network interface ID, but not both.
-	NetworkInterfaceId *string `json:"networkInterfaceId" yaml:"networkInterfaceId"`
+	NetworkInterfaceId *string `field:"optional" json:"networkInterfaceId" yaml:"networkInterfaceId"`
 	// [EC2-VPC] The primary or secondary private IP address to associate with the Elastic IP address.
 	//
 	// If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
-	PrivateIpAddress *string `json:"privateIpAddress" yaml:"privateIpAddress"`
+	PrivateIpAddress *string `field:"optional" json:"privateIpAddress" yaml:"privateIpAddress"`
 }
 
 // Properties for defining a `CfnEIP`.
@@ -13495,6 +13684,7 @@ type CfnEIPAssociationProps struct {
 //   var instance instance
 //
 //   var myZone hostedZone
+//
 //
 //   elasticIp := ec2.NewCfnEIP(this, jsii.String("EIP"), &cfnEIPProps{
 //   	domain: jsii.String("vpc"),
@@ -13513,21 +13703,21 @@ type CfnEIPProps struct {
 	// Use when allocating an address for use with a VPC if the Region supports EC2-Classic.
 	//
 	// If you define an Elastic IP address and associate it with a VPC that is defined in the same template, you must declare a dependency on the VPC-gateway attachment by using the [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) on this resource.
-	Domain *string `json:"domain" yaml:"domain"`
+	Domain *string `field:"optional" json:"domain" yaml:"domain"`
 	// The ID of the instance.
 	//
 	// > Updates to the `InstanceId` property may require *some interruptions* . Updates on an EIP reassociates the address on its associated resource.
-	InstanceId *string `json:"instanceId" yaml:"instanceId"`
+	InstanceId *string `field:"optional" json:"instanceId" yaml:"instanceId"`
 	// The ID of an address pool that you own.
 	//
 	// Use this parameter to let Amazon EC2 select an address from the address pool.
 	//
 	// > Updates to the `PublicIpv4Pool` property may require *some interruptions* . Updates on an EIP reassociates the address on its associated resource.
-	PublicIpv4Pool *string `json:"publicIpv4Pool" yaml:"publicIpv4Pool"`
+	PublicIpv4Pool *string `field:"optional" json:"publicIpv4Pool" yaml:"publicIpv4Pool"`
 	// Any tags assigned to the Elastic IP address.
 	//
 	// > Updates to the `Tags` property may require *some interruptions* . Updates on an EIP reassociates the address on its associated resource.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::EC2::EgressOnlyInternetGateway`.
@@ -13535,8 +13725,11 @@ type CfnEIPProps struct {
 // [IPv6 only] Specifies an egress-only internet gateway for your VPC. An egress-only internet gateway is used to enable outbound communication over IPv6 from instances in your VPC to the internet, and prevents hosts outside of your VPC from initiating an IPv6 connection with your instance.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnEgressOnlyInternetGateway := ec2.NewCfnEgressOnlyInternetGateway(this, jsii.String("MyCfnEgressOnlyInternetGateway"), &cfnEgressOnlyInternetGatewayProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnEgressOnlyInternetGateway := awscdk.Aws_ec2.NewCfnEgressOnlyInternetGateway(this, jsii.String("MyCfnEgressOnlyInternetGateway"), &cfnEgressOnlyInternetGatewayProps{
 //   	vpcId: jsii.String("vpcId"),
 //   })
 //
@@ -14181,14 +14374,17 @@ func (c *jsiiProxy_CfnEgressOnlyInternetGateway) ValidateProperties(_properties 
 // Properties for defining a `CfnEgressOnlyInternetGateway`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnEgressOnlyInternetGatewayProps := &cfnEgressOnlyInternetGatewayProps{
 //   	vpcId: jsii.String("vpcId"),
 //   }
 //
 type CfnEgressOnlyInternetGatewayProps struct {
 	// The ID of the VPC for which to create the egress-only internet gateway.
-	VpcId *string `json:"vpcId" yaml:"vpcId"`
+	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
 }
 
 // A CloudFormation `AWS::EC2::EnclaveCertificateIamRoleAssociation`.
@@ -14200,8 +14396,11 @@ type CfnEgressOnlyInternetGatewayProps struct {
 // To enable the IAM role to access the Amazon S3 object, you must grant it permission to call `s3:GetObject` on the Amazon S3 bucket returned by the command. To enable the IAM role to access the KMS key, you must grant it permission to call `kms:Decrypt` on the KMS key returned by the command. For more information, see [Grant the role permission to access the certificate and encryption key](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html#add-policy) in the *AWS Nitro Enclaves User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnEnclaveCertificateIamRoleAssociation := ec2.NewCfnEnclaveCertificateIamRoleAssociation(this, jsii.String("MyCfnEnclaveCertificateIamRoleAssociation"), &cfnEnclaveCertificateIamRoleAssociationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnEnclaveCertificateIamRoleAssociation := awscdk.Aws_ec2.NewCfnEnclaveCertificateIamRoleAssociation(this, jsii.String("MyCfnEnclaveCertificateIamRoleAssociation"), &cfnEnclaveCertificateIamRoleAssociationProps{
 //   	certificateArn: jsii.String("certificateArn"),
 //   	roleArn: jsii.String("roleArn"),
 //   })
@@ -14896,7 +15095,10 @@ func (c *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) ValidateProperties(_
 // Properties for defining a `CfnEnclaveCertificateIamRoleAssociation`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnEnclaveCertificateIamRoleAssociationProps := &cfnEnclaveCertificateIamRoleAssociationProps{
 //   	certificateArn: jsii.String("certificateArn"),
 //   	roleArn: jsii.String("roleArn"),
@@ -14904,11 +15106,11 @@ func (c *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) ValidateProperties(_
 //
 type CfnEnclaveCertificateIamRoleAssociationProps struct {
 	// The ARN of the ACM certificate with which to associate the IAM role.
-	CertificateArn *string `json:"certificateArn" yaml:"certificateArn"`
+	CertificateArn *string `field:"required" json:"certificateArn" yaml:"certificateArn"`
 	// The ARN of the IAM role to associate with the ACM certificate.
 	//
 	// You can associate up to 16 IAM roles with an ACM certificate.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 }
 
 // A CloudFormation `AWS::EC2::FlowLog`.
@@ -14916,10 +15118,13 @@ type CfnEnclaveCertificateIamRoleAssociationProps struct {
 // Specifies a VPC flow log that captures IP traffic for a specified network interface, subnet, or VPC. To view the log data, use Amazon CloudWatch Logs (CloudWatch Logs) to help troubleshoot connection issues. For example, you can use a flow log to investigate why certain traffic isn't reaching an instance, which can help you diagnose overly restrictive security group rules. For more information, see [VPC Flow Logs](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html) in the *Amazon VPC User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var destinationOptions interface{}
-//   cfnFlowLog := ec2.NewCfnFlowLog(this, jsii.String("MyCfnFlowLog"), &cfnFlowLogProps{
+//
+//   cfnFlowLog := awscdk.Aws_ec2.NewCfnFlowLog(this, jsii.String("MyCfnFlowLog"), &cfnFlowLogProps{
 //   	resourceId: jsii.String("resourceId"),
 //   	resourceType: jsii.String("resourceType"),
 //   	trafficType: jsii.String("trafficType"),
@@ -15818,9 +16023,12 @@ func (c *jsiiProxy_CfnFlowLog) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnFlowLog`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var destinationOptions interface{}
+//
 //   cfnFlowLogProps := &cfnFlowLogProps{
 //   	resourceId: jsii.String("resourceId"),
 //   	resourceType: jsii.String("resourceType"),
@@ -15844,25 +16052,25 @@ func (c *jsiiProxy_CfnFlowLog) ValidateProperties(_properties interface{}) {
 //
 type CfnFlowLogProps struct {
 	// The ID of the subnet, network interface, or VPC for which you want to create a flow log.
-	ResourceId *string `json:"resourceId" yaml:"resourceId"`
+	ResourceId *string `field:"required" json:"resourceId" yaml:"resourceId"`
 	// The type of resource for which to create the flow log.
 	//
 	// For example, if you specified a VPC ID for the `ResourceId` property, specify `VPC` for this property.
-	ResourceType *string `json:"resourceType" yaml:"resourceType"`
+	ResourceType *string `field:"required" json:"resourceType" yaml:"resourceType"`
 	// The type of traffic to log.
 	//
 	// You can log traffic that the resource accepts or rejects, or all traffic.
-	TrafficType *string `json:"trafficType" yaml:"trafficType"`
+	TrafficType *string `field:"required" json:"trafficType" yaml:"trafficType"`
 	// The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account.
 	//
 	// If you specify `LogDestinationType` as `s3` , do not specify `DeliverLogsPermissionArn` or `LogGroupName` .
-	DeliverLogsPermissionArn *string `json:"deliverLogsPermissionArn" yaml:"deliverLogsPermissionArn"`
+	DeliverLogsPermissionArn *string `field:"optional" json:"deliverLogsPermissionArn" yaml:"deliverLogsPermissionArn"`
 	// The destination options. The following options are supported:.
 	//
 	// - `FileFormat` - The format for the flow log ( `plain-text` | `parquet` ). The default is `plain-text` .
 	// - `HiveCompatiblePartitions` - Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3 ( `true` | `false` ). The default is `false` .
 	// - `PerHourPartition` - Indicates whether to partition the flow log per hour ( `true` | `false` ). The default is `false` .
-	DestinationOptions interface{} `json:"destinationOptions" yaml:"destinationOptions"`
+	DestinationOptions interface{} `field:"optional" json:"destinationOptions" yaml:"destinationOptions"`
 	// The destination to which the flow log data is to be published.
 	//
 	// Flow log data can be published to a CloudWatch Logs log group or an Amazon S3 bucket. The value specified for this parameter depends on the value specified for `LogDestinationType` .
@@ -15870,7 +16078,7 @@ type CfnFlowLogProps struct {
 	// If `LogDestinationType` is not specified or `cloud-watch-logs` , specify the Amazon Resource Name (ARN) of the CloudWatch Logs log group. For example, to publish to a log group called `my-logs` , specify `arn:aws:logs:us-east-1:123456789012:log-group:my-logs` . Alternatively, use `LogGroupName` instead.
 	//
 	// If LogDestinationType is `s3` , specify the ARN of the Amazon S3 bucket. You can also specify a subfolder in the bucket. To specify a subfolder in the bucket, use the following ARN format: `bucket_ARN/subfolder_name/` . For example, to specify a subfolder named `my-logs` in a bucket named `my-bucket` , use the following ARN: `arn:aws:s3:::my-bucket/my-logs/` . You cannot use `AWSLogs` as a subfolder name. This is a reserved term.
-	LogDestination *string `json:"logDestination" yaml:"logDestination"`
+	LogDestination *string `field:"optional" json:"logDestination" yaml:"logDestination"`
 	// The type of destination to which the flow log data is to be published.
 	//
 	// Flow log data can be published to CloudWatch Logs or Amazon S3. To publish flow log data to CloudWatch Logs, specify `cloud-watch-logs` . To publish flow log data to Amazon S3, specify `s3` .
@@ -15878,17 +16086,17 @@ type CfnFlowLogProps struct {
 	// If you specify `LogDestinationType` as `s3` , do not specify `DeliverLogsPermissionArn` or `LogGroupName` .
 	//
 	// Default: `cloud-watch-logs`.
-	LogDestinationType *string `json:"logDestinationType" yaml:"logDestinationType"`
+	LogDestinationType *string `field:"optional" json:"logDestinationType" yaml:"logDestinationType"`
 	// The fields to include in the flow log record, in the order in which they should appear.
 	//
 	// For a list of available fields, see [Flow Log Records](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records) . If you omit this parameter, the flow log is created using the default format. If you specify this parameter, you must specify at least one field.
 	//
 	// Specify the fields using the `${field-id}` format, separated by spaces.
-	LogFormat *string `json:"logFormat" yaml:"logFormat"`
+	LogFormat *string `field:"optional" json:"logFormat" yaml:"logFormat"`
 	// The name of a new or existing CloudWatch Logs log group where Amazon EC2 publishes your flow logs.
 	//
 	// If you specify `LogDestinationType` as `s3` , do not specify `DeliverLogsPermissionArn` or `LogGroupName` .
-	LogGroupName *string `json:"logGroupName" yaml:"logGroupName"`
+	LogGroupName *string `field:"optional" json:"logGroupName" yaml:"logGroupName"`
 	// The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
 	//
 	// You can specify 60 seconds (1 minute) or 600 seconds (10 minutes).
@@ -15896,9 +16104,9 @@ type CfnFlowLogProps struct {
 	// When a network interface is attached to a [Nitro-based instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances) , the aggregation interval is always 60 seconds or less, regardless of the value that you specify.
 	//
 	// Default: 600.
-	MaxAggregationInterval *float64 `json:"maxAggregationInterval" yaml:"maxAggregationInterval"`
+	MaxAggregationInterval *float64 `field:"optional" json:"maxAggregationInterval" yaml:"maxAggregationInterval"`
 	// The tags to apply to the flow logs.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::EC2::GatewayRouteTableAssociation`.
@@ -15906,8 +16114,11 @@ type CfnFlowLogProps struct {
 // Associates a virtual private gateway or internet gateway with a route table. The gateway and route table must be in the same VPC. This association causes the incoming traffic to the gateway to be routed according to the routes in the route table.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnGatewayRouteTableAssociation := ec2.NewCfnGatewayRouteTableAssociation(this, jsii.String("MyCfnGatewayRouteTableAssociation"), &cfnGatewayRouteTableAssociationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnGatewayRouteTableAssociation := awscdk.Aws_ec2.NewCfnGatewayRouteTableAssociation(this, jsii.String("MyCfnGatewayRouteTableAssociation"), &cfnGatewayRouteTableAssociationProps{
 //   	gatewayId: jsii.String("gatewayId"),
 //   	routeTableId: jsii.String("routeTableId"),
 //   })
@@ -16574,7 +16785,10 @@ func (c *jsiiProxy_CfnGatewayRouteTableAssociation) ValidateProperties(_properti
 // Properties for defining a `CfnGatewayRouteTableAssociation`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnGatewayRouteTableAssociationProps := &cfnGatewayRouteTableAssociationProps{
 //   	gatewayId: jsii.String("gatewayId"),
 //   	routeTableId: jsii.String("routeTableId"),
@@ -16582,9 +16796,9 @@ func (c *jsiiProxy_CfnGatewayRouteTableAssociation) ValidateProperties(_properti
 //
 type CfnGatewayRouteTableAssociationProps struct {
 	// The ID of the gateway.
-	GatewayId *string `json:"gatewayId" yaml:"gatewayId"`
+	GatewayId *string `field:"required" json:"gatewayId" yaml:"gatewayId"`
 	// The ID of the route table.
-	RouteTableId *string `json:"routeTableId" yaml:"routeTableId"`
+	RouteTableId *string `field:"required" json:"routeTableId" yaml:"routeTableId"`
 }
 
 // A CloudFormation `AWS::EC2::Host`.
@@ -16592,8 +16806,11 @@ type CfnGatewayRouteTableAssociationProps struct {
 // Allocates a fully dedicated physical server for launching EC2 instances. Because the host is fully dedicated for your use, it can help you address compliance requirements and reduce costs by allowing you to use your existing server-bound software licenses. For more information, see [Dedicated Hosts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html) in the *Amazon EC2 User Guide for Linux Instances* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnHost := ec2.NewCfnHost(this, jsii.String("MyCfnHost"), &cfnHostProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnHost := awscdk.Aws_ec2.NewCfnHost(this, jsii.String("MyCfnHost"), &cfnHostProps{
 //   	availabilityZone: jsii.String("availabilityZone"),
 //   	instanceType: jsii.String("instanceType"),
 //
@@ -17316,7 +17533,10 @@ func (c *jsiiProxy_CfnHost) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnHost`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnHostProps := &cfnHostProps{
 //   	availabilityZone: jsii.String("availabilityZone"),
 //   	instanceType: jsii.String("instanceType"),
@@ -17328,23 +17548,23 @@ func (c *jsiiProxy_CfnHost) ValidateProperties(_properties interface{}) {
 //
 type CfnHostProps struct {
 	// The Availability Zone in which to allocate the Dedicated Host.
-	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
+	AvailabilityZone *string `field:"required" json:"availabilityZone" yaml:"availabilityZone"`
 	// Specifies the instance type to be supported by the Dedicated Hosts.
 	//
 	// If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.
-	InstanceType *string `json:"instanceType" yaml:"instanceType"`
+	InstanceType *string `field:"required" json:"instanceType" yaml:"instanceType"`
 	// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
 	//
 	// For more information, see [Understanding auto-placement and affinity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-dedicated-hosts-work.html#dedicated-hosts-understanding) in the *Amazon EC2 User Guide* .
 	//
 	// Default: `on`.
-	AutoPlacement *string `json:"autoPlacement" yaml:"autoPlacement"`
+	AutoPlacement *string `field:"optional" json:"autoPlacement" yaml:"autoPlacement"`
 	// Indicates whether to enable or disable host recovery for the Dedicated Host.
 	//
 	// Host recovery is disabled by default. For more information, see [Host recovery](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html) in the *Amazon EC2 User Guide* .
 	//
 	// Default: `off`.
-	HostRecovery *string `json:"hostRecovery" yaml:"hostRecovery"`
+	HostRecovery *string `field:"optional" json:"hostRecovery" yaml:"hostRecovery"`
 }
 
 // A CloudFormation `AWS::EC2::IPAM`.
@@ -17352,8 +17572,11 @@ type CfnHostProps struct {
 // IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts throughout your AWS Organization. For more information, see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnIPAM := ec2.NewCfnIPAM(this, jsii.String("MyCfnIPAM"), &cfnIPAMProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnIPAM := awscdk.Aws_ec2.NewCfnIPAM(this, jsii.String("MyCfnIPAM"), &cfnIPAMProps{
 //   	description: jsii.String("description"),
 //   	operatingRegions: []interface{}{
 //   		&ipamOperatingRegionProperty{
@@ -18102,14 +18325,17 @@ func (c *jsiiProxy_CfnIPAM) ValidateProperties(_properties interface{}) {
 // For more information about operating Regions, see [Create an IPAM](https://docs.aws.amazon.com//vpc/latest/ipam/create-ipam.html) in the *Amazon VPC IPAM User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   ipamOperatingRegionProperty := &ipamOperatingRegionProperty{
 //   	regionName: jsii.String("regionName"),
 //   }
 //
 type CfnIPAM_IpamOperatingRegionProperty struct {
 	// The name of the operating Region.
-	RegionName *string `json:"regionName" yaml:"regionName"`
+	RegionName *string `field:"required" json:"regionName" yaml:"regionName"`
 }
 
 // A CloudFormation `AWS::EC2::IPAMAllocation`.
@@ -18117,8 +18343,11 @@ type CfnIPAM_IpamOperatingRegionProperty struct {
 // In IPAM, an allocation is a CIDR assignment from an IPAM pool to another resource or IPAM pool.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnIPAMAllocation := ec2.NewCfnIPAMAllocation(this, jsii.String("MyCfnIPAMAllocation"), &cfnIPAMAllocationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnIPAMAllocation := awscdk.Aws_ec2.NewCfnIPAMAllocation(this, jsii.String("MyCfnIPAMAllocation"), &cfnIPAMAllocationProps{
 //   	ipamPoolId: jsii.String("ipamPoolId"),
 //
 //   	// the properties below are optional
@@ -18841,7 +19070,10 @@ func (c *jsiiProxy_CfnIPAMAllocation) ValidateProperties(_properties interface{}
 // Properties for defining a `CfnIPAMAllocation`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnIPAMAllocationProps := &cfnIPAMAllocationProps{
 //   	ipamPoolId: jsii.String("ipamPoolId"),
 //
@@ -18853,23 +19085,23 @@ func (c *jsiiProxy_CfnIPAMAllocation) ValidateProperties(_properties interface{}
 //
 type CfnIPAMAllocationProps struct {
 	// The ID of the IPAM pool from which you would like to allocate a CIDR.
-	IpamPoolId *string `json:"ipamPoolId" yaml:"ipamPoolId"`
+	IpamPoolId *string `field:"required" json:"ipamPoolId" yaml:"ipamPoolId"`
 	// The CIDR you would like to allocate from the IPAM pool. Note the following:.
 	//
 	// - If there is no DefaultNetmaskLength allocation rule set on the pool, you must specify either the NetmaskLength or the CIDR.
 	// - If the DefaultNetmaskLength allocation rule is set on the pool, you can specify either the NetmaskLength or the CIDR and the DefaultNetmaskLength allocation rule will be ignored.
 	//
 	// Possible values: Any available IPv4 or IPv6 CIDR.
-	Cidr *string `json:"cidr" yaml:"cidr"`
+	Cidr *string `field:"optional" json:"cidr" yaml:"cidr"`
 	// A description for the allocation.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The netmask length of the CIDR you would like to allocate from the IPAM pool. Note the following:.
 	//
 	// - If there is no DefaultNetmaskLength allocation rule set on the pool, you must specify either the NetmaskLength or the CIDR.
 	// - If the DefaultNetmaskLength allocation rule is set on the pool, you can specify either the NetmaskLength or the CIDR and the DefaultNetmaskLength allocation rule will be ignored.
 	//
 	// Possible netmask lengths for IPv4 addresses are 0 - 32. Possible netmask lengths for IPv6 addresses are 0 - 128.
-	NetmaskLength *float64 `json:"netmaskLength" yaml:"netmaskLength"`
+	NetmaskLength *float64 `field:"optional" json:"netmaskLength" yaml:"netmaskLength"`
 }
 
 // A CloudFormation `AWS::EC2::IPAMPool`.
@@ -18877,8 +19109,11 @@ type CfnIPAMAllocationProps struct {
 // In IPAM, a pool is a collection of contiguous IP addresses CIDRs. Pools enable you to organize your IP addresses according to your routing and security needs. For example, if you have separate routing and security needs for development and production applications, you can create a pool for each.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnIPAMPool := ec2.NewCfnIPAMPool(this, jsii.String("MyCfnIPAMPool"), &cfnIPAMPoolProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnIPAMPool := awscdk.Aws_ec2.NewCfnIPAMPool(this, jsii.String("MyCfnIPAMPool"), &cfnIPAMPoolProps{
 //   	addressFamily: jsii.String("addressFamily"),
 //   	ipamScopeId: jsii.String("ipamScopeId"),
 //
@@ -19902,7 +20137,10 @@ func (c *jsiiProxy_CfnIPAMPool) ValidateProperties(_properties interface{}) {
 // A CIDR is a representation of an IP address and its associated network mask (or netmask) and refers to a range of IP addresses. An IPv4 CIDR example is `10.24.34.0/23` . An IPv6 CIDR example is `2001:DB8::/32` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   provisionedCidrProperty := &provisionedCidrProperty{
 //   	cidr: jsii.String("cidr"),
 //   }
@@ -19911,13 +20149,16 @@ type CfnIPAMPool_ProvisionedCidrProperty struct {
 	// The CIDR provisioned to the IPAM pool.
 	//
 	// A CIDR is a representation of an IP address and its associated network mask (or netmask) and refers to a range of IP addresses. An IPv4 CIDR example is `10.24.34.0/23` . An IPv6 CIDR example is `2001:DB8::/32` .
-	Cidr *string `json:"cidr" yaml:"cidr"`
+	Cidr *string `field:"required" json:"cidr" yaml:"cidr"`
 }
 
 // Properties for defining a `CfnIPAMPool`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnIPAMPoolProps := &cfnIPAMPoolProps{
 //   	addressFamily: jsii.String("addressFamily"),
 //   	ipamScopeId: jsii.String("ipamScopeId"),
@@ -19952,57 +20193,60 @@ type CfnIPAMPool_ProvisionedCidrProperty struct {
 //
 type CfnIPAMPoolProps struct {
 	// The address family of the pool.
-	AddressFamily *string `json:"addressFamily" yaml:"addressFamily"`
+	AddressFamily *string `field:"required" json:"addressFamily" yaml:"addressFamily"`
 	// The ID of the scope in which you would like to create the IPAM pool.
-	IpamScopeId *string `json:"ipamScopeId" yaml:"ipamScopeId"`
+	IpamScopeId *string `field:"required" json:"ipamScopeId" yaml:"ipamScopeId"`
 	// The default netmask length for allocations added to this pool.
 	//
 	// If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16.
-	AllocationDefaultNetmaskLength *float64 `json:"allocationDefaultNetmaskLength" yaml:"allocationDefaultNetmaskLength"`
+	AllocationDefaultNetmaskLength *float64 `field:"optional" json:"allocationDefaultNetmaskLength" yaml:"allocationDefaultNetmaskLength"`
 	// The maximum netmask length possible for CIDR allocations in this IPAM pool to be compliant.
 	//
 	// The maximum netmask length must be greater than the minimum netmask length. Possible netmask lengths for IPv4 addresses are 0 - 32. Possible netmask lengths for IPv6 addresses are 0 - 128.
-	AllocationMaxNetmaskLength *float64 `json:"allocationMaxNetmaskLength" yaml:"allocationMaxNetmaskLength"`
+	AllocationMaxNetmaskLength *float64 `field:"optional" json:"allocationMaxNetmaskLength" yaml:"allocationMaxNetmaskLength"`
 	// The minimum netmask length required for CIDR allocations in this IPAM pool to be compliant.
 	//
 	// The minimum netmask length must be less than the maximum netmask length. Possible netmask lengths for IPv4 addresses are 0 - 32. Possible netmask lengths for IPv6 addresses are 0 - 128.
-	AllocationMinNetmaskLength *float64 `json:"allocationMinNetmaskLength" yaml:"allocationMinNetmaskLength"`
+	AllocationMinNetmaskLength *float64 `field:"optional" json:"allocationMinNetmaskLength" yaml:"allocationMinNetmaskLength"`
 	// Tags that are required for resources that use CIDRs from this IPAM pool.
 	//
 	// Resources that do not have these tags will not be allowed to allocate space from the pool. If the resources have their tags changed after they have allocated space or if the allocation tagging requirements are changed on the pool, the resource may be marked as noncompliant.
-	AllocationResourceTags interface{} `json:"allocationResourceTags" yaml:"allocationResourceTags"`
+	AllocationResourceTags interface{} `field:"optional" json:"allocationResourceTags" yaml:"allocationResourceTags"`
 	// If selected, IPAM will continuously look for resources within the CIDR range of this pool and automatically import them as allocations into your IPAM.
 	//
 	// The CIDRs that will be allocated for these resources must not already be allocated to other resources in order for the import to succeed. IPAM will import a CIDR regardless of its compliance with the pool's allocation rules, so a resource might be imported and subsequently marked as noncompliant. If IPAM discovers multiple CIDRs that overlap, IPAM will import the largest CIDR only. If IPAM discovers multiple CIDRs with matching CIDRs, IPAM will randomly import one of them only.
 	//
 	// A locale must be set on the pool for this feature to work.
-	AutoImport interface{} `json:"autoImport" yaml:"autoImport"`
+	AutoImport interface{} `field:"optional" json:"autoImport" yaml:"autoImport"`
 	// The description of the IPAM pool.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The locale of the IPAM pool.
 	//
 	// In IPAM, the locale is the AWS Region where you want to make an IPAM pool available for allocations. Only resources in the same Region as the locale of the pool can get IP address allocations from the pool. You can only allocate a CIDR for a VPC, for example, from an IPAM pool that shares a locale with the VPC’s Region. Note that once you choose a Locale for a pool, you cannot modify it. If you choose an AWS Region for locale that has not been configured as an operating Region for the IPAM, you'll get an error.
-	Locale *string `json:"locale" yaml:"locale"`
+	Locale *string `field:"optional" json:"locale" yaml:"locale"`
 	// Information about the CIDRs provisioned to an IPAM pool.
-	ProvisionedCidrs interface{} `json:"provisionedCidrs" yaml:"provisionedCidrs"`
+	ProvisionedCidrs interface{} `field:"optional" json:"provisionedCidrs" yaml:"provisionedCidrs"`
 	// Determines if a pool is publicly advertisable.
 	//
 	// This option is not available for pools with AddressFamily set to `ipv4` .
-	PubliclyAdvertisable interface{} `json:"publiclyAdvertisable" yaml:"publiclyAdvertisable"`
+	PubliclyAdvertisable interface{} `field:"optional" json:"publiclyAdvertisable" yaml:"publiclyAdvertisable"`
 	// The ID of the source IPAM pool.
 	//
 	// You can use this option to create an IPAM pool within an existing source pool.
-	SourceIpamPoolId *string `json:"sourceIpamPoolId" yaml:"sourceIpamPoolId"`
+	SourceIpamPoolId *string `field:"optional" json:"sourceIpamPoolId" yaml:"sourceIpamPoolId"`
 	// The key/value combination of a tag assigned to the resource.
 	//
 	// Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key `Owner` and the value `TeamA` , specify `tag:Owner` for the filter name and `TeamA` for the filter value.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // Properties for defining a `CfnIPAM`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnIPAMProps := &cfnIPAMProps{
 //   	description: jsii.String("description"),
 //   	operatingRegions: []interface{}{
@@ -20020,17 +20264,17 @@ type CfnIPAMPoolProps struct {
 //
 type CfnIPAMProps struct {
 	// The description for the IPAM.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The operating Regions for an IPAM.
 	//
 	// Operating Regions are AWS Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the AWS Regions you select as operating Regions.
 	//
 	// For more information about operating Regions, see [Create an IPAM](https://docs.aws.amazon.com//vpc/latest/ipam/create-ipam.html) in the *Amazon VPC IPAM User Guide* .
-	OperatingRegions interface{} `json:"operatingRegions" yaml:"operatingRegions"`
+	OperatingRegions interface{} `field:"optional" json:"operatingRegions" yaml:"operatingRegions"`
 	// The key/value combination of a tag assigned to the resource.
 	//
 	// Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key `Owner` and the value `TeamA` , specify `tag:Owner` for the filter name and `TeamA` for the filter value.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::EC2::IPAMScope`.
@@ -20040,8 +20284,11 @@ type CfnIPAMProps struct {
 // For more information, see [How IPAM works](https://docs.aws.amazon.com//vpc/latest/ipam/how-it-works-ipam.html) in the *Amazon VPC IPAM User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnIPAMScope := ec2.NewCfnIPAMScope(this, jsii.String("MyCfnIPAMScope"), &cfnIPAMScopeProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnIPAMScope := awscdk.Aws_ec2.NewCfnIPAMScope(this, jsii.String("MyCfnIPAMScope"), &cfnIPAMScopeProps{
 //   	ipamId: jsii.String("ipamId"),
 //
 //   	// the properties below are optional
@@ -20790,7 +21037,10 @@ func (c *jsiiProxy_CfnIPAMScope) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnIPAMScope`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnIPAMScopeProps := &cfnIPAMScopeProps{
 //   	ipamId: jsii.String("ipamId"),
 //
@@ -20806,13 +21056,13 @@ func (c *jsiiProxy_CfnIPAMScope) ValidateProperties(_properties interface{}) {
 //
 type CfnIPAMScopeProps struct {
 	// The ID of the IPAM for which you're creating this scope.
-	IpamId *string `json:"ipamId" yaml:"ipamId"`
+	IpamId *string `field:"required" json:"ipamId" yaml:"ipamId"`
 	// The description of the scope.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The key/value combination of a tag assigned to the resource.
 	//
 	// Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key `Owner` and the value `TeamA` , specify `tag:Owner` for the filter name and `TeamA` for the filter value.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::EC2::Instance`.
@@ -20822,8 +21072,11 @@ type CfnIPAMScopeProps struct {
 // If an Elastic IP address is attached to your instance, AWS CloudFormation reattaches the Elastic IP address after it updates the instance. For more information about updating stacks, see [AWS CloudFormation Stacks Updates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnInstance := ec2.NewCfnInstance(this, jsii.String("MyCfnInstance"), &cfnInstanceProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnInstance := awscdk.Aws_ec2.NewCfnInstance(this, jsii.String("MyCfnInstance"), &cfnInstanceProps{
 //   	additionalInfo: jsii.String("additionalInfo"),
 //   	affinity: jsii.String("affinity"),
 //   	availabilityZone: jsii.String("availabilityZone"),
@@ -21161,6 +21414,8 @@ type CfnInstance interface {
 	// Experimental.
 	LogicalId() *string
 	// Specifies whether detailed monitoring is enabled for the instance.
+	//
+	// Specify `true` to enable detailed monitoring. Otherwise, basic monitoring is enabled. For more information about detailed monitoring, see [Enable or turn off detailed monitoring for your instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch-new.html) in the *Amazon EC2 User Guide* .
 	Monitoring() interface{}
 	SetMonitoring(val interface{})
 	// The network interfaces to associate with the instance.
@@ -22589,7 +22844,10 @@ func (c *jsiiProxy_CfnInstance) ValidateProperties(_properties interface{}) {
 // `AssociationParameter` is a property of the [Amazon EC2 Instance SsmAssociation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-ssmassociations.html) property.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   associationParameterProperty := &associationParameterProperty{
 //   	key: jsii.String("key"),
 //   	value: []*string{
@@ -22599,9 +22857,9 @@ func (c *jsiiProxy_CfnInstance) ValidateProperties(_properties interface{}) {
 //
 type CfnInstance_AssociationParameterProperty struct {
 	// The name of an input parameter that is in the associated SSM document.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// The value of an input parameter.
-	Value *[]*string `json:"value" yaml:"value"`
+	Value *[]*string `field:"required" json:"value" yaml:"value"`
 }
 
 // Specifies a block device mapping for an instance.
@@ -22613,7 +22871,10 @@ type CfnInstance_AssociationParameterProperty struct {
 // > After the instance is running, you can modify only the `DeleteOnTermination` parameter for the attached volumes without interrupting the instance. Modifying any other parameter results in instance [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   blockDeviceMappingProperty := &blockDeviceMappingProperty{
 //   	deviceName: jsii.String("deviceName"),
 //
@@ -22636,15 +22897,15 @@ type CfnInstance_BlockDeviceMappingProperty struct {
 	// The device name (for example, `/dev/sdh` or `xvdh` ).
 	//
 	// > After the instance is running, this parameter is used to specify the device name of the block device mapping to update.
-	DeviceName *string `json:"deviceName" yaml:"deviceName"`
+	DeviceName *string `field:"required" json:"deviceName" yaml:"deviceName"`
 	// Parameters used to automatically set up EBS volumes when the instance is launched.
 	//
 	// > After the instance is running, you can modify only the `DeleteOnTermination` parameter for the attached volumes without interrupting the instance. Modifying any other parameter results in instance [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt) .
-	Ebs interface{} `json:"ebs" yaml:"ebs"`
+	Ebs interface{} `field:"optional" json:"ebs" yaml:"ebs"`
 	// To omit the device from the block device mapping, specify an empty string.
 	//
 	// > After the instance is running, modifying this parameter results in instance [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
-	NoDevice interface{} `json:"noDevice" yaml:"noDevice"`
+	NoDevice interface{} `field:"optional" json:"noDevice" yaml:"noDevice"`
 	// The virtual device name ( `ephemeral` N).
 	//
 	// The name must be in the form `ephemeral` *X* where *X* is a number starting from zero (0). For example, an instance type with 2 available instance store volumes can specify mappings for `ephemeral0` and `ephemeral1` . The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
@@ -22654,7 +22915,7 @@ type CfnInstance_BlockDeviceMappingProperty struct {
 	// *Constraints* : For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.
 	//
 	// > After the instance is running, modifying this parameter results in instance [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
-	VirtualName *string `json:"virtualName" yaml:"virtualName"`
+	VirtualName *string `field:"optional" json:"virtualName" yaml:"virtualName"`
 }
 
 // Specifies the CPU options for the instance.
@@ -22664,7 +22925,10 @@ type CfnInstance_BlockDeviceMappingProperty struct {
 // For more information, see [Optimize CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *Amazon Elastic Compute Cloud User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cpuOptionsProperty := &cpuOptionsProperty{
 //   	coreCount: jsii.Number(123),
 //   	threadsPerCore: jsii.Number(123),
@@ -22672,9 +22936,9 @@ type CfnInstance_BlockDeviceMappingProperty struct {
 //
 type CfnInstance_CpuOptionsProperty struct {
 	// The number of CPU cores for the instance.
-	CoreCount *float64 `json:"coreCount" yaml:"coreCount"`
+	CoreCount *float64 `field:"optional" json:"coreCount" yaml:"coreCount"`
 	// The number of threads per CPU core.
-	ThreadsPerCore *float64 `json:"threadsPerCore" yaml:"threadsPerCore"`
+	ThreadsPerCore *float64 `field:"optional" json:"threadsPerCore" yaml:"threadsPerCore"`
 }
 
 // Specifies the credit option for CPU usage of a T2, T3, or T3a instance.
@@ -22682,7 +22946,10 @@ type CfnInstance_CpuOptionsProperty struct {
 // `CreditSpecification` is a property of the [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   creditSpecificationProperty := &creditSpecificationProperty{
 //   	cpuCredits: jsii.String("cpuCredits"),
 //   }
@@ -22691,7 +22958,7 @@ type CfnInstance_CreditSpecificationProperty struct {
 	// The credit option for CPU usage of the instance.
 	//
 	// Valid values are `standard` and `unlimited` . `T3` instances launch as `unlimited` by default. `T2` instances launch as `standard` by default.
-	CpuCredits *string `json:"cpuCredits" yaml:"cpuCredits"`
+	CpuCredits *string `field:"optional" json:"cpuCredits" yaml:"cpuCredits"`
 }
 
 // Specifies a block device for an EBS volume.
@@ -22701,7 +22968,10 @@ type CfnInstance_CreditSpecificationProperty struct {
 // > After the instance is running, you can modify only the `DeleteOnTermination` parameters for the attached volumes without interrupting the instance. Modifying any other parameter results in instance [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   ebsProperty := &ebsProperty{
 //   	deleteOnTermination: jsii.Boolean(false),
 //   	encrypted: jsii.Boolean(false),
@@ -22716,7 +22986,7 @@ type CfnInstance_EbsProperty struct {
 	// Indicates whether the EBS volume is deleted on instance termination.
 	//
 	// For more information, see [Preserving Amazon EBS volumes on instance termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) in the *Amazon EC2 User Guide* .
-	DeleteOnTermination interface{} `json:"deleteOnTermination" yaml:"deleteOnTermination"`
+	DeleteOnTermination interface{} `field:"optional" json:"deleteOnTermination" yaml:"deleteOnTermination"`
 	// Indicates whether the volume should be encrypted.
 	//
 	// The effect of setting the encryption state to `true` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Encryption by default](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default) in the *Amazon Elastic Compute Cloud User Guide* .
@@ -22724,7 +22994,7 @@ type CfnInstance_EbsProperty struct {
 	// Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see [Supported instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances) .
 	//
 	// > After the instance is running, modifying this parameter results in instance [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
-	Encrypted interface{} `json:"encrypted" yaml:"encrypted"`
+	Encrypted interface{} `field:"optional" json:"encrypted" yaml:"encrypted"`
 	// The number of I/O operations per second (IOPS).
 	//
 	// For `gp3` , `io1` , and `io2` volumes, this represents the number of IOPS that are provisioned for the volume. For `gp2` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
@@ -22740,7 +23010,7 @@ type CfnInstance_EbsProperty struct {
 	// This parameter is required for `io1` and `io2` volumes. The default for `gp3` volumes is 3,000 IOPS. This parameter is not supported for `gp2` , `st1` , `sc1` , or `standard` volumes.
 	//
 	// > After the instance is running, modifying this parameter results in instance [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
-	Iops *float64 `json:"iops" yaml:"iops"`
+	Iops *float64 `field:"optional" json:"iops" yaml:"iops"`
 	// The identifier of the AWS KMS key to use for Amazon EBS encryption.
 	//
 	// If `KmsKeyId` is specified, the encrypted state must be `true` . If the encrypted state is `true` but you do not specify `KmsKeyId` , your KMS key for EBS is used.
@@ -22753,13 +23023,13 @@ type CfnInstance_EbsProperty struct {
 	// - Alias ARN. For example, arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias.
 	//
 	// > After the instance is running, modifying this parameter results in instance [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
-	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// The ID of the snapshot.
 	//
 	// If you specify both `SnapshotId` and `VolumeSize` , `VolumeSize` must be equal or greater than the size of the snapshot.
 	//
 	// > After the instance is running, modifying this parameter results in instance [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
-	SnapshotId *string `json:"snapshotId" yaml:"snapshotId"`
+	SnapshotId *string `field:"optional" json:"snapshotId" yaml:"snapshotId"`
 	// The size of the volume, in GiBs.
 	//
 	// You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
@@ -22772,13 +23042,13 @@ type CfnInstance_EbsProperty struct {
 	// - `standard` : 1-1,024
 	//
 	// > After the instance is running, modifying this parameter results in instance [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
-	VolumeSize *float64 `json:"volumeSize" yaml:"volumeSize"`
+	VolumeSize *float64 `field:"optional" json:"volumeSize" yaml:"volumeSize"`
 	// The volume type.
 	//
 	// For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon EC2 User Guide* . If the volume type is `io1` or `io2` , you must specify the IOPS that the volume supports.
 	//
 	// > After the instance is running, modifying this parameter results in instance [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
-	VolumeType *string `json:"volumeType" yaml:"volumeType"`
+	VolumeType *string `field:"optional" json:"volumeType" yaml:"volumeType"`
 }
 
 // Specifies the type of Elastic GPU.
@@ -22788,7 +23058,10 @@ type CfnInstance_EbsProperty struct {
 // `ElasticGpuSpecification` is a property of the [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   elasticGpuSpecificationProperty := &elasticGpuSpecificationProperty{
 //   	type: jsii.String("type"),
 //   }
@@ -22797,7 +23070,7 @@ type CfnInstance_ElasticGpuSpecificationProperty struct {
 	// The type of Elastic Graphics accelerator.
 	//
 	// For more information about the values to specify for `Type` , see [Elastic Graphics Basics](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html#elastic-graphics-basics) , specifically the Elastic Graphics accelerator column, in the *Amazon Elastic Compute Cloud User Guide for Windows Instances* .
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 }
 
 // Specifies the Elastic Inference Accelerator for the instance.
@@ -22805,7 +23078,10 @@ type CfnInstance_ElasticGpuSpecificationProperty struct {
 // `ElasticInferenceAccelerator` is a property of the [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   elasticInferenceAcceleratorProperty := &elasticInferenceAcceleratorProperty{
 //   	type: jsii.String("type"),
 //
@@ -22817,15 +23093,18 @@ type CfnInstance_ElasticInferenceAcceleratorProperty struct {
 	// The type of elastic inference accelerator.
 	//
 	// The possible values are `eia1.medium` , `eia1.large` , `eia1.xlarge` , `eia2.medium` , `eia2.large` , and `eia2.xlarge` .
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// The number of elastic inference accelerators to attach to the instance.
-	Count *float64 `json:"count" yaml:"count"`
+	Count *float64 `field:"optional" json:"count" yaml:"count"`
 }
 
 // Indicates whether the instance is enabled for AWS Nitro Enclaves.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   enclaveOptionsProperty := &enclaveOptionsProperty{
 //   	enabled: jsii.Boolean(false),
 //   }
@@ -22834,7 +23113,7 @@ type CfnInstance_EnclaveOptionsProperty struct {
 	// If this parameter is set to `true` , the instance is enabled for AWS Nitro Enclaves;
 	//
 	// otherwise, it is not enabled for AWS Nitro Enclaves.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 }
 
 // Specifies the hibernation options for the instance.
@@ -22842,7 +23121,10 @@ type CfnInstance_EnclaveOptionsProperty struct {
 // `HibernationOptions` is a property of the [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   hibernationOptionsProperty := &hibernationOptionsProperty{
 //   	configured: jsii.Boolean(false),
 //   }
@@ -22851,7 +23133,7 @@ type CfnInstance_HibernationOptionsProperty struct {
 	// If you set this parameter to `true` , your instance is enabled for hibernation.
 	//
 	// Default: `false`.
-	Configured interface{} `json:"configured" yaml:"configured"`
+	Configured interface{} `field:"optional" json:"configured" yaml:"configured"`
 }
 
 // Specifies the IPv6 address for the instance.
@@ -22859,14 +23141,17 @@ type CfnInstance_HibernationOptionsProperty struct {
 // `InstanceIpv6Address` is a property of the [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   instanceIpv6AddressProperty := &instanceIpv6AddressProperty{
 //   	ipv6Address: jsii.String("ipv6Address"),
 //   }
 //
 type CfnInstance_InstanceIpv6AddressProperty struct {
 	// The IPv6 address.
-	Ipv6Address *string `json:"ipv6Address" yaml:"ipv6Address"`
+	Ipv6Address *string `field:"required" json:"ipv6Address" yaml:"ipv6Address"`
 }
 
 // Specifies a launch template. You must specify either the launch template ID or launch template name.
@@ -22874,7 +23159,10 @@ type CfnInstance_InstanceIpv6AddressProperty struct {
 // `LaunchTemplateSpecification` is a property of the [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   launchTemplateSpecificationProperty := &launchTemplateSpecificationProperty{
 //   	version: jsii.String("version"),
 //
@@ -22887,11 +23175,11 @@ type CfnInstance_LaunchTemplateSpecificationProperty struct {
 	// The version number of the launch template.
 	//
 	// AWS CloudFormation does not support specifying `$Latest` , or `$Default` for the template version number.
-	Version *string `json:"version" yaml:"version"`
+	Version *string `field:"required" json:"version" yaml:"version"`
 	// The ID of the launch template.
-	LaunchTemplateId *string `json:"launchTemplateId" yaml:"launchTemplateId"`
+	LaunchTemplateId *string `field:"optional" json:"launchTemplateId" yaml:"launchTemplateId"`
 	// The name of the launch template.
-	LaunchTemplateName *string `json:"launchTemplateName" yaml:"launchTemplateName"`
+	LaunchTemplateName *string `field:"optional" json:"launchTemplateName" yaml:"launchTemplateName"`
 }
 
 // Specifies the license configuration to use.
@@ -22899,14 +23187,17 @@ type CfnInstance_LaunchTemplateSpecificationProperty struct {
 // `LicenseSpecification` is a property of the [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   licenseSpecificationProperty := &licenseSpecificationProperty{
 //   	licenseConfigurationArn: jsii.String("licenseConfigurationArn"),
 //   }
 //
 type CfnInstance_LicenseSpecificationProperty struct {
 	// The Amazon Resource Name (ARN) of the license configuration.
-	LicenseConfigurationArn *string `json:"licenseConfigurationArn" yaml:"licenseConfigurationArn"`
+	LicenseConfigurationArn *string `field:"required" json:"licenseConfigurationArn" yaml:"licenseConfigurationArn"`
 }
 
 // Specifies a network interface that is to be attached to an instance.
@@ -22916,7 +23207,10 @@ type CfnInstance_LicenseSpecificationProperty struct {
 // Alternatively, you can attach an existing network interface when launching an instance. For an example, see the [AWS::EC2:NetworkInterface examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#aws-resource-ec2-network-interface--examples--Basic_network_interface) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   networkInterfaceProperty := &networkInterfaceProperty{
 //   	deviceIndex: jsii.String("deviceIndex"),
 //
@@ -22951,49 +23245,49 @@ type CfnInstance_NetworkInterfaceProperty struct {
 	// A primary network interface has a device index of 0.
 	//
 	// If you create a network interface when launching an instance, you must specify the device index.
-	DeviceIndex *string `json:"deviceIndex" yaml:"deviceIndex"`
+	DeviceIndex *string `field:"required" json:"deviceIndex" yaml:"deviceIndex"`
 	// Indicates whether to assign a public IPv4 address to an instance.
 	//
 	// Applies only if creating a network interface when launching an instance. The network interface must be the primary network interface. If launching into a default subnet, the default value is `true` .
-	AssociatePublicIpAddress interface{} `json:"associatePublicIpAddress" yaml:"associatePublicIpAddress"`
+	AssociatePublicIpAddress interface{} `field:"optional" json:"associatePublicIpAddress" yaml:"associatePublicIpAddress"`
 	// Indicates whether the network interface is deleted when the instance is terminated.
 	//
 	// Applies only if creating a network interface when launching an instance.
-	DeleteOnTermination interface{} `json:"deleteOnTermination" yaml:"deleteOnTermination"`
+	DeleteOnTermination interface{} `field:"optional" json:"deleteOnTermination" yaml:"deleteOnTermination"`
 	// The description of the network interface.
 	//
 	// Applies only if creating a network interface when launching an instance.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The IDs of the security groups for the network interface.
 	//
 	// Applies only if creating a network interface when launching an instance.
-	GroupSet *[]*string `json:"groupSet" yaml:"groupSet"`
+	GroupSet *[]*string `field:"optional" json:"groupSet" yaml:"groupSet"`
 	// A number of IPv6 addresses to assign to the network interface.
 	//
 	// Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
-	Ipv6AddressCount *float64 `json:"ipv6AddressCount" yaml:"ipv6AddressCount"`
+	Ipv6AddressCount *float64 `field:"optional" json:"ipv6AddressCount" yaml:"ipv6AddressCount"`
 	// One or more IPv6 addresses to assign to the network interface.
 	//
 	// You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.
-	Ipv6Addresses interface{} `json:"ipv6Addresses" yaml:"ipv6Addresses"`
+	Ipv6Addresses interface{} `field:"optional" json:"ipv6Addresses" yaml:"ipv6Addresses"`
 	// The ID of the network interface, when attaching an existing network interface.
-	NetworkInterfaceId *string `json:"networkInterfaceId" yaml:"networkInterfaceId"`
+	NetworkInterfaceId *string `field:"optional" json:"networkInterfaceId" yaml:"networkInterfaceId"`
 	// The private IPv4 address of the network interface.
 	//
 	// Applies only if creating a network interface when launching an instance.
-	PrivateIpAddress *string `json:"privateIpAddress" yaml:"privateIpAddress"`
+	PrivateIpAddress *string `field:"optional" json:"privateIpAddress" yaml:"privateIpAddress"`
 	// One or more private IPv4 addresses to assign to the network interface.
 	//
 	// Only one private IPv4 address can be designated as primary.
-	PrivateIpAddresses interface{} `json:"privateIpAddresses" yaml:"privateIpAddresses"`
+	PrivateIpAddresses interface{} `field:"optional" json:"privateIpAddresses" yaml:"privateIpAddresses"`
 	// The number of secondary private IPv4 addresses.
 	//
 	// You can't specify this option and specify more than one private IP address using the private IP addresses option.
-	SecondaryPrivateIpAddressCount *float64 `json:"secondaryPrivateIpAddressCount" yaml:"secondaryPrivateIpAddressCount"`
+	SecondaryPrivateIpAddressCount *float64 `field:"optional" json:"secondaryPrivateIpAddressCount" yaml:"secondaryPrivateIpAddressCount"`
 	// The ID of the subnet associated with the network interface.
 	//
 	// Applies only if creating a network interface when launching an instance.
-	SubnetId *string `json:"subnetId" yaml:"subnetId"`
+	SubnetId *string `field:"optional" json:"subnetId" yaml:"subnetId"`
 }
 
 // Suppresses the specified device included in the block device mapping of the AMI.
@@ -23003,7 +23297,10 @@ type CfnInstance_NetworkInterfaceProperty struct {
 // `NoDevice` is a property of the [Amazon EC2 BlockDeviceMapping](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-mapping.html) property.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   noDeviceProperty := &noDeviceProperty{
 //   }
 //
@@ -23015,7 +23312,10 @@ type CfnInstance_NoDeviceProperty struct {
 // For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *Amazon Elastic Compute Cloud User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   privateDnsNameOptionsProperty := &privateDnsNameOptionsProperty{
 //   	enableResourceNameDnsAaaaRecord: jsii.Boolean(false),
 //   	enableResourceNameDnsARecord: jsii.Boolean(false),
@@ -23026,15 +23326,15 @@ type CfnInstance_PrivateDnsNameOptionsProperty struct {
 	// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
 	//
 	// For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *Amazon Elastic Compute Cloud User Guide* .
-	EnableResourceNameDnsAaaaRecord interface{} `json:"enableResourceNameDnsAaaaRecord" yaml:"enableResourceNameDnsAaaaRecord"`
+	EnableResourceNameDnsAaaaRecord interface{} `field:"optional" json:"enableResourceNameDnsAaaaRecord" yaml:"enableResourceNameDnsAaaaRecord"`
 	// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
 	//
 	// For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *Amazon Elastic Compute Cloud User Guide* .
-	EnableResourceNameDnsARecord interface{} `json:"enableResourceNameDnsARecord" yaml:"enableResourceNameDnsARecord"`
+	EnableResourceNameDnsARecord interface{} `field:"optional" json:"enableResourceNameDnsARecord" yaml:"enableResourceNameDnsARecord"`
 	// The type of hostnames to assign to instances in the subnet at launch.
 	//
 	// For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *Amazon Elastic Compute Cloud User Guide* .
-	HostnameType *string `json:"hostnameType" yaml:"hostnameType"`
+	HostnameType *string `field:"optional" json:"hostnameType" yaml:"hostnameType"`
 }
 
 // Specifies a secondary private IPv4 address for a network interface.
@@ -23042,7 +23342,10 @@ type CfnInstance_PrivateDnsNameOptionsProperty struct {
 // `PrivateIpAddressSpecification` is a property of the [AWS::EC2::NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html) resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   privateIpAddressSpecificationProperty := &privateIpAddressSpecificationProperty{
 //   	primary: jsii.Boolean(false),
 //   	privateIpAddress: jsii.String("privateIpAddress"),
@@ -23052,9 +23355,9 @@ type CfnInstance_PrivateIpAddressSpecificationProperty struct {
 	// Indicates whether the private IPv4 address is the primary private IPv4 address.
 	//
 	// Only one IPv4 address can be designated as primary.
-	Primary interface{} `json:"primary" yaml:"primary"`
+	Primary interface{} `field:"required" json:"primary" yaml:"primary"`
 	// The private IPv4 addresses.
-	PrivateIpAddress *string `json:"privateIpAddress" yaml:"privateIpAddress"`
+	PrivateIpAddress *string `field:"required" json:"privateIpAddress" yaml:"privateIpAddress"`
 }
 
 // Specifies the SSM document and parameter values in AWS Systems Manager to associate with an instance.
@@ -23062,7 +23365,10 @@ type CfnInstance_PrivateIpAddressSpecificationProperty struct {
 // `SsmAssociations` is a property of the [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   ssmAssociationProperty := &ssmAssociationProperty{
 //   	documentName: jsii.String("documentName"),
 //
@@ -23079,9 +23385,9 @@ type CfnInstance_PrivateIpAddressSpecificationProperty struct {
 //
 type CfnInstance_SsmAssociationProperty struct {
 	// The name of an SSM document to associate with the instance.
-	DocumentName *string `json:"documentName" yaml:"documentName"`
+	DocumentName *string `field:"required" json:"documentName" yaml:"documentName"`
 	// The input parameter values to use with the associated SSM document.
-	AssociationParameters interface{} `json:"associationParameters" yaml:"associationParameters"`
+	AssociationParameters interface{} `field:"optional" json:"associationParameters" yaml:"associationParameters"`
 }
 
 // Specifies a volume to attach to an instance.
@@ -23089,7 +23395,10 @@ type CfnInstance_SsmAssociationProperty struct {
 // `Volume` is an embedded property of the [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   volumeProperty := &volumeProperty{
 //   	device: jsii.String("device"),
 //   	volumeId: jsii.String("volumeId"),
@@ -23097,17 +23406,20 @@ type CfnInstance_SsmAssociationProperty struct {
 //
 type CfnInstance_VolumeProperty struct {
 	// The device name (for example, `/dev/sdh` or `xvdh` ).
-	Device *string `json:"device" yaml:"device"`
+	Device *string `field:"required" json:"device" yaml:"device"`
 	// The ID of the EBS volume.
 	//
 	// The volume and instance must be within the same Availability Zone.
-	VolumeId *string `json:"volumeId" yaml:"volumeId"`
+	VolumeId *string `field:"required" json:"volumeId" yaml:"volumeId"`
 }
 
 // Properties for defining a `CfnInstance`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnInstanceProps := &cfnInstanceProps{
 //   	additionalInfo: jsii.String("additionalInfo"),
 //   	affinity: jsii.String("affinity"),
@@ -23267,27 +23579,27 @@ type CfnInstanceProps struct {
 	// This property is reserved for internal use.
 	//
 	// If you use it, the stack fails with this error: `Bad property set: [Testing this property] (Service: AmazonEC2; Status Code: 400; Error Code: InvalidParameterCombination; Request ID: 0XXXXXX-49c7-4b40-8bcc-76885dcXXXXX)` .
-	AdditionalInfo *string `json:"additionalInfo" yaml:"additionalInfo"`
+	AdditionalInfo *string `field:"optional" json:"additionalInfo" yaml:"additionalInfo"`
 	// Indicates whether the instance is associated with a dedicated host.
 	//
 	// If you want the instance to always restart on the same host on which it was launched, specify `host` . If you want the instance to restart on any available host, but try to launch onto the last host it ran on (on a best-effort basis), specify `default` .
-	Affinity *string `json:"affinity" yaml:"affinity"`
+	Affinity *string `field:"optional" json:"affinity" yaml:"affinity"`
 	// The Availability Zone of the instance.
 	//
 	// If not specified, an Availability Zone will be automatically chosen for you based on the load balancing criteria for the Region.
 	//
 	// This parameter is not supported by [DescribeImageAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImageAttribute.html) .
-	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
+	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
 	// The block device mapping entries that defines the block devices to attach to the instance at launch.
 	//
 	// By default, the block devices specified in the block device mapping for the AMI are used. You can override the AMI block device mapping using the instance block device mapping. For the root volume, you can override only the volume size, volume type, volume encryption settings, and the `DeleteOnTermination` setting.
 	//
 	// > After the instance is running, you can modify only the `DeleteOnTermination` parameter for the attached volumes without interrupting the instance. Modifying any other parameter results in instance [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
-	BlockDeviceMappings interface{} `json:"blockDeviceMappings" yaml:"blockDeviceMappings"`
+	BlockDeviceMappings interface{} `field:"optional" json:"blockDeviceMappings" yaml:"blockDeviceMappings"`
 	// The CPU options for the instance.
 	//
 	// For more information, see [Optimize CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *Amazon Elastic Compute Cloud User Guide* .
-	CpuOptions interface{} `json:"cpuOptions" yaml:"cpuOptions"`
+	CpuOptions interface{} `field:"optional" json:"cpuOptions" yaml:"cpuOptions"`
 	// The credit option for CPU usage of the burstable performance instance.
 	//
 	// Valid values are `standard` and `unlimited` . To change this attribute after launch, use [ModifyInstanceCreditSpecification](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceCreditSpecification.html) . For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) in the *Amazon EC2 User Guide* .
@@ -23295,99 +23607,101 @@ type CfnInstanceProps struct {
 	// Default: `standard` (T2 instances) or `unlimited` (T3/T3a instances)
 	//
 	// For T3 instances with `host` tenancy, only `standard` is supported.
-	CreditSpecification interface{} `json:"creditSpecification" yaml:"creditSpecification"`
+	CreditSpecification interface{} `field:"optional" json:"creditSpecification" yaml:"creditSpecification"`
 	// If you set this parameter to `true` , you can't terminate the instance using the Amazon EC2 console, CLI, or API;
 	//
 	// otherwise, you can. To change this attribute after launch, use [ModifyInstanceAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html) . Alternatively, if you set `InstanceInitiatedShutdownBehavior` to `terminate` , you can terminate the instance by running the shutdown command from the instance.
 	//
 	// Default: `false`.
-	DisableApiTermination interface{} `json:"disableApiTermination" yaml:"disableApiTermination"`
+	DisableApiTermination interface{} `field:"optional" json:"disableApiTermination" yaml:"disableApiTermination"`
 	// Indicates whether the instance is optimized for Amazon EBS I/O.
 	//
 	// This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.
 	//
 	// Default: `false`.
-	EbsOptimized interface{} `json:"ebsOptimized" yaml:"ebsOptimized"`
+	EbsOptimized interface{} `field:"optional" json:"ebsOptimized" yaml:"ebsOptimized"`
 	// An elastic GPU to associate with the instance.
 	//
 	// An Elastic GPU is a GPU resource that you can attach to your Windows instance to accelerate the graphics performance of your applications. For more information, see [Amazon EC2 Elastic GPUs](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html) in the *Amazon EC2 User Guide* .
-	ElasticGpuSpecifications interface{} `json:"elasticGpuSpecifications" yaml:"elasticGpuSpecifications"`
+	ElasticGpuSpecifications interface{} `field:"optional" json:"elasticGpuSpecifications" yaml:"elasticGpuSpecifications"`
 	// An elastic inference accelerator to associate with the instance.
 	//
 	// Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.
 	//
 	// You cannot specify accelerators from different generations in the same request.
-	ElasticInferenceAccelerators interface{} `json:"elasticInferenceAccelerators" yaml:"elasticInferenceAccelerators"`
+	ElasticInferenceAccelerators interface{} `field:"optional" json:"elasticInferenceAccelerators" yaml:"elasticInferenceAccelerators"`
 	// Indicates whether the instance is enabled for AWS Nitro Enclaves.
-	EnclaveOptions interface{} `json:"enclaveOptions" yaml:"enclaveOptions"`
+	EnclaveOptions interface{} `field:"optional" json:"enclaveOptions" yaml:"enclaveOptions"`
 	// Indicates whether an instance is enabled for hibernation.
 	//
 	// For more information, see [Hibernate your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html) in the *Amazon EC2 User Guide* .
 	//
 	// You can't enable hibernation and AWS Nitro Enclaves on the same instance.
-	HibernationOptions interface{} `json:"hibernationOptions" yaml:"hibernationOptions"`
+	HibernationOptions interface{} `field:"optional" json:"hibernationOptions" yaml:"hibernationOptions"`
 	// If you specify host for the `Affinity` property, the ID of a dedicated host that the instance is associated with.
 	//
 	// If you don't specify an ID, Amazon EC2 launches the instance onto any available, compatible dedicated host in your account. This type of launch is called an untargeted launch. Note that for untargeted launches, you must have a compatible, dedicated host available to successfully launch instances.
-	HostId *string `json:"hostId" yaml:"hostId"`
+	HostId *string `field:"optional" json:"hostId" yaml:"hostId"`
 	// The ARN of the host resource group in which to launch the instances.
 	//
 	// If you specify a host resource group ARN, omit the *Tenancy* parameter or set it to `host` .
-	HostResourceGroupArn *string `json:"hostResourceGroupArn" yaml:"hostResourceGroupArn"`
+	HostResourceGroupArn *string `field:"optional" json:"hostResourceGroupArn" yaml:"hostResourceGroupArn"`
 	// The name of an IAM instance profile.
 	//
 	// To create a new IAM instance profile, use the [AWS::IAM::InstanceProfile](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html) resource.
-	IamInstanceProfile *string `json:"iamInstanceProfile" yaml:"iamInstanceProfile"`
+	IamInstanceProfile *string `field:"optional" json:"iamInstanceProfile" yaml:"iamInstanceProfile"`
 	// The ID of the AMI.
 	//
 	// An AMI ID is required to launch an instance and must be specified here or in a launch template.
-	ImageId *string `json:"imageId" yaml:"imageId"`
+	ImageId *string `field:"optional" json:"imageId" yaml:"imageId"`
 	// Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
 	//
 	// Default: `stop`.
-	InstanceInitiatedShutdownBehavior *string `json:"instanceInitiatedShutdownBehavior" yaml:"instanceInitiatedShutdownBehavior"`
+	InstanceInitiatedShutdownBehavior *string `field:"optional" json:"instanceInitiatedShutdownBehavior" yaml:"instanceInitiatedShutdownBehavior"`
 	// The instance type. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
 	//
 	// Default: `m1.small`
-	InstanceType *string `json:"instanceType" yaml:"instanceType"`
+	InstanceType *string `field:"optional" json:"instanceType" yaml:"instanceType"`
 	// [EC2-VPC] The number of IPv6 addresses to associate with the primary network interface.
 	//
 	// Amazon EC2 chooses the IPv6 addresses from the range of your subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
 	//
 	// You cannot specify this option and the network interfaces option in the same request.
-	Ipv6AddressCount *float64 `json:"ipv6AddressCount" yaml:"ipv6AddressCount"`
+	Ipv6AddressCount *float64 `field:"optional" json:"ipv6AddressCount" yaml:"ipv6AddressCount"`
 	// [EC2-VPC] The IPv6 addresses from the range of the subnet to associate with the primary network interface.
 	//
 	// You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.
 	//
 	// You cannot specify this option and the network interfaces option in the same request.
-	Ipv6Addresses interface{} `json:"ipv6Addresses" yaml:"ipv6Addresses"`
+	Ipv6Addresses interface{} `field:"optional" json:"ipv6Addresses" yaml:"ipv6Addresses"`
 	// The ID of the kernel.
 	//
 	// > We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see [PV-GRUB](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html) in the *Amazon EC2 User Guide* .
-	KernelId *string `json:"kernelId" yaml:"kernelId"`
+	KernelId *string `field:"optional" json:"kernelId" yaml:"kernelId"`
 	// The name of the key pair. You can create a key pair using [CreateKeyPair](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html) or [ImportKeyPair](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportKeyPair.html) .
 	//
 	// > If you do not specify a key pair, you can't connect to the instance unless you choose an AMI that is configured to allow users another way to log in.
-	KeyName *string `json:"keyName" yaml:"keyName"`
+	KeyName *string `field:"optional" json:"keyName" yaml:"keyName"`
 	// The launch template to use to launch the instances.
 	//
 	// Any parameters that you specify in the AWS CloudFormation template override the same parameters in the launch template. You can specify either the name or ID of a launch template, but not both.
-	LaunchTemplate interface{} `json:"launchTemplate" yaml:"launchTemplate"`
+	LaunchTemplate interface{} `field:"optional" json:"launchTemplate" yaml:"launchTemplate"`
 	// The license configurations.
-	LicenseSpecifications interface{} `json:"licenseSpecifications" yaml:"licenseSpecifications"`
+	LicenseSpecifications interface{} `field:"optional" json:"licenseSpecifications" yaml:"licenseSpecifications"`
 	// Specifies whether detailed monitoring is enabled for the instance.
-	Monitoring interface{} `json:"monitoring" yaml:"monitoring"`
+	//
+	// Specify `true` to enable detailed monitoring. Otherwise, basic monitoring is enabled. For more information about detailed monitoring, see [Enable or turn off detailed monitoring for your instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch-new.html) in the *Amazon EC2 User Guide* .
+	Monitoring interface{} `field:"optional" json:"monitoring" yaml:"monitoring"`
 	// The network interfaces to associate with the instance.
 	//
 	// > If you use this property to point to a network interface, you must terminate the original interface before attaching a new one to allow the update of the instance to succeed.
 	// >
 	// > If this resource has a public IP address and is also in a VPC that is defined in the same template, you must use the [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) to declare a dependency on the VPC-gateway attachment.
-	NetworkInterfaces interface{} `json:"networkInterfaces" yaml:"networkInterfaces"`
+	NetworkInterfaces interface{} `field:"optional" json:"networkInterfaces" yaml:"networkInterfaces"`
 	// The name of an existing placement group that you want to launch the instance into (cluster | partition | spread).
-	PlacementGroupName *string `json:"placementGroupName" yaml:"placementGroupName"`
+	PlacementGroupName *string `field:"optional" json:"placementGroupName" yaml:"placementGroupName"`
 	// The options for the instance hostname.
-	PrivateDnsNameOptions interface{} `json:"privateDnsNameOptions" yaml:"privateDnsNameOptions"`
+	PrivateDnsNameOptions interface{} `field:"optional" json:"privateDnsNameOptions" yaml:"privateDnsNameOptions"`
 	// [EC2-VPC] The primary IPv4 address. You must specify a value from the IPv4 address range of the subnet.
 	//
 	// Only one private IP address can be designated as primary. You can't specify this option if you've specified the option to designate a private IP address as the primary IP address in a network interface specification. You cannot specify this option if you're launching more than one instance in the request.
@@ -23395,21 +23709,21 @@ type CfnInstanceProps struct {
 	// You cannot specify this option and the network interfaces option in the same request.
 	//
 	// If you make an update to an instance that requires replacement, you must assign a new private IP address. During a replacement, AWS CloudFormation creates a new instance but doesn't delete the old instance until the stack has successfully updated. If the stack update fails, AWS CloudFormation uses the old instance to roll back the stack to the previous working state. The old and new instances cannot have the same private IP address.
-	PrivateIpAddress *string `json:"privateIpAddress" yaml:"privateIpAddress"`
+	PrivateIpAddress *string `field:"optional" json:"privateIpAddress" yaml:"privateIpAddress"`
 	// Indicates whether to assign the tags from the instance to all of the volumes attached to the instance at launch.
 	//
 	// If you specify `true` and you assign tags to the instance, those tags are automatically assigned to all of the volumes that you attach to the instance at launch. If you specify `false` , those tags are not assigned to the attached volumes.
-	PropagateTagsToVolumeOnCreation interface{} `json:"propagateTagsToVolumeOnCreation" yaml:"propagateTagsToVolumeOnCreation"`
+	PropagateTagsToVolumeOnCreation interface{} `field:"optional" json:"propagateTagsToVolumeOnCreation" yaml:"propagateTagsToVolumeOnCreation"`
 	// The ID of the RAM disk to select.
 	//
 	// Some kernels require additional drivers at launch. Check the kernel requirements for information about whether you need to specify a RAM disk. To find kernel requirements, go to the AWS Resource Center and search for the kernel ID.
 	//
 	// > We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see [PV-GRUB](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html) in the *Amazon EC2 User Guide* .
-	RamdiskId *string `json:"ramdiskId" yaml:"ramdiskId"`
+	RamdiskId *string `field:"optional" json:"ramdiskId" yaml:"ramdiskId"`
 	// The IDs of the security groups. You can create a security group using [CreateSecurityGroup](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html) .
 	//
 	// If you specify a network interface, you must specify any security groups as part of the network interface.
-	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
+	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// [EC2-Classic, default VPC] The names of the security groups.
 	//
 	// For a nondefault VPC, you must use security group IDs instead.
@@ -23417,33 +23731,33 @@ type CfnInstanceProps struct {
 	// You cannot specify this option and the network interfaces option in the same request. The list can contain both the name of existing Amazon EC2 security groups or references to AWS::EC2::SecurityGroup resources created in the template.
 	//
 	// Default: Amazon EC2 uses the default security group.
-	SecurityGroups *[]*string `json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]*string `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// Enable or disable source/destination checks, which ensure that the instance is either the source or the destination of any traffic that it receives.
 	//
 	// If the value is `true` , source/destination checks are enabled; otherwise, they are disabled. The default value is `true` . You must disable source/destination checks if the instance runs services such as network address translation, routing, or firewalls.
-	SourceDestCheck interface{} `json:"sourceDestCheck" yaml:"sourceDestCheck"`
+	SourceDestCheck interface{} `field:"optional" json:"sourceDestCheck" yaml:"sourceDestCheck"`
 	// The SSM [document](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html) and parameter values in AWS Systems Manager to associate with this instance. To use this property, you must specify an IAM instance profile role for the instance. For more information, see [Create an Instance Profile for Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-configuring-access-role.html) in the *AWS Systems Manager User Guide* .
 	//
 	// > You can currently associate only one document with an instance.
-	SsmAssociations interface{} `json:"ssmAssociations" yaml:"ssmAssociations"`
+	SsmAssociations interface{} `field:"optional" json:"ssmAssociations" yaml:"ssmAssociations"`
 	// [EC2-VPC] The ID of the subnet to launch the instance into.
 	//
 	// If you specify a network interface, you must specify any subnets as part of the network interface.
-	SubnetId *string `json:"subnetId" yaml:"subnetId"`
+	SubnetId *string `field:"optional" json:"subnetId" yaml:"subnetId"`
 	// The tags to add to the instance.
 	//
 	// These tags are not applied to the EBS volumes, such as the root volume.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The tenancy of the instance (if the instance is running in a VPC).
 	//
 	// An instance with a tenancy of `dedicated` runs on single-tenant hardware.
-	Tenancy *string `json:"tenancy" yaml:"tenancy"`
+	Tenancy *string `field:"optional" json:"tenancy" yaml:"tenancy"`
 	// The user data script to make available to the instance.
 	//
 	// For more information, see [Run commands on your Linux instance at launch](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) and [Run commands on your Windows instance at launch](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-windows-user-data.html) . If you are using a command line tool, base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide base64-encoded text. User data is limited to 16 KB.
-	UserData *string `json:"userData" yaml:"userData"`
+	UserData *string `field:"optional" json:"userData" yaml:"userData"`
 	// The volumes to attach to the instance.
-	Volumes interface{} `json:"volumes" yaml:"volumes"`
+	Volumes interface{} `field:"optional" json:"volumes" yaml:"volumes"`
 }
 
 // A CloudFormation `AWS::EC2::InternetGateway`.
@@ -23451,8 +23765,11 @@ type CfnInstanceProps struct {
 // Allocates an internet gateway for use with a VPC. After creating the Internet gateway, you then attach it to a VPC.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnInternetGateway := ec2.NewCfnInternetGateway(this, jsii.String("MyCfnInternetGateway"), &cfnInternetGatewayProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnInternetGateway := awscdk.Aws_ec2.NewCfnInternetGateway(this, jsii.String("MyCfnInternetGateway"), &cfnInternetGatewayProps{
 //   	tags: []cfnTag{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -24093,7 +24410,10 @@ func (c *jsiiProxy_CfnInternetGateway) ValidateProperties(_properties interface{
 // Properties for defining a `CfnInternetGateway`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnInternetGatewayProps := &cfnInternetGatewayProps{
 //   	tags: []cfnTag{
 //   		&cfnTag{
@@ -24105,7 +24425,7 @@ func (c *jsiiProxy_CfnInternetGateway) ValidateProperties(_properties interface{
 //
 type CfnInternetGatewayProps struct {
 	// Any tags to assign to the internet gateway.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::EC2::LaunchTemplate`.
@@ -24115,11 +24435,12 @@ type CfnInternetGatewayProps struct {
 // Example:
 //   var cluster cluster
 //
+//
 //   userData := "MIME-Version: 1.0\nContent-Type: multipart/mixed; boundary=\"==MYBOUNDARY==\"\n\n--==MYBOUNDARY==\nContent-Type: text/x-shellscript; charset=\"us-ascii\"\n\n#!/bin/bash\necho \"Running custom user data script\"\n\n--==MYBOUNDARY==--\\\n"
 //   lt := ec2.NewCfnLaunchTemplate(this, jsii.String("LaunchTemplate"), &cfnLaunchTemplateProps{
 //   	launchTemplateData: &launchTemplateDataProperty{
 //   		instanceType: jsii.String("t3.small"),
-//   		userData: fn.base64(userData),
+//   		userData: awscdk.Fn.base64(userData),
 //   	},
 //   })
 //
@@ -24827,7 +25148,10 @@ func (c *jsiiProxy_CfnLaunchTemplate) ValidateProperties(_properties interface{}
 // The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   acceleratorCountProperty := &acceleratorCountProperty{
 //   	max: jsii.Number(123),
 //   	min: jsii.Number(123),
@@ -24837,17 +25161,20 @@ type CfnLaunchTemplate_AcceleratorCountProperty struct {
 	// The maximum number of accelerators.
 	//
 	// To specify no maximum limit, omit this parameter. To exclude accelerator-enabled instance types, set `Max` to `0` .
-	Max *float64 `json:"max" yaml:"max"`
+	Max *float64 `field:"optional" json:"max" yaml:"max"`
 	// The minimum number of accelerators.
 	//
 	// To specify no minimum limit, omit this parameter.
-	Min *float64 `json:"min" yaml:"min"`
+	Min *float64 `field:"optional" json:"min" yaml:"min"`
 }
 
 // The minimum and maximum amount of total accelerator memory, in MiB.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   acceleratorTotalMemoryMiBProperty := &acceleratorTotalMemoryMiBProperty{
 //   	max: jsii.Number(123),
 //   	min: jsii.Number(123),
@@ -24857,11 +25184,11 @@ type CfnLaunchTemplate_AcceleratorTotalMemoryMiBProperty struct {
 	// The maximum amount of accelerator memory, in MiB.
 	//
 	// To specify no maximum limit, omit this parameter.
-	Max *float64 `json:"max" yaml:"max"`
+	Max *float64 `field:"optional" json:"max" yaml:"max"`
 	// The minimum amount of accelerator memory, in MiB.
 	//
 	// To specify no minimum limit, omit this parameter.
-	Min *float64 `json:"min" yaml:"min"`
+	Min *float64 `field:"optional" json:"min" yaml:"min"`
 }
 
 // The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps.
@@ -24869,7 +25196,10 @@ type CfnLaunchTemplate_AcceleratorTotalMemoryMiBProperty struct {
 // For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   baselineEbsBandwidthMbpsProperty := &baselineEbsBandwidthMbpsProperty{
 //   	max: jsii.Number(123),
 //   	min: jsii.Number(123),
@@ -24879,11 +25209,11 @@ type CfnLaunchTemplate_BaselineEbsBandwidthMbpsProperty struct {
 	// The maximum baseline bandwidth, in Mbps.
 	//
 	// To specify no maximum limit, omit this parameter.
-	Max *float64 `json:"max" yaml:"max"`
+	Max *float64 `field:"optional" json:"max" yaml:"max"`
 	// The minimum baseline bandwidth, in Mbps.
 	//
 	// To specify no minimum limit, omit this parameter.
-	Min *float64 `json:"min" yaml:"min"`
+	Min *float64 `field:"optional" json:"min" yaml:"min"`
 }
 
 // Information about a block device mapping for an Amazon EC2 launch template.
@@ -24891,7 +25221,10 @@ type CfnLaunchTemplate_BaselineEbsBandwidthMbpsProperty struct {
 // `BlockDeviceMapping` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   blockDeviceMappingProperty := &blockDeviceMappingProperty{
 //   	deviceName: jsii.String("deviceName"),
 //   	ebs: &ebsProperty{
@@ -24910,15 +25243,15 @@ type CfnLaunchTemplate_BaselineEbsBandwidthMbpsProperty struct {
 //
 type CfnLaunchTemplate_BlockDeviceMappingProperty struct {
 	// The device name (for example, /dev/sdh or xvdh).
-	DeviceName *string `json:"deviceName" yaml:"deviceName"`
+	DeviceName *string `field:"optional" json:"deviceName" yaml:"deviceName"`
 	// Parameters used to automatically set up EBS volumes when the instance is launched.
-	Ebs interface{} `json:"ebs" yaml:"ebs"`
+	Ebs interface{} `field:"optional" json:"ebs" yaml:"ebs"`
 	// To omit the device from the block device mapping, specify an empty string.
-	NoDevice *string `json:"noDevice" yaml:"noDevice"`
+	NoDevice *string `field:"optional" json:"noDevice" yaml:"noDevice"`
 	// The virtual device name (ephemeralN).
 	//
 	// Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for ephemeral0 and ephemeral1. The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
-	VirtualName *string `json:"virtualName" yaml:"virtualName"`
+	VirtualName *string `field:"optional" json:"virtualName" yaml:"virtualName"`
 }
 
 // Specifies an instance's Capacity Reservation targeting option. You can specify only one option at a time.
@@ -24926,7 +25259,10 @@ type CfnLaunchTemplate_BlockDeviceMappingProperty struct {
 // `CapacityReservationSpecification` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   capacityReservationSpecificationProperty := &capacityReservationSpecificationProperty{
 //   	capacityReservationPreference: jsii.String("capacityReservationPreference"),
 //   	capacityReservationTarget: &capacityReservationTargetProperty{
@@ -24940,9 +25276,9 @@ type CfnLaunchTemplate_CapacityReservationSpecificationProperty struct {
 	//
 	// - `open` - The instance can run in any `open` Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).
 	// - `none` - The instance avoids running in a Capacity Reservation even if one is available. The instance runs in On-Demand capacity.
-	CapacityReservationPreference *string `json:"capacityReservationPreference" yaml:"capacityReservationPreference"`
+	CapacityReservationPreference *string `field:"optional" json:"capacityReservationPreference" yaml:"capacityReservationPreference"`
 	// Information about the target Capacity Reservation or Capacity Reservation group.
-	CapacityReservationTarget interface{} `json:"capacityReservationTarget" yaml:"capacityReservationTarget"`
+	CapacityReservationTarget interface{} `field:"optional" json:"capacityReservationTarget" yaml:"capacityReservationTarget"`
 }
 
 // Specifies a target Capacity Reservation.
@@ -24950,7 +25286,10 @@ type CfnLaunchTemplate_CapacityReservationSpecificationProperty struct {
 // `CapacityReservationTarget` is a property of the [Amazon EC2 LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html) property type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   capacityReservationTargetProperty := &capacityReservationTargetProperty{
 //   	capacityReservationId: jsii.String("capacityReservationId"),
 //   	capacityReservationResourceGroupArn: jsii.String("capacityReservationResourceGroupArn"),
@@ -24958,9 +25297,9 @@ type CfnLaunchTemplate_CapacityReservationSpecificationProperty struct {
 //
 type CfnLaunchTemplate_CapacityReservationTargetProperty struct {
 	// The ID of the Capacity Reservation in which to run the instance.
-	CapacityReservationId *string `json:"capacityReservationId" yaml:"capacityReservationId"`
+	CapacityReservationId *string `field:"optional" json:"capacityReservationId" yaml:"capacityReservationId"`
 	// The ARN of the Capacity Reservation resource group in which to run the instance.
-	CapacityReservationResourceGroupArn *string `json:"capacityReservationResourceGroupArn" yaml:"capacityReservationResourceGroupArn"`
+	CapacityReservationResourceGroupArn *string `field:"optional" json:"capacityReservationResourceGroupArn" yaml:"capacityReservationResourceGroupArn"`
 }
 
 // Specifies the CPU options for an instance.
@@ -24970,7 +25309,10 @@ type CfnLaunchTemplate_CapacityReservationTargetProperty struct {
 // `CpuOptions` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cpuOptionsProperty := &cpuOptionsProperty{
 //   	coreCount: jsii.Number(123),
 //   	threadsPerCore: jsii.Number(123),
@@ -24978,11 +25320,11 @@ type CfnLaunchTemplate_CapacityReservationTargetProperty struct {
 //
 type CfnLaunchTemplate_CpuOptionsProperty struct {
 	// The number of CPU cores for the instance.
-	CoreCount *float64 `json:"coreCount" yaml:"coreCount"`
+	CoreCount *float64 `field:"optional" json:"coreCount" yaml:"coreCount"`
 	// The number of threads per CPU core.
 	//
 	// To disable multithreading for the instance, specify a value of 1. Otherwise, specify the default value of 2.
-	ThreadsPerCore *float64 `json:"threadsPerCore" yaml:"threadsPerCore"`
+	ThreadsPerCore *float64 `field:"optional" json:"threadsPerCore" yaml:"threadsPerCore"`
 }
 
 // Specifies the credit option for CPU usage of a T2, T3, or T3a instance.
@@ -24990,7 +25332,10 @@ type CfnLaunchTemplate_CpuOptionsProperty struct {
 // `CreditSpecification` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   creditSpecificationProperty := &creditSpecificationProperty{
 //   	cpuCredits: jsii.String("cpuCredits"),
 //   }
@@ -24999,7 +25344,7 @@ type CfnLaunchTemplate_CreditSpecificationProperty struct {
 	// The credit option for CPU usage of a T2, T3, or T3a instance.
 	//
 	// Valid values are `standard` and `unlimited` .
-	CpuCredits *string `json:"cpuCredits" yaml:"cpuCredits"`
+	CpuCredits *string `field:"optional" json:"cpuCredits" yaml:"cpuCredits"`
 }
 
 // Parameters for a block device for an EBS volume in an Amazon EC2 launch template.
@@ -25007,7 +25352,10 @@ type CfnLaunchTemplate_CreditSpecificationProperty struct {
 // `Ebs` is a property of [AWS::EC2::LaunchTemplate BlockDeviceMapping](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   ebsProperty := &ebsProperty{
 //   	deleteOnTermination: jsii.Boolean(false),
 //   	encrypted: jsii.Boolean(false),
@@ -25021,11 +25369,11 @@ type CfnLaunchTemplate_CreditSpecificationProperty struct {
 //
 type CfnLaunchTemplate_EbsProperty struct {
 	// Indicates whether the EBS volume is deleted on instance termination.
-	DeleteOnTermination interface{} `json:"deleteOnTermination" yaml:"deleteOnTermination"`
+	DeleteOnTermination interface{} `field:"optional" json:"deleteOnTermination" yaml:"deleteOnTermination"`
 	// Indicates whether the EBS volume is encrypted.
 	//
 	// Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you are creating a volume from a snapshot, you can't specify an encryption value.
-	Encrypted interface{} `json:"encrypted" yaml:"encrypted"`
+	Encrypted interface{} `field:"optional" json:"encrypted" yaml:"encrypted"`
 	// The number of I/O operations per second (IOPS).
 	//
 	// For `gp3` , `io1` , and `io2` volumes, this represents the number of IOPS that are provisioned for the volume. For `gp2` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
@@ -25039,15 +25387,15 @@ type CfnLaunchTemplate_EbsProperty struct {
 	// For `io1` and `io2` volumes, we guarantee 64,000 IOPS only for [Instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances) . Other instance families guarantee performance up to 32,000 IOPS.
 	//
 	// This parameter is supported for `io1` , `io2` , and `gp3` volumes only. This parameter is not supported for `gp2` , `st1` , `sc1` , or `standard` volumes.
-	Iops *float64 `json:"iops" yaml:"iops"`
+	Iops *float64 `field:"optional" json:"iops" yaml:"iops"`
 	// The ARN of the symmetric AWS Key Management Service ( AWS KMS ) CMK used for encryption.
-	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// The ID of the snapshot.
-	SnapshotId *string `json:"snapshotId" yaml:"snapshotId"`
+	SnapshotId *string `field:"optional" json:"snapshotId" yaml:"snapshotId"`
 	// The throughput to provision for a `gp3` volume, with a maximum of 1,000 MiB/s.
 	//
 	// Valid Range: Minimum value of 125. Maximum value of 1000.
-	Throughput *float64 `json:"throughput" yaml:"throughput"`
+	Throughput *float64 `field:"optional" json:"throughput" yaml:"throughput"`
 	// The size of the volume, in GiBs.
 	//
 	// You must specify either a snapshot ID or a volume size. The following are the supported volumes sizes for each volume type:
@@ -25056,11 +25404,11 @@ type CfnLaunchTemplate_EbsProperty struct {
 	// - `io1` and `io2` : 4-16,384
 	// - `st1` and `sc1` : 125-16,384
 	// - `standard` : 1-1,024.
-	VolumeSize *float64 `json:"volumeSize" yaml:"volumeSize"`
+	VolumeSize *float64 `field:"optional" json:"volumeSize" yaml:"volumeSize"`
 	// The volume type.
 	//
 	// For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon Elastic Compute Cloud User Guide* .
-	VolumeType *string `json:"volumeType" yaml:"volumeType"`
+	VolumeType *string `field:"optional" json:"volumeType" yaml:"volumeType"`
 }
 
 // Specifies a specification for an Elastic GPU for an Amazon EC2 launch template.
@@ -25068,7 +25416,10 @@ type CfnLaunchTemplate_EbsProperty struct {
 // `ElasticGpuSpecification` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   elasticGpuSpecificationProperty := &elasticGpuSpecificationProperty{
 //   	type: jsii.String("type"),
 //   }
@@ -25077,13 +25428,16 @@ type CfnLaunchTemplate_ElasticGpuSpecificationProperty struct {
 	// The type of Elastic Graphics accelerator.
 	//
 	// For more information about the values to specify for `Type` , see [Elastic Graphics Basics](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html#elastic-graphics-basics) , specifically the Elastic Graphics accelerator column, in the *Amazon Elastic Compute Cloud User Guide for Windows Instances* .
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 
 // Indicates whether the instance is enabled for AWS Nitro Enclaves.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   enclaveOptionsProperty := &enclaveOptionsProperty{
 //   	enabled: jsii.Boolean(false),
 //   }
@@ -25092,7 +25446,7 @@ type CfnLaunchTemplate_EnclaveOptionsProperty struct {
 	// If this parameter is set to `true` , the instance is enabled for AWS Nitro Enclaves;
 	//
 	// otherwise, it is not enabled for AWS Nitro Enclaves.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 }
 
 // Specifies whether your instance is configured for hibernation.
@@ -25102,7 +25456,10 @@ type CfnLaunchTemplate_EnclaveOptionsProperty struct {
 // `HibernationOptions` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   hibernationOptionsProperty := &hibernationOptionsProperty{
 //   	configured: jsii.Boolean(false),
 //   }
@@ -25111,7 +25468,7 @@ type CfnLaunchTemplate_HibernationOptionsProperty struct {
 	// If you set this parameter to `true` , the instance is enabled for hibernation.
 	//
 	// Default: `false`.
-	Configured interface{} `json:"configured" yaml:"configured"`
+	Configured interface{} `field:"optional" json:"configured" yaml:"configured"`
 }
 
 // Specifies an IAM instance profile, which is a container for an IAM role for your instance.
@@ -25123,7 +25480,10 @@ type CfnLaunchTemplate_HibernationOptionsProperty struct {
 // `IamInstanceProfile` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   iamInstanceProfileProperty := &iamInstanceProfileProperty{
 //   	arn: jsii.String("arn"),
 //   	name: jsii.String("name"),
@@ -25131,9 +25491,9 @@ type CfnLaunchTemplate_HibernationOptionsProperty struct {
 //
 type CfnLaunchTemplate_IamInstanceProfileProperty struct {
 	// The Amazon Resource Name (ARN) of the instance profile.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"optional" json:"arn" yaml:"arn"`
 	// The name of the instance profile.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 
 // Specifies the market (purchasing) option for an instance.
@@ -25141,7 +25501,10 @@ type CfnLaunchTemplate_IamInstanceProfileProperty struct {
 // `InstanceMarketOptions` is a property of the [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   instanceMarketOptionsProperty := &instanceMarketOptionsProperty{
 //   	marketType: jsii.String("marketType"),
 //   	spotOptions: &spotOptionsProperty{
@@ -25155,9 +25518,9 @@ type CfnLaunchTemplate_IamInstanceProfileProperty struct {
 //
 type CfnLaunchTemplate_InstanceMarketOptionsProperty struct {
 	// The market type.
-	MarketType *string `json:"marketType" yaml:"marketType"`
+	MarketType *string `field:"optional" json:"marketType" yaml:"marketType"`
 	// The options for Spot Instances.
-	SpotOptions interface{} `json:"spotOptions" yaml:"spotOptions"`
+	SpotOptions interface{} `field:"optional" json:"spotOptions" yaml:"spotOptions"`
 }
 
 // The attributes for the instance types.
@@ -25171,7 +25534,10 @@ type CfnLaunchTemplate_InstanceMarketOptionsProperty struct {
 // For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) , [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html) , and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   instanceRequirementsProperty := &instanceRequirementsProperty{
 //   	acceleratorCount: &acceleratorCountProperty{
 //   		max: jsii.Number(123),
@@ -25240,7 +25606,7 @@ type CfnLaunchTemplate_InstanceRequirementsProperty struct {
 	// To exclude accelerator-enabled instance types, set `Max` to `0` .
 	//
 	// Default: No minimum or maximum limits.
-	AcceleratorCount interface{} `json:"acceleratorCount" yaml:"acceleratorCount"`
+	AcceleratorCount interface{} `field:"optional" json:"acceleratorCount" yaml:"acceleratorCount"`
 	// Indicates whether instance types must have accelerators by specific manufacturers.
 	//
 	// - For instance types with NVIDIA devices, specify `nvidia` .
@@ -25249,7 +25615,7 @@ type CfnLaunchTemplate_InstanceRequirementsProperty struct {
 	// - For instance types with Xilinx devices, specify `xilinx` .
 	//
 	// Default: Any manufacturer.
-	AcceleratorManufacturers *[]*string `json:"acceleratorManufacturers" yaml:"acceleratorManufacturers"`
+	AcceleratorManufacturers *[]*string `field:"optional" json:"acceleratorManufacturers" yaml:"acceleratorManufacturers"`
 	// The accelerators that must be on the instance type.
 	//
 	// - For instance types with NVIDIA A100 GPUs, specify `a100` .
@@ -25261,11 +25627,11 @@ type CfnLaunchTemplate_InstanceRequirementsProperty struct {
 	// - For instance types with Xilinx VU9P FPGAs, specify `vu9p` .
 	//
 	// Default: Any accelerator.
-	AcceleratorNames *[]*string `json:"acceleratorNames" yaml:"acceleratorNames"`
+	AcceleratorNames *[]*string `field:"optional" json:"acceleratorNames" yaml:"acceleratorNames"`
 	// The minimum and maximum amount of total accelerator memory, in MiB.
 	//
 	// Default: No minimum or maximum limits.
-	AcceleratorTotalMemoryMiB interface{} `json:"acceleratorTotalMemoryMiB" yaml:"acceleratorTotalMemoryMiB"`
+	AcceleratorTotalMemoryMiB interface{} `field:"optional" json:"acceleratorTotalMemoryMiB" yaml:"acceleratorTotalMemoryMiB"`
 	// The accelerator types that must be on the instance type.
 	//
 	// - For instance types with GPU accelerators, specify `gpu` .
@@ -25273,7 +25639,7 @@ type CfnLaunchTemplate_InstanceRequirementsProperty struct {
 	// - For instance types with inference accelerators, specify `inference` .
 	//
 	// Default: Any accelerator type.
-	AcceleratorTypes *[]*string `json:"acceleratorTypes" yaml:"acceleratorTypes"`
+	AcceleratorTypes *[]*string `field:"optional" json:"acceleratorTypes" yaml:"acceleratorTypes"`
 	// Indicates whether bare metal instance types must be included, excluded, or required.
 	//
 	// - To include bare metal instance types, specify `included` .
@@ -25281,13 +25647,13 @@ type CfnLaunchTemplate_InstanceRequirementsProperty struct {
 	// - To exclude bare metal instance types, specify `excluded` .
 	//
 	// Default: `excluded`.
-	BareMetal *string `json:"bareMetal" yaml:"bareMetal"`
+	BareMetal *string `field:"optional" json:"bareMetal" yaml:"bareMetal"`
 	// The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps.
 	//
 	// For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide* .
 	//
 	// Default: No minimum or maximum limits.
-	BaselineEbsBandwidthMbps interface{} `json:"baselineEbsBandwidthMbps" yaml:"baselineEbsBandwidthMbps"`
+	BaselineEbsBandwidthMbps interface{} `field:"optional" json:"baselineEbsBandwidthMbps" yaml:"baselineEbsBandwidthMbps"`
 	// Indicates whether burstable performance T instance types are included, excluded, or required.
 	//
 	// For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) .
@@ -25297,7 +25663,7 @@ type CfnLaunchTemplate_InstanceRequirementsProperty struct {
 	// - To exclude burstable performance instance types, specify `excluded` .
 	//
 	// Default: `excluded`.
-	BurstablePerformance *string `json:"burstablePerformance" yaml:"burstablePerformance"`
+	BurstablePerformance *string `field:"optional" json:"burstablePerformance" yaml:"burstablePerformance"`
 	// The CPU manufacturers to include.
 	//
 	// - For instance types with Intel CPUs, specify `intel` .
@@ -25307,7 +25673,7 @@ type CfnLaunchTemplate_InstanceRequirementsProperty struct {
 	// > Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
 	//
 	// Default: Any manufacturer.
-	CpuManufacturers *[]*string `json:"cpuManufacturers" yaml:"cpuManufacturers"`
+	CpuManufacturers *[]*string `field:"optional" json:"cpuManufacturers" yaml:"cpuManufacturers"`
 	// The instance types to exclude.
 	//
 	// You can use strings with one or more wild cards, represented by an asterisk ( `*` ), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge` , `c5*.*` , `m5a.*` , `r*` , `*3*` .
@@ -25315,7 +25681,7 @@ type CfnLaunchTemplate_InstanceRequirementsProperty struct {
 	// For example, if you specify `c5*` ,Amazon EC2 will exclude the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*` , Amazon EC2 will exclude all the M5a instance types, but not the M5n instance types.
 	//
 	// Default: No excluded instance types.
-	ExcludedInstanceTypes *[]*string `json:"excludedInstanceTypes" yaml:"excludedInstanceTypes"`
+	ExcludedInstanceTypes *[]*string `field:"optional" json:"excludedInstanceTypes" yaml:"excludedInstanceTypes"`
 	// Indicates whether current or previous generation instance types are included.
 	//
 	// The current generation instance types are recommended for use. Current generation instance types are typically the latest two to three generations in each instance family. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
@@ -25325,7 +25691,7 @@ type CfnLaunchTemplate_InstanceRequirementsProperty struct {
 	// For previous generation instance types, specify `previous` .
 	//
 	// Default: Current and previous generation instance types.
-	InstanceGenerations *[]*string `json:"instanceGenerations" yaml:"instanceGenerations"`
+	InstanceGenerations *[]*string `field:"optional" json:"instanceGenerations" yaml:"instanceGenerations"`
 	// Indicates whether instance types with instance store volumes are included, excluded, or required.
 	//
 	// For more information, [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) in the *Amazon EC2 User Guide* .
@@ -25335,24 +25701,24 @@ type CfnLaunchTemplate_InstanceRequirementsProperty struct {
 	// - To exclude instance types with instance store volumes, specify `excluded` .
 	//
 	// Default: `included`.
-	LocalStorage *string `json:"localStorage" yaml:"localStorage"`
+	LocalStorage *string `field:"optional" json:"localStorage" yaml:"localStorage"`
 	// The type of local storage that is required.
 	//
 	// - For instance types with hard disk drive (HDD) storage, specify `hdd` .
 	// - For instance types with solid state drive (SDD) storage, specify `sdd` .
 	//
 	// Default: `hdd` and `sdd`.
-	LocalStorageTypes *[]*string `json:"localStorageTypes" yaml:"localStorageTypes"`
+	LocalStorageTypes *[]*string `field:"optional" json:"localStorageTypes" yaml:"localStorageTypes"`
 	// The minimum and maximum amount of memory per vCPU, in GiB.
 	//
 	// Default: No minimum or maximum limits.
-	MemoryGiBPerVCpu interface{} `json:"memoryGiBPerVCpu" yaml:"memoryGiBPerVCpu"`
+	MemoryGiBPerVCpu interface{} `field:"optional" json:"memoryGiBPerVCpu" yaml:"memoryGiBPerVCpu"`
 	// The minimum and maximum amount of memory, in MiB.
-	MemoryMiB interface{} `json:"memoryMiB" yaml:"memoryMiB"`
+	MemoryMiB interface{} `field:"optional" json:"memoryMiB" yaml:"memoryMiB"`
 	// The minimum and maximum number of network interfaces.
 	//
 	// Default: No minimum or maximum limits.
-	NetworkInterfaceCount interface{} `json:"networkInterfaceCount" yaml:"networkInterfaceCount"`
+	NetworkInterfaceCount interface{} `field:"optional" json:"networkInterfaceCount" yaml:"networkInterfaceCount"`
 	// The price protection threshold for On-Demand Instances.
 	//
 	// This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage above the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance types priced above your threshold.
@@ -25366,13 +25732,13 @@ type CfnLaunchTemplate_InstanceRequirementsProperty struct {
 	// > If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
 	//
 	// Default: `20`.
-	OnDemandMaxPricePercentageOverLowestPrice *float64 `json:"onDemandMaxPricePercentageOverLowestPrice" yaml:"onDemandMaxPricePercentageOverLowestPrice"`
+	OnDemandMaxPricePercentageOverLowestPrice *float64 `field:"optional" json:"onDemandMaxPricePercentageOverLowestPrice" yaml:"onDemandMaxPricePercentageOverLowestPrice"`
 	// Indicates whether instance types must support hibernation for On-Demand Instances.
 	//
 	// This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) .
 	//
 	// Default: `false`.
-	RequireHibernateSupport interface{} `json:"requireHibernateSupport" yaml:"requireHibernateSupport"`
+	RequireHibernateSupport interface{} `field:"optional" json:"requireHibernateSupport" yaml:"requireHibernateSupport"`
 	// The price protection threshold for Spot Instances.
 	//
 	// This is the maximum you’ll pay for a Spot Instance, expressed as a percentage above the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance types priced above your threshold.
@@ -25386,13 +25752,13 @@ type CfnLaunchTemplate_InstanceRequirementsProperty struct {
 	// > If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
 	//
 	// Default: `100`.
-	SpotMaxPricePercentageOverLowestPrice *float64 `json:"spotMaxPricePercentageOverLowestPrice" yaml:"spotMaxPricePercentageOverLowestPrice"`
+	SpotMaxPricePercentageOverLowestPrice *float64 `field:"optional" json:"spotMaxPricePercentageOverLowestPrice" yaml:"spotMaxPricePercentageOverLowestPrice"`
 	// The minimum and maximum amount of total local storage, in GB.
 	//
 	// Default: No minimum or maximum limits.
-	TotalLocalStorageGb interface{} `json:"totalLocalStorageGb" yaml:"totalLocalStorageGb"`
+	TotalLocalStorageGb interface{} `field:"optional" json:"totalLocalStorageGb" yaml:"totalLocalStorageGb"`
 	// The minimum and maximum number of vCPUs.
-	VCpuCount interface{} `json:"vCpuCount" yaml:"vCpuCount"`
+	VCpuCount interface{} `field:"optional" json:"vCpuCount" yaml:"vCpuCount"`
 }
 
 // Specifies an IPv4 prefix for a network interface.
@@ -25400,7 +25766,10 @@ type CfnLaunchTemplate_InstanceRequirementsProperty struct {
 // `Ipv4PrefixSpecification` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   ipv4PrefixSpecificationProperty := &ipv4PrefixSpecificationProperty{
 //   	ipv4Prefix: jsii.String("ipv4Prefix"),
 //   }
@@ -25409,7 +25778,7 @@ type CfnLaunchTemplate_Ipv4PrefixSpecificationProperty struct {
 	// The IPv4 prefix.
 	//
 	// For information, see [Assigning prefixes to Amazon EC2 network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon Elastic Compute Cloud User Guide* .
-	Ipv4Prefix *string `json:"ipv4Prefix" yaml:"ipv4Prefix"`
+	Ipv4Prefix *string `field:"optional" json:"ipv4Prefix" yaml:"ipv4Prefix"`
 }
 
 // Specifies an IPv6 address in an Amazon EC2 launch template.
@@ -25417,7 +25786,10 @@ type CfnLaunchTemplate_Ipv4PrefixSpecificationProperty struct {
 // `Ipv6Add` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   ipv6AddProperty := &ipv6AddProperty{
 //   	ipv6Address: jsii.String("ipv6Address"),
 //   }
@@ -25426,7 +25798,7 @@ type CfnLaunchTemplate_Ipv6AddProperty struct {
 	// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet.
 	//
 	// You can't use this option if you're specifying a number of IPv6 addresses.
-	Ipv6Address *string `json:"ipv6Address" yaml:"ipv6Address"`
+	Ipv6Address *string `field:"optional" json:"ipv6Address" yaml:"ipv6Address"`
 }
 
 // Specifies an IPv6 prefix for a network interface.
@@ -25434,14 +25806,17 @@ type CfnLaunchTemplate_Ipv6AddProperty struct {
 // `Ipv6PrefixSpecification` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   ipv6PrefixSpecificationProperty := &ipv6PrefixSpecificationProperty{
 //   	ipv6Prefix: jsii.String("ipv6Prefix"),
 //   }
 //
 type CfnLaunchTemplate_Ipv6PrefixSpecificationProperty struct {
 	// The IPv6 prefix.
-	Ipv6Prefix *string `json:"ipv6Prefix" yaml:"ipv6Prefix"`
+	Ipv6Prefix *string `field:"optional" json:"ipv6Prefix" yaml:"ipv6Prefix"`
 }
 
 // The information to include in the launch template.
@@ -25449,7 +25824,10 @@ type CfnLaunchTemplate_Ipv6PrefixSpecificationProperty struct {
 // > You must specify at least one parameter for the launch template data.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   launchTemplateDataProperty := &launchTemplateDataProperty{
 //   	blockDeviceMappings: []interface{}{
 //   		&blockDeviceMappingProperty{
@@ -25679,111 +26057,111 @@ type CfnLaunchTemplate_Ipv6PrefixSpecificationProperty struct {
 //
 type CfnLaunchTemplate_LaunchTemplateDataProperty struct {
 	// The block device mapping.
-	BlockDeviceMappings interface{} `json:"blockDeviceMappings" yaml:"blockDeviceMappings"`
+	BlockDeviceMappings interface{} `field:"optional" json:"blockDeviceMappings" yaml:"blockDeviceMappings"`
 	// The Capacity Reservation targeting option.
 	//
 	// If you do not specify this parameter, the instance's Capacity Reservation preference defaults to `open` , which enables it to run in any open Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).
-	CapacityReservationSpecification interface{} `json:"capacityReservationSpecification" yaml:"capacityReservationSpecification"`
+	CapacityReservationSpecification interface{} `field:"optional" json:"capacityReservationSpecification" yaml:"capacityReservationSpecification"`
 	// The CPU options for the instance.
 	//
 	// For more information, see [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *Amazon Elastic Compute Cloud User Guide* .
-	CpuOptions interface{} `json:"cpuOptions" yaml:"cpuOptions"`
+	CpuOptions interface{} `field:"optional" json:"cpuOptions" yaml:"cpuOptions"`
 	// The credit option for CPU usage of the instance.
 	//
 	// Valid for T2, T3, or T3a instances only.
-	CreditSpecification interface{} `json:"creditSpecification" yaml:"creditSpecification"`
+	CreditSpecification interface{} `field:"optional" json:"creditSpecification" yaml:"creditSpecification"`
 	// If you set this parameter to `true` , you can't terminate the instance using the Amazon EC2 console, CLI, or API;
 	//
 	// otherwise, you can. To change this attribute after launch, use [ModifyInstanceAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html) . Alternatively, if you set `InstanceInitiatedShutdownBehavior` to `terminate` , you can terminate the instance by running the shutdown command from the instance.
-	DisableApiTermination interface{} `json:"disableApiTermination" yaml:"disableApiTermination"`
+	DisableApiTermination interface{} `field:"optional" json:"disableApiTermination" yaml:"disableApiTermination"`
 	// Indicates whether the instance is optimized for Amazon EBS I/O.
 	//
 	// This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.
-	EbsOptimized interface{} `json:"ebsOptimized" yaml:"ebsOptimized"`
+	EbsOptimized interface{} `field:"optional" json:"ebsOptimized" yaml:"ebsOptimized"`
 	// An elastic GPU to associate with the instance.
-	ElasticGpuSpecifications interface{} `json:"elasticGpuSpecifications" yaml:"elasticGpuSpecifications"`
+	ElasticGpuSpecifications interface{} `field:"optional" json:"elasticGpuSpecifications" yaml:"elasticGpuSpecifications"`
 	// The elastic inference accelerator for the instance.
-	ElasticInferenceAccelerators interface{} `json:"elasticInferenceAccelerators" yaml:"elasticInferenceAccelerators"`
+	ElasticInferenceAccelerators interface{} `field:"optional" json:"elasticInferenceAccelerators" yaml:"elasticInferenceAccelerators"`
 	// Indicates whether the instance is enabled for AWS Nitro Enclaves.
 	//
 	// For more information, see [What is AWS Nitro Enclaves?](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html) in the *AWS Nitro Enclaves User Guide* .
 	//
 	// You can't enable AWS Nitro Enclaves and hibernation on the same instance.
-	EnclaveOptions interface{} `json:"enclaveOptions" yaml:"enclaveOptions"`
+	EnclaveOptions interface{} `field:"optional" json:"enclaveOptions" yaml:"enclaveOptions"`
 	// Indicates whether an instance is enabled for hibernation.
 	//
 	// This parameter is valid only if the instance meets the [hibernation prerequisites](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites) . For more information, see [Hibernate your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html) in the *Amazon Elastic Compute Cloud User Guide* .
-	HibernationOptions interface{} `json:"hibernationOptions" yaml:"hibernationOptions"`
+	HibernationOptions interface{} `field:"optional" json:"hibernationOptions" yaml:"hibernationOptions"`
 	// The name or Amazon Resource Name (ARN) of an IAM instance profile.
-	IamInstanceProfile interface{} `json:"iamInstanceProfile" yaml:"iamInstanceProfile"`
+	IamInstanceProfile interface{} `field:"optional" json:"iamInstanceProfile" yaml:"iamInstanceProfile"`
 	// The ID of the AMI.
-	ImageId *string `json:"imageId" yaml:"imageId"`
+	ImageId *string `field:"optional" json:"imageId" yaml:"imageId"`
 	// Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
 	//
 	// Default: `stop`.
-	InstanceInitiatedShutdownBehavior *string `json:"instanceInitiatedShutdownBehavior" yaml:"instanceInitiatedShutdownBehavior"`
+	InstanceInitiatedShutdownBehavior *string `field:"optional" json:"instanceInitiatedShutdownBehavior" yaml:"instanceInitiatedShutdownBehavior"`
 	// The market (purchasing) option for the instances.
-	InstanceMarketOptions interface{} `json:"instanceMarketOptions" yaml:"instanceMarketOptions"`
+	InstanceMarketOptions interface{} `field:"optional" json:"instanceMarketOptions" yaml:"instanceMarketOptions"`
 	// The attributes for the instance types.
 	//
 	// When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.
 	//
 	// If you specify `InstanceRequirements` , you can't specify `InstanceTypes` .
-	InstanceRequirements interface{} `json:"instanceRequirements" yaml:"instanceRequirements"`
+	InstanceRequirements interface{} `field:"optional" json:"instanceRequirements" yaml:"instanceRequirements"`
 	// The instance type. For more information, see [Instance Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon Elastic Compute Cloud User Guide* .
 	//
 	// If you specify `InstanceTypes` , you can't specify `InstanceRequirements` .
-	InstanceType *string `json:"instanceType" yaml:"instanceType"`
+	InstanceType *string `field:"optional" json:"instanceType" yaml:"instanceType"`
 	// The ID of the kernel.
 	//
 	// We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see [User Provided Kernels](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html) in the *Amazon EC2 User Guide* .
-	KernelId *string `json:"kernelId" yaml:"kernelId"`
+	KernelId *string `field:"optional" json:"kernelId" yaml:"kernelId"`
 	// The name of the key pair. You can create a key pair using [CreateKeyPair](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html) or [ImportKeyPair](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportKeyPair.html) .
 	//
 	// > If you do not specify a key pair, you can't connect to the instance unless you choose an AMI that is configured to allow users another way to log in.
-	KeyName *string `json:"keyName" yaml:"keyName"`
+	KeyName *string `field:"optional" json:"keyName" yaml:"keyName"`
 	// The license configurations.
-	LicenseSpecifications interface{} `json:"licenseSpecifications" yaml:"licenseSpecifications"`
+	LicenseSpecifications interface{} `field:"optional" json:"licenseSpecifications" yaml:"licenseSpecifications"`
 	// `CfnLaunchTemplate.LaunchTemplateDataProperty.MaintenanceOptions`.
-	MaintenanceOptions interface{} `json:"maintenanceOptions" yaml:"maintenanceOptions"`
+	MaintenanceOptions interface{} `field:"optional" json:"maintenanceOptions" yaml:"maintenanceOptions"`
 	// The metadata options for the instance.
 	//
 	// For more information, see [Instance Metadata and User Data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon Elastic Compute Cloud User Guide* .
-	MetadataOptions interface{} `json:"metadataOptions" yaml:"metadataOptions"`
+	MetadataOptions interface{} `field:"optional" json:"metadataOptions" yaml:"metadataOptions"`
 	// The monitoring for the instance.
-	Monitoring interface{} `json:"monitoring" yaml:"monitoring"`
+	Monitoring interface{} `field:"optional" json:"monitoring" yaml:"monitoring"`
 	// One or more network interfaces.
 	//
 	// If you specify a network interface, you must specify any security groups and subnets as part of the network interface.
-	NetworkInterfaces interface{} `json:"networkInterfaces" yaml:"networkInterfaces"`
+	NetworkInterfaces interface{} `field:"optional" json:"networkInterfaces" yaml:"networkInterfaces"`
 	// The placement for the instance.
-	Placement interface{} `json:"placement" yaml:"placement"`
+	Placement interface{} `field:"optional" json:"placement" yaml:"placement"`
 	// The options for the instance hostname.
 	//
 	// The default values are inherited from the subnet.
-	PrivateDnsNameOptions interface{} `json:"privateDnsNameOptions" yaml:"privateDnsNameOptions"`
+	PrivateDnsNameOptions interface{} `field:"optional" json:"privateDnsNameOptions" yaml:"privateDnsNameOptions"`
 	// The ID of the RAM disk.
 	//
 	// > We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see [User Provided Kernels](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html) in the *Amazon Elastic Compute Cloud User Guide* .
-	RamDiskId *string `json:"ramDiskId" yaml:"ramDiskId"`
+	RamDiskId *string `field:"optional" json:"ramDiskId" yaml:"ramDiskId"`
 	// One or more security group IDs.
 	//
 	// You can create a security group using [CreateSecurityGroup](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html) . You cannot specify both a security group ID and security name in the same request.
-	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
+	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// [EC2-Classic, default VPC] One or more security group names.
 	//
 	// For a nondefault VPC, you must use security group IDs instead. You cannot specify both a security group ID and security name in the same request.
-	SecurityGroups *[]*string `json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]*string `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// The tags to apply to the resources during launch.
 	//
 	// You can only tag instances and volumes on launch. The specified tags are applied to all instances or volumes that are created during launch.
-	TagSpecifications interface{} `json:"tagSpecifications" yaml:"tagSpecifications"`
+	TagSpecifications interface{} `field:"optional" json:"tagSpecifications" yaml:"tagSpecifications"`
 	// The user data to make available to the instance.
 	//
 	// You must provide base64-encoded text. User data is limited to 16 KB. For more information, see [Running Commands on Your Linux Instance at Launch](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) (Linux) or [Adding User Data](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data) (Windows).
 	//
 	// If you are creating the launch template for use with AWS Batch , the user data must be provided in the [MIME multi-part archive format](https://docs.aws.amazon.com/https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive) . For more information, see [Amazon EC2 user data in launch templates](https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html) in the *AWS Batch User Guide* .
-	UserData *string `json:"userData" yaml:"userData"`
+	UserData *string `field:"optional" json:"userData" yaml:"userData"`
 }
 
 // Specifies an elastic inference accelerator.
@@ -25791,7 +26169,10 @@ type CfnLaunchTemplate_LaunchTemplateDataProperty struct {
 // `LaunchTemplateElasticInferenceAccelerator` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   launchTemplateElasticInferenceAcceleratorProperty := &launchTemplateElasticInferenceAcceleratorProperty{
 //   	count: jsii.Number(123),
 //   	type: jsii.String("type"),
@@ -25801,11 +26182,11 @@ type CfnLaunchTemplate_LaunchTemplateElasticInferenceAcceleratorProperty struct 
 	// The number of elastic inference accelerators to attach to the instance.
 	//
 	// Default: 1.
-	Count *float64 `json:"count" yaml:"count"`
+	Count *float64 `field:"optional" json:"count" yaml:"count"`
 	// The type of elastic inference accelerator.
 	//
 	// The possible values are eia1.medium, eia1.large, and eia1.xlarge.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 
 // Specifies the tags to apply to the launch template during creation.
@@ -25813,7 +26194,10 @@ type CfnLaunchTemplate_LaunchTemplateElasticInferenceAcceleratorProperty struct 
 // `LaunchTemplateTagSpecification` is a property of [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   launchTemplateTagSpecificationProperty := &launchTemplateTagSpecificationProperty{
 //   	resourceType: jsii.String("resourceType"),
 //   	tags: []cfnTag{
@@ -25828,9 +26212,9 @@ type CfnLaunchTemplate_LaunchTemplateTagSpecificationProperty struct {
 	// The type of resource.
 	//
 	// To tag the launch template, `ResourceType` must be `launch-template` .
-	ResourceType *string `json:"resourceType" yaml:"resourceType"`
+	ResourceType *string `field:"optional" json:"resourceType" yaml:"resourceType"`
 	// The tags for the resource.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // Specifies a license configuration for an instance.
@@ -25838,33 +26222,42 @@ type CfnLaunchTemplate_LaunchTemplateTagSpecificationProperty struct {
 // `LicenseSpecification` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   licenseSpecificationProperty := &licenseSpecificationProperty{
 //   	licenseConfigurationArn: jsii.String("licenseConfigurationArn"),
 //   }
 //
 type CfnLaunchTemplate_LicenseSpecificationProperty struct {
 	// The Amazon Resource Name (ARN) of the license configuration.
-	LicenseConfigurationArn *string `json:"licenseConfigurationArn" yaml:"licenseConfigurationArn"`
+	LicenseConfigurationArn *string `field:"optional" json:"licenseConfigurationArn" yaml:"licenseConfigurationArn"`
 }
 
 // The maintenance options of your instance.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   maintenanceOptionsProperty := &maintenanceOptionsProperty{
 //   	autoRecovery: jsii.String("autoRecovery"),
 //   }
 //
 type CfnLaunchTemplate_MaintenanceOptionsProperty struct {
 	// Disables the automatic recovery behavior of your instance or sets it to default.
-	AutoRecovery *string `json:"autoRecovery" yaml:"autoRecovery"`
+	AutoRecovery *string `field:"optional" json:"autoRecovery" yaml:"autoRecovery"`
 }
 
 // The minimum and maximum amount of memory per vCPU, in GiB.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   memoryGiBPerVCpuProperty := &memoryGiBPerVCpuProperty{
 //   	max: jsii.Number(123),
 //   	min: jsii.Number(123),
@@ -25874,17 +26267,20 @@ type CfnLaunchTemplate_MemoryGiBPerVCpuProperty struct {
 	// The maximum amount of memory per vCPU, in GiB.
 	//
 	// To specify no maximum limit, omit this parameter.
-	Max *float64 `json:"max" yaml:"max"`
+	Max *float64 `field:"optional" json:"max" yaml:"max"`
 	// The minimum amount of memory per vCPU, in GiB.
 	//
 	// To specify no minimum limit, omit this parameter.
-	Min *float64 `json:"min" yaml:"min"`
+	Min *float64 `field:"optional" json:"min" yaml:"min"`
 }
 
 // The minimum and maximum amount of memory, in MiB.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   memoryMiBProperty := &memoryMiBProperty{
 //   	max: jsii.Number(123),
 //   	min: jsii.Number(123),
@@ -25894,11 +26290,11 @@ type CfnLaunchTemplate_MemoryMiBProperty struct {
 	// The maximum amount of memory, in MiB.
 	//
 	// To specify no maximum limit, omit this parameter.
-	Max *float64 `json:"max" yaml:"max"`
+	Max *float64 `field:"optional" json:"max" yaml:"max"`
 	// The minimum amount of memory, in MiB.
 	//
 	// To specify no minimum limit, specify `0` .
-	Min *float64 `json:"min" yaml:"min"`
+	Min *float64 `field:"optional" json:"min" yaml:"min"`
 }
 
 // Specifies the metadata options for the instance.
@@ -25906,7 +26302,10 @@ type CfnLaunchTemplate_MemoryMiBProperty struct {
 // `MetadataOptions` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   metadataOptionsProperty := &metadataOptionsProperty{
 //   	httpEndpoint: jsii.String("httpEndpoint"),
 //   	httpProtocolIpv6: jsii.String("httpProtocolIpv6"),
@@ -25921,11 +26320,11 @@ type CfnLaunchTemplate_MetadataOptionsProperty struct {
 	// If the parameter is not specified, the default state is `enabled` .
 	//
 	// > If you specify a value of `disabled` , you will not be able to access your instance metadata.
-	HttpEndpoint *string `json:"httpEndpoint" yaml:"httpEndpoint"`
+	HttpEndpoint *string `field:"optional" json:"httpEndpoint" yaml:"httpEndpoint"`
 	// Enables or disables the IPv6 endpoint for the instance metadata service.
 	//
 	// Default: `disabled`.
-	HttpProtocolIpv6 *string `json:"httpProtocolIpv6" yaml:"httpProtocolIpv6"`
+	HttpProtocolIpv6 *string `field:"optional" json:"httpProtocolIpv6" yaml:"httpProtocolIpv6"`
 	// The desired HTTP PUT response hop limit for instance metadata requests.
 	//
 	// The larger the number, the further instance metadata requests can travel.
@@ -25933,7 +26332,7 @@ type CfnLaunchTemplate_MetadataOptionsProperty struct {
 	// Default: 1
 	//
 	// Possible values: Integers from 1 to 64.
-	HttpPutResponseHopLimit *float64 `json:"httpPutResponseHopLimit" yaml:"httpPutResponseHopLimit"`
+	HttpPutResponseHopLimit *float64 `field:"optional" json:"httpPutResponseHopLimit" yaml:"httpPutResponseHopLimit"`
 	// The state of token usage for your instance metadata requests.
 	//
 	// If the parameter is not specified in the request, the default state is `optional` .
@@ -25941,21 +26340,26 @@ type CfnLaunchTemplate_MetadataOptionsProperty struct {
 	// If the state is `optional` , you can choose to retrieve instance metadata with or without a signed token header on your request. If you retrieve the IAM role credentials without a token, the version 1.0 role credentials are returned. If you retrieve the IAM role credentials using a valid signed token, the version 2.0 role credentials are returned.
 	//
 	// If the state is `required` , you must send a signed token header with any instance metadata retrieval requests. In this state, retrieving the IAM role credentials always returns the version 2.0 credentials; the version 1.0 credentials are not available.
-	HttpTokens *string `json:"httpTokens" yaml:"httpTokens"`
+	HttpTokens *string `field:"optional" json:"httpTokens" yaml:"httpTokens"`
 	// Set to `enabled` to allow access to instance tags from the instance metadata.
 	//
 	// Set to `disabled` to turn off access to instance tags from the instance metadata. For more information, see [Work with instance tags using the instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS) .
 	//
 	// Default: `disabled`.
-	InstanceMetadataTags *string `json:"instanceMetadataTags" yaml:"instanceMetadataTags"`
+	InstanceMetadataTags *string `field:"optional" json:"instanceMetadataTags" yaml:"instanceMetadataTags"`
 }
 
 // Specifies whether detailed monitoring is enabled for an instance.
 //
+// For more information about detailed monitoring, see [Enable or turn off detailed monitoring for your instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch-new.html) in the *Amazon EC2 User Guide* .
+//
 // `Monitoring` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   monitoringProperty := &monitoringProperty{
 //   	enabled: jsii.Boolean(false),
 //   }
@@ -25964,13 +26368,16 @@ type CfnLaunchTemplate_MonitoringProperty struct {
 	// Specify `true` to enable detailed monitoring.
 	//
 	// Otherwise, basic monitoring is enabled.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 }
 
 // The minimum and maximum number of network interfaces.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   networkInterfaceCountProperty := &networkInterfaceCountProperty{
 //   	max: jsii.Number(123),
 //   	min: jsii.Number(123),
@@ -25980,11 +26387,11 @@ type CfnLaunchTemplate_NetworkInterfaceCountProperty struct {
 	// The maximum number of network interfaces.
 	//
 	// To specify no maximum limit, omit this parameter.
-	Max *float64 `json:"max" yaml:"max"`
+	Max *float64 `field:"optional" json:"max" yaml:"max"`
 	// The minimum number of network interfaces.
 	//
 	// To specify no minimum limit, omit this parameter.
-	Min *float64 `json:"min" yaml:"min"`
+	Min *float64 `field:"optional" json:"min" yaml:"min"`
 }
 
 // Specifies the parameters for a network interface.
@@ -25992,7 +26399,10 @@ type CfnLaunchTemplate_NetworkInterfaceCountProperty struct {
 // `NetworkInterface` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   networkInterfaceProperty := &networkInterfaceProperty{
 //   	associateCarrierIpAddress: jsii.Boolean(false),
 //   	associatePublicIpAddress: jsii.Boolean(false),
@@ -26038,17 +26448,17 @@ type CfnLaunchTemplate_NetworkInterfaceProperty struct {
 	// Indicates whether to associate a Carrier IP address with eth0 for a new network interface.
 	//
 	// Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. For more information about Carrier IP addresses, see [Carrier IP addresses](https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip) in the *AWS Wavelength Developer Guide* .
-	AssociateCarrierIpAddress interface{} `json:"associateCarrierIpAddress" yaml:"associateCarrierIpAddress"`
+	AssociateCarrierIpAddress interface{} `field:"optional" json:"associateCarrierIpAddress" yaml:"associateCarrierIpAddress"`
 	// Associates a public IPv4 address with eth0 for a new network interface.
-	AssociatePublicIpAddress interface{} `json:"associatePublicIpAddress" yaml:"associatePublicIpAddress"`
+	AssociatePublicIpAddress interface{} `field:"optional" json:"associatePublicIpAddress" yaml:"associatePublicIpAddress"`
 	// Indicates whether the network interface is deleted when the instance is terminated.
-	DeleteOnTermination interface{} `json:"deleteOnTermination" yaml:"deleteOnTermination"`
+	DeleteOnTermination interface{} `field:"optional" json:"deleteOnTermination" yaml:"deleteOnTermination"`
 	// A description for the network interface.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The device index for the network interface attachment.
-	DeviceIndex *float64 `json:"deviceIndex" yaml:"deviceIndex"`
+	DeviceIndex *float64 `field:"optional" json:"deviceIndex" yaml:"deviceIndex"`
 	// The IDs of one or more security groups.
-	Groups *[]*string `json:"groups" yaml:"groups"`
+	Groups *[]*string `field:"optional" json:"groups" yaml:"groups"`
 	// The type of network interface.
 	//
 	// To create an Elastic Fabric Adapter (EFA), specify `efa` . For more information, see [Elastic Fabric Adapter](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon Elastic Compute Cloud User Guide* .
@@ -26056,45 +26466,45 @@ type CfnLaunchTemplate_NetworkInterfaceProperty struct {
 	// If you are not creating an EFA, specify `interface` or omit this parameter.
 	//
 	// Valid values: `interface` | `efa`.
-	InterfaceType *string `json:"interfaceType" yaml:"interfaceType"`
+	InterfaceType *string `field:"optional" json:"interfaceType" yaml:"interfaceType"`
 	// The number of IPv4 prefixes to be automatically assigned to the network interface.
 	//
 	// You cannot use this option if you use the `Ipv4Prefix` option.
-	Ipv4PrefixCount *float64 `json:"ipv4PrefixCount" yaml:"ipv4PrefixCount"`
+	Ipv4PrefixCount *float64 `field:"optional" json:"ipv4PrefixCount" yaml:"ipv4PrefixCount"`
 	// One or more IPv4 prefixes to be assigned to the network interface.
 	//
 	// You cannot use this option if you use the `Ipv4PrefixCount` option.
-	Ipv4Prefixes interface{} `json:"ipv4Prefixes" yaml:"ipv4Prefixes"`
+	Ipv4Prefixes interface{} `field:"optional" json:"ipv4Prefixes" yaml:"ipv4Prefixes"`
 	// The number of IPv6 addresses to assign to a network interface.
 	//
 	// Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can't use this option if specifying specific IPv6 addresses.
-	Ipv6AddressCount *float64 `json:"ipv6AddressCount" yaml:"ipv6AddressCount"`
+	Ipv6AddressCount *float64 `field:"optional" json:"ipv6AddressCount" yaml:"ipv6AddressCount"`
 	// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet.
 	//
 	// You can't use this option if you're specifying a number of IPv6 addresses.
-	Ipv6Addresses interface{} `json:"ipv6Addresses" yaml:"ipv6Addresses"`
+	Ipv6Addresses interface{} `field:"optional" json:"ipv6Addresses" yaml:"ipv6Addresses"`
 	// The number of IPv6 prefixes to be automatically assigned to the network interface.
 	//
 	// You cannot use this option if you use the `Ipv6Prefix` option.
-	Ipv6PrefixCount *float64 `json:"ipv6PrefixCount" yaml:"ipv6PrefixCount"`
+	Ipv6PrefixCount *float64 `field:"optional" json:"ipv6PrefixCount" yaml:"ipv6PrefixCount"`
 	// One or more IPv6 prefixes to be assigned to the network interface.
 	//
 	// You cannot use this option if you use the `Ipv6PrefixCount` option.
-	Ipv6Prefixes interface{} `json:"ipv6Prefixes" yaml:"ipv6Prefixes"`
+	Ipv6Prefixes interface{} `field:"optional" json:"ipv6Prefixes" yaml:"ipv6Prefixes"`
 	// The index of the network card.
 	//
 	// Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
-	NetworkCardIndex *float64 `json:"networkCardIndex" yaml:"networkCardIndex"`
+	NetworkCardIndex *float64 `field:"optional" json:"networkCardIndex" yaml:"networkCardIndex"`
 	// The ID of the network interface.
-	NetworkInterfaceId *string `json:"networkInterfaceId" yaml:"networkInterfaceId"`
+	NetworkInterfaceId *string `field:"optional" json:"networkInterfaceId" yaml:"networkInterfaceId"`
 	// The primary private IPv4 address of the network interface.
-	PrivateIpAddress *string `json:"privateIpAddress" yaml:"privateIpAddress"`
+	PrivateIpAddress *string `field:"optional" json:"privateIpAddress" yaml:"privateIpAddress"`
 	// One or more private IPv4 addresses.
-	PrivateIpAddresses interface{} `json:"privateIpAddresses" yaml:"privateIpAddresses"`
+	PrivateIpAddresses interface{} `field:"optional" json:"privateIpAddresses" yaml:"privateIpAddresses"`
 	// The number of secondary private IPv4 addresses to assign to a network interface.
-	SecondaryPrivateIpAddressCount *float64 `json:"secondaryPrivateIpAddressCount" yaml:"secondaryPrivateIpAddressCount"`
+	SecondaryPrivateIpAddressCount *float64 `field:"optional" json:"secondaryPrivateIpAddressCount" yaml:"secondaryPrivateIpAddressCount"`
 	// The ID of the subnet for the network interface.
-	SubnetId *string `json:"subnetId" yaml:"subnetId"`
+	SubnetId *string `field:"optional" json:"subnetId" yaml:"subnetId"`
 }
 
 // Specifies the placement of an instance.
@@ -26102,7 +26512,10 @@ type CfnLaunchTemplate_NetworkInterfaceProperty struct {
 // `Placement` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   placementProperty := &placementProperty{
 //   	affinity: jsii.String("affinity"),
 //   	availabilityZone: jsii.String("availabilityZone"),
@@ -26116,33 +26529,36 @@ type CfnLaunchTemplate_NetworkInterfaceProperty struct {
 //
 type CfnLaunchTemplate_PlacementProperty struct {
 	// The affinity setting for an instance on a Dedicated Host.
-	Affinity *string `json:"affinity" yaml:"affinity"`
+	Affinity *string `field:"optional" json:"affinity" yaml:"affinity"`
 	// The Availability Zone for the instance.
-	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
+	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
 	// The name of the placement group for the instance.
-	GroupName *string `json:"groupName" yaml:"groupName"`
+	GroupName *string `field:"optional" json:"groupName" yaml:"groupName"`
 	// The ID of the Dedicated Host for the instance.
-	HostId *string `json:"hostId" yaml:"hostId"`
+	HostId *string `field:"optional" json:"hostId" yaml:"hostId"`
 	// The ARN of the host resource group in which to launch the instances.
 	//
 	// If you specify a host resource group ARN, omit the *Tenancy* parameter or set it to `host` .
-	HostResourceGroupArn *string `json:"hostResourceGroupArn" yaml:"hostResourceGroupArn"`
+	HostResourceGroupArn *string `field:"optional" json:"hostResourceGroupArn" yaml:"hostResourceGroupArn"`
 	// The number of the partition the instance should launch in.
 	//
 	// Valid only if the placement group strategy is set to `partition` .
-	PartitionNumber *float64 `json:"partitionNumber" yaml:"partitionNumber"`
+	PartitionNumber *float64 `field:"optional" json:"partitionNumber" yaml:"partitionNumber"`
 	// Reserved for future use.
-	SpreadDomain *string `json:"spreadDomain" yaml:"spreadDomain"`
+	SpreadDomain *string `field:"optional" json:"spreadDomain" yaml:"spreadDomain"`
 	// The tenancy of the instance (if the instance is running in a VPC).
 	//
 	// An instance with a tenancy of dedicated runs on single-tenant hardware.
-	Tenancy *string `json:"tenancy" yaml:"tenancy"`
+	Tenancy *string `field:"optional" json:"tenancy" yaml:"tenancy"`
 }
 
 // Describes the options for instance hostnames.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   privateDnsNameOptionsProperty := &privateDnsNameOptionsProperty{
 //   	enableResourceNameDnsAaaaRecord: jsii.Boolean(false),
 //   	enableResourceNameDnsARecord: jsii.Boolean(false),
@@ -26151,13 +26567,13 @@ type CfnLaunchTemplate_PlacementProperty struct {
 //
 type CfnLaunchTemplate_PrivateDnsNameOptionsProperty struct {
 	// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
-	EnableResourceNameDnsAaaaRecord interface{} `json:"enableResourceNameDnsAaaaRecord" yaml:"enableResourceNameDnsAaaaRecord"`
+	EnableResourceNameDnsAaaaRecord interface{} `field:"optional" json:"enableResourceNameDnsAaaaRecord" yaml:"enableResourceNameDnsAaaaRecord"`
 	// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
-	EnableResourceNameDnsARecord interface{} `json:"enableResourceNameDnsARecord" yaml:"enableResourceNameDnsARecord"`
+	EnableResourceNameDnsARecord interface{} `field:"optional" json:"enableResourceNameDnsARecord" yaml:"enableResourceNameDnsARecord"`
 	// The type of hostname for EC2 instances.
 	//
 	// For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *Amazon Elastic Compute Cloud User Guide* .
-	HostnameType *string `json:"hostnameType" yaml:"hostnameType"`
+	HostnameType *string `field:"optional" json:"hostnameType" yaml:"hostnameType"`
 }
 
 // Specifies a secondary private IPv4 address for a network interface.
@@ -26165,7 +26581,10 @@ type CfnLaunchTemplate_PrivateDnsNameOptionsProperty struct {
 // `PrivateIpAdd` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   privateIpAddProperty := &privateIpAddProperty{
 //   	primary: jsii.Boolean(false),
 //   	privateIpAddress: jsii.String("privateIpAddress"),
@@ -26175,9 +26594,9 @@ type CfnLaunchTemplate_PrivateIpAddProperty struct {
 	// Indicates whether the private IPv4 address is the primary private IPv4 address.
 	//
 	// Only one IPv4 address can be designated as primary.
-	Primary interface{} `json:"primary" yaml:"primary"`
+	Primary interface{} `field:"optional" json:"primary" yaml:"primary"`
 	// The private IPv4 addresses.
-	PrivateIpAddress *string `json:"privateIpAddress" yaml:"privateIpAddress"`
+	PrivateIpAddress *string `field:"optional" json:"privateIpAddress" yaml:"privateIpAddress"`
 }
 
 // Specifies options for Spot Instances.
@@ -26185,7 +26604,10 @@ type CfnLaunchTemplate_PrivateIpAddProperty struct {
 // `SpotOptions` is a property of [AWS::EC2::LaunchTemplate InstanceMarketOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   spotOptionsProperty := &spotOptionsProperty{
 //   	blockDurationMinutes: jsii.Number(123),
 //   	instanceInterruptionBehavior: jsii.String("instanceInterruptionBehavior"),
@@ -26198,21 +26620,21 @@ type CfnLaunchTemplate_SpotOptionsProperty struct {
 	// The required duration for the Spot Instances (also known as Spot blocks), in minutes.
 	//
 	// This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
-	BlockDurationMinutes *float64 `json:"blockDurationMinutes" yaml:"blockDurationMinutes"`
+	BlockDurationMinutes *float64 `field:"optional" json:"blockDurationMinutes" yaml:"blockDurationMinutes"`
 	// The behavior when a Spot Instance is interrupted.
 	//
 	// The default is `terminate` .
-	InstanceInterruptionBehavior *string `json:"instanceInterruptionBehavior" yaml:"instanceInterruptionBehavior"`
+	InstanceInterruptionBehavior *string `field:"optional" json:"instanceInterruptionBehavior" yaml:"instanceInterruptionBehavior"`
 	// The maximum hourly price you're willing to pay for the Spot Instances.
-	MaxPrice *string `json:"maxPrice" yaml:"maxPrice"`
+	MaxPrice *string `field:"optional" json:"maxPrice" yaml:"maxPrice"`
 	// The Spot Instance request type.
 	//
 	// If you are using Spot Instances with an Auto Scaling group, use `one-time` requests, as the Amazon EC2 Auto Scaling service handles requesting new Spot Instances whenever the group is below its desired capacity.
-	SpotInstanceType *string `json:"spotInstanceType" yaml:"spotInstanceType"`
+	SpotInstanceType *string `field:"optional" json:"spotInstanceType" yaml:"spotInstanceType"`
 	// The end date of the request.
 	//
 	// For a one-time request, the request remains active until all instances launch, the request is canceled, or this date is reached. If the request is persistent, it remains active until it is canceled or this date and time is reached. The default end date is 7 days from the current date.
-	ValidUntil *string `json:"validUntil" yaml:"validUntil"`
+	ValidUntil *string `field:"optional" json:"validUntil" yaml:"validUntil"`
 }
 
 // Specifies the tags to apply to a resource when the resource is created for the launch template.
@@ -26220,7 +26642,10 @@ type CfnLaunchTemplate_SpotOptionsProperty struct {
 // `TagSpecification` is a property type of [`TagSpecifications`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications) . [`TagSpecifications`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications) is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tagSpecificationProperty := &tagSpecificationProperty{
 //   	resourceType: jsii.String("resourceType"),
 //   	tags: []cfnTag{
@@ -26237,15 +26662,18 @@ type CfnLaunchTemplate_TagSpecificationProperty struct {
 	// Currently, the resource types that support tagging on creation are `instance` and `volume` . To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html) .
 	//
 	// *Conditional* : Required if tags are set.
-	ResourceType *string `json:"resourceType" yaml:"resourceType"`
+	ResourceType *string `field:"optional" json:"resourceType" yaml:"resourceType"`
 	// The tags to apply to the resource.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // The minimum and maximum amount of total local storage, in GB.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   totalLocalStorageGBProperty := &totalLocalStorageGBProperty{
 //   	max: jsii.Number(123),
 //   	min: jsii.Number(123),
@@ -26255,17 +26683,20 @@ type CfnLaunchTemplate_TotalLocalStorageGBProperty struct {
 	// The maximum amount of total local storage, in GB.
 	//
 	// To specify no maximum limit, omit this parameter.
-	Max *float64 `json:"max" yaml:"max"`
+	Max *float64 `field:"optional" json:"max" yaml:"max"`
 	// The minimum amount of total local storage, in GB.
 	//
 	// To specify no minimum limit, omit this parameter.
-	Min *float64 `json:"min" yaml:"min"`
+	Min *float64 `field:"optional" json:"min" yaml:"min"`
 }
 
 // The minimum and maximum number of vCPUs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   vCpuCountProperty := &vCpuCountProperty{
 //   	max: jsii.Number(123),
 //   	min: jsii.Number(123),
@@ -26275,11 +26706,11 @@ type CfnLaunchTemplate_VCpuCountProperty struct {
 	// The maximum number of vCPUs.
 	//
 	// To specify no maximum limit, omit this parameter.
-	Max *float64 `json:"max" yaml:"max"`
+	Max *float64 `field:"optional" json:"max" yaml:"max"`
 	// The minimum number of vCPUs.
 	//
 	// To specify no minimum limit, specify `0` .
-	Min *float64 `json:"min" yaml:"min"`
+	Min *float64 `field:"optional" json:"min" yaml:"min"`
 }
 
 // Properties for defining a `CfnLaunchTemplate`.
@@ -26287,11 +26718,12 @@ type CfnLaunchTemplate_VCpuCountProperty struct {
 // Example:
 //   var cluster cluster
 //
+//
 //   userData := "MIME-Version: 1.0\nContent-Type: multipart/mixed; boundary=\"==MYBOUNDARY==\"\n\n--==MYBOUNDARY==\nContent-Type: text/x-shellscript; charset=\"us-ascii\"\n\n#!/bin/bash\necho \"Running custom user data script\"\n\n--==MYBOUNDARY==--\\\n"
 //   lt := ec2.NewCfnLaunchTemplate(this, jsii.String("LaunchTemplate"), &cfnLaunchTemplateProps{
 //   	launchTemplateData: &launchTemplateDataProperty{
 //   		instanceType: jsii.String("t3.small"),
-//   		userData: fn.base64(userData),
+//   		userData: awscdk.Fn.base64(userData),
 //   	},
 //   })
 //
@@ -26304,11 +26736,11 @@ type CfnLaunchTemplate_VCpuCountProperty struct {
 //
 type CfnLaunchTemplateProps struct {
 	// The information for the launch template.
-	LaunchTemplateData interface{} `json:"launchTemplateData" yaml:"launchTemplateData"`
+	LaunchTemplateData interface{} `field:"optional" json:"launchTemplateData" yaml:"launchTemplateData"`
 	// A name for the launch template.
-	LaunchTemplateName *string `json:"launchTemplateName" yaml:"launchTemplateName"`
+	LaunchTemplateName *string `field:"optional" json:"launchTemplateName" yaml:"launchTemplateName"`
 	// The tags to apply to the launch template during creation.
-	TagSpecifications interface{} `json:"tagSpecifications" yaml:"tagSpecifications"`
+	TagSpecifications interface{} `field:"optional" json:"tagSpecifications" yaml:"tagSpecifications"`
 }
 
 // A CloudFormation `AWS::EC2::LocalGatewayRoute`.
@@ -26316,8 +26748,11 @@ type CfnLaunchTemplateProps struct {
 // Creates a static route for the specified local gateway route table.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnLocalGatewayRoute := ec2.NewCfnLocalGatewayRoute(this, jsii.String("MyCfnLocalGatewayRoute"), &cfnLocalGatewayRouteProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnLocalGatewayRoute := awscdk.Aws_ec2.NewCfnLocalGatewayRoute(this, jsii.String("MyCfnLocalGatewayRoute"), &cfnLocalGatewayRouteProps{
 //   	destinationCidrBlock: jsii.String("destinationCidrBlock"),
 //   	localGatewayRouteTableId: jsii.String("localGatewayRouteTableId"),
 //   	localGatewayVirtualInterfaceGroupId: jsii.String("localGatewayVirtualInterfaceGroupId"),
@@ -27018,7 +27453,10 @@ func (c *jsiiProxy_CfnLocalGatewayRoute) ValidateProperties(_properties interfac
 // Properties for defining a `CfnLocalGatewayRoute`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnLocalGatewayRouteProps := &cfnLocalGatewayRouteProps{
 //   	destinationCidrBlock: jsii.String("destinationCidrBlock"),
 //   	localGatewayRouteTableId: jsii.String("localGatewayRouteTableId"),
@@ -27027,11 +27465,11 @@ func (c *jsiiProxy_CfnLocalGatewayRoute) ValidateProperties(_properties interfac
 //
 type CfnLocalGatewayRouteProps struct {
 	// The CIDR block used for destination matches.
-	DestinationCidrBlock *string `json:"destinationCidrBlock" yaml:"destinationCidrBlock"`
+	DestinationCidrBlock *string `field:"required" json:"destinationCidrBlock" yaml:"destinationCidrBlock"`
 	// The ID of the local gateway route table.
-	LocalGatewayRouteTableId *string `json:"localGatewayRouteTableId" yaml:"localGatewayRouteTableId"`
+	LocalGatewayRouteTableId *string `field:"required" json:"localGatewayRouteTableId" yaml:"localGatewayRouteTableId"`
 	// The ID of the virtual interface group.
-	LocalGatewayVirtualInterfaceGroupId *string `json:"localGatewayVirtualInterfaceGroupId" yaml:"localGatewayVirtualInterfaceGroupId"`
+	LocalGatewayVirtualInterfaceGroupId *string `field:"required" json:"localGatewayVirtualInterfaceGroupId" yaml:"localGatewayVirtualInterfaceGroupId"`
 }
 
 // A CloudFormation `AWS::EC2::LocalGatewayRouteTableVPCAssociation`.
@@ -27039,8 +27477,11 @@ type CfnLocalGatewayRouteProps struct {
 // Associates the specified VPC with the specified local gateway route table.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnLocalGatewayRouteTableVPCAssociation := ec2.NewCfnLocalGatewayRouteTableVPCAssociation(this, jsii.String("MyCfnLocalGatewayRouteTableVPCAssociation"), &cfnLocalGatewayRouteTableVPCAssociationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnLocalGatewayRouteTableVPCAssociation := awscdk.Aws_ec2.NewCfnLocalGatewayRouteTableVPCAssociation(this, jsii.String("MyCfnLocalGatewayRouteTableVPCAssociation"), &cfnLocalGatewayRouteTableVPCAssociationProps{
 //   	localGatewayRouteTableId: jsii.String("localGatewayRouteTableId"),
 //   	vpcId: jsii.String("vpcId"),
 //
@@ -27751,7 +28192,10 @@ func (c *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) ValidateProperties(_
 // Properties for defining a `CfnLocalGatewayRouteTableVPCAssociation`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnLocalGatewayRouteTableVPCAssociationProps := &cfnLocalGatewayRouteTableVPCAssociationProps{
 //   	localGatewayRouteTableId: jsii.String("localGatewayRouteTableId"),
 //   	vpcId: jsii.String("vpcId"),
@@ -27767,11 +28211,11 @@ func (c *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) ValidateProperties(_
 //
 type CfnLocalGatewayRouteTableVPCAssociationProps struct {
 	// The ID of the local gateway route table.
-	LocalGatewayRouteTableId *string `json:"localGatewayRouteTableId" yaml:"localGatewayRouteTableId"`
+	LocalGatewayRouteTableId *string `field:"required" json:"localGatewayRouteTableId" yaml:"localGatewayRouteTableId"`
 	// The ID of the VPC.
-	VpcId *string `json:"vpcId" yaml:"vpcId"`
+	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
 	// The tags assigned to the association.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::EC2::NatGateway`.
@@ -27785,8 +28229,11 @@ type CfnLocalGatewayRouteTableVPCAssociationProps struct {
 // For more information, see [NAT Gateways](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html) in the *Amazon VPC User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnNatGateway := ec2.NewCfnNatGateway(this, jsii.String("MyCfnNatGateway"), &cfnNatGatewayProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnNatGateway := awscdk.Aws_ec2.NewCfnNatGateway(this, jsii.String("MyCfnNatGateway"), &cfnNatGatewayProps{
 //   	subnetId: jsii.String("subnetId"),
 //
 //   	// the properties below are optional
@@ -28483,7 +28930,10 @@ func (c *jsiiProxy_CfnNatGateway) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnNatGateway`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnNatGatewayProps := &cfnNatGatewayProps{
 //   	subnetId: jsii.String("subnetId"),
 //
@@ -28500,13 +28950,13 @@ func (c *jsiiProxy_CfnNatGateway) ValidateProperties(_properties interface{}) {
 //
 type CfnNatGatewayProps struct {
 	// The ID of the subnet in which the NAT gateway is located.
-	SubnetId *string `json:"subnetId" yaml:"subnetId"`
+	SubnetId *string `field:"required" json:"subnetId" yaml:"subnetId"`
 	// [Public NAT gateway only] The allocation ID of the Elastic IP address that's associated with the NAT gateway.
-	AllocationId *string `json:"allocationId" yaml:"allocationId"`
+	AllocationId *string `field:"optional" json:"allocationId" yaml:"allocationId"`
 	// Indicates whether the NAT gateway supports public or private connectivity.
-	ConnectivityType *string `json:"connectivityType" yaml:"connectivityType"`
+	ConnectivityType *string `field:"optional" json:"connectivityType" yaml:"connectivityType"`
 	// The tags for the NAT gateway.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::EC2::NetworkAcl`.
@@ -28514,8 +28964,11 @@ type CfnNatGatewayProps struct {
 // Specifies a network ACL for your VPC.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnNetworkAcl := ec2.NewCfnNetworkAcl(this, jsii.String("MyCfnNetworkAcl"), &cfnNetworkAclProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnNetworkAcl := awscdk.Aws_ec2.NewCfnNetworkAcl(this, jsii.String("MyCfnNetworkAcl"), &cfnNetworkAclProps{
 //   	vpcId: jsii.String("vpcId"),
 //
 //   	// the properties below are optional
@@ -29184,8 +29637,11 @@ func (c *jsiiProxy_CfnNetworkAcl) ValidateProperties(_properties interface{}) {
 // For information about the protocol value, see [Protocol Numbers](https://docs.aws.amazon.com/https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnNetworkAclEntry := ec2.NewCfnNetworkAclEntry(this, jsii.String("MyCfnNetworkAclEntry"), &cfnNetworkAclEntryProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnNetworkAclEntry := awscdk.Aws_ec2.NewCfnNetworkAclEntry(this, jsii.String("MyCfnNetworkAclEntry"), &cfnNetworkAclEntryProps{
 //   	networkAclId: jsii.String("networkAclId"),
 //   	protocol: jsii.Number(123),
 //   	ruleAction: jsii.String("ruleAction"),
@@ -30030,7 +30486,10 @@ func (c *jsiiProxy_CfnNetworkAclEntry) ValidateProperties(_properties interface{
 // Describes the ICMP type and code.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   icmpProperty := &icmpProperty{
 //   	code: jsii.Number(123),
 //   	type: jsii.Number(123),
@@ -30040,17 +30499,20 @@ type CfnNetworkAclEntry_IcmpProperty struct {
 	// The Internet Control Message Protocol (ICMP) code.
 	//
 	// You can use -1 to specify all ICMP codes for the given ICMP type. Requirement is conditional: Required if you specify 1 (ICMP) for the protocol parameter.
-	Code *float64 `json:"code" yaml:"code"`
+	Code *float64 `field:"optional" json:"code" yaml:"code"`
 	// The Internet Control Message Protocol (ICMP) type.
 	//
 	// You can use -1 to specify all ICMP types. Conditional requirement: Required if you specify 1 (ICMP) for the `CreateNetworkAclEntry` protocol parameter.
-	Type *float64 `json:"type" yaml:"type"`
+	Type *float64 `field:"optional" json:"type" yaml:"type"`
 }
 
 // Describes a range of ports.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   portRangeProperty := &portRangeProperty{
 //   	from: jsii.Number(123),
 //   	to: jsii.Number(123),
@@ -30060,17 +30522,20 @@ type CfnNetworkAclEntry_PortRangeProperty struct {
 	// The first port in the range.
 	//
 	// Required if you specify 6 (TCP) or 17 (UDP) for the protocol parameter.
-	From *float64 `json:"from" yaml:"from"`
+	From *float64 `field:"optional" json:"from" yaml:"from"`
 	// The last port in the range.
 	//
 	// Required if you specify 6 (TCP) or 17 (UDP) for the protocol parameter.
-	To *float64 `json:"to" yaml:"to"`
+	To *float64 `field:"optional" json:"to" yaml:"to"`
 }
 
 // Properties for defining a `CfnNetworkAclEntry`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnNetworkAclEntryProps := &cfnNetworkAclEntryProps{
 //   	networkAclId: jsii.String("networkAclId"),
 //   	protocol: jsii.Number(123),
@@ -30093,45 +30558,48 @@ type CfnNetworkAclEntry_PortRangeProperty struct {
 //
 type CfnNetworkAclEntryProps struct {
 	// The ID of the ACL for the entry.
-	NetworkAclId *string `json:"networkAclId" yaml:"networkAclId"`
+	NetworkAclId *string `field:"required" json:"networkAclId" yaml:"networkAclId"`
 	// The IP protocol that the rule applies to.
 	//
 	// You must specify -1 or a protocol number. You can specify -1 for all protocols.
 	//
 	// > If you specify -1, all ports are opened and the `PortRange` property is ignored.
-	Protocol *float64 `json:"protocol" yaml:"protocol"`
+	Protocol *float64 `field:"required" json:"protocol" yaml:"protocol"`
 	// Whether to allow or deny traffic that matches the rule;
 	//
 	// valid values are "allow" or "deny".
-	RuleAction *string `json:"ruleAction" yaml:"ruleAction"`
+	RuleAction *string `field:"required" json:"ruleAction" yaml:"ruleAction"`
 	// Rule number to assign to the entry, such as 100.
 	//
 	// ACL entries are processed in ascending order by rule number. Entries can't use the same rule number unless one is an egress rule and the other is an ingress rule.
-	RuleNumber *float64 `json:"ruleNumber" yaml:"ruleNumber"`
+	RuleNumber *float64 `field:"required" json:"ruleNumber" yaml:"ruleNumber"`
 	// The IPv4 CIDR range to allow or deny, in CIDR notation (for example, 172.16.0.0/24). Requirement is conditional: You must specify the `CidrBlock` or `Ipv6CidrBlock` property.
-	CidrBlock *string `json:"cidrBlock" yaml:"cidrBlock"`
+	CidrBlock *string `field:"optional" json:"cidrBlock" yaml:"cidrBlock"`
 	// Whether this rule applies to egress traffic from the subnet ( `true` ) or ingress traffic to the subnet ( `false` ).
 	//
 	// By default, AWS CloudFormation specifies `false` .
-	Egress interface{} `json:"egress" yaml:"egress"`
+	Egress interface{} `field:"optional" json:"egress" yaml:"egress"`
 	// The Internet Control Message Protocol (ICMP) code and type.
 	//
 	// Requirement is conditional: Required if specifying 1 (ICMP) for the protocol parameter.
-	Icmp interface{} `json:"icmp" yaml:"icmp"`
+	Icmp interface{} `field:"optional" json:"icmp" yaml:"icmp"`
 	// The IPv6 network range to allow or deny, in CIDR notation.
 	//
 	// Requirement is conditional: You must specify the `CidrBlock` or `Ipv6CidrBlock` property.
-	Ipv6CidrBlock *string `json:"ipv6CidrBlock" yaml:"ipv6CidrBlock"`
+	Ipv6CidrBlock *string `field:"optional" json:"ipv6CidrBlock" yaml:"ipv6CidrBlock"`
 	// The range of port numbers for the UDP/TCP protocol.
 	//
 	// Conditional required if specifying 6 (TCP) or 17 (UDP) for the protocol parameter.
-	PortRange interface{} `json:"portRange" yaml:"portRange"`
+	PortRange interface{} `field:"optional" json:"portRange" yaml:"portRange"`
 }
 
 // Properties for defining a `CfnNetworkAcl`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnNetworkAclProps := &cfnNetworkAclProps{
 //   	vpcId: jsii.String("vpcId"),
 //
@@ -30146,9 +30614,9 @@ type CfnNetworkAclEntryProps struct {
 //
 type CfnNetworkAclProps struct {
 	// The ID of the VPC for the network ACL.
-	VpcId *string `json:"vpcId" yaml:"vpcId"`
+	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
 	// The tags for the network ACL.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::EC2::NetworkInsightsAccessScope`.
@@ -30158,8 +30626,11 @@ type CfnNetworkAclProps struct {
 // Network Access Analyzer identifies unintended network access to your resources on AWS . When you start an analysis on a Network Access Scope, Network Access Analyzer produces findings. For more information, see the [Network Access Analyzer User Guide](https://docs.aws.amazon.com/vpc/latest/network-access-analyzer/) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnNetworkInsightsAccessScope := ec2.NewCfnNetworkInsightsAccessScope(this, jsii.String("MyCfnNetworkInsightsAccessScope"), &cfnNetworkInsightsAccessScopeProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnNetworkInsightsAccessScope := awscdk.Aws_ec2.NewCfnNetworkInsightsAccessScope(this, jsii.String("MyCfnNetworkInsightsAccessScope"), &cfnNetworkInsightsAccessScopeProps{
 //   	excludePaths: []interface{}{
 //   		&accessScopePathRequestProperty{
 //   			destination: &pathStatementRequestProperty{
@@ -31042,7 +31513,10 @@ func (c *jsiiProxy_CfnNetworkInsightsAccessScope) ValidateProperties(_properties
 // Describes a path.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   accessScopePathRequestProperty := &accessScopePathRequestProperty{
 //   	destination: &pathStatementRequestProperty{
 //   		packetHeaderStatement: &packetHeaderStatementRequestProperty{
@@ -31126,17 +31600,20 @@ func (c *jsiiProxy_CfnNetworkInsightsAccessScope) ValidateProperties(_properties
 //
 type CfnNetworkInsightsAccessScope_AccessScopePathRequestProperty struct {
 	// The destination.
-	Destination interface{} `json:"destination" yaml:"destination"`
+	Destination interface{} `field:"optional" json:"destination" yaml:"destination"`
 	// The source.
-	Source interface{} `json:"source" yaml:"source"`
+	Source interface{} `field:"optional" json:"source" yaml:"source"`
 	// The through resources.
-	ThroughResources interface{} `json:"throughResources" yaml:"throughResources"`
+	ThroughResources interface{} `field:"optional" json:"throughResources" yaml:"throughResources"`
 }
 
 // Describes a packet header statement.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   packetHeaderStatementRequestProperty := &packetHeaderStatementRequestProperty{
 //   	destinationAddresses: []*string{
 //   		jsii.String("destinationAddresses"),
@@ -31163,25 +31640,28 @@ type CfnNetworkInsightsAccessScope_AccessScopePathRequestProperty struct {
 //
 type CfnNetworkInsightsAccessScope_PacketHeaderStatementRequestProperty struct {
 	// The destination addresses.
-	DestinationAddresses *[]*string `json:"destinationAddresses" yaml:"destinationAddresses"`
+	DestinationAddresses *[]*string `field:"optional" json:"destinationAddresses" yaml:"destinationAddresses"`
 	// The destination ports.
-	DestinationPorts *[]*string `json:"destinationPorts" yaml:"destinationPorts"`
+	DestinationPorts *[]*string `field:"optional" json:"destinationPorts" yaml:"destinationPorts"`
 	// The destination prefix lists.
-	DestinationPrefixLists *[]*string `json:"destinationPrefixLists" yaml:"destinationPrefixLists"`
+	DestinationPrefixLists *[]*string `field:"optional" json:"destinationPrefixLists" yaml:"destinationPrefixLists"`
 	// The protocols.
-	Protocols *[]*string `json:"protocols" yaml:"protocols"`
+	Protocols *[]*string `field:"optional" json:"protocols" yaml:"protocols"`
 	// The source addresses.
-	SourceAddresses *[]*string `json:"sourceAddresses" yaml:"sourceAddresses"`
+	SourceAddresses *[]*string `field:"optional" json:"sourceAddresses" yaml:"sourceAddresses"`
 	// The source ports.
-	SourcePorts *[]*string `json:"sourcePorts" yaml:"sourcePorts"`
+	SourcePorts *[]*string `field:"optional" json:"sourcePorts" yaml:"sourcePorts"`
 	// The source prefix lists.
-	SourcePrefixLists *[]*string `json:"sourcePrefixLists" yaml:"sourcePrefixLists"`
+	SourcePrefixLists *[]*string `field:"optional" json:"sourcePrefixLists" yaml:"sourcePrefixLists"`
 }
 
 // Describes a path statement.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   pathStatementRequestProperty := &pathStatementRequestProperty{
 //   	packetHeaderStatement: &packetHeaderStatementRequestProperty{
 //   		destinationAddresses: []*string{
@@ -31218,15 +31698,18 @@ type CfnNetworkInsightsAccessScope_PacketHeaderStatementRequestProperty struct {
 //
 type CfnNetworkInsightsAccessScope_PathStatementRequestProperty struct {
 	// The packet header statement.
-	PacketHeaderStatement interface{} `json:"packetHeaderStatement" yaml:"packetHeaderStatement"`
+	PacketHeaderStatement interface{} `field:"optional" json:"packetHeaderStatement" yaml:"packetHeaderStatement"`
 	// The resource statement.
-	ResourceStatement interface{} `json:"resourceStatement" yaml:"resourceStatement"`
+	ResourceStatement interface{} `field:"optional" json:"resourceStatement" yaml:"resourceStatement"`
 }
 
 // Describes a resource statement.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   resourceStatementRequestProperty := &resourceStatementRequestProperty{
 //   	resources: []*string{
 //   		jsii.String("resources"),
@@ -31238,15 +31721,18 @@ type CfnNetworkInsightsAccessScope_PathStatementRequestProperty struct {
 //
 type CfnNetworkInsightsAccessScope_ResourceStatementRequestProperty struct {
 	// The resources.
-	Resources *[]*string `json:"resources" yaml:"resources"`
+	Resources *[]*string `field:"optional" json:"resources" yaml:"resources"`
 	// The resource types.
-	ResourceTypes *[]*string `json:"resourceTypes" yaml:"resourceTypes"`
+	ResourceTypes *[]*string `field:"optional" json:"resourceTypes" yaml:"resourceTypes"`
 }
 
 // Describes a through resource statement.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   throughResourcesStatementRequestProperty := &throughResourcesStatementRequestProperty{
 //   	resourceStatement: &resourceStatementRequestProperty{
 //   		resources: []*string{
@@ -31260,7 +31746,7 @@ type CfnNetworkInsightsAccessScope_ResourceStatementRequestProperty struct {
 //
 type CfnNetworkInsightsAccessScope_ThroughResourcesStatementRequestProperty struct {
 	// The resource statement.
-	ResourceStatement interface{} `json:"resourceStatement" yaml:"resourceStatement"`
+	ResourceStatement interface{} `field:"optional" json:"resourceStatement" yaml:"resourceStatement"`
 }
 
 // A CloudFormation `AWS::EC2::NetworkInsightsAccessScopeAnalysis`.
@@ -31268,8 +31754,11 @@ type CfnNetworkInsightsAccessScope_ThroughResourcesStatementRequestProperty stru
 // Describes a Network Access Scope analysis.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnNetworkInsightsAccessScopeAnalysis := ec2.NewCfnNetworkInsightsAccessScopeAnalysis(this, jsii.String("MyCfnNetworkInsightsAccessScopeAnalysis"), &cfnNetworkInsightsAccessScopeAnalysisProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnNetworkInsightsAccessScopeAnalysis := awscdk.Aws_ec2.NewCfnNetworkInsightsAccessScopeAnalysis(this, jsii.String("MyCfnNetworkInsightsAccessScopeAnalysis"), &cfnNetworkInsightsAccessScopeAnalysisProps{
 //   	networkInsightsAccessScopeId: jsii.String("networkInsightsAccessScopeId"),
 //
 //   	// the properties below are optional
@@ -32018,7 +32507,10 @@ func (c *jsiiProxy_CfnNetworkInsightsAccessScopeAnalysis) ValidateProperties(_pr
 // Properties for defining a `CfnNetworkInsightsAccessScopeAnalysis`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnNetworkInsightsAccessScopeAnalysisProps := &cfnNetworkInsightsAccessScopeAnalysisProps{
 //   	networkInsightsAccessScopeId: jsii.String("networkInsightsAccessScopeId"),
 //
@@ -32033,15 +32525,18 @@ func (c *jsiiProxy_CfnNetworkInsightsAccessScopeAnalysis) ValidateProperties(_pr
 //
 type CfnNetworkInsightsAccessScopeAnalysisProps struct {
 	// The ID of the Network Access Scope.
-	NetworkInsightsAccessScopeId *string `json:"networkInsightsAccessScopeId" yaml:"networkInsightsAccessScopeId"`
+	NetworkInsightsAccessScopeId *string `field:"required" json:"networkInsightsAccessScopeId" yaml:"networkInsightsAccessScopeId"`
 	// The tags.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // Properties for defining a `CfnNetworkInsightsAccessScope`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnNetworkInsightsAccessScopeProps := &cfnNetworkInsightsAccessScopeProps{
 //   	excludePaths: []interface{}{
 //   		&accessScopePathRequestProperty{
@@ -32217,11 +32712,11 @@ type CfnNetworkInsightsAccessScopeAnalysisProps struct {
 //
 type CfnNetworkInsightsAccessScopeProps struct {
 	// The paths to exclude.
-	ExcludePaths interface{} `json:"excludePaths" yaml:"excludePaths"`
+	ExcludePaths interface{} `field:"optional" json:"excludePaths" yaml:"excludePaths"`
 	// The paths to match.
-	MatchPaths interface{} `json:"matchPaths" yaml:"matchPaths"`
+	MatchPaths interface{} `field:"optional" json:"matchPaths" yaml:"matchPaths"`
 	// The tags.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::EC2::NetworkInsightsAnalysis`.
@@ -32229,8 +32724,11 @@ type CfnNetworkInsightsAccessScopeProps struct {
 // Specifies a network insights analysis.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnNetworkInsightsAnalysis := ec2.NewCfnNetworkInsightsAnalysis(this, jsii.String("MyCfnNetworkInsightsAnalysis"), &cfnNetworkInsightsAnalysisProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnNetworkInsightsAnalysis := awscdk.Aws_ec2.NewCfnNetworkInsightsAnalysis(this, jsii.String("MyCfnNetworkInsightsAnalysis"), &cfnNetworkInsightsAnalysisProps{
 //   	networkInsightsPathId: jsii.String("networkInsightsPathId"),
 //
 //   	// the properties below are optional
@@ -33029,7 +33527,10 @@ func (c *jsiiProxy_CfnNetworkInsightsAnalysis) ValidateProperties(_properties in
 // Describes an potential intermediate component of a feasible path.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   alternatePathHintProperty := &alternatePathHintProperty{
 //   	componentArn: jsii.String("componentArn"),
 //   	componentId: jsii.String("componentId"),
@@ -33037,15 +33538,18 @@ func (c *jsiiProxy_CfnNetworkInsightsAnalysis) ValidateProperties(_properties in
 //
 type CfnNetworkInsightsAnalysis_AlternatePathHintProperty struct {
 	// The Amazon Resource Name (ARN) of the component.
-	ComponentArn *string `json:"componentArn" yaml:"componentArn"`
+	ComponentArn *string `field:"optional" json:"componentArn" yaml:"componentArn"`
 	// The ID of the component.
-	ComponentId *string `json:"componentId" yaml:"componentId"`
+	ComponentId *string `field:"optional" json:"componentId" yaml:"componentId"`
 }
 
 // Describes a network access control (ACL) rule.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   analysisAclRuleProperty := &analysisAclRuleProperty{
 //   	cidr: jsii.String("cidr"),
 //   	egress: jsii.Boolean(false),
@@ -33060,23 +33564,26 @@ type CfnNetworkInsightsAnalysis_AlternatePathHintProperty struct {
 //
 type CfnNetworkInsightsAnalysis_AnalysisAclRuleProperty struct {
 	// The IPv4 address range, in CIDR notation.
-	Cidr *string `json:"cidr" yaml:"cidr"`
+	Cidr *string `field:"optional" json:"cidr" yaml:"cidr"`
 	// Indicates whether the rule is an outbound rule.
-	Egress interface{} `json:"egress" yaml:"egress"`
+	Egress interface{} `field:"optional" json:"egress" yaml:"egress"`
 	// The range of ports.
-	PortRange interface{} `json:"portRange" yaml:"portRange"`
+	PortRange interface{} `field:"optional" json:"portRange" yaml:"portRange"`
 	// The protocol.
-	Protocol *string `json:"protocol" yaml:"protocol"`
+	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`
 	// Indicates whether to allow or deny traffic that matches the rule.
-	RuleAction *string `json:"ruleAction" yaml:"ruleAction"`
+	RuleAction *string `field:"optional" json:"ruleAction" yaml:"ruleAction"`
 	// The rule number.
-	RuleNumber *float64 `json:"ruleNumber" yaml:"ruleNumber"`
+	RuleNumber *float64 `field:"optional" json:"ruleNumber" yaml:"ruleNumber"`
 }
 
 // Describes a path component.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   analysisComponentProperty := &analysisComponentProperty{
 //   	arn: jsii.String("arn"),
 //   	id: jsii.String("id"),
@@ -33084,15 +33591,18 @@ type CfnNetworkInsightsAnalysis_AnalysisAclRuleProperty struct {
 //
 type CfnNetworkInsightsAnalysis_AnalysisComponentProperty struct {
 	// The Amazon Resource Name (ARN) of the component.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"optional" json:"arn" yaml:"arn"`
 	// The ID of the component.
-	Id *string `json:"id" yaml:"id"`
+	Id *string `field:"optional" json:"id" yaml:"id"`
 }
 
 // Describes a load balancer listener.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   analysisLoadBalancerListenerProperty := &analysisLoadBalancerListenerProperty{
 //   	instancePort: jsii.Number(123),
 //   	loadBalancerPort: jsii.Number(123),
@@ -33100,15 +33610,18 @@ type CfnNetworkInsightsAnalysis_AnalysisComponentProperty struct {
 //
 type CfnNetworkInsightsAnalysis_AnalysisLoadBalancerListenerProperty struct {
 	// [Classic Load Balancers] The back-end port for the listener.
-	InstancePort *float64 `json:"instancePort" yaml:"instancePort"`
+	InstancePort *float64 `field:"optional" json:"instancePort" yaml:"instancePort"`
 	// The port on which the load balancer is listening.
-	LoadBalancerPort *float64 `json:"loadBalancerPort" yaml:"loadBalancerPort"`
+	LoadBalancerPort *float64 `field:"optional" json:"loadBalancerPort" yaml:"loadBalancerPort"`
 }
 
 // Describes a load balancer target.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   analysisLoadBalancerTargetProperty := &analysisLoadBalancerTargetProperty{
 //   	address: jsii.String("address"),
 //   	availabilityZone: jsii.String("availabilityZone"),
@@ -33121,13 +33634,13 @@ type CfnNetworkInsightsAnalysis_AnalysisLoadBalancerListenerProperty struct {
 //
 type CfnNetworkInsightsAnalysis_AnalysisLoadBalancerTargetProperty struct {
 	// The IP address.
-	Address *string `json:"address" yaml:"address"`
+	Address *string `field:"optional" json:"address" yaml:"address"`
 	// The Availability Zone.
-	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
+	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
 	// Information about the instance.
-	Instance interface{} `json:"instance" yaml:"instance"`
+	Instance interface{} `field:"optional" json:"instance" yaml:"instance"`
 	// The port on which the target is listening.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"optional" json:"port" yaml:"port"`
 }
 
 // Describes a header.
@@ -33135,7 +33648,10 @@ type CfnNetworkInsightsAnalysis_AnalysisLoadBalancerTargetProperty struct {
 // Reflects any changes made by a component as traffic passes through. The fields of an inbound header are null except for the first component of a path.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   analysisPacketHeaderProperty := &analysisPacketHeaderProperty{
 //   	destinationAddresses: []*string{
 //   		jsii.String("destinationAddresses"),
@@ -33160,21 +33676,24 @@ type CfnNetworkInsightsAnalysis_AnalysisLoadBalancerTargetProperty struct {
 //
 type CfnNetworkInsightsAnalysis_AnalysisPacketHeaderProperty struct {
 	// The destination addresses.
-	DestinationAddresses *[]*string `json:"destinationAddresses" yaml:"destinationAddresses"`
+	DestinationAddresses *[]*string `field:"optional" json:"destinationAddresses" yaml:"destinationAddresses"`
 	// The destination port ranges.
-	DestinationPortRanges interface{} `json:"destinationPortRanges" yaml:"destinationPortRanges"`
+	DestinationPortRanges interface{} `field:"optional" json:"destinationPortRanges" yaml:"destinationPortRanges"`
 	// The protocol.
-	Protocol *string `json:"protocol" yaml:"protocol"`
+	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`
 	// The source addresses.
-	SourceAddresses *[]*string `json:"sourceAddresses" yaml:"sourceAddresses"`
+	SourceAddresses *[]*string `field:"optional" json:"sourceAddresses" yaml:"sourceAddresses"`
 	// The source port ranges.
-	SourcePortRanges interface{} `json:"sourcePortRanges" yaml:"sourcePortRanges"`
+	SourcePortRanges interface{} `field:"optional" json:"sourcePortRanges" yaml:"sourcePortRanges"`
 }
 
 // Describes a route table route.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   analysisRouteTableRouteProperty := &analysisRouteTableRouteProperty{
 //   	destinationCidr: jsii.String("destinationCidr"),
 //   	destinationPrefixListId: jsii.String("destinationPrefixListId"),
@@ -33190,35 +33709,38 @@ type CfnNetworkInsightsAnalysis_AnalysisPacketHeaderProperty struct {
 //
 type CfnNetworkInsightsAnalysis_AnalysisRouteTableRouteProperty struct {
 	// The destination IPv4 address, in CIDR notation.
-	DestinationCidr *string `json:"destinationCidr" yaml:"destinationCidr"`
+	DestinationCidr *string `field:"optional" json:"destinationCidr" yaml:"destinationCidr"`
 	// The prefix of the AWS service .
-	DestinationPrefixListId *string `json:"destinationPrefixListId" yaml:"destinationPrefixListId"`
+	DestinationPrefixListId *string `field:"optional" json:"destinationPrefixListId" yaml:"destinationPrefixListId"`
 	// The ID of an egress-only internet gateway.
-	EgressOnlyInternetGatewayId *string `json:"egressOnlyInternetGatewayId" yaml:"egressOnlyInternetGatewayId"`
+	EgressOnlyInternetGatewayId *string `field:"optional" json:"egressOnlyInternetGatewayId" yaml:"egressOnlyInternetGatewayId"`
 	// The ID of the gateway, such as an internet gateway or virtual private gateway.
-	GatewayId *string `json:"gatewayId" yaml:"gatewayId"`
+	GatewayId *string `field:"optional" json:"gatewayId" yaml:"gatewayId"`
 	// The ID of the instance, such as a NAT instance.
-	InstanceId *string `json:"instanceId" yaml:"instanceId"`
+	InstanceId *string `field:"optional" json:"instanceId" yaml:"instanceId"`
 	// The ID of a NAT gateway.
-	NatGatewayId *string `json:"natGatewayId" yaml:"natGatewayId"`
+	NatGatewayId *string `field:"optional" json:"natGatewayId" yaml:"natGatewayId"`
 	// The ID of a network interface.
-	NetworkInterfaceId *string `json:"networkInterfaceId" yaml:"networkInterfaceId"`
+	NetworkInterfaceId *string `field:"optional" json:"networkInterfaceId" yaml:"networkInterfaceId"`
 	// Describes how the route was created. The following are the possible values:.
 	//
 	// - CreateRouteTable - The route was automatically created when the route table was created.
 	// - CreateRoute - The route was manually added to the route table.
 	// - EnableVgwRoutePropagation - The route was propagated by route propagation.
-	Origin *string `json:"origin" yaml:"origin"`
+	Origin *string `field:"optional" json:"origin" yaml:"origin"`
 	// The ID of a transit gateway.
-	TransitGatewayId *string `json:"transitGatewayId" yaml:"transitGatewayId"`
+	TransitGatewayId *string `field:"optional" json:"transitGatewayId" yaml:"transitGatewayId"`
 	// The ID of a VPC peering connection.
-	VpcPeeringConnectionId *string `json:"vpcPeeringConnectionId" yaml:"vpcPeeringConnectionId"`
+	VpcPeeringConnectionId *string `field:"optional" json:"vpcPeeringConnectionId" yaml:"vpcPeeringConnectionId"`
 }
 
 // Describes a security group rule.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   analysisSecurityGroupRuleProperty := &analysisSecurityGroupRuleProperty{
 //   	cidr: jsii.String("cidr"),
 //   	direction: jsii.String("direction"),
@@ -33233,20 +33755,20 @@ type CfnNetworkInsightsAnalysis_AnalysisRouteTableRouteProperty struct {
 //
 type CfnNetworkInsightsAnalysis_AnalysisSecurityGroupRuleProperty struct {
 	// The IPv4 address range, in CIDR notation.
-	Cidr *string `json:"cidr" yaml:"cidr"`
+	Cidr *string `field:"optional" json:"cidr" yaml:"cidr"`
 	// The direction. The following are the possible values:.
 	//
 	// - egress
 	// - ingress.
-	Direction *string `json:"direction" yaml:"direction"`
+	Direction *string `field:"optional" json:"direction" yaml:"direction"`
 	// The port range.
-	PortRange interface{} `json:"portRange" yaml:"portRange"`
+	PortRange interface{} `field:"optional" json:"portRange" yaml:"portRange"`
 	// The prefix list ID.
-	PrefixListId *string `json:"prefixListId" yaml:"prefixListId"`
+	PrefixListId *string `field:"optional" json:"prefixListId" yaml:"prefixListId"`
 	// The protocol name.
-	Protocol *string `json:"protocol" yaml:"protocol"`
+	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`
 	// The security group ID.
-	SecurityGroupId *string `json:"securityGroupId" yaml:"securityGroupId"`
+	SecurityGroupId *string `field:"optional" json:"securityGroupId" yaml:"securityGroupId"`
 }
 
 // Describes an explanation code for an unreachable path.
@@ -33254,7 +33776,10 @@ type CfnNetworkInsightsAnalysis_AnalysisSecurityGroupRuleProperty struct {
 // For more information, see [Reachability Analyzer explanation codes](https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   explanationProperty := &explanationProperty{
 //   	acl: &analysisComponentProperty{
 //   		arn: jsii.String("arn"),
@@ -33439,104 +33964,107 @@ type CfnNetworkInsightsAnalysis_AnalysisSecurityGroupRuleProperty struct {
 //
 type CfnNetworkInsightsAnalysis_ExplanationProperty struct {
 	// The network ACL.
-	Acl interface{} `json:"acl" yaml:"acl"`
+	Acl interface{} `field:"optional" json:"acl" yaml:"acl"`
 	// The network ACL rule.
-	AclRule interface{} `json:"aclRule" yaml:"aclRule"`
+	AclRule interface{} `field:"optional" json:"aclRule" yaml:"aclRule"`
 	// The IPv4 address, in CIDR notation.
-	Address *string `json:"address" yaml:"address"`
+	Address *string `field:"optional" json:"address" yaml:"address"`
 	// The IPv4 addresses, in CIDR notation.
-	Addresses *[]*string `json:"addresses" yaml:"addresses"`
+	Addresses *[]*string `field:"optional" json:"addresses" yaml:"addresses"`
 	// The resource to which the component is attached.
-	AttachedTo interface{} `json:"attachedTo" yaml:"attachedTo"`
+	AttachedTo interface{} `field:"optional" json:"attachedTo" yaml:"attachedTo"`
 	// The Availability Zones.
-	AvailabilityZones *[]*string `json:"availabilityZones" yaml:"availabilityZones"`
+	AvailabilityZones *[]*string `field:"optional" json:"availabilityZones" yaml:"availabilityZones"`
 	// The CIDR ranges.
-	Cidrs *[]*string `json:"cidrs" yaml:"cidrs"`
+	Cidrs *[]*string `field:"optional" json:"cidrs" yaml:"cidrs"`
 	// The listener for a Classic Load Balancer.
-	ClassicLoadBalancerListener interface{} `json:"classicLoadBalancerListener" yaml:"classicLoadBalancerListener"`
+	ClassicLoadBalancerListener interface{} `field:"optional" json:"classicLoadBalancerListener" yaml:"classicLoadBalancerListener"`
 	// The component.
-	Component interface{} `json:"component" yaml:"component"`
+	Component interface{} `field:"optional" json:"component" yaml:"component"`
 	// The customer gateway.
-	CustomerGateway interface{} `json:"customerGateway" yaml:"customerGateway"`
+	CustomerGateway interface{} `field:"optional" json:"customerGateway" yaml:"customerGateway"`
 	// The destination.
-	Destination interface{} `json:"destination" yaml:"destination"`
+	Destination interface{} `field:"optional" json:"destination" yaml:"destination"`
 	// The destination VPC.
-	DestinationVpc interface{} `json:"destinationVpc" yaml:"destinationVpc"`
+	DestinationVpc interface{} `field:"optional" json:"destinationVpc" yaml:"destinationVpc"`
 	// The direction. The following are the possible values:.
 	//
 	// - egress
 	// - ingress.
-	Direction *string `json:"direction" yaml:"direction"`
+	Direction *string `field:"optional" json:"direction" yaml:"direction"`
 	// The load balancer listener.
-	ElasticLoadBalancerListener interface{} `json:"elasticLoadBalancerListener" yaml:"elasticLoadBalancerListener"`
+	ElasticLoadBalancerListener interface{} `field:"optional" json:"elasticLoadBalancerListener" yaml:"elasticLoadBalancerListener"`
 	// The explanation code.
-	ExplanationCode *string `json:"explanationCode" yaml:"explanationCode"`
+	ExplanationCode *string `field:"optional" json:"explanationCode" yaml:"explanationCode"`
 	// The route table.
-	IngressRouteTable interface{} `json:"ingressRouteTable" yaml:"ingressRouteTable"`
+	IngressRouteTable interface{} `field:"optional" json:"ingressRouteTable" yaml:"ingressRouteTable"`
 	// The internet gateway.
-	InternetGateway interface{} `json:"internetGateway" yaml:"internetGateway"`
+	InternetGateway interface{} `field:"optional" json:"internetGateway" yaml:"internetGateway"`
 	// The Amazon Resource Name (ARN) of the load balancer.
-	LoadBalancerArn *string `json:"loadBalancerArn" yaml:"loadBalancerArn"`
+	LoadBalancerArn *string `field:"optional" json:"loadBalancerArn" yaml:"loadBalancerArn"`
 	// The listener port of the load balancer.
-	LoadBalancerListenerPort *float64 `json:"loadBalancerListenerPort" yaml:"loadBalancerListenerPort"`
+	LoadBalancerListenerPort *float64 `field:"optional" json:"loadBalancerListenerPort" yaml:"loadBalancerListenerPort"`
 	// The target.
-	LoadBalancerTarget interface{} `json:"loadBalancerTarget" yaml:"loadBalancerTarget"`
+	LoadBalancerTarget interface{} `field:"optional" json:"loadBalancerTarget" yaml:"loadBalancerTarget"`
 	// The target group.
-	LoadBalancerTargetGroup interface{} `json:"loadBalancerTargetGroup" yaml:"loadBalancerTargetGroup"`
+	LoadBalancerTargetGroup interface{} `field:"optional" json:"loadBalancerTargetGroup" yaml:"loadBalancerTargetGroup"`
 	// The target groups.
-	LoadBalancerTargetGroups interface{} `json:"loadBalancerTargetGroups" yaml:"loadBalancerTargetGroups"`
+	LoadBalancerTargetGroups interface{} `field:"optional" json:"loadBalancerTargetGroups" yaml:"loadBalancerTargetGroups"`
 	// The target port.
-	LoadBalancerTargetPort *float64 `json:"loadBalancerTargetPort" yaml:"loadBalancerTargetPort"`
+	LoadBalancerTargetPort *float64 `field:"optional" json:"loadBalancerTargetPort" yaml:"loadBalancerTargetPort"`
 	// The missing component.
-	MissingComponent *string `json:"missingComponent" yaml:"missingComponent"`
+	MissingComponent *string `field:"optional" json:"missingComponent" yaml:"missingComponent"`
 	// The NAT gateway.
-	NatGateway interface{} `json:"natGateway" yaml:"natGateway"`
+	NatGateway interface{} `field:"optional" json:"natGateway" yaml:"natGateway"`
 	// The network interface.
-	NetworkInterface interface{} `json:"networkInterface" yaml:"networkInterface"`
+	NetworkInterface interface{} `field:"optional" json:"networkInterface" yaml:"networkInterface"`
 	// The packet field.
-	PacketField *string `json:"packetField" yaml:"packetField"`
+	PacketField *string `field:"optional" json:"packetField" yaml:"packetField"`
 	// The port.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// The port ranges.
-	PortRanges interface{} `json:"portRanges" yaml:"portRanges"`
+	PortRanges interface{} `field:"optional" json:"portRanges" yaml:"portRanges"`
 	// The prefix list.
-	PrefixList interface{} `json:"prefixList" yaml:"prefixList"`
+	PrefixList interface{} `field:"optional" json:"prefixList" yaml:"prefixList"`
 	// The protocols.
-	Protocols *[]*string `json:"protocols" yaml:"protocols"`
+	Protocols *[]*string `field:"optional" json:"protocols" yaml:"protocols"`
 	// The route table.
-	RouteTable interface{} `json:"routeTable" yaml:"routeTable"`
+	RouteTable interface{} `field:"optional" json:"routeTable" yaml:"routeTable"`
 	// The route table route.
-	RouteTableRoute interface{} `json:"routeTableRoute" yaml:"routeTableRoute"`
+	RouteTableRoute interface{} `field:"optional" json:"routeTableRoute" yaml:"routeTableRoute"`
 	// The security group.
-	SecurityGroup interface{} `json:"securityGroup" yaml:"securityGroup"`
+	SecurityGroup interface{} `field:"optional" json:"securityGroup" yaml:"securityGroup"`
 	// The security group rule.
-	SecurityGroupRule interface{} `json:"securityGroupRule" yaml:"securityGroupRule"`
+	SecurityGroupRule interface{} `field:"optional" json:"securityGroupRule" yaml:"securityGroupRule"`
 	// The security groups.
-	SecurityGroups interface{} `json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups interface{} `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// The source VPC.
-	SourceVpc interface{} `json:"sourceVpc" yaml:"sourceVpc"`
+	SourceVpc interface{} `field:"optional" json:"sourceVpc" yaml:"sourceVpc"`
 	// The state.
-	State *string `json:"state" yaml:"state"`
+	State *string `field:"optional" json:"state" yaml:"state"`
 	// The subnet.
-	Subnet interface{} `json:"subnet" yaml:"subnet"`
+	Subnet interface{} `field:"optional" json:"subnet" yaml:"subnet"`
 	// The route table for the subnet.
-	SubnetRouteTable interface{} `json:"subnetRouteTable" yaml:"subnetRouteTable"`
+	SubnetRouteTable interface{} `field:"optional" json:"subnetRouteTable" yaml:"subnetRouteTable"`
 	// The component VPC.
-	Vpc interface{} `json:"vpc" yaml:"vpc"`
+	Vpc interface{} `field:"optional" json:"vpc" yaml:"vpc"`
 	// The VPC endpoint.
-	VpcEndpoint interface{} `json:"vpcEndpoint" yaml:"vpcEndpoint"`
+	VpcEndpoint interface{} `field:"optional" json:"vpcEndpoint" yaml:"vpcEndpoint"`
 	// The VPC peering connection.
-	VpcPeeringConnection interface{} `json:"vpcPeeringConnection" yaml:"vpcPeeringConnection"`
+	VpcPeeringConnection interface{} `field:"optional" json:"vpcPeeringConnection" yaml:"vpcPeeringConnection"`
 	// The VPN connection.
-	VpnConnection interface{} `json:"vpnConnection" yaml:"vpnConnection"`
+	VpnConnection interface{} `field:"optional" json:"vpnConnection" yaml:"vpnConnection"`
 	// The VPN gateway.
-	VpnGateway interface{} `json:"vpnGateway" yaml:"vpnGateway"`
+	VpnGateway interface{} `field:"optional" json:"vpnGateway" yaml:"vpnGateway"`
 }
 
 // Describes a path component.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   pathComponentProperty := &pathComponentProperty{
 //   	aclRule: &analysisAclRuleProperty{
 //   		cidr: jsii.String("cidr"),
@@ -33639,33 +34167,36 @@ type CfnNetworkInsightsAnalysis_ExplanationProperty struct {
 //
 type CfnNetworkInsightsAnalysis_PathComponentProperty struct {
 	// The network ACL rule.
-	AclRule interface{} `json:"aclRule" yaml:"aclRule"`
+	AclRule interface{} `field:"optional" json:"aclRule" yaml:"aclRule"`
 	// The component.
-	Component interface{} `json:"component" yaml:"component"`
+	Component interface{} `field:"optional" json:"component" yaml:"component"`
 	// The destination VPC.
-	DestinationVpc interface{} `json:"destinationVpc" yaml:"destinationVpc"`
+	DestinationVpc interface{} `field:"optional" json:"destinationVpc" yaml:"destinationVpc"`
 	// The inbound header.
-	InboundHeader interface{} `json:"inboundHeader" yaml:"inboundHeader"`
+	InboundHeader interface{} `field:"optional" json:"inboundHeader" yaml:"inboundHeader"`
 	// The outbound header.
-	OutboundHeader interface{} `json:"outboundHeader" yaml:"outboundHeader"`
+	OutboundHeader interface{} `field:"optional" json:"outboundHeader" yaml:"outboundHeader"`
 	// The route table route.
-	RouteTableRoute interface{} `json:"routeTableRoute" yaml:"routeTableRoute"`
+	RouteTableRoute interface{} `field:"optional" json:"routeTableRoute" yaml:"routeTableRoute"`
 	// The security group rule.
-	SecurityGroupRule interface{} `json:"securityGroupRule" yaml:"securityGroupRule"`
+	SecurityGroupRule interface{} `field:"optional" json:"securityGroupRule" yaml:"securityGroupRule"`
 	// The sequence number.
-	SequenceNumber *float64 `json:"sequenceNumber" yaml:"sequenceNumber"`
+	SequenceNumber *float64 `field:"optional" json:"sequenceNumber" yaml:"sequenceNumber"`
 	// The source VPC.
-	SourceVpc interface{} `json:"sourceVpc" yaml:"sourceVpc"`
+	SourceVpc interface{} `field:"optional" json:"sourceVpc" yaml:"sourceVpc"`
 	// The subnet.
-	Subnet interface{} `json:"subnet" yaml:"subnet"`
+	Subnet interface{} `field:"optional" json:"subnet" yaml:"subnet"`
 	// The component VPC.
-	Vpc interface{} `json:"vpc" yaml:"vpc"`
+	Vpc interface{} `field:"optional" json:"vpc" yaml:"vpc"`
 }
 
 // Describes a range of ports.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   portRangeProperty := &portRangeProperty{
 //   	from: jsii.Number(123),
 //   	to: jsii.Number(123),
@@ -33673,15 +34204,18 @@ type CfnNetworkInsightsAnalysis_PathComponentProperty struct {
 //
 type CfnNetworkInsightsAnalysis_PortRangeProperty struct {
 	// The first port in the range.
-	From *float64 `json:"from" yaml:"from"`
+	From *float64 `field:"optional" json:"from" yaml:"from"`
 	// The last port in the range.
-	To *float64 `json:"to" yaml:"to"`
+	To *float64 `field:"optional" json:"to" yaml:"to"`
 }
 
 // Properties for defining a `CfnNetworkInsightsAnalysis`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnNetworkInsightsAnalysisProps := &cfnNetworkInsightsAnalysisProps{
 //   	networkInsightsPathId: jsii.String("networkInsightsPathId"),
 //
@@ -33699,11 +34233,11 @@ type CfnNetworkInsightsAnalysis_PortRangeProperty struct {
 //
 type CfnNetworkInsightsAnalysisProps struct {
 	// The ID of the path.
-	NetworkInsightsPathId *string `json:"networkInsightsPathId" yaml:"networkInsightsPathId"`
+	NetworkInsightsPathId *string `field:"required" json:"networkInsightsPathId" yaml:"networkInsightsPathId"`
 	// The Amazon Resource Names (ARN) of the resources that the path must traverse.
-	FilterInArns *[]*string `json:"filterInArns" yaml:"filterInArns"`
+	FilterInArns *[]*string `field:"optional" json:"filterInArns" yaml:"filterInArns"`
 	// The tags to apply.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::EC2::NetworkInsightsPath`.
@@ -33713,8 +34247,11 @@ type CfnNetworkInsightsAnalysisProps struct {
 // VPC Reachability Analyzer enables you to analyze and debug network reachability between two resources in your virtual private cloud (VPC). For more information, see the [Reachability Analyzer User Guide](https://docs.aws.amazon.com/vpc/latest/reachability/what-is-reachability-analyzer.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnNetworkInsightsPath := ec2.NewCfnNetworkInsightsPath(this, jsii.String("MyCfnNetworkInsightsPath"), &cfnNetworkInsightsPathProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnNetworkInsightsPath := awscdk.Aws_ec2.NewCfnNetworkInsightsPath(this, jsii.String("MyCfnNetworkInsightsPath"), &cfnNetworkInsightsPathProps{
 //   	destination: jsii.String("destination"),
 //   	protocol: jsii.String("protocol"),
 //   	source: jsii.String("source"),
@@ -34513,7 +35050,10 @@ func (c *jsiiProxy_CfnNetworkInsightsPath) ValidateProperties(_properties interf
 // Properties for defining a `CfnNetworkInsightsPath`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnNetworkInsightsPathProps := &cfnNetworkInsightsPathProps{
 //   	destination: jsii.String("destination"),
 //   	protocol: jsii.String("protocol"),
@@ -34533,19 +35073,19 @@ func (c *jsiiProxy_CfnNetworkInsightsPath) ValidateProperties(_properties interf
 //
 type CfnNetworkInsightsPathProps struct {
 	// The AWS resource that is the destination of the path.
-	Destination *string `json:"destination" yaml:"destination"`
+	Destination *string `field:"required" json:"destination" yaml:"destination"`
 	// The protocol.
-	Protocol *string `json:"protocol" yaml:"protocol"`
+	Protocol *string `field:"required" json:"protocol" yaml:"protocol"`
 	// The AWS resource that is the source of the path.
-	Source *string `json:"source" yaml:"source"`
+	Source *string `field:"required" json:"source" yaml:"source"`
 	// The IP address of the AWS resource that is the destination of the path.
-	DestinationIp *string `json:"destinationIp" yaml:"destinationIp"`
+	DestinationIp *string `field:"optional" json:"destinationIp" yaml:"destinationIp"`
 	// The destination port.
-	DestinationPort *float64 `json:"destinationPort" yaml:"destinationPort"`
+	DestinationPort *float64 `field:"optional" json:"destinationPort" yaml:"destinationPort"`
 	// The IP address of the AWS resource that is the source of the path.
-	SourceIp *string `json:"sourceIp" yaml:"sourceIp"`
+	SourceIp *string `field:"optional" json:"sourceIp" yaml:"sourceIp"`
 	// The tags to add to the path.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::EC2::NetworkInterface`.
@@ -34553,8 +35093,11 @@ type CfnNetworkInsightsPathProps struct {
 // Describes a network interface in an Amazon EC2 instance for AWS CloudFormation .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnNetworkInterface := ec2.NewCfnNetworkInterface(this, jsii.String("MyCfnNetworkInterface"), &cfnNetworkInterfaceProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnNetworkInterface := awscdk.Aws_ec2.NewCfnNetworkInterface(this, jsii.String("MyCfnNetworkInterface"), &cfnNetworkInterfaceProps{
 //   	subnetId: jsii.String("subnetId"),
 //
 //   	// the properties below are optional
@@ -35472,20 +36015,26 @@ func (c *jsiiProxy_CfnNetworkInterface) ValidateProperties(_properties interface
 // Describes the IPv6 addresses to associate with the network interface.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   instanceIpv6AddressProperty := &instanceIpv6AddressProperty{
 //   	ipv6Address: jsii.String("ipv6Address"),
 //   }
 //
 type CfnNetworkInterface_InstanceIpv6AddressProperty struct {
 	// An IPv6 address to associate with the network interface.
-	Ipv6Address *string `json:"ipv6Address" yaml:"ipv6Address"`
+	Ipv6Address *string `field:"required" json:"ipv6Address" yaml:"ipv6Address"`
 }
 
 // Describes a secondary private IPv4 address for a network interface.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   privateIpAddressSpecificationProperty := &privateIpAddressSpecificationProperty{
 //   	primary: jsii.Boolean(false),
 //   	privateIpAddress: jsii.String("privateIpAddress"),
@@ -35495,9 +36044,9 @@ type CfnNetworkInterface_PrivateIpAddressSpecificationProperty struct {
 	// Sets the private IP address as the primary private address.
 	//
 	// You can set only one primary private IP address. If you don't specify a primary private IP address, Amazon EC2 automatically assigns a primary private IP address.
-	Primary interface{} `json:"primary" yaml:"primary"`
+	Primary interface{} `field:"required" json:"primary" yaml:"primary"`
 	// The private IP address of the network interface.
-	PrivateIpAddress *string `json:"privateIpAddress" yaml:"privateIpAddress"`
+	PrivateIpAddress *string `field:"required" json:"privateIpAddress" yaml:"privateIpAddress"`
 }
 
 // A CloudFormation `AWS::EC2::NetworkInterfaceAttachment`.
@@ -35505,8 +36054,11 @@ type CfnNetworkInterface_PrivateIpAddressSpecificationProperty struct {
 // Attaches an elastic network interface (ENI) to an Amazon EC2 instance. You can use this resource type to attach additional network interfaces to an instance without interruption.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnNetworkInterfaceAttachment := ec2.NewCfnNetworkInterfaceAttachment(this, jsii.String("MyCfnNetworkInterfaceAttachment"), &cfnNetworkInterfaceAttachmentProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnNetworkInterfaceAttachment := awscdk.Aws_ec2.NewCfnNetworkInterfaceAttachment(this, jsii.String("MyCfnNetworkInterfaceAttachment"), &cfnNetworkInterfaceAttachmentProps{
 //   	deviceIndex: jsii.String("deviceIndex"),
 //   	instanceId: jsii.String("instanceId"),
 //   	networkInterfaceId: jsii.String("networkInterfaceId"),
@@ -36211,7 +36763,10 @@ func (c *jsiiProxy_CfnNetworkInterfaceAttachment) ValidateProperties(_properties
 // Properties for defining a `CfnNetworkInterfaceAttachment`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnNetworkInterfaceAttachmentProps := &cfnNetworkInterfaceAttachmentProps{
 //   	deviceIndex: jsii.String("deviceIndex"),
 //   	instanceId: jsii.String("instanceId"),
@@ -36225,15 +36780,15 @@ type CfnNetworkInterfaceAttachmentProps struct {
 	// The network interface's position in the attachment order.
 	//
 	// For example, the first attached network interface has a `DeviceIndex` of 0.
-	DeviceIndex *string `json:"deviceIndex" yaml:"deviceIndex"`
+	DeviceIndex *string `field:"required" json:"deviceIndex" yaml:"deviceIndex"`
 	// The ID of the instance to which you will attach the ENI.
-	InstanceId *string `json:"instanceId" yaml:"instanceId"`
+	InstanceId *string `field:"required" json:"instanceId" yaml:"instanceId"`
 	// The ID of the ENI that you want to attach.
-	NetworkInterfaceId *string `json:"networkInterfaceId" yaml:"networkInterfaceId"`
+	NetworkInterfaceId *string `field:"required" json:"networkInterfaceId" yaml:"networkInterfaceId"`
 	// Whether to delete the network interface when the instance terminates.
 	//
 	// By default, this value is set to `true` .
-	DeleteOnTermination interface{} `json:"deleteOnTermination" yaml:"deleteOnTermination"`
+	DeleteOnTermination interface{} `field:"optional" json:"deleteOnTermination" yaml:"deleteOnTermination"`
 }
 
 // A CloudFormation `AWS::EC2::NetworkInterfacePermission`.
@@ -36241,8 +36796,11 @@ type CfnNetworkInterfaceAttachmentProps struct {
 // Specifies a permission for an Amazon EC2 network interface. For example, you can grant an AWS authorized partner account permission to attach the specified network interface to an instance in their account.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnNetworkInterfacePermission := ec2.NewCfnNetworkInterfacePermission(this, jsii.String("MyCfnNetworkInterfacePermission"), &cfnNetworkInterfacePermissionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnNetworkInterfacePermission := awscdk.Aws_ec2.NewCfnNetworkInterfacePermission(this, jsii.String("MyCfnNetworkInterfacePermission"), &cfnNetworkInterfacePermissionProps{
 //   	awsAccountId: jsii.String("awsAccountId"),
 //   	networkInterfaceId: jsii.String("networkInterfaceId"),
 //   	permission: jsii.String("permission"),
@@ -36919,7 +37477,10 @@ func (c *jsiiProxy_CfnNetworkInterfacePermission) ValidateProperties(_properties
 // Properties for defining a `CfnNetworkInterfacePermission`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnNetworkInterfacePermissionProps := &cfnNetworkInterfacePermissionProps{
 //   	awsAccountId: jsii.String("awsAccountId"),
 //   	networkInterfaceId: jsii.String("networkInterfaceId"),
@@ -36928,17 +37489,20 @@ func (c *jsiiProxy_CfnNetworkInterfacePermission) ValidateProperties(_properties
 //
 type CfnNetworkInterfacePermissionProps struct {
 	// The AWS account ID.
-	AwsAccountId *string `json:"awsAccountId" yaml:"awsAccountId"`
+	AwsAccountId *string `field:"required" json:"awsAccountId" yaml:"awsAccountId"`
 	// The ID of the network interface.
-	NetworkInterfaceId *string `json:"networkInterfaceId" yaml:"networkInterfaceId"`
+	NetworkInterfaceId *string `field:"required" json:"networkInterfaceId" yaml:"networkInterfaceId"`
 	// The type of permission to grant: `INSTANCE-ATTACH` or `EIP-ASSOCIATE` .
-	Permission *string `json:"permission" yaml:"permission"`
+	Permission *string `field:"required" json:"permission" yaml:"permission"`
 }
 
 // Properties for defining a `CfnNetworkInterface`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnNetworkInterfaceProps := &cfnNetworkInterfaceProps{
 //   	subnetId: jsii.String("subnetId"),
 //
@@ -36973,43 +37537,43 @@ type CfnNetworkInterfacePermissionProps struct {
 //
 type CfnNetworkInterfaceProps struct {
 	// The ID of the subnet to associate with the network interface.
-	SubnetId *string `json:"subnetId" yaml:"subnetId"`
+	SubnetId *string `field:"required" json:"subnetId" yaml:"subnetId"`
 	// A description for the network interface.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The security group IDs associated with this network interface.
-	GroupSet *[]*string `json:"groupSet" yaml:"groupSet"`
+	GroupSet *[]*string `field:"optional" json:"groupSet" yaml:"groupSet"`
 	// The type of network interface.
 	//
 	// The default is `interface` . The supported values are `efa` and `trunk` .
-	InterfaceType *string `json:"interfaceType" yaml:"interfaceType"`
+	InterfaceType *string `field:"optional" json:"interfaceType" yaml:"interfaceType"`
 	// The number of IPv6 addresses to assign to a network interface.
 	//
 	// Amazon EC2 automatically selects the IPv6 addresses from the subnet range. To specify specific IPv6 addresses, use the `Ipv6Addresses` property and don't specify this property.
-	Ipv6AddressCount *float64 `json:"ipv6AddressCount" yaml:"ipv6AddressCount"`
+	Ipv6AddressCount *float64 `field:"optional" json:"ipv6AddressCount" yaml:"ipv6AddressCount"`
 	// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet to associate with the network interface.
 	//
 	// If you're specifying a number of IPv6 addresses, use the `Ipv6AddressCount` property and don't specify this property.
-	Ipv6Addresses interface{} `json:"ipv6Addresses" yaml:"ipv6Addresses"`
+	Ipv6Addresses interface{} `field:"optional" json:"ipv6Addresses" yaml:"ipv6Addresses"`
 	// Assigns a single private IP address to the network interface, which is used as the primary private IP address.
 	//
 	// If you want to specify multiple private IP address, use the `PrivateIpAddresses` property.
-	PrivateIpAddress *string `json:"privateIpAddress" yaml:"privateIpAddress"`
+	PrivateIpAddress *string `field:"optional" json:"privateIpAddress" yaml:"privateIpAddress"`
 	// Assigns private IP addresses to the network interface.
 	//
 	// You can specify a primary private IP address by setting the value of the `Primary` property to `true` in the `PrivateIpAddressSpecification` property. If you want EC2 to automatically assign private IP addresses, use the `SecondaryPrivateIpAddressCount` property and do not specify this property.
-	PrivateIpAddresses interface{} `json:"privateIpAddresses" yaml:"privateIpAddresses"`
+	PrivateIpAddresses interface{} `field:"optional" json:"privateIpAddresses" yaml:"privateIpAddresses"`
 	// The number of secondary private IPv4 addresses to assign to a network interface.
 	//
 	// When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using `privateIpAddresses` .
 	//
 	// The number of IP addresses you can assign to a network interface varies by instance type. For more information, see [IP Addresses Per ENI Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) in the *Amazon Virtual Private Cloud User Guide* .
-	SecondaryPrivateIpAddressCount *float64 `json:"secondaryPrivateIpAddressCount" yaml:"secondaryPrivateIpAddressCount"`
+	SecondaryPrivateIpAddressCount *float64 `field:"optional" json:"secondaryPrivateIpAddressCount" yaml:"secondaryPrivateIpAddressCount"`
 	// Enable or disable source/destination checks, which ensure that the instance is either the source or the destination of any traffic that it receives.
 	//
 	// If the value is `true` , source/destination checks are enabled; otherwise, they are disabled. The default value is `true` . You must disable source/destination checks if the instance runs services such as network address translation, routing, or firewalls.
-	SourceDestCheck interface{} `json:"sourceDestCheck" yaml:"sourceDestCheck"`
+	SourceDestCheck interface{} `field:"optional" json:"sourceDestCheck" yaml:"sourceDestCheck"`
 	// An arbitrary set of tags (key-value pairs) for this network interface.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::EC2::PlacementGroup`.
@@ -37021,8 +37585,11 @@ type CfnNetworkInterfaceProps struct {
 // For more information, see [Placement Groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the *Amazon EC2 User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnPlacementGroup := ec2.NewCfnPlacementGroup(this, jsii.String("MyCfnPlacementGroup"), &cfnPlacementGroupProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnPlacementGroup := awscdk.Aws_ec2.NewCfnPlacementGroup(this, jsii.String("MyCfnPlacementGroup"), &cfnPlacementGroupProps{
 //   	strategy: jsii.String("strategy"),
 //   })
 //
@@ -37655,14 +38222,17 @@ func (c *jsiiProxy_CfnPlacementGroup) ValidateProperties(_properties interface{}
 // Properties for defining a `CfnPlacementGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnPlacementGroupProps := &cfnPlacementGroupProps{
 //   	strategy: jsii.String("strategy"),
 //   }
 //
 type CfnPlacementGroupProps struct {
 	// The placement strategy.
-	Strategy *string `json:"strategy" yaml:"strategy"`
+	Strategy *string `field:"optional" json:"strategy" yaml:"strategy"`
 }
 
 // A CloudFormation `AWS::EC2::PrefixList`.
@@ -37672,8 +38242,11 @@ type CfnPlacementGroupProps struct {
 // You must specify the maximum number of entries for the prefix list. The maximum number of entries cannot be changed later.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnPrefixList := ec2.NewCfnPrefixList(this, jsii.String("MyCfnPrefixList"), &cfnPrefixListProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnPrefixList := awscdk.Aws_ec2.NewCfnPrefixList(this, jsii.String("MyCfnPrefixList"), &cfnPrefixListProps{
 //   	addressFamily: jsii.String("addressFamily"),
 //   	maxEntries: jsii.Number(123),
 //   	prefixListName: jsii.String("prefixListName"),
@@ -38459,7 +39032,10 @@ func (c *jsiiProxy_CfnPrefixList) ValidateProperties(_properties interface{}) {
 // An entry for a prefix list.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   entryProperty := &entryProperty{
 //   	cidr: jsii.String("cidr"),
 //
@@ -38469,17 +39045,20 @@ func (c *jsiiProxy_CfnPrefixList) ValidateProperties(_properties interface{}) {
 //
 type CfnPrefixList_EntryProperty struct {
 	// The CIDR block.
-	Cidr *string `json:"cidr" yaml:"cidr"`
+	Cidr *string `field:"required" json:"cidr" yaml:"cidr"`
 	// A description for the entry.
 	//
 	// Constraints: Up to 255 characters in length.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 
 // Properties for defining a `CfnPrefixList`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnPrefixListProps := &cfnPrefixListProps{
 //   	addressFamily: jsii.String("addressFamily"),
 //   	maxEntries: jsii.Number(123),
@@ -38506,17 +39085,17 @@ type CfnPrefixListProps struct {
 	// The IP address type.
 	//
 	// Valid Values: `IPv4` | `IPv6`.
-	AddressFamily *string `json:"addressFamily" yaml:"addressFamily"`
+	AddressFamily *string `field:"required" json:"addressFamily" yaml:"addressFamily"`
 	// The maximum number of entries for the prefix list.
-	MaxEntries *float64 `json:"maxEntries" yaml:"maxEntries"`
+	MaxEntries *float64 `field:"required" json:"maxEntries" yaml:"maxEntries"`
 	// A name for the prefix list.
 	//
 	// Constraints: Up to 255 characters in length. The name cannot start with `com.amazonaws` .
-	PrefixListName *string `json:"prefixListName" yaml:"prefixListName"`
+	PrefixListName *string `field:"required" json:"prefixListName" yaml:"prefixListName"`
 	// One or more entries for the prefix list.
-	Entries interface{} `json:"entries" yaml:"entries"`
+	Entries interface{} `field:"optional" json:"entries" yaml:"entries"`
 	// The tags for the prefix list.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::EC2::Route`.
@@ -38528,8 +39107,11 @@ type CfnPrefixListProps struct {
 // If you create a route that references a transit gateway in the same template where you create the transit gateway, you must declare a dependency on the transit gateway attachment. The route table cannot use the transit gateway until it has successfully attached to the VPC. Add a [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) in the `AWS::EC2::Route` resource to explicitly declare a dependency on the `AWS::EC2::TransitGatewayAttachment` resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnRoute := ec2.NewCfnRoute(this, jsii.String("MyCfnRoute"), &cfnRouteProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnRoute := awscdk.Aws_ec2.NewCfnRoute(this, jsii.String("MyCfnRoute"), &cfnRouteProps{
 //   	routeTableId: jsii.String("routeTableId"),
 //
 //   	// the properties below are optional
@@ -39432,7 +40014,10 @@ func (c *jsiiProxy_CfnRoute) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnRoute`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnRouteProps := &cfnRouteProps{
 //   	routeTableId: jsii.String("routeTableId"),
 //
@@ -39455,33 +40040,33 @@ type CfnRouteProps struct {
 	// The ID of the route table.
 	//
 	// The routing table must be associated with the same VPC that the virtual private gateway is attached to.
-	RouteTableId *string `json:"routeTableId" yaml:"routeTableId"`
+	RouteTableId *string `field:"required" json:"routeTableId" yaml:"routeTableId"`
 	// The ID of the carrier gateway.
-	CarrierGatewayId *string `json:"carrierGatewayId" yaml:"carrierGatewayId"`
+	CarrierGatewayId *string `field:"optional" json:"carrierGatewayId" yaml:"carrierGatewayId"`
 	// The IPv4 CIDR block used for the destination match.
-	DestinationCidrBlock *string `json:"destinationCidrBlock" yaml:"destinationCidrBlock"`
+	DestinationCidrBlock *string `field:"optional" json:"destinationCidrBlock" yaml:"destinationCidrBlock"`
 	// The IPv6 CIDR block used for the destination match.
-	DestinationIpv6CidrBlock *string `json:"destinationIpv6CidrBlock" yaml:"destinationIpv6CidrBlock"`
+	DestinationIpv6CidrBlock *string `field:"optional" json:"destinationIpv6CidrBlock" yaml:"destinationIpv6CidrBlock"`
 	// The ID of the egress-only internet gateway.
-	EgressOnlyInternetGatewayId *string `json:"egressOnlyInternetGatewayId" yaml:"egressOnlyInternetGatewayId"`
+	EgressOnlyInternetGatewayId *string `field:"optional" json:"egressOnlyInternetGatewayId" yaml:"egressOnlyInternetGatewayId"`
 	// The ID of an internet gateway or virtual private gateway attached to your VPC.
-	GatewayId *string `json:"gatewayId" yaml:"gatewayId"`
+	GatewayId *string `field:"optional" json:"gatewayId" yaml:"gatewayId"`
 	// The ID of a NAT instance in your VPC.
-	InstanceId *string `json:"instanceId" yaml:"instanceId"`
+	InstanceId *string `field:"optional" json:"instanceId" yaml:"instanceId"`
 	// The ID of the local gateway.
-	LocalGatewayId *string `json:"localGatewayId" yaml:"localGatewayId"`
+	LocalGatewayId *string `field:"optional" json:"localGatewayId" yaml:"localGatewayId"`
 	// The ID of a NAT gateway.
-	NatGatewayId *string `json:"natGatewayId" yaml:"natGatewayId"`
+	NatGatewayId *string `field:"optional" json:"natGatewayId" yaml:"natGatewayId"`
 	// The ID of the network interface.
-	NetworkInterfaceId *string `json:"networkInterfaceId" yaml:"networkInterfaceId"`
+	NetworkInterfaceId *string `field:"optional" json:"networkInterfaceId" yaml:"networkInterfaceId"`
 	// The ID of a transit gateway.
-	TransitGatewayId *string `json:"transitGatewayId" yaml:"transitGatewayId"`
+	TransitGatewayId *string `field:"optional" json:"transitGatewayId" yaml:"transitGatewayId"`
 	// The ID of a VPC endpoint.
 	//
 	// Supported for Gateway Load Balancer endpoints only.
-	VpcEndpointId *string `json:"vpcEndpointId" yaml:"vpcEndpointId"`
+	VpcEndpointId *string `field:"optional" json:"vpcEndpointId" yaml:"vpcEndpointId"`
 	// The ID of a VPC peering connection.
-	VpcPeeringConnectionId *string `json:"vpcPeeringConnectionId" yaml:"vpcPeeringConnectionId"`
+	VpcPeeringConnectionId *string `field:"optional" json:"vpcPeeringConnectionId" yaml:"vpcPeeringConnectionId"`
 }
 
 // A CloudFormation `AWS::EC2::RouteTable`.
@@ -39491,8 +40076,11 @@ type CfnRouteProps struct {
 // For more information, see [Route Tables](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html) in the *Amazon Virtual Private Cloud User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnRouteTable := ec2.NewCfnRouteTable(this, jsii.String("MyCfnRouteTable"), &cfnRouteTableProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnRouteTable := awscdk.Aws_ec2.NewCfnRouteTable(this, jsii.String("MyCfnRouteTable"), &cfnRouteTableProps{
 //   	vpcId: jsii.String("vpcId"),
 //
 //   	// the properties below are optional
@@ -40157,7 +40745,10 @@ func (c *jsiiProxy_CfnRouteTable) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnRouteTable`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnRouteTableProps := &cfnRouteTableProps{
 //   	vpcId: jsii.String("vpcId"),
 //
@@ -40172,9 +40763,9 @@ func (c *jsiiProxy_CfnRouteTable) ValidateProperties(_properties interface{}) {
 //
 type CfnRouteTableProps struct {
 	// The ID of the VPC.
-	VpcId *string `json:"vpcId" yaml:"vpcId"`
+	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
 	// Any tags assigned to the route table.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::EC2::SecurityGroup`.
@@ -40186,8 +40777,11 @@ type CfnRouteTableProps struct {
 // > To cross-reference two security groups in the ingress and egress rules of those security groups, use the [AWS::EC2::SecurityGroupEgress](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-security-group-egress.html) and [AWS::EC2::SecurityGroupIngress](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-security-group-ingress.html) resources to define your rules. Do not use the embedded ingress and egress rules in the `AWS::EC2::SecurityGroup` . Doing so creates a circular dependency, which AWS CloudFormation doesn't allow.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnSecurityGroup := ec2.NewCfnSecurityGroup(this, jsii.String("MyCfnSecurityGroup"), &cfnSecurityGroupProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnSecurityGroup := awscdk.Aws_ec2.NewCfnSecurityGroup(this, jsii.String("MyCfnSecurityGroup"), &cfnSecurityGroupProps{
 //   	groupDescription: jsii.String("groupDescription"),
 //
 //   	// the properties below are optional
@@ -41014,7 +41608,10 @@ func (c *jsiiProxy_CfnSecurityGroup) ValidateProperties(_properties interface{})
 // The EC2 Security Group Rule is an embedded property of the `AWS::EC2::SecurityGroup` type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   egressProperty := &egressProperty{
 //   	ipProtocol: jsii.String("ipProtocol"),
 //
@@ -41032,41 +41629,41 @@ type CfnSecurityGroup_EgressProperty struct {
 	// The IP protocol name ( `tcp` , `udp` , `icmp` , `icmpv6` ) or number (see [Protocol Numbers](https://docs.aws.amazon.com/http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) ).
 	//
 	// [VPC only] Use `-1` to specify all protocols. When authorizing security group rules, specifying `-1` or a protocol number other than `tcp` , `udp` , `icmp` , or `icmpv6` allows traffic on all ports, regardless of any port range you specify. For `tcp` , `udp` , and `icmp` , you must specify a port range. For `icmpv6` , the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
-	IpProtocol *string `json:"ipProtocol" yaml:"ipProtocol"`
+	IpProtocol *string `field:"required" json:"ipProtocol" yaml:"ipProtocol"`
 	// The IPv4 address range, in CIDR format.
 	//
 	// You must specify a destination security group ( `DestinationPrefixListId` or `DestinationSecurityGroupId` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ).
 	//
 	// For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
-	CidrIp *string `json:"cidrIp" yaml:"cidrIp"`
+	CidrIp *string `field:"optional" json:"cidrIp" yaml:"cidrIp"`
 	// The IPv6 address range, in CIDR format.
 	//
 	// You must specify a destination security group ( `DestinationPrefixListId` or `DestinationSecurityGroupId` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ).
 	//
 	// For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
-	CidrIpv6 *string `json:"cidrIpv6" yaml:"cidrIpv6"`
+	CidrIpv6 *string `field:"optional" json:"cidrIpv6" yaml:"cidrIpv6"`
 	// A description for the security group rule.
 	//
 	// Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// [EC2-VPC only] The prefix list IDs for the destination AWS service.
 	//
 	// This is the AWS service that you want to access through a VPC endpoint from instances associated with the security group.
 	//
 	// You must specify a destination security group ( `DestinationPrefixListId` or `DestinationSecurityGroupId` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ).
-	DestinationPrefixListId *string `json:"destinationPrefixListId" yaml:"destinationPrefixListId"`
+	DestinationPrefixListId *string `field:"optional" json:"destinationPrefixListId" yaml:"destinationPrefixListId"`
 	// The ID of the destination VPC security group.
 	//
 	// You must specify a destination security group ( `DestinationPrefixListId` or `DestinationSecurityGroupId` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ).
-	DestinationSecurityGroupId *string `json:"destinationSecurityGroupId" yaml:"destinationSecurityGroupId"`
+	DestinationSecurityGroupId *string `field:"optional" json:"destinationSecurityGroupId" yaml:"destinationSecurityGroupId"`
 	// The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number.
 	//
 	// A value of `-1` indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.
-	FromPort *float64 `json:"fromPort" yaml:"fromPort"`
+	FromPort *float64 `field:"optional" json:"fromPort" yaml:"fromPort"`
 	// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
 	//
 	// A value of `-1` indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes.
-	ToPort *float64 `json:"toPort" yaml:"toPort"`
+	ToPort *float64 `field:"optional" json:"toPort" yaml:"toPort"`
 }
 
 // Adds an inbound rule to a security group.
@@ -41084,7 +41681,10 @@ type CfnSecurityGroup_EgressProperty struct {
 // The EC2 Security Group Rule is an embedded property of the `AWS::EC2::SecurityGroup` type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   ingressProperty := &ingressProperty{
 //   	ipProtocol: jsii.String("ipProtocol"),
 //
@@ -41104,51 +41704,51 @@ type CfnSecurityGroup_IngressProperty struct {
 	// The IP protocol name ( `tcp` , `udp` , `icmp` , `icmpv6` ) or number (see [Protocol Numbers](https://docs.aws.amazon.com/http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) ).
 	//
 	// [VPC only] Use `-1` to specify all protocols. When authorizing security group rules, specifying `-1` or a protocol number other than `tcp` , `udp` , `icmp` , or `icmpv6` allows traffic on all ports, regardless of any port range you specify. For `tcp` , `udp` , and `icmp` , you must specify a port range. For `icmpv6` , the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
-	IpProtocol *string `json:"ipProtocol" yaml:"ipProtocol"`
+	IpProtocol *string `field:"required" json:"ipProtocol" yaml:"ipProtocol"`
 	// The IPv4 address range, in CIDR format.
 	//
 	// You must specify a source security group ( `SourcePrefixListId` or `SourceSecurityGroupId` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ).
 	//
 	// For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
-	CidrIp *string `json:"cidrIp" yaml:"cidrIp"`
+	CidrIp *string `field:"optional" json:"cidrIp" yaml:"cidrIp"`
 	// The IPv6 address range, in CIDR format.
 	//
 	// You must specify a source security group ( `SourcePrefixListId` or `SourceSecurityGroupId` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ).
 	//
 	// For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
-	CidrIpv6 *string `json:"cidrIpv6" yaml:"cidrIpv6"`
+	CidrIpv6 *string `field:"optional" json:"cidrIpv6" yaml:"cidrIpv6"`
 	// Updates the description of an ingress (inbound) security group rule.
 	//
 	// You can replace an existing description, or add a description to a rule that did not have one previously.
 	//
 	// Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number.
 	//
 	// A value of `-1` indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.
-	FromPort *float64 `json:"fromPort" yaml:"fromPort"`
+	FromPort *float64 `field:"optional" json:"fromPort" yaml:"fromPort"`
 	// [EC2-VPC only] The ID of a prefix list.
-	SourcePrefixListId *string `json:"sourcePrefixListId" yaml:"sourcePrefixListId"`
+	SourcePrefixListId *string `field:"optional" json:"sourcePrefixListId" yaml:"sourcePrefixListId"`
 	// The ID of the security group.
 	//
 	// You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
-	SourceSecurityGroupId *string `json:"sourceSecurityGroupId" yaml:"sourceSecurityGroupId"`
+	SourceSecurityGroupId *string `field:"optional" json:"sourceSecurityGroupId" yaml:"sourceSecurityGroupId"`
 	// [EC2-Classic, default VPC] The name of the source security group.
 	//
 	// You can't specify this parameter in combination with an IP address range. Creates rules that grant full ICMP, UDP, and TCP access.
 	//
 	// You must specify the `GroupName` property or the `GroupId` property. For security groups that are in a VPC, you must use the `GroupId` property.
-	SourceSecurityGroupName *string `json:"sourceSecurityGroupName" yaml:"sourceSecurityGroupName"`
+	SourceSecurityGroupName *string `field:"optional" json:"sourceSecurityGroupName" yaml:"sourceSecurityGroupName"`
 	// [nondefault VPC] The AWS account ID for the source security group, if the source security group is in a different account.
 	//
 	// You can't specify this property with an IP address range. Creates rules that grant full ICMP, UDP, and TCP access.
 	//
 	// If you specify `SourceSecurityGroupName` or `SourceSecurityGroupId` and that security group is owned by a different account than the account creating the stack, you must specify the `SourceSecurityGroupOwnerId` ; otherwise, this property is optional.
-	SourceSecurityGroupOwnerId *string `json:"sourceSecurityGroupOwnerId" yaml:"sourceSecurityGroupOwnerId"`
+	SourceSecurityGroupOwnerId *string `field:"optional" json:"sourceSecurityGroupOwnerId" yaml:"sourceSecurityGroupOwnerId"`
 	// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
 	//
 	// A value of `-1` indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes.
-	ToPort *float64 `json:"toPort" yaml:"toPort"`
+	ToPort *float64 `field:"optional" json:"toPort" yaml:"toPort"`
 }
 
 // A CloudFormation `AWS::EC2::SecurityGroupEgress`.
@@ -41170,8 +41770,11 @@ type CfnSecurityGroup_IngressProperty struct {
 // Use `AWS::EC2::SecurityGroupIngress` and `AWS::EC2::SecurityGroupEgress` only when necessary, typically to allow security groups to reference each other in ingress and egress rules. Otherwise, use the embedded ingress and egress rules of the security group. For more information, see [Amazon EC2 Security Groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnSecurityGroupEgress := ec2.NewCfnSecurityGroupEgress(this, jsii.String("MyCfnSecurityGroupEgress"), &cfnSecurityGroupEgressProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnSecurityGroupEgress := awscdk.Aws_ec2.NewCfnSecurityGroupEgress(this, jsii.String("MyCfnSecurityGroupEgress"), &cfnSecurityGroupEgressProps{
 //   	groupId: jsii.String("groupId"),
 //   	ipProtocol: jsii.String("ipProtocol"),
 //
@@ -42006,7 +42609,10 @@ func (c *jsiiProxy_CfnSecurityGroupEgress) ValidateProperties(_properties interf
 // Properties for defining a `CfnSecurityGroupEgress`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnSecurityGroupEgressProps := &cfnSecurityGroupEgressProps{
 //   	groupId: jsii.String("groupId"),
 //   	ipProtocol: jsii.String("ipProtocol"),
@@ -42025,45 +42631,45 @@ type CfnSecurityGroupEgressProps struct {
 	// The ID of the security group.
 	//
 	// You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
-	GroupId *string `json:"groupId" yaml:"groupId"`
+	GroupId *string `field:"required" json:"groupId" yaml:"groupId"`
 	// The IP protocol name ( `tcp` , `udp` , `icmp` , `icmpv6` ) or number (see [Protocol Numbers](https://docs.aws.amazon.com/http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) ).
 	//
 	// [VPC only] Use `-1` to specify all protocols. When authorizing security group rules, specifying `-1` or a protocol number other than `tcp` , `udp` , `icmp` , or `icmpv6` allows traffic on all ports, regardless of any port range you specify. For `tcp` , `udp` , and `icmp` , you must specify a port range. For `icmpv6` , the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
-	IpProtocol *string `json:"ipProtocol" yaml:"ipProtocol"`
+	IpProtocol *string `field:"required" json:"ipProtocol" yaml:"ipProtocol"`
 	// The IPv4 address range, in CIDR format.
 	//
 	// You must specify a destination security group ( `DestinationPrefixListId` or `DestinationSecurityGroupId` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ).
 	//
 	// For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
-	CidrIp *string `json:"cidrIp" yaml:"cidrIp"`
+	CidrIp *string `field:"optional" json:"cidrIp" yaml:"cidrIp"`
 	// The IPv6 address range, in CIDR format.
 	//
 	// You must specify a destination security group ( `DestinationPrefixListId` or `DestinationSecurityGroupId` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ).
 	//
 	// For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
-	CidrIpv6 *string `json:"cidrIpv6" yaml:"cidrIpv6"`
+	CidrIpv6 *string `field:"optional" json:"cidrIpv6" yaml:"cidrIpv6"`
 	// The description of an egress (outbound) security group rule.
 	//
 	// Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// [EC2-VPC only] The prefix list IDs for an AWS service.
 	//
 	// This is the AWS service that you want to access through a VPC endpoint from instances associated with the security group.
 	//
 	// You must specify a destination security group ( `DestinationPrefixListId` or `DestinationSecurityGroupId` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ).
-	DestinationPrefixListId *string `json:"destinationPrefixListId" yaml:"destinationPrefixListId"`
+	DestinationPrefixListId *string `field:"optional" json:"destinationPrefixListId" yaml:"destinationPrefixListId"`
 	// The ID of the security group.
 	//
 	// You must specify a destination security group ( `DestinationPrefixListId` or `DestinationSecurityGroupId` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ).
-	DestinationSecurityGroupId *string `json:"destinationSecurityGroupId" yaml:"destinationSecurityGroupId"`
+	DestinationSecurityGroupId *string `field:"optional" json:"destinationSecurityGroupId" yaml:"destinationSecurityGroupId"`
 	// The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number.
 	//
 	// A value of `-1` indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.
-	FromPort *float64 `json:"fromPort" yaml:"fromPort"`
+	FromPort *float64 `field:"optional" json:"fromPort" yaml:"fromPort"`
 	// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
 	//
 	// A value of `-1` indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes.
-	ToPort *float64 `json:"toPort" yaml:"toPort"`
+	ToPort *float64 `field:"optional" json:"toPort" yaml:"toPort"`
 }
 
 // A CloudFormation `AWS::EC2::SecurityGroupIngress`.
@@ -42081,8 +42687,11 @@ type CfnSecurityGroupEgressProps struct {
 // Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnSecurityGroupIngress := ec2.NewCfnSecurityGroupIngress(this, jsii.String("MyCfnSecurityGroupIngress"), &cfnSecurityGroupIngressProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnSecurityGroupIngress := awscdk.Aws_ec2.NewCfnSecurityGroupIngress(this, jsii.String("MyCfnSecurityGroupIngress"), &cfnSecurityGroupIngressProps{
 //   	ipProtocol: jsii.String("ipProtocol"),
 //
 //   	// the properties below are optional
@@ -43001,7 +43610,10 @@ func (c *jsiiProxy_CfnSecurityGroupIngress) ValidateProperties(_properties inter
 // Properties for defining a `CfnSecurityGroupIngress`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnSecurityGroupIngressProps := &cfnSecurityGroupIngressProps{
 //   	ipProtocol: jsii.String("ipProtocol"),
 //
@@ -43023,37 +43635,37 @@ type CfnSecurityGroupIngressProps struct {
 	// The IP protocol name ( `tcp` , `udp` , `icmp` , `icmpv6` ) or number (see [Protocol Numbers](https://docs.aws.amazon.com/http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) ).
 	//
 	// [VPC only] Use `-1` to specify all protocols. When authorizing security group rules, specifying `-1` or a protocol number other than `tcp` , `udp` , `icmp` , or `icmpv6` allows traffic on all ports, regardless of any port range you specify. For `tcp` , `udp` , and `icmp` , you must specify a port range. For `icmpv6` , the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
-	IpProtocol *string `json:"ipProtocol" yaml:"ipProtocol"`
+	IpProtocol *string `field:"required" json:"ipProtocol" yaml:"ipProtocol"`
 	// The IPv4 address range, in CIDR format.
 	//
 	// You must specify a source security group ( `SourcePrefixListId` or `SourceSecurityGroupId` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ).
 	//
 	// For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
-	CidrIp *string `json:"cidrIp" yaml:"cidrIp"`
+	CidrIp *string `field:"optional" json:"cidrIp" yaml:"cidrIp"`
 	// The IPv6 address range, in CIDR format.
 	//
 	// You must specify a source security group ( `SourcePrefixListId` or `SourceSecurityGroupId` ) or a CIDR range ( `CidrIp` or `CidrIpv6` ).
 	//
 	// For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide* .
-	CidrIpv6 *string `json:"cidrIpv6" yaml:"cidrIpv6"`
+	CidrIpv6 *string `field:"optional" json:"cidrIpv6" yaml:"cidrIpv6"`
 	// Updates the description of an ingress (inbound) security group rule.
 	//
 	// You can replace an existing description, or add a description to a rule that did not have one previously.
 	//
 	// Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number.
 	//
 	// A value of `-1` indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.
 	//
 	// Use this for ICMP and any protocol that uses ports.
-	FromPort *float64 `json:"fromPort" yaml:"fromPort"`
+	FromPort *float64 `field:"optional" json:"fromPort" yaml:"fromPort"`
 	// The ID of the security group.
 	//
 	// You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
 	//
 	// You must specify the `GroupName` property or the `GroupId` property. For security groups that are in a VPC, you must use the `GroupId` property.
-	GroupId *string `json:"groupId" yaml:"groupId"`
+	GroupId *string `field:"optional" json:"groupId" yaml:"groupId"`
 	// The name of the security group.
 	//
 	// Constraints: Up to 255 characters in length. Cannot start with `sg-` .
@@ -43061,37 +43673,40 @@ type CfnSecurityGroupIngressProps struct {
 	// Constraints for EC2-Classic: ASCII characters
 	//
 	// Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*
-	GroupName *string `json:"groupName" yaml:"groupName"`
+	GroupName *string `field:"optional" json:"groupName" yaml:"groupName"`
 	// [EC2-VPC only] The ID of a prefix list.
-	SourcePrefixListId *string `json:"sourcePrefixListId" yaml:"sourcePrefixListId"`
+	SourcePrefixListId *string `field:"optional" json:"sourcePrefixListId" yaml:"sourcePrefixListId"`
 	// The ID of the security group.
 	//
 	// You must specify either the security group ID or the security group name. For security groups in a nondefault VPC, you must specify the security group ID.
-	SourceSecurityGroupId *string `json:"sourceSecurityGroupId" yaml:"sourceSecurityGroupId"`
+	SourceSecurityGroupId *string `field:"optional" json:"sourceSecurityGroupId" yaml:"sourceSecurityGroupId"`
 	// [EC2-Classic, default VPC] The name of the source security group.
 	//
 	// You can't specify this parameter in combination with an IP address range. Creates rules that grant full ICMP, UDP, and TCP access.
 	//
 	// You must specify the `GroupName` property or the `GroupId` property. For security groups that are in a VPC, you must use the `GroupId` property.
-	SourceSecurityGroupName *string `json:"sourceSecurityGroupName" yaml:"sourceSecurityGroupName"`
+	SourceSecurityGroupName *string `field:"optional" json:"sourceSecurityGroupName" yaml:"sourceSecurityGroupName"`
 	// [nondefault VPC] The AWS account ID for the source security group, if the source security group is in a different account.
 	//
 	// You can't specify this property with an IP address range. Creates rules that grant full ICMP, UDP, and TCP access.
 	//
 	// If you specify `SourceSecurityGroupName` or `SourceSecurityGroupId` and that security group is owned by a different account than the account creating the stack, you must specify the `SourceSecurityGroupOwnerId` ; otherwise, this property is optional.
-	SourceSecurityGroupOwnerId *string `json:"sourceSecurityGroupOwnerId" yaml:"sourceSecurityGroupOwnerId"`
+	SourceSecurityGroupOwnerId *string `field:"optional" json:"sourceSecurityGroupOwnerId" yaml:"sourceSecurityGroupOwnerId"`
 	// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
 	//
 	// A value of `-1` indicates all ICMP/ICMPv6 codes for the specified ICMP type. If you specify all ICMP/ICMPv6 types, you must specify all codes.
 	//
 	// Use this for ICMP and any protocol that uses ports.
-	ToPort *float64 `json:"toPort" yaml:"toPort"`
+	ToPort *float64 `field:"optional" json:"toPort" yaml:"toPort"`
 }
 
 // Properties for defining a `CfnSecurityGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnSecurityGroupProps := &cfnSecurityGroupProps{
 //   	groupDescription: jsii.String("groupDescription"),
 //
@@ -43144,7 +43759,7 @@ type CfnSecurityGroupProps struct {
 	// Constraints for EC2-Classic: ASCII characters
 	//
 	// Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*
-	GroupDescription *string `json:"groupDescription" yaml:"groupDescription"`
+	GroupDescription *string `field:"required" json:"groupDescription" yaml:"groupDescription"`
 	// The name of the security group.
 	//
 	// Constraints: Up to 255 characters in length. Cannot start with `sg-` .
@@ -43152,19 +43767,19 @@ type CfnSecurityGroupProps struct {
 	// Constraints for EC2-Classic: ASCII characters
 	//
 	// Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*
-	GroupName *string `json:"groupName" yaml:"groupName"`
+	GroupName *string `field:"optional" json:"groupName" yaml:"groupName"`
 	// [VPC only] The outbound rules associated with the security group.
 	//
 	// There is a short interruption during which you cannot connect to the security group.
-	SecurityGroupEgress interface{} `json:"securityGroupEgress" yaml:"securityGroupEgress"`
+	SecurityGroupEgress interface{} `field:"optional" json:"securityGroupEgress" yaml:"securityGroupEgress"`
 	// The inbound rules associated with the security group.
 	//
 	// There is a short interruption during which you cannot connect to the security group.
-	SecurityGroupIngress interface{} `json:"securityGroupIngress" yaml:"securityGroupIngress"`
+	SecurityGroupIngress interface{} `field:"optional" json:"securityGroupIngress" yaml:"securityGroupIngress"`
 	// Any tags assigned to the security group.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// [VPC only] The ID of the VPC for the security group.
-	VpcId *string `json:"vpcId" yaml:"vpcId"`
+	VpcId *string `field:"optional" json:"vpcId" yaml:"vpcId"`
 }
 
 // A CloudFormation `AWS::EC2::SpotFleet`.
@@ -43184,8 +43799,11 @@ type CfnSecurityGroupProps struct {
 // For more information, see [Spot Fleet Requests](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html) in the *Amazon EC2 User Guide for Linux Instances* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnSpotFleet := ec2.NewCfnSpotFleet(this, jsii.String("MyCfnSpotFleet"), &cfnSpotFleetProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnSpotFleet := awscdk.Aws_ec2.NewCfnSpotFleet(this, jsii.String("MyCfnSpotFleet"), &cfnSpotFleetProps{
 //   	spotFleetRequestConfigData: &spotFleetRequestConfigDataProperty{
 //   		iamFleetRole: jsii.String("iamFleetRole"),
 //   		targetCapacity: jsii.Number(123),
@@ -44106,7 +44724,10 @@ func (c *jsiiProxy_CfnSpotFleet) ValidateProperties(_properties interface{}) {
 // To exclude accelerator-enabled instance types, set `Max` to `0` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   acceleratorCountRequestProperty := &acceleratorCountRequestProperty{
 //   	max: jsii.Number(123),
 //   	min: jsii.Number(123),
@@ -44116,17 +44737,20 @@ type CfnSpotFleet_AcceleratorCountRequestProperty struct {
 	// The maximum number of accelerators.
 	//
 	// To specify no maximum limit, omit this parameter. To exclude accelerator-enabled instance types, set `Max` to `0` .
-	Max *float64 `json:"max" yaml:"max"`
+	Max *float64 `field:"optional" json:"max" yaml:"max"`
 	// The minimum number of accelerators.
 	//
 	// To specify no minimum limit, omit this parameter.
-	Min *float64 `json:"min" yaml:"min"`
+	Min *float64 `field:"optional" json:"min" yaml:"min"`
 }
 
 // The minimum and maximum amount of total accelerator memory, in MiB.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   acceleratorTotalMemoryMiBRequestProperty := &acceleratorTotalMemoryMiBRequestProperty{
 //   	max: jsii.Number(123),
 //   	min: jsii.Number(123),
@@ -44136,11 +44760,11 @@ type CfnSpotFleet_AcceleratorTotalMemoryMiBRequestProperty struct {
 	// The maximum amount of accelerator memory, in MiB.
 	//
 	// To specify no maximum limit, omit this parameter.
-	Max *float64 `json:"max" yaml:"max"`
+	Max *float64 `field:"optional" json:"max" yaml:"max"`
 	// The minimum amount of accelerator memory, in MiB.
 	//
 	// To specify no minimum limit, omit this parameter.
-	Min *float64 `json:"min" yaml:"min"`
+	Min *float64 `field:"optional" json:"min" yaml:"min"`
 }
 
 // The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps.
@@ -44148,7 +44772,10 @@ type CfnSpotFleet_AcceleratorTotalMemoryMiBRequestProperty struct {
 // For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   baselineEbsBandwidthMbpsRequestProperty := &baselineEbsBandwidthMbpsRequestProperty{
 //   	max: jsii.Number(123),
 //   	min: jsii.Number(123),
@@ -44158,11 +44785,11 @@ type CfnSpotFleet_BaselineEbsBandwidthMbpsRequestProperty struct {
 	// The maximum baseline bandwidth, in Mbps.
 	//
 	// To specify no maximum limit, omit this parameter.
-	Max *float64 `json:"max" yaml:"max"`
+	Max *float64 `field:"optional" json:"max" yaml:"max"`
 	// The minimum baseline bandwidth, in Mbps.
 	//
 	// To specify no minimum limit, omit this parameter.
-	Min *float64 `json:"min" yaml:"min"`
+	Min *float64 `field:"optional" json:"min" yaml:"min"`
 }
 
 // Specifies a block device mapping.
@@ -44170,7 +44797,10 @@ type CfnSpotFleet_BaselineEbsBandwidthMbpsRequestProperty struct {
 // You can specify `Ebs` or `VirtualName` , but not both.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   blockDeviceMappingProperty := &blockDeviceMappingProperty{
 //   	deviceName: jsii.String("deviceName"),
 //
@@ -44189,13 +44819,13 @@ type CfnSpotFleet_BaselineEbsBandwidthMbpsRequestProperty struct {
 //
 type CfnSpotFleet_BlockDeviceMappingProperty struct {
 	// The device name (for example, `/dev/sdh` or `xvdh` ).
-	DeviceName *string `json:"deviceName" yaml:"deviceName"`
+	DeviceName *string `field:"required" json:"deviceName" yaml:"deviceName"`
 	// Parameters used to automatically set up EBS volumes when the instance is launched.
-	Ebs interface{} `json:"ebs" yaml:"ebs"`
+	Ebs interface{} `field:"optional" json:"ebs" yaml:"ebs"`
 	// To omit the device from the block device mapping, specify an empty string.
 	//
 	// When this property is specified, the device is removed from the block device mapping regardless of the assigned value.
-	NoDevice *string `json:"noDevice" yaml:"noDevice"`
+	NoDevice *string `field:"optional" json:"noDevice" yaml:"noDevice"`
 	// The virtual device name ( `ephemeral` N).
 	//
 	// Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for `ephemeral0` and `ephemeral1` . The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
@@ -44203,20 +44833,23 @@ type CfnSpotFleet_BlockDeviceMappingProperty struct {
 	// NVMe instance store volumes are automatically enumerated and assigned a device name. Including them in your block device mapping has no effect.
 	//
 	// Constraints: For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.
-	VirtualName *string `json:"virtualName" yaml:"virtualName"`
+	VirtualName *string `field:"optional" json:"virtualName" yaml:"virtualName"`
 }
 
 // Specifies a Classic Load Balancer.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   classicLoadBalancerProperty := &classicLoadBalancerProperty{
 //   	name: jsii.String("name"),
 //   }
 //
 type CfnSpotFleet_ClassicLoadBalancerProperty struct {
 	// The name of the load balancer.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 }
 
 // Specifies the Classic Load Balancers to attach to a Spot Fleet.
@@ -44224,7 +44857,10 @@ type CfnSpotFleet_ClassicLoadBalancerProperty struct {
 // Spot Fleet registers the running Spot Instances with these Classic Load Balancers.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   classicLoadBalancersConfigProperty := &classicLoadBalancersConfigProperty{
 //   	classicLoadBalancers: []interface{}{
 //   		&classicLoadBalancerProperty{
@@ -44235,13 +44871,16 @@ type CfnSpotFleet_ClassicLoadBalancerProperty struct {
 //
 type CfnSpotFleet_ClassicLoadBalancersConfigProperty struct {
 	// One or more Classic Load Balancers.
-	ClassicLoadBalancers interface{} `json:"classicLoadBalancers" yaml:"classicLoadBalancers"`
+	ClassicLoadBalancers interface{} `field:"required" json:"classicLoadBalancers" yaml:"classicLoadBalancers"`
 }
 
 // Describes a block device for an EBS volume.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   ebsBlockDeviceProperty := &ebsBlockDeviceProperty{
 //   	deleteOnTermination: jsii.Boolean(false),
 //   	encrypted: jsii.Boolean(false),
@@ -44255,7 +44894,7 @@ type CfnSpotFleet_EbsBlockDeviceProperty struct {
 	// Indicates whether the EBS volume is deleted on instance termination.
 	//
 	// For more information, see [Preserving Amazon EBS volumes on instance termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) in the *Amazon EC2 User Guide* .
-	DeleteOnTermination interface{} `json:"deleteOnTermination" yaml:"deleteOnTermination"`
+	DeleteOnTermination interface{} `field:"optional" json:"deleteOnTermination" yaml:"deleteOnTermination"`
 	// Indicates whether the encryption state of an EBS volume is changed while being restored from a backing snapshot.
 	//
 	// The effect of setting the encryption state to `true` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Amazon EBS Encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-parameters) in the *Amazon EC2 User Guide* .
@@ -44265,7 +44904,7 @@ type CfnSpotFleet_EbsBlockDeviceProperty struct {
 	// Encrypted volumes can only be attached to instances that support Amazon EBS encryption. For more information, see [Supported Instance Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances) .
 	//
 	// This parameter is not returned by [DescribeImageAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImageAttribute.html) .
-	Encrypted interface{} `json:"encrypted" yaml:"encrypted"`
+	Encrypted interface{} `field:"optional" json:"encrypted" yaml:"encrypted"`
 	// The number of I/O operations per second (IOPS).
 	//
 	// For `gp3` , `io1` , and `io2` volumes, this represents the number of IOPS that are provisioned for the volume. For `gp2` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
@@ -44279,9 +44918,9 @@ type CfnSpotFleet_EbsBlockDeviceProperty struct {
 	// For `io1` and `io2` volumes, we guarantee 64,000 IOPS only for [Instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances) . Other instance families guarantee performance up to 32,000 IOPS.
 	//
 	// This parameter is required for `io1` and `io2` volumes. The default for `gp3` volumes is 3,000 IOPS. This parameter is not supported for `gp2` , `st1` , `sc1` , or `standard` volumes.
-	Iops *float64 `json:"iops" yaml:"iops"`
+	Iops *float64 `field:"optional" json:"iops" yaml:"iops"`
 	// The ID of the snapshot.
-	SnapshotId *string `json:"snapshotId" yaml:"snapshotId"`
+	SnapshotId *string `field:"optional" json:"snapshotId" yaml:"snapshotId"`
 	// The size of the volume, in GiBs.
 	//
 	// You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
@@ -44292,11 +44931,11 @@ type CfnSpotFleet_EbsBlockDeviceProperty struct {
 	// - `io1` and `io2` : 4-16,384
 	// - `st1` and `sc1` : 125-16,384
 	// - `standard` : 1-1,024.
-	VolumeSize *float64 `json:"volumeSize" yaml:"volumeSize"`
+	VolumeSize *float64 `field:"optional" json:"volumeSize" yaml:"volumeSize"`
 	// The volume type.
 	//
 	// For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon EC2 User Guide* . If the volume type is `io1` or `io2` , you must specify the IOPS that the volume supports.
-	VolumeType *string `json:"volumeType" yaml:"volumeType"`
+	VolumeType *string `field:"optional" json:"volumeType" yaml:"volumeType"`
 }
 
 // Describes the Amazon EC2 launch template and the launch template version that can be used by a Spot Fleet request to configure Amazon EC2 instances.
@@ -44304,7 +44943,10 @@ type CfnSpotFleet_EbsBlockDeviceProperty struct {
 // For information about launch templates, see [Launching an instance from a launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the *Amazon EC2 User Guide for Linux Instances* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   fleetLaunchTemplateSpecificationProperty := &fleetLaunchTemplateSpecificationProperty{
 //   	version: jsii.String("version"),
 //
@@ -44317,60 +44959,72 @@ type CfnSpotFleet_FleetLaunchTemplateSpecificationProperty struct {
 	// The version number of the launch template. You must specify a version number.
 	//
 	// Minimum length of 1. Maximum length of 255. Versions must fit the following pattern: `[\ u0020-\ uD7FF\ uE000-\ uFFFD\ uD800\ uDC00-\ uDBFF\ uDFFF\r\n\t]*`
-	Version *string `json:"version" yaml:"version"`
+	Version *string `field:"required" json:"version" yaml:"version"`
 	// The ID of the launch template.
 	//
 	// If you specify the template ID, you can't specify the template name.
-	LaunchTemplateId *string `json:"launchTemplateId" yaml:"launchTemplateId"`
+	LaunchTemplateId *string `field:"optional" json:"launchTemplateId" yaml:"launchTemplateId"`
 	// The name of the launch template. You must specify either a template name or a template ID.
 	//
 	// Minimum length of 3. Maximum length of 128. Names must match the following pattern: `[a-zA-Z0-9\(\)\.-/_]+`
-	LaunchTemplateName *string `json:"launchTemplateName" yaml:"launchTemplateName"`
+	LaunchTemplateName *string `field:"optional" json:"launchTemplateName" yaml:"launchTemplateName"`
 }
 
 // Describes a security group.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   groupIdentifierProperty := &groupIdentifierProperty{
 //   	groupId: jsii.String("groupId"),
 //   }
 //
 type CfnSpotFleet_GroupIdentifierProperty struct {
 	// The ID of the security group.
-	GroupId *string `json:"groupId" yaml:"groupId"`
+	GroupId *string `field:"required" json:"groupId" yaml:"groupId"`
 }
 
 // Describes an IAM instance profile.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   iamInstanceProfileSpecificationProperty := &iamInstanceProfileSpecificationProperty{
 //   	arn: jsii.String("arn"),
 //   }
 //
 type CfnSpotFleet_IamInstanceProfileSpecificationProperty struct {
 	// The Amazon Resource Name (ARN) of the instance profile.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"optional" json:"arn" yaml:"arn"`
 }
 
 // Describes an IPv6 address.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   instanceIpv6AddressProperty := &instanceIpv6AddressProperty{
 //   	ipv6Address: jsii.String("ipv6Address"),
 //   }
 //
 type CfnSpotFleet_InstanceIpv6AddressProperty struct {
 	// The IPv6 address.
-	Ipv6Address *string `json:"ipv6Address" yaml:"ipv6Address"`
+	Ipv6Address *string `field:"required" json:"ipv6Address" yaml:"ipv6Address"`
 }
 
 // Describes a network interface.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   instanceNetworkInterfaceSpecificationProperty := &instanceNetworkInterfaceSpecificationProperty{
 //   	associatePublicIpAddress: jsii.Boolean(false),
 //   	deleteOnTermination: jsii.Boolean(false),
@@ -44402,47 +45056,47 @@ type CfnSpotFleet_InstanceNetworkInterfaceSpecificationProperty struct {
 	// Indicates whether to assign a public IPv4 address to an instance you launch in a VPC.
 	//
 	// The public IP address can only be assigned to a network interface for eth0, and can only be assigned to a new network interface, not an existing one. You cannot specify more than one network interface in the request. If launching into a default subnet, the default value is `true` .
-	AssociatePublicIpAddress interface{} `json:"associatePublicIpAddress" yaml:"associatePublicIpAddress"`
+	AssociatePublicIpAddress interface{} `field:"optional" json:"associatePublicIpAddress" yaml:"associatePublicIpAddress"`
 	// Indicates whether the network interface is deleted when the instance is terminated.
-	DeleteOnTermination interface{} `json:"deleteOnTermination" yaml:"deleteOnTermination"`
+	DeleteOnTermination interface{} `field:"optional" json:"deleteOnTermination" yaml:"deleteOnTermination"`
 	// The description of the network interface.
 	//
 	// Applies only if creating a network interface when launching an instance.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The position of the network interface in the attachment order.
 	//
 	// A primary network interface has a device index of 0.
 	//
 	// If you specify a network interface when launching an instance, you must specify the device index.
-	DeviceIndex *float64 `json:"deviceIndex" yaml:"deviceIndex"`
+	DeviceIndex *float64 `field:"optional" json:"deviceIndex" yaml:"deviceIndex"`
 	// The IDs of the security groups for the network interface.
 	//
 	// Applies only if creating a network interface when launching an instance.
-	Groups *[]*string `json:"groups" yaml:"groups"`
+	Groups *[]*string `field:"optional" json:"groups" yaml:"groups"`
 	// A number of IPv6 addresses to assign to the network interface.
 	//
 	// Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
-	Ipv6AddressCount *float64 `json:"ipv6AddressCount" yaml:"ipv6AddressCount"`
+	Ipv6AddressCount *float64 `field:"optional" json:"ipv6AddressCount" yaml:"ipv6AddressCount"`
 	// One or more IPv6 addresses to assign to the network interface.
 	//
 	// You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.
-	Ipv6Addresses interface{} `json:"ipv6Addresses" yaml:"ipv6Addresses"`
+	Ipv6Addresses interface{} `field:"optional" json:"ipv6Addresses" yaml:"ipv6Addresses"`
 	// The ID of the network interface.
 	//
 	// If you are creating a Spot Fleet, omit this parameter because you can’t specify a network interface ID in a launch specification.
-	NetworkInterfaceId *string `json:"networkInterfaceId" yaml:"networkInterfaceId"`
+	NetworkInterfaceId *string `field:"optional" json:"networkInterfaceId" yaml:"networkInterfaceId"`
 	// One or more private IPv4 addresses to assign to the network interface.
 	//
 	// Only one private IPv4 address can be designated as primary. You cannot specify this option if you're launching more than one instance in a [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) request.
-	PrivateIpAddresses interface{} `json:"privateIpAddresses" yaml:"privateIpAddresses"`
+	PrivateIpAddresses interface{} `field:"optional" json:"privateIpAddresses" yaml:"privateIpAddresses"`
 	// The number of secondary private IPv4 addresses.
 	//
 	// You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're launching more than one instance in a [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) request.
-	SecondaryPrivateIpAddressCount *float64 `json:"secondaryPrivateIpAddressCount" yaml:"secondaryPrivateIpAddressCount"`
+	SecondaryPrivateIpAddressCount *float64 `field:"optional" json:"secondaryPrivateIpAddressCount" yaml:"secondaryPrivateIpAddressCount"`
 	// The ID of the subnet associated with the network interface.
 	//
 	// Applies only if creating a network interface when launching an instance.
-	SubnetId *string `json:"subnetId" yaml:"subnetId"`
+	SubnetId *string `field:"optional" json:"subnetId" yaml:"subnetId"`
 }
 
 // The attributes for the instance types.
@@ -44456,7 +45110,10 @@ type CfnSpotFleet_InstanceNetworkInterfaceSpecificationProperty struct {
 // For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) , [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html) , and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   instanceRequirementsRequestProperty := &instanceRequirementsRequestProperty{
 //   	acceleratorCount: &acceleratorCountRequestProperty{
 //   		max: jsii.Number(123),
@@ -44525,7 +45182,7 @@ type CfnSpotFleet_InstanceRequirementsRequestProperty struct {
 	// To exclude accelerator-enabled instance types, set `Max` to `0` .
 	//
 	// Default: No minimum or maximum limits.
-	AcceleratorCount interface{} `json:"acceleratorCount" yaml:"acceleratorCount"`
+	AcceleratorCount interface{} `field:"optional" json:"acceleratorCount" yaml:"acceleratorCount"`
 	// Indicates whether instance types must have accelerators by specific manufacturers.
 	//
 	// - For instance types with NVIDIA devices, specify `nvidia` .
@@ -44534,7 +45191,7 @@ type CfnSpotFleet_InstanceRequirementsRequestProperty struct {
 	// - For instance types with Xilinx devices, specify `xilinx` .
 	//
 	// Default: Any manufacturer.
-	AcceleratorManufacturers *[]*string `json:"acceleratorManufacturers" yaml:"acceleratorManufacturers"`
+	AcceleratorManufacturers *[]*string `field:"optional" json:"acceleratorManufacturers" yaml:"acceleratorManufacturers"`
 	// The accelerators that must be on the instance type.
 	//
 	// - For instance types with NVIDIA A100 GPUs, specify `a100` .
@@ -44546,11 +45203,11 @@ type CfnSpotFleet_InstanceRequirementsRequestProperty struct {
 	// - For instance types with Xilinx VU9P FPGAs, specify `vu9p` .
 	//
 	// Default: Any accelerator.
-	AcceleratorNames *[]*string `json:"acceleratorNames" yaml:"acceleratorNames"`
+	AcceleratorNames *[]*string `field:"optional" json:"acceleratorNames" yaml:"acceleratorNames"`
 	// The minimum and maximum amount of total accelerator memory, in MiB.
 	//
 	// Default: No minimum or maximum limits.
-	AcceleratorTotalMemoryMiB interface{} `json:"acceleratorTotalMemoryMiB" yaml:"acceleratorTotalMemoryMiB"`
+	AcceleratorTotalMemoryMiB interface{} `field:"optional" json:"acceleratorTotalMemoryMiB" yaml:"acceleratorTotalMemoryMiB"`
 	// The accelerator types that must be on the instance type.
 	//
 	// - To include instance types with GPU hardware, specify `gpu` .
@@ -44558,7 +45215,7 @@ type CfnSpotFleet_InstanceRequirementsRequestProperty struct {
 	// - To include instance types with inference hardware, specify `inference` .
 	//
 	// Default: Any accelerator type.
-	AcceleratorTypes *[]*string `json:"acceleratorTypes" yaml:"acceleratorTypes"`
+	AcceleratorTypes *[]*string `field:"optional" json:"acceleratorTypes" yaml:"acceleratorTypes"`
 	// Indicates whether bare metal instance types must be included, excluded, or required.
 	//
 	// - To include bare metal instance types, specify `included` .
@@ -44566,13 +45223,13 @@ type CfnSpotFleet_InstanceRequirementsRequestProperty struct {
 	// - To exclude bare metal instance types, specify `excluded` .
 	//
 	// Default: `excluded`.
-	BareMetal *string `json:"bareMetal" yaml:"bareMetal"`
+	BareMetal *string `field:"optional" json:"bareMetal" yaml:"bareMetal"`
 	// The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps.
 	//
 	// For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide* .
 	//
 	// Default: No minimum or maximum limits.
-	BaselineEbsBandwidthMbps interface{} `json:"baselineEbsBandwidthMbps" yaml:"baselineEbsBandwidthMbps"`
+	BaselineEbsBandwidthMbps interface{} `field:"optional" json:"baselineEbsBandwidthMbps" yaml:"baselineEbsBandwidthMbps"`
 	// Indicates whether burstable performance T instance types are included, excluded, or required.
 	//
 	// For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) .
@@ -44582,7 +45239,7 @@ type CfnSpotFleet_InstanceRequirementsRequestProperty struct {
 	// - To exclude burstable performance instance types, specify `excluded` .
 	//
 	// Default: `excluded`.
-	BurstablePerformance *string `json:"burstablePerformance" yaml:"burstablePerformance"`
+	BurstablePerformance *string `field:"optional" json:"burstablePerformance" yaml:"burstablePerformance"`
 	// The CPU manufacturers to include.
 	//
 	// - For instance types with Intel CPUs, specify `intel` .
@@ -44592,7 +45249,7 @@ type CfnSpotFleet_InstanceRequirementsRequestProperty struct {
 	// > Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
 	//
 	// Default: Any manufacturer.
-	CpuManufacturers *[]*string `json:"cpuManufacturers" yaml:"cpuManufacturers"`
+	CpuManufacturers *[]*string `field:"optional" json:"cpuManufacturers" yaml:"cpuManufacturers"`
 	// The instance types to exclude.
 	//
 	// You can use strings with one or more wild cards, represented by an asterisk ( `*` ), to exclude an instance family, type, size, or generation. The following are examples: `m5.8xlarge` , `c5*.*` , `m5a.*` , `r*` , `*3*` .
@@ -44600,7 +45257,7 @@ type CfnSpotFleet_InstanceRequirementsRequestProperty struct {
 	// For example, if you specify `c5*` ,Amazon EC2 will exclude the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*` , Amazon EC2 will exclude all the M5a instance types, but not the M5n instance types.
 	//
 	// Default: No excluded instance types.
-	ExcludedInstanceTypes *[]*string `json:"excludedInstanceTypes" yaml:"excludedInstanceTypes"`
+	ExcludedInstanceTypes *[]*string `field:"optional" json:"excludedInstanceTypes" yaml:"excludedInstanceTypes"`
 	// Indicates whether current or previous generation instance types are included.
 	//
 	// The current generation instance types are recommended for use. Current generation instance types are typically the latest two to three generations in each instance family. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
@@ -44610,7 +45267,7 @@ type CfnSpotFleet_InstanceRequirementsRequestProperty struct {
 	// For previous generation instance types, specify `previous` .
 	//
 	// Default: Current and previous generation instance types.
-	InstanceGenerations *[]*string `json:"instanceGenerations" yaml:"instanceGenerations"`
+	InstanceGenerations *[]*string `field:"optional" json:"instanceGenerations" yaml:"instanceGenerations"`
 	// Indicates whether instance types with instance store volumes are included, excluded, or required.
 	//
 	// For more information, [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) in the *Amazon EC2 User Guide* .
@@ -44620,24 +45277,24 @@ type CfnSpotFleet_InstanceRequirementsRequestProperty struct {
 	// - To exclude instance types with instance store volumes, specify `excluded` .
 	//
 	// Default: `included`.
-	LocalStorage *string `json:"localStorage" yaml:"localStorage"`
+	LocalStorage *string `field:"optional" json:"localStorage" yaml:"localStorage"`
 	// The type of local storage that is required.
 	//
 	// - For instance types with hard disk drive (HDD) storage, specify `hdd` .
 	// - For instance types with solid state drive (SDD) storage, specify `sdd` .
 	//
 	// Default: `hdd` and `sdd`.
-	LocalStorageTypes *[]*string `json:"localStorageTypes" yaml:"localStorageTypes"`
+	LocalStorageTypes *[]*string `field:"optional" json:"localStorageTypes" yaml:"localStorageTypes"`
 	// The minimum and maximum amount of memory per vCPU, in GiB.
 	//
 	// Default: No minimum or maximum limits.
-	MemoryGiBPerVCpu interface{} `json:"memoryGiBPerVCpu" yaml:"memoryGiBPerVCpu"`
+	MemoryGiBPerVCpu interface{} `field:"optional" json:"memoryGiBPerVCpu" yaml:"memoryGiBPerVCpu"`
 	// The minimum and maximum amount of memory, in MiB.
-	MemoryMiB interface{} `json:"memoryMiB" yaml:"memoryMiB"`
+	MemoryMiB interface{} `field:"optional" json:"memoryMiB" yaml:"memoryMiB"`
 	// The minimum and maximum number of network interfaces.
 	//
 	// Default: No minimum or maximum limits.
-	NetworkInterfaceCount interface{} `json:"networkInterfaceCount" yaml:"networkInterfaceCount"`
+	NetworkInterfaceCount interface{} `field:"optional" json:"networkInterfaceCount" yaml:"networkInterfaceCount"`
 	// The price protection threshold for On-Demand Instances.
 	//
 	// This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage above the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance types priced above your threshold.
@@ -44651,13 +45308,13 @@ type CfnSpotFleet_InstanceRequirementsRequestProperty struct {
 	// > If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
 	//
 	// Default: `20`.
-	OnDemandMaxPricePercentageOverLowestPrice *float64 `json:"onDemandMaxPricePercentageOverLowestPrice" yaml:"onDemandMaxPricePercentageOverLowestPrice"`
+	OnDemandMaxPricePercentageOverLowestPrice *float64 `field:"optional" json:"onDemandMaxPricePercentageOverLowestPrice" yaml:"onDemandMaxPricePercentageOverLowestPrice"`
 	// Indicates whether instance types must support hibernation for On-Demand Instances.
 	//
 	// This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) .
 	//
 	// Default: `false`.
-	RequireHibernateSupport interface{} `json:"requireHibernateSupport" yaml:"requireHibernateSupport"`
+	RequireHibernateSupport interface{} `field:"optional" json:"requireHibernateSupport" yaml:"requireHibernateSupport"`
 	// The price protection threshold for Spot Instance.
 	//
 	// This is the maximum you’ll pay for an Spot Instance, expressed as a percentage above the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance types priced above your threshold.
@@ -44671,19 +45328,22 @@ type CfnSpotFleet_InstanceRequirementsRequestProperty struct {
 	// > If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
 	//
 	// Default: `100`.
-	SpotMaxPricePercentageOverLowestPrice *float64 `json:"spotMaxPricePercentageOverLowestPrice" yaml:"spotMaxPricePercentageOverLowestPrice"`
+	SpotMaxPricePercentageOverLowestPrice *float64 `field:"optional" json:"spotMaxPricePercentageOverLowestPrice" yaml:"spotMaxPricePercentageOverLowestPrice"`
 	// The minimum and maximum amount of total local storage, in GB.
 	//
 	// Default: No minimum or maximum limits.
-	TotalLocalStorageGb interface{} `json:"totalLocalStorageGb" yaml:"totalLocalStorageGb"`
+	TotalLocalStorageGb interface{} `field:"optional" json:"totalLocalStorageGb" yaml:"totalLocalStorageGb"`
 	// The minimum and maximum number of vCPUs.
-	VCpuCount interface{} `json:"vCpuCount" yaml:"vCpuCount"`
+	VCpuCount interface{} `field:"optional" json:"vCpuCount" yaml:"vCpuCount"`
 }
 
 // Specifies a launch template and overrides.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   launchTemplateConfigProperty := &launchTemplateConfigProperty{
 //   	launchTemplateSpecification: &fleetLaunchTemplateSpecificationProperty{
 //   		version: jsii.String("version"),
@@ -44767,15 +45427,18 @@ type CfnSpotFleet_InstanceRequirementsRequestProperty struct {
 //
 type CfnSpotFleet_LaunchTemplateConfigProperty struct {
 	// The launch template.
-	LaunchTemplateSpecification interface{} `json:"launchTemplateSpecification" yaml:"launchTemplateSpecification"`
+	LaunchTemplateSpecification interface{} `field:"optional" json:"launchTemplateSpecification" yaml:"launchTemplateSpecification"`
 	// Any parameters that you specify override the same parameters in the launch template.
-	Overrides interface{} `json:"overrides" yaml:"overrides"`
+	Overrides interface{} `field:"optional" json:"overrides" yaml:"overrides"`
 }
 
 // Specifies overrides for a launch template.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   launchTemplateOverridesProperty := &launchTemplateOverridesProperty{
 //   	availabilityZone: jsii.String("availabilityZone"),
 //   	instanceRequirements: &instanceRequirementsRequestProperty{
@@ -44848,15 +45511,15 @@ type CfnSpotFleet_LaunchTemplateConfigProperty struct {
 //
 type CfnSpotFleet_LaunchTemplateOverridesProperty struct {
 	// The Availability Zone in which to launch the instances.
-	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
+	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
 	// The instance requirements.
 	//
 	// When you specify instance requirements, Amazon EC2 will identify instance types with the provided requirements, and then use your On-Demand and Spot allocation strategies to launch instances from these instance types, in the same way as when you specify a list of instance types.
 	//
 	// > If you specify `InstanceRequirements` , you can't specify `InstanceTypes` .
-	InstanceRequirements interface{} `json:"instanceRequirements" yaml:"instanceRequirements"`
+	InstanceRequirements interface{} `field:"optional" json:"instanceRequirements" yaml:"instanceRequirements"`
 	// The instance type.
-	InstanceType *string `json:"instanceType" yaml:"instanceType"`
+	InstanceType *string `field:"optional" json:"instanceType" yaml:"instanceType"`
 	// The priority for the launch template override. The highest priority is launched first.
 	//
 	// If `OnDemandAllocationStrategy` is set to `prioritized` , Spot Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity.
@@ -44864,19 +45527,22 @@ type CfnSpotFleet_LaunchTemplateOverridesProperty struct {
 	// If the Spot `AllocationStrategy` is set to `capacityOptimizedPrioritized` , Spot Fleet uses priority on a best-effort basis to determine which launch template override to use in fulfilling Spot capacity, but optimizes for capacity first.
 	//
 	// Valid values are whole numbers starting at `0` . The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority. You can set the same priority for different launch template overrides.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 	// The maximum price per unit hour that you are willing to pay for a Spot Instance.
-	SpotPrice *string `json:"spotPrice" yaml:"spotPrice"`
+	SpotPrice *string `field:"optional" json:"spotPrice" yaml:"spotPrice"`
 	// The ID of the subnet in which to launch the instances.
-	SubnetId *string `json:"subnetId" yaml:"subnetId"`
+	SubnetId *string `field:"optional" json:"subnetId" yaml:"subnetId"`
 	// The number of units provided by the specified instance type.
-	WeightedCapacity *float64 `json:"weightedCapacity" yaml:"weightedCapacity"`
+	WeightedCapacity *float64 `field:"optional" json:"weightedCapacity" yaml:"weightedCapacity"`
 }
 
 // Specifies the Classic Load Balancers and target groups to attach to a Spot Fleet request.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   loadBalancersConfigProperty := &loadBalancersConfigProperty{
 //   	classicLoadBalancersConfig: &classicLoadBalancersConfigProperty{
 //   		classicLoadBalancers: []interface{}{
@@ -44896,15 +45562,18 @@ type CfnSpotFleet_LaunchTemplateOverridesProperty struct {
 //
 type CfnSpotFleet_LoadBalancersConfigProperty struct {
 	// The Classic Load Balancers.
-	ClassicLoadBalancersConfig interface{} `json:"classicLoadBalancersConfig" yaml:"classicLoadBalancersConfig"`
+	ClassicLoadBalancersConfig interface{} `field:"optional" json:"classicLoadBalancersConfig" yaml:"classicLoadBalancersConfig"`
 	// The target groups.
-	TargetGroupsConfig interface{} `json:"targetGroupsConfig" yaml:"targetGroupsConfig"`
+	TargetGroupsConfig interface{} `field:"optional" json:"targetGroupsConfig" yaml:"targetGroupsConfig"`
 }
 
 // The minimum and maximum amount of memory per vCPU, in GiB.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   memoryGiBPerVCpuRequestProperty := &memoryGiBPerVCpuRequestProperty{
 //   	max: jsii.Number(123),
 //   	min: jsii.Number(123),
@@ -44914,17 +45583,20 @@ type CfnSpotFleet_MemoryGiBPerVCpuRequestProperty struct {
 	// The maximum amount of memory per vCPU, in GiB.
 	//
 	// To specify no maximum limit, omit this parameter.
-	Max *float64 `json:"max" yaml:"max"`
+	Max *float64 `field:"optional" json:"max" yaml:"max"`
 	// The minimum amount of memory per vCPU, in GiB.
 	//
 	// To specify no minimum limit, omit this parameter.
-	Min *float64 `json:"min" yaml:"min"`
+	Min *float64 `field:"optional" json:"min" yaml:"min"`
 }
 
 // The minimum and maximum amount of memory, in MiB.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   memoryMiBRequestProperty := &memoryMiBRequestProperty{
 //   	max: jsii.Number(123),
 //   	min: jsii.Number(123),
@@ -44934,17 +45606,20 @@ type CfnSpotFleet_MemoryMiBRequestProperty struct {
 	// The maximum amount of memory, in MiB.
 	//
 	// To specify no maximum limit, omit this parameter.
-	Max *float64 `json:"max" yaml:"max"`
+	Max *float64 `field:"optional" json:"max" yaml:"max"`
 	// The minimum amount of memory, in MiB.
 	//
 	// To specify no minimum limit, specify `0` .
-	Min *float64 `json:"min" yaml:"min"`
+	Min *float64 `field:"optional" json:"min" yaml:"min"`
 }
 
 // The minimum and maximum number of network interfaces.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   networkInterfaceCountRequestProperty := &networkInterfaceCountRequestProperty{
 //   	max: jsii.Number(123),
 //   	min: jsii.Number(123),
@@ -44954,17 +45629,20 @@ type CfnSpotFleet_NetworkInterfaceCountRequestProperty struct {
 	// The maximum number of network interfaces.
 	//
 	// To specify no maximum limit, omit this parameter.
-	Max *float64 `json:"max" yaml:"max"`
+	Max *float64 `field:"optional" json:"max" yaml:"max"`
 	// The minimum number of network interfaces.
 	//
 	// To specify no minimum limit, omit this parameter.
-	Min *float64 `json:"min" yaml:"min"`
+	Min *float64 `field:"optional" json:"min" yaml:"min"`
 }
 
 // Describes a secondary private IPv4 address for a network interface.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   privateIpAddressSpecificationProperty := &privateIpAddressSpecificationProperty{
 //   	privateIpAddress: jsii.String("privateIpAddress"),
 //
@@ -44974,11 +45652,11 @@ type CfnSpotFleet_NetworkInterfaceCountRequestProperty struct {
 //
 type CfnSpotFleet_PrivateIpAddressSpecificationProperty struct {
 	// The private IPv4 addresses.
-	PrivateIpAddress *string `json:"privateIpAddress" yaml:"privateIpAddress"`
+	PrivateIpAddress *string `field:"required" json:"privateIpAddress" yaml:"privateIpAddress"`
 	// Indicates whether the private IPv4 address is the primary private IPv4 address.
 	//
 	// Only one IPv4 address can be designated as primary.
-	Primary interface{} `json:"primary" yaml:"primary"`
+	Primary interface{} `field:"optional" json:"primary" yaml:"primary"`
 }
 
 // The Spot Instance replacement strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted.
@@ -44986,7 +45664,10 @@ type CfnSpotFleet_PrivateIpAddressSpecificationProperty struct {
 // For more information, see [Capacity rebalancing](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-capacity-rebalance.html) in the *Amazon EC2 User Guide for Linux Instances* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   spotCapacityRebalanceProperty := &spotCapacityRebalanceProperty{
 //   	replacementStrategy: jsii.String("replacementStrategy"),
 //   	terminationDelay: jsii.Number(123),
@@ -44998,7 +45679,7 @@ type CfnSpotFleet_SpotCapacityRebalanceProperty struct {
 	// `launch` - Spot Fleet launches a new replacement Spot Instance when a rebalance notification is emitted for an existing Spot Instance in the fleet. Spot Fleet does not terminate the instances that receive a rebalance notification. You can terminate the old instances, or you can leave them running. You are charged for all instances while they are running.
 	//
 	// `launch-before-terminate` - Spot Fleet launches a new replacement Spot Instance when a rebalance notification is emitted for an existing Spot Instance in the fleet, and then, after a delay that you specify (in `TerminationDelay` ), terminates the instances that received a rebalance notification.
-	ReplacementStrategy *string `json:"replacementStrategy" yaml:"replacementStrategy"`
+	ReplacementStrategy *string `field:"optional" json:"replacementStrategy" yaml:"replacementStrategy"`
 	// The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot Instance after launching a new replacement Spot Instance.
 	//
 	// Required when `ReplacementStrategy` is set to `launch-before-terminate` .
@@ -45006,7 +45687,7 @@ type CfnSpotFleet_SpotCapacityRebalanceProperty struct {
 	// Not valid when `ReplacementStrategy` is set to `launch` .
 	//
 	// Valid values: Minimum value of `120` seconds. Maximum value of `7200` seconds.
-	TerminationDelay *float64 `json:"terminationDelay" yaml:"terminationDelay"`
+	TerminationDelay *float64 `field:"optional" json:"terminationDelay" yaml:"terminationDelay"`
 }
 
 // Specifies the launch specification for one or more Spot Instances.
@@ -45014,7 +45695,10 @@ type CfnSpotFleet_SpotCapacityRebalanceProperty struct {
 // If you include On-Demand capacity in your fleet request, you can't use `SpotFleetLaunchSpecification` ; you must use [LaunchTemplateConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateconfig.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   spotFleetLaunchSpecificationProperty := &spotFleetLaunchSpecificationProperty{
 //   	imageId: jsii.String("imageId"),
 //
@@ -45165,73 +45849,76 @@ type CfnSpotFleet_SpotCapacityRebalanceProperty struct {
 //
 type CfnSpotFleet_SpotFleetLaunchSpecificationProperty struct {
 	// The ID of the AMI.
-	ImageId *string `json:"imageId" yaml:"imageId"`
+	ImageId *string `field:"required" json:"imageId" yaml:"imageId"`
 	// One or more block devices that are mapped to the Spot Instances.
 	//
 	// You can't specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
-	BlockDeviceMappings interface{} `json:"blockDeviceMappings" yaml:"blockDeviceMappings"`
+	BlockDeviceMappings interface{} `field:"optional" json:"blockDeviceMappings" yaml:"blockDeviceMappings"`
 	// Indicates whether the instances are optimized for EBS I/O.
 	//
 	// This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
 	//
 	// Default: `false`.
-	EbsOptimized interface{} `json:"ebsOptimized" yaml:"ebsOptimized"`
+	EbsOptimized interface{} `field:"optional" json:"ebsOptimized" yaml:"ebsOptimized"`
 	// The IAM instance profile.
-	IamInstanceProfile interface{} `json:"iamInstanceProfile" yaml:"iamInstanceProfile"`
+	IamInstanceProfile interface{} `field:"optional" json:"iamInstanceProfile" yaml:"iamInstanceProfile"`
 	// The attributes for the instance types.
 	//
 	// When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.
 	//
 	// > If you specify `InstanceRequirements` , you can't specify `InstanceTypes` .
-	InstanceRequirements interface{} `json:"instanceRequirements" yaml:"instanceRequirements"`
+	InstanceRequirements interface{} `field:"optional" json:"instanceRequirements" yaml:"instanceRequirements"`
 	// The instance type.
-	InstanceType *string `json:"instanceType" yaml:"instanceType"`
+	InstanceType *string `field:"optional" json:"instanceType" yaml:"instanceType"`
 	// The ID of the kernel.
-	KernelId *string `json:"kernelId" yaml:"kernelId"`
+	KernelId *string `field:"optional" json:"kernelId" yaml:"kernelId"`
 	// The name of the key pair.
-	KeyName *string `json:"keyName" yaml:"keyName"`
+	KeyName *string `field:"optional" json:"keyName" yaml:"keyName"`
 	// Enable or disable monitoring for the instances.
-	Monitoring interface{} `json:"monitoring" yaml:"monitoring"`
+	Monitoring interface{} `field:"optional" json:"monitoring" yaml:"monitoring"`
 	// One or more network interfaces.
 	//
 	// If you specify a network interface, you must specify subnet IDs and security group IDs using the network interface.
 	//
 	// > `SpotFleetLaunchSpecification` currently does not support Elastic Fabric Adapter (EFA). To specify an EFA, you must use [LaunchTemplateConfig](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LaunchTemplateConfig.html) .
-	NetworkInterfaces interface{} `json:"networkInterfaces" yaml:"networkInterfaces"`
+	NetworkInterfaces interface{} `field:"optional" json:"networkInterfaces" yaml:"networkInterfaces"`
 	// The placement information.
-	Placement interface{} `json:"placement" yaml:"placement"`
+	Placement interface{} `field:"optional" json:"placement" yaml:"placement"`
 	// The ID of the RAM disk.
 	//
 	// Some kernels require additional drivers at launch. Check the kernel requirements for information about whether you need to specify a RAM disk. To find kernel requirements, refer to the AWS Resource Center and search for the kernel ID.
-	RamdiskId *string `json:"ramdiskId" yaml:"ramdiskId"`
+	RamdiskId *string `field:"optional" json:"ramdiskId" yaml:"ramdiskId"`
 	// One or more security groups.
 	//
 	// When requesting instances in a VPC, you must specify the IDs of the security groups. When requesting instances in EC2-Classic, you can specify the names or the IDs of the security groups.
-	SecurityGroups interface{} `json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups interface{} `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// The maximum price per unit hour that you are willing to pay for a Spot Instance.
 	//
 	// If this value is not specified, the default is the Spot price specified for the fleet. To determine the Spot price per unit hour, divide the Spot price by the value of `WeightedCapacity` .
-	SpotPrice *string `json:"spotPrice" yaml:"spotPrice"`
+	SpotPrice *string `field:"optional" json:"spotPrice" yaml:"spotPrice"`
 	// The IDs of the subnets in which to launch the instances.
 	//
 	// To specify multiple subnets, separate them using commas; for example, "subnet-1234abcdeexample1, subnet-0987cdef6example2".
-	SubnetId *string `json:"subnetId" yaml:"subnetId"`
+	SubnetId *string `field:"optional" json:"subnetId" yaml:"subnetId"`
 	// The tags to apply during creation.
-	TagSpecifications interface{} `json:"tagSpecifications" yaml:"tagSpecifications"`
+	TagSpecifications interface{} `field:"optional" json:"tagSpecifications" yaml:"tagSpecifications"`
 	// The Base64-encoded user data that instances use when starting up.
-	UserData *string `json:"userData" yaml:"userData"`
+	UserData *string `field:"optional" json:"userData" yaml:"userData"`
 	// The number of units provided by the specified instance type.
 	//
 	// These are the same units that you chose to set the target capacity in terms of instances, or a performance characteristic such as vCPUs, memory, or I/O.
 	//
 	// If the target capacity divided by this value is not a whole number, Amazon EC2 rounds the number of instances to the next whole number. If this value is not specified, the default is 1.
-	WeightedCapacity *float64 `json:"weightedCapacity" yaml:"weightedCapacity"`
+	WeightedCapacity *float64 `field:"optional" json:"weightedCapacity" yaml:"weightedCapacity"`
 }
 
 // Describes whether monitoring is enabled.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   spotFleetMonitoringProperty := &spotFleetMonitoringProperty{
 //   	enabled: jsii.Boolean(false),
 //   }
@@ -45240,7 +45927,7 @@ type CfnSpotFleet_SpotFleetMonitoringProperty struct {
 	// Enables monitoring for the instance.
 	//
 	// Default: `false`.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 }
 
 // Specifies the configuration of a Spot Fleet request.
@@ -45250,7 +45937,10 @@ type CfnSpotFleet_SpotFleetMonitoringProperty struct {
 // You must specify either `LaunchSpecifications` or `LaunchTemplateConfigs` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   spotFleetRequestConfigDataProperty := &spotFleetRequestConfigDataProperty{
 //   	iamFleetRole: jsii.String("iamFleetRole"),
 //   	targetCapacity: jsii.Number(123),
@@ -45531,11 +46221,11 @@ type CfnSpotFleet_SpotFleetRequestConfigDataProperty struct {
 	// The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that grants the Spot Fleet the permission to request, launch, terminate, and tag instances on your behalf.
 	//
 	// For more information, see [Spot Fleet Prerequisites](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html#spot-fleet-prerequisites) in the *Amazon EC2 User Guide for Linux Instances* . Spot Fleet can terminate Spot Instances on your behalf when you cancel its Spot Fleet request or when the Spot Fleet request expires, if you set `TerminateInstancesWithExpiration` .
-	IamFleetRole *string `json:"iamFleetRole" yaml:"iamFleetRole"`
+	IamFleetRole *string `field:"required" json:"iamFleetRole" yaml:"iamFleetRole"`
 	// The number of units to request for the Spot Fleet.
 	//
 	// You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is `maintain` , you can specify a target capacity of 0 and add capacity later.
-	TargetCapacity *float64 `json:"targetCapacity" yaml:"targetCapacity"`
+	TargetCapacity *float64 `field:"required" json:"targetCapacity" yaml:"targetCapacity"`
 	// Indicates how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the Spot Fleet request.
 	//
 	// If the allocation strategy is `lowestPrice` , Spot Fleet launches instances from the Spot Instance pools with the lowest price. This is the default allocation strategy.
@@ -45543,83 +46233,86 @@ type CfnSpotFleet_SpotFleetRequestConfigDataProperty struct {
 	// If the allocation strategy is `diversified` , Spot Fleet launches instances from all the Spot Instance pools that you specify.
 	//
 	// If the allocation strategy is `capacityOptimized` (recommended), Spot Fleet launches instances from Spot Instance pools with optimal capacity for the number of instances that are launching. To give certain instance types a higher chance of launching first, use `capacityOptimizedPrioritized` . Set a priority for each instance type by using the `Priority` parameter for `LaunchTemplateOverrides` . You can assign the same priority to different `LaunchTemplateOverrides` . EC2 implements the priorities on a best-effort basis, but optimizes for capacity first. `capacityOptimizedPrioritized` is supported only if your Spot Fleet uses a launch template. Note that if the `OnDemandAllocationStrategy` is set to `prioritized` , the same priority is applied when fulfilling On-Demand capacity.
-	AllocationStrategy *string `json:"allocationStrategy" yaml:"allocationStrategy"`
+	AllocationStrategy *string `field:"optional" json:"allocationStrategy" yaml:"allocationStrategy"`
 	// Reserved.
-	Context *string `json:"context" yaml:"context"`
+	Context *string `field:"optional" json:"context" yaml:"context"`
 	// Indicates whether running Spot Instances should be terminated if you decrease the target capacity of the Spot Fleet request below the current size of the Spot Fleet.
-	ExcessCapacityTerminationPolicy *string `json:"excessCapacityTerminationPolicy" yaml:"excessCapacityTerminationPolicy"`
+	ExcessCapacityTerminationPolicy *string `field:"optional" json:"excessCapacityTerminationPolicy" yaml:"excessCapacityTerminationPolicy"`
 	// The behavior when a Spot Instance is interrupted.
 	//
 	// The default is `terminate` .
-	InstanceInterruptionBehavior *string `json:"instanceInterruptionBehavior" yaml:"instanceInterruptionBehavior"`
+	InstanceInterruptionBehavior *string `field:"optional" json:"instanceInterruptionBehavior" yaml:"instanceInterruptionBehavior"`
 	// The number of Spot pools across which to allocate your target Spot capacity.
 	//
 	// Valid only when Spot *AllocationStrategy* is set to `lowest-price` . Spot Fleet selects the cheapest Spot pools and evenly allocates your target Spot capacity across the number of Spot pools that you specify.
 	//
 	// Note that Spot Fleet attempts to draw Spot Instances from the number of pools that you specify on a best effort basis. If a pool runs out of Spot capacity before fulfilling your target capacity, Spot Fleet will continue to fulfill your request by drawing from the next cheapest pool. To ensure that your target capacity is met, you might receive Spot Instances from more than the number of pools that you specified. Similarly, if most of the pools have no Spot capacity, you might receive your full target capacity from fewer than the number of pools that you specified.
-	InstancePoolsToUseCount *float64 `json:"instancePoolsToUseCount" yaml:"instancePoolsToUseCount"`
+	InstancePoolsToUseCount *float64 `field:"optional" json:"instancePoolsToUseCount" yaml:"instancePoolsToUseCount"`
 	// The launch specifications for the Spot Fleet request.
 	//
 	// If you specify `LaunchSpecifications` , you can't specify `LaunchTemplateConfigs` .
-	LaunchSpecifications interface{} `json:"launchSpecifications" yaml:"launchSpecifications"`
+	LaunchSpecifications interface{} `field:"optional" json:"launchSpecifications" yaml:"launchSpecifications"`
 	// The launch template and overrides.
 	//
 	// If you specify `LaunchTemplateConfigs` , you can't specify `LaunchSpecifications` .
-	LaunchTemplateConfigs interface{} `json:"launchTemplateConfigs" yaml:"launchTemplateConfigs"`
+	LaunchTemplateConfigs interface{} `field:"optional" json:"launchTemplateConfigs" yaml:"launchTemplateConfigs"`
 	// One or more Classic Load Balancers and target groups to attach to the Spot Fleet request.
 	//
 	// Spot Fleet registers the running Spot Instances with the specified Classic Load Balancers and target groups.
 	//
 	// With Network Load Balancers, Spot Fleet cannot register instances that have the following instance types: C1, CC1, CC2, CG1, CG2, CR1, CS1, G1, G2, HI1, HS1, M1, M2, M3, and T1.
-	LoadBalancersConfig interface{} `json:"loadBalancersConfig" yaml:"loadBalancersConfig"`
+	LoadBalancersConfig interface{} `field:"optional" json:"loadBalancersConfig" yaml:"loadBalancersConfig"`
 	// The order of the launch template overrides to use in fulfilling On-Demand capacity.
 	//
 	// If you specify `lowestPrice` , Spot Fleet uses price to determine the order, launching the lowest price first. If you specify `prioritized` , Spot Fleet uses the priority that you assign to each Spot Fleet launch template override, launching the highest priority first. If you do not specify a value, Spot Fleet defaults to `lowestPrice` .
-	OnDemandAllocationStrategy *string `json:"onDemandAllocationStrategy" yaml:"onDemandAllocationStrategy"`
+	OnDemandAllocationStrategy *string `field:"optional" json:"onDemandAllocationStrategy" yaml:"onDemandAllocationStrategy"`
 	// The maximum amount per hour for On-Demand Instances that you're willing to pay.
 	//
 	// You can use the `onDemandMaxTotalPrice` parameter, the `spotMaxTotalPrice` parameter, or both parameters to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, Spot Fleet will launch instances until it reaches the maximum amount you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
-	OnDemandMaxTotalPrice *string `json:"onDemandMaxTotalPrice" yaml:"onDemandMaxTotalPrice"`
+	OnDemandMaxTotalPrice *string `field:"optional" json:"onDemandMaxTotalPrice" yaml:"onDemandMaxTotalPrice"`
 	// The number of On-Demand units to request.
 	//
 	// You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is `maintain` , you can specify a target capacity of 0 and add capacity later.
-	OnDemandTargetCapacity *float64 `json:"onDemandTargetCapacity" yaml:"onDemandTargetCapacity"`
+	OnDemandTargetCapacity *float64 `field:"optional" json:"onDemandTargetCapacity" yaml:"onDemandTargetCapacity"`
 	// Indicates whether Spot Fleet should replace unhealthy instances.
-	ReplaceUnhealthyInstances interface{} `json:"replaceUnhealthyInstances" yaml:"replaceUnhealthyInstances"`
+	ReplaceUnhealthyInstances interface{} `field:"optional" json:"replaceUnhealthyInstances" yaml:"replaceUnhealthyInstances"`
 	// The strategies for managing your Spot Instances that are at an elevated risk of being interrupted.
-	SpotMaintenanceStrategies interface{} `json:"spotMaintenanceStrategies" yaml:"spotMaintenanceStrategies"`
+	SpotMaintenanceStrategies interface{} `field:"optional" json:"spotMaintenanceStrategies" yaml:"spotMaintenanceStrategies"`
 	// The maximum amount per hour for Spot Instances that you're willing to pay.
 	//
 	// You can use the `spotdMaxTotalPrice` parameter, the `onDemandMaxTotalPrice` parameter, or both parameters to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, Spot Fleet will launch instances until it reaches the maximum amount you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
-	SpotMaxTotalPrice *string `json:"spotMaxTotalPrice" yaml:"spotMaxTotalPrice"`
+	SpotMaxTotalPrice *string `field:"optional" json:"spotMaxTotalPrice" yaml:"spotMaxTotalPrice"`
 	// The maximum price per unit hour that you are willing to pay for a Spot Instance.
 	//
 	// The default is the On-Demand price.
-	SpotPrice *string `json:"spotPrice" yaml:"spotPrice"`
+	SpotPrice *string `field:"optional" json:"spotPrice" yaml:"spotPrice"`
 	// The unit for the target capacity.
 	//
 	// Default: `units` (translates to number of instances).
-	TargetCapacityUnitType *string `json:"targetCapacityUnitType" yaml:"targetCapacityUnitType"`
+	TargetCapacityUnitType *string `field:"optional" json:"targetCapacityUnitType" yaml:"targetCapacityUnitType"`
 	// Indicates whether running Spot Instances are terminated when the Spot Fleet request expires.
-	TerminateInstancesWithExpiration interface{} `json:"terminateInstancesWithExpiration" yaml:"terminateInstancesWithExpiration"`
+	TerminateInstancesWithExpiration interface{} `field:"optional" json:"terminateInstancesWithExpiration" yaml:"terminateInstancesWithExpiration"`
 	// The type of request.
 	//
 	// Indicates whether the Spot Fleet only requests the target capacity or also attempts to maintain it. When this value is `request` , the Spot Fleet only places the required requests. It does not attempt to replenish Spot Instances if capacity is diminished, nor does it submit requests in alternative Spot pools if capacity is not available. When this value is `maintain` , the Spot Fleet maintains the target capacity. The Spot Fleet places the required requests to meet capacity and automatically replenishes any interrupted instances. Default: `maintain` . `instant` is listed but is not used by Spot Fleet.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 	// The start date and time of the request, in UTC format ( *YYYY* - *MM* - *DD* T *HH* : *MM* : *SS* Z).
 	//
 	// By default, Amazon EC2 starts fulfilling the request immediately.
-	ValidFrom *string `json:"validFrom" yaml:"validFrom"`
+	ValidFrom *string `field:"optional" json:"validFrom" yaml:"validFrom"`
 	// The end date and time of the request, in UTC format ( *YYYY* - *MM* - *DD* T *HH* : *MM* : *SS* Z).
 	//
 	// After the end date and time, no new Spot Instance requests are placed or able to fulfill the request. If no value is specified, the Spot Fleet request remains until you cancel it.
-	ValidUntil *string `json:"validUntil" yaml:"validUntil"`
+	ValidUntil *string `field:"optional" json:"validUntil" yaml:"validUntil"`
 }
 
 // The tags for a Spot Fleet resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   spotFleetTagSpecificationProperty := &spotFleetTagSpecificationProperty{
 //   	resourceType: jsii.String("resourceType"),
 //   	tags: []cfnTag{
@@ -45634,15 +46327,18 @@ type CfnSpotFleet_SpotFleetTagSpecificationProperty struct {
 	// The type of resource.
 	//
 	// Currently, the only resource type that is supported is `instance` . To tag the Spot Fleet request on creation, use the `TagSpecifications` parameter in [`SpotFleetRequestConfigData`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetRequestConfigData.html) .
-	ResourceType *string `json:"resourceType" yaml:"resourceType"`
+	ResourceType *string `field:"optional" json:"resourceType" yaml:"resourceType"`
 	// The tags.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // The strategies for managing your Spot Instances that are at an elevated risk of being interrupted.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   spotMaintenanceStrategiesProperty := &spotMaintenanceStrategiesProperty{
 //   	capacityRebalance: &spotCapacityRebalanceProperty{
 //   		replacementStrategy: jsii.String("replacementStrategy"),
@@ -45654,13 +46350,16 @@ type CfnSpotFleet_SpotMaintenanceStrategiesProperty struct {
 	// The Spot Instance replacement strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted.
 	//
 	// For more information, see [Capacity rebalancing](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-capacity-rebalance.html) in the *Amazon EC2 User Guide for Linux Instances* .
-	CapacityRebalance interface{} `json:"capacityRebalance" yaml:"capacityRebalance"`
+	CapacityRebalance interface{} `field:"optional" json:"capacityRebalance" yaml:"capacityRebalance"`
 }
 
 // Describes Spot Instance placement.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   spotPlacementProperty := &spotPlacementProperty{
 //   	availabilityZone: jsii.String("availabilityZone"),
 //   	groupName: jsii.String("groupName"),
@@ -45671,26 +46370,29 @@ type CfnSpotFleet_SpotPlacementProperty struct {
 	// The Availability Zone.
 	//
 	// To specify multiple Availability Zones, separate them using commas; for example, "us-west-2a, us-west-2b".
-	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
+	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
 	// The name of the placement group.
-	GroupName *string `json:"groupName" yaml:"groupName"`
+	GroupName *string `field:"optional" json:"groupName" yaml:"groupName"`
 	// The tenancy of the instance (if the instance is running in a VPC).
 	//
 	// An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for Spot Instances.
-	Tenancy *string `json:"tenancy" yaml:"tenancy"`
+	Tenancy *string `field:"optional" json:"tenancy" yaml:"tenancy"`
 }
 
 // Describes a load balancer target group.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   targetGroupProperty := &targetGroupProperty{
 //   	arn: jsii.String("arn"),
 //   }
 //
 type CfnSpotFleet_TargetGroupProperty struct {
 	// The Amazon Resource Name (ARN) of the target group.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"required" json:"arn" yaml:"arn"`
 }
 
 // Describes the target groups to attach to a Spot Fleet.
@@ -45698,7 +46400,10 @@ type CfnSpotFleet_TargetGroupProperty struct {
 // Spot Fleet registers the running Spot Instances with these target groups.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   targetGroupsConfigProperty := &targetGroupsConfigProperty{
 //   	targetGroups: []interface{}{
 //   		&targetGroupProperty{
@@ -45709,13 +46414,16 @@ type CfnSpotFleet_TargetGroupProperty struct {
 //
 type CfnSpotFleet_TargetGroupsConfigProperty struct {
 	// One or more target groups.
-	TargetGroups interface{} `json:"targetGroups" yaml:"targetGroups"`
+	TargetGroups interface{} `field:"required" json:"targetGroups" yaml:"targetGroups"`
 }
 
 // The minimum and maximum amount of total local storage, in GB.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   totalLocalStorageGBRequestProperty := &totalLocalStorageGBRequestProperty{
 //   	max: jsii.Number(123),
 //   	min: jsii.Number(123),
@@ -45725,17 +46433,20 @@ type CfnSpotFleet_TotalLocalStorageGBRequestProperty struct {
 	// The maximum amount of total local storage, in GB.
 	//
 	// To specify no maximum limit, omit this parameter.
-	Max *float64 `json:"max" yaml:"max"`
+	Max *float64 `field:"optional" json:"max" yaml:"max"`
 	// The minimum amount of total local storage, in GB.
 	//
 	// To specify no minimum limit, omit this parameter.
-	Min *float64 `json:"min" yaml:"min"`
+	Min *float64 `field:"optional" json:"min" yaml:"min"`
 }
 
 // The minimum and maximum number of vCPUs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   vCpuCountRangeRequestProperty := &vCpuCountRangeRequestProperty{
 //   	max: jsii.Number(123),
 //   	min: jsii.Number(123),
@@ -45745,17 +46456,20 @@ type CfnSpotFleet_VCpuCountRangeRequestProperty struct {
 	// The maximum number of vCPUs.
 	//
 	// To specify no maximum limit, omit this parameter.
-	Max *float64 `json:"max" yaml:"max"`
+	Max *float64 `field:"optional" json:"max" yaml:"max"`
 	// The minimum number of vCPUs.
 	//
 	// To specify no minimum limit, specify `0` .
-	Min *float64 `json:"min" yaml:"min"`
+	Min *float64 `field:"optional" json:"min" yaml:"min"`
 }
 
 // Properties for defining a `CfnSpotFleet`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnSpotFleetProps := &cfnSpotFleetProps{
 //   	spotFleetRequestConfigData: &spotFleetRequestConfigDataProperty{
 //   		iamFleetRole: jsii.String("iamFleetRole"),
@@ -46036,7 +46750,7 @@ type CfnSpotFleet_VCpuCountRangeRequestProperty struct {
 //
 type CfnSpotFleetProps struct {
 	// Describes the configuration of a Spot Fleet request.
-	SpotFleetRequestConfigData interface{} `json:"spotFleetRequestConfigData" yaml:"spotFleetRequestConfigData"`
+	SpotFleetRequestConfigData interface{} `field:"required" json:"spotFleetRequestConfigData" yaml:"spotFleetRequestConfigData"`
 }
 
 // A CloudFormation `AWS::EC2::Subnet`.
@@ -46048,10 +46762,13 @@ type CfnSpotFleetProps struct {
 // If you've associated an IPv6 CIDR block with your VPC, you can create a subnet with an IPv6 CIDR block that uses a /64 prefix length.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var privateDnsNameOptionsOnLaunch interface{}
-//   cfnSubnet := ec2.NewCfnSubnet(this, jsii.String("MyCfnSubnet"), &cfnSubnetProps{
+//
+//   cfnSubnet := awscdk.Aws_ec2.NewCfnSubnet(this, jsii.String("MyCfnSubnet"), &cfnSubnetProps{
 //   	vpcId: jsii.String("vpcId"),
 //
 //   	// the properties below are optional
@@ -47018,8 +47735,11 @@ func (c *jsiiProxy_CfnSubnet) ValidateProperties(_properties interface{}) {
 // Associates a CIDR block with your subnet. You can associate a single IPv6 CIDR block with your subnet. An IPv6 CIDR block must have a prefix length of /64.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnSubnetCidrBlock := ec2.NewCfnSubnetCidrBlock(this, jsii.String("MyCfnSubnetCidrBlock"), &cfnSubnetCidrBlockProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnSubnetCidrBlock := awscdk.Aws_ec2.NewCfnSubnetCidrBlock(this, jsii.String("MyCfnSubnetCidrBlock"), &cfnSubnetCidrBlockProps{
 //   	ipv6CidrBlock: jsii.String("ipv6CidrBlock"),
 //   	subnetId: jsii.String("subnetId"),
 //   })
@@ -47676,7 +48396,10 @@ func (c *jsiiProxy_CfnSubnetCidrBlock) ValidateProperties(_properties interface{
 // Properties for defining a `CfnSubnetCidrBlock`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnSubnetCidrBlockProps := &cfnSubnetCidrBlockProps{
 //   	ipv6CidrBlock: jsii.String("ipv6CidrBlock"),
 //   	subnetId: jsii.String("subnetId"),
@@ -47686,9 +48409,9 @@ type CfnSubnetCidrBlockProps struct {
 	// The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length.
 	//
 	// This parameter is required for an IPv6 only subnet.
-	Ipv6CidrBlock *string `json:"ipv6CidrBlock" yaml:"ipv6CidrBlock"`
+	Ipv6CidrBlock *string `field:"required" json:"ipv6CidrBlock" yaml:"ipv6CidrBlock"`
 	// The ID of the subnet.
-	SubnetId *string `json:"subnetId" yaml:"subnetId"`
+	SubnetId *string `field:"required" json:"subnetId" yaml:"subnetId"`
 }
 
 // A CloudFormation `AWS::EC2::SubnetNetworkAclAssociation`.
@@ -47698,8 +48421,11 @@ type CfnSubnetCidrBlockProps struct {
 // When `AWS::EC2::SubnetNetworkAclAssociation` resources are created during create or update operations, AWS CloudFormation adopts existing resources that share the same key properties (the properties that contribute to uniquely identify the resource). However, if the operation fails and rolls back, AWS CloudFormation deletes the previously out-of-band resources. You can protect against this behavior by using `Retain` deletion policies. For more information, see [DeletionPolicy Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnSubnetNetworkAclAssociation := ec2.NewCfnSubnetNetworkAclAssociation(this, jsii.String("MyCfnSubnetNetworkAclAssociation"), &cfnSubnetNetworkAclAssociationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnSubnetNetworkAclAssociation := awscdk.Aws_ec2.NewCfnSubnetNetworkAclAssociation(this, jsii.String("MyCfnSubnetNetworkAclAssociation"), &cfnSubnetNetworkAclAssociationProps{
 //   	networkAclId: jsii.String("networkAclId"),
 //   	subnetId: jsii.String("subnetId"),
 //   })
@@ -48366,7 +49092,10 @@ func (c *jsiiProxy_CfnSubnetNetworkAclAssociation) ValidateProperties(_propertie
 // Properties for defining a `CfnSubnetNetworkAclAssociation`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnSubnetNetworkAclAssociationProps := &cfnSubnetNetworkAclAssociationProps{
 //   	networkAclId: jsii.String("networkAclId"),
 //   	subnetId: jsii.String("subnetId"),
@@ -48374,17 +49103,20 @@ func (c *jsiiProxy_CfnSubnetNetworkAclAssociation) ValidateProperties(_propertie
 //
 type CfnSubnetNetworkAclAssociationProps struct {
 	// The ID of the network ACL.
-	NetworkAclId *string `json:"networkAclId" yaml:"networkAclId"`
+	NetworkAclId *string `field:"required" json:"networkAclId" yaml:"networkAclId"`
 	// The ID of the subnet.
-	SubnetId *string `json:"subnetId" yaml:"subnetId"`
+	SubnetId *string `field:"required" json:"subnetId" yaml:"subnetId"`
 }
 
 // Properties for defining a `CfnSubnet`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var privateDnsNameOptionsOnLaunch interface{}
+//
 //   cfnSubnetProps := &cfnSubnetProps{
 //   	vpcId: jsii.String("vpcId"),
 //
@@ -48411,45 +49143,45 @@ type CfnSubnetProps struct {
 	// The ID of the VPC the subnet is in.
 	//
 	// If you update this property, you must also update the `CidrBlock` property.
-	VpcId *string `json:"vpcId" yaml:"vpcId"`
+	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
 	// Indicates whether a network interface created in this subnet receives an IPv6 address. The default value is `false` .
 	//
 	// If you specify `AssignIpv6AddressOnCreation` , you must also specify `Ipv6CidrBlock` .
-	AssignIpv6AddressOnCreation interface{} `json:"assignIpv6AddressOnCreation" yaml:"assignIpv6AddressOnCreation"`
+	AssignIpv6AddressOnCreation interface{} `field:"optional" json:"assignIpv6AddressOnCreation" yaml:"assignIpv6AddressOnCreation"`
 	// The Availability Zone of the subnet.
 	//
 	// If you update this property, you must also update the `CidrBlock` property.
-	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
+	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
 	// The AZ ID of the subnet.
-	AvailabilityZoneId *string `json:"availabilityZoneId" yaml:"availabilityZoneId"`
+	AvailabilityZoneId *string `field:"optional" json:"availabilityZoneId" yaml:"availabilityZoneId"`
 	// The IPv4 CIDR block assigned to the subnet.
 	//
 	// If you update this property, we create a new subnet, and then delete the existing one.
-	CidrBlock *string `json:"cidrBlock" yaml:"cidrBlock"`
+	CidrBlock *string `field:"optional" json:"cidrBlock" yaml:"cidrBlock"`
 	// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations.
 	//
 	// For more information, see [DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-nat64-dns64) in the *Amazon Virtual Private Cloud User Guide* .
-	EnableDns64 interface{} `json:"enableDns64" yaml:"enableDns64"`
+	EnableDns64 interface{} `field:"optional" json:"enableDns64" yaml:"enableDns64"`
 	// The IPv6 CIDR block.
 	//
 	// If you specify `AssignIpv6AddressOnCreation` , you must also specify `Ipv6CidrBlock` .
-	Ipv6CidrBlock *string `json:"ipv6CidrBlock" yaml:"ipv6CidrBlock"`
+	Ipv6CidrBlock *string `field:"optional" json:"ipv6CidrBlock" yaml:"ipv6CidrBlock"`
 	// Indicates whether this is an IPv6 only subnet.
 	//
 	// For more information, see [Subnet basics](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#subnet-basics) in the *Amazon Virtual Private Cloud User Guide* .
-	Ipv6Native interface{} `json:"ipv6Native" yaml:"ipv6Native"`
+	Ipv6Native interface{} `field:"optional" json:"ipv6Native" yaml:"ipv6Native"`
 	// Indicates whether instances launched in this subnet receive a public IPv4 address.
 	//
 	// The default value is `false` .
-	MapPublicIpOnLaunch interface{} `json:"mapPublicIpOnLaunch" yaml:"mapPublicIpOnLaunch"`
+	MapPublicIpOnLaunch interface{} `field:"optional" json:"mapPublicIpOnLaunch" yaml:"mapPublicIpOnLaunch"`
 	// The Amazon Resource Name (ARN) of the Outpost.
-	OutpostArn *string `json:"outpostArn" yaml:"outpostArn"`
+	OutpostArn *string `field:"optional" json:"outpostArn" yaml:"outpostArn"`
 	// The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled.
 	//
 	// For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *Amazon Elastic Compute Cloud User Guide* .
-	PrivateDnsNameOptionsOnLaunch interface{} `json:"privateDnsNameOptionsOnLaunch" yaml:"privateDnsNameOptionsOnLaunch"`
+	PrivateDnsNameOptionsOnLaunch interface{} `field:"optional" json:"privateDnsNameOptionsOnLaunch" yaml:"privateDnsNameOptionsOnLaunch"`
 	// Any tags assigned to the subnet.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::EC2::SubnetRouteTableAssociation`.
@@ -48457,8 +49189,11 @@ type CfnSubnetProps struct {
 // Associates a subnet with a route table. The subnet and route table must be in the same VPC. This association causes traffic originating from the subnet to be routed according to the routes in the route table. A route table can be associated with multiple subnets. If you want to associate a route table with a VPC, see [AWS::EC2::RouteTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route-table.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnSubnetRouteTableAssociation := ec2.NewCfnSubnetRouteTableAssociation(this, jsii.String("MyCfnSubnetRouteTableAssociation"), &cfnSubnetRouteTableAssociationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnSubnetRouteTableAssociation := awscdk.Aws_ec2.NewCfnSubnetRouteTableAssociation(this, jsii.String("MyCfnSubnetRouteTableAssociation"), &cfnSubnetRouteTableAssociationProps{
 //   	routeTableId: jsii.String("routeTableId"),
 //   	subnetId: jsii.String("subnetId"),
 //   })
@@ -49127,7 +49862,10 @@ func (c *jsiiProxy_CfnSubnetRouteTableAssociation) ValidateProperties(_propertie
 // Properties for defining a `CfnSubnetRouteTableAssociation`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnSubnetRouteTableAssociationProps := &cfnSubnetRouteTableAssociationProps{
 //   	routeTableId: jsii.String("routeTableId"),
 //   	subnetId: jsii.String("subnetId"),
@@ -49137,9 +49875,9 @@ type CfnSubnetRouteTableAssociationProps struct {
 	// The ID of the route table.
 	//
 	// The physical ID changes when the route table ID is changed.
-	RouteTableId *string `json:"routeTableId" yaml:"routeTableId"`
+	RouteTableId *string `field:"required" json:"routeTableId" yaml:"routeTableId"`
 	// The ID of the subnet.
-	SubnetId *string `json:"subnetId" yaml:"subnetId"`
+	SubnetId *string `field:"required" json:"subnetId" yaml:"subnetId"`
 }
 
 // A CloudFormation `AWS::EC2::TrafficMirrorFilter`.
@@ -49151,8 +49889,11 @@ type CfnSubnetRouteTableAssociationProps struct {
 // By default, no traffic is mirrored. To mirror traffic, use [AWS::EC2::TrafficMirrorFilterRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html) to add Traffic Mirror rules to the filter. The rules you add define what traffic gets mirrored.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnTrafficMirrorFilter := ec2.NewCfnTrafficMirrorFilter(this, jsii.String("MyCfnTrafficMirrorFilter"), &cfnTrafficMirrorFilterProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnTrafficMirrorFilter := awscdk.Aws_ec2.NewCfnTrafficMirrorFilter(this, jsii.String("MyCfnTrafficMirrorFilter"), &cfnTrafficMirrorFilterProps{
 //   	description: jsii.String("description"),
 //   	networkServices: []*string{
 //   		jsii.String("networkServices"),
@@ -49829,7 +50570,10 @@ func (c *jsiiProxy_CfnTrafficMirrorFilter) ValidateProperties(_properties interf
 // Properties for defining a `CfnTrafficMirrorFilter`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnTrafficMirrorFilterProps := &cfnTrafficMirrorFilterProps{
 //   	description: jsii.String("description"),
 //   	networkServices: []*string{
@@ -49845,13 +50589,13 @@ func (c *jsiiProxy_CfnTrafficMirrorFilter) ValidateProperties(_properties interf
 //
 type CfnTrafficMirrorFilterProps struct {
 	// The description of the Traffic Mirror filter.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The network service traffic that is associated with the Traffic Mirror filter.
 	//
 	// Valid values are `amazon-dns` .
-	NetworkServices *[]*string `json:"networkServices" yaml:"networkServices"`
+	NetworkServices *[]*string `field:"optional" json:"networkServices" yaml:"networkServices"`
 	// The tags to assign to a Traffic Mirror filter.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::EC2::TrafficMirrorFilterRule`.
@@ -49863,8 +50607,11 @@ type CfnTrafficMirrorFilterProps struct {
 // You need the Traffic Mirror filter ID when you create the rule.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnTrafficMirrorFilterRule := ec2.NewCfnTrafficMirrorFilterRule(this, jsii.String("MyCfnTrafficMirrorFilterRule"), &cfnTrafficMirrorFilterRuleProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnTrafficMirrorFilterRule := awscdk.Aws_ec2.NewCfnTrafficMirrorFilterRule(this, jsii.String("MyCfnTrafficMirrorFilterRule"), &cfnTrafficMirrorFilterRuleProps{
 //   	destinationCidrBlock: jsii.String("destinationCidrBlock"),
 //   	ruleAction: jsii.String("ruleAction"),
 //   	ruleNumber: jsii.Number(123),
@@ -50707,7 +51454,10 @@ func (c *jsiiProxy_CfnTrafficMirrorFilterRule) ValidateProperties(_properties in
 // Describes the Traffic Mirror port range.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   trafficMirrorPortRangeProperty := &trafficMirrorPortRangeProperty{
 //   	fromPort: jsii.Number(123),
 //   	toPort: jsii.Number(123),
@@ -50717,17 +51467,20 @@ type CfnTrafficMirrorFilterRule_TrafficMirrorPortRangeProperty struct {
 	// The start of the Traffic Mirror port range.
 	//
 	// This applies to the TCP and UDP protocols.
-	FromPort *float64 `json:"fromPort" yaml:"fromPort"`
+	FromPort *float64 `field:"required" json:"fromPort" yaml:"fromPort"`
 	// The end of the Traffic Mirror port range.
 	//
 	// This applies to the TCP and UDP protocols.
-	ToPort *float64 `json:"toPort" yaml:"toPort"`
+	ToPort *float64 `field:"required" json:"toPort" yaml:"toPort"`
 }
 
 // Properties for defining a `CfnTrafficMirrorFilterRule`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnTrafficMirrorFilterRuleProps := &cfnTrafficMirrorFilterRuleProps{
 //   	destinationCidrBlock: jsii.String("destinationCidrBlock"),
 //   	ruleAction: jsii.String("ruleAction"),
@@ -50751,29 +51504,29 @@ type CfnTrafficMirrorFilterRule_TrafficMirrorPortRangeProperty struct {
 //
 type CfnTrafficMirrorFilterRuleProps struct {
 	// The destination CIDR block to assign to the Traffic Mirror rule.
-	DestinationCidrBlock *string `json:"destinationCidrBlock" yaml:"destinationCidrBlock"`
+	DestinationCidrBlock *string `field:"required" json:"destinationCidrBlock" yaml:"destinationCidrBlock"`
 	// The action to take on the filtered traffic.
-	RuleAction *string `json:"ruleAction" yaml:"ruleAction"`
+	RuleAction *string `field:"required" json:"ruleAction" yaml:"ruleAction"`
 	// The number of the Traffic Mirror rule.
 	//
 	// This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
-	RuleNumber *float64 `json:"ruleNumber" yaml:"ruleNumber"`
+	RuleNumber *float64 `field:"required" json:"ruleNumber" yaml:"ruleNumber"`
 	// The source CIDR block to assign to the Traffic Mirror rule.
-	SourceCidrBlock *string `json:"sourceCidrBlock" yaml:"sourceCidrBlock"`
+	SourceCidrBlock *string `field:"required" json:"sourceCidrBlock" yaml:"sourceCidrBlock"`
 	// The type of traffic.
-	TrafficDirection *string `json:"trafficDirection" yaml:"trafficDirection"`
+	TrafficDirection *string `field:"required" json:"trafficDirection" yaml:"trafficDirection"`
 	// The ID of the filter that this rule is associated with.
-	TrafficMirrorFilterId *string `json:"trafficMirrorFilterId" yaml:"trafficMirrorFilterId"`
+	TrafficMirrorFilterId *string `field:"required" json:"trafficMirrorFilterId" yaml:"trafficMirrorFilterId"`
 	// The description of the Traffic Mirror rule.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The destination port range.
-	DestinationPortRange interface{} `json:"destinationPortRange" yaml:"destinationPortRange"`
+	DestinationPortRange interface{} `field:"optional" json:"destinationPortRange" yaml:"destinationPortRange"`
 	// The protocol, for example UDP, to assign to the Traffic Mirror rule.
 	//
 	// For information about the protocol value, see [Protocol Numbers](https://docs.aws.amazon.com/https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
-	Protocol *float64 `json:"protocol" yaml:"protocol"`
+	Protocol *float64 `field:"optional" json:"protocol" yaml:"protocol"`
 	// The source port range.
-	SourcePortRange interface{} `json:"sourcePortRange" yaml:"sourcePortRange"`
+	SourcePortRange interface{} `field:"optional" json:"sourcePortRange" yaml:"sourcePortRange"`
 }
 
 // A CloudFormation `AWS::EC2::TrafficMirrorSession`.
@@ -50787,8 +51540,11 @@ type CfnTrafficMirrorFilterRuleProps struct {
 // By default, no traffic is mirrored. Use [AWS::EC2::TrafficMirrorFilterRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html) to specify filter rules that specify the traffic to mirror.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnTrafficMirrorSession := ec2.NewCfnTrafficMirrorSession(this, jsii.String("MyCfnTrafficMirrorSession"), &cfnTrafficMirrorSessionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnTrafficMirrorSession := awscdk.Aws_ec2.NewCfnTrafficMirrorSession(this, jsii.String("MyCfnTrafficMirrorSession"), &cfnTrafficMirrorSessionProps{
 //   	networkInterfaceId: jsii.String("networkInterfaceId"),
 //   	sessionNumber: jsii.Number(123),
 //   	trafficMirrorFilterId: jsii.String("trafficMirrorFilterId"),
@@ -51583,7 +52339,10 @@ func (c *jsiiProxy_CfnTrafficMirrorSession) ValidateProperties(_properties inter
 // Properties for defining a `CfnTrafficMirrorSession`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnTrafficMirrorSessionProps := &cfnTrafficMirrorSessionProps{
 //   	networkInterfaceId: jsii.String("networkInterfaceId"),
 //   	sessionNumber: jsii.Number(123),
@@ -51604,31 +52363,31 @@ func (c *jsiiProxy_CfnTrafficMirrorSession) ValidateProperties(_properties inter
 //
 type CfnTrafficMirrorSessionProps struct {
 	// The ID of the source network interface.
-	NetworkInterfaceId *string `json:"networkInterfaceId" yaml:"networkInterfaceId"`
+	NetworkInterfaceId *string `field:"required" json:"networkInterfaceId" yaml:"networkInterfaceId"`
 	// The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions.
 	//
 	// The first session with a matching filter is the one that mirrors the packets.
 	//
 	// Valid values are 1-32766.
-	SessionNumber *float64 `json:"sessionNumber" yaml:"sessionNumber"`
+	SessionNumber *float64 `field:"required" json:"sessionNumber" yaml:"sessionNumber"`
 	// The ID of the Traffic Mirror filter.
-	TrafficMirrorFilterId *string `json:"trafficMirrorFilterId" yaml:"trafficMirrorFilterId"`
+	TrafficMirrorFilterId *string `field:"required" json:"trafficMirrorFilterId" yaml:"trafficMirrorFilterId"`
 	// The ID of the Traffic Mirror target.
-	TrafficMirrorTargetId *string `json:"trafficMirrorTargetId" yaml:"trafficMirrorTargetId"`
+	TrafficMirrorTargetId *string `field:"required" json:"trafficMirrorTargetId" yaml:"trafficMirrorTargetId"`
 	// The description of the Traffic Mirror session.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The number of bytes in each packet to mirror.
 	//
 	// These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror. For example, if you set this value to 100, then the first 100 bytes that meet the filter criteria are copied to the target.
 	//
 	// If you do not want to mirror the entire packet, use the `PacketLength` parameter to specify the number of bytes in each packet to mirror.
-	PacketLength *float64 `json:"packetLength" yaml:"packetLength"`
+	PacketLength *float64 `field:"optional" json:"packetLength" yaml:"packetLength"`
 	// The tags to assign to a Traffic Mirror session.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The VXLAN ID for the Traffic Mirror session.
 	//
 	// For more information about the VXLAN protocol, see [RFC 7348](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc7348) . If you do not specify a `VirtualNetworkId` , an account-wide unique id is chosen at random.
-	VirtualNetworkId *float64 `json:"virtualNetworkId" yaml:"virtualNetworkId"`
+	VirtualNetworkId *float64 `field:"optional" json:"virtualNetworkId" yaml:"virtualNetworkId"`
 }
 
 // A CloudFormation `AWS::EC2::TrafficMirrorTarget`.
@@ -51642,8 +52401,11 @@ type CfnTrafficMirrorSessionProps struct {
 // To use the target in a Traffic Mirror session, use [AWS::EC2::TrafficMirrorSession](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorsession.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnTrafficMirrorTarget := ec2.NewCfnTrafficMirrorTarget(this, jsii.String("MyCfnTrafficMirrorTarget"), &cfnTrafficMirrorTargetProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnTrafficMirrorTarget := awscdk.Aws_ec2.NewCfnTrafficMirrorTarget(this, jsii.String("MyCfnTrafficMirrorTarget"), &cfnTrafficMirrorTargetProps{
 //   	description: jsii.String("description"),
 //   	networkInterfaceId: jsii.String("networkInterfaceId"),
 //   	networkLoadBalancerArn: jsii.String("networkLoadBalancerArn"),
@@ -52338,7 +53100,10 @@ func (c *jsiiProxy_CfnTrafficMirrorTarget) ValidateProperties(_properties interf
 // Properties for defining a `CfnTrafficMirrorTarget`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnTrafficMirrorTargetProps := &cfnTrafficMirrorTargetProps{
 //   	description: jsii.String("description"),
 //   	networkInterfaceId: jsii.String("networkInterfaceId"),
@@ -52353,13 +53118,13 @@ func (c *jsiiProxy_CfnTrafficMirrorTarget) ValidateProperties(_properties interf
 //
 type CfnTrafficMirrorTargetProps struct {
 	// The description of the Traffic Mirror target.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The network interface ID that is associated with the target.
-	NetworkInterfaceId *string `json:"networkInterfaceId" yaml:"networkInterfaceId"`
+	NetworkInterfaceId *string `field:"optional" json:"networkInterfaceId" yaml:"networkInterfaceId"`
 	// The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
-	NetworkLoadBalancerArn *string `json:"networkLoadBalancerArn" yaml:"networkLoadBalancerArn"`
+	NetworkLoadBalancerArn *string `field:"optional" json:"networkLoadBalancerArn" yaml:"networkLoadBalancerArn"`
 	// The tags to assign to the Traffic Mirror target.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::EC2::TransitGateway`.
@@ -52375,8 +53140,11 @@ type CfnTrafficMirrorTargetProps struct {
 // When you create a transit gateway, we create a default transit gateway route table and use it as the default association route table and the default propagation route table. You can use [AWS::EC2::TransitGatewayRouteTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetable.html) to create additional transit gateway route tables. If you disable automatic route propagation, we do not create a default transit gateway route table. You can use [AWS::EC2::TransitGatewayRouteTablePropagation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetablepropagation.html) to propagate routes from a resource attachment to a transit gateway route table. If you disable automatic associations, you can use [AWS::EC2::TransitGatewayRouteTableAssociation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetableassociation.html) to associate a resource attachment with a transit gateway route table.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnTransitGateway := ec2.NewCfnTransitGateway(this, jsii.String("MyCfnTransitGateway"), &cfnTransitGatewayProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnTransitGateway := awscdk.Aws_ec2.NewCfnTransitGateway(this, jsii.String("MyCfnTransitGateway"), &cfnTransitGatewayProps{
 //   	amazonSideAsn: jsii.Number(123),
 //   	associationDefaultRouteTableId: jsii.String("associationDefaultRouteTableId"),
 //   	autoAcceptSharedAttachments: jsii.String("autoAcceptSharedAttachments"),
@@ -53279,8 +54047,11 @@ func (c *jsiiProxy_CfnTransitGateway) ValidateProperties(_properties interface{}
 // To send VPC traffic to an attached transit gateway, add a route to the VPC route table using [AWS::EC2::Route](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnTransitGatewayAttachment := ec2.NewCfnTransitGatewayAttachment(this, jsii.String("MyCfnTransitGatewayAttachment"), &cfnTransitGatewayAttachmentProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnTransitGatewayAttachment := awscdk.Aws_ec2.NewCfnTransitGatewayAttachment(this, jsii.String("MyCfnTransitGatewayAttachment"), &cfnTransitGatewayAttachmentProps{
 //   	subnetIds: []*string{
 //   		jsii.String("subnetIds"),
 //   	},
@@ -53981,7 +54752,10 @@ func (c *jsiiProxy_CfnTransitGatewayAttachment) ValidateProperties(_properties i
 // Properties for defining a `CfnTransitGatewayAttachment`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnTransitGatewayAttachmentProps := &cfnTransitGatewayAttachmentProps{
 //   	subnetIds: []*string{
 //   		jsii.String("subnetIds"),
@@ -54002,13 +54776,13 @@ type CfnTransitGatewayAttachmentProps struct {
 	// The IDs of one or more subnets.
 	//
 	// You can specify only one subnet per Availability Zone. You must specify at least one subnet, but we recommend that you specify two subnets for better availability. The transit gateway uses one IP address from each specified subnet.
-	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
+	SubnetIds *[]*string `field:"required" json:"subnetIds" yaml:"subnetIds"`
 	// The ID of the transit gateway.
-	TransitGatewayId *string `json:"transitGatewayId" yaml:"transitGatewayId"`
+	TransitGatewayId *string `field:"required" json:"transitGatewayId" yaml:"transitGatewayId"`
 	// The ID of the VPC.
-	VpcId *string `json:"vpcId" yaml:"vpcId"`
+	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
 	// The tags for the attachment.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::EC2::TransitGatewayConnect`.
@@ -54018,8 +54792,11 @@ type CfnTransitGatewayAttachmentProps struct {
 // A Connect attachment uses an existing VPC or AWS Direct Connect attachment as the underlying transport mechanism.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnTransitGatewayConnect := ec2.NewCfnTransitGatewayConnect(this, jsii.String("MyCfnTransitGatewayConnect"), &cfnTransitGatewayConnectProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnTransitGatewayConnect := awscdk.Aws_ec2.NewCfnTransitGatewayConnect(this, jsii.String("MyCfnTransitGatewayConnect"), &cfnTransitGatewayConnectProps{
 //   	options: &transitGatewayConnectOptionsProperty{
 //   		protocol: jsii.String("protocol"),
 //   	},
@@ -54746,20 +55523,26 @@ func (c *jsiiProxy_CfnTransitGatewayConnect) ValidateProperties(_properties inte
 // Describes the Connect attachment options.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   transitGatewayConnectOptionsProperty := &transitGatewayConnectOptionsProperty{
 //   	protocol: jsii.String("protocol"),
 //   }
 //
 type CfnTransitGatewayConnect_TransitGatewayConnectOptionsProperty struct {
 	// The tunnel protocol.
-	Protocol *string `json:"protocol" yaml:"protocol"`
+	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`
 }
 
 // Properties for defining a `CfnTransitGatewayConnect`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnTransitGatewayConnectProps := &cfnTransitGatewayConnectProps{
 //   	options: &transitGatewayConnectOptionsProperty{
 //   		protocol: jsii.String("protocol"),
@@ -54779,11 +55562,11 @@ type CfnTransitGatewayConnectProps struct {
 	// The Connect attachment options.
 	//
 	// - protocol (gre).
-	Options interface{} `json:"options" yaml:"options"`
+	Options interface{} `field:"required" json:"options" yaml:"options"`
 	// The ID of the attachment from which the Connect attachment was created.
-	TransportTransitGatewayAttachmentId *string `json:"transportTransitGatewayAttachmentId" yaml:"transportTransitGatewayAttachmentId"`
+	TransportTransitGatewayAttachmentId *string `field:"required" json:"transportTransitGatewayAttachmentId" yaml:"transportTransitGatewayAttachmentId"`
 	// The tags for the attachment.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::EC2::TransitGatewayMulticastDomain`.
@@ -54793,10 +55576,13 @@ type CfnTransitGatewayConnectProps struct {
 // The transit gateway must be in the available state before you create a domain.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var options interface{}
-//   cfnTransitGatewayMulticastDomain := ec2.NewCfnTransitGatewayMulticastDomain(this, jsii.String("MyCfnTransitGatewayMulticastDomain"), &cfnTransitGatewayMulticastDomainProps{
+//
+//   cfnTransitGatewayMulticastDomain := awscdk.Aws_ec2.NewCfnTransitGatewayMulticastDomain(this, jsii.String("MyCfnTransitGatewayMulticastDomain"), &cfnTransitGatewayMulticastDomainProps{
 //   	transitGatewayId: jsii.String("transitGatewayId"),
 //
 //   	// the properties below are optional
@@ -55527,8 +56313,11 @@ func (c *jsiiProxy_CfnTransitGatewayMulticastDomain) ValidateProperties(_propert
 // The transit gateway attachment must be in the available state before you can add a resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnTransitGatewayMulticastDomainAssociation := ec2.NewCfnTransitGatewayMulticastDomainAssociation(this, jsii.String("MyCfnTransitGatewayMulticastDomainAssociation"), &cfnTransitGatewayMulticastDomainAssociationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnTransitGatewayMulticastDomainAssociation := awscdk.Aws_ec2.NewCfnTransitGatewayMulticastDomainAssociation(this, jsii.String("MyCfnTransitGatewayMulticastDomainAssociation"), &cfnTransitGatewayMulticastDomainAssociationProps{
 //   	subnetId: jsii.String("subnetId"),
 //   	transitGatewayAttachmentId: jsii.String("transitGatewayAttachmentId"),
 //   	transitGatewayMulticastDomainId: jsii.String("transitGatewayMulticastDomainId"),
@@ -56241,7 +57030,10 @@ func (c *jsiiProxy_CfnTransitGatewayMulticastDomainAssociation) ValidateProperti
 // Properties for defining a `CfnTransitGatewayMulticastDomainAssociation`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnTransitGatewayMulticastDomainAssociationProps := &cfnTransitGatewayMulticastDomainAssociationProps{
 //   	subnetId: jsii.String("subnetId"),
 //   	transitGatewayAttachmentId: jsii.String("transitGatewayAttachmentId"),
@@ -56250,19 +57042,22 @@ func (c *jsiiProxy_CfnTransitGatewayMulticastDomainAssociation) ValidateProperti
 //
 type CfnTransitGatewayMulticastDomainAssociationProps struct {
 	// The IDs of the subnets to associate with the transit gateway multicast domain.
-	SubnetId *string `json:"subnetId" yaml:"subnetId"`
+	SubnetId *string `field:"required" json:"subnetId" yaml:"subnetId"`
 	// The ID of the transit gateway attachment.
-	TransitGatewayAttachmentId *string `json:"transitGatewayAttachmentId" yaml:"transitGatewayAttachmentId"`
+	TransitGatewayAttachmentId *string `field:"required" json:"transitGatewayAttachmentId" yaml:"transitGatewayAttachmentId"`
 	// The ID of the transit gateway multicast domain.
-	TransitGatewayMulticastDomainId *string `json:"transitGatewayMulticastDomainId" yaml:"transitGatewayMulticastDomainId"`
+	TransitGatewayMulticastDomainId *string `field:"required" json:"transitGatewayMulticastDomainId" yaml:"transitGatewayMulticastDomainId"`
 }
 
 // Properties for defining a `CfnTransitGatewayMulticastDomain`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var options interface{}
+//
 //   cfnTransitGatewayMulticastDomainProps := &cfnTransitGatewayMulticastDomainProps{
 //   	transitGatewayId: jsii.String("transitGatewayId"),
 //
@@ -56278,15 +57073,15 @@ type CfnTransitGatewayMulticastDomainAssociationProps struct {
 //
 type CfnTransitGatewayMulticastDomainProps struct {
 	// The ID of the transit gateway.
-	TransitGatewayId *string `json:"transitGatewayId" yaml:"transitGatewayId"`
+	TransitGatewayId *string `field:"required" json:"transitGatewayId" yaml:"transitGatewayId"`
 	// The options for the transit gateway multicast domain.
 	//
 	// - AutoAcceptSharedAssociations (enable | disable)
 	// - Igmpv2Support (enable | disable)
 	// - StaticSourcesSupport (enable | disable).
-	Options interface{} `json:"options" yaml:"options"`
+	Options interface{} `field:"optional" json:"options" yaml:"options"`
 	// The tags for the transit gateway multicast domain.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::EC2::TransitGatewayMulticastGroupMember`.
@@ -56294,8 +57089,11 @@ type CfnTransitGatewayMulticastDomainProps struct {
 // Registers members (network interfaces) with the transit gateway multicast group. A member is a network interface associated with a supported EC2 instance that receives multicast traffic. For information about supported instances, see [Multicast Consideration](https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-limits.html#multicast-limits) in *Amazon VPC Transit Gateways* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnTransitGatewayMulticastGroupMember := ec2.NewCfnTransitGatewayMulticastGroupMember(this, jsii.String("MyCfnTransitGatewayMulticastGroupMember"), &cfnTransitGatewayMulticastGroupMemberProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnTransitGatewayMulticastGroupMember := awscdk.Aws_ec2.NewCfnTransitGatewayMulticastGroupMember(this, jsii.String("MyCfnTransitGatewayMulticastGroupMember"), &cfnTransitGatewayMulticastGroupMemberProps{
 //   	groupIpAddress: jsii.String("groupIpAddress"),
 //   	networkInterfaceId: jsii.String("networkInterfaceId"),
 //   	transitGatewayMulticastDomainId: jsii.String("transitGatewayMulticastDomainId"),
@@ -57068,7 +57866,10 @@ func (c *jsiiProxy_CfnTransitGatewayMulticastGroupMember) ValidateProperties(_pr
 // Properties for defining a `CfnTransitGatewayMulticastGroupMember`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnTransitGatewayMulticastGroupMemberProps := &cfnTransitGatewayMulticastGroupMemberProps{
 //   	groupIpAddress: jsii.String("groupIpAddress"),
 //   	networkInterfaceId: jsii.String("networkInterfaceId"),
@@ -57077,11 +57878,11 @@ func (c *jsiiProxy_CfnTransitGatewayMulticastGroupMember) ValidateProperties(_pr
 //
 type CfnTransitGatewayMulticastGroupMemberProps struct {
 	// The IP address assigned to the transit gateway multicast group.
-	GroupIpAddress *string `json:"groupIpAddress" yaml:"groupIpAddress"`
+	GroupIpAddress *string `field:"required" json:"groupIpAddress" yaml:"groupIpAddress"`
 	// The group members' network interface IDs to register with the transit gateway multicast group.
-	NetworkInterfaceId *string `json:"networkInterfaceId" yaml:"networkInterfaceId"`
+	NetworkInterfaceId *string `field:"required" json:"networkInterfaceId" yaml:"networkInterfaceId"`
 	// The ID of the transit gateway multicast domain.
-	TransitGatewayMulticastDomainId *string `json:"transitGatewayMulticastDomainId" yaml:"transitGatewayMulticastDomainId"`
+	TransitGatewayMulticastDomainId *string `field:"required" json:"transitGatewayMulticastDomainId" yaml:"transitGatewayMulticastDomainId"`
 }
 
 // A CloudFormation `AWS::EC2::TransitGatewayMulticastGroupSource`.
@@ -57091,8 +57892,11 @@ type CfnTransitGatewayMulticastGroupMemberProps struct {
 // A multicast source is a network interface attached to a supported instance that sends multicast traffic. For information about supported instances, see [Multicast Considerations](https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-limits.html#multicast-limits) in *Amazon VPC Transit Gateways* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnTransitGatewayMulticastGroupSource := ec2.NewCfnTransitGatewayMulticastGroupSource(this, jsii.String("MyCfnTransitGatewayMulticastGroupSource"), &cfnTransitGatewayMulticastGroupSourceProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnTransitGatewayMulticastGroupSource := awscdk.Aws_ec2.NewCfnTransitGatewayMulticastGroupSource(this, jsii.String("MyCfnTransitGatewayMulticastGroupSource"), &cfnTransitGatewayMulticastGroupSourceProps{
 //   	groupIpAddress: jsii.String("groupIpAddress"),
 //   	networkInterfaceId: jsii.String("networkInterfaceId"),
 //   	transitGatewayMulticastDomainId: jsii.String("transitGatewayMulticastDomainId"),
@@ -57865,7 +58669,10 @@ func (c *jsiiProxy_CfnTransitGatewayMulticastGroupSource) ValidateProperties(_pr
 // Properties for defining a `CfnTransitGatewayMulticastGroupSource`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnTransitGatewayMulticastGroupSourceProps := &cfnTransitGatewayMulticastGroupSourceProps{
 //   	groupIpAddress: jsii.String("groupIpAddress"),
 //   	networkInterfaceId: jsii.String("networkInterfaceId"),
@@ -57874,11 +58681,11 @@ func (c *jsiiProxy_CfnTransitGatewayMulticastGroupSource) ValidateProperties(_pr
 //
 type CfnTransitGatewayMulticastGroupSourceProps struct {
 	// The IP address assigned to the transit gateway multicast group.
-	GroupIpAddress *string `json:"groupIpAddress" yaml:"groupIpAddress"`
+	GroupIpAddress *string `field:"required" json:"groupIpAddress" yaml:"groupIpAddress"`
 	// The group sources' network interface IDs to register with the transit gateway multicast group.
-	NetworkInterfaceId *string `json:"networkInterfaceId" yaml:"networkInterfaceId"`
+	NetworkInterfaceId *string `field:"required" json:"networkInterfaceId" yaml:"networkInterfaceId"`
 	// The ID of the transit gateway multicast domain.
-	TransitGatewayMulticastDomainId *string `json:"transitGatewayMulticastDomainId" yaml:"transitGatewayMulticastDomainId"`
+	TransitGatewayMulticastDomainId *string `field:"required" json:"transitGatewayMulticastDomainId" yaml:"transitGatewayMulticastDomainId"`
 }
 
 // A CloudFormation `AWS::EC2::TransitGatewayPeeringAttachment`.
@@ -57888,8 +58695,11 @@ type CfnTransitGatewayMulticastGroupSourceProps struct {
 // After you create the peering attachment, the owner of the accepter transit gateway must accept the attachment request.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnTransitGatewayPeeringAttachment := ec2.NewCfnTransitGatewayPeeringAttachment(this, jsii.String("MyCfnTransitGatewayPeeringAttachment"), &cfnTransitGatewayPeeringAttachmentProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnTransitGatewayPeeringAttachment := awscdk.Aws_ec2.NewCfnTransitGatewayPeeringAttachment(this, jsii.String("MyCfnTransitGatewayPeeringAttachment"), &cfnTransitGatewayPeeringAttachmentProps{
 //   	peerAccountId: jsii.String("peerAccountId"),
 //   	peerRegion: jsii.String("peerRegion"),
 //   	peerTransitGatewayId: jsii.String("peerTransitGatewayId"),
@@ -58646,7 +59456,10 @@ func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) ValidateProperties(_prope
 // Properties for defining a `CfnTransitGatewayPeeringAttachment`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnTransitGatewayPeeringAttachmentProps := &cfnTransitGatewayPeeringAttachmentProps{
 //   	peerAccountId: jsii.String("peerAccountId"),
 //   	peerRegion: jsii.String("peerRegion"),
@@ -58664,21 +59477,24 @@ func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) ValidateProperties(_prope
 //
 type CfnTransitGatewayPeeringAttachmentProps struct {
 	// The ID of the AWS account that owns the transit gateway.
-	PeerAccountId *string `json:"peerAccountId" yaml:"peerAccountId"`
+	PeerAccountId *string `field:"required" json:"peerAccountId" yaml:"peerAccountId"`
 	// The Region of the transit gateway.
-	PeerRegion *string `json:"peerRegion" yaml:"peerRegion"`
+	PeerRegion *string `field:"required" json:"peerRegion" yaml:"peerRegion"`
 	// The ID of the transit gateway.
-	PeerTransitGatewayId *string `json:"peerTransitGatewayId" yaml:"peerTransitGatewayId"`
+	PeerTransitGatewayId *string `field:"required" json:"peerTransitGatewayId" yaml:"peerTransitGatewayId"`
 	// The ID of the transit gateway peering attachment.
-	TransitGatewayId *string `json:"transitGatewayId" yaml:"transitGatewayId"`
+	TransitGatewayId *string `field:"required" json:"transitGatewayId" yaml:"transitGatewayId"`
 	// The tags for the transit gateway peering attachment.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // Properties for defining a `CfnTransitGateway`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnTransitGatewayProps := &cfnTransitGatewayProps{
 //   	amazonSideAsn: jsii.Number(123),
 //   	associationDefaultRouteTableId: jsii.String("associationDefaultRouteTableId"),
@@ -58705,39 +59521,39 @@ type CfnTransitGatewayProps struct {
 	// A private Autonomous System Number (ASN) for the Amazon side of a BGP session.
 	//
 	// The range is 64512 to 65534 for 16-bit ASNs. The default is 64512.
-	AmazonSideAsn *float64 `json:"amazonSideAsn" yaml:"amazonSideAsn"`
+	AmazonSideAsn *float64 `field:"optional" json:"amazonSideAsn" yaml:"amazonSideAsn"`
 	// The ID of the default association route table.
-	AssociationDefaultRouteTableId *string `json:"associationDefaultRouteTableId" yaml:"associationDefaultRouteTableId"`
+	AssociationDefaultRouteTableId *string `field:"optional" json:"associationDefaultRouteTableId" yaml:"associationDefaultRouteTableId"`
 	// Enable or disable automatic acceptance of attachment requests.
 	//
 	// Disabled by default.
-	AutoAcceptSharedAttachments *string `json:"autoAcceptSharedAttachments" yaml:"autoAcceptSharedAttachments"`
+	AutoAcceptSharedAttachments *string `field:"optional" json:"autoAcceptSharedAttachments" yaml:"autoAcceptSharedAttachments"`
 	// Enable or disable automatic association with the default association route table.
 	//
 	// Enabled by default.
-	DefaultRouteTableAssociation *string `json:"defaultRouteTableAssociation" yaml:"defaultRouteTableAssociation"`
+	DefaultRouteTableAssociation *string `field:"optional" json:"defaultRouteTableAssociation" yaml:"defaultRouteTableAssociation"`
 	// Enable or disable automatic propagation of routes to the default propagation route table.
 	//
 	// Enabled by default.
-	DefaultRouteTablePropagation *string `json:"defaultRouteTablePropagation" yaml:"defaultRouteTablePropagation"`
+	DefaultRouteTablePropagation *string `field:"optional" json:"defaultRouteTablePropagation" yaml:"defaultRouteTablePropagation"`
 	// The description of the transit gateway.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Enable or disable DNS support.
 	//
 	// Enabled by default.
-	DnsSupport *string `json:"dnsSupport" yaml:"dnsSupport"`
+	DnsSupport *string `field:"optional" json:"dnsSupport" yaml:"dnsSupport"`
 	// Indicates whether multicast is enabled on the transit gateway.
-	MulticastSupport *string `json:"multicastSupport" yaml:"multicastSupport"`
+	MulticastSupport *string `field:"optional" json:"multicastSupport" yaml:"multicastSupport"`
 	// The ID of the default propagation route table.
-	PropagationDefaultRouteTableId *string `json:"propagationDefaultRouteTableId" yaml:"propagationDefaultRouteTableId"`
+	PropagationDefaultRouteTableId *string `field:"optional" json:"propagationDefaultRouteTableId" yaml:"propagationDefaultRouteTableId"`
 	// The tags for the transit gateway.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The transit gateway CIDR blocks.
-	TransitGatewayCidrBlocks *[]*string `json:"transitGatewayCidrBlocks" yaml:"transitGatewayCidrBlocks"`
+	TransitGatewayCidrBlocks *[]*string `field:"optional" json:"transitGatewayCidrBlocks" yaml:"transitGatewayCidrBlocks"`
 	// Enable or disable Equal Cost Multipath Protocol support.
 	//
 	// Enabled by default.
-	VpnEcmpSupport *string `json:"vpnEcmpSupport" yaml:"vpnEcmpSupport"`
+	VpnEcmpSupport *string `field:"optional" json:"vpnEcmpSupport" yaml:"vpnEcmpSupport"`
 }
 
 // A CloudFormation `AWS::EC2::TransitGatewayRoute`.
@@ -58745,8 +59561,11 @@ type CfnTransitGatewayProps struct {
 // Specifies a static route for a transit gateway route table.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnTransitGatewayRoute := ec2.NewCfnTransitGatewayRoute(this, jsii.String("MyCfnTransitGatewayRoute"), &cfnTransitGatewayRouteProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnTransitGatewayRoute := awscdk.Aws_ec2.NewCfnTransitGatewayRoute(this, jsii.String("MyCfnTransitGatewayRoute"), &cfnTransitGatewayRouteProps{
 //   	transitGatewayRouteTableId: jsii.String("transitGatewayRouteTableId"),
 //
 //   	// the properties below are optional
@@ -59447,7 +60266,10 @@ func (c *jsiiProxy_CfnTransitGatewayRoute) ValidateProperties(_properties interf
 // Properties for defining a `CfnTransitGatewayRoute`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnTransitGatewayRouteProps := &cfnTransitGatewayRouteProps{
 //   	transitGatewayRouteTableId: jsii.String("transitGatewayRouteTableId"),
 //
@@ -59459,13 +60281,13 @@ func (c *jsiiProxy_CfnTransitGatewayRoute) ValidateProperties(_properties interf
 //
 type CfnTransitGatewayRouteProps struct {
 	// The ID of the transit gateway route table.
-	TransitGatewayRouteTableId *string `json:"transitGatewayRouteTableId" yaml:"transitGatewayRouteTableId"`
+	TransitGatewayRouteTableId *string `field:"required" json:"transitGatewayRouteTableId" yaml:"transitGatewayRouteTableId"`
 	// Indicates whether to drop traffic that matches this route.
-	Blackhole interface{} `json:"blackhole" yaml:"blackhole"`
+	Blackhole interface{} `field:"optional" json:"blackhole" yaml:"blackhole"`
 	// The CIDR block used for destination matches.
-	DestinationCidrBlock *string `json:"destinationCidrBlock" yaml:"destinationCidrBlock"`
+	DestinationCidrBlock *string `field:"optional" json:"destinationCidrBlock" yaml:"destinationCidrBlock"`
 	// The ID of the attachment.
-	TransitGatewayAttachmentId *string `json:"transitGatewayAttachmentId" yaml:"transitGatewayAttachmentId"`
+	TransitGatewayAttachmentId *string `field:"optional" json:"transitGatewayAttachmentId" yaml:"transitGatewayAttachmentId"`
 }
 
 // A CloudFormation `AWS::EC2::TransitGatewayRouteTable`.
@@ -59473,8 +60295,11 @@ type CfnTransitGatewayRouteProps struct {
 // Specifies a route table for a transit gateway.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnTransitGatewayRouteTable := ec2.NewCfnTransitGatewayRouteTable(this, jsii.String("MyCfnTransitGatewayRouteTable"), &cfnTransitGatewayRouteTableProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnTransitGatewayRouteTable := awscdk.Aws_ec2.NewCfnTransitGatewayRouteTable(this, jsii.String("MyCfnTransitGatewayRouteTable"), &cfnTransitGatewayRouteTableProps{
 //   	transitGatewayId: jsii.String("transitGatewayId"),
 //
 //   	// the properties below are optional
@@ -60131,8 +60956,11 @@ func (c *jsiiProxy_CfnTransitGatewayRouteTable) ValidateProperties(_properties i
 // Before you can update the route table associated with an attachment, you must disassociate the transit gateway route table that is currently associated with the attachment. First update the stack to remove the associated transit gateway route table, and then update the stack with the ID of the new transit gateway route table to associate.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnTransitGatewayRouteTableAssociation := ec2.NewCfnTransitGatewayRouteTableAssociation(this, jsii.String("MyCfnTransitGatewayRouteTableAssociation"), &cfnTransitGatewayRouteTableAssociationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnTransitGatewayRouteTableAssociation := awscdk.Aws_ec2.NewCfnTransitGatewayRouteTableAssociation(this, jsii.String("MyCfnTransitGatewayRouteTableAssociation"), &cfnTransitGatewayRouteTableAssociationProps{
 //   	transitGatewayAttachmentId: jsii.String("transitGatewayAttachmentId"),
 //   	transitGatewayRouteTableId: jsii.String("transitGatewayRouteTableId"),
 //   })
@@ -60787,7 +61615,10 @@ func (c *jsiiProxy_CfnTransitGatewayRouteTableAssociation) ValidateProperties(_p
 // Properties for defining a `CfnTransitGatewayRouteTableAssociation`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnTransitGatewayRouteTableAssociationProps := &cfnTransitGatewayRouteTableAssociationProps{
 //   	transitGatewayAttachmentId: jsii.String("transitGatewayAttachmentId"),
 //   	transitGatewayRouteTableId: jsii.String("transitGatewayRouteTableId"),
@@ -60795,9 +61626,9 @@ func (c *jsiiProxy_CfnTransitGatewayRouteTableAssociation) ValidateProperties(_p
 //
 type CfnTransitGatewayRouteTableAssociationProps struct {
 	// The ID of the attachment.
-	TransitGatewayAttachmentId *string `json:"transitGatewayAttachmentId" yaml:"transitGatewayAttachmentId"`
+	TransitGatewayAttachmentId *string `field:"required" json:"transitGatewayAttachmentId" yaml:"transitGatewayAttachmentId"`
 	// The ID of the route table for the transit gateway.
-	TransitGatewayRouteTableId *string `json:"transitGatewayRouteTableId" yaml:"transitGatewayRouteTableId"`
+	TransitGatewayRouteTableId *string `field:"required" json:"transitGatewayRouteTableId" yaml:"transitGatewayRouteTableId"`
 }
 
 // A CloudFormation `AWS::EC2::TransitGatewayRouteTablePropagation`.
@@ -60807,8 +61638,11 @@ type CfnTransitGatewayRouteTableAssociationProps struct {
 // For more information about enabling transit gateway route propagation, see [EnableTransitGatewayRouteTablePropagation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableTransitGatewayRouteTablePropagation.html) in the *Amazon EC2 API Reference* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnTransitGatewayRouteTablePropagation := ec2.NewCfnTransitGatewayRouteTablePropagation(this, jsii.String("MyCfnTransitGatewayRouteTablePropagation"), &cfnTransitGatewayRouteTablePropagationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnTransitGatewayRouteTablePropagation := awscdk.Aws_ec2.NewCfnTransitGatewayRouteTablePropagation(this, jsii.String("MyCfnTransitGatewayRouteTablePropagation"), &cfnTransitGatewayRouteTablePropagationProps{
 //   	transitGatewayAttachmentId: jsii.String("transitGatewayAttachmentId"),
 //   	transitGatewayRouteTableId: jsii.String("transitGatewayRouteTableId"),
 //   })
@@ -61463,7 +62297,10 @@ func (c *jsiiProxy_CfnTransitGatewayRouteTablePropagation) ValidateProperties(_p
 // Properties for defining a `CfnTransitGatewayRouteTablePropagation`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnTransitGatewayRouteTablePropagationProps := &cfnTransitGatewayRouteTablePropagationProps{
 //   	transitGatewayAttachmentId: jsii.String("transitGatewayAttachmentId"),
 //   	transitGatewayRouteTableId: jsii.String("transitGatewayRouteTableId"),
@@ -61471,15 +62308,18 @@ func (c *jsiiProxy_CfnTransitGatewayRouteTablePropagation) ValidateProperties(_p
 //
 type CfnTransitGatewayRouteTablePropagationProps struct {
 	// The ID of the attachment.
-	TransitGatewayAttachmentId *string `json:"transitGatewayAttachmentId" yaml:"transitGatewayAttachmentId"`
+	TransitGatewayAttachmentId *string `field:"required" json:"transitGatewayAttachmentId" yaml:"transitGatewayAttachmentId"`
 	// The ID of the propagation route table.
-	TransitGatewayRouteTableId *string `json:"transitGatewayRouteTableId" yaml:"transitGatewayRouteTableId"`
+	TransitGatewayRouteTableId *string `field:"required" json:"transitGatewayRouteTableId" yaml:"transitGatewayRouteTableId"`
 }
 
 // Properties for defining a `CfnTransitGatewayRouteTable`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnTransitGatewayRouteTableProps := &cfnTransitGatewayRouteTableProps{
 //   	transitGatewayId: jsii.String("transitGatewayId"),
 //
@@ -61494,9 +62334,9 @@ type CfnTransitGatewayRouteTablePropagationProps struct {
 //
 type CfnTransitGatewayRouteTableProps struct {
 	// The ID of the transit gateway.
-	TransitGatewayId *string `json:"transitGatewayId" yaml:"transitGatewayId"`
+	TransitGatewayId *string `field:"required" json:"transitGatewayId" yaml:"transitGatewayId"`
 	// Any tags assigned to the route table.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::EC2::TransitGatewayVpcAttachment`.
@@ -61504,10 +62344,13 @@ type CfnTransitGatewayRouteTableProps struct {
 // Specifies a VPC attachment.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var options interface{}
-//   cfnTransitGatewayVpcAttachment := ec2.NewCfnTransitGatewayVpcAttachment(this, jsii.String("MyCfnTransitGatewayVpcAttachment"), &cfnTransitGatewayVpcAttachmentProps{
+//
+//   cfnTransitGatewayVpcAttachment := awscdk.Aws_ec2.NewCfnTransitGatewayVpcAttachment(this, jsii.String("MyCfnTransitGatewayVpcAttachment"), &cfnTransitGatewayVpcAttachmentProps{
 //   	subnetIds: []*string{
 //   		jsii.String("subnetIds"),
 //   	},
@@ -62294,9 +63137,12 @@ func (c *jsiiProxy_CfnTransitGatewayVpcAttachment) ValidateProperties(_propertie
 // Properties for defining a `CfnTransitGatewayVpcAttachment`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var options interface{}
+//
 //   cfnTransitGatewayVpcAttachmentProps := &cfnTransitGatewayVpcAttachmentProps{
 //   	subnetIds: []*string{
 //   		jsii.String("subnetIds"),
@@ -62322,25 +63168,25 @@ func (c *jsiiProxy_CfnTransitGatewayVpcAttachment) ValidateProperties(_propertie
 //
 type CfnTransitGatewayVpcAttachmentProps struct {
 	// The IDs of the subnets.
-	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
+	SubnetIds *[]*string `field:"required" json:"subnetIds" yaml:"subnetIds"`
 	// The ID of the transit gateway.
-	TransitGatewayId *string `json:"transitGatewayId" yaml:"transitGatewayId"`
+	TransitGatewayId *string `field:"required" json:"transitGatewayId" yaml:"transitGatewayId"`
 	// The ID of the VPC.
-	VpcId *string `json:"vpcId" yaml:"vpcId"`
+	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
 	// The IDs of one or more subnets to add.
 	//
 	// You can specify at most one subnet per Availability Zone.
-	AddSubnetIds *[]*string `json:"addSubnetIds" yaml:"addSubnetIds"`
+	AddSubnetIds *[]*string `field:"optional" json:"addSubnetIds" yaml:"addSubnetIds"`
 	// The VPC attachment options in JSON or YAML.
 	//
 	// - DnsSupport (enable | disable)
 	// - Ipv6Support (enable| disable)
 	// - ApplianceModeSupport (enable | disable).
-	Options interface{} `json:"options" yaml:"options"`
+	Options interface{} `field:"optional" json:"options" yaml:"options"`
 	// The IDs of one or more subnets to remove.
-	RemoveSubnetIds *[]*string `json:"removeSubnetIds" yaml:"removeSubnetIds"`
+	RemoveSubnetIds *[]*string `field:"optional" json:"removeSubnetIds" yaml:"removeSubnetIds"`
 	// The tags for the VPC attachment.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::EC2::VPC`.
@@ -62353,6 +63199,7 @@ type CfnTransitGatewayVpcAttachmentProps struct {
 //   // using from*Attributes()
 //   var privateCfnSubnet1 cfnSubnet
 //   var privateCfnSubnet2 cfnSubnet
+//
 //
 //   // using from*Name()
 //   cfnBucket := cfnTemplate.getResource(jsii.String("Bucket")).(cfnBucket)
@@ -63204,8 +64051,11 @@ func (c *jsiiProxy_CfnVPC) ValidateProperties(_properties interface{}) {
 // For more information about associating CIDR blocks with your VPC and applicable restrictions, see [VPC and Subnet Sizing](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#VPC_Sizing) in the *Amazon Virtual Private Cloud User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnVPCCidrBlock := ec2.NewCfnVPCCidrBlock(this, jsii.String("MyCfnVPCCidrBlock"), &cfnVPCCidrBlockProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnVPCCidrBlock := awscdk.Aws_ec2.NewCfnVPCCidrBlock(this, jsii.String("MyCfnVPCCidrBlock"), &cfnVPCCidrBlockProps{
 //   	vpcId: jsii.String("vpcId"),
 //
 //   	// the properties below are optional
@@ -64028,7 +64878,10 @@ func (c *jsiiProxy_CfnVPCCidrBlock) ValidateProperties(_properties interface{}) 
 // Properties for defining a `CfnVPCCidrBlock`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnVPCCidrBlockProps := &cfnVPCCidrBlockProps{
 //   	vpcId: jsii.String("vpcId"),
 //
@@ -64045,35 +64898,35 @@ func (c *jsiiProxy_CfnVPCCidrBlock) ValidateProperties(_properties interface{}) 
 //
 type CfnVPCCidrBlockProps struct {
 	// The ID of the VPC.
-	VpcId *string `json:"vpcId" yaml:"vpcId"`
+	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
 	// Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC.
 	//
 	// You cannot specify the range of IPv6 addresses, or the size of the CIDR block.
-	AmazonProvidedIpv6CidrBlock interface{} `json:"amazonProvidedIpv6CidrBlock" yaml:"amazonProvidedIpv6CidrBlock"`
+	AmazonProvidedIpv6CidrBlock interface{} `field:"optional" json:"amazonProvidedIpv6CidrBlock" yaml:"amazonProvidedIpv6CidrBlock"`
 	// An IPv4 CIDR block to associate with the VPC.
-	CidrBlock *string `json:"cidrBlock" yaml:"cidrBlock"`
+	CidrBlock *string `field:"optional" json:"cidrBlock" yaml:"cidrBlock"`
 	// Associate a CIDR allocated from an IPv4 IPAM pool to a VPC.
 	//
 	// For more information about Amazon VPC IP Address Manager (IPAM), see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide* .
-	Ipv4IpamPoolId *string `json:"ipv4IpamPoolId" yaml:"ipv4IpamPoolId"`
+	Ipv4IpamPoolId *string `field:"optional" json:"ipv4IpamPoolId" yaml:"ipv4IpamPoolId"`
 	// The netmask length of the IPv4 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool.
 	//
 	// For more information about IPAM, see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide* .
-	Ipv4NetmaskLength *float64 `json:"ipv4NetmaskLength" yaml:"ipv4NetmaskLength"`
+	Ipv4NetmaskLength *float64 `field:"optional" json:"ipv4NetmaskLength" yaml:"ipv4NetmaskLength"`
 	// An IPv6 CIDR block from the IPv6 address pool. You must also specify `Ipv6Pool` in the request.
 	//
 	// To let Amazon choose the IPv6 CIDR block for you, omit this parameter.
-	Ipv6CidrBlock *string `json:"ipv6CidrBlock" yaml:"ipv6CidrBlock"`
+	Ipv6CidrBlock *string `field:"optional" json:"ipv6CidrBlock" yaml:"ipv6CidrBlock"`
 	// Associates a CIDR allocated from an IPv6 IPAM pool to a VPC.
 	//
 	// For more information about Amazon VPC IP Address Manager (IPAM), see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide* .
-	Ipv6IpamPoolId *string `json:"ipv6IpamPoolId" yaml:"ipv6IpamPoolId"`
+	Ipv6IpamPoolId *string `field:"optional" json:"ipv6IpamPoolId" yaml:"ipv6IpamPoolId"`
 	// The netmask length of the IPv6 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool.
 	//
 	// For more information about IPAM, see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide* .
-	Ipv6NetmaskLength *float64 `json:"ipv6NetmaskLength" yaml:"ipv6NetmaskLength"`
+	Ipv6NetmaskLength *float64 `field:"optional" json:"ipv6NetmaskLength" yaml:"ipv6NetmaskLength"`
 	// The ID of an IPv6 address pool from which to allocate the IPv6 CIDR block.
-	Ipv6Pool *string `json:"ipv6Pool" yaml:"ipv6Pool"`
+	Ipv6Pool *string `field:"optional" json:"ipv6Pool" yaml:"ipv6Pool"`
 }
 
 // A CloudFormation `AWS::EC2::VPCDHCPOptionsAssociation`.
@@ -64083,8 +64936,11 @@ type CfnVPCCidrBlockProps struct {
 // After you associate the options with the VPC, any existing instances and all new instances that you launch in that VPC use the options. You don't need to restart or relaunch the instances. They automatically pick up the changes within a few hours, depending on how frequently the instance renews its DHCP lease. You can explicitly renew the lease using the operating system on the instance.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnVPCDHCPOptionsAssociation := ec2.NewCfnVPCDHCPOptionsAssociation(this, jsii.String("MyCfnVPCDHCPOptionsAssociation"), &cfnVPCDHCPOptionsAssociationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnVPCDHCPOptionsAssociation := awscdk.Aws_ec2.NewCfnVPCDHCPOptionsAssociation(this, jsii.String("MyCfnVPCDHCPOptionsAssociation"), &cfnVPCDHCPOptionsAssociationProps{
 //   	dhcpOptionsId: jsii.String("dhcpOptionsId"),
 //   	vpcId: jsii.String("vpcId"),
 //   })
@@ -64751,7 +65607,10 @@ func (c *jsiiProxy_CfnVPCDHCPOptionsAssociation) ValidateProperties(_properties 
 // Properties for defining a `CfnVPCDHCPOptionsAssociation`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnVPCDHCPOptionsAssociationProps := &cfnVPCDHCPOptionsAssociationProps{
 //   	dhcpOptionsId: jsii.String("dhcpOptionsId"),
 //   	vpcId: jsii.String("vpcId"),
@@ -64759,9 +65618,9 @@ func (c *jsiiProxy_CfnVPCDHCPOptionsAssociation) ValidateProperties(_properties 
 //
 type CfnVPCDHCPOptionsAssociationProps struct {
 	// The ID of the DHCP options set, or `default` to associate no DHCP options with the VPC.
-	DhcpOptionsId *string `json:"dhcpOptionsId" yaml:"dhcpOptionsId"`
+	DhcpOptionsId *string `field:"required" json:"dhcpOptionsId" yaml:"dhcpOptionsId"`
 	// The ID of the VPC.
-	VpcId *string `json:"vpcId" yaml:"vpcId"`
+	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
 }
 
 // A CloudFormation `AWS::EC2::VPCEndpoint`.
@@ -64775,10 +65634,13 @@ type CfnVPCDHCPOptionsAssociationProps struct {
 // A Gateway Load Balancer endpoint provides private connectivity between your VPC and virtual appliances from a service provider.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var policyDocument interface{}
-//   cfnVPCEndpoint := ec2.NewCfnVPCEndpoint(this, jsii.String("MyCfnVPCEndpoint"), &cfnVPCEndpointProps{
+//
+//   cfnVPCEndpoint := awscdk.Aws_ec2.NewCfnVPCEndpoint(this, jsii.String("MyCfnVPCEndpoint"), &cfnVPCEndpointProps{
 //   	serviceName: jsii.String("serviceName"),
 //   	vpcId: jsii.String("vpcId"),
 //
@@ -65647,8 +66509,11 @@ func (c *jsiiProxy_CfnVPCEndpoint) ValidateProperties(_properties interface{}) {
 // You can create a connection notification for interface endpoints only.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnVPCEndpointConnectionNotification := ec2.NewCfnVPCEndpointConnectionNotification(this, jsii.String("MyCfnVPCEndpointConnectionNotification"), &cfnVPCEndpointConnectionNotificationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnVPCEndpointConnectionNotification := awscdk.Aws_ec2.NewCfnVPCEndpointConnectionNotification(this, jsii.String("MyCfnVPCEndpointConnectionNotification"), &cfnVPCEndpointConnectionNotificationProps{
 //   	connectionEvents: []*string{
 //   		jsii.String("connectionEvents"),
 //   	},
@@ -66353,7 +67218,10 @@ func (c *jsiiProxy_CfnVPCEndpointConnectionNotification) ValidateProperties(_pro
 // Properties for defining a `CfnVPCEndpointConnectionNotification`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnVPCEndpointConnectionNotificationProps := &cfnVPCEndpointConnectionNotificationProps{
 //   	connectionEvents: []*string{
 //   		jsii.String("connectionEvents"),
@@ -66369,21 +67237,24 @@ type CfnVPCEndpointConnectionNotificationProps struct {
 	// One or more endpoint events for which to receive notifications.
 	//
 	// Valid values are `Accept` , `Connect` , `Delete` , and `Reject` .
-	ConnectionEvents *[]*string `json:"connectionEvents" yaml:"connectionEvents"`
+	ConnectionEvents *[]*string `field:"required" json:"connectionEvents" yaml:"connectionEvents"`
 	// The ARN of the SNS topic for the notifications.
-	ConnectionNotificationArn *string `json:"connectionNotificationArn" yaml:"connectionNotificationArn"`
+	ConnectionNotificationArn *string `field:"required" json:"connectionNotificationArn" yaml:"connectionNotificationArn"`
 	// The ID of the endpoint service.
-	ServiceId *string `json:"serviceId" yaml:"serviceId"`
+	ServiceId *string `field:"optional" json:"serviceId" yaml:"serviceId"`
 	// The ID of the endpoint.
-	VpcEndpointId *string `json:"vpcEndpointId" yaml:"vpcEndpointId"`
+	VpcEndpointId *string `field:"optional" json:"vpcEndpointId" yaml:"vpcEndpointId"`
 }
 
 // Properties for defining a `CfnVPCEndpoint`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var policyDocument interface{}
+//
 //   cfnVPCEndpointProps := &cfnVPCEndpointProps{
 //   	serviceName: jsii.String("serviceName"),
 //   	vpcId: jsii.String("vpcId"),
@@ -66407,15 +67278,15 @@ type CfnVPCEndpointProps struct {
 	// The service name.
 	//
 	// To list the available services, use [DescribeVpcEndpointServices](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointServices.html) . Otherwise, get the name from the service provider.
-	ServiceName *string `json:"serviceName" yaml:"serviceName"`
+	ServiceName *string `field:"required" json:"serviceName" yaml:"serviceName"`
 	// The ID of the VPC in which the endpoint will be used.
-	VpcId *string `json:"vpcId" yaml:"vpcId"`
+	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
 	// A policy that controls access to the service from the VPC.
 	//
 	// If this parameter is not specified, the default policy allows full access to the service. Endpoint policies are supported only for gateway and interface endpoints.
 	//
 	// For CloudFormation templates in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation converts YAML policies to JSON format before calling the API to create or modify the VPC endpoint.
-	PolicyDocument interface{} `json:"policyDocument" yaml:"policyDocument"`
+	PolicyDocument interface{} `field:"optional" json:"policyDocument" yaml:"policyDocument"`
 	// Indicate whether to associate a private hosted zone with the specified VPC.
 	//
 	// The private hosted zone contains a record set for the default public DNS name for the service for the Region (for example, `kinesis.us-east-1.amazonaws.com` ), which resolves to the private IP addresses of the endpoint network interfaces in the VPC. This enables you to make requests to the default public DNS name for the service instead of the public DNS names that are automatically generated by the VPC endpoint service.
@@ -66425,23 +67296,23 @@ type CfnVPCEndpointProps struct {
 	// This property is supported only for interface endpoints.
 	//
 	// Default: `false`.
-	PrivateDnsEnabled interface{} `json:"privateDnsEnabled" yaml:"privateDnsEnabled"`
+	PrivateDnsEnabled interface{} `field:"optional" json:"privateDnsEnabled" yaml:"privateDnsEnabled"`
 	// The route table IDs.
 	//
 	// Routing is supported only for gateway endpoints.
-	RouteTableIds *[]*string `json:"routeTableIds" yaml:"routeTableIds"`
+	RouteTableIds *[]*string `field:"optional" json:"routeTableIds" yaml:"routeTableIds"`
 	// The IDs of the security groups to associate with the endpoint network interface.
 	//
 	// Security groups are supported only for interface endpoints.
-	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
+	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// The ID of the subnets in which to create an endpoint network interface.
 	//
 	// You must specify this property for an interface endpoints or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
-	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
+	SubnetIds *[]*string `field:"optional" json:"subnetIds" yaml:"subnetIds"`
 	// The type of endpoint.
 	//
 	// Default: Gateway.
-	VpcEndpointType *string `json:"vpcEndpointType" yaml:"vpcEndpointType"`
+	VpcEndpointType *string `field:"optional" json:"vpcEndpointType" yaml:"vpcEndpointType"`
 }
 
 // A CloudFormation `AWS::EC2::VPCEndpointService`.
@@ -66456,8 +67327,11 @@ type CfnVPCEndpointProps struct {
 // For more information, see the [AWS PrivateLink User Guide](https://docs.aws.amazon.com/vpc/latest/privatelink/) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnVPCEndpointService := ec2.NewCfnVPCEndpointService(this, jsii.String("MyCfnVPCEndpointService"), &cfnVPCEndpointServiceProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnVPCEndpointService := awscdk.Aws_ec2.NewCfnVPCEndpointService(this, jsii.String("MyCfnVPCEndpointService"), &cfnVPCEndpointServiceProps{
 //   	acceptanceRequired: jsii.Boolean(false),
 //   	gatewayLoadBalancerArns: []*string{
 //   		jsii.String("gatewayLoadBalancerArns"),
@@ -67166,8 +68040,11 @@ func (c *jsiiProxy_CfnVPCEndpointService) ValidateProperties(_properties interfa
 // If you grant permissions to all principals, the service is public. Any users who know the name of a public service can send a request to attach an endpoint. If the service does not require manual approval, attachments are automatically approved.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnVPCEndpointServicePermissions := ec2.NewCfnVPCEndpointServicePermissions(this, jsii.String("MyCfnVPCEndpointServicePermissions"), &cfnVPCEndpointServicePermissionsProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnVPCEndpointServicePermissions := awscdk.Aws_ec2.NewCfnVPCEndpointServicePermissions(this, jsii.String("MyCfnVPCEndpointServicePermissions"), &cfnVPCEndpointServicePermissionsProps{
 //   	serviceId: jsii.String("serviceId"),
 //
 //   	// the properties below are optional
@@ -67828,7 +68705,10 @@ func (c *jsiiProxy_CfnVPCEndpointServicePermissions) ValidateProperties(_propert
 // Properties for defining a `CfnVPCEndpointServicePermissions`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnVPCEndpointServicePermissionsProps := &cfnVPCEndpointServicePermissionsProps{
 //   	serviceId: jsii.String("serviceId"),
 //
@@ -67840,17 +68720,20 @@ func (c *jsiiProxy_CfnVPCEndpointServicePermissions) ValidateProperties(_propert
 //
 type CfnVPCEndpointServicePermissionsProps struct {
 	// The ID of the service.
-	ServiceId *string `json:"serviceId" yaml:"serviceId"`
+	ServiceId *string `field:"required" json:"serviceId" yaml:"serviceId"`
 	// The Amazon Resource Names (ARN) of one or more principals (IAM users, IAM roles, and AWS accounts).
 	//
 	// Permissions are granted to the principals in this list. To grant permissions to all principals, specify an asterisk (*). Permissions are revoked for principals not in this list. If the list is empty, then all permissions are revoked.
-	AllowedPrincipals *[]*string `json:"allowedPrincipals" yaml:"allowedPrincipals"`
+	AllowedPrincipals *[]*string `field:"optional" json:"allowedPrincipals" yaml:"allowedPrincipals"`
 }
 
 // Properties for defining a `CfnVPCEndpointService`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnVPCEndpointServiceProps := &cfnVPCEndpointServiceProps{
 //   	acceptanceRequired: jsii.Boolean(false),
 //   	gatewayLoadBalancerArns: []*string{
@@ -67864,15 +68747,15 @@ type CfnVPCEndpointServicePermissionsProps struct {
 //
 type CfnVPCEndpointServiceProps struct {
 	// Indicates whether requests from service consumers to create an endpoint to your service must be accepted.
-	AcceptanceRequired interface{} `json:"acceptanceRequired" yaml:"acceptanceRequired"`
+	AcceptanceRequired interface{} `field:"optional" json:"acceptanceRequired" yaml:"acceptanceRequired"`
 	// The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.
-	GatewayLoadBalancerArns *[]*string `json:"gatewayLoadBalancerArns" yaml:"gatewayLoadBalancerArns"`
+	GatewayLoadBalancerArns *[]*string `field:"optional" json:"gatewayLoadBalancerArns" yaml:"gatewayLoadBalancerArns"`
 	// The Amazon Resource Names (ARNs) of one or more Network Load Balancers for your service.
-	NetworkLoadBalancerArns *[]*string `json:"networkLoadBalancerArns" yaml:"networkLoadBalancerArns"`
+	NetworkLoadBalancerArns *[]*string `field:"optional" json:"networkLoadBalancerArns" yaml:"networkLoadBalancerArns"`
 	// The entity that is responsible for the endpoint costs.
 	//
 	// The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.
-	PayerResponsibility *string `json:"payerResponsibility" yaml:"payerResponsibility"`
+	PayerResponsibility *string `field:"optional" json:"payerResponsibility" yaml:"payerResponsibility"`
 }
 
 // A CloudFormation `AWS::EC2::VPCGatewayAttachment`.
@@ -67880,8 +68763,11 @@ type CfnVPCEndpointServiceProps struct {
 // Attaches an internet gateway, or a virtual private gateway to a VPC, enabling connectivity between the internet and the VPC.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnVPCGatewayAttachment := ec2.NewCfnVPCGatewayAttachment(this, jsii.String("MyCfnVPCGatewayAttachment"), &cfnVPCGatewayAttachmentProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnVPCGatewayAttachment := awscdk.Aws_ec2.NewCfnVPCGatewayAttachment(this, jsii.String("MyCfnVPCGatewayAttachment"), &cfnVPCGatewayAttachmentProps{
 //   	vpcId: jsii.String("vpcId"),
 //
 //   	// the properties below are optional
@@ -68564,7 +69450,10 @@ func (c *jsiiProxy_CfnVPCGatewayAttachment) ValidateProperties(_properties inter
 // Properties for defining a `CfnVPCGatewayAttachment`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnVPCGatewayAttachmentProps := &cfnVPCGatewayAttachmentProps{
 //   	vpcId: jsii.String("vpcId"),
 //
@@ -68575,15 +69464,15 @@ func (c *jsiiProxy_CfnVPCGatewayAttachment) ValidateProperties(_properties inter
 //
 type CfnVPCGatewayAttachmentProps struct {
 	// The ID of the VPC.
-	VpcId *string `json:"vpcId" yaml:"vpcId"`
+	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
 	// The ID of the internet gateway.
 	//
 	// You must specify either `InternetGatewayId` or `VpnGatewayId` , but not both.
-	InternetGatewayId *string `json:"internetGatewayId" yaml:"internetGatewayId"`
+	InternetGatewayId *string `field:"optional" json:"internetGatewayId" yaml:"internetGatewayId"`
 	// The ID of the virtual private gateway.
 	//
 	// You must specify either `InternetGatewayId` or `VpnGatewayId` , but not both.
-	VpnGatewayId *string `json:"vpnGatewayId" yaml:"vpnGatewayId"`
+	VpnGatewayId *string `field:"optional" json:"vpnGatewayId" yaml:"vpnGatewayId"`
 }
 
 // A CloudFormation `AWS::EC2::VPCPeeringConnection`.
@@ -68595,8 +69484,11 @@ type CfnVPCGatewayAttachmentProps struct {
 // For more information, see [Walkthough: Peer with a VPC in another AWS account](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/peer-with-vpc-in-another-account.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnVPCPeeringConnection := ec2.NewCfnVPCPeeringConnection(this, jsii.String("MyCfnVPCPeeringConnection"), &cfnVPCPeeringConnectionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnVPCPeeringConnection := awscdk.Aws_ec2.NewCfnVPCPeeringConnection(this, jsii.String("MyCfnVPCPeeringConnection"), &cfnVPCPeeringConnectionProps{
 //   	peerVpcId: jsii.String("peerVpcId"),
 //   	vpcId: jsii.String("vpcId"),
 //
@@ -69345,7 +70237,10 @@ func (c *jsiiProxy_CfnVPCPeeringConnection) ValidateProperties(_properties inter
 // Properties for defining a `CfnVPCPeeringConnection`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnVPCPeeringConnectionProps := &cfnVPCPeeringConnectionProps{
 //   	peerVpcId: jsii.String("peerVpcId"),
 //   	vpcId: jsii.String("vpcId"),
@@ -69366,29 +70261,32 @@ type CfnVPCPeeringConnectionProps struct {
 	// The ID of the VPC with which you are creating the VPC peering connection.
 	//
 	// You must specify this parameter in the request.
-	PeerVpcId *string `json:"peerVpcId" yaml:"peerVpcId"`
+	PeerVpcId *string `field:"required" json:"peerVpcId" yaml:"peerVpcId"`
 	// The ID of the VPC.
-	VpcId *string `json:"vpcId" yaml:"vpcId"`
+	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
 	// The AWS account ID of the owner of the accepter VPC.
 	//
 	// Default: Your AWS account ID.
-	PeerOwnerId *string `json:"peerOwnerId" yaml:"peerOwnerId"`
+	PeerOwnerId *string `field:"optional" json:"peerOwnerId" yaml:"peerOwnerId"`
 	// The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the Region in which you make the request.
 	//
 	// Default: The Region in which you make the request.
-	PeerRegion *string `json:"peerRegion" yaml:"peerRegion"`
+	PeerRegion *string `field:"optional" json:"peerRegion" yaml:"peerRegion"`
 	// The Amazon Resource Name (ARN) of the VPC peer role for the peering connection in another AWS account.
 	//
 	// This is required when you are peering a VPC in a different AWS account.
-	PeerRoleArn *string `json:"peerRoleArn" yaml:"peerRoleArn"`
+	PeerRoleArn *string `field:"optional" json:"peerRoleArn" yaml:"peerRoleArn"`
 	// Any tags assigned to the resource.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // Properties for defining a `CfnVPC`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnVPCProps := &cfnVPCProps{
 //   	cidrBlock: jsii.String("cidrBlock"),
 //
@@ -69408,34 +70306,34 @@ type CfnVPCPeeringConnectionProps struct {
 //
 type CfnVPCProps struct {
 	// The primary IPv4 CIDR block for the VPC.
-	CidrBlock *string `json:"cidrBlock" yaml:"cidrBlock"`
+	CidrBlock *string `field:"required" json:"cidrBlock" yaml:"cidrBlock"`
 	// Indicates whether the instances launched in the VPC get DNS hostnames.
 	//
 	// If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. Disabled by default for nondefault VPCs. For more information, see [DNS attributes in your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#vpc-dns-support) .
 	//
 	// You can only enable DNS hostnames if you've enabled DNS support.
-	EnableDnsHostnames interface{} `json:"enableDnsHostnames" yaml:"enableDnsHostnames"`
+	EnableDnsHostnames interface{} `field:"optional" json:"enableDnsHostnames" yaml:"enableDnsHostnames"`
 	// Indicates whether the DNS resolution is supported for the VPC.
 	//
 	// If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range "plus two" succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled. Enabled by default. For more information, see [DNS attributes in your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#vpc-dns-support) .
-	EnableDnsSupport interface{} `json:"enableDnsSupport" yaml:"enableDnsSupport"`
+	EnableDnsSupport interface{} `field:"optional" json:"enableDnsSupport" yaml:"enableDnsSupport"`
 	// The allowed tenancy of instances launched into the VPC.
 	//
 	// - `"default"` : An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.
 	// - `"dedicated"` : An instance launched into the VPC is a Dedicated Instance by default, unless you explicitly specify a tenancy of host during instance launch. You cannot specify a tenancy of default during instance launch.
 	//
 	// Updating `InstanceTenancy` requires no replacement only if you are updating its value from `"dedicated"` to `"default"` . Updating `InstanceTenancy` from `"default"` to `"dedicated"` requires replacement.
-	InstanceTenancy *string `json:"instanceTenancy" yaml:"instanceTenancy"`
+	InstanceTenancy *string `field:"optional" json:"instanceTenancy" yaml:"instanceTenancy"`
 	// The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR.
 	//
 	// For more information, see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide* .
-	Ipv4IpamPoolId *string `json:"ipv4IpamPoolId" yaml:"ipv4IpamPoolId"`
+	Ipv4IpamPoolId *string `field:"optional" json:"ipv4IpamPoolId" yaml:"ipv4IpamPoolId"`
 	// The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool.
 	//
 	// For more information about IPAM, see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide* .
-	Ipv4NetmaskLength *float64 `json:"ipv4NetmaskLength" yaml:"ipv4NetmaskLength"`
+	Ipv4NetmaskLength *float64 `field:"optional" json:"ipv4NetmaskLength" yaml:"ipv4NetmaskLength"`
 	// The tags for the VPC.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::EC2::VPNConnection`.
@@ -69449,8 +70347,11 @@ type CfnVPCProps struct {
 // For more information, see [AWS Site-to-Site VPN](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) in the *AWS Site-to-Site VPN User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnVPNConnection := ec2.NewCfnVPNConnection(this, jsii.String("MyCfnVPNConnection"), &cfnVPNConnectionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnVPNConnection := awscdk.Aws_ec2.NewCfnVPNConnection(this, jsii.String("MyCfnVPNConnection"), &cfnVPNConnectionProps{
 //   	customerGatewayId: jsii.String("customerGatewayId"),
 //   	type: jsii.String("type"),
 //
@@ -70226,7 +71127,10 @@ func (c *jsiiProxy_CfnVPNConnection) ValidateProperties(_properties interface{})
 // The tunnel options for a single VPN tunnel.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   vpnTunnelOptionsSpecificationProperty := &vpnTunnelOptionsSpecificationProperty{
 //   	preSharedKey: jsii.String("preSharedKey"),
 //   	tunnelInsideCidr: jsii.String("tunnelInsideCidr"),
@@ -70236,7 +71140,7 @@ type CfnVPNConnection_VpnTunnelOptionsSpecificationProperty struct {
 	// The pre-shared key (PSK) to establish initial authentication between the virtual private gateway and customer gateway.
 	//
 	// Constraints: Allowed characters are alphanumeric characters, periods (.), and underscores (_). Must be between 8 and 64 characters in length and cannot start with zero (0).
-	PreSharedKey *string `json:"preSharedKey" yaml:"preSharedKey"`
+	PreSharedKey *string `field:"optional" json:"preSharedKey" yaml:"preSharedKey"`
 	// The range of inside IP addresses for the tunnel.
 	//
 	// Any specified CIDR blocks must be unique across all VPN connections that use the same virtual private gateway.
@@ -70250,13 +71154,16 @@ type CfnVPNConnection_VpnTunnelOptionsSpecificationProperty struct {
 	// - `169.254.4.0/30`
 	// - `169.254.5.0/30`
 	// - `169.254.169.252/30`
-	TunnelInsideCidr *string `json:"tunnelInsideCidr" yaml:"tunnelInsideCidr"`
+	TunnelInsideCidr *string `field:"optional" json:"tunnelInsideCidr" yaml:"tunnelInsideCidr"`
 }
 
 // Properties for defining a `CfnVPNConnection`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnVPNConnectionProps := &cfnVPNConnectionProps{
 //   	customerGatewayId: jsii.String("customerGatewayId"),
 //   	type: jsii.String("type"),
@@ -70281,27 +71188,27 @@ type CfnVPNConnection_VpnTunnelOptionsSpecificationProperty struct {
 //
 type CfnVPNConnectionProps struct {
 	// The ID of the customer gateway at your end of the VPN connection.
-	CustomerGatewayId *string `json:"customerGatewayId" yaml:"customerGatewayId"`
+	CustomerGatewayId *string `field:"required" json:"customerGatewayId" yaml:"customerGatewayId"`
 	// The type of VPN connection.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// Indicates whether the VPN connection uses static routes only.
 	//
 	// Static routes must be used for devices that don't support BGP.
 	//
 	// If you are creating a VPN connection for a device that does not support Border Gateway Protocol (BGP), you must specify `true` .
-	StaticRoutesOnly interface{} `json:"staticRoutesOnly" yaml:"staticRoutesOnly"`
+	StaticRoutesOnly interface{} `field:"optional" json:"staticRoutesOnly" yaml:"staticRoutesOnly"`
 	// Any tags assigned to the VPN connection.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The ID of the transit gateway associated with the VPN connection.
 	//
 	// You must specify either `TransitGatewayId` or `VpnGatewayId` , but not both.
-	TransitGatewayId *string `json:"transitGatewayId" yaml:"transitGatewayId"`
+	TransitGatewayId *string `field:"optional" json:"transitGatewayId" yaml:"transitGatewayId"`
 	// The ID of the virtual private gateway at the AWS side of the VPN connection.
 	//
 	// You must specify either `TransitGatewayId` or `VpnGatewayId` , but not both.
-	VpnGatewayId *string `json:"vpnGatewayId" yaml:"vpnGatewayId"`
+	VpnGatewayId *string `field:"optional" json:"vpnGatewayId" yaml:"vpnGatewayId"`
 	// The tunnel options for the VPN connection.
-	VpnTunnelOptionsSpecifications interface{} `json:"vpnTunnelOptionsSpecifications" yaml:"vpnTunnelOptionsSpecifications"`
+	VpnTunnelOptionsSpecifications interface{} `field:"optional" json:"vpnTunnelOptionsSpecifications" yaml:"vpnTunnelOptionsSpecifications"`
 }
 
 // A CloudFormation `AWS::EC2::VPNConnectionRoute`.
@@ -70311,8 +71218,11 @@ type CfnVPNConnectionProps struct {
 // For more information, see [AWS Site-to-Site VPN](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) in the *AWS Site-to-Site VPN User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnVPNConnectionRoute := ec2.NewCfnVPNConnectionRoute(this, jsii.String("MyCfnVPNConnectionRoute"), &cfnVPNConnectionRouteProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnVPNConnectionRoute := awscdk.Aws_ec2.NewCfnVPNConnectionRoute(this, jsii.String("MyCfnVPNConnectionRoute"), &cfnVPNConnectionRouteProps{
 //   	destinationCidrBlock: jsii.String("destinationCidrBlock"),
 //   	vpnConnectionId: jsii.String("vpnConnectionId"),
 //   })
@@ -70967,7 +71877,10 @@ func (c *jsiiProxy_CfnVPNConnectionRoute) ValidateProperties(_properties interfa
 // Properties for defining a `CfnVPNConnectionRoute`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnVPNConnectionRouteProps := &cfnVPNConnectionRouteProps{
 //   	destinationCidrBlock: jsii.String("destinationCidrBlock"),
 //   	vpnConnectionId: jsii.String("vpnConnectionId"),
@@ -70975,9 +71888,9 @@ func (c *jsiiProxy_CfnVPNConnectionRoute) ValidateProperties(_properties interfa
 //
 type CfnVPNConnectionRouteProps struct {
 	// The CIDR block associated with the local subnet of the customer network.
-	DestinationCidrBlock *string `json:"destinationCidrBlock" yaml:"destinationCidrBlock"`
+	DestinationCidrBlock *string `field:"required" json:"destinationCidrBlock" yaml:"destinationCidrBlock"`
 	// The ID of the VPN connection.
-	VpnConnectionId *string `json:"vpnConnectionId" yaml:"vpnConnectionId"`
+	VpnConnectionId *string `field:"required" json:"vpnConnectionId" yaml:"vpnConnectionId"`
 }
 
 // A CloudFormation `AWS::EC2::VPNGateway`.
@@ -70987,8 +71900,11 @@ type CfnVPNConnectionRouteProps struct {
 // For more information, see [AWS Site-to-Site VPN](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) in the *AWS Site-to-Site VPN User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnVPNGateway := ec2.NewCfnVPNGateway(this, jsii.String("MyCfnVPNGateway"), &cfnVPNGatewayProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnVPNGateway := awscdk.Aws_ec2.NewCfnVPNGateway(this, jsii.String("MyCfnVPNGateway"), &cfnVPNGatewayProps{
 //   	type: jsii.String("type"),
 //
 //   	// the properties below are optional
@@ -71663,7 +72579,10 @@ func (c *jsiiProxy_CfnVPNGateway) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnVPNGateway`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnVPNGatewayProps := &cfnVPNGatewayProps{
 //   	type: jsii.String("type"),
 //
@@ -71679,11 +72598,11 @@ func (c *jsiiProxy_CfnVPNGateway) ValidateProperties(_properties interface{}) {
 //
 type CfnVPNGatewayProps struct {
 	// The type of VPN connection the virtual private gateway supports.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// The private Autonomous System Number (ASN) for the Amazon side of a BGP session.
-	AmazonSideAsn *float64 `json:"amazonSideAsn" yaml:"amazonSideAsn"`
+	AmazonSideAsn *float64 `field:"optional" json:"amazonSideAsn" yaml:"amazonSideAsn"`
 	// Any tags assigned to the virtual private gateway.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::EC2::VPNGatewayRoutePropagation`.
@@ -71693,8 +72612,11 @@ type CfnVPNGatewayProps struct {
 // If you reference a VPN gateway that is in the same template as your VPN gateway route propagation, you must explicitly declare a dependency on the VPN gateway attachment. The `AWS::EC2::VPNGatewayRoutePropagation` resource cannot use the VPN gateway until it has successfully attached to the VPC. Add a [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) in the `AWS::EC2::VPNGatewayRoutePropagation` resource to explicitly declare a dependency on the VPN gateway attachment.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnVPNGatewayRoutePropagation := ec2.NewCfnVPNGatewayRoutePropagation(this, jsii.String("MyCfnVPNGatewayRoutePropagation"), &cfnVPNGatewayRoutePropagationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnVPNGatewayRoutePropagation := awscdk.Aws_ec2.NewCfnVPNGatewayRoutePropagation(this, jsii.String("MyCfnVPNGatewayRoutePropagation"), &cfnVPNGatewayRoutePropagationProps{
 //   	routeTableIds: []*string{
 //   		jsii.String("routeTableIds"),
 //   	},
@@ -72367,7 +73289,10 @@ func (c *jsiiProxy_CfnVPNGatewayRoutePropagation) ValidateProperties(_properties
 // Properties for defining a `CfnVPNGatewayRoutePropagation`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnVPNGatewayRoutePropagationProps := &cfnVPNGatewayRoutePropagationProps{
 //   	routeTableIds: []*string{
 //   		jsii.String("routeTableIds"),
@@ -72379,11 +73304,11 @@ type CfnVPNGatewayRoutePropagationProps struct {
 	// The ID of the route table.
 	//
 	// The routing table must be associated with the same VPC that the virtual private gateway is attached to.
-	RouteTableIds *[]*string `json:"routeTableIds" yaml:"routeTableIds"`
+	RouteTableIds *[]*string `field:"required" json:"routeTableIds" yaml:"routeTableIds"`
 	// The ID of the virtual private gateway that is attached to a VPC.
 	//
 	// The virtual private gateway must be attached to the same VPC that the routing tables are associated with.
-	VpnGatewayId *string `json:"vpnGatewayId" yaml:"vpnGatewayId"`
+	VpnGatewayId *string `field:"required" json:"vpnGatewayId" yaml:"vpnGatewayId"`
 }
 
 // A CloudFormation `AWS::EC2::Volume`.
@@ -72408,8 +73333,11 @@ type CfnVPNGatewayRoutePropagationProps struct {
 // > If you set a deletion policy that creates a snapshot, all tags on the volume are included in the snapshot.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnVolume := ec2.NewCfnVolume(this, jsii.String("MyCfnVolume"), &cfnVolumeProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnVolume := awscdk.Aws_ec2.NewCfnVolume(this, jsii.String("MyCfnVolume"), &cfnVolumeProps{
 //   	availabilityZone: jsii.String("availabilityZone"),
 //
 //   	// the properties below are optional
@@ -73342,8 +74270,11 @@ func (c *jsiiProxy_CfnVolume) ValidateProperties(_properties interface{}) {
 // If the root volume is detached from an instance with an AWS Marketplace product code, then the product codes from that volume are no longer associated with the instance.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   cfnVolumeAttachment := ec2.NewCfnVolumeAttachment(this, jsii.String("MyCfnVolumeAttachment"), &cfnVolumeAttachmentProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnVolumeAttachment := awscdk.Aws_ec2.NewCfnVolumeAttachment(this, jsii.String("MyCfnVolumeAttachment"), &cfnVolumeAttachmentProps{
 //   	device: jsii.String("device"),
 //   	instanceId: jsii.String("instanceId"),
 //   	volumeId: jsii.String("volumeId"),
@@ -74024,7 +74955,10 @@ func (c *jsiiProxy_CfnVolumeAttachment) ValidateProperties(_properties interface
 // Properties for defining a `CfnVolumeAttachment`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnVolumeAttachmentProps := &cfnVolumeAttachmentProps{
 //   	device: jsii.String("device"),
 //   	instanceId: jsii.String("instanceId"),
@@ -74033,21 +74967,24 @@ func (c *jsiiProxy_CfnVolumeAttachment) ValidateProperties(_properties interface
 //
 type CfnVolumeAttachmentProps struct {
 	// The device name (for example, `/dev/sdh` or `xvdh` ).
-	Device *string `json:"device" yaml:"device"`
+	Device *string `field:"required" json:"device" yaml:"device"`
 	// The ID of the instance to which the volume attaches.
 	//
 	// This value can be a reference to an [`AWS::EC2::Instance`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) resource, or it can be the physical ID of an existing EC2 instance.
-	InstanceId *string `json:"instanceId" yaml:"instanceId"`
+	InstanceId *string `field:"required" json:"instanceId" yaml:"instanceId"`
 	// The ID of the Amazon EBS volume.
 	//
 	// The volume and instance must be within the same Availability Zone. This value can be a reference to an [`AWS::EC2::Volume`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html) resource, or it can be the volume ID of an existing Amazon EBS volume.
-	VolumeId *string `json:"volumeId" yaml:"volumeId"`
+	VolumeId *string `field:"required" json:"volumeId" yaml:"volumeId"`
 }
 
 // Properties for defining a `CfnVolume`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnVolumeProps := &cfnVolumeProps{
 //   	availabilityZone: jsii.String("availabilityZone"),
 //
@@ -74072,17 +75009,17 @@ type CfnVolumeAttachmentProps struct {
 //
 type CfnVolumeProps struct {
 	// The Availability Zone in which to create the volume.
-	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
+	AvailabilityZone *string `field:"required" json:"availabilityZone" yaml:"availabilityZone"`
 	// Indicates whether the volume is auto-enabled for I/O operations.
 	//
 	// By default, Amazon EBS disables I/O to the volume from attached EC2 instances when it determines that a volume's data is potentially inconsistent. If the consistency of the volume is not a concern, and you prefer that the volume be made available immediately if it's impaired, you can configure the volume to automatically enable I/O.
-	AutoEnableIo interface{} `json:"autoEnableIo" yaml:"autoEnableIo"`
+	AutoEnableIo interface{} `field:"optional" json:"autoEnableIo" yaml:"autoEnableIo"`
 	// Indicates whether the volume should be encrypted.
 	//
 	// The effect of setting the encryption state to `true` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Encryption by default](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default) in the *Amazon Elastic Compute Cloud User Guide* .
 	//
 	// Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see [Supported instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances) .
-	Encrypted interface{} `json:"encrypted" yaml:"encrypted"`
+	Encrypted interface{} `field:"optional" json:"encrypted" yaml:"encrypted"`
 	// The number of I/O operations per second (IOPS).
 	//
 	// For `gp3` , `io1` , and `io2` volumes, this represents the number of IOPS that are provisioned for the volume. For `gp2` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
@@ -74096,7 +75033,7 @@ type CfnVolumeProps struct {
 	// `io1` and `io2` volumes support up to 64,000 IOPS only on [Instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances) . Other instance families support performance up to 32,000 IOPS.
 	//
 	// This parameter is required for `io1` and `io2` volumes. The default for `gp3` volumes is 3,000 IOPS. This parameter is not supported for `gp2` , `st1` , `sc1` , or `standard` volumes.
-	Iops *float64 `json:"iops" yaml:"iops"`
+	Iops *float64 `field:"optional" json:"iops" yaml:"iops"`
 	// The identifier of the AWS KMS key to use for Amazon EBS encryption.
 	//
 	// If `KmsKeyId` is specified, the encrypted state must be `true` .
@@ -74109,13 +75046,13 @@ type CfnVolumeProps struct {
 	// - Key alias. Specify the alias for the key, prefixed with `alias/` . For example, for a key with the alias `my_cmk` , use `alias/my_cmk` . Or to specify the AWS managed key , use `alias/aws/ebs` .
 	// - Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.
 	// - Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.
-	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// Indicates whether Amazon EBS Multi-Attach is enabled.
 	//
 	// AWS CloudFormation does not currently support updating a single-attach volume to be multi-attach enabled, updating a multi-attach enabled volume to be single-attach, or updating the size or number of I/O operations per second (IOPS) of a multi-attach enabled volume.
-	MultiAttachEnabled interface{} `json:"multiAttachEnabled" yaml:"multiAttachEnabled"`
+	MultiAttachEnabled interface{} `field:"optional" json:"multiAttachEnabled" yaml:"multiAttachEnabled"`
 	// The Amazon Resource Name (ARN) of the Outpost.
-	OutpostArn *string `json:"outpostArn" yaml:"outpostArn"`
+	OutpostArn *string `field:"optional" json:"outpostArn" yaml:"outpostArn"`
 	// The size of the volume, in GiBs.
 	//
 	// You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
@@ -74126,15 +75063,15 @@ type CfnVolumeProps struct {
 	// - `io1` and `io2` : 4-16,384
 	// - `st1` and `sc1` : 125-16,384
 	// - `standard` : 1-1,024.
-	Size *float64 `json:"size" yaml:"size"`
+	Size *float64 `field:"optional" json:"size" yaml:"size"`
 	// The snapshot from which to create the volume.
 	//
 	// You must specify either a snapshot ID or a volume size.
-	SnapshotId *string `json:"snapshotId" yaml:"snapshotId"`
+	SnapshotId *string `field:"optional" json:"snapshotId" yaml:"snapshotId"`
 	// The tags to apply to the volume during creation.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The throughput that the volume supports, in MiB/s.
-	Throughput *float64 `json:"throughput" yaml:"throughput"`
+	Throughput *float64 `field:"optional" json:"throughput" yaml:"throughput"`
 	// The volume type. This parameter can be one of the following values:.
 	//
 	// - General Purpose SSD: `gp2` | `gp3`
@@ -74146,16 +75083,19 @@ type CfnVolumeProps struct {
 	// For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon Elastic Compute Cloud User Guide* .
 	//
 	// Default: `gp2`.
-	VolumeType *string `json:"volumeType" yaml:"volumeType"`
+	VolumeType *string `field:"optional" json:"volumeType" yaml:"volumeType"`
 }
 
 // A client VPN authorization rule.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var clientVpnEndpoint clientVpnEndpoint
-//   clientVpnAuthorizationRule := ec2.NewClientVpnAuthorizationRule(this, jsii.String("MyClientVpnAuthorizationRule"), &clientVpnAuthorizationRuleProps{
+//
+//   clientVpnAuthorizationRule := awscdk.Aws_ec2.NewClientVpnAuthorizationRule(this, jsii.String("MyClientVpnAuthorizationRule"), &clientVpnAuthorizationRuleProps{
 //   	cidr: jsii.String("cidr"),
 //
 //   	// the properties below are optional
@@ -74517,21 +75457,24 @@ func (c *jsiiProxy_ClientVpnAuthorizationRule) Validate() *[]*string {
 type ClientVpnAuthorizationRuleOptions struct {
 	// The IPv4 address range, in CIDR notation, of the network for which access is being authorized.
 	// Experimental.
-	Cidr *string `json:"cidr" yaml:"cidr"`
+	Cidr *string `field:"required" json:"cidr" yaml:"cidr"`
 	// A brief description of the authorization rule.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The ID of the group to grant access to, for example, the Active Directory group or identity provider (IdP) group.
 	// Experimental.
-	GroupId *string `json:"groupId" yaml:"groupId"`
+	GroupId *string `field:"optional" json:"groupId" yaml:"groupId"`
 }
 
 // Properties for a ClientVpnAuthorizationRule.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var clientVpnEndpoint clientVpnEndpoint
+//
 //   clientVpnAuthorizationRuleProps := &clientVpnAuthorizationRuleProps{
 //   	cidr: jsii.String("cidr"),
 //
@@ -74546,19 +75489,19 @@ type ClientVpnAuthorizationRuleOptions struct {
 type ClientVpnAuthorizationRuleProps struct {
 	// The IPv4 address range, in CIDR notation, of the network for which access is being authorized.
 	// Experimental.
-	Cidr *string `json:"cidr" yaml:"cidr"`
+	Cidr *string `field:"required" json:"cidr" yaml:"cidr"`
 	// A brief description of the authorization rule.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The ID of the group to grant access to, for example, the Active Directory group or identity provider (IdP) group.
 	// Experimental.
-	GroupId *string `json:"groupId" yaml:"groupId"`
+	GroupId *string `field:"optional" json:"groupId" yaml:"groupId"`
 	// The client VPN endpoint to which to add the rule.
 	// Deprecated: Use `clientVpnEndpoint` instead.
-	ClientVpnEndoint IClientVpnEndpoint `json:"clientVpnEndoint" yaml:"clientVpnEndoint"`
+	ClientVpnEndoint IClientVpnEndpoint `field:"optional" json:"clientVpnEndoint" yaml:"clientVpnEndoint"`
 	// The client VPN endpoint to which to add the rule.
 	// Experimental.
-	ClientVpnEndpoint IClientVpnEndpoint `json:"clientVpnEndpoint" yaml:"clientVpnEndpoint"`
+	ClientVpnEndpoint IClientVpnEndpoint `field:"optional" json:"clientVpnEndpoint" yaml:"clientVpnEndpoint"`
 }
 
 // A client VPN connnection.
@@ -75002,9 +75945,12 @@ func (c *jsiiProxy_ClientVpnEndpoint) Validate() *[]*string {
 // Attributes when importing an existing client VPN endpoint.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var securityGroup securityGroup
+//
 //   clientVpnEndpointAttributes := &clientVpnEndpointAttributes{
 //   	endpointId: jsii.String("endpointId"),
 //   	securityGroups: []iSecurityGroup{
@@ -75016,10 +75962,10 @@ func (c *jsiiProxy_ClientVpnEndpoint) Validate() *[]*string {
 type ClientVpnEndpointAttributes struct {
 	// The endpoint ID.
 	// Experimental.
-	EndpointId *string `json:"endpointId" yaml:"endpointId"`
+	EndpointId *string `field:"required" json:"endpointId" yaml:"endpointId"`
 	// The security groups associated with the endpoint.
 	// Experimental.
-	SecurityGroups *[]ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]ISecurityGroup `field:"required" json:"securityGroups" yaml:"securityGroups"`
 }
 
 // Options for a client VPN endpoint.
@@ -75048,83 +75994,86 @@ type ClientVpnEndpointOptions struct {
 	//
 	// The CIDR block should be /22 or greater.
 	// Experimental.
-	Cidr *string `json:"cidr" yaml:"cidr"`
+	Cidr *string `field:"required" json:"cidr" yaml:"cidr"`
 	// The ARN of the server certificate.
 	// Experimental.
-	ServerCertificateArn *string `json:"serverCertificateArn" yaml:"serverCertificateArn"`
+	ServerCertificateArn *string `field:"required" json:"serverCertificateArn" yaml:"serverCertificateArn"`
 	// Whether to authorize all users to the VPC CIDR.
 	//
 	// This automatically creates an authorization rule. Set this to `false` and
 	// use `addAuthorizationRule()` to create your own rules instead.
 	// Experimental.
-	AuthorizeAllUsersToVpcCidr *bool `json:"authorizeAllUsersToVpcCidr" yaml:"authorizeAllUsersToVpcCidr"`
+	AuthorizeAllUsersToVpcCidr *bool `field:"optional" json:"authorizeAllUsersToVpcCidr" yaml:"authorizeAllUsersToVpcCidr"`
 	// The ARN of the client certificate for mutual authentication.
 	//
 	// The certificate must be signed by a certificate authority (CA) and it must
 	// be provisioned in AWS Certificate Manager (ACM).
 	// Experimental.
-	ClientCertificateArn *string `json:"clientCertificateArn" yaml:"clientCertificateArn"`
+	ClientCertificateArn *string `field:"optional" json:"clientCertificateArn" yaml:"clientCertificateArn"`
 	// The AWS Lambda function used for connection authorization.
 	//
 	// The name of the Lambda function must begin with the `AWSClientVPN-` prefix.
 	// Experimental.
-	ClientConnectionHandler IClientVpnConnectionHandler `json:"clientConnectionHandler" yaml:"clientConnectionHandler"`
+	ClientConnectionHandler IClientVpnConnectionHandler `field:"optional" json:"clientConnectionHandler" yaml:"clientConnectionHandler"`
 	// Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established.
 	//
 	// UTF-8 encoded characters only. Maximum of 1400 characters.
 	// Experimental.
-	ClientLoginBanner *string `json:"clientLoginBanner" yaml:"clientLoginBanner"`
+	ClientLoginBanner *string `field:"optional" json:"clientLoginBanner" yaml:"clientLoginBanner"`
 	// A brief description of the Client VPN endpoint.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Information about the DNS servers to be used for DNS resolution.
 	//
 	// A Client VPN endpoint can have up to two DNS servers.
 	// Experimental.
-	DnsServers *[]*string `json:"dnsServers" yaml:"dnsServers"`
+	DnsServers *[]*string `field:"optional" json:"dnsServers" yaml:"dnsServers"`
 	// Whether to enable connections logging.
 	// Experimental.
-	Logging *bool `json:"logging" yaml:"logging"`
+	Logging *bool `field:"optional" json:"logging" yaml:"logging"`
 	// A CloudWatch Logs log group for connection logging.
 	// Experimental.
-	LogGroup awslogs.ILogGroup `json:"logGroup" yaml:"logGroup"`
+	LogGroup awslogs.ILogGroup `field:"optional" json:"logGroup" yaml:"logGroup"`
 	// A CloudWatch Logs log stream for connection logging.
 	// Experimental.
-	LogStream awslogs.ILogStream `json:"logStream" yaml:"logStream"`
+	LogStream awslogs.ILogStream `field:"optional" json:"logStream" yaml:"logStream"`
 	// The port number to assign to the Client VPN endpoint for TCP and UDP traffic.
 	// Experimental.
-	Port VpnPort `json:"port" yaml:"port"`
+	Port VpnPort `field:"optional" json:"port" yaml:"port"`
 	// The security groups to apply to the target network.
 	// Experimental.
-	SecurityGroups *[]ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// Specify whether to enable the self-service portal for the Client VPN endpoint.
 	// Experimental.
-	SelfServicePortal *bool `json:"selfServicePortal" yaml:"selfServicePortal"`
+	SelfServicePortal *bool `field:"optional" json:"selfServicePortal" yaml:"selfServicePortal"`
 	// The maximum VPN session duration time.
 	// Experimental.
-	SessionTimeout ClientVpnSessionTimeout `json:"sessionTimeout" yaml:"sessionTimeout"`
+	SessionTimeout ClientVpnSessionTimeout `field:"optional" json:"sessionTimeout" yaml:"sessionTimeout"`
 	// Indicates whether split-tunnel is enabled on the AWS Client VPN endpoint.
 	// See: https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html
 	//
 	// Experimental.
-	SplitTunnel *bool `json:"splitTunnel" yaml:"splitTunnel"`
+	SplitTunnel *bool `field:"optional" json:"splitTunnel" yaml:"splitTunnel"`
 	// The transport protocol to be used by the VPN session.
 	// Experimental.
-	TransportProtocol TransportProtocol `json:"transportProtocol" yaml:"transportProtocol"`
+	TransportProtocol TransportProtocol `field:"optional" json:"transportProtocol" yaml:"transportProtocol"`
 	// The type of user-based authentication to use.
 	// See: https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/client-authentication.html
 	//
 	// Experimental.
-	UserBasedAuthentication ClientVpnUserBasedAuthentication `json:"userBasedAuthentication" yaml:"userBasedAuthentication"`
+	UserBasedAuthentication ClientVpnUserBasedAuthentication `field:"optional" json:"userBasedAuthentication" yaml:"userBasedAuthentication"`
 	// Subnets to associate to the client VPN endpoint.
 	// Experimental.
-	VpcSubnets *SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
+	VpcSubnets *SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
 // Properties for a client VPN endpoint.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var clientVpnConnectionHandler iClientVpnConnectionHandler
 //   var clientVpnUserBasedAuthentication clientVpnUserBasedAuthentication
@@ -75134,6 +76083,7 @@ type ClientVpnEndpointOptions struct {
 //   var subnet subnet
 //   var subnetFilter subnetFilter
 //   var vpc vpc
+//
 //   clientVpnEndpointProps := &clientVpnEndpointProps{
 //   	cidr: jsii.String("cidr"),
 //   	serverCertificateArn: jsii.String("serverCertificateArn"),
@@ -75151,14 +76101,14 @@ type ClientVpnEndpointOptions struct {
 //   	logging: jsii.Boolean(false),
 //   	logGroup: logGroup,
 //   	logStream: logStream,
-//   	port: ec2.vpnPort_HTTPS,
+//   	port: awscdk.Aws_ec2.vpnPort_HTTPS,
 //   	securityGroups: []iSecurityGroup{
 //   		securityGroup,
 //   	},
 //   	selfServicePortal: jsii.Boolean(false),
-//   	sessionTimeout: ec2.clientVpnSessionTimeout_EIGHT_HOURS,
+//   	sessionTimeout: awscdk.*Aws_ec2.clientVpnSessionTimeout_EIGHT_HOURS,
 //   	splitTunnel: jsii.Boolean(false),
-//   	transportProtocol: ec2.transportProtocol_TCP,
+//   	transportProtocol: awscdk.*Aws_ec2.transportProtocol_TCP,
 //   	userBasedAuthentication: clientVpnUserBasedAuthentication,
 //   	vpcSubnets: &subnetSelection{
 //   		availabilityZones: []*string{
@@ -75173,7 +76123,7 @@ type ClientVpnEndpointOptions struct {
 //   		subnets: []iSubnet{
 //   			subnet,
 //   		},
-//   		subnetType: ec2.subnetType_ISOLATED,
+//   		subnetType: awscdk.*Aws_ec2.subnetType_ISOLATED,
 //   	},
 //   }
 //
@@ -75188,90 +76138,93 @@ type ClientVpnEndpointProps struct {
 	//
 	// The CIDR block should be /22 or greater.
 	// Experimental.
-	Cidr *string `json:"cidr" yaml:"cidr"`
+	Cidr *string `field:"required" json:"cidr" yaml:"cidr"`
 	// The ARN of the server certificate.
 	// Experimental.
-	ServerCertificateArn *string `json:"serverCertificateArn" yaml:"serverCertificateArn"`
+	ServerCertificateArn *string `field:"required" json:"serverCertificateArn" yaml:"serverCertificateArn"`
 	// Whether to authorize all users to the VPC CIDR.
 	//
 	// This automatically creates an authorization rule. Set this to `false` and
 	// use `addAuthorizationRule()` to create your own rules instead.
 	// Experimental.
-	AuthorizeAllUsersToVpcCidr *bool `json:"authorizeAllUsersToVpcCidr" yaml:"authorizeAllUsersToVpcCidr"`
+	AuthorizeAllUsersToVpcCidr *bool `field:"optional" json:"authorizeAllUsersToVpcCidr" yaml:"authorizeAllUsersToVpcCidr"`
 	// The ARN of the client certificate for mutual authentication.
 	//
 	// The certificate must be signed by a certificate authority (CA) and it must
 	// be provisioned in AWS Certificate Manager (ACM).
 	// Experimental.
-	ClientCertificateArn *string `json:"clientCertificateArn" yaml:"clientCertificateArn"`
+	ClientCertificateArn *string `field:"optional" json:"clientCertificateArn" yaml:"clientCertificateArn"`
 	// The AWS Lambda function used for connection authorization.
 	//
 	// The name of the Lambda function must begin with the `AWSClientVPN-` prefix.
 	// Experimental.
-	ClientConnectionHandler IClientVpnConnectionHandler `json:"clientConnectionHandler" yaml:"clientConnectionHandler"`
+	ClientConnectionHandler IClientVpnConnectionHandler `field:"optional" json:"clientConnectionHandler" yaml:"clientConnectionHandler"`
 	// Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established.
 	//
 	// UTF-8 encoded characters only. Maximum of 1400 characters.
 	// Experimental.
-	ClientLoginBanner *string `json:"clientLoginBanner" yaml:"clientLoginBanner"`
+	ClientLoginBanner *string `field:"optional" json:"clientLoginBanner" yaml:"clientLoginBanner"`
 	// A brief description of the Client VPN endpoint.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Information about the DNS servers to be used for DNS resolution.
 	//
 	// A Client VPN endpoint can have up to two DNS servers.
 	// Experimental.
-	DnsServers *[]*string `json:"dnsServers" yaml:"dnsServers"`
+	DnsServers *[]*string `field:"optional" json:"dnsServers" yaml:"dnsServers"`
 	// Whether to enable connections logging.
 	// Experimental.
-	Logging *bool `json:"logging" yaml:"logging"`
+	Logging *bool `field:"optional" json:"logging" yaml:"logging"`
 	// A CloudWatch Logs log group for connection logging.
 	// Experimental.
-	LogGroup awslogs.ILogGroup `json:"logGroup" yaml:"logGroup"`
+	LogGroup awslogs.ILogGroup `field:"optional" json:"logGroup" yaml:"logGroup"`
 	// A CloudWatch Logs log stream for connection logging.
 	// Experimental.
-	LogStream awslogs.ILogStream `json:"logStream" yaml:"logStream"`
+	LogStream awslogs.ILogStream `field:"optional" json:"logStream" yaml:"logStream"`
 	// The port number to assign to the Client VPN endpoint for TCP and UDP traffic.
 	// Experimental.
-	Port VpnPort `json:"port" yaml:"port"`
+	Port VpnPort `field:"optional" json:"port" yaml:"port"`
 	// The security groups to apply to the target network.
 	// Experimental.
-	SecurityGroups *[]ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// Specify whether to enable the self-service portal for the Client VPN endpoint.
 	// Experimental.
-	SelfServicePortal *bool `json:"selfServicePortal" yaml:"selfServicePortal"`
+	SelfServicePortal *bool `field:"optional" json:"selfServicePortal" yaml:"selfServicePortal"`
 	// The maximum VPN session duration time.
 	// Experimental.
-	SessionTimeout ClientVpnSessionTimeout `json:"sessionTimeout" yaml:"sessionTimeout"`
+	SessionTimeout ClientVpnSessionTimeout `field:"optional" json:"sessionTimeout" yaml:"sessionTimeout"`
 	// Indicates whether split-tunnel is enabled on the AWS Client VPN endpoint.
 	// See: https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html
 	//
 	// Experimental.
-	SplitTunnel *bool `json:"splitTunnel" yaml:"splitTunnel"`
+	SplitTunnel *bool `field:"optional" json:"splitTunnel" yaml:"splitTunnel"`
 	// The transport protocol to be used by the VPN session.
 	// Experimental.
-	TransportProtocol TransportProtocol `json:"transportProtocol" yaml:"transportProtocol"`
+	TransportProtocol TransportProtocol `field:"optional" json:"transportProtocol" yaml:"transportProtocol"`
 	// The type of user-based authentication to use.
 	// See: https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/client-authentication.html
 	//
 	// Experimental.
-	UserBasedAuthentication ClientVpnUserBasedAuthentication `json:"userBasedAuthentication" yaml:"userBasedAuthentication"`
+	UserBasedAuthentication ClientVpnUserBasedAuthentication `field:"optional" json:"userBasedAuthentication" yaml:"userBasedAuthentication"`
 	// Subnets to associate to the client VPN endpoint.
 	// Experimental.
-	VpcSubnets *SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
+	VpcSubnets *SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 	// The VPC to connect to.
 	// Experimental.
-	Vpc IVpc `json:"vpc" yaml:"vpc"`
+	Vpc IVpc `field:"required" json:"vpc" yaml:"vpc"`
 }
 
 // A client VPN route.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var clientVpnEndpoint clientVpnEndpoint
 //   var clientVpnRouteTarget clientVpnRouteTarget
-//   clientVpnRoute := ec2.NewClientVpnRoute(this, jsii.String("MyClientVpnRoute"), &clientVpnRouteProps{
+//
+//   clientVpnRoute := awscdk.Aws_ec2.NewClientVpnRoute(this, jsii.String("MyClientVpnRoute"), &clientVpnRouteProps{
 //   	cidr: jsii.String("cidr"),
 //   	target: clientVpnRouteTarget,
 //
@@ -75640,22 +76593,25 @@ type ClientVpnRouteOptions struct {
 	//      connection's IPv4 CIDR range
 	// - To add a route for the local network, enter the client CIDR range.
 	// Experimental.
-	Cidr *string `json:"cidr" yaml:"cidr"`
+	Cidr *string `field:"required" json:"cidr" yaml:"cidr"`
 	// The target for the route.
 	// Experimental.
-	Target ClientVpnRouteTarget `json:"target" yaml:"target"`
+	Target ClientVpnRouteTarget `field:"required" json:"target" yaml:"target"`
 	// A brief description of the authorization rule.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 
 // Properties for a ClientVpnRoute.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var clientVpnEndpoint clientVpnEndpoint
 //   var clientVpnRouteTarget clientVpnRouteTarget
+//
 //   clientVpnRouteProps := &clientVpnRouteProps{
 //   	cidr: jsii.String("cidr"),
 //   	target: clientVpnRouteTarget,
@@ -75677,19 +76633,19 @@ type ClientVpnRouteProps struct {
 	//      connection's IPv4 CIDR range
 	// - To add a route for the local network, enter the client CIDR range.
 	// Experimental.
-	Cidr *string `json:"cidr" yaml:"cidr"`
+	Cidr *string `field:"required" json:"cidr" yaml:"cidr"`
 	// The target for the route.
 	// Experimental.
-	Target ClientVpnRouteTarget `json:"target" yaml:"target"`
+	Target ClientVpnRouteTarget `field:"required" json:"target" yaml:"target"`
 	// A brief description of the authorization rule.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The client VPN endpoint to which to add the route.
 	// Deprecated: Use `clientVpnEndpoint` instead.
-	ClientVpnEndoint IClientVpnEndpoint `json:"clientVpnEndoint" yaml:"clientVpnEndoint"`
+	ClientVpnEndoint IClientVpnEndpoint `field:"optional" json:"clientVpnEndoint" yaml:"clientVpnEndoint"`
 	// The client VPN endpoint to which to add the route.
 	// Experimental.
-	ClientVpnEndpoint IClientVpnEndpoint `json:"clientVpnEndpoint" yaml:"clientVpnEndpoint"`
+	ClientVpnEndpoint IClientVpnEndpoint `field:"optional" json:"clientVpnEndpoint" yaml:"clientVpnEndpoint"`
 }
 
 // Target for a client VPN route.
@@ -75887,6 +76843,7 @@ func (c *jsiiProxy_ClientVpnUserBasedAuthentication) Render() interface{} {
 // Example:
 //   var myBucket bucket
 //
+//
 //   handle := ec2.NewInitServiceRestartHandle()
 //
 //   ec2.cloudFormationInit.fromElements(ec2.initFile.fromString(jsii.String("/etc/nginx/nginx.conf"), jsii.String("..."), &initFileOptions{
@@ -76017,49 +76974,52 @@ func (c *jsiiProxy_CloudFormationInit) Attach(attachedResource awscdk.CfnResourc
 // Basic NetworkACL entry props.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var aclCidr aclCidr
 //   var aclTraffic aclTraffic
+//
 //   commonNetworkAclEntryOptions := &commonNetworkAclEntryOptions{
 //   	cidr: aclCidr,
 //   	ruleNumber: jsii.Number(123),
 //   	traffic: aclTraffic,
 //
 //   	// the properties below are optional
-//   	direction: ec2.trafficDirection_EGRESS,
+//   	direction: awscdk.Aws_ec2.trafficDirection_EGRESS,
 //   	networkAclEntryName: jsii.String("networkAclEntryName"),
-//   	ruleAction: ec2.action_ALLOW,
+//   	ruleAction: awscdk.*Aws_ec2.action_ALLOW,
 //   }
 //
 // Experimental.
 type CommonNetworkAclEntryOptions struct {
 	// The CIDR range to allow or deny.
 	// Experimental.
-	Cidr AclCidr `json:"cidr" yaml:"cidr"`
+	Cidr AclCidr `field:"required" json:"cidr" yaml:"cidr"`
 	// Rule number to assign to the entry, such as 100.
 	//
 	// ACL entries are processed in ascending order by rule number.
 	// Entries can't use the same rule number unless one is an egress rule and the other is an ingress rule.
 	// Experimental.
-	RuleNumber *float64 `json:"ruleNumber" yaml:"ruleNumber"`
+	RuleNumber *float64 `field:"required" json:"ruleNumber" yaml:"ruleNumber"`
 	// What kind of traffic this ACL rule applies to.
 	// Experimental.
-	Traffic AclTraffic `json:"traffic" yaml:"traffic"`
+	Traffic AclTraffic `field:"required" json:"traffic" yaml:"traffic"`
 	// Traffic direction, with respect to the subnet, this rule applies to.
 	// Experimental.
-	Direction TrafficDirection `json:"direction" yaml:"direction"`
+	Direction TrafficDirection `field:"optional" json:"direction" yaml:"direction"`
 	// The name of the NetworkAclEntry.
 	//
 	// It is not recommended to use an explicit group name.
 	// Experimental.
-	NetworkAclEntryName *string `json:"networkAclEntryName" yaml:"networkAclEntryName"`
+	NetworkAclEntryName *string `field:"optional" json:"networkAclEntryName" yaml:"networkAclEntryName"`
 	// Whether to allow or deny traffic that matches the rule; valid values are "allow" or "deny".
 	//
 	// Any traffic that is not explicitly allowed is automatically denied in a custom
 	// ACL, all traffic is automatically allowed in a default ACL.
 	// Experimental.
-	RuleAction Action `json:"ruleAction" yaml:"ruleAction"`
+	RuleAction Action `field:"optional" json:"ruleAction" yaml:"ruleAction"`
 }
 
 // Options for CloudFormationInit.withConfigSets.
@@ -76068,6 +77028,7 @@ type CommonNetworkAclEntryOptions struct {
 //   var vpc vpc
 //   var instanceType instanceType
 //   var machineImage iMachineImage
+//
 //
 //   ec2.NewInstance(this, jsii.String("Instance"), &instanceProps{
 //   	vpc: vpc,
@@ -76090,9 +77051,9 @@ type CommonNetworkAclEntryOptions struct {
 //   			}),
 //   			"config": ec2.NewInitConfig([]InitElement{
 //   				ec2.InitFile.fromObject(jsii.String("/etc/stack.json"), map[string]interface{}{
-//   					"stackId": *stack.of(this).stackId,
-//   					"stackName": *stack.of(this).stackName,
-//   					"region": *stack.of(this).region,
+//   					"stackId": awscdk.*stack.of(this).stackId,
+//   					"stackName": awscdk.*stack.of(this).stackName,
+//   					"region": awscdk.*stack.of(this).region,
 //   				}),
 //   				ec2.InitGroup.fromName(jsii.String("my-group")),
 //   				ec2.InitUser.fromName(jsii.String("my-user")),
@@ -76107,7 +77068,7 @@ type CommonNetworkAclEntryOptions struct {
 //   		},
 //
 //   		// Optional, how long the installation is expected to take (5 minutes by default)
-//   		timeout: duration.minutes(jsii.Number(30)),
+//   		timeout: awscdk.Duration.minutes(jsii.Number(30)),
 //
 //   		// Optional, whether to include the --url argument when running cfn-init and cfn-signal commands (false by default)
 //   		includeUrl: jsii.Boolean(true),
@@ -76121,20 +77082,23 @@ type CommonNetworkAclEntryOptions struct {
 type ConfigSetProps struct {
 	// The sets of configs to pick from.
 	// Experimental.
-	Configs *map[string]InitConfig `json:"configs" yaml:"configs"`
+	Configs *map[string]InitConfig `field:"required" json:"configs" yaml:"configs"`
 	// The definitions of each config set.
 	// Experimental.
-	ConfigSets *map[string]*[]*string `json:"configSets" yaml:"configSets"`
+	ConfigSets *map[string]*[]*string `field:"required" json:"configSets" yaml:"configSets"`
 }
 
 // Options passed by the VPC when NAT needs to be configured.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var privateSubnet privateSubnet
 //   var publicSubnet publicSubnet
 //   var vpc vpc
+//
 //   configureNatOptions := &configureNatOptions{
 //   	natSubnets: []*publicSubnet{
 //   		publicSubnet,
@@ -76149,19 +77113,22 @@ type ConfigSetProps struct {
 type ConfigureNatOptions struct {
 	// The public subnets where the NAT providers need to be placed.
 	// Experimental.
-	NatSubnets *[]PublicSubnet `json:"natSubnets" yaml:"natSubnets"`
+	NatSubnets *[]PublicSubnet `field:"required" json:"natSubnets" yaml:"natSubnets"`
 	// The private subnets that need to route through the NAT providers.
 	//
 	// There may be more private subnets than public subnets with NAT providers.
 	// Experimental.
-	PrivateSubnets *[]PrivateSubnet `json:"privateSubnets" yaml:"privateSubnets"`
+	PrivateSubnets *[]PrivateSubnet `field:"required" json:"privateSubnets" yaml:"privateSubnets"`
 	// The VPC we're configuring NAT for.
 	// Experimental.
-	Vpc Vpc `json:"vpc" yaml:"vpc"`
+	Vpc Vpc `field:"required" json:"vpc" yaml:"vpc"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   connectionRule := &connectionRule{
 //   	fromPort: jsii.Number(123),
 //
@@ -76178,13 +77145,13 @@ type ConnectionRule struct {
 	// If you specify icmp for the IpProtocol property, you can specify
 	// -1 as a wildcard (i.e., any ICMP type number).
 	// Experimental.
-	FromPort *float64 `json:"fromPort" yaml:"fromPort"`
+	FromPort *float64 `field:"required" json:"fromPort" yaml:"fromPort"`
 	// Description of this connection.
 	//
 	// It is applied to both the ingress rule
 	// and the egress rule.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The IP protocol name (tcp, udp, icmp) or number (see Protocol Numbers).
 	//
 	// Use -1 to specify all protocols. If you specify -1, or a protocol number
@@ -76194,13 +77161,13 @@ type ConnectionRule struct {
 	// specify a port range; if you don't, traffic for all types and codes is
 	// allowed.
 	// Experimental.
-	Protocol *string `json:"protocol" yaml:"protocol"`
+	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`
 	// End of port range for the TCP and UDP protocols, or an ICMP code.
 	//
 	// If you specify icmp for the IpProtocol property, you can specify -1 as a
 	// wildcard (i.e., any ICMP code).
 	// Experimental.
-	ToPort *float64 `json:"toPort" yaml:"toPort"`
+	ToPort *float64 `field:"optional" json:"toPort" yaml:"toPort"`
 }
 
 // Manage the allowed network connections for constructs with Security Groups.
@@ -76214,12 +77181,15 @@ type ConnectionRule struct {
 // This object can manage one or more security groups.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var peer iPeer
 //   var port port
 //   var securityGroup securityGroup
-//   connections := ec2.NewConnections(&connectionsProps{
+//
+//   connections := awscdk.Aws_ec2.NewConnections(&connectionsProps{
 //   	defaultPort: port,
 //   	peer: peer,
 //   	securityGroups: []iSecurityGroup{
@@ -76435,11 +77405,14 @@ func (c *jsiiProxy_Connections) AllowToDefaultPort(other IConnectable, descripti
 // Properties to intialize a new Connections object.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var peer iPeer
 //   var port port
 //   var securityGroup securityGroup
+//
 //   connectionsProps := &connectionsProps{
 //   	defaultPort: port,
 //   	peer: peer,
@@ -76452,15 +77425,15 @@ func (c *jsiiProxy_Connections) AllowToDefaultPort(other IConnectable, descripti
 type ConnectionsProps struct {
 	// Default port range for initiating connections to and from this object.
 	// Experimental.
-	DefaultPort Port `json:"defaultPort" yaml:"defaultPort"`
+	DefaultPort Port `field:"optional" json:"defaultPort" yaml:"defaultPort"`
 	// Class that represents the rule by which others can connect to this connectable.
 	//
 	// This object is required, but will be derived from securityGroup if that is passed.
 	// Experimental.
-	Peer IPeer `json:"peer" yaml:"peer"`
+	Peer IPeer `field:"optional" json:"peer" yaml:"peer"`
 	// What securityGroup(s) this object is managing connections for.
 	// Experimental.
-	SecurityGroups *[]ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 }
 
 // Provides the options for specifying the CPU credit type for burstable EC2 instance types (T2, T3, T3a, etc).
@@ -76514,7 +77487,7 @@ const (
 type EbsDeviceOptions struct {
 	// Indicates whether to delete the volume when the instance is terminated.
 	// Experimental.
-	DeleteOnTermination *bool `json:"deleteOnTermination" yaml:"deleteOnTermination"`
+	DeleteOnTermination *bool `field:"optional" json:"deleteOnTermination" yaml:"deleteOnTermination"`
 	// The number of I/O operations per second (IOPS) to provision for the volume.
 	//
 	// Must only be set for {@link volumeType}: {@link EbsDeviceVolumeType.IO1}
@@ -76524,43 +77497,46 @@ type EbsDeviceOptions struct {
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
 	//
 	// Experimental.
-	Iops *float64 `json:"iops" yaml:"iops"`
+	Iops *float64 `field:"optional" json:"iops" yaml:"iops"`
 	// The EBS volume type.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
 	//
 	// Experimental.
-	VolumeType EbsDeviceVolumeType `json:"volumeType" yaml:"volumeType"`
+	VolumeType EbsDeviceVolumeType `field:"optional" json:"volumeType" yaml:"volumeType"`
 	// Specifies whether the EBS volume is encrypted.
 	//
 	// Encrypted EBS volumes can only be attached to instances that support Amazon EBS encryption.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances
 	//
 	// Experimental.
-	Encrypted *bool `json:"encrypted" yaml:"encrypted"`
+	Encrypted *bool `field:"optional" json:"encrypted" yaml:"encrypted"`
 	// The ARN of the AWS Key Management Service (AWS KMS) CMK used for encryption.
 	//
 	// You have to ensure that the KMS CMK has the correct permissions to be used by the service launching the ec2 instances.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#ebs-encryption-requirements
 	//
 	// Experimental.
-	KmsKey awskms.IKey `json:"kmsKey" yaml:"kmsKey"`
+	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 }
 
 // Base block device options for an EBS volume.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   ebsDeviceOptionsBase := &ebsDeviceOptionsBase{
 //   	deleteOnTermination: jsii.Boolean(false),
 //   	iops: jsii.Number(123),
-//   	volumeType: ec2.ebsDeviceVolumeType_STANDARD,
+//   	volumeType: awscdk.Aws_ec2.ebsDeviceVolumeType_STANDARD,
 //   }
 //
 // Experimental.
 type EbsDeviceOptionsBase struct {
 	// Indicates whether to delete the volume when the instance is terminated.
 	// Experimental.
-	DeleteOnTermination *bool `json:"deleteOnTermination" yaml:"deleteOnTermination"`
+	DeleteOnTermination *bool `field:"optional" json:"deleteOnTermination" yaml:"deleteOnTermination"`
 	// The number of I/O operations per second (IOPS) to provision for the volume.
 	//
 	// Must only be set for {@link volumeType}: {@link EbsDeviceVolumeType.IO1}
@@ -76570,20 +77546,24 @@ type EbsDeviceOptionsBase struct {
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
 	//
 	// Experimental.
-	Iops *float64 `json:"iops" yaml:"iops"`
+	Iops *float64 `field:"optional" json:"iops" yaml:"iops"`
 	// The EBS volume type.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
 	//
 	// Experimental.
-	VolumeType EbsDeviceVolumeType `json:"volumeType" yaml:"volumeType"`
+	VolumeType EbsDeviceVolumeType `field:"optional" json:"volumeType" yaml:"volumeType"`
 }
 
 // Properties of an EBS block device.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import kms "github.com/aws/aws-cdk-go/awscdk/aws_kms"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var key key
+//
 //   ebsDeviceProps := &ebsDeviceProps{
 //   	deleteOnTermination: jsii.Boolean(false),
 //   	encrypted: jsii.Boolean(false),
@@ -76591,14 +77571,14 @@ type EbsDeviceOptionsBase struct {
 //   	kmsKey: key,
 //   	snapshotId: jsii.String("snapshotId"),
 //   	volumeSize: jsii.Number(123),
-//   	volumeType: ec2.ebsDeviceVolumeType_STANDARD,
+//   	volumeType: awscdk.Aws_ec2.ebsDeviceVolumeType_STANDARD,
 //   }
 //
 // Experimental.
 type EbsDeviceProps struct {
 	// Indicates whether to delete the volume when the instance is terminated.
 	// Experimental.
-	DeleteOnTermination *bool `json:"deleteOnTermination" yaml:"deleteOnTermination"`
+	DeleteOnTermination *bool `field:"optional" json:"deleteOnTermination" yaml:"deleteOnTermination"`
 	// The number of I/O operations per second (IOPS) to provision for the volume.
 	//
 	// Must only be set for {@link volumeType}: {@link EbsDeviceVolumeType.IO1}
@@ -76608,52 +77588,55 @@ type EbsDeviceProps struct {
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
 	//
 	// Experimental.
-	Iops *float64 `json:"iops" yaml:"iops"`
+	Iops *float64 `field:"optional" json:"iops" yaml:"iops"`
 	// The EBS volume type.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
 	//
 	// Experimental.
-	VolumeType EbsDeviceVolumeType `json:"volumeType" yaml:"volumeType"`
+	VolumeType EbsDeviceVolumeType `field:"optional" json:"volumeType" yaml:"volumeType"`
 	// The volume size, in Gibibytes (GiB).
 	//
 	// If you specify volumeSize, it must be equal or greater than the size of the snapshot.
 	// Experimental.
-	VolumeSize *float64 `json:"volumeSize" yaml:"volumeSize"`
+	VolumeSize *float64 `field:"optional" json:"volumeSize" yaml:"volumeSize"`
 	// Specifies whether the EBS volume is encrypted.
 	//
 	// Encrypted EBS volumes can only be attached to instances that support Amazon EBS encryption.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances
 	//
 	// Experimental.
-	Encrypted *bool `json:"encrypted" yaml:"encrypted"`
+	Encrypted *bool `field:"optional" json:"encrypted" yaml:"encrypted"`
 	// The ARN of the AWS Key Management Service (AWS KMS) CMK used for encryption.
 	//
 	// You have to ensure that the KMS CMK has the correct permissions to be used by the service launching the ec2 instances.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#ebs-encryption-requirements
 	//
 	// Experimental.
-	KmsKey awskms.IKey `json:"kmsKey" yaml:"kmsKey"`
+	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 	// The snapshot ID of the volume to use.
 	// Experimental.
-	SnapshotId *string `json:"snapshotId" yaml:"snapshotId"`
+	SnapshotId *string `field:"optional" json:"snapshotId" yaml:"snapshotId"`
 }
 
 // Block device options for an EBS volume created from a snapshot.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   ebsDeviceSnapshotOptions := &ebsDeviceSnapshotOptions{
 //   	deleteOnTermination: jsii.Boolean(false),
 //   	iops: jsii.Number(123),
 //   	volumeSize: jsii.Number(123),
-//   	volumeType: ec2.ebsDeviceVolumeType_STANDARD,
+//   	volumeType: awscdk.Aws_ec2.ebsDeviceVolumeType_STANDARD,
 //   }
 //
 // Experimental.
 type EbsDeviceSnapshotOptions struct {
 	// Indicates whether to delete the volume when the instance is terminated.
 	// Experimental.
-	DeleteOnTermination *bool `json:"deleteOnTermination" yaml:"deleteOnTermination"`
+	DeleteOnTermination *bool `field:"optional" json:"deleteOnTermination" yaml:"deleteOnTermination"`
 	// The number of I/O operations per second (IOPS) to provision for the volume.
 	//
 	// Must only be set for {@link volumeType}: {@link EbsDeviceVolumeType.IO1}
@@ -76663,17 +77646,17 @@ type EbsDeviceSnapshotOptions struct {
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
 	//
 	// Experimental.
-	Iops *float64 `json:"iops" yaml:"iops"`
+	Iops *float64 `field:"optional" json:"iops" yaml:"iops"`
 	// The EBS volume type.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
 	//
 	// Experimental.
-	VolumeType EbsDeviceVolumeType `json:"volumeType" yaml:"volumeType"`
+	VolumeType EbsDeviceVolumeType `field:"optional" json:"volumeType" yaml:"volumeType"`
 	// The volume size, in Gibibytes (GiB).
 	//
 	// If you specify volumeSize, it must be equal or greater than the size of the snapshot.
 	// Experimental.
-	VolumeSize *float64 `json:"volumeSize" yaml:"volumeSize"`
+	VolumeSize *float64 `field:"optional" json:"volumeSize" yaml:"volumeSize"`
 }
 
 // Supported EBS volume types for blockDevices.
@@ -76721,10 +77704,13 @@ const (
 // Options for the Vpc.enableVpnGateway() method.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var subnet subnet
 //   var subnetFilter subnetFilter
+//
 //   enableVpnGatewayOptions := &enableVpnGatewayOptions{
 //   	type: jsii.String("type"),
 //
@@ -76744,7 +77730,7 @@ const (
 //   			subnets: []iSubnet{
 //   				subnet,
 //   			},
-//   			subnetType: ec2.subnetType_ISOLATED,
+//   			subnetType: awscdk.Aws_ec2.subnetType_ISOLATED,
 //   		},
 //   	},
 //   }
@@ -76753,23 +77739,24 @@ const (
 type EnableVpnGatewayOptions struct {
 	// Default type ipsec.1.
 	// Experimental.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// Explicitly specify an Asn or let aws pick an Asn for you.
 	// Experimental.
-	AmazonSideAsn *float64 `json:"amazonSideAsn" yaml:"amazonSideAsn"`
+	AmazonSideAsn *float64 `field:"optional" json:"amazonSideAsn" yaml:"amazonSideAsn"`
 	// Provide an array of subnets where the route propagation should be added.
 	// Experimental.
-	VpnRoutePropagation *[]*SubnetSelection `json:"vpnRoutePropagation" yaml:"vpnRoutePropagation"`
+	VpnRoutePropagation *[]*SubnetSelection `field:"optional" json:"vpnRoutePropagation" yaml:"vpnRoutePropagation"`
 }
 
 // Options when executing a file.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type Asset awscdk.Asset
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var instance instance
 //
-//   asset := NewAsset(this, jsii.String("Asset"), &assetProps{
+//
+//   asset := awscdk.NewAsset(this, jsii.String("Asset"), &assetProps{
 //   	path: jsii.String("./configure.sh"),
 //   })
 //
@@ -76788,16 +77775,17 @@ type EnableVpnGatewayOptions struct {
 type ExecuteFileOptions struct {
 	// The path to the file.
 	// Experimental.
-	FilePath *string `json:"filePath" yaml:"filePath"`
+	FilePath *string `field:"required" json:"filePath" yaml:"filePath"`
 	// The arguments to be passed to the file.
 	// Experimental.
-	Arguments *string `json:"arguments" yaml:"arguments"`
+	Arguments *string `field:"optional" json:"arguments" yaml:"arguments"`
 }
 
 // A VPC flow log.
 //
 // Example:
 //   var vpc vpc
+//
 //
 //   logGroup := logs.NewLogGroup(this, jsii.String("MyCustomLogGroup"))
 //
@@ -77232,6 +78220,7 @@ func (f *jsiiProxy_FlowLog) Validate() *[]*string {
 // Example:
 //   var vpc vpc
 //
+//
 //   logGroup := logs.NewLogGroup(this, jsii.String("MyCustomLogGroup"))
 //
 //   role := iam.NewRole(this, jsii.String("MyCustomRole"), &roleProps{
@@ -77316,13 +78305,19 @@ func (f *jsiiProxy_FlowLogDestination) Bind(scope awscdk.Construct, flowLog Flow
 // Flow Log Destination configuration.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3 "github.com/aws/aws-cdk-go/awscdk/aws_s3"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var bucket bucket
 //   var logGroup logGroup
 //   var role role
+//
 //   flowLogDestinationConfig := &flowLogDestinationConfig{
-//   	logDestinationType: ec2.flowLogDestinationType_CLOUD_WATCH_LOGS,
+//   	logDestinationType: awscdk.Aws_ec2.flowLogDestinationType_CLOUD_WATCH_LOGS,
 //
 //   	// the properties below are optional
 //   	iamRole: role,
@@ -77335,19 +78330,19 @@ func (f *jsiiProxy_FlowLogDestination) Bind(scope awscdk.Construct, flowLog Flow
 type FlowLogDestinationConfig struct {
 	// The type of destination to publish the flow logs to.
 	// Experimental.
-	LogDestinationType FlowLogDestinationType `json:"logDestinationType" yaml:"logDestinationType"`
+	LogDestinationType FlowLogDestinationType `field:"required" json:"logDestinationType" yaml:"logDestinationType"`
 	// The IAM Role that has access to publish to CloudWatch logs.
 	// Experimental.
-	IamRole awsiam.IRole `json:"iamRole" yaml:"iamRole"`
+	IamRole awsiam.IRole `field:"optional" json:"iamRole" yaml:"iamRole"`
 	// S3 bucket key prefix to publish the flow logs to.
 	// Experimental.
-	KeyPrefix *string `json:"keyPrefix" yaml:"keyPrefix"`
+	KeyPrefix *string `field:"optional" json:"keyPrefix" yaml:"keyPrefix"`
 	// The CloudWatch Logs Log Group to publish the flow logs to.
 	// Experimental.
-	LogGroup awslogs.ILogGroup `json:"logGroup" yaml:"logGroup"`
+	LogGroup awslogs.ILogGroup `field:"optional" json:"logGroup" yaml:"logGroup"`
 	// S3 bucket to publish the flow logs to.
 	// Experimental.
-	S3Bucket awss3.IBucket `json:"s3Bucket" yaml:"s3Bucket"`
+	S3Bucket awss3.IBucket `field:"optional" json:"s3Bucket" yaml:"s3Bucket"`
 }
 
 // The available destination types for Flow Logs.
@@ -77382,18 +78377,19 @@ type FlowLogOptions struct {
 	//
 	// Flow log data can be published to CloudWatch Logs or Amazon S3.
 	// Experimental.
-	Destination FlowLogDestination `json:"destination" yaml:"destination"`
+	Destination FlowLogDestination `field:"optional" json:"destination" yaml:"destination"`
 	// The type of traffic to log.
 	//
 	// You can log traffic that the resource accepts or rejects, or all traffic.
 	// Experimental.
-	TrafficType FlowLogTrafficType `json:"trafficType" yaml:"trafficType"`
+	TrafficType FlowLogTrafficType `field:"optional" json:"trafficType" yaml:"trafficType"`
 }
 
 // Properties of a VPC Flow Log.
 //
 // Example:
 //   var vpc vpc
+//
 //
 //   logGroup := logs.NewLogGroup(this, jsii.String("MyCustomLogGroup"))
 //
@@ -77412,26 +78408,27 @@ type FlowLogProps struct {
 	//
 	// Flow log data can be published to CloudWatch Logs or Amazon S3.
 	// Experimental.
-	Destination FlowLogDestination `json:"destination" yaml:"destination"`
+	Destination FlowLogDestination `field:"optional" json:"destination" yaml:"destination"`
 	// The type of traffic to log.
 	//
 	// You can log traffic that the resource accepts or rejects, or all traffic.
 	// Experimental.
-	TrafficType FlowLogTrafficType `json:"trafficType" yaml:"trafficType"`
+	TrafficType FlowLogTrafficType `field:"optional" json:"trafficType" yaml:"trafficType"`
 	// The type of resource for which to create the flow log.
 	// Experimental.
-	ResourceType FlowLogResourceType `json:"resourceType" yaml:"resourceType"`
+	ResourceType FlowLogResourceType `field:"required" json:"resourceType" yaml:"resourceType"`
 	// The name of the FlowLog.
 	//
 	// It is not recommended to use an explicit name.
 	// Experimental.
-	FlowLogName *string `json:"flowLogName" yaml:"flowLogName"`
+	FlowLogName *string `field:"optional" json:"flowLogName" yaml:"flowLogName"`
 }
 
 // The type of resource to create the flow log for.
 //
 // Example:
 //   var vpc vpc
+//
 //
 //   logGroup := logs.NewLogGroup(this, jsii.String("MyCustomLogGroup"))
 //
@@ -77593,7 +78590,10 @@ const (
 // Pair represents a gateway created by NAT Provider.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   gatewayConfig := &gatewayConfig{
 //   	az: jsii.String("az"),
 //   	gatewayId: jsii.String("gatewayId"),
@@ -77603,10 +78603,10 @@ const (
 type GatewayConfig struct {
 	// Availability Zone.
 	// Experimental.
-	Az *string `json:"az" yaml:"az"`
+	Az *string `field:"required" json:"az" yaml:"az"`
 	// Identity of gateway spawned by the provider.
 	// Experimental.
-	GatewayId *string `json:"gatewayId" yaml:"gatewayId"`
+	GatewayId *string `field:"required" json:"gatewayId" yaml:"gatewayId"`
 }
 
 // A gateway VPC endpoint.
@@ -78236,7 +79236,7 @@ func GatewayVpcEndpointAwsService_S3() GatewayVpcEndpointAwsService {
 type GatewayVpcEndpointOptions struct {
 	// The service to use for this gateway VPC endpoint.
 	// Experimental.
-	Service IGatewayVpcEndpointService `json:"service" yaml:"service"`
+	Service IGatewayVpcEndpointService `field:"required" json:"service" yaml:"service"`
 	// Where to add endpoint routing.
 	//
 	// By default, this endpoint will be routable from all subnets in the VPC.
@@ -78244,6 +79244,7 @@ type GatewayVpcEndpointOptions struct {
 	//
 	// Example:
 	//   var vpc vpc
+	//
 	//
 	//   vpc.addGatewayEndpoint(jsii.String("DynamoDbEndpoint"), &gatewayVpcEndpointOptions{
 	//   	service: ec2.gatewayVpcEndpointAwsService_DYNAMODB(),
@@ -78256,18 +79257,21 @@ type GatewayVpcEndpointOptions struct {
 	//   })
 	//
 	// Experimental.
-	Subnets *[]*SubnetSelection `json:"subnets" yaml:"subnets"`
+	Subnets *[]*SubnetSelection `field:"optional" json:"subnets" yaml:"subnets"`
 }
 
 // Construction properties for a GatewayVpcEndpoint.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var gatewayVpcEndpointService iGatewayVpcEndpointService
 //   var subnet subnet
 //   var subnetFilter subnetFilter
 //   var vpc vpc
+//
 //   gatewayVpcEndpointProps := &gatewayVpcEndpointProps{
 //   	service: gatewayVpcEndpointService,
 //   	vpc: vpc,
@@ -78287,7 +79291,7 @@ type GatewayVpcEndpointOptions struct {
 //   			subnets: []iSubnet{
 //   				subnet,
 //   			},
-//   			subnetType: ec2.subnetType_ISOLATED,
+//   			subnetType: awscdk.Aws_ec2.subnetType_ISOLATED,
 //   		},
 //   	},
 //   }
@@ -78296,7 +79300,7 @@ type GatewayVpcEndpointOptions struct {
 type GatewayVpcEndpointProps struct {
 	// The service to use for this gateway VPC endpoint.
 	// Experimental.
-	Service IGatewayVpcEndpointService `json:"service" yaml:"service"`
+	Service IGatewayVpcEndpointService `field:"required" json:"service" yaml:"service"`
 	// Where to add endpoint routing.
 	//
 	// By default, this endpoint will be routable from all subnets in the VPC.
@@ -78314,10 +79318,10 @@ type GatewayVpcEndpointProps struct {
 	//   });
 	//
 	// Experimental.
-	Subnets *[]*SubnetSelection `json:"subnets" yaml:"subnets"`
+	Subnets *[]*SubnetSelection `field:"optional" json:"subnets" yaml:"subnets"`
 	// The VPC network in which the gateway endpoint will be used.
 	// Experimental.
-	Vpc IVpc `json:"vpc" yaml:"vpc"`
+	Vpc IVpc `field:"required" json:"vpc" yaml:"vpc"`
 }
 
 // Construct a Linux machine image from an AMI map.
@@ -78401,9 +79405,12 @@ func (g *jsiiProxy_GenericLinuxImage) GetImage(scope awscdk.Construct) *MachineI
 // Configuration options for GenericLinuxImage.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var userData userData
+//
 //   genericLinuxImageProps := &genericLinuxImageProps{
 //   	userData: userData,
 //   }
@@ -78412,7 +79419,7 @@ func (g *jsiiProxy_GenericLinuxImage) GetImage(scope awscdk.Construct) *MachineI
 type GenericLinuxImageProps struct {
 	// Initial user data.
 	// Experimental.
-	UserData UserData `json:"userData" yaml:"userData"`
+	UserData UserData `field:"optional" json:"userData" yaml:"userData"`
 }
 
 // Select the image based on a given SSM parameter.
@@ -78425,10 +79432,13 @@ type GenericLinuxImageProps struct {
 // The AMI ID is selected using the values published to the SSM parameter store.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var userData userData
-//   genericSSMParameterImage := ec2.NewGenericSSMParameterImage(jsii.String("parameterName"), ec2.operatingSystemType_LINUX, userData)
+//
+//   genericSSMParameterImage := awscdk.Aws_ec2.NewGenericSSMParameterImage(jsii.String("parameterName"), awscdk.Aws_ec2.operatingSystemType_LINUX, userData)
 //
 // Experimental.
 type GenericSSMParameterImage interface {
@@ -78501,10 +79511,13 @@ func (g *jsiiProxy_GenericSSMParameterImage) GetImage(scope awscdk.Construct) *M
 // Allows you to create a generic Windows EC2 , manually specify an AMI map.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var userData userData
-//   genericWindowsImage := ec2.NewGenericWindowsImage(map[string]*string{
+//
+//   genericWindowsImage := awscdk.Aws_ec2.NewGenericWindowsImage(map[string]*string{
 //   	"amiMapKey": jsii.String("amiMap"),
 //   }, &genericWindowsImageProps{
 //   	userData: userData,
@@ -78565,9 +79578,12 @@ func (g *jsiiProxy_GenericWindowsImage) GetImage(scope awscdk.Construct) *Machin
 // Configuration options for GenericWindowsImage.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var userData userData
+//
 //   genericWindowsImageProps := &genericWindowsImageProps{
 //   	userData: userData,
 //   }
@@ -78576,7 +79592,7 @@ func (g *jsiiProxy_GenericWindowsImage) GetImage(scope awscdk.Construct) *Machin
 type GenericWindowsImageProps struct {
 	// Initial user data.
 	// Experimental.
-	UserData UserData `json:"userData" yaml:"userData"`
+	UserData UserData `field:"optional" json:"userData" yaml:"userData"`
 }
 
 // A connection handler for client VPN endpoints.
@@ -80292,28 +81308,28 @@ func InitCommand_ShellCommand(shellCommand *string, options *InitCommandOptions)
 type InitCommandOptions struct {
 	// The working directory.
 	// Experimental.
-	Cwd *string `json:"cwd" yaml:"cwd"`
+	Cwd *string `field:"optional" json:"cwd" yaml:"cwd"`
 	// Sets environment variables for the command.
 	//
 	// This property overwrites, rather than appends, the existing environment.
 	// Experimental.
-	Env *map[string]*string `json:"env" yaml:"env"`
+	Env *map[string]*string `field:"optional" json:"env" yaml:"env"`
 	// Continue running if this command fails.
 	// Experimental.
-	IgnoreErrors *bool `json:"ignoreErrors" yaml:"ignoreErrors"`
+	IgnoreErrors *bool `field:"optional" json:"ignoreErrors" yaml:"ignoreErrors"`
 	// Identifier key for this command.
 	//
 	// Commands are executed in lexicographical order of their key names.
 	// Experimental.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"optional" json:"key" yaml:"key"`
 	// Restart the given service(s) after this command has run.
 	// Experimental.
-	ServiceRestartHandles *[]InitServiceRestartHandle `json:"serviceRestartHandles" yaml:"serviceRestartHandles"`
+	ServiceRestartHandles *[]InitServiceRestartHandle `field:"optional" json:"serviceRestartHandles" yaml:"serviceRestartHandles"`
 	// Command to determine whether this command should be run.
 	//
 	// If the test passes (exits with error code of 0), the command is run.
 	// Experimental.
-	TestCmd *string `json:"testCmd" yaml:"testCmd"`
+	TestCmd *string `field:"optional" json:"testCmd" yaml:"testCmd"`
 	// The duration to wait after a command has finished in case the command causes a reboot.
 	//
 	// Set this value to `InitCommandWaitDuration.none()` if you do not want to wait for every command;
@@ -80321,14 +81337,17 @@ type InitCommandOptions struct {
 	//
 	// For Windows systems only.
 	// Experimental.
-	WaitAfterCompletion InitCommandWaitDuration `json:"waitAfterCompletion" yaml:"waitAfterCompletion"`
+	WaitAfterCompletion InitCommandWaitDuration `field:"optional" json:"waitAfterCompletion" yaml:"waitAfterCompletion"`
 }
 
 // Represents a duration to wait after a command has finished, in case of a reboot (Windows only).
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   initCommandWaitDuration := ec2.initCommandWaitDuration.forever()
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   initCommandWaitDuration := awscdk.Aws_ec2.initCommandWaitDuration.forever()
 //
 // Experimental.
 type InitCommandWaitDuration interface {
@@ -80408,6 +81427,7 @@ func InitCommandWaitDuration_Of(duration awscdk.Duration) InitCommandWaitDuratio
 //   var instanceType instanceType
 //   var machineImage iMachineImage
 //
+//
 //   ec2.NewInstance(this, jsii.String("Instance"), &instanceProps{
 //   	vpc: vpc,
 //   	instanceType: instanceType,
@@ -80429,9 +81449,9 @@ func InitCommandWaitDuration_Of(duration awscdk.Duration) InitCommandWaitDuratio
 //   			}),
 //   			"config": ec2.NewInitConfig([]InitElement{
 //   				ec2.InitFile.fromObject(jsii.String("/etc/stack.json"), map[string]interface{}{
-//   					"stackId": *stack.of(this).stackId,
-//   					"stackName": *stack.of(this).stackName,
-//   					"region": *stack.of(this).region,
+//   					"stackId": awscdk.*stack.of(this).stackId,
+//   					"stackName": awscdk.*stack.of(this).stackName,
+//   					"region": awscdk.*stack.of(this).region,
 //   				}),
 //   				ec2.InitGroup.fromName(jsii.String("my-group")),
 //   				ec2.InitUser.fromName(jsii.String("my-user")),
@@ -80446,7 +81466,7 @@ func InitCommandWaitDuration_Of(duration awscdk.Duration) InitCommandWaitDuratio
 //   		},
 //
 //   		// Optional, how long the installation is expected to take (5 minutes by default)
-//   		timeout: duration.minutes(jsii.Number(30)),
+//   		timeout: awscdk.Duration.minutes(jsii.Number(30)),
 //
 //   		// Optional, whether to include the --url argument when running cfn-init and cfn-signal commands (false by default)
 //   		includeUrl: jsii.Boolean(true),
@@ -80528,6 +81548,7 @@ func (i *jsiiProxy_InitConfig) IsEmpty() *bool {
 // Example:
 //   var myBucket bucket
 //
+//
 //   handle := ec2.NewInitServiceRestartHandle()
 //
 //   ec2.cloudFormationInit.fromElements(ec2.initFile.fromString(jsii.String("/etc/nginx/nginx.conf"), jsii.String("..."), &initFileOptions{
@@ -80583,6 +81604,7 @@ func NewInitElement_Override(i InitElement) {
 //   var instanceType instanceType
 //   var machineImage iMachineImage
 //
+//
 //   autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &autoScalingGroupProps{
 //   	vpc: vpc,
 //   	instanceType: instanceType,
@@ -80592,7 +81614,7 @@ func NewInitElement_Override(i InitElement) {
 //
 //   	init: ec2.cloudFormationInit.fromElements(ec2.initFile.fromString(jsii.String("/etc/my_instance"), jsii.String("This got written during instance startup"))),
 //   	signals: autoscaling.signals.waitForAll(&signalsOptions{
-//   		timeout: duration.minutes(jsii.Number(10)),
+//   		timeout: awscdk.Duration.minutes(jsii.Number(10)),
 //   	}),
 //   })
 //
@@ -80779,12 +81801,18 @@ func InitFile_Symlink(fileName *string, target *string, options *InitFileOptions
 // Additional options for creating an InitFile from an asset.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import assets "github.com/aws/aws-cdk-go/awscdk/assets"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var dockerImage dockerImage
 //   var grantable iGrantable
 //   var initServiceRestartHandle initServiceRestartHandle
 //   var localBundling iLocalBundling
+//
 //   initFileAssetOptions := &initFileAssetOptions{
 //   	assetHash: jsii.String("assetHash"),
 //   	assetHashType: monocdk.assetHashType_SOURCE,
@@ -80820,7 +81848,7 @@ func InitFile_Symlink(fileName *string, target *string, options *InitFileOptions
 //   	exclude: []*string{
 //   		jsii.String("exclude"),
 //   	},
-//   	follow: assets.followMode_NEVER,
+//   	follow: awscdk.Assets.followMode_NEVER,
 //   	followSymlinks: monocdk.symlinkFollowMode_NEVER,
 //   	group: jsii.String("group"),
 //   	ignoreMode: monocdk.ignoreMode_GLOB,
@@ -80841,12 +81869,12 @@ type InitFileAssetOptions struct {
 	//
 	// Only applicable for inlined string and file content.
 	// Experimental.
-	Base64Encoded *bool `json:"base64Encoded" yaml:"base64Encoded"`
+	Base64Encoded *bool `field:"optional" json:"base64Encoded" yaml:"base64Encoded"`
 	// The name of the owning group for this file.
 	//
 	// Not supported for Windows systems.
 	// Experimental.
-	Group *string `json:"group" yaml:"group"`
+	Group *string `field:"optional" json:"group" yaml:"group"`
 	// A six-digit octal value representing the mode for this file.
 	//
 	// Use the first three digits for symlinks and the last three digits for
@@ -80856,27 +81884,27 @@ type InitFileAssetOptions struct {
 	//
 	// Not supported for Windows systems.
 	// Experimental.
-	Mode *string `json:"mode" yaml:"mode"`
+	Mode *string `field:"optional" json:"mode" yaml:"mode"`
 	// The name of the owning user for this file.
 	//
 	// Not supported for Windows systems.
 	// Experimental.
-	Owner *string `json:"owner" yaml:"owner"`
+	Owner *string `field:"optional" json:"owner" yaml:"owner"`
 	// Restart the given service after this file has been written.
 	// Experimental.
-	ServiceRestartHandles *[]InitServiceRestartHandle `json:"serviceRestartHandles" yaml:"serviceRestartHandles"`
+	ServiceRestartHandles *[]InitServiceRestartHandle `field:"optional" json:"serviceRestartHandles" yaml:"serviceRestartHandles"`
 	// Glob patterns to exclude from the copy.
 	// Experimental.
-	Exclude *[]*string `json:"exclude" yaml:"exclude"`
+	Exclude *[]*string `field:"optional" json:"exclude" yaml:"exclude"`
 	// A strategy for how to handle symlinks.
 	// Deprecated: use `followSymlinks` instead.
-	Follow assets.FollowMode `json:"follow" yaml:"follow"`
+	Follow assets.FollowMode `field:"optional" json:"follow" yaml:"follow"`
 	// The ignore behavior to use for exclude patterns.
 	// Experimental.
-	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode" yaml:"ignoreMode"`
+	IgnoreMode awscdk.IgnoreMode `field:"optional" json:"ignoreMode" yaml:"ignoreMode"`
 	// A strategy for how to handle symlinks.
 	// Experimental.
-	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks" yaml:"followSymlinks"`
+	FollowSymlinks awscdk.SymlinkFollowMode `field:"optional" json:"followSymlinks" yaml:"followSymlinks"`
 	// Specify a custom hash for this asset.
 	//
 	// If `assetHashType` is set it must
@@ -80890,13 +81918,13 @@ type InitFileAssetOptions struct {
 	// need to make sure it is updated every time the asset changes, or otherwise it is
 	// possible that some deployments will not be invalidated.
 	// Experimental.
-	AssetHash *string `json:"assetHash" yaml:"assetHash"`
+	AssetHash *string `field:"optional" json:"assetHash" yaml:"assetHash"`
 	// Specifies the type of hash to calculate for this asset.
 	//
 	// If `assetHash` is configured, this option must be `undefined` or
 	// `AssetHashType.CUSTOM`.
 	// Experimental.
-	AssetHashType awscdk.AssetHashType `json:"assetHashType" yaml:"assetHashType"`
+	AssetHashType awscdk.AssetHashType `field:"optional" json:"assetHashType" yaml:"assetHashType"`
 	// Bundle the asset by executing a command in a Docker container or a custom bundling provider.
 	//
 	// The asset path will be mounted at `/asset-input`. The Docker
@@ -80904,12 +81932,12 @@ type InitFileAssetOptions struct {
 	// The content at `/asset-output` will be zipped and used as the
 	// final asset.
 	// Experimental.
-	Bundling *awscdk.BundlingOptions `json:"bundling" yaml:"bundling"`
+	Bundling *awscdk.BundlingOptions `field:"optional" json:"bundling" yaml:"bundling"`
 	// A list of principals that should be able to read this asset from S3.
 	//
 	// You can use `asset.grantRead(principal)` to grant read permissions later.
 	// Experimental.
-	Readers *[]awsiam.IGrantable `json:"readers" yaml:"readers"`
+	Readers *[]awsiam.IGrantable `field:"optional" json:"readers" yaml:"readers"`
 	// Custom hash to use when identifying the specific version of the asset.
 	//
 	// For consistency,
@@ -80922,13 +81950,14 @@ type InitFileAssetOptions struct {
 	// you will need to make sure it is updated every time the source changes, or otherwise
 	// it is possible that some deployments will not be invalidated.
 	// Deprecated: see `assetHash` and `assetHashType`.
-	SourceHash *string `json:"sourceHash" yaml:"sourceHash"`
+	SourceHash *string `field:"optional" json:"sourceHash" yaml:"sourceHash"`
 }
 
 // Options for InitFile.
 //
 // Example:
 //   var myBucket bucket
+//
 //
 //   handle := ec2.NewInitServiceRestartHandle()
 //
@@ -80950,12 +81979,12 @@ type InitFileOptions struct {
 	//
 	// Only applicable for inlined string and file content.
 	// Experimental.
-	Base64Encoded *bool `json:"base64Encoded" yaml:"base64Encoded"`
+	Base64Encoded *bool `field:"optional" json:"base64Encoded" yaml:"base64Encoded"`
 	// The name of the owning group for this file.
 	//
 	// Not supported for Windows systems.
 	// Experimental.
-	Group *string `json:"group" yaml:"group"`
+	Group *string `field:"optional" json:"group" yaml:"group"`
 	// A six-digit octal value representing the mode for this file.
 	//
 	// Use the first three digits for symlinks and the last three digits for
@@ -80965,15 +81994,15 @@ type InitFileOptions struct {
 	//
 	// Not supported for Windows systems.
 	// Experimental.
-	Mode *string `json:"mode" yaml:"mode"`
+	Mode *string `field:"optional" json:"mode" yaml:"mode"`
 	// The name of the owning user for this file.
 	//
 	// Not supported for Windows systems.
 	// Experimental.
-	Owner *string `json:"owner" yaml:"owner"`
+	Owner *string `field:"optional" json:"owner" yaml:"owner"`
 	// Restart the given service after this file has been written.
 	// Experimental.
-	ServiceRestartHandles *[]InitServiceRestartHandle `json:"serviceRestartHandles" yaml:"serviceRestartHandles"`
+	ServiceRestartHandles *[]InitServiceRestartHandle `field:"optional" json:"serviceRestartHandles" yaml:"serviceRestartHandles"`
 }
 
 // Create Linux/UNIX groups and assign group IDs.
@@ -80984,6 +82013,7 @@ type InitFileOptions struct {
 //   var vpc vpc
 //   var instanceType instanceType
 //   var machineImage iMachineImage
+//
 //
 //   ec2.NewInstance(this, jsii.String("Instance"), &instanceProps{
 //   	vpc: vpc,
@@ -81006,9 +82036,9 @@ type InitFileOptions struct {
 //   			}),
 //   			"config": ec2.NewInitConfig([]InitElement{
 //   				ec2.InitFile.fromObject(jsii.String("/etc/stack.json"), map[string]interface{}{
-//   					"stackId": *stack.of(this).stackId,
-//   					"stackName": *stack.of(this).stackName,
-//   					"region": *stack.of(this).region,
+//   					"stackId": awscdk.*stack.of(this).stackId,
+//   					"stackName": awscdk.*stack.of(this).stackName,
+//   					"region": awscdk.*stack.of(this).region,
 //   				}),
 //   				ec2.InitGroup.fromName(jsii.String("my-group")),
 //   				ec2.InitUser.fromName(jsii.String("my-user")),
@@ -81023,7 +82053,7 @@ type InitFileOptions struct {
 //   		},
 //
 //   		// Optional, how long the installation is expected to take (5 minutes by default)
-//   		timeout: duration.minutes(jsii.Number(30)),
+//   		timeout: awscdk.Duration.minutes(jsii.Number(30)),
 //
 //   		// Optional, whether to include the --url argument when running cfn-init and cfn-signal commands (false by default)
 //   		includeUrl: jsii.Boolean(true),
@@ -81107,6 +82137,7 @@ func InitGroup_FromName(groupName *string, groupId *float64) InitGroup {
 //   var instanceType instanceType
 //   var machineImage iMachineImage
 //
+//
 //   ec2.NewInstance(this, jsii.String("Instance"), &instanceProps{
 //   	vpc: vpc,
 //   	instanceType: instanceType,
@@ -81128,9 +82159,9 @@ func InitGroup_FromName(groupName *string, groupId *float64) InitGroup {
 //   			}),
 //   			"config": ec2.NewInitConfig([]InitElement{
 //   				ec2.InitFile.fromObject(jsii.String("/etc/stack.json"), map[string]interface{}{
-//   					"stackId": *stack.of(this).stackId,
-//   					"stackName": *stack.of(this).stackName,
-//   					"region": *stack.of(this).region,
+//   					"stackId": awscdk.*stack.of(this).stackId,
+//   					"stackName": awscdk.*stack.of(this).stackName,
+//   					"region": awscdk.*stack.of(this).region,
 //   				}),
 //   				ec2.InitGroup.fromName(jsii.String("my-group")),
 //   				ec2.InitUser.fromName(jsii.String("my-user")),
@@ -81145,7 +82176,7 @@ func InitGroup_FromName(groupName *string, groupId *float64) InitGroup {
 //   		},
 //
 //   		// Optional, how long the installation is expected to take (5 minutes by default)
-//   		timeout: duration.minutes(jsii.Number(30)),
+//   		timeout: awscdk.Duration.minutes(jsii.Number(30)),
 //
 //   		// Optional, whether to include the --url argument when running cfn-init and cfn-signal commands (false by default)
 //   		includeUrl: jsii.Boolean(true),
@@ -81327,6 +82358,7 @@ func (i *jsiiProxy_InitPackage) RenderPackageVersions() interface{} {
 // Example:
 //   var myBucket bucket
 //
+//
 //   handle := ec2.NewInitServiceRestartHandle()
 //
 //   ec2.cloudFormationInit.fromElements(ec2.initFile.fromString(jsii.String("/etc/nginx/nginx.conf"), jsii.String("..."), &initFileOptions{
@@ -81404,6 +82436,7 @@ func InitService_Enable(serviceName *string, options *InitServiceOptions) InitSe
 // Example:
 //   var myBucket bucket
 //
+//
 //   handle := ec2.NewInitServiceRestartHandle()
 //
 //   ec2.cloudFormationInit.fromElements(ec2.initFile.fromString(jsii.String("/etc/nginx/nginx.conf"), jsii.String("..."), &initFileOptions{
@@ -81426,20 +82459,20 @@ type InitServiceOptions struct {
 	//
 	// Set to false to ensure that the service will not be started automatically upon boot.
 	// Experimental.
-	Enabled *bool `json:"enabled" yaml:"enabled"`
+	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// Make sure this service is running or not running after cfn-init finishes.
 	//
 	// Set to true to ensure that the service is running after cfn-init finishes.
 	//
 	// Set to false to ensure that the service is not running after cfn-init finishes.
 	// Experimental.
-	EnsureRunning *bool `json:"ensureRunning" yaml:"ensureRunning"`
+	EnsureRunning *bool `field:"optional" json:"ensureRunning" yaml:"ensureRunning"`
 	// Restart service when the actions registered into the restartHandle have been performed.
 	//
 	// Register actions into the restartHandle by passing it to `InitFile`, `InitCommand`,
 	// `InitPackage` and `InitSource` objects.
 	// Experimental.
-	ServiceRestartHandle InitServiceRestartHandle `json:"serviceRestartHandle" yaml:"serviceRestartHandle"`
+	ServiceRestartHandle InitServiceRestartHandle `field:"optional" json:"serviceRestartHandle" yaml:"serviceRestartHandle"`
 }
 
 // An object that represents reasons to restart an InitService.
@@ -81462,6 +82495,7 @@ type InitServiceOptions struct {
 //
 // Example:
 //   var myBucket bucket
+//
 //
 //   handle := ec2.NewInitServiceRestartHandle()
 //
@@ -81516,6 +82550,7 @@ func NewInitServiceRestartHandle_Override(i InitServiceRestartHandle) {
 //
 // Example:
 //   var myBucket bucket
+//
 //
 //   handle := ec2.NewInitServiceRestartHandle()
 //
@@ -81654,12 +82689,18 @@ func InitSource_FromUrl(targetDirectory *string, url *string, options *InitSourc
 // Additional options for an InitSource that builds an asset from local files.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import assets "github.com/aws/aws-cdk-go/awscdk/assets"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var dockerImage dockerImage
 //   var grantable iGrantable
 //   var initServiceRestartHandle initServiceRestartHandle
 //   var localBundling iLocalBundling
+//
 //   initSourceAssetOptions := &initSourceAssetOptions{
 //   	assetHash: jsii.String("assetHash"),
 //   	assetHashType: monocdk.assetHashType_SOURCE,
@@ -81694,7 +82735,7 @@ func InitSource_FromUrl(targetDirectory *string, url *string, options *InitSourc
 //   	exclude: []*string{
 //   		jsii.String("exclude"),
 //   	},
-//   	follow: assets.followMode_NEVER,
+//   	follow: awscdk.Assets.followMode_NEVER,
 //   	followSymlinks: monocdk.symlinkFollowMode_NEVER,
 //   	ignoreMode: monocdk.ignoreMode_GLOB,
 //   	readers: []*iGrantable{
@@ -81710,19 +82751,19 @@ func InitSource_FromUrl(targetDirectory *string, url *string, options *InitSourc
 type InitSourceAssetOptions struct {
 	// Restart the given services after this archive has been extracted.
 	// Experimental.
-	ServiceRestartHandles *[]InitServiceRestartHandle `json:"serviceRestartHandles" yaml:"serviceRestartHandles"`
+	ServiceRestartHandles *[]InitServiceRestartHandle `field:"optional" json:"serviceRestartHandles" yaml:"serviceRestartHandles"`
 	// Glob patterns to exclude from the copy.
 	// Experimental.
-	Exclude *[]*string `json:"exclude" yaml:"exclude"`
+	Exclude *[]*string `field:"optional" json:"exclude" yaml:"exclude"`
 	// A strategy for how to handle symlinks.
 	// Deprecated: use `followSymlinks` instead.
-	Follow assets.FollowMode `json:"follow" yaml:"follow"`
+	Follow assets.FollowMode `field:"optional" json:"follow" yaml:"follow"`
 	// The ignore behavior to use for exclude patterns.
 	// Experimental.
-	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode" yaml:"ignoreMode"`
+	IgnoreMode awscdk.IgnoreMode `field:"optional" json:"ignoreMode" yaml:"ignoreMode"`
 	// A strategy for how to handle symlinks.
 	// Experimental.
-	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks" yaml:"followSymlinks"`
+	FollowSymlinks awscdk.SymlinkFollowMode `field:"optional" json:"followSymlinks" yaml:"followSymlinks"`
 	// Specify a custom hash for this asset.
 	//
 	// If `assetHashType` is set it must
@@ -81736,13 +82777,13 @@ type InitSourceAssetOptions struct {
 	// need to make sure it is updated every time the asset changes, or otherwise it is
 	// possible that some deployments will not be invalidated.
 	// Experimental.
-	AssetHash *string `json:"assetHash" yaml:"assetHash"`
+	AssetHash *string `field:"optional" json:"assetHash" yaml:"assetHash"`
 	// Specifies the type of hash to calculate for this asset.
 	//
 	// If `assetHash` is configured, this option must be `undefined` or
 	// `AssetHashType.CUSTOM`.
 	// Experimental.
-	AssetHashType awscdk.AssetHashType `json:"assetHashType" yaml:"assetHashType"`
+	AssetHashType awscdk.AssetHashType `field:"optional" json:"assetHashType" yaml:"assetHashType"`
 	// Bundle the asset by executing a command in a Docker container or a custom bundling provider.
 	//
 	// The asset path will be mounted at `/asset-input`. The Docker
@@ -81750,12 +82791,12 @@ type InitSourceAssetOptions struct {
 	// The content at `/asset-output` will be zipped and used as the
 	// final asset.
 	// Experimental.
-	Bundling *awscdk.BundlingOptions `json:"bundling" yaml:"bundling"`
+	Bundling *awscdk.BundlingOptions `field:"optional" json:"bundling" yaml:"bundling"`
 	// A list of principals that should be able to read this asset from S3.
 	//
 	// You can use `asset.grantRead(principal)` to grant read permissions later.
 	// Experimental.
-	Readers *[]awsiam.IGrantable `json:"readers" yaml:"readers"`
+	Readers *[]awsiam.IGrantable `field:"optional" json:"readers" yaml:"readers"`
 	// Custom hash to use when identifying the specific version of the asset.
 	//
 	// For consistency,
@@ -81768,13 +82809,14 @@ type InitSourceAssetOptions struct {
 	// you will need to make sure it is updated every time the source changes, or otherwise
 	// it is possible that some deployments will not be invalidated.
 	// Deprecated: see `assetHash` and `assetHashType`.
-	SourceHash *string `json:"sourceHash" yaml:"sourceHash"`
+	SourceHash *string `field:"optional" json:"sourceHash" yaml:"sourceHash"`
 }
 
 // Additional options for an InitSource.
 //
 // Example:
 //   var myBucket bucket
+//
 //
 //   handle := ec2.NewInitServiceRestartHandle()
 //
@@ -81794,7 +82836,7 @@ type InitSourceAssetOptions struct {
 type InitSourceOptions struct {
 	// Restart the given services after this archive has been extracted.
 	// Experimental.
-	ServiceRestartHandles *[]InitServiceRestartHandle `json:"serviceRestartHandles" yaml:"serviceRestartHandles"`
+	ServiceRestartHandles *[]InitServiceRestartHandle `field:"optional" json:"serviceRestartHandles" yaml:"serviceRestartHandles"`
 }
 
 // Create Linux/UNIX users and to assign user IDs.
@@ -81808,6 +82850,7 @@ type InitSourceOptions struct {
 //   var vpc vpc
 //   var instanceType instanceType
 //   var machineImage iMachineImage
+//
 //
 //   ec2.NewInstance(this, jsii.String("Instance"), &instanceProps{
 //   	vpc: vpc,
@@ -81830,9 +82873,9 @@ type InitSourceOptions struct {
 //   			}),
 //   			"config": ec2.NewInitConfig([]InitElement{
 //   				ec2.InitFile.fromObject(jsii.String("/etc/stack.json"), map[string]interface{}{
-//   					"stackId": *stack.of(this).stackId,
-//   					"stackName": *stack.of(this).stackName,
-//   					"region": *stack.of(this).region,
+//   					"stackId": awscdk.*stack.of(this).stackId,
+//   					"stackName": awscdk.*stack.of(this).stackName,
+//   					"region": awscdk.*stack.of(this).region,
 //   				}),
 //   				ec2.InitGroup.fromName(jsii.String("my-group")),
 //   				ec2.InitUser.fromName(jsii.String("my-user")),
@@ -81847,7 +82890,7 @@ type InitSourceOptions struct {
 //   		},
 //
 //   		// Optional, how long the installation is expected to take (5 minutes by default)
-//   		timeout: duration.minutes(jsii.Number(30)),
+//   		timeout: awscdk.Duration.minutes(jsii.Number(30)),
 //
 //   		// Optional, whether to include the --url argument when running cfn-init and cfn-signal commands (false by default)
 //   		includeUrl: jsii.Boolean(true),
@@ -81927,7 +82970,10 @@ func InitUser_FromName(userName *string, options *InitUserOptions) InitUser {
 // Optional parameters used when creating a user.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   initUserOptions := &initUserOptions{
 //   	groups: []*string{
 //   		jsii.String("groups"),
@@ -81942,17 +82988,17 @@ type InitUserOptions struct {
 	//
 	// The user will be added to each group in the list.
 	// Experimental.
-	Groups *[]*string `json:"groups" yaml:"groups"`
+	Groups *[]*string `field:"optional" json:"groups" yaml:"groups"`
 	// The user's home directory.
 	// Experimental.
-	HomeDir *string `json:"homeDir" yaml:"homeDir"`
+	HomeDir *string `field:"optional" json:"homeDir" yaml:"homeDir"`
 	// A user ID.
 	//
 	// The creation process fails if the user name exists with a different user ID.
 	// If the user ID is already assigned to an existing user the operating system may
 	// reject the creation request.
 	// Experimental.
-	UserId *float64 `json:"userId" yaml:"userId"`
+	UserId *float64 `field:"optional" json:"userId" yaml:"userId"`
 }
 
 // This represents a single EC2 instance.
@@ -81961,6 +83007,7 @@ type InitUserOptions struct {
 //   var vpc vpc
 //   var instanceType instanceType
 //   var machineImage iMachineImage
+//
 //
 //   ec2.NewInstance(this, jsii.String("Instance"), &instanceProps{
 //   	vpc: vpc,
@@ -82541,6 +83588,7 @@ const (
 //   var vpc vpc
 //
 //   var sourceInstance databaseInstance
+//
 //   rds.NewDatabaseInstanceFromSnapshot(this, jsii.String("Instance"), &databaseInstanceFromSnapshotProps{
 //   	snapshotIdentifier: jsii.String("my-snapshot"),
 //   	engine: rds.databaseInstanceEngine.postgres(&postgresInstanceEngineProps{
@@ -82819,6 +83867,7 @@ const (
 //   var instanceType instanceType
 //   var machineImage iMachineImage
 //
+//
 //   ec2.NewInstance(this, jsii.String("Instance"), &instanceProps{
 //   	vpc: vpc,
 //   	instanceType: instanceType,
@@ -82842,21 +83891,21 @@ const (
 type InstanceProps struct {
 	// Type of instance to launch.
 	// Experimental.
-	InstanceType InstanceType `json:"instanceType" yaml:"instanceType"`
+	InstanceType InstanceType `field:"required" json:"instanceType" yaml:"instanceType"`
 	// AMI to launch.
 	// Experimental.
-	MachineImage IMachineImage `json:"machineImage" yaml:"machineImage"`
+	MachineImage IMachineImage `field:"required" json:"machineImage" yaml:"machineImage"`
 	// VPC to launch the instance in.
 	// Experimental.
-	Vpc IVpc `json:"vpc" yaml:"vpc"`
+	Vpc IVpc `field:"required" json:"vpc" yaml:"vpc"`
 	// Whether the instance could initiate connections to anywhere by default.
 	//
 	// This property is only used when you do not provide a security group.
 	// Experimental.
-	AllowAllOutbound *bool `json:"allowAllOutbound" yaml:"allowAllOutbound"`
+	AllowAllOutbound *bool `field:"optional" json:"allowAllOutbound" yaml:"allowAllOutbound"`
 	// In which AZ to place the instance within the VPC.
 	// Experimental.
-	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
+	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
 	// Specifies how block devices are exposed to the instance. You can specify virtual devices and EBS volumes.
 	//
 	// Each instance that is launched has an associated root device volume,
@@ -82866,42 +83915,42 @@ type InstanceProps struct {
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html
 	//
 	// Experimental.
-	BlockDevices *[]*BlockDevice `json:"blockDevices" yaml:"blockDevices"`
+	BlockDevices *[]*BlockDevice `field:"optional" json:"blockDevices" yaml:"blockDevices"`
 	// Whether "Detailed Monitoring" is enabled for this instance Keep in mind that Detailed Monitoring results in extra charges.
 	// See: http://aws.amazon.com/cloudwatch/pricing/
 	//
 	// Experimental.
-	DetailedMonitoring *bool `json:"detailedMonitoring" yaml:"detailedMonitoring"`
+	DetailedMonitoring *bool `field:"optional" json:"detailedMonitoring" yaml:"detailedMonitoring"`
 	// Apply the given CloudFormation Init configuration to the instance at startup.
 	// Experimental.
-	Init CloudFormationInit `json:"init" yaml:"init"`
+	Init CloudFormationInit `field:"optional" json:"init" yaml:"init"`
 	// Use the given options for applying CloudFormation Init.
 	//
 	// Describes the configsets to use and the timeout to wait.
 	// Experimental.
-	InitOptions *ApplyCloudFormationInitOptions `json:"initOptions" yaml:"initOptions"`
+	InitOptions *ApplyCloudFormationInitOptions `field:"optional" json:"initOptions" yaml:"initOptions"`
 	// The name of the instance.
 	// Experimental.
-	InstanceName *string `json:"instanceName" yaml:"instanceName"`
+	InstanceName *string `field:"optional" json:"instanceName" yaml:"instanceName"`
 	// Name of SSH keypair to grant access to instance.
 	// Experimental.
-	KeyName *string `json:"keyName" yaml:"keyName"`
+	KeyName *string `field:"optional" json:"keyName" yaml:"keyName"`
 	// Defines a private IP address to associate with an instance.
 	//
 	// Private IP should be available within the VPC that the instance is build within.
 	// Experimental.
-	PrivateIpAddress *string `json:"privateIpAddress" yaml:"privateIpAddress"`
+	PrivateIpAddress *string `field:"optional" json:"privateIpAddress" yaml:"privateIpAddress"`
 	// Propagate the EC2 instance tags to the EBS volumes.
 	// Experimental.
-	PropagateTagsToVolumeOnCreation *bool `json:"propagateTagsToVolumeOnCreation" yaml:"propagateTagsToVolumeOnCreation"`
+	PropagateTagsToVolumeOnCreation *bool `field:"optional" json:"propagateTagsToVolumeOnCreation" yaml:"propagateTagsToVolumeOnCreation"`
 	// Whether IMDSv2 should be required on this instance.
 	// Experimental.
-	RequireImdsv2 *bool `json:"requireImdsv2" yaml:"requireImdsv2"`
+	RequireImdsv2 *bool `field:"optional" json:"requireImdsv2" yaml:"requireImdsv2"`
 	// The length of time to wait for the resourceSignalCount.
 	//
 	// The maximum value is 43200 (12 hours).
 	// Experimental.
-	ResourceSignalTimeout awscdk.Duration `json:"resourceSignalTimeout" yaml:"resourceSignalTimeout"`
+	ResourceSignalTimeout awscdk.Duration `field:"optional" json:"resourceSignalTimeout" yaml:"resourceSignalTimeout"`
 	// An IAM role to associate with the instance profile assigned to this Auto Scaling Group.
 	//
 	// The role must be assumable by the service principal `ec2.amazonaws.com`:
@@ -82912,22 +83961,22 @@ type InstanceProps struct {
 	//   })
 	//
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// Security Group to assign to this instance.
 	// Experimental.
-	SecurityGroup ISecurityGroup `json:"securityGroup" yaml:"securityGroup"`
+	SecurityGroup ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
 	// Specifies whether to enable an instance launched in a VPC to perform NAT.
 	//
 	// This controls whether source/destination checking is enabled on the instance.
 	// A value of true means that checking is enabled, and false means that checking is disabled.
 	// The value must be false for the instance to perform NAT.
 	// Experimental.
-	SourceDestCheck *bool `json:"sourceDestCheck" yaml:"sourceDestCheck"`
+	SourceDestCheck *bool `field:"optional" json:"sourceDestCheck" yaml:"sourceDestCheck"`
 	// Specific UserData to use.
 	//
 	// The UserData may still be mutated after creation.
 	// Experimental.
-	UserData UserData `json:"userData" yaml:"userData"`
+	UserData UserData `field:"optional" json:"userData" yaml:"userData"`
 	// Changes to the UserData force replacement.
 	//
 	// Depending the EC2 instance type, changing UserData either
@@ -82943,10 +83992,10 @@ type InstanceProps struct {
 	// UserData, which will cause CloudFormation to replace it if the UserData
 	// changes.
 	// Experimental.
-	UserDataCausesReplacement *bool `json:"userDataCausesReplacement" yaml:"userDataCausesReplacement"`
+	UserDataCausesReplacement *bool `field:"optional" json:"userDataCausesReplacement" yaml:"userDataCausesReplacement"`
 	// Where to place the instance within the VPC.
 	// Experimental.
-	VpcSubnets *SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
+	VpcSubnets *SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
 // Aspect that applies IMDS configuration on EC2 Instance constructs.
@@ -82960,7 +84009,7 @@ type InstanceProps struct {
 //
 // Example:
 //   aspect := ec2.NewInstanceRequireImdsv2Aspect()
-//   aspects.of(this).add(aspect)
+//   awscdk.Aspects.of(this).add(aspect)
 //
 // Experimental.
 type InstanceRequireImdsv2Aspect interface {
@@ -83036,7 +84085,10 @@ func (i *jsiiProxy_InstanceRequireImdsv2Aspect) Warn(node awscdk.IConstruct, mes
 // Properties for `InstanceRequireImdsv2Aspect`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   instanceRequireImdsv2AspectProps := &instanceRequireImdsv2AspectProps{
 //   	suppressLaunchTemplateWarning: jsii.Boolean(false),
 //   	suppressWarnings: jsii.Boolean(false),
@@ -83049,10 +84101,10 @@ type InstanceRequireImdsv2AspectProps struct {
 	// You can set this to `true` if `LaunchTemplateImdsAspect` is being used alongside this Aspect to
 	// suppress false-positive warnings because any Launch Templates associated with Instances will still be covered.
 	// Experimental.
-	SuppressLaunchTemplateWarning *bool `json:"suppressLaunchTemplateWarning" yaml:"suppressLaunchTemplateWarning"`
+	SuppressLaunchTemplateWarning *bool `field:"optional" json:"suppressLaunchTemplateWarning" yaml:"suppressLaunchTemplateWarning"`
 	// Whether warning annotations from this Aspect should be suppressed or not.
 	// Experimental.
-	SuppressWarnings *bool `json:"suppressWarnings" yaml:"suppressWarnings"`
+	SuppressWarnings *bool `field:"optional" json:"suppressWarnings" yaml:"suppressWarnings"`
 }
 
 // What size of instance to use.
@@ -83061,6 +84113,7 @@ type InstanceRequireImdsv2AspectProps struct {
 //   var vpc vpc
 //
 //   var sourceInstance databaseInstance
+//
 //   rds.NewDatabaseInstanceFromSnapshot(this, jsii.String("Instance"), &databaseInstanceFromSnapshotProps{
 //   	snapshotIdentifier: jsii.String("my-snapshot"),
 //   	engine: rds.databaseInstanceEngine.postgres(&postgresInstanceEngineProps{
@@ -83155,6 +84208,7 @@ const (
 //
 // Example:
 //   var vpc vpc
+//
 //   cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &databaseClusterProps{
 //   	masterUser: &login{
 //   		username: jsii.String("myuser"),
@@ -83261,6 +84315,7 @@ func (i *jsiiProxy_InstanceType) ToString() *string {
 //
 // Example:
 //   var vpc vpc
+//
 //
 //   ec2.NewInterfaceVpcEndpoint(this, jsii.String("VPC Endpoint"), &interfaceVpcEndpointProps{
 //   	vpc: vpc,
@@ -83744,9 +84799,12 @@ func (i *jsiiProxy_InterfaceVpcEndpoint) Validate() *[]*string {
 // Construction properties for an ImportedInterfaceVpcEndpoint.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var securityGroup securityGroup
+//
 //   interfaceVpcEndpointAttributes := &interfaceVpcEndpointAttributes{
 //   	port: jsii.Number(123),
 //   	vpcEndpointId: jsii.String("vpcEndpointId"),
@@ -83762,16 +84820,16 @@ func (i *jsiiProxy_InterfaceVpcEndpoint) Validate() *[]*string {
 type InterfaceVpcEndpointAttributes struct {
 	// The port of the service of the interface VPC endpoint.
 	// Experimental.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"required" json:"port" yaml:"port"`
 	// The interface VPC endpoint identifier.
 	// Experimental.
-	VpcEndpointId *string `json:"vpcEndpointId" yaml:"vpcEndpointId"`
+	VpcEndpointId *string `field:"required" json:"vpcEndpointId" yaml:"vpcEndpointId"`
 	// The identifier of the security group associated with the interface VPC endpoint.
 	// Deprecated: use `securityGroups` instead.
-	SecurityGroupId *string `json:"securityGroupId" yaml:"securityGroupId"`
+	SecurityGroupId *string `field:"optional" json:"securityGroupId" yaml:"securityGroupId"`
 	// The security groups associated with the interface VPC endpoint.
 	// Experimental.
-	SecurityGroups *[]ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 }
 
 // An AWS service for an interface VPC endpoint.
@@ -84524,40 +85582,41 @@ func InterfaceVpcEndpointAwsService_XRAY() InterfaceVpcEndpointAwsService {
 type InterfaceVpcEndpointOptions struct {
 	// The service to use for this interface VPC endpoint.
 	// Experimental.
-	Service IInterfaceVpcEndpointService `json:"service" yaml:"service"`
+	Service IInterfaceVpcEndpointService `field:"required" json:"service" yaml:"service"`
 	// Limit to only those availability zones where the endpoint service can be created.
 	//
 	// Setting this to 'true' requires a lookup to be performed at synthesis time. Account
 	// and region must be set on the containing stack for this to work.
 	// Experimental.
-	LookupSupportedAzs *bool `json:"lookupSupportedAzs" yaml:"lookupSupportedAzs"`
+	LookupSupportedAzs *bool `field:"optional" json:"lookupSupportedAzs" yaml:"lookupSupportedAzs"`
 	// Whether to automatically allow VPC traffic to the endpoint.
 	//
 	// If enabled, all traffic to the endpoint from within the VPC will be
 	// automatically allowed. This is done based on the VPC's CIDR range.
 	// Experimental.
-	Open *bool `json:"open" yaml:"open"`
+	Open *bool `field:"optional" json:"open" yaml:"open"`
 	// Whether to associate a private hosted zone with the specified VPC.
 	//
 	// This
 	// allows you to make requests to the service using its default DNS hostname.
 	// Experimental.
-	PrivateDnsEnabled *bool `json:"privateDnsEnabled" yaml:"privateDnsEnabled"`
+	PrivateDnsEnabled *bool `field:"optional" json:"privateDnsEnabled" yaml:"privateDnsEnabled"`
 	// The security groups to associate with this interface VPC endpoint.
 	// Experimental.
-	SecurityGroups *[]ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// The subnets in which to create an endpoint network interface.
 	//
 	// At most one
 	// per availability zone.
 	// Experimental.
-	Subnets *SubnetSelection `json:"subnets" yaml:"subnets"`
+	Subnets *SubnetSelection `field:"optional" json:"subnets" yaml:"subnets"`
 }
 
 // Construction properties for an InterfaceVpcEndpoint.
 //
 // Example:
 //   var vpc vpc
+//
 //
 //   ec2.NewInterfaceVpcEndpoint(this, jsii.String("VPC Endpoint"), &interfaceVpcEndpointProps{
 //   	vpc: vpc,
@@ -84576,43 +85635,44 @@ type InterfaceVpcEndpointOptions struct {
 type InterfaceVpcEndpointProps struct {
 	// The service to use for this interface VPC endpoint.
 	// Experimental.
-	Service IInterfaceVpcEndpointService `json:"service" yaml:"service"`
+	Service IInterfaceVpcEndpointService `field:"required" json:"service" yaml:"service"`
 	// Limit to only those availability zones where the endpoint service can be created.
 	//
 	// Setting this to 'true' requires a lookup to be performed at synthesis time. Account
 	// and region must be set on the containing stack for this to work.
 	// Experimental.
-	LookupSupportedAzs *bool `json:"lookupSupportedAzs" yaml:"lookupSupportedAzs"`
+	LookupSupportedAzs *bool `field:"optional" json:"lookupSupportedAzs" yaml:"lookupSupportedAzs"`
 	// Whether to automatically allow VPC traffic to the endpoint.
 	//
 	// If enabled, all traffic to the endpoint from within the VPC will be
 	// automatically allowed. This is done based on the VPC's CIDR range.
 	// Experimental.
-	Open *bool `json:"open" yaml:"open"`
+	Open *bool `field:"optional" json:"open" yaml:"open"`
 	// Whether to associate a private hosted zone with the specified VPC.
 	//
 	// This
 	// allows you to make requests to the service using its default DNS hostname.
 	// Experimental.
-	PrivateDnsEnabled *bool `json:"privateDnsEnabled" yaml:"privateDnsEnabled"`
+	PrivateDnsEnabled *bool `field:"optional" json:"privateDnsEnabled" yaml:"privateDnsEnabled"`
 	// The security groups to associate with this interface VPC endpoint.
 	// Experimental.
-	SecurityGroups *[]ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// The subnets in which to create an endpoint network interface.
 	//
 	// At most one
 	// per availability zone.
 	// Experimental.
-	Subnets *SubnetSelection `json:"subnets" yaml:"subnets"`
+	Subnets *SubnetSelection `field:"optional" json:"subnets" yaml:"subnets"`
 	// The VPC network in which the interface endpoint will be used.
 	// Experimental.
-	Vpc IVpc `json:"vpc" yaml:"vpc"`
+	Vpc IVpc `field:"required" json:"vpc" yaml:"vpc"`
 }
 
 // A custom-hosted service for an interface VPC endpoint.
 //
 // Example:
 //   var vpc vpc
+//
 //
 //   ec2.NewInterfaceVpcEndpoint(this, jsii.String("VPC Endpoint"), &interfaceVpcEndpointProps{
 //   	vpc: vpc,
@@ -85258,7 +86318,10 @@ func (l *jsiiProxy_LaunchTemplate) Validate() *[]*string {
 // Attributes for an imported LaunchTemplate.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   launchTemplateAttributes := &launchTemplateAttributes{
 //   	launchTemplateId: jsii.String("launchTemplateId"),
 //   	launchTemplateName: jsii.String("launchTemplateName"),
@@ -85271,15 +86334,15 @@ type LaunchTemplateAttributes struct {
 	//
 	// Exactly one of `launchTemplateId` and `launchTemplateName` may be set.
 	// Experimental.
-	LaunchTemplateId *string `json:"launchTemplateId" yaml:"launchTemplateId"`
+	LaunchTemplateId *string `field:"optional" json:"launchTemplateId" yaml:"launchTemplateId"`
 	// The name of the Launch Template.
 	//
 	// Exactly one of `launchTemplateId` and `launchTemplateName` may be set.
 	// Experimental.
-	LaunchTemplateName *string `json:"launchTemplateName" yaml:"launchTemplateName"`
+	LaunchTemplateName *string `field:"optional" json:"launchTemplateName" yaml:"launchTemplateName"`
 	// The version number of this launch template to use.
 	// Experimental.
-	VersionNumber *string `json:"versionNumber" yaml:"versionNumber"`
+	VersionNumber *string `field:"optional" json:"versionNumber" yaml:"versionNumber"`
 }
 
 // Properties of a LaunchTemplate.
@@ -85314,57 +86377,57 @@ type LaunchTemplateProps struct {
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html
 	//
 	// Experimental.
-	BlockDevices *[]*BlockDevice `json:"blockDevices" yaml:"blockDevices"`
+	BlockDevices *[]*BlockDevice `field:"optional" json:"blockDevices" yaml:"blockDevices"`
 	// CPU credit type for burstable EC2 instance types.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html
 	//
 	// Experimental.
-	CpuCredits CpuCredits `json:"cpuCredits" yaml:"cpuCredits"`
+	CpuCredits CpuCredits `field:"optional" json:"cpuCredits" yaml:"cpuCredits"`
 	// If set to true, then detailed monitoring will be enabled on instances created with this launch template.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch-new.html
 	//
 	// Experimental.
-	DetailedMonitoring *bool `json:"detailedMonitoring" yaml:"detailedMonitoring"`
+	DetailedMonitoring *bool `field:"optional" json:"detailedMonitoring" yaml:"detailedMonitoring"`
 	// If you set this parameter to true, you cannot terminate the instances launched with this launch template using the Amazon EC2 console, CLI, or API;
 	//
 	// otherwise, you can.
 	// Experimental.
-	DisableApiTermination *bool `json:"disableApiTermination" yaml:"disableApiTermination"`
+	DisableApiTermination *bool `field:"optional" json:"disableApiTermination" yaml:"disableApiTermination"`
 	// Indicates whether the instances are optimized for Amazon EBS I/O.
 	//
 	// This optimization provides dedicated throughput
 	// to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization
 	// isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.
 	// Experimental.
-	EbsOptimized *bool `json:"ebsOptimized" yaml:"ebsOptimized"`
+	EbsOptimized *bool `field:"optional" json:"ebsOptimized" yaml:"ebsOptimized"`
 	// If you set this parameter to true, the instance is enabled for hibernation.
 	// Experimental.
-	HibernationConfigured *bool `json:"hibernationConfigured" yaml:"hibernationConfigured"`
+	HibernationConfigured *bool `field:"optional" json:"hibernationConfigured" yaml:"hibernationConfigured"`
 	// Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior
 	//
 	// Experimental.
-	InstanceInitiatedShutdownBehavior InstanceInitiatedShutdownBehavior `json:"instanceInitiatedShutdownBehavior" yaml:"instanceInitiatedShutdownBehavior"`
+	InstanceInitiatedShutdownBehavior InstanceInitiatedShutdownBehavior `field:"optional" json:"instanceInitiatedShutdownBehavior" yaml:"instanceInitiatedShutdownBehavior"`
 	// Type of instance to launch.
 	// Experimental.
-	InstanceType InstanceType `json:"instanceType" yaml:"instanceType"`
+	InstanceType InstanceType `field:"optional" json:"instanceType" yaml:"instanceType"`
 	// Name of SSH keypair to grant access to instance.
 	// Experimental.
-	KeyName *string `json:"keyName" yaml:"keyName"`
+	KeyName *string `field:"optional" json:"keyName" yaml:"keyName"`
 	// Name for this launch template.
 	// Experimental.
-	LaunchTemplateName *string `json:"launchTemplateName" yaml:"launchTemplateName"`
+	LaunchTemplateName *string `field:"optional" json:"launchTemplateName" yaml:"launchTemplateName"`
 	// The AMI that will be used by instances.
 	// Experimental.
-	MachineImage IMachineImage `json:"machineImage" yaml:"machineImage"`
+	MachineImage IMachineImage `field:"optional" json:"machineImage" yaml:"machineImage"`
 	// If this parameter is set to true, the instance is enabled for AWS Nitro Enclaves;
 	//
 	// otherwise, it is not enabled for AWS Nitro Enclaves.
 	// Experimental.
-	NitroEnclaveEnabled *bool `json:"nitroEnclaveEnabled" yaml:"nitroEnclaveEnabled"`
+	NitroEnclaveEnabled *bool `field:"optional" json:"nitroEnclaveEnabled" yaml:"nitroEnclaveEnabled"`
 	// Whether IMDSv2 should be required on launched instances.
 	// Experimental.
-	RequireImdsv2 *bool `json:"requireImdsv2" yaml:"requireImdsv2"`
+	RequireImdsv2 *bool `field:"optional" json:"requireImdsv2" yaml:"requireImdsv2"`
 	// An IAM role to associate with the instance profile that is used by instances.
 	//
 	// The role must be assumable by the service principal `ec2.amazonaws.com`:
@@ -85375,23 +86438,26 @@ type LaunchTemplateProps struct {
 	//   })
 	//
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// Security group to assign to instances created with the launch template.
 	// Experimental.
-	SecurityGroup ISecurityGroup `json:"securityGroup" yaml:"securityGroup"`
+	SecurityGroup ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
 	// If this property is defined, then the Launch Template's InstanceMarketOptions will be set to use Spot instances, and the options for the Spot instances will be as defined.
 	// Experimental.
-	SpotOptions *LaunchTemplateSpotOptions `json:"spotOptions" yaml:"spotOptions"`
+	SpotOptions *LaunchTemplateSpotOptions `field:"optional" json:"spotOptions" yaml:"spotOptions"`
 	// The AMI that will be used by instances.
 	// Experimental.
-	UserData UserData `json:"userData" yaml:"userData"`
+	UserData UserData `field:"optional" json:"userData" yaml:"userData"`
 }
 
 // Aspect that applies IMDS configuration on EC2 Launch Template constructs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   launchTemplateRequireImdsv2Aspect := ec2.NewLaunchTemplateRequireImdsv2Aspect(&launchTemplateRequireImdsv2AspectProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   launchTemplateRequireImdsv2Aspect := awscdk.Aws_ec2.NewLaunchTemplateRequireImdsv2Aspect(&launchTemplateRequireImdsv2AspectProps{
 //   	suppressWarnings: jsii.Boolean(false),
 //   })
 //
@@ -85471,7 +86537,10 @@ func (l *jsiiProxy_LaunchTemplateRequireImdsv2Aspect) Warn(node awscdk.IConstruc
 // Properties for `LaunchTemplateRequireImdsv2Aspect`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   launchTemplateRequireImdsv2AspectProps := &launchTemplateRequireImdsv2AspectProps{
 //   	suppressWarnings: jsii.Boolean(false),
 //   }
@@ -85480,14 +86549,17 @@ func (l *jsiiProxy_LaunchTemplateRequireImdsv2Aspect) Warn(node awscdk.IConstruc
 type LaunchTemplateRequireImdsv2AspectProps struct {
 	// Whether warning annotations from this Aspect should be suppressed or not.
 	// Experimental.
-	SuppressWarnings *bool `json:"suppressWarnings" yaml:"suppressWarnings"`
+	SuppressWarnings *bool `field:"optional" json:"suppressWarnings" yaml:"suppressWarnings"`
 }
 
 // A class that provides convenient access to special version tokens for LaunchTemplate versions.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   launchTemplateSpecialVersions := ec2.NewLaunchTemplateSpecialVersions()
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   launchTemplateSpecialVersions := awscdk.Aws_ec2.NewLaunchTemplateSpecialVersions()
 //
 // Experimental.
 type LaunchTemplateSpecialVersions interface {
@@ -85549,15 +86621,19 @@ func LaunchTemplateSpecialVersions_LATEST_VERSION() *string {
 // Interface for the Spot market instance options provided in a LaunchTemplate.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var expiration expiration
+//
 //   launchTemplateSpotOptions := &launchTemplateSpotOptions{
 //   	blockDuration: duration,
-//   	interruptionBehavior: ec2.spotInstanceInterruption_STOP,
+//   	interruptionBehavior: awscdk.Aws_ec2.spotInstanceInterruption_STOP,
 //   	maxPrice: jsii.Number(123),
-//   	requestType: ec2.spotRequestType_ONE_TIME,
+//   	requestType: awscdk.*Aws_ec2.spotRequestType_ONE_TIME,
 //   	validUntil: expiration,
 //   }
 //
@@ -85569,36 +86645,39 @@ type LaunchTemplateSpotOptions struct {
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#fixed-duration-spot-instances
 	//
 	// Experimental.
-	BlockDuration awscdk.Duration `json:"blockDuration" yaml:"blockDuration"`
+	BlockDuration awscdk.Duration `field:"optional" json:"blockDuration" yaml:"blockDuration"`
 	// The behavior when a Spot Instance is interrupted.
 	// Experimental.
-	InterruptionBehavior SpotInstanceInterruption `json:"interruptionBehavior" yaml:"interruptionBehavior"`
+	InterruptionBehavior SpotInstanceInterruption `field:"optional" json:"interruptionBehavior" yaml:"interruptionBehavior"`
 	// Maximum hourly price you're willing to pay for each Spot instance.
 	//
 	// The value is given
 	// in dollars. ex: 0.01 for 1 cent per hour, or 0.001 for one-tenth of a cent per hour.
 	// Experimental.
-	MaxPrice *float64 `json:"maxPrice" yaml:"maxPrice"`
+	MaxPrice *float64 `field:"optional" json:"maxPrice" yaml:"maxPrice"`
 	// The Spot Instance request type.
 	//
 	// If you are using Spot Instances with an Auto Scaling group, use one-time requests, as the
 	// Amazon EC2 Auto Scaling service handles requesting new Spot Instances whenever the group is
 	// below its desired capacity.
 	// Experimental.
-	RequestType SpotRequestType `json:"requestType" yaml:"requestType"`
+	RequestType SpotRequestType `field:"optional" json:"requestType" yaml:"requestType"`
 	// The end date of the request.
 	//
 	// For a one-time request, the request remains active until all instances
 	// launch, the request is canceled, or this date is reached. If the request is persistent, it remains
 	// active until it is canceled or this date and time is reached.
 	// Experimental.
-	ValidUntil awscdk.Expiration `json:"validUntil" yaml:"validUntil"`
+	ValidUntil awscdk.Expiration `field:"optional" json:"validUntil" yaml:"validUntil"`
 }
 
 // Options when constructing UserData for Linux.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   linuxUserDataOptions := &linuxUserDataOptions{
 //   	shebang: jsii.String("shebang"),
 //   }
@@ -85607,15 +86686,18 @@ type LaunchTemplateSpotOptions struct {
 type LinuxUserDataOptions struct {
 	// Shebang for the UserData script.
 	// Experimental.
-	Shebang *string `json:"shebang" yaml:"shebang"`
+	Shebang *string `field:"optional" json:"shebang" yaml:"shebang"`
 }
 
 // Options for InitPackage.rpm/InitPackage.msi.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var initServiceRestartHandle initServiceRestartHandle
+//
 //   locationPackageOptions := &locationPackageOptions{
 //   	key: jsii.String("key"),
 //   	serviceRestartHandles: []*initServiceRestartHandle{
@@ -85629,10 +86711,10 @@ type LocationPackageOptions struct {
 	//
 	// You can use this to order package installs.
 	// Experimental.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"optional" json:"key" yaml:"key"`
 	// Restart the given service after this command has run.
 	// Experimental.
-	ServiceRestartHandles *[]InitServiceRestartHandle `json:"serviceRestartHandles" yaml:"serviceRestartHandles"`
+	ServiceRestartHandles *[]InitServiceRestartHandle `field:"optional" json:"serviceRestartHandles" yaml:"serviceRestartHandles"`
 }
 
 // A machine image whose AMI ID will be searched using DescribeImages.
@@ -85647,10 +86729,13 @@ type LocationPackageOptions struct {
 // https://docs.aws.amazon.com/cdk/latest/guide/context.html for more information.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var userData userData
-//   lookupMachineImage := ec2.NewLookupMachineImage(&lookupMachineImageProps{
+//
+//   lookupMachineImage := awscdk.Aws_ec2.NewLookupMachineImage(&lookupMachineImageProps{
 //   	name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -85767,27 +86852,28 @@ func (l *jsiiProxy_LookupMachineImage) GetImage(scope awscdk.Construct) *Machine
 type LookupMachineImageProps struct {
 	// Name of the image (may contain wildcards).
 	// Experimental.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// Additional filters on the AMI.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImages.html
 	//
 	// Experimental.
-	Filters *map[string]*[]*string `json:"filters" yaml:"filters"`
+	Filters *map[string]*[]*string `field:"optional" json:"filters" yaml:"filters"`
 	// Owner account IDs or aliases.
 	// Experimental.
-	Owners *[]*string `json:"owners" yaml:"owners"`
+	Owners *[]*string `field:"optional" json:"owners" yaml:"owners"`
 	// Custom userdata for this image.
 	// Experimental.
-	UserData UserData `json:"userData" yaml:"userData"`
+	UserData UserData `field:"optional" json:"userData" yaml:"userData"`
 	// Look for Windows images.
 	// Experimental.
-	Windows *bool `json:"windows" yaml:"windows"`
+	Windows *bool `field:"optional" json:"windows" yaml:"windows"`
 }
 
 // Factory functions for standard Amazon Machine Image objects.
 //
 // Example:
 //   var vpc vpc
+//
 //
 //   template := ec2.NewLaunchTemplate(this, jsii.String("LaunchTemplate"), &launchTemplateProps{
 //   	machineImage: ec2.machineImage.latestAmazonLinux(),
@@ -85972,12 +87058,15 @@ func MachineImage_Lookup(props *LookupMachineImageProps) IMachineImage {
 // Configuration for a machine image.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var userData userData
+//
 //   machineImageConfig := &machineImageConfig{
 //   	imageId: jsii.String("imageId"),
-//   	osType: ec2.operatingSystemType_LINUX,
+//   	osType: awscdk.Aws_ec2.operatingSystemType_LINUX,
 //   	userData: userData,
 //   }
 //
@@ -85985,13 +87074,13 @@ func MachineImage_Lookup(props *LookupMachineImageProps) IMachineImage {
 type MachineImageConfig struct {
 	// The AMI ID of the image to use.
 	// Experimental.
-	ImageId *string `json:"imageId" yaml:"imageId"`
+	ImageId *string `field:"required" json:"imageId" yaml:"imageId"`
 	// Operating system type for this image.
 	// Experimental.
-	OsType OperatingSystemType `json:"osType" yaml:"osType"`
+	OsType OperatingSystemType `field:"required" json:"osType" yaml:"osType"`
 	// Initial UserData for this image.
 	// Experimental.
-	UserData UserData `json:"userData" yaml:"userData"`
+	UserData UserData `field:"required" json:"userData" yaml:"userData"`
 }
 
 // The base class for all classes which can be used as {@link MultipartUserData}.
@@ -86107,7 +87196,10 @@ func (m *jsiiProxy_MultipartBody) RenderBodyPart() *[]*string {
 // Options when creating `MultipartBody`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   multipartBodyOptions := &multipartBodyOptions{
 //   	contentType: jsii.String("contentType"),
 //
@@ -86126,13 +87218,13 @@ type MultipartBodyOptions struct {
 	//
 	// For Linux shell scripts use `text/x-shellscript`.
 	// Experimental.
-	ContentType *string `json:"contentType" yaml:"contentType"`
+	ContentType *string `field:"required" json:"contentType" yaml:"contentType"`
 	// The body of message.
 	// Experimental.
-	Body *string `json:"body" yaml:"body"`
+	Body *string `field:"optional" json:"body" yaml:"body"`
 	// `Content-Transfer-Encoding` header specifying part encoding.
 	// Experimental.
-	TransferEncoding *string `json:"transferEncoding" yaml:"transferEncoding"`
+	TransferEncoding *string `field:"optional" json:"transferEncoding" yaml:"transferEncoding"`
 }
 
 // Mime multipart user data.
@@ -86391,7 +87483,10 @@ func (m *jsiiProxy_MultipartUserData) Render() *string {
 // Options for creating {@link MultipartUserData}.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   multipartUserDataOptions := &multipartUserDataOptions{
 //   	partsSeparator: jsii.String("partsSeparator"),
 //   }
@@ -86402,15 +87497,18 @@ type MultipartUserDataOptions struct {
 	//
 	// This string should contain [a-zA-Z0-9()+,-./:=?] characters only, and should not be present in any part, or in text content of archive.
 	// Experimental.
-	PartsSeparator *string `json:"partsSeparator" yaml:"partsSeparator"`
+	PartsSeparator *string `field:"optional" json:"partsSeparator" yaml:"partsSeparator"`
 }
 
 // Options for InitPackage.yum/apt/rubyGem/python.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var initServiceRestartHandle initServiceRestartHandle
+//
 //   namedPackageOptions := &namedPackageOptions{
 //   	serviceRestartHandles: []*initServiceRestartHandle{
 //   		initServiceRestartHandle,
@@ -86424,16 +87522,19 @@ type MultipartUserDataOptions struct {
 type NamedPackageOptions struct {
 	// Restart the given services after this command has run.
 	// Experimental.
-	ServiceRestartHandles *[]InitServiceRestartHandle `json:"serviceRestartHandles" yaml:"serviceRestartHandles"`
+	ServiceRestartHandles *[]InitServiceRestartHandle `field:"optional" json:"serviceRestartHandles" yaml:"serviceRestartHandles"`
 	// Specify the versions to install.
 	// Experimental.
-	Version *[]*string `json:"version" yaml:"version"`
+	Version *[]*string `field:"optional" json:"version" yaml:"version"`
 }
 
 // Properties for a NAT gateway.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   natGatewayProps := &natGatewayProps{
 //   	eipAllocationIds: []*string{
 //   		jsii.String("eipAllocationIds"),
@@ -86444,14 +87545,17 @@ type NamedPackageOptions struct {
 type NatGatewayProps struct {
 	// EIP allocation IDs for the NAT gateways.
 	// Experimental.
-	EipAllocationIds *[]*string `json:"eipAllocationIds" yaml:"eipAllocationIds"`
+	EipAllocationIds *[]*string `field:"optional" json:"eipAllocationIds" yaml:"eipAllocationIds"`
 }
 
 // Machine image representing the latest NAT instance image.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   natInstanceImage := ec2.NewNatInstanceImage()
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   natInstanceImage := awscdk.Aws_ec2.NewNatInstanceImage()
 //
 // Experimental.
 type NatInstanceImage interface {
@@ -86524,7 +87628,7 @@ func (n *jsiiProxy_NatInstanceImage) GetImage(scope awscdk.Construct) *MachineIm
 type NatInstanceProps struct {
 	// Instance type of the NAT instance.
 	// Experimental.
-	InstanceType InstanceType `json:"instanceType" yaml:"instanceType"`
+	InstanceType InstanceType `field:"required" json:"instanceType" yaml:"instanceType"`
 	// Allow all inbound traffic through the NAT instance.
 	//
 	// If you set this to false, you must configure the NAT instance's security
@@ -86533,7 +87637,7 @@ type NatInstanceProps struct {
 	// `.securityGroup` or `.connections` members after passing the NAT Instance
 	// Provider to a Vpc.
 	// Deprecated: - Use `defaultAllowedTraffic`.
-	AllowAllTraffic *bool `json:"allowAllTraffic" yaml:"allowAllTraffic"`
+	AllowAllTraffic *bool `field:"optional" json:"allowAllTraffic" yaml:"allowAllTraffic"`
 	// Direction to allow all traffic through the NAT instance by default.
 	//
 	// By default, inbound and outbound traffic is allowed.
@@ -86544,10 +87648,10 @@ type NatInstanceProps struct {
 	// property, or by configuring it using the `.securityGroup` or
 	// `.connections` members after passing the NAT Instance Provider to a Vpc.
 	// Experimental.
-	DefaultAllowedTraffic NatTrafficDirection `json:"defaultAllowedTraffic" yaml:"defaultAllowedTraffic"`
+	DefaultAllowedTraffic NatTrafficDirection `field:"optional" json:"defaultAllowedTraffic" yaml:"defaultAllowedTraffic"`
 	// Name of SSH keypair to grant access to instance.
 	// Experimental.
-	KeyName *string `json:"keyName" yaml:"keyName"`
+	KeyName *string `field:"optional" json:"keyName" yaml:"keyName"`
 	// The machine image (AMI) to use.
 	//
 	// By default, will do an AMI lookup for the latest NAT instance image.
@@ -86563,10 +87667,10 @@ type NatInstanceProps struct {
 	// })
 	// ```.
 	// Experimental.
-	MachineImage IMachineImage `json:"machineImage" yaml:"machineImage"`
+	MachineImage IMachineImage `field:"optional" json:"machineImage" yaml:"machineImage"`
 	// Security Group for NAT instances.
 	// Experimental.
-	SecurityGroup ISecurityGroup `json:"securityGroup" yaml:"securityGroup"`
+	SecurityGroup ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
 }
 
 // NAT provider which uses NAT Instances.
@@ -86863,6 +87967,7 @@ func (n *jsiiProxy_NatProvider) ConfigureSubnet(subnet PrivateSubnet) {
 // Example:
 //   var instanceType instanceType
 //
+//
 //   provider := ec2.natProvider.instance(&natInstanceProps{
 //   	instanceType: instanceType,
 //   	defaultAllowedTraffic: ec2.natTrafficDirection_OUTBOUND_ONLY,
@@ -86893,12 +87998,15 @@ const (
 // added explicitly allowing it.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var subnet subnet
 //   var subnetFilter subnetFilter
 //   var vpc vpc
-//   networkAcl := ec2.NewNetworkAcl(this, jsii.String("MyNetworkAcl"), &networkAclProps{
+//
+//   networkAcl := awscdk.Aws_ec2.NewNetworkAcl(this, jsii.String("MyNetworkAcl"), &networkAclProps{
 //   	vpc: vpc,
 //
 //   	// the properties below are optional
@@ -86916,7 +88024,7 @@ const (
 //   		subnets: []iSubnet{
 //   			subnet,
 //   		},
-//   		subnetType: ec2.subnetType_ISOLATED,
+//   		subnetType: awscdk.*Aws_ec2.subnetType_ISOLATED,
 //   	},
 //   })
 //
@@ -87328,21 +88436,24 @@ func (n *jsiiProxy_NetworkAcl) Validate() *[]*string {
 // Define an entry in a Network ACL table.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var aclCidr aclCidr
 //   var aclTraffic aclTraffic
 //   var networkAcl networkAcl
-//   networkAclEntry := ec2.NewNetworkAclEntry(this, jsii.String("MyNetworkAclEntry"), &networkAclEntryProps{
+//
+//   networkAclEntry := awscdk.Aws_ec2.NewNetworkAclEntry(this, jsii.String("MyNetworkAclEntry"), &networkAclEntryProps{
 //   	cidr: aclCidr,
 //   	networkAcl: networkAcl,
 //   	ruleNumber: jsii.Number(123),
 //   	traffic: aclTraffic,
 //
 //   	// the properties below are optional
-//   	direction: ec2.trafficDirection_EGRESS,
+//   	direction: awscdk.*Aws_ec2.trafficDirection_EGRESS,
 //   	networkAclEntryName: jsii.String("networkAclEntryName"),
-//   	ruleAction: ec2.action_ALLOW,
+//   	ruleAction: awscdk.*Aws_ec2.action_ALLOW,
 //   })
 //
 // Experimental.
@@ -87696,11 +88807,14 @@ func (n *jsiiProxy_NetworkAclEntry) Validate() *[]*string {
 // Properties to create NetworkAclEntry.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var aclCidr aclCidr
 //   var aclTraffic aclTraffic
 //   var networkAcl networkAcl
+//
 //   networkAclEntryProps := &networkAclEntryProps{
 //   	cidr: aclCidr,
 //   	networkAcl: networkAcl,
@@ -87708,52 +88822,55 @@ func (n *jsiiProxy_NetworkAclEntry) Validate() *[]*string {
 //   	traffic: aclTraffic,
 //
 //   	// the properties below are optional
-//   	direction: ec2.trafficDirection_EGRESS,
+//   	direction: awscdk.Aws_ec2.trafficDirection_EGRESS,
 //   	networkAclEntryName: jsii.String("networkAclEntryName"),
-//   	ruleAction: ec2.action_ALLOW,
+//   	ruleAction: awscdk.*Aws_ec2.action_ALLOW,
 //   }
 //
 // Experimental.
 type NetworkAclEntryProps struct {
 	// The CIDR range to allow or deny.
 	// Experimental.
-	Cidr AclCidr `json:"cidr" yaml:"cidr"`
+	Cidr AclCidr `field:"required" json:"cidr" yaml:"cidr"`
 	// Rule number to assign to the entry, such as 100.
 	//
 	// ACL entries are processed in ascending order by rule number.
 	// Entries can't use the same rule number unless one is an egress rule and the other is an ingress rule.
 	// Experimental.
-	RuleNumber *float64 `json:"ruleNumber" yaml:"ruleNumber"`
+	RuleNumber *float64 `field:"required" json:"ruleNumber" yaml:"ruleNumber"`
 	// What kind of traffic this ACL rule applies to.
 	// Experimental.
-	Traffic AclTraffic `json:"traffic" yaml:"traffic"`
+	Traffic AclTraffic `field:"required" json:"traffic" yaml:"traffic"`
 	// Traffic direction, with respect to the subnet, this rule applies to.
 	// Experimental.
-	Direction TrafficDirection `json:"direction" yaml:"direction"`
+	Direction TrafficDirection `field:"optional" json:"direction" yaml:"direction"`
 	// The name of the NetworkAclEntry.
 	//
 	// It is not recommended to use an explicit group name.
 	// Experimental.
-	NetworkAclEntryName *string `json:"networkAclEntryName" yaml:"networkAclEntryName"`
+	NetworkAclEntryName *string `field:"optional" json:"networkAclEntryName" yaml:"networkAclEntryName"`
 	// Whether to allow or deny traffic that matches the rule; valid values are "allow" or "deny".
 	//
 	// Any traffic that is not explicitly allowed is automatically denied in a custom
 	// ACL, all traffic is automatically allowed in a default ACL.
 	// Experimental.
-	RuleAction Action `json:"ruleAction" yaml:"ruleAction"`
+	RuleAction Action `field:"optional" json:"ruleAction" yaml:"ruleAction"`
 	// The network ACL this entry applies to.
 	// Experimental.
-	NetworkAcl INetworkAcl `json:"networkAcl" yaml:"networkAcl"`
+	NetworkAcl INetworkAcl `field:"required" json:"networkAcl" yaml:"networkAcl"`
 }
 
 // Properties to create NetworkAcl.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var subnet subnet
 //   var subnetFilter subnetFilter
 //   var vpc vpc
+//
 //   networkAclProps := &networkAclProps{
 //   	vpc: vpc,
 //
@@ -87772,7 +88889,7 @@ type NetworkAclEntryProps struct {
 //   		subnets: []iSubnet{
 //   			subnet,
 //   		},
-//   		subnetType: ec2.subnetType_ISOLATED,
+//   		subnetType: awscdk.Aws_ec2.subnetType_ISOLATED,
 //   	},
 //   }
 //
@@ -87780,18 +88897,18 @@ type NetworkAclEntryProps struct {
 type NetworkAclProps struct {
 	// The VPC in which to create the NetworkACL.
 	// Experimental.
-	Vpc IVpc `json:"vpc" yaml:"vpc"`
+	Vpc IVpc `field:"required" json:"vpc" yaml:"vpc"`
 	// The name of the NetworkAcl.
 	//
 	// It is not recommended to use an explicit name.
 	// Experimental.
-	NetworkAclName *string `json:"networkAclName" yaml:"networkAclName"`
+	NetworkAclName *string `field:"optional" json:"networkAclName" yaml:"networkAclName"`
 	// Subnets in the given VPC to associate the ACL with.
 	//
 	// More subnets can always be added later by calling
 	// `associateWithSubnets()`.
 	// Experimental.
-	SubnetSelection *SubnetSelection `json:"subnetSelection" yaml:"subnetSelection"`
+	SubnetSelection *SubnetSelection `field:"optional" json:"subnetSelection" yaml:"subnetSelection"`
 }
 
 // The OS type of a particular image.
@@ -87866,6 +88983,7 @@ const (
 //
 // Example:
 //   var instanceType instanceType
+//
 //
 //   provider := ec2.natProvider.instance(&natInstanceProps{
 //   	instanceType: instanceType,
@@ -88017,6 +89135,7 @@ func Peer_SecurityGroupId(securityGroupId *string, sourceSecurityGroupOwnerId *s
 //
 // Example:
 //   var loadBalancer applicationLoadBalancer
+//
 //
 //   vpc := ec2.NewVpc(this, jsii.String("MyVPC"))
 //   project := codebuild.NewProject(this, jsii.String("MyProject"), &projectProps{
@@ -88333,9 +89452,12 @@ func (p *jsiiProxy_Port) ToString() *string {
 // Properties to create a port range.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   portProps := &portProps{
-//   	protocol: ec2.protocol_ALL,
+//   	protocol: awscdk.Aws_ec2.protocol_ALL,
 //   	stringRepresentation: jsii.String("stringRepresentation"),
 //
 //   	// the properties below are optional
@@ -88347,23 +89469,26 @@ func (p *jsiiProxy_Port) ToString() *string {
 type PortProps struct {
 	// The protocol for the range.
 	// Experimental.
-	Protocol Protocol `json:"protocol" yaml:"protocol"`
+	Protocol Protocol `field:"required" json:"protocol" yaml:"protocol"`
 	// String representation for this object.
 	// Experimental.
-	StringRepresentation *string `json:"stringRepresentation" yaml:"stringRepresentation"`
+	StringRepresentation *string `field:"required" json:"stringRepresentation" yaml:"stringRepresentation"`
 	// The starting port for the range.
 	// Experimental.
-	FromPort *float64 `json:"fromPort" yaml:"fromPort"`
+	FromPort *float64 `field:"optional" json:"fromPort" yaml:"fromPort"`
 	// The ending port for the range.
 	// Experimental.
-	ToPort *float64 `json:"toPort" yaml:"toPort"`
+	ToPort *float64 `field:"optional" json:"toPort" yaml:"toPort"`
 }
 
 // Represents a private VPC subnet resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   privateSubnet := ec2.NewPrivateSubnet(this, jsii.String("MyPrivateSubnet"), &privateSubnetProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   privateSubnet := awscdk.Aws_ec2.NewPrivateSubnet(this, jsii.String("MyPrivateSubnet"), &privateSubnetProps{
 //   	availabilityZone: jsii.String("availabilityZone"),
 //   	cidrBlock: jsii.String("cidrBlock"),
 //   	vpcId: jsii.String("vpcId"),
@@ -88976,7 +90101,10 @@ func (p *jsiiProxy_PrivateSubnet) Validate() *[]*string {
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   privateSubnetAttributes := &privateSubnetAttributes{
 //   	subnetId: jsii.String("subnetId"),
 //
@@ -88990,20 +90118,23 @@ func (p *jsiiProxy_PrivateSubnet) Validate() *[]*string {
 type PrivateSubnetAttributes struct {
 	// The subnetId for this particular subnet.
 	// Experimental.
-	SubnetId *string `json:"subnetId" yaml:"subnetId"`
+	SubnetId *string `field:"required" json:"subnetId" yaml:"subnetId"`
 	// The Availability Zone the subnet is located in.
 	// Experimental.
-	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
+	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
 	// The IPv4 CIDR block associated with the subnet.
 	// Experimental.
-	Ipv4CidrBlock *string `json:"ipv4CidrBlock" yaml:"ipv4CidrBlock"`
+	Ipv4CidrBlock *string `field:"optional" json:"ipv4CidrBlock" yaml:"ipv4CidrBlock"`
 	// The ID of the route table for this particular subnet.
 	// Experimental.
-	RouteTableId *string `json:"routeTableId" yaml:"routeTableId"`
+	RouteTableId *string `field:"optional" json:"routeTableId" yaml:"routeTableId"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   privateSubnetProps := &privateSubnetProps{
 //   	availabilityZone: jsii.String("availabilityZone"),
 //   	cidrBlock: jsii.String("cidrBlock"),
@@ -89017,16 +90148,16 @@ type PrivateSubnetAttributes struct {
 type PrivateSubnetProps struct {
 	// The availability zone for the subnet.
 	// Experimental.
-	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
+	AvailabilityZone *string `field:"required" json:"availabilityZone" yaml:"availabilityZone"`
 	// The CIDR notation for this subnet.
 	// Experimental.
-	CidrBlock *string `json:"cidrBlock" yaml:"cidrBlock"`
+	CidrBlock *string `field:"required" json:"cidrBlock" yaml:"cidrBlock"`
 	// The VPC which this subnet is part of.
 	// Experimental.
-	VpcId *string `json:"vpcId" yaml:"vpcId"`
+	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
 	// Controls if a public IP is associated to an instance at launch.
 	// Experimental.
-	MapPublicIpOnLaunch *bool `json:"mapPublicIpOnLaunch" yaml:"mapPublicIpOnLaunch"`
+	MapPublicIpOnLaunch *bool `field:"optional" json:"mapPublicIpOnLaunch" yaml:"mapPublicIpOnLaunch"`
 }
 
 // Protocol for use in Connection Rules.
@@ -89333,8 +90464,11 @@ const (
 // Represents a public VPC subnet resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   publicSubnet := ec2.NewPublicSubnet(this, jsii.String("MyPublicSubnet"), &publicSubnetProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   publicSubnet := awscdk.Aws_ec2.NewPublicSubnet(this, jsii.String("MyPublicSubnet"), &publicSubnetProps{
 //   	availabilityZone: jsii.String("availabilityZone"),
 //   	cidrBlock: jsii.String("cidrBlock"),
 //   	vpcId: jsii.String("vpcId"),
@@ -89967,7 +91101,10 @@ func (p *jsiiProxy_PublicSubnet) Validate() *[]*string {
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   publicSubnetAttributes := &publicSubnetAttributes{
 //   	subnetId: jsii.String("subnetId"),
 //
@@ -89981,20 +91118,23 @@ func (p *jsiiProxy_PublicSubnet) Validate() *[]*string {
 type PublicSubnetAttributes struct {
 	// The subnetId for this particular subnet.
 	// Experimental.
-	SubnetId *string `json:"subnetId" yaml:"subnetId"`
+	SubnetId *string `field:"required" json:"subnetId" yaml:"subnetId"`
 	// The Availability Zone the subnet is located in.
 	// Experimental.
-	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
+	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
 	// The IPv4 CIDR block associated with the subnet.
 	// Experimental.
-	Ipv4CidrBlock *string `json:"ipv4CidrBlock" yaml:"ipv4CidrBlock"`
+	Ipv4CidrBlock *string `field:"optional" json:"ipv4CidrBlock" yaml:"ipv4CidrBlock"`
 	// The ID of the route table for this particular subnet.
 	// Experimental.
-	RouteTableId *string `json:"routeTableId" yaml:"routeTableId"`
+	RouteTableId *string `field:"optional" json:"routeTableId" yaml:"routeTableId"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   publicSubnetProps := &publicSubnetProps{
 //   	availabilityZone: jsii.String("availabilityZone"),
 //   	cidrBlock: jsii.String("cidrBlock"),
@@ -90008,16 +91148,16 @@ type PublicSubnetAttributes struct {
 type PublicSubnetProps struct {
 	// The availability zone for the subnet.
 	// Experimental.
-	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
+	AvailabilityZone *string `field:"required" json:"availabilityZone" yaml:"availabilityZone"`
 	// The CIDR notation for this subnet.
 	// Experimental.
-	CidrBlock *string `json:"cidrBlock" yaml:"cidrBlock"`
+	CidrBlock *string `field:"required" json:"cidrBlock" yaml:"cidrBlock"`
 	// The VPC which this subnet is part of.
 	// Experimental.
-	VpcId *string `json:"vpcId" yaml:"vpcId"`
+	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
 	// Controls if a public IP is associated to an instance at launch.
 	// Experimental.
-	MapPublicIpOnLaunch *bool `json:"mapPublicIpOnLaunch" yaml:"mapPublicIpOnLaunch"`
+	MapPublicIpOnLaunch *bool `field:"optional" json:"mapPublicIpOnLaunch" yaml:"mapPublicIpOnLaunch"`
 }
 
 // Type of router used in route.
@@ -90069,11 +91209,12 @@ const (
 // Options when downloading files from S3.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type Asset awscdk.Asset
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var instance instance
 //
-//   asset := NewAsset(this, jsii.String("Asset"), &assetProps{
+//
+//   asset := awscdk.NewAsset(this, jsii.String("Asset"), &assetProps{
 //   	path: jsii.String("./configure.sh"),
 //   })
 //
@@ -90092,16 +91233,16 @@ const (
 type S3DownloadOptions struct {
 	// Name of the S3 bucket to download from.
 	// Experimental.
-	Bucket awss3.IBucket `json:"bucket" yaml:"bucket"`
+	Bucket awss3.IBucket `field:"required" json:"bucket" yaml:"bucket"`
 	// The key of the file to download.
 	// Experimental.
-	BucketKey *string `json:"bucketKey" yaml:"bucketKey"`
+	BucketKey *string `field:"required" json:"bucketKey" yaml:"bucketKey"`
 	// The name of the local file.
 	// Experimental.
-	LocalFile *string `json:"localFile" yaml:"localFile"`
+	LocalFile *string `field:"optional" json:"localFile" yaml:"localFile"`
 	// The region of the S3 Bucket (needed for access via VPC Gateway).
 	// Experimental.
-	Region *string `json:"region" yaml:"region"`
+	Region *string `field:"optional" json:"region" yaml:"region"`
 }
 
 // Creates an Amazon EC2 security group within a VPC.
@@ -90141,6 +91282,7 @@ type S3DownloadOptions struct {
 //
 // Example:
 //   var vpc vpc
+//
 //
 //   template := ec2.NewLaunchTemplate(this, jsii.String("LaunchTemplate"), &launchTemplateProps{
 //   	machineImage: ec2.machineImage.latestAmazonLinux(),
@@ -90821,17 +91963,18 @@ type SecurityGroupImportOptions struct {
 	// group. Be aware, this would undo any potential "all outbound traffic"
 	// default.
 	// Experimental.
-	AllowAllOutbound *bool `json:"allowAllOutbound" yaml:"allowAllOutbound"`
+	AllowAllOutbound *bool `field:"optional" json:"allowAllOutbound" yaml:"allowAllOutbound"`
 	// If a SecurityGroup is mutable CDK can add rules to existing groups.
 	//
 	// Beware that making a SecurityGroup immutable might lead to issue
 	// due to missing ingress/egress rules for new resources.
 	// Experimental.
-	Mutable *bool `json:"mutable" yaml:"mutable"`
+	Mutable *bool `field:"optional" json:"mutable" yaml:"mutable"`
 }
 
 // Example:
 //   var vpc vpc
+//
 //
 //   securityGroup1 := ec2.NewSecurityGroup(this, jsii.String("SecurityGroup1"), &securityGroupProps{
 //   	vpc: vpc,
@@ -90851,17 +91994,17 @@ type SecurityGroupImportOptions struct {
 type SecurityGroupProps struct {
 	// The VPC in which to create the security group.
 	// Experimental.
-	Vpc IVpc `json:"vpc" yaml:"vpc"`
+	Vpc IVpc `field:"required" json:"vpc" yaml:"vpc"`
 	// Whether to allow all outbound traffic by default.
 	//
 	// If this is set to true, there will only be a single egress rule which allows all
 	// outbound traffic. If this is set to false, no outbound traffic will be allowed by
 	// default and all egress traffic must be explicitly authorized.
 	// Experimental.
-	AllowAllOutbound *bool `json:"allowAllOutbound" yaml:"allowAllOutbound"`
+	AllowAllOutbound *bool `field:"optional" json:"allowAllOutbound" yaml:"allowAllOutbound"`
 	// A description of the security group.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Whether to disable inline ingress and egress rule optimization.
 	//
 	// If this is set to true, ingress and egress rules will not be declared under the
@@ -90873,7 +92016,7 @@ type SecurityGroupProps struct {
 	// The default value can be overriden globally by setting the context variable
 	// '@aws-cdk/aws-ec2.securityGroupDisableInlineRules'.
 	// Experimental.
-	DisableInlineRules *bool `json:"disableInlineRules" yaml:"disableInlineRules"`
+	DisableInlineRules *bool `field:"optional" json:"disableInlineRules" yaml:"disableInlineRules"`
 	// The name of the security group.
 	//
 	// For valid values, see the GroupName
@@ -90882,7 +92025,7 @@ type SecurityGroupProps struct {
 	//
 	// It is not recommended to use an explicit group name.
 	// Experimental.
-	SecurityGroupName *string `json:"securityGroupName" yaml:"securityGroupName"`
+	SecurityGroupName *string `field:"optional" json:"securityGroupName" yaml:"securityGroupName"`
 }
 
 // Result of selecting a subset of subnets from a VPC.
@@ -90903,26 +92046,26 @@ type SecurityGroupProps struct {
 type SelectedSubnets struct {
 	// The respective AZs of each subnet.
 	// Experimental.
-	AvailabilityZones *[]*string `json:"availabilityZones" yaml:"availabilityZones"`
+	AvailabilityZones *[]*string `field:"required" json:"availabilityZones" yaml:"availabilityZones"`
 	// Whether any of the given subnets are from the VPC's public subnets.
 	// Experimental.
-	HasPublic *bool `json:"hasPublic" yaml:"hasPublic"`
+	HasPublic *bool `field:"required" json:"hasPublic" yaml:"hasPublic"`
 	// Dependency representing internet connectivity for these subnets.
 	// Experimental.
-	InternetConnectivityEstablished awscdk.IDependable `json:"internetConnectivityEstablished" yaml:"internetConnectivityEstablished"`
+	InternetConnectivityEstablished awscdk.IDependable `field:"required" json:"internetConnectivityEstablished" yaml:"internetConnectivityEstablished"`
 	// The subnet IDs.
 	// Experimental.
-	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
+	SubnetIds *[]*string `field:"required" json:"subnetIds" yaml:"subnetIds"`
 	// Selected subnet objects.
 	// Experimental.
-	Subnets *[]ISubnet `json:"subnets" yaml:"subnets"`
+	Subnets *[]ISubnet `field:"required" json:"subnets" yaml:"subnets"`
 	// The subnet selection is not actually real yet.
 	//
 	// If this value is true, don't validate anything about the subnets. The count
 	// or identities are not known yet, and the validation will most likely fail
 	// which will prevent a successful lookup.
 	// Experimental.
-	IsPendingLookup *bool `json:"isPendingLookup" yaml:"isPendingLookup"`
+	IsPendingLookup *bool `field:"optional" json:"isPendingLookup" yaml:"isPendingLookup"`
 }
 
 // Provides the options for the types of interruption for spot instances.
@@ -91028,19 +92171,20 @@ type SsmParameterImageOptions struct {
 	//
 	// Can not be set to `true` in environment-agnostic stacks.
 	// Experimental.
-	CachedInContext *bool `json:"cachedInContext" yaml:"cachedInContext"`
+	CachedInContext *bool `field:"optional" json:"cachedInContext" yaml:"cachedInContext"`
 	// Operating system.
 	// Experimental.
-	Os OperatingSystemType `json:"os" yaml:"os"`
+	Os OperatingSystemType `field:"optional" json:"os" yaml:"os"`
 	// Custom UserData.
 	// Experimental.
-	UserData UserData `json:"userData" yaml:"userData"`
+	UserData UserData `field:"optional" json:"userData" yaml:"userData"`
 }
 
 // Represents a new VPC subnet resource.
 //
 // Example:
 //   var cluster cluster
+//
 //   loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &applicationLoadBalancedFargateServiceProps{
 //   	cluster: cluster,
 //   	memoryLimitMiB: jsii.Number(1024),
@@ -91658,25 +92802,28 @@ func (s *jsiiProxy_Subnet) Validate() *[]*string {
 type SubnetAttributes struct {
 	// The subnetId for this particular subnet.
 	// Experimental.
-	SubnetId *string `json:"subnetId" yaml:"subnetId"`
+	SubnetId *string `field:"required" json:"subnetId" yaml:"subnetId"`
 	// The Availability Zone the subnet is located in.
 	// Experimental.
-	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
+	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
 	// The IPv4 CIDR block associated with the subnet.
 	// Experimental.
-	Ipv4CidrBlock *string `json:"ipv4CidrBlock" yaml:"ipv4CidrBlock"`
+	Ipv4CidrBlock *string `field:"optional" json:"ipv4CidrBlock" yaml:"ipv4CidrBlock"`
 	// The ID of the route table for this particular subnet.
 	// Experimental.
-	RouteTableId *string `json:"routeTableId" yaml:"routeTableId"`
+	RouteTableId *string `field:"optional" json:"routeTableId" yaml:"routeTableId"`
 }
 
 // Specify configuration parameters for a single subnet group in a VPC.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   subnetConfiguration := &subnetConfiguration{
 //   	name: jsii.String("name"),
-//   	subnetType: ec2.subnetType_ISOLATED,
+//   	subnetType: awscdk.Aws_ec2.subnetType_ISOLATED,
 //
 //   	// the properties below are optional
 //   	cidrMask: jsii.Number(123),
@@ -91691,13 +92838,13 @@ type SubnetConfiguration struct {
 	// This name can be used when selecting VPC subnets to distinguish
 	// between different subnet groups of the same type.
 	// Experimental.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The type of Subnet to configure.
 	//
 	// The Subnet type will control the ability to route and connect to the
 	// Internet.
 	// Experimental.
-	SubnetType SubnetType `json:"subnetType" yaml:"subnetType"`
+	SubnetType SubnetType `field:"required" json:"subnetType" yaml:"subnetType"`
 	// The number of leading 1 bits in the routing mask.
 	//
 	// The number of available IP addresses in each subnet of this group
@@ -91705,10 +92852,10 @@ type SubnetConfiguration struct {
 	//
 	// Valid values are `16--28`.
 	// Experimental.
-	CidrMask *float64 `json:"cidrMask" yaml:"cidrMask"`
+	CidrMask *float64 `field:"optional" json:"cidrMask" yaml:"cidrMask"`
 	// Controls if a public IP is associated to an instance at launch.
 	// Experimental.
-	MapPublicIpOnLaunch *bool `json:"mapPublicIpOnLaunch" yaml:"mapPublicIpOnLaunch"`
+	MapPublicIpOnLaunch *bool `field:"optional" json:"mapPublicIpOnLaunch" yaml:"mapPublicIpOnLaunch"`
 	// Controls if subnet IP space needs to be reserved.
 	//
 	// When true, the IP space for the subnet is reserved but no actual
@@ -91716,14 +92863,17 @@ type SubnetConfiguration struct {
 	// number of availability zones and on `cidrMask` - all other subnet
 	// properties are ignored.
 	// Experimental.
-	Reserved *bool `json:"reserved" yaml:"reserved"`
+	Reserved *bool `field:"optional" json:"reserved" yaml:"reserved"`
 }
 
 // Contains logic which chooses a set of subnets from a larger list, in conjunction with SubnetSelection, to determine where to place AWS resources such as VPC endpoints, EC2 instances, etc.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   subnetFilter := ec2.subnetFilter.availabilityZones([]*string{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   subnetFilter := awscdk.Aws_ec2.subnetFilter.availabilityZones([]*string{
 //   	jsii.String("availabilityZones"),
 //   })
 //
@@ -91849,11 +92999,14 @@ func (s *jsiiProxy_SubnetFilter) SelectSubnets(_subnets *[]ISubnet) *[]ISubnet {
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var networkAcl networkAcl
 //   var subnet subnet
-//   subnetNetworkAclAssociation := ec2.NewSubnetNetworkAclAssociation(this, jsii.String("MySubnetNetworkAclAssociation"), &subnetNetworkAclAssociationProps{
+//
+//   subnetNetworkAclAssociation := awscdk.Aws_ec2.NewSubnetNetworkAclAssociation(this, jsii.String("MySubnetNetworkAclAssociation"), &subnetNetworkAclAssociationProps{
 //   	networkAcl: networkAcl,
 //   	subnet: subnet,
 //
@@ -92254,10 +93407,13 @@ func (s *jsiiProxy_SubnetNetworkAclAssociation) Validate() *[]*string {
 // Properties to create a SubnetNetworkAclAssociation.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var networkAcl networkAcl
 //   var subnet subnet
+//
 //   subnetNetworkAclAssociationProps := &subnetNetworkAclAssociationProps{
 //   	networkAcl: networkAcl,
 //   	subnet: subnet,
@@ -92270,21 +93426,24 @@ func (s *jsiiProxy_SubnetNetworkAclAssociation) Validate() *[]*string {
 type SubnetNetworkAclAssociationProps struct {
 	// The Network ACL this association is defined for.
 	// Experimental.
-	NetworkAcl INetworkAcl `json:"networkAcl" yaml:"networkAcl"`
+	NetworkAcl INetworkAcl `field:"required" json:"networkAcl" yaml:"networkAcl"`
 	// ID of the Subnet.
 	// Experimental.
-	Subnet ISubnet `json:"subnet" yaml:"subnet"`
+	Subnet ISubnet `field:"required" json:"subnet" yaml:"subnet"`
 	// The name of the SubnetNetworkAclAssociation.
 	//
 	// It is not recommended to use an explicit name.
 	// Experimental.
-	SubnetNetworkAclAssociationName *string `json:"subnetNetworkAclAssociationName" yaml:"subnetNetworkAclAssociationName"`
+	SubnetNetworkAclAssociationName *string `field:"optional" json:"subnetNetworkAclAssociationName" yaml:"subnetNetworkAclAssociationName"`
 }
 
 // Specify configuration parameters for a VPC subnet.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   subnetProps := &subnetProps{
 //   	availabilityZone: jsii.String("availabilityZone"),
 //   	cidrBlock: jsii.String("cidrBlock"),
@@ -92298,16 +93457,16 @@ type SubnetNetworkAclAssociationProps struct {
 type SubnetProps struct {
 	// The availability zone for the subnet.
 	// Experimental.
-	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
+	AvailabilityZone *string `field:"required" json:"availabilityZone" yaml:"availabilityZone"`
 	// The CIDR notation for this subnet.
 	// Experimental.
-	CidrBlock *string `json:"cidrBlock" yaml:"cidrBlock"`
+	CidrBlock *string `field:"required" json:"cidrBlock" yaml:"cidrBlock"`
 	// The VPC which this subnet is part of.
 	// Experimental.
-	VpcId *string `json:"vpcId" yaml:"vpcId"`
+	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
 	// Controls if a public IP is associated to an instance at launch.
 	// Experimental.
-	MapPublicIpOnLaunch *bool `json:"mapPublicIpOnLaunch" yaml:"mapPublicIpOnLaunch"`
+	MapPublicIpOnLaunch *bool `field:"optional" json:"mapPublicIpOnLaunch" yaml:"mapPublicIpOnLaunch"`
 }
 
 // Customize subnets that are selected for placement of ENIs.
@@ -92319,6 +93478,7 @@ type SubnetProps struct {
 //
 // Example:
 //   var vpc vpc
+//
 //   cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &databaseClusterProps{
 //   	masterUser: &login{
 //   		username: jsii.String("myuser"),
@@ -92338,13 +93498,13 @@ type SubnetProps struct {
 type SubnetSelection struct {
 	// Select subnets only in the given AZs.
 	// Experimental.
-	AvailabilityZones *[]*string `json:"availabilityZones" yaml:"availabilityZones"`
+	AvailabilityZones *[]*string `field:"optional" json:"availabilityZones" yaml:"availabilityZones"`
 	// If true, return at most one subnet per AZ.
 	// Experimental.
-	OnePerAz *bool `json:"onePerAz" yaml:"onePerAz"`
+	OnePerAz *bool `field:"optional" json:"onePerAz" yaml:"onePerAz"`
 	// List of provided subnet filters.
 	// Experimental.
-	SubnetFilters *[]SubnetFilter `json:"subnetFilters" yaml:"subnetFilters"`
+	SubnetFilters *[]SubnetFilter `field:"optional" json:"subnetFilters" yaml:"subnetFilters"`
 	// Select the subnet group with the given name.
 	//
 	// Select the subnet group with the given name. This only needs
@@ -92358,14 +93518,14 @@ type SubnetSelection struct {
 	//
 	// At most one of `subnetType` and `subnetGroupName` can be supplied.
 	// Experimental.
-	SubnetGroupName *string `json:"subnetGroupName" yaml:"subnetGroupName"`
+	SubnetGroupName *string `field:"optional" json:"subnetGroupName" yaml:"subnetGroupName"`
 	// Alias for `subnetGroupName`.
 	//
 	// Select the subnet group with the given name. This only needs
 	// to be used if you have multiple subnet groups of the same type
 	// and you need to distinguish between them.
 	// Deprecated: Use `subnetGroupName` instead.
-	SubnetName *string `json:"subnetName" yaml:"subnetName"`
+	SubnetName *string `field:"optional" json:"subnetName" yaml:"subnetName"`
 	// Explicitly select individual subnets.
 	//
 	// Use this if you don't want to automatically use all subnets in
@@ -92374,18 +93534,19 @@ type SubnetSelection struct {
 	//
 	// Cannot be specified together with `subnetType` or `subnetGroupName`.
 	// Experimental.
-	Subnets *[]ISubnet `json:"subnets" yaml:"subnets"`
+	Subnets *[]ISubnet `field:"optional" json:"subnets" yaml:"subnets"`
 	// Select all subnets of the given type.
 	//
 	// At most one of `subnetType` and `subnetGroupName` can be supplied.
 	// Experimental.
-	SubnetType SubnetType `json:"subnetType" yaml:"subnetType"`
+	SubnetType SubnetType `field:"optional" json:"subnetType" yaml:"subnetType"`
 }
 
 // The type of Subnet.
 //
 // Example:
 //   var vpc vpc
+//
 //   cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &databaseClusterProps{
 //   	masterUser: &login{
 //   		username: jsii.String("myuser"),
@@ -92660,9 +93821,10 @@ func (u *jsiiProxy_UserData) Render() *string {
 //   var instance instance
 //   var role role
 //
+//
 //   volume := ec2.NewVolume(this, jsii.String("Volume"), &volumeProps{
 //   	availabilityZone: jsii.String("us-west-2a"),
-//   	size: size.gibibytes(jsii.Number(500)),
+//   	size: awscdk.Size.gibibytes(jsii.Number(500)),
 //   	encrypted: jsii.Boolean(true),
 //   })
 //
@@ -93158,9 +94320,13 @@ func (v *jsiiProxy_Volume) ValidateProps(props *VolumeProps) {
 // Attributes required to import an existing EBS Volume into the Stack.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import kms "github.com/aws/aws-cdk-go/awscdk/aws_kms"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var key key
+//
 //   volumeAttributes := &volumeAttributes{
 //   	availabilityZone: jsii.String("availabilityZone"),
 //   	volumeId: jsii.String("volumeId"),
@@ -93173,13 +94339,13 @@ func (v *jsiiProxy_Volume) ValidateProps(props *VolumeProps) {
 type VolumeAttributes struct {
 	// The availability zone that the EBS Volume is contained within (ex: us-west-2a).
 	// Experimental.
-	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
+	AvailabilityZone *string `field:"required" json:"availabilityZone" yaml:"availabilityZone"`
 	// The EBS Volume's ID.
 	// Experimental.
-	VolumeId *string `json:"volumeId" yaml:"volumeId"`
+	VolumeId *string `field:"required" json:"volumeId" yaml:"volumeId"`
 	// The customer-managed encryption key that is used to encrypt the Volume.
 	// Experimental.
-	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
+	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 }
 
 // Properties of an EBS Volume.
@@ -93188,9 +94354,10 @@ type VolumeAttributes struct {
 //   var instance instance
 //   var role role
 //
+//
 //   volume := ec2.NewVolume(this, jsii.String("Volume"), &volumeProps{
 //   	availabilityZone: jsii.String("us-west-2a"),
-//   	size: size.gibibytes(jsii.Number(500)),
+//   	size: awscdk.Size.gibibytes(jsii.Number(500)),
 //   	encrypted: jsii.Boolean(true),
 //   })
 //
@@ -93202,20 +94369,20 @@ type VolumeAttributes struct {
 type VolumeProps struct {
 	// The Availability Zone in which to create the volume.
 	// Experimental.
-	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
+	AvailabilityZone *string `field:"required" json:"availabilityZone" yaml:"availabilityZone"`
 	// Indicates whether the volume is auto-enabled for I/O operations.
 	//
 	// By default, Amazon EBS disables I/O to the volume from attached EC2
 	// instances when it determines that a volume's data is potentially inconsistent. If the consistency of the volume is not a concern, and
 	// you prefer that the volume be made available immediately if it's impaired, you can configure the volume to automatically enable I/O.
 	// Experimental.
-	AutoEnableIo *bool `json:"autoEnableIo" yaml:"autoEnableIo"`
+	AutoEnableIo *bool `field:"optional" json:"autoEnableIo" yaml:"autoEnableIo"`
 	// Indicates whether Amazon EBS Multi-Attach is enabled.
 	//
 	// See {@link https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html#considerations|Considerations and limitations}
 	// for the constraints of multi-attach.
 	// Experimental.
-	EnableMultiAttach *bool `json:"enableMultiAttach" yaml:"enableMultiAttach"`
+	EnableMultiAttach *bool `field:"optional" json:"enableMultiAttach" yaml:"enableMultiAttach"`
 	// Specifies whether the volume should be encrypted.
 	//
 	// The effect of setting the encryption state to true depends on the volume origin
@@ -93226,7 +94393,7 @@ type VolumeProps struct {
 	// Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see
 	// {@link https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances|Supported Instance Types.}
 	// Experimental.
-	Encrypted *bool `json:"encrypted" yaml:"encrypted"`
+	Encrypted *bool `field:"optional" json:"encrypted" yaml:"encrypted"`
 	// The customer-managed encryption key that is used to encrypt the Volume.
 	//
 	// The encrypted property must
@@ -93252,7 +94419,7 @@ type VolumeProps struct {
 	//        }
 	// }.
 	// Experimental.
-	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
+	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// The number of I/O operations per second (IOPS) to provision for the volume.
 	//
 	// The maximum ratio is 50 IOPS/GiB for PROVISIONED_IOPS_SSD,
@@ -93262,30 +94429,30 @@ type VolumeProps struct {
 	//
 	// This parameter is valid only for PROVISIONED_IOPS_SSD, PROVISIONED_IOPS_SSD_IO2 and GENERAL_PURPOSE_SSD_GP3 volumes.
 	// Experimental.
-	Iops *float64 `json:"iops" yaml:"iops"`
+	Iops *float64 `field:"optional" json:"iops" yaml:"iops"`
 	// Policy to apply when the volume is removed from the stack.
 	// Experimental.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// The size of the volume, in GiBs.
 	//
 	// You must specify either a snapshot ID or a volume size.
 	// See {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html}
 	// for details on the allowable size for each type of volume.
 	// Experimental.
-	Size awscdk.Size `json:"size" yaml:"size"`
+	Size awscdk.Size `field:"optional" json:"size" yaml:"size"`
 	// The snapshot from which to create the volume.
 	//
 	// You must specify either a snapshot ID or a volume size.
 	// Experimental.
-	SnapshotId *string `json:"snapshotId" yaml:"snapshotId"`
+	SnapshotId *string `field:"optional" json:"snapshotId" yaml:"snapshotId"`
 	// The value of the physicalName property of this resource.
 	// Experimental.
-	VolumeName *string `json:"volumeName" yaml:"volumeName"`
+	VolumeName *string `field:"optional" json:"volumeName" yaml:"volumeName"`
 	// The type of the volume;
 	//
 	// what type of storage to use to form the EBS Volume.
 	// Experimental.
-	VolumeType EbsDeviceVolumeType `json:"volumeType" yaml:"volumeType"`
+	VolumeType EbsDeviceVolumeType `field:"optional" json:"volumeType" yaml:"volumeType"`
 }
 
 // Define an AWS Virtual Private Cloud.
@@ -94204,61 +95371,61 @@ func (v *jsiiProxy_Vpc) Validate() *[]*string {
 type VpcAttributes struct {
 	// List of availability zones for the subnets in this VPC.
 	// Experimental.
-	AvailabilityZones *[]*string `json:"availabilityZones" yaml:"availabilityZones"`
+	AvailabilityZones *[]*string `field:"required" json:"availabilityZones" yaml:"availabilityZones"`
 	// VPC's identifier.
 	// Experimental.
-	VpcId *string `json:"vpcId" yaml:"vpcId"`
+	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
 	// List of isolated subnet IDs.
 	//
 	// Must be undefined or match the availability zones in length and order.
 	// Experimental.
-	IsolatedSubnetIds *[]*string `json:"isolatedSubnetIds" yaml:"isolatedSubnetIds"`
+	IsolatedSubnetIds *[]*string `field:"optional" json:"isolatedSubnetIds" yaml:"isolatedSubnetIds"`
 	// List of names for the isolated subnets.
 	//
 	// Must be undefined or have a name for every isolated subnet group.
 	// Experimental.
-	IsolatedSubnetNames *[]*string `json:"isolatedSubnetNames" yaml:"isolatedSubnetNames"`
+	IsolatedSubnetNames *[]*string `field:"optional" json:"isolatedSubnetNames" yaml:"isolatedSubnetNames"`
 	// List of IDs of routing tables for the isolated subnets.
 	//
 	// Must be undefined or have a name for every isolated subnet group.
 	// Experimental.
-	IsolatedSubnetRouteTableIds *[]*string `json:"isolatedSubnetRouteTableIds" yaml:"isolatedSubnetRouteTableIds"`
+	IsolatedSubnetRouteTableIds *[]*string `field:"optional" json:"isolatedSubnetRouteTableIds" yaml:"isolatedSubnetRouteTableIds"`
 	// List of private subnet IDs.
 	//
 	// Must be undefined or match the availability zones in length and order.
 	// Experimental.
-	PrivateSubnetIds *[]*string `json:"privateSubnetIds" yaml:"privateSubnetIds"`
+	PrivateSubnetIds *[]*string `field:"optional" json:"privateSubnetIds" yaml:"privateSubnetIds"`
 	// List of names for the private subnets.
 	//
 	// Must be undefined or have a name for every private subnet group.
 	// Experimental.
-	PrivateSubnetNames *[]*string `json:"privateSubnetNames" yaml:"privateSubnetNames"`
+	PrivateSubnetNames *[]*string `field:"optional" json:"privateSubnetNames" yaml:"privateSubnetNames"`
 	// List of IDs of routing tables for the private subnets.
 	//
 	// Must be undefined or have a name for every private subnet group.
 	// Experimental.
-	PrivateSubnetRouteTableIds *[]*string `json:"privateSubnetRouteTableIds" yaml:"privateSubnetRouteTableIds"`
+	PrivateSubnetRouteTableIds *[]*string `field:"optional" json:"privateSubnetRouteTableIds" yaml:"privateSubnetRouteTableIds"`
 	// List of public subnet IDs.
 	//
 	// Must be undefined or match the availability zones in length and order.
 	// Experimental.
-	PublicSubnetIds *[]*string `json:"publicSubnetIds" yaml:"publicSubnetIds"`
+	PublicSubnetIds *[]*string `field:"optional" json:"publicSubnetIds" yaml:"publicSubnetIds"`
 	// List of names for the public subnets.
 	//
 	// Must be undefined or have a name for every public subnet group.
 	// Experimental.
-	PublicSubnetNames *[]*string `json:"publicSubnetNames" yaml:"publicSubnetNames"`
+	PublicSubnetNames *[]*string `field:"optional" json:"publicSubnetNames" yaml:"publicSubnetNames"`
 	// List of IDs of routing tables for the public subnets.
 	//
 	// Must be undefined or have a name for every public subnet group.
 	// Experimental.
-	PublicSubnetRouteTableIds *[]*string `json:"publicSubnetRouteTableIds" yaml:"publicSubnetRouteTableIds"`
+	PublicSubnetRouteTableIds *[]*string `field:"optional" json:"publicSubnetRouteTableIds" yaml:"publicSubnetRouteTableIds"`
 	// VPC's CIDR range.
 	// Experimental.
-	VpcCidrBlock *string `json:"vpcCidrBlock" yaml:"vpcCidrBlock"`
+	VpcCidrBlock *string `field:"optional" json:"vpcCidrBlock" yaml:"vpcCidrBlock"`
 	// VPN gateway's identifier.
 	// Experimental.
-	VpnGatewayId *string `json:"vpnGatewayId" yaml:"vpnGatewayId"`
+	VpnGatewayId *string `field:"optional" json:"vpnGatewayId" yaml:"vpnGatewayId"`
 }
 
 // Experimental.
@@ -94635,6 +95802,7 @@ func (v *jsiiProxy_VpcEndpoint) Validate() *[]*string {
 // Example:
 //   var networkLoadBalancer1 networkLoadBalancer
 //   var networkLoadBalancer2 networkLoadBalancer
+//
 //
 //   ec2.NewVpcEndpointService(this, jsii.String("EndpointService"), &vpcEndpointServiceProps{
 //   	vpcEndpointServiceLoadBalancers: []iVpcEndpointServiceLoadBalancer{
@@ -95066,6 +96234,7 @@ func (v *jsiiProxy_VpcEndpointService) Validate() *[]*string {
 //   var networkLoadBalancer1 networkLoadBalancer
 //   var networkLoadBalancer2 networkLoadBalancer
 //
+//
 //   ec2.NewVpcEndpointService(this, jsii.String("EndpointService"), &vpcEndpointServiceProps{
 //   	vpcEndpointServiceLoadBalancers: []iVpcEndpointServiceLoadBalancer{
 //   		networkLoadBalancer1,
@@ -95081,25 +96250,25 @@ func (v *jsiiProxy_VpcEndpointService) Validate() *[]*string {
 type VpcEndpointServiceProps struct {
 	// One or more load balancers to host the VPC Endpoint Service.
 	// Experimental.
-	VpcEndpointServiceLoadBalancers *[]IVpcEndpointServiceLoadBalancer `json:"vpcEndpointServiceLoadBalancers" yaml:"vpcEndpointServiceLoadBalancers"`
+	VpcEndpointServiceLoadBalancers *[]IVpcEndpointServiceLoadBalancer `field:"required" json:"vpcEndpointServiceLoadBalancers" yaml:"vpcEndpointServiceLoadBalancers"`
 	// Whether requests from service consumers to connect to the service through an endpoint must be accepted.
 	// Experimental.
-	AcceptanceRequired *bool `json:"acceptanceRequired" yaml:"acceptanceRequired"`
+	AcceptanceRequired *bool `field:"optional" json:"acceptanceRequired" yaml:"acceptanceRequired"`
 	// IAM users, IAM roles, or AWS accounts to allow inbound connections from.
 	//
 	// These principals can connect to your service using VPC endpoints. Takes a
 	// list of one or more ArnPrincipal.
 	// Experimental.
-	AllowedPrincipals *[]awsiam.ArnPrincipal `json:"allowedPrincipals" yaml:"allowedPrincipals"`
+	AllowedPrincipals *[]awsiam.ArnPrincipal `field:"optional" json:"allowedPrincipals" yaml:"allowedPrincipals"`
 	// Name of the Vpc Endpoint Service.
 	// Deprecated: This property is not used.
-	VpcEndpointServiceName *string `json:"vpcEndpointServiceName" yaml:"vpcEndpointServiceName"`
+	VpcEndpointServiceName *string `field:"optional" json:"vpcEndpointServiceName" yaml:"vpcEndpointServiceName"`
 	// IAM users, IAM roles, or AWS accounts to allow inbound connections from.
 	//
 	// These principals can connect to your service using VPC endpoints. Takes a
 	// list of one or more ArnPrincipal.
 	// Deprecated: use `allowedPrincipals`.
-	WhitelistedPrincipals *[]awsiam.ArnPrincipal `json:"whitelistedPrincipals" yaml:"whitelistedPrincipals"`
+	WhitelistedPrincipals *[]awsiam.ArnPrincipal `field:"optional" json:"whitelistedPrincipals" yaml:"whitelistedPrincipals"`
 }
 
 // The type of VPC endpoint.
@@ -95155,7 +96324,7 @@ const (
 //
 //   // print the Cloud9 IDE URL in the output
 //   // print the Cloud9 IDE URL in the output
-//   NewCfnOutput(this, jsii.String("URL"), &cfnOutputProps{
+//   awscdk.NewCfnOutput(this, jsii.String("URL"), &cfnOutputProps{
 //   	value: c9env.ideUrl,
 //   })
 //
@@ -95163,32 +96332,32 @@ const (
 type VpcLookupOptions struct {
 	// Whether to match the default VPC.
 	// Experimental.
-	IsDefault *bool `json:"isDefault" yaml:"isDefault"`
+	IsDefault *bool `field:"optional" json:"isDefault" yaml:"isDefault"`
 	// Optional to override inferred region.
 	// Experimental.
-	Region *string `json:"region" yaml:"region"`
+	Region *string `field:"optional" json:"region" yaml:"region"`
 	// Optional tag for subnet group name.
 	//
 	// If not provided, we'll look at the aws-cdk:subnet-name tag.
 	// If the subnet does not have the specified tag,
 	// we'll use its type as the name.
 	// Experimental.
-	SubnetGroupNameTag *string `json:"subnetGroupNameTag" yaml:"subnetGroupNameTag"`
+	SubnetGroupNameTag *string `field:"optional" json:"subnetGroupNameTag" yaml:"subnetGroupNameTag"`
 	// Tags on the VPC.
 	//
 	// The VPC must have all of these tags.
 	// Experimental.
-	Tags *map[string]*string `json:"tags" yaml:"tags"`
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 	// The ID of the VPC.
 	//
 	// If given, will import exactly this VPC.
 	// Experimental.
-	VpcId *string `json:"vpcId" yaml:"vpcId"`
+	VpcId *string `field:"optional" json:"vpcId" yaml:"vpcId"`
 	// The name of the VPC.
 	//
 	// If given, will import the VPC with this name.
 	// Experimental.
-	VpcName *string `json:"vpcName" yaml:"vpcName"`
+	VpcName *string `field:"optional" json:"vpcName" yaml:"vpcName"`
 }
 
 // Configuration for Vpc.
@@ -95221,7 +96390,7 @@ type VpcLookupOptions struct {
 //
 //   // print the Cloud9 IDE URL in the output
 //   // print the Cloud9 IDE URL in the output
-//   NewCfnOutput(this, jsii.String("URL"), &cfnOutputProps{
+//   awscdk.NewCfnOutput(this, jsii.String("URL"), &cfnOutputProps{
 //   	value: c9env.ideUrl,
 //   })
 //
@@ -95232,7 +96401,7 @@ type VpcProps struct {
 	// Should be a minimum of /28 and maximum size of /16. The range will be
 	// split across all subnets per Availability Zone.
 	// Experimental.
-	Cidr *string `json:"cidr" yaml:"cidr"`
+	Cidr *string `field:"optional" json:"cidr" yaml:"cidr"`
 	// The default tenancy of instances launched into the VPC.
 	//
 	// By setting this to dedicated tenancy, instances will be launched on
@@ -95240,13 +96409,13 @@ type VpcProps struct {
 	// at instance launch time. Please note, not all instance types are usable
 	// with Dedicated tenancy.
 	// Experimental.
-	DefaultInstanceTenancy DefaultInstanceTenancy `json:"defaultInstanceTenancy" yaml:"defaultInstanceTenancy"`
+	DefaultInstanceTenancy DefaultInstanceTenancy `field:"optional" json:"defaultInstanceTenancy" yaml:"defaultInstanceTenancy"`
 	// Indicates whether the instances launched in the VPC get public DNS hostnames.
 	//
 	// If this attribute is true, instances in the VPC get public DNS hostnames,
 	// but only if the enableDnsSupport attribute is also set to true.
 	// Experimental.
-	EnableDnsHostnames *bool `json:"enableDnsHostnames" yaml:"enableDnsHostnames"`
+	EnableDnsHostnames *bool `field:"optional" json:"enableDnsHostnames" yaml:"enableDnsHostnames"`
 	// Indicates whether the DNS resolution is supported for the VPC.
 	//
 	// If this attribute is false, the Amazon-provided DNS server in the VPC that
@@ -95255,13 +96424,13 @@ type VpcProps struct {
 	// 169.254.169.253 IP address, or the reserved IP address at the base of the
 	// VPC IPv4 network range plus two will succeed.
 	// Experimental.
-	EnableDnsSupport *bool `json:"enableDnsSupport" yaml:"enableDnsSupport"`
+	EnableDnsSupport *bool `field:"optional" json:"enableDnsSupport" yaml:"enableDnsSupport"`
 	// Flow logs to add to this VPC.
 	// Experimental.
-	FlowLogs *map[string]*FlowLogOptions `json:"flowLogs" yaml:"flowLogs"`
+	FlowLogs *map[string]*FlowLogOptions `field:"optional" json:"flowLogs" yaml:"flowLogs"`
 	// Gateway endpoints to add to this VPC.
 	// Experimental.
-	GatewayEndpoints *map[string]*GatewayVpcEndpointOptions `json:"gatewayEndpoints" yaml:"gatewayEndpoints"`
+	GatewayEndpoints *map[string]*GatewayVpcEndpointOptions `field:"optional" json:"gatewayEndpoints" yaml:"gatewayEndpoints"`
 	// Define the maximum number of AZs to use in this region.
 	//
 	// If the region has more AZs than you want to use (for example, because of
@@ -95276,13 +96445,13 @@ type VpcProps struct {
 	// only 2 AZs, so to use more than 2 AZs, be sure to specify the account and
 	// region on your stack.
 	// Experimental.
-	MaxAzs *float64 `json:"maxAzs" yaml:"maxAzs"`
+	MaxAzs *float64 `field:"optional" json:"maxAzs" yaml:"maxAzs"`
 	// What type of NAT provider to use.
 	//
 	// Select between NAT gateways or NAT instances. NAT gateways
 	// may not be available in all AWS regions.
 	// Experimental.
-	NatGatewayProvider NatProvider `json:"natGatewayProvider" yaml:"natGatewayProvider"`
+	NatGatewayProvider NatProvider `field:"optional" json:"natGatewayProvider" yaml:"natGatewayProvider"`
 	// The number of NAT Gateways/Instances to create.
 	//
 	// The type of NAT gateway or instance will be determined by the
@@ -95292,7 +96461,7 @@ type VpcProps struct {
 	// VPC in order to save on NAT cost. Be aware you may be charged for
 	// cross-AZ data traffic instead.
 	// Experimental.
-	NatGateways *float64 `json:"natGateways" yaml:"natGateways"`
+	NatGateways *float64 `field:"optional" json:"natGateways" yaml:"natGateways"`
 	// Configures the subnets which will have NAT Gateways/Instances.
 	//
 	// You can pick a specific group of subnets by specifying the group name;
@@ -95300,7 +96469,7 @@ type VpcProps struct {
 	//
 	// Only necessary if you have more than one public subnet group.
 	// Experimental.
-	NatGatewaySubnets *SubnetSelection `json:"natGatewaySubnets" yaml:"natGatewaySubnets"`
+	NatGatewaySubnets *SubnetSelection `field:"optional" json:"natGatewaySubnets" yaml:"natGatewaySubnets"`
 	// Configure the subnets to build for each AZ.
 	//
 	// Each entry in this list configures a Subnet Group; each group will contain a
@@ -95331,24 +96500,24 @@ type VpcProps struct {
 	// });
 	// ```.
 	// Experimental.
-	SubnetConfiguration *[]*SubnetConfiguration `json:"subnetConfiguration" yaml:"subnetConfiguration"`
+	SubnetConfiguration *[]*SubnetConfiguration `field:"optional" json:"subnetConfiguration" yaml:"subnetConfiguration"`
 	// The VPC name.
 	//
 	// Since the VPC resource doesn't support providing a physical name, the value provided here will be recorded in the `Name` tag.
 	// Experimental.
-	VpcName *string `json:"vpcName" yaml:"vpcName"`
+	VpcName *string `field:"optional" json:"vpcName" yaml:"vpcName"`
 	// VPN connections to this VPC.
 	// Experimental.
-	VpnConnections *map[string]*VpnConnectionOptions `json:"vpnConnections" yaml:"vpnConnections"`
+	VpnConnections *map[string]*VpnConnectionOptions `field:"optional" json:"vpnConnections" yaml:"vpnConnections"`
 	// Indicates whether a VPN gateway should be created and attached to this VPC.
 	// Experimental.
-	VpnGateway *bool `json:"vpnGateway" yaml:"vpnGateway"`
+	VpnGateway *bool `field:"optional" json:"vpnGateway" yaml:"vpnGateway"`
 	// The private Autonomous System Number (ASN) for the VPN gateway.
 	// Experimental.
-	VpnGatewayAsn *float64 `json:"vpnGatewayAsn" yaml:"vpnGatewayAsn"`
+	VpnGatewayAsn *float64 `field:"optional" json:"vpnGatewayAsn" yaml:"vpnGatewayAsn"`
 	// Where to propagate VPN routes.
 	// Experimental.
-	VpnRoutePropagation *[]*SubnetSelection `json:"vpnRoutePropagation" yaml:"vpnRoutePropagation"`
+	VpnRoutePropagation *[]*SubnetSelection `field:"optional" json:"vpnRoutePropagation" yaml:"vpnRoutePropagation"`
 }
 
 // Define a VPN Connection.
@@ -95910,26 +97079,30 @@ func (v *jsiiProxy_VpnConnection) Validate() *[]*string {
 type VpnConnectionOptions struct {
 	// The ip address of the customer gateway.
 	// Experimental.
-	Ip *string `json:"ip" yaml:"ip"`
+	Ip *string `field:"required" json:"ip" yaml:"ip"`
 	// The ASN of the customer gateway.
 	// Experimental.
-	Asn *float64 `json:"asn" yaml:"asn"`
+	Asn *float64 `field:"optional" json:"asn" yaml:"asn"`
 	// The static routes to be routed from the VPN gateway to the customer gateway.
 	// Experimental.
-	StaticRoutes *[]*string `json:"staticRoutes" yaml:"staticRoutes"`
+	StaticRoutes *[]*string `field:"optional" json:"staticRoutes" yaml:"staticRoutes"`
 	// The tunnel options for the VPN connection.
 	//
 	// At most two elements (one per tunnel).
 	// Duplicates not allowed.
 	// Experimental.
-	TunnelOptions *[]*VpnTunnelOption `json:"tunnelOptions" yaml:"tunnelOptions"`
+	TunnelOptions *[]*VpnTunnelOption `field:"optional" json:"tunnelOptions" yaml:"tunnelOptions"`
 }
 
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var secretValue secretValue
 //   var vpc vpc
+//
 //   vpnConnectionProps := &vpnConnectionProps{
 //   	ip: jsii.String("ip"),
 //   	vpc: vpc,
@@ -95952,22 +97125,22 @@ type VpnConnectionOptions struct {
 type VpnConnectionProps struct {
 	// The ip address of the customer gateway.
 	// Experimental.
-	Ip *string `json:"ip" yaml:"ip"`
+	Ip *string `field:"required" json:"ip" yaml:"ip"`
 	// The ASN of the customer gateway.
 	// Experimental.
-	Asn *float64 `json:"asn" yaml:"asn"`
+	Asn *float64 `field:"optional" json:"asn" yaml:"asn"`
 	// The static routes to be routed from the VPN gateway to the customer gateway.
 	// Experimental.
-	StaticRoutes *[]*string `json:"staticRoutes" yaml:"staticRoutes"`
+	StaticRoutes *[]*string `field:"optional" json:"staticRoutes" yaml:"staticRoutes"`
 	// The tunnel options for the VPN connection.
 	//
 	// At most two elements (one per tunnel).
 	// Duplicates not allowed.
 	// Experimental.
-	TunnelOptions *[]*VpnTunnelOption `json:"tunnelOptions" yaml:"tunnelOptions"`
+	TunnelOptions *[]*VpnTunnelOption `field:"optional" json:"tunnelOptions" yaml:"tunnelOptions"`
 	// The VPC to connect to.
 	// Experimental.
-	Vpc IVpc `json:"vpc" yaml:"vpc"`
+	Vpc IVpc `field:"required" json:"vpc" yaml:"vpc"`
 }
 
 // The VPN connection type.
@@ -95986,8 +97159,11 @@ const (
 // The VPN Gateway that shall be added to the VPC.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
-//   vpnGateway := ec2.NewVpnGateway(this, jsii.String("MyVpnGateway"), &vpnGatewayProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   vpnGateway := awscdk.Aws_ec2.NewVpnGateway(this, jsii.String("MyVpnGateway"), &vpnGatewayProps{
 //   	type: jsii.String("type"),
 //
 //   	// the properties below are optional
@@ -96345,7 +97521,10 @@ func (v *jsiiProxy_VpnGateway) Validate() *[]*string {
 // The VpnGateway Properties.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   vpnGatewayProps := &vpnGatewayProps{
 //   	type: jsii.String("type"),
 //
@@ -96357,10 +97536,10 @@ func (v *jsiiProxy_VpnGateway) Validate() *[]*string {
 type VpnGatewayProps struct {
 	// Default type ipsec.1.
 	// Experimental.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// Explicitly specify an Asn or let aws pick an Asn for you.
 	// Experimental.
-	AmazonSideAsn *float64 `json:"amazonSideAsn" yaml:"amazonSideAsn"`
+	AmazonSideAsn *float64 `field:"optional" json:"amazonSideAsn" yaml:"amazonSideAsn"`
 }
 
 // Port for client VPN.
@@ -96377,9 +97556,13 @@ const (
 )
 
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var secretValue secretValue
+//
 //   vpnTunnelOption := &vpnTunnelOption{
 //   	preSharedKey: jsii.String("preSharedKey"),
 //   	preSharedKeySecret: secretValue,
@@ -96394,21 +97577,21 @@ type VpnTunnelOption struct {
 	// alphanumeric characters period `.` and underscores `_`. Must be between 8
 	// and 64 characters in length and cannot start with zero (0).
 	// Deprecated: Use `preSharedKeySecret` instead.
-	PreSharedKey *string `json:"preSharedKey" yaml:"preSharedKey"`
+	PreSharedKey *string `field:"optional" json:"preSharedKey" yaml:"preSharedKey"`
 	// The pre-shared key (PSK) to establish initial authentication between the virtual private gateway and customer gateway.
 	//
 	// Allowed characters are
 	// alphanumeric characters period `.` and underscores `_`. Must be between 8
 	// and 64 characters in length and cannot start with zero (0).
 	// Experimental.
-	PreSharedKeySecret awscdk.SecretValue `json:"preSharedKeySecret" yaml:"preSharedKeySecret"`
+	PreSharedKeySecret awscdk.SecretValue `field:"optional" json:"preSharedKeySecret" yaml:"preSharedKeySecret"`
 	// The range of inside IP addresses for the tunnel.
 	//
 	// Any specified CIDR blocks must be
 	// unique across all VPN connections that use the same virtual private gateway.
 	// A size /30 CIDR block from the 169.254.0.0/16 range.
 	// Experimental.
-	TunnelInsideCidr *string `json:"tunnelInsideCidr" yaml:"tunnelInsideCidr"`
+	TunnelInsideCidr *string `field:"optional" json:"tunnelInsideCidr" yaml:"tunnelInsideCidr"`
 }
 
 // Select the latest version of the indicated Windows version.
@@ -96512,9 +97695,12 @@ func (w *jsiiProxy_WindowsImage) GetImage(scope awscdk.Construct) *MachineImageC
 // Configuration options for WindowsImage.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var userData userData
+//
 //   windowsImageProps := &windowsImageProps{
 //   	userData: userData,
 //   }
@@ -96523,7 +97709,7 @@ func (w *jsiiProxy_WindowsImage) GetImage(scope awscdk.Construct) *MachineImageC
 type WindowsImageProps struct {
 	// Initial user data.
 	// Experimental.
-	UserData UserData `json:"userData" yaml:"userData"`
+	UserData UserData `field:"optional" json:"userData" yaml:"userData"`
 }
 
 // The Windows version to use for the WindowsImage.

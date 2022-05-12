@@ -447,10 +447,10 @@ func (a *jsiiProxy_Application) Validate() *[]*string {
 type ApplicationProps struct {
 	// Enforces a particular physical application name.
 	// Experimental.
-	ApplicationName *string `json:"applicationName" yaml:"applicationName"`
+	ApplicationName *string `field:"required" json:"applicationName" yaml:"applicationName"`
 	// Description for application.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 
 // A Service Catalog AppRegistry Attribute Group.
@@ -881,15 +881,15 @@ func (a *jsiiProxy_AttributeGroup) Validate() *[]*string {
 type AttributeGroupProps struct {
 	// Enforces a particular physical attribute group name.
 	// Experimental.
-	AttributeGroupName *string `json:"attributeGroupName" yaml:"attributeGroupName"`
+	AttributeGroupName *string `field:"required" json:"attributeGroupName" yaml:"attributeGroupName"`
 	// A JSON of nested key-value pairs that represent the attributes in the group.
 	//
 	// Attributes maybe an empty JSON '{}', but must be explicitly stated.
 	// Experimental.
-	Attributes *map[string]interface{} `json:"attributes" yaml:"attributes"`
+	Attributes *map[string]interface{} `field:"required" json:"attributes" yaml:"attributes"`
 	// Description for attribute group.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 
 // A CloudFormation `AWS::ServiceCatalogAppRegistry::Application`.
@@ -897,8 +897,11 @@ type AttributeGroupProps struct {
 // Represents a AWS Service Catalog AppRegistry application that is the top-level node in a hierarchy of related cloud resource abstractions.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalogappregistry "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalogappregistry"
-//   cfnApplication := servicecatalogappregistry.NewCfnApplication(this, jsii.String("MyCfnApplication"), &cfnApplicationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnApplication := awscdk.Aws_servicecatalogappregistry.NewCfnApplication(this, jsii.String("MyCfnApplication"), &cfnApplicationProps{
 //   	name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -1596,7 +1599,10 @@ func (c *jsiiProxy_CfnApplication) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnApplication`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalogappregistry "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalogappregistry"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnApplicationProps := &cfnApplicationProps{
 //   	name: jsii.String("name"),
 //
@@ -1611,11 +1617,11 @@ type CfnApplicationProps struct {
 	// The name of the application.
 	//
 	// The name must be unique in the region in which you are creating the application.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The description of the application.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Key-value pairs you can use to associate with the application.
-	Tags *map[string]*string `json:"tags" yaml:"tags"`
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::ServiceCatalogAppRegistry::AttributeGroup`.
@@ -1623,10 +1629,13 @@ type CfnApplicationProps struct {
 // Creates a new attribute group as a container for user-defined attributes. This feature enables users to have full control over their cloud application's metadata in a rich machine-readable format to facilitate integration with automated workflows and third-party tools.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalogappregistry "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalogappregistry"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var attributes interface{}
-//   cfnAttributeGroup := servicecatalogappregistry.NewCfnAttributeGroup(this, jsii.String("MyCfnAttributeGroup"), &cfnAttributeGroupProps{
+//
+//   cfnAttributeGroup := awscdk.Aws_servicecatalogappregistry.NewCfnAttributeGroup(this, jsii.String("MyCfnAttributeGroup"), &cfnAttributeGroupProps{
 //   	attributes: attributes,
 //   	name: jsii.String("name"),
 //
@@ -2346,8 +2355,11 @@ func (c *jsiiProxy_CfnAttributeGroup) ValidateProperties(_properties interface{}
 // The `AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation` resource for `ServiceCatalogAppRegistry` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalogappregistry "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalogappregistry"
-//   cfnAttributeGroupAssociation := servicecatalogappregistry.NewCfnAttributeGroupAssociation(this, jsii.String("MyCfnAttributeGroupAssociation"), &cfnAttributeGroupAssociationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnAttributeGroupAssociation := awscdk.Aws_servicecatalogappregistry.NewCfnAttributeGroupAssociation(this, jsii.String("MyCfnAttributeGroupAssociation"), &cfnAttributeGroupAssociationProps{
 //   	application: jsii.String("application"),
 //   	attributeGroup: jsii.String("attributeGroup"),
 //   })
@@ -3036,7 +3048,10 @@ func (c *jsiiProxy_CfnAttributeGroupAssociation) ValidateProperties(_properties 
 // Properties for defining a `CfnAttributeGroupAssociation`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalogappregistry "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalogappregistry"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAttributeGroupAssociationProps := &cfnAttributeGroupAssociationProps{
 //   	application: jsii.String("application"),
 //   	attributeGroup: jsii.String("attributeGroup"),
@@ -3044,17 +3059,20 @@ func (c *jsiiProxy_CfnAttributeGroupAssociation) ValidateProperties(_properties 
 //
 type CfnAttributeGroupAssociationProps struct {
 	// The name or ID of the application.
-	Application *string `json:"application" yaml:"application"`
+	Application *string `field:"required" json:"application" yaml:"application"`
 	// The name or ID of the attribute group that holds the attributes to describe the application.
-	AttributeGroup *string `json:"attributeGroup" yaml:"attributeGroup"`
+	AttributeGroup *string `field:"required" json:"attributeGroup" yaml:"attributeGroup"`
 }
 
 // Properties for defining a `CfnAttributeGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalogappregistry "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalogappregistry"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var attributes interface{}
+//
 //   cfnAttributeGroupProps := &cfnAttributeGroupProps{
 //   	attributes: attributes,
 //   	name: jsii.String("name"),
@@ -3068,13 +3086,13 @@ type CfnAttributeGroupAssociationProps struct {
 //
 type CfnAttributeGroupProps struct {
 	// A JSON string in the form of nested key-value pairs that represent the attributes in the group and describes an application and its components.
-	Attributes interface{} `json:"attributes" yaml:"attributes"`
+	Attributes interface{} `field:"required" json:"attributes" yaml:"attributes"`
 	// The name of the attribute group.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The description of the attribute group that the user provides.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Key-value pairs you can use to associate with the attribute group.
-	Tags *map[string]*string `json:"tags" yaml:"tags"`
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::ServiceCatalogAppRegistry::ResourceAssociation`.
@@ -3082,8 +3100,11 @@ type CfnAttributeGroupProps struct {
 // The `AWS::ServiceCatalogAppRegistry::ResourceAssociation` resource for `ServiceCatalogAppRegistry` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalogappregistry "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalogappregistry"
-//   cfnResourceAssociation := servicecatalogappregistry.NewCfnResourceAssociation(this, jsii.String("MyCfnResourceAssociation"), &cfnResourceAssociationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnResourceAssociation := awscdk.Aws_servicecatalogappregistry.NewCfnResourceAssociation(this, jsii.String("MyCfnResourceAssociation"), &cfnResourceAssociationProps{
 //   	application: jsii.String("application"),
 //   	resource: jsii.String("resource"),
 //   	resourceType: jsii.String("resourceType"),
@@ -3796,7 +3817,10 @@ func (c *jsiiProxy_CfnResourceAssociation) ValidateProperties(_properties interf
 // Properties for defining a `CfnResourceAssociation`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalogappregistry "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalogappregistry"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnResourceAssociationProps := &cfnResourceAssociationProps{
 //   	application: jsii.String("application"),
 //   	resource: jsii.String("resource"),
@@ -3805,13 +3829,13 @@ func (c *jsiiProxy_CfnResourceAssociation) ValidateProperties(_properties interf
 //
 type CfnResourceAssociationProps struct {
 	// The name or ID of the application.
-	Application *string `json:"application" yaml:"application"`
+	Application *string `field:"required" json:"application" yaml:"application"`
 	// The name or ID of the resource of which the application will be associated.
-	Resource *string `json:"resource" yaml:"resource"`
+	Resource *string `field:"required" json:"resource" yaml:"resource"`
 	// The type of resource of which the application will be associated.
 	//
 	// Possible values: CFN_STACK.
-	ResourceType *string `json:"resourceType" yaml:"resourceType"`
+	ResourceType *string `field:"required" json:"resourceType" yaml:"resourceType"`
 }
 
 // A Service Catalog AppRegistry Application.

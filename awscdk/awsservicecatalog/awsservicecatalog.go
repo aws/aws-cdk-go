@@ -19,8 +19,11 @@ import (
 // Accepts an offer to share the specified portfolio.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalog "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalog"
-//   cfnAcceptedPortfolioShare := servicecatalog.NewCfnAcceptedPortfolioShare(this, jsii.String("MyCfnAcceptedPortfolioShare"), &cfnAcceptedPortfolioShareProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnAcceptedPortfolioShare := awscdk.Aws_servicecatalog.NewCfnAcceptedPortfolioShare(this, jsii.String("MyCfnAcceptedPortfolioShare"), &cfnAcceptedPortfolioShareProps{
 //   	portfolioId: jsii.String("portfolioId"),
 //
 //   	// the properties below are optional
@@ -681,7 +684,10 @@ func (c *jsiiProxy_CfnAcceptedPortfolioShare) ValidateProperties(_properties int
 // Properties for defining a `CfnAcceptedPortfolioShare`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalog "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalog"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAcceptedPortfolioShareProps := &cfnAcceptedPortfolioShareProps{
 //   	portfolioId: jsii.String("portfolioId"),
 //
@@ -691,13 +697,13 @@ func (c *jsiiProxy_CfnAcceptedPortfolioShare) ValidateProperties(_properties int
 //
 type CfnAcceptedPortfolioShareProps struct {
 	// The portfolio identifier.
-	PortfolioId *string `json:"portfolioId" yaml:"portfolioId"`
+	PortfolioId *string `field:"required" json:"portfolioId" yaml:"portfolioId"`
 	// The language code.
 	//
 	// - `en` - English (default)
 	// - `jp` - Japanese
 	// - `zh` - Chinese.
-	AcceptLanguage *string `json:"acceptLanguage" yaml:"acceptLanguage"`
+	AcceptLanguage *string `field:"optional" json:"acceptLanguage" yaml:"acceptLanguage"`
 }
 
 // A CloudFormation `AWS::ServiceCatalog::CloudFormationProduct`.
@@ -705,10 +711,13 @@ type CfnAcceptedPortfolioShareProps struct {
 // Specifies a product.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalog "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalog"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var info interface{}
-//   cfnCloudFormationProduct := servicecatalog.NewCfnCloudFormationProduct(this, jsii.String("MyCfnCloudFormationProduct"), &cfnCloudFormationProductProps{
+//
+//   cfnCloudFormationProduct := awscdk.Aws_servicecatalog.NewCfnCloudFormationProduct(this, jsii.String("MyCfnCloudFormationProduct"), &cfnCloudFormationProductProps{
 //   	name: jsii.String("name"),
 //   	owner: jsii.String("owner"),
 //   	provisioningArtifactParameters: []interface{}{
@@ -1614,9 +1623,12 @@ func (c *jsiiProxy_CfnCloudFormationProduct) ValidateProperties(_properties inte
 // Information about a provisioning artifact (also known as a version) for a product.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalog "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalog"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var info interface{}
+//
 //   provisioningArtifactPropertiesProperty := &provisioningArtifactPropertiesProperty{
 //   	info: info,
 //
@@ -1636,23 +1648,26 @@ type CfnCloudFormationProduct_ProvisioningArtifactPropertiesProperty struct {
 	// `"LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."`
 	//
 	// `ImportFromPhysicalId` : The physical id of the resource that contains the template. Currently only supports AWS CloudFormation stack arn. Specify the physical id in JSON format as follows: `ImportFromPhysicalId: “arn:aws:cloudformation:[us-east-1]:[accountId]:stack/[StackName]/[resourceId]`
-	Info interface{} `json:"info" yaml:"info"`
+	Info interface{} `field:"required" json:"info" yaml:"info"`
 	// The description of the provisioning artifact, including how it differs from the previous provisioning artifact.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// If set to true, AWS Service Catalog stops validating the specified provisioning artifact even if it is invalid.
-	DisableTemplateValidation interface{} `json:"disableTemplateValidation" yaml:"disableTemplateValidation"`
+	DisableTemplateValidation interface{} `field:"optional" json:"disableTemplateValidation" yaml:"disableTemplateValidation"`
 	// The name of the provisioning artifact (for example, v1 v2beta).
 	//
 	// No spaces are allowed.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 
 // Properties for defining a `CfnCloudFormationProduct`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalog "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalog"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var info interface{}
+//
 //   cfnCloudFormationProductProps := &cfnCloudFormationProductProps{
 //   	name: jsii.String("name"),
 //   	owner: jsii.String("owner"),
@@ -1685,37 +1700,37 @@ type CfnCloudFormationProduct_ProvisioningArtifactPropertiesProperty struct {
 //
 type CfnCloudFormationProductProps struct {
 	// The name of the product.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The owner of the product.
-	Owner *string `json:"owner" yaml:"owner"`
+	Owner *string `field:"required" json:"owner" yaml:"owner"`
 	// The configuration of the provisioning artifact (also known as a version).
-	ProvisioningArtifactParameters interface{} `json:"provisioningArtifactParameters" yaml:"provisioningArtifactParameters"`
+	ProvisioningArtifactParameters interface{} `field:"required" json:"provisioningArtifactParameters" yaml:"provisioningArtifactParameters"`
 	// The language code.
 	//
 	// - `en` - English (default)
 	// - `jp` - Japanese
 	// - `zh` - Chinese.
-	AcceptLanguage *string `json:"acceptLanguage" yaml:"acceptLanguage"`
+	AcceptLanguage *string `field:"optional" json:"acceptLanguage" yaml:"acceptLanguage"`
 	// The description of the product.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The distributor of the product.
-	Distributor *string `json:"distributor" yaml:"distributor"`
+	Distributor *string `field:"optional" json:"distributor" yaml:"distributor"`
 	// This property is turned off by default.
 	//
 	// If turned off, you can update provisioning artifacts or product attributes (such as description, distributor, name, owner, and more) and the associated provisioning artifacts will retain the same unique identifier. Provisioning artifacts are matched within the CloudFormationProduct resource, and only those that have been updated will be changed. Provisioning artifacts are matched by a combinaton of provisioning artifact template URL and name.
 	//
 	// If turned on, provisioning artifacts will be given a new unique identifier when you update the product or provisioning artifacts.
-	ReplaceProvisioningArtifacts interface{} `json:"replaceProvisioningArtifacts" yaml:"replaceProvisioningArtifacts"`
+	ReplaceProvisioningArtifacts interface{} `field:"optional" json:"replaceProvisioningArtifacts" yaml:"replaceProvisioningArtifacts"`
 	// The support information about the product.
-	SupportDescription *string `json:"supportDescription" yaml:"supportDescription"`
+	SupportDescription *string `field:"optional" json:"supportDescription" yaml:"supportDescription"`
 	// The contact email for product support.
-	SupportEmail *string `json:"supportEmail" yaml:"supportEmail"`
+	SupportEmail *string `field:"optional" json:"supportEmail" yaml:"supportEmail"`
 	// The contact URL for product support.
 	//
 	// `^https?:\/\//` / is the pattern used to validate SupportUrl.
-	SupportUrl *string `json:"supportUrl" yaml:"supportUrl"`
+	SupportUrl *string `field:"optional" json:"supportUrl" yaml:"supportUrl"`
 	// One or more tags.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::ServiceCatalog::CloudFormationProvisionedProduct`.
@@ -1727,8 +1742,11 @@ type CfnCloudFormationProductProps struct {
 // If the request contains a tag key with an empty list of values, there is a tag conflict for that key. Do not include conflicted keys as tags, or this causes the error "Parameter validation failed: Missing required parameter in Tags[ *N* ]: *Value* ".
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalog "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalog"
-//   cfnCloudFormationProvisionedProduct := servicecatalog.NewCfnCloudFormationProvisionedProduct(this, jsii.String("MyCfnCloudFormationProvisionedProduct"), &cfnCloudFormationProvisionedProductProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnCloudFormationProvisionedProduct := awscdk.Aws_servicecatalog.NewCfnCloudFormationProvisionedProduct(this, jsii.String("MyCfnCloudFormationProvisionedProduct"), &cfnCloudFormationProvisionedProductProps{
 //   	acceptLanguage: jsii.String("acceptLanguage"),
 //   	notificationArns: []*string{
 //   		jsii.String("notificationArns"),
@@ -2686,7 +2704,10 @@ func (c *jsiiProxy_CfnCloudFormationProvisionedProduct) ValidateProperties(_prop
 // Information about a parameter used to provision a product.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalog "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalog"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   provisioningParameterProperty := &provisioningParameterProperty{
 //   	key: jsii.String("key"),
 //   	value: jsii.String("value"),
@@ -2694,9 +2715,9 @@ func (c *jsiiProxy_CfnCloudFormationProvisionedProduct) ValidateProperties(_prop
 //
 type CfnCloudFormationProvisionedProduct_ProvisioningParameterProperty struct {
 	// The parameter key.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// The parameter value.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // The user-defined preferences that will be applied when updating a provisioned product.
@@ -2712,7 +2733,10 @@ type CfnCloudFormationProvisionedProduct_ProvisioningParameterProperty struct {
 // If no values are specified, the default value is all accounts from the `STACKSET` constraint.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalog "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalog"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   provisioningPreferencesProperty := &provisioningPreferencesProperty{
 //   	stackSetAccounts: []*string{
 //   		jsii.String("stackSetAccounts"),
@@ -2735,7 +2759,7 @@ type CfnCloudFormationProvisionedProduct_ProvisioningPreferencesProperty struct 
 	// The specified accounts should be within the list of accounts from the `STACKSET` constraint. To get the list of accounts in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
 	//
 	// If no values are specified, the default value is all acounts from the `STACKSET` constraint.
-	StackSetAccounts *[]*string `json:"stackSetAccounts" yaml:"stackSetAccounts"`
+	StackSetAccounts *[]*string `field:"optional" json:"stackSetAccounts" yaml:"stackSetAccounts"`
 	// The number of accounts, per Region, for which this operation can fail before AWS Service Catalog stops the operation in that Region.
 	//
 	// If the operation is stopped in a Region, AWS Service Catalog doesn't attempt the operation in any subsequent Regions.
@@ -2745,7 +2769,7 @@ type CfnCloudFormationProvisionedProduct_ProvisioningPreferencesProperty struct 
 	// Conditional: You must specify either `StackSetFailureToleranceCount` or `StackSetFailureTolerancePercentage` , but not both.
 	//
 	// The default value is `0` if no value is specified.
-	StackSetFailureToleranceCount *float64 `json:"stackSetFailureToleranceCount" yaml:"stackSetFailureToleranceCount"`
+	StackSetFailureToleranceCount *float64 `field:"optional" json:"stackSetFailureToleranceCount" yaml:"stackSetFailureToleranceCount"`
 	// The percentage of accounts, per Region, for which this stack operation can fail before AWS Service Catalog stops the operation in that Region.
 	//
 	// If the operation is stopped in a Region, AWS Service Catalog doesn't attempt the operation in any subsequent Regions.
@@ -2755,7 +2779,7 @@ type CfnCloudFormationProvisionedProduct_ProvisioningPreferencesProperty struct 
 	// Applicable only to a `CFN_STACKSET` provisioned product type.
 	//
 	// Conditional: You must specify either `StackSetFailureToleranceCount` or `StackSetFailureTolerancePercentage` , but not both.
-	StackSetFailureTolerancePercentage *float64 `json:"stackSetFailureTolerancePercentage" yaml:"stackSetFailureTolerancePercentage"`
+	StackSetFailureTolerancePercentage *float64 `field:"optional" json:"stackSetFailureTolerancePercentage" yaml:"stackSetFailureTolerancePercentage"`
 	// The maximum number of accounts in which to perform this operation at one time.
 	//
 	// This is dependent on the value of `StackSetFailureToleranceCount` . `StackSetMaxConcurrentCount` is at most one more than the `StackSetFailureToleranceCount` .
@@ -2765,7 +2789,7 @@ type CfnCloudFormationProvisionedProduct_ProvisioningPreferencesProperty struct 
 	// Applicable only to a `CFN_STACKSET` provisioned product type.
 	//
 	// Conditional: You must specify either `StackSetMaxConcurrentCount` or `StackSetMaxConcurrentPercentage` , but not both.
-	StackSetMaxConcurrencyCount *float64 `json:"stackSetMaxConcurrencyCount" yaml:"stackSetMaxConcurrencyCount"`
+	StackSetMaxConcurrencyCount *float64 `field:"optional" json:"stackSetMaxConcurrencyCount" yaml:"stackSetMaxConcurrencyCount"`
 	// The maximum percentage of accounts in which to perform this operation at one time.
 	//
 	// When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, AWS Service Catalog sets the number as `1` instead.
@@ -2775,7 +2799,7 @@ type CfnCloudFormationProvisionedProduct_ProvisioningPreferencesProperty struct 
 	// Applicable only to a `CFN_STACKSET` provisioned product type.
 	//
 	// Conditional: You must specify either `StackSetMaxConcurrentCount` or `StackSetMaxConcurrentPercentage` , but not both.
-	StackSetMaxConcurrencyPercentage *float64 `json:"stackSetMaxConcurrencyPercentage" yaml:"stackSetMaxConcurrencyPercentage"`
+	StackSetMaxConcurrencyPercentage *float64 `field:"optional" json:"stackSetMaxConcurrencyPercentage" yaml:"stackSetMaxConcurrencyPercentage"`
 	// Determines what action AWS Service Catalog performs to a stack set or a stack instance represented by the provisioned product.
 	//
 	// The default value is `UPDATE` if nothing is specified.
@@ -2785,7 +2809,7 @@ type CfnCloudFormationProvisionedProduct_ProvisioningPreferencesProperty struct 
 	// - **CREATE** - Creates a new stack instance in the stack set represented by the provisioned product. In this case, only new stack instances are created based on accounts and Regions; if new ProductId or ProvisioningArtifactID are passed, they will be ignored.
 	// - **UPDATE** - Updates the stack set represented by the provisioned product and also its stack instances.
 	// - **DELETE** - Deletes a stack instance in the stack set represented by the provisioned product.
-	StackSetOperationType *string `json:"stackSetOperationType" yaml:"stackSetOperationType"`
+	StackSetOperationType *string `field:"optional" json:"stackSetOperationType" yaml:"stackSetOperationType"`
 	// One or more AWS Regions where the provisioned product will be available.
 	//
 	// Applicable only to a `CFN_STACKSET` provisioned product type.
@@ -2793,13 +2817,16 @@ type CfnCloudFormationProvisionedProduct_ProvisioningPreferencesProperty struct 
 	// The specified Regions should be within the list of Regions from the `STACKSET` constraint. To get the list of Regions in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
 	//
 	// If no values are specified, the default value is all Regions from the `STACKSET` constraint.
-	StackSetRegions *[]*string `json:"stackSetRegions" yaml:"stackSetRegions"`
+	StackSetRegions *[]*string `field:"optional" json:"stackSetRegions" yaml:"stackSetRegions"`
 }
 
 // Properties for defining a `CfnCloudFormationProvisionedProduct`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalog "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalog"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnCloudFormationProvisionedProductProps := &cfnCloudFormationProvisionedProductProps{
 //   	acceptLanguage: jsii.String("acceptLanguage"),
 //   	notificationArns: []*string{
@@ -2845,27 +2872,27 @@ type CfnCloudFormationProvisionedProductProps struct {
 	// - `en` - English (default)
 	// - `jp` - Japanese
 	// - `zh` - Chinese.
-	AcceptLanguage *string `json:"acceptLanguage" yaml:"acceptLanguage"`
+	AcceptLanguage *string `field:"optional" json:"acceptLanguage" yaml:"acceptLanguage"`
 	// Passed to AWS CloudFormation .
 	//
 	// The SNS topic ARNs to which to publish stack-related events.
-	NotificationArns *[]*string `json:"notificationArns" yaml:"notificationArns"`
+	NotificationArns *[]*string `field:"optional" json:"notificationArns" yaml:"notificationArns"`
 	// The path identifier of the product.
 	//
 	// This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use [ListLaunchPaths](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ListLaunchPaths.html) .
 	//
 	// > You must provide the name or ID, but not both.
-	PathId *string `json:"pathId" yaml:"pathId"`
+	PathId *string `field:"optional" json:"pathId" yaml:"pathId"`
 	// The name of the path.
 	//
 	// This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use [ListLaunchPaths](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ListLaunchPaths.html) .
 	//
 	// > You must provide the name or ID, but not both.
-	PathName *string `json:"pathName" yaml:"pathName"`
+	PathName *string `field:"optional" json:"pathName" yaml:"pathName"`
 	// The product identifier.
 	//
 	// > You must specify either the ID or the name of the product, but not both.
-	ProductId *string `json:"productId" yaml:"productId"`
+	ProductId *string `field:"optional" json:"productId" yaml:"productId"`
 	// A user-friendly name for the provisioned product.
 	//
 	// This value must be unique for the AWS account and cannot be updated after the product is provisioned.
@@ -2873,29 +2900,29 @@ type CfnCloudFormationProvisionedProductProps struct {
 	// Each time a stack is created or updated, if `ProductName` is provided it will successfully resolve to `ProductId` as long as only one product exists in the account or Region with that `ProductName` .
 	//
 	// > You must specify either the name or the ID of the product, but not both.
-	ProductName *string `json:"productName" yaml:"productName"`
+	ProductName *string `field:"optional" json:"productName" yaml:"productName"`
 	// A user-friendly name for the provisioned product.
 	//
 	// This value must be unique for the AWS account and cannot be updated after the product is provisioned.
-	ProvisionedProductName *string `json:"provisionedProductName" yaml:"provisionedProductName"`
+	ProvisionedProductName *string `field:"optional" json:"provisionedProductName" yaml:"provisionedProductName"`
 	// The identifier of the provisioning artifact (also known as a version).
 	//
 	// > You must specify either the ID or the name of the provisioning artifact, but not both.
-	ProvisioningArtifactId *string `json:"provisioningArtifactId" yaml:"provisioningArtifactId"`
+	ProvisioningArtifactId *string `field:"optional" json:"provisioningArtifactId" yaml:"provisioningArtifactId"`
 	// The name of the provisioning artifact (also known as a version) for the product.
 	//
 	// This name must be unique for the product.
 	//
 	// > You must specify either the name or the ID of the provisioning artifact, but not both. You must also specify either the name or the ID of the product, but not both.
-	ProvisioningArtifactName *string `json:"provisioningArtifactName" yaml:"provisioningArtifactName"`
+	ProvisioningArtifactName *string `field:"optional" json:"provisioningArtifactName" yaml:"provisioningArtifactName"`
 	// Parameters specified by the administrator that are required for provisioning the product.
-	ProvisioningParameters interface{} `json:"provisioningParameters" yaml:"provisioningParameters"`
+	ProvisioningParameters interface{} `field:"optional" json:"provisioningParameters" yaml:"provisioningParameters"`
 	// StackSet preferences that are required for provisioning the product or updating a provisioned product.
-	ProvisioningPreferences interface{} `json:"provisioningPreferences" yaml:"provisioningPreferences"`
+	ProvisioningPreferences interface{} `field:"optional" json:"provisioningPreferences" yaml:"provisioningPreferences"`
 	// One or more tags.
 	//
 	// > Requires the provisioned product to have an [ResourceUpdateConstraint](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-resourceupdateconstraint.html) resource with `TagUpdatesOnProvisionedProduct` set to `ALLOWED` to allow tag updates. If `RESOURCE_UPDATE` constraint is not present, tags updates are ignored.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::ServiceCatalog::LaunchNotificationConstraint`.
@@ -2903,8 +2930,11 @@ type CfnCloudFormationProvisionedProductProps struct {
 // Specifies a notification constraint.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalog "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalog"
-//   cfnLaunchNotificationConstraint := servicecatalog.NewCfnLaunchNotificationConstraint(this, jsii.String("MyCfnLaunchNotificationConstraint"), &cfnLaunchNotificationConstraintProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnLaunchNotificationConstraint := awscdk.Aws_servicecatalog.NewCfnLaunchNotificationConstraint(this, jsii.String("MyCfnLaunchNotificationConstraint"), &cfnLaunchNotificationConstraintProps{
 //   	notificationArns: []*string{
 //   		jsii.String("notificationArns"),
 //   	},
@@ -3633,7 +3663,10 @@ func (c *jsiiProxy_CfnLaunchNotificationConstraint) ValidateProperties(_properti
 // Properties for defining a `CfnLaunchNotificationConstraint`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalog "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalog"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnLaunchNotificationConstraintProps := &cfnLaunchNotificationConstraintProps{
 //   	notificationArns: []*string{
 //   		jsii.String("notificationArns"),
@@ -3648,19 +3681,19 @@ func (c *jsiiProxy_CfnLaunchNotificationConstraint) ValidateProperties(_properti
 //
 type CfnLaunchNotificationConstraintProps struct {
 	// The notification ARNs.
-	NotificationArns *[]*string `json:"notificationArns" yaml:"notificationArns"`
+	NotificationArns *[]*string `field:"required" json:"notificationArns" yaml:"notificationArns"`
 	// The portfolio identifier.
-	PortfolioId *string `json:"portfolioId" yaml:"portfolioId"`
+	PortfolioId *string `field:"required" json:"portfolioId" yaml:"portfolioId"`
 	// The product identifier.
-	ProductId *string `json:"productId" yaml:"productId"`
+	ProductId *string `field:"required" json:"productId" yaml:"productId"`
 	// The language code.
 	//
 	// - `en` - English (default)
 	// - `jp` - Japanese
 	// - `zh` - Chinese.
-	AcceptLanguage *string `json:"acceptLanguage" yaml:"acceptLanguage"`
+	AcceptLanguage *string `field:"optional" json:"acceptLanguage" yaml:"acceptLanguage"`
 	// The description of the constraint.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 
 // A CloudFormation `AWS::ServiceCatalog::LaunchRoleConstraint`.
@@ -3668,8 +3701,11 @@ type CfnLaunchNotificationConstraintProps struct {
 // Specifies a launch constraint.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalog "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalog"
-//   cfnLaunchRoleConstraint := servicecatalog.NewCfnLaunchRoleConstraint(this, jsii.String("MyCfnLaunchRoleConstraint"), &cfnLaunchRoleConstraintProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnLaunchRoleConstraint := awscdk.Aws_servicecatalog.NewCfnLaunchRoleConstraint(this, jsii.String("MyCfnLaunchRoleConstraint"), &cfnLaunchRoleConstraintProps{
 //   	portfolioId: jsii.String("portfolioId"),
 //   	productId: jsii.String("productId"),
 //
@@ -4424,7 +4460,10 @@ func (c *jsiiProxy_CfnLaunchRoleConstraint) ValidateProperties(_properties inter
 // Properties for defining a `CfnLaunchRoleConstraint`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalog "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalog"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnLaunchRoleConstraintProps := &cfnLaunchRoleConstraintProps{
 //   	portfolioId: jsii.String("portfolioId"),
 //   	productId: jsii.String("productId"),
@@ -4438,27 +4477,27 @@ func (c *jsiiProxy_CfnLaunchRoleConstraint) ValidateProperties(_properties inter
 //
 type CfnLaunchRoleConstraintProps struct {
 	// The portfolio identifier.
-	PortfolioId *string `json:"portfolioId" yaml:"portfolioId"`
+	PortfolioId *string `field:"required" json:"portfolioId" yaml:"portfolioId"`
 	// The product identifier.
-	ProductId *string `json:"productId" yaml:"productId"`
+	ProductId *string `field:"required" json:"productId" yaml:"productId"`
 	// The language code.
 	//
 	// - `en` - English (default)
 	// - `jp` - Japanese
 	// - `zh` - Chinese.
-	AcceptLanguage *string `json:"acceptLanguage" yaml:"acceptLanguage"`
+	AcceptLanguage *string `field:"optional" json:"acceptLanguage" yaml:"acceptLanguage"`
 	// The description of the constraint.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// You are required to specify either the `RoleArn` or the `LocalRoleName` but can't use both.
 	//
 	// If you specify the `LocalRoleName` property, when an account uses the launch constraint, the IAM role with that name in the account will be used. This allows launch-role constraints to be account-agnostic so the administrator can create fewer resources per shared account.
 	//
 	// The given role name must exist in the account used to create the launch constraint and the account of the user who launches a product with this launch constraint.
-	LocalRoleName *string `json:"localRoleName" yaml:"localRoleName"`
+	LocalRoleName *string `field:"optional" json:"localRoleName" yaml:"localRoleName"`
 	// The ARN of the launch role.
 	//
 	// You are required to specify `RoleArn` or `LocalRoleName` but can't use both.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 }
 
 // A CloudFormation `AWS::ServiceCatalog::LaunchTemplateConstraint`.
@@ -4466,8 +4505,11 @@ type CfnLaunchRoleConstraintProps struct {
 // Specifies a template constraint.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalog "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalog"
-//   cfnLaunchTemplateConstraint := servicecatalog.NewCfnLaunchTemplateConstraint(this, jsii.String("MyCfnLaunchTemplateConstraint"), &cfnLaunchTemplateConstraintProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnLaunchTemplateConstraint := awscdk.Aws_servicecatalog.NewCfnLaunchTemplateConstraint(this, jsii.String("MyCfnLaunchTemplateConstraint"), &cfnLaunchTemplateConstraintProps{
 //   	portfolioId: jsii.String("portfolioId"),
 //   	productId: jsii.String("productId"),
 //   	rules: jsii.String("rules"),
@@ -5194,7 +5236,10 @@ func (c *jsiiProxy_CfnLaunchTemplateConstraint) ValidateProperties(_properties i
 // Properties for defining a `CfnLaunchTemplateConstraint`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalog "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalog"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnLaunchTemplateConstraintProps := &cfnLaunchTemplateConstraintProps{
 //   	portfolioId: jsii.String("portfolioId"),
 //   	productId: jsii.String("productId"),
@@ -5207,19 +5252,19 @@ func (c *jsiiProxy_CfnLaunchTemplateConstraint) ValidateProperties(_properties i
 //
 type CfnLaunchTemplateConstraintProps struct {
 	// The portfolio identifier.
-	PortfolioId *string `json:"portfolioId" yaml:"portfolioId"`
+	PortfolioId *string `field:"required" json:"portfolioId" yaml:"portfolioId"`
 	// The product identifier.
-	ProductId *string `json:"productId" yaml:"productId"`
+	ProductId *string `field:"required" json:"productId" yaml:"productId"`
 	// The constraint rules.
-	Rules *string `json:"rules" yaml:"rules"`
+	Rules *string `field:"required" json:"rules" yaml:"rules"`
 	// The language code.
 	//
 	// - `en` - English (default)
 	// - `jp` - Japanese
 	// - `zh` - Chinese.
-	AcceptLanguage *string `json:"acceptLanguage" yaml:"acceptLanguage"`
+	AcceptLanguage *string `field:"optional" json:"acceptLanguage" yaml:"acceptLanguage"`
 	// The description of the constraint.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 
 // A CloudFormation `AWS::ServiceCatalog::Portfolio`.
@@ -5227,8 +5272,11 @@ type CfnLaunchTemplateConstraintProps struct {
 // Specifies a portfolio.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalog "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalog"
-//   cfnPortfolio := servicecatalog.NewCfnPortfolio(this, jsii.String("MyCfnPortfolio"), &cfnPortfolioProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnPortfolio := awscdk.Aws_servicecatalog.NewCfnPortfolio(this, jsii.String("MyCfnPortfolio"), &cfnPortfolioProps{
 //   	displayName: jsii.String("displayName"),
 //   	providerName: jsii.String("providerName"),
 //
@@ -5965,8 +6013,11 @@ func (c *jsiiProxy_CfnPortfolio) ValidateProperties(_properties interface{}) {
 // Associates the specified principal ARN with the specified portfolio.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalog "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalog"
-//   cfnPortfolioPrincipalAssociation := servicecatalog.NewCfnPortfolioPrincipalAssociation(this, jsii.String("MyCfnPortfolioPrincipalAssociation"), &cfnPortfolioPrincipalAssociationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnPortfolioPrincipalAssociation := awscdk.Aws_servicecatalog.NewCfnPortfolioPrincipalAssociation(this, jsii.String("MyCfnPortfolioPrincipalAssociation"), &cfnPortfolioPrincipalAssociationProps{
 //   	portfolioId: jsii.String("portfolioId"),
 //   	principalArn: jsii.String("principalArn"),
 //   	principalType: jsii.String("principalType"),
@@ -6673,7 +6724,10 @@ func (c *jsiiProxy_CfnPortfolioPrincipalAssociation) ValidateProperties(_propert
 // Properties for defining a `CfnPortfolioPrincipalAssociation`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalog "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalog"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnPortfolioPrincipalAssociationProps := &cfnPortfolioPrincipalAssociationProps{
 //   	portfolioId: jsii.String("portfolioId"),
 //   	principalArn: jsii.String("principalArn"),
@@ -6685,19 +6739,19 @@ func (c *jsiiProxy_CfnPortfolioPrincipalAssociation) ValidateProperties(_propert
 //
 type CfnPortfolioPrincipalAssociationProps struct {
 	// The portfolio identifier.
-	PortfolioId *string `json:"portfolioId" yaml:"portfolioId"`
+	PortfolioId *string `field:"required" json:"portfolioId" yaml:"portfolioId"`
 	// The ARN of the principal (IAM user, role, or group).
-	PrincipalArn *string `json:"principalArn" yaml:"principalArn"`
+	PrincipalArn *string `field:"required" json:"principalArn" yaml:"principalArn"`
 	// The principal type.
 	//
 	// The supported value is `IAM` .
-	PrincipalType *string `json:"principalType" yaml:"principalType"`
+	PrincipalType *string `field:"required" json:"principalType" yaml:"principalType"`
 	// The language code.
 	//
 	// - `en` - English (default)
 	// - `jp` - Japanese
 	// - `zh` - Chinese.
-	AcceptLanguage *string `json:"acceptLanguage" yaml:"acceptLanguage"`
+	AcceptLanguage *string `field:"optional" json:"acceptLanguage" yaml:"acceptLanguage"`
 }
 
 // A CloudFormation `AWS::ServiceCatalog::PortfolioProductAssociation`.
@@ -6707,8 +6761,11 @@ type CfnPortfolioPrincipalAssociationProps struct {
 // A delegated admin is authorized to invoke this command.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalog "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalog"
-//   cfnPortfolioProductAssociation := servicecatalog.NewCfnPortfolioProductAssociation(this, jsii.String("MyCfnPortfolioProductAssociation"), &cfnPortfolioProductAssociationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnPortfolioProductAssociation := awscdk.Aws_servicecatalog.NewCfnPortfolioProductAssociation(this, jsii.String("MyCfnPortfolioProductAssociation"), &cfnPortfolioProductAssociationProps{
 //   	portfolioId: jsii.String("portfolioId"),
 //   	productId: jsii.String("productId"),
 //
@@ -7413,7 +7470,10 @@ func (c *jsiiProxy_CfnPortfolioProductAssociation) ValidateProperties(_propertie
 // Properties for defining a `CfnPortfolioProductAssociation`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalog "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalog"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnPortfolioProductAssociationProps := &cfnPortfolioProductAssociationProps{
 //   	portfolioId: jsii.String("portfolioId"),
 //   	productId: jsii.String("productId"),
@@ -7425,23 +7485,26 @@ func (c *jsiiProxy_CfnPortfolioProductAssociation) ValidateProperties(_propertie
 //
 type CfnPortfolioProductAssociationProps struct {
 	// The portfolio identifier.
-	PortfolioId *string `json:"portfolioId" yaml:"portfolioId"`
+	PortfolioId *string `field:"required" json:"portfolioId" yaml:"portfolioId"`
 	// The product identifier.
-	ProductId *string `json:"productId" yaml:"productId"`
+	ProductId *string `field:"required" json:"productId" yaml:"productId"`
 	// The language code.
 	//
 	// - `en` - English (default)
 	// - `jp` - Japanese
 	// - `zh` - Chinese.
-	AcceptLanguage *string `json:"acceptLanguage" yaml:"acceptLanguage"`
+	AcceptLanguage *string `field:"optional" json:"acceptLanguage" yaml:"acceptLanguage"`
 	// The identifier of the source portfolio.
-	SourcePortfolioId *string `json:"sourcePortfolioId" yaml:"sourcePortfolioId"`
+	SourcePortfolioId *string `field:"optional" json:"sourcePortfolioId" yaml:"sourcePortfolioId"`
 }
 
 // Properties for defining a `CfnPortfolio`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalog "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalog"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnPortfolioProps := &cfnPortfolioProps{
 //   	displayName: jsii.String("displayName"),
 //   	providerName: jsii.String("providerName"),
@@ -7459,19 +7522,19 @@ type CfnPortfolioProductAssociationProps struct {
 //
 type CfnPortfolioProps struct {
 	// The name to use for display purposes.
-	DisplayName *string `json:"displayName" yaml:"displayName"`
+	DisplayName *string `field:"required" json:"displayName" yaml:"displayName"`
 	// The name of the portfolio provider.
-	ProviderName *string `json:"providerName" yaml:"providerName"`
+	ProviderName *string `field:"required" json:"providerName" yaml:"providerName"`
 	// The language code.
 	//
 	// - `en` - English (default)
 	// - `jp` - Japanese
 	// - `zh` - Chinese.
-	AcceptLanguage *string `json:"acceptLanguage" yaml:"acceptLanguage"`
+	AcceptLanguage *string `field:"optional" json:"acceptLanguage" yaml:"acceptLanguage"`
 	// The description of the portfolio.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// One or more tags.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::ServiceCatalog::PortfolioShare`.
@@ -7479,8 +7542,11 @@ type CfnPortfolioProps struct {
 // Shares the specified portfolio with the specified account.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalog "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalog"
-//   cfnPortfolioShare := servicecatalog.NewCfnPortfolioShare(this, jsii.String("MyCfnPortfolioShare"), &cfnPortfolioShareProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnPortfolioShare := awscdk.Aws_servicecatalog.NewCfnPortfolioShare(this, jsii.String("MyCfnPortfolioShare"), &cfnPortfolioShareProps{
 //   	accountId: jsii.String("accountId"),
 //   	portfolioId: jsii.String("portfolioId"),
 //
@@ -8187,7 +8253,10 @@ func (c *jsiiProxy_CfnPortfolioShare) ValidateProperties(_properties interface{}
 // Properties for defining a `CfnPortfolioShare`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalog "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalog"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnPortfolioShareProps := &cfnPortfolioShareProps{
 //   	accountId: jsii.String("accountId"),
 //   	portfolioId: jsii.String("portfolioId"),
@@ -8201,17 +8270,17 @@ type CfnPortfolioShareProps struct {
 	// The AWS account ID.
 	//
 	// For example, `123456789012` .
-	AccountId *string `json:"accountId" yaml:"accountId"`
+	AccountId *string `field:"required" json:"accountId" yaml:"accountId"`
 	// The portfolio identifier.
-	PortfolioId *string `json:"portfolioId" yaml:"portfolioId"`
+	PortfolioId *string `field:"required" json:"portfolioId" yaml:"portfolioId"`
 	// The language code.
 	//
 	// - `en` - English (default)
 	// - `jp` - Japanese
 	// - `zh` - Chinese.
-	AcceptLanguage *string `json:"acceptLanguage" yaml:"acceptLanguage"`
+	AcceptLanguage *string `field:"optional" json:"acceptLanguage" yaml:"acceptLanguage"`
 	// Indicates whether TagOptions sharing is enabled or disabled for the portfolio share.
-	ShareTagOptions interface{} `json:"shareTagOptions" yaml:"shareTagOptions"`
+	ShareTagOptions interface{} `field:"optional" json:"shareTagOptions" yaml:"shareTagOptions"`
 }
 
 // A CloudFormation `AWS::ServiceCatalog::ResourceUpdateConstraint`.
@@ -8219,8 +8288,11 @@ type CfnPortfolioShareProps struct {
 // Specifies a `RESOURCE_UPDATE` constraint.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalog "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalog"
-//   cfnResourceUpdateConstraint := servicecatalog.NewCfnResourceUpdateConstraint(this, jsii.String("MyCfnResourceUpdateConstraint"), &cfnResourceUpdateConstraintProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnResourceUpdateConstraint := awscdk.Aws_servicecatalog.NewCfnResourceUpdateConstraint(this, jsii.String("MyCfnResourceUpdateConstraint"), &cfnResourceUpdateConstraintProps{
 //   	portfolioId: jsii.String("portfolioId"),
 //   	productId: jsii.String("productId"),
 //   	tagUpdateOnProvisionedProduct: jsii.String("tagUpdateOnProvisionedProduct"),
@@ -8949,7 +9021,10 @@ func (c *jsiiProxy_CfnResourceUpdateConstraint) ValidateProperties(_properties i
 // Properties for defining a `CfnResourceUpdateConstraint`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalog "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalog"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnResourceUpdateConstraintProps := &cfnResourceUpdateConstraintProps{
 //   	portfolioId: jsii.String("portfolioId"),
 //   	productId: jsii.String("productId"),
@@ -8962,21 +9037,21 @@ func (c *jsiiProxy_CfnResourceUpdateConstraint) ValidateProperties(_properties i
 //
 type CfnResourceUpdateConstraintProps struct {
 	// The portfolio identifier.
-	PortfolioId *string `json:"portfolioId" yaml:"portfolioId"`
+	PortfolioId *string `field:"required" json:"portfolioId" yaml:"portfolioId"`
 	// The product identifier.
-	ProductId *string `json:"productId" yaml:"productId"`
+	ProductId *string `field:"required" json:"productId" yaml:"productId"`
 	// If set to `ALLOWED` , lets users change tags in a [CloudFormationProvisionedProduct](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html) resource.
 	//
 	// If set to `NOT_ALLOWED` , prevents users from changing tags in a [CloudFormationProvisionedProduct](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html) resource.
-	TagUpdateOnProvisionedProduct *string `json:"tagUpdateOnProvisionedProduct" yaml:"tagUpdateOnProvisionedProduct"`
+	TagUpdateOnProvisionedProduct *string `field:"required" json:"tagUpdateOnProvisionedProduct" yaml:"tagUpdateOnProvisionedProduct"`
 	// The language code.
 	//
 	// - `en` - English (default)
 	// - `jp` - Japanese
 	// - `zh` - Chinese.
-	AcceptLanguage *string `json:"acceptLanguage" yaml:"acceptLanguage"`
+	AcceptLanguage *string `field:"optional" json:"acceptLanguage" yaml:"acceptLanguage"`
 	// The description of the constraint.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 
 // A CloudFormation `AWS::ServiceCatalog::ServiceAction`.
@@ -8984,8 +9059,11 @@ type CfnResourceUpdateConstraintProps struct {
 // Creates a self-service action.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalog "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalog"
-//   cfnServiceAction := servicecatalog.NewCfnServiceAction(this, jsii.String("MyCfnServiceAction"), &cfnServiceActionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnServiceAction := awscdk.Aws_servicecatalog.NewCfnServiceAction(this, jsii.String("MyCfnServiceAction"), &cfnServiceActionProps{
 //   	definition: []interface{}{
 //   		&definitionParameterProperty{
 //   			key: jsii.String("key"),
@@ -9735,7 +9813,10 @@ func (c *jsiiProxy_CfnServiceAction) ValidateProperties(_properties interface{})
 // For example: `[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}] or [{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalog "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalog"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   definitionParameterProperty := &definitionParameterProperty{
 //   	key: jsii.String("key"),
 //   	value: jsii.String("value"),
@@ -9743,9 +9824,9 @@ func (c *jsiiProxy_CfnServiceAction) ValidateProperties(_properties interface{})
 //
 type CfnServiceAction_DefinitionParameterProperty struct {
 	// The parameter key.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// The value of the parameter.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // A CloudFormation `AWS::ServiceCatalog::ServiceActionAssociation`.
@@ -9753,8 +9834,11 @@ type CfnServiceAction_DefinitionParameterProperty struct {
 // A self-service action association consisting of the Action ID, the Product ID, and the Provisioning Artifact ID.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalog "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalog"
-//   cfnServiceActionAssociation := servicecatalog.NewCfnServiceActionAssociation(this, jsii.String("MyCfnServiceActionAssociation"), &cfnServiceActionAssociationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnServiceActionAssociation := awscdk.Aws_servicecatalog.NewCfnServiceActionAssociation(this, jsii.String("MyCfnServiceActionAssociation"), &cfnServiceActionAssociationProps{
 //   	productId: jsii.String("productId"),
 //   	provisioningArtifactId: jsii.String("provisioningArtifactId"),
 //   	serviceActionId: jsii.String("serviceActionId"),
@@ -10437,7 +10521,10 @@ func (c *jsiiProxy_CfnServiceActionAssociation) ValidateProperties(_properties i
 // Properties for defining a `CfnServiceActionAssociation`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalog "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalog"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnServiceActionAssociationProps := &cfnServiceActionAssociationProps{
 //   	productId: jsii.String("productId"),
 //   	provisioningArtifactId: jsii.String("provisioningArtifactId"),
@@ -10448,21 +10535,24 @@ type CfnServiceActionAssociationProps struct {
 	// The product identifier.
 	//
 	// For example, `prod-abcdzk7xy33qa` .
-	ProductId *string `json:"productId" yaml:"productId"`
+	ProductId *string `field:"required" json:"productId" yaml:"productId"`
 	// The identifier of the provisioning artifact.
 	//
 	// For example, `pa-4abcdjnxjj6ne` .
-	ProvisioningArtifactId *string `json:"provisioningArtifactId" yaml:"provisioningArtifactId"`
+	ProvisioningArtifactId *string `field:"required" json:"provisioningArtifactId" yaml:"provisioningArtifactId"`
 	// The self-service action identifier.
 	//
 	// For example, `act-fs7abcd89wxyz` .
-	ServiceActionId *string `json:"serviceActionId" yaml:"serviceActionId"`
+	ServiceActionId *string `field:"required" json:"serviceActionId" yaml:"serviceActionId"`
 }
 
 // Properties for defining a `CfnServiceAction`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalog "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalog"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnServiceActionProps := &cfnServiceActionProps{
 //   	definition: []interface{}{
 //   		&definitionParameterProperty{
@@ -10480,21 +10570,21 @@ type CfnServiceActionAssociationProps struct {
 //
 type CfnServiceActionProps struct {
 	// A map that defines the self-service action.
-	Definition interface{} `json:"definition" yaml:"definition"`
+	Definition interface{} `field:"required" json:"definition" yaml:"definition"`
 	// The self-service action definition type.
 	//
 	// For example, `SSM_AUTOMATION` .
-	DefinitionType *string `json:"definitionType" yaml:"definitionType"`
+	DefinitionType *string `field:"required" json:"definitionType" yaml:"definitionType"`
 	// The self-service action name.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The language code.
 	//
 	// - `en` - English (default)
 	// - `jp` - Japanese
 	// - `zh` - Chinese.
-	AcceptLanguage *string `json:"acceptLanguage" yaml:"acceptLanguage"`
+	AcceptLanguage *string `field:"optional" json:"acceptLanguage" yaml:"acceptLanguage"`
 	// The self-service action description.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 
 // A CloudFormation `AWS::ServiceCatalog::StackSetConstraint`.
@@ -10502,8 +10592,11 @@ type CfnServiceActionProps struct {
 // Specifies a StackSet constraint.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalog "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalog"
-//   cfnStackSetConstraint := servicecatalog.NewCfnStackSetConstraint(this, jsii.String("MyCfnStackSetConstraint"), &cfnStackSetConstraintProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnStackSetConstraint := awscdk.Aws_servicecatalog.NewCfnStackSetConstraint(this, jsii.String("MyCfnStackSetConstraint"), &cfnStackSetConstraintProps{
 //   	accountList: []*string{
 //   		jsii.String("accountList"),
 //   	},
@@ -11330,7 +11423,10 @@ func (c *jsiiProxy_CfnStackSetConstraint) ValidateProperties(_properties interfa
 // Properties for defining a `CfnStackSetConstraint`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalog "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalog"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnStackSetConstraintProps := &cfnStackSetConstraintProps{
 //   	accountList: []*string{
 //   		jsii.String("accountList"),
@@ -11351,17 +11447,17 @@ func (c *jsiiProxy_CfnStackSetConstraint) ValidateProperties(_properties interfa
 //
 type CfnStackSetConstraintProps struct {
 	// One or more AWS accounts that will have access to the provisioned product.
-	AccountList *[]*string `json:"accountList" yaml:"accountList"`
+	AccountList *[]*string `field:"required" json:"accountList" yaml:"accountList"`
 	// AdminRole ARN.
-	AdminRole *string `json:"adminRole" yaml:"adminRole"`
+	AdminRole *string `field:"required" json:"adminRole" yaml:"adminRole"`
 	// The description of the constraint.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"required" json:"description" yaml:"description"`
 	// ExecutionRole name.
-	ExecutionRole *string `json:"executionRole" yaml:"executionRole"`
+	ExecutionRole *string `field:"required" json:"executionRole" yaml:"executionRole"`
 	// The portfolio identifier.
-	PortfolioId *string `json:"portfolioId" yaml:"portfolioId"`
+	PortfolioId *string `field:"required" json:"portfolioId" yaml:"portfolioId"`
 	// The product identifier.
-	ProductId *string `json:"productId" yaml:"productId"`
+	ProductId *string `field:"required" json:"productId" yaml:"productId"`
 	// One or more AWS Regions where the provisioned product will be available.
 	//
 	// Applicable only to a `CFN_STACKSET` provisioned product type.
@@ -11369,17 +11465,17 @@ type CfnStackSetConstraintProps struct {
 	// The specified Regions should be within the list of Regions from the `STACKSET` constraint. To get the list of Regions in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
 	//
 	// If no values are specified, the default value is all Regions from the `STACKSET` constraint.
-	RegionList *[]*string `json:"regionList" yaml:"regionList"`
+	RegionList *[]*string `field:"required" json:"regionList" yaml:"regionList"`
 	// Permission to create, update, and delete stack instances.
 	//
 	// Choose from ALLOWED and NOT_ALLOWED.
-	StackInstanceControl *string `json:"stackInstanceControl" yaml:"stackInstanceControl"`
+	StackInstanceControl *string `field:"required" json:"stackInstanceControl" yaml:"stackInstanceControl"`
 	// The language code.
 	//
 	// - `en` - English (default)
 	// - `jp` - Japanese
 	// - `zh` - Chinese.
-	AcceptLanguage *string `json:"acceptLanguage" yaml:"acceptLanguage"`
+	AcceptLanguage *string `field:"optional" json:"acceptLanguage" yaml:"acceptLanguage"`
 }
 
 // A CloudFormation `AWS::ServiceCatalog::TagOption`.
@@ -11387,8 +11483,11 @@ type CfnStackSetConstraintProps struct {
 // Specifies a TagOption. A TagOption is a key-value pair managed by AWS Service Catalog that serves as a template for creating an AWS tag.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalog "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalog"
-//   cfnTagOption := servicecatalog.NewCfnTagOption(this, jsii.String("MyCfnTagOption"), &cfnTagOptionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnTagOption := awscdk.Aws_servicecatalog.NewCfnTagOption(this, jsii.String("MyCfnTagOption"), &cfnTagOptionProps{
 //   	key: jsii.String("key"),
 //   	value: jsii.String("value"),
 //
@@ -12069,8 +12168,11 @@ func (c *jsiiProxy_CfnTagOption) ValidateProperties(_properties interface{}) {
 // Associate the specified TagOption with the specified portfolio or product.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalog "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalog"
-//   cfnTagOptionAssociation := servicecatalog.NewCfnTagOptionAssociation(this, jsii.String("MyCfnTagOptionAssociation"), &cfnTagOptionAssociationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnTagOptionAssociation := awscdk.Aws_servicecatalog.NewCfnTagOptionAssociation(this, jsii.String("MyCfnTagOptionAssociation"), &cfnTagOptionAssociationProps{
 //   	resourceId: jsii.String("resourceId"),
 //   	tagOptionId: jsii.String("tagOptionId"),
 //   })
@@ -12725,7 +12827,10 @@ func (c *jsiiProxy_CfnTagOptionAssociation) ValidateProperties(_properties inter
 // Properties for defining a `CfnTagOptionAssociation`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalog "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalog"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnTagOptionAssociationProps := &cfnTagOptionAssociationProps{
 //   	resourceId: jsii.String("resourceId"),
 //   	tagOptionId: jsii.String("tagOptionId"),
@@ -12733,15 +12838,18 @@ func (c *jsiiProxy_CfnTagOptionAssociation) ValidateProperties(_properties inter
 //
 type CfnTagOptionAssociationProps struct {
 	// The resource identifier.
-	ResourceId *string `json:"resourceId" yaml:"resourceId"`
+	ResourceId *string `field:"required" json:"resourceId" yaml:"resourceId"`
 	// The TagOption identifier.
-	TagOptionId *string `json:"tagOptionId" yaml:"tagOptionId"`
+	TagOptionId *string `field:"required" json:"tagOptionId" yaml:"tagOptionId"`
 }
 
 // Properties for defining a `CfnTagOption`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalog "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalog"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnTagOptionProps := &cfnTagOptionProps{
 //   	key: jsii.String("key"),
 //   	value: jsii.String("value"),
@@ -12752,17 +12860,18 @@ type CfnTagOptionAssociationProps struct {
 //
 type CfnTagOptionProps struct {
 	// The TagOption key.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// The TagOption value.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 	// The TagOption active state.
-	Active interface{} `json:"active" yaml:"active"`
+	Active interface{} `field:"optional" json:"active" yaml:"active"`
 }
 
 // A Service Catalog Cloudformation Product.
 //
 // Example:
 //   import path "github.com/aws-samples/dummy/path"
+//
 //
 //   product := servicecatalog.NewCloudFormationProduct(this, jsii.String("Product"), &cloudFormationProductProps{
 //   	productName: jsii.String("My Product"),
@@ -13174,6 +13283,7 @@ func (c *jsiiProxy_CloudFormationProduct) Validate() *[]*string {
 // Example:
 //   import path "github.com/aws-samples/dummy/path"
 //
+//
 //   product := servicecatalog.NewCloudFormationProduct(this, jsii.String("Product"), &cloudFormationProductProps{
 //   	productName: jsii.String("My Product"),
 //   	owner: jsii.String("Product Owner"),
@@ -13193,47 +13303,50 @@ func (c *jsiiProxy_CloudFormationProduct) Validate() *[]*string {
 type CloudFormationProductProps struct {
 	// The owner of the product.
 	// Experimental.
-	Owner *string `json:"owner" yaml:"owner"`
+	Owner *string `field:"required" json:"owner" yaml:"owner"`
 	// The name of the product.
 	// Experimental.
-	ProductName *string `json:"productName" yaml:"productName"`
+	ProductName *string `field:"required" json:"productName" yaml:"productName"`
 	// The configuration of the product version.
 	// Experimental.
-	ProductVersions *[]*CloudFormationProductVersion `json:"productVersions" yaml:"productVersions"`
+	ProductVersions *[]*CloudFormationProductVersion `field:"required" json:"productVersions" yaml:"productVersions"`
 	// The description of the product.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The distributor of the product.
 	// Experimental.
-	Distributor *string `json:"distributor" yaml:"distributor"`
+	Distributor *string `field:"optional" json:"distributor" yaml:"distributor"`
 	// The language code.
 	//
 	// Controls language for logging and errors.
 	// Experimental.
-	MessageLanguage MessageLanguage `json:"messageLanguage" yaml:"messageLanguage"`
+	MessageLanguage MessageLanguage `field:"optional" json:"messageLanguage" yaml:"messageLanguage"`
 	// Whether to give provisioning artifacts a new unique identifier when the product attributes or provisioning artifacts is updated.
 	// Experimental.
-	ReplaceProductVersionIds *bool `json:"replaceProductVersionIds" yaml:"replaceProductVersionIds"`
+	ReplaceProductVersionIds *bool `field:"optional" json:"replaceProductVersionIds" yaml:"replaceProductVersionIds"`
 	// The support information about the product.
 	// Experimental.
-	SupportDescription *string `json:"supportDescription" yaml:"supportDescription"`
+	SupportDescription *string `field:"optional" json:"supportDescription" yaml:"supportDescription"`
 	// The contact email for product support.
 	// Experimental.
-	SupportEmail *string `json:"supportEmail" yaml:"supportEmail"`
+	SupportEmail *string `field:"optional" json:"supportEmail" yaml:"supportEmail"`
 	// The contact URL for product support.
 	// Experimental.
-	SupportUrl *string `json:"supportUrl" yaml:"supportUrl"`
+	SupportUrl *string `field:"optional" json:"supportUrl" yaml:"supportUrl"`
 	// TagOptions associated directly to a product.
 	// Experimental.
-	TagOptions TagOptions `json:"tagOptions" yaml:"tagOptions"`
+	TagOptions TagOptions `field:"optional" json:"tagOptions" yaml:"tagOptions"`
 }
 
 // Properties of product version (also known as a provisioning artifact).
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalog "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalog"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var cloudFormationTemplate cloudFormationTemplate
+//
 //   cloudFormationProductVersion := &cloudFormationProductVersion{
 //   	cloudFormationTemplate: cloudFormationTemplate,
 //
@@ -13247,18 +13360,18 @@ type CloudFormationProductProps struct {
 type CloudFormationProductVersion struct {
 	// The S3 template that points to the provisioning version template.
 	// Experimental.
-	CloudFormationTemplate CloudFormationTemplate `json:"cloudFormationTemplate" yaml:"cloudFormationTemplate"`
+	CloudFormationTemplate CloudFormationTemplate `field:"required" json:"cloudFormationTemplate" yaml:"cloudFormationTemplate"`
 	// The description of the product version.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the product version.
 	// Experimental.
-	ProductVersionName *string `json:"productVersionName" yaml:"productVersionName"`
+	ProductVersionName *string `field:"optional" json:"productVersionName" yaml:"productVersionName"`
 	// Whether the specified product template will be validated by CloudFormation.
 	//
 	// If turned off, an invalid template configuration can be stored.
 	// Experimental.
-	ValidateTemplate *bool `json:"validateTemplate" yaml:"validateTemplate"`
+	ValidateTemplate *bool `field:"optional" json:"validateTemplate" yaml:"validateTemplate"`
 }
 
 // Properties for provisoning rule constraint.
@@ -13268,6 +13381,7 @@ type CloudFormationProductVersion struct {
 //
 //   var portfolio portfolio
 //   var product cloudFormationProduct
+//
 //
 //   portfolio.constrainCloudFormationParameters(product, &cloudFormationRuleConstraintOptions{
 //   	rule: &templateRule{
@@ -13289,21 +13403,22 @@ type CloudFormationProductVersion struct {
 type CloudFormationRuleConstraintOptions struct {
 	// The description of the constraint.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The language code.
 	//
 	// Configures the language for error messages from service catalog.
 	// Experimental.
-	MessageLanguage MessageLanguage `json:"messageLanguage" yaml:"messageLanguage"`
+	MessageLanguage MessageLanguage `field:"optional" json:"messageLanguage" yaml:"messageLanguage"`
 	// The rule with condition and assertions to apply to template.
 	// Experimental.
-	Rule *TemplateRule `json:"rule" yaml:"rule"`
+	Rule *TemplateRule `field:"required" json:"rule" yaml:"rule"`
 }
 
 // Represents the Product Provisioning Artifact Template.
 //
 // Example:
 //   import path "github.com/aws-samples/dummy/path"
+//
 //
 //   product := servicecatalog.NewCloudFormationProduct(this, jsii.String("Product"), &cloudFormationProductProps{
 //   	productName: jsii.String("My Product"),
@@ -13410,7 +13525,10 @@ func (c *jsiiProxy_CloudFormationTemplate) Bind(scope awscdk.Construct) *CloudFo
 // Result of binding `Template` into a `Product`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalog "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalog"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cloudFormationTemplateConfig := &cloudFormationTemplateConfig{
 //   	httpUrl: jsii.String("httpUrl"),
 //   }
@@ -13419,7 +13537,7 @@ func (c *jsiiProxy_CloudFormationTemplate) Bind(scope awscdk.Construct) *CloudFo
 type CloudFormationTemplateConfig struct {
 	// The http url of the template in S3.
 	// Experimental.
-	HttpUrl *string `json:"httpUrl" yaml:"httpUrl"`
+	HttpUrl *string `field:"required" json:"httpUrl" yaml:"httpUrl"`
 }
 
 // Properties for governance mechanisms and constraints.
@@ -13429,6 +13547,7 @@ type CloudFormationTemplateConfig struct {
 //
 //   var portfolio portfolio
 //   var product cloudFormationProduct
+//
 //
 //   topic1 := sns.NewTopic(this, jsii.String("Topic1"))
 //   portfolio.notifyOnStackEvents(product, topic1)
@@ -13442,12 +13561,12 @@ type CloudFormationTemplateConfig struct {
 type CommonConstraintOptions struct {
 	// The description of the constraint.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The language code.
 	//
 	// Configures the language for error messages from service catalog.
 	// Experimental.
-	MessageLanguage MessageLanguage `json:"messageLanguage" yaml:"messageLanguage"`
+	MessageLanguage MessageLanguage `field:"optional" json:"messageLanguage" yaml:"messageLanguage"`
 }
 
 // A Service Catalog portfolio.
@@ -14304,30 +14423,33 @@ func (p *jsiiProxy_Portfolio) Validate() *[]*string {
 type PortfolioProps struct {
 	// The name of the portfolio.
 	// Experimental.
-	DisplayName *string `json:"displayName" yaml:"displayName"`
+	DisplayName *string `field:"required" json:"displayName" yaml:"displayName"`
 	// The provider name.
 	// Experimental.
-	ProviderName *string `json:"providerName" yaml:"providerName"`
+	ProviderName *string `field:"required" json:"providerName" yaml:"providerName"`
 	// Description for portfolio.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The message language.
 	//
 	// Controls language for
 	// status logging and errors.
 	// Experimental.
-	MessageLanguage MessageLanguage `json:"messageLanguage" yaml:"messageLanguage"`
+	MessageLanguage MessageLanguage `field:"optional" json:"messageLanguage" yaml:"messageLanguage"`
 	// TagOptions associated directly to a portfolio.
 	// Experimental.
-	TagOptions TagOptions `json:"tagOptions" yaml:"tagOptions"`
+	TagOptions TagOptions `field:"optional" json:"tagOptions" yaml:"tagOptions"`
 }
 
 // Options for portfolio share.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalog "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalog"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   portfolioShareOptions := &portfolioShareOptions{
-//   	messageLanguage: servicecatalog.messageLanguage_EN,
+//   	messageLanguage: awscdk.Aws_servicecatalog.messageLanguage_EN,
 //   	shareTagOptions: jsii.Boolean(false),
 //   }
 //
@@ -14337,17 +14459,20 @@ type PortfolioShareOptions struct {
 	//
 	// Controls status and error message language for share.
 	// Experimental.
-	MessageLanguage MessageLanguage `json:"messageLanguage" yaml:"messageLanguage"`
+	MessageLanguage MessageLanguage `field:"optional" json:"messageLanguage" yaml:"messageLanguage"`
 	// Whether to share tagOptions as a part of the portfolio share.
 	// Experimental.
-	ShareTagOptions *bool `json:"shareTagOptions" yaml:"shareTagOptions"`
+	ShareTagOptions *bool `field:"optional" json:"shareTagOptions" yaml:"shareTagOptions"`
 }
 
 // Abstract class for Service Catalog Product.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalog "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalog"
-//   product := servicecatalog.product.fromProductArn(this, jsii.String("MyProduct"), jsii.String("productArn"))
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   product := awscdk.Aws_servicecatalog.product.fromProductArn(this, jsii.String("MyProduct"), jsii.String("productArn"))
 //
 // Experimental.
 type Product interface {
@@ -14735,7 +14860,9 @@ func (p *jsiiProxy_Product) Validate() *[]*string {
 // but rather only synthesized as a template and uploaded as an asset to S3.
 //
 // Example:
-//   import s3 "github.com/aws/aws-cdk-go/awscdk"import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import s3 "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   type s3BucketProduct struct {
 //   	productStack
@@ -15764,6 +15891,7 @@ func (p *jsiiProxy_ProductStack) Validate() *[]*string {
 //   var portfolio portfolio
 //   var product cloudFormationProduct
 //
+//
 //   adminRole := iam.NewRole(this, jsii.String("AdminRole"), &roleProps{
 //   	assumedBy: iam.NewAccountRootPrincipal(),
 //   })
@@ -15790,27 +15918,27 @@ func (p *jsiiProxy_ProductStack) Validate() *[]*string {
 type StackSetsConstraintOptions struct {
 	// The description of the constraint.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The language code.
 	//
 	// Configures the language for error messages from service catalog.
 	// Experimental.
-	MessageLanguage MessageLanguage `json:"messageLanguage" yaml:"messageLanguage"`
+	MessageLanguage MessageLanguage `field:"optional" json:"messageLanguage" yaml:"messageLanguage"`
 	// List of accounts to deploy stacks to.
 	// Experimental.
-	Accounts *[]*string `json:"accounts" yaml:"accounts"`
+	Accounts *[]*string `field:"required" json:"accounts" yaml:"accounts"`
 	// IAM role used to administer the StackSets configuration.
 	// Experimental.
-	AdminRole awsiam.IRole `json:"adminRole" yaml:"adminRole"`
+	AdminRole awsiam.IRole `field:"required" json:"adminRole" yaml:"adminRole"`
 	// IAM role used to provision the products in the Stacks.
 	// Experimental.
-	ExecutionRoleName *string `json:"executionRoleName" yaml:"executionRoleName"`
+	ExecutionRoleName *string `field:"required" json:"executionRoleName" yaml:"executionRoleName"`
 	// List of regions to deploy stacks to.
 	// Experimental.
-	Regions *[]*string `json:"regions" yaml:"regions"`
+	Regions *[]*string `field:"required" json:"regions" yaml:"regions"`
 	// Wether to allow end users to create, update, and delete stacks.
 	// Experimental.
-	AllowStackSetInstanceOperations *bool `json:"allowStackSetInstanceOperations" yaml:"allowStackSetInstanceOperations"`
+	AllowStackSetInstanceOperations *bool `field:"optional" json:"allowStackSetInstanceOperations" yaml:"allowStackSetInstanceOperations"`
 }
 
 // Defines a set of TagOptions, which are a list of key-value pairs managed in AWS Service Catalog.
@@ -15821,6 +15949,7 @@ type StackSetsConstraintOptions struct {
 // Example:
 //   var portfolio portfolio
 //   var product cloudFormationProduct
+//
 //
 //   tagOptionsForPortfolio := servicecatalog.NewTagOptions(this, jsii.String("OrgTagOptions"), &tagOptionsProps{
 //   	allowedValuesForTags: map[string][]*string{
@@ -16189,6 +16318,7 @@ func (t *jsiiProxy_TagOptions) Validate() *[]*string {
 //   var portfolio portfolio
 //   var product cloudFormationProduct
 //
+//
 //   tagOptionsForPortfolio := servicecatalog.NewTagOptions(this, jsii.String("OrgTagOptions"), &tagOptionsProps{
 //   	allowedValuesForTags: map[string][]*string{
 //   		"Group": []*string{
@@ -16224,7 +16354,7 @@ type TagOptionsProps struct {
 	// The keys of the map represent the tag keys,
 	// and the values of the map are a list of allowed values for that particular tag key.
 	// Experimental.
-	AllowedValuesForTags *map[string]*[]*string `json:"allowedValuesForTags" yaml:"allowedValuesForTags"`
+	AllowedValuesForTags *map[string]*[]*string `field:"required" json:"allowedValuesForTags" yaml:"allowedValuesForTags"`
 }
 
 // Properties for ResourceUpdateConstraint.
@@ -16232,6 +16362,7 @@ type TagOptionsProps struct {
 // Example:
 //   var portfolio portfolio
 //   var product cloudFormationProduct
+//
 //
 //   // to disable tag updates:
 //   portfolio.constrainTagUpdates(product, &tagUpdateConstraintOptions{
@@ -16242,15 +16373,15 @@ type TagOptionsProps struct {
 type TagUpdateConstraintOptions struct {
 	// The description of the constraint.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The language code.
 	//
 	// Configures the language for error messages from service catalog.
 	// Experimental.
-	MessageLanguage MessageLanguage `json:"messageLanguage" yaml:"messageLanguage"`
+	MessageLanguage MessageLanguage `field:"optional" json:"messageLanguage" yaml:"messageLanguage"`
 	// Toggle for if users should be allowed to change/update tags on provisioned products.
 	// Experimental.
-	Allow *bool `json:"allow" yaml:"allow"`
+	Allow *bool `field:"optional" json:"allow" yaml:"allow"`
 }
 
 // Defines the provisioning template constraints.
@@ -16260,6 +16391,7 @@ type TagUpdateConstraintOptions struct {
 //
 //   var portfolio portfolio
 //   var product cloudFormationProduct
+//
 //
 //   portfolio.constrainCloudFormationParameters(product, &cloudFormationRuleConstraintOptions{
 //   	rule: &templateRule{
@@ -16281,21 +16413,25 @@ type TagUpdateConstraintOptions struct {
 type TemplateRule struct {
 	// A list of assertions that make up the rule.
 	// Experimental.
-	Assertions *[]*TemplateRuleAssertion `json:"assertions" yaml:"assertions"`
+	Assertions *[]*TemplateRuleAssertion `field:"required" json:"assertions" yaml:"assertions"`
 	// Name of the rule.
 	// Experimental.
-	RuleName *string `json:"ruleName" yaml:"ruleName"`
+	RuleName *string `field:"required" json:"ruleName" yaml:"ruleName"`
 	// Specify when to apply rule with a rule-specific intrinsic function.
 	// Experimental.
-	Condition awscdk.ICfnRuleConditionExpression `json:"condition" yaml:"condition"`
+	Condition awscdk.ICfnRuleConditionExpression `field:"optional" json:"condition" yaml:"condition"`
 }
 
 // An assertion within a template rule, defined by intrinsic functions.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicecatalog "github.com/aws/aws-cdk-go/awscdk/aws_servicecatalog"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var cfnRuleConditionExpression iCfnRuleConditionExpression
+//
 //   templateRuleAssertion := &templateRuleAssertion{
 //   	assert: cfnRuleConditionExpression,
 //
@@ -16307,9 +16443,9 @@ type TemplateRule struct {
 type TemplateRuleAssertion struct {
 	// The assertion condition.
 	// Experimental.
-	Assert awscdk.ICfnRuleConditionExpression `json:"assert" yaml:"assert"`
+	Assert awscdk.ICfnRuleConditionExpression `field:"required" json:"assert" yaml:"assert"`
 	// The description for the asssertion.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 

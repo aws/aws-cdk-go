@@ -12,8 +12,11 @@ import (
 // A CloudFormation `AWS::BillingConductor::BillingGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import billingconductor "github.com/aws/aws-cdk-go/awscdk/aws_billingconductor"
-//   cfnBillingGroup := billingconductor.NewCfnBillingGroup(this, jsii.String("MyCfnBillingGroup"), &cfnBillingGroupProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnBillingGroup := awscdk.Aws_billingconductor.NewCfnBillingGroup(this, jsii.String("MyCfnBillingGroup"), &cfnBillingGroupProps{
 //   	accountGrouping: &accountGroupingProperty{
 //   		linkedAccountIds: []*string{
 //   			jsii.String("linkedAccountIds"),
@@ -824,7 +827,10 @@ func (c *jsiiProxy_CfnBillingGroup) ValidateProperties(_properties interface{}) 
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import billingconductor "github.com/aws/aws-cdk-go/awscdk/aws_billingconductor"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   accountGroupingProperty := &accountGroupingProperty{
 //   	linkedAccountIds: []*string{
 //   		jsii.String("linkedAccountIds"),
@@ -833,24 +839,30 @@ func (c *jsiiProxy_CfnBillingGroup) ValidateProperties(_properties interface{}) 
 //
 type CfnBillingGroup_AccountGroupingProperty struct {
 	// `CfnBillingGroup.AccountGroupingProperty.LinkedAccountIds`.
-	LinkedAccountIds *[]*string `json:"linkedAccountIds" yaml:"linkedAccountIds"`
+	LinkedAccountIds *[]*string `field:"required" json:"linkedAccountIds" yaml:"linkedAccountIds"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import billingconductor "github.com/aws/aws-cdk-go/awscdk/aws_billingconductor"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   computationPreferenceProperty := &computationPreferenceProperty{
 //   	pricingPlanArn: jsii.String("pricingPlanArn"),
 //   }
 //
 type CfnBillingGroup_ComputationPreferenceProperty struct {
 	// `CfnBillingGroup.ComputationPreferenceProperty.PricingPlanArn`.
-	PricingPlanArn *string `json:"pricingPlanArn" yaml:"pricingPlanArn"`
+	PricingPlanArn *string `field:"required" json:"pricingPlanArn" yaml:"pricingPlanArn"`
 }
 
 // Properties for defining a `CfnBillingGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import billingconductor "github.com/aws/aws-cdk-go/awscdk/aws_billingconductor"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnBillingGroupProps := &cfnBillingGroupProps{
 //   	accountGrouping: &accountGroupingProperty{
 //   		linkedAccountIds: []*string{
@@ -875,24 +887,27 @@ type CfnBillingGroup_ComputationPreferenceProperty struct {
 //
 type CfnBillingGroupProps struct {
 	// `AWS::BillingConductor::BillingGroup.AccountGrouping`.
-	AccountGrouping interface{} `json:"accountGrouping" yaml:"accountGrouping"`
+	AccountGrouping interface{} `field:"required" json:"accountGrouping" yaml:"accountGrouping"`
 	// `AWS::BillingConductor::BillingGroup.ComputationPreference`.
-	ComputationPreference interface{} `json:"computationPreference" yaml:"computationPreference"`
+	ComputationPreference interface{} `field:"required" json:"computationPreference" yaml:"computationPreference"`
 	// `AWS::BillingConductor::BillingGroup.Name`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// `AWS::BillingConductor::BillingGroup.PrimaryAccountId`.
-	PrimaryAccountId *string `json:"primaryAccountId" yaml:"primaryAccountId"`
+	PrimaryAccountId *string `field:"required" json:"primaryAccountId" yaml:"primaryAccountId"`
 	// `AWS::BillingConductor::BillingGroup.Description`.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// `AWS::BillingConductor::BillingGroup.Tags`.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::BillingConductor::CustomLineItem`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import billingconductor "github.com/aws/aws-cdk-go/awscdk/aws_billingconductor"
-//   cfnCustomLineItem := billingconductor.NewCfnCustomLineItem(this, jsii.String("MyCfnCustomLineItem"), &cfnCustomLineItemProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnCustomLineItem := awscdk.Aws_billingconductor.NewCfnCustomLineItem(this, jsii.String("MyCfnCustomLineItem"), &cfnCustomLineItemProps{
 //   	billingGroupArn: jsii.String("billingGroupArn"),
 //   	name: jsii.String("name"),
 //
@@ -1715,7 +1730,10 @@ func (c *jsiiProxy_CfnCustomLineItem) ValidateProperties(_properties interface{}
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import billingconductor "github.com/aws/aws-cdk-go/awscdk/aws_billingconductor"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   billingPeriodRangeProperty := &billingPeriodRangeProperty{
 //   	exclusiveEndBillingPeriod: jsii.String("exclusiveEndBillingPeriod"),
 //   	inclusiveStartBillingPeriod: jsii.String("inclusiveStartBillingPeriod"),
@@ -1723,13 +1741,16 @@ func (c *jsiiProxy_CfnCustomLineItem) ValidateProperties(_properties interface{}
 //
 type CfnCustomLineItem_BillingPeriodRangeProperty struct {
 	// `CfnCustomLineItem.BillingPeriodRangeProperty.ExclusiveEndBillingPeriod`.
-	ExclusiveEndBillingPeriod *string `json:"exclusiveEndBillingPeriod" yaml:"exclusiveEndBillingPeriod"`
+	ExclusiveEndBillingPeriod *string `field:"optional" json:"exclusiveEndBillingPeriod" yaml:"exclusiveEndBillingPeriod"`
 	// `CfnCustomLineItem.BillingPeriodRangeProperty.InclusiveStartBillingPeriod`.
-	InclusiveStartBillingPeriod *string `json:"inclusiveStartBillingPeriod" yaml:"inclusiveStartBillingPeriod"`
+	InclusiveStartBillingPeriod *string `field:"optional" json:"inclusiveStartBillingPeriod" yaml:"inclusiveStartBillingPeriod"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import billingconductor "github.com/aws/aws-cdk-go/awscdk/aws_billingconductor"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   customLineItemChargeDetailsProperty := &customLineItemChargeDetailsProperty{
 //   	type: jsii.String("type"),
 //
@@ -1749,26 +1770,32 @@ type CfnCustomLineItem_BillingPeriodRangeProperty struct {
 //
 type CfnCustomLineItem_CustomLineItemChargeDetailsProperty struct {
 	// `CfnCustomLineItem.CustomLineItemChargeDetailsProperty.Type`.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// `CfnCustomLineItem.CustomLineItemChargeDetailsProperty.Flat`.
-	Flat interface{} `json:"flat" yaml:"flat"`
+	Flat interface{} `field:"optional" json:"flat" yaml:"flat"`
 	// `CfnCustomLineItem.CustomLineItemChargeDetailsProperty.Percentage`.
-	Percentage interface{} `json:"percentage" yaml:"percentage"`
+	Percentage interface{} `field:"optional" json:"percentage" yaml:"percentage"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import billingconductor "github.com/aws/aws-cdk-go/awscdk/aws_billingconductor"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   customLineItemFlatChargeDetailsProperty := &customLineItemFlatChargeDetailsProperty{
 //   	chargeValue: jsii.Number(123),
 //   }
 //
 type CfnCustomLineItem_CustomLineItemFlatChargeDetailsProperty struct {
 	// `CfnCustomLineItem.CustomLineItemFlatChargeDetailsProperty.ChargeValue`.
-	ChargeValue *float64 `json:"chargeValue" yaml:"chargeValue"`
+	ChargeValue *float64 `field:"required" json:"chargeValue" yaml:"chargeValue"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import billingconductor "github.com/aws/aws-cdk-go/awscdk/aws_billingconductor"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   customLineItemPercentageChargeDetailsProperty := &customLineItemPercentageChargeDetailsProperty{
 //   	percentageValue: jsii.Number(123),
 //
@@ -1780,15 +1807,18 @@ type CfnCustomLineItem_CustomLineItemFlatChargeDetailsProperty struct {
 //
 type CfnCustomLineItem_CustomLineItemPercentageChargeDetailsProperty struct {
 	// `CfnCustomLineItem.CustomLineItemPercentageChargeDetailsProperty.PercentageValue`.
-	PercentageValue *float64 `json:"percentageValue" yaml:"percentageValue"`
+	PercentageValue *float64 `field:"required" json:"percentageValue" yaml:"percentageValue"`
 	// `CfnCustomLineItem.CustomLineItemPercentageChargeDetailsProperty.ChildAssociatedResources`.
-	ChildAssociatedResources *[]*string `json:"childAssociatedResources" yaml:"childAssociatedResources"`
+	ChildAssociatedResources *[]*string `field:"optional" json:"childAssociatedResources" yaml:"childAssociatedResources"`
 }
 
 // Properties for defining a `CfnCustomLineItem`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import billingconductor "github.com/aws/aws-cdk-go/awscdk/aws_billingconductor"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnCustomLineItemProps := &cfnCustomLineItemProps{
 //   	billingGroupArn: jsii.String("billingGroupArn"),
 //   	name: jsii.String("name"),
@@ -1825,24 +1855,27 @@ type CfnCustomLineItem_CustomLineItemPercentageChargeDetailsProperty struct {
 //
 type CfnCustomLineItemProps struct {
 	// `AWS::BillingConductor::CustomLineItem.BillingGroupArn`.
-	BillingGroupArn *string `json:"billingGroupArn" yaml:"billingGroupArn"`
+	BillingGroupArn *string `field:"required" json:"billingGroupArn" yaml:"billingGroupArn"`
 	// `AWS::BillingConductor::CustomLineItem.Name`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// `AWS::BillingConductor::CustomLineItem.BillingPeriodRange`.
-	BillingPeriodRange interface{} `json:"billingPeriodRange" yaml:"billingPeriodRange"`
+	BillingPeriodRange interface{} `field:"optional" json:"billingPeriodRange" yaml:"billingPeriodRange"`
 	// `AWS::BillingConductor::CustomLineItem.CustomLineItemChargeDetails`.
-	CustomLineItemChargeDetails interface{} `json:"customLineItemChargeDetails" yaml:"customLineItemChargeDetails"`
+	CustomLineItemChargeDetails interface{} `field:"optional" json:"customLineItemChargeDetails" yaml:"customLineItemChargeDetails"`
 	// `AWS::BillingConductor::CustomLineItem.Description`.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// `AWS::BillingConductor::CustomLineItem.Tags`.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::BillingConductor::PricingPlan`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import billingconductor "github.com/aws/aws-cdk-go/awscdk/aws_billingconductor"
-//   cfnPricingPlan := billingconductor.NewCfnPricingPlan(this, jsii.String("MyCfnPricingPlan"), &cfnPricingPlanProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnPricingPlan := awscdk.Aws_billingconductor.NewCfnPricingPlan(this, jsii.String("MyCfnPricingPlan"), &cfnPricingPlanProps{
 //   	name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -2585,7 +2618,10 @@ func (c *jsiiProxy_CfnPricingPlan) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnPricingPlan`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import billingconductor "github.com/aws/aws-cdk-go/awscdk/aws_billingconductor"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnPricingPlanProps := &cfnPricingPlanProps{
 //   	name: jsii.String("name"),
 //
@@ -2604,20 +2640,23 @@ func (c *jsiiProxy_CfnPricingPlan) ValidateProperties(_properties interface{}) {
 //
 type CfnPricingPlanProps struct {
 	// `AWS::BillingConductor::PricingPlan.Name`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// `AWS::BillingConductor::PricingPlan.Description`.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// `AWS::BillingConductor::PricingPlan.PricingRuleArns`.
-	PricingRuleArns *[]*string `json:"pricingRuleArns" yaml:"pricingRuleArns"`
+	PricingRuleArns *[]*string `field:"optional" json:"pricingRuleArns" yaml:"pricingRuleArns"`
 	// `AWS::BillingConductor::PricingPlan.Tags`.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::BillingConductor::PricingRule`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import billingconductor "github.com/aws/aws-cdk-go/awscdk/aws_billingconductor"
-//   cfnPricingRule := billingconductor.NewCfnPricingRule(this, jsii.String("MyCfnPricingRule"), &cfnPricingRuleProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnPricingRule := awscdk.Aws_billingconductor.NewCfnPricingRule(this, jsii.String("MyCfnPricingRule"), &cfnPricingRuleProps{
 //   	modifierPercentage: jsii.Number(123),
 //   	name: jsii.String("name"),
 //   	scope: jsii.String("scope"),
@@ -3424,7 +3463,10 @@ func (c *jsiiProxy_CfnPricingRule) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnPricingRule`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import billingconductor "github.com/aws/aws-cdk-go/awscdk/aws_billingconductor"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnPricingRuleProps := &cfnPricingRuleProps{
 //   	modifierPercentage: jsii.Number(123),
 //   	name: jsii.String("name"),
@@ -3444,18 +3486,18 @@ func (c *jsiiProxy_CfnPricingRule) ValidateProperties(_properties interface{}) {
 //
 type CfnPricingRuleProps struct {
 	// `AWS::BillingConductor::PricingRule.ModifierPercentage`.
-	ModifierPercentage *float64 `json:"modifierPercentage" yaml:"modifierPercentage"`
+	ModifierPercentage *float64 `field:"required" json:"modifierPercentage" yaml:"modifierPercentage"`
 	// `AWS::BillingConductor::PricingRule.Name`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// `AWS::BillingConductor::PricingRule.Scope`.
-	Scope *string `json:"scope" yaml:"scope"`
+	Scope *string `field:"required" json:"scope" yaml:"scope"`
 	// `AWS::BillingConductor::PricingRule.Type`.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// `AWS::BillingConductor::PricingRule.Description`.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// `AWS::BillingConductor::PricingRule.Service`.
-	Service *string `json:"service" yaml:"service"`
+	Service *string `field:"optional" json:"service" yaml:"service"`
 	// `AWS::BillingConductor::PricingRule.Tags`.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

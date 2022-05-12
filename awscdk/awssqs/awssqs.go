@@ -28,11 +28,14 @@ import (
 // For more information about creating FIFO (first-in-first-out) queues, see [Creating an Amazon SQS queue ( AWS CloudFormation )](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/screate-queue-cloudformation.html) in the *Amazon SQS Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sqs "github.com/aws/aws-cdk-go/awscdk/aws_sqs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var redriveAllowPolicy interface{}
 //   var redrivePolicy interface{}
-//   cfnQueue := sqs.NewCfnQueue(this, jsii.String("MyCfnQueue"), &cfnQueueProps{
+//
+//   cfnQueue := awscdk.Aws_sqs.NewCfnQueue(this, jsii.String("MyCfnQueue"), &cfnQueueProps{
 //   	contentBasedDeduplication: jsii.Boolean(false),
 //   	deduplicationScope: jsii.String("deduplicationScope"),
 //   	delaySeconds: jsii.Number(123),
@@ -1080,10 +1083,13 @@ func (c *jsiiProxy_CfnQueue) ValidateProperties(_properties interface{}) {
 // The `AWS::SQS::QueuePolicy` type applies a policy to Amazon SQS queues. For an example snippet, see [Declaring an Amazon SQS policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sqs-policy) in the *AWS CloudFormation User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sqs "github.com/aws/aws-cdk-go/awscdk/aws_sqs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var policyDocument interface{}
-//   cfnQueuePolicy := sqs.NewCfnQueuePolicy(this, jsii.String("MyCfnQueuePolicy"), &cfnQueuePolicyProps{
+//
+//   cfnQueuePolicy := awscdk.Aws_sqs.NewCfnQueuePolicy(this, jsii.String("MyCfnQueuePolicy"), &cfnQueuePolicyProps{
 //   	policyDocument: policyDocument,
 //   	queues: []*string{
 //   		jsii.String("queues"),
@@ -1744,9 +1750,12 @@ func (c *jsiiProxy_CfnQueuePolicy) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnQueuePolicy`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sqs "github.com/aws/aws-cdk-go/awscdk/aws_sqs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var policyDocument interface{}
+//
 //   cfnQueuePolicyProps := &cfnQueuePolicyProps{
 //   	policyDocument: policyDocument,
 //   	queues: []*string{
@@ -1758,20 +1767,23 @@ type CfnQueuePolicyProps struct {
 	// A policy document that contains the permissions for the specified Amazon SQS queues.
 	//
 	// For more information about Amazon SQS policies, see [Using custom policies with the Amazon SQS access policy language](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-creating-custom-policies.html) in the *Amazon SQS Developer Guide* .
-	PolicyDocument interface{} `json:"policyDocument" yaml:"policyDocument"`
+	PolicyDocument interface{} `field:"required" json:"policyDocument" yaml:"policyDocument"`
 	// The URLs of the queues to which you want to add the policy.
 	//
 	// You can use the `[Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)` function to specify an `[AWS::SQS::Queue](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html)` resource.
-	Queues *[]*string `json:"queues" yaml:"queues"`
+	Queues *[]*string `field:"required" json:"queues" yaml:"queues"`
 }
 
 // Properties for defining a `CfnQueue`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sqs "github.com/aws/aws-cdk-go/awscdk/aws_sqs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var redriveAllowPolicy interface{}
 //   var redrivePolicy interface{}
+//
 //   cfnQueueProps := &cfnQueueProps{
 //   	contentBasedDeduplication: jsii.Boolean(false),
 //   	deduplicationScope: jsii.String("deduplicationScope"),
@@ -1799,33 +1811,33 @@ type CfnQueueProps struct {
 	// For first-in-first-out (FIFO) queues, specifies whether to enable content-based deduplication.
 	//
 	// During the deduplication interval, Amazon SQS treats messages that are sent with identical content as duplicates and delivers only one copy of the message. For more information, see the `ContentBasedDeduplication` attribute for the `[CreateQueue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_CreateQueue.html)` action in the *Amazon SQS API Reference* .
-	ContentBasedDeduplication interface{} `json:"contentBasedDeduplication" yaml:"contentBasedDeduplication"`
+	ContentBasedDeduplication interface{} `field:"optional" json:"contentBasedDeduplication" yaml:"contentBasedDeduplication"`
 	// For high throughput for FIFO queues, specifies whether message deduplication occurs at the message group or queue level.
 	//
 	// Valid values are `messageGroup` and `queue` .
 	//
 	// To enable high throughput for a FIFO queue, set this attribute to `messageGroup` *and* set the `FifoThroughputLimit` attribute to `perMessageGroupId` . If you set these attributes to anything other than these values, normal throughput is in effect and deduplication occurs as specified. For more information, see [High throughput for FIFO queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html) and [Quotas related to messages](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html) in the *Amazon SQS Developer Guide* .
-	DeduplicationScope *string `json:"deduplicationScope" yaml:"deduplicationScope"`
+	DeduplicationScope *string `field:"optional" json:"deduplicationScope" yaml:"deduplicationScope"`
 	// The time in seconds for which the delivery of all messages in the queue is delayed.
 	//
 	// You can specify an integer value of `0` to `900` (15 minutes). The default value is `0` .
-	DelaySeconds *float64 `json:"delaySeconds" yaml:"delaySeconds"`
+	DelaySeconds *float64 `field:"optional" json:"delaySeconds" yaml:"delaySeconds"`
 	// If set to true, creates a FIFO queue.
 	//
 	// If you don't specify this property, Amazon SQS creates a standard queue. For more information, see [FIFO queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html) in the *Amazon SQS Developer Guide* .
-	FifoQueue interface{} `json:"fifoQueue" yaml:"fifoQueue"`
+	FifoQueue interface{} `field:"optional" json:"fifoQueue" yaml:"fifoQueue"`
 	// For high throughput for FIFO queues, specifies whether the FIFO queue throughput quota applies to the entire queue or per message group.
 	//
 	// Valid values are `perQueue` and `perMessageGroupId` .
 	//
 	// To enable high throughput for a FIFO queue, set this attribute to `perMessageGroupId` *and* set the `DeduplicationScope` attribute to `messageGroup` . If you set these attributes to anything other than these values, normal throughput is in effect and deduplication occurs as specified. For more information, see [High throughput for FIFO queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html) and [Quotas related to messages](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html) in the *Amazon SQS Developer Guide* .
-	FifoThroughputLimit *string `json:"fifoThroughputLimit" yaml:"fifoThroughputLimit"`
+	FifoThroughputLimit *string `field:"optional" json:"fifoThroughputLimit" yaml:"fifoThroughputLimit"`
 	// The length of time in seconds for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again.
 	//
 	// The value must be an integer between 60 (1 minute) and 86,400 (24 hours). The default is 300 (5 minutes).
 	//
 	// > A shorter time period provides better security, but results in more calls to AWS KMS , which might incur charges after Free Tier. For more information, see [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-how-does-the-data-key-reuse-period-work) in the *Amazon SQS Developer Guide* .
-	KmsDataKeyReusePeriodSeconds *float64 `json:"kmsDataKeyReusePeriodSeconds" yaml:"kmsDataKeyReusePeriodSeconds"`
+	KmsDataKeyReusePeriodSeconds *float64 `field:"optional" json:"kmsDataKeyReusePeriodSeconds" yaml:"kmsDataKeyReusePeriodSeconds"`
 	// The ID of an AWS managed customer master key (CMK) for Amazon SQS or a custom CMK.
 	//
 	// To use the AWS managed CMK for Amazon SQS , specify the (default) alias `alias/aws/sqs` . For more information, see the following:
@@ -1833,15 +1845,15 @@ type CfnQueueProps struct {
 	// - [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html) in the *Amazon SQS Developer Guide*
 	// - [CreateQueue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_CreateQueue.html) in the *Amazon SQS API Reference*
 	// - The Customer Master Keys section of the [AWS Key Management Service Best Practices](https://docs.aws.amazon.com/https://d0.awsstatic.com/whitepapers/aws-kms-best-practices.pdf) whitepaper
-	KmsMasterKeyId *string `json:"kmsMasterKeyId" yaml:"kmsMasterKeyId"`
+	KmsMasterKeyId *string `field:"optional" json:"kmsMasterKeyId" yaml:"kmsMasterKeyId"`
 	// The limit of how many bytes that a message can contain before Amazon SQS rejects it.
 	//
 	// You can specify an integer value from `1,024` bytes (1 KiB) to `262,144` bytes (256 KiB). The default value is `262,144` (256 KiB).
-	MaximumMessageSize *float64 `json:"maximumMessageSize" yaml:"maximumMessageSize"`
+	MaximumMessageSize *float64 `field:"optional" json:"maximumMessageSize" yaml:"maximumMessageSize"`
 	// The number of seconds that Amazon SQS retains a message.
 	//
 	// You can specify an integer value from `60` seconds (1 minute) to `1,209,600` seconds (14 days). The default value is `345,600` seconds (4 days).
-	MessageRetentionPeriod *float64 `json:"messageRetentionPeriod" yaml:"messageRetentionPeriod"`
+	MessageRetentionPeriod *float64 `field:"optional" json:"messageRetentionPeriod" yaml:"messageRetentionPeriod"`
 	// A name for the queue.
 	//
 	// To create a FIFO queue, the name of your FIFO queue must end with the `.fifo` suffix. For more information, see [FIFO queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html) in the *Amazon SQS Developer Guide* .
@@ -1849,11 +1861,11 @@ type CfnQueueProps struct {
 	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the queue name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) in the *AWS CloudFormation User Guide* .
 	//
 	// > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-	QueueName *string `json:"queueName" yaml:"queueName"`
+	QueueName *string `field:"optional" json:"queueName" yaml:"queueName"`
 	// Specifies the duration, in seconds, that the ReceiveMessage action call waits until a message is in the queue in order to include it in the response, rather than returning an empty response if a message isn't yet available.
 	//
 	// You can specify an integer from 1 to 20. Short polling is used as the default or when you specify 0 for this property. For more information, see [Consuming messages using long polling](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-short-and-long-polling.html#sqs-long-polling) in the *Amazon SQS Developer Guide* .
-	ReceiveMessageWaitTimeSeconds *float64 `json:"receiveMessageWaitTimeSeconds" yaml:"receiveMessageWaitTimeSeconds"`
+	ReceiveMessageWaitTimeSeconds *float64 `field:"optional" json:"receiveMessageWaitTimeSeconds" yaml:"receiveMessageWaitTimeSeconds"`
 	// The string that includes the parameters for the permissions for the dead-letter queue redrive permission and which source queues can specify dead-letter queues as a JSON object.
 	//
 	// The parameters are as follows:
@@ -1864,7 +1876,7 @@ type CfnQueueProps struct {
 	// - `denyAll` : No source queues can specify this queue as the dead-letter queue.
 	// - `byQueue` : Only queues specified by the `sourceQueueArns` parameter can specify this queue as the dead-letter queue.
 	// - `sourceQueueArns` : The Amazon Resource Names (ARN)s of the source queues that can specify this queue as the dead-letter queue and redrive messages. You can specify this parameter only when the `redrivePermission` parameter is set to `byQueue` . You can specify up to 10 source queue ARNs. To allow more than 10 source queues to specify dead-letter queues, set the `redrivePermission` parameter to `allowAll` .
-	RedriveAllowPolicy interface{} `json:"redriveAllowPolicy" yaml:"redriveAllowPolicy"`
+	RedriveAllowPolicy interface{} `field:"optional" json:"redriveAllowPolicy" yaml:"redriveAllowPolicy"`
 	// The string that includes the parameters for the dead-letter queue functionality of the source queue as a JSON object.
 	//
 	// The parameters are as follows:
@@ -1883,11 +1895,11 @@ type CfnQueueProps struct {
 	// `deadLetterTargetArn : *String*`
 	//
 	// `maxReceiveCount : *Integer*`.
-	RedrivePolicy interface{} `json:"redrivePolicy" yaml:"redrivePolicy"`
+	RedrivePolicy interface{} `field:"optional" json:"redrivePolicy" yaml:"redrivePolicy"`
 	// The tags that you attach to this queue.
 	//
 	// For more information, see [Resource tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *AWS CloudFormation User Guide* .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The length of time during which a message will be unavailable after a message is delivered from the queue.
 	//
 	// This blocks other components from receiving the same message and gives the initial component time to process and delete the message from the queue.
@@ -1895,15 +1907,18 @@ type CfnQueueProps struct {
 	// Values must be from 0 to 43,200 seconds (12 hours). If you don't specify a value, AWS CloudFormation uses the default value of 30 seconds.
 	//
 	// For more information about Amazon SQS queue visibility timeouts, see [Visibility timeout](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html) in the *Amazon SQS Developer Guide* .
-	VisibilityTimeout *float64 `json:"visibilityTimeout" yaml:"visibilityTimeout"`
+	VisibilityTimeout *float64 `field:"optional" json:"visibilityTimeout" yaml:"visibilityTimeout"`
 }
 
 // Dead letter queue settings.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sqs "github.com/aws/aws-cdk-go/awscdk/aws_sqs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var queue queue
+//
 //   deadLetterQueue := &deadLetterQueue{
 //   	maxReceiveCount: jsii.Number(123),
 //   	queue: queue,
@@ -1913,10 +1928,10 @@ type CfnQueueProps struct {
 type DeadLetterQueue struct {
 	// The number of times a message can be unsuccesfully dequeued before being moved to the dead-letter queue.
 	// Experimental.
-	MaxReceiveCount *float64 `json:"maxReceiveCount" yaml:"maxReceiveCount"`
+	MaxReceiveCount *float64 `field:"required" json:"maxReceiveCount" yaml:"maxReceiveCount"`
 	// The dead-letter queue to which Amazon SQS moves messages after the value of maxReceiveCount is exceeded.
 	// Experimental.
-	Queue IQueue `json:"queue" yaml:"queue"`
+	Queue IQueue `field:"required" json:"queue" yaml:"queue"`
 }
 
 // What kind of deduplication scope to apply.
@@ -2313,7 +2328,9 @@ func (j *jsiiProxy_IQueue) QueueUrl() *string {
 // A new Amazon SQS queue.
 //
 // Example:
+//   // An sqs queue for unsuccessful invocations of a lambda function
 //   import sqs "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   deadLetterQueue := sqs.NewQueue(this, jsii.String("DeadLetterQueue"))
 //
@@ -3075,7 +3092,10 @@ func (q *jsiiProxy_Queue) Validate() *[]*string {
 // Reference to a queue.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sqs "github.com/aws/aws-cdk-go/awscdk/aws_sqs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   queueAttributes := &queueAttributes{
 //   	queueArn: jsii.String("queueArn"),
 //
@@ -3090,23 +3110,23 @@ func (q *jsiiProxy_Queue) Validate() *[]*string {
 type QueueAttributes struct {
 	// The ARN of the queue.
 	// Experimental.
-	QueueArn *string `json:"queueArn" yaml:"queueArn"`
+	QueueArn *string `field:"required" json:"queueArn" yaml:"queueArn"`
 	// Whether this queue is an Amazon SQS FIFO queue. If false, this is a standard queue.
 	//
 	// In case of a FIFO queue which is imported from a token, this value has to be explicitly set to true.
 	// Experimental.
-	Fifo *bool `json:"fifo" yaml:"fifo"`
+	Fifo *bool `field:"optional" json:"fifo" yaml:"fifo"`
 	// KMS encryption key, if this queue is server-side encrypted by a KMS key.
 	// Experimental.
-	KeyArn *string `json:"keyArn" yaml:"keyArn"`
+	KeyArn *string `field:"optional" json:"keyArn" yaml:"keyArn"`
 	// The name of the queue.
 	// Experimental.
-	QueueName *string `json:"queueName" yaml:"queueName"`
+	QueueName *string `field:"optional" json:"queueName" yaml:"queueName"`
 	// The URL of the queue.
 	// See: https://docs.aws.amazon.com/sdk-for-net/v2/developer-guide/QueueURL.html
 	//
 	// Experimental.
-	QueueUrl *string `json:"queueUrl" yaml:"queueUrl"`
+	QueueUrl *string `field:"optional" json:"queueUrl" yaml:"queueUrl"`
 }
 
 // Reference to a new or existing Amazon SQS queue.
@@ -3845,10 +3865,13 @@ const (
 // Prefer to use `addToResourcePolicy()` instead.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sqs "github.com/aws/aws-cdk-go/awscdk/aws_sqs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var queue queue
-//   queuePolicy := sqs.NewQueuePolicy(this, jsii.String("MyQueuePolicy"), &queuePolicyProps{
+//
+//   queuePolicy := awscdk.Aws_sqs.NewQueuePolicy(this, jsii.String("MyQueuePolicy"), &queuePolicyProps{
 //   	queues: []iQueue{
 //   		queue,
 //   	},
@@ -4218,9 +4241,12 @@ func (q *jsiiProxy_QueuePolicy) Validate() *[]*string {
 // Properties to associate SQS queues with a policy.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sqs "github.com/aws/aws-cdk-go/awscdk/aws_sqs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var queue queue
+//
 //   queuePolicyProps := &queuePolicyProps{
 //   	queues: []iQueue{
 //   		queue,
@@ -4231,7 +4257,7 @@ func (q *jsiiProxy_QueuePolicy) Validate() *[]*string {
 type QueuePolicyProps struct {
 	// The set of queues this policy applies to.
 	// Experimental.
-	Queues *[]IQueue `json:"queues" yaml:"queues"`
+	Queues *[]IQueue `field:"required" json:"queues" yaml:"queues"`
 }
 
 // Properties for creating a new Queue.
@@ -4264,33 +4290,33 @@ type QueueProps struct {
 	//
 	// (Only applies to FIFO queues.)
 	// Experimental.
-	ContentBasedDeduplication *bool `json:"contentBasedDeduplication" yaml:"contentBasedDeduplication"`
+	ContentBasedDeduplication *bool `field:"optional" json:"contentBasedDeduplication" yaml:"contentBasedDeduplication"`
 	// The length of time that Amazon SQS reuses a data key before calling KMS again.
 	//
 	// The value must be an integer between 60 (1 minute) and 86,400 (24
 	// hours). The default is 300 (5 minutes).
 	// Experimental.
-	DataKeyReuse awscdk.Duration `json:"dataKeyReuse" yaml:"dataKeyReuse"`
+	DataKeyReuse awscdk.Duration `field:"optional" json:"dataKeyReuse" yaml:"dataKeyReuse"`
 	// Send messages to this queue if they were unsuccessfully dequeued a number of times.
 	// Experimental.
-	DeadLetterQueue *DeadLetterQueue `json:"deadLetterQueue" yaml:"deadLetterQueue"`
+	DeadLetterQueue *DeadLetterQueue `field:"optional" json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// For high throughput for FIFO queues, specifies whether message deduplication occurs at the message group or queue level.
 	//
 	// (Only applies to FIFO queues.)
 	// Experimental.
-	DeduplicationScope DeduplicationScope `json:"deduplicationScope" yaml:"deduplicationScope"`
+	DeduplicationScope DeduplicationScope `field:"optional" json:"deduplicationScope" yaml:"deduplicationScope"`
 	// The time in seconds that the delivery of all messages in the queue is delayed.
 	//
 	// You can specify an integer value of 0 to 900 (15 minutes). The default
 	// value is 0.
 	// Experimental.
-	DeliveryDelay awscdk.Duration `json:"deliveryDelay" yaml:"deliveryDelay"`
+	DeliveryDelay awscdk.Duration `field:"optional" json:"deliveryDelay" yaml:"deliveryDelay"`
 	// Whether the contents of the queue are encrypted, and by what type of key.
 	//
 	// Be aware that encryption is not available in all regions, please see the docs
 	// for current availability details.
 	// Experimental.
-	Encryption QueueEncryption `json:"encryption" yaml:"encryption"`
+	Encryption QueueEncryption `field:"optional" json:"encryption" yaml:"encryption"`
 	// External KMS master key to use for queue encryption.
 	//
 	// Individual messages will be encrypted using data keys. The data keys in
@@ -4300,26 +4326,26 @@ type QueueProps struct {
 	// If the 'encryptionMasterKey' property is set, 'encryption' type will be
 	// implicitly set to "KMS".
 	// Experimental.
-	EncryptionMasterKey awskms.IKey `json:"encryptionMasterKey" yaml:"encryptionMasterKey"`
+	EncryptionMasterKey awskms.IKey `field:"optional" json:"encryptionMasterKey" yaml:"encryptionMasterKey"`
 	// Whether this a first-in-first-out (FIFO) queue.
 	// Experimental.
-	Fifo *bool `json:"fifo" yaml:"fifo"`
+	Fifo *bool `field:"optional" json:"fifo" yaml:"fifo"`
 	// For high throughput for FIFO queues, specifies whether the FIFO queue throughput quota applies to the entire queue or per message group.
 	//
 	// (Only applies to FIFO queues.)
 	// Experimental.
-	FifoThroughputLimit FifoThroughputLimit `json:"fifoThroughputLimit" yaml:"fifoThroughputLimit"`
+	FifoThroughputLimit FifoThroughputLimit `field:"optional" json:"fifoThroughputLimit" yaml:"fifoThroughputLimit"`
 	// The limit of how many bytes that a message can contain before Amazon SQS rejects it.
 	//
 	// You can specify an integer value from 1024 bytes (1 KiB) to 262144 bytes
 	// (256 KiB). The default value is 262144 (256 KiB).
 	// Experimental.
-	MaxMessageSizeBytes *float64 `json:"maxMessageSizeBytes" yaml:"maxMessageSizeBytes"`
+	MaxMessageSizeBytes *float64 `field:"optional" json:"maxMessageSizeBytes" yaml:"maxMessageSizeBytes"`
 	// A name for the queue.
 	//
 	// If specified and this is a FIFO queue, must end in the string '.fifo'.
 	// Experimental.
-	QueueName *string `json:"queueName" yaml:"queueName"`
+	QueueName *string `field:"optional" json:"queueName" yaml:"queueName"`
 	// Default wait time for ReceiveMessage calls.
 	//
 	// Does not wait if set to 0, otherwise waits this amount of seconds
@@ -4327,7 +4353,7 @@ type QueueProps struct {
 	//
 	// For more information, see Amazon SQS Long Poll.
 	// Experimental.
-	ReceiveMessageWaitTime awscdk.Duration `json:"receiveMessageWaitTime" yaml:"receiveMessageWaitTime"`
+	ReceiveMessageWaitTime awscdk.Duration `field:"optional" json:"receiveMessageWaitTime" yaml:"receiveMessageWaitTime"`
 	// Policy to apply when the queue is removed from the stack.
 	//
 	// Even though queues are technically stateful, their contents are transient and it
@@ -4335,13 +4361,13 @@ type QueueProps struct {
 	// default is therefore `DESTROY`. Change it to `RETAIN` if the messages are so
 	// valuable that accidentally losing them would be unacceptable.
 	// Experimental.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// The number of seconds that Amazon SQS retains a message.
 	//
 	// You can specify an integer value from 60 seconds (1 minute) to 1209600
 	// seconds (14 days). The default value is 345600 seconds (4 days).
 	// Experimental.
-	RetentionPeriod awscdk.Duration `json:"retentionPeriod" yaml:"retentionPeriod"`
+	RetentionPeriod awscdk.Duration `field:"optional" json:"retentionPeriod" yaml:"retentionPeriod"`
 	// Timeout of processing a single message.
 	//
 	// After dequeuing, the processor has this much time to handle the message
@@ -4351,6 +4377,6 @@ type QueueProps struct {
 	// Values must be from 0 to 43200 seconds (12 hours). If you don't specify
 	// a value, AWS CloudFormation uses the default value of 30 seconds.
 	// Experimental.
-	VisibilityTimeout awscdk.Duration `json:"visibilityTimeout" yaml:"visibilityTimeout"`
+	VisibilityTimeout awscdk.Duration `field:"optional" json:"visibilityTimeout" yaml:"visibilityTimeout"`
 }
 

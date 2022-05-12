@@ -16,8 +16,11 @@ import (
 // > By default, the IVS API CreateChannel endpoint creates a stream key in addition to a channel. The  Channel resource *does not* create a stream key; to create a stream key, use the StreamKey resource instead.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ivs "github.com/aws/aws-cdk-go/awscdk/aws_ivs"
-//   cfnChannel := ivs.NewCfnChannel(this, jsii.String("MyCfnChannel"), &cfnChannelProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnChannel := awscdk.Aws_ivs.NewCfnChannel(this, jsii.String("MyCfnChannel"), &cfnChannelProps{
 //   	authorized: jsii.Boolean(false),
 //   	latencyMode: jsii.String("latencyMode"),
 //   	name: jsii.String("name"),
@@ -820,7 +823,10 @@ func (c *jsiiProxy_CfnChannel) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnChannel`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ivs "github.com/aws/aws-cdk-go/awscdk/aws_ivs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnChannelProps := &cfnChannelProps{
 //   	authorized: jsii.Boolean(false),
 //   	latencyMode: jsii.String("latencyMode"),
@@ -839,7 +845,7 @@ type CfnChannelProps struct {
 	// Whether the channel is authorized.
 	//
 	// *Default* : `false`.
-	Authorized interface{} `json:"authorized" yaml:"authorized"`
+	Authorized interface{} `field:"optional" json:"authorized" yaml:"authorized"`
 	// Channel latency mode. Valid values:.
 	//
 	// - `NORMAL` : Use NORMAL to broadcast and deliver live video up to Full HD.
@@ -848,19 +854,19 @@ type CfnChannelProps struct {
 	// > In the  console, `LOW` and `NORMAL` correspond to `Ultra-low` and `Standard` , respectively.
 	//
 	// *Default* : `LOW`.
-	LatencyMode *string `json:"latencyMode" yaml:"latencyMode"`
+	LatencyMode *string `field:"optional" json:"latencyMode" yaml:"latencyMode"`
 	// Channel name.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The ARN of a RecordingConfiguration resource.
 	//
 	// An empty string indicates that recording is disabled for the channel. A RecordingConfiguration ARN indicates that recording is enabled using the specified recording configuration. See the [RecordingConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html) resource for more information and an example.
 	//
 	// *Default* : "" (empty string, recording is disabled).
-	RecordingConfigurationArn *string `json:"recordingConfigurationArn" yaml:"recordingConfigurationArn"`
+	RecordingConfigurationArn *string `field:"optional" json:"recordingConfigurationArn" yaml:"recordingConfigurationArn"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The channel type, which determines the allowable resolution and bitrate.
 	//
 	// *If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.* Valid values:
@@ -869,7 +875,7 @@ type CfnChannelProps struct {
 	// - `BASIC` : delivers the original input to viewers. The viewer’s video-quality choice is limited to the original input. Resolution can be up to 480p and bitrate can be up to 1.5 Mbps.
 	//
 	// *Default* : `STANDARD`.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 
 // A CloudFormation `AWS::IVS::PlaybackKeyPair`.
@@ -877,8 +883,11 @@ type CfnChannelProps struct {
 // The `AWS::IVS::PlaybackKeyPair` resource specifies an  playback key pair.  uses a public playback key to validate playback tokens that have been signed with the corresponding private key. For more information, see [Setting Up Private Channels](https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html) in the *Amazon Interactive Video Service User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ivs "github.com/aws/aws-cdk-go/awscdk/aws_ivs"
-//   cfnPlaybackKeyPair := ivs.NewCfnPlaybackKeyPair(this, jsii.String("MyCfnPlaybackKeyPair"), &cfnPlaybackKeyPairProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnPlaybackKeyPair := awscdk.Aws_ivs.NewCfnPlaybackKeyPair(this, jsii.String("MyCfnPlaybackKeyPair"), &cfnPlaybackKeyPairProps{
 //   	publicKeyMaterial: jsii.String("publicKeyMaterial"),
 //
 //   	// the properties below are optional
@@ -1585,7 +1594,10 @@ func (c *jsiiProxy_CfnPlaybackKeyPair) ValidateProperties(_properties interface{
 // Properties for defining a `CfnPlaybackKeyPair`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ivs "github.com/aws/aws-cdk-go/awscdk/aws_ivs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnPlaybackKeyPairProps := &cfnPlaybackKeyPairProps{
 //   	publicKeyMaterial: jsii.String("publicKeyMaterial"),
 //
@@ -1601,15 +1613,15 @@ func (c *jsiiProxy_CfnPlaybackKeyPair) ValidateProperties(_properties interface{
 //
 type CfnPlaybackKeyPairProps struct {
 	// The public portion of a customer-generated key pair.
-	PublicKeyMaterial *string `json:"publicKeyMaterial" yaml:"publicKeyMaterial"`
+	PublicKeyMaterial *string `field:"required" json:"publicKeyMaterial" yaml:"publicKeyMaterial"`
 	// Playback-key-pair name.
 	//
 	// The value does not need to be unique.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::IVS::RecordingConfiguration`.
@@ -1617,8 +1629,11 @@ type CfnPlaybackKeyPairProps struct {
 // The `AWS::IVS::RecordingConfiguration` resource specifies an  recording configuration. A recording configuration enables the recording of a channel’s live streams to a data store. Multiple channels can reference the same recording configuration. For more information, see [RecordingConfiguration](https://docs.aws.amazon.com/ivs/latest/APIReference/API_RecordingConfiguration.html) in the *Amazon Interactive Video Service API Reference* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ivs "github.com/aws/aws-cdk-go/awscdk/aws_ivs"
-//   cfnRecordingConfiguration := ivs.NewCfnRecordingConfiguration(this, jsii.String("MyCfnRecordingConfiguration"), &cfnRecordingConfigurationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnRecordingConfiguration := awscdk.Aws_ivs.NewCfnRecordingConfiguration(this, jsii.String("MyCfnRecordingConfiguration"), &cfnRecordingConfigurationProps{
 //   	destinationConfiguration: &destinationConfigurationProperty{
 //   		s3: &s3DestinationConfigurationProperty{
 //   			bucketName: jsii.String("bucketName"),
@@ -2362,7 +2377,10 @@ func (c *jsiiProxy_CfnRecordingConfiguration) ValidateProperties(_properties int
 // Each member represents a type of destination configuration. For recording, you define one and only one type of destination configuration.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ivs "github.com/aws/aws-cdk-go/awscdk/aws_ivs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   destinationConfigurationProperty := &destinationConfigurationProperty{
 //   	s3: &s3DestinationConfigurationProperty{
 //   		bucketName: jsii.String("bucketName"),
@@ -2373,26 +2391,32 @@ type CfnRecordingConfiguration_DestinationConfigurationProperty struct {
 	// An S3 destination configuration where recorded videos will be stored.
 	//
 	// See the [S3DestinationConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-s3destinationconfiguration.html) property type for more information.
-	S3 interface{} `json:"s3" yaml:"s3"`
+	S3 interface{} `field:"required" json:"s3" yaml:"s3"`
 }
 
 // The S3DestinationConfiguration property type describes an S3 location where recorded videos will be stored.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ivs "github.com/aws/aws-cdk-go/awscdk/aws_ivs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3DestinationConfigurationProperty := &s3DestinationConfigurationProperty{
 //   	bucketName: jsii.String("bucketName"),
 //   }
 //
 type CfnRecordingConfiguration_S3DestinationConfigurationProperty struct {
 	// Location (S3 bucket name) where recorded videos will be stored.
-	BucketName *string `json:"bucketName" yaml:"bucketName"`
+	BucketName *string `field:"required" json:"bucketName" yaml:"bucketName"`
 }
 
 // The ThumbnailConfiguration property type describes a configuration of thumbnails for recorded video.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ivs "github.com/aws/aws-cdk-go/awscdk/aws_ivs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   thumbnailConfigurationProperty := &thumbnailConfigurationProperty{
 //   	recordingMode: jsii.String("recordingMode"),
 //
@@ -2407,7 +2431,7 @@ type CfnRecordingConfiguration_ThumbnailConfigurationProperty struct {
 	// - `INTERVAL` : Use INTERVAL to enable the generation of thumbnails for recorded video at a time interval controlled by the [TargetIntervalSeconds](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-thumbnailconfiguration.html#cfn-ivs-recordingconfiguration-thumbnailconfiguration-targetintervalseconds) property.
 	//
 	// *Default* : `INTERVAL`.
-	RecordingMode *string `json:"recordingMode" yaml:"recordingMode"`
+	RecordingMode *string `field:"required" json:"recordingMode" yaml:"recordingMode"`
 	// The targeted thumbnail-generation interval in seconds. This is configurable (and required) only if [RecordingMode](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-thumbnailconfiguration.html#cfn-ivs-recordingconfiguration-thumbnailconfiguration-recordingmode) is `INTERVAL` .
 	//
 	// > Setting a value for `TargetIntervalSeconds` does not guarantee that thumbnails are generated at the specified interval. For thumbnails to be generated at the `TargetIntervalSeconds` interval, the `IDR/Keyframe` value for the input video must be less than the `TargetIntervalSeconds` value. See [Amazon IVS Streaming Configuration](https://docs.aws.amazon.com/ivs/latest/userguide/streaming-config.html) for information on setting `IDR/Keyframe` to the recommended value in video-encoder settings.
@@ -2415,13 +2439,16 @@ type CfnRecordingConfiguration_ThumbnailConfigurationProperty struct {
 	// *Default* : 60
 	//
 	// *Valid Range* : Minumum value of 5. Maximum value of 60.
-	TargetIntervalSeconds *float64 `json:"targetIntervalSeconds" yaml:"targetIntervalSeconds"`
+	TargetIntervalSeconds *float64 `field:"optional" json:"targetIntervalSeconds" yaml:"targetIntervalSeconds"`
 }
 
 // Properties for defining a `CfnRecordingConfiguration`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ivs "github.com/aws/aws-cdk-go/awscdk/aws_ivs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnRecordingConfigurationProps := &cfnRecordingConfigurationProps{
 //   	destinationConfiguration: &destinationConfigurationProperty{
 //   		s3: &s3DestinationConfigurationProperty{
@@ -2449,19 +2476,19 @@ type CfnRecordingConfigurationProps struct {
 	// A destination configuration contains information about where recorded video will be stored.
 	//
 	// See the [DestinationConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-destinationconfiguration.html) property type for more information.
-	DestinationConfiguration interface{} `json:"destinationConfiguration" yaml:"destinationConfiguration"`
+	DestinationConfiguration interface{} `field:"required" json:"destinationConfiguration" yaml:"destinationConfiguration"`
 	// Recording-configuration name.
 	//
 	// The value does not need to be unique.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// A thumbnail configuration enables/disables the recording of thumbnails for a live session and controls the interval at which thumbnails are generated for the live session.
 	//
 	// See the [ThumbnailConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-thunbnailconfiguration.html) property type for more information.
-	ThumbnailConfiguration interface{} `json:"thumbnailConfiguration" yaml:"thumbnailConfiguration"`
+	ThumbnailConfiguration interface{} `field:"optional" json:"thumbnailConfiguration" yaml:"thumbnailConfiguration"`
 }
 
 // A CloudFormation `AWS::IVS::StreamKey`.
@@ -2469,8 +2496,11 @@ type CfnRecordingConfigurationProps struct {
 // The `AWS::IVS::StreamKey` resource specifies an  stream key associated with the referenced channel. Use a stream key to initiate a live stream.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ivs "github.com/aws/aws-cdk-go/awscdk/aws_ivs"
-//   cfnStreamKey := ivs.NewCfnStreamKey(this, jsii.String("MyCfnStreamKey"), &cfnStreamKeyProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnStreamKey := awscdk.Aws_ivs.NewCfnStreamKey(this, jsii.String("MyCfnStreamKey"), &cfnStreamKeyProps{
 //   	channelArn: jsii.String("channelArn"),
 //
 //   	// the properties below are optional
@@ -3153,7 +3183,10 @@ func (c *jsiiProxy_CfnStreamKey) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnStreamKey`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ivs "github.com/aws/aws-cdk-go/awscdk/aws_ivs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnStreamKeyProps := &cfnStreamKeyProps{
 //   	channelArn: jsii.String("channelArn"),
 //
@@ -3168,11 +3201,11 @@ func (c *jsiiProxy_CfnStreamKey) ValidateProperties(_properties interface{}) {
 //
 type CfnStreamKeyProps struct {
 	// Channel ARN for the stream.
-	ChannelArn *string `json:"channelArn" yaml:"channelArn"`
+	ChannelArn *string `field:"required" json:"channelArn" yaml:"channelArn"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A new IVS channel.
@@ -3609,18 +3642,18 @@ type ChannelProps struct {
 	// a PlaybackKeyPair has been uploaded to your account as this is used to
 	// validate the signed JWT that is required for authorization.
 	// Experimental.
-	Authorized *bool `json:"authorized" yaml:"authorized"`
+	Authorized *bool `field:"optional" json:"authorized" yaml:"authorized"`
 	// Channel latency mode.
 	// Experimental.
-	LatencyMode LatencyMode `json:"latencyMode" yaml:"latencyMode"`
+	LatencyMode LatencyMode `field:"optional" json:"latencyMode" yaml:"latencyMode"`
 	// Channel name.
 	// Experimental.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The channel type, which determines the allowable resolution and bitrate.
 	//
 	// If you exceed the allowable resolution or bitrate, the stream will disconnect immediately.
 	// Experimental.
-	Type ChannelType `json:"type" yaml:"type"`
+	Type ChannelType `field:"optional" json:"type" yaml:"type"`
 }
 
 // The channel type, which determines the allowable resolution and bitrate.
@@ -4134,12 +4167,12 @@ func (p *jsiiProxy_PlaybackKeyPair) Validate() *[]*string {
 type PlaybackKeyPairProps struct {
 	// The public portion of a customer-generated key pair.
 	// Experimental.
-	PublicKeyMaterial *string `json:"publicKeyMaterial" yaml:"publicKeyMaterial"`
+	PublicKeyMaterial *string `field:"required" json:"publicKeyMaterial" yaml:"publicKeyMaterial"`
 	// An arbitrary string (a nickname) assigned to a playback key pair that helps the customer identify that resource.
 	//
 	// The value does not need to be unique.
 	// Experimental.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 
 // A new IVS Stream Key.
@@ -4515,9 +4548,12 @@ func (s *jsiiProxy_StreamKey) Validate() *[]*string {
 // Properties for creating a new Stream Key.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ivs "github.com/aws/aws-cdk-go/awscdk/aws_ivs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var channel channel
+//
 //   streamKeyProps := &streamKeyProps{
 //   	channel: channel,
 //   }
@@ -4526,6 +4562,6 @@ func (s *jsiiProxy_StreamKey) Validate() *[]*string {
 type StreamKeyProps struct {
 	// Channel ARN for the stream.
 	// Experimental.
-	Channel IChannel `json:"channel" yaml:"channel"`
+	Channel IChannel `field:"required" json:"channel" yaml:"channel"`
 }
 

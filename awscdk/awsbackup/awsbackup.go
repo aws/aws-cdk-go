@@ -531,27 +531,28 @@ func (b *jsiiProxy_BackupPlan) Validate() *[]*string {
 type BackupPlanProps struct {
 	// The display name of the backup plan.
 	// Experimental.
-	BackupPlanName *string `json:"backupPlanName" yaml:"backupPlanName"`
+	BackupPlanName *string `field:"optional" json:"backupPlanName" yaml:"backupPlanName"`
 	// Rules for the backup plan.
 	//
 	// Use `addRule()` to add rules after
 	// instantiation.
 	// Experimental.
-	BackupPlanRules *[]BackupPlanRule `json:"backupPlanRules" yaml:"backupPlanRules"`
+	BackupPlanRules *[]BackupPlanRule `field:"optional" json:"backupPlanRules" yaml:"backupPlanRules"`
 	// The backup vault where backups are stored.
 	// Experimental.
-	BackupVault IBackupVault `json:"backupVault" yaml:"backupVault"`
+	BackupVault IBackupVault `field:"optional" json:"backupVault" yaml:"backupVault"`
 	// Enable Windows VSS backup.
 	// See: https://docs.aws.amazon.com/aws-backup/latest/devguide/windows-backups.html
 	//
 	// Experimental.
-	WindowsVss *bool `json:"windowsVss" yaml:"windowsVss"`
+	WindowsVss *bool `field:"optional" json:"windowsVss" yaml:"windowsVss"`
 }
 
 // A backup plan rule.
 //
 // Example:
 //   var plan backupPlan
+//
 //   plan.addRule(backup.backupPlanRule.daily())
 //   plan.addRule(backup.backupPlanRule.weekly())
 //
@@ -693,31 +694,32 @@ func BackupPlanRule_Weekly(backupVault IBackupVault) BackupPlanRule {
 //
 // Example:
 //   var plan backupPlan
+//
 //   plan.addRule(backup.NewBackupPlanRule(&backupPlanRuleProps{
-//   	completionWindow: duration.hours(jsii.Number(2)),
-//   	startWindow: *duration.hours(jsii.Number(1)),
+//   	completionWindow: awscdk.Duration.hours(jsii.Number(2)),
+//   	startWindow: awscdk.Duration.hours(jsii.Number(1)),
 //   	scheduleExpression: events.schedule.cron(&cronOptions{
 //   		 // Only cron expressions are supported
 //   		day: jsii.String("15"),
 //   		hour: jsii.String("3"),
 //   		minute: jsii.String("30"),
 //   	}),
-//   	moveToColdStorageAfter: *duration.days(jsii.Number(30)),
+//   	moveToColdStorageAfter: awscdk.Duration.days(jsii.Number(30)),
 //   }))
 //
 // Experimental.
 type BackupPlanRuleProps struct {
 	// The backup vault where backups are.
 	// Experimental.
-	BackupVault IBackupVault `json:"backupVault" yaml:"backupVault"`
+	BackupVault IBackupVault `field:"optional" json:"backupVault" yaml:"backupVault"`
 	// The duration after a backup job is successfully started before it must be completed or it is canceled by AWS Backup.
 	// Experimental.
-	CompletionWindow awscdk.Duration `json:"completionWindow" yaml:"completionWindow"`
+	CompletionWindow awscdk.Duration `field:"optional" json:"completionWindow" yaml:"completionWindow"`
 	// Specifies the duration after creation that a recovery point is deleted.
 	//
 	// Must be greater than `moveToColdStorageAfter`.
 	// Experimental.
-	DeleteAfter awscdk.Duration `json:"deleteAfter" yaml:"deleteAfter"`
+	DeleteAfter awscdk.Duration `field:"optional" json:"deleteAfter" yaml:"deleteAfter"`
 	// Enables continuous backup and point-in-time restores (PITR).
 	//
 	// Property `deleteAfter` defines the retention period for the backup. It is mandatory if PITR is enabled.
@@ -725,27 +727,28 @@ type BackupPlanRuleProps struct {
 	//
 	// Property `moveToColdStorageAfter` must not be specified because PITR does not support this option.
 	// Experimental.
-	EnableContinuousBackup *bool `json:"enableContinuousBackup" yaml:"enableContinuousBackup"`
+	EnableContinuousBackup *bool `field:"optional" json:"enableContinuousBackup" yaml:"enableContinuousBackup"`
 	// Specifies the duration after creation that a recovery point is moved to cold storage.
 	// Experimental.
-	MoveToColdStorageAfter awscdk.Duration `json:"moveToColdStorageAfter" yaml:"moveToColdStorageAfter"`
+	MoveToColdStorageAfter awscdk.Duration `field:"optional" json:"moveToColdStorageAfter" yaml:"moveToColdStorageAfter"`
 	// A display name for the backup rule.
 	// Experimental.
-	RuleName *string `json:"ruleName" yaml:"ruleName"`
+	RuleName *string `field:"optional" json:"ruleName" yaml:"ruleName"`
 	// A CRON expression specifying when AWS Backup initiates a backup job.
 	// Experimental.
-	ScheduleExpression awsevents.Schedule `json:"scheduleExpression" yaml:"scheduleExpression"`
+	ScheduleExpression awsevents.Schedule `field:"optional" json:"scheduleExpression" yaml:"scheduleExpression"`
 	// The duration after a backup is scheduled before a job is canceled if it doesn't start successfully.
 	// Experimental.
-	StartWindow awscdk.Duration `json:"startWindow" yaml:"startWindow"`
+	StartWindow awscdk.Duration `field:"optional" json:"startWindow" yaml:"startWindow"`
 }
 
 // A resource to backup.
 //
 // Example:
 //   var plan backupPlan
+//
 //   myTable := dynamodb.table.fromTableName(this, jsii.String("Table"), jsii.String("myTableName"))
-//   myCoolConstruct := NewConstruct(this, jsii.String("MyCoolConstruct"))
+//   myCoolConstruct := constructs.NewConstruct(this, jsii.String("MyCoolConstruct"))
 //
 //   plan.addSelection(jsii.String("Selection"), &backupSelectionOptions{
 //   	resources: []backupResource{
@@ -952,12 +955,16 @@ func BackupResource_FromTag(key *string, value *string, operation TagOperation) 
 // A backup selection.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import backup "github.com/aws/aws-cdk-go/awscdk/aws_backup"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var backupPlan backupPlan
 //   var backupResource backupResource
 //   var role role
-//   backupSelection := backup.NewBackupSelection(this, jsii.String("MyBackupSelection"), &backupSelectionProps{
+//
+//   backupSelection := awscdk.Aws_backup.NewBackupSelection(this, jsii.String("MyBackupSelection"), &backupSelectionProps{
 //   	backupPlan: backupPlan,
 //   	resources: []*backupResource{
 //   		backupResource,
@@ -1347,8 +1354,9 @@ func (b *jsiiProxy_BackupSelection) Validate() *[]*string {
 //
 // Example:
 //   var plan backupPlan
+//
 //   myTable := dynamodb.table.fromTableName(this, jsii.String("Table"), jsii.String("myTableName"))
-//   myCoolConstruct := NewConstruct(this, jsii.String("MyCoolConstruct"))
+//   myCoolConstruct := constructs.NewConstruct(this, jsii.String("MyCoolConstruct"))
 //
 //   plan.addSelection(jsii.String("Selection"), &backupSelectionOptions{
 //   	resources: []backupResource{
@@ -1364,32 +1372,36 @@ type BackupSelectionOptions struct {
 	//
 	// Use the helper static methods defined on `BackupResource`.
 	// Experimental.
-	Resources *[]BackupResource `json:"resources" yaml:"resources"`
+	Resources *[]BackupResource `field:"required" json:"resources" yaml:"resources"`
 	// Whether to automatically give restores permissions to the role that AWS Backup uses.
 	//
 	// If `true`, the `AWSBackupServiceRolePolicyForRestores` managed
 	// policy will be attached to the role.
 	// Experimental.
-	AllowRestores *bool `json:"allowRestores" yaml:"allowRestores"`
+	AllowRestores *bool `field:"optional" json:"allowRestores" yaml:"allowRestores"`
 	// The name for this selection.
 	// Experimental.
-	BackupSelectionName *string `json:"backupSelectionName" yaml:"backupSelectionName"`
+	BackupSelectionName *string `field:"optional" json:"backupSelectionName" yaml:"backupSelectionName"`
 	// The role that AWS Backup uses to authenticate when backuping or restoring the resources.
 	//
 	// The `AWSBackupServiceRolePolicyForBackup` managed policy
 	// will be attached to this role.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 }
 
 // Properties for a BackupSelection.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import backup "github.com/aws/aws-cdk-go/awscdk/aws_backup"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var backupPlan backupPlan
 //   var backupResource backupResource
 //   var role role
+//
 //   backupSelectionProps := &backupSelectionProps{
 //   	backupPlan: backupPlan,
 //   	resources: []*backupResource{
@@ -1408,25 +1420,25 @@ type BackupSelectionProps struct {
 	//
 	// Use the helper static methods defined on `BackupResource`.
 	// Experimental.
-	Resources *[]BackupResource `json:"resources" yaml:"resources"`
+	Resources *[]BackupResource `field:"required" json:"resources" yaml:"resources"`
 	// Whether to automatically give restores permissions to the role that AWS Backup uses.
 	//
 	// If `true`, the `AWSBackupServiceRolePolicyForRestores` managed
 	// policy will be attached to the role.
 	// Experimental.
-	AllowRestores *bool `json:"allowRestores" yaml:"allowRestores"`
+	AllowRestores *bool `field:"optional" json:"allowRestores" yaml:"allowRestores"`
 	// The name for this selection.
 	// Experimental.
-	BackupSelectionName *string `json:"backupSelectionName" yaml:"backupSelectionName"`
+	BackupSelectionName *string `field:"optional" json:"backupSelectionName" yaml:"backupSelectionName"`
 	// The role that AWS Backup uses to authenticate when backuping or restoring the resources.
 	//
 	// The `AWSBackupServiceRolePolicyForBackup` managed policy
 	// will be attached to this role.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The backup plan for this selection.
 	// Experimental.
-	BackupPlan IBackupPlan `json:"backupPlan" yaml:"backupPlan"`
+	BackupPlan IBackupPlan `field:"required" json:"backupPlan" yaml:"backupPlan"`
 }
 
 // A backup vault.
@@ -1946,36 +1958,36 @@ const (
 type BackupVaultProps struct {
 	// A resource-based policy that is used to manage access permissions on the backup vault.
 	// Experimental.
-	AccessPolicy awsiam.PolicyDocument `json:"accessPolicy" yaml:"accessPolicy"`
+	AccessPolicy awsiam.PolicyDocument `field:"optional" json:"accessPolicy" yaml:"accessPolicy"`
 	// The name of a logical container where backups are stored.
 	//
 	// Backup vaults
 	// are identified by names that are unique to the account used to create
 	// them and the AWS Region where they are created.
 	// Experimental.
-	BackupVaultName *string `json:"backupVaultName" yaml:"backupVaultName"`
+	BackupVaultName *string `field:"optional" json:"backupVaultName" yaml:"backupVaultName"`
 	// Whether to add statements to the vault access policy that prevents anyone from deleting a recovery point.
 	// Experimental.
-	BlockRecoveryPointDeletion *bool `json:"blockRecoveryPointDeletion" yaml:"blockRecoveryPointDeletion"`
+	BlockRecoveryPointDeletion *bool `field:"optional" json:"blockRecoveryPointDeletion" yaml:"blockRecoveryPointDeletion"`
 	// The server-side encryption key to use to protect your backups.
 	// Experimental.
-	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
+	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// The vault events to send.
 	// See: https://docs.aws.amazon.com/aws-backup/latest/devguide/sns-notifications.html
 	//
 	// Experimental.
-	NotificationEvents *[]BackupVaultEvents `json:"notificationEvents" yaml:"notificationEvents"`
+	NotificationEvents *[]BackupVaultEvents `field:"optional" json:"notificationEvents" yaml:"notificationEvents"`
 	// A SNS topic to send vault events to.
 	// See: https://docs.aws.amazon.com/aws-backup/latest/devguide/sns-notifications.html
 	//
 	// Experimental.
-	NotificationTopic awssns.ITopic `json:"notificationTopic" yaml:"notificationTopic"`
+	NotificationTopic awssns.ITopic `field:"optional" json:"notificationTopic" yaml:"notificationTopic"`
 	// The removal policy to apply to the vault.
 	//
 	// Note that removing a vault
 	// that contains recovery points will fail.
 	// Experimental.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 }
 
 // A CloudFormation `AWS::Backup::BackupPlan`.
@@ -1985,10 +1997,13 @@ type BackupVaultProps struct {
 // For a sample AWS CloudFormation template, see the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/assigning-resources.html#assigning-resources-cfn) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import backup "github.com/aws/aws-cdk-go/awscdk/aws_backup"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var backupOptions interface{}
-//   cfnBackupPlan := backup.NewCfnBackupPlan(this, jsii.String("MyCfnBackupPlan"), &cfnBackupPlanProps{
+//
+//   cfnBackupPlan := awscdk.Aws_backup.NewCfnBackupPlan(this, jsii.String("MyCfnBackupPlan"), &cfnBackupPlanProps{
 //   	backupPlan: &backupPlanResourceTypeProperty{
 //   		backupPlanName: jsii.String("backupPlanName"),
 //   		backupPlanRule: []interface{}{
@@ -2731,9 +2746,12 @@ func (c *jsiiProxy_CfnBackupPlan) ValidateProperties(_properties interface{}) {
 // This is only supported for Windows VSS backups.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import backup "github.com/aws/aws-cdk-go/awscdk/aws_backup"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var backupOptions interface{}
+//
 //   advancedBackupSettingResourceTypeProperty := &advancedBackupSettingResourceTypeProperty{
 //   	backupOptions: backupOptions,
 //   	resourceType: jsii.String("resourceType"),
@@ -2743,19 +2761,22 @@ type CfnBackupPlan_AdvancedBackupSettingResourceTypeProperty struct {
 	// The backup option for the resource.
 	//
 	// Each option is a key-value pair.
-	BackupOptions interface{} `json:"backupOptions" yaml:"backupOptions"`
+	BackupOptions interface{} `field:"required" json:"backupOptions" yaml:"backupOptions"`
 	// The name of a resource type.
 	//
 	// The only supported resource type is EC2.
-	ResourceType *string `json:"resourceType" yaml:"resourceType"`
+	ResourceType *string `field:"required" json:"resourceType" yaml:"resourceType"`
 }
 
 // Specifies an object containing properties used to create a backup plan.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import backup "github.com/aws/aws-cdk-go/awscdk/aws_backup"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var backupOptions interface{}
+//
 //   backupPlanResourceTypeProperty := &backupPlanResourceTypeProperty{
 //   	backupPlanName: jsii.String("backupPlanName"),
 //   	backupPlanRule: []interface{}{
@@ -2800,17 +2821,20 @@ type CfnBackupPlan_AdvancedBackupSettingResourceTypeProperty struct {
 //
 type CfnBackupPlan_BackupPlanResourceTypeProperty struct {
 	// The display name of a backup plan.
-	BackupPlanName *string `json:"backupPlanName" yaml:"backupPlanName"`
+	BackupPlanName *string `field:"required" json:"backupPlanName" yaml:"backupPlanName"`
 	// An array of `BackupRule` objects, each of which specifies a scheduled task that is used to back up a selection of resources.
-	BackupPlanRule interface{} `json:"backupPlanRule" yaml:"backupPlanRule"`
+	BackupPlanRule interface{} `field:"required" json:"backupPlanRule" yaml:"backupPlanRule"`
 	// A list of backup options for each resource type.
-	AdvancedBackupSettings interface{} `json:"advancedBackupSettings" yaml:"advancedBackupSettings"`
+	AdvancedBackupSettings interface{} `field:"optional" json:"advancedBackupSettings" yaml:"advancedBackupSettings"`
 }
 
 // Specifies an object containing properties used to schedule a task to back up a selection of resources.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import backup "github.com/aws/aws-cdk-go/awscdk/aws_backup"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   backupRuleResourceTypeProperty := &backupRuleResourceTypeProperty{
 //   	ruleName: jsii.String("ruleName"),
 //   	targetBackupVault: jsii.String("targetBackupVault"),
@@ -2842,35 +2866,38 @@ type CfnBackupPlan_BackupPlanResourceTypeProperty struct {
 //
 type CfnBackupPlan_BackupRuleResourceTypeProperty struct {
 	// A display name for a backup rule.
-	RuleName *string `json:"ruleName" yaml:"ruleName"`
+	RuleName *string `field:"required" json:"ruleName" yaml:"ruleName"`
 	// The name of a logical container where backups are stored.
 	//
 	// Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created. They consist of letters, numbers, and hyphens.
-	TargetBackupVault *string `json:"targetBackupVault" yaml:"targetBackupVault"`
+	TargetBackupVault *string `field:"required" json:"targetBackupVault" yaml:"targetBackupVault"`
 	// A value in minutes after a backup job is successfully started before it must be completed or it is canceled by AWS Backup .
-	CompletionWindowMinutes *float64 `json:"completionWindowMinutes" yaml:"completionWindowMinutes"`
+	CompletionWindowMinutes *float64 `field:"optional" json:"completionWindowMinutes" yaml:"completionWindowMinutes"`
 	// An array of CopyAction objects, which contains the details of the copy operation.
-	CopyActions interface{} `json:"copyActions" yaml:"copyActions"`
+	CopyActions interface{} `field:"optional" json:"copyActions" yaml:"copyActions"`
 	// Enables continuous backup and point-in-time restores (PITR).
-	EnableContinuousBackup interface{} `json:"enableContinuousBackup" yaml:"enableContinuousBackup"`
+	EnableContinuousBackup interface{} `field:"optional" json:"enableContinuousBackup" yaml:"enableContinuousBackup"`
 	// The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.
 	//
 	// AWS Backup transitions and expires backups automatically according to the lifecycle that you define.
-	Lifecycle interface{} `json:"lifecycle" yaml:"lifecycle"`
+	Lifecycle interface{} `field:"optional" json:"lifecycle" yaml:"lifecycle"`
 	// To help organize your resources, you can assign your own metadata to the resources that you create.
 	//
 	// Each tag is a key-value pair.
-	RecoveryPointTags interface{} `json:"recoveryPointTags" yaml:"recoveryPointTags"`
+	RecoveryPointTags interface{} `field:"optional" json:"recoveryPointTags" yaml:"recoveryPointTags"`
 	// A CRON expression specifying when AWS Backup initiates a backup job.
-	ScheduleExpression *string `json:"scheduleExpression" yaml:"scheduleExpression"`
+	ScheduleExpression *string `field:"optional" json:"scheduleExpression" yaml:"scheduleExpression"`
 	// An optional value that specifies a period of time in minutes after a backup is scheduled before a job is canceled if it doesn't start successfully.
-	StartWindowMinutes *float64 `json:"startWindowMinutes" yaml:"startWindowMinutes"`
+	StartWindowMinutes *float64 `field:"optional" json:"startWindowMinutes" yaml:"startWindowMinutes"`
 }
 
 // Copies backups created by a backup rule to another vault.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import backup "github.com/aws/aws-cdk-go/awscdk/aws_backup"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   copyActionResourceTypeProperty := &copyActionResourceTypeProperty{
 //   	destinationBackupVaultArn: jsii.String("destinationBackupVaultArn"),
 //
@@ -2885,19 +2912,22 @@ type CfnBackupPlan_CopyActionResourceTypeProperty struct {
 	// An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
 	//
 	// For example, `arn:aws:backup:us-east-1:123456789012:vault:aBackupVault.`
-	DestinationBackupVaultArn *string `json:"destinationBackupVaultArn" yaml:"destinationBackupVaultArn"`
+	DestinationBackupVaultArn *string `field:"required" json:"destinationBackupVaultArn" yaml:"destinationBackupVaultArn"`
 	// Defines when a protected resource is transitioned to cold storage and when it expires.
 	//
 	// AWS Backup transitions and expires backups automatically according to the lifecycle that you define. If you do not specify a lifecycle, AWS Backup applies the lifecycle policy of the source backup to the destination backup.
 	//
 	// Backups transitioned to cold storage must be stored in cold storage for a minimum of 90 days.
-	Lifecycle interface{} `json:"lifecycle" yaml:"lifecycle"`
+	Lifecycle interface{} `field:"optional" json:"lifecycle" yaml:"lifecycle"`
 }
 
 // Specifies an object containing an array of `Transition` objects that determine how long in days before a recovery point transitions to cold storage or is deleted.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import backup "github.com/aws/aws-cdk-go/awscdk/aws_backup"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   lifecycleResourceTypeProperty := &lifecycleResourceTypeProperty{
 //   	deleteAfterDays: jsii.Number(123),
 //   	moveToColdStorageAfterDays: jsii.Number(123),
@@ -2907,17 +2937,20 @@ type CfnBackupPlan_LifecycleResourceTypeProperty struct {
 	// Specifies the number of days after creation that a recovery point is deleted.
 	//
 	// Must be greater than `MoveToColdStorageAfterDays` .
-	DeleteAfterDays *float64 `json:"deleteAfterDays" yaml:"deleteAfterDays"`
+	DeleteAfterDays *float64 `field:"optional" json:"deleteAfterDays" yaml:"deleteAfterDays"`
 	// Specifies the number of days after creation that a recovery point is moved to cold storage.
-	MoveToColdStorageAfterDays *float64 `json:"moveToColdStorageAfterDays" yaml:"moveToColdStorageAfterDays"`
+	MoveToColdStorageAfterDays *float64 `field:"optional" json:"moveToColdStorageAfterDays" yaml:"moveToColdStorageAfterDays"`
 }
 
 // Properties for defining a `CfnBackupPlan`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import backup "github.com/aws/aws-cdk-go/awscdk/aws_backup"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var backupOptions interface{}
+//
 //   cfnBackupPlanProps := &cfnBackupPlanProps{
 //   	backupPlan: &backupPlanResourceTypeProperty{
 //   		backupPlanName: jsii.String("backupPlanName"),
@@ -2969,11 +3002,11 @@ type CfnBackupPlan_LifecycleResourceTypeProperty struct {
 //
 type CfnBackupPlanProps struct {
 	// Uniquely identifies the backup plan to be associated with the selection of resources.
-	BackupPlan interface{} `json:"backupPlan" yaml:"backupPlan"`
+	BackupPlan interface{} `field:"required" json:"backupPlan" yaml:"backupPlan"`
 	// To help organize your resources, you can assign your own metadata to the resources that you create.
 	//
 	// Each tag is a key-value pair. The specified tags are assigned to all backups created with this plan.
-	BackupPlanTags interface{} `json:"backupPlanTags" yaml:"backupPlanTags"`
+	BackupPlanTags interface{} `field:"optional" json:"backupPlanTags" yaml:"backupPlanTags"`
 }
 
 // A CloudFormation `AWS::Backup::BackupSelection`.
@@ -2983,10 +3016,13 @@ type CfnBackupPlanProps struct {
 // For a sample AWS CloudFormation template, see the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/assigning-resources.html#assigning-resources-cfn) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import backup "github.com/aws/aws-cdk-go/awscdk/aws_backup"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var conditions interface{}
-//   cfnBackupSelection := backup.NewCfnBackupSelection(this, jsii.String("MyCfnBackupSelection"), &cfnBackupSelectionProps{
+//
+//   cfnBackupSelection := awscdk.Aws_backup.NewCfnBackupSelection(this, jsii.String("MyCfnBackupSelection"), &cfnBackupSelectionProps{
 //   	backupPlanId: jsii.String("backupPlanId"),
 //   	backupSelection: &backupSelectionResourceTypeProperty{
 //   		iamRoleArn: jsii.String("iamRoleArn"),
@@ -3698,9 +3734,12 @@ func (c *jsiiProxy_CfnBackupSelection) ValidateProperties(_properties interface{
 // Specifies an object containing properties used to assign a set of resources to a backup plan.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import backup "github.com/aws/aws-cdk-go/awscdk/aws_backup"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var conditions interface{}
+//
 //   backupSelectionResourceTypeProperty := &backupSelectionResourceTypeProperty{
 //   	iamRoleArn: jsii.String("iamRoleArn"),
 //   	selectionName: jsii.String("selectionName"),
@@ -3726,9 +3765,9 @@ type CfnBackupSelection_BackupSelectionResourceTypeProperty struct {
 	// The ARN of the IAM role that AWS Backup uses to authenticate when backing up the target resource;
 	//
 	// for example, `arn:aws:iam::123456789012:role/S3Access` .
-	IamRoleArn *string `json:"iamRoleArn" yaml:"iamRoleArn"`
+	IamRoleArn *string `field:"required" json:"iamRoleArn" yaml:"iamRoleArn"`
 	// The display name of a resource selection document.
-	SelectionName *string `json:"selectionName" yaml:"selectionName"`
+	SelectionName *string `field:"required" json:"selectionName" yaml:"selectionName"`
 	// A list of conditions that you define to assign resources to your backup plans using tags.
 	//
 	// For example, `"StringEquals": {"Department": "accounting"` . Condition operators are case sensitive.
@@ -3737,19 +3776,19 @@ type CfnBackupSelection_BackupSelectionResourceTypeProperty struct {
 	//
 	// - When you specify more than one condition, you only assign the resources that match ALL conditions (using AND logic).
 	// - `Conditions` supports `StringEquals` , `StringLike` , `StringNotEquals` , and `StringNotLike` . `ListOfTags` only supports `StringEquals` .
-	Conditions interface{} `json:"conditions" yaml:"conditions"`
+	Conditions interface{} `field:"optional" json:"conditions" yaml:"conditions"`
 	// An array of conditions used to specify a set of resources to assign to a backup plan;
 	//
 	// for example, `"STRINGEQUALS": {"Department":"accounting"` .
-	ListOfTags interface{} `json:"listOfTags" yaml:"listOfTags"`
+	ListOfTags interface{} `field:"optional" json:"listOfTags" yaml:"listOfTags"`
 	// A list of Amazon Resource Names (ARNs) to exclude from a backup plan.
 	//
 	// The maximum number of ARNs is 500 without wildcards, or 30 ARNs with wildcards.
 	//
 	// If you need to exclude many resources from a backup plan, consider a different resource selection strategy, such as assigning only one or a few resource types or refining your resource selection using tags.
-	NotResources *[]*string `json:"notResources" yaml:"notResources"`
+	NotResources *[]*string `field:"optional" json:"notResources" yaml:"notResources"`
 	// An array of strings that contain Amazon Resource Names (ARNs) of resources to assign to a backup plan.
-	Resources *[]*string `json:"resources" yaml:"resources"`
+	Resources *[]*string `field:"optional" json:"resources" yaml:"resources"`
 }
 
 // Specifies an object that contains an array of triplets made up of a condition type (such as `STRINGEQUALS` ), a key, and a value.
@@ -3757,7 +3796,10 @@ type CfnBackupSelection_BackupSelectionResourceTypeProperty struct {
 // Conditions are used to filter resources in a selection that is assigned to a backup plan.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import backup "github.com/aws/aws-cdk-go/awscdk/aws_backup"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   conditionResourceTypeProperty := &conditionResourceTypeProperty{
 //   	conditionKey: jsii.String("conditionKey"),
 //   	conditionType: jsii.String("conditionType"),
@@ -3768,21 +3810,24 @@ type CfnBackupSelection_ConditionResourceTypeProperty struct {
 	// The key in a key-value pair.
 	//
 	// For example, in `"Department": "accounting"` , `"Department"` is the key.
-	ConditionKey *string `json:"conditionKey" yaml:"conditionKey"`
+	ConditionKey *string `field:"required" json:"conditionKey" yaml:"conditionKey"`
 	// An operation, such as `STRINGEQUALS` , that is applied to a key-value pair used to filter resources in a selection.
-	ConditionType *string `json:"conditionType" yaml:"conditionType"`
+	ConditionType *string `field:"required" json:"conditionType" yaml:"conditionType"`
 	// The value in a key-value pair.
 	//
 	// For example, in `"Department": "accounting"` , `"accounting"` is the value.
-	ConditionValue *string `json:"conditionValue" yaml:"conditionValue"`
+	ConditionValue *string `field:"required" json:"conditionValue" yaml:"conditionValue"`
 }
 
 // Properties for defining a `CfnBackupSelection`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import backup "github.com/aws/aws-cdk-go/awscdk/aws_backup"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var conditions interface{}
+//
 //   cfnBackupSelectionProps := &cfnBackupSelectionProps{
 //   	backupPlanId: jsii.String("backupPlanId"),
 //   	backupSelection: &backupSelectionResourceTypeProperty{
@@ -3809,11 +3854,11 @@ type CfnBackupSelection_ConditionResourceTypeProperty struct {
 //
 type CfnBackupSelectionProps struct {
 	// Uniquely identifies a backup plan.
-	BackupPlanId *string `json:"backupPlanId" yaml:"backupPlanId"`
+	BackupPlanId *string `field:"required" json:"backupPlanId" yaml:"backupPlanId"`
 	// Specifies the body of a request to assign a set of resources to a backup plan.
 	//
 	// It includes an array of resources, an optional array of patterns to exclude resources, an optional role to provide access to the AWS service the resource belongs to, and an optional array of tags used to identify a set of resources.
-	BackupSelection interface{} `json:"backupSelection" yaml:"backupSelection"`
+	BackupSelection interface{} `field:"required" json:"backupSelection" yaml:"backupSelection"`
 }
 
 // A CloudFormation `AWS::Backup::BackupVault`.
@@ -3825,10 +3870,13 @@ type CfnBackupSelectionProps struct {
 // For a sample AWS CloudFormation template, see the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/assigning-resources.html#assigning-resources-cfn) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import backup "github.com/aws/aws-cdk-go/awscdk/aws_backup"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var accessPolicy interface{}
-//   cfnBackupVault := backup.NewCfnBackupVault(this, jsii.String("MyCfnBackupVault"), &cfnBackupVaultProps{
+//
+//   cfnBackupVault := awscdk.Aws_backup.NewCfnBackupVault(this, jsii.String("MyCfnBackupVault"), &cfnBackupVaultProps{
 //   	backupVaultName: jsii.String("backupVaultName"),
 //
 //   	// the properties below are optional
@@ -4622,7 +4670,10 @@ func (c *jsiiProxy_CfnBackupVault) ValidateProperties(_properties interface{}) {
 // The `LockConfigurationType` property type specifies configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import backup "github.com/aws/aws-cdk-go/awscdk/aws_backup"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   lockConfigurationTypeProperty := &lockConfigurationTypeProperty{
 //   	minRetentionDays: jsii.Number(123),
 //
@@ -4639,7 +4690,7 @@ type CfnBackupVault_LockConfigurationTypeProperty struct {
 	// If this parameter is not specified, Vault Lock will not enforce a minimum retention period.
 	//
 	// If this parameter is specified, any backup or copy job to the vault must have a lifecycle policy with a retention period equal to or longer than the minimum retention period. If the job's retention period is shorter than that minimum retention period, then the vault fails that backup or copy job, and you should either modify your lifecycle settings or use a different vault. Recovery points already saved in the vault prior to Vault Lock are not affected.
-	MinRetentionDays *float64 `json:"minRetentionDays" yaml:"minRetentionDays"`
+	MinRetentionDays *float64 `field:"required" json:"minRetentionDays" yaml:"minRetentionDays"`
 	// The AWS Backup Vault Lock configuration that specifies the number of days before the lock date.
 	//
 	// For example, setting `ChangeableForDays` to 30 on Jan. 1, 2022 at 8pm UTC will set the lock date to Jan. 31, 2022 at 8pm UTC.
@@ -4649,7 +4700,7 @@ type CfnBackupVault_LockConfigurationTypeProperty struct {
 	// Before the lock date, you can delete Vault Lock from the vault using `DeleteBackupVaultLockConfiguration` or change the Vault Lock configuration using `PutBackupVaultLockConfiguration` . On and after the lock date, the Vault Lock becomes immutable and cannot be changed or deleted.
 	//
 	// If this parameter is not specified, you can delete Vault Lock from the vault using `DeleteBackupVaultLockConfiguration` or change the Vault Lock configuration using `PutBackupVaultLockConfiguration` at any time.
-	ChangeableForDays *float64 `json:"changeableForDays" yaml:"changeableForDays"`
+	ChangeableForDays *float64 `field:"optional" json:"changeableForDays" yaml:"changeableForDays"`
 	// The AWS Backup Vault Lock configuration that specifies the maximum retention period that the vault retains its recovery points.
 	//
 	// This setting can be useful if, for example, your organization's policies require you to destroy certain data after retaining it for four years (1460 days).
@@ -4657,13 +4708,16 @@ type CfnBackupVault_LockConfigurationTypeProperty struct {
 	// If this parameter is not included, Vault Lock does not enforce a maximum retention period on the recovery points in the vault. If this parameter is included without a value, Vault Lock will not enforce a maximum retention period.
 	//
 	// If this parameter is specified, any backup or copy job to the vault must have a lifecycle policy with a retention period equal to or shorter than the maximum retention period. If the job's retention period is longer than that maximum retention period, then the vault fails the backup or copy job, and you should either modify your lifecycle settings or use a different vault. Recovery points already saved in the vault prior to Vault Lock are not affected.
-	MaxRetentionDays *float64 `json:"maxRetentionDays" yaml:"maxRetentionDays"`
+	MaxRetentionDays *float64 `field:"optional" json:"maxRetentionDays" yaml:"maxRetentionDays"`
 }
 
 // Specifies an object containing SNS event notification properties for the target backup vault.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import backup "github.com/aws/aws-cdk-go/awscdk/aws_backup"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   notificationObjectTypeProperty := &notificationObjectTypeProperty{
 //   	backupVaultEvents: []*string{
 //   		jsii.String("backupVaultEvents"),
@@ -4675,19 +4729,22 @@ type CfnBackupVault_NotificationObjectTypeProperty struct {
 	// An array of events that indicate the status of jobs to back up resources to the backup vault.
 	//
 	// For valid events, see [BackupVaultEvents](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_PutBackupVaultNotifications.html#API_PutBackupVaultNotifications_RequestSyntax) in the *AWS Backup API Guide* .
-	BackupVaultEvents *[]*string `json:"backupVaultEvents" yaml:"backupVaultEvents"`
+	BackupVaultEvents *[]*string `field:"required" json:"backupVaultEvents" yaml:"backupVaultEvents"`
 	// An ARN that uniquely identifies an Amazon Simple Notification Service (Amazon SNS) topic;
 	//
 	// for example, `arn:aws:sns:us-west-2:111122223333:MyTopic` .
-	SnsTopicArn *string `json:"snsTopicArn" yaml:"snsTopicArn"`
+	SnsTopicArn *string `field:"required" json:"snsTopicArn" yaml:"snsTopicArn"`
 }
 
 // Properties for defining a `CfnBackupVault`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import backup "github.com/aws/aws-cdk-go/awscdk/aws_backup"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var accessPolicy interface{}
+//
 //   cfnBackupVaultProps := &cfnBackupVaultProps{
 //   	backupVaultName: jsii.String("backupVaultName"),
 //
@@ -4716,23 +4773,23 @@ type CfnBackupVaultProps struct {
 	// The name of a logical container where backups are stored.
 	//
 	// Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created. They consist of lowercase letters, numbers, and hyphens.
-	BackupVaultName *string `json:"backupVaultName" yaml:"backupVaultName"`
+	BackupVaultName *string `field:"required" json:"backupVaultName" yaml:"backupVaultName"`
 	// A resource-based policy that is used to manage access permissions on the target backup vault.
-	AccessPolicy interface{} `json:"accessPolicy" yaml:"accessPolicy"`
+	AccessPolicy interface{} `field:"optional" json:"accessPolicy" yaml:"accessPolicy"`
 	// Metadata that you can assign to help organize the resources that you create.
 	//
 	// Each tag is a key-value pair.
-	BackupVaultTags interface{} `json:"backupVaultTags" yaml:"backupVaultTags"`
+	BackupVaultTags interface{} `field:"optional" json:"backupVaultTags" yaml:"backupVaultTags"`
 	// A server-side encryption key you can specify to encrypt your backups from services that support full AWS Backup management;
 	//
 	// for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` . If you specify a key, you must specify its ARN, not its alias. If you do not specify a key, AWS Backup creates a KMS key for you by default.
 	//
 	// To learn which AWS Backup services support full AWS Backup management and how AWS Backup handles encryption for backups from services that do not yet support full AWS Backup , see [Encryption for backups in AWS Backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/encryption.html)
-	EncryptionKeyArn *string `json:"encryptionKeyArn" yaml:"encryptionKeyArn"`
+	EncryptionKeyArn *string `field:"optional" json:"encryptionKeyArn" yaml:"encryptionKeyArn"`
 	// Configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
-	LockConfiguration interface{} `json:"lockConfiguration" yaml:"lockConfiguration"`
+	LockConfiguration interface{} `field:"optional" json:"lockConfiguration" yaml:"lockConfiguration"`
 	// The SNS event notifications for the specified backup vault.
-	Notifications interface{} `json:"notifications" yaml:"notifications"`
+	Notifications interface{} `field:"optional" json:"notifications" yaml:"notifications"`
 }
 
 // A CloudFormation `AWS::Backup::Framework`.
@@ -4742,10 +4799,13 @@ type CfnBackupVaultProps struct {
 // For a sample AWS CloudFormation template, see the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/bam-cfn-integration.html#bam-cfn-frameworks-template) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import backup "github.com/aws/aws-cdk-go/awscdk/aws_backup"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var controlScope interface{}
-//   cfnFramework := backup.NewCfnFramework(this, jsii.String("MyCfnFramework"), &cfnFrameworkProps{
+//
+//   cfnFramework := awscdk.Aws_backup.NewCfnFramework(this, jsii.String("MyCfnFramework"), &cfnFrameworkProps{
 //   	frameworkControls: []interface{}{
 //   		&frameworkControlProperty{
 //   			controlName: jsii.String("controlName"),
@@ -5522,7 +5582,10 @@ func (c *jsiiProxy_CfnFramework) ValidateProperties(_properties interface{}) {
 // A control can have zero, one, or more than one parameter. An example of a control with two parameters is: "backup plan frequency is at least `daily` and the retention period is at least `1 year` ". The first parameter is `daily` . The second parameter is `1 year` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import backup "github.com/aws/aws-cdk-go/awscdk/aws_backup"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   controlInputParameterProperty := &controlInputParameterProperty{
 //   	parameterName: jsii.String("parameterName"),
 //   	parameterValue: jsii.String("parameterValue"),
@@ -5530,9 +5593,9 @@ func (c *jsiiProxy_CfnFramework) ValidateProperties(_properties interface{}) {
 //
 type CfnFramework_ControlInputParameterProperty struct {
 	// The name of a parameter, for example, `BackupPlanFrequency` .
-	ParameterName *string `json:"parameterName" yaml:"parameterName"`
+	ParameterName *string `field:"required" json:"parameterName" yaml:"parameterName"`
 	// The value of parameter, for example, `hourly` .
-	ParameterValue *string `json:"parameterValue" yaml:"parameterValue"`
+	ParameterValue *string `field:"required" json:"parameterValue" yaml:"parameterValue"`
 }
 
 // Contains detailed information about all of the controls of a framework.
@@ -5540,9 +5603,12 @@ type CfnFramework_ControlInputParameterProperty struct {
 // Each framework must contain at least one control.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import backup "github.com/aws/aws-cdk-go/awscdk/aws_backup"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var controlScope interface{}
+//
 //   frameworkControlProperty := &frameworkControlProperty{
 //   	controlName: jsii.String("controlName"),
 //
@@ -5560,21 +5626,24 @@ type CfnFramework_FrameworkControlProperty struct {
 	// The name of a control.
 	//
 	// This name is between 1 and 256 characters.
-	ControlName *string `json:"controlName" yaml:"controlName"`
+	ControlName *string `field:"required" json:"controlName" yaml:"controlName"`
 	// A list of `ParameterName` and `ParameterValue` pairs.
-	ControlInputParameters interface{} `json:"controlInputParameters" yaml:"controlInputParameters"`
+	ControlInputParameters interface{} `field:"optional" json:"controlInputParameters" yaml:"controlInputParameters"`
 	// The scope of a control.
 	//
 	// The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. For more information, see [`ControlScope` .](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_ControlScope.html)
-	ControlScope interface{} `json:"controlScope" yaml:"controlScope"`
+	ControlScope interface{} `field:"optional" json:"controlScope" yaml:"controlScope"`
 }
 
 // Properties for defining a `CfnFramework`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import backup "github.com/aws/aws-cdk-go/awscdk/aws_backup"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var controlScope interface{}
+//
 //   cfnFrameworkProps := &cfnFrameworkProps{
 //   	frameworkControls: []interface{}{
 //   		&frameworkControlProperty{
@@ -5606,15 +5675,15 @@ type CfnFrameworkProps struct {
 	// Contains detailed information about all of the controls of a framework.
 	//
 	// Each framework must contain at least one control.
-	FrameworkControls interface{} `json:"frameworkControls" yaml:"frameworkControls"`
+	FrameworkControls interface{} `field:"required" json:"frameworkControls" yaml:"frameworkControls"`
 	// An optional description of the framework with a maximum 1,024 characters.
-	FrameworkDescription *string `json:"frameworkDescription" yaml:"frameworkDescription"`
+	FrameworkDescription *string `field:"optional" json:"frameworkDescription" yaml:"frameworkDescription"`
 	// The unique name of a framework.
 	//
 	// This name is between 1 and 256 characters, starting with a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and underscores (_).
-	FrameworkName *string `json:"frameworkName" yaml:"frameworkName"`
+	FrameworkName *string `field:"optional" json:"frameworkName" yaml:"frameworkName"`
 	// A list of tags with which to tag your framework.
-	FrameworkTags interface{} `json:"frameworkTags" yaml:"frameworkTags"`
+	FrameworkTags interface{} `field:"optional" json:"frameworkTags" yaml:"frameworkTags"`
 }
 
 // A CloudFormation `AWS::Backup::ReportPlan`.
@@ -5626,11 +5695,14 @@ type CfnFrameworkProps struct {
 // For a sample AWS CloudFormation template, see the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/assigning-resources.html#assigning-resources-cfn) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import backup "github.com/aws/aws-cdk-go/awscdk/aws_backup"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var reportDeliveryChannel interface{}
 //   var reportSetting interface{}
-//   cfnReportPlan := backup.NewCfnReportPlan(this, jsii.String("MyCfnReportPlan"), &cfnReportPlanProps{
+//
+//   cfnReportPlan := awscdk.Aws_backup.NewCfnReportPlan(this, jsii.String("MyCfnReportPlan"), &cfnReportPlanProps{
 //   	reportDeliveryChannel: reportDeliveryChannel,
 //   	reportSetting: reportSetting,
 //
@@ -6376,10 +6448,13 @@ func (c *jsiiProxy_CfnReportPlan) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnReportPlan`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import backup "github.com/aws/aws-cdk-go/awscdk/aws_backup"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var reportDeliveryChannel interface{}
 //   var reportSetting interface{}
+//
 //   cfnReportPlanProps := &cfnReportPlanProps{
 //   	reportDeliveryChannel: reportDeliveryChannel,
 //   	reportSetting: reportSetting,
@@ -6397,21 +6472,21 @@ func (c *jsiiProxy_CfnReportPlan) ValidateProperties(_properties interface{}) {
 //
 type CfnReportPlanProps struct {
 	// Contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports.
-	ReportDeliveryChannel interface{} `json:"reportDeliveryChannel" yaml:"reportDeliveryChannel"`
+	ReportDeliveryChannel interface{} `field:"required" json:"reportDeliveryChannel" yaml:"reportDeliveryChannel"`
 	// Identifies the report template for the report. Reports are built using a report template. The report templates are:.
 	//
 	// `RESOURCE_COMPLIANCE_REPORT | CONTROL_COMPLIANCE_REPORT | BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT`
 	//
 	// If the report template is `RESOURCE_COMPLIANCE_REPORT` or `CONTROL_COMPLIANCE_REPORT` , this API resource also describes the report coverage by AWS Regions and frameworks.
-	ReportSetting interface{} `json:"reportSetting" yaml:"reportSetting"`
+	ReportSetting interface{} `field:"required" json:"reportSetting" yaml:"reportSetting"`
 	// An optional description of the report plan with a maximum 1,024 characters.
-	ReportPlanDescription *string `json:"reportPlanDescription" yaml:"reportPlanDescription"`
+	ReportPlanDescription *string `field:"optional" json:"reportPlanDescription" yaml:"reportPlanDescription"`
 	// The unique name of the report plan.
 	//
 	// This name is between 1 and 256 characters starting with a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and underscores (_).
-	ReportPlanName *string `json:"reportPlanName" yaml:"reportPlanName"`
+	ReportPlanName *string `field:"optional" json:"reportPlanName" yaml:"reportPlanName"`
 	// A list of tags to tag your report plan.
-	ReportPlanTags interface{} `json:"reportPlanTags" yaml:"reportPlanTags"`
+	ReportPlanTags interface{} `field:"optional" json:"reportPlanTags" yaml:"reportPlanTags"`
 }
 
 // A backup plan.
@@ -6499,13 +6574,16 @@ func (j *jsiiProxy_IBackupVault) BackupVaultName() *string {
 // A tag condition.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import backup "github.com/aws/aws-cdk-go/awscdk/aws_backup"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tagCondition := &tagCondition{
 //   	key: jsii.String("key"),
 //   	value: jsii.String("value"),
 //
 //   	// the properties below are optional
-//   	operation: backup.tagOperation_STRING_EQUALS,
+//   	operation: awscdk.Aws_backup.tagOperation_STRING_EQUALS,
 //   }
 //
 // Experimental.
@@ -6515,16 +6593,16 @@ type TagCondition struct {
 	// For example, in `"ec2:ResourceTag/Department": "accounting"`,
 	// `ec2:ResourceTag/Department` is the key.
 	// Experimental.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// The value in a key-value pair.
 	//
 	// For example, in `"ec2:ResourceTag/Department": "accounting"`,
 	// `accounting` is the value.
 	// Experimental.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 	// An operation that is applied to a key-value pair used to filter resources in a selection.
 	// Experimental.
-	Operation TagOperation `json:"operation" yaml:"operation"`
+	Operation TagOperation `field:"optional" json:"operation" yaml:"operation"`
 }
 
 // An operation that is applied to a key-value pair.

@@ -18,6 +18,7 @@ import (
 // Example:
 //   var listener applicationListener
 //
+//
 //   listener.addAction(jsii.String("Fixed"), &addApplicationActionProps{
 //   	priority: jsii.Number(10),
 //   	conditions: []listenerCondition{
@@ -37,7 +38,7 @@ type AddApplicationActionProps struct {
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html
 	//
 	// Experimental.
-	Conditions *[]ListenerCondition `json:"conditions" yaml:"conditions"`
+	Conditions *[]ListenerCondition `field:"optional" json:"conditions" yaml:"conditions"`
 	// Rule applies if the requested host matches the indicated host.
 	//
 	// May contain up to three '*' wildcards.
@@ -46,7 +47,7 @@ type AddApplicationActionProps struct {
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#host-conditions
 	//
 	// Deprecated: Use `conditions` instead.
-	HostHeader *string `json:"hostHeader" yaml:"hostHeader"`
+	HostHeader *string `field:"optional" json:"hostHeader" yaml:"hostHeader"`
 	// Rule applies if the requested path matches the given path pattern.
 	//
 	// May contain up to three '*' wildcards.
@@ -55,7 +56,7 @@ type AddApplicationActionProps struct {
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
 	//
 	// Deprecated: Use `conditions` instead.
-	PathPattern *string `json:"pathPattern" yaml:"pathPattern"`
+	PathPattern *string `field:"optional" json:"pathPattern" yaml:"pathPattern"`
 	// Rule applies if the requested path matches any of the given patterns.
 	//
 	// May contain up to three '*' wildcards.
@@ -64,7 +65,7 @@ type AddApplicationActionProps struct {
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
 	//
 	// Deprecated: Use `conditions` instead.
-	PathPatterns *[]*string `json:"pathPatterns" yaml:"pathPatterns"`
+	PathPatterns *[]*string `field:"optional" json:"pathPatterns" yaml:"pathPatterns"`
 	// Priority of this target group.
 	//
 	// The rule with the lowest priority will be used for every request.
@@ -73,19 +74,22 @@ type AddApplicationActionProps struct {
 	//
 	// Priorities must be unique.
 	// Experimental.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 	// Action to perform.
 	// Experimental.
-	Action ListenerAction `json:"action" yaml:"action"`
+	Action ListenerAction `field:"required" json:"action" yaml:"action"`
 }
 
 // Properties for adding a new target group to a listener.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var applicationTargetGroup applicationTargetGroup
 //   var listenerCondition listenerCondition
+//
 //   addApplicationTargetGroupsProps := &addApplicationTargetGroupsProps{
 //   	targetGroups: []iApplicationTargetGroup{
 //   		applicationTargetGroup,
@@ -109,7 +113,7 @@ type AddApplicationTargetGroupsProps struct {
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html
 	//
 	// Experimental.
-	Conditions *[]ListenerCondition `json:"conditions" yaml:"conditions"`
+	Conditions *[]ListenerCondition `field:"optional" json:"conditions" yaml:"conditions"`
 	// Rule applies if the requested host matches the indicated host.
 	//
 	// May contain up to three '*' wildcards.
@@ -118,7 +122,7 @@ type AddApplicationTargetGroupsProps struct {
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#host-conditions
 	//
 	// Deprecated: Use `conditions` instead.
-	HostHeader *string `json:"hostHeader" yaml:"hostHeader"`
+	HostHeader *string `field:"optional" json:"hostHeader" yaml:"hostHeader"`
 	// Rule applies if the requested path matches the given path pattern.
 	//
 	// May contain up to three '*' wildcards.
@@ -127,7 +131,7 @@ type AddApplicationTargetGroupsProps struct {
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
 	//
 	// Deprecated: Use `conditions` instead.
-	PathPattern *string `json:"pathPattern" yaml:"pathPattern"`
+	PathPattern *string `field:"optional" json:"pathPattern" yaml:"pathPattern"`
 	// Rule applies if the requested path matches any of the given patterns.
 	//
 	// May contain up to three '*' wildcards.
@@ -136,7 +140,7 @@ type AddApplicationTargetGroupsProps struct {
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
 	//
 	// Deprecated: Use `conditions` instead.
-	PathPatterns *[]*string `json:"pathPatterns" yaml:"pathPatterns"`
+	PathPatterns *[]*string `field:"optional" json:"pathPatterns" yaml:"pathPatterns"`
 	// Priority of this target group.
 	//
 	// The rule with the lowest priority will be used for every request.
@@ -145,19 +149,20 @@ type AddApplicationTargetGroupsProps struct {
 	//
 	// Priorities must be unique.
 	// Experimental.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 	// Target groups to forward requests to.
 	// Experimental.
-	TargetGroups *[]IApplicationTargetGroup `json:"targetGroups" yaml:"targetGroups"`
+	TargetGroups *[]IApplicationTargetGroup `field:"required" json:"targetGroups" yaml:"targetGroups"`
 }
 
 // Properties for adding new targets to a listener.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type AutoScalingGroup awscdk.AutoScalingGroup
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //   var asg autoScalingGroup
 //
 //   var vpc vpc
+//
 //
 //   // Create the load balancer in a VPC. 'internetFacing' is 'false'
 //   // by default, which creates an internal load balancer.
@@ -192,7 +197,7 @@ type AddApplicationTargetsProps struct {
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html
 	//
 	// Experimental.
-	Conditions *[]ListenerCondition `json:"conditions" yaml:"conditions"`
+	Conditions *[]ListenerCondition `field:"optional" json:"conditions" yaml:"conditions"`
 	// Rule applies if the requested host matches the indicated host.
 	//
 	// May contain up to three '*' wildcards.
@@ -201,7 +206,7 @@ type AddApplicationTargetsProps struct {
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#host-conditions
 	//
 	// Deprecated: Use `conditions` instead.
-	HostHeader *string `json:"hostHeader" yaml:"hostHeader"`
+	HostHeader *string `field:"optional" json:"hostHeader" yaml:"hostHeader"`
 	// Rule applies if the requested path matches the given path pattern.
 	//
 	// May contain up to three '*' wildcards.
@@ -210,7 +215,7 @@ type AddApplicationTargetsProps struct {
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
 	//
 	// Deprecated: Use `conditions` instead.
-	PathPattern *string `json:"pathPattern" yaml:"pathPattern"`
+	PathPattern *string `field:"optional" json:"pathPattern" yaml:"pathPattern"`
 	// Rule applies if the requested path matches any of the given patterns.
 	//
 	// May contain up to three '*' wildcards.
@@ -219,7 +224,7 @@ type AddApplicationTargetsProps struct {
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
 	//
 	// Deprecated: Use `conditions` instead.
-	PathPatterns *[]*string `json:"pathPatterns" yaml:"pathPatterns"`
+	PathPatterns *[]*string `field:"optional" json:"pathPatterns" yaml:"pathPatterns"`
 	// Priority of this target group.
 	//
 	// The rule with the lowest priority will be used for every request.
@@ -228,34 +233,34 @@ type AddApplicationTargetsProps struct {
 	//
 	// Priorities must be unique.
 	// Experimental.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 	// The amount of time for Elastic Load Balancing to wait before deregistering a target.
 	//
 	// The range is 0-3600 seconds.
 	// Experimental.
-	DeregistrationDelay awscdk.Duration `json:"deregistrationDelay" yaml:"deregistrationDelay"`
+	DeregistrationDelay awscdk.Duration `field:"optional" json:"deregistrationDelay" yaml:"deregistrationDelay"`
 	// Health check configuration.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#aws-resource-elasticloadbalancingv2-targetgroup-properties
 	//
 	// Experimental.
-	HealthCheck *HealthCheck `json:"healthCheck" yaml:"healthCheck"`
+	HealthCheck *HealthCheck `field:"optional" json:"healthCheck" yaml:"healthCheck"`
 	// The load balancing algorithm to select targets for routing requests.
 	// Experimental.
-	LoadBalancingAlgorithmType TargetGroupLoadBalancingAlgorithmType `json:"loadBalancingAlgorithmType" yaml:"loadBalancingAlgorithmType"`
+	LoadBalancingAlgorithmType TargetGroupLoadBalancingAlgorithmType `field:"optional" json:"loadBalancingAlgorithmType" yaml:"loadBalancingAlgorithmType"`
 	// The port on which the listener listens for requests.
 	// Experimental.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// The protocol to use.
 	// Experimental.
-	Protocol ApplicationProtocol `json:"protocol" yaml:"protocol"`
+	Protocol ApplicationProtocol `field:"optional" json:"protocol" yaml:"protocol"`
 	// The protocol version to use.
 	// Experimental.
-	ProtocolVersion ApplicationProtocolVersion `json:"protocolVersion" yaml:"protocolVersion"`
+	ProtocolVersion ApplicationProtocolVersion `field:"optional" json:"protocolVersion" yaml:"protocolVersion"`
 	// The time period during which the load balancer sends a newly registered target a linearly increasing share of the traffic to the target group.
 	//
 	// The range is 30-900 seconds (15 minutes).
 	// Experimental.
-	SlowStart awscdk.Duration `json:"slowStart" yaml:"slowStart"`
+	SlowStart awscdk.Duration `field:"optional" json:"slowStart" yaml:"slowStart"`
 	// The stickiness cookie expiration period.
 	//
 	// Setting this value enables load balancer stickiness.
@@ -263,7 +268,7 @@ type AddApplicationTargetsProps struct {
 	// After this period, the cookie is considered stale. The minimum value is
 	// 1 second and the maximum value is 7 days (604800 seconds).
 	// Experimental.
-	StickinessCookieDuration awscdk.Duration `json:"stickinessCookieDuration" yaml:"stickinessCookieDuration"`
+	StickinessCookieDuration awscdk.Duration `field:"optional" json:"stickinessCookieDuration" yaml:"stickinessCookieDuration"`
 	// The name of an application-based stickiness cookie.
 	//
 	// Names that start with the following prefixes are not allowed: AWSALB, AWSALBAPP,
@@ -274,28 +279,31 @@ type AddApplicationTargetsProps struct {
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/sticky-sessions.html
 	//
 	// Experimental.
-	StickinessCookieName *string `json:"stickinessCookieName" yaml:"stickinessCookieName"`
+	StickinessCookieName *string `field:"optional" json:"stickinessCookieName" yaml:"stickinessCookieName"`
 	// The name of the target group.
 	//
 	// This name must be unique per region per account, can have a maximum of
 	// 32 characters, must contain only alphanumeric characters or hyphens, and
 	// must not begin or end with a hyphen.
 	// Experimental.
-	TargetGroupName *string `json:"targetGroupName" yaml:"targetGroupName"`
+	TargetGroupName *string `field:"optional" json:"targetGroupName" yaml:"targetGroupName"`
 	// The targets to add to this target group.
 	//
 	// Can be `Instance`, `IPAddress`, or any self-registering load balancing
 	// target. All target must be of the same type.
 	// Experimental.
-	Targets *[]IApplicationLoadBalancerTarget `json:"targets" yaml:"targets"`
+	Targets *[]IApplicationLoadBalancerTarget `field:"optional" json:"targets" yaml:"targets"`
 }
 
 // Properties for adding a fixed response to a listener.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var listenerCondition listenerCondition
+//
 //   addFixedResponseProps := &addFixedResponseProps{
 //   	statusCode: jsii.String("statusCode"),
 //
@@ -303,7 +311,7 @@ type AddApplicationTargetsProps struct {
 //   	conditions: []*listenerCondition{
 //   		listenerCondition,
 //   	},
-//   	contentType: elasticloadbalancingv2.contentType_TEXT_PLAIN,
+//   	contentType: awscdk.Aws_elasticloadbalancingv2.contentType_TEXT_PLAIN,
 //   	hostHeader: jsii.String("hostHeader"),
 //   	messageBody: jsii.String("messageBody"),
 //   	pathPattern: jsii.String("pathPattern"),
@@ -319,7 +327,7 @@ type AddFixedResponseProps struct {
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html
 	//
 	// Deprecated: Use `ApplicationListener.addAction` instead.
-	Conditions *[]ListenerCondition `json:"conditions" yaml:"conditions"`
+	Conditions *[]ListenerCondition `field:"optional" json:"conditions" yaml:"conditions"`
 	// Rule applies if the requested host matches the indicated host.
 	//
 	// May contain up to three '*' wildcards.
@@ -328,7 +336,7 @@ type AddFixedResponseProps struct {
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#host-conditions
 	//
 	// Deprecated: Use `conditions` instead.
-	HostHeader *string `json:"hostHeader" yaml:"hostHeader"`
+	HostHeader *string `field:"optional" json:"hostHeader" yaml:"hostHeader"`
 	// Rule applies if the requested path matches the given path pattern.
 	//
 	// May contain up to three '*' wildcards.
@@ -337,7 +345,7 @@ type AddFixedResponseProps struct {
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
 	//
 	// Deprecated: Use `conditions` instead.
-	PathPattern *string `json:"pathPattern" yaml:"pathPattern"`
+	PathPattern *string `field:"optional" json:"pathPattern" yaml:"pathPattern"`
 	// Rule applies if the requested path matches any of the given patterns.
 	//
 	// May contain up to three '*' wildcards.
@@ -346,7 +354,7 @@ type AddFixedResponseProps struct {
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
 	//
 	// Deprecated: Use `conditions` instead.
-	PathPatterns *[]*string `json:"pathPatterns" yaml:"pathPatterns"`
+	PathPatterns *[]*string `field:"optional" json:"pathPatterns" yaml:"pathPatterns"`
 	// Priority of this target group.
 	//
 	// The rule with the lowest priority will be used for every request.
@@ -355,24 +363,27 @@ type AddFixedResponseProps struct {
 	//
 	// Priorities must be unique.
 	// Deprecated: Use `ApplicationListener.addAction` instead.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 	// The HTTP response code (2XX, 4XX or 5XX).
 	// Deprecated: Use `ApplicationListener.addAction` instead.
-	StatusCode *string `json:"statusCode" yaml:"statusCode"`
+	StatusCode *string `field:"required" json:"statusCode" yaml:"statusCode"`
 	// The content type.
 	// Deprecated: Use `ApplicationListener.addAction` instead.
-	ContentType ContentType `json:"contentType" yaml:"contentType"`
+	ContentType ContentType `field:"optional" json:"contentType" yaml:"contentType"`
 	// The message.
 	// Deprecated: Use `ApplicationListener.addAction` instead.
-	MessageBody *string `json:"messageBody" yaml:"messageBody"`
+	MessageBody *string `field:"optional" json:"messageBody" yaml:"messageBody"`
 }
 
 // Properties for adding a new action to a listener.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var networkListenerAction networkListenerAction
+//
 //   addNetworkActionProps := &addNetworkActionProps{
 //   	action: networkListenerAction,
 //   }
@@ -381,13 +392,14 @@ type AddFixedResponseProps struct {
 type AddNetworkActionProps struct {
 	// Action to perform.
 	// Experimental.
-	Action NetworkListenerAction `json:"action" yaml:"action"`
+	Action NetworkListenerAction `field:"required" json:"action" yaml:"action"`
 }
 
 // Properties for adding new network targets to a listener.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpNlbIntegration awscdk.HttpNlbIntegration
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   vpc := ec2.NewVpc(this, jsii.String("VPC"))
 //   lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("lb"), &networkLoadBalancerProps{
@@ -401,55 +413,58 @@ type AddNetworkActionProps struct {
 //   })
 //
 //   httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &httpApiProps{
-//   	defaultIntegration: NewHttpNlbIntegration(jsii.String("DefaultIntegration"), listener),
+//   	defaultIntegration: awscdk.NewHttpNlbIntegration(jsii.String("DefaultIntegration"), listener),
 //   })
 //
 // Experimental.
 type AddNetworkTargetsProps struct {
 	// The port on which the listener listens for requests.
 	// Experimental.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"required" json:"port" yaml:"port"`
 	// The amount of time for Elastic Load Balancing to wait before deregistering a target.
 	//
 	// The range is 0-3600 seconds.
 	// Experimental.
-	DeregistrationDelay awscdk.Duration `json:"deregistrationDelay" yaml:"deregistrationDelay"`
+	DeregistrationDelay awscdk.Duration `field:"optional" json:"deregistrationDelay" yaml:"deregistrationDelay"`
 	// Health check configuration.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#aws-resource-elasticloadbalancingv2-targetgroup-properties
 	//
 	// Experimental.
-	HealthCheck *HealthCheck `json:"healthCheck" yaml:"healthCheck"`
+	HealthCheck *HealthCheck `field:"optional" json:"healthCheck" yaml:"healthCheck"`
 	// Indicates whether client IP preservation is enabled.
 	// Experimental.
-	PreserveClientIp *bool `json:"preserveClientIp" yaml:"preserveClientIp"`
+	PreserveClientIp *bool `field:"optional" json:"preserveClientIp" yaml:"preserveClientIp"`
 	// Protocol for target group, expects TCP, TLS, UDP, or TCP_UDP.
 	// Experimental.
-	Protocol Protocol `json:"protocol" yaml:"protocol"`
+	Protocol Protocol `field:"optional" json:"protocol" yaml:"protocol"`
 	// Indicates whether Proxy Protocol version 2 is enabled.
 	// Experimental.
-	ProxyProtocolV2 *bool `json:"proxyProtocolV2" yaml:"proxyProtocolV2"`
+	ProxyProtocolV2 *bool `field:"optional" json:"proxyProtocolV2" yaml:"proxyProtocolV2"`
 	// The name of the target group.
 	//
 	// This name must be unique per region per account, can have a maximum of
 	// 32 characters, must contain only alphanumeric characters or hyphens, and
 	// must not begin or end with a hyphen.
 	// Experimental.
-	TargetGroupName *string `json:"targetGroupName" yaml:"targetGroupName"`
+	TargetGroupName *string `field:"optional" json:"targetGroupName" yaml:"targetGroupName"`
 	// The targets to add to this target group.
 	//
 	// Can be `Instance`, `IPAddress`, or any self-registering load balancing
 	// target. If you use either `Instance` or `IPAddress` as targets, all
 	// target must be of the same type.
 	// Experimental.
-	Targets *[]INetworkLoadBalancerTarget `json:"targets" yaml:"targets"`
+	Targets *[]INetworkLoadBalancerTarget `field:"optional" json:"targets" yaml:"targets"`
 }
 
 // Properties for adding a redirect response to a listener.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var listenerCondition listenerCondition
+//
 //   addRedirectResponseProps := &addRedirectResponseProps{
 //   	statusCode: jsii.String("statusCode"),
 //
@@ -476,7 +491,7 @@ type AddRedirectResponseProps struct {
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html
 	//
 	// Deprecated: Use `ApplicationListener.addAction` instead.
-	Conditions *[]ListenerCondition `json:"conditions" yaml:"conditions"`
+	Conditions *[]ListenerCondition `field:"optional" json:"conditions" yaml:"conditions"`
 	// Rule applies if the requested host matches the indicated host.
 	//
 	// May contain up to three '*' wildcards.
@@ -485,7 +500,7 @@ type AddRedirectResponseProps struct {
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#host-conditions
 	//
 	// Deprecated: Use `conditions` instead.
-	HostHeader *string `json:"hostHeader" yaml:"hostHeader"`
+	HostHeader *string `field:"optional" json:"hostHeader" yaml:"hostHeader"`
 	// Rule applies if the requested path matches the given path pattern.
 	//
 	// May contain up to three '*' wildcards.
@@ -494,7 +509,7 @@ type AddRedirectResponseProps struct {
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
 	//
 	// Deprecated: Use `conditions` instead.
-	PathPattern *string `json:"pathPattern" yaml:"pathPattern"`
+	PathPattern *string `field:"optional" json:"pathPattern" yaml:"pathPattern"`
 	// Rule applies if the requested path matches any of the given patterns.
 	//
 	// May contain up to three '*' wildcards.
@@ -503,7 +518,7 @@ type AddRedirectResponseProps struct {
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
 	//
 	// Deprecated: Use `conditions` instead.
-	PathPatterns *[]*string `json:"pathPatterns" yaml:"pathPatterns"`
+	PathPatterns *[]*string `field:"optional" json:"pathPatterns" yaml:"pathPatterns"`
 	// Priority of this target group.
 	//
 	// The rule with the lowest priority will be used for every request.
@@ -512,46 +527,49 @@ type AddRedirectResponseProps struct {
 	//
 	// Priorities must be unique.
 	// Deprecated: Use `ApplicationListener.addAction` instead.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 	// The HTTP redirect code (HTTP_301 or HTTP_302).
 	// Deprecated: Use `ApplicationListener.addAction` instead.
-	StatusCode *string `json:"statusCode" yaml:"statusCode"`
+	StatusCode *string `field:"required" json:"statusCode" yaml:"statusCode"`
 	// The hostname.
 	//
 	// This component is not percent-encoded. The hostname can contain #{host}.
 	// Deprecated: Use `ApplicationListener.addAction` instead.
-	Host *string `json:"host" yaml:"host"`
+	Host *string `field:"optional" json:"host" yaml:"host"`
 	// The absolute path, starting with the leading "/".
 	//
 	// This component is not percent-encoded.
 	// The path can contain #{host}, #{path}, and #{port}.
 	// Deprecated: Use `ApplicationListener.addAction` instead.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 	// The port.
 	//
 	// You can specify a value from 1 to 65535 or #{port}.
 	// Deprecated: Use `ApplicationListener.addAction` instead.
-	Port *string `json:"port" yaml:"port"`
+	Port *string `field:"optional" json:"port" yaml:"port"`
 	// The protocol.
 	//
 	// You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP,
 	// HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
 	// Deprecated: Use `ApplicationListener.addAction` instead.
-	Protocol *string `json:"protocol" yaml:"protocol"`
+	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`
 	// The query parameters, URL-encoded when necessary, but not percent-encoded.
 	//
 	// Do not include the leading "?", as it is automatically added.
 	// You can specify any of the reserved keywords.
 	// Deprecated: Use `ApplicationListener.addAction` instead.
-	Query *string `json:"query" yaml:"query"`
+	Query *string `field:"optional" json:"query" yaml:"query"`
 }
 
 // Properties for adding a conditional load balancing rule.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var listenerCondition listenerCondition
+//
 //   addRuleProps := &addRuleProps{
 //   	conditions: []*listenerCondition{
 //   		listenerCondition,
@@ -570,7 +588,7 @@ type AddRuleProps struct {
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html
 	//
 	// Experimental.
-	Conditions *[]ListenerCondition `json:"conditions" yaml:"conditions"`
+	Conditions *[]ListenerCondition `field:"optional" json:"conditions" yaml:"conditions"`
 	// Rule applies if the requested host matches the indicated host.
 	//
 	// May contain up to three '*' wildcards.
@@ -579,7 +597,7 @@ type AddRuleProps struct {
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#host-conditions
 	//
 	// Deprecated: Use `conditions` instead.
-	HostHeader *string `json:"hostHeader" yaml:"hostHeader"`
+	HostHeader *string `field:"optional" json:"hostHeader" yaml:"hostHeader"`
 	// Rule applies if the requested path matches the given path pattern.
 	//
 	// May contain up to three '*' wildcards.
@@ -588,7 +606,7 @@ type AddRuleProps struct {
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
 	//
 	// Deprecated: Use `conditions` instead.
-	PathPattern *string `json:"pathPattern" yaml:"pathPattern"`
+	PathPattern *string `field:"optional" json:"pathPattern" yaml:"pathPattern"`
 	// Rule applies if the requested path matches any of the given patterns.
 	//
 	// May contain up to three '*' wildcards.
@@ -597,7 +615,7 @@ type AddRuleProps struct {
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
 	//
 	// Deprecated: Use `conditions` instead.
-	PathPatterns *[]*string `json:"pathPatterns" yaml:"pathPatterns"`
+	PathPatterns *[]*string `field:"optional" json:"pathPatterns" yaml:"pathPatterns"`
 	// Priority of this target group.
 	//
 	// The rule with the lowest priority will be used for every request.
@@ -606,7 +624,7 @@ type AddRuleProps struct {
 	//
 	// Priorities must be unique.
 	// Experimental.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 }
 
 // Application-Layer Protocol Negotiation Policies for network load balancers.
@@ -641,6 +659,7 @@ const (
 //   import elbv2 "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var alb applicationLoadBalancer
+//
 //   listener := alb.addListener(jsii.String("Listener"), &baseApplicationListenerProps{
 //   	port: jsii.Number(80),
 //   })
@@ -1186,9 +1205,13 @@ func (a *jsiiProxy_ApplicationListener) Validate() *[]*string {
 // Properties to reference an existing listener.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var securityGroup securityGroup
+//
 //   applicationListenerAttributes := &applicationListenerAttributes{
 //   	listenerArn: jsii.String("listenerArn"),
 //
@@ -1203,31 +1226,34 @@ func (a *jsiiProxy_ApplicationListener) Validate() *[]*string {
 type ApplicationListenerAttributes struct {
 	// ARN of the listener.
 	// Experimental.
-	ListenerArn *string `json:"listenerArn" yaml:"listenerArn"`
+	ListenerArn *string `field:"required" json:"listenerArn" yaml:"listenerArn"`
 	// The default port on which this listener is listening.
 	// Experimental.
-	DefaultPort *float64 `json:"defaultPort" yaml:"defaultPort"`
+	DefaultPort *float64 `field:"optional" json:"defaultPort" yaml:"defaultPort"`
 	// Security group of the load balancer this listener is associated with.
 	// Experimental.
-	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup" yaml:"securityGroup"`
+	SecurityGroup awsec2.ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
 	// Whether the imported security group allows all outbound traffic or not when imported using `securityGroupId`.
 	//
 	// Unless set to `false`, no egress rules will be added to the security group.
 	// Deprecated: use `securityGroup` instead.
-	SecurityGroupAllowsAllOutbound *bool `json:"securityGroupAllowsAllOutbound" yaml:"securityGroupAllowsAllOutbound"`
+	SecurityGroupAllowsAllOutbound *bool `field:"optional" json:"securityGroupAllowsAllOutbound" yaml:"securityGroupAllowsAllOutbound"`
 	// Security group ID of the load balancer this listener is associated with.
 	// Deprecated: use `securityGroup` instead.
-	SecurityGroupId *string `json:"securityGroupId" yaml:"securityGroupId"`
+	SecurityGroupId *string `field:"optional" json:"securityGroupId" yaml:"securityGroupId"`
 }
 
 // Add certificates to a listener.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var applicationListener applicationListener
 //   var listenerCertificate listenerCertificate
-//   applicationListenerCertificate := elasticloadbalancingv2.NewApplicationListenerCertificate(this, jsii.String("MyApplicationListenerCertificate"), &applicationListenerCertificateProps{
+//
+//   applicationListenerCertificate := awscdk.Aws_elasticloadbalancingv2.NewApplicationListenerCertificate(this, jsii.String("MyApplicationListenerCertificate"), &applicationListenerCertificateProps{
 //   	listener: applicationListener,
 //
 //   	// the properties below are optional
@@ -1431,10 +1457,13 @@ func (a *jsiiProxy_ApplicationListenerCertificate) Validate() *[]*string {
 // Properties for adding a set of certificates to a listener.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var applicationListener applicationListener
 //   var listenerCertificate listenerCertificate
+//
 //   applicationListenerCertificateProps := &applicationListenerCertificateProps{
 //   	listener: applicationListener,
 //
@@ -1451,17 +1480,17 @@ func (a *jsiiProxy_ApplicationListenerCertificate) Validate() *[]*string {
 type ApplicationListenerCertificateProps struct {
 	// The listener to attach the rule to.
 	// Experimental.
-	Listener IApplicationListener `json:"listener" yaml:"listener"`
+	Listener IApplicationListener `field:"required" json:"listener" yaml:"listener"`
 	// ARNs of certificates to attach.
 	//
 	// Duplicates are not allowed.
 	// Deprecated: Use `certificates` instead.
-	CertificateArns *[]*string `json:"certificateArns" yaml:"certificateArns"`
+	CertificateArns *[]*string `field:"optional" json:"certificateArns" yaml:"certificateArns"`
 	// Certificates to attach.
 	//
 	// Duplicates are not allowed.
 	// Experimental.
-	Certificates *[]IListenerCertificate `json:"certificates" yaml:"certificates"`
+	Certificates *[]IListenerCertificate `field:"optional" json:"certificates" yaml:"certificates"`
 }
 
 // Options for ApplicationListener lookup.
@@ -1477,30 +1506,33 @@ type ApplicationListenerCertificateProps struct {
 type ApplicationListenerLookupOptions struct {
 	// Filter listeners by listener port.
 	// Experimental.
-	ListenerPort *float64 `json:"listenerPort" yaml:"listenerPort"`
+	ListenerPort *float64 `field:"optional" json:"listenerPort" yaml:"listenerPort"`
 	// Filter listeners by associated load balancer arn.
 	// Experimental.
-	LoadBalancerArn *string `json:"loadBalancerArn" yaml:"loadBalancerArn"`
+	LoadBalancerArn *string `field:"optional" json:"loadBalancerArn" yaml:"loadBalancerArn"`
 	// Filter listeners by associated load balancer tags.
 	// Experimental.
-	LoadBalancerTags *map[string]*string `json:"loadBalancerTags" yaml:"loadBalancerTags"`
+	LoadBalancerTags *map[string]*string `field:"optional" json:"loadBalancerTags" yaml:"loadBalancerTags"`
 	// ARN of the listener to look up.
 	// Experimental.
-	ListenerArn *string `json:"listenerArn" yaml:"listenerArn"`
+	ListenerArn *string `field:"optional" json:"listenerArn" yaml:"listenerArn"`
 	// Filter listeners by listener protocol.
 	// Experimental.
-	ListenerProtocol ApplicationProtocol `json:"listenerProtocol" yaml:"listenerProtocol"`
+	ListenerProtocol ApplicationProtocol `field:"optional" json:"listenerProtocol" yaml:"listenerProtocol"`
 }
 
 // Properties for defining a standalone ApplicationListener.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var applicationLoadBalancer applicationLoadBalancer
 //   var applicationTargetGroup applicationTargetGroup
 //   var listenerAction listenerAction
 //   var listenerCertificate listenerCertificate
+//
 //   applicationListenerProps := &applicationListenerProps{
 //   	loadBalancer: applicationLoadBalancer,
 //
@@ -1517,20 +1549,20 @@ type ApplicationListenerLookupOptions struct {
 //   	},
 //   	open: jsii.Boolean(false),
 //   	port: jsii.Number(123),
-//   	protocol: elasticloadbalancingv2.applicationProtocol_HTTP,
-//   	sslPolicy: elasticloadbalancingv2.sslPolicy_RECOMMENDED,
+//   	protocol: awscdk.Aws_elasticloadbalancingv2.applicationProtocol_HTTP,
+//   	sslPolicy: awscdk.*Aws_elasticloadbalancingv2.sslPolicy_RECOMMENDED,
 //   }
 //
 // Experimental.
 type ApplicationListenerProps struct {
 	// The certificates to use on this listener.
 	// Deprecated: Use the `certificates` property instead.
-	CertificateArns *[]*string `json:"certificateArns" yaml:"certificateArns"`
+	CertificateArns *[]*string `field:"optional" json:"certificateArns" yaml:"certificateArns"`
 	// Certificate list of ACM cert ARNs.
 	//
 	// You must provide exactly one certificate if the listener protocol is HTTPS or TLS.
 	// Experimental.
-	Certificates *[]IListenerCertificate `json:"certificates" yaml:"certificates"`
+	Certificates *[]IListenerCertificate `field:"optional" json:"certificates" yaml:"certificates"`
 	// Default action to take for requests to this listener.
 	//
 	// This allows full control of the default action of the load balancer,
@@ -1540,7 +1572,7 @@ type ApplicationListenerProps struct {
 	//
 	// Cannot be specified together with `defaultTargetGroups`.
 	// Experimental.
-	DefaultAction ListenerAction `json:"defaultAction" yaml:"defaultAction"`
+	DefaultAction ListenerAction `field:"optional" json:"defaultAction" yaml:"defaultAction"`
 	// Default target groups to load balance to.
 	//
 	// All target groups will be load balanced to with equal weight and without
@@ -1549,7 +1581,7 @@ type ApplicationListenerProps struct {
 	//
 	// Cannot be specified together with `defaultAction`.
 	// Experimental.
-	DefaultTargetGroups *[]IApplicationTargetGroup `json:"defaultTargetGroups" yaml:"defaultTargetGroups"`
+	DefaultTargetGroups *[]IApplicationTargetGroup `field:"optional" json:"defaultTargetGroups" yaml:"defaultTargetGroups"`
 	// Allow anyone to connect to the load balancer on the listener port.
 	//
 	// If this is specified, the load balancer will be opened up to anyone who can reach it.
@@ -1560,31 +1592,34 @@ type ApplicationListenerProps struct {
 	// balancer, set this to `false` and use the listener's `connections`
 	// object to selectively grant access to the load balancer on the listener port.
 	// Experimental.
-	Open *bool `json:"open" yaml:"open"`
+	Open *bool `field:"optional" json:"open" yaml:"open"`
 	// The port on which the listener listens for requests.
 	// Experimental.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// The protocol to use.
 	// Experimental.
-	Protocol ApplicationProtocol `json:"protocol" yaml:"protocol"`
+	Protocol ApplicationProtocol `field:"optional" json:"protocol" yaml:"protocol"`
 	// The security policy that defines which ciphers and protocols are supported.
 	// Experimental.
-	SslPolicy SslPolicy `json:"sslPolicy" yaml:"sslPolicy"`
+	SslPolicy SslPolicy `field:"optional" json:"sslPolicy" yaml:"sslPolicy"`
 	// The load balancer to attach this listener to.
 	// Experimental.
-	LoadBalancer IApplicationLoadBalancer `json:"loadBalancer" yaml:"loadBalancer"`
+	LoadBalancer IApplicationLoadBalancer `field:"required" json:"loadBalancer" yaml:"loadBalancer"`
 }
 
 // Define a new listener rule.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var applicationListener applicationListener
 //   var applicationTargetGroup applicationTargetGroup
 //   var listenerAction listenerAction
 //   var listenerCondition listenerCondition
-//   applicationListenerRule := elasticloadbalancingv2.NewApplicationListenerRule(this, jsii.String("MyApplicationListenerRule"), &applicationListenerRuleProps{
+//
+//   applicationListenerRule := awscdk.Aws_elasticloadbalancingv2.NewApplicationListenerRule(this, jsii.String("MyApplicationListenerRule"), &applicationListenerRuleProps{
 //   	listener: applicationListener,
 //   	priority: jsii.Number(123),
 //
@@ -1597,7 +1632,7 @@ type ApplicationListenerProps struct {
 //   		statusCode: jsii.String("statusCode"),
 //
 //   		// the properties below are optional
-//   		contentType: elasticloadbalancingv2.contentType_TEXT_PLAIN,
+//   		contentType: awscdk.*Aws_elasticloadbalancingv2.contentType_TEXT_PLAIN,
 //   		messageBody: jsii.String("messageBody"),
 //   	},
 //   	hostHeader: jsii.String("hostHeader"),
@@ -1888,12 +1923,15 @@ func (a *jsiiProxy_ApplicationListenerRule) Validate() *[]*string {
 // Properties for defining a listener rule.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var applicationListener applicationListener
 //   var applicationTargetGroup applicationTargetGroup
 //   var listenerAction listenerAction
 //   var listenerCondition listenerCondition
+//
 //   applicationListenerRuleProps := &applicationListenerRuleProps{
 //   	listener: applicationListener,
 //   	priority: jsii.Number(123),
@@ -1907,7 +1945,7 @@ func (a *jsiiProxy_ApplicationListenerRule) Validate() *[]*string {
 //   		statusCode: jsii.String("statusCode"),
 //
 //   		// the properties below are optional
-//   		contentType: elasticloadbalancingv2.contentType_TEXT_PLAIN,
+//   		contentType: awscdk.Aws_elasticloadbalancingv2.contentType_TEXT_PLAIN,
 //   		messageBody: jsii.String("messageBody"),
 //   	},
 //   	hostHeader: jsii.String("hostHeader"),
@@ -1938,62 +1976,63 @@ type ApplicationListenerRuleProps struct {
 	//
 	// Priorities must be unique.
 	// Experimental.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"required" json:"priority" yaml:"priority"`
 	// Action to perform when requests are received.
 	//
 	// Only one of `action`, `fixedResponse`, `redirectResponse` or `targetGroups` can be specified.
 	// Experimental.
-	Action ListenerAction `json:"action" yaml:"action"`
+	Action ListenerAction `field:"optional" json:"action" yaml:"action"`
 	// Rule applies if matches the conditions.
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html
 	//
 	// Experimental.
-	Conditions *[]ListenerCondition `json:"conditions" yaml:"conditions"`
+	Conditions *[]ListenerCondition `field:"optional" json:"conditions" yaml:"conditions"`
 	// Fixed response to return.
 	//
 	// Only one of `action`, `fixedResponse`, `redirectResponse` or `targetGroups` can be specified.
 	// Deprecated: Use `action` instead.
-	FixedResponse *FixedResponse `json:"fixedResponse" yaml:"fixedResponse"`
+	FixedResponse *FixedResponse `field:"optional" json:"fixedResponse" yaml:"fixedResponse"`
 	// Rule applies if the requested host matches the indicated host.
 	//
 	// May contain up to three '*' wildcards.
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#host-conditions
 	//
 	// Deprecated: Use `conditions` instead.
-	HostHeader *string `json:"hostHeader" yaml:"hostHeader"`
+	HostHeader *string `field:"optional" json:"hostHeader" yaml:"hostHeader"`
 	// Rule applies if the requested path matches the given path pattern.
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
 	//
 	// Deprecated: Use `conditions` instead.
-	PathPattern *string `json:"pathPattern" yaml:"pathPattern"`
+	PathPattern *string `field:"optional" json:"pathPattern" yaml:"pathPattern"`
 	// Rule applies if the requested path matches any of the given patterns.
 	//
 	// Paths may contain up to three '*' wildcards.
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
 	//
 	// Deprecated: Use `conditions` instead.
-	PathPatterns *[]*string `json:"pathPatterns" yaml:"pathPatterns"`
+	PathPatterns *[]*string `field:"optional" json:"pathPatterns" yaml:"pathPatterns"`
 	// Redirect response to return.
 	//
 	// Only one of `action`, `fixedResponse`, `redirectResponse` or `targetGroups` can be specified.
 	// Deprecated: Use `action` instead.
-	RedirectResponse *RedirectResponse `json:"redirectResponse" yaml:"redirectResponse"`
+	RedirectResponse *RedirectResponse `field:"optional" json:"redirectResponse" yaml:"redirectResponse"`
 	// Target groups to forward requests to.
 	//
 	// Only one of `action`, `fixedResponse`, `redirectResponse` or `targetGroups` can be specified.
 	//
 	// Implies a `forward` action.
 	// Experimental.
-	TargetGroups *[]IApplicationTargetGroup `json:"targetGroups" yaml:"targetGroups"`
+	TargetGroups *[]IApplicationTargetGroup `field:"optional" json:"targetGroups" yaml:"targetGroups"`
 	// The listener to attach the rule to.
 	// Experimental.
-	Listener IApplicationListener `json:"listener" yaml:"listener"`
+	Listener IApplicationListener `field:"required" json:"listener" yaml:"listener"`
 }
 
 // Define an Application Load Balancer.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpAlbIntegration awscdk.HttpAlbIntegration
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   vpc := ec2.NewVpc(this, jsii.String("VPC"))
 //   lb := elbv2.NewApplicationLoadBalancer(this, jsii.String("lb"), &applicationLoadBalancerProps{
@@ -2007,7 +2046,7 @@ type ApplicationListenerRuleProps struct {
 //   })
 //
 //   httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &httpApiProps{
-//   	defaultIntegration: NewHttpAlbIntegration(jsii.String("DefaultIntegration"), listener),
+//   	defaultIntegration: awscdk.NewHttpAlbIntegration(jsii.String("DefaultIntegration"), listener),
 //   })
 //
 // Experimental.
@@ -2992,9 +3031,13 @@ func (a *jsiiProxy_ApplicationLoadBalancer) Validate() *[]*string {
 // Properties to reference an existing load balancer.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var vpc vpc
+//
 //   applicationLoadBalancerAttributes := &applicationLoadBalancerAttributes{
 //   	loadBalancerArn: jsii.String("loadBalancerArn"),
 //   	securityGroupId: jsii.String("securityGroupId"),
@@ -3010,24 +3053,24 @@ func (a *jsiiProxy_ApplicationLoadBalancer) Validate() *[]*string {
 type ApplicationLoadBalancerAttributes struct {
 	// ARN of the load balancer.
 	// Experimental.
-	LoadBalancerArn *string `json:"loadBalancerArn" yaml:"loadBalancerArn"`
+	LoadBalancerArn *string `field:"required" json:"loadBalancerArn" yaml:"loadBalancerArn"`
 	// ID of the load balancer's security group.
 	// Experimental.
-	SecurityGroupId *string `json:"securityGroupId" yaml:"securityGroupId"`
+	SecurityGroupId *string `field:"required" json:"securityGroupId" yaml:"securityGroupId"`
 	// The canonical hosted zone ID of this load balancer.
 	// Experimental.
-	LoadBalancerCanonicalHostedZoneId *string `json:"loadBalancerCanonicalHostedZoneId" yaml:"loadBalancerCanonicalHostedZoneId"`
+	LoadBalancerCanonicalHostedZoneId *string `field:"optional" json:"loadBalancerCanonicalHostedZoneId" yaml:"loadBalancerCanonicalHostedZoneId"`
 	// The DNS name of this load balancer.
 	// Experimental.
-	LoadBalancerDnsName *string `json:"loadBalancerDnsName" yaml:"loadBalancerDnsName"`
+	LoadBalancerDnsName *string `field:"optional" json:"loadBalancerDnsName" yaml:"loadBalancerDnsName"`
 	// Whether the security group allows all outbound traffic or not.
 	//
 	// Unless set to `false`, no egress rules will be added to the security group.
 	// Experimental.
-	SecurityGroupAllowsAllOutbound *bool `json:"securityGroupAllowsAllOutbound" yaml:"securityGroupAllowsAllOutbound"`
+	SecurityGroupAllowsAllOutbound *bool `field:"optional" json:"securityGroupAllowsAllOutbound" yaml:"securityGroupAllowsAllOutbound"`
 	// The VPC this load balancer has been created in, if available.
 	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
+	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 }
 
 // Options for looking up an ApplicationLoadBalancer.
@@ -3041,10 +3084,10 @@ type ApplicationLoadBalancerAttributes struct {
 type ApplicationLoadBalancerLookupOptions struct {
 	// Find by load balancer's ARN.
 	// Experimental.
-	LoadBalancerArn *string `json:"loadBalancerArn" yaml:"loadBalancerArn"`
+	LoadBalancerArn *string `field:"optional" json:"loadBalancerArn" yaml:"loadBalancerArn"`
 	// Match load balancer tags.
 	// Experimental.
-	LoadBalancerTags *map[string]*string `json:"loadBalancerTags" yaml:"loadBalancerTags"`
+	LoadBalancerTags *map[string]*string `field:"optional" json:"loadBalancerTags" yaml:"loadBalancerTags"`
 }
 
 // Properties for defining an Application Load Balancer.
@@ -3053,6 +3096,7 @@ type ApplicationLoadBalancerLookupOptions struct {
 //   var cluster cluster
 //   var taskDefinition taskDefinition
 //   var vpc vpc
+//
 //   service := ecs.NewFargateService(this, jsii.String("Service"), &fargateServiceProps{
 //   	cluster: cluster,
 //   	taskDefinition: taskDefinition,
@@ -3078,39 +3122,40 @@ type ApplicationLoadBalancerLookupOptions struct {
 type ApplicationLoadBalancerProps struct {
 	// The VPC network to place the load balancer in.
 	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
+	Vpc awsec2.IVpc `field:"required" json:"vpc" yaml:"vpc"`
 	// Indicates whether deletion protection is enabled.
 	// Experimental.
-	DeletionProtection *bool `json:"deletionProtection" yaml:"deletionProtection"`
+	DeletionProtection *bool `field:"optional" json:"deletionProtection" yaml:"deletionProtection"`
 	// Whether the load balancer has an internet-routable address.
 	// Experimental.
-	InternetFacing *bool `json:"internetFacing" yaml:"internetFacing"`
+	InternetFacing *bool `field:"optional" json:"internetFacing" yaml:"internetFacing"`
 	// Name of the load balancer.
 	// Experimental.
-	LoadBalancerName *string `json:"loadBalancerName" yaml:"loadBalancerName"`
+	LoadBalancerName *string `field:"optional" json:"loadBalancerName" yaml:"loadBalancerName"`
 	// Which subnets place the load balancer in.
 	// Experimental.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 	// Indicates whether HTTP/2 is enabled.
 	// Experimental.
-	Http2Enabled *bool `json:"http2Enabled" yaml:"http2Enabled"`
+	Http2Enabled *bool `field:"optional" json:"http2Enabled" yaml:"http2Enabled"`
 	// The load balancer idle timeout, in seconds.
 	// Experimental.
-	IdleTimeout awscdk.Duration `json:"idleTimeout" yaml:"idleTimeout"`
+	IdleTimeout awscdk.Duration `field:"optional" json:"idleTimeout" yaml:"idleTimeout"`
 	// The type of IP addresses to use.
 	//
 	// Only applies to application load balancers.
 	// Experimental.
-	IpAddressType IpAddressType `json:"ipAddressType" yaml:"ipAddressType"`
+	IpAddressType IpAddressType `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
 	// Security group to associate with this load balancer.
 	// Experimental.
-	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup" yaml:"securityGroup"`
+	SecurityGroup awsec2.ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
 }
 
 // Properties for a redirection config.
 //
 // Example:
 //   var lb applicationLoadBalancer
+//
 //
 //   lb.addRedirect(&applicationLoadBalancerRedirectConfig{
 //   	sourceProtocol: elbv2.applicationProtocol_HTTPS,
@@ -3131,19 +3176,19 @@ type ApplicationLoadBalancerRedirectConfig struct {
 	// balancer, set this to `false` and use the listener's `connections`
 	// object to selectively grant access to the listener.
 	// Experimental.
-	Open *bool `json:"open" yaml:"open"`
+	Open *bool `field:"optional" json:"open" yaml:"open"`
 	// The port number to listen to.
 	// Experimental.
-	SourcePort *float64 `json:"sourcePort" yaml:"sourcePort"`
+	SourcePort *float64 `field:"optional" json:"sourcePort" yaml:"sourcePort"`
 	// The protocol of the listener being created.
 	// Experimental.
-	SourceProtocol ApplicationProtocol `json:"sourceProtocol" yaml:"sourceProtocol"`
+	SourceProtocol ApplicationProtocol `field:"optional" json:"sourceProtocol" yaml:"sourceProtocol"`
 	// The port number to redirect to.
 	// Experimental.
-	TargetPort *float64 `json:"targetPort" yaml:"targetPort"`
+	TargetPort *float64 `field:"optional" json:"targetPort" yaml:"targetPort"`
 	// The protocol of the redirection target.
 	// Experimental.
-	TargetProtocol ApplicationProtocol `json:"targetProtocol" yaml:"targetProtocol"`
+	TargetProtocol ApplicationProtocol `field:"optional" json:"targetProtocol" yaml:"targetProtocol"`
 }
 
 // Load balancing protocol for application load balancers.
@@ -3151,6 +3196,7 @@ type ApplicationLoadBalancerRedirectConfig struct {
 // Example:
 //   var listener applicationListener
 //   var service baseService
+//
 //   service.registerLoadBalancerTargets(&ecsTarget{
 //   	containerName: jsii.String("web"),
 //   	containerPort: jsii.Number(80),
@@ -3176,6 +3222,7 @@ const (
 //
 // Example:
 //   var vpc vpc
+//
 //
 //   tg := elbv2.NewApplicationTargetGroup(this, jsii.String("TG"), &applicationTargetGroupProps{
 //   	targetType: elbv2.targetType_IP,
@@ -3209,11 +3256,12 @@ const (
 // Example:
 //   var vpc vpc
 //
+//
 //   // Target group with duration-based stickiness with load-balancer generated cookie
 //   tg1 := elbv2.NewApplicationTargetGroup(this, jsii.String("TG1"), &applicationTargetGroupProps{
 //   	targetType: elbv2.targetType_INSTANCE,
 //   	port: jsii.Number(80),
-//   	stickinessCookieDuration: duration.minutes(jsii.Number(5)),
+//   	stickinessCookieDuration: awscdk.Duration.minutes(jsii.Number(5)),
 //   	vpc: vpc,
 //   })
 //
@@ -3221,7 +3269,7 @@ const (
 //   tg2 := elbv2.NewApplicationTargetGroup(this, jsii.String("TG2"), &applicationTargetGroupProps{
 //   	targetType: elbv2.*targetType_INSTANCE,
 //   	port: jsii.Number(80),
-//   	stickinessCookieDuration: *duration.minutes(jsii.Number(5)),
+//   	stickinessCookieDuration: awscdk.Duration.minutes(jsii.Number(5)),
 //   	stickinessCookieName: jsii.String("MyDeliciousCookie"),
 //   	vpc: vpc,
 //   })
@@ -3882,11 +3930,12 @@ func (a *jsiiProxy_ApplicationTargetGroup) Validate() *[]*string {
 // Example:
 //   var vpc vpc
 //
+//
 //   // Target group with duration-based stickiness with load-balancer generated cookie
 //   tg1 := elbv2.NewApplicationTargetGroup(this, jsii.String("TG1"), &applicationTargetGroupProps{
 //   	targetType: elbv2.targetType_INSTANCE,
 //   	port: jsii.Number(80),
-//   	stickinessCookieDuration: duration.minutes(jsii.Number(5)),
+//   	stickinessCookieDuration: awscdk.Duration.minutes(jsii.Number(5)),
 //   	vpc: vpc,
 //   })
 //
@@ -3894,7 +3943,7 @@ func (a *jsiiProxy_ApplicationTargetGroup) Validate() *[]*string {
 //   tg2 := elbv2.NewApplicationTargetGroup(this, jsii.String("TG2"), &applicationTargetGroupProps{
 //   	targetType: elbv2.*targetType_INSTANCE,
 //   	port: jsii.Number(80),
-//   	stickinessCookieDuration: *duration.minutes(jsii.Number(5)),
+//   	stickinessCookieDuration: awscdk.Duration.minutes(jsii.Number(5)),
 //   	stickinessCookieName: jsii.String("MyDeliciousCookie"),
 //   	vpc: vpc,
 //   })
@@ -3905,48 +3954,48 @@ type ApplicationTargetGroupProps struct {
 	//
 	// The range is 0-3600 seconds.
 	// Experimental.
-	DeregistrationDelay awscdk.Duration `json:"deregistrationDelay" yaml:"deregistrationDelay"`
+	DeregistrationDelay awscdk.Duration `field:"optional" json:"deregistrationDelay" yaml:"deregistrationDelay"`
 	// Health check configuration.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#aws-resource-elasticloadbalancingv2-targetgroup-properties
 	//
 	// Experimental.
-	HealthCheck *HealthCheck `json:"healthCheck" yaml:"healthCheck"`
+	HealthCheck *HealthCheck `field:"optional" json:"healthCheck" yaml:"healthCheck"`
 	// The name of the target group.
 	//
 	// This name must be unique per region per account, can have a maximum of
 	// 32 characters, must contain only alphanumeric characters or hyphens, and
 	// must not begin or end with a hyphen.
 	// Experimental.
-	TargetGroupName *string `json:"targetGroupName" yaml:"targetGroupName"`
+	TargetGroupName *string `field:"optional" json:"targetGroupName" yaml:"targetGroupName"`
 	// The type of targets registered to this TargetGroup, either IP or Instance.
 	//
 	// All targets registered into the group must be of this type. If you
 	// register targets to the TargetGroup in the CDK app, the TargetType is
 	// determined automatically.
 	// Experimental.
-	TargetType TargetType `json:"targetType" yaml:"targetType"`
+	TargetType TargetType `field:"optional" json:"targetType" yaml:"targetType"`
 	// The virtual private cloud (VPC).
 	//
 	// only if `TargetType` is `Ip` or `InstanceId`.
 	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
+	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 	// The load balancing algorithm to select targets for routing requests.
 	// Experimental.
-	LoadBalancingAlgorithmType TargetGroupLoadBalancingAlgorithmType `json:"loadBalancingAlgorithmType" yaml:"loadBalancingAlgorithmType"`
+	LoadBalancingAlgorithmType TargetGroupLoadBalancingAlgorithmType `field:"optional" json:"loadBalancingAlgorithmType" yaml:"loadBalancingAlgorithmType"`
 	// The port on which the listener listens for requests.
 	// Experimental.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// The protocol to use.
 	// Experimental.
-	Protocol ApplicationProtocol `json:"protocol" yaml:"protocol"`
+	Protocol ApplicationProtocol `field:"optional" json:"protocol" yaml:"protocol"`
 	// The protocol version to use.
 	// Experimental.
-	ProtocolVersion ApplicationProtocolVersion `json:"protocolVersion" yaml:"protocolVersion"`
+	ProtocolVersion ApplicationProtocolVersion `field:"optional" json:"protocolVersion" yaml:"protocolVersion"`
 	// The time period during which the load balancer sends a newly registered target a linearly increasing share of the traffic to the target group.
 	//
 	// The range is 30-900 seconds (15 minutes).
 	// Experimental.
-	SlowStart awscdk.Duration `json:"slowStart" yaml:"slowStart"`
+	SlowStart awscdk.Duration `field:"optional" json:"slowStart" yaml:"slowStart"`
 	// The stickiness cookie expiration period.
 	//
 	// Setting this value enables load balancer stickiness.
@@ -3954,7 +4003,7 @@ type ApplicationTargetGroupProps struct {
 	// After this period, the cookie is considered stale. The minimum value is
 	// 1 second and the maximum value is 7 days (604800 seconds).
 	// Experimental.
-	StickinessCookieDuration awscdk.Duration `json:"stickinessCookieDuration" yaml:"stickinessCookieDuration"`
+	StickinessCookieDuration awscdk.Duration `field:"optional" json:"stickinessCookieDuration" yaml:"stickinessCookieDuration"`
 	// The name of an application-based stickiness cookie.
 	//
 	// Names that start with the following prefixes are not allowed: AWSALB, AWSALBAPP,
@@ -3965,14 +4014,14 @@ type ApplicationTargetGroupProps struct {
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/sticky-sessions.html
 	//
 	// Experimental.
-	StickinessCookieName *string `json:"stickinessCookieName" yaml:"stickinessCookieName"`
+	StickinessCookieName *string `field:"optional" json:"stickinessCookieName" yaml:"stickinessCookieName"`
 	// The targets to add to this target group.
 	//
 	// Can be `Instance`, `IPAddress`, or any self-registering load balancing
 	// target. If you use either `Instance` or `IPAddress` as targets, all
 	// target must be of the same type.
 	// Experimental.
-	Targets *[]IApplicationLoadBalancerTarget `json:"targets" yaml:"targets"`
+	Targets *[]IApplicationLoadBalancerTarget `field:"optional" json:"targets" yaml:"targets"`
 }
 
 // Options for `ListenerAction.authenciateOidc()`.
@@ -3981,12 +4030,13 @@ type ApplicationTargetGroupProps struct {
 //   var listener applicationListener
 //   var myTargetGroup applicationTargetGroup
 //
+//
 //   listener.addAction(jsii.String("DefaultAction"), &addApplicationActionProps{
 //   	action: elbv2.listenerAction.authenticateOidc(&authenticateOidcOptions{
 //   		authorizationEndpoint: jsii.String("https://example.com/openid"),
 //   		// Other OIDC properties here
 //   		clientId: jsii.String("..."),
-//   		clientSecret: secretValue.secretsManager(jsii.String("...")),
+//   		clientSecret: awscdk.SecretValue.secretsManager(jsii.String("...")),
 //   		issuer: jsii.String("..."),
 //   		tokenEndpoint: jsii.String("..."),
 //   		userInfoEndpoint: jsii.String("..."),
@@ -4004,56 +4054,57 @@ type AuthenticateOidcOptions struct {
 	//
 	// This must be a full URL, including the HTTPS protocol, the domain, and the path.
 	// Experimental.
-	AuthorizationEndpoint *string `json:"authorizationEndpoint" yaml:"authorizationEndpoint"`
+	AuthorizationEndpoint *string `field:"required" json:"authorizationEndpoint" yaml:"authorizationEndpoint"`
 	// The OAuth 2.0 client identifier.
 	// Experimental.
-	ClientId *string `json:"clientId" yaml:"clientId"`
+	ClientId *string `field:"required" json:"clientId" yaml:"clientId"`
 	// The OAuth 2.0 client secret.
 	// Experimental.
-	ClientSecret awscdk.SecretValue `json:"clientSecret" yaml:"clientSecret"`
+	ClientSecret awscdk.SecretValue `field:"required" json:"clientSecret" yaml:"clientSecret"`
 	// The OIDC issuer identifier of the IdP.
 	//
 	// This must be a full URL, including the HTTPS protocol, the domain, and the path.
 	// Experimental.
-	Issuer *string `json:"issuer" yaml:"issuer"`
+	Issuer *string `field:"required" json:"issuer" yaml:"issuer"`
 	// What action to execute next.
 	// Experimental.
-	Next ListenerAction `json:"next" yaml:"next"`
+	Next ListenerAction `field:"required" json:"next" yaml:"next"`
 	// The token endpoint of the IdP.
 	//
 	// This must be a full URL, including the HTTPS protocol, the domain, and the path.
 	// Experimental.
-	TokenEndpoint *string `json:"tokenEndpoint" yaml:"tokenEndpoint"`
+	TokenEndpoint *string `field:"required" json:"tokenEndpoint" yaml:"tokenEndpoint"`
 	// The user info endpoint of the IdP.
 	//
 	// This must be a full URL, including the HTTPS protocol, the domain, and the path.
 	// Experimental.
-	UserInfoEndpoint *string `json:"userInfoEndpoint" yaml:"userInfoEndpoint"`
+	UserInfoEndpoint *string `field:"required" json:"userInfoEndpoint" yaml:"userInfoEndpoint"`
 	// The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
 	// Experimental.
-	AuthenticationRequestExtraParams *map[string]*string `json:"authenticationRequestExtraParams" yaml:"authenticationRequestExtraParams"`
+	AuthenticationRequestExtraParams *map[string]*string `field:"optional" json:"authenticationRequestExtraParams" yaml:"authenticationRequestExtraParams"`
 	// The behavior if the user is not authenticated.
 	// Experimental.
-	OnUnauthenticatedRequest UnauthenticatedAction `json:"onUnauthenticatedRequest" yaml:"onUnauthenticatedRequest"`
+	OnUnauthenticatedRequest UnauthenticatedAction `field:"optional" json:"onUnauthenticatedRequest" yaml:"onUnauthenticatedRequest"`
 	// The set of user claims to be requested from the IdP.
 	//
 	// To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
 	// Experimental.
-	Scope *string `json:"scope" yaml:"scope"`
+	Scope *string `field:"optional" json:"scope" yaml:"scope"`
 	// The name of the cookie used to maintain session information.
 	// Experimental.
-	SessionCookieName *string `json:"sessionCookieName" yaml:"sessionCookieName"`
+	SessionCookieName *string `field:"optional" json:"sessionCookieName" yaml:"sessionCookieName"`
 	// The maximum duration of the authentication session.
 	// Experimental.
-	SessionTimeout awscdk.Duration `json:"sessionTimeout" yaml:"sessionTimeout"`
+	SessionTimeout awscdk.Duration `field:"optional" json:"sessionTimeout" yaml:"sessionTimeout"`
 }
 
 // Basic properties for an ApplicationListener.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpAlbIntegration awscdk.HttpAlbIntegration
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var lb applicationLoadBalancer
+//
 //   listener := lb.addListener(jsii.String("listener"), &baseApplicationListenerProps{
 //   	port: jsii.Number(80),
 //   })
@@ -4062,7 +4113,7 @@ type AuthenticateOidcOptions struct {
 //   })
 //
 //   httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &httpApiProps{
-//   	defaultIntegration: NewHttpAlbIntegration(jsii.String("DefaultIntegration"), listener, &httpAlbIntegrationProps{
+//   	defaultIntegration: awscdk.NewHttpAlbIntegration(jsii.String("DefaultIntegration"), listener, &httpAlbIntegrationProps{
 //   		parameterMapping: apigwv2.NewParameterMapping().appendHeader(jsii.String("header2"), apigwv2.mappingValue.requestHeader(jsii.String("header1"))).removeHeader(jsii.String("header1")),
 //   	}),
 //   })
@@ -4071,12 +4122,12 @@ type AuthenticateOidcOptions struct {
 type BaseApplicationListenerProps struct {
 	// The certificates to use on this listener.
 	// Deprecated: Use the `certificates` property instead.
-	CertificateArns *[]*string `json:"certificateArns" yaml:"certificateArns"`
+	CertificateArns *[]*string `field:"optional" json:"certificateArns" yaml:"certificateArns"`
 	// Certificate list of ACM cert ARNs.
 	//
 	// You must provide exactly one certificate if the listener protocol is HTTPS or TLS.
 	// Experimental.
-	Certificates *[]IListenerCertificate `json:"certificates" yaml:"certificates"`
+	Certificates *[]IListenerCertificate `field:"optional" json:"certificates" yaml:"certificates"`
 	// Default action to take for requests to this listener.
 	//
 	// This allows full control of the default action of the load balancer,
@@ -4086,7 +4137,7 @@ type BaseApplicationListenerProps struct {
 	//
 	// Cannot be specified together with `defaultTargetGroups`.
 	// Experimental.
-	DefaultAction ListenerAction `json:"defaultAction" yaml:"defaultAction"`
+	DefaultAction ListenerAction `field:"optional" json:"defaultAction" yaml:"defaultAction"`
 	// Default target groups to load balance to.
 	//
 	// All target groups will be load balanced to with equal weight and without
@@ -4095,7 +4146,7 @@ type BaseApplicationListenerProps struct {
 	//
 	// Cannot be specified together with `defaultAction`.
 	// Experimental.
-	DefaultTargetGroups *[]IApplicationTargetGroup `json:"defaultTargetGroups" yaml:"defaultTargetGroups"`
+	DefaultTargetGroups *[]IApplicationTargetGroup `field:"optional" json:"defaultTargetGroups" yaml:"defaultTargetGroups"`
 	// Allow anyone to connect to the load balancer on the listener port.
 	//
 	// If this is specified, the load balancer will be opened up to anyone who can reach it.
@@ -4106,26 +4157,29 @@ type BaseApplicationListenerProps struct {
 	// balancer, set this to `false` and use the listener's `connections`
 	// object to selectively grant access to the load balancer on the listener port.
 	// Experimental.
-	Open *bool `json:"open" yaml:"open"`
+	Open *bool `field:"optional" json:"open" yaml:"open"`
 	// The port on which the listener listens for requests.
 	// Experimental.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// The protocol to use.
 	// Experimental.
-	Protocol ApplicationProtocol `json:"protocol" yaml:"protocol"`
+	Protocol ApplicationProtocol `field:"optional" json:"protocol" yaml:"protocol"`
 	// The security policy that defines which ciphers and protocols are supported.
 	// Experimental.
-	SslPolicy SslPolicy `json:"sslPolicy" yaml:"sslPolicy"`
+	SslPolicy SslPolicy `field:"optional" json:"sslPolicy" yaml:"sslPolicy"`
 }
 
 // Basic properties for defining a rule on a listener.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var applicationTargetGroup applicationTargetGroup
 //   var listenerAction listenerAction
 //   var listenerCondition listenerCondition
+//
 //   baseApplicationListenerRuleProps := &baseApplicationListenerRuleProps{
 //   	priority: jsii.Number(123),
 //
@@ -4138,7 +4192,7 @@ type BaseApplicationListenerProps struct {
 //   		statusCode: jsii.String("statusCode"),
 //
 //   		// the properties below are optional
-//   		contentType: elasticloadbalancingv2.contentType_TEXT_PLAIN,
+//   		contentType: awscdk.Aws_elasticloadbalancingv2.contentType_TEXT_PLAIN,
 //   		messageBody: jsii.String("messageBody"),
 //   	},
 //   	hostHeader: jsii.String("hostHeader"),
@@ -4169,53 +4223,53 @@ type BaseApplicationListenerRuleProps struct {
 	//
 	// Priorities must be unique.
 	// Experimental.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"required" json:"priority" yaml:"priority"`
 	// Action to perform when requests are received.
 	//
 	// Only one of `action`, `fixedResponse`, `redirectResponse` or `targetGroups` can be specified.
 	// Experimental.
-	Action ListenerAction `json:"action" yaml:"action"`
+	Action ListenerAction `field:"optional" json:"action" yaml:"action"`
 	// Rule applies if matches the conditions.
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html
 	//
 	// Experimental.
-	Conditions *[]ListenerCondition `json:"conditions" yaml:"conditions"`
+	Conditions *[]ListenerCondition `field:"optional" json:"conditions" yaml:"conditions"`
 	// Fixed response to return.
 	//
 	// Only one of `action`, `fixedResponse`, `redirectResponse` or `targetGroups` can be specified.
 	// Deprecated: Use `action` instead.
-	FixedResponse *FixedResponse `json:"fixedResponse" yaml:"fixedResponse"`
+	FixedResponse *FixedResponse `field:"optional" json:"fixedResponse" yaml:"fixedResponse"`
 	// Rule applies if the requested host matches the indicated host.
 	//
 	// May contain up to three '*' wildcards.
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#host-conditions
 	//
 	// Deprecated: Use `conditions` instead.
-	HostHeader *string `json:"hostHeader" yaml:"hostHeader"`
+	HostHeader *string `field:"optional" json:"hostHeader" yaml:"hostHeader"`
 	// Rule applies if the requested path matches the given path pattern.
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
 	//
 	// Deprecated: Use `conditions` instead.
-	PathPattern *string `json:"pathPattern" yaml:"pathPattern"`
+	PathPattern *string `field:"optional" json:"pathPattern" yaml:"pathPattern"`
 	// Rule applies if the requested path matches any of the given patterns.
 	//
 	// Paths may contain up to three '*' wildcards.
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
 	//
 	// Deprecated: Use `conditions` instead.
-	PathPatterns *[]*string `json:"pathPatterns" yaml:"pathPatterns"`
+	PathPatterns *[]*string `field:"optional" json:"pathPatterns" yaml:"pathPatterns"`
 	// Redirect response to return.
 	//
 	// Only one of `action`, `fixedResponse`, `redirectResponse` or `targetGroups` can be specified.
 	// Deprecated: Use `action` instead.
-	RedirectResponse *RedirectResponse `json:"redirectResponse" yaml:"redirectResponse"`
+	RedirectResponse *RedirectResponse `field:"optional" json:"redirectResponse" yaml:"redirectResponse"`
 	// Target groups to forward requests to.
 	//
 	// Only one of `action`, `fixedResponse`, `redirectResponse` or `targetGroups` can be specified.
 	//
 	// Implies a `forward` action.
 	// Experimental.
-	TargetGroups *[]IApplicationTargetGroup `json:"targetGroups" yaml:"targetGroups"`
+	TargetGroups *[]IApplicationTargetGroup `field:"optional" json:"targetGroups" yaml:"targetGroups"`
 }
 
 // Base class for listeners.
@@ -4547,7 +4601,10 @@ func (b *jsiiProxy_BaseListener) Validate() *[]*string {
 // Options for listener lookup.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   baseListenerLookupOptions := &baseListenerLookupOptions{
 //   	listenerPort: jsii.Number(123),
 //   	loadBalancerArn: jsii.String("loadBalancerArn"),
@@ -4560,13 +4617,13 @@ func (b *jsiiProxy_BaseListener) Validate() *[]*string {
 type BaseListenerLookupOptions struct {
 	// Filter listeners by listener port.
 	// Experimental.
-	ListenerPort *float64 `json:"listenerPort" yaml:"listenerPort"`
+	ListenerPort *float64 `field:"optional" json:"listenerPort" yaml:"listenerPort"`
 	// Filter listeners by associated load balancer arn.
 	// Experimental.
-	LoadBalancerArn *string `json:"loadBalancerArn" yaml:"loadBalancerArn"`
+	LoadBalancerArn *string `field:"optional" json:"loadBalancerArn" yaml:"loadBalancerArn"`
 	// Filter listeners by associated load balancer tags.
 	// Experimental.
-	LoadBalancerTags *map[string]*string `json:"loadBalancerTags" yaml:"loadBalancerTags"`
+	LoadBalancerTags *map[string]*string `field:"optional" json:"loadBalancerTags" yaml:"loadBalancerTags"`
 }
 
 // Base class for both Application and Network Load Balancers.
@@ -5029,7 +5086,10 @@ func (b *jsiiProxy_BaseLoadBalancer) Validate() *[]*string {
 // Options for looking up load balancers.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   baseLoadBalancerLookupOptions := &baseLoadBalancerLookupOptions{
 //   	loadBalancerArn: jsii.String("loadBalancerArn"),
 //   	loadBalancerTags: map[string]*string{
@@ -5041,20 +5101,24 @@ func (b *jsiiProxy_BaseLoadBalancer) Validate() *[]*string {
 type BaseLoadBalancerLookupOptions struct {
 	// Find by load balancer's ARN.
 	// Experimental.
-	LoadBalancerArn *string `json:"loadBalancerArn" yaml:"loadBalancerArn"`
+	LoadBalancerArn *string `field:"optional" json:"loadBalancerArn" yaml:"loadBalancerArn"`
 	// Match load balancer tags.
 	// Experimental.
-	LoadBalancerTags *map[string]*string `json:"loadBalancerTags" yaml:"loadBalancerTags"`
+	LoadBalancerTags *map[string]*string `field:"optional" json:"loadBalancerTags" yaml:"loadBalancerTags"`
 }
 
 // Shared properties of both Application and Network Load Balancers.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var subnet subnet
 //   var subnetFilter subnetFilter
 //   var vpc vpc
+//
 //   baseLoadBalancerProps := &baseLoadBalancerProps{
 //   	vpc: vpc,
 //
@@ -5075,7 +5139,7 @@ type BaseLoadBalancerLookupOptions struct {
 //   		subnets: []iSubnet{
 //   			subnet,
 //   		},
-//   		subnetType: ec2.subnetType_ISOLATED,
+//   		subnetType: awscdk.Aws_ec2.subnetType_ISOLATED,
 //   	},
 //   }
 //
@@ -5083,25 +5147,26 @@ type BaseLoadBalancerLookupOptions struct {
 type BaseLoadBalancerProps struct {
 	// The VPC network to place the load balancer in.
 	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
+	Vpc awsec2.IVpc `field:"required" json:"vpc" yaml:"vpc"`
 	// Indicates whether deletion protection is enabled.
 	// Experimental.
-	DeletionProtection *bool `json:"deletionProtection" yaml:"deletionProtection"`
+	DeletionProtection *bool `field:"optional" json:"deletionProtection" yaml:"deletionProtection"`
 	// Whether the load balancer has an internet-routable address.
 	// Experimental.
-	InternetFacing *bool `json:"internetFacing" yaml:"internetFacing"`
+	InternetFacing *bool `field:"optional" json:"internetFacing" yaml:"internetFacing"`
 	// Name of the load balancer.
 	// Experimental.
-	LoadBalancerName *string `json:"loadBalancerName" yaml:"loadBalancerName"`
+	LoadBalancerName *string `field:"optional" json:"loadBalancerName" yaml:"loadBalancerName"`
 	// Which subnets place the load balancer in.
 	// Experimental.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
 // Basic properties for a Network Listener.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpNlbIntegration awscdk.HttpNlbIntegration
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   vpc := ec2.NewVpc(this, jsii.String("VPC"))
 //   lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("lb"), &networkLoadBalancerProps{
@@ -5115,26 +5180,26 @@ type BaseLoadBalancerProps struct {
 //   })
 //
 //   httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &httpApiProps{
-//   	defaultIntegration: NewHttpNlbIntegration(jsii.String("DefaultIntegration"), listener),
+//   	defaultIntegration: awscdk.NewHttpNlbIntegration(jsii.String("DefaultIntegration"), listener),
 //   })
 //
 // Experimental.
 type BaseNetworkListenerProps struct {
 	// The port on which the listener listens for requests.
 	// Experimental.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"required" json:"port" yaml:"port"`
 	// Application-Layer Protocol Negotiation (ALPN) is a TLS extension that is sent on the initial TLS handshake hello messages.
 	//
 	// ALPN enables the application layer to negotiate which protocols should be used over a secure connection, such as HTTP/1 and HTTP/2.
 	//
 	// Can only be specified together with Protocol TLS.
 	// Experimental.
-	AlpnPolicy AlpnPolicy `json:"alpnPolicy" yaml:"alpnPolicy"`
+	AlpnPolicy AlpnPolicy `field:"optional" json:"alpnPolicy" yaml:"alpnPolicy"`
 	// Certificate list of ACM cert ARNs.
 	//
 	// You must provide exactly one certificate if the listener protocol is HTTPS or TLS.
 	// Experimental.
-	Certificates *[]IListenerCertificate `json:"certificates" yaml:"certificates"`
+	Certificates *[]IListenerCertificate `field:"optional" json:"certificates" yaml:"certificates"`
 	// Default action to take for requests to this listener.
 	//
 	// This allows full control of the default Action of the load balancer,
@@ -5143,7 +5208,7 @@ type BaseNetworkListenerProps struct {
 	//
 	// Cannot be specified together with `defaultTargetGroups`.
 	// Experimental.
-	DefaultAction NetworkListenerAction `json:"defaultAction" yaml:"defaultAction"`
+	DefaultAction NetworkListenerAction `field:"optional" json:"defaultAction" yaml:"defaultAction"`
 	// Default target groups to load balance to.
 	//
 	// All target groups will be load balanced to with equal weight and without
@@ -5152,22 +5217,27 @@ type BaseNetworkListenerProps struct {
 	//
 	// Cannot be specified together with `defaultAction`.
 	// Experimental.
-	DefaultTargetGroups *[]INetworkTargetGroup `json:"defaultTargetGroups" yaml:"defaultTargetGroups"`
+	DefaultTargetGroups *[]INetworkTargetGroup `field:"optional" json:"defaultTargetGroups" yaml:"defaultTargetGroups"`
 	// Protocol for listener, expects TCP, TLS, UDP, or TCP_UDP.
 	// Experimental.
-	Protocol Protocol `json:"protocol" yaml:"protocol"`
+	Protocol Protocol `field:"optional" json:"protocol" yaml:"protocol"`
 	// SSL Policy.
 	// Experimental.
-	SslPolicy SslPolicy `json:"sslPolicy" yaml:"sslPolicy"`
+	SslPolicy SslPolicy `field:"optional" json:"sslPolicy" yaml:"sslPolicy"`
 }
 
 // Basic properties of both Application and Network Target Groups.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var vpc vpc
+//
 //   baseTargetGroupProps := &baseTargetGroupProps{
 //   	deregistrationDelay: duration,
 //   	healthCheck: &healthCheck{
@@ -5178,12 +5248,12 @@ type BaseNetworkListenerProps struct {
 //   		interval: duration,
 //   		path: jsii.String("path"),
 //   		port: jsii.String("port"),
-//   		protocol: elasticloadbalancingv2.protocol_HTTP,
+//   		protocol: awscdk.Aws_elasticloadbalancingv2.protocol_HTTP,
 //   		timeout: duration,
 //   		unhealthyThresholdCount: jsii.Number(123),
 //   	},
 //   	targetGroupName: jsii.String("targetGroupName"),
-//   	targetType: elasticloadbalancingv2.targetType_INSTANCE,
+//   	targetType: awscdk.*Aws_elasticloadbalancingv2.targetType_INSTANCE,
 //   	vpc: vpc,
 //   }
 //
@@ -5193,31 +5263,31 @@ type BaseTargetGroupProps struct {
 	//
 	// The range is 0-3600 seconds.
 	// Experimental.
-	DeregistrationDelay awscdk.Duration `json:"deregistrationDelay" yaml:"deregistrationDelay"`
+	DeregistrationDelay awscdk.Duration `field:"optional" json:"deregistrationDelay" yaml:"deregistrationDelay"`
 	// Health check configuration.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#aws-resource-elasticloadbalancingv2-targetgroup-properties
 	//
 	// Experimental.
-	HealthCheck *HealthCheck `json:"healthCheck" yaml:"healthCheck"`
+	HealthCheck *HealthCheck `field:"optional" json:"healthCheck" yaml:"healthCheck"`
 	// The name of the target group.
 	//
 	// This name must be unique per region per account, can have a maximum of
 	// 32 characters, must contain only alphanumeric characters or hyphens, and
 	// must not begin or end with a hyphen.
 	// Experimental.
-	TargetGroupName *string `json:"targetGroupName" yaml:"targetGroupName"`
+	TargetGroupName *string `field:"optional" json:"targetGroupName" yaml:"targetGroupName"`
 	// The type of targets registered to this TargetGroup, either IP or Instance.
 	//
 	// All targets registered into the group must be of this type. If you
 	// register targets to the TargetGroup in the CDK app, the TargetType is
 	// determined automatically.
 	// Experimental.
-	TargetType TargetType `json:"targetType" yaml:"targetType"`
+	TargetType TargetType `field:"optional" json:"targetType" yaml:"targetType"`
 	// The virtual private cloud (VPC).
 	//
 	// only if `TargetType` is `Ip` or `InstanceId`.
 	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
+	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 }
 
 // A CloudFormation `AWS::ElasticLoadBalancingV2::Listener`.
@@ -5225,8 +5295,11 @@ type BaseTargetGroupProps struct {
 // Specifies a listener for an Application Load Balancer, Network Load Balancer, or Gateway Load Balancer.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
-//   cfnListener := elasticloadbalancingv2.NewCfnListener(this, jsii.String("MyCfnListener"), &cfnListenerProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnListener := awscdk.Aws_elasticloadbalancingv2.NewCfnListener(this, jsii.String("MyCfnListener"), &cfnListenerProps{
 //   	defaultActions: []interface{}{
 //   		&actionProperty{
 //   			type: jsii.String("type"),
@@ -6091,7 +6164,10 @@ func (c *jsiiProxy_CfnListener) ValidateProperties(_properties interface{}) {
 // Specifies an action for a listener rule.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   actionProperty := &actionProperty{
 //   	type: jsii.String("type"),
 //
@@ -6162,41 +6238,44 @@ func (c *jsiiProxy_CfnListener) ValidateProperties(_properties interface{}) {
 //
 type CfnListener_ActionProperty struct {
 	// The type of action.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// [HTTPS listeners] Information for using Amazon Cognito to authenticate users.
 	//
 	// Specify only when `Type` is `authenticate-cognito` .
-	AuthenticateCognitoConfig interface{} `json:"authenticateCognitoConfig" yaml:"authenticateCognitoConfig"`
+	AuthenticateCognitoConfig interface{} `field:"optional" json:"authenticateCognitoConfig" yaml:"authenticateCognitoConfig"`
 	// [HTTPS listeners] Information about an identity provider that is compliant with OpenID Connect (OIDC).
 	//
 	// Specify only when `Type` is `authenticate-oidc` .
-	AuthenticateOidcConfig interface{} `json:"authenticateOidcConfig" yaml:"authenticateOidcConfig"`
+	AuthenticateOidcConfig interface{} `field:"optional" json:"authenticateOidcConfig" yaml:"authenticateOidcConfig"`
 	// [Application Load Balancer] Information for creating an action that returns a custom HTTP response.
 	//
 	// Specify only when `Type` is `fixed-response` .
-	FixedResponseConfig interface{} `json:"fixedResponseConfig" yaml:"fixedResponseConfig"`
+	FixedResponseConfig interface{} `field:"optional" json:"fixedResponseConfig" yaml:"fixedResponseConfig"`
 	// Information for creating an action that distributes requests among one or more target groups.
 	//
 	// For Network Load Balancers, you can specify a single target group. Specify only when `Type` is `forward` . If you specify both `ForwardConfig` and `TargetGroupArn` , you can specify only one target group using `ForwardConfig` and it must be the same target group specified in `TargetGroupArn` .
-	ForwardConfig interface{} `json:"forwardConfig" yaml:"forwardConfig"`
+	ForwardConfig interface{} `field:"optional" json:"forwardConfig" yaml:"forwardConfig"`
 	// The order for the action.
 	//
 	// This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
-	Order *float64 `json:"order" yaml:"order"`
+	Order *float64 `field:"optional" json:"order" yaml:"order"`
 	// [Application Load Balancer] Information for creating a redirect action.
 	//
 	// Specify only when `Type` is `redirect` .
-	RedirectConfig interface{} `json:"redirectConfig" yaml:"redirectConfig"`
+	RedirectConfig interface{} `field:"optional" json:"redirectConfig" yaml:"redirectConfig"`
 	// The Amazon Resource Name (ARN) of the target group.
 	//
 	// Specify only when `Type` is `forward` and you want to route to a single target group. To route to one or more target groups, use `ForwardConfig` instead.
-	TargetGroupArn *string `json:"targetGroupArn" yaml:"targetGroupArn"`
+	TargetGroupArn *string `field:"optional" json:"targetGroupArn" yaml:"targetGroupArn"`
 }
 
 // Specifies information required when integrating with Amazon Cognito to authenticate users.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   authenticateCognitoConfigProperty := &authenticateCognitoConfigProperty{
 //   	userPoolArn: jsii.String("userPoolArn"),
 //   	userPoolClientId: jsii.String("userPoolClientId"),
@@ -6214,37 +6293,40 @@ type CfnListener_ActionProperty struct {
 //
 type CfnListener_AuthenticateCognitoConfigProperty struct {
 	// The Amazon Resource Name (ARN) of the Amazon Cognito user pool.
-	UserPoolArn *string `json:"userPoolArn" yaml:"userPoolArn"`
+	UserPoolArn *string `field:"required" json:"userPoolArn" yaml:"userPoolArn"`
 	// The ID of the Amazon Cognito user pool client.
-	UserPoolClientId *string `json:"userPoolClientId" yaml:"userPoolClientId"`
+	UserPoolClientId *string `field:"required" json:"userPoolClientId" yaml:"userPoolClientId"`
 	// The domain prefix or fully-qualified domain name of the Amazon Cognito user pool.
-	UserPoolDomain *string `json:"userPoolDomain" yaml:"userPoolDomain"`
+	UserPoolDomain *string `field:"required" json:"userPoolDomain" yaml:"userPoolDomain"`
 	// The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
-	AuthenticationRequestExtraParams interface{} `json:"authenticationRequestExtraParams" yaml:"authenticationRequestExtraParams"`
+	AuthenticationRequestExtraParams interface{} `field:"optional" json:"authenticationRequestExtraParams" yaml:"authenticationRequestExtraParams"`
 	// The behavior if the user is not authenticated. The following are possible values:.
 	//
 	// - deny `` - Return an HTTP 401 Unauthorized error.
 	// - allow `` - Allow the request to be forwarded to the target.
 	// - authenticate `` - Redirect the request to the IdP authorization endpoint. This is the default value.
-	OnUnauthenticatedRequest *string `json:"onUnauthenticatedRequest" yaml:"onUnauthenticatedRequest"`
+	OnUnauthenticatedRequest *string `field:"optional" json:"onUnauthenticatedRequest" yaml:"onUnauthenticatedRequest"`
 	// The set of user claims to be requested from the IdP. The default is `openid` .
 	//
 	// To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
-	Scope *string `json:"scope" yaml:"scope"`
+	Scope *string `field:"optional" json:"scope" yaml:"scope"`
 	// The name of the cookie used to maintain session information.
 	//
 	// The default is AWSELBAuthSessionCookie.
-	SessionCookieName *string `json:"sessionCookieName" yaml:"sessionCookieName"`
+	SessionCookieName *string `field:"optional" json:"sessionCookieName" yaml:"sessionCookieName"`
 	// The maximum duration of the authentication session, in seconds.
 	//
 	// The default is 604800 seconds (7 days).
-	SessionTimeout *string `json:"sessionTimeout" yaml:"sessionTimeout"`
+	SessionTimeout *string `field:"optional" json:"sessionTimeout" yaml:"sessionTimeout"`
 }
 
 // Specifies information required using an identity provide (IdP) that is compliant with OpenID Connect (OIDC) to authenticate users.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   authenticateOidcConfigProperty := &authenticateOidcConfigProperty{
 //   	authorizationEndpoint: jsii.String("authorizationEndpoint"),
 //   	clientId: jsii.String("clientId"),
@@ -6267,62 +6349,68 @@ type CfnListener_AuthenticateOidcConfigProperty struct {
 	// The authorization endpoint of the IdP.
 	//
 	// This must be a full URL, including the HTTPS protocol, the domain, and the path.
-	AuthorizationEndpoint *string `json:"authorizationEndpoint" yaml:"authorizationEndpoint"`
+	AuthorizationEndpoint *string `field:"required" json:"authorizationEndpoint" yaml:"authorizationEndpoint"`
 	// The OAuth 2.0 client identifier.
-	ClientId *string `json:"clientId" yaml:"clientId"`
+	ClientId *string `field:"required" json:"clientId" yaml:"clientId"`
 	// The OAuth 2.0 client secret. This parameter is required if you are creating a rule. If you are modifying a rule, you can omit this parameter if you set `UseExistingClientSecret` to true.
-	ClientSecret *string `json:"clientSecret" yaml:"clientSecret"`
+	ClientSecret *string `field:"required" json:"clientSecret" yaml:"clientSecret"`
 	// The OIDC issuer identifier of the IdP.
 	//
 	// This must be a full URL, including the HTTPS protocol, the domain, and the path.
-	Issuer *string `json:"issuer" yaml:"issuer"`
+	Issuer *string `field:"required" json:"issuer" yaml:"issuer"`
 	// The token endpoint of the IdP.
 	//
 	// This must be a full URL, including the HTTPS protocol, the domain, and the path.
-	TokenEndpoint *string `json:"tokenEndpoint" yaml:"tokenEndpoint"`
+	TokenEndpoint *string `field:"required" json:"tokenEndpoint" yaml:"tokenEndpoint"`
 	// The user info endpoint of the IdP.
 	//
 	// This must be a full URL, including the HTTPS protocol, the domain, and the path.
-	UserInfoEndpoint *string `json:"userInfoEndpoint" yaml:"userInfoEndpoint"`
+	UserInfoEndpoint *string `field:"required" json:"userInfoEndpoint" yaml:"userInfoEndpoint"`
 	// The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
-	AuthenticationRequestExtraParams interface{} `json:"authenticationRequestExtraParams" yaml:"authenticationRequestExtraParams"`
+	AuthenticationRequestExtraParams interface{} `field:"optional" json:"authenticationRequestExtraParams" yaml:"authenticationRequestExtraParams"`
 	// The behavior if the user is not authenticated. The following are possible values:.
 	//
 	// - deny `` - Return an HTTP 401 Unauthorized error.
 	// - allow `` - Allow the request to be forwarded to the target.
 	// - authenticate `` - Redirect the request to the IdP authorization endpoint. This is the default value.
-	OnUnauthenticatedRequest *string `json:"onUnauthenticatedRequest" yaml:"onUnauthenticatedRequest"`
+	OnUnauthenticatedRequest *string `field:"optional" json:"onUnauthenticatedRequest" yaml:"onUnauthenticatedRequest"`
 	// The set of user claims to be requested from the IdP. The default is `openid` .
 	//
 	// To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
-	Scope *string `json:"scope" yaml:"scope"`
+	Scope *string `field:"optional" json:"scope" yaml:"scope"`
 	// The name of the cookie used to maintain session information.
 	//
 	// The default is AWSELBAuthSessionCookie.
-	SessionCookieName *string `json:"sessionCookieName" yaml:"sessionCookieName"`
+	SessionCookieName *string `field:"optional" json:"sessionCookieName" yaml:"sessionCookieName"`
 	// The maximum duration of the authentication session, in seconds.
 	//
 	// The default is 604800 seconds (7 days).
-	SessionTimeout *string `json:"sessionTimeout" yaml:"sessionTimeout"`
+	SessionTimeout *string `field:"optional" json:"sessionTimeout" yaml:"sessionTimeout"`
 }
 
 // Specifies an SSL server certificate to use as the default certificate for a secure listener.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   certificateProperty := &certificateProperty{
 //   	certificateArn: jsii.String("certificateArn"),
 //   }
 //
 type CfnListener_CertificateProperty struct {
 	// The Amazon Resource Name (ARN) of the certificate.
-	CertificateArn *string `json:"certificateArn" yaml:"certificateArn"`
+	CertificateArn *string `field:"optional" json:"certificateArn" yaml:"certificateArn"`
 }
 
 // Specifies information required when returning a custom HTTP response.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   fixedResponseConfigProperty := &fixedResponseConfigProperty{
 //   	statusCode: jsii.String("statusCode"),
 //
@@ -6333,13 +6421,13 @@ type CfnListener_CertificateProperty struct {
 //
 type CfnListener_FixedResponseConfigProperty struct {
 	// The HTTP response code (2XX, 4XX, or 5XX).
-	StatusCode *string `json:"statusCode" yaml:"statusCode"`
+	StatusCode *string `field:"required" json:"statusCode" yaml:"statusCode"`
 	// The content type.
 	//
 	// Valid Values: text/plain | text/css | text/html | application/javascript | application/json.
-	ContentType *string `json:"contentType" yaml:"contentType"`
+	ContentType *string `field:"optional" json:"contentType" yaml:"contentType"`
 	// The message.
-	MessageBody *string `json:"messageBody" yaml:"messageBody"`
+	MessageBody *string `field:"optional" json:"messageBody" yaml:"messageBody"`
 }
 
 // Information for creating an action that distributes requests among one or more target groups.
@@ -6347,7 +6435,10 @@ type CfnListener_FixedResponseConfigProperty struct {
 // For Network Load Balancers, you can specify a single target group. Specify only when `Type` is `forward` . If you specify both `ForwardConfig` and `TargetGroupArn` , you can specify only one target group using `ForwardConfig` and it must be the same target group specified in `TargetGroupArn` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   forwardConfigProperty := &forwardConfigProperty{
 //   	targetGroups: []interface{}{
 //   		&targetGroupTupleProperty{
@@ -6363,9 +6454,9 @@ type CfnListener_FixedResponseConfigProperty struct {
 //
 type CfnListener_ForwardConfigProperty struct {
 	// Information about how traffic will be distributed between multiple target groups in a forward rule.
-	TargetGroups interface{} `json:"targetGroups" yaml:"targetGroups"`
+	TargetGroups interface{} `field:"optional" json:"targetGroups" yaml:"targetGroups"`
 	// Information about the target group stickiness for a rule.
-	TargetGroupStickinessConfig interface{} `json:"targetGroupStickinessConfig" yaml:"targetGroupStickinessConfig"`
+	TargetGroupStickinessConfig interface{} `field:"optional" json:"targetGroupStickinessConfig" yaml:"targetGroupStickinessConfig"`
 }
 
 // Information about a redirect action.
@@ -6383,7 +6474,10 @@ type CfnListener_ForwardConfigProperty struct {
 // For example, you can change the path to "/new/#{path}", the hostname to "example.#{host}", or the query to "#{query}&value=xyz".
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   redirectConfigProperty := &redirectConfigProperty{
 //   	statusCode: jsii.String("statusCode"),
 //
@@ -6399,33 +6493,36 @@ type CfnListener_RedirectConfigProperty struct {
 	// The HTTP redirect code.
 	//
 	// The redirect is either permanent (HTTP 301) or temporary (HTTP 302).
-	StatusCode *string `json:"statusCode" yaml:"statusCode"`
+	StatusCode *string `field:"required" json:"statusCode" yaml:"statusCode"`
 	// The hostname.
 	//
 	// This component is not percent-encoded. The hostname can contain #{host}.
-	Host *string `json:"host" yaml:"host"`
+	Host *string `field:"optional" json:"host" yaml:"host"`
 	// The absolute path, starting with the leading "/".
 	//
 	// This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 	// The port.
 	//
 	// You can specify a value from 1 to 65535 or #{port}.
-	Port *string `json:"port" yaml:"port"`
+	Port *string `field:"optional" json:"port" yaml:"port"`
 	// The protocol.
 	//
 	// You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
-	Protocol *string `json:"protocol" yaml:"protocol"`
+	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`
 	// The query parameters, URL-encoded when necessary, but not percent-encoded.
 	//
 	// Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
-	Query *string `json:"query" yaml:"query"`
+	Query *string `field:"optional" json:"query" yaml:"query"`
 }
 
 // Information about the target group stickiness for a rule.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   targetGroupStickinessConfigProperty := &targetGroupStickinessConfigProperty{
 //   	durationSeconds: jsii.Number(123),
 //   	enabled: jsii.Boolean(false),
@@ -6435,15 +6532,18 @@ type CfnListener_TargetGroupStickinessConfigProperty struct {
 	// The time period, in seconds, during which requests from a client should be routed to the same target group.
 	//
 	// The range is 1-604800 seconds (7 days).
-	DurationSeconds *float64 `json:"durationSeconds" yaml:"durationSeconds"`
+	DurationSeconds *float64 `field:"optional" json:"durationSeconds" yaml:"durationSeconds"`
 	// Indicates whether target group stickiness is enabled.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 }
 
 // Information about how traffic will be distributed between multiple target groups in a forward rule.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   targetGroupTupleProperty := &targetGroupTupleProperty{
 //   	targetGroupArn: jsii.String("targetGroupArn"),
 //   	weight: jsii.Number(123),
@@ -6451,11 +6551,11 @@ type CfnListener_TargetGroupStickinessConfigProperty struct {
 //
 type CfnListener_TargetGroupTupleProperty struct {
 	// The Amazon Resource Name (ARN) of the target group.
-	TargetGroupArn *string `json:"targetGroupArn" yaml:"targetGroupArn"`
+	TargetGroupArn *string `field:"optional" json:"targetGroupArn" yaml:"targetGroupArn"`
 	// The weight.
 	//
 	// The range is 0 to 999.
-	Weight *float64 `json:"weight" yaml:"weight"`
+	Weight *float64 `field:"optional" json:"weight" yaml:"weight"`
 }
 
 // A CloudFormation `AWS::ElasticLoadBalancingV2::ListenerCertificate`.
@@ -6463,8 +6563,11 @@ type CfnListener_TargetGroupTupleProperty struct {
 // Specifies an SSL server certificate to add to the certificate list for an HTTPS or TLS listener.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
-//   cfnListenerCertificate := elasticloadbalancingv2.NewCfnListenerCertificate(this, jsii.String("MyCfnListenerCertificate"), &cfnListenerCertificateProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnListenerCertificate := awscdk.Aws_elasticloadbalancingv2.NewCfnListenerCertificate(this, jsii.String("MyCfnListenerCertificate"), &cfnListenerCertificateProps{
 //   	certificates: []interface{}{
 //   		&certificateProperty{
 //   			certificateArn: jsii.String("certificateArn"),
@@ -7125,20 +7228,26 @@ func (c *jsiiProxy_CfnListenerCertificate) ValidateProperties(_properties interf
 // Specifies an SSL server certificate for the certificate list of a secure listener.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   certificateProperty := &certificateProperty{
 //   	certificateArn: jsii.String("certificateArn"),
 //   }
 //
 type CfnListenerCertificate_CertificateProperty struct {
 	// The Amazon Resource Name (ARN) of the certificate.
-	CertificateArn *string `json:"certificateArn" yaml:"certificateArn"`
+	CertificateArn *string `field:"optional" json:"certificateArn" yaml:"certificateArn"`
 }
 
 // Properties for defining a `CfnListenerCertificate`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnListenerCertificateProps := &cfnListenerCertificateProps{
 //   	certificates: []interface{}{
 //   		&certificateProperty{
@@ -7152,15 +7261,18 @@ type CfnListenerCertificateProps struct {
 	// The certificate.
 	//
 	// You can specify one certificate per resource.
-	Certificates interface{} `json:"certificates" yaml:"certificates"`
+	Certificates interface{} `field:"required" json:"certificates" yaml:"certificates"`
 	// The Amazon Resource Name (ARN) of the listener.
-	ListenerArn *string `json:"listenerArn" yaml:"listenerArn"`
+	ListenerArn *string `field:"required" json:"listenerArn" yaml:"listenerArn"`
 }
 
 // Properties for defining a `CfnListener`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnListenerProps := &cfnListenerProps{
 //   	defaultActions: []interface{}{
 //   		&actionProperty{
@@ -7251,29 +7363,29 @@ type CfnListenerProps struct {
 	// The actions for the default rule. You cannot define a condition for a default rule.
 	//
 	// To create additional rules for an Application Load Balancer, use [AWS::ElasticLoadBalancingV2::ListenerRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html) .
-	DefaultActions interface{} `json:"defaultActions" yaml:"defaultActions"`
+	DefaultActions interface{} `field:"required" json:"defaultActions" yaml:"defaultActions"`
 	// The Amazon Resource Name (ARN) of the load balancer.
-	LoadBalancerArn *string `json:"loadBalancerArn" yaml:"loadBalancerArn"`
+	LoadBalancerArn *string `field:"required" json:"loadBalancerArn" yaml:"loadBalancerArn"`
 	// [TLS listener] The name of the Application-Layer Protocol Negotiation (ALPN) policy.
-	AlpnPolicy *[]*string `json:"alpnPolicy" yaml:"alpnPolicy"`
+	AlpnPolicy *[]*string `field:"optional" json:"alpnPolicy" yaml:"alpnPolicy"`
 	// The default SSL server certificate for a secure listener.
 	//
 	// You must provide exactly one certificate if the listener protocol is HTTPS or TLS.
 	//
 	// To create a certificate list for a secure listener, use [AWS::ElasticLoadBalancingV2::ListenerCertificate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html) .
-	Certificates interface{} `json:"certificates" yaml:"certificates"`
+	Certificates interface{} `field:"optional" json:"certificates" yaml:"certificates"`
 	// The port on which the load balancer is listening.
 	//
 	// You cannot specify a port for a Gateway Load Balancer.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// The protocol for connections from clients to the load balancer.
 	//
 	// For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You cannot specify a protocol for a Gateway Load Balancer.
-	Protocol *string `json:"protocol" yaml:"protocol"`
+	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`
 	// [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported.
 	//
 	// For more information, see [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies) in the *Application Load Balancers Guide* and [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies) in the *Network Load Balancers Guide* .
-	SslPolicy *string `json:"sslPolicy" yaml:"sslPolicy"`
+	SslPolicy *string `field:"optional" json:"sslPolicy" yaml:"sslPolicy"`
 }
 
 // A CloudFormation `AWS::ElasticLoadBalancingV2::ListenerRule`.
@@ -7283,8 +7395,11 @@ type CfnListenerProps struct {
 // For more information, see [Quotas for your Application Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html) in the *User Guide for Application Load Balancers* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
-//   cfnListenerRule := elasticloadbalancingv2.NewCfnListenerRule(this, jsii.String("MyCfnListenerRule"), &cfnListenerRuleProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnListenerRule := awscdk.Aws_elasticloadbalancingv2.NewCfnListenerRule(this, jsii.String("MyCfnListenerRule"), &cfnListenerRuleProps{
 //   	actions: []interface{}{
 //   		&actionProperty{
 //   			type: jsii.String("type"),
@@ -8123,7 +8238,10 @@ func (c *jsiiProxy_CfnListenerRule) ValidateProperties(_properties interface{}) 
 // Specifies an action for a listener rule.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   actionProperty := &actionProperty{
 //   	type: jsii.String("type"),
 //
@@ -8195,41 +8313,44 @@ func (c *jsiiProxy_CfnListenerRule) ValidateProperties(_properties interface{}) 
 //
 type CfnListenerRule_ActionProperty struct {
 	// The type of action.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// [HTTPS listeners] Information for using Amazon Cognito to authenticate users.
 	//
 	// Specify only when `Type` is `authenticate-cognito` .
-	AuthenticateCognitoConfig interface{} `json:"authenticateCognitoConfig" yaml:"authenticateCognitoConfig"`
+	AuthenticateCognitoConfig interface{} `field:"optional" json:"authenticateCognitoConfig" yaml:"authenticateCognitoConfig"`
 	// [HTTPS listeners] Information about an identity provider that is compliant with OpenID Connect (OIDC).
 	//
 	// Specify only when `Type` is `authenticate-oidc` .
-	AuthenticateOidcConfig interface{} `json:"authenticateOidcConfig" yaml:"authenticateOidcConfig"`
+	AuthenticateOidcConfig interface{} `field:"optional" json:"authenticateOidcConfig" yaml:"authenticateOidcConfig"`
 	// [Application Load Balancer] Information for creating an action that returns a custom HTTP response.
 	//
 	// Specify only when `Type` is `fixed-response` .
-	FixedResponseConfig interface{} `json:"fixedResponseConfig" yaml:"fixedResponseConfig"`
+	FixedResponseConfig interface{} `field:"optional" json:"fixedResponseConfig" yaml:"fixedResponseConfig"`
 	// Information for creating an action that distributes requests among one or more target groups.
 	//
 	// For Network Load Balancers, you can specify a single target group. Specify only when `Type` is `forward` . If you specify both `ForwardConfig` and `TargetGroupArn` , you can specify only one target group using `ForwardConfig` and it must be the same target group specified in `TargetGroupArn` .
-	ForwardConfig interface{} `json:"forwardConfig" yaml:"forwardConfig"`
+	ForwardConfig interface{} `field:"optional" json:"forwardConfig" yaml:"forwardConfig"`
 	// The order for the action.
 	//
 	// This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
-	Order *float64 `json:"order" yaml:"order"`
+	Order *float64 `field:"optional" json:"order" yaml:"order"`
 	// [Application Load Balancer] Information for creating a redirect action.
 	//
 	// Specify only when `Type` is `redirect` .
-	RedirectConfig interface{} `json:"redirectConfig" yaml:"redirectConfig"`
+	RedirectConfig interface{} `field:"optional" json:"redirectConfig" yaml:"redirectConfig"`
 	// The Amazon Resource Name (ARN) of the target group.
 	//
 	// Specify only when `Type` is `forward` and you want to route to a single target group. To route to one or more target groups, use `ForwardConfig` instead.
-	TargetGroupArn *string `json:"targetGroupArn" yaml:"targetGroupArn"`
+	TargetGroupArn *string `field:"optional" json:"targetGroupArn" yaml:"targetGroupArn"`
 }
 
 // Specifies information required when integrating with Amazon Cognito to authenticate users.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   authenticateCognitoConfigProperty := &authenticateCognitoConfigProperty{
 //   	userPoolArn: jsii.String("userPoolArn"),
 //   	userPoolClientId: jsii.String("userPoolClientId"),
@@ -8247,37 +8368,40 @@ type CfnListenerRule_ActionProperty struct {
 //
 type CfnListenerRule_AuthenticateCognitoConfigProperty struct {
 	// The Amazon Resource Name (ARN) of the Amazon Cognito user pool.
-	UserPoolArn *string `json:"userPoolArn" yaml:"userPoolArn"`
+	UserPoolArn *string `field:"required" json:"userPoolArn" yaml:"userPoolArn"`
 	// The ID of the Amazon Cognito user pool client.
-	UserPoolClientId *string `json:"userPoolClientId" yaml:"userPoolClientId"`
+	UserPoolClientId *string `field:"required" json:"userPoolClientId" yaml:"userPoolClientId"`
 	// The domain prefix or fully-qualified domain name of the Amazon Cognito user pool.
-	UserPoolDomain *string `json:"userPoolDomain" yaml:"userPoolDomain"`
+	UserPoolDomain *string `field:"required" json:"userPoolDomain" yaml:"userPoolDomain"`
 	// The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
-	AuthenticationRequestExtraParams interface{} `json:"authenticationRequestExtraParams" yaml:"authenticationRequestExtraParams"`
+	AuthenticationRequestExtraParams interface{} `field:"optional" json:"authenticationRequestExtraParams" yaml:"authenticationRequestExtraParams"`
 	// The behavior if the user is not authenticated. The following are possible values:.
 	//
 	// - deny `` - Return an HTTP 401 Unauthorized error.
 	// - allow `` - Allow the request to be forwarded to the target.
 	// - authenticate `` - Redirect the request to the IdP authorization endpoint. This is the default value.
-	OnUnauthenticatedRequest *string `json:"onUnauthenticatedRequest" yaml:"onUnauthenticatedRequest"`
+	OnUnauthenticatedRequest *string `field:"optional" json:"onUnauthenticatedRequest" yaml:"onUnauthenticatedRequest"`
 	// The set of user claims to be requested from the IdP. The default is `openid` .
 	//
 	// To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
-	Scope *string `json:"scope" yaml:"scope"`
+	Scope *string `field:"optional" json:"scope" yaml:"scope"`
 	// The name of the cookie used to maintain session information.
 	//
 	// The default is AWSELBAuthSessionCookie.
-	SessionCookieName *string `json:"sessionCookieName" yaml:"sessionCookieName"`
+	SessionCookieName *string `field:"optional" json:"sessionCookieName" yaml:"sessionCookieName"`
 	// The maximum duration of the authentication session, in seconds.
 	//
 	// The default is 604800 seconds (7 days).
-	SessionTimeout *float64 `json:"sessionTimeout" yaml:"sessionTimeout"`
+	SessionTimeout *float64 `field:"optional" json:"sessionTimeout" yaml:"sessionTimeout"`
 }
 
 // Specifies information required using an identity provide (IdP) that is compliant with OpenID Connect (OIDC) to authenticate users.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   authenticateOidcConfigProperty := &authenticateOidcConfigProperty{
 //   	authorizationEndpoint: jsii.String("authorizationEndpoint"),
 //   	clientId: jsii.String("clientId"),
@@ -8301,53 +8425,56 @@ type CfnListenerRule_AuthenticateOidcConfigProperty struct {
 	// The authorization endpoint of the IdP.
 	//
 	// This must be a full URL, including the HTTPS protocol, the domain, and the path.
-	AuthorizationEndpoint *string `json:"authorizationEndpoint" yaml:"authorizationEndpoint"`
+	AuthorizationEndpoint *string `field:"required" json:"authorizationEndpoint" yaml:"authorizationEndpoint"`
 	// The OAuth 2.0 client identifier.
-	ClientId *string `json:"clientId" yaml:"clientId"`
+	ClientId *string `field:"required" json:"clientId" yaml:"clientId"`
 	// The OAuth 2.0 client secret. This parameter is required if you are creating a rule. If you are modifying a rule, you can omit this parameter if you set `UseExistingClientSecret` to true.
-	ClientSecret *string `json:"clientSecret" yaml:"clientSecret"`
+	ClientSecret *string `field:"required" json:"clientSecret" yaml:"clientSecret"`
 	// The OIDC issuer identifier of the IdP.
 	//
 	// This must be a full URL, including the HTTPS protocol, the domain, and the path.
-	Issuer *string `json:"issuer" yaml:"issuer"`
+	Issuer *string `field:"required" json:"issuer" yaml:"issuer"`
 	// The token endpoint of the IdP.
 	//
 	// This must be a full URL, including the HTTPS protocol, the domain, and the path.
-	TokenEndpoint *string `json:"tokenEndpoint" yaml:"tokenEndpoint"`
+	TokenEndpoint *string `field:"required" json:"tokenEndpoint" yaml:"tokenEndpoint"`
 	// The user info endpoint of the IdP.
 	//
 	// This must be a full URL, including the HTTPS protocol, the domain, and the path.
-	UserInfoEndpoint *string `json:"userInfoEndpoint" yaml:"userInfoEndpoint"`
+	UserInfoEndpoint *string `field:"required" json:"userInfoEndpoint" yaml:"userInfoEndpoint"`
 	// The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
-	AuthenticationRequestExtraParams interface{} `json:"authenticationRequestExtraParams" yaml:"authenticationRequestExtraParams"`
+	AuthenticationRequestExtraParams interface{} `field:"optional" json:"authenticationRequestExtraParams" yaml:"authenticationRequestExtraParams"`
 	// The behavior if the user is not authenticated. The following are possible values:.
 	//
 	// - deny `` - Return an HTTP 401 Unauthorized error.
 	// - allow `` - Allow the request to be forwarded to the target.
 	// - authenticate `` - Redirect the request to the IdP authorization endpoint. This is the default value.
-	OnUnauthenticatedRequest *string `json:"onUnauthenticatedRequest" yaml:"onUnauthenticatedRequest"`
+	OnUnauthenticatedRequest *string `field:"optional" json:"onUnauthenticatedRequest" yaml:"onUnauthenticatedRequest"`
 	// The set of user claims to be requested from the IdP. The default is `openid` .
 	//
 	// To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
-	Scope *string `json:"scope" yaml:"scope"`
+	Scope *string `field:"optional" json:"scope" yaml:"scope"`
 	// The name of the cookie used to maintain session information.
 	//
 	// The default is AWSELBAuthSessionCookie.
-	SessionCookieName *string `json:"sessionCookieName" yaml:"sessionCookieName"`
+	SessionCookieName *string `field:"optional" json:"sessionCookieName" yaml:"sessionCookieName"`
 	// The maximum duration of the authentication session, in seconds.
 	//
 	// The default is 604800 seconds (7 days).
-	SessionTimeout *float64 `json:"sessionTimeout" yaml:"sessionTimeout"`
+	SessionTimeout *float64 `field:"optional" json:"sessionTimeout" yaml:"sessionTimeout"`
 	// Indicates whether to use the existing client secret when modifying a rule.
 	//
 	// If you are creating a rule, you can omit this parameter or set it to false.
-	UseExistingClientSecret interface{} `json:"useExistingClientSecret" yaml:"useExistingClientSecret"`
+	UseExistingClientSecret interface{} `field:"optional" json:"useExistingClientSecret" yaml:"useExistingClientSecret"`
 }
 
 // Specifies information required when returning a custom HTTP response.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   fixedResponseConfigProperty := &fixedResponseConfigProperty{
 //   	statusCode: jsii.String("statusCode"),
 //
@@ -8358,13 +8485,13 @@ type CfnListenerRule_AuthenticateOidcConfigProperty struct {
 //
 type CfnListenerRule_FixedResponseConfigProperty struct {
 	// The HTTP response code (2XX, 4XX, or 5XX).
-	StatusCode *string `json:"statusCode" yaml:"statusCode"`
+	StatusCode *string `field:"required" json:"statusCode" yaml:"statusCode"`
 	// The content type.
 	//
 	// Valid Values: text/plain | text/css | text/html | application/javascript | application/json.
-	ContentType *string `json:"contentType" yaml:"contentType"`
+	ContentType *string `field:"optional" json:"contentType" yaml:"contentType"`
 	// The message.
-	MessageBody *string `json:"messageBody" yaml:"messageBody"`
+	MessageBody *string `field:"optional" json:"messageBody" yaml:"messageBody"`
 }
 
 // Information for creating an action that distributes requests among one or more target groups.
@@ -8372,7 +8499,10 @@ type CfnListenerRule_FixedResponseConfigProperty struct {
 // For Network Load Balancers, you can specify a single target group. Specify only when `Type` is `forward` . If you specify both `ForwardConfig` and `TargetGroupArn` , you can specify only one target group using `ForwardConfig` and it must be the same target group specified in `TargetGroupArn` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   forwardConfigProperty := &forwardConfigProperty{
 //   	targetGroups: []interface{}{
 //   		&targetGroupTupleProperty{
@@ -8388,15 +8518,18 @@ type CfnListenerRule_FixedResponseConfigProperty struct {
 //
 type CfnListenerRule_ForwardConfigProperty struct {
 	// Information about how traffic will be distributed between multiple target groups in a forward rule.
-	TargetGroups interface{} `json:"targetGroups" yaml:"targetGroups"`
+	TargetGroups interface{} `field:"optional" json:"targetGroups" yaml:"targetGroups"`
 	// Information about the target group stickiness for a rule.
-	TargetGroupStickinessConfig interface{} `json:"targetGroupStickinessConfig" yaml:"targetGroupStickinessConfig"`
+	TargetGroupStickinessConfig interface{} `field:"optional" json:"targetGroupStickinessConfig" yaml:"targetGroupStickinessConfig"`
 }
 
 // Information about a host header condition.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   hostHeaderConfigProperty := &hostHeaderConfigProperty{
 //   	values: []*string{
 //   		jsii.String("values"),
@@ -8409,7 +8542,7 @@ type CfnListenerRule_HostHeaderConfigProperty struct {
 	// The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
 	//
 	// If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.
-	Values *[]*string `json:"values" yaml:"values"`
+	Values *[]*string `field:"optional" json:"values" yaml:"values"`
 }
 
 // Information about an HTTP header condition.
@@ -8417,7 +8550,10 @@ type CfnListenerRule_HostHeaderConfigProperty struct {
 // There is a set of standard HTTP header fields. You can also define custom HTTP header fields.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   httpHeaderConfigProperty := &httpHeaderConfigProperty{
 //   	httpHeaderName: jsii.String("httpHeaderName"),
 //   	values: []*string{
@@ -8429,7 +8565,7 @@ type CfnListenerRule_HttpHeaderConfigProperty struct {
 	// The name of the HTTP header field.
 	//
 	// The maximum size is 40 characters. The header name is case insensitive. The allowed characters are specified by RFC 7230. Wildcards are not supported.
-	HttpHeaderName *string `json:"httpHeaderName" yaml:"httpHeaderName"`
+	HttpHeaderName *string `field:"optional" json:"httpHeaderName" yaml:"httpHeaderName"`
 	// One or more strings to compare against the value of the HTTP header.
 	//
 	// The maximum size of each string is 128 characters. The comparison strings are case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
@@ -8437,7 +8573,7 @@ type CfnListenerRule_HttpHeaderConfigProperty struct {
 	// If the same header appears multiple times in the request, we search them in order until a match is found.
 	//
 	// If you specify multiple strings, the condition is satisfied if one of the strings matches the value of the HTTP header. To require that all of the strings are a match, create one condition per string.
-	Values *[]*string `json:"values" yaml:"values"`
+	Values *[]*string `field:"optional" json:"values" yaml:"values"`
 }
 
 // Information about an HTTP method condition.
@@ -8445,7 +8581,10 @@ type CfnListenerRule_HttpHeaderConfigProperty struct {
 // HTTP defines a set of request methods, also referred to as HTTP verbs. For more information, see the [HTTP Method Registry](https://docs.aws.amazon.com/https://www.iana.org/assignments/http-methods/http-methods.xhtml) . You can also define custom HTTP methods.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   httpRequestMethodConfigProperty := &httpRequestMethodConfigProperty{
 //   	values: []*string{
 //   		jsii.String("values"),
@@ -8458,13 +8597,16 @@ type CfnListenerRule_HttpRequestMethodConfigProperty struct {
 	// The maximum size is 40 characters. The allowed characters are A-Z, hyphen (-), and underscore (_). The comparison is case sensitive. Wildcards are not supported; therefore, the method name must be an exact match.
 	//
 	// If you specify multiple strings, the condition is satisfied if one of the strings matches the HTTP request method. We recommend that you route GET and HEAD requests in the same way, because the response to a HEAD request may be cached.
-	Values *[]*string `json:"values" yaml:"values"`
+	Values *[]*string `field:"optional" json:"values" yaml:"values"`
 }
 
 // Information about a path pattern condition.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   pathPatternConfigProperty := &pathPatternConfigProperty{
 //   	values: []*string{
 //   		jsii.String("values"),
@@ -8477,7 +8619,7 @@ type CfnListenerRule_PathPatternConfigProperty struct {
 	// The maximum size of each string is 128 characters. The comparison is case sensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
 	//
 	// If you specify multiple strings, the condition is satisfied if one of them matches the request URL. The path pattern is compared only to the path of the URL, not to its query string.
-	Values *[]*string `json:"values" yaml:"values"`
+	Values *[]*string `field:"optional" json:"values" yaml:"values"`
 }
 
 // Information about a query string condition.
@@ -8485,7 +8627,10 @@ type CfnListenerRule_PathPatternConfigProperty struct {
 // The query string component of a URI starts after the first '?' character and is terminated by either a '#' character or the end of the URI. A typical query string contains key/value pairs separated by '&' characters. The allowed characters are specified by RFC 3986. Any character can be percentage encoded.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   queryStringConfigProperty := &queryStringConfigProperty{
 //   	values: []interface{}{
 //   		&queryStringKeyValueProperty{
@@ -8501,13 +8646,16 @@ type CfnListenerRule_QueryStringConfigProperty struct {
 	// The maximum size of each string is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '*' or '?' character in a query string, you must escape these characters in `Values` using a '\' character.
 	//
 	// If you specify multiple key/value pairs or values, the condition is satisfied if one of them is found in the query string.
-	Values interface{} `json:"values" yaml:"values"`
+	Values interface{} `field:"optional" json:"values" yaml:"values"`
 }
 
 // Information about a key/value pair.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   queryStringKeyValueProperty := &queryStringKeyValueProperty{
 //   	key: jsii.String("key"),
 //   	value: jsii.String("value"),
@@ -8517,9 +8665,9 @@ type CfnListenerRule_QueryStringKeyValueProperty struct {
 	// The key.
 	//
 	// You can omit the key.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"optional" json:"key" yaml:"key"`
 	// The value.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
 // Information about a redirect action.
@@ -8537,7 +8685,10 @@ type CfnListenerRule_QueryStringKeyValueProperty struct {
 // For example, you can change the path to "/new/#{path}", the hostname to "example.#{host}", or the query to "#{query}&value=xyz".
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   redirectConfigProperty := &redirectConfigProperty{
 //   	statusCode: jsii.String("statusCode"),
 //
@@ -8553,33 +8704,36 @@ type CfnListenerRule_RedirectConfigProperty struct {
 	// The HTTP redirect code.
 	//
 	// The redirect is either permanent (HTTP 301) or temporary (HTTP 302).
-	StatusCode *string `json:"statusCode" yaml:"statusCode"`
+	StatusCode *string `field:"required" json:"statusCode" yaml:"statusCode"`
 	// The hostname.
 	//
 	// This component is not percent-encoded. The hostname can contain #{host}.
-	Host *string `json:"host" yaml:"host"`
+	Host *string `field:"optional" json:"host" yaml:"host"`
 	// The absolute path, starting with the leading "/".
 	//
 	// This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 	// The port.
 	//
 	// You can specify a value from 1 to 65535 or #{port}.
-	Port *string `json:"port" yaml:"port"`
+	Port *string `field:"optional" json:"port" yaml:"port"`
 	// The protocol.
 	//
 	// You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
-	Protocol *string `json:"protocol" yaml:"protocol"`
+	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`
 	// The query parameters, URL-encoded when necessary, but not percent-encoded.
 	//
 	// Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
-	Query *string `json:"query" yaml:"query"`
+	Query *string `field:"optional" json:"query" yaml:"query"`
 }
 
 // Specifies a condition for a listener rule.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   ruleConditionProperty := &ruleConditionProperty{
 //   	field: jsii.String("field"),
 //   	hostHeaderConfig: &hostHeaderConfigProperty{
@@ -8630,31 +8784,31 @@ type CfnListenerRule_RuleConditionProperty struct {
 	// - `path-pattern`
 	// - `query-string`
 	// - `source-ip`.
-	Field *string `json:"field" yaml:"field"`
+	Field *string `field:"optional" json:"field" yaml:"field"`
 	// Information for a host header condition.
 	//
 	// Specify only when `Field` is `host-header` .
-	HostHeaderConfig interface{} `json:"hostHeaderConfig" yaml:"hostHeaderConfig"`
+	HostHeaderConfig interface{} `field:"optional" json:"hostHeaderConfig" yaml:"hostHeaderConfig"`
 	// Information for an HTTP header condition.
 	//
 	// Specify only when `Field` is `http-header` .
-	HttpHeaderConfig interface{} `json:"httpHeaderConfig" yaml:"httpHeaderConfig"`
+	HttpHeaderConfig interface{} `field:"optional" json:"httpHeaderConfig" yaml:"httpHeaderConfig"`
 	// Information for an HTTP method condition.
 	//
 	// Specify only when `Field` is `http-request-method` .
-	HttpRequestMethodConfig interface{} `json:"httpRequestMethodConfig" yaml:"httpRequestMethodConfig"`
+	HttpRequestMethodConfig interface{} `field:"optional" json:"httpRequestMethodConfig" yaml:"httpRequestMethodConfig"`
 	// Information for a path pattern condition.
 	//
 	// Specify only when `Field` is `path-pattern` .
-	PathPatternConfig interface{} `json:"pathPatternConfig" yaml:"pathPatternConfig"`
+	PathPatternConfig interface{} `field:"optional" json:"pathPatternConfig" yaml:"pathPatternConfig"`
 	// Information for a query string condition.
 	//
 	// Specify only when `Field` is `query-string` .
-	QueryStringConfig interface{} `json:"queryStringConfig" yaml:"queryStringConfig"`
+	QueryStringConfig interface{} `field:"optional" json:"queryStringConfig" yaml:"queryStringConfig"`
 	// Information for a source IP condition.
 	//
 	// Specify only when `Field` is `source-ip` .
-	SourceIpConfig interface{} `json:"sourceIpConfig" yaml:"sourceIpConfig"`
+	SourceIpConfig interface{} `field:"optional" json:"sourceIpConfig" yaml:"sourceIpConfig"`
 	// The condition value.
 	//
 	// Specify only when `Field` is `host-header` or `path-pattern` . Alternatively, to specify multiple host names or multiple path patterns, use `HostHeaderConfig` or `PathPatternConfig` .
@@ -8673,7 +8827,7 @@ type CfnListenerRule_RuleConditionProperty struct {
 	// - & (using &amp;)
 	// - * (matches 0 or more characters)
 	// - ? (matches exactly 1 character)
-	Values *[]*string `json:"values" yaml:"values"`
+	Values *[]*string `field:"optional" json:"values" yaml:"values"`
 }
 
 // Information about a source IP condition.
@@ -8681,7 +8835,10 @@ type CfnListenerRule_RuleConditionProperty struct {
 // You can use this condition to route based on the IP address of the source that connects to the load balancer. If a client is behind a proxy, this is the IP address of the proxy not the IP address of the client.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sourceIpConfigProperty := &sourceIpConfigProperty{
 //   	values: []*string{
 //   		jsii.String("values"),
@@ -8692,13 +8849,16 @@ type CfnListenerRule_SourceIpConfigProperty struct {
 	// The source IP addresses, in CIDR format. You can use both IPv4 and IPv6 addresses. Wildcards are not supported.
 	//
 	// If you specify multiple addresses, the condition is satisfied if the source IP address of the request matches one of the CIDR blocks. This condition is not satisfied by the addresses in the X-Forwarded-For header.
-	Values *[]*string `json:"values" yaml:"values"`
+	Values *[]*string `field:"optional" json:"values" yaml:"values"`
 }
 
 // Information about the target group stickiness for a rule.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   targetGroupStickinessConfigProperty := &targetGroupStickinessConfigProperty{
 //   	durationSeconds: jsii.Number(123),
 //   	enabled: jsii.Boolean(false),
@@ -8708,15 +8868,18 @@ type CfnListenerRule_TargetGroupStickinessConfigProperty struct {
 	// The time period, in seconds, during which requests from a client should be routed to the same target group.
 	//
 	// The range is 1-604800 seconds (7 days).
-	DurationSeconds *float64 `json:"durationSeconds" yaml:"durationSeconds"`
+	DurationSeconds *float64 `field:"optional" json:"durationSeconds" yaml:"durationSeconds"`
 	// Indicates whether target group stickiness is enabled.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 }
 
 // Information about how traffic will be distributed between multiple target groups in a forward rule.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   targetGroupTupleProperty := &targetGroupTupleProperty{
 //   	targetGroupArn: jsii.String("targetGroupArn"),
 //   	weight: jsii.Number(123),
@@ -8724,17 +8887,20 @@ type CfnListenerRule_TargetGroupStickinessConfigProperty struct {
 //
 type CfnListenerRule_TargetGroupTupleProperty struct {
 	// The Amazon Resource Name (ARN) of the target group.
-	TargetGroupArn *string `json:"targetGroupArn" yaml:"targetGroupArn"`
+	TargetGroupArn *string `field:"optional" json:"targetGroupArn" yaml:"targetGroupArn"`
 	// The weight.
 	//
 	// The range is 0 to 999.
-	Weight *float64 `json:"weight" yaml:"weight"`
+	Weight *float64 `field:"optional" json:"weight" yaml:"weight"`
 }
 
 // Properties for defining a `CfnListenerRule`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnListenerRuleProps := &cfnListenerRuleProps{
 //   	actions: []interface{}{
 //   		&actionProperty{
@@ -8856,17 +9022,17 @@ type CfnListenerRuleProps struct {
 	// The actions.
 	//
 	// The rule must include exactly one of the following types of actions: `forward` , `fixed-response` , or `redirect` , and it must be the last action to be performed. If the rule is for an HTTPS listener, it can also optionally include an authentication action.
-	Actions interface{} `json:"actions" yaml:"actions"`
+	Actions interface{} `field:"required" json:"actions" yaml:"actions"`
 	// The conditions.
 	//
 	// The rule can optionally include up to one of each of the following conditions: `http-request-method` , `host-header` , `path-pattern` , and `source-ip` . A rule can also optionally include one or more of each of the following conditions: `http-header` and `query-string` .
-	Conditions interface{} `json:"conditions" yaml:"conditions"`
+	Conditions interface{} `field:"required" json:"conditions" yaml:"conditions"`
 	// The Amazon Resource Name (ARN) of the listener.
-	ListenerArn *string `json:"listenerArn" yaml:"listenerArn"`
+	ListenerArn *string `field:"required" json:"listenerArn" yaml:"listenerArn"`
 	// The rule priority. A listener can't have multiple rules with the same priority.
 	//
 	// If you try to reorder rules by updating their priorities, do not specify a new priority if an existing rule already uses this priority, as this can cause an error. If you need to reuse a priority with a different rule, you must remove it as a priority first, and then specify it in a subsequent update.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"required" json:"priority" yaml:"priority"`
 }
 
 // A CloudFormation `AWS::ElasticLoadBalancingV2::LoadBalancer`.
@@ -8874,8 +9040,11 @@ type CfnListenerRuleProps struct {
 // Specifies an Application Load Balancer, a Network Load Balancer, or a Gateway Load Balancer.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
-//   cfnLoadBalancer := elasticloadbalancingv2.NewCfnLoadBalancer(this, jsii.String("MyCfnLoadBalancer"), &cfnLoadBalancerProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnLoadBalancer := awscdk.Aws_elasticloadbalancingv2.NewCfnLoadBalancer(this, jsii.String("MyCfnLoadBalancer"), &cfnLoadBalancerProps{
 //   	ipAddressType: jsii.String("ipAddressType"),
 //   	loadBalancerAttributes: []interface{}{
 //   		&loadBalancerAttributeProperty{
@@ -9806,7 +9975,10 @@ func (c *jsiiProxy_CfnLoadBalancer) ValidateProperties(_properties interface{}) 
 // Specifies an attribute for an Application Load Balancer, a Network Load Balancer, or a Gateway Load Balancer.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   loadBalancerAttributeProperty := &loadBalancerAttributeProperty{
 //   	key: jsii.String("key"),
 //   	value: jsii.String("value"),
@@ -9839,15 +10011,18 @@ type CfnLoadBalancer_LoadBalancerAttributeProperty struct {
 	// The following attribute is supported by Network Load Balancers and Gateway Load Balancers:
 	//
 	// - `load_balancing.cross_zone.enabled` - Indicates whether cross-zone load balancing is enabled. The possible values are `true` and `false` . The default is `false` .
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"optional" json:"key" yaml:"key"`
 	// The value of the attribute.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
 // Specifies a subnet for a load balancer.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   subnetMappingProperty := &subnetMappingProperty{
 //   	subnetId: jsii.String("subnetId"),
 //
@@ -9859,19 +10034,22 @@ type CfnLoadBalancer_LoadBalancerAttributeProperty struct {
 //
 type CfnLoadBalancer_SubnetMappingProperty struct {
 	// The ID of the subnet.
-	SubnetId *string `json:"subnetId" yaml:"subnetId"`
+	SubnetId *string `field:"required" json:"subnetId" yaml:"subnetId"`
 	// [Network Load Balancers] The allocation ID of the Elastic IP address for an internet-facing load balancer.
-	AllocationId *string `json:"allocationId" yaml:"allocationId"`
+	AllocationId *string `field:"optional" json:"allocationId" yaml:"allocationId"`
 	// [Network Load Balancers] The IPv6 address.
-	IPv6Address *string `json:"iPv6Address" yaml:"iPv6Address"`
+	IPv6Address *string `field:"optional" json:"iPv6Address" yaml:"iPv6Address"`
 	// [Network Load Balancers] The private IPv4 address for an internal load balancer.
-	PrivateIPv4Address *string `json:"privateIPv4Address" yaml:"privateIPv4Address"`
+	PrivateIPv4Address *string `field:"optional" json:"privateIPv4Address" yaml:"privateIPv4Address"`
 }
 
 // Properties for defining a `CfnLoadBalancer`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnLoadBalancerProps := &cfnLoadBalancerProps{
 //   	ipAddressType: jsii.String("ipAddressType"),
 //   	loadBalancerAttributes: []interface{}{
@@ -9911,15 +10089,15 @@ type CfnLoadBalancerProps struct {
 	// The IP address type.
 	//
 	// The possible values are `ipv4` (for IPv4 addresses) and `dualstack` (for IPv4 and IPv6 addresses). You can’t specify `dualstack` for a load balancer with a UDP or TCP_UDP listener.
-	IpAddressType *string `json:"ipAddressType" yaml:"ipAddressType"`
+	IpAddressType *string `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
 	// The load balancer attributes.
-	LoadBalancerAttributes interface{} `json:"loadBalancerAttributes" yaml:"loadBalancerAttributes"`
+	LoadBalancerAttributes interface{} `field:"optional" json:"loadBalancerAttributes" yaml:"loadBalancerAttributes"`
 	// The name of the load balancer.
 	//
 	// This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".
 	//
 	// If you don't specify a name, AWS CloudFormation generates a unique physical ID for the load balancer. If you specify a name, you cannot perform updates that require replacement of this resource, but you can perform other updates. To replace the resource, specify a new name.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The nodes of an Internet-facing load balancer have public IP addresses.
 	//
 	// The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet.
@@ -9929,9 +10107,9 @@ type CfnLoadBalancerProps struct {
 	// The default is an Internet-facing load balancer.
 	//
 	// You cannot specify a scheme for a Gateway Load Balancer.
-	Scheme *string `json:"scheme" yaml:"scheme"`
+	Scheme *string `field:"optional" json:"scheme" yaml:"scheme"`
 	// [Application Load Balancers] The IDs of the security groups for the load balancer.
-	SecurityGroups *[]*string `json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]*string `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// The IDs of the public subnets.
 	//
 	// You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both.
@@ -9945,7 +10123,7 @@ type CfnLoadBalancerProps struct {
 	// [Network Load Balancers] You can specify subnets from one or more Availability Zones. You can specify one Elastic IP address per subnet if you need static IP addresses for your internet-facing load balancer. For internal load balancers, you can specify one private IP address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you can specify one IPv6 address per subnet.
 	//
 	// [Gateway Load Balancers] You can specify subnets from one or more Availability Zones. You cannot specify Elastic IP addresses for your subnets.
-	SubnetMappings interface{} `json:"subnetMappings" yaml:"subnetMappings"`
+	SubnetMappings interface{} `field:"optional" json:"subnetMappings" yaml:"subnetMappings"`
 	// The IDs of the public subnets.
 	//
 	// You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both. To specify an Elastic IP address, specify subnet mappings instead of subnets.
@@ -9959,13 +10137,13 @@ type CfnLoadBalancerProps struct {
 	// [Network Load Balancers] You can specify subnets from one or more Availability Zones.
 	//
 	// [Gateway Load Balancers] You can specify subnets from one or more Availability Zones.
-	Subnets *[]*string `json:"subnets" yaml:"subnets"`
+	Subnets *[]*string `field:"optional" json:"subnets" yaml:"subnets"`
 	// The tags to assign to the load balancer.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The type of load balancer.
 	//
 	// The default is `application` .
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 
 // A CloudFormation `AWS::ElasticLoadBalancingV2::TargetGroup`.
@@ -9977,8 +10155,11 @@ type CfnLoadBalancerProps struct {
 // Before you register a Lambda function as a target, you must create a `AWS::Lambda::Permission` resource that grants the Elastic Load Balancing service principal permission to invoke the Lambda function.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
-//   cfnTargetGroup := elasticloadbalancingv2.NewCfnTargetGroup(this, jsii.String("MyCfnTargetGroup"), &cfnTargetGroupProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnTargetGroup := awscdk.Aws_elasticloadbalancingv2.NewCfnTargetGroup(this, jsii.String("MyCfnTargetGroup"), &cfnTargetGroupProps{
 //   	healthCheckEnabled: jsii.Boolean(false),
 //   	healthCheckIntervalSeconds: jsii.Number(123),
 //   	healthCheckPath: jsii.String("healthCheckPath"),
@@ -11096,7 +11277,10 @@ func (c *jsiiProxy_CfnTargetGroup) ValidateProperties(_properties interface{}) {
 // Specifies the HTTP codes that healthy targets must use when responding to an HTTP health check.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   matcherProperty := &matcherProperty{
 //   	grpcCode: jsii.String("grpcCode"),
 //   	httpCode: jsii.String("httpCode"),
@@ -11106,7 +11290,7 @@ type CfnTargetGroup_MatcherProperty struct {
 	// You can specify values between 0 and 99.
 	//
 	// You can specify multiple values (for example, "0,1") or a range of values (for example, "0-5"). The default value is 12.
-	GrpcCode *string `json:"grpcCode" yaml:"grpcCode"`
+	GrpcCode *string `field:"optional" json:"grpcCode" yaml:"grpcCode"`
 	// For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200.
 	//
 	// You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299").
@@ -11114,13 +11298,16 @@ type CfnTargetGroup_MatcherProperty struct {
 	// For Network Load Balancers and Gateway Load Balancers, this must be "200–399".
 	//
 	// Note that when using shorthand syntax, some values such as commas need to be escaped.
-	HttpCode *string `json:"httpCode" yaml:"httpCode"`
+	HttpCode *string `field:"optional" json:"httpCode" yaml:"httpCode"`
 }
 
 // Specifies a target to add to a target group.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   targetDescriptionProperty := &targetDescriptionProperty{
 //   	id: jsii.String("id"),
 //
@@ -11133,7 +11320,7 @@ type CfnTargetGroup_TargetDescriptionProperty struct {
 	// The ID of the target.
 	//
 	// If the target type of the target group is `instance` , specify an instance ID. If the target type is `ip` , specify an IP address. If the target type is `lambda` , specify the ARN of the Lambda function. If the target type is `alb` , specify the ARN of the Application Load Balancer target.
-	Id *string `json:"id" yaml:"id"`
+	Id *string `field:"required" json:"id" yaml:"id"`
 	// An Availability Zone or `all` .
 	//
 	// This determines whether the target receives traffic from the load balancer nodes in the specified Availability Zone or from all enabled Availability Zones for the load balancer.
@@ -11145,17 +11332,20 @@ type CfnTargetGroup_TargetDescriptionProperty struct {
 	// With an Application Load Balancer, if the target type is `ip` and the IP address is outside the VPC for the target group, the only supported value is `all` .
 	//
 	// If the target type is `lambda` , this parameter is optional and the only supported value is `all` .
-	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
+	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
 	// The port on which the target is listening.
 	//
 	// If the target group protocol is GENEVE, the supported port is 6081. If the target type is `alb` , the targeted Application Load Balancer must have at least one listener whose port matches the target group port. Not used if the target is a Lambda function.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"optional" json:"port" yaml:"port"`
 }
 
 // Specifies a target group attribute.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   targetGroupAttributeProperty := &targetGroupAttributeProperty{
 //   	key: jsii.String("key"),
 //   	value: jsii.String("value"),
@@ -11190,15 +11380,18 @@ type CfnTargetGroup_TargetGroupAttributeProperty struct {
 	// - `deregistration_delay.connection_termination.enabled` - Indicates whether the load balancer terminates connections at the end of the deregistration timeout. The value is `true` or `false` . The default is `false` .
 	// - `preserve_client_ip.enabled` - Indicates whether client IP preservation is enabled. The value is `true` or `false` . The default is disabled if the target group type is IP address and the target group protocol is TCP or TLS. Otherwise, the default is enabled. Client IP preservation cannot be disabled for UDP and TCP_UDP target groups.
 	// - `proxy_protocol_v2.enabled` - Indicates whether Proxy Protocol version 2 is enabled. The value is `true` or `false` . The default is `false` .
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"optional" json:"key" yaml:"key"`
 	// The value of the attribute.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
 // Properties for defining a `CfnTargetGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnTargetGroupProps := &cfnTargetGroupProps{
 //   	healthCheckEnabled: jsii.Boolean(false),
 //   	healthCheckIntervalSeconds: jsii.Number(123),
@@ -11246,61 +11439,61 @@ type CfnTargetGroupProps struct {
 	// Indicates whether health checks are enabled.
 	//
 	// If the target type is `lambda` , health checks are disabled by default but can be enabled. If the target type is `instance` , `ip` , or `alb` , health checks are always enabled and cannot be disabled.
-	HealthCheckEnabled interface{} `json:"healthCheckEnabled" yaml:"healthCheckEnabled"`
+	HealthCheckEnabled interface{} `field:"optional" json:"healthCheckEnabled" yaml:"healthCheckEnabled"`
 	// The approximate amount of time, in seconds, between health checks of an individual target.
 	//
 	// If the target group protocol is HTTP or HTTPS, the default is 30 seconds. If the target group protocol is TCP, TLS, UDP, or TCP_UDP, the supported values are 10 and 30 seconds and the default is 30 seconds. If the target group protocol is GENEVE, the default is 10 seconds. If the target type is `lambda` , the default is 35 seconds.
-	HealthCheckIntervalSeconds *float64 `json:"healthCheckIntervalSeconds" yaml:"healthCheckIntervalSeconds"`
+	HealthCheckIntervalSeconds *float64 `field:"optional" json:"healthCheckIntervalSeconds" yaml:"healthCheckIntervalSeconds"`
 	// [HTTP/HTTPS health checks] The destination for health checks on the targets.
 	//
 	// [HTTP1 or HTTP2 protocol version] The ping path. The default is /.
 	//
 	// [GRPC protocol version] The path of a custom health check method with the format /package.service/method. The default is / AWS .ALB/healthcheck.
-	HealthCheckPath *string `json:"healthCheckPath" yaml:"healthCheckPath"`
+	HealthCheckPath *string `field:"optional" json:"healthCheckPath" yaml:"healthCheckPath"`
 	// The port the load balancer uses when performing health checks on targets.
 	//
 	// If the protocol is HTTP, HTTPS, TCP, TLS, UDP, or TCP_UDP, the default is `traffic-port` , which is the port on which each target receives traffic from the load balancer. If the protocol is GENEVE, the default is port 80.
-	HealthCheckPort *string `json:"healthCheckPort" yaml:"healthCheckPort"`
+	HealthCheckPort *string `field:"optional" json:"healthCheckPort" yaml:"healthCheckPort"`
 	// The protocol the load balancer uses when performing health checks on targets.
 	//
 	// For Application Load Balancers, the default is HTTP. For Network Load Balancers and Gateway Load Balancers, the default is TCP. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. The GENEVE, TLS, UDP, and TCP_UDP protocols are not supported for health checks.
-	HealthCheckProtocol *string `json:"healthCheckProtocol" yaml:"healthCheckProtocol"`
+	HealthCheckProtocol *string `field:"optional" json:"healthCheckProtocol" yaml:"healthCheckProtocol"`
 	// The amount of time, in seconds, during which no response from a target means a failed health check.
 	//
 	// For target groups with a protocol of HTTP, HTTPS, or GENEVE, the default is 5 seconds. For target groups with a protocol of TCP or TLS, this value must be 6 seconds for HTTP health checks and 10 seconds for TCP and HTTPS health checks. If the target type is `lambda` , the default is 30 seconds.
-	HealthCheckTimeoutSeconds *float64 `json:"healthCheckTimeoutSeconds" yaml:"healthCheckTimeoutSeconds"`
+	HealthCheckTimeoutSeconds *float64 `field:"optional" json:"healthCheckTimeoutSeconds" yaml:"healthCheckTimeoutSeconds"`
 	// The number of consecutive health checks successes required before considering an unhealthy target healthy.
 	//
 	// For target groups with a protocol of HTTP or HTTPS, the default is 5. For target groups with a protocol of TCP, TLS, or GENEVE, the default is 3. If the target type is `lambda` , the default is 5.
-	HealthyThresholdCount *float64 `json:"healthyThresholdCount" yaml:"healthyThresholdCount"`
+	HealthyThresholdCount *float64 `field:"optional" json:"healthyThresholdCount" yaml:"healthyThresholdCount"`
 	// The type of IP address used for this target group.
 	//
 	// The possible values are `ipv4` and `ipv6` . This is an optional parameter. If not specified, the IP address type defaults to `ipv4` .
-	IpAddressType *string `json:"ipAddressType" yaml:"ipAddressType"`
+	IpAddressType *string `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
 	// [HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful response from a target.
-	Matcher interface{} `json:"matcher" yaml:"matcher"`
+	Matcher interface{} `field:"optional" json:"matcher" yaml:"matcher"`
 	// The name of the target group.
 	//
 	// This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The port on which the targets receive traffic.
 	//
 	// This port is used unless you specify a port override when registering the target. If the target is a Lambda function, this parameter does not apply. If the protocol is GENEVE, the supported port is 6081.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// The protocol to use for routing traffic to the targets.
 	//
 	// For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, or TCP_UDP. For Gateway Load Balancers, the supported protocol is GENEVE. A TCP_UDP listener must be associated with a TCP_UDP target group. If the target is a Lambda function, this parameter does not apply.
-	Protocol *string `json:"protocol" yaml:"protocol"`
+	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`
 	// [HTTP/HTTPS protocol] The protocol version.
 	//
 	// The possible values are `GRPC` , `HTTP1` , and `HTTP2` .
-	ProtocolVersion *string `json:"protocolVersion" yaml:"protocolVersion"`
+	ProtocolVersion *string `field:"optional" json:"protocolVersion" yaml:"protocolVersion"`
 	// The tags.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The attributes.
-	TargetGroupAttributes interface{} `json:"targetGroupAttributes" yaml:"targetGroupAttributes"`
+	TargetGroupAttributes interface{} `field:"optional" json:"targetGroupAttributes" yaml:"targetGroupAttributes"`
 	// The targets.
-	Targets interface{} `json:"targets" yaml:"targets"`
+	Targets interface{} `field:"optional" json:"targets" yaml:"targets"`
 	// The type of target that you must specify when registering targets with this target group.
 	//
 	// You can't specify targets for a target group using more than one target type.
@@ -11309,21 +11502,22 @@ type CfnTargetGroupProps struct {
 	// - `ip` - Register targets by IP address. You can specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can't specify publicly routable IP addresses.
 	// - `lambda` - Register a single Lambda function as a target.
 	// - `alb` - Register a single Application Load Balancer as a target.
-	TargetType *string `json:"targetType" yaml:"targetType"`
+	TargetType *string `field:"optional" json:"targetType" yaml:"targetType"`
 	// The number of consecutive health check failures required before considering a target unhealthy.
 	//
 	// If the target group protocol is HTTP or HTTPS, the default is 2. If the target group protocol is TCP or TLS, this value must be the same as the healthy threshold count. If the target group protocol is GENEVE, the default is 3. If the target type is `lambda` , the default is 2.
-	UnhealthyThresholdCount *float64 `json:"unhealthyThresholdCount" yaml:"unhealthyThresholdCount"`
+	UnhealthyThresholdCount *float64 `field:"optional" json:"unhealthyThresholdCount" yaml:"unhealthyThresholdCount"`
 	// The identifier of the virtual private cloud (VPC).
 	//
 	// If the target is a Lambda function, this parameter does not apply. Otherwise, this parameter is required.
-	VpcId *string `json:"vpcId" yaml:"vpcId"`
+	VpcId *string `field:"optional" json:"vpcId" yaml:"vpcId"`
 }
 
 // The content type for a fixed response.
 //
 // Example:
 //   var listener applicationListener
+//
 //
 //   listener.addAction(jsii.String("Fixed"), &addApplicationActionProps{
 //   	priority: jsii.Number(10),
@@ -11357,12 +11551,15 @@ const (
 // A fixed response.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   fixedResponse := &fixedResponse{
 //   	statusCode: jsii.String("statusCode"),
 //
 //   	// the properties below are optional
-//   	contentType: elasticloadbalancingv2.contentType_TEXT_PLAIN,
+//   	contentType: awscdk.Aws_elasticloadbalancingv2.contentType_TEXT_PLAIN,
 //   	messageBody: jsii.String("messageBody"),
 //   }
 //
@@ -11370,19 +11567,20 @@ const (
 type FixedResponse struct {
 	// The HTTP response code (2XX, 4XX or 5XX).
 	// Deprecated: superceded by `ListenerAction.fixedResponse()`.
-	StatusCode *string `json:"statusCode" yaml:"statusCode"`
+	StatusCode *string `field:"required" json:"statusCode" yaml:"statusCode"`
 	// The content type.
 	// Deprecated: superceded by `ListenerAction.fixedResponse()`.
-	ContentType ContentType `json:"contentType" yaml:"contentType"`
+	ContentType ContentType `field:"optional" json:"contentType" yaml:"contentType"`
 	// The message.
 	// Deprecated: superceded by `ListenerAction.fixedResponse()`.
-	MessageBody *string `json:"messageBody" yaml:"messageBody"`
+	MessageBody *string `field:"optional" json:"messageBody" yaml:"messageBody"`
 }
 
 // Options for `ListenerAction.fixedResponse()`.
 //
 // Example:
 //   var listener applicationListener
+//
 //
 //   listener.addAction(jsii.String("Fixed"), &addApplicationActionProps{
 //   	priority: jsii.Number(10),
@@ -11403,18 +11601,22 @@ type FixedResponseOptions struct {
 	//
 	// Valid Values: text/plain | text/css | text/html | application/javascript | application/json.
 	// Experimental.
-	ContentType *string `json:"contentType" yaml:"contentType"`
+	ContentType *string `field:"optional" json:"contentType" yaml:"contentType"`
 	// The response body.
 	// Experimental.
-	MessageBody *string `json:"messageBody" yaml:"messageBody"`
+	MessageBody *string `field:"optional" json:"messageBody" yaml:"messageBody"`
 }
 
 // Options for `ListenerAction.forward()`.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
+//
 //   forwardOptions := &forwardOptions{
 //   	stickinessDuration: duration,
 //   }
@@ -11425,13 +11627,14 @@ type ForwardOptions struct {
 	//
 	// Range between 1 second and 7 days.
 	// Experimental.
-	StickinessDuration awscdk.Duration `json:"stickinessDuration" yaml:"stickinessDuration"`
+	StickinessDuration awscdk.Duration `field:"optional" json:"stickinessDuration" yaml:"stickinessDuration"`
 }
 
 // Properties for configuring a health check.
 //
 // Example:
 //   var cluster cluster
+//
 //   loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &applicationLoadBalancedFargateServiceProps{
 //   	cluster: cluster,
 //   	memoryLimitMiB: jsii.Number(1024),
@@ -11453,53 +11656,53 @@ type HealthCheck struct {
 	// health checks are disabled by default but can be enabled. If the target type
 	// is instance or ip, health checks are always enabled and cannot be disabled.
 	// Experimental.
-	Enabled *bool `json:"enabled" yaml:"enabled"`
+	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// GRPC code to use when checking for a successful response from a target.
 	//
 	// You can specify values between 0 and 99. You can specify multiple values
 	// (for example, "0,1") or a range of values (for example, "0-5").
 	// Experimental.
-	HealthyGrpcCodes *string `json:"healthyGrpcCodes" yaml:"healthyGrpcCodes"`
+	HealthyGrpcCodes *string `field:"optional" json:"healthyGrpcCodes" yaml:"healthyGrpcCodes"`
 	// HTTP code to use when checking for a successful response from a target.
 	//
 	// For Application Load Balancers, you can specify values between 200 and
 	// 499, and the default value is 200. You can specify multiple values (for
 	// example, "200,202") or a range of values (for example, "200-299").
 	// Experimental.
-	HealthyHttpCodes *string `json:"healthyHttpCodes" yaml:"healthyHttpCodes"`
+	HealthyHttpCodes *string `field:"optional" json:"healthyHttpCodes" yaml:"healthyHttpCodes"`
 	// The number of consecutive health checks successes required before considering an unhealthy target healthy.
 	//
 	// For Application Load Balancers, the default is 5. For Network Load Balancers, the default is 3.
 	// Experimental.
-	HealthyThresholdCount *float64 `json:"healthyThresholdCount" yaml:"healthyThresholdCount"`
+	HealthyThresholdCount *float64 `field:"optional" json:"healthyThresholdCount" yaml:"healthyThresholdCount"`
 	// The approximate number of seconds between health checks for an individual target.
 	// Experimental.
-	Interval awscdk.Duration `json:"interval" yaml:"interval"`
+	Interval awscdk.Duration `field:"optional" json:"interval" yaml:"interval"`
 	// The ping path destination where Elastic Load Balancing sends health check requests.
 	// Experimental.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 	// The port that the load balancer uses when performing health checks on the targets.
 	// Experimental.
-	Port *string `json:"port" yaml:"port"`
+	Port *string `field:"optional" json:"port" yaml:"port"`
 	// The protocol the load balancer uses when performing health checks on targets.
 	//
 	// The TCP protocol is supported for health checks only if the protocol of the target group is TCP, TLS, UDP, or TCP_UDP.
 	// The TLS, UDP, and TCP_UDP protocols are not supported for health checks.
 	// Experimental.
-	Protocol Protocol `json:"protocol" yaml:"protocol"`
+	Protocol Protocol `field:"optional" json:"protocol" yaml:"protocol"`
 	// The amount of time, in seconds, during which no response from a target means a failed health check.
 	//
 	// For Application Load Balancers, the range is 2-60 seconds and the
 	// default is 5 seconds. For Network Load Balancers, this is 10 seconds for
 	// TCP and HTTPS health checks and 6 seconds for HTTP health checks.
 	// Experimental.
-	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
+	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 	// The number of consecutive health check failures required before considering a target unhealthy.
 	//
 	// For Application Load Balancers, the default is 2. For Network Load
 	// Balancers, this value must be the same as the healthy threshold count.
 	// Experimental.
-	UnhealthyThresholdCount *float64 `json:"unhealthyThresholdCount" yaml:"unhealthyThresholdCount"`
+	UnhealthyThresholdCount *float64 `field:"optional" json:"unhealthyThresholdCount" yaml:"unhealthyThresholdCount"`
 }
 
 // Count of HTTP status originating from the load balancer.
@@ -12323,8 +12526,11 @@ func (j *jsiiProxy_ITargetGroup) TargetGroupName() *string {
 // sure the load balancer's security group can connect to the instance.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
-//   instanceTarget := elasticloadbalancingv2.NewInstanceTarget(jsii.String("instanceId"), jsii.Number(123))
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   instanceTarget := awscdk.Aws_elasticloadbalancingv2.NewInstanceTarget(jsii.String("instanceId"), jsii.Number(123))
 //
 // Deprecated: Use IpTarget from the.
 type InstanceTarget interface {
@@ -12428,8 +12634,11 @@ const (
 // sure the load balancer's security group can send packets to the IP address.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
-//   ipTarget := elasticloadbalancingv2.NewIpTarget(jsii.String("ipAddress"), jsii.Number(123), jsii.String("availabilityZone"))
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   ipTarget := awscdk.Aws_elasticloadbalancingv2.NewIpTarget(jsii.String("ipAddress"), jsii.Number(123), jsii.String("availabilityZone"))
 //
 // Deprecated: Use IpTarget from the.
 type IpTarget interface {
@@ -12558,12 +12767,13 @@ func (i *jsiiProxy_IpTarget) AttachToNetworkTargetGroup(targetGroup INetworkTarg
 //   var listener applicationListener
 //   var myTargetGroup applicationTargetGroup
 //
+//
 //   listener.addAction(jsii.String("DefaultAction"), &addApplicationActionProps{
 //   	action: elbv2.listenerAction.authenticateOidc(&authenticateOidcOptions{
 //   		authorizationEndpoint: jsii.String("https://example.com/openid"),
 //   		// Other OIDC properties here
 //   		clientId: jsii.String("..."),
-//   		clientSecret: secretValue.secretsManager(jsii.String("...")),
+//   		clientSecret: awscdk.SecretValue.secretsManager(jsii.String("...")),
 //   		issuer: jsii.String("..."),
 //   		tokenEndpoint: jsii.String("..."),
 //   		userInfoEndpoint: jsii.String("..."),
@@ -12797,8 +13007,11 @@ func (l *jsiiProxy_ListenerAction) Renumber(actions *[]*CfnListener_ActionProper
 // A certificate source for an ELBv2 listener.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
-//   listenerCertificate := elasticloadbalancingv2.listenerCertificate.fromArn(jsii.String("certificateArn"))
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   listenerCertificate := awscdk.Aws_elasticloadbalancingv2.listenerCertificate.fromArn(jsii.String("certificateArn"))
 //
 // Experimental.
 type ListenerCertificate interface {
@@ -12889,6 +13102,7 @@ func ListenerCertificate_FromCertificateManager(acmCertificate awscertificateman
 // Example:
 //   var listener applicationListener
 //   var asg autoScalingGroup
+//
 //
 //   listener.addTargets(jsii.String("Example.Com Fleet"), &addApplicationTargetsProps{
 //   	priority: jsii.Number(10),
@@ -13048,11 +13262,14 @@ func (l *jsiiProxy_ListenerCondition) RenderRawCondition() interface{} {
 // Result of attaching a target to load balancer.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var targetJson interface{}
+//
 //   loadBalancerTargetProps := &loadBalancerTargetProps{
-//   	targetType: elasticloadbalancingv2.targetType_INSTANCE,
+//   	targetType: awscdk.Aws_elasticloadbalancingv2.targetType_INSTANCE,
 //
 //   	// the properties below are optional
 //   	targetJson: targetJson,
@@ -13062,20 +13279,24 @@ func (l *jsiiProxy_ListenerCondition) RenderRawCondition() interface{} {
 type LoadBalancerTargetProps struct {
 	// What kind of target this is.
 	// Experimental.
-	TargetType TargetType `json:"targetType" yaml:"targetType"`
+	TargetType TargetType `field:"required" json:"targetType" yaml:"targetType"`
 	// JSON representing the target's direct addition to the TargetGroup list.
 	//
 	// May be omitted if the target is going to register itself later.
 	// Experimental.
-	TargetJson interface{} `json:"targetJson" yaml:"targetJson"`
+	TargetJson interface{} `field:"optional" json:"targetJson" yaml:"targetJson"`
 }
 
 // Options for `NetworkListenerAction.forward()`.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
+//
 //   networkForwardOptions := &networkForwardOptions{
 //   	stickinessDuration: duration,
 //   }
@@ -13086,13 +13307,14 @@ type NetworkForwardOptions struct {
 	//
 	// Range between 1 second and 7 days.
 	// Experimental.
-	StickinessDuration awscdk.Duration `json:"stickinessDuration" yaml:"stickinessDuration"`
+	StickinessDuration awscdk.Duration `field:"optional" json:"stickinessDuration" yaml:"stickinessDuration"`
 }
 
 // Define a Network Listener.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpNlbIntegration awscdk.HttpNlbIntegration
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   vpc := ec2.NewVpc(this, jsii.String("VPC"))
 //   lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("lb"), &networkLoadBalancerProps{
@@ -13106,7 +13328,7 @@ type NetworkForwardOptions struct {
 //   })
 //
 //   httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &httpApiProps{
-//   	defaultIntegration: NewHttpNlbIntegration(jsii.String("DefaultIntegration"), listener),
+//   	defaultIntegration: awscdk.NewHttpNlbIntegration(jsii.String("DefaultIntegration"), listener),
 //   })
 //
 // Experimental.
@@ -13586,11 +13808,15 @@ func (n *jsiiProxy_NetworkListener) Validate() *[]*string {
 // by passing it in the `next` property.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var networkTargetGroup networkTargetGroup
-//   networkListenerAction := elasticloadbalancingv2.networkListenerAction.forward([]iNetworkTargetGroup{
+//
+//   networkListenerAction := awscdk.Aws_elasticloadbalancingv2.networkListenerAction.forward([]iNetworkTargetGroup{
 //   	networkTargetGroup,
 //   }, &networkForwardOptions{
 //   	stickinessDuration: duration,
@@ -13753,33 +13979,36 @@ func (n *jsiiProxy_NetworkListenerAction) Renumber(actions *[]*CfnListener_Actio
 type NetworkListenerLookupOptions struct {
 	// Filter listeners by listener port.
 	// Experimental.
-	ListenerPort *float64 `json:"listenerPort" yaml:"listenerPort"`
+	ListenerPort *float64 `field:"optional" json:"listenerPort" yaml:"listenerPort"`
 	// Filter listeners by associated load balancer arn.
 	// Experimental.
-	LoadBalancerArn *string `json:"loadBalancerArn" yaml:"loadBalancerArn"`
+	LoadBalancerArn *string `field:"optional" json:"loadBalancerArn" yaml:"loadBalancerArn"`
 	// Filter listeners by associated load balancer tags.
 	// Experimental.
-	LoadBalancerTags *map[string]*string `json:"loadBalancerTags" yaml:"loadBalancerTags"`
+	LoadBalancerTags *map[string]*string `field:"optional" json:"loadBalancerTags" yaml:"loadBalancerTags"`
 	// Protocol of the listener port.
 	// Experimental.
-	ListenerProtocol Protocol `json:"listenerProtocol" yaml:"listenerProtocol"`
+	ListenerProtocol Protocol `field:"optional" json:"listenerProtocol" yaml:"listenerProtocol"`
 }
 
 // Properties for a Network Listener attached to a Load Balancer.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var listenerCertificate listenerCertificate
 //   var networkListenerAction networkListenerAction
 //   var networkLoadBalancer networkLoadBalancer
 //   var networkTargetGroup networkTargetGroup
+//
 //   networkListenerProps := &networkListenerProps{
 //   	loadBalancer: networkLoadBalancer,
 //   	port: jsii.Number(123),
 //
 //   	// the properties below are optional
-//   	alpnPolicy: elasticloadbalancingv2.alpnPolicy_HTTP1_ONLY,
+//   	alpnPolicy: awscdk.Aws_elasticloadbalancingv2.alpnPolicy_HTTP1_ONLY,
 //   	certificates: []iListenerCertificate{
 //   		listenerCertificate,
 //   	},
@@ -13787,27 +14016,27 @@ type NetworkListenerLookupOptions struct {
 //   	defaultTargetGroups: []iNetworkTargetGroup{
 //   		networkTargetGroup,
 //   	},
-//   	protocol: elasticloadbalancingv2.protocol_HTTP,
-//   	sslPolicy: elasticloadbalancingv2.sslPolicy_RECOMMENDED,
+//   	protocol: awscdk.*Aws_elasticloadbalancingv2.protocol_HTTP,
+//   	sslPolicy: awscdk.*Aws_elasticloadbalancingv2.sslPolicy_RECOMMENDED,
 //   }
 //
 // Experimental.
 type NetworkListenerProps struct {
 	// The port on which the listener listens for requests.
 	// Experimental.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"required" json:"port" yaml:"port"`
 	// Application-Layer Protocol Negotiation (ALPN) is a TLS extension that is sent on the initial TLS handshake hello messages.
 	//
 	// ALPN enables the application layer to negotiate which protocols should be used over a secure connection, such as HTTP/1 and HTTP/2.
 	//
 	// Can only be specified together with Protocol TLS.
 	// Experimental.
-	AlpnPolicy AlpnPolicy `json:"alpnPolicy" yaml:"alpnPolicy"`
+	AlpnPolicy AlpnPolicy `field:"optional" json:"alpnPolicy" yaml:"alpnPolicy"`
 	// Certificate list of ACM cert ARNs.
 	//
 	// You must provide exactly one certificate if the listener protocol is HTTPS or TLS.
 	// Experimental.
-	Certificates *[]IListenerCertificate `json:"certificates" yaml:"certificates"`
+	Certificates *[]IListenerCertificate `field:"optional" json:"certificates" yaml:"certificates"`
 	// Default action to take for requests to this listener.
 	//
 	// This allows full control of the default Action of the load balancer,
@@ -13816,7 +14045,7 @@ type NetworkListenerProps struct {
 	//
 	// Cannot be specified together with `defaultTargetGroups`.
 	// Experimental.
-	DefaultAction NetworkListenerAction `json:"defaultAction" yaml:"defaultAction"`
+	DefaultAction NetworkListenerAction `field:"optional" json:"defaultAction" yaml:"defaultAction"`
 	// Default target groups to load balance to.
 	//
 	// All target groups will be load balanced to with equal weight and without
@@ -13825,22 +14054,23 @@ type NetworkListenerProps struct {
 	//
 	// Cannot be specified together with `defaultAction`.
 	// Experimental.
-	DefaultTargetGroups *[]INetworkTargetGroup `json:"defaultTargetGroups" yaml:"defaultTargetGroups"`
+	DefaultTargetGroups *[]INetworkTargetGroup `field:"optional" json:"defaultTargetGroups" yaml:"defaultTargetGroups"`
 	// Protocol for listener, expects TCP, TLS, UDP, or TCP_UDP.
 	// Experimental.
-	Protocol Protocol `json:"protocol" yaml:"protocol"`
+	Protocol Protocol `field:"optional" json:"protocol" yaml:"protocol"`
 	// SSL Policy.
 	// Experimental.
-	SslPolicy SslPolicy `json:"sslPolicy" yaml:"sslPolicy"`
+	SslPolicy SslPolicy `field:"optional" json:"sslPolicy" yaml:"sslPolicy"`
 	// The load balancer to attach this listener to.
 	// Experimental.
-	LoadBalancer INetworkLoadBalancer `json:"loadBalancer" yaml:"loadBalancer"`
+	LoadBalancer INetworkLoadBalancer `field:"required" json:"loadBalancer" yaml:"loadBalancer"`
 }
 
 // Define a new network load balancer.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpNlbIntegration awscdk.HttpNlbIntegration
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   vpc := ec2.NewVpc(this, jsii.String("VPC"))
 //   lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("lb"), &networkLoadBalancerProps{
@@ -13854,7 +14084,7 @@ type NetworkListenerProps struct {
 //   })
 //
 //   httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &httpApiProps{
-//   	defaultIntegration: NewHttpNlbIntegration(jsii.String("DefaultIntegration"), listener),
+//   	defaultIntegration: awscdk.NewHttpNlbIntegration(jsii.String("DefaultIntegration"), listener),
 //   })
 //
 // Experimental.
@@ -14594,22 +14824,25 @@ func (n *jsiiProxy_NetworkLoadBalancer) Validate() *[]*string {
 type NetworkLoadBalancerAttributes struct {
 	// ARN of the load balancer.
 	// Experimental.
-	LoadBalancerArn *string `json:"loadBalancerArn" yaml:"loadBalancerArn"`
+	LoadBalancerArn *string `field:"required" json:"loadBalancerArn" yaml:"loadBalancerArn"`
 	// The canonical hosted zone ID of this load balancer.
 	// Experimental.
-	LoadBalancerCanonicalHostedZoneId *string `json:"loadBalancerCanonicalHostedZoneId" yaml:"loadBalancerCanonicalHostedZoneId"`
+	LoadBalancerCanonicalHostedZoneId *string `field:"optional" json:"loadBalancerCanonicalHostedZoneId" yaml:"loadBalancerCanonicalHostedZoneId"`
 	// The DNS name of this load balancer.
 	// Experimental.
-	LoadBalancerDnsName *string `json:"loadBalancerDnsName" yaml:"loadBalancerDnsName"`
+	LoadBalancerDnsName *string `field:"optional" json:"loadBalancerDnsName" yaml:"loadBalancerDnsName"`
 	// The VPC to associate with the load balancer.
 	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
+	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 }
 
 // Options for looking up an NetworkLoadBalancer.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   networkLoadBalancerLookupOptions := &networkLoadBalancerLookupOptions{
 //   	loadBalancerArn: jsii.String("loadBalancerArn"),
 //   	loadBalancerTags: map[string]*string{
@@ -14621,16 +14854,17 @@ type NetworkLoadBalancerAttributes struct {
 type NetworkLoadBalancerLookupOptions struct {
 	// Find by load balancer's ARN.
 	// Experimental.
-	LoadBalancerArn *string `json:"loadBalancerArn" yaml:"loadBalancerArn"`
+	LoadBalancerArn *string `field:"optional" json:"loadBalancerArn" yaml:"loadBalancerArn"`
 	// Match load balancer tags.
 	// Experimental.
-	LoadBalancerTags *map[string]*string `json:"loadBalancerTags" yaml:"loadBalancerTags"`
+	LoadBalancerTags *map[string]*string `field:"optional" json:"loadBalancerTags" yaml:"loadBalancerTags"`
 }
 
 // Properties for a network load balancer.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpNlbIntegration awscdk.HttpNlbIntegration
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   vpc := ec2.NewVpc(this, jsii.String("VPC"))
 //   lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("lb"), &networkLoadBalancerProps{
@@ -14644,29 +14878,29 @@ type NetworkLoadBalancerLookupOptions struct {
 //   })
 //
 //   httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &httpApiProps{
-//   	defaultIntegration: NewHttpNlbIntegration(jsii.String("DefaultIntegration"), listener),
+//   	defaultIntegration: awscdk.NewHttpNlbIntegration(jsii.String("DefaultIntegration"), listener),
 //   })
 //
 // Experimental.
 type NetworkLoadBalancerProps struct {
 	// The VPC network to place the load balancer in.
 	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
+	Vpc awsec2.IVpc `field:"required" json:"vpc" yaml:"vpc"`
 	// Indicates whether deletion protection is enabled.
 	// Experimental.
-	DeletionProtection *bool `json:"deletionProtection" yaml:"deletionProtection"`
+	DeletionProtection *bool `field:"optional" json:"deletionProtection" yaml:"deletionProtection"`
 	// Whether the load balancer has an internet-routable address.
 	// Experimental.
-	InternetFacing *bool `json:"internetFacing" yaml:"internetFacing"`
+	InternetFacing *bool `field:"optional" json:"internetFacing" yaml:"internetFacing"`
 	// Name of the load balancer.
 	// Experimental.
-	LoadBalancerName *string `json:"loadBalancerName" yaml:"loadBalancerName"`
+	LoadBalancerName *string `field:"optional" json:"loadBalancerName" yaml:"loadBalancerName"`
 	// Which subnets place the load balancer in.
 	// Experimental.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 	// Indicates whether cross-zone load balancing is enabled.
 	// Experimental.
-	CrossZoneEnabled *bool `json:"crossZoneEnabled" yaml:"crossZoneEnabled"`
+	CrossZoneEnabled *bool `field:"optional" json:"crossZoneEnabled" yaml:"crossZoneEnabled"`
 }
 
 // Define a Network Target Group.
@@ -14675,6 +14909,7 @@ type NetworkLoadBalancerProps struct {
 //   var listener networkListener
 //   var asg1 autoScalingGroup
 //   var asg2 autoScalingGroup
+//
 //
 //   group := listener.addTargets(jsii.String("AppFleet"), &addNetworkTargetsProps{
 //   	port: jsii.Number(443),
@@ -15169,11 +15404,16 @@ func (n *jsiiProxy_NetworkTargetGroup) Validate() *[]*string {
 // Properties for a new Network Target Group.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var networkLoadBalancerTarget iNetworkLoadBalancerTarget
 //   var vpc vpc
+//
 //   networkTargetGroupProps := &networkTargetGroupProps{
 //   	port: jsii.Number(123),
 //
@@ -15187,18 +15427,18 @@ func (n *jsiiProxy_NetworkTargetGroup) Validate() *[]*string {
 //   		interval: duration,
 //   		path: jsii.String("path"),
 //   		port: jsii.String("port"),
-//   		protocol: elasticloadbalancingv2.protocol_HTTP,
+//   		protocol: awscdk.Aws_elasticloadbalancingv2.protocol_HTTP,
 //   		timeout: duration,
 //   		unhealthyThresholdCount: jsii.Number(123),
 //   	},
 //   	preserveClientIp: jsii.Boolean(false),
-//   	protocol: elasticloadbalancingv2.*protocol_HTTP,
+//   	protocol: awscdk.*Aws_elasticloadbalancingv2.*protocol_HTTP,
 //   	proxyProtocolV2: jsii.Boolean(false),
 //   	targetGroupName: jsii.String("targetGroupName"),
 //   	targets: []*iNetworkLoadBalancerTarget{
 //   		networkLoadBalancerTarget,
 //   	},
-//   	targetType: elasticloadbalancingv2.targetType_INSTANCE,
+//   	targetType: awscdk.*Aws_elasticloadbalancingv2.targetType_INSTANCE,
 //   	vpc: vpc,
 //   }
 //
@@ -15208,58 +15448,61 @@ type NetworkTargetGroupProps struct {
 	//
 	// The range is 0-3600 seconds.
 	// Experimental.
-	DeregistrationDelay awscdk.Duration `json:"deregistrationDelay" yaml:"deregistrationDelay"`
+	DeregistrationDelay awscdk.Duration `field:"optional" json:"deregistrationDelay" yaml:"deregistrationDelay"`
 	// Health check configuration.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#aws-resource-elasticloadbalancingv2-targetgroup-properties
 	//
 	// Experimental.
-	HealthCheck *HealthCheck `json:"healthCheck" yaml:"healthCheck"`
+	HealthCheck *HealthCheck `field:"optional" json:"healthCheck" yaml:"healthCheck"`
 	// The name of the target group.
 	//
 	// This name must be unique per region per account, can have a maximum of
 	// 32 characters, must contain only alphanumeric characters or hyphens, and
 	// must not begin or end with a hyphen.
 	// Experimental.
-	TargetGroupName *string `json:"targetGroupName" yaml:"targetGroupName"`
+	TargetGroupName *string `field:"optional" json:"targetGroupName" yaml:"targetGroupName"`
 	// The type of targets registered to this TargetGroup, either IP or Instance.
 	//
 	// All targets registered into the group must be of this type. If you
 	// register targets to the TargetGroup in the CDK app, the TargetType is
 	// determined automatically.
 	// Experimental.
-	TargetType TargetType `json:"targetType" yaml:"targetType"`
+	TargetType TargetType `field:"optional" json:"targetType" yaml:"targetType"`
 	// The virtual private cloud (VPC).
 	//
 	// only if `TargetType` is `Ip` or `InstanceId`.
 	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
+	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 	// The port on which the listener listens for requests.
 	// Experimental.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"required" json:"port" yaml:"port"`
 	// Indicates whether client IP preservation is enabled.
 	// Experimental.
-	PreserveClientIp *bool `json:"preserveClientIp" yaml:"preserveClientIp"`
+	PreserveClientIp *bool `field:"optional" json:"preserveClientIp" yaml:"preserveClientIp"`
 	// Protocol for target group, expects TCP, TLS, UDP, or TCP_UDP.
 	// Experimental.
-	Protocol Protocol `json:"protocol" yaml:"protocol"`
+	Protocol Protocol `field:"optional" json:"protocol" yaml:"protocol"`
 	// Indicates whether Proxy Protocol version 2 is enabled.
 	// Experimental.
-	ProxyProtocolV2 *bool `json:"proxyProtocolV2" yaml:"proxyProtocolV2"`
+	ProxyProtocolV2 *bool `field:"optional" json:"proxyProtocolV2" yaml:"proxyProtocolV2"`
 	// The targets to add to this target group.
 	//
 	// Can be `Instance`, `IPAddress`, or any self-registering load balancing
 	// target. If you use either `Instance` or `IPAddress` as targets, all
 	// target must be of the same type.
 	// Experimental.
-	Targets *[]INetworkLoadBalancerTarget `json:"targets" yaml:"targets"`
+	Targets *[]INetworkLoadBalancerTarget `field:"optional" json:"targets" yaml:"targets"`
 }
 
 // A Target Group and weight combination.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var networkTargetGroup networkTargetGroup
+//
 //   networkWeightedTargetGroup := &networkWeightedTargetGroup{
 //   	targetGroup: networkTargetGroup,
 //
@@ -15271,12 +15514,12 @@ type NetworkTargetGroupProps struct {
 type NetworkWeightedTargetGroup struct {
 	// The target group.
 	// Experimental.
-	TargetGroup INetworkTargetGroup `json:"targetGroup" yaml:"targetGroup"`
+	TargetGroup INetworkTargetGroup `field:"required" json:"targetGroup" yaml:"targetGroup"`
 	// The target group's weight.
 	//
 	// Range is [0..1000).
 	// Experimental.
-	Weight *float64 `json:"weight" yaml:"weight"`
+	Weight *float64 `field:"optional" json:"weight" yaml:"weight"`
 }
 
 // Backend protocol for network load balancers and health checks.
@@ -15317,7 +15560,10 @@ const (
 // Properties for the key/value pair of the query string.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   queryStringCondition := &queryStringCondition{
 //   	value: jsii.String("value"),
 //
@@ -15329,10 +15575,10 @@ const (
 type QueryStringCondition struct {
 	// The query string value for the condition.
 	// Experimental.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 	// The query string key for the condition.
 	// Experimental.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"optional" json:"key" yaml:"key"`
 }
 
 // Options for `ListenerAction.redirect()`.
@@ -15354,7 +15600,10 @@ type QueryStringCondition struct {
 // "example.#{host}", or the query to "#{query}&value=xyz".
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   redirectOptions := &redirectOptions{
 //   	host: jsii.String("host"),
 //   	path: jsii.String("path"),
@@ -15370,38 +15619,41 @@ type RedirectOptions struct {
 	//
 	// This component is not percent-encoded. The hostname can contain #{host}.
 	// Experimental.
-	Host *string `json:"host" yaml:"host"`
+	Host *string `field:"optional" json:"host" yaml:"host"`
 	// The absolute path, starting with the leading "/".
 	//
 	// This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
 	// Experimental.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 	// The HTTP redirect code.
 	//
 	// The redirect is either permanent (HTTP 301) or temporary (HTTP 302).
 	// Experimental.
-	Permanent *bool `json:"permanent" yaml:"permanent"`
+	Permanent *bool `field:"optional" json:"permanent" yaml:"permanent"`
 	// The port.
 	//
 	// You can specify a value from 1 to 65535 or #{port}.
 	// Experimental.
-	Port *string `json:"port" yaml:"port"`
+	Port *string `field:"optional" json:"port" yaml:"port"`
 	// The protocol.
 	//
 	// You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
 	// Experimental.
-	Protocol *string `json:"protocol" yaml:"protocol"`
+	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`
 	// The query parameters, URL-encoded when necessary, but not percent-encoded.
 	//
 	// Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
 	// Experimental.
-	Query *string `json:"query" yaml:"query"`
+	Query *string `field:"optional" json:"query" yaml:"query"`
 }
 
 // A redirect response.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   redirectResponse := &redirectResponse{
 //   	statusCode: jsii.String("statusCode"),
 //
@@ -15417,35 +15669,35 @@ type RedirectOptions struct {
 type RedirectResponse struct {
 	// The HTTP redirect code (HTTP_301 or HTTP_302).
 	// Deprecated: superceded by `ListenerAction.redirect()`.
-	StatusCode *string `json:"statusCode" yaml:"statusCode"`
+	StatusCode *string `field:"required" json:"statusCode" yaml:"statusCode"`
 	// The hostname.
 	//
 	// This component is not percent-encoded. The hostname can contain #{host}.
 	// Deprecated: superceded by `ListenerAction.redirect()`.
-	Host *string `json:"host" yaml:"host"`
+	Host *string `field:"optional" json:"host" yaml:"host"`
 	// The absolute path, starting with the leading "/".
 	//
 	// This component is not percent-encoded.
 	// The path can contain #{host}, #{path}, and #{port}.
 	// Deprecated: superceded by `ListenerAction.redirect()`.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 	// The port.
 	//
 	// You can specify a value from 1 to 65535 or #{port}.
 	// Deprecated: superceded by `ListenerAction.redirect()`.
-	Port *string `json:"port" yaml:"port"`
+	Port *string `field:"optional" json:"port" yaml:"port"`
 	// The protocol.
 	//
 	// You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP,
 	// HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
 	// Deprecated: superceded by `ListenerAction.redirect()`.
-	Protocol *string `json:"protocol" yaml:"protocol"`
+	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`
 	// The query parameters, URL-encoded when necessary, but not percent-encoded.
 	//
 	// Do not include the leading "?", as it is automatically added.
 	// You can specify any of the reserved keywords.
 	// Deprecated: superceded by `ListenerAction.redirect()`.
-	Query *string `json:"query" yaml:"query"`
+	Query *string `field:"optional" json:"query" yaml:"query"`
 }
 
 // Elastic Load Balancing provides the following security policies for Application Load Balancers.
@@ -15459,20 +15711,23 @@ type RedirectResponse struct {
 // support legacy clients that require deprecated ciphers.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type HostedZone awscdk.HostedZoneimport awscdk "github.com/aws/aws-cdk-go/awscdk"type Certificate awscdk.Certificateimport awscdk "github.com/aws/aws-cdk-go/awscdk"type SslPolicy awscdk.SslPolicy
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var vpc vpc
 //   var cluster cluster
 //
-//   domainZone := hostedZone.fromLookup(this, jsii.String("Zone"), &hostedZoneProviderProps{
+//
+//   domainZone := awscdk.HostedZone.fromLookup(this, jsii.String("Zone"), &hostedZoneProviderProps{
 //   	domainName: jsii.String("example.com"),
 //   })
-//   certificate := certificate.fromCertificateArn(this, jsii.String("Cert"), jsii.String("arn:aws:acm:us-east-1:123456:certificate/abcdefg"))
+//   certificate := awscdk.Certificate.fromCertificateArn(this, jsii.String("Cert"), jsii.String("arn:aws:acm:us-east-1:123456:certificate/abcdefg"))
 //   loadBalancedFargateService := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &applicationLoadBalancedFargateServiceProps{
 //   	vpc: vpc,
 //   	cluster: cluster,
 //   	certificate: certificate,
-//   	sslPolicy: sslPolicy_RECOMMENDED,
+//   	sslPolicy: awscdk.SslPolicy_RECOMMENDED,
 //   	domainName: jsii.String("api.example.com"),
 //   	domainZone: domainZone,
 //   	redirectHTTP: jsii.Boolean(true),
@@ -15525,7 +15780,10 @@ const (
 // Properties to reference an existing target group.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   targetGroupAttributes := &targetGroupAttributes{
 //   	targetGroupArn: jsii.String("targetGroupArn"),
 //
@@ -15538,13 +15796,13 @@ const (
 type TargetGroupAttributes struct {
 	// ARN of the target group.
 	// Experimental.
-	TargetGroupArn *string `json:"targetGroupArn" yaml:"targetGroupArn"`
+	TargetGroupArn *string `field:"required" json:"targetGroupArn" yaml:"targetGroupArn"`
 	// Port target group is listening on.
 	// Deprecated: - This property is unused and the wrong type. No need to use it.
-	DefaultPort *string `json:"defaultPort" yaml:"defaultPort"`
+	DefaultPort *string `field:"optional" json:"defaultPort" yaml:"defaultPort"`
 	// A Token representing the list of ARNs for the load balancer routing to this target group.
 	// Experimental.
-	LoadBalancerArns *string `json:"loadBalancerArns" yaml:"loadBalancerArns"`
+	LoadBalancerArns *string `field:"optional" json:"loadBalancerArns" yaml:"loadBalancerArns"`
 }
 
 // Define the target of a load balancer.
@@ -15927,7 +16185,10 @@ func (t *jsiiProxy_TargetGroupBase) Validate() *[]*string {
 // Properties to reference an existing target group.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   targetGroupImportProps := &targetGroupImportProps{
 //   	targetGroupArn: jsii.String("targetGroupArn"),
 //
@@ -15940,13 +16201,13 @@ func (t *jsiiProxy_TargetGroupBase) Validate() *[]*string {
 type TargetGroupImportProps struct {
 	// ARN of the target group.
 	// Deprecated: Use TargetGroupAttributes instead.
-	TargetGroupArn *string `json:"targetGroupArn" yaml:"targetGroupArn"`
+	TargetGroupArn *string `field:"required" json:"targetGroupArn" yaml:"targetGroupArn"`
 	// Port target group is listening on.
 	// Deprecated: - This property is unused and the wrong type. No need to use it.
-	DefaultPort *string `json:"defaultPort" yaml:"defaultPort"`
+	DefaultPort *string `field:"optional" json:"defaultPort" yaml:"defaultPort"`
 	// A Token representing the list of ARNs for the load balancer routing to this target group.
 	// Deprecated: Use TargetGroupAttributes instead.
-	LoadBalancerArns *string `json:"loadBalancerArns" yaml:"loadBalancerArns"`
+	LoadBalancerArns *string `field:"optional" json:"loadBalancerArns" yaml:"loadBalancerArns"`
 }
 
 // Load balancing algorithmm type for target groups.
@@ -15966,6 +16227,7 @@ const (
 //
 // Example:
 //   var vpc vpc
+//
 //
 //   tg := elbv2.NewApplicationTargetGroup(this, jsii.String("TG"), &applicationTargetGroupProps{
 //   	targetType: elbv2.targetType_IP,
@@ -16016,9 +16278,12 @@ const (
 // A Target Group and weight combination.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2 "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var applicationTargetGroup applicationTargetGroup
+//
 //   weightedTargetGroup := &weightedTargetGroup{
 //   	targetGroup: applicationTargetGroup,
 //
@@ -16030,11 +16295,11 @@ const (
 type WeightedTargetGroup struct {
 	// The target group.
 	// Experimental.
-	TargetGroup IApplicationTargetGroup `json:"targetGroup" yaml:"targetGroup"`
+	TargetGroup IApplicationTargetGroup `field:"required" json:"targetGroup" yaml:"targetGroup"`
 	// The target group's weight.
 	//
 	// Range is [0..1000).
 	// Experimental.
-	Weight *float64 `json:"weight" yaml:"weight"`
+	Weight *float64 `field:"optional" json:"weight" yaml:"weight"`
 }
 

@@ -14,8 +14,11 @@ import (
 // The `AWS::LookoutMetrics::Alert` type creates an alert for an anomaly detector.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lookoutmetrics "github.com/aws/aws-cdk-go/awscdk/aws_lookoutmetrics"
-//   cfnAlert := lookoutmetrics.NewCfnAlert(this, jsii.String("MyCfnAlert"), &cfnAlertProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnAlert := awscdk.Aws_lookoutmetrics.NewCfnAlert(this, jsii.String("MyCfnAlert"), &cfnAlertProps{
 //   	action: &actionProperty{
 //   		lambdaConfiguration: &lambdaConfigurationProperty{
 //   			lambdaArn: jsii.String("lambdaArn"),
@@ -761,7 +764,10 @@ func (c *jsiiProxy_CfnAlert) ValidateProperties(_properties interface{}) {
 // A configuration that specifies the action to perform when anomalies are detected.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lookoutmetrics "github.com/aws/aws-cdk-go/awscdk/aws_lookoutmetrics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   actionProperty := &actionProperty{
 //   	lambdaConfiguration: &lambdaConfigurationProperty{
 //   		lambdaArn: jsii.String("lambdaArn"),
@@ -775,15 +781,18 @@ func (c *jsiiProxy_CfnAlert) ValidateProperties(_properties interface{}) {
 //
 type CfnAlert_ActionProperty struct {
 	// A configuration for an AWS Lambda channel.
-	LambdaConfiguration interface{} `json:"lambdaConfiguration" yaml:"lambdaConfiguration"`
+	LambdaConfiguration interface{} `field:"optional" json:"lambdaConfiguration" yaml:"lambdaConfiguration"`
 	// A configuration for an Amazon SNS channel.
-	SnsConfiguration interface{} `json:"snsConfiguration" yaml:"snsConfiguration"`
+	SnsConfiguration interface{} `field:"optional" json:"snsConfiguration" yaml:"snsConfiguration"`
 }
 
 // Contains information about a Lambda configuration.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lookoutmetrics "github.com/aws/aws-cdk-go/awscdk/aws_lookoutmetrics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   lambdaConfigurationProperty := &lambdaConfigurationProperty{
 //   	lambdaArn: jsii.String("lambdaArn"),
 //   	roleArn: jsii.String("roleArn"),
@@ -791,15 +800,18 @@ type CfnAlert_ActionProperty struct {
 //
 type CfnAlert_LambdaConfigurationProperty struct {
 	// The ARN of the Lambda function.
-	LambdaArn *string `json:"lambdaArn" yaml:"lambdaArn"`
+	LambdaArn *string `field:"required" json:"lambdaArn" yaml:"lambdaArn"`
 	// The ARN of an IAM role that has permission to invoke the Lambda function.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 }
 
 // Contains information about the SNS topic to which you want to send your alerts and the IAM role that has access to that topic.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lookoutmetrics "github.com/aws/aws-cdk-go/awscdk/aws_lookoutmetrics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sNSConfigurationProperty := &sNSConfigurationProperty{
 //   	roleArn: jsii.String("roleArn"),
 //   	snsTopicArn: jsii.String("snsTopicArn"),
@@ -807,15 +819,18 @@ type CfnAlert_LambdaConfigurationProperty struct {
 //
 type CfnAlert_SNSConfigurationProperty struct {
 	// The ARN of the IAM role that has access to the target SNS topic.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The ARN of the target SNS topic.
-	SnsTopicArn *string `json:"snsTopicArn" yaml:"snsTopicArn"`
+	SnsTopicArn *string `field:"required" json:"snsTopicArn" yaml:"snsTopicArn"`
 }
 
 // Properties for defining a `CfnAlert`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lookoutmetrics "github.com/aws/aws-cdk-go/awscdk/aws_lookoutmetrics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAlertProps := &cfnAlertProps{
 //   	action: &actionProperty{
 //   		lambdaConfiguration: &lambdaConfigurationProperty{
@@ -837,15 +852,15 @@ type CfnAlert_SNSConfigurationProperty struct {
 //
 type CfnAlertProps struct {
 	// Action that will be triggered when there is an alert.
-	Action interface{} `json:"action" yaml:"action"`
+	Action interface{} `field:"required" json:"action" yaml:"action"`
 	// An integer from 0 to 100 specifying the alert sensitivity threshold.
-	AlertSensitivityThreshold *float64 `json:"alertSensitivityThreshold" yaml:"alertSensitivityThreshold"`
+	AlertSensitivityThreshold *float64 `field:"required" json:"alertSensitivityThreshold" yaml:"alertSensitivityThreshold"`
 	// The ARN of the detector to which the alert is attached.
-	AnomalyDetectorArn *string `json:"anomalyDetectorArn" yaml:"anomalyDetectorArn"`
+	AnomalyDetectorArn *string `field:"required" json:"anomalyDetectorArn" yaml:"anomalyDetectorArn"`
 	// A description of the alert.
-	AlertDescription *string `json:"alertDescription" yaml:"alertDescription"`
+	AlertDescription *string `field:"optional" json:"alertDescription" yaml:"alertDescription"`
 	// The name of the alert.
-	AlertName *string `json:"alertName" yaml:"alertName"`
+	AlertName *string `field:"optional" json:"alertName" yaml:"alertName"`
 }
 
 // A CloudFormation `AWS::LookoutMetrics::AnomalyDetector`.
@@ -853,8 +868,11 @@ type CfnAlertProps struct {
 // The `AWS::LookoutMetrics::AnomalyDetector` type creates an anomaly detector.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lookoutmetrics "github.com/aws/aws-cdk-go/awscdk/aws_lookoutmetrics"
-//   cfnAnomalyDetector := lookoutmetrics.NewCfnAnomalyDetector(this, jsii.String("MyCfnAnomalyDetector"), &cfnAnomalyDetectorProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnAnomalyDetector := awscdk.Aws_lookoutmetrics.NewCfnAnomalyDetector(this, jsii.String("MyCfnAnomalyDetector"), &cfnAnomalyDetectorProps{
 //   	anomalyDetectorConfig: &anomalyDetectorConfigProperty{
 //   		anomalyDetectorFrequency: jsii.String("anomalyDetectorFrequency"),
 //   	},
@@ -1689,20 +1707,26 @@ func (c *jsiiProxy_CfnAnomalyDetector) ValidateProperties(_properties interface{
 // Contains information about a detector's configuration.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lookoutmetrics "github.com/aws/aws-cdk-go/awscdk/aws_lookoutmetrics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   anomalyDetectorConfigProperty := &anomalyDetectorConfigProperty{
 //   	anomalyDetectorFrequency: jsii.String("anomalyDetectorFrequency"),
 //   }
 //
 type CfnAnomalyDetector_AnomalyDetectorConfigProperty struct {
 	// The frequency at which the detector analyzes its source data.
-	AnomalyDetectorFrequency *string `json:"anomalyDetectorFrequency" yaml:"anomalyDetectorFrequency"`
+	AnomalyDetectorFrequency *string `field:"required" json:"anomalyDetectorFrequency" yaml:"anomalyDetectorFrequency"`
 }
 
 // Details about an Amazon AppFlow flow datasource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lookoutmetrics "github.com/aws/aws-cdk-go/awscdk/aws_lookoutmetrics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   appFlowConfigProperty := &appFlowConfigProperty{
 //   	flowName: jsii.String("flowName"),
 //   	roleArn: jsii.String("roleArn"),
@@ -1710,28 +1734,34 @@ type CfnAnomalyDetector_AnomalyDetectorConfigProperty struct {
 //
 type CfnAnomalyDetector_AppFlowConfigProperty struct {
 	// name of the flow.
-	FlowName *string `json:"flowName" yaml:"flowName"`
+	FlowName *string `field:"required" json:"flowName" yaml:"flowName"`
 	// An IAM role that gives Amazon Lookout for Metrics permission to access the flow.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 }
 
 // Details about an Amazon CloudWatch datasource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lookoutmetrics "github.com/aws/aws-cdk-go/awscdk/aws_lookoutmetrics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cloudwatchConfigProperty := &cloudwatchConfigProperty{
 //   	roleArn: jsii.String("roleArn"),
 //   }
 //
 type CfnAnomalyDetector_CloudwatchConfigProperty struct {
 	// An IAM role that gives Amazon Lookout for Metrics permission to access data in Amazon CloudWatch.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 }
 
 // Contains information about how a source CSV data file should be analyzed.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lookoutmetrics "github.com/aws/aws-cdk-go/awscdk/aws_lookoutmetrics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   csvFormatDescriptorProperty := &csvFormatDescriptorProperty{
 //   	charset: jsii.String("charset"),
 //   	containsHeader: jsii.Boolean(false),
@@ -1745,23 +1775,26 @@ type CfnAnomalyDetector_CloudwatchConfigProperty struct {
 //
 type CfnAnomalyDetector_CsvFormatDescriptorProperty struct {
 	// The character set in which the source CSV file is written.
-	Charset *string `json:"charset" yaml:"charset"`
+	Charset *string `field:"optional" json:"charset" yaml:"charset"`
 	// Whether or not the source CSV file contains a header.
-	ContainsHeader interface{} `json:"containsHeader" yaml:"containsHeader"`
+	ContainsHeader interface{} `field:"optional" json:"containsHeader" yaml:"containsHeader"`
 	// The character used to delimit the source CSV file.
-	Delimiter *string `json:"delimiter" yaml:"delimiter"`
+	Delimiter *string `field:"optional" json:"delimiter" yaml:"delimiter"`
 	// The level of compression of the source CSV file.
-	FileCompression *string `json:"fileCompression" yaml:"fileCompression"`
+	FileCompression *string `field:"optional" json:"fileCompression" yaml:"fileCompression"`
 	// A list of the source CSV file's headers, if any.
-	HeaderList *[]*string `json:"headerList" yaml:"headerList"`
+	HeaderList *[]*string `field:"optional" json:"headerList" yaml:"headerList"`
 	// The character used as a quote character.
-	QuoteSymbol *string `json:"quoteSymbol" yaml:"quoteSymbol"`
+	QuoteSymbol *string `field:"optional" json:"quoteSymbol" yaml:"quoteSymbol"`
 }
 
 // Contains information about a source file's formatting.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lookoutmetrics "github.com/aws/aws-cdk-go/awscdk/aws_lookoutmetrics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   fileFormatDescriptorProperty := &fileFormatDescriptorProperty{
 //   	csvFormatDescriptor: &csvFormatDescriptorProperty{
 //   		charset: jsii.String("charset"),
@@ -1781,15 +1814,18 @@ type CfnAnomalyDetector_CsvFormatDescriptorProperty struct {
 //
 type CfnAnomalyDetector_FileFormatDescriptorProperty struct {
 	// Contains information about how a source CSV data file should be analyzed.
-	CsvFormatDescriptor interface{} `json:"csvFormatDescriptor" yaml:"csvFormatDescriptor"`
+	CsvFormatDescriptor interface{} `field:"optional" json:"csvFormatDescriptor" yaml:"csvFormatDescriptor"`
 	// Contains information about how a source JSON data file should be analyzed.
-	JsonFormatDescriptor interface{} `json:"jsonFormatDescriptor" yaml:"jsonFormatDescriptor"`
+	JsonFormatDescriptor interface{} `field:"optional" json:"jsonFormatDescriptor" yaml:"jsonFormatDescriptor"`
 }
 
 // Contains information about how a source JSON data file should be analyzed.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lookoutmetrics "github.com/aws/aws-cdk-go/awscdk/aws_lookoutmetrics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   jsonFormatDescriptorProperty := &jsonFormatDescriptorProperty{
 //   	charset: jsii.String("charset"),
 //   	fileCompression: jsii.String("fileCompression"),
@@ -1797,15 +1833,18 @@ type CfnAnomalyDetector_FileFormatDescriptorProperty struct {
 //
 type CfnAnomalyDetector_JsonFormatDescriptorProperty struct {
 	// The character set in which the source JSON file is written.
-	Charset *string `json:"charset" yaml:"charset"`
+	Charset *string `field:"optional" json:"charset" yaml:"charset"`
 	// The level of compression of the source CSV file.
-	FileCompression *string `json:"fileCompression" yaml:"fileCompression"`
+	FileCompression *string `field:"optional" json:"fileCompression" yaml:"fileCompression"`
 }
 
 // A calculation made by contrasting a measure and a dimension from your source data.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lookoutmetrics "github.com/aws/aws-cdk-go/awscdk/aws_lookoutmetrics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   metricProperty := &metricProperty{
 //   	aggregationFunction: jsii.String("aggregationFunction"),
 //   	metricName: jsii.String("metricName"),
@@ -1816,17 +1855,20 @@ type CfnAnomalyDetector_JsonFormatDescriptorProperty struct {
 //
 type CfnAnomalyDetector_MetricProperty struct {
 	// The function with which the metric is calculated.
-	AggregationFunction *string `json:"aggregationFunction" yaml:"aggregationFunction"`
+	AggregationFunction *string `field:"required" json:"aggregationFunction" yaml:"aggregationFunction"`
 	// The name of the metric.
-	MetricName *string `json:"metricName" yaml:"metricName"`
+	MetricName *string `field:"required" json:"metricName" yaml:"metricName"`
 	// The namespace for the metric.
-	Namespace *string `json:"namespace" yaml:"namespace"`
+	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`
 }
 
 // Contains information about a dataset.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lookoutmetrics "github.com/aws/aws-cdk-go/awscdk/aws_lookoutmetrics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   metricSetProperty := &metricSetProperty{
 //   	metricList: []interface{}{
 //   		&metricProperty{
@@ -1925,31 +1967,34 @@ type CfnAnomalyDetector_MetricProperty struct {
 //
 type CfnAnomalyDetector_MetricSetProperty struct {
 	// A list of metrics that the dataset will contain.
-	MetricList interface{} `json:"metricList" yaml:"metricList"`
+	MetricList interface{} `field:"required" json:"metricList" yaml:"metricList"`
 	// The name of the dataset.
-	MetricSetName *string `json:"metricSetName" yaml:"metricSetName"`
+	MetricSetName *string `field:"required" json:"metricSetName" yaml:"metricSetName"`
 	// Contains information about how the source data should be interpreted.
-	MetricSource interface{} `json:"metricSource" yaml:"metricSource"`
+	MetricSource interface{} `field:"required" json:"metricSource" yaml:"metricSource"`
 	// A list of the fields you want to treat as dimensions.
-	DimensionList *[]*string `json:"dimensionList" yaml:"dimensionList"`
+	DimensionList *[]*string `field:"optional" json:"dimensionList" yaml:"dimensionList"`
 	// A description of the dataset you are creating.
-	MetricSetDescription *string `json:"metricSetDescription" yaml:"metricSetDescription"`
+	MetricSetDescription *string `field:"optional" json:"metricSetDescription" yaml:"metricSetDescription"`
 	// The frequency with which the source data will be analyzed for anomalies.
-	MetricSetFrequency *string `json:"metricSetFrequency" yaml:"metricSetFrequency"`
+	MetricSetFrequency *string `field:"optional" json:"metricSetFrequency" yaml:"metricSetFrequency"`
 	// After an interval ends, the amount of seconds that the detector waits before importing data.
 	//
 	// Offset is only supported for S3 and Redshift datasources.
-	Offset *float64 `json:"offset" yaml:"offset"`
+	Offset *float64 `field:"optional" json:"offset" yaml:"offset"`
 	// Contains information about the column used for tracking time in your source data.
-	TimestampColumn interface{} `json:"timestampColumn" yaml:"timestampColumn"`
+	TimestampColumn interface{} `field:"optional" json:"timestampColumn" yaml:"timestampColumn"`
 	// The time zone in which your source data was recorded.
-	Timezone *string `json:"timezone" yaml:"timezone"`
+	Timezone *string `field:"optional" json:"timezone" yaml:"timezone"`
 }
 
 // Contains information about how the source data should be interpreted.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lookoutmetrics "github.com/aws/aws-cdk-go/awscdk/aws_lookoutmetrics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   metricSourceProperty := &metricSourceProperty{
 //   	appFlowConfig: &appFlowConfigProperty{
 //   		flowName: jsii.String("flowName"),
@@ -2023,21 +2068,24 @@ type CfnAnomalyDetector_MetricSetProperty struct {
 //
 type CfnAnomalyDetector_MetricSourceProperty struct {
 	// An object containing information about the AppFlow configuration.
-	AppFlowConfig interface{} `json:"appFlowConfig" yaml:"appFlowConfig"`
+	AppFlowConfig interface{} `field:"optional" json:"appFlowConfig" yaml:"appFlowConfig"`
 	// An object containing information about the Amazon CloudWatch monitoring configuration.
-	CloudwatchConfig interface{} `json:"cloudwatchConfig" yaml:"cloudwatchConfig"`
+	CloudwatchConfig interface{} `field:"optional" json:"cloudwatchConfig" yaml:"cloudwatchConfig"`
 	// An object containing information about the Amazon Relational Database Service (RDS) configuration.
-	RdsSourceConfig interface{} `json:"rdsSourceConfig" yaml:"rdsSourceConfig"`
+	RdsSourceConfig interface{} `field:"optional" json:"rdsSourceConfig" yaml:"rdsSourceConfig"`
 	// An object containing information about the Amazon Redshift database configuration.
-	RedshiftSourceConfig interface{} `json:"redshiftSourceConfig" yaml:"redshiftSourceConfig"`
+	RedshiftSourceConfig interface{} `field:"optional" json:"redshiftSourceConfig" yaml:"redshiftSourceConfig"`
 	// Contains information about the configuration of the S3 bucket that contains source files.
-	S3SourceConfig interface{} `json:"s3SourceConfig" yaml:"s3SourceConfig"`
+	S3SourceConfig interface{} `field:"optional" json:"s3SourceConfig" yaml:"s3SourceConfig"`
 }
 
 // Contains information about the Amazon Relational Database Service (RDS) configuration.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lookoutmetrics "github.com/aws/aws-cdk-go/awscdk/aws_lookoutmetrics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   rDSSourceConfigProperty := &rDSSourceConfigProperty{
 //   	databaseHost: jsii.String("databaseHost"),
 //   	databaseName: jsii.String("databaseName"),
@@ -2058,27 +2106,30 @@ type CfnAnomalyDetector_MetricSourceProperty struct {
 //
 type CfnAnomalyDetector_RDSSourceConfigProperty struct {
 	// The host name of the database.
-	DatabaseHost *string `json:"databaseHost" yaml:"databaseHost"`
+	DatabaseHost *string `field:"required" json:"databaseHost" yaml:"databaseHost"`
 	// The name of the RDS database.
-	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
+	DatabaseName *string `field:"required" json:"databaseName" yaml:"databaseName"`
 	// The port number where the database can be accessed.
-	DatabasePort *float64 `json:"databasePort" yaml:"databasePort"`
+	DatabasePort *float64 `field:"required" json:"databasePort" yaml:"databasePort"`
 	// A string identifying the database instance.
-	DbInstanceIdentifier *string `json:"dbInstanceIdentifier" yaml:"dbInstanceIdentifier"`
+	DbInstanceIdentifier *string `field:"required" json:"dbInstanceIdentifier" yaml:"dbInstanceIdentifier"`
 	// The Amazon Resource Name (ARN) of the role.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The Amazon Resource Name (ARN) of the AWS Secrets Manager role.
-	SecretManagerArn *string `json:"secretManagerArn" yaml:"secretManagerArn"`
+	SecretManagerArn *string `field:"required" json:"secretManagerArn" yaml:"secretManagerArn"`
 	// The name of the table in the database.
-	TableName *string `json:"tableName" yaml:"tableName"`
+	TableName *string `field:"required" json:"tableName" yaml:"tableName"`
 	// An object containing information about the Amazon Virtual Private Cloud (VPC) configuration.
-	VpcConfiguration interface{} `json:"vpcConfiguration" yaml:"vpcConfiguration"`
+	VpcConfiguration interface{} `field:"required" json:"vpcConfiguration" yaml:"vpcConfiguration"`
 }
 
 // Provides information about the Amazon Redshift database configuration.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lookoutmetrics "github.com/aws/aws-cdk-go/awscdk/aws_lookoutmetrics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   redshiftSourceConfigProperty := &redshiftSourceConfigProperty{
 //   	clusterIdentifier: jsii.String("clusterIdentifier"),
 //   	databaseHost: jsii.String("databaseHost"),
@@ -2099,27 +2150,30 @@ type CfnAnomalyDetector_RDSSourceConfigProperty struct {
 //
 type CfnAnomalyDetector_RedshiftSourceConfigProperty struct {
 	// A string identifying the Redshift cluster.
-	ClusterIdentifier *string `json:"clusterIdentifier" yaml:"clusterIdentifier"`
+	ClusterIdentifier *string `field:"required" json:"clusterIdentifier" yaml:"clusterIdentifier"`
 	// The name of the database host.
-	DatabaseHost *string `json:"databaseHost" yaml:"databaseHost"`
+	DatabaseHost *string `field:"required" json:"databaseHost" yaml:"databaseHost"`
 	// The Redshift database name.
-	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
+	DatabaseName *string `field:"required" json:"databaseName" yaml:"databaseName"`
 	// The port number where the database can be accessed.
-	DatabasePort *float64 `json:"databasePort" yaml:"databasePort"`
+	DatabasePort *float64 `field:"required" json:"databasePort" yaml:"databasePort"`
 	// The Amazon Resource Name (ARN) of the role providing access to the database.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The Amazon Resource Name (ARN) of the AWS Secrets Manager role.
-	SecretManagerArn *string `json:"secretManagerArn" yaml:"secretManagerArn"`
+	SecretManagerArn *string `field:"required" json:"secretManagerArn" yaml:"secretManagerArn"`
 	// The table name of the Redshift database.
-	TableName *string `json:"tableName" yaml:"tableName"`
+	TableName *string `field:"required" json:"tableName" yaml:"tableName"`
 	// Contains information about the Amazon Virtual Private Cloud (VPC) configuration.
-	VpcConfiguration interface{} `json:"vpcConfiguration" yaml:"vpcConfiguration"`
+	VpcConfiguration interface{} `field:"required" json:"vpcConfiguration" yaml:"vpcConfiguration"`
 }
 
 // Contains information about the configuration of the S3 bucket that contains source files.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lookoutmetrics "github.com/aws/aws-cdk-go/awscdk/aws_lookoutmetrics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3SourceConfigProperty := &s3SourceConfigProperty{
 //   	fileFormatDescriptor: &fileFormatDescriptorProperty{
 //   		csvFormatDescriptor: &csvFormatDescriptorProperty{
@@ -2150,19 +2204,22 @@ type CfnAnomalyDetector_RedshiftSourceConfigProperty struct {
 //
 type CfnAnomalyDetector_S3SourceConfigProperty struct {
 	// Contains information about a source file's formatting.
-	FileFormatDescriptor interface{} `json:"fileFormatDescriptor" yaml:"fileFormatDescriptor"`
+	FileFormatDescriptor interface{} `field:"required" json:"fileFormatDescriptor" yaml:"fileFormatDescriptor"`
 	// The ARN of an IAM role that has read and write access permissions to the source S3 bucket.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// A list of paths to the historical data files.
-	HistoricalDataPathList *[]*string `json:"historicalDataPathList" yaml:"historicalDataPathList"`
+	HistoricalDataPathList *[]*string `field:"optional" json:"historicalDataPathList" yaml:"historicalDataPathList"`
 	// A list of templated paths to the source files.
-	TemplatedPathList *[]*string `json:"templatedPathList" yaml:"templatedPathList"`
+	TemplatedPathList *[]*string `field:"optional" json:"templatedPathList" yaml:"templatedPathList"`
 }
 
 // Contains information about the column used to track time in a source data file.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lookoutmetrics "github.com/aws/aws-cdk-go/awscdk/aws_lookoutmetrics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   timestampColumnProperty := &timestampColumnProperty{
 //   	columnFormat: jsii.String("columnFormat"),
 //   	columnName: jsii.String("columnName"),
@@ -2170,15 +2227,18 @@ type CfnAnomalyDetector_S3SourceConfigProperty struct {
 //
 type CfnAnomalyDetector_TimestampColumnProperty struct {
 	// The format of the timestamp column.
-	ColumnFormat *string `json:"columnFormat" yaml:"columnFormat"`
+	ColumnFormat *string `field:"optional" json:"columnFormat" yaml:"columnFormat"`
 	// The name of the timestamp column.
-	ColumnName *string `json:"columnName" yaml:"columnName"`
+	ColumnName *string `field:"optional" json:"columnName" yaml:"columnName"`
 }
 
 // Contains configuration information about the Amazon Virtual Private Cloud (VPC).
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lookoutmetrics "github.com/aws/aws-cdk-go/awscdk/aws_lookoutmetrics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   vpcConfigurationProperty := &vpcConfigurationProperty{
 //   	securityGroupIdList: []*string{
 //   		jsii.String("securityGroupIdList"),
@@ -2190,15 +2250,18 @@ type CfnAnomalyDetector_TimestampColumnProperty struct {
 //
 type CfnAnomalyDetector_VpcConfigurationProperty struct {
 	// An array of strings containing the list of security groups.
-	SecurityGroupIdList *[]*string `json:"securityGroupIdList" yaml:"securityGroupIdList"`
+	SecurityGroupIdList *[]*string `field:"required" json:"securityGroupIdList" yaml:"securityGroupIdList"`
 	// An array of strings containing the Amazon VPC subnet IDs (e.g., `subnet-0bb1c79de3EXAMPLE` .
-	SubnetIdList *[]*string `json:"subnetIdList" yaml:"subnetIdList"`
+	SubnetIdList *[]*string `field:"required" json:"subnetIdList" yaml:"subnetIdList"`
 }
 
 // Properties for defining a `CfnAnomalyDetector`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lookoutmetrics "github.com/aws/aws-cdk-go/awscdk/aws_lookoutmetrics"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAnomalyDetectorProps := &cfnAnomalyDetectorProps{
 //   	anomalyDetectorConfig: &anomalyDetectorConfigProperty{
 //   		anomalyDetectorFrequency: jsii.String("anomalyDetectorFrequency"),
@@ -2309,14 +2372,14 @@ type CfnAnomalyDetector_VpcConfigurationProperty struct {
 //
 type CfnAnomalyDetectorProps struct {
 	// Contains information about the configuration of the anomaly detector.
-	AnomalyDetectorConfig interface{} `json:"anomalyDetectorConfig" yaml:"anomalyDetectorConfig"`
+	AnomalyDetectorConfig interface{} `field:"required" json:"anomalyDetectorConfig" yaml:"anomalyDetectorConfig"`
 	// The detector's dataset.
-	MetricSetList interface{} `json:"metricSetList" yaml:"metricSetList"`
+	MetricSetList interface{} `field:"required" json:"metricSetList" yaml:"metricSetList"`
 	// A description of the detector.
-	AnomalyDetectorDescription *string `json:"anomalyDetectorDescription" yaml:"anomalyDetectorDescription"`
+	AnomalyDetectorDescription *string `field:"optional" json:"anomalyDetectorDescription" yaml:"anomalyDetectorDescription"`
 	// The name of the detector.
-	AnomalyDetectorName *string `json:"anomalyDetectorName" yaml:"anomalyDetectorName"`
+	AnomalyDetectorName *string `field:"optional" json:"anomalyDetectorName" yaml:"anomalyDetectorName"`
 	// The ARN of the KMS key to use to encrypt your data.
-	KmsKeyArn *string `json:"kmsKeyArn" yaml:"kmsKeyArn"`
+	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
 }
 

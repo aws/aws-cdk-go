@@ -14,8 +14,11 @@ import (
 // Specifies an Amazon Connect Wisdom assistant.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wisdom "github.com/aws/aws-cdk-go/awscdk/aws_wisdom"
-//   cfnAssistant := wisdom.NewCfnAssistant(this, jsii.String("MyCfnAssistant"), &cfnAssistantProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnAssistant := awscdk.Aws_wisdom.NewCfnAssistant(this, jsii.String("MyCfnAssistant"), &cfnAssistantProps{
 //   	name: jsii.String("name"),
 //   	type: jsii.String("type"),
 //
@@ -760,7 +763,10 @@ func (c *jsiiProxy_CfnAssistant) ValidateProperties(_properties interface{}) {
 // The KMS key used for encryption.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wisdom "github.com/aws/aws-cdk-go/awscdk/aws_wisdom"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   serverSideEncryptionConfigurationProperty := &serverSideEncryptionConfigurationProperty{
 //   	kmsKeyId: jsii.String("kmsKeyId"),
 //   }
@@ -769,7 +775,7 @@ type CfnAssistant_ServerSideEncryptionConfigurationProperty struct {
 	// The KMS key .
 	//
 	// For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) .
-	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 }
 
 // A CloudFormation `AWS::Wisdom::AssistantAssociation`.
@@ -777,8 +783,11 @@ type CfnAssistant_ServerSideEncryptionConfigurationProperty struct {
 // Specifies an association between an Amazon Connect Wisdom assistant and another resource. Currently, the only supported association is with a knowledge base. An assistant can have only a single association.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wisdom "github.com/aws/aws-cdk-go/awscdk/aws_wisdom"
-//   cfnAssistantAssociation := wisdom.NewCfnAssistantAssociation(this, jsii.String("MyCfnAssistantAssociation"), &cfnAssistantAssociationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnAssistantAssociation := awscdk.Aws_wisdom.NewCfnAssistantAssociation(this, jsii.String("MyCfnAssistantAssociation"), &cfnAssistantAssociationProps{
 //   	assistantId: jsii.String("assistantId"),
 //   	association: &associationDataProperty{
 //   		knowledgeBaseId: jsii.String("knowledgeBaseId"),
@@ -1513,20 +1522,26 @@ func (c *jsiiProxy_CfnAssistantAssociation) ValidateProperties(_properties inter
 // A union type that currently has a single argument, which is the knowledge base ID.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wisdom "github.com/aws/aws-cdk-go/awscdk/aws_wisdom"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   associationDataProperty := &associationDataProperty{
 //   	knowledgeBaseId: jsii.String("knowledgeBaseId"),
 //   }
 //
 type CfnAssistantAssociation_AssociationDataProperty struct {
 	// The identifier of the knowledge base.
-	KnowledgeBaseId *string `json:"knowledgeBaseId" yaml:"knowledgeBaseId"`
+	KnowledgeBaseId *string `field:"required" json:"knowledgeBaseId" yaml:"knowledgeBaseId"`
 }
 
 // Properties for defining a `CfnAssistantAssociation`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wisdom "github.com/aws/aws-cdk-go/awscdk/aws_wisdom"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAssistantAssociationProps := &cfnAssistantAssociationProps{
 //   	assistantId: jsii.String("assistantId"),
 //   	association: &associationDataProperty{
@@ -1545,19 +1560,22 @@ type CfnAssistantAssociation_AssociationDataProperty struct {
 //
 type CfnAssistantAssociationProps struct {
 	// The identifier of the Wisdom assistant.
-	AssistantId *string `json:"assistantId" yaml:"assistantId"`
+	AssistantId *string `field:"required" json:"assistantId" yaml:"assistantId"`
 	// The identifier of the associated resource.
-	Association interface{} `json:"association" yaml:"association"`
+	Association interface{} `field:"required" json:"association" yaml:"association"`
 	// The type of association.
-	AssociationType *string `json:"associationType" yaml:"associationType"`
+	AssociationType *string `field:"required" json:"associationType" yaml:"associationType"`
 	// The tags used to organize, track, or control access for this resource.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // Properties for defining a `CfnAssistant`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wisdom "github.com/aws/aws-cdk-go/awscdk/aws_wisdom"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAssistantProps := &cfnAssistantProps{
 //   	name: jsii.String("name"),
 //   	type: jsii.String("type"),
@@ -1577,15 +1595,15 @@ type CfnAssistantAssociationProps struct {
 //
 type CfnAssistantProps struct {
 	// The name of the assistant.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The type of assistant.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// The description of the assistant.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The KMS key used for encryption.
-	ServerSideEncryptionConfiguration interface{} `json:"serverSideEncryptionConfiguration" yaml:"serverSideEncryptionConfiguration"`
+	ServerSideEncryptionConfiguration interface{} `field:"optional" json:"serverSideEncryptionConfiguration" yaml:"serverSideEncryptionConfiguration"`
 	// The tags used to organize, track, or control access for this resource.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Wisdom::KnowledgeBase`.
@@ -1593,8 +1611,11 @@ type CfnAssistantProps struct {
 // Specifies a knowledge base.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wisdom "github.com/aws/aws-cdk-go/awscdk/aws_wisdom"
-//   cfnKnowledgeBase := wisdom.NewCfnKnowledgeBase(this, jsii.String("MyCfnKnowledgeBase"), &cfnKnowledgeBaseProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnKnowledgeBase := awscdk.Aws_wisdom.NewCfnKnowledgeBase(this, jsii.String("MyCfnKnowledgeBase"), &cfnKnowledgeBaseProps{
 //   	knowledgeBaseType: jsii.String("knowledgeBaseType"),
 //   	name: jsii.String("name"),
 //
@@ -2396,7 +2417,10 @@ func (c *jsiiProxy_CfnKnowledgeBase) ValidateProperties(_properties interface{})
 // Configuration information for Amazon AppIntegrations to automatically ingest content.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wisdom "github.com/aws/aws-cdk-go/awscdk/aws_wisdom"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   appIntegrationsConfigurationProperty := &appIntegrationsConfigurationProperty{
 //   	appIntegrationArn: jsii.String("appIntegrationArn"),
 //   	objectFields: []*string{
@@ -2406,20 +2430,23 @@ func (c *jsiiProxy_CfnKnowledgeBase) ValidateProperties(_properties interface{})
 //
 type CfnKnowledgeBase_AppIntegrationsConfigurationProperty struct {
 	// The Amazon Resource Name (ARN) of the AppIntegrations DataIntegration to use for ingesting content.
-	AppIntegrationArn *string `json:"appIntegrationArn" yaml:"appIntegrationArn"`
+	AppIntegrationArn *string `field:"required" json:"appIntegrationArn" yaml:"appIntegrationArn"`
 	// The fields from the source that are made available to your agents in Wisdom.
 	//
 	// - For [Salesforce](https://docs.aws.amazon.com/https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/sforce_api_objects_knowledge__kav.htm) , you must include at least `Id` , `ArticleNumber` , `VersionNumber` , `Title` , `PublishStatus` , and `IsDeleted` .
 	// - For [ServiceNow](https://docs.aws.amazon.com/https://developer.servicenow.com/dev.do#!/reference/api/rome/rest/knowledge-management-api) , you must include at least `number` , `short_description` , `sys_mod_count` , `workflow_state` , and `active` .
 	//
 	// Make sure to include additional fields. These fields are indexed and used to source recommendations.
-	ObjectFields *[]*string `json:"objectFields" yaml:"objectFields"`
+	ObjectFields *[]*string `field:"required" json:"objectFields" yaml:"objectFields"`
 }
 
 // Information about how to render the content.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wisdom "github.com/aws/aws-cdk-go/awscdk/aws_wisdom"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   renderingConfigurationProperty := &renderingConfigurationProperty{
 //   	templateUri: jsii.String("templateUri"),
 //   }
@@ -2433,13 +2460,16 @@ type CfnKnowledgeBase_RenderingConfigurationProperty struct {
 	// - ServiceNow: `number` , `short_description` , `sys_mod_count` , `workflow_state` , or `active`
 	//
 	// The variable is replaced with the actual value for a piece of content when calling [GetContent](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetContent.html) .
-	TemplateUri *string `json:"templateUri" yaml:"templateUri"`
+	TemplateUri *string `field:"optional" json:"templateUri" yaml:"templateUri"`
 }
 
 // The KMS key used for encryption.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wisdom "github.com/aws/aws-cdk-go/awscdk/aws_wisdom"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   serverSideEncryptionConfigurationProperty := &serverSideEncryptionConfigurationProperty{
 //   	kmsKeyId: jsii.String("kmsKeyId"),
 //   }
@@ -2448,13 +2478,16 @@ type CfnKnowledgeBase_ServerSideEncryptionConfigurationProperty struct {
 	// The KMS key .
 	//
 	// For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) .
-	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 }
 
 // Configuration information about the external data source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wisdom "github.com/aws/aws-cdk-go/awscdk/aws_wisdom"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sourceConfigurationProperty := &sourceConfigurationProperty{
 //   	appIntegrations: &appIntegrationsConfigurationProperty{
 //   		appIntegrationArn: jsii.String("appIntegrationArn"),
@@ -2466,13 +2499,16 @@ type CfnKnowledgeBase_ServerSideEncryptionConfigurationProperty struct {
 //
 type CfnKnowledgeBase_SourceConfigurationProperty struct {
 	// Configuration information for Amazon AppIntegrations to automatically ingest content.
-	AppIntegrations interface{} `json:"appIntegrations" yaml:"appIntegrations"`
+	AppIntegrations interface{} `field:"optional" json:"appIntegrations" yaml:"appIntegrations"`
 }
 
 // Properties for defining a `CfnKnowledgeBase`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import wisdom "github.com/aws/aws-cdk-go/awscdk/aws_wisdom"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnKnowledgeBaseProps := &cfnKnowledgeBaseProps{
 //   	knowledgeBaseType: jsii.String("knowledgeBaseType"),
 //   	name: jsii.String("name"),
@@ -2505,20 +2541,20 @@ type CfnKnowledgeBaseProps struct {
 	// The type of knowledge base.
 	//
 	// Only CUSTOM knowledge bases allow you to upload your own content. EXTERNAL knowledge bases support integrations with third-party systems whose content is synchronized automatically.
-	KnowledgeBaseType *string `json:"knowledgeBaseType" yaml:"knowledgeBaseType"`
+	KnowledgeBaseType *string `field:"required" json:"knowledgeBaseType" yaml:"knowledgeBaseType"`
 	// The name of the knowledge base.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The description.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Information about how to render the content.
-	RenderingConfiguration interface{} `json:"renderingConfiguration" yaml:"renderingConfiguration"`
+	RenderingConfiguration interface{} `field:"optional" json:"renderingConfiguration" yaml:"renderingConfiguration"`
 	// The KMS key used for encryption.
-	ServerSideEncryptionConfiguration interface{} `json:"serverSideEncryptionConfiguration" yaml:"serverSideEncryptionConfiguration"`
+	ServerSideEncryptionConfiguration interface{} `field:"optional" json:"serverSideEncryptionConfiguration" yaml:"serverSideEncryptionConfiguration"`
 	// The source of the knowledge base content.
 	//
 	// Only set this argument for EXTERNAL knowledge bases.
-	SourceConfiguration interface{} `json:"sourceConfiguration" yaml:"sourceConfiguration"`
+	SourceConfiguration interface{} `field:"optional" json:"sourceConfiguration" yaml:"sourceConfiguration"`
 	// The tags used to organize, track, or control access for this resource.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

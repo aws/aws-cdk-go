@@ -12,10 +12,13 @@ import (
 // A CloudFormation `AWS::Personalize::Dataset`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import personalize "github.com/aws/aws-cdk-go/awscdk/aws_personalize"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var dataSource interface{}
-//   cfnDataset := personalize.NewCfnDataset(this, jsii.String("MyCfnDataset"), &cfnDatasetProps{
+//
+//   cfnDataset := awscdk.Aws_personalize.NewCfnDataset(this, jsii.String("MyCfnDataset"), &cfnDatasetProps{
 //   	datasetGroupArn: jsii.String("datasetGroupArn"),
 //   	datasetType: jsii.String("datasetType"),
 //   	name: jsii.String("name"),
@@ -753,9 +756,12 @@ func (c *jsiiProxy_CfnDataset) ValidateProperties(_properties interface{}) {
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import personalize "github.com/aws/aws-cdk-go/awscdk/aws_personalize"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var dataSource interface{}
+//
 //   datasetImportJobProperty := &datasetImportJobProperty{
 //   	datasetArn: jsii.String("datasetArn"),
 //   	datasetImportJobArn: jsii.String("datasetImportJobArn"),
@@ -766,22 +772,25 @@ func (c *jsiiProxy_CfnDataset) ValidateProperties(_properties interface{}) {
 //
 type CfnDataset_DatasetImportJobProperty struct {
 	// `CfnDataset.DatasetImportJobProperty.DatasetArn`.
-	DatasetArn *string `json:"datasetArn" yaml:"datasetArn"`
+	DatasetArn *string `field:"optional" json:"datasetArn" yaml:"datasetArn"`
 	// `CfnDataset.DatasetImportJobProperty.DatasetImportJobArn`.
-	DatasetImportJobArn *string `json:"datasetImportJobArn" yaml:"datasetImportJobArn"`
+	DatasetImportJobArn *string `field:"optional" json:"datasetImportJobArn" yaml:"datasetImportJobArn"`
 	// `CfnDataset.DatasetImportJobProperty.DataSource`.
-	DataSource interface{} `json:"dataSource" yaml:"dataSource"`
+	DataSource interface{} `field:"optional" json:"dataSource" yaml:"dataSource"`
 	// `CfnDataset.DatasetImportJobProperty.JobName`.
-	JobName *string `json:"jobName" yaml:"jobName"`
+	JobName *string `field:"optional" json:"jobName" yaml:"jobName"`
 	// `CfnDataset.DatasetImportJobProperty.RoleArn`.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 }
 
 // A CloudFormation `AWS::Personalize::DatasetGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import personalize "github.com/aws/aws-cdk-go/awscdk/aws_personalize"
-//   cfnDatasetGroup := personalize.NewCfnDatasetGroup(this, jsii.String("MyCfnDatasetGroup"), &cfnDatasetGroupProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDatasetGroup := awscdk.Aws_personalize.NewCfnDatasetGroup(this, jsii.String("MyCfnDatasetGroup"), &cfnDatasetGroupProps{
 //   	name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -1493,7 +1502,10 @@ func (c *jsiiProxy_CfnDatasetGroup) ValidateProperties(_properties interface{}) 
 // Properties for defining a `CfnDatasetGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import personalize "github.com/aws/aws-cdk-go/awscdk/aws_personalize"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDatasetGroupProps := &cfnDatasetGroupProps{
 //   	name: jsii.String("name"),
 //
@@ -1505,21 +1517,24 @@ func (c *jsiiProxy_CfnDatasetGroup) ValidateProperties(_properties interface{}) 
 //
 type CfnDatasetGroupProps struct {
 	// `AWS::Personalize::DatasetGroup.Name`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// `AWS::Personalize::DatasetGroup.Domain`.
-	Domain *string `json:"domain" yaml:"domain"`
+	Domain *string `field:"optional" json:"domain" yaml:"domain"`
 	// `AWS::Personalize::DatasetGroup.KmsKeyArn`.
-	KmsKeyArn *string `json:"kmsKeyArn" yaml:"kmsKeyArn"`
+	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
 	// `AWS::Personalize::DatasetGroup.RoleArn`.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 }
 
 // Properties for defining a `CfnDataset`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import personalize "github.com/aws/aws-cdk-go/awscdk/aws_personalize"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var dataSource interface{}
+//
 //   cfnDatasetProps := &cfnDatasetProps{
 //   	datasetGroupArn: jsii.String("datasetGroupArn"),
 //   	datasetType: jsii.String("datasetType"),
@@ -1538,22 +1553,25 @@ type CfnDatasetGroupProps struct {
 //
 type CfnDatasetProps struct {
 	// `AWS::Personalize::Dataset.DatasetGroupArn`.
-	DatasetGroupArn *string `json:"datasetGroupArn" yaml:"datasetGroupArn"`
+	DatasetGroupArn *string `field:"required" json:"datasetGroupArn" yaml:"datasetGroupArn"`
 	// `AWS::Personalize::Dataset.DatasetType`.
-	DatasetType *string `json:"datasetType" yaml:"datasetType"`
+	DatasetType *string `field:"required" json:"datasetType" yaml:"datasetType"`
 	// `AWS::Personalize::Dataset.Name`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// `AWS::Personalize::Dataset.SchemaArn`.
-	SchemaArn *string `json:"schemaArn" yaml:"schemaArn"`
+	SchemaArn *string `field:"required" json:"schemaArn" yaml:"schemaArn"`
 	// `AWS::Personalize::Dataset.DatasetImportJob`.
-	DatasetImportJob interface{} `json:"datasetImportJob" yaml:"datasetImportJob"`
+	DatasetImportJob interface{} `field:"optional" json:"datasetImportJob" yaml:"datasetImportJob"`
 }
 
 // A CloudFormation `AWS::Personalize::Schema`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import personalize "github.com/aws/aws-cdk-go/awscdk/aws_personalize"
-//   cfnSchema := personalize.NewCfnSchema(this, jsii.String("MyCfnSchema"), &cfnSchemaProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnSchema := awscdk.Aws_personalize.NewCfnSchema(this, jsii.String("MyCfnSchema"), &cfnSchemaProps{
 //   	name: jsii.String("name"),
 //   	schema: jsii.String("schema"),
 //
@@ -2243,7 +2261,10 @@ func (c *jsiiProxy_CfnSchema) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnSchema`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import personalize "github.com/aws/aws-cdk-go/awscdk/aws_personalize"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnSchemaProps := &cfnSchemaProps{
 //   	name: jsii.String("name"),
 //   	schema: jsii.String("schema"),
@@ -2254,21 +2275,24 @@ func (c *jsiiProxy_CfnSchema) ValidateProperties(_properties interface{}) {
 //
 type CfnSchemaProps struct {
 	// `AWS::Personalize::Schema.Name`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// `AWS::Personalize::Schema.Schema`.
-	Schema *string `json:"schema" yaml:"schema"`
+	Schema *string `field:"required" json:"schema" yaml:"schema"`
 	// `AWS::Personalize::Schema.Domain`.
-	Domain *string `json:"domain" yaml:"domain"`
+	Domain *string `field:"optional" json:"domain" yaml:"domain"`
 }
 
 // A CloudFormation `AWS::Personalize::Solution`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import personalize "github.com/aws/aws-cdk-go/awscdk/aws_personalize"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var autoMlConfig interface{}
 //   var hpoConfig interface{}
-//   cfnSolution := personalize.NewCfnSolution(this, jsii.String("MyCfnSolution"), &cfnSolutionProps{
+//
+//   cfnSolution := awscdk.Aws_personalize.NewCfnSolution(this, jsii.String("MyCfnSolution"), &cfnSolutionProps{
 //   	datasetGroupArn: jsii.String("datasetGroupArn"),
 //   	name: jsii.String("name"),
 //
@@ -3054,10 +3078,13 @@ func (c *jsiiProxy_CfnSolution) ValidateProperties(_properties interface{}) {
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import personalize "github.com/aws/aws-cdk-go/awscdk/aws_personalize"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var autoMlConfig interface{}
 //   var hpoConfig interface{}
+//
 //   solutionConfigProperty := &solutionConfigProperty{
 //   	algorithmHyperParameters: map[string]*string{
 //   		"algorithmHyperParametersKey": jsii.String("algorithmHyperParameters"),
@@ -3072,24 +3099,27 @@ func (c *jsiiProxy_CfnSolution) ValidateProperties(_properties interface{}) {
 //
 type CfnSolution_SolutionConfigProperty struct {
 	// `CfnSolution.SolutionConfigProperty.AlgorithmHyperParameters`.
-	AlgorithmHyperParameters interface{} `json:"algorithmHyperParameters" yaml:"algorithmHyperParameters"`
+	AlgorithmHyperParameters interface{} `field:"optional" json:"algorithmHyperParameters" yaml:"algorithmHyperParameters"`
 	// `CfnSolution.SolutionConfigProperty.AutoMLConfig`.
-	AutoMlConfig interface{} `json:"autoMlConfig" yaml:"autoMlConfig"`
+	AutoMlConfig interface{} `field:"optional" json:"autoMlConfig" yaml:"autoMlConfig"`
 	// `CfnSolution.SolutionConfigProperty.EventValueThreshold`.
-	EventValueThreshold *string `json:"eventValueThreshold" yaml:"eventValueThreshold"`
+	EventValueThreshold *string `field:"optional" json:"eventValueThreshold" yaml:"eventValueThreshold"`
 	// `CfnSolution.SolutionConfigProperty.FeatureTransformationParameters`.
-	FeatureTransformationParameters interface{} `json:"featureTransformationParameters" yaml:"featureTransformationParameters"`
+	FeatureTransformationParameters interface{} `field:"optional" json:"featureTransformationParameters" yaml:"featureTransformationParameters"`
 	// `CfnSolution.SolutionConfigProperty.HpoConfig`.
-	HpoConfig interface{} `json:"hpoConfig" yaml:"hpoConfig"`
+	HpoConfig interface{} `field:"optional" json:"hpoConfig" yaml:"hpoConfig"`
 }
 
 // Properties for defining a `CfnSolution`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import personalize "github.com/aws/aws-cdk-go/awscdk/aws_personalize"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var autoMlConfig interface{}
 //   var hpoConfig interface{}
+//
 //   cfnSolutionProps := &cfnSolutionProps{
 //   	datasetGroupArn: jsii.String("datasetGroupArn"),
 //   	name: jsii.String("name"),
@@ -3114,18 +3144,18 @@ type CfnSolution_SolutionConfigProperty struct {
 //
 type CfnSolutionProps struct {
 	// `AWS::Personalize::Solution.DatasetGroupArn`.
-	DatasetGroupArn *string `json:"datasetGroupArn" yaml:"datasetGroupArn"`
+	DatasetGroupArn *string `field:"required" json:"datasetGroupArn" yaml:"datasetGroupArn"`
 	// `AWS::Personalize::Solution.Name`.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// `AWS::Personalize::Solution.EventType`.
-	EventType *string `json:"eventType" yaml:"eventType"`
+	EventType *string `field:"optional" json:"eventType" yaml:"eventType"`
 	// `AWS::Personalize::Solution.PerformAutoML`.
-	PerformAutoMl interface{} `json:"performAutoMl" yaml:"performAutoMl"`
+	PerformAutoMl interface{} `field:"optional" json:"performAutoMl" yaml:"performAutoMl"`
 	// `AWS::Personalize::Solution.PerformHPO`.
-	PerformHpo interface{} `json:"performHpo" yaml:"performHpo"`
+	PerformHpo interface{} `field:"optional" json:"performHpo" yaml:"performHpo"`
 	// `AWS::Personalize::Solution.RecipeArn`.
-	RecipeArn *string `json:"recipeArn" yaml:"recipeArn"`
+	RecipeArn *string `field:"optional" json:"recipeArn" yaml:"recipeArn"`
 	// `AWS::Personalize::Solution.SolutionConfig`.
-	SolutionConfig interface{} `json:"solutionConfig" yaml:"solutionConfig"`
+	SolutionConfig interface{} `field:"optional" json:"solutionConfig" yaml:"solutionConfig"`
 }
 

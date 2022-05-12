@@ -18,6 +18,7 @@ import (
 //   import s3Assets "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var cluster cluster
+//
 //   chartAsset := s3Assets.NewAsset(this, jsii.String("ChartAsset"), &assetProps{
 //   	path: jsii.String("/path/to/asset"),
 //   })
@@ -428,16 +429,16 @@ func (a *jsiiProxy_Asset) Validate() *[]*string {
 type AssetOptions struct {
 	// Glob patterns to exclude from the copy.
 	// Experimental.
-	Exclude *[]*string `json:"exclude" yaml:"exclude"`
+	Exclude *[]*string `field:"optional" json:"exclude" yaml:"exclude"`
 	// A strategy for how to handle symlinks.
 	// Deprecated: use `followSymlinks` instead.
-	Follow assets.FollowMode `json:"follow" yaml:"follow"`
+	Follow assets.FollowMode `field:"optional" json:"follow" yaml:"follow"`
 	// The ignore behavior to use for exclude patterns.
 	// Experimental.
-	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode" yaml:"ignoreMode"`
+	IgnoreMode awscdk.IgnoreMode `field:"optional" json:"ignoreMode" yaml:"ignoreMode"`
 	// A strategy for how to handle symlinks.
 	// Experimental.
-	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks" yaml:"followSymlinks"`
+	FollowSymlinks awscdk.SymlinkFollowMode `field:"optional" json:"followSymlinks" yaml:"followSymlinks"`
 	// Specify a custom hash for this asset.
 	//
 	// If `assetHashType` is set it must
@@ -451,13 +452,13 @@ type AssetOptions struct {
 	// need to make sure it is updated every time the asset changes, or otherwise it is
 	// possible that some deployments will not be invalidated.
 	// Experimental.
-	AssetHash *string `json:"assetHash" yaml:"assetHash"`
+	AssetHash *string `field:"optional" json:"assetHash" yaml:"assetHash"`
 	// Specifies the type of hash to calculate for this asset.
 	//
 	// If `assetHash` is configured, this option must be `undefined` or
 	// `AssetHashType.CUSTOM`.
 	// Experimental.
-	AssetHashType awscdk.AssetHashType `json:"assetHashType" yaml:"assetHashType"`
+	AssetHashType awscdk.AssetHashType `field:"optional" json:"assetHashType" yaml:"assetHashType"`
 	// Bundle the asset by executing a command in a Docker container or a custom bundling provider.
 	//
 	// The asset path will be mounted at `/asset-input`. The Docker
@@ -465,12 +466,12 @@ type AssetOptions struct {
 	// The content at `/asset-output` will be zipped and used as the
 	// final asset.
 	// Experimental.
-	Bundling *awscdk.BundlingOptions `json:"bundling" yaml:"bundling"`
+	Bundling *awscdk.BundlingOptions `field:"optional" json:"bundling" yaml:"bundling"`
 	// A list of principals that should be able to read this asset from S3.
 	//
 	// You can use `asset.grantRead(principal)` to grant read permissions later.
 	// Experimental.
-	Readers *[]awsiam.IGrantable `json:"readers" yaml:"readers"`
+	Readers *[]awsiam.IGrantable `field:"optional" json:"readers" yaml:"readers"`
 	// Custom hash to use when identifying the specific version of the asset.
 	//
 	// For consistency,
@@ -483,7 +484,7 @@ type AssetOptions struct {
 	// you will need to make sure it is updated every time the source changes, or otherwise
 	// it is possible that some deployments will not be invalidated.
 	// Deprecated: see `assetHash` and `assetHashType`.
-	SourceHash *string `json:"sourceHash" yaml:"sourceHash"`
+	SourceHash *string `field:"optional" json:"sourceHash" yaml:"sourceHash"`
 }
 
 // Example:
@@ -491,7 +492,7 @@ type AssetOptions struct {
 //   	path: path.join(__dirname, jsii.String("markdown-asset")),
 //   	 // /asset-input and working directory in the container
 //   	bundling: &bundlingOptions{
-//   		image: dockerImage.fromBuild(path.join(__dirname, jsii.String("alpine-markdown"))),
+//   		image: awscdk.DockerImage.fromBuild(path.join(__dirname, jsii.String("alpine-markdown"))),
 //   		 // Build an image
 //   		command: []*string{
 //   			jsii.String("sh"),
@@ -505,16 +506,16 @@ type AssetOptions struct {
 type AssetProps struct {
 	// Glob patterns to exclude from the copy.
 	// Experimental.
-	Exclude *[]*string `json:"exclude" yaml:"exclude"`
+	Exclude *[]*string `field:"optional" json:"exclude" yaml:"exclude"`
 	// A strategy for how to handle symlinks.
 	// Deprecated: use `followSymlinks` instead.
-	Follow assets.FollowMode `json:"follow" yaml:"follow"`
+	Follow assets.FollowMode `field:"optional" json:"follow" yaml:"follow"`
 	// The ignore behavior to use for exclude patterns.
 	// Experimental.
-	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode" yaml:"ignoreMode"`
+	IgnoreMode awscdk.IgnoreMode `field:"optional" json:"ignoreMode" yaml:"ignoreMode"`
 	// A strategy for how to handle symlinks.
 	// Experimental.
-	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks" yaml:"followSymlinks"`
+	FollowSymlinks awscdk.SymlinkFollowMode `field:"optional" json:"followSymlinks" yaml:"followSymlinks"`
 	// Specify a custom hash for this asset.
 	//
 	// If `assetHashType` is set it must
@@ -528,13 +529,13 @@ type AssetProps struct {
 	// need to make sure it is updated every time the asset changes, or otherwise it is
 	// possible that some deployments will not be invalidated.
 	// Experimental.
-	AssetHash *string `json:"assetHash" yaml:"assetHash"`
+	AssetHash *string `field:"optional" json:"assetHash" yaml:"assetHash"`
 	// Specifies the type of hash to calculate for this asset.
 	//
 	// If `assetHash` is configured, this option must be `undefined` or
 	// `AssetHashType.CUSTOM`.
 	// Experimental.
-	AssetHashType awscdk.AssetHashType `json:"assetHashType" yaml:"assetHashType"`
+	AssetHashType awscdk.AssetHashType `field:"optional" json:"assetHashType" yaml:"assetHashType"`
 	// Bundle the asset by executing a command in a Docker container or a custom bundling provider.
 	//
 	// The asset path will be mounted at `/asset-input`. The Docker
@@ -542,12 +543,12 @@ type AssetProps struct {
 	// The content at `/asset-output` will be zipped and used as the
 	// final asset.
 	// Experimental.
-	Bundling *awscdk.BundlingOptions `json:"bundling" yaml:"bundling"`
+	Bundling *awscdk.BundlingOptions `field:"optional" json:"bundling" yaml:"bundling"`
 	// A list of principals that should be able to read this asset from S3.
 	//
 	// You can use `asset.grantRead(principal)` to grant read permissions later.
 	// Experimental.
-	Readers *[]awsiam.IGrantable `json:"readers" yaml:"readers"`
+	Readers *[]awsiam.IGrantable `field:"optional" json:"readers" yaml:"readers"`
 	// Custom hash to use when identifying the specific version of the asset.
 	//
 	// For consistency,
@@ -560,13 +561,13 @@ type AssetProps struct {
 	// you will need to make sure it is updated every time the source changes, or otherwise
 	// it is possible that some deployments will not be invalidated.
 	// Deprecated: see `assetHash` and `assetHashType`.
-	SourceHash *string `json:"sourceHash" yaml:"sourceHash"`
+	SourceHash *string `field:"optional" json:"sourceHash" yaml:"sourceHash"`
 	// The disk location of the asset.
 	//
 	// The path should refer to one of the following:
 	// - A regular file or a .zip file, in which case the file will be uploaded as-is to S3.
 	// - A directory, in which case it will be archived into a .zip file and uploaded to S3.
 	// Experimental.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"required" json:"path" yaml:"path"`
 }
 

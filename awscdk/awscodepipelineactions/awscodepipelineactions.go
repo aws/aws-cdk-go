@@ -143,9 +143,9 @@ func (a *jsiiProxy_Action) VariableExpression(variableName *string) *string {
 //
 // Example:
 //   // Read the secrets from ParameterStore
-//   clientId := secretValue.secretsManager(jsii.String("AlexaClientId"))
-//   clientSecret := secretValue.secretsManager(jsii.String("AlexaClientSecret"))
-//   refreshToken := secretValue.secretsManager(jsii.String("AlexaRefreshToken"))
+//   clientId := awscdk.SecretValue.secretsManager(jsii.String("AlexaClientId"))
+//   clientSecret := awscdk.SecretValue.secretsManager(jsii.String("AlexaClientSecret"))
+//   refreshToken := awscdk.SecretValue.secretsManager(jsii.String("AlexaRefreshToken"))
 //
 //   // Add deploy action
 //   sourceOutput := codepipeline.NewArtifact()
@@ -291,9 +291,9 @@ func (a *jsiiProxy_AlexaSkillDeployAction) VariableExpression(variableName *stri
 //
 // Example:
 //   // Read the secrets from ParameterStore
-//   clientId := secretValue.secretsManager(jsii.String("AlexaClientId"))
-//   clientSecret := secretValue.secretsManager(jsii.String("AlexaClientSecret"))
-//   refreshToken := secretValue.secretsManager(jsii.String("AlexaRefreshToken"))
+//   clientId := awscdk.SecretValue.secretsManager(jsii.String("AlexaClientId"))
+//   clientSecret := awscdk.SecretValue.secretsManager(jsii.String("AlexaClientSecret"))
+//   refreshToken := awscdk.SecretValue.secretsManager(jsii.String("AlexaRefreshToken"))
 //
 //   // Add deploy action
 //   sourceOutput := codepipeline.NewArtifact()
@@ -313,35 +313,35 @@ type AlexaSkillDeployActionProps struct {
 	//
 	// Note that Action names must be unique within a single Stage.
 	// Experimental.
-	ActionName *string `json:"actionName" yaml:"actionName"`
+	ActionName *string `field:"required" json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
 	// Experimental.
-	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
+	RunOrder *float64 `field:"optional" json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
 	// Experimental.
-	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
+	VariablesNamespace *string `field:"optional" json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The client id of the developer console token.
 	// Experimental.
-	ClientId *string `json:"clientId" yaml:"clientId"`
+	ClientId *string `field:"required" json:"clientId" yaml:"clientId"`
 	// The client secret of the developer console token.
 	// Experimental.
-	ClientSecret awscdk.SecretValue `json:"clientSecret" yaml:"clientSecret"`
+	ClientSecret awscdk.SecretValue `field:"required" json:"clientSecret" yaml:"clientSecret"`
 	// The source artifact containing the voice model and skill manifest.
 	// Experimental.
-	Input awscodepipeline.Artifact `json:"input" yaml:"input"`
+	Input awscodepipeline.Artifact `field:"required" json:"input" yaml:"input"`
 	// The refresh token of the developer console token.
 	// Experimental.
-	RefreshToken awscdk.SecretValue `json:"refreshToken" yaml:"refreshToken"`
+	RefreshToken awscdk.SecretValue `field:"required" json:"refreshToken" yaml:"refreshToken"`
 	// The Alexa skill id.
 	// Experimental.
-	SkillId *string `json:"skillId" yaml:"skillId"`
+	SkillId *string `field:"required" json:"skillId" yaml:"skillId"`
 	// An optional artifact containing overrides for the skill manifest.
 	// Experimental.
-	ParameterOverridesArtifact awscodepipeline.Artifact `json:"parameterOverridesArtifact" yaml:"parameterOverridesArtifact"`
+	ParameterOverridesArtifact awscodepipeline.Artifact `field:"optional" json:"parameterOverridesArtifact" yaml:"parameterOverridesArtifact"`
 }
 
 // Experimental.
@@ -559,11 +559,16 @@ func (b *jsiiProxy_BaseJenkinsProvider) Validate() *[]*string {
 // A CodePipeline source action for BitBucket.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline"import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline_actions "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline_actions"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var artifact artifact
 //   var role role
-//   bitBucketSourceAction := codepipeline_actions.NewBitBucketSourceAction(&bitBucketSourceActionProps{
+//
+//   bitBucketSourceAction := awscdk.Aws_codepipeline_actions.NewBitBucketSourceAction(&bitBucketSourceActionProps{
 //   	actionName: jsii.String("actionName"),
 //   	connectionArn: jsii.String("connectionArn"),
 //   	output: artifact,
@@ -666,10 +671,15 @@ func (b *jsiiProxy_BitBucketSourceAction) OnStateChange(name *string, target aws
 // Construction properties for {@link BitBucketSourceAction}.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline"import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline_actions "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline_actions"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var artifact artifact
 //   var role role
+//
 //   bitBucketSourceActionProps := &bitBucketSourceActionProps{
 //   	actionName: jsii.String("actionName"),
 //   	connectionArn: jsii.String("connectionArn"),
@@ -692,17 +702,17 @@ type BitBucketSourceActionProps struct {
 	//
 	// Note that Action names must be unique within a single Stage.
 	// Deprecated: use CodeStarConnectionsSourceActionProps instead.
-	ActionName *string `json:"actionName" yaml:"actionName"`
+	ActionName *string `field:"required" json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
 	// Deprecated: use CodeStarConnectionsSourceActionProps instead.
-	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
+	RunOrder *float64 `field:"optional" json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
 	// Deprecated: use CodeStarConnectionsSourceActionProps instead.
-	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
+	VariablesNamespace *string `field:"optional" json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
 	// The Pipeline's Role will assume this Role
@@ -711,7 +721,7 @@ type BitBucketSourceActionProps struct {
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
 	// Deprecated: use CodeStarConnectionsSourceActionProps instead.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The ARN of the CodeStar Connection created in the AWS console that has permissions to access this GitHub or BitBucket repository.
 	//
 	// Example:
@@ -720,29 +730,29 @@ type BitBucketSourceActionProps struct {
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/connections-create.html
 	//
 	// Deprecated: use CodeStarConnectionsSourceActionProps instead.
-	ConnectionArn *string `json:"connectionArn" yaml:"connectionArn"`
+	ConnectionArn *string `field:"required" json:"connectionArn" yaml:"connectionArn"`
 	// The output artifact that this action produces.
 	//
 	// Can be used as input for further pipeline actions.
 	// Deprecated: use CodeStarConnectionsSourceActionProps instead.
-	Output awscodepipeline.Artifact `json:"output" yaml:"output"`
+	Output awscodepipeline.Artifact `field:"required" json:"output" yaml:"output"`
 	// The owning user or organization of the repository.
 	//
 	// Example:
 	//   'aws'
 	//
 	// Deprecated: use CodeStarConnectionsSourceActionProps instead.
-	Owner *string `json:"owner" yaml:"owner"`
+	Owner *string `field:"required" json:"owner" yaml:"owner"`
 	// The name of the repository.
 	//
 	// Example:
 	//   'aws-cdk'
 	//
 	// Deprecated: use CodeStarConnectionsSourceActionProps instead.
-	Repo *string `json:"repo" yaml:"repo"`
+	Repo *string `field:"required" json:"repo" yaml:"repo"`
 	// The branch to build.
 	// Deprecated: use CodeStarConnectionsSourceActionProps instead.
-	Branch *string `json:"branch" yaml:"branch"`
+	Branch *string `field:"optional" json:"branch" yaml:"branch"`
 	// Whether the output should be the contents of the repository (which is the default), or a link that allows CodeBuild to clone the repository before building.
 	//
 	// **Note**: if this option is true,
@@ -750,7 +760,7 @@ type BitBucketSourceActionProps struct {
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html#action-reference-CodestarConnectionSource-config
 	//
 	// Deprecated: use CodeStarConnectionsSourceActionProps instead.
-	CodeBuildCloneOutput *bool `json:"codeBuildCloneOutput" yaml:"codeBuildCloneOutput"`
+	CodeBuildCloneOutput *bool `field:"optional" json:"codeBuildCloneOutput" yaml:"codeBuildCloneOutput"`
 	// Controls automatically starting your pipeline when a new commit is made on the configured repository and branch.
 	//
 	// If unspecified,
@@ -758,7 +768,7 @@ type BitBucketSourceActionProps struct {
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html
 	//
 	// Deprecated: use CodeStarConnectionsSourceActionProps instead.
-	TriggerOnPush *bool `json:"triggerOnPush" yaml:"triggerOnPush"`
+	TriggerOnPush *bool `field:"optional" json:"triggerOnPush" yaml:"triggerOnPush"`
 }
 
 // Used for HTTP cache-control header, which influences downstream caches.
@@ -767,8 +777,11 @@ type BitBucketSourceActionProps struct {
 // Used in the {@link S3DeployActionProps.cacheControl} property.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline_actions "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline_actions"
-//   cacheControl := codepipeline_actions.cacheControl.fromString(jsii.String("s"))
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cacheControl := awscdk.Aws_codepipeline_actions.cacheControl.fromString(jsii.String("s"))
 //
 // See: https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9
 //
@@ -1235,17 +1248,17 @@ type CloudFormationCreateReplaceChangeSetActionProps struct {
 	//
 	// Note that Action names must be unique within a single Stage.
 	// Experimental.
-	ActionName *string `json:"actionName" yaml:"actionName"`
+	ActionName *string `field:"required" json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
 	// Experimental.
-	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
+	RunOrder *float64 `field:"optional" json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
 	// Experimental.
-	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
+	VariablesNamespace *string `field:"optional" json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
 	// The Pipeline's Role will assume this Role
@@ -1254,7 +1267,7 @@ type CloudFormationCreateReplaceChangeSetActionProps struct {
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// Whether to grant full permissions to CloudFormation while deploying this template.
 	//
 	// Setting this to `true` affects the defaults for `role` and `capabilities`, if you
@@ -1269,22 +1282,22 @@ type CloudFormationCreateReplaceChangeSetActionProps struct {
 	// use `addToRolePolicy` and `capabilities` to control what the CloudFormation
 	// deployment is allowed to do.
 	// Experimental.
-	AdminPermissions *bool `json:"adminPermissions" yaml:"adminPermissions"`
+	AdminPermissions *bool `field:"required" json:"adminPermissions" yaml:"adminPermissions"`
 	// Name of the change set to create or update.
 	// Experimental.
-	ChangeSetName *string `json:"changeSetName" yaml:"changeSetName"`
+	ChangeSetName *string `field:"required" json:"changeSetName" yaml:"changeSetName"`
 	// The name of the stack to apply this action to.
 	// Experimental.
-	StackName *string `json:"stackName" yaml:"stackName"`
+	StackName *string `field:"required" json:"stackName" yaml:"stackName"`
 	// Input artifact with the ChangeSet's CloudFormation template.
 	// Experimental.
-	TemplatePath awscodepipeline.ArtifactPath `json:"templatePath" yaml:"templatePath"`
+	TemplatePath awscodepipeline.ArtifactPath `field:"required" json:"templatePath" yaml:"templatePath"`
 	// The AWS account this Action is supposed to operate in.
 	//
 	// **Note**: if you specify the `role` property,
 	// this is ignored - the action will operate in the same region the passed role does.
 	// Experimental.
-	Account *string `json:"account" yaml:"account"`
+	Account *string `field:"optional" json:"account" yaml:"account"`
 	// Acknowledge certain changes made as part of deployment.
 	//
 	// For stacks that contain certain resources, explicit acknowledgement that AWS CloudFormation
@@ -1294,7 +1307,7 @@ type CloudFormationCreateReplaceChangeSetActionProps struct {
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities
 	//
 	// Deprecated: use {@link cfnCapabilities} instead.
-	Capabilities *[]awscloudformation.CloudFormationCapabilities `json:"capabilities" yaml:"capabilities"`
+	Capabilities *[]awscloudformation.CloudFormationCapabilities `field:"optional" json:"capabilities" yaml:"capabilities"`
 	// Acknowledge certain changes made as part of deployment.
 	//
 	// For stacks that contain certain resources,
@@ -1305,14 +1318,14 @@ type CloudFormationCreateReplaceChangeSetActionProps struct {
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities
 	//
 	// Experimental.
-	CfnCapabilities *[]awscdk.CfnCapabilities `json:"cfnCapabilities" yaml:"cfnCapabilities"`
+	CfnCapabilities *[]awscdk.CfnCapabilities `field:"optional" json:"cfnCapabilities" yaml:"cfnCapabilities"`
 	// IAM role to assume when deploying changes.
 	//
 	// If not specified, a fresh role is created. The role is created with zero
 	// permissions unless `adminPermissions` is true, in which case the role will have
 	// full permissions.
 	// Experimental.
-	DeploymentRole awsiam.IRole `json:"deploymentRole" yaml:"deploymentRole"`
+	DeploymentRole awsiam.IRole `field:"optional" json:"deploymentRole" yaml:"deploymentRole"`
 	// The list of additional input Artifacts for this Action.
 	//
 	// This is especially useful when used in conjunction with the `parameterOverrides` property.
@@ -1328,12 +1341,12 @@ type CloudFormationCreateReplaceChangeSetActionProps struct {
 	// you need to make sure to include them in the `extraInputs` -
 	// otherwise, you'll get an "unrecognized Artifact" error during your Pipeline's execution.
 	// Experimental.
-	ExtraInputs *[]awscodepipeline.Artifact `json:"extraInputs" yaml:"extraInputs"`
+	ExtraInputs *[]awscodepipeline.Artifact `field:"optional" json:"extraInputs" yaml:"extraInputs"`
 	// The name of the output artifact to generate.
 	//
 	// Only applied if `outputFileName` is set as well.
 	// Experimental.
-	Output awscodepipeline.Artifact `json:"output" yaml:"output"`
+	Output awscodepipeline.Artifact `field:"optional" json:"output" yaml:"output"`
 	// A name for the filename in the output artifact to store the AWS CloudFormation call's result.
 	//
 	// The file will contain the result of the call to AWS CloudFormation (for example
@@ -1342,7 +1355,7 @@ type CloudFormationCreateReplaceChangeSetActionProps struct {
 	// AWS CodePipeline adds the file to the output artifact after performing
 	// the specified action.
 	// Experimental.
-	OutputFileName *string `json:"outputFileName" yaml:"outputFileName"`
+	OutputFileName *string `field:"optional" json:"outputFileName" yaml:"outputFileName"`
 	// Additional template parameters.
 	//
 	// Template parameters specified here take precedence over template parameters
@@ -1357,7 +1370,7 @@ type CloudFormationCreateReplaceChangeSetActionProps struct {
 	//
 	// Note: the entire object cannot be more than 1kB.
 	// Experimental.
-	ParameterOverrides *map[string]interface{} `json:"parameterOverrides" yaml:"parameterOverrides"`
+	ParameterOverrides *map[string]interface{} `field:"optional" json:"parameterOverrides" yaml:"parameterOverrides"`
 	// The AWS region the given Action resides in.
 	//
 	// Note that a cross-region Pipeline requires replication buckets to function correctly.
@@ -1365,7 +1378,7 @@ type CloudFormationCreateReplaceChangeSetActionProps struct {
 	// If you don't, the CodePipeline Construct will create new Stacks in your CDK app containing those buckets,
 	// that you will need to `cdk deploy` before deploying the main, Pipeline-containing Stack.
 	// Experimental.
-	Region *string `json:"region" yaml:"region"`
+	Region *string `field:"optional" json:"region" yaml:"region"`
 	// Input artifact to use for template parameters values and stack policy.
 	//
 	// The template configuration file should contain a JSON object that should look like this:
@@ -1375,7 +1388,7 @@ type CloudFormationCreateReplaceChangeSetActionProps struct {
 	// Note that if you include sensitive information, such as passwords, restrict access to this
 	// file.
 	// Experimental.
-	TemplateConfiguration awscodepipeline.ArtifactPath `json:"templateConfiguration" yaml:"templateConfiguration"`
+	TemplateConfiguration awscodepipeline.ArtifactPath `field:"optional" json:"templateConfiguration" yaml:"templateConfiguration"`
 }
 
 // CodePipeline action to deploy a stack.
@@ -1392,14 +1405,15 @@ type CloudFormationCreateReplaceChangeSetActionProps struct {
 // troubleshooting them. You would typically choose this mode for testing.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type PhysicalName awscdk.PhysicalName
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   // in stack for account 123456789012...
 //   var otherAccountStack stack
+//
 //   actionRole := iam.NewRole(otherAccountStack, jsii.String("ActionRole"), &roleProps{
 //   	assumedBy: iam.NewAccountPrincipal(jsii.String("123456789012")),
 //   	// the role has to have a physical name set
-//   	roleName: physicalName_GENERATE_IF_NEEDED(),
+//   	roleName: awscdk.PhysicalName_GENERATE_IF_NEEDED(),
 //   })
 //
 //   // in the pipeline stack...
@@ -1571,14 +1585,15 @@ func (c *jsiiProxy_CloudFormationCreateUpdateStackAction) VariableExpression(var
 // Properties for the CloudFormationCreateUpdateStackAction.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type PhysicalName awscdk.PhysicalName
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   // in stack for account 123456789012...
 //   var otherAccountStack stack
+//
 //   actionRole := iam.NewRole(otherAccountStack, jsii.String("ActionRole"), &roleProps{
 //   	assumedBy: iam.NewAccountPrincipal(jsii.String("123456789012")),
 //   	// the role has to have a physical name set
-//   	roleName: physicalName_GENERATE_IF_NEEDED(),
+//   	roleName: awscdk.PhysicalName_GENERATE_IF_NEEDED(),
 //   })
 //
 //   // in the pipeline stack...
@@ -1597,17 +1612,17 @@ type CloudFormationCreateUpdateStackActionProps struct {
 	//
 	// Note that Action names must be unique within a single Stage.
 	// Experimental.
-	ActionName *string `json:"actionName" yaml:"actionName"`
+	ActionName *string `field:"required" json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
 	// Experimental.
-	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
+	RunOrder *float64 `field:"optional" json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
 	// Experimental.
-	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
+	VariablesNamespace *string `field:"optional" json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
 	// The Pipeline's Role will assume this Role
@@ -1616,7 +1631,7 @@ type CloudFormationCreateUpdateStackActionProps struct {
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// Whether to grant full permissions to CloudFormation while deploying this template.
 	//
 	// Setting this to `true` affects the defaults for `role` and `capabilities`, if you
@@ -1631,19 +1646,19 @@ type CloudFormationCreateUpdateStackActionProps struct {
 	// use `addToRolePolicy` and `capabilities` to control what the CloudFormation
 	// deployment is allowed to do.
 	// Experimental.
-	AdminPermissions *bool `json:"adminPermissions" yaml:"adminPermissions"`
+	AdminPermissions *bool `field:"required" json:"adminPermissions" yaml:"adminPermissions"`
 	// The name of the stack to apply this action to.
 	// Experimental.
-	StackName *string `json:"stackName" yaml:"stackName"`
+	StackName *string `field:"required" json:"stackName" yaml:"stackName"`
 	// Input artifact with the CloudFormation template to deploy.
 	// Experimental.
-	TemplatePath awscodepipeline.ArtifactPath `json:"templatePath" yaml:"templatePath"`
+	TemplatePath awscodepipeline.ArtifactPath `field:"required" json:"templatePath" yaml:"templatePath"`
 	// The AWS account this Action is supposed to operate in.
 	//
 	// **Note**: if you specify the `role` property,
 	// this is ignored - the action will operate in the same region the passed role does.
 	// Experimental.
-	Account *string `json:"account" yaml:"account"`
+	Account *string `field:"optional" json:"account" yaml:"account"`
 	// Acknowledge certain changes made as part of deployment.
 	//
 	// For stacks that contain certain resources, explicit acknowledgement that AWS CloudFormation
@@ -1653,7 +1668,7 @@ type CloudFormationCreateUpdateStackActionProps struct {
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities
 	//
 	// Deprecated: use {@link cfnCapabilities} instead.
-	Capabilities *[]awscloudformation.CloudFormationCapabilities `json:"capabilities" yaml:"capabilities"`
+	Capabilities *[]awscloudformation.CloudFormationCapabilities `field:"optional" json:"capabilities" yaml:"capabilities"`
 	// Acknowledge certain changes made as part of deployment.
 	//
 	// For stacks that contain certain resources,
@@ -1664,14 +1679,14 @@ type CloudFormationCreateUpdateStackActionProps struct {
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities
 	//
 	// Experimental.
-	CfnCapabilities *[]awscdk.CfnCapabilities `json:"cfnCapabilities" yaml:"cfnCapabilities"`
+	CfnCapabilities *[]awscdk.CfnCapabilities `field:"optional" json:"cfnCapabilities" yaml:"cfnCapabilities"`
 	// IAM role to assume when deploying changes.
 	//
 	// If not specified, a fresh role is created. The role is created with zero
 	// permissions unless `adminPermissions` is true, in which case the role will have
 	// full permissions.
 	// Experimental.
-	DeploymentRole awsiam.IRole `json:"deploymentRole" yaml:"deploymentRole"`
+	DeploymentRole awsiam.IRole `field:"optional" json:"deploymentRole" yaml:"deploymentRole"`
 	// The list of additional input Artifacts for this Action.
 	//
 	// This is especially useful when used in conjunction with the `parameterOverrides` property.
@@ -1687,12 +1702,12 @@ type CloudFormationCreateUpdateStackActionProps struct {
 	// you need to make sure to include them in the `extraInputs` -
 	// otherwise, you'll get an "unrecognized Artifact" error during your Pipeline's execution.
 	// Experimental.
-	ExtraInputs *[]awscodepipeline.Artifact `json:"extraInputs" yaml:"extraInputs"`
+	ExtraInputs *[]awscodepipeline.Artifact `field:"optional" json:"extraInputs" yaml:"extraInputs"`
 	// The name of the output artifact to generate.
 	//
 	// Only applied if `outputFileName` is set as well.
 	// Experimental.
-	Output awscodepipeline.Artifact `json:"output" yaml:"output"`
+	Output awscodepipeline.Artifact `field:"optional" json:"output" yaml:"output"`
 	// A name for the filename in the output artifact to store the AWS CloudFormation call's result.
 	//
 	// The file will contain the result of the call to AWS CloudFormation (for example
@@ -1701,7 +1716,7 @@ type CloudFormationCreateUpdateStackActionProps struct {
 	// AWS CodePipeline adds the file to the output artifact after performing
 	// the specified action.
 	// Experimental.
-	OutputFileName *string `json:"outputFileName" yaml:"outputFileName"`
+	OutputFileName *string `field:"optional" json:"outputFileName" yaml:"outputFileName"`
 	// Additional template parameters.
 	//
 	// Template parameters specified here take precedence over template parameters
@@ -1716,7 +1731,7 @@ type CloudFormationCreateUpdateStackActionProps struct {
 	//
 	// Note: the entire object cannot be more than 1kB.
 	// Experimental.
-	ParameterOverrides *map[string]interface{} `json:"parameterOverrides" yaml:"parameterOverrides"`
+	ParameterOverrides *map[string]interface{} `field:"optional" json:"parameterOverrides" yaml:"parameterOverrides"`
 	// The AWS region the given Action resides in.
 	//
 	// Note that a cross-region Pipeline requires replication buckets to function correctly.
@@ -1724,7 +1739,7 @@ type CloudFormationCreateUpdateStackActionProps struct {
 	// If you don't, the CodePipeline Construct will create new Stacks in your CDK app containing those buckets,
 	// that you will need to `cdk deploy` before deploying the main, Pipeline-containing Stack.
 	// Experimental.
-	Region *string `json:"region" yaml:"region"`
+	Region *string `field:"optional" json:"region" yaml:"region"`
 	// Replace the stack if it's in a failed state.
 	//
 	// If this is set to true and the stack is in a failed state (one of
@@ -1735,7 +1750,7 @@ type CloudFormationCreateUpdateStackActionProps struct {
 	// If this is not set to true and the stack is in a failed state,
 	// the deployment fails.
 	// Experimental.
-	ReplaceOnFailure *bool `json:"replaceOnFailure" yaml:"replaceOnFailure"`
+	ReplaceOnFailure *bool `field:"optional" json:"replaceOnFailure" yaml:"replaceOnFailure"`
 	// Input artifact to use for template parameters values and stack policy.
 	//
 	// The template configuration file should contain a JSON object that should look like this:
@@ -1745,7 +1760,7 @@ type CloudFormationCreateUpdateStackActionProps struct {
 	// Note that if you include sensitive information, such as passwords, restrict access to this
 	// file.
 	// Experimental.
-	TemplateConfiguration awscodepipeline.ArtifactPath `json:"templateConfiguration" yaml:"templateConfiguration"`
+	TemplateConfiguration awscodepipeline.ArtifactPath `field:"optional" json:"templateConfiguration" yaml:"templateConfiguration"`
 }
 
 // CodePipeline action to delete a stack.
@@ -1754,13 +1769,20 @@ type CloudFormationCreateUpdateStackActionProps struct {
 // without deleting a stack.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline"import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline_actions "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline_actions"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var artifact artifact
 //   var artifactPath artifactPath
 //   var parameterOverrides interface{}
 //   var role role
-//   cloudFormationDeleteStackAction := codepipeline_actions.NewCloudFormationDeleteStackAction(&cloudFormationDeleteStackActionProps{
+//
+//   cloudFormationDeleteStackAction := awscdk.Aws_codepipeline_actions.NewCloudFormationDeleteStackAction(&cloudFormationDeleteStackActionProps{
 //   	actionName: jsii.String("actionName"),
 //   	adminPermissions: jsii.Boolean(false),
 //   	stackName: jsii.String("stackName"),
@@ -1768,7 +1790,7 @@ type CloudFormationCreateUpdateStackActionProps struct {
 //   	// the properties below are optional
 //   	account: jsii.String("account"),
 //   	capabilities: []cloudFormationCapabilities{
-//   		cloudformation.*cloudFormationCapabilities_NONE,
+//   		awscdk.Aws_cloudformation.*cloudFormationCapabilities_NONE,
 //   	},
 //   	cfnCapabilities: []cfnCapabilities{
 //   		monocdk.*cfnCapabilities_NONE,
@@ -1948,12 +1970,19 @@ func (c *jsiiProxy_CloudFormationDeleteStackAction) VariableExpression(variableN
 // Properties for the CloudFormationDeleteStackAction.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline"import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline_actions "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline_actions"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var artifact artifact
 //   var artifactPath artifactPath
 //   var parameterOverrides interface{}
 //   var role role
+//
 //   cloudFormationDeleteStackActionProps := &cloudFormationDeleteStackActionProps{
 //   	actionName: jsii.String("actionName"),
 //   	adminPermissions: jsii.Boolean(false),
@@ -1962,7 +1991,7 @@ func (c *jsiiProxy_CloudFormationDeleteStackAction) VariableExpression(variableN
 //   	// the properties below are optional
 //   	account: jsii.String("account"),
 //   	capabilities: []cloudFormationCapabilities{
-//   		cloudformation.*cloudFormationCapabilities_NONE,
+//   		awscdk.Aws_cloudformation.*cloudFormationCapabilities_NONE,
 //   	},
 //   	cfnCapabilities: []cfnCapabilities{
 //   		monocdk.*cfnCapabilities_NONE,
@@ -1989,17 +2018,17 @@ type CloudFormationDeleteStackActionProps struct {
 	//
 	// Note that Action names must be unique within a single Stage.
 	// Experimental.
-	ActionName *string `json:"actionName" yaml:"actionName"`
+	ActionName *string `field:"required" json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
 	// Experimental.
-	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
+	RunOrder *float64 `field:"optional" json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
 	// Experimental.
-	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
+	VariablesNamespace *string `field:"optional" json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
 	// The Pipeline's Role will assume this Role
@@ -2008,7 +2037,7 @@ type CloudFormationDeleteStackActionProps struct {
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// Whether to grant full permissions to CloudFormation while deploying this template.
 	//
 	// Setting this to `true` affects the defaults for `role` and `capabilities`, if you
@@ -2023,16 +2052,16 @@ type CloudFormationDeleteStackActionProps struct {
 	// use `addToRolePolicy` and `capabilities` to control what the CloudFormation
 	// deployment is allowed to do.
 	// Experimental.
-	AdminPermissions *bool `json:"adminPermissions" yaml:"adminPermissions"`
+	AdminPermissions *bool `field:"required" json:"adminPermissions" yaml:"adminPermissions"`
 	// The name of the stack to apply this action to.
 	// Experimental.
-	StackName *string `json:"stackName" yaml:"stackName"`
+	StackName *string `field:"required" json:"stackName" yaml:"stackName"`
 	// The AWS account this Action is supposed to operate in.
 	//
 	// **Note**: if you specify the `role` property,
 	// this is ignored - the action will operate in the same region the passed role does.
 	// Experimental.
-	Account *string `json:"account" yaml:"account"`
+	Account *string `field:"optional" json:"account" yaml:"account"`
 	// Acknowledge certain changes made as part of deployment.
 	//
 	// For stacks that contain certain resources, explicit acknowledgement that AWS CloudFormation
@@ -2042,7 +2071,7 @@ type CloudFormationDeleteStackActionProps struct {
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities
 	//
 	// Deprecated: use {@link cfnCapabilities} instead.
-	Capabilities *[]awscloudformation.CloudFormationCapabilities `json:"capabilities" yaml:"capabilities"`
+	Capabilities *[]awscloudformation.CloudFormationCapabilities `field:"optional" json:"capabilities" yaml:"capabilities"`
 	// Acknowledge certain changes made as part of deployment.
 	//
 	// For stacks that contain certain resources,
@@ -2053,14 +2082,14 @@ type CloudFormationDeleteStackActionProps struct {
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities
 	//
 	// Experimental.
-	CfnCapabilities *[]awscdk.CfnCapabilities `json:"cfnCapabilities" yaml:"cfnCapabilities"`
+	CfnCapabilities *[]awscdk.CfnCapabilities `field:"optional" json:"cfnCapabilities" yaml:"cfnCapabilities"`
 	// IAM role to assume when deploying changes.
 	//
 	// If not specified, a fresh role is created. The role is created with zero
 	// permissions unless `adminPermissions` is true, in which case the role will have
 	// full permissions.
 	// Experimental.
-	DeploymentRole awsiam.IRole `json:"deploymentRole" yaml:"deploymentRole"`
+	DeploymentRole awsiam.IRole `field:"optional" json:"deploymentRole" yaml:"deploymentRole"`
 	// The list of additional input Artifacts for this Action.
 	//
 	// This is especially useful when used in conjunction with the `parameterOverrides` property.
@@ -2076,12 +2105,12 @@ type CloudFormationDeleteStackActionProps struct {
 	// you need to make sure to include them in the `extraInputs` -
 	// otherwise, you'll get an "unrecognized Artifact" error during your Pipeline's execution.
 	// Experimental.
-	ExtraInputs *[]awscodepipeline.Artifact `json:"extraInputs" yaml:"extraInputs"`
+	ExtraInputs *[]awscodepipeline.Artifact `field:"optional" json:"extraInputs" yaml:"extraInputs"`
 	// The name of the output artifact to generate.
 	//
 	// Only applied if `outputFileName` is set as well.
 	// Experimental.
-	Output awscodepipeline.Artifact `json:"output" yaml:"output"`
+	Output awscodepipeline.Artifact `field:"optional" json:"output" yaml:"output"`
 	// A name for the filename in the output artifact to store the AWS CloudFormation call's result.
 	//
 	// The file will contain the result of the call to AWS CloudFormation (for example
@@ -2090,7 +2119,7 @@ type CloudFormationDeleteStackActionProps struct {
 	// AWS CodePipeline adds the file to the output artifact after performing
 	// the specified action.
 	// Experimental.
-	OutputFileName *string `json:"outputFileName" yaml:"outputFileName"`
+	OutputFileName *string `field:"optional" json:"outputFileName" yaml:"outputFileName"`
 	// Additional template parameters.
 	//
 	// Template parameters specified here take precedence over template parameters
@@ -2105,7 +2134,7 @@ type CloudFormationDeleteStackActionProps struct {
 	//
 	// Note: the entire object cannot be more than 1kB.
 	// Experimental.
-	ParameterOverrides *map[string]interface{} `json:"parameterOverrides" yaml:"parameterOverrides"`
+	ParameterOverrides *map[string]interface{} `field:"optional" json:"parameterOverrides" yaml:"parameterOverrides"`
 	// The AWS region the given Action resides in.
 	//
 	// Note that a cross-region Pipeline requires replication buckets to function correctly.
@@ -2113,7 +2142,7 @@ type CloudFormationDeleteStackActionProps struct {
 	// If you don't, the CodePipeline Construct will create new Stacks in your CDK app containing those buckets,
 	// that you will need to `cdk deploy` before deploying the main, Pipeline-containing Stack.
 	// Experimental.
-	Region *string `json:"region" yaml:"region"`
+	Region *string `field:"optional" json:"region" yaml:"region"`
 	// Input artifact to use for template parameters values and stack policy.
 	//
 	// The template configuration file should contain a JSON object that should look like this:
@@ -2123,7 +2152,7 @@ type CloudFormationDeleteStackActionProps struct {
 	// Note that if you include sensitive information, such as passwords, restrict access to this
 	// file.
 	// Experimental.
-	TemplateConfiguration awscodepipeline.ArtifactPath `json:"templateConfiguration" yaml:"templateConfiguration"`
+	TemplateConfiguration awscodepipeline.ArtifactPath `field:"optional" json:"templateConfiguration" yaml:"templateConfiguration"`
 }
 
 // CodePipeline action to create/update Stack Instances of a StackSet.
@@ -2141,6 +2170,7 @@ type CloudFormationDeleteStackActionProps struct {
 // Example:
 //   var pipeline pipeline
 //   var sourceOutput artifact
+//
 //
 //   pipeline.addStage(&stageOptions{
 //   	stageName: jsii.String("DeployStackSets"),
@@ -2313,6 +2343,7 @@ func (c *jsiiProxy_CloudFormationDeployStackInstancesAction) VariableExpression(
 //   var pipeline pipeline
 //   var sourceOutput artifact
 //
+//
 //   pipeline.addStage(&stageOptions{
 //   	stageName: jsii.String("DeployStackSets"),
 //   	actions: []iAction{
@@ -2356,17 +2387,17 @@ type CloudFormationDeployStackInstancesActionProps struct {
 	//
 	// Note that Action names must be unique within a single Stage.
 	// Experimental.
-	ActionName *string `json:"actionName" yaml:"actionName"`
+	ActionName *string `field:"required" json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
 	// Experimental.
-	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
+	RunOrder *float64 `field:"optional" json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
 	// Experimental.
-	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
+	VariablesNamespace *string `field:"optional" json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
 	// The Pipeline's Role will assume this Role
@@ -2375,14 +2406,14 @@ type CloudFormationDeployStackInstancesActionProps struct {
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The percentage of accounts per Region for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
 	//
 	// If
 	// the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in subsequent Regions. When calculating the number
 	// of accounts based on the specified percentage, AWS CloudFormation rounds down to the next whole number.
 	// Experimental.
-	FailureTolerancePercentage *float64 `json:"failureTolerancePercentage" yaml:"failureTolerancePercentage"`
+	FailureTolerancePercentage *float64 `field:"optional" json:"failureTolerancePercentage" yaml:"failureTolerancePercentage"`
 	// The maximum percentage of accounts in which to perform this operation at one time.
 	//
 	// When calculating the number of accounts based on the specified
@@ -2390,7 +2421,7 @@ type CloudFormationDeployStackInstancesActionProps struct {
 	// one instead. Although you use this setting to specify the maximum, for large deployments the actual number of accounts acted upon concurrently
 	// may be lower due to service throttling.
 	// Experimental.
-	MaxAccountConcurrencyPercentage *float64 `json:"maxAccountConcurrencyPercentage" yaml:"maxAccountConcurrencyPercentage"`
+	MaxAccountConcurrencyPercentage *float64 `field:"optional" json:"maxAccountConcurrencyPercentage" yaml:"maxAccountConcurrencyPercentage"`
 	// The AWS Region the StackSet is in.
 	//
 	// Note that a cross-region Pipeline requires replication buckets to function correctly.
@@ -2398,20 +2429,20 @@ type CloudFormationDeployStackInstancesActionProps struct {
 	// If you don't, the CodePipeline Construct will create new Stacks in your CDK app containing those buckets,
 	// that you will need to `cdk deploy` before deploying the main, Pipeline-containing Stack.
 	// Experimental.
-	StackSetRegion *string `json:"stackSetRegion" yaml:"stackSetRegion"`
+	StackSetRegion *string `field:"optional" json:"stackSetRegion" yaml:"stackSetRegion"`
 	// Specify where to create or update Stack Instances.
 	//
 	// You can specify either AWS Accounts Ids or AWS Organizations Organizational Units.
 	// Experimental.
-	StackInstances StackInstances `json:"stackInstances" yaml:"stackInstances"`
+	StackInstances StackInstances `field:"required" json:"stackInstances" yaml:"stackInstances"`
 	// The name of the StackSet we are adding instances to.
 	// Experimental.
-	StackSetName *string `json:"stackSetName" yaml:"stackSetName"`
+	StackSetName *string `field:"required" json:"stackSetName" yaml:"stackSetName"`
 	// Parameter values that only apply to the current Stack Instances.
 	//
 	// These parameters are shared between all instances added by this action.
 	// Experimental.
-	ParameterOverrides StackSetParameters `json:"parameterOverrides" yaml:"parameterOverrides"`
+	ParameterOverrides StackSetParameters `field:"optional" json:"parameterOverrides" yaml:"parameterOverrides"`
 }
 
 // CodePipeline action to deploy a stackset.
@@ -2443,6 +2474,7 @@ type CloudFormationDeployStackInstancesActionProps struct {
 // Example:
 //   var pipeline pipeline
 //   var sourceOutput artifact
+//
 //
 //   pipeline.addStage(&stageOptions{
 //   	stageName: jsii.String("DeployStackSets"),
@@ -2615,6 +2647,7 @@ func (c *jsiiProxy_CloudFormationDeployStackSetAction) VariableExpression(variab
 //   var pipeline pipeline
 //   var sourceOutput artifact
 //
+//
 //   pipeline.addStage(&stageOptions{
 //   	stageName: jsii.String("DeployStackSets"),
 //   	actions: []iAction{
@@ -2658,17 +2691,17 @@ type CloudFormationDeployStackSetActionProps struct {
 	//
 	// Note that Action names must be unique within a single Stage.
 	// Experimental.
-	ActionName *string `json:"actionName" yaml:"actionName"`
+	ActionName *string `field:"required" json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
 	// Experimental.
-	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
+	RunOrder *float64 `field:"optional" json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
 	// Experimental.
-	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
+	VariablesNamespace *string `field:"optional" json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
 	// The Pipeline's Role will assume this Role
@@ -2677,14 +2710,14 @@ type CloudFormationDeployStackSetActionProps struct {
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The percentage of accounts per Region for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
 	//
 	// If
 	// the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in subsequent Regions. When calculating the number
 	// of accounts based on the specified percentage, AWS CloudFormation rounds down to the next whole number.
 	// Experimental.
-	FailureTolerancePercentage *float64 `json:"failureTolerancePercentage" yaml:"failureTolerancePercentage"`
+	FailureTolerancePercentage *float64 `field:"optional" json:"failureTolerancePercentage" yaml:"failureTolerancePercentage"`
 	// The maximum percentage of accounts in which to perform this operation at one time.
 	//
 	// When calculating the number of accounts based on the specified
@@ -2692,7 +2725,7 @@ type CloudFormationDeployStackSetActionProps struct {
 	// one instead. Although you use this setting to specify the maximum, for large deployments the actual number of accounts acted upon concurrently
 	// may be lower due to service throttling.
 	// Experimental.
-	MaxAccountConcurrencyPercentage *float64 `json:"maxAccountConcurrencyPercentage" yaml:"maxAccountConcurrencyPercentage"`
+	MaxAccountConcurrencyPercentage *float64 `field:"optional" json:"maxAccountConcurrencyPercentage" yaml:"maxAccountConcurrencyPercentage"`
 	// The AWS Region the StackSet is in.
 	//
 	// Note that a cross-region Pipeline requires replication buckets to function correctly.
@@ -2700,26 +2733,26 @@ type CloudFormationDeployStackSetActionProps struct {
 	// If you don't, the CodePipeline Construct will create new Stacks in your CDK app containing those buckets,
 	// that you will need to `cdk deploy` before deploying the main, Pipeline-containing Stack.
 	// Experimental.
-	StackSetRegion *string `json:"stackSetRegion" yaml:"stackSetRegion"`
+	StackSetRegion *string `field:"optional" json:"stackSetRegion" yaml:"stackSetRegion"`
 	// The name to associate with the stack set.
 	//
 	// This name must be unique in the Region where it is created.
 	//
 	// The name may only contain alphanumeric and hyphen characters. It must begin with an alphabetic character and be 128 characters or fewer.
 	// Experimental.
-	StackSetName *string `json:"stackSetName" yaml:"stackSetName"`
+	StackSetName *string `field:"required" json:"stackSetName" yaml:"stackSetName"`
 	// The location of the template that defines the resources in the stack set.
 	//
 	// This must point to a template with a maximum size of 460,800 bytes.
 	//
 	// Enter the path to the source artifact name and template file.
 	// Experimental.
-	Template StackSetTemplate `json:"template" yaml:"template"`
+	Template StackSetTemplate `field:"required" json:"template" yaml:"template"`
 	// Indicates that the template can create and update resources, depending on the types of resources in the template.
 	//
 	// You must use this property if you have IAM resources in your stack template or you create a stack directly from a template containing macros.
 	// Experimental.
-	CfnCapabilities *[]awscdk.CfnCapabilities `json:"cfnCapabilities" yaml:"cfnCapabilities"`
+	CfnCapabilities *[]awscdk.CfnCapabilities `field:"optional" json:"cfnCapabilities" yaml:"cfnCapabilities"`
 	// Determines how IAM roles are created and managed.
 	//
 	// The choices are:
@@ -2737,22 +2770,22 @@ type CloudFormationDeployStackSetActionProps struct {
 	// Note: This parameter can only be changed when no stack instances exist in
 	// the stack set.
 	// Experimental.
-	DeploymentModel StackSetDeploymentModel `json:"deploymentModel" yaml:"deploymentModel"`
+	DeploymentModel StackSetDeploymentModel `field:"optional" json:"deploymentModel" yaml:"deploymentModel"`
 	// A description of the stack set.
 	//
 	// You can use this to describe the stack set’s purpose or other relevant information.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The template parameters for your stack set.
 	//
 	// These parameters are shared between all instances of the stack set.
 	// Experimental.
-	Parameters StackSetParameters `json:"parameters" yaml:"parameters"`
+	Parameters StackSetParameters `field:"optional" json:"parameters" yaml:"parameters"`
 	// Specify where to create or update Stack Instances.
 	//
 	// You can specify either AWS Accounts Ids or AWS Organizations Organizational Units.
 	// Experimental.
-	StackInstances StackInstances `json:"stackInstances" yaml:"stackInstances"`
+	StackInstances StackInstances `field:"optional" json:"stackInstances" yaml:"stackInstances"`
 }
 
 // CodePipeline action to execute a prepared change set.
@@ -3001,17 +3034,17 @@ type CloudFormationExecuteChangeSetActionProps struct {
 	//
 	// Note that Action names must be unique within a single Stage.
 	// Experimental.
-	ActionName *string `json:"actionName" yaml:"actionName"`
+	ActionName *string `field:"required" json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
 	// Experimental.
-	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
+	RunOrder *float64 `field:"optional" json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
 	// Experimental.
-	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
+	VariablesNamespace *string `field:"optional" json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
 	// The Pipeline's Role will assume this Role
@@ -3020,24 +3053,24 @@ type CloudFormationExecuteChangeSetActionProps struct {
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// Name of the change set to execute.
 	// Experimental.
-	ChangeSetName *string `json:"changeSetName" yaml:"changeSetName"`
+	ChangeSetName *string `field:"required" json:"changeSetName" yaml:"changeSetName"`
 	// The name of the stack to apply this action to.
 	// Experimental.
-	StackName *string `json:"stackName" yaml:"stackName"`
+	StackName *string `field:"required" json:"stackName" yaml:"stackName"`
 	// The AWS account this Action is supposed to operate in.
 	//
 	// **Note**: if you specify the `role` property,
 	// this is ignored - the action will operate in the same region the passed role does.
 	// Experimental.
-	Account *string `json:"account" yaml:"account"`
+	Account *string `field:"optional" json:"account" yaml:"account"`
 	// The name of the output artifact to generate.
 	//
 	// Only applied if `outputFileName` is set as well.
 	// Experimental.
-	Output awscodepipeline.Artifact `json:"output" yaml:"output"`
+	Output awscodepipeline.Artifact `field:"optional" json:"output" yaml:"output"`
 	// A name for the filename in the output artifact to store the AWS CloudFormation call's result.
 	//
 	// The file will contain the result of the call to AWS CloudFormation (for example
@@ -3046,7 +3079,7 @@ type CloudFormationExecuteChangeSetActionProps struct {
 	// AWS CodePipeline adds the file to the output artifact after performing
 	// the specified action.
 	// Experimental.
-	OutputFileName *string `json:"outputFileName" yaml:"outputFileName"`
+	OutputFileName *string `field:"optional" json:"outputFileName" yaml:"outputFileName"`
 	// The AWS region the given Action resides in.
 	//
 	// Note that a cross-region Pipeline requires replication buckets to function correctly.
@@ -3054,14 +3087,16 @@ type CloudFormationExecuteChangeSetActionProps struct {
 	// If you don't, the CodePipeline Construct will create new Stacks in your CDK app containing those buckets,
 	// that you will need to `cdk deploy` before deploying the main, Pipeline-containing Stack.
 	// Experimental.
-	Region *string `json:"region" yaml:"region"`
+	Region *string `field:"optional" json:"region" yaml:"region"`
 }
 
 // CodePipeline build action that uses AWS CodeBuild.
 //
 // Example:
+//   // Create a Cloudfront Web Distribution
 //   import cloudfront "github.com/aws/aws-cdk-go/awscdk"
 //   var distribution distribution
+//
 //
 //   // Create the build project that will invalidate the cache
 //   invalidateBuildProject := codebuild.NewPipelineProject(this, jsii.String("InvalidateProject"), &pipelineProjectProps{
@@ -3270,8 +3305,10 @@ func (c *jsiiProxy_CodeBuildAction) VariableExpression(variableName *string) *st
 // Construction properties of the {@link CodeBuildAction CodeBuild build CodePipeline action}.
 //
 // Example:
+//   // Create a Cloudfront Web Distribution
 //   import cloudfront "github.com/aws/aws-cdk-go/awscdk"
 //   var distribution distribution
+//
 //
 //   // Create the build project that will invalidate the cache
 //   invalidateBuildProject := codebuild.NewPipelineProject(this, jsii.String("InvalidateProject"), &pipelineProjectProps{
@@ -3334,17 +3371,17 @@ type CodeBuildActionProps struct {
 	//
 	// Note that Action names must be unique within a single Stage.
 	// Experimental.
-	ActionName *string `json:"actionName" yaml:"actionName"`
+	ActionName *string `field:"required" json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
 	// Experimental.
-	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
+	RunOrder *float64 `field:"optional" json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
 	// Experimental.
-	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
+	VariablesNamespace *string `field:"optional" json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
 	// The Pipeline's Role will assume this Role
@@ -3353,33 +3390,33 @@ type CodeBuildActionProps struct {
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The source to use as input for this action.
 	// Experimental.
-	Input awscodepipeline.Artifact `json:"input" yaml:"input"`
+	Input awscodepipeline.Artifact `field:"required" json:"input" yaml:"input"`
 	// The action's Project.
 	// Experimental.
-	Project awscodebuild.IProject `json:"project" yaml:"project"`
+	Project awscodebuild.IProject `field:"required" json:"project" yaml:"project"`
 	// Whether to check for the presence of any secrets in the environment variables of the default type, BuildEnvironmentVariableType.PLAINTEXT. Since using a secret for the value of that kind of variable would result in it being displayed in plain text in the AWS Console, the construct will throw an exception if it detects a secret was passed there. Pass this property as false if you want to skip this validation, and keep using a secret in a plain text environment variable.
 	// Experimental.
-	CheckSecretsInPlainTextEnvVariables *bool `json:"checkSecretsInPlainTextEnvVariables" yaml:"checkSecretsInPlainTextEnvVariables"`
+	CheckSecretsInPlainTextEnvVariables *bool `field:"optional" json:"checkSecretsInPlainTextEnvVariables" yaml:"checkSecretsInPlainTextEnvVariables"`
 	// Combine the build artifacts for a batch builds.
 	//
 	// Enabling this will combine the build artifacts into the same location for batch builds.
 	// If `executeBatchBuild` is not set to `true`, this property is ignored.
 	// Experimental.
-	CombineBatchBuildArtifacts *bool `json:"combineBatchBuildArtifacts" yaml:"combineBatchBuildArtifacts"`
+	CombineBatchBuildArtifacts *bool `field:"optional" json:"combineBatchBuildArtifacts" yaml:"combineBatchBuildArtifacts"`
 	// The environment variables to pass to the CodeBuild project when this action executes.
 	//
 	// If a variable with the same name was set both on the project level, and here,
 	// this value will take precedence.
 	// Experimental.
-	EnvironmentVariables *map[string]*awscodebuild.BuildEnvironmentVariable `json:"environmentVariables" yaml:"environmentVariables"`
+	EnvironmentVariables *map[string]*awscodebuild.BuildEnvironmentVariable `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`
 	// Trigger a batch build.
 	//
 	// Enabling this will enable batch builds on the CodeBuild project.
 	// Experimental.
-	ExecuteBatchBuild *bool `json:"executeBatchBuild" yaml:"executeBatchBuild"`
+	ExecuteBatchBuild *bool `field:"optional" json:"executeBatchBuild" yaml:"executeBatchBuild"`
 	// The list of additional input Artifacts for this action.
 	//
 	// The directories the additional inputs will be available at are available
@@ -3389,7 +3426,7 @@ type CodeBuildActionProps struct {
 	// For more information,
 	// see https://docs.aws.amazon.com/codebuild/latest/userguide/sample-multi-in-out.html .
 	// Experimental.
-	ExtraInputs *[]awscodepipeline.Artifact `json:"extraInputs" yaml:"extraInputs"`
+	ExtraInputs *[]awscodepipeline.Artifact `field:"optional" json:"extraInputs" yaml:"extraInputs"`
 	// The list of output Artifacts for this action.
 	//
 	// **Note**: if you specify more than one output Artifact here,
@@ -3398,10 +3435,10 @@ type CodeBuildActionProps struct {
 	// See https://docs.aws.amazon.com/codebuild/latest/userguide/sample-multi-in-out.html
 	// for details.
 	// Experimental.
-	Outputs *[]awscodepipeline.Artifact `json:"outputs" yaml:"outputs"`
+	Outputs *[]awscodepipeline.Artifact `field:"optional" json:"outputs" yaml:"outputs"`
 	// The type of the action that determines its CodePipeline Category - Build, or Test.
 	// Experimental.
-	Type CodeBuildActionType `json:"type" yaml:"type"`
+	Type CodeBuildActionType `field:"optional" json:"type" yaml:"type"`
 }
 
 // The type of the CodeBuild action that determines its CodePipeline Category - Build, or Test.
@@ -3410,6 +3447,7 @@ type CodeBuildActionProps struct {
 //
 // Example:
 //   var project pipelineProject
+//
 //   sourceOutput := codepipeline.NewArtifact()
 //   testAction := codepipeline_actions.NewCodeBuildAction(&codeBuildActionProps{
 //   	actionName: jsii.String("IntegrationTest"),
@@ -3700,17 +3738,17 @@ type CodeCommitSourceActionProps struct {
 	//
 	// Note that Action names must be unique within a single Stage.
 	// Experimental.
-	ActionName *string `json:"actionName" yaml:"actionName"`
+	ActionName *string `field:"required" json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
 	// Experimental.
-	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
+	RunOrder *float64 `field:"optional" json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
 	// Experimental.
-	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
+	VariablesNamespace *string `field:"optional" json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
 	// The Pipeline's Role will assume this Role
@@ -3719,14 +3757,14 @@ type CodeCommitSourceActionProps struct {
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// Experimental.
-	Output awscodepipeline.Artifact `json:"output" yaml:"output"`
+	Output awscodepipeline.Artifact `field:"required" json:"output" yaml:"output"`
 	// The CodeCommit repository.
 	// Experimental.
-	Repository awscodecommit.IRepository `json:"repository" yaml:"repository"`
+	Repository awscodecommit.IRepository `field:"required" json:"repository" yaml:"repository"`
 	// Experimental.
-	Branch *string `json:"branch" yaml:"branch"`
+	Branch *string `field:"optional" json:"branch" yaml:"branch"`
 	// Whether the output should be the contents of the repository (which is the default), or a link that allows CodeBuild to clone the repository before building.
 	//
 	// **Note**: if this option is true,
@@ -3734,21 +3772,24 @@ type CodeCommitSourceActionProps struct {
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodeCommit.html
 	//
 	// Experimental.
-	CodeBuildCloneOutput *bool `json:"codeBuildCloneOutput" yaml:"codeBuildCloneOutput"`
+	CodeBuildCloneOutput *bool `field:"optional" json:"codeBuildCloneOutput" yaml:"codeBuildCloneOutput"`
 	// Role to be used by on commit event rule.
 	//
 	// Used only when trigger value is CodeCommitTrigger.EVENTS.
 	// Experimental.
-	EventRole awsiam.IRole `json:"eventRole" yaml:"eventRole"`
+	EventRole awsiam.IRole `field:"optional" json:"eventRole" yaml:"eventRole"`
 	// How should CodePipeline detect source changes for this Action.
 	// Experimental.
-	Trigger CodeCommitTrigger `json:"trigger" yaml:"trigger"`
+	Trigger CodeCommitTrigger `field:"optional" json:"trigger" yaml:"trigger"`
 }
 
 // The CodePipeline variables emitted by the CodeCommit source Action.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline_actions "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline_actions"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   codeCommitSourceVariables := &codeCommitSourceVariables{
 //   	authorDate: jsii.String("authorDate"),
 //   	branchName: jsii.String("branchName"),
@@ -3762,22 +3803,22 @@ type CodeCommitSourceActionProps struct {
 type CodeCommitSourceVariables struct {
 	// The date the currently last commit on the tracked branch was authored, in ISO-8601 format.
 	// Experimental.
-	AuthorDate *string `json:"authorDate" yaml:"authorDate"`
+	AuthorDate *string `field:"required" json:"authorDate" yaml:"authorDate"`
 	// The name of the branch this action tracks.
 	// Experimental.
-	BranchName *string `json:"branchName" yaml:"branchName"`
+	BranchName *string `field:"required" json:"branchName" yaml:"branchName"`
 	// The SHA1 hash of the currently last commit on the tracked branch.
 	// Experimental.
-	CommitId *string `json:"commitId" yaml:"commitId"`
+	CommitId *string `field:"required" json:"commitId" yaml:"commitId"`
 	// The message of the currently last commit on the tracked branch.
 	// Experimental.
-	CommitMessage *string `json:"commitMessage" yaml:"commitMessage"`
+	CommitMessage *string `field:"required" json:"commitMessage" yaml:"commitMessage"`
 	// The date the currently last commit on the tracked branch was committed, in ISO-8601 format.
 	// Experimental.
-	CommitterDate *string `json:"committerDate" yaml:"committerDate"`
+	CommitterDate *string `field:"required" json:"committerDate" yaml:"committerDate"`
 	// The name of the repository this action points to.
 	// Experimental.
-	RepositoryName *string `json:"repositoryName" yaml:"repositoryName"`
+	RepositoryName *string `field:"required" json:"repositoryName" yaml:"repositoryName"`
 }
 
 // How should the CodeCommit Action detect changes.
@@ -3858,9 +3899,13 @@ const (
 // Configuration for replacing a placeholder string in the ECS task definition template file with an image URI.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline"import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline_actions "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline_actions"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var artifact artifact
+//
 //   codeDeployEcsContainerImageInput := &codeDeployEcsContainerImageInput{
 //   	input: artifact,
 //
@@ -3876,7 +3921,7 @@ type CodeDeployEcsContainerImageInput struct {
 	// `ImageURI` property.  For example:
 	// `{ "ImageURI": "ACCOUNTID.dkr.ecr.us-west-2.amazonaws.com/dk-image-repo@sha256:example3" }`
 	// Experimental.
-	Input awscodepipeline.Artifact `json:"input" yaml:"input"`
+	Input awscodepipeline.Artifact `field:"required" json:"input" yaml:"input"`
 	// The placeholder string in the ECS task definition template file that will be replaced with the image URI.
 	//
 	// The placeholder string must be surrounded by angle brackets in the template file.
@@ -3884,17 +3929,23 @@ type CodeDeployEcsContainerImageInput struct {
 	// `"image": "<PLACEHOLDER>"`, then the `taskDefinitionPlaceholder` value should
 	// be `PLACEHOLDER`.
 	// Experimental.
-	TaskDefinitionPlaceholder *string `json:"taskDefinitionPlaceholder" yaml:"taskDefinitionPlaceholder"`
+	TaskDefinitionPlaceholder *string `field:"optional" json:"taskDefinitionPlaceholder" yaml:"taskDefinitionPlaceholder"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codedeploy "github.com/aws/aws-cdk-go/awscdk/aws_codedeploy"import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline"import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline_actions "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline_actions"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var artifact artifact
 //   var artifactPath artifactPath
 //   var ecsDeploymentGroup iEcsDeploymentGroup
 //   var role role
-//   codeDeployEcsDeployAction := codepipeline_actions.NewCodeDeployEcsDeployAction(&codeDeployEcsDeployActionProps{
+//
+//   codeDeployEcsDeployAction := awscdk.Aws_codepipeline_actions.NewCodeDeployEcsDeployAction(&codeDeployEcsDeployActionProps{
 //   	actionName: jsii.String("actionName"),
 //   	deploymentGroup: ecsDeploymentGroup,
 //
@@ -4047,12 +4098,18 @@ func (c *jsiiProxy_CodeDeployEcsDeployAction) VariableExpression(variableName *s
 // Construction properties of the {@link CodeDeployEcsDeployAction CodeDeploy ECS deploy CodePipeline Action}.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codedeploy "github.com/aws/aws-cdk-go/awscdk/aws_codedeploy"import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline"import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline_actions "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline_actions"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var artifact artifact
 //   var artifactPath artifactPath
 //   var ecsDeploymentGroup iEcsDeploymentGroup
 //   var role role
+//
 //   codeDeployEcsDeployActionProps := &codeDeployEcsDeployActionProps{
 //   	actionName: jsii.String("actionName"),
 //   	deploymentGroup: ecsDeploymentGroup,
@@ -4081,17 +4138,17 @@ type CodeDeployEcsDeployActionProps struct {
 	//
 	// Note that Action names must be unique within a single Stage.
 	// Experimental.
-	ActionName *string `json:"actionName" yaml:"actionName"`
+	ActionName *string `field:"required" json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
 	// Experimental.
-	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
+	RunOrder *float64 `field:"optional" json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
 	// Experimental.
-	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
+	VariablesNamespace *string `field:"optional" json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
 	// The Pipeline's Role will assume this Role
@@ -4100,10 +4157,10 @@ type CodeDeployEcsDeployActionProps struct {
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The CodeDeploy ECS Deployment Group to deploy to.
 	// Experimental.
-	DeploymentGroup awscodedeploy.IEcsDeploymentGroup `json:"deploymentGroup" yaml:"deploymentGroup"`
+	DeploymentGroup awscodedeploy.IEcsDeploymentGroup `field:"required" json:"deploymentGroup" yaml:"deploymentGroup"`
 	// The name of the CodeDeploy AppSpec file.
 	//
 	// During deployment, a new task definition will be registered
@@ -4114,7 +4171,7 @@ type CodeDeployEcsDeployActionProps struct {
 	// Use this property if you want to use a different name for this file than the default 'appspec.yaml'.
 	// If you use this property, you don't need to specify the `appSpecTemplateInput` property.
 	// Experimental.
-	AppSpecTemplateFile awscodepipeline.ArtifactPath `json:"appSpecTemplateFile" yaml:"appSpecTemplateFile"`
+	AppSpecTemplateFile awscodepipeline.ArtifactPath `field:"optional" json:"appSpecTemplateFile" yaml:"appSpecTemplateFile"`
 	// The artifact containing the CodeDeploy AppSpec file.
 	//
 	// During deployment, a new task definition will be registered
@@ -4126,14 +4183,14 @@ type CodeDeployEcsDeployActionProps struct {
 	// If your AppSpec file uses a different filename, leave this property empty,
 	// and use the `appSpecTemplateFile` property instead.
 	// Experimental.
-	AppSpecTemplateInput awscodepipeline.Artifact `json:"appSpecTemplateInput" yaml:"appSpecTemplateInput"`
+	AppSpecTemplateInput awscodepipeline.Artifact `field:"optional" json:"appSpecTemplateInput" yaml:"appSpecTemplateInput"`
 	// Configuration for dynamically updated images in the task definition.
 	//
 	// Provide pairs of an image details input artifact and a placeholder string
 	// that will be used to dynamically update the ECS task definition template
 	// file prior to deployment. A maximum of 4 images can be given.
 	// Experimental.
-	ContainerImageInputs *[]*CodeDeployEcsContainerImageInput `json:"containerImageInputs" yaml:"containerImageInputs"`
+	ContainerImageInputs *[]*CodeDeployEcsContainerImageInput `field:"optional" json:"containerImageInputs" yaml:"containerImageInputs"`
 	// The name of the ECS task definition template file.
 	//
 	// During deployment, the task definition template file contents
@@ -4142,7 +4199,7 @@ type CodeDeployEcsDeployActionProps struct {
 	// Use this property if you want to use a different name for this file than the default 'taskdef.json'.
 	// If you use this property, you don't need to specify the `taskDefinitionTemplateInput` property.
 	// Experimental.
-	TaskDefinitionTemplateFile awscodepipeline.ArtifactPath `json:"taskDefinitionTemplateFile" yaml:"taskDefinitionTemplateFile"`
+	TaskDefinitionTemplateFile awscodepipeline.ArtifactPath `field:"optional" json:"taskDefinitionTemplateFile" yaml:"taskDefinitionTemplateFile"`
 	// The artifact containing the ECS task definition template file.
 	//
 	// During deployment, the task definition template file contents
@@ -4152,11 +4209,12 @@ type CodeDeployEcsDeployActionProps struct {
 	// If your task definition template uses a different filename, leave this property empty,
 	// and use the `taskDefinitionTemplateFile` property instead.
 	// Experimental.
-	TaskDefinitionTemplateInput awscodepipeline.Artifact `json:"taskDefinitionTemplateInput" yaml:"taskDefinitionTemplateInput"`
+	TaskDefinitionTemplateInput awscodepipeline.Artifact `field:"optional" json:"taskDefinitionTemplateInput" yaml:"taskDefinitionTemplateInput"`
 }
 
 // Example:
-//   var deploymentGroup serverDeploymentGrouppipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"), &pipelineProps{
+//   var deploymentGroup serverDeploymentGroup
+//   pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"), &pipelineProps{
 //   	pipelineName: jsii.String("MyPipeline"),
 //   })
 //
@@ -4305,7 +4363,8 @@ func (c *jsiiProxy_CodeDeployServerDeployAction) VariableExpression(variableName
 // Construction properties of the {@link CodeDeployServerDeployAction CodeDeploy server deploy CodePipeline Action}.
 //
 // Example:
-//   var deploymentGroup serverDeploymentGrouppipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"), &pipelineProps{
+//   var deploymentGroup serverDeploymentGroup
+//   pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"), &pipelineProps{
 //   	pipelineName: jsii.String("MyPipeline"),
 //   })
 //
@@ -4329,17 +4388,17 @@ type CodeDeployServerDeployActionProps struct {
 	//
 	// Note that Action names must be unique within a single Stage.
 	// Experimental.
-	ActionName *string `json:"actionName" yaml:"actionName"`
+	ActionName *string `field:"required" json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
 	// Experimental.
-	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
+	RunOrder *float64 `field:"optional" json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
 	// Experimental.
-	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
+	VariablesNamespace *string `field:"optional" json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
 	// The Pipeline's Role will assume this Role
@@ -4348,13 +4407,13 @@ type CodeDeployServerDeployActionProps struct {
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The CodeDeploy server Deployment Group to deploy to.
 	// Experimental.
-	DeploymentGroup awscodedeploy.IServerDeploymentGroup `json:"deploymentGroup" yaml:"deploymentGroup"`
+	DeploymentGroup awscodedeploy.IServerDeploymentGroup `field:"required" json:"deploymentGroup" yaml:"deploymentGroup"`
 	// The source to use as input for deployment.
 	// Experimental.
-	Input awscodepipeline.Artifact `json:"input" yaml:"input"`
+	Input awscodepipeline.Artifact `field:"required" json:"input" yaml:"input"`
 }
 
 // A CodePipeline source action for the CodeStar Connections source, which allows connecting to GitHub and BitBucket.
@@ -4528,17 +4587,17 @@ type CodeStarConnectionsSourceActionProps struct {
 	//
 	// Note that Action names must be unique within a single Stage.
 	// Experimental.
-	ActionName *string `json:"actionName" yaml:"actionName"`
+	ActionName *string `field:"required" json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
 	// Experimental.
-	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
+	RunOrder *float64 `field:"optional" json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
 	// Experimental.
-	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
+	VariablesNamespace *string `field:"optional" json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
 	// The Pipeline's Role will assume this Role
@@ -4547,7 +4606,7 @@ type CodeStarConnectionsSourceActionProps struct {
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The ARN of the CodeStar Connection created in the AWS console that has permissions to access this GitHub or BitBucket repository.
 	//
 	// Example:
@@ -4556,29 +4615,29 @@ type CodeStarConnectionsSourceActionProps struct {
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/connections-create.html
 	//
 	// Experimental.
-	ConnectionArn *string `json:"connectionArn" yaml:"connectionArn"`
+	ConnectionArn *string `field:"required" json:"connectionArn" yaml:"connectionArn"`
 	// The output artifact that this action produces.
 	//
 	// Can be used as input for further pipeline actions.
 	// Experimental.
-	Output awscodepipeline.Artifact `json:"output" yaml:"output"`
+	Output awscodepipeline.Artifact `field:"required" json:"output" yaml:"output"`
 	// The owning user or organization of the repository.
 	//
 	// Example:
 	//   "aws"
 	//
 	// Experimental.
-	Owner *string `json:"owner" yaml:"owner"`
+	Owner *string `field:"required" json:"owner" yaml:"owner"`
 	// The name of the repository.
 	//
 	// Example:
 	//   "aws-cdk"
 	//
 	// Experimental.
-	Repo *string `json:"repo" yaml:"repo"`
+	Repo *string `field:"required" json:"repo" yaml:"repo"`
 	// The branch to build.
 	// Experimental.
-	Branch *string `json:"branch" yaml:"branch"`
+	Branch *string `field:"optional" json:"branch" yaml:"branch"`
 	// Whether the output should be the contents of the repository (which is the default), or a link that allows CodeBuild to clone the repository before building.
 	//
 	// **Note**: if this option is true,
@@ -4586,7 +4645,7 @@ type CodeStarConnectionsSourceActionProps struct {
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html#action-reference-CodestarConnectionSource-config
 	//
 	// Experimental.
-	CodeBuildCloneOutput *bool `json:"codeBuildCloneOutput" yaml:"codeBuildCloneOutput"`
+	CodeBuildCloneOutput *bool `field:"optional" json:"codeBuildCloneOutput" yaml:"codeBuildCloneOutput"`
 	// Controls automatically starting your pipeline when a new commit is made on the configured repository and branch.
 	//
 	// If unspecified,
@@ -4594,13 +4653,16 @@ type CodeStarConnectionsSourceActionProps struct {
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html
 	//
 	// Experimental.
-	TriggerOnPush *bool `json:"triggerOnPush" yaml:"triggerOnPush"`
+	TriggerOnPush *bool `field:"optional" json:"triggerOnPush" yaml:"triggerOnPush"`
 }
 
 // The CodePipeline variables emitted by CodeStar source Action.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline_actions "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline_actions"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   codeStarSourceVariables := &codeStarSourceVariables{
 //   	authorDate: jsii.String("authorDate"),
 //   	branchName: jsii.String("branchName"),
@@ -4614,28 +4676,31 @@ type CodeStarConnectionsSourceActionProps struct {
 type CodeStarSourceVariables struct {
 	// The date the currently last commit on the tracked branch was authored, in ISO-8601 format.
 	// Experimental.
-	AuthorDate *string `json:"authorDate" yaml:"authorDate"`
+	AuthorDate *string `field:"required" json:"authorDate" yaml:"authorDate"`
 	// The name of the branch this action tracks.
 	// Experimental.
-	BranchName *string `json:"branchName" yaml:"branchName"`
+	BranchName *string `field:"required" json:"branchName" yaml:"branchName"`
 	// The SHA1 hash of the currently last commit on the tracked branch.
 	// Experimental.
-	CommitId *string `json:"commitId" yaml:"commitId"`
+	CommitId *string `field:"required" json:"commitId" yaml:"commitId"`
 	// The message of the currently last commit on the tracked branch.
 	// Experimental.
-	CommitMessage *string `json:"commitMessage" yaml:"commitMessage"`
+	CommitMessage *string `field:"required" json:"commitMessage" yaml:"commitMessage"`
 	// The connection ARN this source uses.
 	// Experimental.
-	ConnectionArn *string `json:"connectionArn" yaml:"connectionArn"`
+	ConnectionArn *string `field:"required" json:"connectionArn" yaml:"connectionArn"`
 	// The name of the repository this action points to.
 	// Experimental.
-	FullRepositoryName *string `json:"fullRepositoryName" yaml:"fullRepositoryName"`
+	FullRepositoryName *string `field:"required" json:"fullRepositoryName" yaml:"fullRepositoryName"`
 }
 
 // Options in common between both StackSet actions.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline_actions "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline_actions"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   commonCloudFormationStackSetOptions := &commonCloudFormationStackSetOptions{
 //   	failureTolerancePercentage: jsii.Number(123),
 //   	maxAccountConcurrencyPercentage: jsii.Number(123),
@@ -4650,7 +4715,7 @@ type CommonCloudFormationStackSetOptions struct {
 	// the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in subsequent Regions. When calculating the number
 	// of accounts based on the specified percentage, AWS CloudFormation rounds down to the next whole number.
 	// Experimental.
-	FailureTolerancePercentage *float64 `json:"failureTolerancePercentage" yaml:"failureTolerancePercentage"`
+	FailureTolerancePercentage *float64 `field:"optional" json:"failureTolerancePercentage" yaml:"failureTolerancePercentage"`
 	// The maximum percentage of accounts in which to perform this operation at one time.
 	//
 	// When calculating the number of accounts based on the specified
@@ -4658,7 +4723,7 @@ type CommonCloudFormationStackSetOptions struct {
 	// one instead. Although you use this setting to specify the maximum, for large deployments the actual number of accounts acted upon concurrently
 	// may be lower due to service throttling.
 	// Experimental.
-	MaxAccountConcurrencyPercentage *float64 `json:"maxAccountConcurrencyPercentage" yaml:"maxAccountConcurrencyPercentage"`
+	MaxAccountConcurrencyPercentage *float64 `field:"optional" json:"maxAccountConcurrencyPercentage" yaml:"maxAccountConcurrencyPercentage"`
 	// The AWS Region the StackSet is in.
 	//
 	// Note that a cross-region Pipeline requires replication buckets to function correctly.
@@ -4666,7 +4731,7 @@ type CommonCloudFormationStackSetOptions struct {
 	// If you don't, the CodePipeline Construct will create new Stacks in your CDK app containing those buckets,
 	// that you will need to `cdk deploy` before deploying the main, Pipeline-containing Stack.
 	// Experimental.
-	StackSetRegion *string `json:"stackSetRegion" yaml:"stackSetRegion"`
+	StackSetRegion *string `field:"optional" json:"stackSetRegion" yaml:"stackSetRegion"`
 }
 
 // The ECR Repository source CodePipeline Action.
@@ -4679,6 +4744,7 @@ type CommonCloudFormationStackSetOptions struct {
 //   import ecr "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var ecrRepository repository
+//
 //   pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
 //   sourceOutput := codepipeline.NewArtifact()
 //   sourceAction := codepipeline_actions.NewEcrSourceAction(&ecrSourceActionProps{
@@ -4842,6 +4908,7 @@ func (e *jsiiProxy_EcrSourceAction) VariableExpression(variableName *string) *st
 //   import ecr "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var ecrRepository repository
+//
 //   pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
 //   sourceOutput := codepipeline.NewArtifact()
 //   sourceAction := codepipeline_actions.NewEcrSourceAction(&ecrSourceActionProps{
@@ -4864,17 +4931,17 @@ type EcrSourceActionProps struct {
 	//
 	// Note that Action names must be unique within a single Stage.
 	// Experimental.
-	ActionName *string `json:"actionName" yaml:"actionName"`
+	ActionName *string `field:"required" json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
 	// Experimental.
-	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
+	RunOrder *float64 `field:"optional" json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
 	// Experimental.
-	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
+	VariablesNamespace *string `field:"optional" json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
 	// The Pipeline's Role will assume this Role
@@ -4883,23 +4950,26 @@ type EcrSourceActionProps struct {
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// Experimental.
-	Output awscodepipeline.Artifact `json:"output" yaml:"output"`
+	Output awscodepipeline.Artifact `field:"required" json:"output" yaml:"output"`
 	// The repository that will be watched for changes.
 	// Experimental.
-	Repository awsecr.IRepository `json:"repository" yaml:"repository"`
+	Repository awsecr.IRepository `field:"required" json:"repository" yaml:"repository"`
 	// The image tag that will be checked for changes.
 	//
 	// Provide an empty string to trigger on changes to any tag.
 	// Experimental.
-	ImageTag *string `json:"imageTag" yaml:"imageTag"`
+	ImageTag *string `field:"optional" json:"imageTag" yaml:"imageTag"`
 }
 
 // The CodePipeline variables emitted by the ECR source Action.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline_actions "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline_actions"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   ecrSourceVariables := &ecrSourceVariables{
 //   	imageDigest: jsii.String("imageDigest"),
 //   	imageTag: jsii.String("imageTag"),
@@ -4912,21 +4982,21 @@ type EcrSourceActionProps struct {
 type EcrSourceVariables struct {
 	// The digest of the current image, in the form '<digest type>:<digest value>'.
 	// Experimental.
-	ImageDigest *string `json:"imageDigest" yaml:"imageDigest"`
+	ImageDigest *string `field:"required" json:"imageDigest" yaml:"imageDigest"`
 	// The Docker tag of the current image.
 	// Experimental.
-	ImageTag *string `json:"imageTag" yaml:"imageTag"`
+	ImageTag *string `field:"required" json:"imageTag" yaml:"imageTag"`
 	// The full ECR Docker URI of the current image.
 	// Experimental.
-	ImageUri *string `json:"imageUri" yaml:"imageUri"`
+	ImageUri *string `field:"required" json:"imageUri" yaml:"imageUri"`
 	// The identifier of the registry.
 	//
 	// In ECR, this is usually the ID of the AWS account owning it.
 	// Experimental.
-	RegistryId *string `json:"registryId" yaml:"registryId"`
+	RegistryId *string `field:"required" json:"registryId" yaml:"registryId"`
 	// The physical name of the repository that this action tracks.
 	// Experimental.
-	RepositoryName *string `json:"repositoryName" yaml:"repositoryName"`
+	RepositoryName *string `field:"required" json:"repositoryName" yaml:"repositoryName"`
 }
 
 // CodePipeline Action to deploy an ECS Service.
@@ -4935,6 +5005,7 @@ type EcrSourceVariables struct {
 //   import ecs "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var service fargateService
+//
 //   pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
 //   buildOutput := codepipeline.NewArtifact()
 //   deployStage := pipeline.addStage(&stageOptions{
@@ -4951,7 +5022,7 @@ type EcrSourceVariables struct {
 //   			// use the `imageFile` property,
 //   			// and leave out the `input` property
 //   			imageFile: buildOutput.atPath(jsii.String("imageDef.json")),
-//   			deploymentTimeout: duration.minutes(jsii.Number(60)),
+//   			deploymentTimeout: awscdk.Duration.minutes(jsii.Number(60)),
 //   		}),
 //   	},
 //   })
@@ -5090,6 +5161,7 @@ func (e *jsiiProxy_EcsDeployAction) VariableExpression(variableName *string) *st
 //   import ecs "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var service fargateService
+//
 //   pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
 //   buildOutput := codepipeline.NewArtifact()
 //   deployStage := pipeline.addStage(&stageOptions{
@@ -5106,7 +5178,7 @@ func (e *jsiiProxy_EcsDeployAction) VariableExpression(variableName *string) *st
 //   			// use the `imageFile` property,
 //   			// and leave out the `input` property
 //   			imageFile: buildOutput.atPath(jsii.String("imageDef.json")),
-//   			deploymentTimeout: duration.minutes(jsii.Number(60)),
+//   			deploymentTimeout: awscdk.Duration.minutes(jsii.Number(60)),
 //   		}),
 //   	},
 //   })
@@ -5117,17 +5189,17 @@ type EcsDeployActionProps struct {
 	//
 	// Note that Action names must be unique within a single Stage.
 	// Experimental.
-	ActionName *string `json:"actionName" yaml:"actionName"`
+	ActionName *string `field:"required" json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
 	// Experimental.
-	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
+	RunOrder *float64 `field:"optional" json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
 	// Experimental.
-	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
+	VariablesNamespace *string `field:"optional" json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
 	// The Pipeline's Role will assume this Role
@@ -5136,17 +5208,17 @@ type EcsDeployActionProps struct {
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The ECS Service to deploy.
 	// Experimental.
-	Service awsecs.IBaseService `json:"service" yaml:"service"`
+	Service awsecs.IBaseService `field:"required" json:"service" yaml:"service"`
 	// Timeout for the ECS deployment in minutes.
 	//
 	// Value must be between 1-60.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-ECS.html
 	//
 	// Experimental.
-	DeploymentTimeout awscdk.Duration `json:"deploymentTimeout" yaml:"deploymentTimeout"`
+	DeploymentTimeout awscdk.Duration `field:"optional" json:"deploymentTimeout" yaml:"deploymentTimeout"`
 	// The name of the JSON image definitions file to use for deployments.
 	//
 	// The JSON file is a list of objects,
@@ -5157,7 +5229,7 @@ type EcsDeployActionProps struct {
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-create.html#pipelines-create-image-definitions
 	//
 	// Experimental.
-	ImageFile awscodepipeline.ArtifactPath `json:"imageFile" yaml:"imageFile"`
+	ImageFile awscodepipeline.ArtifactPath `field:"optional" json:"imageFile" yaml:"imageFile"`
 	// The input artifact that contains the JSON image definitions file to use for deployments.
 	//
 	// The JSON file is a list of objects,
@@ -5169,7 +5241,7 @@ type EcsDeployActionProps struct {
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-create.html#pipelines-create-image-definitions
 	//
 	// Experimental.
-	Input awscodepipeline.Artifact `json:"input" yaml:"input"`
+	Input awscodepipeline.Artifact `field:"optional" json:"input" yaml:"input"`
 }
 
 // Source that is provided by a GitHub repository.
@@ -5178,12 +5250,13 @@ type EcsDeployActionProps struct {
 //   var sourceOutput artifact
 //   var project pipelineProject
 //
+//
 //   sourceAction := codepipeline_actions.NewGitHubSourceAction(&gitHubSourceActionProps{
 //   	actionName: jsii.String("Github_Source"),
 //   	output: sourceOutput,
 //   	owner: jsii.String("my-owner"),
 //   	repo: jsii.String("my-repo"),
-//   	oauthToken: secretValue.secretsManager(jsii.String("my-github-token")),
+//   	oauthToken: awscdk.SecretValue.secretsManager(jsii.String("my-github-token")),
 //   	variablesNamespace: jsii.String("MyNamespace"),
 //   })
 //
@@ -5348,12 +5421,13 @@ func (g *jsiiProxy_GitHubSourceAction) VariableExpression(variableName *string) 
 //   var sourceOutput artifact
 //   var project pipelineProject
 //
+//
 //   sourceAction := codepipeline_actions.NewGitHubSourceAction(&gitHubSourceActionProps{
 //   	actionName: jsii.String("Github_Source"),
 //   	output: sourceOutput,
 //   	owner: jsii.String("my-owner"),
 //   	repo: jsii.String("my-repo"),
-//   	oauthToken: secretValue.secretsManager(jsii.String("my-github-token")),
+//   	oauthToken: awscdk.SecretValue.secretsManager(jsii.String("my-github-token")),
 //   	variablesNamespace: jsii.String("MyNamespace"),
 //   })
 //
@@ -5377,17 +5451,17 @@ type GitHubSourceActionProps struct {
 	//
 	// Note that Action names must be unique within a single Stage.
 	// Experimental.
-	ActionName *string `json:"actionName" yaml:"actionName"`
+	ActionName *string `field:"required" json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
 	// Experimental.
-	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
+	RunOrder *float64 `field:"optional" json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
 	// Experimental.
-	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
+	VariablesNamespace *string `field:"optional" json:"variablesNamespace" yaml:"variablesNamespace"`
 	// A GitHub OAuth token to use for authentication.
 	//
 	// It is recommended to use a Secrets Manager `Secret` to obtain the token:
@@ -5402,18 +5476,18 @@ type GitHubSourceActionProps struct {
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/appendix-github-oauth.html#GitHub-create-personal-token-CLI
 	//
 	// Experimental.
-	OauthToken awscdk.SecretValue `json:"oauthToken" yaml:"oauthToken"`
+	OauthToken awscdk.SecretValue `field:"required" json:"oauthToken" yaml:"oauthToken"`
 	// Experimental.
-	Output awscodepipeline.Artifact `json:"output" yaml:"output"`
+	Output awscodepipeline.Artifact `field:"required" json:"output" yaml:"output"`
 	// The GitHub account/user that owns the repo.
 	// Experimental.
-	Owner *string `json:"owner" yaml:"owner"`
+	Owner *string `field:"required" json:"owner" yaml:"owner"`
 	// The name of the repo, without the username.
 	// Experimental.
-	Repo *string `json:"repo" yaml:"repo"`
+	Repo *string `field:"required" json:"repo" yaml:"repo"`
 	// The branch to use.
 	// Experimental.
-	Branch *string `json:"branch" yaml:"branch"`
+	Branch *string `field:"optional" json:"branch" yaml:"branch"`
 	// How AWS CodePipeline should be triggered.
 	//
 	// With the default value "WEBHOOK", a webhook is created in GitHub that triggers the action
@@ -5423,13 +5497,16 @@ type GitHubSourceActionProps struct {
 	// To use `WEBHOOK`, your GitHub Personal Access Token should have
 	// **admin:repo_hook** scope (in addition to the regular **repo** scope).
 	// Experimental.
-	Trigger GitHubTrigger `json:"trigger" yaml:"trigger"`
+	Trigger GitHubTrigger `field:"optional" json:"trigger" yaml:"trigger"`
 }
 
 // The CodePipeline variables emitted by GitHub source Action.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline_actions "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline_actions"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   gitHubSourceVariables := &gitHubSourceVariables{
 //   	authorDate: jsii.String("authorDate"),
 //   	branchName: jsii.String("branchName"),
@@ -5444,25 +5521,25 @@ type GitHubSourceActionProps struct {
 type GitHubSourceVariables struct {
 	// The date the currently last commit on the tracked branch was authored, in ISO-8601 format.
 	// Experimental.
-	AuthorDate *string `json:"authorDate" yaml:"authorDate"`
+	AuthorDate *string `field:"required" json:"authorDate" yaml:"authorDate"`
 	// The name of the branch this action tracks.
 	// Experimental.
-	BranchName *string `json:"branchName" yaml:"branchName"`
+	BranchName *string `field:"required" json:"branchName" yaml:"branchName"`
 	// The SHA1 hash of the currently last commit on the tracked branch.
 	// Experimental.
-	CommitId *string `json:"commitId" yaml:"commitId"`
+	CommitId *string `field:"required" json:"commitId" yaml:"commitId"`
 	// The message of the currently last commit on the tracked branch.
 	// Experimental.
-	CommitMessage *string `json:"commitMessage" yaml:"commitMessage"`
+	CommitMessage *string `field:"required" json:"commitMessage" yaml:"commitMessage"`
 	// The date the currently last commit on the tracked branch was committed, in ISO-8601 format.
 	// Experimental.
-	CommitterDate *string `json:"committerDate" yaml:"committerDate"`
+	CommitterDate *string `field:"required" json:"committerDate" yaml:"committerDate"`
 	// The GitHub API URL of the currently last commit on the tracked branch.
 	// Experimental.
-	CommitUrl *string `json:"commitUrl" yaml:"commitUrl"`
+	CommitUrl *string `field:"required" json:"commitUrl" yaml:"commitUrl"`
 	// The name of the repository this action points to.
 	// Experimental.
-	RepositoryName *string `json:"repositoryName" yaml:"repositoryName"`
+	RepositoryName *string `field:"required" json:"repositoryName" yaml:"repositoryName"`
 }
 
 // If and how the GitHub source action should be triggered.
@@ -5535,6 +5612,7 @@ func (j *jsiiProxy_IJenkinsProvider) Version() *string {
 //
 // Example:
 //   var jenkinsProvider jenkinsProvider
+//
 //   buildAction := codepipeline_actions.NewJenkinsAction(&jenkinsActionProps{
 //   	actionName: jsii.String("JenkinsBuild"),
 //   	jenkinsProvider: jenkinsProvider,
@@ -5676,6 +5754,7 @@ func (j *jsiiProxy_JenkinsAction) VariableExpression(variableName *string) *stri
 //
 // Example:
 //   var jenkinsProvider jenkinsProvider
+//
 //   buildAction := codepipeline_actions.NewJenkinsAction(&jenkinsActionProps{
 //   	actionName: jsii.String("JenkinsBuild"),
 //   	jenkinsProvider: jenkinsProvider,
@@ -5689,35 +5768,35 @@ type JenkinsActionProps struct {
 	//
 	// Note that Action names must be unique within a single Stage.
 	// Experimental.
-	ActionName *string `json:"actionName" yaml:"actionName"`
+	ActionName *string `field:"required" json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
 	// Experimental.
-	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
+	RunOrder *float64 `field:"optional" json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
 	// Experimental.
-	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
+	VariablesNamespace *string `field:"optional" json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Jenkins Provider for this Action.
 	// Experimental.
-	JenkinsProvider IJenkinsProvider `json:"jenkinsProvider" yaml:"jenkinsProvider"`
+	JenkinsProvider IJenkinsProvider `field:"required" json:"jenkinsProvider" yaml:"jenkinsProvider"`
 	// The name of the project (sometimes also called job, or task) on your Jenkins installation that will be invoked by this Action.
 	//
 	// Example:
 	//   "MyJob"
 	//
 	// Experimental.
-	ProjectName *string `json:"projectName" yaml:"projectName"`
+	ProjectName *string `field:"required" json:"projectName" yaml:"projectName"`
 	// The type of the Action - Build, or Test.
 	// Experimental.
-	Type JenkinsActionType `json:"type" yaml:"type"`
+	Type JenkinsActionType `field:"required" json:"type" yaml:"type"`
 	// The source to use as input for this build.
 	// Experimental.
-	Inputs *[]awscodepipeline.Artifact `json:"inputs" yaml:"inputs"`
+	Inputs *[]awscodepipeline.Artifact `field:"optional" json:"inputs" yaml:"inputs"`
 	// Experimental.
-	Outputs *[]awscodepipeline.Artifact `json:"outputs" yaml:"outputs"`
+	Outputs *[]awscodepipeline.Artifact `field:"optional" json:"outputs" yaml:"outputs"`
 }
 
 // The type of the Jenkins Action that determines its CodePipeline Category - Build, or Test.
@@ -5727,6 +5806,7 @@ type JenkinsActionProps struct {
 //
 // Example:
 //   var jenkinsProvider jenkinsProvider
+//
 //   buildAction := codepipeline_actions.NewJenkinsAction(&jenkinsActionProps{
 //   	actionName: jsii.String("JenkinsBuild"),
 //   	jenkinsProvider: jenkinsProvider,
@@ -6018,17 +6098,17 @@ type JenkinsProviderAttributes struct {
 	//   "MyJenkinsProvider"
 	//
 	// Experimental.
-	ProviderName *string `json:"providerName" yaml:"providerName"`
+	ProviderName *string `field:"required" json:"providerName" yaml:"providerName"`
 	// The base URL of your Jenkins server.
 	//
 	// Example:
 	//   "http://myjenkins.com:8080"
 	//
 	// Experimental.
-	ServerUrl *string `json:"serverUrl" yaml:"serverUrl"`
+	ServerUrl *string `field:"required" json:"serverUrl" yaml:"serverUrl"`
 	// The version of your provider.
 	// Experimental.
-	Version *string `json:"version" yaml:"version"`
+	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 
 // Example:
@@ -6046,33 +6126,34 @@ type JenkinsProviderProps struct {
 	//   "MyJenkinsProvider"
 	//
 	// Experimental.
-	ProviderName *string `json:"providerName" yaml:"providerName"`
+	ProviderName *string `field:"required" json:"providerName" yaml:"providerName"`
 	// The base URL of your Jenkins server.
 	//
 	// Example:
 	//   "http://myjenkins.com:8080"
 	//
 	// Experimental.
-	ServerUrl *string `json:"serverUrl" yaml:"serverUrl"`
+	ServerUrl *string `field:"required" json:"serverUrl" yaml:"serverUrl"`
 	// Whether to immediately register a Jenkins Provider for the build category.
 	//
 	// The Provider will always be registered if you create a {@link JenkinsAction}.
 	// Experimental.
-	ForBuild *bool `json:"forBuild" yaml:"forBuild"`
+	ForBuild *bool `field:"optional" json:"forBuild" yaml:"forBuild"`
 	// Whether to immediately register a Jenkins Provider for the test category.
 	//
 	// The Provider will always be registered if you create a {@link JenkinsTestAction}.
 	// Experimental.
-	ForTest *bool `json:"forTest" yaml:"forTest"`
+	ForTest *bool `field:"optional" json:"forTest" yaml:"forTest"`
 	// The version of your provider.
 	// Experimental.
-	Version *string `json:"version" yaml:"version"`
+	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 
 // CodePipeline invoke Action that is provided by an AWS Lambda function.
 //
 // Example:
 //   var fn function
+//
 //   sourceOutput := codepipeline.NewArtifact()
 //   buildOutput := codepipeline.NewArtifact()
 //   lambdaAction := codepipeline_actions.NewLambdaInvokeAction(&lambdaInvokeActionProps{
@@ -6243,6 +6324,7 @@ func (l *jsiiProxy_LambdaInvokeAction) VariableExpression(variableName *string) 
 //
 // Example:
 //   var fn function
+//
 //   sourceOutput := codepipeline.NewArtifact()
 //   buildOutput := codepipeline.NewArtifact()
 //   lambdaAction := codepipeline_actions.NewLambdaInvokeAction(&lambdaInvokeActionProps{
@@ -6264,17 +6346,17 @@ type LambdaInvokeActionProps struct {
 	//
 	// Note that Action names must be unique within a single Stage.
 	// Experimental.
-	ActionName *string `json:"actionName" yaml:"actionName"`
+	ActionName *string `field:"required" json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
 	// Experimental.
-	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
+	RunOrder *float64 `field:"optional" json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
 	// Experimental.
-	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
+	VariablesNamespace *string `field:"optional" json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
 	// The Pipeline's Role will assume this Role
@@ -6283,10 +6365,10 @@ type LambdaInvokeActionProps struct {
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The lambda function to invoke.
 	// Experimental.
-	Lambda awslambda.IFunction `json:"lambda" yaml:"lambda"`
+	Lambda awslambda.IFunction `field:"required" json:"lambda" yaml:"lambda"`
 	// The optional input Artifacts of the Action.
 	//
 	// A Lambda Action can have up to 5 inputs.
@@ -6295,7 +6377,7 @@ type LambdaInvokeActionProps struct {
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/actions-invoke-lambda-function.html#actions-invoke-lambda-function-json-event-example
 	//
 	// Experimental.
-	Inputs *[]awscodepipeline.Artifact `json:"inputs" yaml:"inputs"`
+	Inputs *[]awscodepipeline.Artifact `field:"optional" json:"inputs" yaml:"inputs"`
 	// The optional names of the output Artifacts of the Action.
 	//
 	// A Lambda Action can have up to 5 outputs.
@@ -6303,19 +6385,19 @@ type LambdaInvokeActionProps struct {
 	// under the `'CodePipeline.job'.data.outputArtifacts` path.
 	// It is the responsibility of the Lambda to upload ZIP files with the Artifact contents to the provided locations.
 	// Experimental.
-	Outputs *[]awscodepipeline.Artifact `json:"outputs" yaml:"outputs"`
+	Outputs *[]awscodepipeline.Artifact `field:"optional" json:"outputs" yaml:"outputs"`
 	// A set of key-value pairs that will be accessible to the invoked Lambda inside the event that the Pipeline will call it with.
 	//
 	// Only one of `userParameters` or `userParametersString` can be specified.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/actions-invoke-lambda-function.html#actions-invoke-lambda-function-json-event-example
 	//
 	// Experimental.
-	UserParameters *map[string]interface{} `json:"userParameters" yaml:"userParameters"`
+	UserParameters *map[string]interface{} `field:"optional" json:"userParameters" yaml:"userParameters"`
 	// The string representation of the user parameters that will be accessible to the invoked Lambda inside the event that the Pipeline will call it with.
 	//
 	// Only one of `userParametersString` or `userParameters` can be specified.
 	// Experimental.
-	UserParametersString *string `json:"userParametersString" yaml:"userParametersString"`
+	UserParametersString *string `field:"optional" json:"userParametersString" yaml:"userParametersString"`
 }
 
 // Manual approval action.
@@ -6330,7 +6412,7 @@ type LambdaInvokeActionProps struct {
 //   })
 //   approveStage.addAction(manualApprovalAction)
 //
-//   role := iam.role.fromRoleArn(this, jsii.String("Admin"), arn.format(&arnComponents{
+//   role := iam.role.fromRoleArn(this, jsii.String("Admin"), awscdk.Arn.format(&arnComponents{
 //   	service: jsii.String("iam"),
 //   	resource: jsii.String("role"),
 //   	resourceName: jsii.String("Admin"),
@@ -6503,7 +6585,7 @@ func (m *jsiiProxy_ManualApprovalAction) VariableExpression(variableName *string
 //   })
 //   approveStage.addAction(manualApprovalAction)
 //
-//   role := iam.role.fromRoleArn(this, jsii.String("Admin"), arn.format(&arnComponents{
+//   role := iam.role.fromRoleArn(this, jsii.String("Admin"), awscdk.Arn.format(&arnComponents{
 //   	service: jsii.String("iam"),
 //   	resource: jsii.String("role"),
 //   	resourceName: jsii.String("Admin"),
@@ -6516,17 +6598,17 @@ type ManualApprovalActionProps struct {
 	//
 	// Note that Action names must be unique within a single Stage.
 	// Experimental.
-	ActionName *string `json:"actionName" yaml:"actionName"`
+	ActionName *string `field:"required" json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
 	// Experimental.
-	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
+	RunOrder *float64 `field:"optional" json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
 	// Experimental.
-	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
+	VariablesNamespace *string `field:"optional" json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
 	// The Pipeline's Role will assume this Role
@@ -6535,30 +6617,33 @@ type ManualApprovalActionProps struct {
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// Any additional information that you want to include in the notification email message.
 	// Experimental.
-	AdditionalInformation *string `json:"additionalInformation" yaml:"additionalInformation"`
+	AdditionalInformation *string `field:"optional" json:"additionalInformation" yaml:"additionalInformation"`
 	// URL you want to provide to the reviewer as part of the approval request.
 	// Experimental.
-	ExternalEntityLink *string `json:"externalEntityLink" yaml:"externalEntityLink"`
+	ExternalEntityLink *string `field:"optional" json:"externalEntityLink" yaml:"externalEntityLink"`
 	// Optional SNS topic to send notifications to when an approval is pending.
 	// Experimental.
-	NotificationTopic awssns.ITopic `json:"notificationTopic" yaml:"notificationTopic"`
+	NotificationTopic awssns.ITopic `field:"optional" json:"notificationTopic" yaml:"notificationTopic"`
 	// A list of email addresses to subscribe to notifications when this Action is pending approval.
 	//
 	// If this has been provided, but not `notificationTopic`,
 	// a new Topic will be created.
 	// Experimental.
-	NotifyEmails *[]*string `json:"notifyEmails" yaml:"notifyEmails"`
+	NotifyEmails *[]*string `field:"optional" json:"notifyEmails" yaml:"notifyEmails"`
 }
 
 // Properties for configuring service-managed (Organizations) permissions.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline_actions "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline_actions"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   organizationsDeploymentProps := &organizationsDeploymentProps{
-//   	autoDeployment: codepipeline_actions.stackSetOrganizationsAutoDeployment_ENABLED,
+//   	autoDeployment: awscdk.Aws_codepipeline_actions.stackSetOrganizationsAutoDeployment_ENABLED,
 //   }
 //
 // Experimental.
@@ -6569,7 +6654,7 @@ type OrganizationsDeploymentProps struct {
 	// Organizations accounts that are added to a target organization or
 	// organizational unit (OU).
 	// Experimental.
-	AutoDeployment StackSetOrganizationsAutoDeployment `json:"autoDeployment" yaml:"autoDeployment"`
+	AutoDeployment StackSetOrganizationsAutoDeployment `field:"optional" json:"autoDeployment" yaml:"autoDeployment"`
 }
 
 // Deploys the sourceArtifact to Amazon S3.
@@ -6744,17 +6829,17 @@ type S3DeployActionProps struct {
 	//
 	// Note that Action names must be unique within a single Stage.
 	// Experimental.
-	ActionName *string `json:"actionName" yaml:"actionName"`
+	ActionName *string `field:"required" json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
 	// Experimental.
-	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
+	RunOrder *float64 `field:"optional" json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
 	// Experimental.
-	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
+	VariablesNamespace *string `field:"optional" json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
 	// The Pipeline's Role will assume this Role
@@ -6763,32 +6848,32 @@ type S3DeployActionProps struct {
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The Amazon S3 bucket that is the deploy target.
 	// Experimental.
-	Bucket awss3.IBucket `json:"bucket" yaml:"bucket"`
+	Bucket awss3.IBucket `field:"required" json:"bucket" yaml:"bucket"`
 	// The input Artifact to deploy to Amazon S3.
 	// Experimental.
-	Input awscodepipeline.Artifact `json:"input" yaml:"input"`
+	Input awscodepipeline.Artifact `field:"required" json:"input" yaml:"input"`
 	// The specified canned ACL to objects deployed to Amazon S3.
 	//
 	// This overwrites any existing ACL that was applied to the object.
 	// Experimental.
-	AccessControl awss3.BucketAccessControl `json:"accessControl" yaml:"accessControl"`
+	AccessControl awss3.BucketAccessControl `field:"optional" json:"accessControl" yaml:"accessControl"`
 	// The caching behavior for requests/responses for objects in the bucket.
 	//
 	// The final cache control property will be the result of joining all of the provided array elements with a comma
 	// (plus a space after the comma).
 	// Experimental.
-	CacheControl *[]CacheControl `json:"cacheControl" yaml:"cacheControl"`
+	CacheControl *[]CacheControl `field:"optional" json:"cacheControl" yaml:"cacheControl"`
 	// Should the deploy action extract the artifact before deploying to Amazon S3.
 	// Experimental.
-	Extract *bool `json:"extract" yaml:"extract"`
+	Extract *bool `field:"optional" json:"extract" yaml:"extract"`
 	// The key of the target object.
 	//
 	// This is required if extract is false.
 	// Experimental.
-	ObjectKey *string `json:"objectKey" yaml:"objectKey"`
+	ObjectKey *string `field:"optional" json:"objectKey" yaml:"objectKey"`
 }
 
 // Source that is provided by a specific Amazon S3 object.
@@ -6800,6 +6885,7 @@ type S3DeployActionProps struct {
 //   import cloudtrail "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var sourceBucket bucket
+//
 //   sourceOutput := codepipeline.NewArtifact()
 //   key := "some/key.zip"
 //   trail := cloudtrail.NewTrail(this, jsii.String("CloudTrail"))
@@ -6966,6 +7052,7 @@ func (s *jsiiProxy_S3SourceAction) VariableExpression(variableName *string) *str
 //   import cloudtrail "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var sourceBucket bucket
+//
 //   sourceOutput := codepipeline.NewArtifact()
 //   key := "some/key.zip"
 //   trail := cloudtrail.NewTrail(this, jsii.String("CloudTrail"))
@@ -6991,17 +7078,17 @@ type S3SourceActionProps struct {
 	//
 	// Note that Action names must be unique within a single Stage.
 	// Experimental.
-	ActionName *string `json:"actionName" yaml:"actionName"`
+	ActionName *string `field:"required" json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
 	// Experimental.
-	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
+	RunOrder *float64 `field:"optional" json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
 	// Experimental.
-	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
+	VariablesNamespace *string `field:"optional" json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
 	// The Pipeline's Role will assume this Role
@@ -7010,22 +7097,22 @@ type S3SourceActionProps struct {
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The Amazon S3 bucket that stores the source code.
 	//
 	// If you import an encrypted bucket in your stack, please specify
 	// the encryption key at import time by using `Bucket.fromBucketAttributes()` method.
 	// Experimental.
-	Bucket awss3.IBucket `json:"bucket" yaml:"bucket"`
+	Bucket awss3.IBucket `field:"required" json:"bucket" yaml:"bucket"`
 	// The key within the S3 bucket that stores the source code.
 	//
 	// Example:
 	//   "path/to/file.zip"
 	//
 	// Experimental.
-	BucketKey *string `json:"bucketKey" yaml:"bucketKey"`
+	BucketKey *string `field:"required" json:"bucketKey" yaml:"bucketKey"`
 	// Experimental.
-	Output awscodepipeline.Artifact `json:"output" yaml:"output"`
+	Output awscodepipeline.Artifact `field:"required" json:"output" yaml:"output"`
 	// How should CodePipeline detect source changes for this Action.
 	//
 	// Note that if this is S3Trigger.EVENTS, you need to make sure to include the source Bucket in a CloudTrail Trail,
@@ -7033,13 +7120,16 @@ type S3SourceActionProps struct {
 	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/log-s3-data-events.html
 	//
 	// Experimental.
-	Trigger S3Trigger `json:"trigger" yaml:"trigger"`
+	Trigger S3Trigger `field:"optional" json:"trigger" yaml:"trigger"`
 }
 
 // The CodePipeline variables emitted by the S3 source Action.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codepipeline_actions "github.com/aws/aws-cdk-go/awscdk/aws_codepipeline_actions"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3SourceVariables := &s3SourceVariables{
 //   	eTag: jsii.String("eTag"),
 //   	versionId: jsii.String("versionId"),
@@ -7049,10 +7139,10 @@ type S3SourceActionProps struct {
 type S3SourceVariables struct {
 	// The e-tag of the S3 version of the object that triggered the build.
 	// Experimental.
-	ETag *string `json:"eTag" yaml:"eTag"`
+	ETag *string `field:"required" json:"eTag" yaml:"eTag"`
 	// The identifier of the S3 version of the object that triggered the build.
 	// Experimental.
-	VersionId *string `json:"versionId" yaml:"versionId"`
+	VersionId *string `field:"required" json:"versionId" yaml:"versionId"`
 }
 
 // How should the S3 Action detect changes.
@@ -7063,6 +7153,7 @@ type S3SourceVariables struct {
 //   import cloudtrail "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var sourceBucket bucket
+//
 //   sourceOutput := codepipeline.NewArtifact()
 //   key := "some/key.zip"
 //   trail := cloudtrail.NewTrail(this, jsii.String("CloudTrail"))
@@ -7127,7 +7218,7 @@ type SelfManagedDeploymentProps struct {
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html
 	//
 	// Experimental.
-	AdministrationRole awsiam.IRole `json:"administrationRole" yaml:"administrationRole"`
+	AdministrationRole awsiam.IRole `field:"optional" json:"administrationRole" yaml:"administrationRole"`
 	// The name of the IAM role in the target accounts used to perform stack set operations.
 	//
 	// You must create these roles in each of the target accounts before using the
@@ -7141,7 +7232,7 @@ type SelfManagedDeploymentProps struct {
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html
 	//
 	// Experimental.
-	ExecutionRoleName *string `json:"executionRoleName" yaml:"executionRoleName"`
+	ExecutionRoleName *string `field:"optional" json:"executionRoleName" yaml:"executionRoleName"`
 }
 
 // CodePipeline action to connect to an existing ServiceCatalog product.
@@ -7304,17 +7395,17 @@ type ServiceCatalogDeployActionBeta1Props struct {
 	//
 	// Note that Action names must be unique within a single Stage.
 	// Experimental.
-	ActionName *string `json:"actionName" yaml:"actionName"`
+	ActionName *string `field:"required" json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
 	// Experimental.
-	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
+	RunOrder *float64 `field:"optional" json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
 	// Experimental.
-	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
+	VariablesNamespace *string `field:"optional" json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
 	// The Pipeline's Role will assume this Role
@@ -7323,21 +7414,21 @@ type ServiceCatalogDeployActionBeta1Props struct {
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The identifier of the product in the Service Catalog.
 	//
 	// This product must already exist.
 	// Experimental.
-	ProductId *string `json:"productId" yaml:"productId"`
+	ProductId *string `field:"required" json:"productId" yaml:"productId"`
 	// The name of the version of the Service Catalog product to be deployed.
 	// Experimental.
-	ProductVersionName *string `json:"productVersionName" yaml:"productVersionName"`
+	ProductVersionName *string `field:"required" json:"productVersionName" yaml:"productVersionName"`
 	// The path to the cloudformation artifact.
 	// Experimental.
-	TemplatePath awscodepipeline.ArtifactPath `json:"templatePath" yaml:"templatePath"`
+	TemplatePath awscodepipeline.ArtifactPath `field:"required" json:"templatePath" yaml:"templatePath"`
 	// The optional description of this version of the Service Catalog product.
 	// Experimental.
-	ProductVersionDescription *string `json:"productVersionDescription" yaml:"productVersionDescription"`
+	ProductVersionDescription *string `field:"optional" json:"productVersionDescription" yaml:"productVersionDescription"`
 }
 
 // Where Stack Instances will be created from the StackSet.
@@ -7345,6 +7436,7 @@ type ServiceCatalogDeployActionBeta1Props struct {
 // Example:
 //   var pipeline pipeline
 //   var sourceOutput artifact
+//
 //
 //   pipeline.addStage(&stageOptions{
 //   	stageName: jsii.String("DeployStackSets"),
@@ -7492,6 +7584,7 @@ func StackInstances_InOrganizationalUnits(ous *[]*string, regions *[]*string) St
 // Example:
 //   var pipeline pipeline
 //   var sourceOutput artifact
+//
 //
 //   pipeline.addStage(&stageOptions{
 //   	stageName: jsii.String("DeployStackSets"),
@@ -7752,6 +7845,7 @@ func StackSetParameters_FromLiteral(parameters *map[string]*string, usePreviousV
 //   var pipeline pipeline
 //   var sourceOutput artifact
 //
+//
 //   pipeline.addStage(&stageOptions{
 //   	stageName: jsii.String("DeployStackSets"),
 //   	actions: []iAction{
@@ -7830,6 +7924,7 @@ func StackSetTemplate_FromArtifactPath(artifactPath awscodepipeline.ArtifactPath
 //
 // Example:
 //   import stepfunctions "github.com/aws/aws-cdk-go/awscdk"
+//
 //   pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
 //   startState := stepfunctions.NewPass(this, jsii.String("StartState"))
 //   simpleStateMachine := stepfunctions.NewStateMachine(this, jsii.String("SimpleStateMachine"), &stateMachineProps{
@@ -7946,6 +8041,7 @@ func StateMachineInput_Literal(object *map[string]interface{}) StateMachineInput
 //
 // Example:
 //   import stepfunctions "github.com/aws/aws-cdk-go/awscdk"
+//
 //   pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
 //   startState := stepfunctions.NewPass(this, jsii.String("StartState"))
 //   simpleStateMachine := stepfunctions.NewStateMachine(this, jsii.String("SimpleStateMachine"), &stateMachineProps{
@@ -8097,6 +8193,7 @@ func (s *jsiiProxy_StepFunctionInvokeAction) VariableExpression(variableName *st
 //
 // Example:
 //   import stepfunctions "github.com/aws/aws-cdk-go/awscdk"
+//
 //   pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
 //   startState := stepfunctions.NewPass(this, jsii.String("StartState"))
 //   simpleStateMachine := stepfunctions.NewStateMachine(this, jsii.String("SimpleStateMachine"), &stateMachineProps{
@@ -8122,17 +8219,17 @@ type StepFunctionsInvokeActionProps struct {
 	//
 	// Note that Action names must be unique within a single Stage.
 	// Experimental.
-	ActionName *string `json:"actionName" yaml:"actionName"`
+	ActionName *string `field:"required" json:"actionName" yaml:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
 	// Experimental.
-	RunOrder *float64 `json:"runOrder" yaml:"runOrder"`
+	RunOrder *float64 `field:"optional" json:"runOrder" yaml:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
 	// Experimental.
-	VariablesNamespace *string `json:"variablesNamespace" yaml:"variablesNamespace"`
+	VariablesNamespace *string `field:"optional" json:"variablesNamespace" yaml:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
 	// The Pipeline's Role will assume this Role
@@ -8141,24 +8238,24 @@ type StepFunctionsInvokeActionProps struct {
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The state machine to invoke.
 	// Experimental.
-	StateMachine awsstepfunctions.IStateMachine `json:"stateMachine" yaml:"stateMachine"`
+	StateMachine awsstepfunctions.IStateMachine `field:"required" json:"stateMachine" yaml:"stateMachine"`
 	// Prefix (optional).
 	//
 	// By default, the action execution ID is used as the state machine execution name.
 	// If a prefix is provided, it is prepended to the action execution ID with a hyphen and
 	// together used as the state machine execution name.
 	// Experimental.
-	ExecutionNamePrefix *string `json:"executionNamePrefix" yaml:"executionNamePrefix"`
+	ExecutionNamePrefix *string `field:"optional" json:"executionNamePrefix" yaml:"executionNamePrefix"`
 	// The optional output Artifact of the Action.
 	// Experimental.
-	Output awscodepipeline.Artifact `json:"output" yaml:"output"`
+	Output awscodepipeline.Artifact `field:"optional" json:"output" yaml:"output"`
 	// Represents the input to the StateMachine.
 	//
 	// This includes input artifact, input type and the statemachine input.
 	// Experimental.
-	StateMachineInput StateMachineInput `json:"stateMachineInput" yaml:"stateMachineInput"`
+	StateMachineInput StateMachineInput `field:"optional" json:"stateMachineInput" yaml:"stateMachineInput"`
 }
 

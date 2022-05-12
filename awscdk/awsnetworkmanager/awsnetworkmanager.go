@@ -16,8 +16,11 @@ import (
 // You cannot associate a customer gateway with more than one device and link.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkmanager "github.com/aws/aws-cdk-go/awscdk/aws_networkmanager"
-//   cfnCustomerGatewayAssociation := networkmanager.NewCfnCustomerGatewayAssociation(this, jsii.String("MyCfnCustomerGatewayAssociation"), &cfnCustomerGatewayAssociationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnCustomerGatewayAssociation := awscdk.Aws_networkmanager.NewCfnCustomerGatewayAssociation(this, jsii.String("MyCfnCustomerGatewayAssociation"), &cfnCustomerGatewayAssociationProps{
 //   	customerGatewayArn: jsii.String("customerGatewayArn"),
 //   	deviceId: jsii.String("deviceId"),
 //   	globalNetworkId: jsii.String("globalNetworkId"),
@@ -718,7 +721,10 @@ func (c *jsiiProxy_CfnCustomerGatewayAssociation) ValidateProperties(_properties
 // Properties for defining a `CfnCustomerGatewayAssociation`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkmanager "github.com/aws/aws-cdk-go/awscdk/aws_networkmanager"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnCustomerGatewayAssociationProps := &cfnCustomerGatewayAssociationProps{
 //   	customerGatewayArn: jsii.String("customerGatewayArn"),
 //   	deviceId: jsii.String("deviceId"),
@@ -730,13 +736,13 @@ func (c *jsiiProxy_CfnCustomerGatewayAssociation) ValidateProperties(_properties
 //
 type CfnCustomerGatewayAssociationProps struct {
 	// The Amazon Resource Name (ARN) of the customer gateway.
-	CustomerGatewayArn *string `json:"customerGatewayArn" yaml:"customerGatewayArn"`
+	CustomerGatewayArn *string `field:"required" json:"customerGatewayArn" yaml:"customerGatewayArn"`
 	// The ID of the device.
-	DeviceId *string `json:"deviceId" yaml:"deviceId"`
+	DeviceId *string `field:"required" json:"deviceId" yaml:"deviceId"`
 	// The ID of the global network.
-	GlobalNetworkId *string `json:"globalNetworkId" yaml:"globalNetworkId"`
+	GlobalNetworkId *string `field:"required" json:"globalNetworkId" yaml:"globalNetworkId"`
 	// The ID of the link.
-	LinkId *string `json:"linkId" yaml:"linkId"`
+	LinkId *string `field:"optional" json:"linkId" yaml:"linkId"`
 }
 
 // A CloudFormation `AWS::NetworkManager::Device`.
@@ -744,8 +750,11 @@ type CfnCustomerGatewayAssociationProps struct {
 // Specifies a device.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkmanager "github.com/aws/aws-cdk-go/awscdk/aws_networkmanager"
-//   cfnDevice := networkmanager.NewCfnDevice(this, jsii.String("MyCfnDevice"), &cfnDeviceProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDevice := awscdk.Aws_networkmanager.NewCfnDevice(this, jsii.String("MyCfnDevice"), &cfnDeviceProps{
 //   	globalNetworkId: jsii.String("globalNetworkId"),
 //
 //   	// the properties below are optional
@@ -1592,7 +1601,10 @@ func (c *jsiiProxy_CfnDevice) ValidateProperties(_properties interface{}) {
 // Describes a location.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkmanager "github.com/aws/aws-cdk-go/awscdk/aws_networkmanager"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   locationProperty := &locationProperty{
 //   	address: jsii.String("address"),
 //   	latitude: jsii.String("latitude"),
@@ -1601,17 +1613,20 @@ func (c *jsiiProxy_CfnDevice) ValidateProperties(_properties interface{}) {
 //
 type CfnDevice_LocationProperty struct {
 	// The physical address.
-	Address *string `json:"address" yaml:"address"`
+	Address *string `field:"optional" json:"address" yaml:"address"`
 	// The latitude.
-	Latitude *string `json:"latitude" yaml:"latitude"`
+	Latitude *string `field:"optional" json:"latitude" yaml:"latitude"`
 	// The longitude.
-	Longitude *string `json:"longitude" yaml:"longitude"`
+	Longitude *string `field:"optional" json:"longitude" yaml:"longitude"`
 }
 
 // Properties for defining a `CfnDevice`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkmanager "github.com/aws/aws-cdk-go/awscdk/aws_networkmanager"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDeviceProps := &cfnDeviceProps{
 //   	globalNetworkId: jsii.String("globalNetworkId"),
 //
@@ -1637,31 +1652,31 @@ type CfnDevice_LocationProperty struct {
 //
 type CfnDeviceProps struct {
 	// The ID of the global network.
-	GlobalNetworkId *string `json:"globalNetworkId" yaml:"globalNetworkId"`
+	GlobalNetworkId *string `field:"required" json:"globalNetworkId" yaml:"globalNetworkId"`
 	// A description of the device.
 	//
 	// Constraints: Maximum length of 256 characters.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The site location.
-	Location interface{} `json:"location" yaml:"location"`
+	Location interface{} `field:"optional" json:"location" yaml:"location"`
 	// The model of the device.
 	//
 	// Constraints: Maximum length of 128 characters.
-	Model *string `json:"model" yaml:"model"`
+	Model *string `field:"optional" json:"model" yaml:"model"`
 	// The serial number of the device.
 	//
 	// Constraints: Maximum length of 128 characters.
-	SerialNumber *string `json:"serialNumber" yaml:"serialNumber"`
+	SerialNumber *string `field:"optional" json:"serialNumber" yaml:"serialNumber"`
 	// The site ID.
-	SiteId *string `json:"siteId" yaml:"siteId"`
+	SiteId *string `field:"optional" json:"siteId" yaml:"siteId"`
 	// The tags for the device.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The device type.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 	// The vendor of the device.
 	//
 	// Constraints: Maximum length of 128 characters.
-	Vendor *string `json:"vendor" yaml:"vendor"`
+	Vendor *string `field:"optional" json:"vendor" yaml:"vendor"`
 }
 
 // A CloudFormation `AWS::NetworkManager::GlobalNetwork`.
@@ -1669,8 +1684,11 @@ type CfnDeviceProps struct {
 // Creates a new, empty global network.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkmanager "github.com/aws/aws-cdk-go/awscdk/aws_networkmanager"
-//   cfnGlobalNetwork := networkmanager.NewCfnGlobalNetwork(this, jsii.String("MyCfnGlobalNetwork"), &cfnGlobalNetworkProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnGlobalNetwork := awscdk.Aws_networkmanager.NewCfnGlobalNetwork(this, jsii.String("MyCfnGlobalNetwork"), &cfnGlobalNetworkProps{
 //   	description: jsii.String("description"),
 //   	tags: []cfnTag{
 //   		&cfnTag{
@@ -2351,7 +2369,10 @@ func (c *jsiiProxy_CfnGlobalNetwork) ValidateProperties(_properties interface{})
 // Properties for defining a `CfnGlobalNetwork`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkmanager "github.com/aws/aws-cdk-go/awscdk/aws_networkmanager"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnGlobalNetworkProps := &cfnGlobalNetworkProps{
 //   	description: jsii.String("description"),
 //   	tags: []cfnTag{
@@ -2366,9 +2387,9 @@ type CfnGlobalNetworkProps struct {
 	// A description of the global network.
 	//
 	// Constraints: Maximum length of 256 characters.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The tags for the global network.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::NetworkManager::Link`.
@@ -2376,8 +2397,11 @@ type CfnGlobalNetworkProps struct {
 // Specifies a link for a site.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkmanager "github.com/aws/aws-cdk-go/awscdk/aws_networkmanager"
-//   cfnLink := networkmanager.NewCfnLink(this, jsii.String("MyCfnLink"), &cfnLinkProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnLink := awscdk.Aws_networkmanager.NewCfnLink(this, jsii.String("MyCfnLink"), &cfnLinkProps{
 //   	bandwidth: &bandwidthProperty{
 //   		downloadSpeed: jsii.Number(123),
 //   		uploadSpeed: jsii.Number(123),
@@ -3177,7 +3201,10 @@ func (c *jsiiProxy_CfnLink) ValidateProperties(_properties interface{}) {
 // Describes bandwidth information.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkmanager "github.com/aws/aws-cdk-go/awscdk/aws_networkmanager"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   bandwidthProperty := &bandwidthProperty{
 //   	downloadSpeed: jsii.Number(123),
 //   	uploadSpeed: jsii.Number(123),
@@ -3185,9 +3212,9 @@ func (c *jsiiProxy_CfnLink) ValidateProperties(_properties interface{}) {
 //
 type CfnLink_BandwidthProperty struct {
 	// Download speed in Mbps.
-	DownloadSpeed *float64 `json:"downloadSpeed" yaml:"downloadSpeed"`
+	DownloadSpeed *float64 `field:"optional" json:"downloadSpeed" yaml:"downloadSpeed"`
 	// Upload speed in Mbps.
-	UploadSpeed *float64 `json:"uploadSpeed" yaml:"uploadSpeed"`
+	UploadSpeed *float64 `field:"optional" json:"uploadSpeed" yaml:"uploadSpeed"`
 }
 
 // A CloudFormation `AWS::NetworkManager::LinkAssociation`.
@@ -3195,8 +3222,11 @@ type CfnLink_BandwidthProperty struct {
 // Specifies the association between a device and a link. A device can be associated to multiple links and a link can be associated to multiple devices. The device and link must be in the same global network and the same site.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkmanager "github.com/aws/aws-cdk-go/awscdk/aws_networkmanager"
-//   cfnLinkAssociation := networkmanager.NewCfnLinkAssociation(this, jsii.String("MyCfnLinkAssociation"), &cfnLinkAssociationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnLinkAssociation := awscdk.Aws_networkmanager.NewCfnLinkAssociation(this, jsii.String("MyCfnLinkAssociation"), &cfnLinkAssociationProps{
 //   	deviceId: jsii.String("deviceId"),
 //   	globalNetworkId: jsii.String("globalNetworkId"),
 //   	linkId: jsii.String("linkId"),
@@ -3873,7 +3903,10 @@ func (c *jsiiProxy_CfnLinkAssociation) ValidateProperties(_properties interface{
 // Properties for defining a `CfnLinkAssociation`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkmanager "github.com/aws/aws-cdk-go/awscdk/aws_networkmanager"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnLinkAssociationProps := &cfnLinkAssociationProps{
 //   	deviceId: jsii.String("deviceId"),
 //   	globalNetworkId: jsii.String("globalNetworkId"),
@@ -3882,17 +3915,20 @@ func (c *jsiiProxy_CfnLinkAssociation) ValidateProperties(_properties interface{
 //
 type CfnLinkAssociationProps struct {
 	// The device ID for the link association.
-	DeviceId *string `json:"deviceId" yaml:"deviceId"`
+	DeviceId *string `field:"required" json:"deviceId" yaml:"deviceId"`
 	// The ID of the global network.
-	GlobalNetworkId *string `json:"globalNetworkId" yaml:"globalNetworkId"`
+	GlobalNetworkId *string `field:"required" json:"globalNetworkId" yaml:"globalNetworkId"`
 	// The ID of the link.
-	LinkId *string `json:"linkId" yaml:"linkId"`
+	LinkId *string `field:"required" json:"linkId" yaml:"linkId"`
 }
 
 // Properties for defining a `CfnLink`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkmanager "github.com/aws/aws-cdk-go/awscdk/aws_networkmanager"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnLinkProps := &cfnLinkProps{
 //   	bandwidth: &bandwidthProperty{
 //   		downloadSpeed: jsii.Number(123),
@@ -3915,25 +3951,25 @@ type CfnLinkAssociationProps struct {
 //
 type CfnLinkProps struct {
 	// The bandwidth for the link.
-	Bandwidth interface{} `json:"bandwidth" yaml:"bandwidth"`
+	Bandwidth interface{} `field:"required" json:"bandwidth" yaml:"bandwidth"`
 	// The ID of the global network.
-	GlobalNetworkId *string `json:"globalNetworkId" yaml:"globalNetworkId"`
+	GlobalNetworkId *string `field:"required" json:"globalNetworkId" yaml:"globalNetworkId"`
 	// The ID of the site.
-	SiteId *string `json:"siteId" yaml:"siteId"`
+	SiteId *string `field:"required" json:"siteId" yaml:"siteId"`
 	// A description of the link.
 	//
 	// Constraints: Maximum length of 256 characters.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The provider of the link.
 	//
 	// Constraints: Maximum length of 128 characters. Cannot include the following characters: | \ ^
-	Provider *string `json:"provider" yaml:"provider"`
+	Provider *string `field:"optional" json:"provider" yaml:"provider"`
 	// The tags for the link.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The type of the link.
 	//
 	// Constraints: Maximum length of 128 characters. Cannot include the following characters: | \ ^
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 
 // A CloudFormation `AWS::NetworkManager::Site`.
@@ -3941,8 +3977,11 @@ type CfnLinkProps struct {
 // Specifies a site in a global network.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkmanager "github.com/aws/aws-cdk-go/awscdk/aws_networkmanager"
-//   cfnSite := networkmanager.NewCfnSite(this, jsii.String("MyCfnSite"), &cfnSiteProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnSite := awscdk.Aws_networkmanager.NewCfnSite(this, jsii.String("MyCfnSite"), &cfnSiteProps{
 //   	globalNetworkId: jsii.String("globalNetworkId"),
 //
 //   	// the properties below are optional
@@ -4679,7 +4718,10 @@ func (c *jsiiProxy_CfnSite) ValidateProperties(_properties interface{}) {
 // Describes a location.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkmanager "github.com/aws/aws-cdk-go/awscdk/aws_networkmanager"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   locationProperty := &locationProperty{
 //   	address: jsii.String("address"),
 //   	latitude: jsii.String("latitude"),
@@ -4688,17 +4730,20 @@ func (c *jsiiProxy_CfnSite) ValidateProperties(_properties interface{}) {
 //
 type CfnSite_LocationProperty struct {
 	// The physical address.
-	Address *string `json:"address" yaml:"address"`
+	Address *string `field:"optional" json:"address" yaml:"address"`
 	// The latitude.
-	Latitude *string `json:"latitude" yaml:"latitude"`
+	Latitude *string `field:"optional" json:"latitude" yaml:"latitude"`
 	// The longitude.
-	Longitude *string `json:"longitude" yaml:"longitude"`
+	Longitude *string `field:"optional" json:"longitude" yaml:"longitude"`
 }
 
 // Properties for defining a `CfnSite`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkmanager "github.com/aws/aws-cdk-go/awscdk/aws_networkmanager"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnSiteProps := &cfnSiteProps{
 //   	globalNetworkId: jsii.String("globalNetworkId"),
 //
@@ -4719,11 +4764,11 @@ type CfnSite_LocationProperty struct {
 //
 type CfnSiteProps struct {
 	// The ID of the global network.
-	GlobalNetworkId *string `json:"globalNetworkId" yaml:"globalNetworkId"`
+	GlobalNetworkId *string `field:"required" json:"globalNetworkId" yaml:"globalNetworkId"`
 	// A description of your site.
 	//
 	// Constraints: Maximum length of 256 characters.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The site location.
 	//
 	// This information is used for visualization in the Network Manager console. If you specify the address, the latitude and longitude are automatically calculated.
@@ -4731,9 +4776,9 @@ type CfnSiteProps struct {
 	// - `Address` : The physical address of the site.
 	// - `Latitude` : The latitude of the site.
 	// - `Longitude` : The longitude of the site.
-	Location interface{} `json:"location" yaml:"location"`
+	Location interface{} `field:"optional" json:"location" yaml:"location"`
 	// The tags for the site.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::NetworkManager::TransitGatewayRegistration`.
@@ -4741,8 +4786,11 @@ type CfnSiteProps struct {
 // Registers a transit gateway in your global network. The transit gateway can be in any AWS Region , but it must be owned by the same AWS account that owns the global network. You cannot register a transit gateway in more than one global network.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkmanager "github.com/aws/aws-cdk-go/awscdk/aws_networkmanager"
-//   cfnTransitGatewayRegistration := networkmanager.NewCfnTransitGatewayRegistration(this, jsii.String("MyCfnTransitGatewayRegistration"), &cfnTransitGatewayRegistrationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnTransitGatewayRegistration := awscdk.Aws_networkmanager.NewCfnTransitGatewayRegistration(this, jsii.String("MyCfnTransitGatewayRegistration"), &cfnTransitGatewayRegistrationProps{
 //   	globalNetworkId: jsii.String("globalNetworkId"),
 //   	transitGatewayArn: jsii.String("transitGatewayArn"),
 //   })
@@ -5397,7 +5445,10 @@ func (c *jsiiProxy_CfnTransitGatewayRegistration) ValidateProperties(_properties
 // Properties for defining a `CfnTransitGatewayRegistration`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import networkmanager "github.com/aws/aws-cdk-go/awscdk/aws_networkmanager"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnTransitGatewayRegistrationProps := &cfnTransitGatewayRegistrationProps{
 //   	globalNetworkId: jsii.String("globalNetworkId"),
 //   	transitGatewayArn: jsii.String("transitGatewayArn"),
@@ -5405,8 +5456,8 @@ func (c *jsiiProxy_CfnTransitGatewayRegistration) ValidateProperties(_properties
 //
 type CfnTransitGatewayRegistrationProps struct {
 	// The ID of the global network.
-	GlobalNetworkId *string `json:"globalNetworkId" yaml:"globalNetworkId"`
+	GlobalNetworkId *string `field:"required" json:"globalNetworkId" yaml:"globalNetworkId"`
 	// The Amazon Resource Name (ARN) of the transit gateway.
-	TransitGatewayArn *string `json:"transitGatewayArn" yaml:"transitGatewayArn"`
+	TransitGatewayArn *string `field:"required" json:"transitGatewayArn" yaml:"transitGatewayArn"`
 }
 

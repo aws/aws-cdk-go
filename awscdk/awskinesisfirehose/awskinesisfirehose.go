@@ -20,8 +20,11 @@ import (
 // The `AWS::KinesisFirehose::DeliveryStream` resource specifies an Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivery stream that delivers real-time streaming data to an Amazon Simple Storage Service (Amazon S3), Amazon Redshift, or Amazon Elasticsearch Service (Amazon ES) destination. For more information, see [Creating an Amazon Kinesis Data Firehose Delivery Stream](https://docs.aws.amazon.com/firehose/latest/dev/basic-create.html) in the *Amazon Kinesis Data Firehose Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
-//   cfnDeliveryStream := kinesisfirehose.NewCfnDeliveryStream(this, jsii.String("MyCfnDeliveryStream"), &cfnDeliveryStreamProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDeliveryStream := awscdk.Aws_kinesisfirehose.NewCfnDeliveryStream(this, jsii.String("MyCfnDeliveryStream"), &cfnDeliveryStreamProps{
 //   	amazonopensearchserviceDestinationConfiguration: &amazonopensearchserviceDestinationConfigurationProperty{
 //   		indexName: jsii.String("indexName"),
 //   		roleArn: jsii.String("roleArn"),
@@ -1443,7 +1446,10 @@ func (c *jsiiProxy_CfnDeliveryStream) ValidateProperties(_properties interface{}
 // Describes the buffering to perform before delivering data to the Amazon OpenSearch Service destination.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   amazonopensearchserviceBufferingHintsProperty := &amazonopensearchserviceBufferingHintsProperty{
 //   	intervalInSeconds: jsii.Number(123),
 //   	sizeInMBs: jsii.Number(123),
@@ -1453,17 +1459,20 @@ type CfnDeliveryStream_AmazonopensearchserviceBufferingHintsProperty struct {
 	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination.
 	//
 	// The default value is 300 (5 minutes).
-	IntervalInSeconds *float64 `json:"intervalInSeconds" yaml:"intervalInSeconds"`
+	IntervalInSeconds *float64 `field:"optional" json:"intervalInSeconds" yaml:"intervalInSeconds"`
 	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination.
 	//
 	// The default value is 5. We recommend setting this parameter to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, the value should be 10 MB or higher.
-	SizeInMBs *float64 `json:"sizeInMBs" yaml:"sizeInMBs"`
+	SizeInMBs *float64 `field:"optional" json:"sizeInMBs" yaml:"sizeInMBs"`
 }
 
 // Describes the configuration of a destination in Amazon OpenSearch Service.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   amazonopensearchserviceDestinationConfigurationProperty := &amazonopensearchserviceDestinationConfigurationProperty{
 //   	indexName: jsii.String("indexName"),
 //   	roleArn: jsii.String("roleArn"),
@@ -1539,45 +1548,48 @@ type CfnDeliveryStream_AmazonopensearchserviceBufferingHintsProperty struct {
 //
 type CfnDeliveryStream_AmazonopensearchserviceDestinationConfigurationProperty struct {
 	// The Amazon OpenSearch Service index name.
-	IndexName *string `json:"indexName" yaml:"indexName"`
+	IndexName *string `field:"required" json:"indexName" yaml:"indexName"`
 	// The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Amazon OpenSearch Service Configuration API and for indexing documents.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// Describes the configuration of a destination in Amazon S3.
-	S3Configuration interface{} `json:"s3Configuration" yaml:"s3Configuration"`
+	S3Configuration interface{} `field:"required" json:"s3Configuration" yaml:"s3Configuration"`
 	// The buffering options.
 	//
 	// If no value is specified, the default values for AmazonopensearchserviceBufferingHints are used.
-	BufferingHints interface{} `json:"bufferingHints" yaml:"bufferingHints"`
+	BufferingHints interface{} `field:"optional" json:"bufferingHints" yaml:"bufferingHints"`
 	// Describes the Amazon CloudWatch logging options for your delivery stream.
-	CloudWatchLoggingOptions interface{} `json:"cloudWatchLoggingOptions" yaml:"cloudWatchLoggingOptions"`
+	CloudWatchLoggingOptions interface{} `field:"optional" json:"cloudWatchLoggingOptions" yaml:"cloudWatchLoggingOptions"`
 	// The endpoint to use when communicating with the cluster.
 	//
 	// Specify either this ClusterEndpoint or the DomainARN field.
-	ClusterEndpoint *string `json:"clusterEndpoint" yaml:"clusterEndpoint"`
+	ClusterEndpoint *string `field:"optional" json:"clusterEndpoint" yaml:"clusterEndpoint"`
 	// The ARN of the Amazon OpenSearch Service domain.
-	DomainArn *string `json:"domainArn" yaml:"domainArn"`
+	DomainArn *string `field:"optional" json:"domainArn" yaml:"domainArn"`
 	// The Amazon OpenSearch Service index rotation period.
 	//
 	// Index rotation appends a timestamp to the IndexName to facilitate the expiration of old data.
-	IndexRotationPeriod *string `json:"indexRotationPeriod" yaml:"indexRotationPeriod"`
+	IndexRotationPeriod *string `field:"optional" json:"indexRotationPeriod" yaml:"indexRotationPeriod"`
 	// Describes a data processing configuration.
-	ProcessingConfiguration interface{} `json:"processingConfiguration" yaml:"processingConfiguration"`
+	ProcessingConfiguration interface{} `field:"optional" json:"processingConfiguration" yaml:"processingConfiguration"`
 	// The retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon OpenSearch Service.
 	//
 	// The default value is 300 (5 minutes).
-	RetryOptions interface{} `json:"retryOptions" yaml:"retryOptions"`
+	RetryOptions interface{} `field:"optional" json:"retryOptions" yaml:"retryOptions"`
 	// Defines how documents should be delivered to Amazon S3.
-	S3BackupMode *string `json:"s3BackupMode" yaml:"s3BackupMode"`
+	S3BackupMode *string `field:"optional" json:"s3BackupMode" yaml:"s3BackupMode"`
 	// The Amazon OpenSearch Service type name.
-	TypeName *string `json:"typeName" yaml:"typeName"`
+	TypeName *string `field:"optional" json:"typeName" yaml:"typeName"`
 	// The details of the VPC of the Amazon OpenSearch Service destination.
-	VpcConfiguration interface{} `json:"vpcConfiguration" yaml:"vpcConfiguration"`
+	VpcConfiguration interface{} `field:"optional" json:"vpcConfiguration" yaml:"vpcConfiguration"`
 }
 
 // Configures retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon OpenSearch Service.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   amazonopensearchserviceRetryOptionsProperty := &amazonopensearchserviceRetryOptionsProperty{
 //   	durationInSeconds: jsii.Number(123),
 //   }
@@ -1586,7 +1598,7 @@ type CfnDeliveryStream_AmazonopensearchserviceRetryOptionsProperty struct {
 	// After an initial failure to deliver to Amazon OpenSearch Service, the total amount of time during which Kinesis Data Firehose retries delivery (including the first attempt).
 	//
 	// After this time has elapsed, the failed documents are written to Amazon S3. Default value is 300 seconds (5 minutes). A value of 0 (zero) results in no retries.
-	DurationInSeconds *float64 `json:"durationInSeconds" yaml:"durationInSeconds"`
+	DurationInSeconds *float64 `field:"optional" json:"durationInSeconds" yaml:"durationInSeconds"`
 }
 
 // The `BufferingHints` property type specifies how Amazon Kinesis Data Firehose (Kinesis Data Firehose) buffers incoming data before delivering it to the destination.
@@ -1594,7 +1606,10 @@ type CfnDeliveryStream_AmazonopensearchserviceRetryOptionsProperty struct {
 // The first buffer condition that is satisfied triggers Kinesis Data Firehose to deliver the data.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   bufferingHintsProperty := &bufferingHintsProperty{
 //   	intervalInSeconds: jsii.Number(123),
 //   	sizeInMBs: jsii.Number(123),
@@ -1604,17 +1619,20 @@ type CfnDeliveryStream_BufferingHintsProperty struct {
 	// The length of time, in seconds, that Kinesis Data Firehose buffers incoming data before delivering it to the destination.
 	//
 	// For valid values, see the `IntervalInSeconds` content for the [BufferingHints](https://docs.aws.amazon.com/firehose/latest/APIReference/API_BufferingHints.html) data type in the *Amazon Kinesis Data Firehose API Reference* .
-	IntervalInSeconds *float64 `json:"intervalInSeconds" yaml:"intervalInSeconds"`
+	IntervalInSeconds *float64 `field:"optional" json:"intervalInSeconds" yaml:"intervalInSeconds"`
 	// The size of the buffer, in MBs, that Kinesis Data Firehose uses for incoming data before delivering it to the destination.
 	//
 	// For valid values, see the `SizeInMBs` content for the [BufferingHints](https://docs.aws.amazon.com/firehose/latest/APIReference/API_BufferingHints.html) data type in the *Amazon Kinesis Data Firehose API Reference* .
-	SizeInMBs *float64 `json:"sizeInMBs" yaml:"sizeInMBs"`
+	SizeInMBs *float64 `field:"optional" json:"sizeInMBs" yaml:"sizeInMBs"`
 }
 
 // The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cloudWatchLoggingOptionsProperty := &cloudWatchLoggingOptionsProperty{
 //   	enabled: jsii.Boolean(false),
 //   	logGroupName: jsii.String("logGroupName"),
@@ -1623,21 +1641,24 @@ type CfnDeliveryStream_BufferingHintsProperty struct {
 //
 type CfnDeliveryStream_CloudWatchLoggingOptionsProperty struct {
 	// Indicates whether CloudWatch Logs logging is enabled.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// The name of the CloudWatch Logs log group that contains the log stream that Kinesis Data Firehose will use.
 	//
 	// Conditional. If you enable logging, you must specify this property.
-	LogGroupName *string `json:"logGroupName" yaml:"logGroupName"`
+	LogGroupName *string `field:"optional" json:"logGroupName" yaml:"logGroupName"`
 	// The name of the CloudWatch Logs log stream that Kinesis Data Firehose uses to send logs about data delivery.
 	//
 	// Conditional. If you enable logging, you must specify this property.
-	LogStreamName *string `json:"logStreamName" yaml:"logStreamName"`
+	LogStreamName *string `field:"optional" json:"logStreamName" yaml:"logStreamName"`
 }
 
 // The `CopyCommand` property type configures the Amazon Redshift `COPY` command that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses to load data into an Amazon Redshift cluster from an Amazon S3 bucket.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   copyCommandProperty := &copyCommandProperty{
 //   	dataTableName: jsii.String("dataTableName"),
 //
@@ -1650,13 +1671,13 @@ type CfnDeliveryStream_CopyCommandProperty struct {
 	// The name of the target table.
 	//
 	// The table must already exist in the database.
-	DataTableName *string `json:"dataTableName" yaml:"dataTableName"`
+	DataTableName *string `field:"required" json:"dataTableName" yaml:"dataTableName"`
 	// Parameters to use with the Amazon Redshift `COPY` command.
 	//
 	// For examples, see the `CopyOptions` content for the [CopyCommand](https://docs.aws.amazon.com/firehose/latest/APIReference/API_CopyCommand.html) data type in the *Amazon Kinesis Data Firehose API Reference* .
-	CopyOptions *string `json:"copyOptions" yaml:"copyOptions"`
+	CopyOptions *string `field:"optional" json:"copyOptions" yaml:"copyOptions"`
 	// A comma-separated list of column names.
-	DataTableColumns *string `json:"dataTableColumns" yaml:"dataTableColumns"`
+	DataTableColumns *string `field:"optional" json:"dataTableColumns" yaml:"dataTableColumns"`
 }
 
 // Specifies that you want Kinesis Data Firehose to convert data from the JSON format to the Parquet or ORC format before writing it to Amazon S3.
@@ -1664,7 +1685,10 @@ type CfnDeliveryStream_CopyCommandProperty struct {
 // Kinesis Data Firehose uses the serializer and deserializer that you specify, in addition to the column information from the AWS Glue table, to deserialize your input data from JSON and then serialize it to the Parquet or ORC format. For more information, see [Kinesis Data Firehose Record Format Conversion](https://docs.aws.amazon.com/firehose/latest/dev/record-format-conversion.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dataFormatConversionConfigurationProperty := &dataFormatConversionConfigurationProperty{
 //   	enabled: jsii.Boolean(false),
 //   	inputFormatConfiguration: &inputFormatConfigurationProperty{
@@ -1723,25 +1747,28 @@ type CfnDeliveryStream_DataFormatConversionConfigurationProperty struct {
 	// Defaults to `true` .
 	//
 	// Set it to `false` if you want to disable format conversion while preserving the configuration details.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// Specifies the deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON.
 	//
 	// This parameter is required if `Enabled` is set to true.
-	InputFormatConfiguration interface{} `json:"inputFormatConfiguration" yaml:"inputFormatConfiguration"`
+	InputFormatConfiguration interface{} `field:"optional" json:"inputFormatConfiguration" yaml:"inputFormatConfiguration"`
 	// Specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format.
 	//
 	// This parameter is required if `Enabled` is set to true.
-	OutputFormatConfiguration interface{} `json:"outputFormatConfiguration" yaml:"outputFormatConfiguration"`
+	OutputFormatConfiguration interface{} `field:"optional" json:"outputFormatConfiguration" yaml:"outputFormatConfiguration"`
 	// Specifies the AWS Glue Data Catalog table that contains the column information.
 	//
 	// This parameter is required if `Enabled` is set to true.
-	SchemaConfiguration interface{} `json:"schemaConfiguration" yaml:"schemaConfiguration"`
+	SchemaConfiguration interface{} `field:"optional" json:"schemaConfiguration" yaml:"schemaConfiguration"`
 }
 
 // Specifies the type and Amazon Resource Name (ARN) of the CMK to use for Server-Side Encryption (SSE).
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   deliveryStreamEncryptionConfigurationInputProperty := &deliveryStreamEncryptionConfigurationInputProperty{
 //   	keyType: jsii.String("keyType"),
 //
@@ -1757,11 +1784,11 @@ type CfnDeliveryStream_DeliveryStreamEncryptionConfigurationInputProperty struct
 	// You can use a CMK of type CUSTOMER_MANAGED_CMK to encrypt up to 500 delivery streams.
 	//
 	// > To encrypt your delivery stream, use symmetric CMKs. Kinesis Data Firehose doesn't support asymmetric CMKs. For information about symmetric and asymmetric CMKs, see [About Symmetric and Asymmetric CMKs](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html) in the AWS Key Management Service developer guide.
-	KeyType *string `json:"keyType" yaml:"keyType"`
+	KeyType *string `field:"required" json:"keyType" yaml:"keyType"`
 	// If you set `KeyType` to `CUSTOMER_MANAGED_CMK` , you must specify the Amazon Resource Name (ARN) of the CMK.
 	//
 	// If you set `KeyType` to `AWS _OWNED_CMK` , Kinesis Data Firehose uses a service-account CMK.
-	KeyArn *string `json:"keyArn" yaml:"keyArn"`
+	KeyArn *string `field:"optional" json:"keyArn" yaml:"keyArn"`
 }
 
 // The deserializer you want Kinesis Data Firehose to use for converting the input data from JSON.
@@ -1769,7 +1796,10 @@ type CfnDeliveryStream_DeliveryStreamEncryptionConfigurationInputProperty struct
 // Kinesis Data Firehose then serializes the data to its final format using the `Serializer` . Kinesis Data Firehose supports two types of deserializers: the [Apache Hive JSON SerDe](https://docs.aws.amazon.com/https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-JSON) and the [OpenX JSON SerDe](https://docs.aws.amazon.com/https://github.com/rcongiu/Hive-JSON-Serde) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   deserializerProperty := &deserializerProperty{
 //   	hiveJsonSerDe: &hiveJsonSerDeProperty{
 //   		timestampFormats: []*string{
@@ -1789,17 +1819,20 @@ type CfnDeliveryStream_DeserializerProperty struct {
 	// The native Hive / HCatalog JsonSerDe.
 	//
 	// Used by Kinesis Data Firehose for deserializing data, which means converting it from the JSON format in preparation for serializing it to the Parquet or ORC format. This is one of two deserializers you can choose, depending on which one offers the functionality you need. The other option is the OpenX SerDe.
-	HiveJsonSerDe interface{} `json:"hiveJsonSerDe" yaml:"hiveJsonSerDe"`
+	HiveJsonSerDe interface{} `field:"optional" json:"hiveJsonSerDe" yaml:"hiveJsonSerDe"`
 	// The OpenX SerDe.
 	//
 	// Used by Kinesis Data Firehose for deserializing data, which means converting it from the JSON format in preparation for serializing it to the Parquet or ORC format. This is one of two deserializers you can choose, depending on which one offers the functionality you need. The other option is the native Hive / HCatalog JsonSerDe.
-	OpenXJsonSerDe interface{} `json:"openXJsonSerDe" yaml:"openXJsonSerDe"`
+	OpenXJsonSerDe interface{} `field:"optional" json:"openXJsonSerDe" yaml:"openXJsonSerDe"`
 }
 
 // The `DynamicPartitioningConfiguration` property type specifies the configuration of the dynamic partitioning mechanism that creates targeted data sets from the streaming data by partitioning it based on partition keys.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dynamicPartitioningConfigurationProperty := &dynamicPartitioningConfigurationProperty{
 //   	enabled: jsii.Boolean(false),
 //   	retryOptions: &retryOptionsProperty{
@@ -1809,9 +1842,9 @@ type CfnDeliveryStream_DeserializerProperty struct {
 //
 type CfnDeliveryStream_DynamicPartitioningConfigurationProperty struct {
 	// Specifies whether dynamic partitioning is enabled for this Kinesis Data Firehose delivery stream.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// Specifies the retry behavior in case Kinesis Data Firehose is unable to deliver data to an Amazon S3 prefix.
-	RetryOptions interface{} `json:"retryOptions" yaml:"retryOptions"`
+	RetryOptions interface{} `field:"optional" json:"retryOptions" yaml:"retryOptions"`
 }
 
 // The `ElasticsearchBufferingHints` property type specifies how Amazon Kinesis Data Firehose (Kinesis Data Firehose) buffers incoming data while delivering it to the destination.
@@ -1821,7 +1854,10 @@ type CfnDeliveryStream_DynamicPartitioningConfigurationProperty struct {
 // ElasticsearchBufferingHints is the property type for the `BufferingHints` property of the [Amazon Kinesis Data Firehose DeliveryStream ElasticsearchDestinationConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html) property type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   elasticsearchBufferingHintsProperty := &elasticsearchBufferingHintsProperty{
 //   	intervalInSeconds: jsii.Number(123),
 //   	sizeInMBs: jsii.Number(123),
@@ -1831,17 +1867,20 @@ type CfnDeliveryStream_ElasticsearchBufferingHintsProperty struct {
 	// The length of time, in seconds, that Kinesis Data Firehose buffers incoming data before delivering it to the destination.
 	//
 	// For valid values, see the `IntervalInSeconds` content for the [BufferingHints](https://docs.aws.amazon.com/firehose/latest/APIReference/API_BufferingHints.html) data type in the *Amazon Kinesis Data Firehose API Reference* .
-	IntervalInSeconds *float64 `json:"intervalInSeconds" yaml:"intervalInSeconds"`
+	IntervalInSeconds *float64 `field:"optional" json:"intervalInSeconds" yaml:"intervalInSeconds"`
 	// The size of the buffer, in MBs, that Kinesis Data Firehose uses for incoming data before delivering it to the destination.
 	//
 	// For valid values, see the `SizeInMBs` content for the [BufferingHints](https://docs.aws.amazon.com/firehose/latest/APIReference/API_BufferingHints.html) data type in the *Amazon Kinesis Data Firehose API Reference* .
-	SizeInMBs *float64 `json:"sizeInMBs" yaml:"sizeInMBs"`
+	SizeInMBs *float64 `field:"optional" json:"sizeInMBs" yaml:"sizeInMBs"`
 }
 
 // The `ElasticsearchDestinationConfiguration` property type specifies an Amazon Elasticsearch Service (Amazon ES) domain that Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data to.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   elasticsearchDestinationConfigurationProperty := &elasticsearchDestinationConfigurationProperty{
 //   	indexName: jsii.String("indexName"),
 //   	roleArn: jsii.String("roleArn"),
@@ -1917,49 +1956,52 @@ type CfnDeliveryStream_ElasticsearchBufferingHintsProperty struct {
 //
 type CfnDeliveryStream_ElasticsearchDestinationConfigurationProperty struct {
 	// The name of the Elasticsearch index to which Kinesis Data Firehose adds data for indexing.
-	IndexName *string `json:"indexName" yaml:"indexName"`
+	IndexName *string `field:"required" json:"indexName" yaml:"indexName"`
 	// The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Amazon ES Configuration API and for indexing documents.
 	//
 	// For more information, see [Controlling Access with Amazon Kinesis Data Firehose](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html) .
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The S3 bucket where Kinesis Data Firehose backs up incoming data.
-	S3Configuration interface{} `json:"s3Configuration" yaml:"s3Configuration"`
+	S3Configuration interface{} `field:"required" json:"s3Configuration" yaml:"s3Configuration"`
 	// Configures how Kinesis Data Firehose buffers incoming data while delivering it to the Amazon ES domain.
-	BufferingHints interface{} `json:"bufferingHints" yaml:"bufferingHints"`
+	BufferingHints interface{} `field:"optional" json:"bufferingHints" yaml:"bufferingHints"`
 	// The Amazon CloudWatch Logs logging options for the delivery stream.
-	CloudWatchLoggingOptions interface{} `json:"cloudWatchLoggingOptions" yaml:"cloudWatchLoggingOptions"`
+	CloudWatchLoggingOptions interface{} `field:"optional" json:"cloudWatchLoggingOptions" yaml:"cloudWatchLoggingOptions"`
 	// The endpoint to use when communicating with the cluster.
 	//
 	// Specify either this `ClusterEndpoint` or the `DomainARN` field.
-	ClusterEndpoint *string `json:"clusterEndpoint" yaml:"clusterEndpoint"`
+	ClusterEndpoint *string `field:"optional" json:"clusterEndpoint" yaml:"clusterEndpoint"`
 	// The ARN of the Amazon ES domain.
 	//
 	// The IAM role must have permissions for `DescribeElasticsearchDomain` , `DescribeElasticsearchDomains` , and `DescribeElasticsearchDomainConfig` after assuming the role specified in *RoleARN* .
 	//
 	// Specify either `ClusterEndpoint` or `DomainARN` .
-	DomainArn *string `json:"domainArn" yaml:"domainArn"`
+	DomainArn *string `field:"optional" json:"domainArn" yaml:"domainArn"`
 	// The frequency of Elasticsearch index rotation.
 	//
 	// If you enable index rotation, Kinesis Data Firehose appends a portion of the UTC arrival timestamp to the specified index name, and rotates the appended timestamp accordingly. For more information, see [Index Rotation for the Amazon ES Destination](https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation) in the *Amazon Kinesis Data Firehose Developer Guide* .
-	IndexRotationPeriod *string `json:"indexRotationPeriod" yaml:"indexRotationPeriod"`
+	IndexRotationPeriod *string `field:"optional" json:"indexRotationPeriod" yaml:"indexRotationPeriod"`
 	// The data processing configuration for the Kinesis Data Firehose delivery stream.
-	ProcessingConfiguration interface{} `json:"processingConfiguration" yaml:"processingConfiguration"`
+	ProcessingConfiguration interface{} `field:"optional" json:"processingConfiguration" yaml:"processingConfiguration"`
 	// The retry behavior when Kinesis Data Firehose is unable to deliver data to Amazon ES.
-	RetryOptions interface{} `json:"retryOptions" yaml:"retryOptions"`
+	RetryOptions interface{} `field:"optional" json:"retryOptions" yaml:"retryOptions"`
 	// The condition under which Kinesis Data Firehose delivers data to Amazon Simple Storage Service (Amazon S3).
 	//
 	// You can send Amazon S3 all documents (all data) or only the documents that Kinesis Data Firehose could not deliver to the Amazon ES destination. For more information and valid values, see the `S3BackupMode` content for the [ElasticsearchDestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_ElasticsearchDestinationConfiguration.html) data type in the *Amazon Kinesis Data Firehose API Reference* .
-	S3BackupMode *string `json:"s3BackupMode" yaml:"s3BackupMode"`
+	S3BackupMode *string `field:"optional" json:"s3BackupMode" yaml:"s3BackupMode"`
 	// The Elasticsearch type name that Amazon ES adds to documents when indexing data.
-	TypeName *string `json:"typeName" yaml:"typeName"`
+	TypeName *string `field:"optional" json:"typeName" yaml:"typeName"`
 	// The details of the VPC of the Amazon ES destination.
-	VpcConfiguration interface{} `json:"vpcConfiguration" yaml:"vpcConfiguration"`
+	VpcConfiguration interface{} `field:"optional" json:"vpcConfiguration" yaml:"vpcConfiguration"`
 }
 
 // The `ElasticsearchRetryOptions` property type configures the retry behavior for when Amazon Kinesis Data Firehose (Kinesis Data Firehose) can't deliver data to Amazon Elasticsearch Service (Amazon ES).
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   elasticsearchRetryOptionsProperty := &elasticsearchRetryOptionsProperty{
 //   	durationInSeconds: jsii.Number(123),
 //   }
@@ -1968,13 +2010,16 @@ type CfnDeliveryStream_ElasticsearchRetryOptionsProperty struct {
 	// After an initial failure to deliver to Amazon ES, the total amount of time during which Kinesis Data Firehose re-attempts delivery (including the first attempt).
 	//
 	// If Kinesis Data Firehose can't deliver the data within the specified time, it writes the data to the backup S3 bucket. For valid values, see the `DurationInSeconds` content for the [ElasticsearchRetryOptions](https://docs.aws.amazon.com/firehose/latest/APIReference/API_ElasticsearchRetryOptions.html) data type in the *Amazon Kinesis Data Firehose API Reference* .
-	DurationInSeconds *float64 `json:"durationInSeconds" yaml:"durationInSeconds"`
+	DurationInSeconds *float64 `field:"optional" json:"durationInSeconds" yaml:"durationInSeconds"`
 }
 
 // The `EncryptionConfiguration` property type specifies the encryption settings that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses when delivering data to Amazon Simple Storage Service (Amazon S3).
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   encryptionConfigurationProperty := &encryptionConfigurationProperty{
 //   	kmsEncryptionConfig: &kMSEncryptionConfigProperty{
 //   		awskmsKeyArn: jsii.String("awskmsKeyArn"),
@@ -1984,17 +2029,20 @@ type CfnDeliveryStream_ElasticsearchRetryOptionsProperty struct {
 //
 type CfnDeliveryStream_EncryptionConfigurationProperty struct {
 	// The AWS Key Management Service ( AWS KMS) encryption key that Amazon S3 uses to encrypt your data.
-	KmsEncryptionConfig interface{} `json:"kmsEncryptionConfig" yaml:"kmsEncryptionConfig"`
+	KmsEncryptionConfig interface{} `field:"optional" json:"kmsEncryptionConfig" yaml:"kmsEncryptionConfig"`
 	// Disables encryption.
 	//
 	// For valid values, see the `NoEncryptionConfig` content for the [EncryptionConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_EncryptionConfiguration.html) data type in the *Amazon Kinesis Data Firehose API Reference* .
-	NoEncryptionConfig *string `json:"noEncryptionConfig" yaml:"noEncryptionConfig"`
+	NoEncryptionConfig *string `field:"optional" json:"noEncryptionConfig" yaml:"noEncryptionConfig"`
 }
 
 // The `ExtendedS3DestinationConfiguration` property type configures an Amazon S3 destination for an Amazon Kinesis Data Firehose delivery stream.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   extendedS3DestinationConfigurationProperty := &extendedS3DestinationConfigurationProperty{
 //   	bucketArn: jsii.String("bucketArn"),
 //   	roleArn: jsii.String("roleArn"),
@@ -2124,43 +2172,43 @@ type CfnDeliveryStream_ExtendedS3DestinationConfigurationProperty struct {
 	// The Amazon Resource Name (ARN) of the Amazon S3 bucket.
 	//
 	// For constraints, see [ExtendedS3DestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_ExtendedS3DestinationConfiguration.html) in the *Amazon Kinesis Data Firehose API Reference* .
-	BucketArn *string `json:"bucketArn" yaml:"bucketArn"`
+	BucketArn *string `field:"required" json:"bucketArn" yaml:"bucketArn"`
 	// The Amazon Resource Name (ARN) of the AWS credentials.
 	//
 	// For constraints, see [ExtendedS3DestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_ExtendedS3DestinationConfiguration.html) in the *Amazon Kinesis Data Firehose API Reference* .
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The buffering option.
-	BufferingHints interface{} `json:"bufferingHints" yaml:"bufferingHints"`
+	BufferingHints interface{} `field:"optional" json:"bufferingHints" yaml:"bufferingHints"`
 	// The Amazon CloudWatch logging options for your delivery stream.
-	CloudWatchLoggingOptions interface{} `json:"cloudWatchLoggingOptions" yaml:"cloudWatchLoggingOptions"`
+	CloudWatchLoggingOptions interface{} `field:"optional" json:"cloudWatchLoggingOptions" yaml:"cloudWatchLoggingOptions"`
 	// The compression format.
 	//
 	// If no value is specified, the default is `UNCOMPRESSED` .
-	CompressionFormat *string `json:"compressionFormat" yaml:"compressionFormat"`
+	CompressionFormat *string `field:"optional" json:"compressionFormat" yaml:"compressionFormat"`
 	// The serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3.
-	DataFormatConversionConfiguration interface{} `json:"dataFormatConversionConfiguration" yaml:"dataFormatConversionConfiguration"`
+	DataFormatConversionConfiguration interface{} `field:"optional" json:"dataFormatConversionConfiguration" yaml:"dataFormatConversionConfiguration"`
 	// The configuration of the dynamic partitioning mechanism that creates targeted data sets from the streaming data by partitioning it based on partition keys.
-	DynamicPartitioningConfiguration interface{} `json:"dynamicPartitioningConfiguration" yaml:"dynamicPartitioningConfiguration"`
+	DynamicPartitioningConfiguration interface{} `field:"optional" json:"dynamicPartitioningConfiguration" yaml:"dynamicPartitioningConfiguration"`
 	// The encryption configuration for the Kinesis Data Firehose delivery stream.
 	//
 	// The default value is `NoEncryption` .
-	EncryptionConfiguration interface{} `json:"encryptionConfiguration" yaml:"encryptionConfiguration"`
+	EncryptionConfiguration interface{} `field:"optional" json:"encryptionConfiguration" yaml:"encryptionConfiguration"`
 	// A prefix that Kinesis Data Firehose evaluates and adds to failed records before writing them to S3.
 	//
 	// This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html) .
-	ErrorOutputPrefix *string `json:"errorOutputPrefix" yaml:"errorOutputPrefix"`
+	ErrorOutputPrefix *string `field:"optional" json:"errorOutputPrefix" yaml:"errorOutputPrefix"`
 	// The `YYYY/MM/DD/HH` time format prefix is automatically used for delivered Amazon S3 files.
 	//
 	// For more information, see [ExtendedS3DestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_ExtendedS3DestinationConfiguration.html) in the *Amazon Kinesis Data Firehose API Reference* .
-	Prefix *string `json:"prefix" yaml:"prefix"`
+	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 	// The data processing configuration for the Kinesis Data Firehose delivery stream.
-	ProcessingConfiguration interface{} `json:"processingConfiguration" yaml:"processingConfiguration"`
+	ProcessingConfiguration interface{} `field:"optional" json:"processingConfiguration" yaml:"processingConfiguration"`
 	// The configuration for backup in Amazon S3.
-	S3BackupConfiguration interface{} `json:"s3BackupConfiguration" yaml:"s3BackupConfiguration"`
+	S3BackupConfiguration interface{} `field:"optional" json:"s3BackupConfiguration" yaml:"s3BackupConfiguration"`
 	// The Amazon S3 backup mode.
 	//
 	// After you create a delivery stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the delivery stream to disable it.
-	S3BackupMode *string `json:"s3BackupMode" yaml:"s3BackupMode"`
+	S3BackupMode *string `field:"optional" json:"s3BackupMode" yaml:"s3BackupMode"`
 }
 
 // The native Hive / HCatalog JsonSerDe.
@@ -2168,7 +2216,10 @@ type CfnDeliveryStream_ExtendedS3DestinationConfigurationProperty struct {
 // Used by Kinesis Data Firehose for deserializing data, which means converting it from the JSON format in preparation for serializing it to the Parquet or ORC format. This is one of two deserializers you can choose, depending on which one offers the functionality you need. The other option is the OpenX SerDe.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   hiveJsonSerDeProperty := &hiveJsonSerDeProperty{
 //   	timestampFormats: []*string{
 //   		jsii.String("timestampFormats"),
@@ -2179,7 +2230,7 @@ type CfnDeliveryStream_HiveJsonSerDeProperty struct {
 	// Indicates how you want Kinesis Data Firehose to parse the date and timestamps that may be present in your input data JSON.
 	//
 	// To specify these format strings, follow the pattern syntax of JodaTime's DateTimeFormat format strings. For more information, see [Class DateTimeFormat](https://docs.aws.amazon.com/https://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html) . You can also use the special value `millis` to parse timestamps in epoch milliseconds. If you don't specify a format, Kinesis Data Firehose uses `java.sql.Timestamp::valueOf` by default.
-	TimestampFormats *[]*string `json:"timestampFormats" yaml:"timestampFormats"`
+	TimestampFormats *[]*string `field:"optional" json:"timestampFormats" yaml:"timestampFormats"`
 }
 
 // Describes the metadata that's delivered to the specified HTTP endpoint destination.
@@ -2187,7 +2238,10 @@ type CfnDeliveryStream_HiveJsonSerDeProperty struct {
 // Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   httpEndpointCommonAttributeProperty := &httpEndpointCommonAttributeProperty{
 //   	attributeName: jsii.String("attributeName"),
 //   	attributeValue: jsii.String("attributeValue"),
@@ -2195,9 +2249,9 @@ type CfnDeliveryStream_HiveJsonSerDeProperty struct {
 //
 type CfnDeliveryStream_HttpEndpointCommonAttributeProperty struct {
 	// The name of the HTTP endpoint common attribute.
-	AttributeName *string `json:"attributeName" yaml:"attributeName"`
+	AttributeName *string `field:"required" json:"attributeName" yaml:"attributeName"`
 	// The value of the HTTP endpoint common attribute.
-	AttributeValue *string `json:"attributeValue" yaml:"attributeValue"`
+	AttributeValue *string `field:"required" json:"attributeValue" yaml:"attributeValue"`
 }
 
 // Describes the configuration of the HTTP endpoint to which Kinesis Firehose delivers data.
@@ -2205,7 +2259,10 @@ type CfnDeliveryStream_HttpEndpointCommonAttributeProperty struct {
 // Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   httpEndpointConfigurationProperty := &httpEndpointConfigurationProperty{
 //   	url: jsii.String("url"),
 //
@@ -2216,11 +2273,11 @@ type CfnDeliveryStream_HttpEndpointCommonAttributeProperty struct {
 //
 type CfnDeliveryStream_HttpEndpointConfigurationProperty struct {
 	// The URL of the HTTP endpoint selected as the destination.
-	Url *string `json:"url" yaml:"url"`
+	Url *string `field:"required" json:"url" yaml:"url"`
 	// The access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
-	AccessKey *string `json:"accessKey" yaml:"accessKey"`
+	AccessKey *string `field:"optional" json:"accessKey" yaml:"accessKey"`
 	// The name of the HTTP endpoint selected as the destination.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 
 // Describes the configuration of the HTTP endpoint destination.
@@ -2228,7 +2285,10 @@ type CfnDeliveryStream_HttpEndpointConfigurationProperty struct {
 // Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   httpEndpointDestinationConfigurationProperty := &httpEndpointDestinationConfigurationProperty{
 //   	endpointConfiguration: &httpEndpointConfigurationProperty{
 //   		url: jsii.String("url"),
@@ -2306,27 +2366,27 @@ type CfnDeliveryStream_HttpEndpointConfigurationProperty struct {
 //
 type CfnDeliveryStream_HttpEndpointDestinationConfigurationProperty struct {
 	// The configuration of the HTTP endpoint selected as the destination.
-	EndpointConfiguration interface{} `json:"endpointConfiguration" yaml:"endpointConfiguration"`
+	EndpointConfiguration interface{} `field:"required" json:"endpointConfiguration" yaml:"endpointConfiguration"`
 	// Describes the configuration of a destination in Amazon S3.
-	S3Configuration interface{} `json:"s3Configuration" yaml:"s3Configuration"`
+	S3Configuration interface{} `field:"required" json:"s3Configuration" yaml:"s3Configuration"`
 	// The buffering options that can be used before data is delivered to the specified destination.
 	//
 	// Kinesis Data Firehose treats these options as hints, and it might choose to use more optimal values. The SizeInMBs and IntervalInSeconds parameters are optional. However, if you specify a value for one of them, you must also provide a value for the other.
-	BufferingHints interface{} `json:"bufferingHints" yaml:"bufferingHints"`
+	BufferingHints interface{} `field:"optional" json:"bufferingHints" yaml:"bufferingHints"`
 	// Describes the Amazon CloudWatch logging options for your delivery stream.
-	CloudWatchLoggingOptions interface{} `json:"cloudWatchLoggingOptions" yaml:"cloudWatchLoggingOptions"`
+	CloudWatchLoggingOptions interface{} `field:"optional" json:"cloudWatchLoggingOptions" yaml:"cloudWatchLoggingOptions"`
 	// Describes the data processing configuration.
-	ProcessingConfiguration interface{} `json:"processingConfiguration" yaml:"processingConfiguration"`
+	ProcessingConfiguration interface{} `field:"optional" json:"processingConfiguration" yaml:"processingConfiguration"`
 	// The configuration of the request sent to the HTTP endpoint specified as the destination.
-	RequestConfiguration interface{} `json:"requestConfiguration" yaml:"requestConfiguration"`
+	RequestConfiguration interface{} `field:"optional" json:"requestConfiguration" yaml:"requestConfiguration"`
 	// Describes the retry behavior in case Kinesis Data Firehose is unable to deliver data to the specified HTTP endpoint destination, or if it doesn't receive a valid acknowledgment of receipt from the specified HTTP endpoint destination.
-	RetryOptions interface{} `json:"retryOptions" yaml:"retryOptions"`
+	RetryOptions interface{} `field:"optional" json:"retryOptions" yaml:"retryOptions"`
 	// Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// Describes the S3 bucket backup options for the data that Kinesis Data Firehose delivers to the HTTP endpoint destination.
 	//
 	// You can back up all documents (AllData) or only the documents that Kinesis Data Firehose could not deliver to the specified HTTP endpoint destination (FailedDataOnly).
-	S3BackupMode *string `json:"s3BackupMode" yaml:"s3BackupMode"`
+	S3BackupMode *string `field:"optional" json:"s3BackupMode" yaml:"s3BackupMode"`
 }
 
 // The configuration of the HTTP endpoint request.
@@ -2334,7 +2394,10 @@ type CfnDeliveryStream_HttpEndpointDestinationConfigurationProperty struct {
 // Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   httpEndpointRequestConfigurationProperty := &httpEndpointRequestConfigurationProperty{
 //   	commonAttributes: []interface{}{
 //   		&httpEndpointCommonAttributeProperty{
@@ -2347,11 +2410,11 @@ type CfnDeliveryStream_HttpEndpointDestinationConfigurationProperty struct {
 //
 type CfnDeliveryStream_HttpEndpointRequestConfigurationProperty struct {
 	// Describes the metadata sent to the HTTP endpoint destination.
-	CommonAttributes interface{} `json:"commonAttributes" yaml:"commonAttributes"`
+	CommonAttributes interface{} `field:"optional" json:"commonAttributes" yaml:"commonAttributes"`
 	// Kinesis Data Firehose uses the content encoding to compress the body of a request before sending the request to the destination.
 	//
 	// For more information, see Content-Encoding in MDN Web Docs, the official Mozilla documentation.
-	ContentEncoding *string `json:"contentEncoding" yaml:"contentEncoding"`
+	ContentEncoding *string `field:"optional" json:"contentEncoding" yaml:"contentEncoding"`
 }
 
 // Specifies the deserializer you want to use to convert the format of the input data.
@@ -2359,7 +2422,10 @@ type CfnDeliveryStream_HttpEndpointRequestConfigurationProperty struct {
 // This parameter is required if `Enabled` is set to true.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   inputFormatConfigurationProperty := &inputFormatConfigurationProperty{
 //   	deserializer: &deserializerProperty{
 //   		hiveJsonSerDe: &hiveJsonSerDeProperty{
@@ -2381,13 +2447,16 @@ type CfnDeliveryStream_InputFormatConfigurationProperty struct {
 	// Specifies which deserializer to use.
 	//
 	// You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. If both are non-null, the server rejects the request.
-	Deserializer interface{} `json:"deserializer" yaml:"deserializer"`
+	Deserializer interface{} `field:"optional" json:"deserializer" yaml:"deserializer"`
 }
 
 // The `KMSEncryptionConfig` property type specifies the AWS Key Management Service ( AWS KMS) encryption key that Amazon Simple Storage Service (Amazon S3) uses to encrypt data delivered by the Amazon Kinesis Data Firehose (Kinesis Data Firehose) stream.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   kMSEncryptionConfigProperty := &kMSEncryptionConfigProperty{
 //   	awskmsKeyArn: jsii.String("awskmsKeyArn"),
 //   }
@@ -2396,13 +2465,16 @@ type CfnDeliveryStream_KMSEncryptionConfigProperty struct {
 	// The Amazon Resource Name (ARN) of the AWS KMS encryption key that Amazon S3 uses to encrypt data delivered by the Kinesis Data Firehose stream.
 	//
 	// The key must belong to the same region as the destination S3 bucket.
-	AwskmsKeyArn *string `json:"awskmsKeyArn" yaml:"awskmsKeyArn"`
+	AwskmsKeyArn *string `field:"required" json:"awskmsKeyArn" yaml:"awskmsKeyArn"`
 }
 
 // The `KinesisStreamSourceConfiguration` property type specifies the stream and role Amazon Resource Names (ARNs) for a Kinesis stream used as the source for a delivery stream.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   kinesisStreamSourceConfigurationProperty := &kinesisStreamSourceConfigurationProperty{
 //   	kinesisStreamArn: jsii.String("kinesisStreamArn"),
 //   	roleArn: jsii.String("roleArn"),
@@ -2410,9 +2482,9 @@ type CfnDeliveryStream_KMSEncryptionConfigProperty struct {
 //
 type CfnDeliveryStream_KinesisStreamSourceConfigurationProperty struct {
 	// The ARN of the source Kinesis data stream.
-	KinesisStreamArn *string `json:"kinesisStreamArn" yaml:"kinesisStreamArn"`
+	KinesisStreamArn *string `field:"required" json:"kinesisStreamArn" yaml:"kinesisStreamArn"`
 	// The ARN of the role that provides access to the source Kinesis data stream.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 }
 
 // The OpenX SerDe.
@@ -2420,7 +2492,10 @@ type CfnDeliveryStream_KinesisStreamSourceConfigurationProperty struct {
 // Used by Kinesis Data Firehose for deserializing data, which means converting it from the JSON format in preparation for serializing it to the Parquet or ORC format. This is one of two deserializers you can choose, depending on which one offers the functionality you need. The other option is the native Hive / HCatalog JsonSerDe.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   openXJsonSerDeProperty := &openXJsonSerDeProperty{
 //   	caseInsensitive: jsii.Boolean(false),
 //   	columnToJsonKeyMappings: map[string]*string{
@@ -2431,17 +2506,17 @@ type CfnDeliveryStream_KinesisStreamSourceConfigurationProperty struct {
 //
 type CfnDeliveryStream_OpenXJsonSerDeProperty struct {
 	// When set to `true` , which is the default, Kinesis Data Firehose converts JSON keys to lowercase before deserializing them.
-	CaseInsensitive interface{} `json:"caseInsensitive" yaml:"caseInsensitive"`
+	CaseInsensitive interface{} `field:"optional" json:"caseInsensitive" yaml:"caseInsensitive"`
 	// Maps column names to JSON keys that aren't identical to the column names.
 	//
 	// This is useful when the JSON contains keys that are Hive keywords. For example, `timestamp` is a Hive keyword. If you have a JSON key named `timestamp` , set this parameter to `{"ts": "timestamp"}` to map this key to a column named `ts` .
-	ColumnToJsonKeyMappings interface{} `json:"columnToJsonKeyMappings" yaml:"columnToJsonKeyMappings"`
+	ColumnToJsonKeyMappings interface{} `field:"optional" json:"columnToJsonKeyMappings" yaml:"columnToJsonKeyMappings"`
 	// When set to `true` , specifies that the names of the keys include dots and that you want Kinesis Data Firehose to replace them with underscores.
 	//
 	// This is useful because Apache Hive does not allow dots in column names. For example, if the JSON contains a key whose name is "a.b", you can define the column name to be "a_b" when using this option.
 	//
 	// The default is `false` .
-	ConvertDotsInJsonKeysToUnderscores interface{} `json:"convertDotsInJsonKeysToUnderscores" yaml:"convertDotsInJsonKeysToUnderscores"`
+	ConvertDotsInJsonKeysToUnderscores interface{} `field:"optional" json:"convertDotsInJsonKeysToUnderscores" yaml:"convertDotsInJsonKeysToUnderscores"`
 }
 
 // A serializer to use for converting data to the ORC format before storing it in Amazon S3.
@@ -2449,7 +2524,10 @@ type CfnDeliveryStream_OpenXJsonSerDeProperty struct {
 // For more information, see [Apache ORC](https://docs.aws.amazon.com/https://orc.apache.org/docs/) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   orcSerDeProperty := &orcSerDeProperty{
 //   	blockSizeBytes: jsii.Number(123),
 //   	bloomFilterColumns: []*string{
@@ -2469,31 +2547,31 @@ type CfnDeliveryStream_OrcSerDeProperty struct {
 	// The Hadoop Distributed File System (HDFS) block size.
 	//
 	// This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
-	BlockSizeBytes *float64 `json:"blockSizeBytes" yaml:"blockSizeBytes"`
+	BlockSizeBytes *float64 `field:"optional" json:"blockSizeBytes" yaml:"blockSizeBytes"`
 	// The column names for which you want Kinesis Data Firehose to create bloom filters.
 	//
 	// The default is `null` .
-	BloomFilterColumns *[]*string `json:"bloomFilterColumns" yaml:"bloomFilterColumns"`
+	BloomFilterColumns *[]*string `field:"optional" json:"bloomFilterColumns" yaml:"bloomFilterColumns"`
 	// The Bloom filter false positive probability (FPP).
 	//
 	// The lower the FPP, the bigger the Bloom filter. The default value is 0.05, the minimum is 0, and the maximum is 1.
-	BloomFilterFalsePositiveProbability *float64 `json:"bloomFilterFalsePositiveProbability" yaml:"bloomFilterFalsePositiveProbability"`
+	BloomFilterFalsePositiveProbability *float64 `field:"optional" json:"bloomFilterFalsePositiveProbability" yaml:"bloomFilterFalsePositiveProbability"`
 	// The compression code to use over data blocks.
 	//
 	// The default is `SNAPPY` .
-	Compression *string `json:"compression" yaml:"compression"`
+	Compression *string `field:"optional" json:"compression" yaml:"compression"`
 	// Represents the fraction of the total number of non-null rows.
 	//
 	// To turn off dictionary encoding, set this fraction to a number that is less than the number of distinct keys in a dictionary. To always use dictionary encoding, set this threshold to 1.
-	DictionaryKeyThreshold *float64 `json:"dictionaryKeyThreshold" yaml:"dictionaryKeyThreshold"`
+	DictionaryKeyThreshold *float64 `field:"optional" json:"dictionaryKeyThreshold" yaml:"dictionaryKeyThreshold"`
 	// Set this to `true` to indicate that you want stripes to be padded to the HDFS block boundaries.
 	//
 	// This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `false` .
-	EnablePadding interface{} `json:"enablePadding" yaml:"enablePadding"`
+	EnablePadding interface{} `field:"optional" json:"enablePadding" yaml:"enablePadding"`
 	// The version of the file to write.
 	//
 	// The possible values are `V0_11` and `V0_12` . The default is `V0_12` .
-	FormatVersion *string `json:"formatVersion" yaml:"formatVersion"`
+	FormatVersion *string `field:"optional" json:"formatVersion" yaml:"formatVersion"`
 	// A number between 0 and 1 that defines the tolerance for block padding as a decimal fraction of stripe size.
 	//
 	// The default value is 0.05, which means 5 percent of stripe size.
@@ -2501,15 +2579,15 @@ type CfnDeliveryStream_OrcSerDeProperty struct {
 	// For the default values of 64 MiB ORC stripes and 256 MiB HDFS blocks, the default block padding tolerance of 5 percent reserves a maximum of 3.2 MiB for padding within the 256 MiB block. In such a case, if the available size within the block is more than 3.2 MiB, a new, smaller stripe is inserted to fit within that space. This ensures that no stripe crosses block boundaries and causes remote reads within a node-local task.
 	//
 	// Kinesis Data Firehose ignores this parameter when `EnablePadding` is `false` .
-	PaddingTolerance *float64 `json:"paddingTolerance" yaml:"paddingTolerance"`
+	PaddingTolerance *float64 `field:"optional" json:"paddingTolerance" yaml:"paddingTolerance"`
 	// The number of rows between index entries.
 	//
 	// The default is 10,000 and the minimum is 1,000.
-	RowIndexStride *float64 `json:"rowIndexStride" yaml:"rowIndexStride"`
+	RowIndexStride *float64 `field:"optional" json:"rowIndexStride" yaml:"rowIndexStride"`
 	// The number of bytes in each stripe.
 	//
 	// The default is 64 MiB and the minimum is 8 MiB.
-	StripeSizeBytes *float64 `json:"stripeSizeBytes" yaml:"stripeSizeBytes"`
+	StripeSizeBytes *float64 `field:"optional" json:"stripeSizeBytes" yaml:"stripeSizeBytes"`
 }
 
 // Specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data before it writes it to Amazon S3.
@@ -2517,7 +2595,10 @@ type CfnDeliveryStream_OrcSerDeProperty struct {
 // This parameter is required if `Enabled` is set to true.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   outputFormatConfigurationProperty := &outputFormatConfigurationProperty{
 //   	serializer: &serializerProperty{
 //   		orcSerDe: &orcSerDeProperty{
@@ -2549,7 +2630,7 @@ type CfnDeliveryStream_OutputFormatConfigurationProperty struct {
 	// Specifies which serializer to use.
 	//
 	// You can choose either the ORC SerDe or the Parquet SerDe. If both are non-null, the server rejects the request.
-	Serializer interface{} `json:"serializer" yaml:"serializer"`
+	Serializer interface{} `field:"optional" json:"serializer" yaml:"serializer"`
 }
 
 // A serializer to use for converting data to the Parquet format before storing it in Amazon S3.
@@ -2557,7 +2638,10 @@ type CfnDeliveryStream_OutputFormatConfigurationProperty struct {
 // For more information, see [Apache Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/documentation/latest/) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   parquetSerDeProperty := &parquetSerDeProperty{
 //   	blockSizeBytes: jsii.Number(123),
 //   	compression: jsii.String("compression"),
@@ -2571,31 +2655,34 @@ type CfnDeliveryStream_ParquetSerDeProperty struct {
 	// The Hadoop Distributed File System (HDFS) block size.
 	//
 	// This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
-	BlockSizeBytes *float64 `json:"blockSizeBytes" yaml:"blockSizeBytes"`
+	BlockSizeBytes *float64 `field:"optional" json:"blockSizeBytes" yaml:"blockSizeBytes"`
 	// The compression code to use over data blocks.
 	//
 	// The possible values are `UNCOMPRESSED` , `SNAPPY` , and `GZIP` , with the default being `SNAPPY` . Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
-	Compression *string `json:"compression" yaml:"compression"`
+	Compression *string `field:"optional" json:"compression" yaml:"compression"`
 	// Indicates whether to enable dictionary compression.
-	EnableDictionaryCompression interface{} `json:"enableDictionaryCompression" yaml:"enableDictionaryCompression"`
+	EnableDictionaryCompression interface{} `field:"optional" json:"enableDictionaryCompression" yaml:"enableDictionaryCompression"`
 	// The maximum amount of padding to apply.
 	//
 	// This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 0.
-	MaxPaddingBytes *float64 `json:"maxPaddingBytes" yaml:"maxPaddingBytes"`
+	MaxPaddingBytes *float64 `field:"optional" json:"maxPaddingBytes" yaml:"maxPaddingBytes"`
 	// The Parquet page size.
 	//
 	// Column chunks are divided into pages. A page is conceptually an indivisible unit (in terms of compression and encoding). The minimum value is 64 KiB and the default is 1 MiB.
-	PageSizeBytes *float64 `json:"pageSizeBytes" yaml:"pageSizeBytes"`
+	PageSizeBytes *float64 `field:"optional" json:"pageSizeBytes" yaml:"pageSizeBytes"`
 	// Indicates the version of row format to output.
 	//
 	// The possible values are `V1` and `V2` . The default is `V1` .
-	WriterVersion *string `json:"writerVersion" yaml:"writerVersion"`
+	WriterVersion *string `field:"optional" json:"writerVersion" yaml:"writerVersion"`
 }
 
 // The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   processingConfigurationProperty := &processingConfigurationProperty{
 //   	enabled: jsii.Boolean(false),
 //   	processors: []interface{}{
@@ -2615,15 +2702,18 @@ type CfnDeliveryStream_ParquetSerDeProperty struct {
 //
 type CfnDeliveryStream_ProcessingConfigurationProperty struct {
 	// Indicates whether data processing is enabled (true) or disabled (false).
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// The data processors.
-	Processors interface{} `json:"processors" yaml:"processors"`
+	Processors interface{} `field:"optional" json:"processors" yaml:"processors"`
 }
 
 // The `ProcessorParameter` property specifies a processor parameter in a data processor for an Amazon Kinesis Data Firehose delivery stream.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   processorParameterProperty := &processorParameterProperty{
 //   	parameterName: jsii.String("parameterName"),
 //   	parameterValue: jsii.String("parameterValue"),
@@ -2633,15 +2723,18 @@ type CfnDeliveryStream_ProcessorParameterProperty struct {
 	// The name of the parameter.
 	//
 	// Currently the following default values are supported: 3 for `NumberOfRetries` , 60 for the `BufferIntervalInSeconds` , and 3 for the `BufferSizeInMBs` .
-	ParameterName *string `json:"parameterName" yaml:"parameterName"`
+	ParameterName *string `field:"required" json:"parameterName" yaml:"parameterName"`
 	// The parameter value.
-	ParameterValue *string `json:"parameterValue" yaml:"parameterValue"`
+	ParameterValue *string `field:"required" json:"parameterValue" yaml:"parameterValue"`
 }
 
 // The `Processor` property specifies a data processor for an Amazon Kinesis Data Firehose delivery stream.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   processorProperty := &processorProperty{
 //   	type: jsii.String("type"),
 //
@@ -2658,15 +2751,18 @@ type CfnDeliveryStream_ProcessorProperty struct {
 	// The type of processor.
 	//
 	// Valid values: `Lambda` .
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// The processor parameters.
-	Parameters interface{} `json:"parameters" yaml:"parameters"`
+	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 }
 
 // The `RedshiftDestinationConfiguration` property type specifies an Amazon Redshift cluster to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   redshiftDestinationConfigurationProperty := &redshiftDestinationConfigurationProperty{
 //   	clusterJdbcurl: jsii.String("clusterJdbcurl"),
 //   	copyCommand: &copyCommandProperty{
@@ -2758,43 +2854,46 @@ type CfnDeliveryStream_ProcessorProperty struct {
 //
 type CfnDeliveryStream_RedshiftDestinationConfigurationProperty struct {
 	// The connection string that Kinesis Data Firehose uses to connect to the Amazon Redshift cluster.
-	ClusterJdbcurl *string `json:"clusterJdbcurl" yaml:"clusterJdbcurl"`
+	ClusterJdbcurl *string `field:"required" json:"clusterJdbcurl" yaml:"clusterJdbcurl"`
 	// Configures the Amazon Redshift `COPY` command that Kinesis Data Firehose uses to load data into the cluster from the Amazon S3 bucket.
-	CopyCommand interface{} `json:"copyCommand" yaml:"copyCommand"`
+	CopyCommand interface{} `field:"required" json:"copyCommand" yaml:"copyCommand"`
 	// The password for the Amazon Redshift user that you specified in the `Username` property.
-	Password *string `json:"password" yaml:"password"`
+	Password *string `field:"required" json:"password" yaml:"password"`
 	// The ARN of the AWS Identity and Access Management (IAM) role that grants Kinesis Data Firehose access to your Amazon S3 bucket and AWS KMS (if you enable data encryption).
 	//
 	// For more information, see [Grant Kinesis Data Firehose Access to an Amazon Redshift Destination](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-rs) in the *Amazon Kinesis Data Firehose Developer Guide* .
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The S3 bucket where Kinesis Data Firehose first delivers data.
 	//
 	// After the data is in the bucket, Kinesis Data Firehose uses the `COPY` command to load the data into the Amazon Redshift cluster. For the Amazon S3 bucket's compression format, don't specify `SNAPPY` or `ZIP` because the Amazon Redshift `COPY` command doesn't support them.
-	S3Configuration interface{} `json:"s3Configuration" yaml:"s3Configuration"`
+	S3Configuration interface{} `field:"required" json:"s3Configuration" yaml:"s3Configuration"`
 	// The Amazon Redshift user that has permission to access the Amazon Redshift cluster.
 	//
 	// This user must have `INSERT` privileges for copying data from the Amazon S3 bucket to the cluster.
-	Username *string `json:"username" yaml:"username"`
+	Username *string `field:"required" json:"username" yaml:"username"`
 	// The CloudWatch logging options for your delivery stream.
-	CloudWatchLoggingOptions interface{} `json:"cloudWatchLoggingOptions" yaml:"cloudWatchLoggingOptions"`
+	CloudWatchLoggingOptions interface{} `field:"optional" json:"cloudWatchLoggingOptions" yaml:"cloudWatchLoggingOptions"`
 	// The data processing configuration for the Kinesis Data Firehose delivery stream.
-	ProcessingConfiguration interface{} `json:"processingConfiguration" yaml:"processingConfiguration"`
+	ProcessingConfiguration interface{} `field:"optional" json:"processingConfiguration" yaml:"processingConfiguration"`
 	// The retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon Redshift.
 	//
 	// Default value is 3600 (60 minutes).
-	RetryOptions interface{} `json:"retryOptions" yaml:"retryOptions"`
+	RetryOptions interface{} `field:"optional" json:"retryOptions" yaml:"retryOptions"`
 	// The configuration for backup in Amazon S3.
-	S3BackupConfiguration interface{} `json:"s3BackupConfiguration" yaml:"s3BackupConfiguration"`
+	S3BackupConfiguration interface{} `field:"optional" json:"s3BackupConfiguration" yaml:"s3BackupConfiguration"`
 	// The Amazon S3 backup mode.
 	//
 	// After you create a delivery stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the delivery stream to disable it.
-	S3BackupMode *string `json:"s3BackupMode" yaml:"s3BackupMode"`
+	S3BackupMode *string `field:"optional" json:"s3BackupMode" yaml:"s3BackupMode"`
 }
 
 // Configures retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon Redshift.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   redshiftRetryOptionsProperty := &redshiftRetryOptionsProperty{
 //   	durationInSeconds: jsii.Number(123),
 //   }
@@ -2803,7 +2902,7 @@ type CfnDeliveryStream_RedshiftRetryOptionsProperty struct {
 	// The length of time during which Kinesis Data Firehose retries delivery after a failure, starting from the initial request and including the first attempt.
 	//
 	// The default value is 3600 seconds (60 minutes). Kinesis Data Firehose does not retry if the value of `DurationInSeconds` is 0 (zero) or if the first delivery attempt takes longer than the current value.
-	DurationInSeconds *float64 `json:"durationInSeconds" yaml:"durationInSeconds"`
+	DurationInSeconds *float64 `field:"optional" json:"durationInSeconds" yaml:"durationInSeconds"`
 }
 
 // Describes the retry behavior in case Kinesis Data Firehose is unable to deliver data to the specified HTTP endpoint destination, or if it doesn't receive a valid acknowledgment of receipt from the specified HTTP endpoint destination.
@@ -2811,7 +2910,10 @@ type CfnDeliveryStream_RedshiftRetryOptionsProperty struct {
 // Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   retryOptionsProperty := &retryOptionsProperty{
 //   	durationInSeconds: jsii.Number(123),
 //   }
@@ -2820,13 +2922,16 @@ type CfnDeliveryStream_RetryOptionsProperty struct {
 	// The total amount of time that Kinesis Data Firehose spends on retries.
 	//
 	// This duration starts after the initial attempt to send data to the custom destination via HTTPS endpoint fails. It doesn't include the periods during which Kinesis Data Firehose waits for acknowledgment from the specified destination after each attempt.
-	DurationInSeconds *float64 `json:"durationInSeconds" yaml:"durationInSeconds"`
+	DurationInSeconds *float64 `field:"optional" json:"durationInSeconds" yaml:"durationInSeconds"`
 }
 
 // The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3DestinationConfigurationProperty := &s3DestinationConfigurationProperty{
 //   	bucketArn: jsii.String("bucketArn"),
 //   	roleArn: jsii.String("roleArn"),
@@ -2854,31 +2959,31 @@ type CfnDeliveryStream_RetryOptionsProperty struct {
 //
 type CfnDeliveryStream_S3DestinationConfigurationProperty struct {
 	// The Amazon Resource Name (ARN) of the Amazon S3 bucket to send data to.
-	BucketArn *string `json:"bucketArn" yaml:"bucketArn"`
+	BucketArn *string `field:"required" json:"bucketArn" yaml:"bucketArn"`
 	// The ARN of an AWS Identity and Access Management (IAM) role that grants Kinesis Data Firehose access to your Amazon S3 bucket and AWS KMS (if you enable data encryption).
 	//
 	// For more information, see [Grant Kinesis Data Firehose Access to an Amazon S3 Destination](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3) in the *Amazon Kinesis Data Firehose Developer Guide* .
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// Configures how Kinesis Data Firehose buffers incoming data while delivering it to the Amazon S3 bucket.
-	BufferingHints interface{} `json:"bufferingHints" yaml:"bufferingHints"`
+	BufferingHints interface{} `field:"optional" json:"bufferingHints" yaml:"bufferingHints"`
 	// The CloudWatch logging options for your delivery stream.
-	CloudWatchLoggingOptions interface{} `json:"cloudWatchLoggingOptions" yaml:"cloudWatchLoggingOptions"`
+	CloudWatchLoggingOptions interface{} `field:"optional" json:"cloudWatchLoggingOptions" yaml:"cloudWatchLoggingOptions"`
 	// The type of compression that Kinesis Data Firehose uses to compress the data that it delivers to the Amazon S3 bucket.
 	//
 	// For valid values, see the `CompressionFormat` content for the [S3DestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_S3DestinationConfiguration.html) data type in the *Amazon Kinesis Data Firehose API Reference* .
-	CompressionFormat *string `json:"compressionFormat" yaml:"compressionFormat"`
+	CompressionFormat *string `field:"optional" json:"compressionFormat" yaml:"compressionFormat"`
 	// Configures Amazon Simple Storage Service (Amazon S3) server-side encryption.
 	//
 	// Kinesis Data Firehose uses AWS Key Management Service ( AWS KMS) to encrypt the data that it delivers to your Amazon S3 bucket.
-	EncryptionConfiguration interface{} `json:"encryptionConfiguration" yaml:"encryptionConfiguration"`
+	EncryptionConfiguration interface{} `field:"optional" json:"encryptionConfiguration" yaml:"encryptionConfiguration"`
 	// A prefix that Kinesis Data Firehose evaluates and adds to failed records before writing them to S3.
 	//
 	// This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html) .
-	ErrorOutputPrefix *string `json:"errorOutputPrefix" yaml:"errorOutputPrefix"`
+	ErrorOutputPrefix *string `field:"optional" json:"errorOutputPrefix" yaml:"errorOutputPrefix"`
 	// A prefix that Kinesis Data Firehose adds to the files that it delivers to the Amazon S3 bucket.
 	//
 	// The prefix helps you identify the files that Kinesis Data Firehose delivered.
-	Prefix *string `json:"prefix" yaml:"prefix"`
+	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 }
 
 // Specifies the schema to which you want Kinesis Data Firehose to configure your data before it writes it to Amazon S3.
@@ -2886,7 +2991,10 @@ type CfnDeliveryStream_S3DestinationConfigurationProperty struct {
 // This parameter is required if `Enabled` is set to true.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   schemaConfigurationProperty := &schemaConfigurationProperty{
 //   	catalogId: jsii.String("catalogId"),
 //   	databaseName: jsii.String("databaseName"),
@@ -2900,27 +3008,27 @@ type CfnDeliveryStream_SchemaConfigurationProperty struct {
 	// The ID of the AWS Glue Data Catalog.
 	//
 	// If you don't supply this, the AWS account ID is used by default.
-	CatalogId *string `json:"catalogId" yaml:"catalogId"`
+	CatalogId *string `field:"optional" json:"catalogId" yaml:"catalogId"`
 	// Specifies the name of the AWS Glue database that contains the schema for the output data.
 	//
 	// > If the `SchemaConfiguration` request parameter is used as part of invoking the `CreateDeliveryStream` API, then the `DatabaseName` property is required and its value must be specified.
-	DatabaseName *string `json:"databaseName" yaml:"databaseName"`
+	DatabaseName *string `field:"optional" json:"databaseName" yaml:"databaseName"`
 	// If you don't specify an AWS Region, the default is the current Region.
-	Region *string `json:"region" yaml:"region"`
+	Region *string `field:"optional" json:"region" yaml:"region"`
 	// The role that Kinesis Data Firehose can use to access AWS Glue.
 	//
 	// This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
 	//
 	// > If the `SchemaConfiguration` request parameter is used as part of invoking the `CreateDeliveryStream` API, then the `RoleARN` property is required and its value must be specified.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// Specifies the AWS Glue table that contains the column information that constitutes your data schema.
 	//
 	// > If the `SchemaConfiguration` request parameter is used as part of invoking the `CreateDeliveryStream` API, then the `TableName` property is required and its value must be specified.
-	TableName *string `json:"tableName" yaml:"tableName"`
+	TableName *string `field:"optional" json:"tableName" yaml:"tableName"`
 	// Specifies the table version for the output data schema.
 	//
 	// If you don't specify this version ID, or if you set it to `LATEST` , Kinesis Data Firehose uses the most recent version. This means that any updates to the table are automatically picked up.
-	VersionId *string `json:"versionId" yaml:"versionId"`
+	VersionId *string `field:"optional" json:"versionId" yaml:"versionId"`
 }
 
 // The serializer that you want Kinesis Data Firehose to use to convert data to the target format before writing it to Amazon S3.
@@ -2928,7 +3036,10 @@ type CfnDeliveryStream_SchemaConfigurationProperty struct {
 // Kinesis Data Firehose supports two types of serializers: the [ORC SerDe](https://docs.aws.amazon.com/https://hive.apache.org/javadocs/r1.2.2/api/org/apache/hadoop/hive/ql/io/orc/OrcSerde.html) and the [Parquet SerDe](https://docs.aws.amazon.com/https://hive.apache.org/javadocs/r1.2.2/api/org/apache/hadoop/hive/ql/io/parquet/serde/ParquetHiveSerDe.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   serializerProperty := &serializerProperty{
 //   	orcSerDe: &orcSerDeProperty{
 //   		blockSizeBytes: jsii.Number(123),
@@ -2958,17 +3069,20 @@ type CfnDeliveryStream_SerializerProperty struct {
 	// A serializer to use for converting data to the ORC format before storing it in Amazon S3.
 	//
 	// For more information, see [Apache ORC](https://docs.aws.amazon.com/https://orc.apache.org/docs/) .
-	OrcSerDe interface{} `json:"orcSerDe" yaml:"orcSerDe"`
+	OrcSerDe interface{} `field:"optional" json:"orcSerDe" yaml:"orcSerDe"`
 	// A serializer to use for converting data to the Parquet format before storing it in Amazon S3.
 	//
 	// For more information, see [Apache Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/documentation/latest/) .
-	ParquetSerDe interface{} `json:"parquetSerDe" yaml:"parquetSerDe"`
+	ParquetSerDe interface{} `field:"optional" json:"parquetSerDe" yaml:"parquetSerDe"`
 }
 
 // The `SplunkDestinationConfiguration` property type specifies the configuration of a destination in Splunk for a Kinesis Data Firehose delivery stream.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   splunkDestinationConfigurationProperty := &splunkDestinationConfigurationProperty{
 //   	hecEndpoint: jsii.String("hecEndpoint"),
 //   	hecEndpointType: jsii.String("hecEndpointType"),
@@ -3029,35 +3143,38 @@ type CfnDeliveryStream_SerializerProperty struct {
 //
 type CfnDeliveryStream_SplunkDestinationConfigurationProperty struct {
 	// The HTTP Event Collector (HEC) endpoint to which Kinesis Data Firehose sends your data.
-	HecEndpoint *string `json:"hecEndpoint" yaml:"hecEndpoint"`
+	HecEndpoint *string `field:"required" json:"hecEndpoint" yaml:"hecEndpoint"`
 	// This type can be either `Raw` or `Event` .
-	HecEndpointType *string `json:"hecEndpointType" yaml:"hecEndpointType"`
+	HecEndpointType *string `field:"required" json:"hecEndpointType" yaml:"hecEndpointType"`
 	// This is a GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
-	HecToken *string `json:"hecToken" yaml:"hecToken"`
+	HecToken *string `field:"required" json:"hecToken" yaml:"hecToken"`
 	// The configuration for the backup Amazon S3 location.
-	S3Configuration interface{} `json:"s3Configuration" yaml:"s3Configuration"`
+	S3Configuration interface{} `field:"required" json:"s3Configuration" yaml:"s3Configuration"`
 	// The Amazon CloudWatch logging options for your delivery stream.
-	CloudWatchLoggingOptions interface{} `json:"cloudWatchLoggingOptions" yaml:"cloudWatchLoggingOptions"`
+	CloudWatchLoggingOptions interface{} `field:"optional" json:"cloudWatchLoggingOptions" yaml:"cloudWatchLoggingOptions"`
 	// The amount of time that Kinesis Data Firehose waits to receive an acknowledgment from Splunk after it sends it data.
 	//
 	// At the end of the timeout period, Kinesis Data Firehose either tries to send the data again or considers it an error, based on your retry settings.
-	HecAcknowledgmentTimeoutInSeconds *float64 `json:"hecAcknowledgmentTimeoutInSeconds" yaml:"hecAcknowledgmentTimeoutInSeconds"`
+	HecAcknowledgmentTimeoutInSeconds *float64 `field:"optional" json:"hecAcknowledgmentTimeoutInSeconds" yaml:"hecAcknowledgmentTimeoutInSeconds"`
 	// The data processing configuration.
-	ProcessingConfiguration interface{} `json:"processingConfiguration" yaml:"processingConfiguration"`
+	ProcessingConfiguration interface{} `field:"optional" json:"processingConfiguration" yaml:"processingConfiguration"`
 	// The retry behavior in case Kinesis Data Firehose is unable to deliver data to Splunk, or if it doesn't receive an acknowledgment of receipt from Splunk.
-	RetryOptions interface{} `json:"retryOptions" yaml:"retryOptions"`
+	RetryOptions interface{} `field:"optional" json:"retryOptions" yaml:"retryOptions"`
 	// Defines how documents should be delivered to Amazon S3.
 	//
 	// When set to `FailedEventsOnly` , Kinesis Data Firehose writes any data that could not be indexed to the configured Amazon S3 destination. When set to `AllEvents` , Kinesis Data Firehose delivers all incoming records to Amazon S3, and also writes failed documents to Amazon S3. The default value is `FailedEventsOnly` .
 	//
 	// You can update this backup mode from `FailedEventsOnly` to `AllEvents` . You can't update it from `AllEvents` to `FailedEventsOnly` .
-	S3BackupMode *string `json:"s3BackupMode" yaml:"s3BackupMode"`
+	S3BackupMode *string `field:"optional" json:"s3BackupMode" yaml:"s3BackupMode"`
 }
 
 // The `SplunkRetryOptions` property type specifies retry behavior in case Kinesis Data Firehose is unable to deliver documents to Splunk or if it doesn't receive an acknowledgment from Splunk.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   splunkRetryOptionsProperty := &splunkRetryOptionsProperty{
 //   	durationInSeconds: jsii.Number(123),
 //   }
@@ -3066,13 +3183,16 @@ type CfnDeliveryStream_SplunkRetryOptionsProperty struct {
 	// The total amount of time that Kinesis Data Firehose spends on retries.
 	//
 	// This duration starts after the initial attempt to send data to Splunk fails. It doesn't include the periods during which Kinesis Data Firehose waits for acknowledgment from Splunk after each attempt.
-	DurationInSeconds *float64 `json:"durationInSeconds" yaml:"durationInSeconds"`
+	DurationInSeconds *float64 `field:"optional" json:"durationInSeconds" yaml:"durationInSeconds"`
 }
 
 // The details of the VPC of the Amazon ES destination.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   vpcConfigurationProperty := &vpcConfigurationProperty{
 //   	roleArn: jsii.String("roleArn"),
 //   	securityGroupIds: []*string{
@@ -3098,23 +3218,26 @@ type CfnDeliveryStream_VpcConfigurationProperty struct {
 	// - `ec2:DeleteNetworkInterface`
 	//
 	// If you revoke these permissions after you create the delivery stream, Kinesis Data Firehose can't scale out by creating more ENIs when necessary. You might therefore see a degradation in performance.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The IDs of the security groups that you want Kinesis Data Firehose to use when it creates ENIs in the VPC of the Amazon ES destination.
 	//
 	// You can use the same security group that the Amazon ES domain uses or different ones. If you specify different security groups here, ensure that they allow outbound HTTPS traffic to the Amazon ES domain's security group. Also ensure that the Amazon ES domain's security group allows HTTPS traffic from the security groups specified here. If you use the same security group for both your delivery stream and the Amazon ES domain, make sure the security group inbound rule allows HTTPS traffic.
-	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
+	SecurityGroupIds *[]*string `field:"required" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// The IDs of the subnets that Kinesis Data Firehose uses to create ENIs in the VPC of the Amazon ES destination.
 	//
 	// Make sure that the routing tables and inbound and outbound rules allow traffic to flow from the subnets whose IDs are specified here to the subnets that have the destination Amazon ES endpoints. Kinesis Data Firehose creates at least one ENI in each of the subnets that are specified here. Do not delete or modify these ENIs.
 	//
 	// The number of ENIs that Kinesis Data Firehose creates in the subnets specified here scales up and down automatically based on throughput. To enable Kinesis Data Firehose to scale up the number of ENIs to match throughput, ensure that you have sufficient quota. To help you calculate the quota you need, assume that Kinesis Data Firehose can create up to three ENIs for this delivery stream for each of the subnets specified here.
-	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
+	SubnetIds *[]*string `field:"required" json:"subnetIds" yaml:"subnetIds"`
 }
 
 // Properties for defining a `CfnDeliveryStream`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDeliveryStreamProps := &cfnDeliveryStreamProps{
 //   	amazonopensearchserviceDestinationConfiguration: &amazonopensearchserviceDestinationConfigurationProperty{
 //   		indexName: jsii.String("indexName"),
@@ -3651,62 +3774,66 @@ type CfnDeliveryStreamProps struct {
 	// The destination in Amazon OpenSearch Service.
 	//
 	// You can specify only one destination.
-	AmazonopensearchserviceDestinationConfiguration interface{} `json:"amazonopensearchserviceDestinationConfiguration" yaml:"amazonopensearchserviceDestinationConfiguration"`
+	AmazonopensearchserviceDestinationConfiguration interface{} `field:"optional" json:"amazonopensearchserviceDestinationConfiguration" yaml:"amazonopensearchserviceDestinationConfiguration"`
 	// Specifies the type and Amazon Resource Name (ARN) of the CMK to use for Server-Side Encryption (SSE).
-	DeliveryStreamEncryptionConfigurationInput interface{} `json:"deliveryStreamEncryptionConfigurationInput" yaml:"deliveryStreamEncryptionConfigurationInput"`
+	DeliveryStreamEncryptionConfigurationInput interface{} `field:"optional" json:"deliveryStreamEncryptionConfigurationInput" yaml:"deliveryStreamEncryptionConfigurationInput"`
 	// The name of the delivery stream.
-	DeliveryStreamName *string `json:"deliveryStreamName" yaml:"deliveryStreamName"`
+	DeliveryStreamName *string `field:"optional" json:"deliveryStreamName" yaml:"deliveryStreamName"`
 	// The delivery stream type. This can be one of the following values:.
 	//
 	// - `DirectPut` : Provider applications access the delivery stream directly.
 	// - `KinesisStreamAsSource` : The delivery stream uses a Kinesis data stream as a source.
-	DeliveryStreamType *string `json:"deliveryStreamType" yaml:"deliveryStreamType"`
+	DeliveryStreamType *string `field:"optional" json:"deliveryStreamType" yaml:"deliveryStreamType"`
 	// An Amazon ES destination for the delivery stream.
 	//
 	// Conditional. You must specify only one destination configuration.
 	//
 	// If you change the delivery stream destination from an Amazon ES destination to an Amazon S3 or Amazon Redshift destination, update requires [some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt) .
-	ElasticsearchDestinationConfiguration interface{} `json:"elasticsearchDestinationConfiguration" yaml:"elasticsearchDestinationConfiguration"`
+	ElasticsearchDestinationConfiguration interface{} `field:"optional" json:"elasticsearchDestinationConfiguration" yaml:"elasticsearchDestinationConfiguration"`
 	// An Amazon S3 destination for the delivery stream.
 	//
 	// Conditional. You must specify only one destination configuration.
 	//
 	// If you change the delivery stream destination from an Amazon Extended S3 destination to an Amazon ES destination, update requires [some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt) .
-	ExtendedS3DestinationConfiguration interface{} `json:"extendedS3DestinationConfiguration" yaml:"extendedS3DestinationConfiguration"`
+	ExtendedS3DestinationConfiguration interface{} `field:"optional" json:"extendedS3DestinationConfiguration" yaml:"extendedS3DestinationConfiguration"`
 	// Enables configuring Kinesis Firehose to deliver data to any HTTP endpoint destination.
 	//
 	// You can specify only one destination.
-	HttpEndpointDestinationConfiguration interface{} `json:"httpEndpointDestinationConfiguration" yaml:"httpEndpointDestinationConfiguration"`
+	HttpEndpointDestinationConfiguration interface{} `field:"optional" json:"httpEndpointDestinationConfiguration" yaml:"httpEndpointDestinationConfiguration"`
 	// When a Kinesis stream is used as the source for the delivery stream, a [KinesisStreamSourceConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration.html) containing the Kinesis stream ARN and the role ARN for the source stream.
-	KinesisStreamSourceConfiguration interface{} `json:"kinesisStreamSourceConfiguration" yaml:"kinesisStreamSourceConfiguration"`
+	KinesisStreamSourceConfiguration interface{} `field:"optional" json:"kinesisStreamSourceConfiguration" yaml:"kinesisStreamSourceConfiguration"`
 	// An Amazon Redshift destination for the delivery stream.
 	//
 	// Conditional. You must specify only one destination configuration.
 	//
 	// If you change the delivery stream destination from an Amazon Redshift destination to an Amazon ES destination, update requires [some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt) .
-	RedshiftDestinationConfiguration interface{} `json:"redshiftDestinationConfiguration" yaml:"redshiftDestinationConfiguration"`
+	RedshiftDestinationConfiguration interface{} `field:"optional" json:"redshiftDestinationConfiguration" yaml:"redshiftDestinationConfiguration"`
 	// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
 	//
 	// Conditional. You must specify only one destination configuration.
 	//
 	// If you change the delivery stream destination from an Amazon S3 destination to an Amazon ES destination, update requires [some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt) .
-	S3DestinationConfiguration interface{} `json:"s3DestinationConfiguration" yaml:"s3DestinationConfiguration"`
+	S3DestinationConfiguration interface{} `field:"optional" json:"s3DestinationConfiguration" yaml:"s3DestinationConfiguration"`
 	// The configuration of a destination in Splunk for the delivery stream.
-	SplunkDestinationConfiguration interface{} `json:"splunkDestinationConfiguration" yaml:"splunkDestinationConfiguration"`
+	SplunkDestinationConfiguration interface{} `field:"optional" json:"splunkDestinationConfiguration" yaml:"splunkDestinationConfiguration"`
 	// A set of tags to assign to the delivery stream.
 	//
 	// A tag is a key-value pair that you can define and assign to AWS resources. Tags are metadata. For example, you can add friendly names and descriptions or other types of information that can help you distinguish the delivery stream. For more information about tags, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the AWS Billing and Cost Management User Guide.
 	//
 	// You can specify up to 50 tags when creating a delivery stream.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // Options when binding a DataProcessor to a delivery stream destination.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var role role
+//
 //   dataProcessorBindOptions := &dataProcessorBindOptions{
 //   	role: role,
 //   }
@@ -3715,13 +3842,16 @@ type CfnDeliveryStreamProps struct {
 type DataProcessorBindOptions struct {
 	// The IAM role assumed by Kinesis Data Firehose to write to the destination that this DataProcessor will bind to.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"required" json:"role" yaml:"role"`
 }
 
 // The full configuration of a data processor.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dataProcessorConfig := &dataProcessorConfig{
 //   	processorIdentifier: &dataProcessorIdentifier{
 //   		parameterName: jsii.String("parameterName"),
@@ -3734,7 +3864,7 @@ type DataProcessorBindOptions struct {
 type DataProcessorConfig struct {
 	// The key-value pair that identifies the underlying processor resource.
 	// Experimental.
-	ProcessorIdentifier *DataProcessorIdentifier `json:"processorIdentifier" yaml:"processorIdentifier"`
+	ProcessorIdentifier *DataProcessorIdentifier `field:"required" json:"processorIdentifier" yaml:"processorIdentifier"`
 	// The type of the underlying processor resource.
 	//
 	// Must be an accepted value in `CfnDeliveryStream.ProcessorProperty.Type`.
@@ -3745,13 +3875,16 @@ type DataProcessorConfig struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processor.html#cfn-kinesisfirehose-deliverystream-processor-type
 	//
 	// Experimental.
-	ProcessorType *string `json:"processorType" yaml:"processorType"`
+	ProcessorType *string `field:"required" json:"processorType" yaml:"processorType"`
 }
 
 // The key-value pair that identifies the underlying processor resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dataProcessorIdentifier := &dataProcessorIdentifier{
 //   	parameterName: jsii.String("parameterName"),
 //   	parameterValue: jsii.String("parameterValue"),
@@ -3765,16 +3898,23 @@ type DataProcessorIdentifier struct {
 	//
 	// Must be an accepted value in `CfnDeliveryStream.ProcessoryParameterProperty.ParameterName`.
 	// Experimental.
-	ParameterName *string `json:"parameterName" yaml:"parameterName"`
+	ParameterName *string `field:"required" json:"parameterName" yaml:"parameterName"`
 	// The identifier of the underlying processor resource.
 	// Experimental.
-	ParameterValue *string `json:"parameterValue" yaml:"parameterValue"`
+	ParameterValue *string `field:"required" json:"parameterValue" yaml:"parameterValue"`
 }
 
 // Configure the data processor.
 //
 // Example:
-//   import path "github.com/aws-samples/dummy/path"import firehose "github.com/aws/aws-cdk-go/awscdk"import kms "github.com/aws/aws-cdk-go/awscdk"import lambdanodejs "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk"import s3 "github.com/aws/aws-cdk-go/awscdk"import cdk "github.com/aws/aws-cdk-go/awscdk"import destinations "github.com/aws/aws-cdk-go/awscdk"
+//   import path "github.com/aws-samples/dummy/path"
+//   import firehose "github.com/aws/aws-cdk-go/awscdk"
+//   import kms "github.com/aws/aws-cdk-go/awscdk"
+//   import lambdanodejs "github.com/aws/aws-cdk-go/awscdk"
+//   import logs "github.com/aws/aws-cdk-go/awscdk"
+//   import s3 "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import destinations "github.com/aws/aws-cdk-go/awscdk"
 //
 //   app := cdk.NewApp()
 //
@@ -3846,19 +3986,20 @@ type DataProcessorProps struct {
 	//
 	// s.
 	// Experimental.
-	BufferInterval awscdk.Duration `json:"bufferInterval" yaml:"bufferInterval"`
+	BufferInterval awscdk.Duration `field:"optional" json:"bufferInterval" yaml:"bufferInterval"`
 	// The amount of incoming data Kinesis Data Firehose will buffer before calling the processor.
 	// Experimental.
-	BufferSize awscdk.Size `json:"bufferSize" yaml:"bufferSize"`
+	BufferSize awscdk.Size `field:"optional" json:"bufferSize" yaml:"bufferSize"`
 	// The number of times Kinesis Data Firehose will retry the processor invocation after a failure due to network timeout or invocation limits.
 	// Experimental.
-	Retries *float64 `json:"retries" yaml:"retries"`
+	Retries *float64 `field:"optional" json:"retries" yaml:"retries"`
 }
 
 // Create a Kinesis Data Firehose delivery stream.
 //
 // Example:
-//   var bucket bucket// Provide a Lambda function that will transform records before delivery, with custom
+//   var bucket bucket
+//   // Provide a Lambda function that will transform records before delivery, with custom
 //   // buffering and retry configuration
 //   lambdaFunction := lambda.NewFunction(this, jsii.String("Processor"), &functionProps{
 //   	runtime: lambda.runtime_NODEJS_12_X(),
@@ -3866,8 +4007,8 @@ type DataProcessorProps struct {
 //   	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("process-records"))),
 //   })
 //   lambdaProcessor := firehose.NewLambdaFunctionProcessor(lambdaFunction, &dataProcessorProps{
-//   	bufferInterval: duration.minutes(jsii.Number(5)),
-//   	bufferSize: size.mebibytes(jsii.Number(5)),
+//   	bufferInterval: awscdk.Duration.minutes(jsii.Number(5)),
+//   	bufferSize: awscdk.Size.mebibytes(jsii.Number(5)),
 //   	retries: jsii.Number(5),
 //   })
 //   s3Destination := destinations.NewS3Bucket(bucket, &s3BucketProps{
@@ -4465,9 +4606,13 @@ func (d *jsiiProxy_DeliveryStream) Validate() *[]*string {
 // A full specification of a delivery stream that can be used to import it fluently into the CDK application.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var role role
+//
 //   deliveryStreamAttributes := &deliveryStreamAttributes{
 //   	deliveryStreamArn: jsii.String("deliveryStreamArn"),
 //   	deliveryStreamName: jsii.String("deliveryStreamName"),
@@ -4480,23 +4625,24 @@ type DeliveryStreamAttributes struct {
 	//
 	// At least one of deliveryStreamArn and deliveryStreamName must be provided.
 	// Experimental.
-	DeliveryStreamArn *string `json:"deliveryStreamArn" yaml:"deliveryStreamArn"`
+	DeliveryStreamArn *string `field:"optional" json:"deliveryStreamArn" yaml:"deliveryStreamArn"`
 	// The name of the delivery stream.
 	//
 	// At least one of deliveryStreamName and deliveryStreamArn  must be provided.
 	// Experimental.
-	DeliveryStreamName *string `json:"deliveryStreamName" yaml:"deliveryStreamName"`
+	DeliveryStreamName *string `field:"optional" json:"deliveryStreamName" yaml:"deliveryStreamName"`
 	// The IAM role associated with this delivery stream.
 	//
 	// Assumed by Kinesis Data Firehose to read from sources and encrypt data server-side.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 }
 
 // Properties for a new delivery stream.
 //
 // Example:
-//   var bucket bucket// Provide a Lambda function that will transform records before delivery, with custom
+//   var bucket bucket
+//   // Provide a Lambda function that will transform records before delivery, with custom
 //   // buffering and retry configuration
 //   lambdaFunction := lambda.NewFunction(this, jsii.String("Processor"), &functionProps{
 //   	runtime: lambda.runtime_NODEJS_12_X(),
@@ -4504,8 +4650,8 @@ type DeliveryStreamAttributes struct {
 //   	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("process-records"))),
 //   })
 //   lambdaProcessor := firehose.NewLambdaFunctionProcessor(lambdaFunction, &dataProcessorProps{
-//   	bufferInterval: duration.minutes(jsii.Number(5)),
-//   	bufferSize: size.mebibytes(jsii.Number(5)),
+//   	bufferInterval: awscdk.Duration.minutes(jsii.Number(5)),
+//   	bufferSize: awscdk.Size.mebibytes(jsii.Number(5)),
 //   	retries: jsii.Number(5),
 //   })
 //   s3Destination := destinations.NewS3Bucket(bucket, &s3BucketProps{
@@ -4523,30 +4669,33 @@ type DeliveryStreamProps struct {
 	//
 	// Only a singleton array is supported at this time.
 	// Experimental.
-	Destinations *[]IDestination `json:"destinations" yaml:"destinations"`
+	Destinations *[]IDestination `field:"required" json:"destinations" yaml:"destinations"`
 	// A name for the delivery stream.
 	// Experimental.
-	DeliveryStreamName *string `json:"deliveryStreamName" yaml:"deliveryStreamName"`
+	DeliveryStreamName *string `field:"optional" json:"deliveryStreamName" yaml:"deliveryStreamName"`
 	// Indicates the type of customer master key (CMK) to use for server-side encryption, if any.
 	// Experimental.
-	Encryption StreamEncryption `json:"encryption" yaml:"encryption"`
+	Encryption StreamEncryption `field:"optional" json:"encryption" yaml:"encryption"`
 	// Customer managed key to server-side encrypt data in the stream.
 	// Experimental.
-	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
+	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// The IAM role associated with this delivery stream.
 	//
 	// Assumed by Kinesis Data Firehose to read from sources and encrypt data server-side.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The Kinesis data stream to use as a source for this delivery stream.
 	// Experimental.
-	SourceStream awskinesis.IStream `json:"sourceStream" yaml:"sourceStream"`
+	SourceStream awskinesis.IStream `field:"optional" json:"sourceStream" yaml:"sourceStream"`
 }
 
 // Options when binding a destination to a delivery stream.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   destinationBindOptions := &destinationBindOptions{
 //   }
 //
@@ -4557,9 +4706,13 @@ type DestinationBindOptions struct {
 // A Kinesis Data Firehose delivery stream destination configuration.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesisfirehose "github.com/aws/aws-cdk-go/awscdk/aws_kinesisfirehose"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var dependable iDependable
+//
 //   destinationConfig := &destinationConfig{
 //   	dependables: []*iDependable{
 //   		dependable,
@@ -4694,10 +4847,10 @@ type DestinationBindOptions struct {
 type DestinationConfig struct {
 	// Any resources that were created by the destination when binding it to the stack that must be deployed before the delivery stream is deployed.
 	// Experimental.
-	Dependables *[]awscdk.IDependable `json:"dependables" yaml:"dependables"`
+	Dependables *[]awscdk.IDependable `field:"optional" json:"dependables" yaml:"dependables"`
 	// S3 destination configuration properties.
 	// Experimental.
-	ExtendedS3DestinationConfiguration *CfnDeliveryStream_ExtendedS3DestinationConfigurationProperty `json:"extendedS3DestinationConfiguration" yaml:"extendedS3DestinationConfiguration"`
+	ExtendedS3DestinationConfiguration *CfnDeliveryStream_ExtendedS3DestinationConfigurationProperty `field:"optional" json:"extendedS3DestinationConfiguration" yaml:"extendedS3DestinationConfiguration"`
 }
 
 // A data processor that Kinesis Data Firehose will call to transform records before delivering data.
@@ -5017,7 +5170,14 @@ func (i *jsiiProxy_IDestination) Bind(scope constructs.Construct, options *Desti
 // Use an AWS Lambda function to transform records.
 //
 // Example:
-//   import path "github.com/aws-samples/dummy/path"import firehose "github.com/aws/aws-cdk-go/awscdk"import kms "github.com/aws/aws-cdk-go/awscdk"import lambdanodejs "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk"import s3 "github.com/aws/aws-cdk-go/awscdk"import cdk "github.com/aws/aws-cdk-go/awscdk"import destinations "github.com/aws/aws-cdk-go/awscdk"
+//   import path "github.com/aws-samples/dummy/path"
+//   import firehose "github.com/aws/aws-cdk-go/awscdk"
+//   import kms "github.com/aws/aws-cdk-go/awscdk"
+//   import lambdanodejs "github.com/aws/aws-cdk-go/awscdk"
+//   import logs "github.com/aws/aws-cdk-go/awscdk"
+//   import s3 "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import destinations "github.com/aws/aws-cdk-go/awscdk"
 //
 //   app := cdk.NewApp()
 //
@@ -5158,6 +5318,7 @@ func (l *jsiiProxy_LambdaFunctionProcessor) Bind(_scope constructs.Construct, op
 //   var destination iDestination
 //   // SSE with an customer-managed CMK that is explicitly specified
 //   var key key
+//
 //
 //   // SSE with an AWS-owned CMK
 //   // SSE with an AWS-owned CMK

@@ -23,10 +23,12 @@ import (
 // `ApiGatewayDomain` class.
 //
 // Example:
-//   import route53 "github.com/aws/aws-cdk-go/awscdk"import targets "github.com/aws/aws-cdk-go/awscdk"
+//   import route53 "github.com/aws/aws-cdk-go/awscdk"
+//   import targets "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var api restApi
 //   var hostedZoneForExampleCom interface{}
+//
 //
 //   route53.NewARecord(this, jsii.String("CustomDomainAliasRecord"), &aRecordProps{
 //   	zone: hostedZoneForExampleCom,
@@ -92,7 +94,11 @@ func (a *jsiiProxy_ApiGateway) Bind(_record awsroute53.IRecordSet, _zone awsrout
 //
 // Example:
 //   var hostedZoneForExampleCom interface{}
-//   var domainName domainNameimport route53 "github.com/aws/aws-cdk-go/awscdk"import targets "github.com/aws/aws-cdk-go/awscdk"
+//   var domainName domainName
+//
+//   import route53 "github.com/aws/aws-cdk-go/awscdk"
+//   import targets "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   route53.NewARecord(this, jsii.String("CustomDomainAliasRecord"), &aRecordProps{
 //   	zone: hostedZoneForExampleCom,
@@ -159,6 +165,7 @@ func (a *jsiiProxy_ApiGatewayDomain) Bind(_record awsroute53.IRecordSet, _zone a
 //   var zone hostedZone
 //   var domainName domainName
 //
+//
 //   route53.NewARecord(this, jsii.String("AliasRecord"), &aRecordProps{
 //   	zone: zone,
 //   	target: route53.recordTarget.fromAlias(targets.NewApiGatewayv2DomainProperties(domainName.regionalDomainName, domainName.regionalHostedZoneId)),
@@ -220,6 +227,7 @@ func (a *jsiiProxy_ApiGatewayv2DomainProperties) Bind(_record awsroute53.IRecord
 //
 // Example:
 //   import s3 "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   recordName := "www"
 //   domainName := "example.com"
@@ -306,6 +314,7 @@ func (b *jsiiProxy_BucketWebsiteTarget) Bind(_record awsroute53.IRecordSet, _zon
 //   var zone hostedZone
 //   var lb loadBalancer
 //
+//
 //   route53.NewARecord(this, jsii.String("AliasRecord"), &aRecordProps{
 //   	zone: zone,
 //   	target: route53.recordTarget.fromAlias(targets.NewClassicLoadBalancerTarget(lb)),
@@ -370,6 +379,7 @@ func (c *jsiiProxy_ClassicLoadBalancerTarget) Bind(_record awsroute53.IRecordSet
 //
 //   var myZone hostedZone
 //   var distribution cloudFrontWebDistribution
+//
 //   route53.NewAaaaRecord(this, jsii.String("Alias"), &aaaaRecordProps{
 //   	zone: myZone,
 //   	target: route53.recordTarget.fromAlias(targets.NewCloudFrontTarget(distribution)),
@@ -463,6 +473,7 @@ func (c *jsiiProxy_CloudFrontTarget) Bind(_record awsroute53.IRecordSet, _zone a
 //   var zone hostedZone
 //   var ebsEnvironmentUrl string
 //
+//
 //   route53.NewARecord(this, jsii.String("AliasRecord"), &aRecordProps{
 //   	zone: zone,
 //   	target: route53.recordTarget.fromAlias(targets.NewElasticBeanstalkEnvironmentEndpointTarget(ebsEnvironmentUrl)),
@@ -523,8 +534,11 @@ func (e *jsiiProxy_ElasticBeanstalkEnvironmentEndpointTarget) Bind(_record awsro
 // Use a Global Accelerator domain name as an alias record target.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53_targets "github.com/aws/aws-cdk-go/awscdk/aws_route53_targets"
-//   globalAcceleratorDomainTarget := route53_targets.NewGlobalAcceleratorDomainTarget(jsii.String("acceleratorDomainName"))
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   globalAcceleratorDomainTarget := awscdk.Aws_route53_targets.NewGlobalAcceleratorDomainTarget(jsii.String("acceleratorDomainName"))
 //
 // Experimental.
 type GlobalAcceleratorDomainTarget interface {
@@ -598,6 +612,7 @@ func (g *jsiiProxy_GlobalAcceleratorDomainTarget) Bind(_record awsroute53.IRecor
 //
 //   var zone hostedZone
 //   var accelerator accelerator
+//
 //
 //   route53.NewARecord(this, jsii.String("AliasRecord"), &aRecordProps{
 //   	zone: zone,
@@ -677,6 +692,7 @@ func (g *jsiiProxy_GlobalAcceleratorTarget) Bind(_record awsroute53.IRecordSet, 
 //   var zone hostedZone
 //   var interfaceVpcEndpoint interfaceVpcEndpoint
 //
+//
 //   route53.NewARecord(this, jsii.String("AliasRecord"), &aRecordProps{
 //   	zone: zone,
 //   	target: route53.recordTarget.fromAlias(targets.NewInterfaceVpcEndpointTarget(interfaceVpcEndpoint)),
@@ -742,6 +758,7 @@ func (i *jsiiProxy_InterfaceVpcEndpointTarget) Bind(_record awsroute53.IRecordSe
 //   var zone hostedZone
 //   var lb applicationLoadBalancer
 //
+//
 //   route53.NewARecord(this, jsii.String("AliasRecord"), &aRecordProps{
 //   	zone: zone,
 //   	target: route53.recordTarget.fromAlias(targets.NewLoadBalancerTarget(lb)),
@@ -804,6 +821,7 @@ func (l *jsiiProxy_LoadBalancerTarget) Bind(_record awsroute53.IRecordSet, _zone
 // Example:
 //   var zone hostedZone
 //   var record aRecord
+//
 //   route53.NewARecord(this, jsii.String("AliasRecord"), &aRecordProps{
 //   	zone: zone,
 //   	target: route53.recordTarget.fromAlias(targets.NewRoute53RecordTarget(record)),
@@ -868,6 +886,7 @@ func (r *jsiiProxy_Route53RecordTarget) Bind(_record awsroute53.IRecordSet, zone
 //
 //   var zone hostedZone
 //   var domain userPoolDomain
+//
 //   route53.NewARecord(this, jsii.String("AliasRecord"), &aRecordProps{
 //   	zone: zone,
 //   	target: route53.recordTarget.fromAlias(targets.NewUserPoolDomainTarget(domain)),

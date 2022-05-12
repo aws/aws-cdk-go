@@ -15,7 +15,10 @@ import (
 //
 // Example:
 //   // Example automatically generated from non-compiling source. May contain errors.
-//   import lambda "github.com/aws/aws-cdk-go/awscdk"import s3 "github.com/aws/aws-cdk-go/awscdk"import s3objectlambda "github.com/aws/aws-cdk-go/awscdk"import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import lambda "github.com/aws/aws-cdk-go/awscdk"
+//   import s3 "github.com/aws/aws-cdk-go/awscdk"
+//   import s3objectlambda "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //
 //   stack := cdk.NewStack()
@@ -470,7 +473,10 @@ func (a *jsiiProxy_AccessPoint) VirtualHostedUrlForObject(key *string, options *
 // The access point resource attributes.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3objectlambda "github.com/aws/aws-cdk-go/awscdk/aws_s3objectlambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   accessPointAttributes := &accessPointAttributes{
 //   	accessPointArn: jsii.String("accessPointArn"),
 //   	accessPointCreationDate: jsii.String("accessPointCreationDate"),
@@ -480,17 +486,20 @@ func (a *jsiiProxy_AccessPoint) VirtualHostedUrlForObject(key *string, options *
 type AccessPointAttributes struct {
 	// The ARN of the access point.
 	// Experimental.
-	AccessPointArn *string `json:"accessPointArn" yaml:"accessPointArn"`
+	AccessPointArn *string `field:"required" json:"accessPointArn" yaml:"accessPointArn"`
 	// The creation data of the access point.
 	// Experimental.
-	AccessPointCreationDate *string `json:"accessPointCreationDate" yaml:"accessPointCreationDate"`
+	AccessPointCreationDate *string `field:"required" json:"accessPointCreationDate" yaml:"accessPointCreationDate"`
 }
 
 // The S3 object lambda access point configuration.
 //
 // Example:
 //   // Example automatically generated from non-compiling source. May contain errors.
-//   import lambda "github.com/aws/aws-cdk-go/awscdk"import s3 "github.com/aws/aws-cdk-go/awscdk"import s3objectlambda "github.com/aws/aws-cdk-go/awscdk"import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import lambda "github.com/aws/aws-cdk-go/awscdk"
+//   import s3 "github.com/aws/aws-cdk-go/awscdk"
+//   import s3objectlambda "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //
 //   stack := cdk.NewStack()
@@ -513,25 +522,25 @@ type AccessPointAttributes struct {
 type AccessPointProps struct {
 	// The bucket to which this access point belongs.
 	// Experimental.
-	Bucket awss3.IBucket `json:"bucket" yaml:"bucket"`
+	Bucket awss3.IBucket `field:"required" json:"bucket" yaml:"bucket"`
 	// The Lambda function used to transform objects.
 	// Experimental.
-	Handler awslambda.IFunction `json:"handler" yaml:"handler"`
+	Handler awslambda.IFunction `field:"required" json:"handler" yaml:"handler"`
 	// The name of the S3 object lambda access point.
 	// Experimental.
-	AccessPointName *string `json:"accessPointName" yaml:"accessPointName"`
+	AccessPointName *string `field:"optional" json:"accessPointName" yaml:"accessPointName"`
 	// Whether CloudWatch metrics are enabled for the access point.
 	// Experimental.
-	CloudWatchMetricsEnabled *bool `json:"cloudWatchMetricsEnabled" yaml:"cloudWatchMetricsEnabled"`
+	CloudWatchMetricsEnabled *bool `field:"optional" json:"cloudWatchMetricsEnabled" yaml:"cloudWatchMetricsEnabled"`
 	// Additional JSON that provides supplemental data passed to the Lambda function on every request.
 	// Experimental.
-	Payload *map[string]interface{} `json:"payload" yaml:"payload"`
+	Payload *map[string]interface{} `field:"optional" json:"payload" yaml:"payload"`
 	// Whether the Lambda function can process `GetObject-PartNumber` requests.
 	// Experimental.
-	SupportsGetObjectPartNumber *bool `json:"supportsGetObjectPartNumber" yaml:"supportsGetObjectPartNumber"`
+	SupportsGetObjectPartNumber *bool `field:"optional" json:"supportsGetObjectPartNumber" yaml:"supportsGetObjectPartNumber"`
 	// Whether the Lambda function can process `GetObject-Range` requests.
 	// Experimental.
-	SupportsGetObjectRange *bool `json:"supportsGetObjectRange" yaml:"supportsGetObjectRange"`
+	SupportsGetObjectRange *bool `field:"optional" json:"supportsGetObjectRange" yaml:"supportsGetObjectRange"`
 }
 
 // A CloudFormation `AWS::S3ObjectLambda::AccessPoint`.
@@ -539,10 +548,13 @@ type AccessPointProps struct {
 // The `AWS::S3ObjectLambda::AccessPoint` resource specifies an Object Lambda Access Point used to access a bucket.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3objectlambda "github.com/aws/aws-cdk-go/awscdk/aws_s3objectlambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var contentTransformation interface{}
-//   cfnAccessPoint := s3objectlambda.NewCfnAccessPoint(this, jsii.String("MyCfnAccessPoint"), &cfnAccessPointProps{
+//
+//   cfnAccessPoint := awscdk.Aws_s3objectlambda.NewCfnAccessPoint(this, jsii.String("MyCfnAccessPoint"), &cfnAccessPointProps{
 //   	objectLambdaConfiguration: &objectLambdaConfigurationProperty{
 //   		supportingAccessPoint: jsii.String("supportingAccessPoint"),
 //   		transformationConfigurations: []interface{}{
@@ -1239,9 +1251,12 @@ func (c *jsiiProxy_CfnAccessPoint) ValidateProperties(_properties interface{}) {
 // A configuration used when creating an Object Lambda Access Point.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3objectlambda "github.com/aws/aws-cdk-go/awscdk/aws_s3objectlambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var contentTransformation interface{}
+//
 //   objectLambdaConfigurationProperty := &objectLambdaConfigurationProperty{
 //   	supportingAccessPoint: jsii.String("supportingAccessPoint"),
 //   	transformationConfigurations: []interface{}{
@@ -1262,23 +1277,26 @@ func (c *jsiiProxy_CfnAccessPoint) ValidateProperties(_properties interface{}) {
 //
 type CfnAccessPoint_ObjectLambdaConfigurationProperty struct {
 	// Standard access point associated with the Object Lambda Access Point.
-	SupportingAccessPoint *string `json:"supportingAccessPoint" yaml:"supportingAccessPoint"`
+	SupportingAccessPoint *string `field:"required" json:"supportingAccessPoint" yaml:"supportingAccessPoint"`
 	// A container for transformation configurations for an Object Lambda Access Point.
-	TransformationConfigurations interface{} `json:"transformationConfigurations" yaml:"transformationConfigurations"`
+	TransformationConfigurations interface{} `field:"required" json:"transformationConfigurations" yaml:"transformationConfigurations"`
 	// A container for allowed features.
 	//
 	// Valid inputs are `GetObject-Range` and `GetObject-PartNumber` .
-	AllowedFeatures *[]*string `json:"allowedFeatures" yaml:"allowedFeatures"`
+	AllowedFeatures *[]*string `field:"optional" json:"allowedFeatures" yaml:"allowedFeatures"`
 	// A container for whether the CloudWatch metrics configuration is enabled.
-	CloudWatchMetricsEnabled interface{} `json:"cloudWatchMetricsEnabled" yaml:"cloudWatchMetricsEnabled"`
+	CloudWatchMetricsEnabled interface{} `field:"optional" json:"cloudWatchMetricsEnabled" yaml:"cloudWatchMetricsEnabled"`
 }
 
 // A configuration used when creating an Object Lambda Access Point transformation.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3objectlambda "github.com/aws/aws-cdk-go/awscdk/aws_s3objectlambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var contentTransformation interface{}
+//
 //   transformationConfigurationProperty := &transformationConfigurationProperty{
 //   	actions: []*string{
 //   		jsii.String("actions"),
@@ -1290,11 +1308,11 @@ type CfnAccessPoint_TransformationConfigurationProperty struct {
 	// A container for the action of an Object Lambda Access Point configuration.
 	//
 	// Valid input is `GetObject` .
-	Actions *[]*string `json:"actions" yaml:"actions"`
+	Actions *[]*string `field:"required" json:"actions" yaml:"actions"`
 	// A container for the content transformation of an Object Lambda Access Point configuration.
 	//
 	// Can include the FunctionArn and FunctionPayload. For more information, see [AwsLambdaTransformation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_AwsLambdaTransformation.html) in the *Amazon S3 API Reference* .
-	ContentTransformation interface{} `json:"contentTransformation" yaml:"contentTransformation"`
+	ContentTransformation interface{} `field:"required" json:"contentTransformation" yaml:"contentTransformation"`
 }
 
 // A CloudFormation `AWS::S3ObjectLambda::AccessPointPolicy`.
@@ -1302,10 +1320,13 @@ type CfnAccessPoint_TransformationConfigurationProperty struct {
 // The `AWS::S3ObjectLambda::AccessPointPolicy` resource specifies the Object Lambda Access Point resource policy document.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3objectlambda "github.com/aws/aws-cdk-go/awscdk/aws_s3objectlambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var policyDocument interface{}
-//   cfnAccessPointPolicy := s3objectlambda.NewCfnAccessPointPolicy(this, jsii.String("MyCfnAccessPointPolicy"), &cfnAccessPointPolicyProps{
+//
+//   cfnAccessPointPolicy := awscdk.Aws_s3objectlambda.NewCfnAccessPointPolicy(this, jsii.String("MyCfnAccessPointPolicy"), &cfnAccessPointPolicyProps{
 //   	objectLambdaAccessPoint: jsii.String("objectLambdaAccessPoint"),
 //   	policyDocument: policyDocument,
 //   })
@@ -1960,9 +1981,12 @@ func (c *jsiiProxy_CfnAccessPointPolicy) ValidateProperties(_properties interfac
 // Properties for defining a `CfnAccessPointPolicy`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3objectlambda "github.com/aws/aws-cdk-go/awscdk/aws_s3objectlambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var policyDocument interface{}
+//
 //   cfnAccessPointPolicyProps := &cfnAccessPointPolicyProps{
 //   	objectLambdaAccessPoint: jsii.String("objectLambdaAccessPoint"),
 //   	policyDocument: policyDocument,
@@ -1970,17 +1994,20 @@ func (c *jsiiProxy_CfnAccessPointPolicy) ValidateProperties(_properties interfac
 //
 type CfnAccessPointPolicyProps struct {
 	// An access point with an attached AWS Lambda function used to access transformed data from an Amazon S3 bucket.
-	ObjectLambdaAccessPoint *string `json:"objectLambdaAccessPoint" yaml:"objectLambdaAccessPoint"`
+	ObjectLambdaAccessPoint *string `field:"required" json:"objectLambdaAccessPoint" yaml:"objectLambdaAccessPoint"`
 	// Object Lambda Access Point resource policy document.
-	PolicyDocument interface{} `json:"policyDocument" yaml:"policyDocument"`
+	PolicyDocument interface{} `field:"required" json:"policyDocument" yaml:"policyDocument"`
 }
 
 // Properties for defining a `CfnAccessPoint`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3objectlambda "github.com/aws/aws-cdk-go/awscdk/aws_s3objectlambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var contentTransformation interface{}
+//
 //   cfnAccessPointProps := &cfnAccessPointProps{
 //   	objectLambdaConfiguration: &objectLambdaConfigurationProperty{
 //   		supportingAccessPoint: jsii.String("supportingAccessPoint"),
@@ -2006,9 +2033,9 @@ type CfnAccessPointPolicyProps struct {
 //
 type CfnAccessPointProps struct {
 	// A configuration used when creating an Object Lambda Access Point.
-	ObjectLambdaConfiguration interface{} `json:"objectLambdaConfiguration" yaml:"objectLambdaConfiguration"`
+	ObjectLambdaConfiguration interface{} `field:"required" json:"objectLambdaConfiguration" yaml:"objectLambdaConfiguration"`
 	// The name of this access point.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 
 // The interface that represents the AccessPoint resource.

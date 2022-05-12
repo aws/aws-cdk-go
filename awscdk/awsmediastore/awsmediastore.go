@@ -16,8 +16,11 @@ import (
 // When you create a container using AWS CloudFormation , the template manages data for five API actions: creating a container, setting access logging, updating the default container policy, adding a cross-origin resource sharing (CORS) policy, and adding an object lifecycle policy.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediastore "github.com/aws/aws-cdk-go/awscdk/aws_mediastore"
-//   cfnContainer := mediastore.NewCfnContainer(this, jsii.String("MyCfnContainer"), &cfnContainerProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnContainer := awscdk.Aws_mediastore.NewCfnContainer(this, jsii.String("MyCfnContainer"), &cfnContainerProps{
 //   	containerName: jsii.String("containerName"),
 //
 //   	// the properties below are optional
@@ -840,7 +843,10 @@ func (c *jsiiProxy_CfnContainer) ValidateProperties(_properties interface{}) {
 // You can add up to 100 rules to a CORS policy. If more than one rule applies, the service uses the first applicable rule listed.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediastore "github.com/aws/aws-cdk-go/awscdk/aws_mediastore"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   corsRuleProperty := &corsRuleProperty{
 //   	allowedHeaders: []*string{
 //   		jsii.String("allowedHeaders"),
@@ -863,23 +869,23 @@ type CfnContainer_CorsRuleProperty struct {
 	// Each header name that is specified in `Access-Control-Request-Headers` must have a corresponding entry in the rule. Only the headers that were requested are sent back.
 	//
 	// This element can contain only one wildcard character (*).
-	AllowedHeaders *[]*string `json:"allowedHeaders" yaml:"allowedHeaders"`
+	AllowedHeaders *[]*string `field:"optional" json:"allowedHeaders" yaml:"allowedHeaders"`
 	// Identifies an HTTP method that the origin that is specified in the rule is allowed to execute.
 	//
 	// Each CORS rule must contain at least one `AllowedMethods` and one `AllowedOrigins` element.
-	AllowedMethods *[]*string `json:"allowedMethods" yaml:"allowedMethods"`
+	AllowedMethods *[]*string `field:"optional" json:"allowedMethods" yaml:"allowedMethods"`
 	// One or more response headers that you want users to be able to access from their applications (for example, from a JavaScript `XMLHttpRequest` object).
 	//
 	// Each CORS rule must have at least one `AllowedOrigins` element. The string value can include only one wildcard character (*), for example, http://*.example.com. Additionally, you can specify only one wildcard character to allow cross-origin access for all origins.
-	AllowedOrigins *[]*string `json:"allowedOrigins" yaml:"allowedOrigins"`
+	AllowedOrigins *[]*string `field:"optional" json:"allowedOrigins" yaml:"allowedOrigins"`
 	// One or more headers in the response that you want users to be able to access from their applications (for example, from a JavaScript `XMLHttpRequest` object).
 	//
 	// This element is optional for each rule.
-	ExposeHeaders *[]*string `json:"exposeHeaders" yaml:"exposeHeaders"`
+	ExposeHeaders *[]*string `field:"optional" json:"exposeHeaders" yaml:"exposeHeaders"`
 	// The time in seconds that your browser caches the preflight response for the specified resource.
 	//
 	// A CORS rule can have only one `MaxAgeSeconds` element.
-	MaxAgeSeconds *float64 `json:"maxAgeSeconds" yaml:"maxAgeSeconds"`
+	MaxAgeSeconds *float64 `field:"optional" json:"maxAgeSeconds" yaml:"maxAgeSeconds"`
 }
 
 // The metric policy that is associated with the container.
@@ -889,7 +895,10 @@ type CfnContainer_CorsRuleProperty struct {
 // To view examples of how to construct a metric policy for your use case, see [Example Metric Policies](https://docs.aws.amazon.com/mediastore/latest/ug/policies-metric-examples.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediastore "github.com/aws/aws-cdk-go/awscdk/aws_mediastore"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   metricPolicyProperty := &metricPolicyProperty{
 //   	containerLevelMetrics: jsii.String("containerLevelMetrics"),
 //
@@ -904,11 +913,11 @@ type CfnContainer_CorsRuleProperty struct {
 //
 type CfnContainer_MetricPolicyProperty struct {
 	// A setting to enable or disable metrics at the container level.
-	ContainerLevelMetrics *string `json:"containerLevelMetrics" yaml:"containerLevelMetrics"`
+	ContainerLevelMetrics *string `field:"required" json:"containerLevelMetrics" yaml:"containerLevelMetrics"`
 	// A parameter that holds an array of rules that enable metrics at the object level.
 	//
 	// This parameter is optional, but if you choose to include it, you must also include at least one rule. By default, you can include up to five rules. You can also [request a quota increase](https://docs.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/mediastore/quotas) to allow up to 300 rules per policy.
-	MetricPolicyRules interface{} `json:"metricPolicyRules" yaml:"metricPolicyRules"`
+	MetricPolicyRules interface{} `field:"optional" json:"metricPolicyRules" yaml:"metricPolicyRules"`
 }
 
 // A setting that enables metrics at the object level.
@@ -916,7 +925,10 @@ type CfnContainer_MetricPolicyProperty struct {
 // Each rule contains an object group and an object group name. If the policy includes the MetricPolicyRules parameter, you must include at least one rule. Each metric policy can include up to five rules by default. You can also [request a quota increase](https://docs.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/mediastore/quotas) to allow up to 300 rules per policy.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediastore "github.com/aws/aws-cdk-go/awscdk/aws_mediastore"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   metricPolicyRuleProperty := &metricPolicyRuleProperty{
 //   	objectGroup: jsii.String("objectGroup"),
 //   	objectGroupName: jsii.String("objectGroupName"),
@@ -926,15 +938,18 @@ type CfnContainer_MetricPolicyRuleProperty struct {
 	// A path or file name that defines which objects to include in the group.
 	//
 	// Wildcards (*) are acceptable.
-	ObjectGroup *string `json:"objectGroup" yaml:"objectGroup"`
+	ObjectGroup *string `field:"required" json:"objectGroup" yaml:"objectGroup"`
 	// A name that allows you to refer to the object group.
-	ObjectGroupName *string `json:"objectGroupName" yaml:"objectGroupName"`
+	ObjectGroupName *string `field:"required" json:"objectGroupName" yaml:"objectGroupName"`
 }
 
 // Properties for defining a `CfnContainer`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediastore "github.com/aws/aws-cdk-go/awscdk/aws_mediastore"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnContainerProps := &cfnContainerProps{
 //   	containerName: jsii.String("containerName"),
 //
@@ -982,11 +997,11 @@ type CfnContainerProps struct {
 	// The name for the container.
 	//
 	// The name must be from 1 to 255 characters. Container names must be unique to your AWS account within a specific region. As an example, you could create a container named `movies` in every region, as long as you don’t have an existing container with that name.
-	ContainerName *string `json:"containerName" yaml:"containerName"`
+	ContainerName *string `field:"required" json:"containerName" yaml:"containerName"`
 	// The state of access logging on the container.
 	//
 	// This value is `false` by default, indicating that AWS Elemental MediaStore does not send access logs to Amazon CloudWatch Logs. When you enable access logging on the container, MediaStore changes this value to `true` , indicating that the service delivers access logs for objects stored in that container to CloudWatch Logs.
-	AccessLoggingEnabled interface{} `json:"accessLoggingEnabled" yaml:"accessLoggingEnabled"`
+	AccessLoggingEnabled interface{} `field:"optional" json:"accessLoggingEnabled" yaml:"accessLoggingEnabled"`
 	// Sets the cross-origin resource sharing (CORS) configuration on a container so that the container can service cross-origin requests.
 	//
 	// For example, you might want to enable a request whose origin is http://www.example.com to access your AWS Elemental MediaStore container at my.example.container.com by using the browser's XMLHttpRequest capability.
@@ -994,22 +1009,22 @@ type CfnContainerProps struct {
 	// To enable CORS on a container, you attach a CORS policy to the container. In the CORS policy, you configure rules that identify origins and the HTTP methods that can be executed on your container. The policy can contain up to 398,000 characters. You can add up to 100 rules to a CORS policy. If more than one rule applies, the service uses the first applicable rule listed.
 	//
 	// To learn more about CORS, see [Cross-Origin Resource Sharing (CORS) in AWS Elemental MediaStore](https://docs.aws.amazon.com/mediastore/latest/ug/cors-policy.html) .
-	CorsPolicy interface{} `json:"corsPolicy" yaml:"corsPolicy"`
+	CorsPolicy interface{} `field:"optional" json:"corsPolicy" yaml:"corsPolicy"`
 	// Writes an object lifecycle policy to a container.
 	//
 	// If the container already has an object lifecycle policy, the service replaces the existing policy with the new policy. It takes up to 20 minutes for the change to take effect.
 	//
 	// For information about how to construct an object lifecycle policy, see [Components of an Object Lifecycle Policy](https://docs.aws.amazon.com/mediastore/latest/ug/policies-object-lifecycle-components.html) .
-	LifecyclePolicy *string `json:"lifecyclePolicy" yaml:"lifecyclePolicy"`
+	LifecyclePolicy *string `field:"optional" json:"lifecyclePolicy" yaml:"lifecyclePolicy"`
 	// `AWS::MediaStore::Container.MetricPolicy`.
-	MetricPolicy interface{} `json:"metricPolicy" yaml:"metricPolicy"`
+	MetricPolicy interface{} `field:"optional" json:"metricPolicy" yaml:"metricPolicy"`
 	// Creates an access policy for the specified container to restrict the users and clients that can access it.
 	//
 	// For information about the data that is included in an access policy, see the [AWS Identity and Access Management User Guide](https://docs.aws.amazon.com/iam/) .
 	//
 	// For this release of the REST API, you can create only one policy for a container. If you enter `PutContainerPolicy` twice, the second command modifies the existing policy.
-	Policy *string `json:"policy" yaml:"policy"`
+	Policy *string `field:"optional" json:"policy" yaml:"policy"`
 	// `AWS::MediaStore::Container.Tags`.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

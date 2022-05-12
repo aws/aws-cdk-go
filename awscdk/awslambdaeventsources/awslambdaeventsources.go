@@ -18,17 +18,21 @@ import (
 )
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigateway "github.com/aws/aws-cdk-go/awscdk/aws_apigateway"import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda_event_sources "github.com/aws/aws-cdk-go/awscdk/aws_lambda_event_sources"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var authorizer authorizer
 //   var model model
 //   var requestValidator requestValidator
-//   apiEventSource := lambda_event_sources.NewApiEventSource(jsii.String("method"), jsii.String("path"), &methodOptions{
+//
+//   apiEventSource := awscdk.Aws_lambda_event_sources.NewApiEventSource(jsii.String("method"), jsii.String("path"), &methodOptions{
 //   	apiKeyRequired: jsii.Boolean(false),
 //   	authorizationScopes: []*string{
 //   		jsii.String("authorizationScopes"),
 //   	},
-//   	authorizationType: apigateway.authorizationType_NONE,
+//   	authorizationType: awscdk.Aws_apigateway.authorizationType_NONE,
 //   	authorizer: authorizer,
 //   	methodResponses: []methodResponse{
 //   		&methodResponse{
@@ -127,11 +131,16 @@ const (
 // The set of properties for streaming event sources shared by Dynamo, Kinesis and Kafka.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda_event_sources "github.com/aws/aws-cdk-go/awscdk/aws_lambda_event_sources"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
+//
 //   baseStreamEventSourceProps := &baseStreamEventSourceProps{
-//   	startingPosition: lambda.startingPosition_TRIM_HORIZON,
+//   	startingPosition: awscdk.Aws_lambda.startingPosition_TRIM_HORIZON,
 //
 //   	// the properties below are optional
 //   	batchSize: jsii.Number(123),
@@ -143,7 +152,7 @@ const (
 type BaseStreamEventSourceProps struct {
 	// Where to begin consuming the stream.
 	// Experimental.
-	StartingPosition awslambda.StartingPosition `json:"startingPosition" yaml:"startingPosition"`
+	StartingPosition awslambda.StartingPosition `field:"required" json:"startingPosition" yaml:"startingPosition"`
 	// The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function.
 	//
 	// Your function receives an
@@ -155,33 +164,34 @@ type BaseStreamEventSourceProps struct {
 	//    * 1000 for {@link DynamoEventSource}
 	// * 10000 for {@link KinesisEventSource}, {@link ManagedKafkaEventSource} and {@link SelfManagedKafkaEventSource}.
 	// Experimental.
-	BatchSize *float64 `json:"batchSize" yaml:"batchSize"`
+	BatchSize *float64 `field:"optional" json:"batchSize" yaml:"batchSize"`
 	// If the stream event source mapping should be enabled.
 	// Experimental.
-	Enabled *bool `json:"enabled" yaml:"enabled"`
+	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// The maximum amount of time to gather records before invoking the function.
 	//
 	// Maximum of Duration.minutes(5)
 	// Experimental.
-	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
+	MaxBatchingWindow awscdk.Duration `field:"optional" json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
 }
 
 // Use an Amazon DynamoDB stream as an event source for AWS Lambda.
 //
 // Example:
-//   import dynamodb "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"type DynamoEventSource awscdk.DynamoEventSource
-//   type SqsDlq awscdk.SqsDlq
+//   import dynamodb "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var table table
 //
 //   var fn function
 //
+//
 //   deadLetterQueue := sqs.NewQueue(this, jsii.String("deadLetterQueue"))
-//   fn.addEventSource(NewDynamoEventSource(table, &dynamoEventSourceProps{
+//   fn.addEventSource(awscdk.NewDynamoEventSource(table, &dynamoEventSourceProps{
 //   	startingPosition: lambda.startingPosition_TRIM_HORIZON,
 //   	batchSize: jsii.Number(5),
 //   	bisectBatchOnError: jsii.Boolean(true),
-//   	onFailure: NewSqsDlq(deadLetterQueue),
+//   	onFailure: awscdk.NewSqsDlq(deadLetterQueue),
 //   	retryAttempts: jsii.Number(10),
 //   }))
 //
@@ -274,19 +284,20 @@ func (d *jsiiProxy_DynamoEventSource) EnrichMappingOptions(options *awslambda.Ev
 }
 
 // Example:
-//   import dynamodb "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"type DynamoEventSource awscdk.DynamoEventSource
-//   type SqsDlq awscdk.SqsDlq
+//   import dynamodb "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var table table
 //
 //   var fn function
 //
+//
 //   deadLetterQueue := sqs.NewQueue(this, jsii.String("deadLetterQueue"))
-//   fn.addEventSource(NewDynamoEventSource(table, &dynamoEventSourceProps{
+//   fn.addEventSource(awscdk.NewDynamoEventSource(table, &dynamoEventSourceProps{
 //   	startingPosition: lambda.startingPosition_TRIM_HORIZON,
 //   	batchSize: jsii.Number(5),
 //   	bisectBatchOnError: jsii.Boolean(true),
-//   	onFailure: NewSqsDlq(deadLetterQueue),
+//   	onFailure: awscdk.NewSqsDlq(deadLetterQueue),
 //   	retryAttempts: jsii.Number(10),
 //   }))
 //
@@ -294,7 +305,7 @@ func (d *jsiiProxy_DynamoEventSource) EnrichMappingOptions(options *awslambda.Ev
 type DynamoEventSourceProps struct {
 	// Where to begin consuming the stream.
 	// Experimental.
-	StartingPosition awslambda.StartingPosition `json:"startingPosition" yaml:"startingPosition"`
+	StartingPosition awslambda.StartingPosition `field:"required" json:"startingPosition" yaml:"startingPosition"`
 	// The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function.
 	//
 	// Your function receives an
@@ -306,57 +317,63 @@ type DynamoEventSourceProps struct {
 	//    * 1000 for {@link DynamoEventSource}
 	// * 10000 for {@link KinesisEventSource}, {@link ManagedKafkaEventSource} and {@link SelfManagedKafkaEventSource}.
 	// Experimental.
-	BatchSize *float64 `json:"batchSize" yaml:"batchSize"`
+	BatchSize *float64 `field:"optional" json:"batchSize" yaml:"batchSize"`
 	// If the stream event source mapping should be enabled.
 	// Experimental.
-	Enabled *bool `json:"enabled" yaml:"enabled"`
+	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// The maximum amount of time to gather records before invoking the function.
 	//
 	// Maximum of Duration.minutes(5)
 	// Experimental.
-	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
+	MaxBatchingWindow awscdk.Duration `field:"optional" json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
 	// If the function returns an error, split the batch in two and retry.
 	// Experimental.
-	BisectBatchOnError *bool `json:"bisectBatchOnError" yaml:"bisectBatchOnError"`
+	BisectBatchOnError *bool `field:"optional" json:"bisectBatchOnError" yaml:"bisectBatchOnError"`
 	// The maximum age of a record that Lambda sends to a function for processing.
 	//
 	// Valid Range:
 	// * Minimum value of 60 seconds
 	// * Maximum value of 7 days.
 	// Experimental.
-	MaxRecordAge awscdk.Duration `json:"maxRecordAge" yaml:"maxRecordAge"`
+	MaxRecordAge awscdk.Duration `field:"optional" json:"maxRecordAge" yaml:"maxRecordAge"`
 	// An Amazon SQS queue or Amazon SNS topic destination for discarded records.
 	// Experimental.
-	OnFailure awslambda.IEventSourceDlq `json:"onFailure" yaml:"onFailure"`
+	OnFailure awslambda.IEventSourceDlq `field:"optional" json:"onFailure" yaml:"onFailure"`
 	// The number of batches to process from each shard concurrently.
 	//
 	// Valid Range:
 	// * Minimum value of 1
 	// * Maximum value of 10.
 	// Experimental.
-	ParallelizationFactor *float64 `json:"parallelizationFactor" yaml:"parallelizationFactor"`
+	ParallelizationFactor *float64 `field:"optional" json:"parallelizationFactor" yaml:"parallelizationFactor"`
 	// Allow functions to return partially successful responses for a batch of records.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting
 	//
 	// Experimental.
-	ReportBatchItemFailures *bool `json:"reportBatchItemFailures" yaml:"reportBatchItemFailures"`
+	ReportBatchItemFailures *bool `field:"optional" json:"reportBatchItemFailures" yaml:"reportBatchItemFailures"`
 	// Maximum number of retry attempts Valid Range: * Minimum value of 0 * Maximum value of 10000.
 	// Experimental.
-	RetryAttempts *float64 `json:"retryAttempts" yaml:"retryAttempts"`
+	RetryAttempts *float64 `field:"optional" json:"retryAttempts" yaml:"retryAttempts"`
 	// The size of the tumbling windows to group records sent to DynamoDB or Kinesis Valid Range: 0 - 15 minutes.
 	// Experimental.
-	TumblingWindow awscdk.Duration `json:"tumblingWindow" yaml:"tumblingWindow"`
+	TumblingWindow awscdk.Duration `field:"optional" json:"tumblingWindow" yaml:"tumblingWindow"`
 }
 
 // Properties for a Kafka event source.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda_event_sources "github.com/aws/aws-cdk-go/awscdk/aws_lambda_event_sources"import awscdk "github.com/aws/aws-cdk-go/awscdk"import secretsmanager "github.com/aws/aws-cdk-go/awscdk/aws_secretsmanager"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var secret secret
+//
 //   kafkaEventSourceProps := &kafkaEventSourceProps{
-//   	startingPosition: lambda.startingPosition_TRIM_HORIZON,
+//   	startingPosition: awscdk.Aws_lambda.startingPosition_TRIM_HORIZON,
 //   	topic: jsii.String("topic"),
 //
 //   	// the properties below are optional
@@ -370,7 +387,7 @@ type DynamoEventSourceProps struct {
 type KafkaEventSourceProps struct {
 	// Where to begin consuming the stream.
 	// Experimental.
-	StartingPosition awslambda.StartingPosition `json:"startingPosition" yaml:"startingPosition"`
+	StartingPosition awslambda.StartingPosition `field:"required" json:"startingPosition" yaml:"startingPosition"`
 	// The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function.
 	//
 	// Your function receives an
@@ -382,32 +399,34 @@ type KafkaEventSourceProps struct {
 	//    * 1000 for {@link DynamoEventSource}
 	// * 10000 for {@link KinesisEventSource}, {@link ManagedKafkaEventSource} and {@link SelfManagedKafkaEventSource}.
 	// Experimental.
-	BatchSize *float64 `json:"batchSize" yaml:"batchSize"`
+	BatchSize *float64 `field:"optional" json:"batchSize" yaml:"batchSize"`
 	// If the stream event source mapping should be enabled.
 	// Experimental.
-	Enabled *bool `json:"enabled" yaml:"enabled"`
+	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// The maximum amount of time to gather records before invoking the function.
 	//
 	// Maximum of Duration.minutes(5)
 	// Experimental.
-	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
+	MaxBatchingWindow awscdk.Duration `field:"optional" json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
 	// The Kafka topic to subscribe to.
 	// Experimental.
-	Topic *string `json:"topic" yaml:"topic"`
+	Topic *string `field:"required" json:"topic" yaml:"topic"`
 	// The secret with the Kafka credentials, see https://docs.aws.amazon.com/msk/latest/developerguide/msk-password.html for details This field is required if your Kafka brokers are accessed over the Internet.
 	// Experimental.
-	Secret awssecretsmanager.ISecret `json:"secret" yaml:"secret"`
+	Secret awssecretsmanager.ISecret `field:"optional" json:"secret" yaml:"secret"`
 }
 
 // Use an Amazon Kinesis stream as an event source for AWS Lambda.
 //
 // Example:
-//   import kinesis "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"type KinesisEventSource awscdk.KinesisEventSource
+//   import kinesis "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var myFunction function
 //
+//
 //   stream := kinesis.NewStream(this, jsii.String("MyStream"))
-//   myFunction.addEventSource(NewKinesisEventSource(stream, &kinesisEventSourceProps{
+//   myFunction.addEventSource(awscdk.NewKinesisEventSource(stream, &kinesisEventSourceProps{
 //   	batchSize: jsii.Number(100),
 //   	 // default
 //   	startingPosition: lambda.startingPosition_TRIM_HORIZON,
@@ -514,12 +533,14 @@ func (k *jsiiProxy_KinesisEventSource) EnrichMappingOptions(options *awslambda.E
 }
 
 // Example:
-//   import kinesis "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"type KinesisEventSource awscdk.KinesisEventSource
+//   import kinesis "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var myFunction function
 //
+//
 //   stream := kinesis.NewStream(this, jsii.String("MyStream"))
-//   myFunction.addEventSource(NewKinesisEventSource(stream, &kinesisEventSourceProps{
+//   myFunction.addEventSource(awscdk.NewKinesisEventSource(stream, &kinesisEventSourceProps{
 //   	batchSize: jsii.Number(100),
 //   	 // default
 //   	startingPosition: lambda.startingPosition_TRIM_HORIZON,
@@ -529,7 +550,7 @@ func (k *jsiiProxy_KinesisEventSource) EnrichMappingOptions(options *awslambda.E
 type KinesisEventSourceProps struct {
 	// Where to begin consuming the stream.
 	// Experimental.
-	StartingPosition awslambda.StartingPosition `json:"startingPosition" yaml:"startingPosition"`
+	StartingPosition awslambda.StartingPosition `field:"required" json:"startingPosition" yaml:"startingPosition"`
 	// The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function.
 	//
 	// Your function receives an
@@ -541,54 +562,56 @@ type KinesisEventSourceProps struct {
 	//    * 1000 for {@link DynamoEventSource}
 	// * 10000 for {@link KinesisEventSource}, {@link ManagedKafkaEventSource} and {@link SelfManagedKafkaEventSource}.
 	// Experimental.
-	BatchSize *float64 `json:"batchSize" yaml:"batchSize"`
+	BatchSize *float64 `field:"optional" json:"batchSize" yaml:"batchSize"`
 	// If the stream event source mapping should be enabled.
 	// Experimental.
-	Enabled *bool `json:"enabled" yaml:"enabled"`
+	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// The maximum amount of time to gather records before invoking the function.
 	//
 	// Maximum of Duration.minutes(5)
 	// Experimental.
-	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
+	MaxBatchingWindow awscdk.Duration `field:"optional" json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
 	// If the function returns an error, split the batch in two and retry.
 	// Experimental.
-	BisectBatchOnError *bool `json:"bisectBatchOnError" yaml:"bisectBatchOnError"`
+	BisectBatchOnError *bool `field:"optional" json:"bisectBatchOnError" yaml:"bisectBatchOnError"`
 	// The maximum age of a record that Lambda sends to a function for processing.
 	//
 	// Valid Range:
 	// * Minimum value of 60 seconds
 	// * Maximum value of 7 days.
 	// Experimental.
-	MaxRecordAge awscdk.Duration `json:"maxRecordAge" yaml:"maxRecordAge"`
+	MaxRecordAge awscdk.Duration `field:"optional" json:"maxRecordAge" yaml:"maxRecordAge"`
 	// An Amazon SQS queue or Amazon SNS topic destination for discarded records.
 	// Experimental.
-	OnFailure awslambda.IEventSourceDlq `json:"onFailure" yaml:"onFailure"`
+	OnFailure awslambda.IEventSourceDlq `field:"optional" json:"onFailure" yaml:"onFailure"`
 	// The number of batches to process from each shard concurrently.
 	//
 	// Valid Range:
 	// * Minimum value of 1
 	// * Maximum value of 10.
 	// Experimental.
-	ParallelizationFactor *float64 `json:"parallelizationFactor" yaml:"parallelizationFactor"`
+	ParallelizationFactor *float64 `field:"optional" json:"parallelizationFactor" yaml:"parallelizationFactor"`
 	// Allow functions to return partially successful responses for a batch of records.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting
 	//
 	// Experimental.
-	ReportBatchItemFailures *bool `json:"reportBatchItemFailures" yaml:"reportBatchItemFailures"`
+	ReportBatchItemFailures *bool `field:"optional" json:"reportBatchItemFailures" yaml:"reportBatchItemFailures"`
 	// Maximum number of retry attempts Valid Range: * Minimum value of 0 * Maximum value of 10000.
 	// Experimental.
-	RetryAttempts *float64 `json:"retryAttempts" yaml:"retryAttempts"`
+	RetryAttempts *float64 `field:"optional" json:"retryAttempts" yaml:"retryAttempts"`
 	// The size of the tumbling windows to group records sent to DynamoDB or Kinesis Valid Range: 0 - 15 minutes.
 	// Experimental.
-	TumblingWindow awscdk.Duration `json:"tumblingWindow" yaml:"tumblingWindow"`
+	TumblingWindow awscdk.Duration `field:"optional" json:"tumblingWindow" yaml:"tumblingWindow"`
 }
 
 // Use a MSK cluster as a streaming source for AWS Lambda.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type Secret awscdk.Secretimport awscdk "github.com/aws/aws-cdk-go/awscdk"type ManagedKafkaEventSource awscdk.ManagedKafkaEventSource
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var myFunction function
+//
 //
 //   // Your MSK cluster arn
 //   clusterArn := "arn:aws:kafka:us-east-1:0123456789019:cluster/SalesCluster/abcd1234-abcd-cafe-abab-9876543210ab-4"
@@ -598,10 +621,10 @@ type KinesisEventSourceProps struct {
 //
 //   // The secret that allows access to your MSK cluster
 //   // You still have to make sure that it is associated with your cluster as described in the documentation
-//   secret := NewSecret(this, jsii.String("Secret"), &secretProps{
+//   secret := awscdk.NewSecret(this, jsii.String("Secret"), &secretProps{
 //   	secretName: jsii.String("AmazonMSK_KafkaSecret"),
 //   })
-//   myFunction.addEventSource(NewManagedKafkaEventSource(&managedKafkaEventSourceProps{
+//   myFunction.addEventSource(awscdk.NewManagedKafkaEventSource(&managedKafkaEventSourceProps{
 //   	clusterArn: jsii.String(clusterArn),
 //   	topic: topic,
 //   	secret: secret,
@@ -701,9 +724,11 @@ func (m *jsiiProxy_ManagedKafkaEventSource) EnrichMappingOptions(options *awslam
 // Properties for a MSK event source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type Secret awscdk.Secretimport awscdk "github.com/aws/aws-cdk-go/awscdk"type ManagedKafkaEventSource awscdk.ManagedKafkaEventSource
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var myFunction function
+//
 //
 //   // Your MSK cluster arn
 //   clusterArn := "arn:aws:kafka:us-east-1:0123456789019:cluster/SalesCluster/abcd1234-abcd-cafe-abab-9876543210ab-4"
@@ -713,10 +738,10 @@ func (m *jsiiProxy_ManagedKafkaEventSource) EnrichMappingOptions(options *awslam
 //
 //   // The secret that allows access to your MSK cluster
 //   // You still have to make sure that it is associated with your cluster as described in the documentation
-//   secret := NewSecret(this, jsii.String("Secret"), &secretProps{
+//   secret := awscdk.NewSecret(this, jsii.String("Secret"), &secretProps{
 //   	secretName: jsii.String("AmazonMSK_KafkaSecret"),
 //   })
-//   myFunction.addEventSource(NewManagedKafkaEventSource(&managedKafkaEventSourceProps{
+//   myFunction.addEventSource(awscdk.NewManagedKafkaEventSource(&managedKafkaEventSourceProps{
 //   	clusterArn: jsii.String(clusterArn),
 //   	topic: topic,
 //   	secret: secret,
@@ -729,7 +754,7 @@ func (m *jsiiProxy_ManagedKafkaEventSource) EnrichMappingOptions(options *awslam
 type ManagedKafkaEventSourceProps struct {
 	// Where to begin consuming the stream.
 	// Experimental.
-	StartingPosition awslambda.StartingPosition `json:"startingPosition" yaml:"startingPosition"`
+	StartingPosition awslambda.StartingPosition `field:"required" json:"startingPosition" yaml:"startingPosition"`
 	// The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function.
 	//
 	// Your function receives an
@@ -741,32 +766,34 @@ type ManagedKafkaEventSourceProps struct {
 	//    * 1000 for {@link DynamoEventSource}
 	// * 10000 for {@link KinesisEventSource}, {@link ManagedKafkaEventSource} and {@link SelfManagedKafkaEventSource}.
 	// Experimental.
-	BatchSize *float64 `json:"batchSize" yaml:"batchSize"`
+	BatchSize *float64 `field:"optional" json:"batchSize" yaml:"batchSize"`
 	// If the stream event source mapping should be enabled.
 	// Experimental.
-	Enabled *bool `json:"enabled" yaml:"enabled"`
+	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// The maximum amount of time to gather records before invoking the function.
 	//
 	// Maximum of Duration.minutes(5)
 	// Experimental.
-	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
+	MaxBatchingWindow awscdk.Duration `field:"optional" json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
 	// The Kafka topic to subscribe to.
 	// Experimental.
-	Topic *string `json:"topic" yaml:"topic"`
+	Topic *string `field:"required" json:"topic" yaml:"topic"`
 	// The secret with the Kafka credentials, see https://docs.aws.amazon.com/msk/latest/developerguide/msk-password.html for details This field is required if your Kafka brokers are accessed over the Internet.
 	// Experimental.
-	Secret awssecretsmanager.ISecret `json:"secret" yaml:"secret"`
+	Secret awssecretsmanager.ISecret `field:"optional" json:"secret" yaml:"secret"`
 	// An MSK cluster construct.
 	// Experimental.
-	ClusterArn *string `json:"clusterArn" yaml:"clusterArn"`
+	ClusterArn *string `field:"required" json:"clusterArn" yaml:"clusterArn"`
 }
 
 // Use S3 bucket notifications as an event source for AWS Lambda.
 //
 // Example:
-//   import eventsources "github.com/aws/aws-cdk-go/awscdk"import s3 "github.com/aws/aws-cdk-go/awscdk"
+//   import eventsources "github.com/aws/aws-cdk-go/awscdk"
+//   import s3 "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var fn function
+//
 //   bucket := s3.NewBucket(this, jsii.String("Bucket"))
 //   fn.addEventSource(eventsources.NewS3EventSource(bucket, &s3EventSourceProps{
 //   	events: []eventType{
@@ -841,9 +868,11 @@ func (s *jsiiProxy_S3EventSource) Bind(target awslambda.IFunction) {
 }
 
 // Example:
-//   import eventsources "github.com/aws/aws-cdk-go/awscdk"import s3 "github.com/aws/aws-cdk-go/awscdk"
+//   import eventsources "github.com/aws/aws-cdk-go/awscdk"
+//   import s3 "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var fn function
+//
 //   bucket := s3.NewBucket(this, jsii.String("Bucket"))
 //   fn.addEventSource(eventsources.NewS3EventSource(bucket, &s3EventSourceProps{
 //   	events: []eventType{
@@ -861,25 +890,27 @@ func (s *jsiiProxy_S3EventSource) Bind(target awslambda.IFunction) {
 type S3EventSourceProps struct {
 	// The s3 event types that will trigger the notification.
 	// Experimental.
-	Events *[]awss3.EventType `json:"events" yaml:"events"`
+	Events *[]awss3.EventType `field:"required" json:"events" yaml:"events"`
 	// S3 object key filter rules to determine which objects trigger this event.
 	//
 	// Each filter must include a `prefix` and/or `suffix` that will be matched
 	// against the s3 object key. Refer to the S3 Developer Guide for details
 	// about allowed filter rules.
 	// Experimental.
-	Filters *[]*awss3.NotificationKeyFilter `json:"filters" yaml:"filters"`
+	Filters *[]*awss3.NotificationKeyFilter `field:"optional" json:"filters" yaml:"filters"`
 }
 
 // Use a self hosted Kafka installation as a streaming source for AWS Lambda.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type Secret awscdk.Secretimport awscdk "github.com/aws/aws-cdk-go/awscdk"type SelfManagedKafkaEventSource awscdk.SelfManagedKafkaEventSource
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   // The secret that allows access to your self hosted Kafka cluster
 //   var secret secret
 //
 //   var myFunction function
+//
 //
 //   // The list of Kafka brokers
 //   bootstrapServers := []*string{
@@ -888,7 +919,7 @@ type S3EventSourceProps struct {
 //
 //   // The Kafka topic you want to subscribe to
 //   topic := "some-cool-topic"
-//   myFunction.addEventSource(NewSelfManagedKafkaEventSource(&selfManagedKafkaEventSourceProps{
+//   myFunction.addEventSource(awscdk.NewSelfManagedKafkaEventSource(&selfManagedKafkaEventSourceProps{
 //   	bootstrapServers: bootstrapServers,
 //   	topic: topic,
 //   	secret: secret,
@@ -977,12 +1008,14 @@ func (s *jsiiProxy_SelfManagedKafkaEventSource) EnrichMappingOptions(options *aw
 // If your Kafka cluster is only reachable via VPC make sure to configure it.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type Secret awscdk.Secretimport awscdk "github.com/aws/aws-cdk-go/awscdk"type SelfManagedKafkaEventSource awscdk.SelfManagedKafkaEventSource
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   // The secret that allows access to your self hosted Kafka cluster
 //   var secret secret
 //
 //   var myFunction function
+//
 //
 //   // The list of Kafka brokers
 //   bootstrapServers := []*string{
@@ -991,7 +1024,7 @@ func (s *jsiiProxy_SelfManagedKafkaEventSource) EnrichMappingOptions(options *aw
 //
 //   // The Kafka topic you want to subscribe to
 //   topic := "some-cool-topic"
-//   myFunction.addEventSource(NewSelfManagedKafkaEventSource(&selfManagedKafkaEventSourceProps{
+//   myFunction.addEventSource(awscdk.NewSelfManagedKafkaEventSource(&selfManagedKafkaEventSourceProps{
 //   	bootstrapServers: bootstrapServers,
 //   	topic: topic,
 //   	secret: secret,
@@ -1004,7 +1037,7 @@ func (s *jsiiProxy_SelfManagedKafkaEventSource) EnrichMappingOptions(options *aw
 type SelfManagedKafkaEventSourceProps struct {
 	// Where to begin consuming the stream.
 	// Experimental.
-	StartingPosition awslambda.StartingPosition `json:"startingPosition" yaml:"startingPosition"`
+	StartingPosition awslambda.StartingPosition `field:"required" json:"startingPosition" yaml:"startingPosition"`
 	// The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function.
 	//
 	// Your function receives an
@@ -1016,47 +1049,51 @@ type SelfManagedKafkaEventSourceProps struct {
 	//    * 1000 for {@link DynamoEventSource}
 	// * 10000 for {@link KinesisEventSource}, {@link ManagedKafkaEventSource} and {@link SelfManagedKafkaEventSource}.
 	// Experimental.
-	BatchSize *float64 `json:"batchSize" yaml:"batchSize"`
+	BatchSize *float64 `field:"optional" json:"batchSize" yaml:"batchSize"`
 	// If the stream event source mapping should be enabled.
 	// Experimental.
-	Enabled *bool `json:"enabled" yaml:"enabled"`
+	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// The maximum amount of time to gather records before invoking the function.
 	//
 	// Maximum of Duration.minutes(5)
 	// Experimental.
-	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
+	MaxBatchingWindow awscdk.Duration `field:"optional" json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
 	// The Kafka topic to subscribe to.
 	// Experimental.
-	Topic *string `json:"topic" yaml:"topic"`
+	Topic *string `field:"required" json:"topic" yaml:"topic"`
 	// The secret with the Kafka credentials, see https://docs.aws.amazon.com/msk/latest/developerguide/msk-password.html for details This field is required if your Kafka brokers are accessed over the Internet.
 	// Experimental.
-	Secret awssecretsmanager.ISecret `json:"secret" yaml:"secret"`
+	Secret awssecretsmanager.ISecret `field:"optional" json:"secret" yaml:"secret"`
 	// The list of host and port pairs that are the addresses of the Kafka brokers in a "bootstrap" Kafka cluster that a Kafka client connects to initially to bootstrap itself.
 	//
 	// They are in the format `abc.xyz.com:xxxx`.
 	// Experimental.
-	BootstrapServers *[]*string `json:"bootstrapServers" yaml:"bootstrapServers"`
+	BootstrapServers *[]*string `field:"required" json:"bootstrapServers" yaml:"bootstrapServers"`
 	// The authentication method for your Kafka cluster.
 	// Experimental.
-	AuthenticationMethod AuthenticationMethod `json:"authenticationMethod" yaml:"authenticationMethod"`
+	AuthenticationMethod AuthenticationMethod `field:"optional" json:"authenticationMethod" yaml:"authenticationMethod"`
 	// If your Kafka brokers are only reachable via VPC, provide the security group here.
 	// Experimental.
-	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup" yaml:"securityGroup"`
+	SecurityGroup awsec2.ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
 	// If your Kafka brokers are only reachable via VPC provide the VPC here.
 	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
+	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 	// If your Kafka brokers are only reachable via VPC, provide the subnets selection here.
 	// Experimental.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
 // An SNS dead letter queue destination configuration for a Lambda event source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda_event_sources "github.com/aws/aws-cdk-go/awscdk/aws_lambda_event_sources"import awscdk "github.com/aws/aws-cdk-go/awscdk"import sns "github.com/aws/aws-cdk-go/awscdk/aws_sns"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var topic topic
-//   snsDlq := lambda_event_sources.NewSnsDlq(topic)
+//
+//   snsDlq := awscdk.Aws_lambda_event_sources.NewSnsDlq(topic)
 //
 // Experimental.
 type SnsDlq interface {
@@ -1113,13 +1150,15 @@ func (s *jsiiProxy_SnsDlq) Bind(_target awslambda.IEventSourceMapping, targetHan
 // Use an Amazon SNS topic as an event source for AWS Lambda.
 //
 // Example:
-//   import sns "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"type SnsEventSource awscdk.SnsEventSource
+//   import sns "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var topic topic
 //
 //   var fn function
+//
 //   deadLetterQueue := sqs.NewQueue(this, jsii.String("deadLetterQueue"))
-//   fn.addEventSource(NewSnsEventSource(topic, &snsEventSourceProps{
+//   fn.addEventSource(awscdk.NewSnsEventSource(topic, &snsEventSourceProps{
 //   	filterPolicy: map[string]interface{}{
 //   	},
 //   	deadLetterQueue: deadLetterQueue,
@@ -1188,13 +1227,15 @@ func (s *jsiiProxy_SnsEventSource) Bind(target awslambda.IFunction) {
 // Properties forwarded to the Lambda Subscription.
 //
 // Example:
-//   import sns "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"type SnsEventSource awscdk.SnsEventSource
+//   import sns "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var topic topic
 //
 //   var fn function
+//
 //   deadLetterQueue := sqs.NewQueue(this, jsii.String("deadLetterQueue"))
-//   fn.addEventSource(NewSnsEventSource(topic, &snsEventSourceProps{
+//   fn.addEventSource(awscdk.NewSnsEventSource(topic, &snsEventSourceProps{
 //   	filterPolicy: map[string]interface{}{
 //   	},
 //   	deadLetterQueue: deadLetterQueue,
@@ -1206,28 +1247,29 @@ type SnsEventSourceProps struct {
 	//
 	// If not passed no dead letter queue is enabled.
 	// Experimental.
-	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue" yaml:"deadLetterQueue"`
+	DeadLetterQueue awssqs.IQueue `field:"optional" json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// The filter policy.
 	// Experimental.
-	FilterPolicy *map[string]awssns.SubscriptionFilter `json:"filterPolicy" yaml:"filterPolicy"`
+	FilterPolicy *map[string]awssns.SubscriptionFilter `field:"optional" json:"filterPolicy" yaml:"filterPolicy"`
 }
 
 // An SQS dead letter queue destination configuration for a Lambda event source.
 //
 // Example:
-//   import dynamodb "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"type DynamoEventSource awscdk.DynamoEventSource
-//   type SqsDlq awscdk.SqsDlq
+//   import dynamodb "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var table table
 //
 //   var fn function
 //
+//
 //   deadLetterQueue := sqs.NewQueue(this, jsii.String("deadLetterQueue"))
-//   fn.addEventSource(NewDynamoEventSource(table, &dynamoEventSourceProps{
+//   fn.addEventSource(awscdk.NewDynamoEventSource(table, &dynamoEventSourceProps{
 //   	startingPosition: lambda.startingPosition_TRIM_HORIZON,
 //   	batchSize: jsii.Number(5),
 //   	bisectBatchOnError: jsii.Boolean(true),
-//   	onFailure: NewSqsDlq(deadLetterQueue),
+//   	onFailure: awscdk.NewSqsDlq(deadLetterQueue),
 //   	retryAttempts: jsii.Number(10),
 //   }))
 //
@@ -1286,11 +1328,12 @@ func (s *jsiiProxy_SqsDlq) Bind(_target awslambda.IEventSourceMapping, targetHan
 // Use an Amazon SQS queue as an event source for AWS Lambda.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type SqsEventSource awscdk.SqsEventSource
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var fn function
+//
 //   queue := sqs.NewQueue(this, jsii.String("MyQueue"))
-//   eventSource := NewSqsEventSource(queue)
+//   eventSource := awscdk.NewSqsEventSource(queue)
 //   fn.addEventSource(eventSource)
 //
 //   eventSourceId := eventSource.eventSourceMappingId
@@ -1369,19 +1412,20 @@ func (s *jsiiProxy_SqsEventSource) Bind(target awslambda.IFunction) {
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type SqsEventSource awscdk.SqsEventSource
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //   var fn function
 //
+//
 //   queue := sqs.NewQueue(this, jsii.String("MyQueue"), &queueProps{
-//   	visibilityTimeout: duration.seconds(jsii.Number(30)),
+//   	visibilityTimeout: awscdk.Duration.seconds(jsii.Number(30)),
 //   	 // default,
-//   	receiveMessageWaitTime: *duration.seconds(jsii.Number(20)),
+//   	receiveMessageWaitTime: awscdk.Duration.seconds(jsii.Number(20)),
 //   })
 //
-//   fn.addEventSource(NewSqsEventSource(queue, &sqsEventSourceProps{
+//   fn.addEventSource(awscdk.NewSqsEventSource(queue, &sqsEventSourceProps{
 //   	batchSize: jsii.Number(10),
 //   	 // default
-//   	maxBatchingWindow: *duration.minutes(jsii.Number(5)),
+//   	maxBatchingWindow: awscdk.Duration.minutes(jsii.Number(5)),
 //   	reportBatchItemFailures: jsii.Boolean(true),
 //   }))
 //
@@ -1395,20 +1439,20 @@ type SqsEventSourceProps struct {
 	// Valid Range: Minimum value of 1. Maximum value of 10.
 	// If `maxBatchingWindow` is configured, this value can go up to 10,000.
 	// Experimental.
-	BatchSize *float64 `json:"batchSize" yaml:"batchSize"`
+	BatchSize *float64 `field:"optional" json:"batchSize" yaml:"batchSize"`
 	// If the SQS event source mapping should be enabled.
 	// Experimental.
-	Enabled *bool `json:"enabled" yaml:"enabled"`
+	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// The maximum amount of time to gather records before invoking the function.
 	//
 	// Valid Range: Minimum value of 0 minutes. Maximum value of 5 minutes.
 	// Experimental.
-	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
+	MaxBatchingWindow awscdk.Duration `field:"optional" json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
 	// Allow functions to return partially successful responses for a batch of records.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#services-sqs-batchfailurereporting
 	//
 	// Experimental.
-	ReportBatchItemFailures *bool `json:"reportBatchItemFailures" yaml:"reportBatchItemFailures"`
+	ReportBatchItemFailures *bool `field:"optional" json:"reportBatchItemFailures" yaml:"reportBatchItemFailures"`
 }
 
 // Use an stream as an event source for AWS Lambda.
@@ -1475,12 +1519,17 @@ func (s *jsiiProxy_StreamEventSource) EnrichMappingOptions(options *awslambda.Ev
 // The set of properties for streaming event sources shared by Dynamo and Kinesis.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda_event_sources "github.com/aws/aws-cdk-go/awscdk/aws_lambda_event_sources"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var eventSourceDlq iEventSourceDlq
+//
 //   streamEventSourceProps := &streamEventSourceProps{
-//   	startingPosition: lambda.startingPosition_TRIM_HORIZON,
+//   	startingPosition: awscdk.Aws_lambda.startingPosition_TRIM_HORIZON,
 //
 //   	// the properties below are optional
 //   	batchSize: jsii.Number(123),
@@ -1499,7 +1548,7 @@ func (s *jsiiProxy_StreamEventSource) EnrichMappingOptions(options *awslambda.Ev
 type StreamEventSourceProps struct {
 	// Where to begin consuming the stream.
 	// Experimental.
-	StartingPosition awslambda.StartingPosition `json:"startingPosition" yaml:"startingPosition"`
+	StartingPosition awslambda.StartingPosition `field:"required" json:"startingPosition" yaml:"startingPosition"`
 	// The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function.
 	//
 	// Your function receives an
@@ -1511,45 +1560,45 @@ type StreamEventSourceProps struct {
 	//    * 1000 for {@link DynamoEventSource}
 	// * 10000 for {@link KinesisEventSource}, {@link ManagedKafkaEventSource} and {@link SelfManagedKafkaEventSource}.
 	// Experimental.
-	BatchSize *float64 `json:"batchSize" yaml:"batchSize"`
+	BatchSize *float64 `field:"optional" json:"batchSize" yaml:"batchSize"`
 	// If the stream event source mapping should be enabled.
 	// Experimental.
-	Enabled *bool `json:"enabled" yaml:"enabled"`
+	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// The maximum amount of time to gather records before invoking the function.
 	//
 	// Maximum of Duration.minutes(5)
 	// Experimental.
-	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
+	MaxBatchingWindow awscdk.Duration `field:"optional" json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
 	// If the function returns an error, split the batch in two and retry.
 	// Experimental.
-	BisectBatchOnError *bool `json:"bisectBatchOnError" yaml:"bisectBatchOnError"`
+	BisectBatchOnError *bool `field:"optional" json:"bisectBatchOnError" yaml:"bisectBatchOnError"`
 	// The maximum age of a record that Lambda sends to a function for processing.
 	//
 	// Valid Range:
 	// * Minimum value of 60 seconds
 	// * Maximum value of 7 days.
 	// Experimental.
-	MaxRecordAge awscdk.Duration `json:"maxRecordAge" yaml:"maxRecordAge"`
+	MaxRecordAge awscdk.Duration `field:"optional" json:"maxRecordAge" yaml:"maxRecordAge"`
 	// An Amazon SQS queue or Amazon SNS topic destination for discarded records.
 	// Experimental.
-	OnFailure awslambda.IEventSourceDlq `json:"onFailure" yaml:"onFailure"`
+	OnFailure awslambda.IEventSourceDlq `field:"optional" json:"onFailure" yaml:"onFailure"`
 	// The number of batches to process from each shard concurrently.
 	//
 	// Valid Range:
 	// * Minimum value of 1
 	// * Maximum value of 10.
 	// Experimental.
-	ParallelizationFactor *float64 `json:"parallelizationFactor" yaml:"parallelizationFactor"`
+	ParallelizationFactor *float64 `field:"optional" json:"parallelizationFactor" yaml:"parallelizationFactor"`
 	// Allow functions to return partially successful responses for a batch of records.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting
 	//
 	// Experimental.
-	ReportBatchItemFailures *bool `json:"reportBatchItemFailures" yaml:"reportBatchItemFailures"`
+	ReportBatchItemFailures *bool `field:"optional" json:"reportBatchItemFailures" yaml:"reportBatchItemFailures"`
 	// Maximum number of retry attempts Valid Range: * Minimum value of 0 * Maximum value of 10000.
 	// Experimental.
-	RetryAttempts *float64 `json:"retryAttempts" yaml:"retryAttempts"`
+	RetryAttempts *float64 `field:"optional" json:"retryAttempts" yaml:"retryAttempts"`
 	// The size of the tumbling windows to group records sent to DynamoDB or Kinesis Valid Range: 0 - 15 minutes.
 	// Experimental.
-	TumblingWindow awscdk.Duration `json:"tumblingWindow" yaml:"tumblingWindow"`
+	TumblingWindow awscdk.Duration `field:"optional" json:"tumblingWindow" yaml:"tumblingWindow"`
 }
 

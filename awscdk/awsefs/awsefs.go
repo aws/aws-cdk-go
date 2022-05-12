@@ -446,19 +446,21 @@ func (a *jsiiProxy_AccessPoint) Validate() *[]*string {
 type AccessPointAttributes struct {
 	// The ARN of the AccessPoint One of this, or {@link accessPointId} is required.
 	// Experimental.
-	AccessPointArn *string `json:"accessPointArn" yaml:"accessPointArn"`
+	AccessPointArn *string `field:"optional" json:"accessPointArn" yaml:"accessPointArn"`
 	// The ID of the AccessPoint One of this, or {@link accessPointArn} is required.
 	// Experimental.
-	AccessPointId *string `json:"accessPointId" yaml:"accessPointId"`
+	AccessPointId *string `field:"optional" json:"accessPointId" yaml:"accessPointId"`
 	// The EFS file system.
 	// Experimental.
-	FileSystem IFileSystem `json:"fileSystem" yaml:"fileSystem"`
+	FileSystem IFileSystem `field:"optional" json:"fileSystem" yaml:"fileSystem"`
 }
 
 // Options to create an AccessPoint.
 //
 // Example:
-//   import ec2 "github.com/aws/aws-cdk-go/awscdk"import efs "github.com/aws/aws-cdk-go/awscdk"
+//   import ec2 "github.com/aws/aws-cdk-go/awscdk"
+//   import efs "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   // create a new VPC
 //   vpc := ec2.NewVpc(this, jsii.String("VPC"))
@@ -488,7 +490,7 @@ type AccessPointAttributes struct {
 //   fn := lambda.NewFunction(this, jsii.String("MyLambda"), &functionProps{
 //   	// mount the access point to /mnt/msg in the lambda runtime environment
 //   	filesystem: lambda.fileSystem.fromEfsAccessPoint(accessPoint, jsii.String("/mnt/msg")),
-//   	runtime: lambda.runtime_NODEJS_12_X(),
+//   	runtime: lambda.runtime_NODEJS_16_X(),
 //   	handler: jsii.String("index.handler"),
 //   	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 //   	vpc: vpc,
@@ -502,25 +504,28 @@ type AccessPointOptions struct {
 	// root directory specified by `path` does not exist, EFS creates the root directory and applies the
 	// permissions specified here. If the specified `path` does not exist, you must specify `createAcl`.
 	// Experimental.
-	CreateAcl *Acl `json:"createAcl" yaml:"createAcl"`
+	CreateAcl *Acl `field:"optional" json:"createAcl" yaml:"createAcl"`
 	// Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system.
 	// Experimental.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 	// The full POSIX identity, including the user ID, group ID, and any secondary group IDs, on the access point that is used for all file system operations performed by NFS clients using the access point.
 	//
 	// Specify this to enforce a user identity using an access point.
 	// See: - [Enforcing a User Identity Using an Access Point](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html)
 	//
 	// Experimental.
-	PosixUser *PosixUser `json:"posixUser" yaml:"posixUser"`
+	PosixUser *PosixUser `field:"optional" json:"posixUser" yaml:"posixUser"`
 }
 
 // Properties for the AccessPoint.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import efs "github.com/aws/aws-cdk-go/awscdk/aws_efs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var fileSystem fileSystem
+//
 //   accessPointProps := &accessPointProps{
 //   	fileSystem: fileSystem,
 //
@@ -550,26 +555,28 @@ type AccessPointProps struct {
 	// root directory specified by `path` does not exist, EFS creates the root directory and applies the
 	// permissions specified here. If the specified `path` does not exist, you must specify `createAcl`.
 	// Experimental.
-	CreateAcl *Acl `json:"createAcl" yaml:"createAcl"`
+	CreateAcl *Acl `field:"optional" json:"createAcl" yaml:"createAcl"`
 	// Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system.
 	// Experimental.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 	// The full POSIX identity, including the user ID, group ID, and any secondary group IDs, on the access point that is used for all file system operations performed by NFS clients using the access point.
 	//
 	// Specify this to enforce a user identity using an access point.
 	// See: - [Enforcing a User Identity Using an Access Point](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html)
 	//
 	// Experimental.
-	PosixUser *PosixUser `json:"posixUser" yaml:"posixUser"`
+	PosixUser *PosixUser `field:"optional" json:"posixUser" yaml:"posixUser"`
 	// The efs filesystem.
 	// Experimental.
-	FileSystem IFileSystem `json:"fileSystem" yaml:"fileSystem"`
+	FileSystem IFileSystem `field:"required" json:"fileSystem" yaml:"fileSystem"`
 }
 
 // Permissions as POSIX ACL.
 //
 // Example:
-//   import ec2 "github.com/aws/aws-cdk-go/awscdk"import efs "github.com/aws/aws-cdk-go/awscdk"
+//   import ec2 "github.com/aws/aws-cdk-go/awscdk"
+//   import efs "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   // create a new VPC
 //   vpc := ec2.NewVpc(this, jsii.String("VPC"))
@@ -599,7 +606,7 @@ type AccessPointProps struct {
 //   fn := lambda.NewFunction(this, jsii.String("MyLambda"), &functionProps{
 //   	// mount the access point to /mnt/msg in the lambda runtime environment
 //   	filesystem: lambda.fileSystem.fromEfsAccessPoint(accessPoint, jsii.String("/mnt/msg")),
-//   	runtime: lambda.runtime_NODEJS_12_X(),
+//   	runtime: lambda.runtime_NODEJS_16_X(),
 //   	handler: jsii.String("index.handler"),
 //   	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 //   	vpc: vpc,
@@ -611,15 +618,15 @@ type Acl struct {
 	//
 	// Accepts values from 0 to 2^32 (4294967295).
 	// Experimental.
-	OwnerGid *string `json:"ownerGid" yaml:"ownerGid"`
+	OwnerGid *string `field:"required" json:"ownerGid" yaml:"ownerGid"`
 	// Specifies the POSIX user ID to apply to the RootDirectory.
 	//
 	// Accepts values from 0 to 2^32 (4294967295).
 	// Experimental.
-	OwnerUid *string `json:"ownerUid" yaml:"ownerUid"`
+	OwnerUid *string `field:"required" json:"ownerUid" yaml:"ownerUid"`
 	// Specifies the POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
 	// Experimental.
-	Permissions *string `json:"permissions" yaml:"permissions"`
+	Permissions *string `field:"required" json:"permissions" yaml:"permissions"`
 }
 
 // A CloudFormation `AWS::EFS::AccessPoint`.
@@ -629,8 +636,11 @@ type Acl struct {
 // This operation requires permissions for the `elasticfilesystem:CreateAccessPoint` action.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import efs "github.com/aws/aws-cdk-go/awscdk/aws_efs"
-//   cfnAccessPoint := efs.NewCfnAccessPoint(this, jsii.String("MyCfnAccessPoint"), &cfnAccessPointProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnAccessPoint := awscdk.Aws_efs.NewCfnAccessPoint(this, jsii.String("MyCfnAccessPoint"), &cfnAccessPointProps{
 //   	fileSystemId: jsii.String("fileSystemId"),
 //
 //   	// the properties below are optional
@@ -1403,7 +1413,10 @@ func (c *jsiiProxy_CfnAccessPoint) ValidateProperties(_properties interface{}) {
 // Allowed characters in the `Key` and `Value` properties are letters, white space, and numbers that can be represented in UTF-8, and the following characters: `+ - = . _ : /`
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import efs "github.com/aws/aws-cdk-go/awscdk/aws_efs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   accessPointTagProperty := &accessPointTagProperty{
 //   	key: jsii.String("key"),
 //   	value: jsii.String("value"),
@@ -1413,9 +1426,9 @@ type CfnAccessPoint_AccessPointTagProperty struct {
 	// The tag key (String).
 	//
 	// The key can't start with `aws:` .
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"optional" json:"key" yaml:"key"`
 	// The value of the tag key.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
 // Required if the `RootDirectory` > `Path` specified does not exist.
@@ -1427,7 +1440,10 @@ type CfnAccessPoint_AccessPointTagProperty struct {
 // > If you do not provide `CreationInfo` and the specified `RootDirectory` does not exist, attempts to mount the file system using the access point will fail.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import efs "github.com/aws/aws-cdk-go/awscdk/aws_efs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   creationInfoProperty := &creationInfoProperty{
 //   	ownerGid: jsii.String("ownerGid"),
 //   	ownerUid: jsii.String("ownerUid"),
@@ -1438,19 +1454,22 @@ type CfnAccessPoint_CreationInfoProperty struct {
 	// Specifies the POSIX group ID to apply to the `RootDirectory` .
 	//
 	// Accepts values from 0 to 2^32 (4294967295).
-	OwnerGid *string `json:"ownerGid" yaml:"ownerGid"`
+	OwnerGid *string `field:"required" json:"ownerGid" yaml:"ownerGid"`
 	// Specifies the POSIX user ID to apply to the `RootDirectory` .
 	//
 	// Accepts values from 0 to 2^32 (4294967295).
-	OwnerUid *string `json:"ownerUid" yaml:"ownerUid"`
+	OwnerUid *string `field:"required" json:"ownerUid" yaml:"ownerUid"`
 	// Specifies the POSIX permissions to apply to the `RootDirectory` , in the format of an octal number representing the file's mode bits.
-	Permissions *string `json:"permissions" yaml:"permissions"`
+	Permissions *string `field:"required" json:"permissions" yaml:"permissions"`
 }
 
 // The full POSIX identity, including the user ID, group ID, and any secondary group IDs, on the access point that is used for all file system operations performed by NFS clients using the access point.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import efs "github.com/aws/aws-cdk-go/awscdk/aws_efs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   posixUserProperty := &posixUserProperty{
 //   	gid: jsii.String("gid"),
 //   	uid: jsii.String("uid"),
@@ -1463,11 +1482,11 @@ type CfnAccessPoint_CreationInfoProperty struct {
 //
 type CfnAccessPoint_PosixUserProperty struct {
 	// The POSIX group ID used for all file system operations using this access point.
-	Gid *string `json:"gid" yaml:"gid"`
+	Gid *string `field:"required" json:"gid" yaml:"gid"`
 	// The POSIX user ID used for all file system operations using this access point.
-	Uid *string `json:"uid" yaml:"uid"`
+	Uid *string `field:"required" json:"uid" yaml:"uid"`
 	// Secondary POSIX group IDs used for all file system operations using this access point.
-	SecondaryGids *[]*string `json:"secondaryGids" yaml:"secondaryGids"`
+	SecondaryGids *[]*string `field:"optional" json:"secondaryGids" yaml:"secondaryGids"`
 }
 
 // Specifies the directory on the Amazon EFS file system that the access point provides access to.
@@ -1475,7 +1494,10 @@ type CfnAccessPoint_PosixUserProperty struct {
 // The access point exposes the specified file system path as the root directory of your file system to applications using the access point. NFS clients using the access point can only access data in the access point's `RootDirectory` and it's subdirectories.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import efs "github.com/aws/aws-cdk-go/awscdk/aws_efs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   rootDirectoryProperty := &rootDirectoryProperty{
 //   	creationInfo: &creationInfoProperty{
 //   		ownerGid: jsii.String("ownerGid"),
@@ -1491,17 +1513,20 @@ type CfnAccessPoint_RootDirectoryProperty struct {
 	// If the `RootDirectory` > `Path` specified does not exist, EFS creates the root directory using the `CreationInfo` settings when a client connects to an access point. When specifying the `CreationInfo` , you must provide values for all properties.
 	//
 	// > If you do not provide `CreationInfo` and the specified `RootDirectory` > `Path` does not exist, attempts to mount the file system using the access point will fail.
-	CreationInfo interface{} `json:"creationInfo" yaml:"creationInfo"`
+	CreationInfo interface{} `field:"optional" json:"creationInfo" yaml:"creationInfo"`
 	// Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system.
 	//
 	// A path can have up to four subdirectories. If the specified path does not exist, you are required to provide the `CreationInfo` .
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 }
 
 // Properties for defining a `CfnAccessPoint`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import efs "github.com/aws/aws-cdk-go/awscdk/aws_efs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAccessPointProps := &cfnAccessPointProps{
 //   	fileSystemId: jsii.String("fileSystemId"),
 //
@@ -1536,17 +1561,17 @@ type CfnAccessPointProps struct {
 	// The ID of the EFS file system that the access point applies to.
 	//
 	// Accepts only the ID format for input when specifying a file system, for example `fs-0123456789abcedf2` .
-	FileSystemId *string `json:"fileSystemId" yaml:"fileSystemId"`
+	FileSystemId *string `field:"required" json:"fileSystemId" yaml:"fileSystemId"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	AccessPointTags interface{} `json:"accessPointTags" yaml:"accessPointTags"`
+	AccessPointTags interface{} `field:"optional" json:"accessPointTags" yaml:"accessPointTags"`
 	// The opaque string specified in the request to ensure idempotent creation.
-	ClientToken *string `json:"clientToken" yaml:"clientToken"`
+	ClientToken *string `field:"optional" json:"clientToken" yaml:"clientToken"`
 	// The full POSIX identity, including the user ID, group ID, and secondary group IDs on the access point that is used for all file operations by NFS clients using the access point.
-	PosixUser interface{} `json:"posixUser" yaml:"posixUser"`
+	PosixUser interface{} `field:"optional" json:"posixUser" yaml:"posixUser"`
 	// The directory on the Amazon EFS file system that the access point exposes as the root directory to NFS clients using the access point.
-	RootDirectory interface{} `json:"rootDirectory" yaml:"rootDirectory"`
+	RootDirectory interface{} `field:"optional" json:"rootDirectory" yaml:"rootDirectory"`
 }
 
 // A CloudFormation `AWS::EFS::FileSystem`.
@@ -1554,10 +1579,13 @@ type CfnAccessPointProps struct {
 // The `AWS::EFS::FileSystem` resource creates a new, empty file system in Amazon Elastic File System ( Amazon EFS ). You must create a mount target ( [AWS::EFS::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html) ) to mount your EFS file system on an Amazon EC2 or other AWS cloud compute resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import efs "github.com/aws/aws-cdk-go/awscdk/aws_efs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var fileSystemPolicy interface{}
-//   cfnFileSystem := efs.NewCfnFileSystem(this, jsii.String("MyCfnFileSystem"), &cfnFileSystemProps{
+//
+//   cfnFileSystem := awscdk.Aws_efs.NewCfnFileSystem(this, jsii.String("MyCfnFileSystem"), &cfnFileSystemProps{
 //   	availabilityZoneName: jsii.String("availabilityZoneName"),
 //   	backupPolicy: &backupPolicyProperty{
 //   		status: jsii.String("status"),
@@ -2479,7 +2507,10 @@ func (c *jsiiProxy_CfnFileSystem) ValidateProperties(_properties interface{}) {
 // The backup policy turns automatic backups for the file system on or off.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import efs "github.com/aws/aws-cdk-go/awscdk/aws_efs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   backupPolicyProperty := &backupPolicyProperty{
 //   	status: jsii.String("status"),
 //   }
@@ -2489,7 +2520,7 @@ type CfnFileSystem_BackupPolicyProperty struct {
 	//
 	// - *`ENABLED`* - Turns automatic backups on for the file system.
 	// - *`DISABLED`* - Turns automatic backups off for the file system.
-	Status *string `json:"status" yaml:"status"`
+	Status *string `field:"required" json:"status" yaml:"status"`
 }
 
 // A tag is a key-value pair attached to a file system.
@@ -2497,7 +2528,10 @@ type CfnFileSystem_BackupPolicyProperty struct {
 // Allowed characters in the `Key` and `Value` properties are letters, white space, and numbers that can be represented in UTF-8, and the following characters: `+ - = . _ : /`
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import efs "github.com/aws/aws-cdk-go/awscdk/aws_efs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   elasticFileSystemTagProperty := &elasticFileSystemTagProperty{
 //   	key: jsii.String("key"),
 //   	value: jsii.String("value"),
@@ -2507,9 +2541,9 @@ type CfnFileSystem_ElasticFileSystemTagProperty struct {
 	// The tag key (String).
 	//
 	// The key can't start with `aws:` .
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// The value of the tag key.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // Describes a policy used by EFS lifecycle management and EFS Intelligent-Tiering that specifies when to transition files into and out of the file system's Infrequent Access (IA) storage class.
@@ -2520,7 +2554,10 @@ type CfnFileSystem_ElasticFileSystemTagProperty struct {
 // > - See the AWS::EFS::FileSystem examples for the correct `LifecyclePolicy` structure. Do not use the syntax shown on this page.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import efs "github.com/aws/aws-cdk-go/awscdk/aws_efs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   lifecyclePolicyProperty := &lifecyclePolicyProperty{
 //   	transitionToIa: jsii.String("transitionToIa"),
 //   	transitionToPrimaryStorageClass: jsii.String("transitionToPrimaryStorageClass"),
@@ -2530,19 +2567,22 @@ type CfnFileSystem_LifecyclePolicyProperty struct {
 	// Describes the period of time that a file is not accessed, after which it transitions to IA storage.
 	//
 	// Metadata operations such as listing the contents of a directory don't count as file access events.
-	TransitionToIa *string `json:"transitionToIa" yaml:"transitionToIa"`
+	TransitionToIa *string `field:"optional" json:"transitionToIa" yaml:"transitionToIa"`
 	// Describes when to transition a file from IA storage to primary storage.
 	//
 	// Metadata operations such as listing the contents of a directory don't count as file access events.
-	TransitionToPrimaryStorageClass *string `json:"transitionToPrimaryStorageClass" yaml:"transitionToPrimaryStorageClass"`
+	TransitionToPrimaryStorageClass *string `field:"optional" json:"transitionToPrimaryStorageClass" yaml:"transitionToPrimaryStorageClass"`
 }
 
 // Properties for defining a `CfnFileSystem`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import efs "github.com/aws/aws-cdk-go/awscdk/aws_efs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var fileSystemPolicy interface{}
+//
 //   cfnFileSystemProps := &cfnFileSystemProps{
 //   	availabilityZoneName: jsii.String("availabilityZoneName"),
 //   	backupPolicy: &backupPolicyProperty{
@@ -2575,25 +2615,25 @@ type CfnFileSystemProps struct {
 	// It specifies the AWS Availability Zone in which to create the file system. Use the format `us-east-1a` to specify the Availability Zone. For more information about One Zone storage classes, see [Using EFS storage classes](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) in the *Amazon EFS User Guide* .
 	//
 	// > One Zone storage classes are not available in all Availability Zones in AWS Regions where Amazon EFS is available.
-	AvailabilityZoneName *string `json:"availabilityZoneName" yaml:"availabilityZoneName"`
+	AvailabilityZoneName *string `field:"optional" json:"availabilityZoneName" yaml:"availabilityZoneName"`
 	// Use the `BackupPolicy` to turn automatic backups on or off for the file system.
-	BackupPolicy interface{} `json:"backupPolicy" yaml:"backupPolicy"`
+	BackupPolicy interface{} `field:"optional" json:"backupPolicy" yaml:"backupPolicy"`
 	// (Optional) A boolean that specifies whether or not to bypass the `FileSystemPolicy` lockout safety check.
 	//
 	// The lockout safety check determines whether the policy in the request will lock out, or prevent, the IAM principal that is making the request from making future `PutFileSystemPolicy` requests on this file system. Set `BypassPolicyLockoutSafetyCheck` to `True` only when you intend to prevent the IAM principal that is making the request from making subsequent `PutFileSystemPolicy` requests on this file system. The default value is `False` .
-	BypassPolicyLockoutSafetyCheck interface{} `json:"bypassPolicyLockoutSafetyCheck" yaml:"bypassPolicyLockoutSafetyCheck"`
+	BypassPolicyLockoutSafetyCheck interface{} `field:"optional" json:"bypassPolicyLockoutSafetyCheck" yaml:"bypassPolicyLockoutSafetyCheck"`
 	// A Boolean value that, if true, creates an encrypted file system.
 	//
 	// When creating an encrypted file system, you have the option of specifying a KmsKeyId for an existing AWS KMS key . If you don't specify a KMS key , then the default KMS key for Amazon EFS , `/aws/elasticfilesystem` , is used to protect the encrypted file system.
-	Encrypted interface{} `json:"encrypted" yaml:"encrypted"`
+	Encrypted interface{} `field:"optional" json:"encrypted" yaml:"encrypted"`
 	// The `FileSystemPolicy` for the EFS file system.
 	//
 	// A file system policy is an IAM resource policy used to control NFS access to an EFS file system. For more information, see [Using IAM to control NFS access to Amazon EFS](https://docs.aws.amazon.com/efs/latest/ug/iam-access-control-nfs-efs.html) in the *Amazon EFS User Guide* .
-	FileSystemPolicy interface{} `json:"fileSystemPolicy" yaml:"fileSystemPolicy"`
+	FileSystemPolicy interface{} `field:"optional" json:"fileSystemPolicy" yaml:"fileSystemPolicy"`
 	// Use to create one or more tags associated with the file system.
 	//
 	// Each tag is a user-defined key-value pair. Name your file system on creation by including a `"Key":"Name","Value":"{value}"` key-value pair. Each key must be unique. For more information, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference Guide* .
-	FileSystemTags *[]*CfnFileSystem_ElasticFileSystemTagProperty `json:"fileSystemTags" yaml:"fileSystemTags"`
+	FileSystemTags *[]*CfnFileSystem_ElasticFileSystemTagProperty `field:"optional" json:"fileSystemTags" yaml:"fileSystemTags"`
 	// The ID of the AWS KMS key to be used to protect the encrypted file system.
 	//
 	// This parameter is only required if you want to use a nondefault KMS key . If this parameter is not specified, the default KMS key for Amazon EFS is used. This ID can be in one of the following formats:
@@ -2604,7 +2644,7 @@ type CfnFileSystemProps struct {
 	// - Key alias ARN - An ARN for a key alias, for example `arn:aws:kms:us-west-2:444455556666:alias/projectKey1` .
 	//
 	// If `KmsKeyId` is specified, the `Encrypted` parameter must be set to true.
-	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// An array of `LifecyclePolicy` objects that define the file system's `LifecycleConfiguration` object.
 	//
 	// A `LifecycleConfiguration` object informs EFS lifecycle management and intelligent tiering of the following:
@@ -2613,23 +2653,23 @@ type CfnFileSystemProps struct {
 	// - When to move files that are in IA storage to primary storage.
 	//
 	// > Amazon EFS requires that each `LifecyclePolicy` object have only a single transition. This means that in a request body, `LifecyclePolicies` needs to be structured as an array of `LifecyclePolicy` objects, one object for each transition, `TransitionToIA` , `TransitionToPrimaryStorageClass` . See the example requests in the following section for more information.
-	LifecyclePolicies interface{} `json:"lifecyclePolicies" yaml:"lifecyclePolicies"`
+	LifecyclePolicies interface{} `field:"optional" json:"lifecyclePolicies" yaml:"lifecyclePolicies"`
 	// The performance mode of the file system.
 	//
 	// We recommend `generalPurpose` performance mode for most file systems. File systems using the `maxIO` performance mode can scale to higher levels of aggregate throughput and operations per second with a tradeoff of slightly higher latencies for most file operations. The performance mode can't be changed after the file system has been created.
 	//
 	// > The `maxIO` mode is not supported on file systems using One Zone storage classes.
-	PerformanceMode *string `json:"performanceMode" yaml:"performanceMode"`
+	PerformanceMode *string `field:"optional" json:"performanceMode" yaml:"performanceMode"`
 	// The throughput, measured in MiB/s, that you want to provision for a file system that you're creating.
 	//
 	// Valid values are 1-1024. Required if `ThroughputMode` is set to `provisioned` . The upper limit for throughput is 1024 MiB/s. To increase this limit, contact AWS Support . For more information, see [Amazon EFS quotas that you can increase](https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits) in the *Amazon EFS User Guide* .
-	ProvisionedThroughputInMibps *float64 `json:"provisionedThroughputInMibps" yaml:"provisionedThroughputInMibps"`
+	ProvisionedThroughputInMibps *float64 `field:"optional" json:"provisionedThroughputInMibps" yaml:"provisionedThroughputInMibps"`
 	// Specifies the throughput mode for the file system, either `bursting` or `provisioned` .
 	//
 	// If you set `ThroughputMode` to `provisioned` , you must also set a value for `ProvisionedThroughputInMibps` . After you create the file system, you can decrease your file system's throughput in Provisioned Throughput mode or change between the throughput modes, as long as it’s been more than 24 hours since the last decrease or throughput mode change. For more information, see [Specifying throughput with provisioned mode](https://docs.aws.amazon.com/efs/latest/ug/performance.html#provisioned-throughput) in the *Amazon EFS User Guide* .
 	//
 	// Default is `bursting` .
-	ThroughputMode *string `json:"throughputMode" yaml:"throughputMode"`
+	ThroughputMode *string `field:"optional" json:"throughputMode" yaml:"throughputMode"`
 }
 
 // A CloudFormation `AWS::EFS::MountTarget`.
@@ -2637,8 +2677,11 @@ type CfnFileSystemProps struct {
 // The `AWS::EFS::MountTarget` resource is an Amazon EFS resource that creates a mount target for an EFS file system. You can then mount the file system on Amazon EC2 instances or other resources by using the mount target.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import efs "github.com/aws/aws-cdk-go/awscdk/aws_efs"
-//   cfnMountTarget := efs.NewCfnMountTarget(this, jsii.String("MyCfnMountTarget"), &cfnMountTargetProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnMountTarget := awscdk.Aws_efs.NewCfnMountTarget(this, jsii.String("MyCfnMountTarget"), &cfnMountTargetProps{
 //   	fileSystemId: jsii.String("fileSystemId"),
 //   	securityGroups: []*string{
 //   		jsii.String("securityGroups"),
@@ -3373,7 +3416,10 @@ func (c *jsiiProxy_CfnMountTarget) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnMountTarget`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import efs "github.com/aws/aws-cdk-go/awscdk/aws_efs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnMountTargetProps := &cfnMountTargetProps{
 //   	fileSystemId: jsii.String("fileSystemId"),
 //   	securityGroups: []*string{
@@ -3387,17 +3433,17 @@ func (c *jsiiProxy_CfnMountTarget) ValidateProperties(_properties interface{}) {
 //
 type CfnMountTargetProps struct {
 	// The ID of the file system for which to create the mount target.
-	FileSystemId *string `json:"fileSystemId" yaml:"fileSystemId"`
+	FileSystemId *string `field:"required" json:"fileSystemId" yaml:"fileSystemId"`
 	// Up to five VPC security group IDs, of the form `sg-xxxxxxxx` .
 	//
 	// These must be for the same VPC as subnet specified.
-	SecurityGroups *[]*string `json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]*string `field:"required" json:"securityGroups" yaml:"securityGroups"`
 	// The ID of the subnet to add the mount target in.
 	//
 	// For file systems that use One Zone storage classes, use the subnet that is associated with the file system's Availability Zone.
-	SubnetId *string `json:"subnetId" yaml:"subnetId"`
+	SubnetId *string `field:"required" json:"subnetId" yaml:"subnetId"`
 	// Valid IPv4 address within the address range of the specified subnet.
-	IpAddress *string `json:"ipAddress" yaml:"ipAddress"`
+	IpAddress *string `field:"optional" json:"ipAddress" yaml:"ipAddress"`
 }
 
 // The Elastic File System implementation of IFileSystem.
@@ -3877,6 +3923,7 @@ func (f *jsiiProxy_FileSystem) Validate() *[]*string {
 // Example:
 //   import iam "github.com/aws/aws-cdk-go/awscdk"
 //
+//
 //   importedFileSystem := efs.fileSystem.fromFileSystemAttributes(this, jsii.String("existingFS"), &fileSystemAttributes{
 //   	fileSystemId: jsii.String("fs-12345678"),
 //   	 // You can also use fileSystemArn instead of fileSystemId.
@@ -3889,13 +3936,13 @@ func (f *jsiiProxy_FileSystem) Validate() *[]*string {
 type FileSystemAttributes struct {
 	// The security group of the file system.
 	// Experimental.
-	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup" yaml:"securityGroup"`
+	SecurityGroup awsec2.ISecurityGroup `field:"required" json:"securityGroup" yaml:"securityGroup"`
 	// The File System's Arn.
 	// Experimental.
-	FileSystemArn *string `json:"fileSystemArn" yaml:"fileSystemArn"`
+	FileSystemArn *string `field:"optional" json:"fileSystemArn" yaml:"fileSystemArn"`
 	// The File System's ID.
 	// Experimental.
-	FileSystemId *string `json:"fileSystemId" yaml:"fileSystemId"`
+	FileSystemId *string `field:"optional" json:"fileSystemId" yaml:"fileSystemId"`
 }
 
 // Properties of EFS FileSystem.
@@ -3914,51 +3961,51 @@ type FileSystemAttributes struct {
 type FileSystemProps struct {
 	// VPC to launch the file system in.
 	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
+	Vpc awsec2.IVpc `field:"required" json:"vpc" yaml:"vpc"`
 	// Whether to enable automatic backups for the file system.
 	// Experimental.
-	EnableAutomaticBackups *bool `json:"enableAutomaticBackups" yaml:"enableAutomaticBackups"`
+	EnableAutomaticBackups *bool `field:"optional" json:"enableAutomaticBackups" yaml:"enableAutomaticBackups"`
 	// Defines if the data at rest in the file system is encrypted or not.
 	// Experimental.
-	Encrypted *bool `json:"encrypted" yaml:"encrypted"`
+	Encrypted *bool `field:"optional" json:"encrypted" yaml:"encrypted"`
 	// The file system's name.
 	// Experimental.
-	FileSystemName *string `json:"fileSystemName" yaml:"fileSystemName"`
+	FileSystemName *string `field:"optional" json:"fileSystemName" yaml:"fileSystemName"`
 	// The KMS key used for encryption.
 	//
 	// This is required to encrypt the data at rest if @encrypted is set to true.
 	// Experimental.
-	KmsKey awskms.IKey `json:"kmsKey" yaml:"kmsKey"`
+	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 	// A policy used by EFS lifecycle management to transition files to the Infrequent Access (IA) storage class.
 	// Experimental.
-	LifecyclePolicy LifecyclePolicy `json:"lifecyclePolicy" yaml:"lifecyclePolicy"`
+	LifecyclePolicy LifecyclePolicy `field:"optional" json:"lifecyclePolicy" yaml:"lifecyclePolicy"`
 	// A policy used by EFS lifecycle management to transition files from Infrequent Access (IA) storage class to primary storage class.
 	// Experimental.
-	OutOfInfrequentAccessPolicy OutOfInfrequentAccessPolicy `json:"outOfInfrequentAccessPolicy" yaml:"outOfInfrequentAccessPolicy"`
+	OutOfInfrequentAccessPolicy OutOfInfrequentAccessPolicy `field:"optional" json:"outOfInfrequentAccessPolicy" yaml:"outOfInfrequentAccessPolicy"`
 	// The performance mode that the file system will operate under.
 	//
 	// An Amazon EFS file system's performance mode can't be changed after the file system has been created.
 	// Updating this property will replace the file system.
 	// Experimental.
-	PerformanceMode PerformanceMode `json:"performanceMode" yaml:"performanceMode"`
+	PerformanceMode PerformanceMode `field:"optional" json:"performanceMode" yaml:"performanceMode"`
 	// Provisioned throughput for the file system.
 	//
 	// This is a required property if the throughput mode is set to PROVISIONED.
 	// Must be at least 1MiB/s.
 	// Experimental.
-	ProvisionedThroughputPerSecond awscdk.Size `json:"provisionedThroughputPerSecond" yaml:"provisionedThroughputPerSecond"`
+	ProvisionedThroughputPerSecond awscdk.Size `field:"optional" json:"provisionedThroughputPerSecond" yaml:"provisionedThroughputPerSecond"`
 	// The removal policy to apply to the file system.
 	// Experimental.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// Security Group to assign to this file system.
 	// Experimental.
-	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup" yaml:"securityGroup"`
+	SecurityGroup awsec2.ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
 	// Enum to mention the throughput mode of the file system.
 	// Experimental.
-	ThroughputMode ThroughputMode `json:"throughputMode" yaml:"throughputMode"`
+	ThroughputMode ThroughputMode `field:"optional" json:"throughputMode" yaml:"throughputMode"`
 	// Which subnets to place the mount target in the VPC.
 	// Experimental.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
 // Represents an EFS AccessPoint.
@@ -4226,7 +4273,9 @@ const (
 // Represents the PosixUser.
 //
 // Example:
-//   import ec2 "github.com/aws/aws-cdk-go/awscdk"import efs "github.com/aws/aws-cdk-go/awscdk"
+//   import ec2 "github.com/aws/aws-cdk-go/awscdk"
+//   import efs "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   // create a new VPC
 //   vpc := ec2.NewVpc(this, jsii.String("VPC"))
@@ -4256,7 +4305,7 @@ const (
 //   fn := lambda.NewFunction(this, jsii.String("MyLambda"), &functionProps{
 //   	// mount the access point to /mnt/msg in the lambda runtime environment
 //   	filesystem: lambda.fileSystem.fromEfsAccessPoint(accessPoint, jsii.String("/mnt/msg")),
-//   	runtime: lambda.runtime_NODEJS_12_X(),
+//   	runtime: lambda.runtime_NODEJS_16_X(),
 //   	handler: jsii.String("index.handler"),
 //   	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 //   	vpc: vpc,
@@ -4266,13 +4315,13 @@ const (
 type PosixUser struct {
 	// The POSIX group ID used for all file system operations using this access point.
 	// Experimental.
-	Gid *string `json:"gid" yaml:"gid"`
+	Gid *string `field:"required" json:"gid" yaml:"gid"`
 	// The POSIX user ID used for all file system operations using this access point.
 	// Experimental.
-	Uid *string `json:"uid" yaml:"uid"`
+	Uid *string `field:"required" json:"uid" yaml:"uid"`
 	// Secondary POSIX group IDs used for all file system operations using this access point.
 	// Experimental.
-	SecondaryGids *[]*string `json:"secondaryGids" yaml:"secondaryGids"`
+	SecondaryGids *[]*string `field:"optional" json:"secondaryGids" yaml:"secondaryGids"`
 }
 
 // EFS Throughput mode.

@@ -14,8 +14,11 @@ import (
 // The `AWS::Connect::ContactFlow` resource specifies a contact flow for the specified Amazon Connect instance.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import connect "github.com/aws/aws-cdk-go/awscdk/aws_connect"
-//   cfnContactFlow := connect.NewCfnContactFlow(this, jsii.String("MyCfnContactFlow"), &cfnContactFlowProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnContactFlow := awscdk.Aws_connect.NewCfnContactFlow(this, jsii.String("MyCfnContactFlow"), &cfnContactFlowProps{
 //   	content: jsii.String("content"),
 //   	instanceArn: jsii.String("instanceArn"),
 //   	name: jsii.String("name"),
@@ -798,8 +801,11 @@ func (c *jsiiProxy_CfnContactFlow) ValidateProperties(_properties interface{}) {
 // The `AWS::Connect::ContactFlowModule` resource specifies a contact flow module for the specified Amazon Connect instance.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import connect "github.com/aws/aws-cdk-go/awscdk/aws_connect"
-//   cfnContactFlowModule := connect.NewCfnContactFlowModule(this, jsii.String("MyCfnContactFlowModule"), &cfnContactFlowModuleProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnContactFlowModule := awscdk.Aws_connect.NewCfnContactFlowModule(this, jsii.String("MyCfnContactFlowModule"), &cfnContactFlowModuleProps{
 //   	content: jsii.String("content"),
 //   	instanceArn: jsii.String("instanceArn"),
 //   	name: jsii.String("name"),
@@ -1567,7 +1573,10 @@ func (c *jsiiProxy_CfnContactFlowModule) ValidateProperties(_properties interfac
 // Properties for defining a `CfnContactFlowModule`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import connect "github.com/aws/aws-cdk-go/awscdk/aws_connect"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnContactFlowModuleProps := &cfnContactFlowModuleProps{
 //   	content: jsii.String("content"),
 //   	instanceArn: jsii.String("instanceArn"),
@@ -1586,25 +1595,28 @@ func (c *jsiiProxy_CfnContactFlowModule) ValidateProperties(_properties interfac
 //
 type CfnContactFlowModuleProps struct {
 	// The content of the contact flow module.
-	Content *string `json:"content" yaml:"content"`
+	Content *string `field:"required" json:"content" yaml:"content"`
 	// The Amazon Resource Name (ARN) of the Amazon Connect instance.
-	InstanceArn *string `json:"instanceArn" yaml:"instanceArn"`
+	InstanceArn *string `field:"required" json:"instanceArn" yaml:"instanceArn"`
 	// The name of the contact flow module.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The description of the contact flow module.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The state of the contact flow module.
-	State *string `json:"state" yaml:"state"`
+	State *string `field:"optional" json:"state" yaml:"state"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // Properties for defining a `CfnContactFlow`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import connect "github.com/aws/aws-cdk-go/awscdk/aws_connect"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnContactFlowProps := &cfnContactFlowProps{
 //   	content: jsii.String("content"),
 //   	instanceArn: jsii.String("instanceArn"),
@@ -1624,23 +1636,23 @@ type CfnContactFlowModuleProps struct {
 //
 type CfnContactFlowProps struct {
 	// The content of the contact flow.
-	Content *string `json:"content" yaml:"content"`
+	Content *string `field:"required" json:"content" yaml:"content"`
 	// The Amazon Resource Name (ARN) of the Amazon Connect instance.
-	InstanceArn *string `json:"instanceArn" yaml:"instanceArn"`
+	InstanceArn *string `field:"required" json:"instanceArn" yaml:"instanceArn"`
 	// The name of the contact flow.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The description of the contact flow.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The state of the contact flow.
-	State *string `json:"state" yaml:"state"`
+	State *string `field:"optional" json:"state" yaml:"state"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The type of the contact flow.
 	//
 	// For descriptions of the available types, see [Choose a Contact Flow Type](https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types) in the *Amazon Connect Administrator Guide* .
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 
 // A CloudFormation `AWS::Connect::HoursOfOperation`.
@@ -1648,8 +1660,11 @@ type CfnContactFlowProps struct {
 // Creates hours of operation.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import connect "github.com/aws/aws-cdk-go/awscdk/aws_connect"
-//   cfnHoursOfOperation := connect.NewCfnHoursOfOperation(this, jsii.String("MyCfnHoursOfOperation"), &cfnHoursOfOperationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnHoursOfOperation := awscdk.Aws_connect.NewCfnHoursOfOperation(this, jsii.String("MyCfnHoursOfOperation"), &cfnHoursOfOperationProps{
 //   	config: []interface{}{
 //   		&hoursOfOperationConfigProperty{
 //   			day: jsii.String("day"),
@@ -2414,7 +2429,10 @@ func (c *jsiiProxy_CfnHoursOfOperation) ValidateProperties(_properties interface
 // Contains information about the hours of operation.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import connect "github.com/aws/aws-cdk-go/awscdk/aws_connect"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   hoursOfOperationConfigProperty := &hoursOfOperationConfigProperty{
 //   	day: jsii.String("day"),
 //   	endTime: &hoursOfOperationTimeSliceProperty{
@@ -2429,17 +2447,20 @@ func (c *jsiiProxy_CfnHoursOfOperation) ValidateProperties(_properties interface
 //
 type CfnHoursOfOperation_HoursOfOperationConfigProperty struct {
 	// The day that the hours of operation applies to.
-	Day *string `json:"day" yaml:"day"`
+	Day *string `field:"required" json:"day" yaml:"day"`
 	// The end time that your contact center closes.
-	EndTime interface{} `json:"endTime" yaml:"endTime"`
+	EndTime interface{} `field:"required" json:"endTime" yaml:"endTime"`
 	// The start time that your contact center opens.
-	StartTime interface{} `json:"startTime" yaml:"startTime"`
+	StartTime interface{} `field:"required" json:"startTime" yaml:"startTime"`
 }
 
 // The start time or end time for an hours of operation.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import connect "github.com/aws/aws-cdk-go/awscdk/aws_connect"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   hoursOfOperationTimeSliceProperty := &hoursOfOperationTimeSliceProperty{
 //   	hours: jsii.Number(123),
 //   	minutes: jsii.Number(123),
@@ -2447,15 +2468,18 @@ type CfnHoursOfOperation_HoursOfOperationConfigProperty struct {
 //
 type CfnHoursOfOperation_HoursOfOperationTimeSliceProperty struct {
 	// The hours.
-	Hours *float64 `json:"hours" yaml:"hours"`
+	Hours *float64 `field:"required" json:"hours" yaml:"hours"`
 	// The minutes.
-	Minutes *float64 `json:"minutes" yaml:"minutes"`
+	Minutes *float64 `field:"required" json:"minutes" yaml:"minutes"`
 }
 
 // Properties for defining a `CfnHoursOfOperation`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import connect "github.com/aws/aws-cdk-go/awscdk/aws_connect"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnHoursOfOperationProps := &cfnHoursOfOperationProps{
 //   	config: []interface{}{
 //   		&hoursOfOperationConfigProperty{
@@ -2486,17 +2510,17 @@ type CfnHoursOfOperation_HoursOfOperationTimeSliceProperty struct {
 //
 type CfnHoursOfOperationProps struct {
 	// Configuration information for the hours of operation.
-	Config interface{} `json:"config" yaml:"config"`
+	Config interface{} `field:"required" json:"config" yaml:"config"`
 	// The Amazon Resource Name (ARN) for the instance.
-	InstanceArn *string `json:"instanceArn" yaml:"instanceArn"`
+	InstanceArn *string `field:"required" json:"instanceArn" yaml:"instanceArn"`
 	// The name for the hours of operation.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The time zone for the hours of operation.
-	TimeZone *string `json:"timeZone" yaml:"timeZone"`
+	TimeZone *string `field:"required" json:"timeZone" yaml:"timeZone"`
 	// The description for the hours of operation.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The tags used to organize, track, or control access for this resource.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Connect::PhoneNumber`.
@@ -2504,8 +2528,11 @@ type CfnHoursOfOperationProps struct {
 // Claims a phone number to the specified Amazon Connect instance.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import connect "github.com/aws/aws-cdk-go/awscdk/aws_connect"
-//   cfnPhoneNumber := connect.NewCfnPhoneNumber(this, jsii.String("MyCfnPhoneNumber"), &cfnPhoneNumberProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnPhoneNumber := awscdk.Aws_connect.NewCfnPhoneNumber(this, jsii.String("MyCfnPhoneNumber"), &cfnPhoneNumberProps{
 //   	countryCode: jsii.String("countryCode"),
 //   	targetArn: jsii.String("targetArn"),
 //   	type: jsii.String("type"),
@@ -3272,7 +3299,10 @@ func (c *jsiiProxy_CfnPhoneNumber) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnPhoneNumber`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import connect "github.com/aws/aws-cdk-go/awscdk/aws_connect"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnPhoneNumberProps := &cfnPhoneNumberProps{
 //   	countryCode: jsii.String("countryCode"),
 //   	targetArn: jsii.String("targetArn"),
@@ -3291,19 +3321,19 @@ func (c *jsiiProxy_CfnPhoneNumber) ValidateProperties(_properties interface{}) {
 //
 type CfnPhoneNumberProps struct {
 	// The ISO country code.
-	CountryCode *string `json:"countryCode" yaml:"countryCode"`
+	CountryCode *string `field:"required" json:"countryCode" yaml:"countryCode"`
 	// The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
-	TargetArn *string `json:"targetArn" yaml:"targetArn"`
+	TargetArn *string `field:"required" json:"targetArn" yaml:"targetArn"`
 	// The type of phone number.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// The description of the phone number.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The prefix of the phone number. If provided, it must contain `+` as part of the country code.
 	//
 	// *Pattern* : `^\\+[0-9]{1,15}`.
-	Prefix *string `json:"prefix" yaml:"prefix"`
+	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 	// The tags used to organize, track, or control access for this resource.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Connect::QuickConnect`.
@@ -3311,8 +3341,11 @@ type CfnPhoneNumberProps struct {
 // The `AWS::Connect::QuickConnnect` resource specifies a quick connect for the specified Amazon Connect instance.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import connect "github.com/aws/aws-cdk-go/awscdk/aws_connect"
-//   cfnQuickConnect := connect.NewCfnQuickConnect(this, jsii.String("MyCfnQuickConnect"), &cfnQuickConnectProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnQuickConnect := awscdk.Aws_connect.NewCfnQuickConnect(this, jsii.String("MyCfnQuickConnect"), &cfnQuickConnectProps{
 //   	instanceArn: jsii.String("instanceArn"),
 //   	name: jsii.String("name"),
 //   	quickConnectConfig: &quickConnectConfigProperty{
@@ -4058,14 +4091,17 @@ func (c *jsiiProxy_CfnQuickConnect) ValidateProperties(_properties interface{}) 
 // Contains information about a phone number for a quick connect.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import connect "github.com/aws/aws-cdk-go/awscdk/aws_connect"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   phoneNumberQuickConnectConfigProperty := &phoneNumberQuickConnectConfigProperty{
 //   	phoneNumber: jsii.String("phoneNumber"),
 //   }
 //
 type CfnQuickConnect_PhoneNumberQuickConnectConfigProperty struct {
 	// The phone number in E.164 format.
-	PhoneNumber *string `json:"phoneNumber" yaml:"phoneNumber"`
+	PhoneNumber *string `field:"required" json:"phoneNumber" yaml:"phoneNumber"`
 }
 
 // Contains information about a queue for a quick connect.
@@ -4073,7 +4109,10 @@ type CfnQuickConnect_PhoneNumberQuickConnectConfigProperty struct {
 // The contact flow must be of type Transfer to Queue.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import connect "github.com/aws/aws-cdk-go/awscdk/aws_connect"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   queueQuickConnectConfigProperty := &queueQuickConnectConfigProperty{
 //   	contactFlowArn: jsii.String("contactFlowArn"),
 //   	queueArn: jsii.String("queueArn"),
@@ -4081,15 +4120,18 @@ type CfnQuickConnect_PhoneNumberQuickConnectConfigProperty struct {
 //
 type CfnQuickConnect_QueueQuickConnectConfigProperty struct {
 	// The Amazon Resource Name (ARN) of the contact flow.
-	ContactFlowArn *string `json:"contactFlowArn" yaml:"contactFlowArn"`
+	ContactFlowArn *string `field:"required" json:"contactFlowArn" yaml:"contactFlowArn"`
 	// The Amazon Resource Name (ARN) of the queue.
-	QueueArn *string `json:"queueArn" yaml:"queueArn"`
+	QueueArn *string `field:"required" json:"queueArn" yaml:"queueArn"`
 }
 
 // Contains configuration settings for a quick connect.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import connect "github.com/aws/aws-cdk-go/awscdk/aws_connect"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   quickConnectConfigProperty := &quickConnectConfigProperty{
 //   	quickConnectType: jsii.String("quickConnectType"),
 //
@@ -4111,19 +4153,19 @@ type CfnQuickConnect_QuickConnectConfigProperty struct {
 	// The type of quick connect.
 	//
 	// In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
-	QuickConnectType *string `json:"quickConnectType" yaml:"quickConnectType"`
+	QuickConnectType *string `field:"required" json:"quickConnectType" yaml:"quickConnectType"`
 	// The phone configuration.
 	//
 	// This is required only if QuickConnectType is PHONE_NUMBER.
-	PhoneConfig interface{} `json:"phoneConfig" yaml:"phoneConfig"`
+	PhoneConfig interface{} `field:"optional" json:"phoneConfig" yaml:"phoneConfig"`
 	// The queue configuration.
 	//
 	// This is required only if QuickConnectType is QUEUE.
-	QueueConfig interface{} `json:"queueConfig" yaml:"queueConfig"`
+	QueueConfig interface{} `field:"optional" json:"queueConfig" yaml:"queueConfig"`
 	// The user configuration.
 	//
 	// This is required only if QuickConnectType is USER.
-	UserConfig interface{} `json:"userConfig" yaml:"userConfig"`
+	UserConfig interface{} `field:"optional" json:"userConfig" yaml:"userConfig"`
 }
 
 // Contains information about the quick connect configuration settings for a user.
@@ -4131,7 +4173,10 @@ type CfnQuickConnect_QuickConnectConfigProperty struct {
 // The contact flow must be of type Transfer to Agent.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import connect "github.com/aws/aws-cdk-go/awscdk/aws_connect"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   userQuickConnectConfigProperty := &userQuickConnectConfigProperty{
 //   	contactFlowArn: jsii.String("contactFlowArn"),
 //   	userArn: jsii.String("userArn"),
@@ -4139,15 +4184,18 @@ type CfnQuickConnect_QuickConnectConfigProperty struct {
 //
 type CfnQuickConnect_UserQuickConnectConfigProperty struct {
 	// The Amazon Resource Name (ARN) of the contact flow.
-	ContactFlowArn *string `json:"contactFlowArn" yaml:"contactFlowArn"`
+	ContactFlowArn *string `field:"required" json:"contactFlowArn" yaml:"contactFlowArn"`
 	// The Amazon Resource Name (ARN) of the user.
-	UserArn *string `json:"userArn" yaml:"userArn"`
+	UserArn *string `field:"required" json:"userArn" yaml:"userArn"`
 }
 
 // Properties for defining a `CfnQuickConnect`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import connect "github.com/aws/aws-cdk-go/awscdk/aws_connect"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnQuickConnectProps := &cfnQuickConnectProps{
 //   	instanceArn: jsii.String("instanceArn"),
 //   	name: jsii.String("name"),
@@ -4180,15 +4228,15 @@ type CfnQuickConnect_UserQuickConnectConfigProperty struct {
 //
 type CfnQuickConnectProps struct {
 	// The Amazon Resource Name (ARN) of the instance.
-	InstanceArn *string `json:"instanceArn" yaml:"instanceArn"`
+	InstanceArn *string `field:"required" json:"instanceArn" yaml:"instanceArn"`
 	// The name of the quick connect.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// Contains information about the quick connect.
-	QuickConnectConfig interface{} `json:"quickConnectConfig" yaml:"quickConnectConfig"`
+	QuickConnectConfig interface{} `field:"required" json:"quickConnectConfig" yaml:"quickConnectConfig"`
 	// The description of the quick connect.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The tags used to organize, track, or control access for this resource.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Connect::User`.
@@ -4198,8 +4246,11 @@ type CfnQuickConnectProps struct {
 // For information about how to create user accounts using the Amazon Connect console, see [Add Users](https://docs.aws.amazon.com/connect/latest/adminguide/user-management.html) in the *Amazon Connect Administrator Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import connect "github.com/aws/aws-cdk-go/awscdk/aws_connect"
-//   cfnUser := connect.NewCfnUser(this, jsii.String("MyCfnUser"), &cfnUserProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnUser := awscdk.Aws_connect.NewCfnUser(this, jsii.String("MyCfnUser"), &cfnUserProps{
 //   	instanceArn: jsii.String("instanceArn"),
 //   	phoneConfig: &userPhoneConfigProperty{
 //   		phoneType: jsii.String("phoneType"),
@@ -5053,7 +5104,10 @@ func (c *jsiiProxy_CfnUser) ValidateProperties(_properties interface{}) {
 // Contains information about the identity of a user.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import connect "github.com/aws/aws-cdk-go/awscdk/aws_connect"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   userIdentityInfoProperty := &userIdentityInfoProperty{
 //   	email: jsii.String("email"),
 //   	firstName: jsii.String("firstName"),
@@ -5064,21 +5118,24 @@ type CfnUser_UserIdentityInfoProperty struct {
 	// The email address.
 	//
 	// If you are using SAML for identity management and include this parameter, an error is returned.
-	Email *string `json:"email" yaml:"email"`
+	Email *string `field:"optional" json:"email" yaml:"email"`
 	// The first name.
 	//
 	// This is required if you are using Amazon Connect or SAML for identity management.
-	FirstName *string `json:"firstName" yaml:"firstName"`
+	FirstName *string `field:"optional" json:"firstName" yaml:"firstName"`
 	// The last name.
 	//
 	// This is required if you are using Amazon Connect or SAML for identity management.
-	LastName *string `json:"lastName" yaml:"lastName"`
+	LastName *string `field:"optional" json:"lastName" yaml:"lastName"`
 }
 
 // Contains information about the phone configuration settings for a user.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import connect "github.com/aws/aws-cdk-go/awscdk/aws_connect"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   userPhoneConfigProperty := &userPhoneConfigProperty{
 //   	phoneType: jsii.String("phoneType"),
 //
@@ -5090,13 +5147,13 @@ type CfnUser_UserIdentityInfoProperty struct {
 //
 type CfnUser_UserPhoneConfigProperty struct {
 	// The phone type.
-	PhoneType *string `json:"phoneType" yaml:"phoneType"`
+	PhoneType *string `field:"required" json:"phoneType" yaml:"phoneType"`
 	// The After Call Work (ACW) timeout setting, in seconds.
-	AfterContactWorkTimeLimit *float64 `json:"afterContactWorkTimeLimit" yaml:"afterContactWorkTimeLimit"`
+	AfterContactWorkTimeLimit *float64 `field:"optional" json:"afterContactWorkTimeLimit" yaml:"afterContactWorkTimeLimit"`
 	// The Auto accept setting.
-	AutoAccept interface{} `json:"autoAccept" yaml:"autoAccept"`
+	AutoAccept interface{} `field:"optional" json:"autoAccept" yaml:"autoAccept"`
 	// The phone number for the user's desk phone.
-	DeskPhoneNumber *string `json:"deskPhoneNumber" yaml:"deskPhoneNumber"`
+	DeskPhoneNumber *string `field:"optional" json:"deskPhoneNumber" yaml:"deskPhoneNumber"`
 }
 
 // A CloudFormation `AWS::Connect::UserHierarchyGroup`.
@@ -5104,8 +5161,11 @@ type CfnUser_UserPhoneConfigProperty struct {
 // Creates a new user hierarchy group.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import connect "github.com/aws/aws-cdk-go/awscdk/aws_connect"
-//   cfnUserHierarchyGroup := connect.NewCfnUserHierarchyGroup(this, jsii.String("MyCfnUserHierarchyGroup"), &cfnUserHierarchyGroupProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnUserHierarchyGroup := awscdk.Aws_connect.NewCfnUserHierarchyGroup(this, jsii.String("MyCfnUserHierarchyGroup"), &cfnUserHierarchyGroupProps{
 //   	instanceArn: jsii.String("instanceArn"),
 //   	name: jsii.String("name"),
 //
@@ -5796,7 +5856,10 @@ func (c *jsiiProxy_CfnUserHierarchyGroup) ValidateProperties(_properties interfa
 // Properties for defining a `CfnUserHierarchyGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import connect "github.com/aws/aws-cdk-go/awscdk/aws_connect"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnUserHierarchyGroupProps := &cfnUserHierarchyGroupProps{
 //   	instanceArn: jsii.String("instanceArn"),
 //   	name: jsii.String("name"),
@@ -5807,17 +5870,20 @@ func (c *jsiiProxy_CfnUserHierarchyGroup) ValidateProperties(_properties interfa
 //
 type CfnUserHierarchyGroupProps struct {
 	// The Amazon Resource Name (ARN) of the user hierarchy group.
-	InstanceArn *string `json:"instanceArn" yaml:"instanceArn"`
+	InstanceArn *string `field:"required" json:"instanceArn" yaml:"instanceArn"`
 	// The name of the user hierarchy group.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The Amazon Resource Name (ARN) of the parent group.
-	ParentGroupArn *string `json:"parentGroupArn" yaml:"parentGroupArn"`
+	ParentGroupArn *string `field:"optional" json:"parentGroupArn" yaml:"parentGroupArn"`
 }
 
 // Properties for defining a `CfnUser`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import connect "github.com/aws/aws-cdk-go/awscdk/aws_connect"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnUserProps := &cfnUserProps{
 //   	instanceArn: jsii.String("instanceArn"),
 //   	phoneConfig: &userPhoneConfigProperty{
@@ -5853,24 +5919,24 @@ type CfnUserHierarchyGroupProps struct {
 //
 type CfnUserProps struct {
 	// The Amazon Resource Name (ARN) of the instance.
-	InstanceArn *string `json:"instanceArn" yaml:"instanceArn"`
+	InstanceArn *string `field:"required" json:"instanceArn" yaml:"instanceArn"`
 	// Information about the phone configuration for the user.
-	PhoneConfig interface{} `json:"phoneConfig" yaml:"phoneConfig"`
+	PhoneConfig interface{} `field:"required" json:"phoneConfig" yaml:"phoneConfig"`
 	// The Amazon Resource Name (ARN) of the user's routing profile.
-	RoutingProfileArn *string `json:"routingProfileArn" yaml:"routingProfileArn"`
+	RoutingProfileArn *string `field:"required" json:"routingProfileArn" yaml:"routingProfileArn"`
 	// The Amazon Resource Name (ARN) of the user's security profile.
-	SecurityProfileArns *[]*string `json:"securityProfileArns" yaml:"securityProfileArns"`
+	SecurityProfileArns *[]*string `field:"required" json:"securityProfileArns" yaml:"securityProfileArns"`
 	// The user name assigned to the user account.
-	Username *string `json:"username" yaml:"username"`
+	Username *string `field:"required" json:"username" yaml:"username"`
 	// The identifier of the user account in the directory used for identity management.
-	DirectoryUserId *string `json:"directoryUserId" yaml:"directoryUserId"`
+	DirectoryUserId *string `field:"optional" json:"directoryUserId" yaml:"directoryUserId"`
 	// The Amazon Resource Name (ARN) of the user's hierarchy group.
-	HierarchyGroupArn *string `json:"hierarchyGroupArn" yaml:"hierarchyGroupArn"`
+	HierarchyGroupArn *string `field:"optional" json:"hierarchyGroupArn" yaml:"hierarchyGroupArn"`
 	// Information about the user identity.
-	IdentityInfo interface{} `json:"identityInfo" yaml:"identityInfo"`
+	IdentityInfo interface{} `field:"optional" json:"identityInfo" yaml:"identityInfo"`
 	// The user's password.
-	Password *string `json:"password" yaml:"password"`
+	Password *string `field:"optional" json:"password" yaml:"password"`
 	// The tags.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

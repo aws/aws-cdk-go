@@ -14,9 +14,10 @@ import (
 // The Application Load Balancer integration resource for HTTP API.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpAlbIntegration awscdk.HttpAlbIntegration
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var lb applicationLoadBalancer
+//
 //   listener := lb.addListener(jsii.String("listener"), &baseApplicationListenerProps{
 //   	port: jsii.Number(80),
 //   })
@@ -25,7 +26,7 @@ import (
 //   })
 //
 //   httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &httpApiProps{
-//   	defaultIntegration: NewHttpAlbIntegration(jsii.String("DefaultIntegration"), listener, &httpAlbIntegrationProps{
+//   	defaultIntegration: awscdk.NewHttpAlbIntegration(jsii.String("DefaultIntegration"), listener, &httpAlbIntegrationProps{
 //   		parameterMapping: apigwv2.NewParameterMapping().custom(jsii.String("myKey"), jsii.String("myValue")),
 //   	}),
 //   })
@@ -192,9 +193,10 @@ func (h *jsiiProxy_HttpAlbIntegration) CompleteBind(_options *awsapigatewayv2.Ht
 // Properties to initialize `HttpAlbIntegration`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpAlbIntegration awscdk.HttpAlbIntegration
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var lb applicationLoadBalancer
+//
 //   listener := lb.addListener(jsii.String("listener"), &baseApplicationListenerProps{
 //   	port: jsii.Number(80),
 //   })
@@ -203,7 +205,7 @@ func (h *jsiiProxy_HttpAlbIntegration) CompleteBind(_options *awsapigatewayv2.Ht
 //   })
 //
 //   httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &httpApiProps{
-//   	defaultIntegration: NewHttpAlbIntegration(jsii.String("DefaultIntegration"), listener, &httpAlbIntegrationProps{
+//   	defaultIntegration: awscdk.NewHttpAlbIntegration(jsii.String("DefaultIntegration"), listener, &httpAlbIntegrationProps{
 //   		parameterMapping: apigwv2.NewParameterMapping().appendHeader(jsii.String("header2"), apigwv2.mappingValue.requestHeader(jsii.String("header1"))).removeHeader(jsii.String("header1")),
 //   	}),
 //   })
@@ -212,29 +214,30 @@ func (h *jsiiProxy_HttpAlbIntegration) CompleteBind(_options *awsapigatewayv2.Ht
 type HttpAlbIntegrationProps struct {
 	// The HTTP method that must be used to invoke the underlying HTTP proxy.
 	// Experimental.
-	Method awsapigatewayv2.HttpMethod `json:"method" yaml:"method"`
+	Method awsapigatewayv2.HttpMethod `field:"optional" json:"method" yaml:"method"`
 	// Specifies how to transform HTTP requests before sending them to the backend.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html
 	//
 	// Experimental.
-	ParameterMapping awsapigatewayv2.ParameterMapping `json:"parameterMapping" yaml:"parameterMapping"`
+	ParameterMapping awsapigatewayv2.ParameterMapping `field:"optional" json:"parameterMapping" yaml:"parameterMapping"`
 	// Specifies the server name to verified by HTTPS when calling the backend integration.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-tlsconfig.html
 	//
 	// Experimental.
-	SecureServerName *string `json:"secureServerName" yaml:"secureServerName"`
+	SecureServerName *string `field:"optional" json:"secureServerName" yaml:"secureServerName"`
 	// The vpc link to be used for the private integration.
 	// Experimental.
-	VpcLink awsapigatewayv2.IVpcLink `json:"vpcLink" yaml:"vpcLink"`
+	VpcLink awsapigatewayv2.IVpcLink `field:"optional" json:"vpcLink" yaml:"vpcLink"`
 }
 
 // The Lambda Proxy integration resource for HTTP API.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpLambdaIntegration awscdk.HttpLambdaIntegration
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var booksDefaultFn function
-//   booksIntegration := NewHttpLambdaIntegration(jsii.String("BooksIntegration"), booksDefaultFn)
+//
+//   booksIntegration := awscdk.NewHttpLambdaIntegration(jsii.String("BooksIntegration"), booksDefaultFn)
 //
 //   httpApi := apigwv2.NewHttpApi(this, jsii.String("HttpApi"))
 //
@@ -319,10 +322,14 @@ func (h *jsiiProxy_HttpLambdaIntegration) CompleteBind(options *awsapigatewayv2.
 // Lambda Proxy integration properties.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2_integrations "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2_integrations"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameterMapping parameterMapping
 //   var payloadFormatVersion payloadFormatVersion
+//
 //   httpLambdaIntegrationProps := &httpLambdaIntegrationProps{
 //   	parameterMapping: parameterMapping,
 //   	payloadFormatVersion: payloadFormatVersion,
@@ -334,18 +341,19 @@ type HttpLambdaIntegrationProps struct {
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html
 	//
 	// Experimental.
-	ParameterMapping awsapigatewayv2.ParameterMapping `json:"parameterMapping" yaml:"parameterMapping"`
+	ParameterMapping awsapigatewayv2.ParameterMapping `field:"optional" json:"parameterMapping" yaml:"parameterMapping"`
 	// Version of the payload sent to the lambda handler.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
 	//
 	// Experimental.
-	PayloadFormatVersion awsapigatewayv2.PayloadFormatVersion `json:"payloadFormatVersion" yaml:"payloadFormatVersion"`
+	PayloadFormatVersion awsapigatewayv2.PayloadFormatVersion `field:"optional" json:"payloadFormatVersion" yaml:"payloadFormatVersion"`
 }
 
 // The Network Load Balancer integration resource for HTTP API.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpNlbIntegration awscdk.HttpNlbIntegration
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   vpc := ec2.NewVpc(this, jsii.String("VPC"))
 //   lb := elbv2.NewNetworkLoadBalancer(this, jsii.String("lb"), &networkLoadBalancerProps{
@@ -359,7 +367,7 @@ type HttpLambdaIntegrationProps struct {
 //   })
 //
 //   httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &httpApiProps{
-//   	defaultIntegration: NewHttpNlbIntegration(jsii.String("DefaultIntegration"), listener),
+//   	defaultIntegration: awscdk.NewHttpNlbIntegration(jsii.String("DefaultIntegration"), listener),
 //   })
 //
 // Experimental.
@@ -524,12 +532,16 @@ func (h *jsiiProxy_HttpNlbIntegration) CompleteBind(_options *awsapigatewayv2.Ht
 // Properties to initialize `HttpNlbIntegration`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2_integrations "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2_integrations"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameterMapping parameterMapping
 //   var vpcLink vpcLink
+//
 //   httpNlbIntegrationProps := &httpNlbIntegrationProps{
-//   	method: apigatewayv2.httpMethod_ANY,
+//   	method: awscdk.Aws_apigatewayv2.httpMethod_ANY,
 //   	parameterMapping: parameterMapping,
 //   	secureServerName: jsii.String("secureServerName"),
 //   	vpcLink: vpcLink,
@@ -539,31 +551,35 @@ func (h *jsiiProxy_HttpNlbIntegration) CompleteBind(_options *awsapigatewayv2.Ht
 type HttpNlbIntegrationProps struct {
 	// The HTTP method that must be used to invoke the underlying HTTP proxy.
 	// Experimental.
-	Method awsapigatewayv2.HttpMethod `json:"method" yaml:"method"`
+	Method awsapigatewayv2.HttpMethod `field:"optional" json:"method" yaml:"method"`
 	// Specifies how to transform HTTP requests before sending them to the backend.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html
 	//
 	// Experimental.
-	ParameterMapping awsapigatewayv2.ParameterMapping `json:"parameterMapping" yaml:"parameterMapping"`
+	ParameterMapping awsapigatewayv2.ParameterMapping `field:"optional" json:"parameterMapping" yaml:"parameterMapping"`
 	// Specifies the server name to verified by HTTPS when calling the backend integration.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-tlsconfig.html
 	//
 	// Experimental.
-	SecureServerName *string `json:"secureServerName" yaml:"secureServerName"`
+	SecureServerName *string `field:"optional" json:"secureServerName" yaml:"secureServerName"`
 	// The vpc link to be used for the private integration.
 	// Experimental.
-	VpcLink awsapigatewayv2.IVpcLink `json:"vpcLink" yaml:"vpcLink"`
+	VpcLink awsapigatewayv2.IVpcLink `field:"optional" json:"vpcLink" yaml:"vpcLink"`
 }
 
 // Base options for private integration.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2_integrations "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2_integrations"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameterMapping parameterMapping
 //   var vpcLink vpcLink
+//
 //   httpPrivateIntegrationOptions := &httpPrivateIntegrationOptions{
-//   	method: apigatewayv2.httpMethod_ANY,
+//   	method: awscdk.Aws_apigatewayv2.httpMethod_ANY,
 //   	parameterMapping: parameterMapping,
 //   	secureServerName: jsii.String("secureServerName"),
 //   	vpcLink: vpcLink,
@@ -573,26 +589,28 @@ type HttpNlbIntegrationProps struct {
 type HttpPrivateIntegrationOptions struct {
 	// The HTTP method that must be used to invoke the underlying HTTP proxy.
 	// Experimental.
-	Method awsapigatewayv2.HttpMethod `json:"method" yaml:"method"`
+	Method awsapigatewayv2.HttpMethod `field:"optional" json:"method" yaml:"method"`
 	// Specifies how to transform HTTP requests before sending them to the backend.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html
 	//
 	// Experimental.
-	ParameterMapping awsapigatewayv2.ParameterMapping `json:"parameterMapping" yaml:"parameterMapping"`
+	ParameterMapping awsapigatewayv2.ParameterMapping `field:"optional" json:"parameterMapping" yaml:"parameterMapping"`
 	// Specifies the server name to verified by HTTPS when calling the backend integration.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-tlsconfig.html
 	//
 	// Experimental.
-	SecureServerName *string `json:"secureServerName" yaml:"secureServerName"`
+	SecureServerName *string `field:"optional" json:"secureServerName" yaml:"secureServerName"`
 	// The vpc link to be used for the private integration.
 	// Experimental.
-	VpcLink awsapigatewayv2.IVpcLink `json:"vpcLink" yaml:"vpcLink"`
+	VpcLink awsapigatewayv2.IVpcLink `field:"optional" json:"vpcLink" yaml:"vpcLink"`
 }
 
 // The Service Discovery integration resource for HTTP API.
 //
 // Example:
-//   import servicediscovery "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpServiceDiscoveryIntegration awscdk.HttpServiceDiscoveryIntegration
+//   import servicediscovery "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   vpc := ec2.NewVpc(this, jsii.String("VPC"))
 //   vpcLink := apigwv2.NewVpcLink(this, jsii.String("VpcLink"), &vpcLinkProps{
@@ -605,7 +623,7 @@ type HttpPrivateIntegrationOptions struct {
 //   service := namespace.createService(jsii.String("Service"))
 //
 //   httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &httpApiProps{
-//   	defaultIntegration: NewHttpServiceDiscoveryIntegration(jsii.String("DefaultIntegration"), service, &httpServiceDiscoveryIntegrationProps{
+//   	defaultIntegration: awscdk.NewHttpServiceDiscoveryIntegration(jsii.String("DefaultIntegration"), service, &httpServiceDiscoveryIntegrationProps{
 //   		vpcLink: vpcLink,
 //   	}),
 //   })
@@ -772,7 +790,9 @@ func (h *jsiiProxy_HttpServiceDiscoveryIntegration) CompleteBind(_options *awsap
 // Properties to initialize `HttpServiceDiscoveryIntegration`.
 //
 // Example:
-//   import servicediscovery "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpServiceDiscoveryIntegration awscdk.HttpServiceDiscoveryIntegration
+//   import servicediscovery "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   vpc := ec2.NewVpc(this, jsii.String("VPC"))
 //   vpcLink := apigwv2.NewVpcLink(this, jsii.String("VpcLink"), &vpcLinkProps{
@@ -785,7 +805,7 @@ func (h *jsiiProxy_HttpServiceDiscoveryIntegration) CompleteBind(_options *awsap
 //   service := namespace.createService(jsii.String("Service"))
 //
 //   httpEndpoint := apigwv2.NewHttpApi(this, jsii.String("HttpProxyPrivateApi"), &httpApiProps{
-//   	defaultIntegration: NewHttpServiceDiscoveryIntegration(jsii.String("DefaultIntegration"), service, &httpServiceDiscoveryIntegrationProps{
+//   	defaultIntegration: awscdk.NewHttpServiceDiscoveryIntegration(jsii.String("DefaultIntegration"), service, &httpServiceDiscoveryIntegrationProps{
 //   		vpcLink: vpcLink,
 //   	}),
 //   })
@@ -794,41 +814,42 @@ func (h *jsiiProxy_HttpServiceDiscoveryIntegration) CompleteBind(_options *awsap
 type HttpServiceDiscoveryIntegrationProps struct {
 	// The HTTP method that must be used to invoke the underlying HTTP proxy.
 	// Experimental.
-	Method awsapigatewayv2.HttpMethod `json:"method" yaml:"method"`
+	Method awsapigatewayv2.HttpMethod `field:"optional" json:"method" yaml:"method"`
 	// Specifies how to transform HTTP requests before sending them to the backend.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html
 	//
 	// Experimental.
-	ParameterMapping awsapigatewayv2.ParameterMapping `json:"parameterMapping" yaml:"parameterMapping"`
+	ParameterMapping awsapigatewayv2.ParameterMapping `field:"optional" json:"parameterMapping" yaml:"parameterMapping"`
 	// Specifies the server name to verified by HTTPS when calling the backend integration.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-tlsconfig.html
 	//
 	// Experimental.
-	SecureServerName *string `json:"secureServerName" yaml:"secureServerName"`
+	SecureServerName *string `field:"optional" json:"secureServerName" yaml:"secureServerName"`
 	// The vpc link to be used for the private integration.
 	// Experimental.
-	VpcLink awsapigatewayv2.IVpcLink `json:"vpcLink" yaml:"vpcLink"`
+	VpcLink awsapigatewayv2.IVpcLink `field:"optional" json:"vpcLink" yaml:"vpcLink"`
 }
 
 // The HTTP Proxy integration resource for HTTP API.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpLambdaAuthorizer awscdk.HttpLambdaAuthorizer
-//   type HttpLambdaResponseType awscdk.HttpLambdaResponseTypeimport awscdk "github.com/aws/aws-cdk-go/awscdk"type HttpUrlIntegration awscdk.HttpUrlIntegration
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   // This function handles your auth logic
 //   var authHandler function
 //
-//   authorizer := NewHttpLambdaAuthorizer(jsii.String("BooksAuthorizer"), authHandler, &httpLambdaAuthorizerProps{
+//
+//   authorizer := awscdk.NewHttpLambdaAuthorizer(jsii.String("BooksAuthorizer"), authHandler, &httpLambdaAuthorizerProps{
 //   	responseTypes: []httpLambdaResponseType{
-//   		httpLambdaResponseType_SIMPLE,
+//   		awscdk.HttpLambdaResponseType_SIMPLE,
 //   	},
 //   })
 //
 //   api := apigwv2.NewHttpApi(this, jsii.String("HttpApi"))
 //
 //   api.addRoutes(&addRoutesOptions{
-//   	integration: NewHttpUrlIntegration(jsii.String("BooksIntegration"), jsii.String("https://get-books-proxy.myproxy.internal")),
+//   	integration: awscdk.NewHttpUrlIntegration(jsii.String("BooksIntegration"), jsii.String("https://get-books-proxy.myproxy.internal")),
 //   	path: jsii.String("/books"),
 //   	authorizer: authorizer,
 //   })
@@ -906,11 +927,15 @@ func (h *jsiiProxy_HttpUrlIntegration) CompleteBind(_options *awsapigatewayv2.Ht
 // Properties to initialize a new `HttpProxyIntegration`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2 "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2_integrations "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2_integrations"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameterMapping parameterMapping
+//
 //   httpUrlIntegrationProps := &httpUrlIntegrationProps{
-//   	method: apigatewayv2.httpMethod_ANY,
+//   	method: awscdk.Aws_apigatewayv2.httpMethod_ANY,
 //   	parameterMapping: parameterMapping,
 //   }
 //
@@ -918,20 +943,21 @@ func (h *jsiiProxy_HttpUrlIntegration) CompleteBind(_options *awsapigatewayv2.Ht
 type HttpUrlIntegrationProps struct {
 	// The HTTP method that must be used to invoke the underlying HTTP proxy.
 	// Experimental.
-	Method awsapigatewayv2.HttpMethod `json:"method" yaml:"method"`
+	Method awsapigatewayv2.HttpMethod `field:"optional" json:"method" yaml:"method"`
 	// Specifies how to transform HTTP requests before sending them to the backend.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html
 	//
 	// Experimental.
-	ParameterMapping awsapigatewayv2.ParameterMapping `json:"parameterMapping" yaml:"parameterMapping"`
+	ParameterMapping awsapigatewayv2.ParameterMapping `field:"optional" json:"parameterMapping" yaml:"parameterMapping"`
 }
 
 // Lambda WebSocket Integration.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type WebSocketLambdaIntegration awscdk.WebSocketLambdaIntegration
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var messageHandler function
+//
 //
 //   webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("mywsapi"))
 //   apigwv2.NewWebSocketStage(this, jsii.String("mystage"), &webSocketStageProps{
@@ -940,7 +966,7 @@ type HttpUrlIntegrationProps struct {
 //   	autoDeploy: jsii.Boolean(true),
 //   })
 //   webSocketApi.addRoute(jsii.String("sendmessage"), &webSocketRouteOptions{
-//   	integration: NewWebSocketLambdaIntegration(jsii.String("SendMessageIntegration"), messageHandler),
+//   	integration: awscdk.NewWebSocketLambdaIntegration(jsii.String("SendMessageIntegration"), messageHandler),
 //   })
 //
 // Experimental.
@@ -998,8 +1024,11 @@ func (w *jsiiProxy_WebSocketLambdaIntegration) Bind(options *awsapigatewayv2.Web
 // Mock WebSocket Integration.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apigatewayv2_integrations "github.com/aws/aws-cdk-go/awscdk/aws_apigatewayv2_integrations"
-//   webSocketMockIntegration := apigatewayv2_integrations.NewWebSocketMockIntegration(jsii.String("id"))
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   webSocketMockIntegration := awscdk.Aws_apigatewayv2_integrations.NewWebSocketMockIntegration(jsii.String("id"))
 //
 // Experimental.
 type WebSocketMockIntegration interface {

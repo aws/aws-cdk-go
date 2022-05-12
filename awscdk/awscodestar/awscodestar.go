@@ -15,8 +15,11 @@ import (
 // The `AWS::CodeStar::GitHubRepository` resource creates a GitHub repository where users can store source code for use with AWS workflows. You must provide a location for the source code ZIP file in the AWS CloudFormation template, so the code can be uploaded to the created repository. You must have created a personal access token in GitHub to provide in the AWS CloudFormation template. AWS uses this token to connect to GitHub on your behalf. For more information about using a GitHub source repository with AWS CodeStar projects, see [AWS CodeStar Project Files and Resources](https://docs.aws.amazon.com/codestar/latest/userguide/templates.html#templates-whatis) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codestar "github.com/aws/aws-cdk-go/awscdk/aws_codestar"
-//   cfnGitHubRepository := codestar.NewCfnGitHubRepository(this, jsii.String("MyCfnGitHubRepository"), &cfnGitHubRepositoryProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnGitHubRepository := awscdk.Aws_codestar.NewCfnGitHubRepository(this, jsii.String("MyCfnGitHubRepository"), &cfnGitHubRepositoryProps{
 //   	repositoryName: jsii.String("repositoryName"),
 //   	repositoryOwner: jsii.String("repositoryOwner"),
 //
@@ -823,7 +826,10 @@ func (c *jsiiProxy_CfnGitHubRepository) ValidateProperties(_properties interface
 // `Code` is a property of the `AWS::CodeStar::GitHubRepository` resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codestar "github.com/aws/aws-cdk-go/awscdk/aws_codestar"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   codeProperty := &codeProperty{
 //   	s3: &s3Property{
 //   		bucket: jsii.String("bucket"),
@@ -836,7 +842,7 @@ func (c *jsiiProxy_CfnGitHubRepository) ValidateProperties(_properties interface
 //
 type CfnGitHubRepository_CodeProperty struct {
 	// Information about the Amazon S3 bucket that contains a ZIP file of code to be committed to the repository.
-	S3 interface{} `json:"s3" yaml:"s3"`
+	S3 interface{} `field:"required" json:"s3" yaml:"s3"`
 }
 
 // The `S3` property type specifies information about the Amazon S3 bucket that contains the code to be committed to the new repository.
@@ -844,7 +850,10 @@ type CfnGitHubRepository_CodeProperty struct {
 // `S3` is a property of the `AWS::CodeStar::GitHubRepository` resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codestar "github.com/aws/aws-cdk-go/awscdk/aws_codestar"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3Property := &s3Property{
 //   	bucket: jsii.String("bucket"),
 //   	key: jsii.String("key"),
@@ -855,17 +864,20 @@ type CfnGitHubRepository_CodeProperty struct {
 //
 type CfnGitHubRepository_S3Property struct {
 	// The name of the Amazon S3 bucket that contains the ZIP file with the content to be committed to the new repository.
-	Bucket *string `json:"bucket" yaml:"bucket"`
+	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
 	// The S3 object key or file name for the ZIP file.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// The object version of the ZIP file, if versioning is enabled for the Amazon S3 bucket.
-	ObjectVersion *string `json:"objectVersion" yaml:"objectVersion"`
+	ObjectVersion *string `field:"optional" json:"objectVersion" yaml:"objectVersion"`
 }
 
 // Properties for defining a `CfnGitHubRepository`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codestar "github.com/aws/aws-cdk-go/awscdk/aws_codestar"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnGitHubRepositoryProps := &cfnGitHubRepositoryProps{
 //   	repositoryName: jsii.String("repositoryName"),
 //   	repositoryOwner: jsii.String("repositoryOwner"),
@@ -889,40 +901,42 @@ type CfnGitHubRepository_S3Property struct {
 //
 type CfnGitHubRepositoryProps struct {
 	// The name of the repository you want to create in GitHub with AWS CloudFormation stack creation.
-	RepositoryName *string `json:"repositoryName" yaml:"repositoryName"`
+	RepositoryName *string `field:"required" json:"repositoryName" yaml:"repositoryName"`
 	// The GitHub user name for the owner of the GitHub repository to be created.
 	//
 	// If this repository should be owned by a GitHub organization, provide its name.
-	RepositoryOwner *string `json:"repositoryOwner" yaml:"repositoryOwner"`
+	RepositoryOwner *string `field:"required" json:"repositoryOwner" yaml:"repositoryOwner"`
 	// Information about code to be committed to a repository after it is created in an AWS CloudFormation stack.
-	Code interface{} `json:"code" yaml:"code"`
+	Code interface{} `field:"optional" json:"code" yaml:"code"`
 	// `AWS::CodeStar::GitHubRepository.ConnectionArn`.
-	ConnectionArn *string `json:"connectionArn" yaml:"connectionArn"`
+	ConnectionArn *string `field:"optional" json:"connectionArn" yaml:"connectionArn"`
 	// Indicates whether to enable issues for the GitHub repository.
 	//
 	// You can use GitHub issues to track information and bugs for your repository.
-	EnableIssues interface{} `json:"enableIssues" yaml:"enableIssues"`
+	EnableIssues interface{} `field:"optional" json:"enableIssues" yaml:"enableIssues"`
 	// Indicates whether the GitHub repository is a private repository.
 	//
 	// If so, you choose who can see and commit to this repository.
-	IsPrivate interface{} `json:"isPrivate" yaml:"isPrivate"`
+	IsPrivate interface{} `field:"optional" json:"isPrivate" yaml:"isPrivate"`
 	// The GitHub user's personal access token for the GitHub repository.
-	RepositoryAccessToken *string `json:"repositoryAccessToken" yaml:"repositoryAccessToken"`
+	RepositoryAccessToken *string `field:"optional" json:"repositoryAccessToken" yaml:"repositoryAccessToken"`
 	// A comment or description about the new repository.
 	//
 	// This description is displayed in GitHub after the repository is created.
-	RepositoryDescription *string `json:"repositoryDescription" yaml:"repositoryDescription"`
+	RepositoryDescription *string `field:"optional" json:"repositoryDescription" yaml:"repositoryDescription"`
 }
 
 // The GitHubRepository resource.
 //
 // Example:
-//   import codestar "github.com/aws/aws-cdk-go/awscdk"import s3 "github.com/aws/aws-cdk-go/awscdk"
+//   import codestar "github.com/aws/aws-cdk-go/awscdk"
+//   import s3 "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   codestar.NewGitHubRepository(this, jsii.String("GitHubRepo"), &gitHubRepositoryProps{
 //   	owner: jsii.String("aws"),
 //   	repositoryName: jsii.String("aws-cdk"),
-//   	accessToken: secretValue.secretsManager(jsii.String("my-github-token"), &secretsManagerSecretOptions{
+//   	accessToken: awscdk.SecretValue.secretsManager(jsii.String("my-github-token"), &secretsManagerSecretOptions{
 //   		jsonField: jsii.String("token"),
 //   	}),
 //   	contentsBucket: s3.bucket.fromBucketName(this, jsii.String("Bucket"), jsii.String("bucket-name")),
@@ -1293,12 +1307,14 @@ func (g *jsiiProxy_GitHubRepository) Validate() *[]*string {
 // Construction properties of {@link GitHubRepository}.
 //
 // Example:
-//   import codestar "github.com/aws/aws-cdk-go/awscdk"import s3 "github.com/aws/aws-cdk-go/awscdk"
+//   import codestar "github.com/aws/aws-cdk-go/awscdk"
+//   import s3 "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   codestar.NewGitHubRepository(this, jsii.String("GitHubRepo"), &gitHubRepositoryProps{
 //   	owner: jsii.String("aws"),
 //   	repositoryName: jsii.String("aws-cdk"),
-//   	accessToken: secretValue.secretsManager(jsii.String("my-github-token"), &secretsManagerSecretOptions{
+//   	accessToken: awscdk.SecretValue.secretsManager(jsii.String("my-github-token"), &secretsManagerSecretOptions{
 //   		jsonField: jsii.String("token"),
 //   	}),
 //   	contentsBucket: s3.bucket.fromBucketName(this, jsii.String("Bucket"), jsii.String("bucket-name")),
@@ -1309,43 +1325,43 @@ func (g *jsiiProxy_GitHubRepository) Validate() *[]*string {
 type GitHubRepositoryProps struct {
 	// The GitHub user's personal access token for the GitHub repository.
 	// Experimental.
-	AccessToken awscdk.SecretValue `json:"accessToken" yaml:"accessToken"`
+	AccessToken awscdk.SecretValue `field:"required" json:"accessToken" yaml:"accessToken"`
 	// The name of the Amazon S3 bucket that contains the ZIP file with the content to be committed to the new repository.
 	// Experimental.
-	ContentsBucket awss3.IBucket `json:"contentsBucket" yaml:"contentsBucket"`
+	ContentsBucket awss3.IBucket `field:"required" json:"contentsBucket" yaml:"contentsBucket"`
 	// The S3 object key or file name for the ZIP file.
 	// Experimental.
-	ContentsKey *string `json:"contentsKey" yaml:"contentsKey"`
+	ContentsKey *string `field:"required" json:"contentsKey" yaml:"contentsKey"`
 	// The GitHub user name for the owner of the GitHub repository to be created.
 	//
 	// If this
 	// repository should be owned by a GitHub organization, provide its name.
 	// Experimental.
-	Owner *string `json:"owner" yaml:"owner"`
+	Owner *string `field:"required" json:"owner" yaml:"owner"`
 	// The name of the repository you want to create in GitHub with AWS CloudFormation stack creation.
 	// Experimental.
-	RepositoryName *string `json:"repositoryName" yaml:"repositoryName"`
+	RepositoryName *string `field:"required" json:"repositoryName" yaml:"repositoryName"`
 	// The object version of the ZIP file, if versioning is enabled for the Amazon S3 bucket.
 	// Experimental.
-	ContentsS3Version *string `json:"contentsS3Version" yaml:"contentsS3Version"`
+	ContentsS3Version *string `field:"optional" json:"contentsS3Version" yaml:"contentsS3Version"`
 	// A comment or description about the new repository.
 	//
 	// This description is displayed in GitHub after the repository
 	// is created.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Indicates whether to enable issues for the GitHub repository.
 	//
 	// You can use GitHub issues to track information
 	// and bugs for your repository.
 	// Experimental.
-	EnableIssues *bool `json:"enableIssues" yaml:"enableIssues"`
+	EnableIssues *bool `field:"optional" json:"enableIssues" yaml:"enableIssues"`
 	// Indicates whether the GitHub repository is a private repository.
 	//
 	// If so, you choose who can see and commit to
 	// this repository.
 	// Experimental.
-	Visibility RepositoryVisibility `json:"visibility" yaml:"visibility"`
+	Visibility RepositoryVisibility `field:"optional" json:"visibility" yaml:"visibility"`
 }
 
 // GitHubRepository resource interface.

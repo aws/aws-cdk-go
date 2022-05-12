@@ -18,11 +18,13 @@ import (
 // The configuration for automatically rolling back deployments in a given Deployment Group.
 //
 // Example:
-//   import autoscaling "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
+//   import autoscaling "github.com/aws/aws-cdk-go/awscdk"
+//   import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var application serverApplication
 //   var asg autoScalingGroup
 //   var alarm alarm
+//
 //   deploymentGroup := codedeploy.NewServerDeploymentGroup(this, jsii.String("CodeDeployDeploymentGroup"), &serverDeploymentGroupProps{
 //   	application: application,
 //   	deploymentGroupName: jsii.String("MyDeploymentGroup"),
@@ -79,13 +81,13 @@ import (
 type AutoRollbackConfig struct {
 	// Whether to automatically roll back a deployment during which one of the configured CloudWatch alarms for this Deployment Group went off.
 	// Experimental.
-	DeploymentInAlarm *bool `json:"deploymentInAlarm" yaml:"deploymentInAlarm"`
+	DeploymentInAlarm *bool `field:"optional" json:"deploymentInAlarm" yaml:"deploymentInAlarm"`
 	// Whether to automatically roll back a deployment that fails.
 	// Experimental.
-	FailedDeployment *bool `json:"failedDeployment" yaml:"failedDeployment"`
+	FailedDeployment *bool `field:"optional" json:"failedDeployment" yaml:"failedDeployment"`
 	// Whether to automatically roll back a deployment that was manually stopped.
 	// Experimental.
-	StoppedDeployment *bool `json:"stoppedDeployment" yaml:"stoppedDeployment"`
+	StoppedDeployment *bool `field:"optional" json:"stoppedDeployment" yaml:"stoppedDeployment"`
 }
 
 // A CloudFormation `AWS::CodeDeploy::Application`.
@@ -93,8 +95,11 @@ type AutoRollbackConfig struct {
 // The `AWS::CodeDeploy::Application` resource creates an AWS CodeDeploy application. In CodeDeploy , an application is a name that functions as a container to ensure that the correct combination of revision, deployment configuration, and deployment group are referenced during a deployment. You can use the `AWS::CodeDeploy::DeploymentGroup` resource to associate the application with a CodeDeploy deployment group. For more information, see [CodeDeploy Deployments](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-steps.html) in the *AWS CodeDeploy User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codedeploy "github.com/aws/aws-cdk-go/awscdk/aws_codedeploy"
-//   cfnApplication := codedeploy.NewCfnApplication(this, jsii.String("MyCfnApplication"), &cfnApplicationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnApplication := awscdk.Aws_codedeploy.NewCfnApplication(this, jsii.String("MyCfnApplication"), &cfnApplicationProps{
 //   	applicationName: jsii.String("applicationName"),
 //   	computePlatform: jsii.String("computePlatform"),
 //   	tags: []cfnTag{
@@ -773,7 +778,10 @@ func (c *jsiiProxy_CfnApplication) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnApplication`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codedeploy "github.com/aws/aws-cdk-go/awscdk/aws_codedeploy"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnApplicationProps := &cfnApplicationProps{
 //   	applicationName: jsii.String("applicationName"),
 //   	computePlatform: jsii.String("computePlatform"),
@@ -791,13 +799,13 @@ type CfnApplicationProps struct {
 	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
 	//
 	// > Updates to `ApplicationName` are not supported.
-	ApplicationName *string `json:"applicationName" yaml:"applicationName"`
+	ApplicationName *string `field:"optional" json:"applicationName" yaml:"applicationName"`
 	// The compute platform that CodeDeploy deploys the application to.
-	ComputePlatform *string `json:"computePlatform" yaml:"computePlatform"`
+	ComputePlatform *string `field:"optional" json:"computePlatform" yaml:"computePlatform"`
 	// The metadata that you apply to CodeDeploy applications to help you organize and categorize them.
 	//
 	// Each tag consists of a key and an optional value, both of which you define.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::CodeDeploy::DeploymentConfig`.
@@ -805,8 +813,11 @@ type CfnApplicationProps struct {
 // The `AWS::CodeDeploy::DeploymentConfig` resource creates a set of deployment rules, deployment success conditions, and deployment failure conditions that AWS CodeDeploy uses during a deployment. The deployment configuration specifies, through the use of a `MinimumHealthyHosts` value, the number or percentage of instances that must remain available at any time during a deployment.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codedeploy "github.com/aws/aws-cdk-go/awscdk/aws_codedeploy"
-//   cfnDeploymentConfig := codedeploy.NewCfnDeploymentConfig(this, jsii.String("MyCfnDeploymentConfig"), &cfnDeploymentConfigProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDeploymentConfig := awscdk.Aws_codedeploy.NewCfnDeploymentConfig(this, jsii.String("MyCfnDeploymentConfig"), &cfnDeploymentConfigProps{
 //   	computePlatform: jsii.String("computePlatform"),
 //   	deploymentConfigName: jsii.String("deploymentConfigName"),
 //   	minimumHealthyHosts: &minimumHealthyHostsProperty{
@@ -1537,7 +1548,10 @@ func (c *jsiiProxy_CfnDeploymentConfig) ValidateProperties(_properties interface
 // `MinimumHealthyHosts` is a property of the [DeploymentConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentconfig.html) resource that defines how many instances must remain healthy during an AWS CodeDeploy deployment.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codedeploy "github.com/aws/aws-cdk-go/awscdk/aws_codedeploy"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   minimumHealthyHostsProperty := &minimumHealthyHostsProperty{
 //   	type: jsii.String("type"),
 //   	value: jsii.Number(123),
@@ -1554,9 +1568,9 @@ type CfnDeploymentConfig_MinimumHealthyHostsProperty struct {
 	// > In a call to `GetDeploymentConfig` , CodeDeployDefault.OneAtATime returns a minimum healthy instance type of MOST_CONCURRENCY and a value of 1. This means a deployment to only one instance at a time. (You cannot set the type to MOST_CONCURRENCY, only to HOST_COUNT or FLEET_PERCENT.) In addition, with CodeDeployDefault.OneAtATime, AWS CodeDeploy attempts to ensure that all instances but one are kept in a healthy state during the deployment. Although this allows one instance at a time to be taken offline for a new deployment, it also means that if the deployment to the last instance fails, the overall deployment is still successful.
 	//
 	// For more information, see [AWS CodeDeploy Instance Health](https://docs.aws.amazon.com//codedeploy/latest/userguide/instances-health.html) in the *AWS CodeDeploy User Guide* .
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// The minimum healthy instance value.
-	Value *float64 `json:"value" yaml:"value"`
+	Value *float64 `field:"required" json:"value" yaml:"value"`
 }
 
 // A configuration that shifts traffic from one version of a Lambda function or Amazon ECS task set to another in two increments.
@@ -1564,7 +1578,10 @@ type CfnDeploymentConfig_MinimumHealthyHostsProperty struct {
 // The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codedeploy "github.com/aws/aws-cdk-go/awscdk/aws_codedeploy"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   timeBasedCanaryProperty := &timeBasedCanaryProperty{
 //   	canaryInterval: jsii.Number(123),
 //   	canaryPercentage: jsii.Number(123),
@@ -1572,9 +1589,9 @@ type CfnDeploymentConfig_MinimumHealthyHostsProperty struct {
 //
 type CfnDeploymentConfig_TimeBasedCanaryProperty struct {
 	// The number of minutes between the first and second traffic shifts of a `TimeBasedCanary` deployment.
-	CanaryInterval *float64 `json:"canaryInterval" yaml:"canaryInterval"`
+	CanaryInterval *float64 `field:"required" json:"canaryInterval" yaml:"canaryInterval"`
 	// The percentage of traffic to shift in the first increment of a `TimeBasedCanary` deployment.
-	CanaryPercentage *float64 `json:"canaryPercentage" yaml:"canaryPercentage"`
+	CanaryPercentage *float64 `field:"required" json:"canaryPercentage" yaml:"canaryPercentage"`
 }
 
 // A configuration that shifts traffic from one version of a Lambda function or ECS task set to another in equal increments, with an equal number of minutes between each increment.
@@ -1582,7 +1599,10 @@ type CfnDeploymentConfig_TimeBasedCanaryProperty struct {
 // The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codedeploy "github.com/aws/aws-cdk-go/awscdk/aws_codedeploy"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   timeBasedLinearProperty := &timeBasedLinearProperty{
 //   	linearInterval: jsii.Number(123),
 //   	linearPercentage: jsii.Number(123),
@@ -1590,15 +1610,18 @@ type CfnDeploymentConfig_TimeBasedCanaryProperty struct {
 //
 type CfnDeploymentConfig_TimeBasedLinearProperty struct {
 	// The number of minutes between each incremental traffic shift of a `TimeBasedLinear` deployment.
-	LinearInterval *float64 `json:"linearInterval" yaml:"linearInterval"`
+	LinearInterval *float64 `field:"required" json:"linearInterval" yaml:"linearInterval"`
 	// The percentage of traffic that is shifted at the start of each increment of a `TimeBasedLinear` deployment.
-	LinearPercentage *float64 `json:"linearPercentage" yaml:"linearPercentage"`
+	LinearPercentage *float64 `field:"required" json:"linearPercentage" yaml:"linearPercentage"`
 }
 
 // The configuration that specifies how traffic is shifted from one version of a Lambda function to another version during an AWS Lambda deployment, or from one Amazon ECS task set to another during an Amazon ECS deployment.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codedeploy "github.com/aws/aws-cdk-go/awscdk/aws_codedeploy"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   trafficRoutingConfigProperty := &trafficRoutingConfigProperty{
 //   	type: jsii.String("type"),
 //
@@ -1615,21 +1638,24 @@ type CfnDeploymentConfig_TimeBasedLinearProperty struct {
 //
 type CfnDeploymentConfig_TrafficRoutingConfigProperty struct {
 	// The type of traffic shifting ( `TimeBasedCanary` or `TimeBasedLinear` ) used by a deployment configuration.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// A configuration that shifts traffic from one version of a Lambda function or ECS task set to another in two increments.
 	//
 	// The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
-	TimeBasedCanary interface{} `json:"timeBasedCanary" yaml:"timeBasedCanary"`
+	TimeBasedCanary interface{} `field:"optional" json:"timeBasedCanary" yaml:"timeBasedCanary"`
 	// A configuration that shifts traffic from one version of a Lambda function or Amazon ECS task set to another in equal increments, with an equal number of minutes between each increment.
 	//
 	// The original and target Lambda function versions or Amazon ECS task sets are specified in the deployment's AppSpec file.
-	TimeBasedLinear interface{} `json:"timeBasedLinear" yaml:"timeBasedLinear"`
+	TimeBasedLinear interface{} `field:"optional" json:"timeBasedLinear" yaml:"timeBasedLinear"`
 }
 
 // Properties for defining a `CfnDeploymentConfig`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codedeploy "github.com/aws/aws-cdk-go/awscdk/aws_codedeploy"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDeploymentConfigProps := &cfnDeploymentConfigProps{
 //   	computePlatform: jsii.String("computePlatform"),
 //   	deploymentConfigName: jsii.String("deploymentConfigName"),
@@ -1654,13 +1680,13 @@ type CfnDeploymentConfig_TrafficRoutingConfigProperty struct {
 //
 type CfnDeploymentConfigProps struct {
 	// The destination platform type for the deployment ( `Lambda` , `Server` , or `ECS` ).
-	ComputePlatform *string `json:"computePlatform" yaml:"computePlatform"`
+	ComputePlatform *string `field:"optional" json:"computePlatform" yaml:"computePlatform"`
 	// A name for the deployment configuration.
 	//
 	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the deployment configuration name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
 	//
 	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-	DeploymentConfigName *string `json:"deploymentConfigName" yaml:"deploymentConfigName"`
+	DeploymentConfigName *string `field:"optional" json:"deploymentConfigName" yaml:"deploymentConfigName"`
 	// The minimum number of healthy instances that should be available at any time during the deployment.
 	//
 	// There are two parameters expected in the input: type and value.
@@ -1675,9 +1701,9 @@ type CfnDeploymentConfigProps struct {
 	// For example, to set a minimum of 95% healthy instance, specify a type of FLEET_PERCENT and a value of 95.
 	//
 	// For more information about instance health, see [CodeDeploy Instance Health](https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-health.html) in the AWS CodeDeploy User Guide.
-	MinimumHealthyHosts interface{} `json:"minimumHealthyHosts" yaml:"minimumHealthyHosts"`
+	MinimumHealthyHosts interface{} `field:"optional" json:"minimumHealthyHosts" yaml:"minimumHealthyHosts"`
 	// The configuration that specifies how the deployment traffic is routed.
-	TrafficRoutingConfig interface{} `json:"trafficRoutingConfig" yaml:"trafficRoutingConfig"`
+	TrafficRoutingConfig interface{} `field:"optional" json:"trafficRoutingConfig" yaml:"trafficRoutingConfig"`
 }
 
 // A CloudFormation `AWS::CodeDeploy::DeploymentGroup`.
@@ -1687,8 +1713,11 @@ type CfnDeploymentConfigProps struct {
 // > Amazon ECS blue/green deployments through CodeDeploy do not use the `AWS::CodeDeploy::DeploymentGroup` resource. To perform Amazon ECS blue/green deployments, use the `AWS::CodeDeploy::BlueGreen` hook. See [Perform Amazon ECS blue/green deployments through CodeDeploy using AWS CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/blue-green.html) for more information.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codedeploy "github.com/aws/aws-cdk-go/awscdk/aws_codedeploy"
-//   cfnDeploymentGroup := codedeploy.NewCfnDeploymentGroup(this, jsii.String("MyCfnDeploymentGroup"), &cfnDeploymentGroupProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDeploymentGroup := awscdk.Aws_codedeploy.NewCfnDeploymentGroup(this, jsii.String("MyCfnDeploymentGroup"), &cfnDeploymentGroupProps{
 //   	applicationName: jsii.String("applicationName"),
 //   	serviceRoleArn: jsii.String("serviceRoleArn"),
 //
@@ -2893,7 +2922,10 @@ func (c *jsiiProxy_CfnDeploymentGroup) ValidateProperties(_properties interface{
 // `AlarmConfiguration` is a property of the [DeploymentGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html) resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codedeploy "github.com/aws/aws-cdk-go/awscdk/aws_codedeploy"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   alarmConfigurationProperty := &alarmConfigurationProperty{
 //   	alarms: []interface{}{
 //   		&alarmProperty{
@@ -2908,16 +2940,16 @@ type CfnDeploymentGroup_AlarmConfigurationProperty struct {
 	// A list of alarms configured for the deployment group.
 	//
 	// A maximum of 10 alarms can be added to a deployment group.
-	Alarms interface{} `json:"alarms" yaml:"alarms"`
+	Alarms interface{} `field:"optional" json:"alarms" yaml:"alarms"`
 	// Indicates whether the alarm configuration is enabled.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from Amazon CloudWatch .
 	//
 	// The default value is `false` .
 	//
 	// - `true` : The deployment proceeds even if alarm status information can't be retrieved from CloudWatch .
 	// - `false` : The deployment stops if alarm status information can't be retrieved from CloudWatch .
-	IgnorePollAlarmFailure interface{} `json:"ignorePollAlarmFailure" yaml:"ignorePollAlarmFailure"`
+	IgnorePollAlarmFailure interface{} `field:"optional" json:"ignorePollAlarmFailure" yaml:"ignorePollAlarmFailure"`
 }
 
 // The `Alarm` property type specifies a CloudWatch alarm to use for an AWS CodeDeploy deployment group.
@@ -2925,7 +2957,10 @@ type CfnDeploymentGroup_AlarmConfigurationProperty struct {
 // The `Alarm` property of the [CodeDeploy DeploymentGroup AlarmConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-alarmconfiguration.html) property contains a list of `Alarm` property types.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codedeploy "github.com/aws/aws-cdk-go/awscdk/aws_codedeploy"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   alarmProperty := &alarmProperty{
 //   	name: jsii.String("name"),
 //   }
@@ -2934,7 +2969,7 @@ type CfnDeploymentGroup_AlarmProperty struct {
 	// The name of the alarm.
 	//
 	// Maximum length is 255 characters. Each alarm name can be used only once in a list of alarms.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 
 // The `AutoRollbackConfiguration` property type configures automatic rollback for an AWS CodeDeploy deployment group when a deployment is not completed successfully.
@@ -2944,7 +2979,10 @@ type CfnDeploymentGroup_AlarmProperty struct {
 // `AutoRollbackConfiguration` is a property of the [DeploymentGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html) resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codedeploy "github.com/aws/aws-cdk-go/awscdk/aws_codedeploy"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   autoRollbackConfigurationProperty := &autoRollbackConfigurationProperty{
 //   	enabled: jsii.Boolean(false),
 //   	events: []*string{
@@ -2954,17 +2992,20 @@ type CfnDeploymentGroup_AlarmProperty struct {
 //
 type CfnDeploymentGroup_AutoRollbackConfigurationProperty struct {
 	// Indicates whether a defined automatic rollback configuration is currently enabled.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// The event type or types that trigger a rollback.
 	//
 	// Valid values are `DEPLOYMENT_FAILURE` , `DEPLOYMENT_STOP_ON_ALARM` , or `DEPLOYMENT_STOP_ON_REQUEST` .
-	Events *[]*string `json:"events" yaml:"events"`
+	Events *[]*string `field:"optional" json:"events" yaml:"events"`
 }
 
 // Information about blue/green deployment options for a deployment group.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codedeploy "github.com/aws/aws-cdk-go/awscdk/aws_codedeploy"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   blueGreenDeploymentConfigurationProperty := &blueGreenDeploymentConfigurationProperty{
 //   	deploymentReadyOption: &deploymentReadyOptionProperty{
 //   		actionOnTimeout: jsii.String("actionOnTimeout"),
@@ -2981,11 +3022,11 @@ type CfnDeploymentGroup_AutoRollbackConfigurationProperty struct {
 //
 type CfnDeploymentGroup_BlueGreenDeploymentConfigurationProperty struct {
 	// Information about the action to take when newly provisioned instances are ready to receive traffic in a blue/green deployment.
-	DeploymentReadyOption interface{} `json:"deploymentReadyOption" yaml:"deploymentReadyOption"`
+	DeploymentReadyOption interface{} `field:"optional" json:"deploymentReadyOption" yaml:"deploymentReadyOption"`
 	// Information about how instances are provisioned for a replacement environment in a blue/green deployment.
-	GreenFleetProvisioningOption interface{} `json:"greenFleetProvisioningOption" yaml:"greenFleetProvisioningOption"`
+	GreenFleetProvisioningOption interface{} `field:"optional" json:"greenFleetProvisioningOption" yaml:"greenFleetProvisioningOption"`
 	// Information about whether to terminate instances in the original fleet during a blue/green deployment.
-	TerminateBlueInstancesOnDeploymentSuccess interface{} `json:"terminateBlueInstancesOnDeploymentSuccess" yaml:"terminateBlueInstancesOnDeploymentSuccess"`
+	TerminateBlueInstancesOnDeploymentSuccess interface{} `field:"optional" json:"terminateBlueInstancesOnDeploymentSuccess" yaml:"terminateBlueInstancesOnDeploymentSuccess"`
 }
 
 // Information about whether instances in the original environment are terminated when a blue/green deployment is successful.
@@ -2993,7 +3034,10 @@ type CfnDeploymentGroup_BlueGreenDeploymentConfigurationProperty struct {
 // `BlueInstanceTerminationOption` does not apply to Lambda deployments.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codedeploy "github.com/aws/aws-cdk-go/awscdk/aws_codedeploy"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   blueInstanceTerminationOptionProperty := &blueInstanceTerminationOptionProperty{
 //   	action: jsii.String("action"),
 //   	terminationWaitTimeInMinutes: jsii.Number(123),
@@ -3004,19 +3048,22 @@ type CfnDeploymentGroup_BlueInstanceTerminationOptionProperty struct {
 	//
 	// - `TERMINATE` : Instances are terminated after a specified wait time.
 	// - `KEEP_ALIVE` : Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
-	Action *string `json:"action" yaml:"action"`
+	Action *string `field:"optional" json:"action" yaml:"action"`
 	// For an Amazon EC2 deployment, the number of minutes to wait after a successful blue/green deployment before terminating instances from the original environment.
 	//
 	// For an Amazon ECS deployment, the number of minutes before deleting the original (blue) task set. During an Amazon ECS deployment, CodeDeploy shifts traffic from the original (blue) task set to a replacement (green) task set.
 	//
 	// The maximum setting is 2880 minutes (2 days).
-	TerminationWaitTimeInMinutes *float64 `json:"terminationWaitTimeInMinutes" yaml:"terminationWaitTimeInMinutes"`
+	TerminationWaitTimeInMinutes *float64 `field:"optional" json:"terminationWaitTimeInMinutes" yaml:"terminationWaitTimeInMinutes"`
 }
 
 // `Deployment` is a property of the [DeploymentGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html) resource that specifies an AWS CodeDeploy application revision to be deployed to instances in the deployment group. If you specify an application revision, your target revision is deployed as soon as the provisioning process is complete.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codedeploy "github.com/aws/aws-cdk-go/awscdk/aws_codedeploy"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   deploymentProperty := &deploymentProperty{
 //   	revision: &revisionLocationProperty{
 //   		gitHubLocation: &gitHubLocationProperty{
@@ -3042,9 +3089,9 @@ type CfnDeploymentGroup_BlueInstanceTerminationOptionProperty struct {
 //
 type CfnDeploymentGroup_DeploymentProperty struct {
 	// Information about the location of stored application artifacts and the service from which to retrieve them.
-	Revision interface{} `json:"revision" yaml:"revision"`
+	Revision interface{} `field:"required" json:"revision" yaml:"revision"`
 	// A comment about the deployment.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// If true, then if an `ApplicationStop` , `BeforeBlockTraffic` , or `AfterBlockTraffic` deployment lifecycle event to an instance fails, then the deployment continues to the next deployment lifecycle event.
 	//
 	// For example, if `ApplicationStop` fails, the deployment continues with DownloadBundle. If `BeforeBlockTraffic` fails, the deployment continues with `BlockTraffic` . If `AfterBlockTraffic` fails, the deployment continues with `ApplicationStop` .
@@ -3054,13 +3101,16 @@ type CfnDeploymentGroup_DeploymentProperty struct {
 	// During a deployment, the AWS CodeDeploy agent runs the scripts specified for `ApplicationStop` , `BeforeBlockTraffic` , and `AfterBlockTraffic` in the AppSpec file from the previous successful deployment. (All other scripts are run from the AppSpec file in the current deployment.) If one of these scripts contains an error and does not run successfully, the deployment can fail.
 	//
 	// If the cause of the failure is a script from the last successful deployment that will never run successfully, create a new deployment and use `ignoreApplicationStopFailures` to specify that the `ApplicationStop` , `BeforeBlockTraffic` , and `AfterBlockTraffic` failures should be ignored.
-	IgnoreApplicationStopFailures interface{} `json:"ignoreApplicationStopFailures" yaml:"ignoreApplicationStopFailures"`
+	IgnoreApplicationStopFailures interface{} `field:"optional" json:"ignoreApplicationStopFailures" yaml:"ignoreApplicationStopFailures"`
 }
 
 // Information about how traffic is rerouted to instances in a replacement environment in a blue/green deployment.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codedeploy "github.com/aws/aws-cdk-go/awscdk/aws_codedeploy"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   deploymentReadyOptionProperty := &deploymentReadyOptionProperty{
 //   	actionOnTimeout: jsii.String("actionOnTimeout"),
 //   	waitTimeInMinutes: jsii.Number(123),
@@ -3071,17 +3121,20 @@ type CfnDeploymentGroup_DeploymentReadyOptionProperty struct {
 	//
 	// - CONTINUE_DEPLOYMENT: Register new instances with the load balancer immediately after the new application revision is installed on the instances in the replacement environment.
 	// - STOP_DEPLOYMENT: Do not register new instances with a load balancer unless traffic rerouting is started using [ContinueDeployment](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ContinueDeployment.html) . If traffic rerouting is not started before the end of the specified wait period, the deployment status is changed to Stopped.
-	ActionOnTimeout *string `json:"actionOnTimeout" yaml:"actionOnTimeout"`
+	ActionOnTimeout *string `field:"optional" json:"actionOnTimeout" yaml:"actionOnTimeout"`
 	// The number of minutes to wait before the status of a blue/green deployment is changed to Stopped if rerouting is not started manually.
 	//
 	// Applies only to the `STOP_DEPLOYMENT` option for `actionOnTimeout` .
-	WaitTimeInMinutes *float64 `json:"waitTimeInMinutes" yaml:"waitTimeInMinutes"`
+	WaitTimeInMinutes *float64 `field:"optional" json:"waitTimeInMinutes" yaml:"waitTimeInMinutes"`
 }
 
 // Information about the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codedeploy "github.com/aws/aws-cdk-go/awscdk/aws_codedeploy"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   deploymentStyleProperty := &deploymentStyleProperty{
 //   	deploymentOption: jsii.String("deploymentOption"),
 //   	deploymentType: jsii.String("deploymentType"),
@@ -3091,9 +3144,9 @@ type CfnDeploymentGroup_DeploymentStyleProperty struct {
 	// Indicates whether to route deployment traffic behind a load balancer.
 	//
 	// > An Amazon EC2 Application Load Balancer or Network Load Balancer is required for an Amazon ECS deployment.
-	DeploymentOption *string `json:"deploymentOption" yaml:"deploymentOption"`
+	DeploymentOption *string `field:"optional" json:"deploymentOption" yaml:"deploymentOption"`
 	// Indicates whether to run an in-place or blue/green deployment.
-	DeploymentType *string `json:"deploymentType" yaml:"deploymentType"`
+	DeploymentType *string `field:"optional" json:"deploymentType" yaml:"deploymentType"`
 }
 
 // Information about an Amazon EC2 tag filter.
@@ -3101,7 +3154,10 @@ type CfnDeploymentGroup_DeploymentStyleProperty struct {
 // For more information about using tags and tag groups to help manage your Amazon EC2 instances and on-premises instances, see [Tagging Instances for Deployment Groups in AWS CodeDeploy](https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-tagging.html) in the *AWS CodeDeploy User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codedeploy "github.com/aws/aws-cdk-go/awscdk/aws_codedeploy"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   eC2TagFilterProperty := &eC2TagFilterProperty{
 //   	key: jsii.String("key"),
 //   	type: jsii.String("type"),
@@ -3110,15 +3166,15 @@ type CfnDeploymentGroup_DeploymentStyleProperty struct {
 //
 type CfnDeploymentGroup_EC2TagFilterProperty struct {
 	// The tag filter key.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"optional" json:"key" yaml:"key"`
 	// The tag filter type:.
 	//
 	// - `KEY_ONLY` : Key only.
 	// - `VALUE_ONLY` : Value only.
 	// - `KEY_AND_VALUE` : Key and value.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 	// The tag filter value.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
 // The `EC2TagSet` property type specifies information about groups of tags applied to Amazon EC2 instances.
@@ -3130,7 +3186,10 @@ type CfnDeploymentGroup_EC2TagFilterProperty struct {
 // `EC2TagSet` is a property of the [DeploymentGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html) resource type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codedeploy "github.com/aws/aws-cdk-go/awscdk/aws_codedeploy"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   eC2TagSetListObjectProperty := &eC2TagSetListObjectProperty{
 //   	ec2TagGroup: []interface{}{
 //   		&eC2TagFilterProperty{
@@ -3145,7 +3204,7 @@ type CfnDeploymentGroup_EC2TagSetListObjectProperty struct {
 	// A list that contains other lists of Amazon EC2 instance tag groups.
 	//
 	// For an instance to be included in the deployment group, it must be identified by all of the tag groups in the list.
-	Ec2TagGroup interface{} `json:"ec2TagGroup" yaml:"ec2TagGroup"`
+	Ec2TagGroup interface{} `field:"optional" json:"ec2TagGroup" yaml:"ec2TagGroup"`
 }
 
 // The `EC2TagSet` property type specifies information about groups of tags applied to Amazon EC2 instances.
@@ -3155,7 +3214,10 @@ type CfnDeploymentGroup_EC2TagSetListObjectProperty struct {
 // For information about using tags and tag groups to help manage your Amazon EC2 instances and on-premises instances, see [Tagging Instances for Deployment Groups in AWS CodeDeploy](https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-tagging.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codedeploy "github.com/aws/aws-cdk-go/awscdk/aws_codedeploy"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   eC2TagSetProperty := &eC2TagSetProperty{
 //   	ec2TagSetList: []interface{}{
 //   		&eC2TagSetListObjectProperty{
@@ -3176,13 +3238,16 @@ type CfnDeploymentGroup_EC2TagSetProperty struct {
 	// CodeDeploy includes all Amazon EC2 instances identified by any of the tags you specify in this deployment group.
 	//
 	// Duplicates are not allowed.
-	Ec2TagSetList interface{} `json:"ec2TagSetList" yaml:"ec2TagSetList"`
+	Ec2TagSetList interface{} `field:"optional" json:"ec2TagSetList" yaml:"ec2TagSetList"`
 }
 
 // Contains the service and cluster names used to identify an Amazon ECS deployment's target.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codedeploy "github.com/aws/aws-cdk-go/awscdk/aws_codedeploy"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   eCSServiceProperty := &eCSServiceProperty{
 //   	clusterName: jsii.String("clusterName"),
 //   	serviceName: jsii.String("serviceName"),
@@ -3190,9 +3255,9 @@ type CfnDeploymentGroup_EC2TagSetProperty struct {
 //
 type CfnDeploymentGroup_ECSServiceProperty struct {
 	// The name of the cluster that the Amazon ECS service is associated with.
-	ClusterName *string `json:"clusterName" yaml:"clusterName"`
+	ClusterName *string `field:"required" json:"clusterName" yaml:"clusterName"`
 	// The name of the target Amazon ECS service.
-	ServiceName *string `json:"serviceName" yaml:"serviceName"`
+	ServiceName *string `field:"required" json:"serviceName" yaml:"serviceName"`
 }
 
 // The `ELBInfo` property type specifies information about the Elastic Load Balancing load balancer used for an CodeDeploy deployment group.
@@ -3202,7 +3267,10 @@ type CfnDeploymentGroup_ECSServiceProperty struct {
 // `ELBInfo` is a property of the [AWS CodeDeploy DeploymentGroup LoadBalancerInfo](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-loadbalancerinfo.html) property type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codedeploy "github.com/aws/aws-cdk-go/awscdk/aws_codedeploy"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   eLBInfoProperty := &eLBInfoProperty{
 //   	name: jsii.String("name"),
 //   }
@@ -3213,13 +3281,16 @@ type CfnDeploymentGroup_ELBInfoProperty struct {
 	// For in-place deployments, the name of the load balancer that instances are deregistered from so they are not serving traffic during a deployment, and then re-registered with after the deployment is complete.
 	//
 	// > AWS CloudFormation supports blue/green deployments on AWS Lambda compute platforms only.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 
 // `GitHubLocation` is a property of the [CodeDeploy DeploymentGroup Revision](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deployment-revision.html) property that specifies the location of an application revision that is stored in GitHub.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codedeploy "github.com/aws/aws-cdk-go/awscdk/aws_codedeploy"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   gitHubLocationProperty := &gitHubLocationProperty{
 //   	commitId: jsii.String("commitId"),
 //   	repository: jsii.String("repository"),
@@ -3227,17 +3298,20 @@ type CfnDeploymentGroup_ELBInfoProperty struct {
 //
 type CfnDeploymentGroup_GitHubLocationProperty struct {
 	// The SHA1 commit ID of the GitHub commit that represents the bundled artifacts for the application revision.
-	CommitId *string `json:"commitId" yaml:"commitId"`
+	CommitId *string `field:"required" json:"commitId" yaml:"commitId"`
 	// The GitHub account and repository pair that stores a reference to the commit that represents the bundled artifacts for the application revision.
 	//
 	// Specify the value as `account/repository` .
-	Repository *string `json:"repository" yaml:"repository"`
+	Repository *string `field:"required" json:"repository" yaml:"repository"`
 }
 
 // Information about the instances that belong to the replacement environment in a blue/green deployment.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codedeploy "github.com/aws/aws-cdk-go/awscdk/aws_codedeploy"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   greenFleetProvisioningOptionProperty := &greenFleetProvisioningOptionProperty{
 //   	action: jsii.String("action"),
 //   }
@@ -3247,7 +3321,7 @@ type CfnDeploymentGroup_GreenFleetProvisioningOptionProperty struct {
 	//
 	// - `DISCOVER_EXISTING` : Use instances that already exist or will be created manually.
 	// - `COPY_AUTO_SCALING_GROUP` : Use settings from a specified Auto Scaling group to define and create instances in a new Auto Scaling group.
-	Action *string `json:"action" yaml:"action"`
+	Action *string `field:"optional" json:"action" yaml:"action"`
 }
 
 // The `LoadBalancerInfo` property type specifies information about the load balancer or target group used for an AWS CodeDeploy deployment group.
@@ -3261,7 +3335,10 @@ type CfnDeploymentGroup_GreenFleetProvisioningOptionProperty struct {
 // `LoadBalancerInfo` is a property of the [DeploymentGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html) resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codedeploy "github.com/aws/aws-cdk-go/awscdk/aws_codedeploy"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   loadBalancerInfoProperty := &loadBalancerInfoProperty{
 //   	elbInfoList: []interface{}{
 //   		&eLBInfoProperty{
@@ -3300,17 +3377,17 @@ type CfnDeploymentGroup_LoadBalancerInfoProperty struct {
 	// In Elastic Load Balancing, load balancers are used with Classic Load Balancers.
 	//
 	// > Adding more than one load balancer to the array is not supported.
-	ElbInfoList interface{} `json:"elbInfoList" yaml:"elbInfoList"`
+	ElbInfoList interface{} `field:"optional" json:"elbInfoList" yaml:"elbInfoList"`
 	// An array that contains information about the target group to use for load balancing in a deployment.
 	//
 	// In Elastic Load Balancing , target groups are used with Application Load Balancers .
 	//
 	// > Adding more than one target group to the array is not supported.
-	TargetGroupInfoList interface{} `json:"targetGroupInfoList" yaml:"targetGroupInfoList"`
+	TargetGroupInfoList interface{} `field:"optional" json:"targetGroupInfoList" yaml:"targetGroupInfoList"`
 	// The target group pair information.
 	//
 	// This is an array of `TargeGroupPairInfo` objects with a maximum size of one.
-	TargetGroupPairInfoList interface{} `json:"targetGroupPairInfoList" yaml:"targetGroupPairInfoList"`
+	TargetGroupPairInfoList interface{} `field:"optional" json:"targetGroupPairInfoList" yaml:"targetGroupPairInfoList"`
 }
 
 // The `OnPremisesTagSetListObject` property type specifies lists of on-premises instance tag groups.
@@ -3320,7 +3397,10 @@ type CfnDeploymentGroup_LoadBalancerInfoProperty struct {
 // `OnPremisesTagSetListObject` is a property of the [CodeDeploy DeploymentGroup OnPremisesTagSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-onpremisestagset.html) property type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codedeploy "github.com/aws/aws-cdk-go/awscdk/aws_codedeploy"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   onPremisesTagSetListObjectProperty := &onPremisesTagSetListObjectProperty{
 //   	onPremisesTagGroup: []interface{}{
 //   		&tagFilterProperty{
@@ -3333,7 +3413,7 @@ type CfnDeploymentGroup_LoadBalancerInfoProperty struct {
 //
 type CfnDeploymentGroup_OnPremisesTagSetListObjectProperty struct {
 	// Information about groups of on-premises instance tags.
-	OnPremisesTagGroup interface{} `json:"onPremisesTagGroup" yaml:"onPremisesTagGroup"`
+	OnPremisesTagGroup interface{} `field:"optional" json:"onPremisesTagGroup" yaml:"onPremisesTagGroup"`
 }
 
 // The `OnPremisesTagSet` property type specifies a list containing other lists of on-premises instance tag groups.
@@ -3345,7 +3425,10 @@ type CfnDeploymentGroup_OnPremisesTagSetListObjectProperty struct {
 // `OnPremisesTagSet` is a property of the [DeploymentGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html) resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codedeploy "github.com/aws/aws-cdk-go/awscdk/aws_codedeploy"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   onPremisesTagSetProperty := &onPremisesTagSetProperty{
 //   	onPremisesTagSetList: []interface{}{
 //   		&onPremisesTagSetListObjectProperty{
@@ -3366,13 +3449,16 @@ type CfnDeploymentGroup_OnPremisesTagSetProperty struct {
 	// For an instance to be included in the deployment group, it must be identified by all of the tag groups in the list.
 	//
 	// Duplicates are not allowed.
-	OnPremisesTagSetList interface{} `json:"onPremisesTagSetList" yaml:"onPremisesTagSetList"`
+	OnPremisesTagSetList interface{} `field:"optional" json:"onPremisesTagSetList" yaml:"onPremisesTagSetList"`
 }
 
 // `RevisionLocation` is a property that defines the location of the CodeDeploy application revision to deploy.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codedeploy "github.com/aws/aws-cdk-go/awscdk/aws_codedeploy"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   revisionLocationProperty := &revisionLocationProperty{
 //   	gitHubLocation: &gitHubLocationProperty{
 //   		commitId: jsii.String("commitId"),
@@ -3392,22 +3478,25 @@ type CfnDeploymentGroup_OnPremisesTagSetProperty struct {
 //
 type CfnDeploymentGroup_RevisionLocationProperty struct {
 	// Information about the location of application artifacts stored in GitHub.
-	GitHubLocation interface{} `json:"gitHubLocation" yaml:"gitHubLocation"`
+	GitHubLocation interface{} `field:"optional" json:"gitHubLocation" yaml:"gitHubLocation"`
 	// The type of application revision:.
 	//
 	// - S3: An application revision stored in Amazon S3.
 	// - GitHub: An application revision stored in GitHub (EC2/On-premises deployments only).
 	// - String: A YAML-formatted or JSON-formatted string ( AWS Lambda deployments only).
 	// - AppSpecContent: An `AppSpecContent` object that contains the contents of an AppSpec file for an AWS Lambda or Amazon ECS deployment. The content is formatted as JSON or YAML stored as a RawString.
-	RevisionType *string `json:"revisionType" yaml:"revisionType"`
+	RevisionType *string `field:"optional" json:"revisionType" yaml:"revisionType"`
 	// Information about the location of a revision stored in Amazon S3.
-	S3Location interface{} `json:"s3Location" yaml:"s3Location"`
+	S3Location interface{} `field:"optional" json:"s3Location" yaml:"s3Location"`
 }
 
 // `S3Location` is a property of the [CodeDeploy DeploymentGroup Revision](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deployment-revision.html) property that specifies the location of an application revision that is stored in Amazon Simple Storage Service ( Amazon S3 ).
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codedeploy "github.com/aws/aws-cdk-go/awscdk/aws_codedeploy"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3LocationProperty := &s3LocationProperty{
 //   	bucket: jsii.String("bucket"),
 //   	key: jsii.String("key"),
@@ -3420,9 +3509,9 @@ type CfnDeploymentGroup_RevisionLocationProperty struct {
 //
 type CfnDeploymentGroup_S3LocationProperty struct {
 	// The name of the Amazon S3 bucket where the application revision is stored.
-	Bucket *string `json:"bucket" yaml:"bucket"`
+	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
 	// The name of the Amazon S3 object that represents the bundled artifacts for the application revision.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// The file type of the application revision. Must be one of the following:.
 	//
 	// - JSON
@@ -3430,15 +3519,15 @@ type CfnDeploymentGroup_S3LocationProperty struct {
 	// - tgz: A compressed tar archive file.
 	// - YAML
 	// - zip: A zip archive file.
-	BundleType *string `json:"bundleType" yaml:"bundleType"`
+	BundleType *string `field:"optional" json:"bundleType" yaml:"bundleType"`
 	// The ETag of the Amazon S3 object that represents the bundled artifacts for the application revision.
 	//
 	// If the ETag is not specified as an input parameter, ETag validation of the object is skipped.
-	ETag *string `json:"eTag" yaml:"eTag"`
+	ETag *string `field:"optional" json:"eTag" yaml:"eTag"`
 	// A specific version of the Amazon S3 object that represents the bundled artifacts for the application revision.
 	//
 	// If the version is not specified, the system uses the most recent version by default.
-	Version *string `json:"version" yaml:"version"`
+	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 
 // `TagFilter` is a property type of the [AWS::CodeDeploy::DeploymentGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html) resource that specifies which on-premises instances to associate with the deployment group. To register on-premise instances with AWS CodeDeploy , see [Configure Existing On-Premises Instances by Using AWS CodeDeploy](https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-on-premises.html) in the *AWS CodeDeploy User Guide* .
@@ -3446,7 +3535,10 @@ type CfnDeploymentGroup_S3LocationProperty struct {
 // For more information about using tags and tag groups to help manage your Amazon EC2 instances and on-premises instances, see [Tagging Instances for Deployment Groups in AWS CodeDeploy](https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-tagging.html) in the *AWS CodeDeploy User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codedeploy "github.com/aws/aws-cdk-go/awscdk/aws_codedeploy"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tagFilterProperty := &tagFilterProperty{
 //   	key: jsii.String("key"),
 //   	type: jsii.String("type"),
@@ -3455,15 +3547,15 @@ type CfnDeploymentGroup_S3LocationProperty struct {
 //
 type CfnDeploymentGroup_TagFilterProperty struct {
 	// The on-premises instance tag filter key.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"optional" json:"key" yaml:"key"`
 	// The on-premises instance tag filter type:.
 	//
 	// - KEY_ONLY: Key only.
 	// - VALUE_ONLY: Value only.
 	// - KEY_AND_VALUE: Key and value.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 	// The on-premises instance tag filter value.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
 // The `TargetGroupInfo` property type specifies information about a target group in Elastic Load Balancing to use in a deployment.
@@ -3475,7 +3567,10 @@ type CfnDeploymentGroup_TagFilterProperty struct {
 // `TargetGroupInfo` is a property of the [LoadBalancerInfo](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-loadbalancerinfo.html) property type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codedeploy "github.com/aws/aws-cdk-go/awscdk/aws_codedeploy"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   targetGroupInfoProperty := &targetGroupInfoProperty{
 //   	name: jsii.String("name"),
 //   }
@@ -3488,7 +3583,7 @@ type CfnDeploymentGroup_TargetGroupInfoProperty struct {
 	// > AWS CloudFormation supports blue/green deployments on AWS Lambda compute platforms only.
 	//
 	// This value cannot exceed 32 characters, so you should use the `Name` property of the target group, or the `TargetGroupName` attribute with the `Fn::GetAtt` intrinsic function, as shown in the following example. Don't use the group's Amazon Resource Name (ARN) or `TargetGroupFullName` attribute.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 
 // Information about two target groups and how traffic is routed during an Amazon ECS deployment.
@@ -3496,7 +3591,10 @@ type CfnDeploymentGroup_TargetGroupInfoProperty struct {
 // An optional test traffic route can be specified.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codedeploy "github.com/aws/aws-cdk-go/awscdk/aws_codedeploy"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   targetGroupPairInfoProperty := &targetGroupPairInfoProperty{
 //   	prodTrafficRoute: &trafficRouteProperty{
 //   		listenerArns: []*string{
@@ -3517,15 +3615,15 @@ type CfnDeploymentGroup_TargetGroupInfoProperty struct {
 //
 type CfnDeploymentGroup_TargetGroupPairInfoProperty struct {
 	// The path used by a load balancer to route production traffic when an Amazon ECS deployment is complete.
-	ProdTrafficRoute interface{} `json:"prodTrafficRoute" yaml:"prodTrafficRoute"`
+	ProdTrafficRoute interface{} `field:"optional" json:"prodTrafficRoute" yaml:"prodTrafficRoute"`
 	// One pair of target groups.
 	//
 	// One is associated with the original task set. The second is associated with the task set that serves traffic after the deployment is complete.
-	TargetGroups interface{} `json:"targetGroups" yaml:"targetGroups"`
+	TargetGroups interface{} `field:"optional" json:"targetGroups" yaml:"targetGroups"`
 	// An optional path used by a load balancer to route test traffic after an Amazon ECS deployment.
 	//
 	// Validation can occur while test traffic is served during a deployment.
-	TestTrafficRoute interface{} `json:"testTrafficRoute" yaml:"testTrafficRoute"`
+	TestTrafficRoute interface{} `field:"optional" json:"testTrafficRoute" yaml:"testTrafficRoute"`
 }
 
 // Information about a listener.
@@ -3533,7 +3631,10 @@ type CfnDeploymentGroup_TargetGroupPairInfoProperty struct {
 // The listener contains the path used to route traffic that is received from the load balancer to a target group.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codedeploy "github.com/aws/aws-cdk-go/awscdk/aws_codedeploy"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   trafficRouteProperty := &trafficRouteProperty{
 //   	listenerArns: []*string{
 //   		jsii.String("listenerArns"),
@@ -3544,13 +3645,16 @@ type CfnDeploymentGroup_TrafficRouteProperty struct {
 	// The Amazon Resource Name (ARN) of one listener.
 	//
 	// The listener identifies the route between a target group and a load balancer. This is an array of strings with a maximum size of one.
-	ListenerArns *[]*string `json:"listenerArns" yaml:"listenerArns"`
+	ListenerArns *[]*string `field:"optional" json:"listenerArns" yaml:"listenerArns"`
 }
 
 // Information about notification triggers for the deployment group.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codedeploy "github.com/aws/aws-cdk-go/awscdk/aws_codedeploy"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   triggerConfigProperty := &triggerConfigProperty{
 //   	triggerEvents: []*string{
 //   		jsii.String("triggerEvents"),
@@ -3561,17 +3665,20 @@ type CfnDeploymentGroup_TrafficRouteProperty struct {
 //
 type CfnDeploymentGroup_TriggerConfigProperty struct {
 	// The event type or types that trigger notifications.
-	TriggerEvents *[]*string `json:"triggerEvents" yaml:"triggerEvents"`
+	TriggerEvents *[]*string `field:"optional" json:"triggerEvents" yaml:"triggerEvents"`
 	// The name of the notification trigger.
-	TriggerName *string `json:"triggerName" yaml:"triggerName"`
+	TriggerName *string `field:"optional" json:"triggerName" yaml:"triggerName"`
 	// The Amazon Resource Name (ARN) of the Amazon Simple Notification Service topic through which notifications about deployment or instance events are sent.
-	TriggerTargetArn *string `json:"triggerTargetArn" yaml:"triggerTargetArn"`
+	TriggerTargetArn *string `field:"optional" json:"triggerTargetArn" yaml:"triggerTargetArn"`
 }
 
 // Properties for defining a `CfnDeploymentGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codedeploy "github.com/aws/aws-cdk-go/awscdk/aws_codedeploy"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDeploymentGroupProps := &cfnDeploymentGroupProps{
 //   	applicationName: jsii.String("applicationName"),
 //   	serviceRoleArn: jsii.String("serviceRoleArn"),
@@ -3733,98 +3840,99 @@ type CfnDeploymentGroup_TriggerConfigProperty struct {
 //
 type CfnDeploymentGroupProps struct {
 	// The name of an existing CodeDeploy application to associate this deployment group with.
-	ApplicationName *string `json:"applicationName" yaml:"applicationName"`
+	ApplicationName *string `field:"required" json:"applicationName" yaml:"applicationName"`
 	// A service role Amazon Resource Name (ARN) that grants CodeDeploy permission to make calls to AWS services on your behalf.
 	//
 	// For more information, see [Create a Service Role for AWS CodeDeploy](https://docs.aws.amazon.com/codedeploy/latest/userguide/getting-started-create-service-role.html) in the *AWS CodeDeploy User Guide* .
 	//
 	// > In some cases, you might need to add a dependency on the service role's policy. For more information, see IAM role policy in [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) .
-	ServiceRoleArn *string `json:"serviceRoleArn" yaml:"serviceRoleArn"`
+	ServiceRoleArn *string `field:"required" json:"serviceRoleArn" yaml:"serviceRoleArn"`
 	// Information about the Amazon CloudWatch alarms that are associated with the deployment group.
-	AlarmConfiguration interface{} `json:"alarmConfiguration" yaml:"alarmConfiguration"`
+	AlarmConfiguration interface{} `field:"optional" json:"alarmConfiguration" yaml:"alarmConfiguration"`
 	// Information about the automatic rollback configuration that is associated with the deployment group.
 	//
 	// If you specify this property, don't specify the `Deployment` property.
-	AutoRollbackConfiguration interface{} `json:"autoRollbackConfiguration" yaml:"autoRollbackConfiguration"`
+	AutoRollbackConfiguration interface{} `field:"optional" json:"autoRollbackConfiguration" yaml:"autoRollbackConfiguration"`
 	// A list of associated Auto Scaling groups that CodeDeploy automatically deploys revisions to when new instances are created.
 	//
 	// Duplicates are not allowed.
-	AutoScalingGroups *[]*string `json:"autoScalingGroups" yaml:"autoScalingGroups"`
+	AutoScalingGroups *[]*string `field:"optional" json:"autoScalingGroups" yaml:"autoScalingGroups"`
 	// Information about blue/green deployment options for a deployment group.
-	BlueGreenDeploymentConfiguration interface{} `json:"blueGreenDeploymentConfiguration" yaml:"blueGreenDeploymentConfiguration"`
+	BlueGreenDeploymentConfiguration interface{} `field:"optional" json:"blueGreenDeploymentConfiguration" yaml:"blueGreenDeploymentConfiguration"`
 	// The application revision to deploy to this deployment group.
 	//
 	// If you specify this property, your target application revision is deployed as soon as the provisioning process is complete. If you specify this property, don't specify the `AutoRollbackConfiguration` property.
-	Deployment interface{} `json:"deployment" yaml:"deployment"`
+	Deployment interface{} `field:"optional" json:"deployment" yaml:"deployment"`
 	// A deployment configuration name or a predefined configuration name.
 	//
 	// With predefined configurations, you can deploy application revisions to one instance at a time ( `CodeDeployDefault.OneAtATime` ), half of the instances at a time ( `CodeDeployDefault.HalfAtATime` ), or all the instances at once ( `CodeDeployDefault.AllAtOnce` ). For more information and valid values, see [Working with Deployment Configurations](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations.html) in the *AWS CodeDeploy User Guide* .
-	DeploymentConfigName *string `json:"deploymentConfigName" yaml:"deploymentConfigName"`
+	DeploymentConfigName *string `field:"optional" json:"deploymentConfigName" yaml:"deploymentConfigName"`
 	// A name for the deployment group.
 	//
 	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the deployment group name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
 	//
 	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-	DeploymentGroupName *string `json:"deploymentGroupName" yaml:"deploymentGroupName"`
+	DeploymentGroupName *string `field:"optional" json:"deploymentGroupName" yaml:"deploymentGroupName"`
 	// Attributes that determine the type of deployment to run and whether to route deployment traffic behind a load balancer.
 	//
 	// If you specify this property with a blue/green deployment type, don't specify the `AutoScalingGroups` , `LoadBalancerInfo` , or `Deployment` properties.
 	//
 	// > For blue/green deployments, AWS CloudFormation supports deployments on Lambda compute platforms only. You can perform Amazon ECS blue/green deployments using `AWS::CodeDeploy::BlueGreen` hook. See [Perform Amazon ECS blue/green deployments through CodeDeploy using AWS CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/blue-green.html) for more information.
-	DeploymentStyle interface{} `json:"deploymentStyle" yaml:"deploymentStyle"`
+	DeploymentStyle interface{} `field:"optional" json:"deploymentStyle" yaml:"deploymentStyle"`
 	// The Amazon EC2 tags that are already applied to Amazon EC2 instances that you want to include in the deployment group.
 	//
 	// CodeDeploy includes all Amazon EC2 instances identified by any of the tags you specify in this deployment group. Duplicates are not allowed.
 	//
 	// You can specify `EC2TagFilters` or `Ec2TagSet` , but not both.
-	Ec2TagFilters interface{} `json:"ec2TagFilters" yaml:"ec2TagFilters"`
+	Ec2TagFilters interface{} `field:"optional" json:"ec2TagFilters" yaml:"ec2TagFilters"`
 	// Information about groups of tags applied to Amazon EC2 instances.
 	//
 	// The deployment group includes only Amazon EC2 instances identified by all the tag groups. Cannot be used in the same call as `ec2TagFilter` .
-	Ec2TagSet interface{} `json:"ec2TagSet" yaml:"ec2TagSet"`
+	Ec2TagSet interface{} `field:"optional" json:"ec2TagSet" yaml:"ec2TagSet"`
 	// The target Amazon ECS services in the deployment group.
 	//
 	// This applies only to deployment groups that use the Amazon ECS compute platform. A target Amazon ECS service is specified as an Amazon ECS cluster and service name pair using the format `<clustername>:<servicename>` .
-	EcsServices interface{} `json:"ecsServices" yaml:"ecsServices"`
+	EcsServices interface{} `field:"optional" json:"ecsServices" yaml:"ecsServices"`
 	// Information about the load balancer to use in a deployment.
 	//
 	// For more information, see [Integrating CodeDeploy with Elastic Load Balancing](https://docs.aws.amazon.com/codedeploy/latest/userguide/integrations-aws-elastic-load-balancing.html) in the *AWS CodeDeploy User Guide* .
-	LoadBalancerInfo interface{} `json:"loadBalancerInfo" yaml:"loadBalancerInfo"`
+	LoadBalancerInfo interface{} `field:"optional" json:"loadBalancerInfo" yaml:"loadBalancerInfo"`
 	// The on-premises instance tags already applied to on-premises instances that you want to include in the deployment group.
 	//
 	// CodeDeploy includes all on-premises instances identified by any of the tags you specify in this deployment group. To register on-premises instances with CodeDeploy , see [Working with On-Premises Instances for CodeDeploy](https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-on-premises.html) in the *AWS CodeDeploy User Guide* . Duplicates are not allowed.
 	//
 	// You can specify `OnPremisesInstanceTagFilters` or `OnPremisesInstanceTagSet` , but not both.
-	OnPremisesInstanceTagFilters interface{} `json:"onPremisesInstanceTagFilters" yaml:"onPremisesInstanceTagFilters"`
+	OnPremisesInstanceTagFilters interface{} `field:"optional" json:"onPremisesInstanceTagFilters" yaml:"onPremisesInstanceTagFilters"`
 	// Information about groups of tags applied to on-premises instances.
 	//
 	// The deployment group includes only on-premises instances identified by all the tag groups.
 	//
 	// You can specify `OnPremisesInstanceTagFilters` or `OnPremisesInstanceTagSet` , but not both.
-	OnPremisesTagSet interface{} `json:"onPremisesTagSet" yaml:"onPremisesTagSet"`
+	OnPremisesTagSet interface{} `field:"optional" json:"onPremisesTagSet" yaml:"onPremisesTagSet"`
 	// Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision.
 	//
 	// If this option is set to `UPDATE` or is unspecified, CodeDeploy initiates one or more 'auto-update outdated instances' deployments to apply the deployed application revision to the new Amazon EC2 instances.
 	//
 	// If this option is set to `IGNORE` , CodeDeploy does not initiate a deployment to update the new Amazon EC2 instances. This may result in instances having different revisions.
-	OutdatedInstancesStrategy *string `json:"outdatedInstancesStrategy" yaml:"outdatedInstancesStrategy"`
+	OutdatedInstancesStrategy *string `field:"optional" json:"outdatedInstancesStrategy" yaml:"outdatedInstancesStrategy"`
 	// The metadata that you apply to CodeDeploy deployment groups to help you organize and categorize them.
 	//
 	// Each tag consists of a key and an optional value, both of which you define.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// Information about triggers associated with the deployment group.
 	//
 	// Duplicates are not allowed.
-	TriggerConfigurations interface{} `json:"triggerConfigurations" yaml:"triggerConfigurations"`
+	TriggerConfigurations interface{} `field:"optional" json:"triggerConfigurations" yaml:"triggerConfigurations"`
 }
 
 // A custom Deployment Configuration for a Lambda Deployment Group.
 //
 // Example:
 //   var application lambdaApplication
-//   var alias aliasconfig := codedeploy.NewCustomLambdaDeploymentConfig(this, jsii.String("CustomConfig"), &customLambdaDeploymentConfigProps{
+//   var alias alias
+//   config := codedeploy.NewCustomLambdaDeploymentConfig(this, jsii.String("CustomConfig"), &customLambdaDeploymentConfigProps{
 //   	type: codedeploy.customLambdaDeploymentConfigType_CANARY,
-//   	interval: duration.minutes(jsii.Number(1)),
+//   	interval: awscdk.Duration.minutes(jsii.Number(1)),
 //   	percentage: jsii.Number(5),
 //   })
 //   deploymentGroup := codedeploy.NewLambdaDeploymentGroup(this, jsii.String("BlueGreenDeployment"), &lambdaDeploymentGroupProps{
@@ -4196,9 +4304,10 @@ func (c *jsiiProxy_CustomLambdaDeploymentConfig) Validate() *[]*string {
 //
 // Example:
 //   var application lambdaApplication
-//   var alias aliasconfig := codedeploy.NewCustomLambdaDeploymentConfig(this, jsii.String("CustomConfig"), &customLambdaDeploymentConfigProps{
+//   var alias alias
+//   config := codedeploy.NewCustomLambdaDeploymentConfig(this, jsii.String("CustomConfig"), &customLambdaDeploymentConfigProps{
 //   	type: codedeploy.customLambdaDeploymentConfigType_CANARY,
-//   	interval: duration.minutes(jsii.Number(1)),
+//   	interval: awscdk.Duration.minutes(jsii.Number(1)),
 //   	percentage: jsii.Number(5),
 //   })
 //   deploymentGroup := codedeploy.NewLambdaDeploymentGroup(this, jsii.String("BlueGreenDeployment"), &lambdaDeploymentGroupProps{
@@ -4211,28 +4320,29 @@ func (c *jsiiProxy_CustomLambdaDeploymentConfig) Validate() *[]*string {
 type CustomLambdaDeploymentConfigProps struct {
 	// The interval, in number of minutes: - For LINEAR, how frequently additional traffic is shifted - For CANARY, how long to shift traffic before the full deployment.
 	// Experimental.
-	Interval awscdk.Duration `json:"interval" yaml:"interval"`
+	Interval awscdk.Duration `field:"required" json:"interval" yaml:"interval"`
 	// The integer percentage of traffic to shift: - For LINEAR, the percentage to shift every interval - For CANARY, the percentage to shift until the interval passes, before the full deployment.
 	// Experimental.
-	Percentage *float64 `json:"percentage" yaml:"percentage"`
+	Percentage *float64 `field:"required" json:"percentage" yaml:"percentage"`
 	// The type of deployment config, either CANARY or LINEAR.
 	// Experimental.
-	Type CustomLambdaDeploymentConfigType `json:"type" yaml:"type"`
+	Type CustomLambdaDeploymentConfigType `field:"required" json:"type" yaml:"type"`
 	// The verbatim name of the deployment config.
 	//
 	// Must be unique per account/region.
 	// Other parameters cannot be updated if this name is provided.
 	// Experimental.
-	DeploymentConfigName *string `json:"deploymentConfigName" yaml:"deploymentConfigName"`
+	DeploymentConfigName *string `field:"optional" json:"deploymentConfigName" yaml:"deploymentConfigName"`
 }
 
 // Lambda Deployment config type.
 //
 // Example:
 //   var application lambdaApplication
-//   var alias aliasconfig := codedeploy.NewCustomLambdaDeploymentConfig(this, jsii.String("CustomConfig"), &customLambdaDeploymentConfigProps{
+//   var alias alias
+//   config := codedeploy.NewCustomLambdaDeploymentConfig(this, jsii.String("CustomConfig"), &customLambdaDeploymentConfigProps{
 //   	type: codedeploy.customLambdaDeploymentConfigType_CANARY,
-//   	interval: duration.minutes(jsii.Number(1)),
+//   	interval: awscdk.Duration.minutes(jsii.Number(1)),
 //   	percentage: jsii.Number(5),
 //   })
 //   deploymentGroup := codedeploy.NewLambdaDeploymentGroup(this, jsii.String("BlueGreenDeployment"), &lambdaDeploymentGroupProps{
@@ -4256,8 +4366,11 @@ const (
 // A CodeDeploy Application that deploys to an Amazon ECS service.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codedeploy "github.com/aws/aws-cdk-go/awscdk/aws_codedeploy"
-//   ecsApplication := codedeploy.NewEcsApplication(this, jsii.String("MyEcsApplication"), &ecsApplicationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   ecsApplication := awscdk.Aws_codedeploy.NewEcsApplication(this, jsii.String("MyEcsApplication"), &ecsApplicationProps{
 //   	applicationName: jsii.String("applicationName"),
 //   })
 //
@@ -4640,7 +4753,10 @@ func (e *jsiiProxy_EcsApplication) Validate() *[]*string {
 // Construction properties for {@link EcsApplication}.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codedeploy "github.com/aws/aws-cdk-go/awscdk/aws_codedeploy"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   ecsApplicationProps := &ecsApplicationProps{
 //   	applicationName: jsii.String("applicationName"),
 //   }
@@ -4649,7 +4765,7 @@ func (e *jsiiProxy_EcsApplication) Validate() *[]*string {
 type EcsApplicationProps struct {
 	// The physical, human-readable name of the CodeDeploy Application.
 	// Experimental.
-	ApplicationName *string `json:"applicationName" yaml:"applicationName"`
+	ApplicationName *string `field:"optional" json:"applicationName" yaml:"applicationName"`
 }
 
 // A custom Deployment Configuration for an ECS Deployment Group.
@@ -4731,10 +4847,13 @@ func EcsDeploymentGroup_FromEcsDeploymentGroupAttributes(scope constructs.Constr
 // Properties of a reference to a CodeDeploy ECS Deployment Group.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codedeploy "github.com/aws/aws-cdk-go/awscdk/aws_codedeploy"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var ecsApplication ecsApplication
 //   var ecsDeploymentConfig iEcsDeploymentConfig
+//
 //   ecsDeploymentGroupAttributes := &ecsDeploymentGroupAttributes{
 //   	application: ecsApplication,
 //   	deploymentGroupName: jsii.String("deploymentGroupName"),
@@ -4749,13 +4868,13 @@ func EcsDeploymentGroup_FromEcsDeploymentGroupAttributes(scope constructs.Constr
 type EcsDeploymentGroupAttributes struct {
 	// The reference to the CodeDeploy ECS Application that this Deployment Group belongs to.
 	// Experimental.
-	Application IEcsApplication `json:"application" yaml:"application"`
+	Application IEcsApplication `field:"required" json:"application" yaml:"application"`
 	// The physical, human-readable name of the CodeDeploy ECS Deployment Group that we are referencing.
 	// Experimental.
-	DeploymentGroupName *string `json:"deploymentGroupName" yaml:"deploymentGroupName"`
+	DeploymentGroupName *string `field:"required" json:"deploymentGroupName" yaml:"deploymentGroupName"`
 	// The Deployment Configuration this Deployment Group uses.
 	// Experimental.
-	DeploymentConfig IEcsDeploymentConfig `json:"deploymentConfig" yaml:"deploymentConfig"`
+	DeploymentConfig IEcsDeploymentConfig `field:"optional" json:"deploymentConfig" yaml:"deploymentConfig"`
 }
 
 // Represents a reference to a CodeDeploy Application deploying to Amazon ECS.
@@ -5220,11 +5339,13 @@ func (j *jsiiProxy_IServerDeploymentGroup) Role() awsiam.IRole {
 // You can have a maximum of 3 tag groups inside a set.
 //
 // Example:
-//   import autoscaling "github.com/aws/aws-cdk-go/awscdk"import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
+//   import autoscaling "github.com/aws/aws-cdk-go/awscdk"
+//   import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var application serverApplication
 //   var asg autoScalingGroup
 //   var alarm alarm
+//
 //   deploymentGroup := codedeploy.NewServerDeploymentGroup(this, jsii.String("CodeDeployDeploymentGroup"), &serverDeploymentGroupProps{
 //   	application: application,
 //   	deploymentGroupName: jsii.String("MyDeploymentGroup"),
@@ -5729,7 +5850,7 @@ func (l *jsiiProxy_LambdaApplication) Validate() *[]*string {
 type LambdaApplicationProps struct {
 	// The physical, human-readable name of the CodeDeploy Application.
 	// Experimental.
-	ApplicationName *string `json:"applicationName" yaml:"applicationName"`
+	ApplicationName *string `field:"optional" json:"applicationName" yaml:"applicationName"`
 }
 
 // A custom Deployment Configuration for a Lambda Deployment Group.
@@ -5741,6 +5862,7 @@ type LambdaApplicationProps struct {
 // Example:
 //   var myApplication lambdaApplication
 //   var func function
+//
 //   version := func.currentVersion
 //   version1Alias := lambda.NewAlias(this, jsii.String("alias"), &aliasProps{
 //   	aliasName: jsii.String("prod"),
@@ -5884,7 +6006,10 @@ func LambdaDeploymentConfig_LINEAR_10PERCENT_EVERY_3MINUTES() ILambdaDeploymentC
 // Properties of a reference to a CodeDeploy Lambda Deployment Configuration.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codedeploy "github.com/aws/aws-cdk-go/awscdk/aws_codedeploy"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   lambdaDeploymentConfigImportProps := &lambdaDeploymentConfigImportProps{
 //   	deploymentConfigName: jsii.String("deploymentConfigName"),
 //   }
@@ -5895,14 +6020,15 @@ func LambdaDeploymentConfig_LINEAR_10PERCENT_EVERY_3MINUTES() ILambdaDeploymentC
 type LambdaDeploymentConfigImportProps struct {
 	// The physical, human-readable name of the custom CodeDeploy Lambda Deployment Configuration that we are referencing.
 	// Experimental.
-	DeploymentConfigName *string `json:"deploymentConfigName" yaml:"deploymentConfigName"`
+	DeploymentConfigName *string `field:"required" json:"deploymentConfigName" yaml:"deploymentConfigName"`
 }
 
 // Example:
 //   var application lambdaApplication
-//   var alias aliasconfig := codedeploy.NewCustomLambdaDeploymentConfig(this, jsii.String("CustomConfig"), &customLambdaDeploymentConfigProps{
+//   var alias alias
+//   config := codedeploy.NewCustomLambdaDeploymentConfig(this, jsii.String("CustomConfig"), &customLambdaDeploymentConfigProps{
 //   	type: codedeploy.customLambdaDeploymentConfigType_CANARY,
-//   	interval: duration.minutes(jsii.Number(1)),
+//   	interval: awscdk.Duration.minutes(jsii.Number(1)),
 //   	percentage: jsii.Number(5),
 //   })
 //   deploymentGroup := codedeploy.NewLambdaDeploymentGroup(this, jsii.String("BlueGreenDeployment"), &lambdaDeploymentGroupProps{
@@ -6380,6 +6506,7 @@ func (l *jsiiProxy_LambdaDeploymentGroup) Validate() *[]*string {
 //
 // Example:
 //   var application lambdaApplication
+//
 //   deploymentGroup := codedeploy.lambdaDeploymentGroup.fromLambdaDeploymentGroupAttributes(this, jsii.String("ExistingCodeDeployDeploymentGroup"), &lambdaDeploymentGroupAttributes{
 //   	application: application,
 //   	deploymentGroupName: jsii.String("MyExistingDeploymentGroup"),
@@ -6391,22 +6518,23 @@ func (l *jsiiProxy_LambdaDeploymentGroup) Validate() *[]*string {
 type LambdaDeploymentGroupAttributes struct {
 	// The reference to the CodeDeploy Lambda Application that this Deployment Group belongs to.
 	// Experimental.
-	Application ILambdaApplication `json:"application" yaml:"application"`
+	Application ILambdaApplication `field:"required" json:"application" yaml:"application"`
 	// The physical, human-readable name of the CodeDeploy Lambda Deployment Group that we are referencing.
 	// Experimental.
-	DeploymentGroupName *string `json:"deploymentGroupName" yaml:"deploymentGroupName"`
+	DeploymentGroupName *string `field:"required" json:"deploymentGroupName" yaml:"deploymentGroupName"`
 	// The Deployment Configuration this Deployment Group uses.
 	// Experimental.
-	DeploymentConfig ILambdaDeploymentConfig `json:"deploymentConfig" yaml:"deploymentConfig"`
+	DeploymentConfig ILambdaDeploymentConfig `field:"optional" json:"deploymentConfig" yaml:"deploymentConfig"`
 }
 
 // Construction properties for {@link LambdaDeploymentGroup}.
 //
 // Example:
 //   var application lambdaApplication
-//   var alias aliasconfig := codedeploy.NewCustomLambdaDeploymentConfig(this, jsii.String("CustomConfig"), &customLambdaDeploymentConfigProps{
+//   var alias alias
+//   config := codedeploy.NewCustomLambdaDeploymentConfig(this, jsii.String("CustomConfig"), &customLambdaDeploymentConfigProps{
 //   	type: codedeploy.customLambdaDeploymentConfigType_CANARY,
-//   	interval: duration.minutes(jsii.Number(1)),
+//   	interval: awscdk.Duration.minutes(jsii.Number(1)),
 //   	percentage: jsii.Number(5),
 //   })
 //   deploymentGroup := codedeploy.NewLambdaDeploymentGroup(this, jsii.String("BlueGreenDeployment"), &lambdaDeploymentGroupProps{
@@ -6421,7 +6549,7 @@ type LambdaDeploymentGroupProps struct {
 	//
 	// [disable-awslint:ref-via-interface] since we need to modify the alias CFN resource update policy.
 	// Experimental.
-	Alias awslambda.Alias `json:"alias" yaml:"alias"`
+	Alias awslambda.Alias `field:"required" json:"alias" yaml:"alias"`
 	// The CloudWatch alarms associated with this Deployment Group.
 	//
 	// CodeDeploy will stop (and optionally roll back)
@@ -6431,31 +6559,31 @@ type LambdaDeploymentGroupProps struct {
 	// See: https://docs.aws.amazon.com/codedeploy/latest/userguide/monitoring-create-alarms.html
 	//
 	// Experimental.
-	Alarms *[]awscloudwatch.IAlarm `json:"alarms" yaml:"alarms"`
+	Alarms *[]awscloudwatch.IAlarm `field:"optional" json:"alarms" yaml:"alarms"`
 	// The reference to the CodeDeploy Lambda Application that this Deployment Group belongs to.
 	// Experimental.
-	Application ILambdaApplication `json:"application" yaml:"application"`
+	Application ILambdaApplication `field:"optional" json:"application" yaml:"application"`
 	// The auto-rollback configuration for this Deployment Group.
 	// Experimental.
-	AutoRollback *AutoRollbackConfig `json:"autoRollback" yaml:"autoRollback"`
+	AutoRollback *AutoRollbackConfig `field:"optional" json:"autoRollback" yaml:"autoRollback"`
 	// The Deployment Configuration this Deployment Group uses.
 	// Experimental.
-	DeploymentConfig ILambdaDeploymentConfig `json:"deploymentConfig" yaml:"deploymentConfig"`
+	DeploymentConfig ILambdaDeploymentConfig `field:"optional" json:"deploymentConfig" yaml:"deploymentConfig"`
 	// The physical, human-readable name of the CodeDeploy Deployment Group.
 	// Experimental.
-	DeploymentGroupName *string `json:"deploymentGroupName" yaml:"deploymentGroupName"`
+	DeploymentGroupName *string `field:"optional" json:"deploymentGroupName" yaml:"deploymentGroupName"`
 	// Whether to continue a deployment even if fetching the alarm status from CloudWatch failed.
 	// Experimental.
-	IgnorePollAlarmsFailure *bool `json:"ignorePollAlarmsFailure" yaml:"ignorePollAlarmsFailure"`
+	IgnorePollAlarmsFailure *bool `field:"optional" json:"ignorePollAlarmsFailure" yaml:"ignorePollAlarmsFailure"`
 	// The Lambda function to run after traffic routing starts.
 	// Experimental.
-	PostHook awslambda.IFunction `json:"postHook" yaml:"postHook"`
+	PostHook awslambda.IFunction `field:"optional" json:"postHook" yaml:"postHook"`
 	// The Lambda function to run before traffic routing starts.
 	// Experimental.
-	PreHook awslambda.IFunction `json:"preHook" yaml:"preHook"`
+	PreHook awslambda.IFunction `field:"optional" json:"preHook" yaml:"preHook"`
 	// The service Role of this Deployment Group.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 }
 
 // An interface of an abstract load balancer, as needed by CodeDeploy.
@@ -6467,6 +6595,7 @@ type LambdaDeploymentGroupProps struct {
 //   import elb "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var lb loadBalancer
+//
 //   lb.addListener(&loadBalancerListener{
 //   	externalPort: jsii.Number(80),
 //   })
@@ -7031,7 +7160,7 @@ func (s *jsiiProxy_ServerApplication) Validate() *[]*string {
 type ServerApplicationProps struct {
 	// The physical, human-readable name of the CodeDeploy Application.
 	// Experimental.
-	ApplicationName *string `json:"applicationName" yaml:"applicationName"`
+	ApplicationName *string `field:"optional" json:"applicationName" yaml:"applicationName"`
 }
 
 // A custom Deployment Configuration for an EC2/on-premise Deployment Group.
@@ -7464,10 +7593,10 @@ func (s *jsiiProxy_ServerDeploymentConfig) Validate() *[]*string {
 type ServerDeploymentConfigProps struct {
 	// Minimum number of healthy hosts.
 	// Experimental.
-	MinimumHealthyHosts MinimumHealthyHosts `json:"minimumHealthyHosts" yaml:"minimumHealthyHosts"`
+	MinimumHealthyHosts MinimumHealthyHosts `field:"required" json:"minimumHealthyHosts" yaml:"minimumHealthyHosts"`
 	// The physical, human-readable name of the Deployment Configuration.
 	// Experimental.
-	DeploymentConfigName *string `json:"deploymentConfigName" yaml:"deploymentConfigName"`
+	DeploymentConfigName *string `field:"optional" json:"deploymentConfigName" yaml:"deploymentConfigName"`
 }
 
 // A CodeDeploy Deployment Group that deploys to EC2/on-premise instances.
@@ -7476,6 +7605,7 @@ type ServerDeploymentConfigProps struct {
 //   import elb "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var lb loadBalancer
+//
 //   lb.addListener(&loadBalancerListener{
 //   	externalPort: jsii.Number(80),
 //   })
@@ -7934,6 +8064,7 @@ func (s *jsiiProxy_ServerDeploymentGroup) Validate() *[]*string {
 //
 // Example:
 //   var application serverApplication
+//
 //   deploymentGroup := codedeploy.serverDeploymentGroup.fromServerDeploymentGroupAttributes(this, jsii.String("ExistingCodeDeployDeploymentGroup"), &serverDeploymentGroupAttributes{
 //   	application: application,
 //   	deploymentGroupName: jsii.String("MyExistingDeploymentGroup"),
@@ -7945,13 +8076,13 @@ func (s *jsiiProxy_ServerDeploymentGroup) Validate() *[]*string {
 type ServerDeploymentGroupAttributes struct {
 	// The reference to the CodeDeploy EC2/on-premise Application that this Deployment Group belongs to.
 	// Experimental.
-	Application IServerApplication `json:"application" yaml:"application"`
+	Application IServerApplication `field:"required" json:"application" yaml:"application"`
 	// The physical, human-readable name of the CodeDeploy EC2/on-premise Deployment Group that we are referencing.
 	// Experimental.
-	DeploymentGroupName *string `json:"deploymentGroupName" yaml:"deploymentGroupName"`
+	DeploymentGroupName *string `field:"required" json:"deploymentGroupName" yaml:"deploymentGroupName"`
 	// The Deployment Configuration this Deployment Group uses.
 	// Experimental.
-	DeploymentConfig IServerDeploymentConfig `json:"deploymentConfig" yaml:"deploymentConfig"`
+	DeploymentConfig IServerDeploymentConfig `field:"optional" json:"deploymentConfig" yaml:"deploymentConfig"`
 }
 
 // Construction properties for {@link ServerDeploymentGroup}.
@@ -7960,6 +8091,7 @@ type ServerDeploymentGroupAttributes struct {
 //   import elbv2 "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var alb applicationLoadBalancer
+//
 //   listener := alb.addListener(jsii.String("Listener"), &baseApplicationListenerProps{
 //   	port: jsii.Number(80),
 //   })
@@ -7982,13 +8114,13 @@ type ServerDeploymentGroupProps struct {
 	// See: https://docs.aws.amazon.com/codedeploy/latest/userguide/monitoring-create-alarms.html
 	//
 	// Experimental.
-	Alarms *[]awscloudwatch.IAlarm `json:"alarms" yaml:"alarms"`
+	Alarms *[]awscloudwatch.IAlarm `field:"optional" json:"alarms" yaml:"alarms"`
 	// The CodeDeploy EC2/on-premise Application this Deployment Group belongs to.
 	// Experimental.
-	Application IServerApplication `json:"application" yaml:"application"`
+	Application IServerApplication `field:"optional" json:"application" yaml:"application"`
 	// The auto-rollback configuration for this Deployment Group.
 	// Experimental.
-	AutoRollback *AutoRollbackConfig `json:"autoRollback" yaml:"autoRollback"`
+	AutoRollback *AutoRollbackConfig `field:"optional" json:"autoRollback" yaml:"autoRollback"`
 	// The auto-scaling groups belonging to this Deployment Group.
 	//
 	// Auto-scaling groups can also be added after the Deployment Group is created
@@ -7997,35 +8129,35 @@ type ServerDeploymentGroupProps struct {
 	// [disable-awslint:ref-via-interface] is needed because we update userdata
 	// for ASGs to install the codedeploy agent.
 	// Experimental.
-	AutoScalingGroups *[]awsautoscaling.IAutoScalingGroup `json:"autoScalingGroups" yaml:"autoScalingGroups"`
+	AutoScalingGroups *[]awsautoscaling.IAutoScalingGroup `field:"optional" json:"autoScalingGroups" yaml:"autoScalingGroups"`
 	// The EC2/on-premise Deployment Configuration to use for this Deployment Group.
 	// Experimental.
-	DeploymentConfig IServerDeploymentConfig `json:"deploymentConfig" yaml:"deploymentConfig"`
+	DeploymentConfig IServerDeploymentConfig `field:"optional" json:"deploymentConfig" yaml:"deploymentConfig"`
 	// The physical, human-readable name of the CodeDeploy Deployment Group.
 	// Experimental.
-	DeploymentGroupName *string `json:"deploymentGroupName" yaml:"deploymentGroupName"`
+	DeploymentGroupName *string `field:"optional" json:"deploymentGroupName" yaml:"deploymentGroupName"`
 	// All EC2 instances matching the given set of tags when a deployment occurs will be added to this Deployment Group.
 	// Experimental.
-	Ec2InstanceTags InstanceTagSet `json:"ec2InstanceTags" yaml:"ec2InstanceTags"`
+	Ec2InstanceTags InstanceTagSet `field:"optional" json:"ec2InstanceTags" yaml:"ec2InstanceTags"`
 	// Whether to continue a deployment even if fetching the alarm status from CloudWatch failed.
 	// Experimental.
-	IgnorePollAlarmsFailure *bool `json:"ignorePollAlarmsFailure" yaml:"ignorePollAlarmsFailure"`
+	IgnorePollAlarmsFailure *bool `field:"optional" json:"ignorePollAlarmsFailure" yaml:"ignorePollAlarmsFailure"`
 	// If you've provided any auto-scaling groups with the {@link #autoScalingGroups} property, you can set this property to add User Data that installs the CodeDeploy agent on the instances.
 	// See: https://docs.aws.amazon.com/codedeploy/latest/userguide/codedeploy-agent-operations-install.html
 	//
 	// Experimental.
-	InstallAgent *bool `json:"installAgent" yaml:"installAgent"`
+	InstallAgent *bool `field:"optional" json:"installAgent" yaml:"installAgent"`
 	// The load balancer to place in front of this Deployment Group.
 	//
 	// Can be created from either a classic Elastic Load Balancer,
 	// or an Application Load Balancer / Network Load Balancer Target Group.
 	// Experimental.
-	LoadBalancer LoadBalancer `json:"loadBalancer" yaml:"loadBalancer"`
+	LoadBalancer LoadBalancer `field:"optional" json:"loadBalancer" yaml:"loadBalancer"`
 	// All on-premise instances matching the given set of tags when a deployment occurs will be added to this Deployment Group.
 	// Experimental.
-	OnPremiseInstanceTags InstanceTagSet `json:"onPremiseInstanceTags" yaml:"onPremiseInstanceTags"`
+	OnPremiseInstanceTags InstanceTagSet `field:"optional" json:"onPremiseInstanceTags" yaml:"onPremiseInstanceTags"`
 	// The service Role of this Deployment Group.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 }
 

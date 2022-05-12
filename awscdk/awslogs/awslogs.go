@@ -17,8 +17,11 @@ import (
 // The AWS::Logs::Destination resource specifies a CloudWatch Logs destination. A destination encapsulates a physical resource (such as an Amazon Kinesis data stream) and enables you to subscribe that resource to a stream of log events.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"
-//   cfnDestination := logs.NewCfnDestination(this, jsii.String("MyCfnDestination"), &cfnDestinationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDestination := awscdk.Aws_logs.NewCfnDestination(this, jsii.String("MyCfnDestination"), &cfnDestinationProps{
 //   	destinationName: jsii.String("destinationName"),
 //   	destinationPolicy: jsii.String("destinationPolicy"),
 //   	roleArn: jsii.String("roleArn"),
@@ -729,7 +732,10 @@ func (c *jsiiProxy_CfnDestination) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnDestination`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDestinationProps := &cfnDestinationProps{
 //   	destinationName: jsii.String("destinationName"),
 //   	destinationPolicy: jsii.String("destinationPolicy"),
@@ -739,13 +745,13 @@ func (c *jsiiProxy_CfnDestination) ValidateProperties(_properties interface{}) {
 //
 type CfnDestinationProps struct {
 	// The name of the destination.
-	DestinationName *string `json:"destinationName" yaml:"destinationName"`
+	DestinationName *string `field:"required" json:"destinationName" yaml:"destinationName"`
 	// An IAM policy document that governs which AWS accounts can create subscription filters against this destination.
-	DestinationPolicy *string `json:"destinationPolicy" yaml:"destinationPolicy"`
+	DestinationPolicy *string `field:"required" json:"destinationPolicy" yaml:"destinationPolicy"`
 	// The ARN of an IAM role that permits CloudWatch Logs to send data to the specified AWS resource.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The Amazon Resource Name (ARN) of the physical target where the log events are delivered (for example, a Kinesis stream).
-	TargetArn *string `json:"targetArn" yaml:"targetArn"`
+	TargetArn *string `field:"required" json:"targetArn" yaml:"targetArn"`
 }
 
 // A CloudFormation `AWS::Logs::LogGroup`.
@@ -759,8 +765,11 @@ type CfnDestinationProps struct {
 // - Log group names consist of the following characters: a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), '/' (forward slash), and '.' (period).
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"
-//   cfnLogGroup := logs.NewCfnLogGroup(this, jsii.String("MyCfnLogGroup"), &cfnLogGroupProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnLogGroup := awscdk.Aws_logs.NewCfnLogGroup(this, jsii.String("MyCfnLogGroup"), &cfnLogGroupProps{
 //   	kmsKeyId: jsii.String("kmsKeyId"),
 //   	logGroupName: jsii.String("logGroupName"),
 //   	retentionInDays: jsii.Number(123),
@@ -1481,7 +1490,10 @@ func (c *jsiiProxy_CfnLogGroup) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnLogGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnLogGroupProps := &cfnLogGroupProps{
 //   	kmsKeyId: jsii.String("kmsKeyId"),
 //   	logGroupName: jsii.String("logGroupName"),
@@ -1502,21 +1514,21 @@ type CfnLogGroupProps struct {
 	// If you attempt to associate a KMS key with the log group but the KMS key doesn't exist or is deactivated, you will receive an `InvalidParameterException` error.
 	//
 	// Log group data is always encrypted in CloudWatch Logs . If you omit this key, the encryption does not use AWS KMS . For more information, see [Encrypt log data in CloudWatch Logs using AWS Key Management Service](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/encrypt-log-data-kms.html)
-	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// The name of the log group.
 	//
 	// If you don't specify a name, AWS CloudFormation generates a unique ID for the log group.
-	LogGroupName *string `json:"logGroupName" yaml:"logGroupName"`
+	LogGroupName *string `field:"optional" json:"logGroupName" yaml:"logGroupName"`
 	// The number of days to retain the log events in the specified log group.
 	//
 	// Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, 2192, 2557, 2922, 3288, and 3653.
 	//
 	// To set a log group to never have log events expire, use [DeleteRetentionPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html) .
-	RetentionInDays *float64 `json:"retentionInDays" yaml:"retentionInDays"`
+	RetentionInDays *float64 `field:"optional" json:"retentionInDays" yaml:"retentionInDays"`
 	// An array of key-value pairs to apply to the log group.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Logs::LogStream`.
@@ -1532,8 +1544,11 @@ type CfnLogGroupProps struct {
 // - The ':' (colon) and '*' (asterisk) characters are not allowed.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"
-//   cfnLogStream := logs.NewCfnLogStream(this, jsii.String("MyCfnLogStream"), &cfnLogStreamProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnLogStream := awscdk.Aws_logs.NewCfnLogStream(this, jsii.String("MyCfnLogStream"), &cfnLogStreamProps{
 //   	logGroupName: jsii.String("logGroupName"),
 //
 //   	// the properties below are optional
@@ -2192,7 +2207,10 @@ func (c *jsiiProxy_CfnLogStream) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnLogStream`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnLogStreamProps := &cfnLogStreamProps{
 //   	logGroupName: jsii.String("logGroupName"),
 //
@@ -2202,11 +2220,11 @@ func (c *jsiiProxy_CfnLogStream) ValidateProperties(_properties interface{}) {
 //
 type CfnLogStreamProps struct {
 	// The name of the log group where the log stream is created.
-	LogGroupName *string `json:"logGroupName" yaml:"logGroupName"`
+	LogGroupName *string `field:"required" json:"logGroupName" yaml:"logGroupName"`
 	// The name of the log stream.
 	//
 	// The name must be unique within the log group.
-	LogStreamName *string `json:"logStreamName" yaml:"logStreamName"`
+	LogStreamName *string `field:"optional" json:"logStreamName" yaml:"logStreamName"`
 }
 
 // A CloudFormation `AWS::Logs::MetricFilter`.
@@ -2216,8 +2234,11 @@ type CfnLogStreamProps struct {
 // The maximum number of metric filters that can be associated with a log group is 100.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"
-//   cfnMetricFilter := logs.NewCfnMetricFilter(this, jsii.String("MyCfnMetricFilter"), &cfnMetricFilterProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnMetricFilter := awscdk.Aws_logs.NewCfnMetricFilter(this, jsii.String("MyCfnMetricFilter"), &cfnMetricFilterProps{
 //   	filterPattern: jsii.String("filterPattern"),
 //   	logGroupName: jsii.String("logGroupName"),
 //   	metricTransformations: []interface{}{
@@ -2905,7 +2926,10 @@ func (c *jsiiProxy_CfnMetricFilter) ValidateProperties(_properties interface{}) 
 // `MetricTransformation` is a property of the `AWS::Logs::MetricFilter` resource that describes how to transform log streams into a CloudWatch metric.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   metricTransformationProperty := &metricTransformationProperty{
 //   	metricName: jsii.String("metricName"),
 //   	metricNamespace: jsii.String("metricNamespace"),
@@ -2917,25 +2941,28 @@ func (c *jsiiProxy_CfnMetricFilter) ValidateProperties(_properties interface{}) 
 //
 type CfnMetricFilter_MetricTransformationProperty struct {
 	// The name of the CloudWatch metric.
-	MetricName *string `json:"metricName" yaml:"metricName"`
+	MetricName *string `field:"required" json:"metricName" yaml:"metricName"`
 	// A custom namespace to contain your metric in CloudWatch.
 	//
 	// Use namespaces to group together metrics that are similar. For more information, see [Namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Namespace) .
-	MetricNamespace *string `json:"metricNamespace" yaml:"metricNamespace"`
+	MetricNamespace *string `field:"required" json:"metricNamespace" yaml:"metricNamespace"`
 	// The value that is published to the CloudWatch metric.
 	//
 	// For example, if you're counting the occurrences of a particular term like `Error` , specify 1 for the metric value. If you're counting the number of bytes transferred, reference the value that is in the log event by using $ followed by the name of the field that you specified in the filter pattern, such as `$.size` .
-	MetricValue *string `json:"metricValue" yaml:"metricValue"`
+	MetricValue *string `field:"required" json:"metricValue" yaml:"metricValue"`
 	// (Optional) The value to emit when a filter pattern does not match a log event.
 	//
 	// This value can be null.
-	DefaultValue *float64 `json:"defaultValue" yaml:"defaultValue"`
+	DefaultValue *float64 `field:"optional" json:"defaultValue" yaml:"defaultValue"`
 }
 
 // Properties for defining a `CfnMetricFilter`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnMetricFilterProps := &cfnMetricFilterProps{
 //   	filterPattern: jsii.String("filterPattern"),
 //   	logGroupName: jsii.String("logGroupName"),
@@ -2955,11 +2982,11 @@ type CfnMetricFilterProps struct {
 	// A filter pattern for extracting metric data out of ingested log events.
 	//
 	// For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html) .
-	FilterPattern *string `json:"filterPattern" yaml:"filterPattern"`
+	FilterPattern *string `field:"required" json:"filterPattern" yaml:"filterPattern"`
 	// The name of an existing log group that you want to associate with this metric filter.
-	LogGroupName *string `json:"logGroupName" yaml:"logGroupName"`
+	LogGroupName *string `field:"required" json:"logGroupName" yaml:"logGroupName"`
 	// The metric transformations.
-	MetricTransformations interface{} `json:"metricTransformations" yaml:"metricTransformations"`
+	MetricTransformations interface{} `field:"required" json:"metricTransformations" yaml:"metricTransformations"`
 }
 
 // A CloudFormation `AWS::Logs::QueryDefinition`.
@@ -2967,8 +2994,11 @@ type CfnMetricFilterProps struct {
 // Creates a query definition for CloudWatch Logs Insights. For more information, see [Analyzing Log Data with CloudWatch Logs Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"
-//   cfnQueryDefinition := logs.NewCfnQueryDefinition(this, jsii.String("MyCfnQueryDefinition"), &cfnQueryDefinitionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnQueryDefinition := awscdk.Aws_logs.NewCfnQueryDefinition(this, jsii.String("MyCfnQueryDefinition"), &cfnQueryDefinitionProps{
 //   	name: jsii.String("name"),
 //   	queryString: jsii.String("queryString"),
 //
@@ -3663,7 +3693,10 @@ func (c *jsiiProxy_CfnQueryDefinition) ValidateProperties(_properties interface{
 // Properties for defining a `CfnQueryDefinition`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnQueryDefinitionProps := &cfnQueryDefinitionProps{
 //   	name: jsii.String("name"),
 //   	queryString: jsii.String("queryString"),
@@ -3676,13 +3709,13 @@ func (c *jsiiProxy_CfnQueryDefinition) ValidateProperties(_properties interface{
 //
 type CfnQueryDefinitionProps struct {
 	// A name for the query definition.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The query string to use for this query definition.
 	//
 	// For more information, see [CloudWatch Logs Insights Query Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html) .
-	QueryString *string `json:"queryString" yaml:"queryString"`
+	QueryString *string `field:"required" json:"queryString" yaml:"queryString"`
 	// Use this parameter if you want the query to query only certain log groups.
-	LogGroupNames *[]*string `json:"logGroupNames" yaml:"logGroupNames"`
+	LogGroupNames *[]*string `field:"optional" json:"logGroupNames" yaml:"logGroupNames"`
 }
 
 // A CloudFormation `AWS::Logs::ResourcePolicy`.
@@ -3690,8 +3723,11 @@ type CfnQueryDefinitionProps struct {
 // Creates or updates a resource policy that allows other AWS services to put log events to this account. An account can have up to 10 resource policies per AWS Region.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"
-//   cfnResourcePolicy := logs.NewCfnResourcePolicy(this, jsii.String("MyCfnResourcePolicy"), &cfnResourcePolicyProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnResourcePolicy := awscdk.Aws_logs.NewCfnResourcePolicy(this, jsii.String("MyCfnResourcePolicy"), &cfnResourcePolicyProps{
 //   	policyDocument: jsii.String("policyDocument"),
 //   	policyName: jsii.String("policyName"),
 //   })
@@ -4348,7 +4384,10 @@ func (c *jsiiProxy_CfnResourcePolicy) ValidateProperties(_properties interface{}
 // Properties for defining a `CfnResourcePolicy`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnResourcePolicyProps := &cfnResourcePolicyProps{
 //   	policyDocument: jsii.String("policyDocument"),
 //   	policyName: jsii.String("policyName"),
@@ -4358,9 +4397,9 @@ type CfnResourcePolicyProps struct {
 	// The details of the policy.
 	//
 	// It must be formatted in JSON, and you must use backslashes to escape characters that need to be escaped in JSON strings, such as double quote marks.
-	PolicyDocument *string `json:"policyDocument" yaml:"policyDocument"`
+	PolicyDocument *string `field:"required" json:"policyDocument" yaml:"policyDocument"`
 	// The name of the resource policy.
-	PolicyName *string `json:"policyName" yaml:"policyName"`
+	PolicyName *string `field:"required" json:"policyName" yaml:"policyName"`
 }
 
 // A CloudFormation `AWS::Logs::SubscriptionFilter`.
@@ -4375,8 +4414,11 @@ type CfnResourcePolicyProps struct {
 // There can as many as two subscription filters associated with a log group.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"
-//   cfnSubscriptionFilter := logs.NewCfnSubscriptionFilter(this, jsii.String("MyCfnSubscriptionFilter"), &cfnSubscriptionFilterProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnSubscriptionFilter := awscdk.Aws_logs.NewCfnSubscriptionFilter(this, jsii.String("MyCfnSubscriptionFilter"), &cfnSubscriptionFilterProps{
 //   	destinationArn: jsii.String("destinationArn"),
 //   	filterPattern: jsii.String("filterPattern"),
 //   	logGroupName: jsii.String("logGroupName"),
@@ -5083,7 +5125,10 @@ func (c *jsiiProxy_CfnSubscriptionFilter) ValidateProperties(_properties interfa
 // Properties for defining a `CfnSubscriptionFilter`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnSubscriptionFilterProps := &cfnSubscriptionFilterProps{
 //   	destinationArn: jsii.String("destinationArn"),
 //   	filterPattern: jsii.String("filterPattern"),
@@ -5095,23 +5140,26 @@ func (c *jsiiProxy_CfnSubscriptionFilter) ValidateProperties(_properties interfa
 //
 type CfnSubscriptionFilterProps struct {
 	// The Amazon Resource Name (ARN) of the destination.
-	DestinationArn *string `json:"destinationArn" yaml:"destinationArn"`
+	DestinationArn *string `field:"required" json:"destinationArn" yaml:"destinationArn"`
 	// The filtering expressions that restrict what gets delivered to the destination AWS resource.
 	//
 	// For more information about the filter pattern syntax, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html) .
-	FilterPattern *string `json:"filterPattern" yaml:"filterPattern"`
+	FilterPattern *string `field:"required" json:"filterPattern" yaml:"filterPattern"`
 	// The log group to associate with the subscription filter.
 	//
 	// All log events that are uploaded to this log group are filtered and delivered to the specified AWS resource if the filter pattern matches the log events.
-	LogGroupName *string `json:"logGroupName" yaml:"logGroupName"`
+	LogGroupName *string `field:"required" json:"logGroupName" yaml:"logGroupName"`
 	// The ARN of an IAM role that grants CloudWatch Logs permissions to deliver ingested log events to the destination stream.
 	//
 	// You don't need to provide the ARN when you are working with a logical destination for cross-account delivery.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   columnRestriction := &columnRestriction{
 //   	comparison: jsii.String("comparison"),
 //
@@ -5124,17 +5172,17 @@ type CfnSubscriptionFilterProps struct {
 type ColumnRestriction struct {
 	// Comparison operator to use.
 	// Experimental.
-	Comparison *string `json:"comparison" yaml:"comparison"`
+	Comparison *string `field:"required" json:"comparison" yaml:"comparison"`
 	// Number value to compare to.
 	//
 	// Exactly one of 'stringValue' and 'numberValue' must be set.
 	// Experimental.
-	NumberValue *float64 `json:"numberValue" yaml:"numberValue"`
+	NumberValue *float64 `field:"optional" json:"numberValue" yaml:"numberValue"`
 	// String value to compare to.
 	//
 	// Exactly one of 'stringValue' and 'numberValue' must be set.
 	// Experimental.
-	StringValue *string `json:"stringValue" yaml:"stringValue"`
+	StringValue *string `field:"optional" json:"stringValue" yaml:"stringValue"`
 }
 
 // A new CloudWatch Logs Destination for use in cross-account scenarios.
@@ -5148,10 +5196,14 @@ type ColumnRestriction struct {
 // `CrossAccountDestination` will be created automatically.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var role role
-//   crossAccountDestination := logs.NewCrossAccountDestination(this, jsii.String("MyCrossAccountDestination"), &crossAccountDestinationProps{
+//
+//   crossAccountDestination := awscdk.Aws_logs.NewCrossAccountDestination(this, jsii.String("MyCrossAccountDestination"), &crossAccountDestinationProps{
 //   	role: role,
 //   	targetArn: jsii.String("targetArn"),
 //
@@ -5569,9 +5621,13 @@ func (c *jsiiProxy_CrossAccountDestination) Validate() *[]*string {
 // Properties for a CrossAccountDestination.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var role role
+//
 //   crossAccountDestinationProps := &crossAccountDestinationProps{
 //   	role: role,
 //   	targetArn: jsii.String("targetArn"),
@@ -5586,13 +5642,13 @@ type CrossAccountDestinationProps struct {
 	//
 	// The role must be assumable by 'logs.{REGION}.amazonaws.com'.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"required" json:"role" yaml:"role"`
 	// The log destination target's ARN.
 	// Experimental.
-	TargetArn *string `json:"targetArn" yaml:"targetArn"`
+	TargetArn *string `field:"required" json:"targetArn" yaml:"targetArn"`
 	// The name of the log destination.
 	// Experimental.
-	DestinationName *string `json:"destinationName" yaml:"destinationName"`
+	DestinationName *string `field:"optional" json:"destinationName" yaml:"destinationName"`
 }
 
 // A collection of static methods to generate appropriate ILogPatterns.
@@ -6249,6 +6305,7 @@ func NewJsonPattern_Override(j JsonPattern, jsonPatternString *string) {
 // Example:
 //   import logs "github.com/aws/aws-cdk-go/awscdk"
 //
+//
 //   logGroup := logs.NewLogGroup(this, jsii.String("Log Group"))
 //   logBucket := s3.NewBucket(this, jsii.String("S3 Bucket"))
 //
@@ -6814,6 +6871,7 @@ func (l *jsiiProxy_LogGroup) Validate() *[]*string {
 //
 // Example:
 //   var vpc vpc
+//
 //   kmsKey := kms.NewKey(this, jsii.String("KmsKey"))
 //
 //   // Pass the KMS key in the `encryptionKey` field to associate the key to the log group
@@ -6845,10 +6903,10 @@ func (l *jsiiProxy_LogGroup) Validate() *[]*string {
 type LogGroupProps struct {
 	// The KMS Key to encrypt the log group with.
 	// Experimental.
-	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
+	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// Name of the log group.
 	// Experimental.
-	LogGroupName *string `json:"logGroupName" yaml:"logGroupName"`
+	LogGroupName *string `field:"optional" json:"logGroupName" yaml:"logGroupName"`
 	// Determine the removal policy of this log group.
 	//
 	// Normally you want to retain the log group so you can diagnose issues
@@ -6856,12 +6914,12 @@ type LogGroupProps struct {
 	// In that case, use the normal date-based retention policy to age out your
 	// logs.
 	// Experimental.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// How long, in days, the log contents will be retained.
 	//
 	// To retain all logs, set this value to RetentionDays.INFINITE.
 	// Experimental.
-	Retention RetentionDays `json:"retention" yaml:"retention"`
+	Retention RetentionDays `field:"optional" json:"retention" yaml:"retention"`
 }
 
 // Creates a custom resource to control the retention policy of a CloudWatch Logs log group.
@@ -6872,13 +6930,18 @@ type LogGroupProps struct {
 // specifying `logGroupRegion`.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var role role
-//   logRetention := logs.NewLogRetention(this, jsii.String("MyLogRetention"), &logRetentionProps{
+//
+//   logRetention := awscdk.Aws_logs.NewLogRetention(this, jsii.String("MyLogRetention"), &logRetentionProps{
 //   	logGroupName: jsii.String("logGroupName"),
-//   	retention: logs.retentionDays_ONE_DAY,
+//   	retention: awscdk.*Aws_logs.retentionDays_ONE_DAY,
 //
 //   	// the properties below are optional
 //   	logGroupRegion: jsii.String("logGroupRegion"),
@@ -7094,13 +7157,18 @@ func (l *jsiiProxy_LogRetention) Validate() *[]*string {
 // Construction properties for a LogRetention.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var role role
+//
 //   logRetentionProps := &logRetentionProps{
 //   	logGroupName: jsii.String("logGroupName"),
-//   	retention: logs.retentionDays_ONE_DAY,
+//   	retention: awscdk.Aws_logs.retentionDays_ONE_DAY,
 //
 //   	// the properties below are optional
 //   	logGroupRegion: jsii.String("logGroupRegion"),
@@ -7115,27 +7183,31 @@ func (l *jsiiProxy_LogRetention) Validate() *[]*string {
 type LogRetentionProps struct {
 	// The log group name.
 	// Experimental.
-	LogGroupName *string `json:"logGroupName" yaml:"logGroupName"`
+	LogGroupName *string `field:"required" json:"logGroupName" yaml:"logGroupName"`
 	// The number of days log events are kept in CloudWatch Logs.
 	// Experimental.
-	Retention RetentionDays `json:"retention" yaml:"retention"`
+	Retention RetentionDays `field:"required" json:"retention" yaml:"retention"`
 	// The region where the log group should be created.
 	// Experimental.
-	LogGroupRegion *string `json:"logGroupRegion" yaml:"logGroupRegion"`
+	LogGroupRegion *string `field:"optional" json:"logGroupRegion" yaml:"logGroupRegion"`
 	// Retry options for all AWS API calls.
 	// Experimental.
-	LogRetentionRetryOptions *LogRetentionRetryOptions `json:"logRetentionRetryOptions" yaml:"logRetentionRetryOptions"`
+	LogRetentionRetryOptions *LogRetentionRetryOptions `field:"optional" json:"logRetentionRetryOptions" yaml:"logRetentionRetryOptions"`
 	// The IAM role for the Lambda function associated with the custom resource.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 }
 
 // Retry options for all AWS API calls.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
+//
 //   logRetentionRetryOptions := &logRetentionRetryOptions{
 //   	base: duration,
 //   	maxRetries: jsii.Number(123),
@@ -7145,19 +7217,23 @@ type LogRetentionProps struct {
 type LogRetentionRetryOptions struct {
 	// The base duration to use in the exponential backoff for operation retries.
 	// Experimental.
-	Base awscdk.Duration `json:"base" yaml:"base"`
+	Base awscdk.Duration `field:"optional" json:"base" yaml:"base"`
 	// The maximum amount of retries.
 	// Experimental.
-	MaxRetries *float64 `json:"maxRetries" yaml:"maxRetries"`
+	MaxRetries *float64 `field:"optional" json:"maxRetries" yaml:"maxRetries"`
 }
 
 // Define a Log Stream in a Log Group.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var logGroup logGroup
-//   logStream := logs.NewLogStream(this, jsii.String("MyLogStream"), &logStreamProps{
+//
+//   logStream := awscdk.Aws_logs.NewLogStream(this, jsii.String("MyLogStream"), &logStreamProps{
 //   	logGroup: logGroup,
 //
 //   	// the properties below are optional
@@ -7533,9 +7609,13 @@ func (l *jsiiProxy_LogStream) Validate() *[]*string {
 // Properties for a LogStream.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var logGroup logGroup
+//
 //   logStreamProps := &logStreamProps{
 //   	logGroup: logGroup,
 //
@@ -7548,12 +7628,12 @@ func (l *jsiiProxy_LogStream) Validate() *[]*string {
 type LogStreamProps struct {
 	// The log group to create a log stream for.
 	// Experimental.
-	LogGroup ILogGroup `json:"logGroup" yaml:"logGroup"`
+	LogGroup ILogGroup `field:"required" json:"logGroup" yaml:"logGroup"`
 	// The name of the log stream to create.
 	//
 	// The name must be unique within the log group.
 	// Experimental.
-	LogStreamName *string `json:"logStreamName" yaml:"logStreamName"`
+	LogStreamName *string `field:"optional" json:"logStreamName" yaml:"logStreamName"`
 	// Determine what happens when the log stream resource is removed from the app.
 	//
 	// Normally you want to retain the log stream so you can diagnose issues from
@@ -7562,15 +7642,19 @@ type LogStreamProps struct {
 	// The date-based retention policy of your log group will age out the logs
 	// after a certain time.
 	// Experimental.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 }
 
 // Properties returned by a Subscription destination.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var role role
+//
 //   logSubscriptionDestinationConfig := &logSubscriptionDestinationConfig{
 //   	arn: jsii.String("arn"),
 //
@@ -7582,20 +7666,20 @@ type LogStreamProps struct {
 type LogSubscriptionDestinationConfig struct {
 	// The ARN of the subscription's destination.
 	// Experimental.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"required" json:"arn" yaml:"arn"`
 	// The role to assume to write log events to the destination.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 }
 
 // A filter that extracts information from CloudWatch Logs and emits to CloudWatch Metrics.
 //
 // Example:
-//   NewMetricFilter(this, jsii.String("MetricFilter"), &metricFilterProps{
+//   awscdk.NewMetricFilter(this, jsii.String("MetricFilter"), &metricFilterProps{
 //   	logGroup: logGroup,
 //   	metricNamespace: jsii.String("MyApp"),
 //   	metricName: jsii.String("Latency"),
-//   	filterPattern: filterPattern.exists(jsii.String("$.latency")),
+//   	filterPattern: awscdk.FilterPattern.exists(jsii.String("$.latency")),
 //   	metricValue: jsii.String("$.latency"),
 //   })
 //
@@ -7951,9 +8035,12 @@ func (m *jsiiProxy_MetricFilter) Validate() *[]*string {
 // Properties for a MetricFilter created from a LogGroup.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var filterPattern iFilterPattern
+//
 //   metricFilterOptions := &metricFilterOptions{
 //   	filterPattern: filterPattern,
 //   	metricName: jsii.String("metricName"),
@@ -7968,16 +8055,16 @@ func (m *jsiiProxy_MetricFilter) Validate() *[]*string {
 type MetricFilterOptions struct {
 	// Pattern to search for log events.
 	// Experimental.
-	FilterPattern IFilterPattern `json:"filterPattern" yaml:"filterPattern"`
+	FilterPattern IFilterPattern `field:"required" json:"filterPattern" yaml:"filterPattern"`
 	// The name of the metric to emit.
 	// Experimental.
-	MetricName *string `json:"metricName" yaml:"metricName"`
+	MetricName *string `field:"required" json:"metricName" yaml:"metricName"`
 	// The namespace of the metric to emit.
 	// Experimental.
-	MetricNamespace *string `json:"metricNamespace" yaml:"metricNamespace"`
+	MetricNamespace *string `field:"required" json:"metricNamespace" yaml:"metricNamespace"`
 	// The value to emit if the pattern does not match a particular event.
 	// Experimental.
-	DefaultValue *float64 `json:"defaultValue" yaml:"defaultValue"`
+	DefaultValue *float64 `field:"optional" json:"defaultValue" yaml:"defaultValue"`
 	// The value to emit for the metric.
 	//
 	// Can either be a literal number (typically "1"), or the name of a field in the structure
@@ -7990,17 +8077,17 @@ type MetricFilterOptions struct {
 	// If you want to specify a field from a matched space-delimited structure,
 	// use '$fieldName'.
 	// Experimental.
-	MetricValue *string `json:"metricValue" yaml:"metricValue"`
+	MetricValue *string `field:"optional" json:"metricValue" yaml:"metricValue"`
 }
 
 // Properties for a MetricFilter.
 //
 // Example:
-//   NewMetricFilter(this, jsii.String("MetricFilter"), &metricFilterProps{
+//   awscdk.NewMetricFilter(this, jsii.String("MetricFilter"), &metricFilterProps{
 //   	logGroup: logGroup,
 //   	metricNamespace: jsii.String("MyApp"),
 //   	metricName: jsii.String("Latency"),
-//   	filterPattern: filterPattern.exists(jsii.String("$.latency")),
+//   	filterPattern: awscdk.FilterPattern.exists(jsii.String("$.latency")),
 //   	metricValue: jsii.String("$.latency"),
 //   })
 //
@@ -8008,16 +8095,16 @@ type MetricFilterOptions struct {
 type MetricFilterProps struct {
 	// Pattern to search for log events.
 	// Experimental.
-	FilterPattern IFilterPattern `json:"filterPattern" yaml:"filterPattern"`
+	FilterPattern IFilterPattern `field:"required" json:"filterPattern" yaml:"filterPattern"`
 	// The name of the metric to emit.
 	// Experimental.
-	MetricName *string `json:"metricName" yaml:"metricName"`
+	MetricName *string `field:"required" json:"metricName" yaml:"metricName"`
 	// The namespace of the metric to emit.
 	// Experimental.
-	MetricNamespace *string `json:"metricNamespace" yaml:"metricNamespace"`
+	MetricNamespace *string `field:"required" json:"metricNamespace" yaml:"metricNamespace"`
 	// The value to emit if the pattern does not match a particular event.
 	// Experimental.
-	DefaultValue *float64 `json:"defaultValue" yaml:"defaultValue"`
+	DefaultValue *float64 `field:"optional" json:"defaultValue" yaml:"defaultValue"`
 	// The value to emit for the metric.
 	//
 	// Can either be a literal number (typically "1"), or the name of a field in the structure
@@ -8030,10 +8117,10 @@ type MetricFilterProps struct {
 	// If you want to specify a field from a matched space-delimited structure,
 	// use '$fieldName'.
 	// Experimental.
-	MetricValue *string `json:"metricValue" yaml:"metricValue"`
+	MetricValue *string `field:"optional" json:"metricValue" yaml:"metricValue"`
 	// The log group to create the filter on.
 	// Experimental.
-	LogGroup ILogGroup `json:"logGroup" yaml:"logGroup"`
+	LogGroup ILogGroup `field:"required" json:"logGroup" yaml:"logGroup"`
 }
 
 // Define a query definition for CloudWatch Logs Insights.
@@ -8416,13 +8503,13 @@ func (q *jsiiProxy_QueryDefinition) Validate() *[]*string {
 type QueryDefinitionProps struct {
 	// Name of the query definition.
 	// Experimental.
-	QueryDefinitionName *string `json:"queryDefinitionName" yaml:"queryDefinitionName"`
+	QueryDefinitionName *string `field:"required" json:"queryDefinitionName" yaml:"queryDefinitionName"`
 	// The query string to use for this query definition.
 	// Experimental.
-	QueryString QueryString `json:"queryString" yaml:"queryString"`
+	QueryString QueryString `field:"required" json:"queryString" yaml:"queryString"`
 	// Specify certain log groups for the query definition.
 	// Experimental.
-	LogGroups *[]ILogGroup `json:"logGroups" yaml:"logGroups"`
+	LogGroups *[]ILogGroup `field:"optional" json:"logGroups" yaml:"logGroups"`
 }
 
 // Define a QueryString.
@@ -8510,25 +8597,25 @@ func (q *jsiiProxy_QueryString) ToString() *string {
 type QueryStringProps struct {
 	// Specifies which fields to display in the query results.
 	// Experimental.
-	Display *string `json:"display" yaml:"display"`
+	Display *string `field:"optional" json:"display" yaml:"display"`
 	// Retrieves the specified fields from log events for display.
 	// Experimental.
-	Fields *[]*string `json:"fields" yaml:"fields"`
+	Fields *[]*string `field:"optional" json:"fields" yaml:"fields"`
 	// Filters the results of a query that's based on one or more conditions.
 	// Experimental.
-	Filter *string `json:"filter" yaml:"filter"`
+	Filter *string `field:"optional" json:"filter" yaml:"filter"`
 	// Specifies the number of log events returned by the query.
 	// Experimental.
-	Limit *float64 `json:"limit" yaml:"limit"`
+	Limit *float64 `field:"optional" json:"limit" yaml:"limit"`
 	// Extracts data from a log field and creates one or more ephemeral fields that you can process further in the query.
 	// Experimental.
-	Parse *string `json:"parse" yaml:"parse"`
+	Parse *string `field:"optional" json:"parse" yaml:"parse"`
 	// Sorts the retrieved log events.
 	// Experimental.
-	Sort *string `json:"sort" yaml:"sort"`
+	Sort *string `field:"optional" json:"sort" yaml:"sort"`
 	// Uses log field values to calculate aggregate statistics.
 	// Experimental.
-	Stats *string `json:"stats" yaml:"stats"`
+	Stats *string `field:"optional" json:"stats" yaml:"stats"`
 }
 
 // Resource Policy for CloudWatch Log Groups.
@@ -8545,10 +8632,14 @@ type QueryStringProps struct {
 // Prefer to use `addToResourcePolicy()` instead.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var policyStatement policyStatement
-//   resourcePolicy := logs.NewResourcePolicy(this, jsii.String("MyResourcePolicy"), &resourcePolicyProps{
+//
+//   resourcePolicy := awscdk.Aws_logs.NewResourcePolicy(this, jsii.String("MyResourcePolicy"), &resourcePolicyProps{
 //   	policyStatements: []*policyStatement{
 //   		policyStatement,
 //   	},
@@ -8904,9 +8995,13 @@ func (r *jsiiProxy_ResourcePolicy) Validate() *[]*string {
 // Properties to define Cloudwatch log group resource policy.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var policyStatement policyStatement
+//
 //   resourcePolicyProps := &resourcePolicyProps{
 //   	policyStatements: []*policyStatement{
 //   		policyStatement,
@@ -8918,10 +9013,10 @@ func (r *jsiiProxy_ResourcePolicy) Validate() *[]*string {
 type ResourcePolicyProps struct {
 	// Initial statements to add to the resource policy.
 	// Experimental.
-	PolicyStatements *[]awsiam.PolicyStatement `json:"policyStatements" yaml:"policyStatements"`
+	PolicyStatements *[]awsiam.PolicyStatement `field:"optional" json:"policyStatements" yaml:"policyStatements"`
 	// Name of the log group resource policy.
 	// Experimental.
-	ResourcePolicyName *string `json:"resourcePolicyName" yaml:"resourcePolicyName"`
+	ResourcePolicyName *string `field:"optional" json:"resourcePolicyName" yaml:"resourcePolicyName"`
 }
 
 // How long, in days, the log contents will be retained.
@@ -8930,6 +9025,7 @@ type ResourcePolicyProps struct {
 //   import logs "github.com/aws/aws-cdk-go/awscdk"
 //   var myLogsPublishingRole role
 //   var vpc vpc
+//
 //
 //   // Exporting logs from a cluster
 //   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &databaseClusterProps{
@@ -9136,7 +9232,10 @@ func (s *jsiiProxy_SpaceDelimitedTextPattern) WhereString(columnName *string, co
 // Properties for a new LogStream created from a LogGroup.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   streamOptions := &streamOptions{
 //   	logStreamName: jsii.String("logStreamName"),
 //   }
@@ -9147,7 +9246,7 @@ type StreamOptions struct {
 	//
 	// The name must be unique within the log group.
 	// Experimental.
-	LogStreamName *string `json:"logStreamName" yaml:"logStreamName"`
+	LogStreamName *string `field:"optional" json:"logStreamName" yaml:"logStreamName"`
 }
 
 // A new Subscription on a CloudWatch log group.
@@ -9156,6 +9255,7 @@ type StreamOptions struct {
 //   import destinations "github.com/aws/aws-cdk-go/awscdk"
 //   var fn function
 //   var logGroup logGroup
+//
 //
 //   logs.NewSubscriptionFilter(this, jsii.String("Subscription"), &subscriptionFilterProps{
 //   	logGroup: logGroup,
@@ -9499,10 +9599,13 @@ func (s *jsiiProxy_SubscriptionFilter) Validate() *[]*string {
 // Properties for a new SubscriptionFilter created from a LogGroup.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var filterPattern iFilterPattern
 //   var logSubscriptionDestination iLogSubscriptionDestination
+//
 //   subscriptionFilterOptions := &subscriptionFilterOptions{
 //   	destination: logSubscriptionDestination,
 //   	filterPattern: filterPattern,
@@ -9514,10 +9617,10 @@ type SubscriptionFilterOptions struct {
 	//
 	// For example, a Kinesis stream or a Lambda function.
 	// Experimental.
-	Destination ILogSubscriptionDestination `json:"destination" yaml:"destination"`
+	Destination ILogSubscriptionDestination `field:"required" json:"destination" yaml:"destination"`
 	// Log events matching this pattern will be sent to the destination.
 	// Experimental.
-	FilterPattern IFilterPattern `json:"filterPattern" yaml:"filterPattern"`
+	FilterPattern IFilterPattern `field:"required" json:"filterPattern" yaml:"filterPattern"`
 }
 
 // Properties for a SubscriptionFilter.
@@ -9526,6 +9629,7 @@ type SubscriptionFilterOptions struct {
 //   import destinations "github.com/aws/aws-cdk-go/awscdk"
 //   var fn function
 //   var logGroup logGroup
+//
 //
 //   logs.NewSubscriptionFilter(this, jsii.String("Subscription"), &subscriptionFilterProps{
 //   	logGroup: logGroup,
@@ -9539,12 +9643,12 @@ type SubscriptionFilterProps struct {
 	//
 	// For example, a Kinesis stream or a Lambda function.
 	// Experimental.
-	Destination ILogSubscriptionDestination `json:"destination" yaml:"destination"`
+	Destination ILogSubscriptionDestination `field:"required" json:"destination" yaml:"destination"`
 	// Log events matching this pattern will be sent to the destination.
 	// Experimental.
-	FilterPattern IFilterPattern `json:"filterPattern" yaml:"filterPattern"`
+	FilterPattern IFilterPattern `field:"required" json:"filterPattern" yaml:"filterPattern"`
 	// The log group to create the subscription on.
 	// Experimental.
-	LogGroup ILogGroup `json:"logGroup" yaml:"logGroup"`
+	LogGroup ILogGroup `field:"required" json:"logGroup" yaml:"logGroup"`
 }
 

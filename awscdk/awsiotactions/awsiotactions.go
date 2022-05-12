@@ -22,6 +22,7 @@ import (
 // Example:
 //   import logs "github.com/aws/aws-cdk-go/awscdk"
 //
+//
 //   logGroup := logs.NewLogGroup(this, jsii.String("MyLogGroup"))
 //
 //   iot.NewTopicRule(this, jsii.String("TopicRule"), &topicRuleProps{
@@ -84,9 +85,13 @@ func (c *jsiiProxy_CloudWatchLogsAction) Bind(rule awsiot.ITopicRule) *awsiot.Ac
 // Configuration properties of an action for CloudWatch Logs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot_actions "github.com/aws/aws-cdk-go/awscdk/aws_iot_actions"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var role role
+//
 //   cloudWatchLogsActionProps := &cloudWatchLogsActionProps{
 //   	role: role,
 //   }
@@ -95,7 +100,7 @@ func (c *jsiiProxy_CloudWatchLogsAction) Bind(rule awsiot.ITopicRule) *awsiot.Ac
 type CloudWatchLogsActionProps struct {
 	// The IAM role that allows access to AWS service.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 }
 
 // The action to capture an Amazon CloudWatch metric.
@@ -186,48 +191,49 @@ func (c *jsiiProxy_CloudWatchPutMetricAction) Bind(rule awsiot.ITopicRule) *awsi
 type CloudWatchPutMetricActionProps struct {
 	// The IAM role that allows access to AWS service.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The CloudWatch metric name.
 	//
 	// Supports substitution templates.
 	// See: https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html
 	//
 	// Experimental.
-	MetricName *string `json:"metricName" yaml:"metricName"`
+	MetricName *string `field:"required" json:"metricName" yaml:"metricName"`
 	// The CloudWatch metric namespace name.
 	//
 	// Supports substitution templates.
 	// See: https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html
 	//
 	// Experimental.
-	MetricNamespace *string `json:"metricNamespace" yaml:"metricNamespace"`
+	MetricNamespace *string `field:"required" json:"metricNamespace" yaml:"metricNamespace"`
 	// The metric unit supported by CloudWatch.
 	//
 	// Supports substitution templates.
 	// See: https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html
 	//
 	// Experimental.
-	MetricUnit *string `json:"metricUnit" yaml:"metricUnit"`
+	MetricUnit *string `field:"required" json:"metricUnit" yaml:"metricUnit"`
 	// A string that contains the CloudWatch metric value.
 	//
 	// Supports substitution templates.
 	// See: https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html
 	//
 	// Experimental.
-	MetricValue *string `json:"metricValue" yaml:"metricValue"`
+	MetricValue *string `field:"required" json:"metricValue" yaml:"metricValue"`
 	// A string that contains the timestamp, expressed in seconds in Unix epoch time.
 	//
 	// Supports substitution templates.
 	// See: https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html
 	//
 	// Experimental.
-	MetricTimestamp *string `json:"metricTimestamp" yaml:"metricTimestamp"`
+	MetricTimestamp *string `field:"optional" json:"metricTimestamp" yaml:"metricTimestamp"`
 }
 
 // The action to change the state of an Amazon CloudWatch alarm.
 //
 // Example:
 //   import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   metric := cloudwatch.NewMetric(&metricProps{
 //   	namespace: jsii.String("MyNamespace"),
@@ -310,6 +316,7 @@ func (c *jsiiProxy_CloudWatchSetAlarmStateAction) Bind(topicRule awsiot.ITopicRu
 // Example:
 //   import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
 //
+//
 //   metric := cloudwatch.NewMetric(&metricProps{
 //   	namespace: jsii.String("MyNamespace"),
 //   	metricName: jsii.String("MyMetric"),
@@ -338,21 +345,25 @@ func (c *jsiiProxy_CloudWatchSetAlarmStateAction) Bind(topicRule awsiot.ITopicRu
 type CloudWatchSetAlarmStateActionProps struct {
 	// The IAM role that allows access to AWS service.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The value of the alarm state to set.
 	// Experimental.
-	AlarmStateToSet awscloudwatch.AlarmState `json:"alarmStateToSet" yaml:"alarmStateToSet"`
+	AlarmStateToSet awscloudwatch.AlarmState `field:"required" json:"alarmStateToSet" yaml:"alarmStateToSet"`
 	// The reason for the alarm change.
 	// Experimental.
-	Reason *string `json:"reason" yaml:"reason"`
+	Reason *string `field:"optional" json:"reason" yaml:"reason"`
 }
 
 // Common properties shared by Actions it access to AWS service.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot_actions "github.com/aws/aws-cdk-go/awscdk/aws_iot_actions"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var role role
+//
 //   commonActionProps := &commonActionProps{
 //   	role: role,
 //   }
@@ -361,13 +372,15 @@ type CloudWatchSetAlarmStateActionProps struct {
 type CommonActionProps struct {
 	// The IAM role that allows access to AWS service.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 }
 
 // The action to put the record from an MQTT message to the Kinesis Data Firehose stream.
 //
 // Example:
-//   import firehose "github.com/aws/aws-cdk-go/awscdk"import destinations "github.com/aws/aws-cdk-go/awscdk"
+//   import firehose "github.com/aws/aws-cdk-go/awscdk"
+//   import destinations "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   bucket := s3.NewBucket(this, jsii.String("MyBucket"))
 //   stream := firehose.NewDeliveryStream(this, jsii.String("MyStream"), &deliveryStreamProps{
@@ -441,7 +454,9 @@ func (f *jsiiProxy_FirehosePutRecordAction) Bind(rule awsiot.ITopicRule) *awsiot
 // Configuration properties of an action for the Kinesis Data Firehose stream.
 //
 // Example:
-//   import firehose "github.com/aws/aws-cdk-go/awscdk"import destinations "github.com/aws/aws-cdk-go/awscdk"
+//   import firehose "github.com/aws/aws-cdk-go/awscdk"
+//   import destinations "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   bucket := s3.NewBucket(this, jsii.String("MyBucket"))
 //   stream := firehose.NewDeliveryStream(this, jsii.String("MyStream"), &deliveryStreamProps{
@@ -464,23 +479,25 @@ func (f *jsiiProxy_FirehosePutRecordAction) Bind(rule awsiot.ITopicRule) *awsiot
 type FirehosePutRecordActionProps struct {
 	// The IAM role that allows access to AWS service.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// Whether to deliver the Kinesis Data Firehose stream as a batch by using `PutRecordBatch`.
 	//
 	// When batchMode is true and the rule's SQL statement evaluates to an Array, each Array
 	// element forms one record in the PutRecordBatch request. The resulting array can't have
 	// more than 500 records.
 	// Experimental.
-	BatchMode *bool `json:"batchMode" yaml:"batchMode"`
+	BatchMode *bool `field:"optional" json:"batchMode" yaml:"batchMode"`
 	// A character separator that will be used to separate records written to the Kinesis Data Firehose stream.
 	// Experimental.
-	RecordSeparator FirehoseRecordSeparator `json:"recordSeparator" yaml:"recordSeparator"`
+	RecordSeparator FirehoseRecordSeparator `field:"optional" json:"recordSeparator" yaml:"recordSeparator"`
 }
 
 // Record Separator to be used to separate records.
 //
 // Example:
-//   import firehose "github.com/aws/aws-cdk-go/awscdk"import destinations "github.com/aws/aws-cdk-go/awscdk"
+//   import firehose "github.com/aws/aws-cdk-go/awscdk"
+//   import destinations "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   bucket := s3.NewBucket(this, jsii.String("MyBucket"))
 //   stream := firehose.NewDeliveryStream(this, jsii.String("MyStream"), &deliveryStreamProps{
@@ -597,18 +614,19 @@ func (i *jsiiProxy_IotRepublishMqttAction) Bind(rule awsiot.ITopicRule) *awsiot.
 type IotRepublishMqttActionProps struct {
 	// The IAM role that allows access to AWS service.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The Quality of Service (QoS) level to use when republishing messages.
 	// See: https://docs.aws.amazon.com/iot/latest/developerguide/mqtt.html#mqtt-qos
 	//
 	// Experimental.
-	QualityOfService MqttQualityOfService `json:"qualityOfService" yaml:"qualityOfService"`
+	QualityOfService MqttQualityOfService `field:"optional" json:"qualityOfService" yaml:"qualityOfService"`
 }
 
 // The action to put the record from an MQTT message to the Kinesis Data stream.
 //
 // Example:
 //   import kinesis "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   stream := kinesis.NewStream(this, jsii.String("MyStream"))
 //
@@ -678,6 +696,7 @@ func (k *jsiiProxy_KinesisPutRecordAction) Bind(rule awsiot.ITopicRule) *awsiot.
 // Example:
 //   import kinesis "github.com/aws/aws-cdk-go/awscdk"
 //
+//
 //   stream := kinesis.NewStream(this, jsii.String("MyStream"))
 //
 //   topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &topicRuleProps{
@@ -693,14 +712,14 @@ func (k *jsiiProxy_KinesisPutRecordAction) Bind(rule awsiot.ITopicRule) *awsiot.
 type KinesisPutRecordActionProps struct {
 	// The IAM role that allows access to AWS service.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The partition key used to determine to which shard the data is written.
 	//
 	// The partition key is usually composed of an expression (for example, ${topic()} or ${timestamp()}).
 	// See: https://docs.aws.amazon.com/kinesis/latest/APIReference/API_PutRecord.html#API_PutRecord_RequestParameters
 	//
 	// Experimental.
-	PartitionKey *string `json:"partitionKey" yaml:"partitionKey"`
+	PartitionKey *string `field:"required" json:"partitionKey" yaml:"partitionKey"`
 }
 
 // The action to invoke an AWS Lambda function, passing in an MQTT message.
@@ -887,25 +906,26 @@ func (s *jsiiProxy_S3PutObjectAction) Bind(rule awsiot.ITopicRule) *awsiot.Actio
 type S3PutObjectActionProps struct {
 	// The IAM role that allows access to AWS service.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The Amazon S3 canned ACL that controls access to the object identified by the object key.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl
 	//
 	// Experimental.
-	AccessControl awss3.BucketAccessControl `json:"accessControl" yaml:"accessControl"`
+	AccessControl awss3.BucketAccessControl `field:"optional" json:"accessControl" yaml:"accessControl"`
 	// The path to the file where the data is written.
 	//
 	// Supports substitution templates.
 	// See: https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html
 	//
 	// Experimental.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"optional" json:"key" yaml:"key"`
 }
 
 // SNS topic action message format options.
 //
 // Example:
 //   import sns "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   topic := sns.NewTopic(this, jsii.String("MyTopic"))
 //
@@ -934,6 +954,7 @@ const (
 //
 // Example:
 //   import sns "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   topic := sns.NewTopic(this, jsii.String("MyTopic"))
 //
@@ -1005,6 +1026,7 @@ func (s *jsiiProxy_SnsTopicAction) Bind(rule awsiot.ITopicRule) *awsiot.ActionCo
 // Example:
 //   import sns "github.com/aws/aws-cdk-go/awscdk"
 //
+//
 //   topic := sns.NewTopic(this, jsii.String("MyTopic"))
 //
 //   topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &topicRuleProps{
@@ -1020,20 +1042,21 @@ func (s *jsiiProxy_SnsTopicAction) Bind(rule awsiot.ITopicRule) *awsiot.ActionCo
 type SnsTopicActionProps struct {
 	// The IAM role that allows access to AWS service.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The message format of the message to publish.
 	//
 	// SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted.
 	// See: https://docs.aws.amazon.com/sns/latest/dg/sns-message-and-json-formats.html
 	//
 	// Experimental.
-	MessageFormat SnsActionMessageFormat `json:"messageFormat" yaml:"messageFormat"`
+	MessageFormat SnsActionMessageFormat `field:"optional" json:"messageFormat" yaml:"messageFormat"`
 }
 
 // The action to write the data from an MQTT message to an Amazon SQS queue.
 //
 // Example:
 //   import sqs "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   queue := sqs.NewQueue(this, jsii.String("MyQueue"))
 //
@@ -1103,6 +1126,7 @@ func (s *jsiiProxy_SqsQueueAction) Bind(rule awsiot.ITopicRule) *awsiot.ActionCo
 // Example:
 //   import sqs "github.com/aws/aws-cdk-go/awscdk"
 //
+//
 //   queue := sqs.NewQueue(this, jsii.String("MyQueue"))
 //
 //   topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &topicRuleProps{
@@ -1118,9 +1142,9 @@ func (s *jsiiProxy_SqsQueueAction) Bind(rule awsiot.ITopicRule) *awsiot.ActionCo
 type SqsQueueActionProps struct {
 	// The IAM role that allows access to AWS service.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// Specifies whether to use Base64 encoding.
 	// Experimental.
-	UseBase64 *bool `json:"useBase64" yaml:"useBase64"`
+	UseBase64 *bool `field:"optional" json:"useBase64" yaml:"useBase64"`
 }
 

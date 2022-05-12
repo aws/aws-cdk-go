@@ -17,6 +17,7 @@ import (
 // Example:
 //   import assets "github.com/aws/aws-cdk-go/awscdk"
 //
+//
 //   imageAsset := assets.NewDockerImageAsset(this, jsii.String("ImageAssets"), &dockerImageAssetProps{
 //   	directory: path.join(__dirname, jsii.String("./docker.assets")),
 //   })
@@ -33,21 +34,25 @@ import (
 type AssetProps struct {
 	// Represents the docker image asset.
 	// Experimental.
-	Asset awsecrassets.DockerImageAsset `json:"asset" yaml:"asset"`
+	Asset awsecrassets.DockerImageAsset `field:"required" json:"asset" yaml:"asset"`
 	// The image configuration for the image built from the asset.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html#cfn-apprunner-service-imageconfiguration-port
 	//
 	// Experimental.
-	ImageConfiguration *ImageConfiguration `json:"imageConfiguration" yaml:"imageConfiguration"`
+	ImageConfiguration *ImageConfiguration `field:"optional" json:"imageConfiguration" yaml:"imageConfiguration"`
 }
 
 // Represents the source from local assets.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apprunner "github.com/aws/aws-cdk-go/awscdk/aws_apprunner"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecr_assets "github.com/aws/aws-cdk-go/awscdk/aws_ecr_assets"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var dockerImageAsset dockerImageAsset
-//   assetSource := apprunner.NewAssetSource(&assetProps{
+//
+//   assetSource := awscdk.Aws_apprunner.NewAssetSource(&assetProps{
 //   	asset: dockerImageAsset,
 //
 //   	// the properties below are optional
@@ -193,8 +198,11 @@ func (a *jsiiProxy_AssetSource) Bind(_scope constructs.Construct) *SourceConfig 
 // The observability configuration resource is designed to configure multiple features (currently one feature, tracing). This resource takes optional parameters that describe the configuration of these features (currently one parameter, `TraceConfiguration` ). If you don't specify a feature parameter, App Runner doesn't enable the feature.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apprunner "github.com/aws/aws-cdk-go/awscdk/aws_apprunner"
-//   cfnObservabilityConfiguration := apprunner.NewCfnObservabilityConfiguration(this, jsii.String("MyCfnObservabilityConfiguration"), &cfnObservabilityConfigurationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnObservabilityConfiguration := awscdk.Aws_apprunner.NewCfnObservabilityConfiguration(this, jsii.String("MyCfnObservabilityConfiguration"), &cfnObservabilityConfigurationProps{
 //   	observabilityConfigurationName: jsii.String("observabilityConfigurationName"),
 //   	tags: []cfnTag{
 //   		&cfnTag{
@@ -921,20 +929,26 @@ func (c *jsiiProxy_CfnObservabilityConfiguration) ValidateProperties(_properties
 // Describes the configuration of the tracing feature within an AWS App Runner observability configuration.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apprunner "github.com/aws/aws-cdk-go/awscdk/aws_apprunner"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   traceConfigurationProperty := &traceConfigurationProperty{
 //   	vendor: jsii.String("vendor"),
 //   }
 //
 type CfnObservabilityConfiguration_TraceConfigurationProperty struct {
 	// The implementation provider chosen for tracing App Runner services.
-	Vendor *string `json:"vendor" yaml:"vendor"`
+	Vendor *string `field:"required" json:"vendor" yaml:"vendor"`
 }
 
 // Properties for defining a `CfnObservabilityConfiguration`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apprunner "github.com/aws/aws-cdk-go/awscdk/aws_apprunner"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnObservabilityConfigurationProps := &cfnObservabilityConfigurationProps{
 //   	observabilityConfigurationName: jsii.String("observabilityConfigurationName"),
 //   	tags: []cfnTag{
@@ -958,15 +972,15 @@ type CfnObservabilityConfigurationProps struct {
 	// > When you want to use your own observability configuration for your App Runner service, *create a configuration with a different name* , and then provide it when you create or update your service.
 	//
 	// If you don't specify a name, AWS CloudFormation generates a name for your observability configuration.
-	ObservabilityConfigurationName *string `json:"observabilityConfigurationName" yaml:"observabilityConfigurationName"`
+	ObservabilityConfigurationName *string `field:"optional" json:"observabilityConfigurationName" yaml:"observabilityConfigurationName"`
 	// A list of metadata items that you can associate with your observability configuration resource.
 	//
 	// A tag is a key-value pair.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The configuration of the tracing feature within this observability configuration.
 	//
 	// If you don't specify it, App Runner doesn't enable tracing.
-	TraceConfiguration interface{} `json:"traceConfiguration" yaml:"traceConfiguration"`
+	TraceConfiguration interface{} `field:"optional" json:"traceConfiguration" yaml:"traceConfiguration"`
 }
 
 // A CloudFormation `AWS::AppRunner::Service`.
@@ -976,8 +990,11 @@ type CfnObservabilityConfigurationProps struct {
 // The `AWS::AppRunner::Service` resource is an AWS App Runner resource type that specifies an App Runner service.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apprunner "github.com/aws/aws-cdk-go/awscdk/aws_apprunner"
-//   cfnService := apprunner.NewCfnService(this, jsii.String("MyCfnService"), &cfnServiceProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnService := awscdk.Aws_apprunner.NewCfnService(this, jsii.String("MyCfnService"), &cfnServiceProps{
 //   	sourceConfiguration: &sourceConfigurationProperty{
 //   		authenticationConfiguration: &authenticationConfigurationProperty{
 //   			accessRoleArn: jsii.String("accessRoleArn"),
@@ -1934,7 +1951,10 @@ func (c *jsiiProxy_CfnService) ValidateProperties(_properties interface{}) {
 // The specific resource depends on the repository provider.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apprunner "github.com/aws/aws-cdk-go/awscdk/aws_apprunner"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   authenticationConfigurationProperty := &authenticationConfigurationProperty{
 //   	accessRoleArn: jsii.String("accessRoleArn"),
 //   	connectionArn: jsii.String("connectionArn"),
@@ -1944,17 +1964,20 @@ type CfnService_AuthenticationConfigurationProperty struct {
 	// The Amazon Resource Name (ARN) of the IAM role that grants the App Runner service access to a source repository.
 	//
 	// It's required for ECR image repositories (but not for ECR Public repositories).
-	AccessRoleArn *string `json:"accessRoleArn" yaml:"accessRoleArn"`
+	AccessRoleArn *string `field:"optional" json:"accessRoleArn" yaml:"accessRoleArn"`
 	// The Amazon Resource Name (ARN) of the App Runner connection that enables the App Runner service to connect to a source repository.
 	//
 	// It's required for GitHub code repositories.
-	ConnectionArn *string `json:"connectionArn" yaml:"connectionArn"`
+	ConnectionArn *string `field:"optional" json:"connectionArn" yaml:"connectionArn"`
 }
 
 // Describes the configuration that AWS App Runner uses to build and run an App Runner service from a source code repository.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apprunner "github.com/aws/aws-cdk-go/awscdk/aws_apprunner"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   codeConfigurationProperty := &codeConfigurationProperty{
 //   	configurationSource: jsii.String("configurationSource"),
 //
@@ -1980,11 +2003,11 @@ type CfnService_CodeConfigurationProperty struct {
 	//
 	// - `REPOSITORY` – App Runner reads configuration values from the `apprunner.yaml` file in the source code repository and ignores `CodeConfigurationValues` .
 	// - `API` – App Runner uses configuration values provided in `CodeConfigurationValues` and ignores the `apprunner.yaml` file in the source code repository.
-	ConfigurationSource *string `json:"configurationSource" yaml:"configurationSource"`
+	ConfigurationSource *string `field:"required" json:"configurationSource" yaml:"configurationSource"`
 	// The basic configuration for building and running the App Runner service.
 	//
 	// Use it to quickly launch an App Runner service without providing a `apprunner.yaml` file in the source code repository (or ignoring the file if it exists).
-	CodeConfigurationValues interface{} `json:"codeConfigurationValues" yaml:"codeConfigurationValues"`
+	CodeConfigurationValues interface{} `field:"optional" json:"codeConfigurationValues" yaml:"codeConfigurationValues"`
 }
 
 // Describes the basic configuration needed for building and running an AWS App Runner service.
@@ -1992,7 +2015,10 @@ type CfnService_CodeConfigurationProperty struct {
 // This type doesn't support the full set of possible configuration options. Fur full configuration capabilities, use a `apprunner.yaml` file in the source code repository.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apprunner "github.com/aws/aws-cdk-go/awscdk/aws_apprunner"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   codeConfigurationValuesProperty := &codeConfigurationValuesProperty{
 //   	runtime: jsii.String("runtime"),
 //
@@ -2012,25 +2038,28 @@ type CfnService_CodeConfigurationValuesProperty struct {
 	// A runtime environment type for building and running an App Runner service.
 	//
 	// It represents a programming language runtime.
-	Runtime *string `json:"runtime" yaml:"runtime"`
+	Runtime *string `field:"required" json:"runtime" yaml:"runtime"`
 	// The command App Runner runs to build your application.
-	BuildCommand *string `json:"buildCommand" yaml:"buildCommand"`
+	BuildCommand *string `field:"optional" json:"buildCommand" yaml:"buildCommand"`
 	// The port that your application listens to in the container.
 	//
 	// Default: `8080`.
-	Port *string `json:"port" yaml:"port"`
+	Port *string `field:"optional" json:"port" yaml:"port"`
 	// The environment variables that are available to your running App Runner service.
 	//
 	// An array of key-value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
-	RuntimeEnvironmentVariables interface{} `json:"runtimeEnvironmentVariables" yaml:"runtimeEnvironmentVariables"`
+	RuntimeEnvironmentVariables interface{} `field:"optional" json:"runtimeEnvironmentVariables" yaml:"runtimeEnvironmentVariables"`
 	// The command App Runner runs to start your application.
-	StartCommand *string `json:"startCommand" yaml:"startCommand"`
+	StartCommand *string `field:"optional" json:"startCommand" yaml:"startCommand"`
 }
 
 // Describes a source code repository.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apprunner "github.com/aws/aws-cdk-go/awscdk/aws_apprunner"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   codeRepositoryProperty := &codeRepositoryProperty{
 //   	repositoryUrl: jsii.String("repositoryUrl"),
 //   	sourceCodeVersion: &sourceCodeVersionProperty{
@@ -2062,17 +2091,22 @@ type CfnService_CodeConfigurationValuesProperty struct {
 //
 type CfnService_CodeRepositoryProperty struct {
 	// The location of the repository that contains the source code.
-	RepositoryUrl *string `json:"repositoryUrl" yaml:"repositoryUrl"`
+	RepositoryUrl *string `field:"required" json:"repositoryUrl" yaml:"repositoryUrl"`
 	// The version that should be used within the source code repository.
-	SourceCodeVersion interface{} `json:"sourceCodeVersion" yaml:"sourceCodeVersion"`
+	SourceCodeVersion interface{} `field:"required" json:"sourceCodeVersion" yaml:"sourceCodeVersion"`
 	// Configuration for building and running the service from a source code repository.
-	CodeConfiguration interface{} `json:"codeConfiguration" yaml:"codeConfiguration"`
+	//
+	// > `CodeConfiguration` is required only for `CreateService` request.
+	CodeConfiguration interface{} `field:"optional" json:"codeConfiguration" yaml:"codeConfiguration"`
 }
 
 // Describes configuration settings related to outbound network traffic of an AWS App Runner service.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apprunner "github.com/aws/aws-cdk-go/awscdk/aws_apprunner"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   egressConfigurationProperty := &egressConfigurationProperty{
 //   	egressType: jsii.String("egressType"),
 //
@@ -2086,30 +2120,36 @@ type CfnService_EgressConfigurationProperty struct {
 	// Set to `DEFAULT` for access to resources hosted on public networks.
 	//
 	// Set to `VPC` to associate your service to a custom VPC specified by `VpcConnectorArn` .
-	EgressType *string `json:"egressType" yaml:"egressType"`
+	EgressType *string `field:"required" json:"egressType" yaml:"egressType"`
 	// The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service.
 	//
 	// Only valid when `EgressType = VPC` .
-	VpcConnectorArn *string `json:"vpcConnectorArn" yaml:"vpcConnectorArn"`
+	VpcConnectorArn *string `field:"optional" json:"vpcConnectorArn" yaml:"vpcConnectorArn"`
 }
 
 // Describes a custom encryption key that AWS App Runner uses to encrypt copies of the source repository and service logs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apprunner "github.com/aws/aws-cdk-go/awscdk/aws_apprunner"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   encryptionConfigurationProperty := &encryptionConfigurationProperty{
 //   	kmsKey: jsii.String("kmsKey"),
 //   }
 //
 type CfnService_EncryptionConfigurationProperty struct {
 	// The ARN of the KMS key that's used for encryption.
-	KmsKey *string `json:"kmsKey" yaml:"kmsKey"`
+	KmsKey *string `field:"required" json:"kmsKey" yaml:"kmsKey"`
 }
 
 // Describes the settings for the health check that AWS App Runner performs to monitor the health of a service.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apprunner "github.com/aws/aws-cdk-go/awscdk/aws_apprunner"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   healthCheckConfigurationProperty := &healthCheckConfigurationProperty{
 //   	healthyThreshold: jsii.Number(123),
 //   	interval: jsii.Number(123),
@@ -2123,37 +2163,40 @@ type CfnService_HealthCheckConfigurationProperty struct {
 	// The number of consecutive checks that must succeed before App Runner decides that the service is healthy.
 	//
 	// Default: `1`.
-	HealthyThreshold *float64 `json:"healthyThreshold" yaml:"healthyThreshold"`
+	HealthyThreshold *float64 `field:"optional" json:"healthyThreshold" yaml:"healthyThreshold"`
 	// The time interval, in seconds, between health checks.
 	//
 	// Default: `5`.
-	Interval *float64 `json:"interval" yaml:"interval"`
+	Interval *float64 `field:"optional" json:"interval" yaml:"interval"`
 	// The URL that health check requests are sent to.
 	//
 	// `Path` is only applicable when you set `Protocol` to `HTTP` .
 	//
 	// Default: `"/"`.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 	// The IP protocol that App Runner uses to perform health checks for your service.
 	//
 	// If you set `Protocol` to `HTTP` , App Runner sends health check requests to the HTTP path specified by `Path` .
 	//
 	// Default: `TCP`.
-	Protocol *string `json:"protocol" yaml:"protocol"`
+	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`
 	// The time, in seconds, to wait for a health check response before deciding it failed.
 	//
 	// Default: `2`.
-	Timeout *float64 `json:"timeout" yaml:"timeout"`
+	Timeout *float64 `field:"optional" json:"timeout" yaml:"timeout"`
 	// The number of consecutive checks that must fail before App Runner decides that the service is unhealthy.
 	//
 	// Default: `5`.
-	UnhealthyThreshold *float64 `json:"unhealthyThreshold" yaml:"unhealthyThreshold"`
+	UnhealthyThreshold *float64 `field:"optional" json:"unhealthyThreshold" yaml:"unhealthyThreshold"`
 }
 
 // Describes the configuration that AWS App Runner uses to run an App Runner service using an image pulled from a source image repository.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apprunner "github.com/aws/aws-cdk-go/awscdk/aws_apprunner"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   imageConfigurationProperty := &imageConfigurationProperty{
 //   	port: jsii.String("port"),
 //   	runtimeEnvironmentVariables: []interface{}{
@@ -2169,21 +2212,24 @@ type CfnService_ImageConfigurationProperty struct {
 	// The port that your application listens to in the container.
 	//
 	// Default: `8080`.
-	Port *string `json:"port" yaml:"port"`
+	Port *string `field:"optional" json:"port" yaml:"port"`
 	// Environment variables that are available to your running App Runner service.
 	//
 	// An array of key-value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
-	RuntimeEnvironmentVariables interface{} `json:"runtimeEnvironmentVariables" yaml:"runtimeEnvironmentVariables"`
+	RuntimeEnvironmentVariables interface{} `field:"optional" json:"runtimeEnvironmentVariables" yaml:"runtimeEnvironmentVariables"`
 	// An optional command that App Runner runs to start the application in the source image.
 	//
 	// If specified, this command overrides the Docker image’s default start command.
-	StartCommand *string `json:"startCommand" yaml:"startCommand"`
+	StartCommand *string `field:"optional" json:"startCommand" yaml:"startCommand"`
 }
 
 // Describes a source image repository.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apprunner "github.com/aws/aws-cdk-go/awscdk/aws_apprunner"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   imageRepositoryProperty := &imageRepositoryProperty{
 //   	imageIdentifier: jsii.String("imageIdentifier"),
 //   	imageRepositoryType: jsii.String("imageRepositoryType"),
@@ -2205,19 +2251,22 @@ type CfnService_ImageRepositoryProperty struct {
 	// The identifier of an image.
 	//
 	// For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the image name format, see [Pulling an image](https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-pull-ecr-image.html) in the *Amazon ECR User Guide* .
-	ImageIdentifier *string `json:"imageIdentifier" yaml:"imageIdentifier"`
+	ImageIdentifier *string `field:"required" json:"imageIdentifier" yaml:"imageIdentifier"`
 	// The type of the image repository.
 	//
 	// This reflects the repository provider and whether the repository is private or public.
-	ImageRepositoryType *string `json:"imageRepositoryType" yaml:"imageRepositoryType"`
+	ImageRepositoryType *string `field:"required" json:"imageRepositoryType" yaml:"imageRepositoryType"`
 	// Configuration for running the identified image.
-	ImageConfiguration interface{} `json:"imageConfiguration" yaml:"imageConfiguration"`
+	ImageConfiguration interface{} `field:"optional" json:"imageConfiguration" yaml:"imageConfiguration"`
 }
 
 // Describes the runtime configuration of an AWS App Runner service instance (scaling unit).
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apprunner "github.com/aws/aws-cdk-go/awscdk/aws_apprunner"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   instanceConfigurationProperty := &instanceConfigurationProperty{
 //   	cpu: jsii.String("cpu"),
 //   	instanceRoleArn: jsii.String("instanceRoleArn"),
@@ -2228,21 +2277,24 @@ type CfnService_InstanceConfigurationProperty struct {
 	// The number of CPU units reserved for each instance of your App Runner service.
 	//
 	// Default: `1 vCPU`.
-	Cpu *string `json:"cpu" yaml:"cpu"`
+	Cpu *string `field:"optional" json:"cpu" yaml:"cpu"`
 	// The Amazon Resource Name (ARN) of an IAM role that provides permissions to your App Runner service.
 	//
 	// These are permissions that your code needs when it calls any AWS APIs.
-	InstanceRoleArn *string `json:"instanceRoleArn" yaml:"instanceRoleArn"`
+	InstanceRoleArn *string `field:"optional" json:"instanceRoleArn" yaml:"instanceRoleArn"`
 	// The amount of memory, in MB or GB, reserved for each instance of your App Runner service.
 	//
 	// Default: `2 GB`.
-	Memory *string `json:"memory" yaml:"memory"`
+	Memory *string `field:"optional" json:"memory" yaml:"memory"`
 }
 
 // Describes a key-value pair, which is a string-to-string mapping.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apprunner "github.com/aws/aws-cdk-go/awscdk/aws_apprunner"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   keyValuePairProperty := &keyValuePairProperty{
 //   	name: jsii.String("name"),
 //   	value: jsii.String("value"),
@@ -2250,9 +2302,9 @@ type CfnService_InstanceConfigurationProperty struct {
 //
 type CfnService_KeyValuePairProperty struct {
 	// The key name string to map to a value.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The value string to which the key name is mapped.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
 // Describes configuration settings related to network traffic of an AWS App Runner service.
@@ -2260,7 +2312,10 @@ type CfnService_KeyValuePairProperty struct {
 // Consists of embedded objects for each configurable network feature.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apprunner "github.com/aws/aws-cdk-go/awscdk/aws_apprunner"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   networkConfigurationProperty := &networkConfigurationProperty{
 //   	egressConfiguration: &egressConfigurationProperty{
 //   		egressType: jsii.String("egressType"),
@@ -2272,7 +2327,7 @@ type CfnService_KeyValuePairProperty struct {
 //
 type CfnService_NetworkConfigurationProperty struct {
 	// Network configuration settings for outbound message traffic.
-	EgressConfiguration interface{} `json:"egressConfiguration" yaml:"egressConfiguration"`
+	EgressConfiguration interface{} `field:"required" json:"egressConfiguration" yaml:"egressConfiguration"`
 }
 
 // Describes the observability configuration of an AWS App Runner service.
@@ -2280,7 +2335,10 @@ type CfnService_NetworkConfigurationProperty struct {
 // These are additional observability features, like tracing, that you choose to enable. They're configured in a separate resource that you associate with your service.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apprunner "github.com/aws/aws-cdk-go/awscdk/aws_apprunner"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   serviceObservabilityConfigurationProperty := &serviceObservabilityConfigurationProperty{
 //   	observabilityEnabled: jsii.Boolean(false),
 //
@@ -2290,7 +2348,7 @@ type CfnService_NetworkConfigurationProperty struct {
 //
 type CfnService_ServiceObservabilityConfigurationProperty struct {
 	// When `true` , an observability configuration resource is associated with the service, and an `ObservabilityConfigurationArn` is specified.
-	ObservabilityEnabled interface{} `json:"observabilityEnabled" yaml:"observabilityEnabled"`
+	ObservabilityEnabled interface{} `field:"required" json:"observabilityEnabled" yaml:"observabilityEnabled"`
 	// The Amazon Resource Name (ARN) of the observability configuration that is associated with the service.
 	//
 	// Specified only when `ObservabilityEnabled` is `true` .
@@ -2298,13 +2356,16 @@ type CfnService_ServiceObservabilityConfigurationProperty struct {
 	// Specify an ARN with a name and a revision number to associate that revision. For example: `arn:aws:apprunner:us-east-1:123456789012:observabilityconfiguration/xray-tracing/3`
 	//
 	// Specify just the name to associate the latest revision. For example: `arn:aws:apprunner:us-east-1:123456789012:observabilityconfiguration/xray-tracing`
-	ObservabilityConfigurationArn *string `json:"observabilityConfigurationArn" yaml:"observabilityConfigurationArn"`
+	ObservabilityConfigurationArn *string `field:"optional" json:"observabilityConfigurationArn" yaml:"observabilityConfigurationArn"`
 }
 
 // Identifies a version of code that AWS App Runner refers to within a source code repository.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apprunner "github.com/aws/aws-cdk-go/awscdk/aws_apprunner"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sourceCodeVersionProperty := &sourceCodeVersionProperty{
 //   	type: jsii.String("type"),
 //   	value: jsii.String("value"),
@@ -2314,11 +2375,11 @@ type CfnService_SourceCodeVersionProperty struct {
 	// The type of version identifier.
 	//
 	// For a git-based repository, branches represent versions.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// A source code version.
 	//
 	// For a git-based repository, a branch name maps to a specific version. App Runner uses the most recent commit to the branch.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // Describes the source deployed to an AWS App Runner service.
@@ -2326,7 +2387,10 @@ type CfnService_SourceCodeVersionProperty struct {
 // It can be a code or an image repository.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apprunner "github.com/aws/aws-cdk-go/awscdk/aws_apprunner"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sourceConfigurationProperty := &sourceConfigurationProperty{
 //   	authenticationConfiguration: &authenticationConfigurationProperty{
 //   		accessRoleArn: jsii.String("accessRoleArn"),
@@ -2381,27 +2445,30 @@ type CfnService_SourceCodeVersionProperty struct {
 //
 type CfnService_SourceConfigurationProperty struct {
 	// Describes the resources that are needed to authenticate access to some source repositories.
-	AuthenticationConfiguration interface{} `json:"authenticationConfiguration" yaml:"authenticationConfiguration"`
+	AuthenticationConfiguration interface{} `field:"optional" json:"authenticationConfiguration" yaml:"authenticationConfiguration"`
 	// If `true` , continuous integration from the source repository is enabled for the App Runner service.
 	//
 	// Each repository change (including any source code commit or new image version) starts a deployment.
 	//
 	// Default: App Runner sets to `false` for a source image that uses an ECR Public repository or an ECR repository that's in an AWS account other than the one that the service is in. App Runner sets to `true` in all other cases (which currently include a source code repository or a source image using a same-account ECR repository).
-	AutoDeploymentsEnabled interface{} `json:"autoDeploymentsEnabled" yaml:"autoDeploymentsEnabled"`
+	AutoDeploymentsEnabled interface{} `field:"optional" json:"autoDeploymentsEnabled" yaml:"autoDeploymentsEnabled"`
 	// The description of a source code repository.
 	//
 	// You must provide either this member or `ImageRepository` (but not both).
-	CodeRepository interface{} `json:"codeRepository" yaml:"codeRepository"`
+	CodeRepository interface{} `field:"optional" json:"codeRepository" yaml:"codeRepository"`
 	// The description of a source image repository.
 	//
 	// You must provide either this member or `CodeRepository` (but not both).
-	ImageRepository interface{} `json:"imageRepository" yaml:"imageRepository"`
+	ImageRepository interface{} `field:"optional" json:"imageRepository" yaml:"imageRepository"`
 }
 
 // Properties for defining a `CfnService`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apprunner "github.com/aws/aws-cdk-go/awscdk/aws_apprunner"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnServiceProps := &cfnServiceProps{
 //   	sourceConfiguration: &sourceConfigurationProperty{
 //   		authenticationConfiguration: &authenticationConfigurationProperty{
@@ -2500,7 +2567,7 @@ type CfnServiceProps struct {
 	// The source to deploy to the App Runner service.
 	//
 	// It can be a code or an image repository.
-	SourceConfiguration interface{} `json:"sourceConfiguration" yaml:"sourceConfiguration"`
+	SourceConfiguration interface{} `field:"required" json:"sourceConfiguration" yaml:"sourceConfiguration"`
 	// The Amazon Resource Name (ARN) of an App Runner automatic scaling configuration resource that you want to associate with your service.
 	//
 	// If not provided, App Runner associates the latest revision of a default auto scaling configuration.
@@ -2508,29 +2575,29 @@ type CfnServiceProps struct {
 	// Specify an ARN with a name and a revision number to associate that revision. For example: `arn:aws:apprunner:us-east-1:123456789012:autoscalingconfiguration/high-availability/3`
 	//
 	// Specify just the name to associate the latest revision. For example: `arn:aws:apprunner:us-east-1:123456789012:autoscalingconfiguration/high-availability`
-	AutoScalingConfigurationArn *string `json:"autoScalingConfigurationArn" yaml:"autoScalingConfigurationArn"`
+	AutoScalingConfigurationArn *string `field:"optional" json:"autoScalingConfigurationArn" yaml:"autoScalingConfigurationArn"`
 	// An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs.
 	//
 	// By default, App Runner uses an AWS managed key .
-	EncryptionConfiguration interface{} `json:"encryptionConfiguration" yaml:"encryptionConfiguration"`
+	EncryptionConfiguration interface{} `field:"optional" json:"encryptionConfiguration" yaml:"encryptionConfiguration"`
 	// The settings for the health check that AWS App Runner performs to monitor the health of the App Runner service.
-	HealthCheckConfiguration interface{} `json:"healthCheckConfiguration" yaml:"healthCheckConfiguration"`
+	HealthCheckConfiguration interface{} `field:"optional" json:"healthCheckConfiguration" yaml:"healthCheckConfiguration"`
 	// The runtime configuration of instances (scaling units) of your service.
-	InstanceConfiguration interface{} `json:"instanceConfiguration" yaml:"instanceConfiguration"`
+	InstanceConfiguration interface{} `field:"optional" json:"instanceConfiguration" yaml:"instanceConfiguration"`
 	// Configuration settings related to network traffic of the web application that the App Runner service runs.
-	NetworkConfiguration interface{} `json:"networkConfiguration" yaml:"networkConfiguration"`
+	NetworkConfiguration interface{} `field:"optional" json:"networkConfiguration" yaml:"networkConfiguration"`
 	// The observability configuration of your service.
-	ObservabilityConfiguration interface{} `json:"observabilityConfiguration" yaml:"observabilityConfiguration"`
+	ObservabilityConfiguration interface{} `field:"optional" json:"observabilityConfiguration" yaml:"observabilityConfiguration"`
 	// A name for the App Runner service.
 	//
 	// It must be unique across all the running App Runner services in your AWS account in the AWS Region .
 	//
 	// If you don't specify a name, AWS CloudFormation generates a name for your service.
-	ServiceName *string `json:"serviceName" yaml:"serviceName"`
+	ServiceName *string `field:"optional" json:"serviceName" yaml:"serviceName"`
 	// An optional list of metadata items that you can associate with the App Runner service resource.
 	//
 	// A tag is a key-value pair.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::AppRunner::VpcConnector`.
@@ -2542,8 +2609,11 @@ type CfnServiceProps struct {
 // App Runner requires this resource when you want to associate your App Runner service to a custom Amazon Virtual Private Cloud ( Amazon VPC ).
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apprunner "github.com/aws/aws-cdk-go/awscdk/aws_apprunner"
-//   cfnVpcConnector := apprunner.NewCfnVpcConnector(this, jsii.String("MyCfnVpcConnector"), &cfnVpcConnectorProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnVpcConnector := awscdk.Aws_apprunner.NewCfnVpcConnector(this, jsii.String("MyCfnVpcConnector"), &cfnVpcConnectorProps{
 //   	subnets: []*string{
 //   		jsii.String("subnets"),
 //   	},
@@ -3282,7 +3352,10 @@ func (c *jsiiProxy_CfnVpcConnector) ValidateProperties(_properties interface{}) 
 // Properties for defining a `CfnVpcConnector`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apprunner "github.com/aws/aws-cdk-go/awscdk/aws_apprunner"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnVpcConnectorProps := &cfnVpcConnectorProps{
 //   	subnets: []*string{
 //   		jsii.String("subnets"),
@@ -3307,29 +3380,32 @@ type CfnVpcConnectorProps struct {
 	// Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
 	//
 	// > App Runner currently only provides support for IPv4.
-	Subnets *[]*string `json:"subnets" yaml:"subnets"`
+	Subnets *[]*string `field:"required" json:"subnets" yaml:"subnets"`
 	// A list of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets.
 	//
 	// If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
-	SecurityGroups *[]*string `json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]*string `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// A list of metadata items that you can associate with your VPC connector resource.
 	//
 	// A tag is a key-value pair.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// A name for the VPC connector.
 	//
 	// If you don't specify a name, AWS CloudFormation generates a name for your VPC connector.
-	VpcConnectorName *string `json:"vpcConnectorName" yaml:"vpcConnectorName"`
+	VpcConnectorName *string `field:"optional" json:"vpcConnectorName" yaml:"vpcConnectorName"`
 }
 
 // Describes the configuration that AWS App Runner uses to build and run an App Runner service from a source code repository.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apprunner "github.com/aws/aws-cdk-go/awscdk/aws_apprunner"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var runtime runtime
+//
 //   codeConfiguration := &codeConfiguration{
-//   	configurationSource: apprunner.configurationSourceType_REPOSITORY,
+//   	configurationSource: awscdk.Aws_apprunner.configurationSourceType_REPOSITORY,
 //
 //   	// the properties below are optional
 //   	configurationValues: &codeConfigurationValues{
@@ -3351,13 +3427,13 @@ type CfnVpcConnectorProps struct {
 type CodeConfiguration struct {
 	// The source of the App Runner configuration.
 	// Experimental.
-	ConfigurationSource ConfigurationSourceType `json:"configurationSource" yaml:"configurationSource"`
+	ConfigurationSource ConfigurationSourceType `field:"required" json:"configurationSource" yaml:"configurationSource"`
 	// The basic configuration for building and running the App Runner service.
 	//
 	// Use it to quickly launch an App Runner service without providing a apprunner.yaml file in the
 	// source code repository (or ignoring the file if it exists).
 	// Experimental.
-	ConfigurationValues *CodeConfigurationValues `json:"configurationValues" yaml:"configurationValues"`
+	ConfigurationValues *CodeConfigurationValues `field:"optional" json:"configurationValues" yaml:"configurationValues"`
 }
 
 // Describes the basic configuration needed for building and running an AWS App Runner service.
@@ -3388,31 +3464,34 @@ type CodeConfigurationValues struct {
 	// It represents
 	// a programming language runtime.
 	// Experimental.
-	Runtime Runtime `json:"runtime" yaml:"runtime"`
+	Runtime Runtime `field:"required" json:"runtime" yaml:"runtime"`
 	// The command App Runner runs to build your application.
 	// Experimental.
-	BuildCommand *string `json:"buildCommand" yaml:"buildCommand"`
+	BuildCommand *string `field:"optional" json:"buildCommand" yaml:"buildCommand"`
 	// The environment variables that are available to your running App Runner service.
 	// Experimental.
-	Environment *map[string]*string `json:"environment" yaml:"environment"`
+	Environment *map[string]*string `field:"optional" json:"environment" yaml:"environment"`
 	// The port that your application listens to in the container.
 	// Experimental.
-	Port *string `json:"port" yaml:"port"`
+	Port *string `field:"optional" json:"port" yaml:"port"`
 	// The command App Runner runs to start your application.
 	// Experimental.
-	StartCommand *string `json:"startCommand" yaml:"startCommand"`
+	StartCommand *string `field:"optional" json:"startCommand" yaml:"startCommand"`
 }
 
 // Properties of the CodeRepository.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apprunner "github.com/aws/aws-cdk-go/awscdk/aws_apprunner"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var gitHubConnection gitHubConnection
 //   var runtime runtime
+//
 //   codeRepositoryProps := &codeRepositoryProps{
 //   	codeConfiguration: &codeConfiguration{
-//   		configurationSource: apprunner.configurationSourceType_REPOSITORY,
+//   		configurationSource: awscdk.Aws_apprunner.configurationSourceType_REPOSITORY,
 //
 //   		// the properties below are optional
 //   		configurationValues: &codeConfigurationValues{
@@ -3439,16 +3518,16 @@ type CodeConfigurationValues struct {
 type CodeRepositoryProps struct {
 	// Configuration for building and running the service from a source code repository.
 	// Experimental.
-	CodeConfiguration *CodeConfiguration `json:"codeConfiguration" yaml:"codeConfiguration"`
+	CodeConfiguration *CodeConfiguration `field:"required" json:"codeConfiguration" yaml:"codeConfiguration"`
 	// The App Runner connection for GitHub.
 	// Experimental.
-	Connection GitHubConnection `json:"connection" yaml:"connection"`
+	Connection GitHubConnection `field:"required" json:"connection" yaml:"connection"`
 	// The location of the repository that contains the source code.
 	// Experimental.
-	RepositoryUrl *string `json:"repositoryUrl" yaml:"repositoryUrl"`
+	RepositoryUrl *string `field:"required" json:"repositoryUrl" yaml:"repositoryUrl"`
 	// The version that should be used within the source code repository.
 	// Experimental.
-	SourceCodeVersion *SourceCodeVersion `json:"sourceCodeVersion" yaml:"sourceCodeVersion"`
+	SourceCodeVersion *SourceCodeVersion `field:"required" json:"sourceCodeVersion" yaml:"sourceCodeVersion"`
 }
 
 // The source of the App Runner configuration.
@@ -3478,8 +3557,11 @@ const (
 // The number of CPU units reserved for each instance of your App Runner service.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apprunner "github.com/aws/aws-cdk-go/awscdk/aws_apprunner"
-//   cpu := apprunner.cpu.of(jsii.String("unit"))
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cpu := awscdk.Aws_apprunner.cpu.of(jsii.String("unit"))
 //
 // Experimental.
 type Cpu interface {
@@ -3550,6 +3632,7 @@ func Cpu_TWO_VCPU() Cpu {
 // Example:
 //   import ecr "github.com/aws/aws-cdk-go/awscdk"
 //
+//
 //   apprunner.NewService(this, jsii.String("Service"), &serviceProps{
 //   	source: apprunner.source.fromEcr(&ecrProps{
 //   		imageConfiguration: &imageConfiguration{
@@ -3564,18 +3647,18 @@ func Cpu_TWO_VCPU() Cpu {
 type EcrProps struct {
 	// Represents the ECR repository.
 	// Experimental.
-	Repository awsecr.IRepository `json:"repository" yaml:"repository"`
+	Repository awsecr.IRepository `field:"required" json:"repository" yaml:"repository"`
 	// The image configuration for the image from ECR.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html#cfn-apprunner-service-imageconfiguration-port
 	//
 	// Experimental.
-	ImageConfiguration *ImageConfiguration `json:"imageConfiguration" yaml:"imageConfiguration"`
+	ImageConfiguration *ImageConfiguration `field:"optional" json:"imageConfiguration" yaml:"imageConfiguration"`
 	// Image tag.
 	// Deprecated: use `tagOrDigest`.
-	Tag *string `json:"tag" yaml:"tag"`
+	Tag *string `field:"optional" json:"tag" yaml:"tag"`
 	// Image tag or digest (digests must start with `sha256:`).
 	// Experimental.
-	TagOrDigest *string `json:"tagOrDigest" yaml:"tagOrDigest"`
+	TagOrDigest *string `field:"optional" json:"tagOrDigest" yaml:"tagOrDigest"`
 }
 
 // Properties of the image repository for `Source.fromEcrPublic()`.
@@ -3594,19 +3677,22 @@ type EcrProps struct {
 type EcrPublicProps struct {
 	// The ECR Public image URI.
 	// Experimental.
-	ImageIdentifier *string `json:"imageIdentifier" yaml:"imageIdentifier"`
+	ImageIdentifier *string `field:"required" json:"imageIdentifier" yaml:"imageIdentifier"`
 	// The image configuration for the image from ECR Public.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html#cfn-apprunner-service-imageconfiguration-port
 	//
 	// Experimental.
-	ImageConfiguration *ImageConfiguration `json:"imageConfiguration" yaml:"imageConfiguration"`
+	ImageConfiguration *ImageConfiguration `field:"optional" json:"imageConfiguration" yaml:"imageConfiguration"`
 }
 
 // Represents the service source from ECR Public.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apprunner "github.com/aws/aws-cdk-go/awscdk/aws_apprunner"
-//   ecrPublicSource := apprunner.NewEcrPublicSource(&ecrPublicProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   ecrPublicSource := awscdk.Aws_apprunner.NewEcrPublicSource(&ecrPublicProps{
 //   	imageIdentifier: jsii.String("imageIdentifier"),
 //
 //   	// the properties below are optional
@@ -3742,10 +3828,14 @@ func (e *jsiiProxy_EcrPublicSource) Bind(_scope constructs.Construct) *SourceCon
 // Represents the service source from ECR.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apprunner "github.com/aws/aws-cdk-go/awscdk/aws_apprunner"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecr "github.com/aws/aws-cdk-go/awscdk/aws_ecr"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var repository repository
-//   ecrSource := apprunner.NewEcrSource(&ecrProps{
+//
+//   ecrSource := awscdk.Aws_apprunner.NewEcrSource(&ecrProps{
 //   	repository: repository,
 //
 //   	// the properties below are optional
@@ -3978,34 +4068,37 @@ func GitHubConnection_FromConnectionArn(arn *string) GitHubConnection {
 type GithubRepositoryProps struct {
 	// The source of the App Runner configuration.
 	// Experimental.
-	ConfigurationSource ConfigurationSourceType `json:"configurationSource" yaml:"configurationSource"`
+	ConfigurationSource ConfigurationSourceType `field:"required" json:"configurationSource" yaml:"configurationSource"`
 	// ARN of the connection to Github.
 	//
 	// Only required for Github source.
 	// Experimental.
-	Connection GitHubConnection `json:"connection" yaml:"connection"`
+	Connection GitHubConnection `field:"required" json:"connection" yaml:"connection"`
 	// The location of the repository that contains the source code.
 	// Experimental.
-	RepositoryUrl *string `json:"repositoryUrl" yaml:"repositoryUrl"`
+	RepositoryUrl *string `field:"required" json:"repositoryUrl" yaml:"repositoryUrl"`
 	// The branch name that represents a specific version for the repository.
 	// Experimental.
-	Branch *string `json:"branch" yaml:"branch"`
+	Branch *string `field:"optional" json:"branch" yaml:"branch"`
 	// The code configuration values.
 	//
 	// Will be ignored if configurationSource is `REPOSITORY`.
 	// Experimental.
-	CodeConfigurationValues *CodeConfigurationValues `json:"codeConfigurationValues" yaml:"codeConfigurationValues"`
+	CodeConfigurationValues *CodeConfigurationValues `field:"optional" json:"codeConfigurationValues" yaml:"codeConfigurationValues"`
 }
 
 // Represents the service source from a Github repository.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apprunner "github.com/aws/aws-cdk-go/awscdk/aws_apprunner"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var gitHubConnection gitHubConnection
 //   var runtime runtime
-//   githubSource := apprunner.NewGithubSource(&githubRepositoryProps{
-//   	configurationSource: apprunner.configurationSourceType_REPOSITORY,
+//
+//   githubSource := awscdk.Aws_apprunner.NewGithubSource(&githubRepositoryProps{
+//   	configurationSource: awscdk.*Aws_apprunner.configurationSourceType_REPOSITORY,
 //   	connection: gitHubConnection,
 //   	repositoryUrl: jsii.String("repositoryUrl"),
 //
@@ -4186,6 +4279,7 @@ func (j *jsiiProxy_IService) ServiceName() *string {
 // Example:
 //   import ecr "github.com/aws/aws-cdk-go/awscdk"
 //
+//
 //   apprunner.NewService(this, jsii.String("Service"), &serviceProps{
 //   	source: apprunner.source.fromEcr(&ecrProps{
 //   		imageConfiguration: &imageConfiguration{
@@ -4202,24 +4296,27 @@ func (j *jsiiProxy_IService) ServiceName() *string {
 type ImageConfiguration struct {
 	// Environment variables that are available to your running App Runner service.
 	// Experimental.
-	Environment *map[string]*string `json:"environment" yaml:"environment"`
+	Environment *map[string]*string `field:"optional" json:"environment" yaml:"environment"`
 	// The port that your application listens to in the container.
 	// Experimental.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// An optional command that App Runner runs to start the application in the source image.
 	//
 	// If specified, this command overrides the Docker image’s default start command.
 	// Experimental.
-	StartCommand *string `json:"startCommand" yaml:"startCommand"`
+	StartCommand *string `field:"optional" json:"startCommand" yaml:"startCommand"`
 }
 
 // Describes a source image repository.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apprunner "github.com/aws/aws-cdk-go/awscdk/aws_apprunner"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   imageRepository := &imageRepository{
 //   	imageIdentifier: jsii.String("imageIdentifier"),
-//   	imageRepositoryType: apprunner.imageRepositoryType_ECR_PUBLIC,
+//   	imageRepositoryType: awscdk.Aws_apprunner.imageRepositoryType_ECR_PUBLIC,
 //
 //   	// the properties below are optional
 //   	imageConfiguration: &imageConfiguration{
@@ -4243,18 +4340,18 @@ type ImageRepository struct {
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imagerepository.html for more details.
 	//
 	// Experimental.
-	ImageIdentifier *string `json:"imageIdentifier" yaml:"imageIdentifier"`
+	ImageIdentifier *string `field:"required" json:"imageIdentifier" yaml:"imageIdentifier"`
 	// The type of the image repository.
 	//
 	// This reflects the repository provider and whether
 	// the repository is private or public.
 	// Experimental.
-	ImageRepositoryType ImageRepositoryType `json:"imageRepositoryType" yaml:"imageRepositoryType"`
+	ImageRepositoryType ImageRepositoryType `field:"required" json:"imageRepositoryType" yaml:"imageRepositoryType"`
 	// Configuration for running the identified image.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html#cfn-apprunner-service-imageconfiguration-port
 	//
 	// Experimental.
-	ImageConfiguration *ImageConfiguration `json:"imageConfiguration" yaml:"imageConfiguration"`
+	ImageConfiguration *ImageConfiguration `field:"optional" json:"imageConfiguration" yaml:"imageConfiguration"`
 }
 
 // The image repository types.
@@ -4273,8 +4370,11 @@ const (
 // The amount of memory reserved for each instance of your App Runner service.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apprunner "github.com/aws/aws-cdk-go/awscdk/aws_apprunner"
-//   memory := apprunner.memory_FOUR_GB()
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   memory := awscdk.Aws_apprunner.memory_FOUR_GB()
 //
 // Experimental.
 type Memory interface {
@@ -4880,7 +4980,10 @@ func (s *jsiiProxy_Service) Validate() *[]*string {
 // Attributes for the App Runner Service.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apprunner "github.com/aws/aws-cdk-go/awscdk/aws_apprunner"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   serviceAttributes := &serviceAttributes{
 //   	serviceArn: jsii.String("serviceArn"),
 //   	serviceName: jsii.String("serviceName"),
@@ -4892,16 +4995,16 @@ func (s *jsiiProxy_Service) Validate() *[]*string {
 type ServiceAttributes struct {
 	// The ARN of the service.
 	// Experimental.
-	ServiceArn *string `json:"serviceArn" yaml:"serviceArn"`
+	ServiceArn *string `field:"required" json:"serviceArn" yaml:"serviceArn"`
 	// The name of the service.
 	// Experimental.
-	ServiceName *string `json:"serviceName" yaml:"serviceName"`
+	ServiceName *string `field:"required" json:"serviceName" yaml:"serviceName"`
 	// The status of the service.
 	// Experimental.
-	ServiceStatus *string `json:"serviceStatus" yaml:"serviceStatus"`
+	ServiceStatus *string `field:"required" json:"serviceStatus" yaml:"serviceStatus"`
 	// The URL of the service.
 	// Experimental.
-	ServiceUrl *string `json:"serviceUrl" yaml:"serviceUrl"`
+	ServiceUrl *string `field:"required" json:"serviceUrl" yaml:"serviceUrl"`
 }
 
 // Properties of the AppRunner Service.
@@ -4920,7 +5023,7 @@ type ServiceAttributes struct {
 type ServiceProps struct {
 	// The source of the repository for the service.
 	// Experimental.
-	Source Source `json:"source" yaml:"source"`
+	Source Source `field:"required" json:"source" yaml:"source"`
 	// The IAM role that grants the App Runner service access to a source repository.
 	//
 	// It's required for ECR image repositories (but not for ECR Public repositories).
@@ -4929,10 +5032,10 @@ type ServiceProps struct {
 	// See: https://docs.aws.amazon.com/apprunner/latest/dg/security_iam_service-with-iam.html#security_iam_service-with-iam-roles-service.access
 	//
 	// Experimental.
-	AccessRole awsiam.IRole `json:"accessRole" yaml:"accessRole"`
+	AccessRole awsiam.IRole `field:"optional" json:"accessRole" yaml:"accessRole"`
 	// The number of CPU units reserved for each instance of your App Runner service.
 	// Experimental.
-	Cpu Cpu `json:"cpu" yaml:"cpu"`
+	Cpu Cpu `field:"optional" json:"cpu" yaml:"cpu"`
 	// The IAM role that provides permissions to your App Runner service.
 	//
 	// These are permissions that your code needs when it calls any AWS APIs.
@@ -4941,13 +5044,13 @@ type ServiceProps struct {
 	// See: https://docs.aws.amazon.com/apprunner/latest/dg/security_iam_service-with-iam.html#security_iam_service-with-iam-roles-service.instance
 	//
 	// Experimental.
-	InstanceRole awsiam.IRole `json:"instanceRole" yaml:"instanceRole"`
+	InstanceRole awsiam.IRole `field:"optional" json:"instanceRole" yaml:"instanceRole"`
 	// The amount of memory reserved for each instance of your App Runner service.
 	// Experimental.
-	Memory Memory `json:"memory" yaml:"memory"`
+	Memory Memory `field:"optional" json:"memory" yaml:"memory"`
 	// Name of the service.
 	// Experimental.
-	ServiceName *string `json:"serviceName" yaml:"serviceName"`
+	ServiceName *string `field:"optional" json:"serviceName" yaml:"serviceName"`
 }
 
 // Represents the App Runner service source.
@@ -5069,7 +5172,10 @@ func (s *jsiiProxy_Source) Bind(scope constructs.Construct) *SourceConfig {
 // Identifies a version of code that AWS App Runner refers to within a source code repository.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apprunner "github.com/aws/aws-cdk-go/awscdk/aws_apprunner"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sourceCodeVersion := &sourceCodeVersion{
 //   	type: jsii.String("type"),
 //   	value: jsii.String("value"),
@@ -5081,24 +5187,28 @@ func (s *jsiiProxy_Source) Bind(scope constructs.Construct) *SourceConfig {
 type SourceCodeVersion struct {
 	// The type of version identifier.
 	// Experimental.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// A source code version.
 	// Experimental.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // Result of binding `Source` into a `Service`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import apprunner "github.com/aws/aws-cdk-go/awscdk/aws_apprunner"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecr "github.com/aws/aws-cdk-go/awscdk/aws_ecr"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var gitHubConnection gitHubConnection
 //   var repository repository
 //   var runtime runtime
+//
 //   sourceConfig := &sourceConfig{
 //   	codeRepository: &codeRepositoryProps{
 //   		codeConfiguration: &codeConfiguration{
-//   			configurationSource: apprunner.configurationSourceType_REPOSITORY,
+//   			configurationSource: awscdk.Aws_apprunner.configurationSourceType_REPOSITORY,
 //
 //   			// the properties below are optional
 //   			configurationValues: &codeConfigurationValues{
@@ -5123,7 +5233,7 @@ type SourceCodeVersion struct {
 //   	ecrRepository: repository,
 //   	imageRepository: &imageRepository{
 //   		imageIdentifier: jsii.String("imageIdentifier"),
-//   		imageRepositoryType: apprunner.imageRepositoryType_ECR_PUBLIC,
+//   		imageRepositoryType: awscdk.*Aws_apprunner.imageRepositoryType_ECR_PUBLIC,
 //
 //   		// the properties below are optional
 //   		imageConfiguration: &imageConfiguration{
@@ -5140,12 +5250,12 @@ type SourceCodeVersion struct {
 type SourceConfig struct {
 	// The code repository configuration (mutually exclusive  with `imageRepository`).
 	// Experimental.
-	CodeRepository *CodeRepositoryProps `json:"codeRepository" yaml:"codeRepository"`
+	CodeRepository *CodeRepositoryProps `field:"optional" json:"codeRepository" yaml:"codeRepository"`
 	// The ECR repository (required to grant the pull privileges for the iam role).
 	// Experimental.
-	EcrRepository awsecr.IRepository `json:"ecrRepository" yaml:"ecrRepository"`
+	EcrRepository awsecr.IRepository `field:"optional" json:"ecrRepository" yaml:"ecrRepository"`
 	// The image repository configuration (mutually exclusive  with `codeRepository`).
 	// Experimental.
-	ImageRepository *ImageRepository `json:"imageRepository" yaml:"imageRepository"`
+	ImageRepository *ImageRepository `field:"optional" json:"imageRepository" yaml:"imageRepository"`
 }
 

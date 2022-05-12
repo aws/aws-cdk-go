@@ -118,7 +118,8 @@ func (i *jsiiProxy_IUserPoolAuthenticationProvider) Bind(scope constructs.Constr
 //
 // Example:
 //   var openIdConnectProvider openIdConnectProvider
-//   NewIdentityPool(this, jsii.String("myidentitypool"), &identityPoolProps{
+//
+//   awscdk.NewIdentityPool(this, jsii.String("myidentitypool"), &identityPoolProps{
 //   	identityPoolName: jsii.String("myidentitypool"),
 //   	authenticationProviders: &identityPoolAuthenticationProviders{
 //   		google: &identityPoolGoogleLoginProvider{
@@ -595,7 +596,7 @@ func (i *jsiiProxy_IdentityPool) Validate() *[]*string {
 // Login Provider for Identity Federation using Amazon Credentials.
 //
 // Example:
-//   NewIdentityPool(this, jsii.String("myidentitypool"), &identityPoolProps{
+//   awscdk.NewIdentityPool(this, jsii.String("myidentitypool"), &identityPoolProps{
 //   	identityPoolName: jsii.String("myidentitypool"),
 //   	authenticationProviders: &identityPoolAuthenticationProviders{
 //   		amazon: &identityPoolAmazonLoginProvider{
@@ -621,13 +622,13 @@ func (i *jsiiProxy_IdentityPool) Validate() *[]*string {
 type IdentityPoolAmazonLoginProvider struct {
 	// App Id for Amazon Identity Federation.
 	// Experimental.
-	AppId *string `json:"appId" yaml:"appId"`
+	AppId *string `field:"required" json:"appId" yaml:"appId"`
 }
 
 // Login Provider for Identity Federation using Apple Credentials.
 //
 // Example:
-//   NewIdentityPool(this, jsii.String("myidentitypool"), &identityPoolProps{
+//   awscdk.NewIdentityPool(this, jsii.String("myidentitypool"), &identityPoolProps{
 //   	identityPoolName: jsii.String("myidentitypool"),
 //   	authenticationProviders: &identityPoolAuthenticationProviders{
 //   		amazon: &identityPoolAmazonLoginProvider{
@@ -653,14 +654,15 @@ type IdentityPoolAmazonLoginProvider struct {
 type IdentityPoolAppleLoginProvider struct {
 	// App Id for Apple Identity Federation.
 	// Experimental.
-	ServicesId *string `json:"servicesId" yaml:"servicesId"`
+	ServicesId *string `field:"required" json:"servicesId" yaml:"servicesId"`
 }
 
 // Authentication providers for using in identity pool.
 //
 // Example:
 //   var openIdConnectProvider openIdConnectProvider
-//   NewIdentityPool(this, jsii.String("myidentitypool"), &identityPoolProps{
+//
+//   awscdk.NewIdentityPool(this, jsii.String("myidentitypool"), &identityPoolProps{
 //   	identityPoolName: jsii.String("myidentitypool"),
 //   	authenticationProviders: &identityPoolAuthenticationProviders{
 //   		google: &identityPoolGoogleLoginProvider{
@@ -679,40 +681,43 @@ type IdentityPoolAppleLoginProvider struct {
 type IdentityPoolAuthenticationProviders struct {
 	// App Id for Amazon Identity Federation.
 	// Experimental.
-	Amazon *IdentityPoolAmazonLoginProvider `json:"amazon" yaml:"amazon"`
+	Amazon *IdentityPoolAmazonLoginProvider `field:"optional" json:"amazon" yaml:"amazon"`
 	// Services Id for Apple Identity Federation.
 	// Experimental.
-	Apple *IdentityPoolAppleLoginProvider `json:"apple" yaml:"apple"`
+	Apple *IdentityPoolAppleLoginProvider `field:"optional" json:"apple" yaml:"apple"`
 	// Consumer Key and Secret for Digits Identity Federation.
 	// Experimental.
-	Digits *IdentityPoolDigitsLoginProvider `json:"digits" yaml:"digits"`
+	Digits *IdentityPoolDigitsLoginProvider `field:"optional" json:"digits" yaml:"digits"`
 	// App Id for Facebook Identity Federation.
 	// Experimental.
-	Facebook *IdentityPoolFacebookLoginProvider `json:"facebook" yaml:"facebook"`
+	Facebook *IdentityPoolFacebookLoginProvider `field:"optional" json:"facebook" yaml:"facebook"`
 	// Client Id for Google Identity Federation.
 	// Experimental.
-	Google *IdentityPoolGoogleLoginProvider `json:"google" yaml:"google"`
+	Google *IdentityPoolGoogleLoginProvider `field:"optional" json:"google" yaml:"google"`
 	// Consumer Key and Secret for Twitter Identity Federation.
 	// Experimental.
-	Twitter *IdentityPoolTwitterLoginProvider `json:"twitter" yaml:"twitter"`
+	Twitter *IdentityPoolTwitterLoginProvider `field:"optional" json:"twitter" yaml:"twitter"`
 	// The Developer Provider Name to associate with this Identity Pool.
 	// Experimental.
-	CustomProvider *string `json:"customProvider" yaml:"customProvider"`
+	CustomProvider *string `field:"optional" json:"customProvider" yaml:"customProvider"`
 	// The OpenIdConnect Provider associated with this Identity Pool.
 	// Experimental.
-	OpenIdConnectProviders *[]awsiam.IOpenIdConnectProvider `json:"openIdConnectProviders" yaml:"openIdConnectProviders"`
+	OpenIdConnectProviders *[]awsiam.IOpenIdConnectProvider `field:"optional" json:"openIdConnectProviders" yaml:"openIdConnectProviders"`
 	// The Security Assertion Markup Language Provider associated with this Identity Pool.
 	// Experimental.
-	SamlProviders *[]awsiam.ISamlProvider `json:"samlProviders" yaml:"samlProviders"`
+	SamlProviders *[]awsiam.ISamlProvider `field:"optional" json:"samlProviders" yaml:"samlProviders"`
 	// The User Pool Authentication Providers associated with this Identity Pool.
 	// Experimental.
-	UserPools *[]IUserPoolAuthenticationProvider `json:"userPools" yaml:"userPools"`
+	UserPools *[]IUserPoolAuthenticationProvider `field:"optional" json:"userPools" yaml:"userPools"`
 }
 
 // Login Provider for Identity Federation using Digits Credentials.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito_identitypool "github.com/aws/aws-cdk-go/awscdk/aws_cognito_identitypool"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   identityPoolDigitsLoginProvider := &identityPoolDigitsLoginProvider{
 //   	consumerKey: jsii.String("consumerKey"),
 //   	consumerSecret: jsii.String("consumerSecret"),
@@ -722,16 +727,16 @@ type IdentityPoolAuthenticationProviders struct {
 type IdentityPoolDigitsLoginProvider struct {
 	// App Id for Twitter Identity Federation.
 	// Experimental.
-	ConsumerKey *string `json:"consumerKey" yaml:"consumerKey"`
+	ConsumerKey *string `field:"required" json:"consumerKey" yaml:"consumerKey"`
 	// App Secret for Twitter Identity Federation.
 	// Experimental.
-	ConsumerSecret *string `json:"consumerSecret" yaml:"consumerSecret"`
+	ConsumerSecret *string `field:"required" json:"consumerSecret" yaml:"consumerSecret"`
 }
 
 // Login Provider for Identity Federation using Facebook Credentials.
 //
 // Example:
-//   NewIdentityPool(this, jsii.String("myidentitypool"), &identityPoolProps{
+//   awscdk.NewIdentityPool(this, jsii.String("myidentitypool"), &identityPoolProps{
 //   	identityPoolName: jsii.String("myidentitypool"),
 //   	authenticationProviders: &identityPoolAuthenticationProviders{
 //   		amazon: &identityPoolAmazonLoginProvider{
@@ -757,13 +762,13 @@ type IdentityPoolDigitsLoginProvider struct {
 type IdentityPoolFacebookLoginProvider struct {
 	// App Id for Facebook Identity Federation.
 	// Experimental.
-	AppId *string `json:"appId" yaml:"appId"`
+	AppId *string `field:"required" json:"appId" yaml:"appId"`
 }
 
 // Login Provider for Identity Federation using Google Credentials.
 //
 // Example:
-//   NewIdentityPool(this, jsii.String("myidentitypool"), &identityPoolProps{
+//   awscdk.NewIdentityPool(this, jsii.String("myidentitypool"), &identityPoolProps{
 //   	identityPoolName: jsii.String("myidentitypool"),
 //   	authenticationProviders: &identityPoolAuthenticationProviders{
 //   		amazon: &identityPoolAmazonLoginProvider{
@@ -789,14 +794,15 @@ type IdentityPoolFacebookLoginProvider struct {
 type IdentityPoolGoogleLoginProvider struct {
 	// App Id for Google Identity Federation.
 	// Experimental.
-	ClientId *string `json:"clientId" yaml:"clientId"`
+	ClientId *string `field:"required" json:"clientId" yaml:"clientId"`
 }
 
 // Props for the IdentityPool construct.
 //
 // Example:
 //   var openIdConnectProvider openIdConnectProvider
-//   NewIdentityPool(this, jsii.String("myidentitypool"), &identityPoolProps{
+//
+//   awscdk.NewIdentityPool(this, jsii.String("myidentitypool"), &identityPoolProps{
 //   	identityPoolName: jsii.String("myidentitypool"),
 //   	authenticationProviders: &identityPoolAuthenticationProviders{
 //   		google: &identityPoolGoogleLoginProvider{
@@ -813,25 +819,25 @@ type IdentityPoolGoogleLoginProvider struct {
 type IdentityPoolProps struct {
 	// Enables the Basic (Classic) authentication flow.
 	// Experimental.
-	AllowClassicFlow *bool `json:"allowClassicFlow" yaml:"allowClassicFlow"`
+	AllowClassicFlow *bool `field:"optional" json:"allowClassicFlow" yaml:"allowClassicFlow"`
 	// Wwhether the identity pool supports unauthenticated logins.
 	// Experimental.
-	AllowUnauthenticatedIdentities *bool `json:"allowUnauthenticatedIdentities" yaml:"allowUnauthenticatedIdentities"`
+	AllowUnauthenticatedIdentities *bool `field:"optional" json:"allowUnauthenticatedIdentities" yaml:"allowUnauthenticatedIdentities"`
 	// The Default Role to be assumed by Authenticated Users.
 	// Experimental.
-	AuthenticatedRole awsiam.IRole `json:"authenticatedRole" yaml:"authenticatedRole"`
+	AuthenticatedRole awsiam.IRole `field:"optional" json:"authenticatedRole" yaml:"authenticatedRole"`
 	// Authentication providers for using in identity pool.
 	// Experimental.
-	AuthenticationProviders *IdentityPoolAuthenticationProviders `json:"authenticationProviders" yaml:"authenticationProviders"`
+	AuthenticationProviders *IdentityPoolAuthenticationProviders `field:"optional" json:"authenticationProviders" yaml:"authenticationProviders"`
 	// The name of the Identity Pool.
 	// Experimental.
-	IdentityPoolName *string `json:"identityPoolName" yaml:"identityPoolName"`
+	IdentityPoolName *string `field:"optional" json:"identityPoolName" yaml:"identityPoolName"`
 	// Rules for mapping roles to users.
 	// Experimental.
-	RoleMappings *[]*IdentityPoolRoleMapping `json:"roleMappings" yaml:"roleMappings"`
+	RoleMappings *[]*IdentityPoolRoleMapping `field:"optional" json:"roleMappings" yaml:"roleMappings"`
 	// The Default Role to be assumed by Unauthenticated Users.
 	// Experimental.
-	UnauthenticatedRole awsiam.IRole `json:"unauthenticatedRole" yaml:"unauthenticatedRole"`
+	UnauthenticatedRole awsiam.IRole `field:"optional" json:"unauthenticatedRole" yaml:"unauthenticatedRole"`
 }
 
 // Types of Identity Pool Login Providers.
@@ -874,17 +880,18 @@ const (
 // Keys for Login Providers - correspond to client id's of respective federation identity providers.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type IdentityPoolProviderUrl awscdk.IdentityPoolProviderUrl
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   NewIdentityPool(this, jsii.String("myidentitypool"), &identityPoolProps{
+//
+//   awscdk.NewIdentityPool(this, jsii.String("myidentitypool"), &identityPoolProps{
 //   	identityPoolName: jsii.String("myidentitypool"),
 //   	roleMappings: []identityPoolRoleMapping{
 //   		&identityPoolRoleMapping{
-//   			providerUrl: identityPoolProviderUrl.userPool(jsii.String("cognito-idp.my-idp-region.amazonaws.com/my-idp-region_abcdefghi:app_client_id")),
+//   			providerUrl: awscdk.IdentityPoolProviderUrl.userPool(jsii.String("cognito-idp.my-idp-region.amazonaws.com/my-idp-region_abcdefghi:app_client_id")),
 //   			useToken: jsii.Boolean(true),
 //   		},
 //   		&identityPoolRoleMapping{
-//   			providerUrl: *identityPoolProviderUrl.custom(jsii.String("my-custom-provider.com")),
+//   			providerUrl: awscdk.IdentityPoolProviderUrl.custom(jsii.String("my-custom-provider.com")),
 //   			useToken: jsii.Boolean(true),
 //   		},
 //   	},
@@ -1089,7 +1096,10 @@ func IdentityPoolProviderUrl_TWITTER() IdentityPoolProviderUrl {
 // External Identity Providers To Connect to User Pools and Identity Pools.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito_identitypool "github.com/aws/aws-cdk-go/awscdk/aws_cognito_identitypool"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   identityPoolProviders := &identityPoolProviders{
 //   	amazon: &identityPoolAmazonLoginProvider{
 //   		appId: jsii.String("appId"),
@@ -1117,33 +1127,37 @@ func IdentityPoolProviderUrl_TWITTER() IdentityPoolProviderUrl {
 type IdentityPoolProviders struct {
 	// App Id for Amazon Identity Federation.
 	// Experimental.
-	Amazon *IdentityPoolAmazonLoginProvider `json:"amazon" yaml:"amazon"`
+	Amazon *IdentityPoolAmazonLoginProvider `field:"optional" json:"amazon" yaml:"amazon"`
 	// Services Id for Apple Identity Federation.
 	// Experimental.
-	Apple *IdentityPoolAppleLoginProvider `json:"apple" yaml:"apple"`
+	Apple *IdentityPoolAppleLoginProvider `field:"optional" json:"apple" yaml:"apple"`
 	// Consumer Key and Secret for Digits Identity Federation.
 	// Experimental.
-	Digits *IdentityPoolDigitsLoginProvider `json:"digits" yaml:"digits"`
+	Digits *IdentityPoolDigitsLoginProvider `field:"optional" json:"digits" yaml:"digits"`
 	// App Id for Facebook Identity Federation.
 	// Experimental.
-	Facebook *IdentityPoolFacebookLoginProvider `json:"facebook" yaml:"facebook"`
+	Facebook *IdentityPoolFacebookLoginProvider `field:"optional" json:"facebook" yaml:"facebook"`
 	// Client Id for Google Identity Federation.
 	// Experimental.
-	Google *IdentityPoolGoogleLoginProvider `json:"google" yaml:"google"`
+	Google *IdentityPoolGoogleLoginProvider `field:"optional" json:"google" yaml:"google"`
 	// Consumer Key and Secret for Twitter Identity Federation.
 	// Experimental.
-	Twitter *IdentityPoolTwitterLoginProvider `json:"twitter" yaml:"twitter"`
+	Twitter *IdentityPoolTwitterLoginProvider `field:"optional" json:"twitter" yaml:"twitter"`
 }
 
 // Defines an Identity Pool Role Attachment.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito_identitypool "github.com/aws/aws-cdk-go/awscdk/aws_cognito_identitypool"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var identityPool identityPool
 //   var identityPoolProviderUrl identityPoolProviderUrl
 //   var role role
-//   identityPoolRoleAttachment := cognito_identitypool.NewIdentityPoolRoleAttachment(this, jsii.String("MyIdentityPoolRoleAttachment"), &identityPoolRoleAttachmentProps{
+//
+//   identityPoolRoleAttachment := awscdk.Aws_cognito_identitypool.NewIdentityPoolRoleAttachment(this, jsii.String("MyIdentityPoolRoleAttachment"), &identityPoolRoleAttachmentProps{
 //   	identityPool: identityPool,
 //
 //   	// the properties below are optional
@@ -1161,7 +1175,7 @@ type IdentityPoolProviders struct {
 //   					mappedRole: role,
 //
 //   					// the properties below are optional
-//   					matchType: cognito_identitypool.roleMappingMatchType_EQUALS,
+//   					matchType: awscdk.*Aws_cognito_identitypool.roleMappingMatchType_EQUALS,
 //   				},
 //   			},
 //   			useToken: jsii.Boolean(false),
@@ -1521,11 +1535,15 @@ func (i *jsiiProxy_IdentityPoolRoleAttachment) Validate() *[]*string {
 // Props for an Identity Pool Role Attachment.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito_identitypool "github.com/aws/aws-cdk-go/awscdk/aws_cognito_identitypool"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var identityPool identityPool
 //   var identityPoolProviderUrl identityPoolProviderUrl
 //   var role role
+//
 //   identityPoolRoleAttachmentProps := &identityPoolRoleAttachmentProps{
 //   	identityPool: identityPool,
 //
@@ -1544,7 +1562,7 @@ func (i *jsiiProxy_IdentityPoolRoleAttachment) Validate() *[]*string {
 //   					mappedRole: role,
 //
 //   					// the properties below are optional
-//   					matchType: cognito_identitypool.roleMappingMatchType_EQUALS,
+//   					matchType: awscdk.Aws_cognito_identitypool.roleMappingMatchType_EQUALS,
 //   				},
 //   			},
 //   			useToken: jsii.Boolean(false),
@@ -1557,27 +1575,28 @@ func (i *jsiiProxy_IdentityPoolRoleAttachment) Validate() *[]*string {
 type IdentityPoolRoleAttachmentProps struct {
 	// Id of the Attachments Underlying Identity Pool.
 	// Experimental.
-	IdentityPool IIdentityPool `json:"identityPool" yaml:"identityPool"`
+	IdentityPool IIdentityPool `field:"required" json:"identityPool" yaml:"identityPool"`
 	// Default Authenticated (User) Role.
 	// Experimental.
-	AuthenticatedRole awsiam.IRole `json:"authenticatedRole" yaml:"authenticatedRole"`
+	AuthenticatedRole awsiam.IRole `field:"optional" json:"authenticatedRole" yaml:"authenticatedRole"`
 	// Rules for mapping roles to users.
 	// Experimental.
-	RoleMappings *[]*IdentityPoolRoleMapping `json:"roleMappings" yaml:"roleMappings"`
+	RoleMappings *[]*IdentityPoolRoleMapping `field:"optional" json:"roleMappings" yaml:"roleMappings"`
 	// Default Unauthenticated (Guest) Role.
 	// Experimental.
-	UnauthenticatedRole awsiam.IRole `json:"unauthenticatedRole" yaml:"unauthenticatedRole"`
+	UnauthenticatedRole awsiam.IRole `field:"optional" json:"unauthenticatedRole" yaml:"unauthenticatedRole"`
 }
 
 // Map roles to users in the identity pool based on claims from the Identity Provider.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type IdentityPoolRoleMapping awscdk.IdentityPoolRoleMapping
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var identityPool identityPool
 //   var myAddedRoleMapping1 identityPoolRoleMapping
 //   var myAddedRoleMapping2 identityPoolRoleMapping
 //   var myAddedRoleMapping3 identityPoolRoleMapping
+//
 //
 //   identityPool.addRoleMappings(myAddedRoleMapping1, myAddedRoleMapping2, myAddedRoleMapping3)
 //
@@ -1587,26 +1606,26 @@ type IdentityPoolRoleAttachmentProps struct {
 type IdentityPoolRoleMapping struct {
 	// The url of the provider of for which the role is mapped.
 	// Experimental.
-	ProviderUrl IdentityPoolProviderUrl `json:"providerUrl" yaml:"providerUrl"`
+	ProviderUrl IdentityPoolProviderUrl `field:"required" json:"providerUrl" yaml:"providerUrl"`
 	// Allow for role assumption when results of role mapping are ambiguous.
 	// Experimental.
-	ResolveAmbiguousRoles *bool `json:"resolveAmbiguousRoles" yaml:"resolveAmbiguousRoles"`
+	ResolveAmbiguousRoles *bool `field:"optional" json:"resolveAmbiguousRoles" yaml:"resolveAmbiguousRoles"`
 	// The claim and value that must be matched in order to assume the role.
 	//
 	// Required if useToken is false.
 	// Experimental.
-	Rules *[]*RoleMappingRule `json:"rules" yaml:"rules"`
+	Rules *[]*RoleMappingRule `field:"optional" json:"rules" yaml:"rules"`
 	// If true then mapped roles must be passed through the cognito:roles or cognito:preferred_role claims from identity provider.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/role-based-access-control.html#using-tokens-to-assign-roles-to-users
 	//
 	// Experimental.
-	UseToken *bool `json:"useToken" yaml:"useToken"`
+	UseToken *bool `field:"optional" json:"useToken" yaml:"useToken"`
 }
 
 // Login Provider for Identity Federation using Twitter Credentials.
 //
 // Example:
-//   NewIdentityPool(this, jsii.String("myidentitypool"), &identityPoolProps{
+//   awscdk.NewIdentityPool(this, jsii.String("myidentitypool"), &identityPoolProps{
 //   	identityPoolName: jsii.String("myidentitypool"),
 //   	authenticationProviders: &identityPoolAuthenticationProviders{
 //   		amazon: &identityPoolAmazonLoginProvider{
@@ -1632,26 +1651,26 @@ type IdentityPoolRoleMapping struct {
 type IdentityPoolTwitterLoginProvider struct {
 	// App Id for Twitter Identity Federation.
 	// Experimental.
-	ConsumerKey *string `json:"consumerKey" yaml:"consumerKey"`
+	ConsumerKey *string `field:"required" json:"consumerKey" yaml:"consumerKey"`
 	// App Secret for Twitter Identity Federation.
 	// Experimental.
-	ConsumerSecret *string `json:"consumerSecret" yaml:"consumerSecret"`
+	ConsumerSecret *string `field:"required" json:"consumerSecret" yaml:"consumerSecret"`
 }
 
 // Types of matches allowed for Role Mapping.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type IdentityPoolProviderUrl awscdk.IdentityPoolProviderUrl
-//   type RoleMappingMatchType awscdk.RoleMappingMatchType
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var adminRole role
 //   var nonAdminRole role
-//   NewIdentityPool(this, jsii.String("myidentitypool"), &identityPoolProps{
+//
+//   awscdk.NewIdentityPool(this, jsii.String("myidentitypool"), &identityPoolProps{
 //   	identityPoolName: jsii.String("myidentitypool"),
 //   	// Assign specific roles to users based on whether or not the custom admin claim is passed from the identity provider
 //   	roleMappings: []identityPoolRoleMapping{
 //   		&identityPoolRoleMapping{
-//   			providerUrl: identityPoolProviderUrl_AMAZON(),
+//   			providerUrl: awscdk.IdentityPoolProviderUrl_AMAZON(),
 //   			rules: []roleMappingRule{
 //   				&roleMappingRule{
 //   					claim: jsii.String("custom:admin"),
@@ -1661,7 +1680,7 @@ type IdentityPoolTwitterLoginProvider struct {
 //   				&roleMappingRule{
 //   					claim: jsii.String("custom:admin"),
 //   					claimValue: jsii.String("admin"),
-//   					matchType: roleMappingMatchType_NOTEQUAL,
+//   					matchType: awscdk.RoleMappingMatchType_NOTEQUAL,
 //   					mappedRole: nonAdminRole,
 //   				},
 //   			},
@@ -1690,40 +1709,45 @@ const (
 // Represents an Identity Pool Role Attachment Role Mapping Rule.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito_identitypool "github.com/aws/aws-cdk-go/awscdk/aws_cognito_identitypool"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var role role
+//
 //   roleMappingRule := &roleMappingRule{
 //   	claim: jsii.String("claim"),
 //   	claimValue: jsii.String("claimValue"),
 //   	mappedRole: role,
 //
 //   	// the properties below are optional
-//   	matchType: cognito_identitypool.roleMappingMatchType_EQUALS,
+//   	matchType: awscdk.Aws_cognito_identitypool.roleMappingMatchType_EQUALS,
 //   }
 //
 // Experimental.
 type RoleMappingRule struct {
 	// The key sent in the token by the federated identity provider.
 	// Experimental.
-	Claim *string `json:"claim" yaml:"claim"`
+	Claim *string `field:"required" json:"claim" yaml:"claim"`
 	// The value of the claim that must be matched.
 	// Experimental.
-	ClaimValue *string `json:"claimValue" yaml:"claimValue"`
+	ClaimValue *string `field:"required" json:"claimValue" yaml:"claimValue"`
 	// The Role to be assumed when Claim Value is matched.
 	// Experimental.
-	MappedRole awsiam.IRole `json:"mappedRole" yaml:"mappedRole"`
+	MappedRole awsiam.IRole `field:"required" json:"mappedRole" yaml:"mappedRole"`
 	// How to match with the Claim value.
 	// Experimental.
-	MatchType RoleMappingMatchType `json:"matchType" yaml:"matchType"`
+	MatchType RoleMappingMatchType `field:"optional" json:"matchType" yaml:"matchType"`
 }
 
 // Defines a User Pool Authentication Provider.
 //
 // Example:
 //   var identityPool identityPool
+//
 //   userPool := cognito.NewUserPool(this, jsii.String("Pool"))
-//   identityPool.addUserPoolAuthentication(NewUserPoolAuthenticationProvider(&userPoolAuthenticationProviderProps{
+//   identityPool.addUserPoolAuthentication(awscdk.NewUserPoolAuthenticationProvider(&userPoolAuthenticationProviderProps{
 //   	userPool: userPool,
 //   	disableServerSideTokenCheck: jsii.Boolean(true),
 //   }))
@@ -1783,7 +1807,10 @@ func (u *jsiiProxy_UserPoolAuthenticationProvider) Bind(scope constructs.Constru
 // Represents a UserPoolAuthenticationProvider Bind Configuration.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito_identitypool "github.com/aws/aws-cdk-go/awscdk/aws_cognito_identitypool"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   userPoolAuthenticationProviderBindConfig := &userPoolAuthenticationProviderBindConfig{
 //   	clientId: jsii.String("clientId"),
 //   	providerName: jsii.String("providerName"),
@@ -1794,19 +1821,22 @@ func (u *jsiiProxy_UserPoolAuthenticationProvider) Bind(scope constructs.Constru
 type UserPoolAuthenticationProviderBindConfig struct {
 	// Client Id of the Associated User Pool Client.
 	// Experimental.
-	ClientId *string `json:"clientId" yaml:"clientId"`
+	ClientId *string `field:"required" json:"clientId" yaml:"clientId"`
 	// The identity providers associated with the UserPool.
 	// Experimental.
-	ProviderName *string `json:"providerName" yaml:"providerName"`
+	ProviderName *string `field:"required" json:"providerName" yaml:"providerName"`
 	// Whether to enable the identity pool's server side token check.
 	// Experimental.
-	ServerSideTokenCheck *bool `json:"serverSideTokenCheck" yaml:"serverSideTokenCheck"`
+	ServerSideTokenCheck *bool `field:"required" json:"serverSideTokenCheck" yaml:"serverSideTokenCheck"`
 }
 
 // Represents UserPoolAuthenticationProvider Bind Options.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cognito_identitypool "github.com/aws/aws-cdk-go/awscdk/aws_cognito_identitypool"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   userPoolAuthenticationProviderBindOptions := &userPoolAuthenticationProviderBindOptions{
 //   }
 //
@@ -1818,8 +1848,9 @@ type UserPoolAuthenticationProviderBindOptions struct {
 //
 // Example:
 //   var identityPool identityPool
+//
 //   userPool := cognito.NewUserPool(this, jsii.String("Pool"))
-//   identityPool.addUserPoolAuthentication(NewUserPoolAuthenticationProvider(&userPoolAuthenticationProviderProps{
+//   identityPool.addUserPoolAuthentication(awscdk.NewUserPoolAuthenticationProvider(&userPoolAuthenticationProviderProps{
 //   	userPool: userPool,
 //   	disableServerSideTokenCheck: jsii.Boolean(true),
 //   }))
@@ -1828,14 +1859,14 @@ type UserPoolAuthenticationProviderBindOptions struct {
 type UserPoolAuthenticationProviderProps struct {
 	// The User Pool of the Associated Identity Providers.
 	// Experimental.
-	UserPool awscognito.IUserPool `json:"userPool" yaml:"userPool"`
+	UserPool awscognito.IUserPool `field:"required" json:"userPool" yaml:"userPool"`
 	// Setting this to true turns off identity pool checks for this user pool to make sure the user has not been globally signed out or deleted before the identity pool provides an OIDC token or AWS credentials for the user.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-cognitoidentityprovider.html
 	//
 	// Experimental.
-	DisableServerSideTokenCheck *bool `json:"disableServerSideTokenCheck" yaml:"disableServerSideTokenCheck"`
+	DisableServerSideTokenCheck *bool `field:"optional" json:"disableServerSideTokenCheck" yaml:"disableServerSideTokenCheck"`
 	// The User Pool Client for the provided User Pool.
 	// Experimental.
-	UserPoolClient awscognito.IUserPoolClient `json:"userPoolClient" yaml:"userPoolClient"`
+	UserPoolClient awscognito.IUserPoolClient `field:"optional" json:"userPoolClient" yaml:"userPoolClient"`
 }
 

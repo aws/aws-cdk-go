@@ -21,7 +21,7 @@ import (
 //   	sourceCodeProvider: amplify.NewGitHubSourceCodeProvider(&gitHubSourceCodeProviderProps{
 //   		owner: jsii.String("<user>"),
 //   		repository: jsii.String("<repo>"),
-//   		oauthToken: secretValue.secretsManager(jsii.String("my-github-token")),
+//   		oauthToken: awscdk.SecretValue.secretsManager(jsii.String("my-github-token")),
 //   	}),
 //   	autoBranchCreation: &autoBranchCreation{
 //   		 // Automatically connect branches that match a pattern set
@@ -545,7 +545,7 @@ func (a *jsiiProxy_App) Validate() *[]*string {
 //   	sourceCodeProvider: amplify.NewGitHubSourceCodeProvider(&gitHubSourceCodeProviderProps{
 //   		owner: jsii.String("<user>"),
 //   		repository: jsii.String("<repo>"),
-//   		oauthToken: secretValue.secretsManager(jsii.String("my-github-token")),
+//   		oauthToken: awscdk.SecretValue.secretsManager(jsii.String("my-github-token")),
 //   	}),
 //   	autoBranchCreation: &autoBranchCreation{
 //   		 // Automatically connect branches that match a pattern set
@@ -561,22 +561,22 @@ func (a *jsiiProxy_App) Validate() *[]*string {
 type AppProps struct {
 	// The name for the application.
 	// Experimental.
-	AppName *string `json:"appName" yaml:"appName"`
+	AppName *string `field:"optional" json:"appName" yaml:"appName"`
 	// The auto branch creation configuration.
 	//
 	// Use this to automatically create
 	// branches that match a certain pattern.
 	// Experimental.
-	AutoBranchCreation *AutoBranchCreation `json:"autoBranchCreation" yaml:"autoBranchCreation"`
+	AutoBranchCreation *AutoBranchCreation `field:"optional" json:"autoBranchCreation" yaml:"autoBranchCreation"`
 	// Automatically disconnect a branch in the Amplify Console when you delete a branch from your Git repository.
 	// Experimental.
-	AutoBranchDeletion *bool `json:"autoBranchDeletion" yaml:"autoBranchDeletion"`
+	AutoBranchDeletion *bool `field:"optional" json:"autoBranchDeletion" yaml:"autoBranchDeletion"`
 	// The Basic Auth configuration.
 	//
 	// Use this to set password protection at an
 	// app level to all your branches.
 	// Experimental.
-	BasicAuth BasicAuth `json:"basicAuth" yaml:"basicAuth"`
+	BasicAuth BasicAuth `field:"optional" json:"basicAuth" yaml:"basicAuth"`
 	// BuildSpec for the application.
 	//
 	// Alternatively, add a `amplify.yml`
@@ -584,33 +584,33 @@ type AppProps struct {
 	// See: https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html
 	//
 	// Experimental.
-	BuildSpec awscodebuild.BuildSpec `json:"buildSpec" yaml:"buildSpec"`
+	BuildSpec awscodebuild.BuildSpec `field:"optional" json:"buildSpec" yaml:"buildSpec"`
 	// The custom HTTP response headers for an Amplify app.
 	// See: https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html
 	//
 	// Experimental.
-	CustomResponseHeaders *[]*CustomResponseHeader `json:"customResponseHeaders" yaml:"customResponseHeaders"`
+	CustomResponseHeaders *[]*CustomResponseHeader `field:"optional" json:"customResponseHeaders" yaml:"customResponseHeaders"`
 	// Custom rewrite/redirect rules for the application.
 	// Experimental.
-	CustomRules *[]CustomRule `json:"customRules" yaml:"customRules"`
+	CustomRules *[]CustomRule `field:"optional" json:"customRules" yaml:"customRules"`
 	// A description for the application.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Environment variables for the application.
 	//
 	// All environment variables that you add are encrypted to prevent rogue
 	// access so you can use them to store secret information.
 	// Experimental.
-	EnvironmentVariables *map[string]*string `json:"environmentVariables" yaml:"environmentVariables"`
+	EnvironmentVariables *map[string]*string `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`
 	// The IAM service role to associate with the application.
 	//
 	// The App
 	// implements IGrantable.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The source code provider for this application.
 	// Experimental.
-	SourceCodeProvider ISourceCodeProvider `json:"sourceCodeProvider" yaml:"sourceCodeProvider"`
+	SourceCodeProvider ISourceCodeProvider `field:"optional" json:"sourceCodeProvider" yaml:"sourceCodeProvider"`
 }
 
 // Auto branch creation configuration.
@@ -620,7 +620,7 @@ type AppProps struct {
 //   	sourceCodeProvider: amplify.NewGitHubSourceCodeProvider(&gitHubSourceCodeProviderProps{
 //   		owner: jsii.String("<user>"),
 //   		repository: jsii.String("<repo>"),
-//   		oauthToken: secretValue.secretsManager(jsii.String("my-github-token")),
+//   		oauthToken: awscdk.SecretValue.secretsManager(jsii.String("my-github-token")),
 //   	}),
 //   	autoBranchCreation: &autoBranchCreation{
 //   		 // Automatically connect branches that match a pattern set
@@ -636,34 +636,34 @@ type AppProps struct {
 type AutoBranchCreation struct {
 	// Whether to enable auto building for the auto created branch.
 	// Experimental.
-	AutoBuild *bool `json:"autoBuild" yaml:"autoBuild"`
+	AutoBuild *bool `field:"optional" json:"autoBuild" yaml:"autoBuild"`
 	// The Basic Auth configuration.
 	//
 	// Use this to set password protection for
 	// the auto created branch.
 	// Experimental.
-	BasicAuth BasicAuth `json:"basicAuth" yaml:"basicAuth"`
+	BasicAuth BasicAuth `field:"optional" json:"basicAuth" yaml:"basicAuth"`
 	// Build spec for the auto created branch.
 	// Experimental.
-	BuildSpec awscodebuild.BuildSpec `json:"buildSpec" yaml:"buildSpec"`
+	BuildSpec awscodebuild.BuildSpec `field:"optional" json:"buildSpec" yaml:"buildSpec"`
 	// Environment variables for the auto created branch.
 	//
 	// All environment variables that you add are encrypted to prevent rogue
 	// access so you can use them to store secret information.
 	// Experimental.
-	EnvironmentVariables *map[string]*string `json:"environmentVariables" yaml:"environmentVariables"`
+	EnvironmentVariables *map[string]*string `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`
 	// Automated branch creation glob patterns.
 	// Experimental.
-	Patterns *[]*string `json:"patterns" yaml:"patterns"`
+	Patterns *[]*string `field:"optional" json:"patterns" yaml:"patterns"`
 	// The dedicated backend environment for the pull request previews of the auto created branch.
 	// Experimental.
-	PullRequestEnvironmentName *string `json:"pullRequestEnvironmentName" yaml:"pullRequestEnvironmentName"`
+	PullRequestEnvironmentName *string `field:"optional" json:"pullRequestEnvironmentName" yaml:"pullRequestEnvironmentName"`
 	// Whether to enable pull request preview for the auto created branch.
 	// Experimental.
-	PullRequestPreview *bool `json:"pullRequestPreview" yaml:"pullRequestPreview"`
+	PullRequestPreview *bool `field:"optional" json:"pullRequestPreview" yaml:"pullRequestPreview"`
 	// Stage for the auto created branch.
 	// Experimental.
-	Stage *string `json:"stage" yaml:"stage"`
+	Stage *string `field:"optional" json:"stage" yaml:"stage"`
 }
 
 // Basic Auth configuration.
@@ -673,7 +673,7 @@ type AutoBranchCreation struct {
 //   	sourceCodeProvider: amplify.NewGitHubSourceCodeProvider(&gitHubSourceCodeProviderProps{
 //   		owner: jsii.String("<user>"),
 //   		repository: jsii.String("<repo>"),
-//   		oauthToken: secretValue.secretsManager(jsii.String("my-github-token")),
+//   		oauthToken: awscdk.SecretValue.secretsManager(jsii.String("my-github-token")),
 //   	}),
 //   	basicAuth: amplify.basicAuth.fromGeneratedPassword(jsii.String("username")),
 //   })
@@ -766,7 +766,10 @@ func (b *jsiiProxy_BasicAuth) Bind(scope awscdk.Construct, id *string) *BasicAut
 // A Basic Auth configuration.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplify "github.com/aws/aws-cdk-go/awscdk/aws_amplify"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   basicAuthConfig := &basicAuthConfig{
 //   	enableBasicAuth: jsii.Boolean(false),
 //   	password: jsii.String("password"),
@@ -777,22 +780,27 @@ func (b *jsiiProxy_BasicAuth) Bind(scope awscdk.Construct, id *string) *BasicAut
 type BasicAuthConfig struct {
 	// Whether to enable Basic Auth.
 	// Experimental.
-	EnableBasicAuth *bool `json:"enableBasicAuth" yaml:"enableBasicAuth"`
+	EnableBasicAuth *bool `field:"required" json:"enableBasicAuth" yaml:"enableBasicAuth"`
 	// The password.
 	// Experimental.
-	Password *string `json:"password" yaml:"password"`
+	Password *string `field:"required" json:"password" yaml:"password"`
 	// The username.
 	// Experimental.
-	Username *string `json:"username" yaml:"username"`
+	Username *string `field:"required" json:"username" yaml:"username"`
 }
 
 // Properties for a BasicAuth.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplify "github.com/aws/aws-cdk-go/awscdk/aws_amplify"import awscdk "github.com/aws/aws-cdk-go/awscdk"import kms "github.com/aws/aws-cdk-go/awscdk/aws_kms"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var key key
 //   var secretValue secretValue
+//
 //   basicAuthProps := &basicAuthProps{
 //   	username: jsii.String("username"),
 //
@@ -805,19 +813,20 @@ type BasicAuthConfig struct {
 type BasicAuthProps struct {
 	// The username.
 	// Experimental.
-	Username *string `json:"username" yaml:"username"`
+	Username *string `field:"required" json:"username" yaml:"username"`
 	// The encryption key to use to encrypt the password when it's generated in Secrets Manager.
 	// Experimental.
-	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
+	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// The password.
 	// Experimental.
-	Password awscdk.SecretValue `json:"password" yaml:"password"`
+	Password awscdk.SecretValue `field:"optional" json:"password" yaml:"password"`
 }
 
 // An Amplify Console branch.
 //
 // Example:
 //   var amplifyApp app
+//
 //
 //   master := amplifyApp.addBranch(jsii.String("master")) // `id` will be used as repo branch name
 //   dev := amplifyApp.addBranch(jsii.String("dev"), &branchOptions{
@@ -1227,6 +1236,7 @@ func (b *jsiiProxy_Branch) Validate() *[]*string {
 // Example:
 //   var amplifyApp app
 //
+//
 //   master := amplifyApp.addBranch(jsii.String("master")) // `id` will be used as repo branch name
 //   dev := amplifyApp.addBranch(jsii.String("dev"), &branchOptions{
 //   	performanceMode: jsii.Boolean(true),
@@ -1240,60 +1250,65 @@ type BranchOptions struct {
 	// The Amplify app must not have a sourceCodeProvider configured as this resource uses Amplify's
 	// startDeployment API to initiate and deploy a S3 asset onto the App.
 	// Experimental.
-	Asset awss3assets.Asset `json:"asset" yaml:"asset"`
+	Asset awss3assets.Asset `field:"optional" json:"asset" yaml:"asset"`
 	// Whether to enable auto building for the branch.
 	// Experimental.
-	AutoBuild *bool `json:"autoBuild" yaml:"autoBuild"`
+	AutoBuild *bool `field:"optional" json:"autoBuild" yaml:"autoBuild"`
 	// The Basic Auth configuration.
 	//
 	// Use this to set password protection for
 	// the branch.
 	// Experimental.
-	BasicAuth BasicAuth `json:"basicAuth" yaml:"basicAuth"`
+	BasicAuth BasicAuth `field:"optional" json:"basicAuth" yaml:"basicAuth"`
 	// The name of the branch.
 	// Experimental.
-	BranchName *string `json:"branchName" yaml:"branchName"`
+	BranchName *string `field:"optional" json:"branchName" yaml:"branchName"`
 	// BuildSpec for the branch.
 	// See: https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html
 	//
 	// Experimental.
-	BuildSpec awscodebuild.BuildSpec `json:"buildSpec" yaml:"buildSpec"`
+	BuildSpec awscodebuild.BuildSpec `field:"optional" json:"buildSpec" yaml:"buildSpec"`
 	// A description for the branch.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Environment variables for the branch.
 	//
 	// All environment variables that you add are encrypted to prevent rogue
 	// access so you can use them to store secret information.
 	// Experimental.
-	EnvironmentVariables *map[string]*string `json:"environmentVariables" yaml:"environmentVariables"`
+	EnvironmentVariables *map[string]*string `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`
 	// Enables performance mode for the branch.
 	//
 	// Performance mode optimizes for faster hosting performance by keeping content cached at the edge
 	// for a longer interval. When performance mode is enabled, hosting configuration or code changes
 	// can take up to 10 minutes to roll out.
 	// Experimental.
-	PerformanceMode *bool `json:"performanceMode" yaml:"performanceMode"`
+	PerformanceMode *bool `field:"optional" json:"performanceMode" yaml:"performanceMode"`
 	// The dedicated backend environment for the pull request previews.
 	// Experimental.
-	PullRequestEnvironmentName *string `json:"pullRequestEnvironmentName" yaml:"pullRequestEnvironmentName"`
+	PullRequestEnvironmentName *string `field:"optional" json:"pullRequestEnvironmentName" yaml:"pullRequestEnvironmentName"`
 	// Whether to enable pull request preview for the branch.
 	// Experimental.
-	PullRequestPreview *bool `json:"pullRequestPreview" yaml:"pullRequestPreview"`
+	PullRequestPreview *bool `field:"optional" json:"pullRequestPreview" yaml:"pullRequestPreview"`
 	// Stage for the branch.
 	// Experimental.
-	Stage *string `json:"stage" yaml:"stage"`
+	Stage *string `field:"optional" json:"stage" yaml:"stage"`
 }
 
 // Properties for a Branch.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplify "github.com/aws/aws-cdk-go/awscdk/aws_amplify"import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3_assets "github.com/aws/aws-cdk-go/awscdk/aws_s3_assets"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var app app
 //   var asset asset
 //   var basicAuth basicAuth
 //   var buildSpec buildSpec
+//
 //   branchProps := &branchProps{
 //   	app: app,
 //
@@ -1320,52 +1335,52 @@ type BranchProps struct {
 	// The Amplify app must not have a sourceCodeProvider configured as this resource uses Amplify's
 	// startDeployment API to initiate and deploy a S3 asset onto the App.
 	// Experimental.
-	Asset awss3assets.Asset `json:"asset" yaml:"asset"`
+	Asset awss3assets.Asset `field:"optional" json:"asset" yaml:"asset"`
 	// Whether to enable auto building for the branch.
 	// Experimental.
-	AutoBuild *bool `json:"autoBuild" yaml:"autoBuild"`
+	AutoBuild *bool `field:"optional" json:"autoBuild" yaml:"autoBuild"`
 	// The Basic Auth configuration.
 	//
 	// Use this to set password protection for
 	// the branch.
 	// Experimental.
-	BasicAuth BasicAuth `json:"basicAuth" yaml:"basicAuth"`
+	BasicAuth BasicAuth `field:"optional" json:"basicAuth" yaml:"basicAuth"`
 	// The name of the branch.
 	// Experimental.
-	BranchName *string `json:"branchName" yaml:"branchName"`
+	BranchName *string `field:"optional" json:"branchName" yaml:"branchName"`
 	// BuildSpec for the branch.
 	// See: https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html
 	//
 	// Experimental.
-	BuildSpec awscodebuild.BuildSpec `json:"buildSpec" yaml:"buildSpec"`
+	BuildSpec awscodebuild.BuildSpec `field:"optional" json:"buildSpec" yaml:"buildSpec"`
 	// A description for the branch.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Environment variables for the branch.
 	//
 	// All environment variables that you add are encrypted to prevent rogue
 	// access so you can use them to store secret information.
 	// Experimental.
-	EnvironmentVariables *map[string]*string `json:"environmentVariables" yaml:"environmentVariables"`
+	EnvironmentVariables *map[string]*string `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`
 	// Enables performance mode for the branch.
 	//
 	// Performance mode optimizes for faster hosting performance by keeping content cached at the edge
 	// for a longer interval. When performance mode is enabled, hosting configuration or code changes
 	// can take up to 10 minutes to roll out.
 	// Experimental.
-	PerformanceMode *bool `json:"performanceMode" yaml:"performanceMode"`
+	PerformanceMode *bool `field:"optional" json:"performanceMode" yaml:"performanceMode"`
 	// The dedicated backend environment for the pull request previews.
 	// Experimental.
-	PullRequestEnvironmentName *string `json:"pullRequestEnvironmentName" yaml:"pullRequestEnvironmentName"`
+	PullRequestEnvironmentName *string `field:"optional" json:"pullRequestEnvironmentName" yaml:"pullRequestEnvironmentName"`
 	// Whether to enable pull request preview for the branch.
 	// Experimental.
-	PullRequestPreview *bool `json:"pullRequestPreview" yaml:"pullRequestPreview"`
+	PullRequestPreview *bool `field:"optional" json:"pullRequestPreview" yaml:"pullRequestPreview"`
 	// Stage for the branch.
 	// Experimental.
-	Stage *string `json:"stage" yaml:"stage"`
+	Stage *string `field:"optional" json:"stage" yaml:"stage"`
 	// The application within which the branch must be created.
 	// Experimental.
-	App IApp `json:"app" yaml:"app"`
+	App IApp `field:"required" json:"app" yaml:"app"`
 }
 
 // A CloudFormation `AWS::Amplify::App`.
@@ -1373,8 +1388,11 @@ type BranchProps struct {
 // The AWS::Amplify::App resource creates Apps in the Amplify Console. An App is a collection of branches.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplify "github.com/aws/aws-cdk-go/awscdk/aws_amplify"
-//   cfnApp := amplify.NewCfnApp(this, jsii.String("MyCfnApp"), &cfnAppProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnApp := awscdk.Aws_amplify.NewCfnApp(this, jsii.String("MyCfnApp"), &cfnAppProps{
 //   	name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -2425,7 +2443,10 @@ func (c *jsiiProxy_CfnApp) ValidateProperties(_properties interface{}) {
 // Use the AutoBranchCreationConfig property type to automatically create branches that match a certain pattern.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplify "github.com/aws/aws-cdk-go/awscdk/aws_amplify"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   autoBranchCreationConfigProperty := &autoBranchCreationConfigProperty{
 //   	autoBranchCreationPatterns: []*string{
 //   		jsii.String("autoBranchCreationPatterns"),
@@ -2452,21 +2473,21 @@ func (c *jsiiProxy_CfnApp) ValidateProperties(_properties interface{}) {
 //
 type CfnApp_AutoBranchCreationConfigProperty struct {
 	// Automated branch creation glob patterns for the Amplify app.
-	AutoBranchCreationPatterns *[]*string `json:"autoBranchCreationPatterns" yaml:"autoBranchCreationPatterns"`
+	AutoBranchCreationPatterns *[]*string `field:"optional" json:"autoBranchCreationPatterns" yaml:"autoBranchCreationPatterns"`
 	// Sets password protection for your auto created branch.
-	BasicAuthConfig interface{} `json:"basicAuthConfig" yaml:"basicAuthConfig"`
+	BasicAuthConfig interface{} `field:"optional" json:"basicAuthConfig" yaml:"basicAuthConfig"`
 	// The build specification (build spec) for the autocreated branch.
 	//
 	// *Length Constraints:* Minimum length of 1. Maximum length of 25000.
-	BuildSpec *string `json:"buildSpec" yaml:"buildSpec"`
+	BuildSpec *string `field:"optional" json:"buildSpec" yaml:"buildSpec"`
 	// Enables automated branch creation for the Amplify app.
-	EnableAutoBranchCreation interface{} `json:"enableAutoBranchCreation" yaml:"enableAutoBranchCreation"`
+	EnableAutoBranchCreation interface{} `field:"optional" json:"enableAutoBranchCreation" yaml:"enableAutoBranchCreation"`
 	// Enables auto building for the auto created branch.
-	EnableAutoBuild interface{} `json:"enableAutoBuild" yaml:"enableAutoBuild"`
+	EnableAutoBuild interface{} `field:"optional" json:"enableAutoBuild" yaml:"enableAutoBuild"`
 	// Enables performance mode for the branch.
 	//
 	// Performance mode optimizes for faster hosting performance by keeping content cached at the edge for a longer interval. When performance mode is enabled, hosting configuration or code changes can take up to 10 minutes to roll out.
-	EnablePerformanceMode interface{} `json:"enablePerformanceMode" yaml:"enablePerformanceMode"`
+	EnablePerformanceMode interface{} `field:"optional" json:"enablePerformanceMode" yaml:"enablePerformanceMode"`
 	// Sets whether pull request previews are enabled for each branch that Amplify Console automatically creates for your app.
 	//
 	// Amplify Console creates previews by deploying your app to a unique URL whenever a pull request is opened for the branch. Development and QA teams can use this preview to test the pull request before it's merged into a production or integration branch.
@@ -2474,9 +2495,9 @@ type CfnApp_AutoBranchCreationConfigProperty struct {
 	// To provide backend support for your preview, the Amplify Console automatically provisions a temporary backend environment that it deletes when the pull request is closed. If you want to specify a dedicated backend environment for your previews, use the `PullRequestEnvironmentName` property.
 	//
 	// For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
-	EnablePullRequestPreview interface{} `json:"enablePullRequestPreview" yaml:"enablePullRequestPreview"`
+	EnablePullRequestPreview interface{} `field:"optional" json:"enablePullRequestPreview" yaml:"enablePullRequestPreview"`
 	// Environment variables for the auto created branch.
-	EnvironmentVariables interface{} `json:"environmentVariables" yaml:"environmentVariables"`
+	EnvironmentVariables interface{} `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`
 	// If pull request previews are enabled, you can use this property to specify a dedicated backend environment for your previews.
 	//
 	// For example, you could specify an environment named `prod` , `test` , or `dev` that you initialized with the Amplify CLI.
@@ -2490,15 +2511,18 @@ type CfnApp_AutoBranchCreationConfigProperty struct {
 	// *Length Constraints:* Maximum length of 20.
 	//
 	// *Pattern:* (?s).*
-	PullRequestEnvironmentName *string `json:"pullRequestEnvironmentName" yaml:"pullRequestEnvironmentName"`
+	PullRequestEnvironmentName *string `field:"optional" json:"pullRequestEnvironmentName" yaml:"pullRequestEnvironmentName"`
 	// Stage for the auto created branch.
-	Stage *string `json:"stage" yaml:"stage"`
+	Stage *string `field:"optional" json:"stage" yaml:"stage"`
 }
 
 // Use the BasicAuthConfig property type to set password protection at an app level to all your branches.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplify "github.com/aws/aws-cdk-go/awscdk/aws_amplify"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   basicAuthConfigProperty := &basicAuthConfigProperty{
 //   	enableBasicAuth: jsii.Boolean(false),
 //   	password: jsii.String("password"),
@@ -2507,15 +2531,15 @@ type CfnApp_AutoBranchCreationConfigProperty struct {
 //
 type CfnApp_BasicAuthConfigProperty struct {
 	// Enables basic authorization for the Amplify app's branches.
-	EnableBasicAuth interface{} `json:"enableBasicAuth" yaml:"enableBasicAuth"`
+	EnableBasicAuth interface{} `field:"optional" json:"enableBasicAuth" yaml:"enableBasicAuth"`
 	// The password for basic authorization.
 	//
 	// *Length Constraints:* Minimum length of 1. Maximum length of 255.
-	Password *string `json:"password" yaml:"password"`
+	Password *string `field:"optional" json:"password" yaml:"password"`
 	// The user name for basic authorization.
 	//
 	// *Length Constraints:* Minimum length of 1. Maximum length of 255.
-	Username *string `json:"username" yaml:"username"`
+	Username *string `field:"optional" json:"username" yaml:"username"`
 }
 
 // The CustomRule property type allows you to specify redirects, rewrites, and reverse proxies.
@@ -2523,7 +2547,10 @@ type CfnApp_BasicAuthConfigProperty struct {
 // Redirects enable a web app to reroute navigation from one URL to another.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplify "github.com/aws/aws-cdk-go/awscdk/aws_amplify"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   customRuleProperty := &customRuleProperty{
 //   	source: jsii.String("source"),
 //   	target: jsii.String("target"),
@@ -2539,19 +2566,19 @@ type CfnApp_CustomRuleProperty struct {
 	// *Length Constraints:* Minimum length of 1. Maximum length of 2048.
 	//
 	// *Pattern:* (?s).+
-	Source *string `json:"source" yaml:"source"`
+	Source *string `field:"required" json:"source" yaml:"source"`
 	// The target pattern for a URL rewrite or redirect rule.
 	//
 	// *Length Constraints:* Minimum length of 1. Maximum length of 2048.
 	//
 	// *Pattern:* (?s).+
-	Target *string `json:"target" yaml:"target"`
+	Target *string `field:"required" json:"target" yaml:"target"`
 	// The condition for a URL rewrite or redirect rule, such as a country code.
 	//
 	// *Length Constraints:* Minimum length of 0. Maximum length of 2048.
 	//
 	// *Pattern:* (?s).*
-	Condition *string `json:"condition" yaml:"condition"`
+	Condition *string `field:"optional" json:"condition" yaml:"condition"`
 	// The status code for a URL rewrite or redirect rule.
 	//
 	// - **200** - Represents a 200 rewrite rule.
@@ -2563,7 +2590,7 @@ type CfnApp_CustomRuleProperty struct {
 	// *Length Constraints:* Minimum length of 3. Maximum length of 7.
 	//
 	// *Pattern:* .{3,7}
-	Status *string `json:"status" yaml:"status"`
+	Status *string `field:"optional" json:"status" yaml:"status"`
 }
 
 // Environment variables are key-value pairs that are available at build time.
@@ -2571,7 +2598,10 @@ type CfnApp_CustomRuleProperty struct {
 // Set environment variables for all branches in your app.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplify "github.com/aws/aws-cdk-go/awscdk/aws_amplify"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   environmentVariableProperty := &environmentVariableProperty{
 //   	name: jsii.String("name"),
 //   	value: jsii.String("value"),
@@ -2583,19 +2613,22 @@ type CfnApp_EnvironmentVariableProperty struct {
 	// *Length Constraints:* Maximum length of 255.
 	//
 	// *Pattern:* (?s).*
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The environment variable value.
 	//
 	// *Length Constraints:* Maximum length of 5500.
 	//
 	// *Pattern:* (?s).*
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // Properties for defining a `CfnApp`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplify "github.com/aws/aws-cdk-go/awscdk/aws_amplify"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAppProps := &cfnAppProps{
 //   	name: jsii.String("name"),
 //
@@ -2666,7 +2699,7 @@ type CfnAppProps struct {
 	// *Length Constraints:* Minimum length of 1. Maximum length of 255.
 	//
 	// *Pattern:* (?s).+
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The personal access token for a GitHub repository for an Amplify app.
 	//
 	// The personal access token is used to authorize access to a GitHub repository using the Amplify GitHub App. The token is not stored.
@@ -2678,43 +2711,43 @@ type CfnAppProps struct {
 	// Existing Amplify apps deployed from a GitHub repository using OAuth continue to work with CI/CD. However, we strongly recommend that you migrate these apps to use the GitHub App. For more information, see [Migrating an existing OAuth app to the Amplify GitHub App](https://docs.aws.amazon.com/amplify/latest/userguide/setting-up-GitHub-access.html#migrating-to-github-app-auth) in the *Amplify User Guide* .
 	//
 	// *Length Constraints:* Minimum length of 1. Maximum length of 255.
-	AccessToken *string `json:"accessToken" yaml:"accessToken"`
+	AccessToken *string `field:"optional" json:"accessToken" yaml:"accessToken"`
 	// Sets the configuration for your automatic branch creation.
-	AutoBranchCreationConfig interface{} `json:"autoBranchCreationConfig" yaml:"autoBranchCreationConfig"`
+	AutoBranchCreationConfig interface{} `field:"optional" json:"autoBranchCreationConfig" yaml:"autoBranchCreationConfig"`
 	// The credentials for basic authorization for an Amplify app.
 	//
 	// You must base64-encode the authorization credentials and provide them in the format `user:password` .
-	BasicAuthConfig interface{} `json:"basicAuthConfig" yaml:"basicAuthConfig"`
+	BasicAuthConfig interface{} `field:"optional" json:"basicAuthConfig" yaml:"basicAuthConfig"`
 	// The build specification (build spec) for an Amplify app.
 	//
 	// *Length Constraints:* Minimum length of 1. Maximum length of 25000.
 	//
 	// *Pattern:* (?s).+
-	BuildSpec *string `json:"buildSpec" yaml:"buildSpec"`
+	BuildSpec *string `field:"optional" json:"buildSpec" yaml:"buildSpec"`
 	// The custom HTTP headers for an Amplify app.
 	//
 	// *Length Constraints:* Minimum length of 0. Maximum length of 25000.
 	//
 	// *Pattern:* (?s).*
-	CustomHeaders *string `json:"customHeaders" yaml:"customHeaders"`
+	CustomHeaders *string `field:"optional" json:"customHeaders" yaml:"customHeaders"`
 	// The custom rewrite and redirect rules for an Amplify app.
-	CustomRules interface{} `json:"customRules" yaml:"customRules"`
+	CustomRules interface{} `field:"optional" json:"customRules" yaml:"customRules"`
 	// The description for an Amplify app.
 	//
 	// *Length Constraints:* Maximum length of 1000.
 	//
 	// *Pattern:* (?s).*
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Automatically disconnect a branch in the Amplify Console when you delete a branch from your Git repository.
-	EnableBranchAutoDeletion interface{} `json:"enableBranchAutoDeletion" yaml:"enableBranchAutoDeletion"`
+	EnableBranchAutoDeletion interface{} `field:"optional" json:"enableBranchAutoDeletion" yaml:"enableBranchAutoDeletion"`
 	// The environment variables map for an Amplify app.
-	EnvironmentVariables interface{} `json:"environmentVariables" yaml:"environmentVariables"`
+	EnvironmentVariables interface{} `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`
 	// The AWS Identity and Access Management (IAM) service role for the Amazon Resource Name (ARN) of the Amplify app.
 	//
 	// *Length Constraints:* Minimum length of 0. Maximum length of 1000.
 	//
 	// *Pattern:* (?s).*
-	IamServiceRole *string `json:"iamServiceRole" yaml:"iamServiceRole"`
+	IamServiceRole *string `field:"optional" json:"iamServiceRole" yaml:"iamServiceRole"`
 	// The OAuth token for a third-party source control system for an Amplify app.
 	//
 	// The OAuth token is used to create a webhook and a read-only deploy key using SSH cloning. The OAuth token is not stored.
@@ -2728,13 +2761,13 @@ type CfnAppProps struct {
 	// *Length Constraints:* Maximum length of 1000.
 	//
 	// *Pattern:* (?s).*
-	OauthToken *string `json:"oauthToken" yaml:"oauthToken"`
+	OauthToken *string `field:"optional" json:"oauthToken" yaml:"oauthToken"`
 	// The repository for an Amplify app.
 	//
 	// *Pattern:* (?s).*
-	Repository *string `json:"repository" yaml:"repository"`
+	Repository *string `field:"optional" json:"repository" yaml:"repository"`
 	// The tag for an Amplify app.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Amplify::Branch`.
@@ -2742,8 +2775,11 @@ type CfnAppProps struct {
 // The AWS::Amplify::Branch resource creates a new branch within an app.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplify "github.com/aws/aws-cdk-go/awscdk/aws_amplify"
-//   cfnBranch := amplify.NewCfnBranch(this, jsii.String("MyCfnBranch"), &cfnBranchProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnBranch := awscdk.Aws_amplify.NewCfnBranch(this, jsii.String("MyCfnBranch"), &cfnBranchProps{
 //   	appId: jsii.String("appId"),
 //   	branchName: jsii.String("branchName"),
 //
@@ -3691,7 +3727,10 @@ func (c *jsiiProxy_CfnBranch) ValidateProperties(_properties interface{}) {
 // Use the BasicAuthConfig property type to set password protection for a specific branch.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplify "github.com/aws/aws-cdk-go/awscdk/aws_amplify"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   basicAuthConfigProperty := &basicAuthConfigProperty{
 //   	password: jsii.String("password"),
 //   	username: jsii.String("username"),
@@ -3704,13 +3743,13 @@ type CfnBranch_BasicAuthConfigProperty struct {
 	// The password for basic authorization.
 	//
 	// *Length Constraints:* Minimum length of 1. Maximum length of 255.
-	Password *string `json:"password" yaml:"password"`
+	Password *string `field:"required" json:"password" yaml:"password"`
 	// The user name for basic authorization.
 	//
 	// *Length Constraints:* Minimum length of 1. Maximum length of 255.
-	Username *string `json:"username" yaml:"username"`
+	Username *string `field:"required" json:"username" yaml:"username"`
 	// Enables basic authorization for the branch.
-	EnableBasicAuth interface{} `json:"enableBasicAuth" yaml:"enableBasicAuth"`
+	EnableBasicAuth interface{} `field:"optional" json:"enableBasicAuth" yaml:"enableBasicAuth"`
 }
 
 // The EnvironmentVariable property type sets environment variables for a specific branch.
@@ -3718,7 +3757,10 @@ type CfnBranch_BasicAuthConfigProperty struct {
 // Environment variables are key-value pairs that are available at build time.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplify "github.com/aws/aws-cdk-go/awscdk/aws_amplify"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   environmentVariableProperty := &environmentVariableProperty{
 //   	name: jsii.String("name"),
 //   	value: jsii.String("value"),
@@ -3730,19 +3772,22 @@ type CfnBranch_EnvironmentVariableProperty struct {
 	// *Length Constraints:* Maximum length of 255.
 	//
 	// *Pattern:* (?s).*
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The environment variable value.
 	//
 	// *Length Constraints:* Maximum length of 5500.
 	//
 	// *Pattern:* (?s).*
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // Properties for defining a `CfnBranch`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplify "github.com/aws/aws-cdk-go/awscdk/aws_amplify"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnBranchProps := &cfnBranchProps{
 //   	appId: jsii.String("appId"),
 //   	branchName: jsii.String("branchName"),
@@ -3782,35 +3827,35 @@ type CfnBranchProps struct {
 	// *Length Constraints:* Minimum length of 1. Maximum length of 20.
 	//
 	// *Pattern:* d[a-z0-9]+.
-	AppId *string `json:"appId" yaml:"appId"`
+	AppId *string `field:"required" json:"appId" yaml:"appId"`
 	// The name for the branch.
 	//
 	// *Length Constraints:* Minimum length of 1. Maximum length of 255.
 	//
 	// *Pattern:* (?s).+
-	BranchName *string `json:"branchName" yaml:"branchName"`
+	BranchName *string `field:"required" json:"branchName" yaml:"branchName"`
 	// The basic authorization credentials for a branch of an Amplify app.
 	//
 	// You must base64-encode the authorization credentials and provide them in the format `user:password` .
-	BasicAuthConfig interface{} `json:"basicAuthConfig" yaml:"basicAuthConfig"`
+	BasicAuthConfig interface{} `field:"optional" json:"basicAuthConfig" yaml:"basicAuthConfig"`
 	// The build specification (build spec) for the branch.
 	//
 	// *Length Constraints:* Minimum length of 1. Maximum length of 25000.
 	//
 	// *Pattern:* (?s).+
-	BuildSpec *string `json:"buildSpec" yaml:"buildSpec"`
+	BuildSpec *string `field:"optional" json:"buildSpec" yaml:"buildSpec"`
 	// The description for the branch that is part of an Amplify app.
 	//
 	// *Length Constraints:* Maximum length of 1000.
 	//
 	// *Pattern:* (?s).*
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Enables auto building for the branch.
-	EnableAutoBuild interface{} `json:"enableAutoBuild" yaml:"enableAutoBuild"`
+	EnableAutoBuild interface{} `field:"optional" json:"enableAutoBuild" yaml:"enableAutoBuild"`
 	// Enables performance mode for the branch.
 	//
 	// Performance mode optimizes for faster hosting performance by keeping content cached at the edge for a longer interval. When performance mode is enabled, hosting configuration or code changes can take up to 10 minutes to roll out.
-	EnablePerformanceMode interface{} `json:"enablePerformanceMode" yaml:"enablePerformanceMode"`
+	EnablePerformanceMode interface{} `field:"optional" json:"enablePerformanceMode" yaml:"enablePerformanceMode"`
 	// Sets whether the Amplify Console creates a preview for each pull request that is made for this branch.
 	//
 	// If this property is enabled, the Amplify Console deploys your app to a unique preview URL after each pull request is opened. Development and QA teams can use this preview to test the pull request before it's merged into a production or integration branch.
@@ -3818,9 +3863,9 @@ type CfnBranchProps struct {
 	// To provide backend support for your preview, the Amplify Console automatically provisions a temporary backend environment that it deletes when the pull request is closed. If you want to specify a dedicated backend environment for your previews, use the `PullRequestEnvironmentName` property.
 	//
 	// For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
-	EnablePullRequestPreview interface{} `json:"enablePullRequestPreview" yaml:"enablePullRequestPreview"`
+	EnablePullRequestPreview interface{} `field:"optional" json:"enablePullRequestPreview" yaml:"enablePullRequestPreview"`
 	// The environment variables for the branch.
-	EnvironmentVariables interface{} `json:"environmentVariables" yaml:"environmentVariables"`
+	EnvironmentVariables interface{} `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`
 	// If pull request previews are enabled for this branch, you can use this property to specify a dedicated backend environment for your previews.
 	//
 	// For example, you could specify an environment named `prod` , `test` , or `dev` that you initialized with the Amplify CLI and mapped to this branch.
@@ -3834,13 +3879,13 @@ type CfnBranchProps struct {
 	// *Length Constraints:* Maximum length of 20.
 	//
 	// *Pattern:* (?s).*
-	PullRequestEnvironmentName *string `json:"pullRequestEnvironmentName" yaml:"pullRequestEnvironmentName"`
+	PullRequestEnvironmentName *string `field:"optional" json:"pullRequestEnvironmentName" yaml:"pullRequestEnvironmentName"`
 	// Describes the current stage for the branch.
 	//
 	// *Valid Values:* PRODUCTION | BETA | DEVELOPMENT | EXPERIMENTAL | PULL_REQUEST.
-	Stage *string `json:"stage" yaml:"stage"`
+	Stage *string `field:"optional" json:"stage" yaml:"stage"`
 	// The tag for the branch.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Amplify::Domain`.
@@ -3848,8 +3893,11 @@ type CfnBranchProps struct {
 // The AWS::Amplify::Domain resource allows you to connect a custom domain to your app.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplify "github.com/aws/aws-cdk-go/awscdk/aws_amplify"
-//   cfnDomain := amplify.NewCfnDomain(this, jsii.String("MyCfnDomain"), &cfnDomainProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDomain := awscdk.Aws_amplify.NewCfnDomain(this, jsii.String("MyCfnDomain"), &cfnDomainProps{
 //   	appId: jsii.String("appId"),
 //   	domainName: jsii.String("domainName"),
 //   	subDomainSettings: []interface{}{
@@ -4709,7 +4757,10 @@ func (c *jsiiProxy_CfnDomain) ValidateProperties(_properties interface{}) {
 // The SubDomainSetting property type enables you to connect a subdomain (for example, example.exampledomain.com) to a specific branch.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplify "github.com/aws/aws-cdk-go/awscdk/aws_amplify"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   subDomainSettingProperty := &subDomainSettingProperty{
 //   	branchName: jsii.String("branchName"),
 //   	prefix: jsii.String("prefix"),
@@ -4721,19 +4772,22 @@ type CfnDomain_SubDomainSettingProperty struct {
 	// *Length Constraints:* Minimum length of 1. Maximum length of 255.
 	//
 	// *Pattern:* (?s).+
-	BranchName *string `json:"branchName" yaml:"branchName"`
+	BranchName *string `field:"required" json:"branchName" yaml:"branchName"`
 	// The prefix setting for the subdomain.
 	//
 	// *Length Constraints:* Maximum length of 255.
 	//
 	// *Pattern:* (?s).*
-	Prefix *string `json:"prefix" yaml:"prefix"`
+	Prefix *string `field:"required" json:"prefix" yaml:"prefix"`
 }
 
 // Properties for defining a `CfnDomain`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplify "github.com/aws/aws-cdk-go/awscdk/aws_amplify"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDomainProps := &cfnDomainProps{
 //   	appId: jsii.String("appId"),
 //   	domainName: jsii.String("domainName"),
@@ -4758,31 +4812,32 @@ type CfnDomainProps struct {
 	// *Length Constraints:* Minimum length of 1. Maximum length of 20.
 	//
 	// *Pattern:* d[a-z0-9]+.
-	AppId *string `json:"appId" yaml:"appId"`
+	AppId *string `field:"required" json:"appId" yaml:"appId"`
 	// The domain name for the domain association.
 	//
 	// *Length Constraints:* Maximum length of 255.
 	//
 	// *Pattern:* ^(((?!-)[A-Za-z0-9-]{0,62}[A-Za-z0-9])\.)+((?!-)[A-Za-z0-9-]{1,62}[A-Za-z0-9])(\.)?$
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 	// The setting for the subdomain.
-	SubDomainSettings interface{} `json:"subDomainSettings" yaml:"subDomainSettings"`
+	SubDomainSettings interface{} `field:"required" json:"subDomainSettings" yaml:"subDomainSettings"`
 	// Sets the branch patterns for automatic subdomain creation.
-	AutoSubDomainCreationPatterns *[]*string `json:"autoSubDomainCreationPatterns" yaml:"autoSubDomainCreationPatterns"`
+	AutoSubDomainCreationPatterns *[]*string `field:"optional" json:"autoSubDomainCreationPatterns" yaml:"autoSubDomainCreationPatterns"`
 	// The required AWS Identity and Access Management (IAM) service role for the Amazon Resource Name (ARN) for automatically creating subdomains.
 	//
 	// *Length Constraints:* Maximum length of 1000.
 	//
 	// *Pattern:* ^$|^arn:aws:iam::\d{12}:role.+
-	AutoSubDomainIamRole *string `json:"autoSubDomainIamRole" yaml:"autoSubDomainIamRole"`
+	AutoSubDomainIamRole *string `field:"optional" json:"autoSubDomainIamRole" yaml:"autoSubDomainIamRole"`
 	// Enables the automated creation of subdomains for branches.
-	EnableAutoSubDomain interface{} `json:"enableAutoSubDomain" yaml:"enableAutoSubDomain"`
+	EnableAutoSubDomain interface{} `field:"optional" json:"enableAutoSubDomain" yaml:"enableAutoSubDomain"`
 }
 
 // CodeCommit source code provider.
 //
 // Example:
 //   import codecommit "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   repository := codecommit.NewRepository(this, jsii.String("Repo"), &repositoryProps{
 //   	repositoryName: jsii.String("my-repo"),
@@ -4851,6 +4906,7 @@ func (c *jsiiProxy_CodeCommitSourceCodeProvider) Bind(app App) *SourceCodeProvid
 // Example:
 //   import codecommit "github.com/aws/aws-cdk-go/awscdk"
 //
+//
 //   repository := codecommit.NewRepository(this, jsii.String("Repo"), &repositoryProps{
 //   	repositoryName: jsii.String("my-repo"),
 //   })
@@ -4865,13 +4921,16 @@ func (c *jsiiProxy_CodeCommitSourceCodeProvider) Bind(app App) *SourceCodeProvid
 type CodeCommitSourceCodeProviderProps struct {
 	// The CodeCommit repository.
 	// Experimental.
-	Repository awscodecommit.IRepository `json:"repository" yaml:"repository"`
+	Repository awscodecommit.IRepository `field:"required" json:"repository" yaml:"repository"`
 }
 
 // Custom response header of an Amplify App.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplify "github.com/aws/aws-cdk-go/awscdk/aws_amplify"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   customResponseHeader := &customResponseHeader{
 //   	headers: map[string]*string{
 //   		"headersKey": jsii.String("headers"),
@@ -4883,16 +4942,17 @@ type CodeCommitSourceCodeProviderProps struct {
 type CustomResponseHeader struct {
 	// The map of custom headers to be applied.
 	// Experimental.
-	Headers *map[string]*string `json:"headers" yaml:"headers"`
+	Headers *map[string]*string `field:"required" json:"headers" yaml:"headers"`
 	// These custom headers will be applied to all URL file paths that match this pattern.
 	// Experimental.
-	Pattern *string `json:"pattern" yaml:"pattern"`
+	Pattern *string `field:"required" json:"pattern" yaml:"pattern"`
 }
 
 // Custom rewrite/redirect rule for an Amplify App.
 //
 // Example:
 //   var amplifyApp app
+//
 //   amplifyApp.addCustomRule(map[string]interface{}{
 //   	"source": jsii.String("/docs/specific-filename.html"),
 //   	"target": jsii.String("/documents/different-filename.html"),
@@ -5011,14 +5071,17 @@ func CustomRule_SINGLE_PAGE_APPLICATION_REDIRECT() CustomRule {
 // Options for a custom rewrite/redirect rule for an Amplify App.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplify "github.com/aws/aws-cdk-go/awscdk/aws_amplify"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   customRuleOptions := &customRuleOptions{
 //   	source: jsii.String("source"),
 //   	target: jsii.String("target"),
 //
 //   	// the properties below are optional
 //   	condition: jsii.String("condition"),
-//   	status: amplify.redirectStatus_REWRITE,
+//   	status: awscdk.Aws_amplify.redirectStatus_REWRITE,
 //   }
 //
 // Experimental.
@@ -5027,22 +5090,22 @@ type CustomRuleOptions struct {
 	// See: https://docs.aws.amazon.com/amplify/latest/userguide/redirects.html
 	//
 	// Experimental.
-	Source *string `json:"source" yaml:"source"`
+	Source *string `field:"required" json:"source" yaml:"source"`
 	// The target pattern for a URL rewrite or redirect rule.
 	// See: https://docs.aws.amazon.com/amplify/latest/userguide/redirects.html
 	//
 	// Experimental.
-	Target *string `json:"target" yaml:"target"`
+	Target *string `field:"required" json:"target" yaml:"target"`
 	// The condition for a URL rewrite or redirect rule, e.g. country code.
 	// See: https://docs.aws.amazon.com/amplify/latest/userguide/redirects.html
 	//
 	// Experimental.
-	Condition *string `json:"condition" yaml:"condition"`
+	Condition *string `field:"optional" json:"condition" yaml:"condition"`
 	// The status code for a URL rewrite or redirect rule.
 	// See: https://docs.aws.amazon.com/amplify/latest/userguide/redirects.html
 	//
 	// Experimental.
-	Status RedirectStatus `json:"status" yaml:"status"`
+	Status RedirectStatus `field:"optional" json:"status" yaml:"status"`
 }
 
 // An Amplify Console domain.
@@ -5051,6 +5114,7 @@ type CustomRuleOptions struct {
 //   var amplifyApp app
 //   var master branch
 //   var dev branch
+//
 //
 //   domain := amplifyApp.addDomain(jsii.String("example.com"), &domainOptions{
 //   	enableAutoSubdomain: jsii.Boolean(true),
@@ -5538,6 +5602,7 @@ func (d *jsiiProxy_Domain) Validate() *[]*string {
 //   var master branch
 //   var dev branch
 //
+//
 //   domain := amplifyApp.addDomain(jsii.String("example.com"), &domainOptions{
 //   	enableAutoSubdomain: jsii.Boolean(true),
 //   	 // in case subdomains should be auto registered for branches
@@ -5554,26 +5619,30 @@ func (d *jsiiProxy_Domain) Validate() *[]*string {
 type DomainOptions struct {
 	// Branches which should automatically create subdomains.
 	// Experimental.
-	AutoSubdomainCreationPatterns *[]*string `json:"autoSubdomainCreationPatterns" yaml:"autoSubdomainCreationPatterns"`
+	AutoSubdomainCreationPatterns *[]*string `field:"optional" json:"autoSubdomainCreationPatterns" yaml:"autoSubdomainCreationPatterns"`
 	// The name of the domain.
 	// Experimental.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"optional" json:"domainName" yaml:"domainName"`
 	// Automatically create subdomains for connected branches.
 	// Experimental.
-	EnableAutoSubdomain *bool `json:"enableAutoSubdomain" yaml:"enableAutoSubdomain"`
+	EnableAutoSubdomain *bool `field:"optional" json:"enableAutoSubdomain" yaml:"enableAutoSubdomain"`
 	// Subdomains.
 	// Experimental.
-	SubDomains *[]*SubDomain `json:"subDomains" yaml:"subDomains"`
+	SubDomains *[]*SubDomain `field:"optional" json:"subDomains" yaml:"subDomains"`
 }
 
 // Properties for a Domain.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplify "github.com/aws/aws-cdk-go/awscdk/aws_amplify"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var app app
 //   var branch branch
 //   var role role
+//
 //   domainProps := &domainProps{
 //   	app: app,
 //
@@ -5598,22 +5667,22 @@ type DomainOptions struct {
 type DomainProps struct {
 	// Branches which should automatically create subdomains.
 	// Experimental.
-	AutoSubdomainCreationPatterns *[]*string `json:"autoSubdomainCreationPatterns" yaml:"autoSubdomainCreationPatterns"`
+	AutoSubdomainCreationPatterns *[]*string `field:"optional" json:"autoSubdomainCreationPatterns" yaml:"autoSubdomainCreationPatterns"`
 	// The name of the domain.
 	// Experimental.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"optional" json:"domainName" yaml:"domainName"`
 	// Automatically create subdomains for connected branches.
 	// Experimental.
-	EnableAutoSubdomain *bool `json:"enableAutoSubdomain" yaml:"enableAutoSubdomain"`
+	EnableAutoSubdomain *bool `field:"optional" json:"enableAutoSubdomain" yaml:"enableAutoSubdomain"`
 	// Subdomains.
 	// Experimental.
-	SubDomains *[]*SubDomain `json:"subDomains" yaml:"subDomains"`
+	SubDomains *[]*SubDomain `field:"optional" json:"subDomains" yaml:"subDomains"`
 	// The application to which the domain must be connected.
 	// Experimental.
-	App IApp `json:"app" yaml:"app"`
+	App IApp `field:"required" json:"app" yaml:"app"`
 	// The IAM role with access to Route53 when using enableAutoSubdomain.
 	// Experimental.
-	AutoSubDomainIamRole awsiam.IRole `json:"autoSubDomainIamRole" yaml:"autoSubDomainIamRole"`
+	AutoSubDomainIamRole awsiam.IRole `field:"optional" json:"autoSubDomainIamRole" yaml:"autoSubDomainIamRole"`
 }
 
 // GitHub source code provider.
@@ -5623,7 +5692,7 @@ type DomainProps struct {
 //   	sourceCodeProvider: amplify.NewGitHubSourceCodeProvider(&gitHubSourceCodeProviderProps{
 //   		owner: jsii.String("<user>"),
 //   		repository: jsii.String("<repo>"),
-//   		oauthToken: secretValue.secretsManager(jsii.String("my-github-token")),
+//   		oauthToken: awscdk.SecretValue.secretsManager(jsii.String("my-github-token")),
 //   	}),
 //   	autoBranchCreation: &autoBranchCreation{
 //   		 // Automatically connect branches that match a pattern set
@@ -5694,7 +5763,7 @@ func (g *jsiiProxy_GitHubSourceCodeProvider) Bind(_app App) *SourceCodeProviderC
 //   	sourceCodeProvider: amplify.NewGitHubSourceCodeProvider(&gitHubSourceCodeProviderProps{
 //   		owner: jsii.String("<user>"),
 //   		repository: jsii.String("<repo>"),
-//   		oauthToken: secretValue.secretsManager(jsii.String("my-github-token")),
+//   		oauthToken: awscdk.SecretValue.secretsManager(jsii.String("my-github-token")),
 //   	}),
 //   	autoBranchCreation: &autoBranchCreation{
 //   		 // Automatically connect branches that match a pattern set
@@ -5710,13 +5779,13 @@ func (g *jsiiProxy_GitHubSourceCodeProvider) Bind(_app App) *SourceCodeProviderC
 type GitHubSourceCodeProviderProps struct {
 	// A personal access token with the `repo` scope.
 	// Experimental.
-	OauthToken awscdk.SecretValue `json:"oauthToken" yaml:"oauthToken"`
+	OauthToken awscdk.SecretValue `field:"required" json:"oauthToken" yaml:"oauthToken"`
 	// The user or organization owning the repository.
 	// Experimental.
-	Owner *string `json:"owner" yaml:"owner"`
+	Owner *string `field:"required" json:"owner" yaml:"owner"`
 	// The name of the repository.
 	// Experimental.
-	Repository *string `json:"repository" yaml:"repository"`
+	Repository *string `field:"required" json:"repository" yaml:"repository"`
 }
 
 // GitLab source code provider.
@@ -5726,7 +5795,7 @@ type GitHubSourceCodeProviderProps struct {
 //   	sourceCodeProvider: amplify.NewGitLabSourceCodeProvider(&gitLabSourceCodeProviderProps{
 //   		owner: jsii.String("<user>"),
 //   		repository: jsii.String("<repo>"),
-//   		oauthToken: secretValue.secretsManager(jsii.String("my-gitlab-token")),
+//   		oauthToken: awscdk.SecretValue.secretsManager(jsii.String("my-gitlab-token")),
 //   	}),
 //   })
 //
@@ -5789,7 +5858,7 @@ func (g *jsiiProxy_GitLabSourceCodeProvider) Bind(_app App) *SourceCodeProviderC
 //   	sourceCodeProvider: amplify.NewGitLabSourceCodeProvider(&gitLabSourceCodeProviderProps{
 //   		owner: jsii.String("<user>"),
 //   		repository: jsii.String("<repo>"),
-//   		oauthToken: secretValue.secretsManager(jsii.String("my-gitlab-token")),
+//   		oauthToken: awscdk.SecretValue.secretsManager(jsii.String("my-gitlab-token")),
 //   	}),
 //   })
 //
@@ -5797,13 +5866,13 @@ func (g *jsiiProxy_GitLabSourceCodeProvider) Bind(_app App) *SourceCodeProviderC
 type GitLabSourceCodeProviderProps struct {
 	// A personal access token with the `repo` scope.
 	// Experimental.
-	OauthToken awscdk.SecretValue `json:"oauthToken" yaml:"oauthToken"`
+	OauthToken awscdk.SecretValue `field:"required" json:"oauthToken" yaml:"oauthToken"`
 	// The user or organization owning the repository.
 	// Experimental.
-	Owner *string `json:"owner" yaml:"owner"`
+	Owner *string `field:"required" json:"owner" yaml:"owner"`
 	// The name of the repository.
 	// Experimental.
-	Repository *string `json:"repository" yaml:"repository"`
+	Repository *string `field:"required" json:"repository" yaml:"repository"`
 }
 
 // An Amplify Console application.
@@ -5884,6 +5953,7 @@ func (i *jsiiProxy_ISourceCodeProvider) Bind(app App) *SourceCodeProviderConfig 
 //
 // Example:
 //   var amplifyApp app
+//
 //   amplifyApp.addCustomRule(map[string]interface{}{
 //   	"source": jsii.String("/docs/specific-filename.html"),
 //   	"target": jsii.String("/documents/different-filename.html"),
@@ -5914,9 +5984,13 @@ const (
 // Configuration for the source code provider.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplify "github.com/aws/aws-cdk-go/awscdk/aws_amplify"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var secretValue secretValue
+//
 //   sourceCodeProviderConfig := &sourceCodeProviderConfig{
 //   	repository: jsii.String("repository"),
 //
@@ -5931,7 +6005,7 @@ type SourceCodeProviderConfig struct {
 	//
 	// For example, `https://github.com/aws/aws-cdk`.
 	// Experimental.
-	Repository *string `json:"repository" yaml:"repository"`
+	Repository *string `field:"required" json:"repository" yaml:"repository"`
 	// Personal Access token for 3rd party source control system for an Amplify App, used to create webhook and read-only deploy key.
 	//
 	// Token is not stored.
@@ -5939,7 +6013,7 @@ type SourceCodeProviderConfig struct {
 	// Either `accessToken` or `oauthToken` must be specified if `repository`
 	// is sepcified.
 	// Experimental.
-	AccessToken awscdk.SecretValue `json:"accessToken" yaml:"accessToken"`
+	AccessToken awscdk.SecretValue `field:"optional" json:"accessToken" yaml:"accessToken"`
 	// OAuth token for 3rd party source control system for an Amplify App, used to create webhook and read-only deploy key.
 	//
 	// OAuth token is not stored.
@@ -5947,15 +6021,18 @@ type SourceCodeProviderConfig struct {
 	// Either `accessToken` or `oauthToken` must be specified if `repository`
 	// is specified.
 	// Experimental.
-	OauthToken awscdk.SecretValue `json:"oauthToken" yaml:"oauthToken"`
+	OauthToken awscdk.SecretValue `field:"optional" json:"oauthToken" yaml:"oauthToken"`
 }
 
 // Sub domain settings.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import amplify "github.com/aws/aws-cdk-go/awscdk/aws_amplify"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var branch branch
+//
 //   subDomain := &subDomain{
 //   	branch: branch,
 //
@@ -5967,11 +6044,11 @@ type SourceCodeProviderConfig struct {
 type SubDomain struct {
 	// The branch.
 	// Experimental.
-	Branch IBranch `json:"branch" yaml:"branch"`
+	Branch IBranch `field:"required" json:"branch" yaml:"branch"`
 	// The prefix.
 	//
 	// Use '' to map to the root of the domain.
 	// Experimental.
-	Prefix *string `json:"prefix" yaml:"prefix"`
+	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 }
 

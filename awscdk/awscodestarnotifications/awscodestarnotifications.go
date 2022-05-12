@@ -14,10 +14,13 @@ import (
 // Creates a notification rule for a resource. The rule specifies the events you want notifications about and the targets (such as AWS Chatbot topics or AWS Chatbot clients configured for Slack) where you want to receive them.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codestarnotifications "github.com/aws/aws-cdk-go/awscdk/aws_codestarnotifications"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var tags interface{}
-//   cfnNotificationRule := codestarnotifications.NewCfnNotificationRule(this, jsii.String("MyCfnNotificationRule"), &cfnNotificationRuleProps{
+//
+//   cfnNotificationRule := awscdk.Aws_codestarnotifications.NewCfnNotificationRule(this, jsii.String("MyCfnNotificationRule"), &cfnNotificationRuleProps{
 //   	detailType: jsii.String("detailType"),
 //   	eventTypeIds: []*string{
 //   		jsii.String("eventTypeIds"),
@@ -871,7 +874,10 @@ func (c *jsiiProxy_CfnNotificationRule) ValidateProperties(_properties interface
 // Information about the AWS Chatbot topics or AWS Chatbot clients associated with a notification rule.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codestarnotifications "github.com/aws/aws-cdk-go/awscdk/aws_codestarnotifications"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   targetProperty := &targetProperty{
 //   	targetAddress: jsii.String("targetAddress"),
 //   	targetType: jsii.String("targetType"),
@@ -879,20 +885,23 @@ func (c *jsiiProxy_CfnNotificationRule) ValidateProperties(_properties interface
 //
 type CfnNotificationRule_TargetProperty struct {
 	// The Amazon Resource Name (ARN) of the AWS Chatbot topic or AWS Chatbot client.
-	TargetAddress *string `json:"targetAddress" yaml:"targetAddress"`
+	TargetAddress *string `field:"required" json:"targetAddress" yaml:"targetAddress"`
 	// The target type. Can be an Amazon Simple Notification Service topic or AWS Chatbot client.
 	//
 	// - Amazon Simple Notification Service topics are specified as `SNS` .
 	// - AWS Chatbot clients are specified as `AWSChatbotSlack` .
-	TargetType *string `json:"targetType" yaml:"targetType"`
+	TargetType *string `field:"required" json:"targetType" yaml:"targetType"`
 }
 
 // Properties for defining a `CfnNotificationRule`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codestarnotifications "github.com/aws/aws-cdk-go/awscdk/aws_codestarnotifications"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var tags interface{}
+//
 //   cfnNotificationRuleProps := &cfnNotificationRuleProps{
 //   	detailType: jsii.String("detailType"),
 //   	eventTypeIds: []*string{
@@ -919,35 +928,35 @@ type CfnNotificationRuleProps struct {
 	// The level of detail to include in the notifications for this resource.
 	//
 	// `BASIC` will include only the contents of the event as it would appear in Amazon CloudWatch. `FULL` will include any supplemental information provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.
-	DetailType *string `json:"detailType" yaml:"detailType"`
+	DetailType *string `field:"required" json:"detailType" yaml:"detailType"`
 	// A list of event types associated with this notification rule.
 	//
 	// For a complete list of event types and IDs, see [Notification concepts](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api) in the *Developer Tools Console User Guide* .
-	EventTypeIds *[]*string `json:"eventTypeIds" yaml:"eventTypeIds"`
+	EventTypeIds *[]*string `field:"required" json:"eventTypeIds" yaml:"eventTypeIds"`
 	// The name for the notification rule.
 	//
 	// Notification rule names must be unique in your AWS account .
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The Amazon Resource Name (ARN) of the resource to associate with the notification rule.
 	//
 	// Supported resources include pipelines in AWS CodePipeline , repositories in AWS CodeCommit , and build projects in AWS CodeBuild .
-	Resource *string `json:"resource" yaml:"resource"`
+	Resource *string `field:"required" json:"resource" yaml:"resource"`
 	// A list of Amazon Resource Names (ARNs) of AWS Chatbot topics and AWS Chatbot clients to associate with the notification rule.
-	Targets interface{} `json:"targets" yaml:"targets"`
+	Targets interface{} `field:"required" json:"targets" yaml:"targets"`
 	// `AWS::CodeStarNotifications::NotificationRule.CreatedBy`.
-	CreatedBy *string `json:"createdBy" yaml:"createdBy"`
+	CreatedBy *string `field:"optional" json:"createdBy" yaml:"createdBy"`
 	// `AWS::CodeStarNotifications::NotificationRule.EventTypeId`.
-	EventTypeId *string `json:"eventTypeId" yaml:"eventTypeId"`
+	EventTypeId *string `field:"optional" json:"eventTypeId" yaml:"eventTypeId"`
 	// The status of the notification rule.
 	//
 	// The default value is `ENABLED` . If the status is set to `DISABLED` , notifications aren't sent for the notification rule.
-	Status *string `json:"status" yaml:"status"`
+	Status *string `field:"optional" json:"status" yaml:"status"`
 	// A list of tags to apply to this notification rule.
 	//
 	// Key names cannot start with " `aws` ".
-	Tags interface{} `json:"tags" yaml:"tags"`
+	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
 	// `AWS::CodeStarNotifications::NotificationRule.TargetAddress`.
-	TargetAddress *string `json:"targetAddress" yaml:"targetAddress"`
+	TargetAddress *string `field:"optional" json:"targetAddress" yaml:"targetAddress"`
 }
 
 // The level of detail to include in the notifications for this resource.
@@ -1060,7 +1069,11 @@ func (i *jsiiProxy_INotificationRuleTarget) BindAsNotificationRuleTarget(scope c
 // A new notification rule.
 //
 // Example:
-//   import notifications "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk"import sns "github.com/aws/aws-cdk-go/awscdk"import chatbot "github.com/aws/aws-cdk-go/awscdk"
+//   import notifications "github.com/aws/aws-cdk-go/awscdk"
+//   import codebuild "github.com/aws/aws-cdk-go/awscdk"
+//   import sns "github.com/aws/aws-cdk-go/awscdk"
+//   import chatbot "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   project := codebuild.NewPipelineProject(this, jsii.String("MyProject"))
 //
@@ -1468,9 +1481,12 @@ func (n *jsiiProxy_NotificationRule) Validate() *[]*string {
 // Standard set of options for `notifyOnXxx` codestar notification handler on construct.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codestarnotifications "github.com/aws/aws-cdk-go/awscdk/aws_codestarnotifications"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   notificationRuleOptions := &notificationRuleOptions{
-//   	detailType: codestarnotifications.detailType_BASIC,
+//   	detailType: awscdk.Aws_codestarnotifications.detailType_BASIC,
 //   	enabled: jsii.Boolean(false),
 //   	notificationRuleName: jsii.String("notificationRuleName"),
 //   }
@@ -1482,23 +1498,27 @@ type NotificationRuleOptions struct {
 	// BASIC will include only the contents of the event as it would appear in AWS CloudWatch.
 	// FULL will include any supplemental information provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.
 	// Experimental.
-	DetailType DetailType `json:"detailType" yaml:"detailType"`
+	DetailType DetailType `field:"optional" json:"detailType" yaml:"detailType"`
 	// The status of the notification rule.
 	//
 	// If the enabled is set to DISABLED, notifications aren't sent for the notification rule.
 	// Experimental.
-	Enabled *bool `json:"enabled" yaml:"enabled"`
+	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// The name for the notification rule.
 	//
 	// Notification rule names must be unique in your AWS account.
 	// Experimental.
-	NotificationRuleName *string `json:"notificationRuleName" yaml:"notificationRuleName"`
+	NotificationRuleName *string `field:"optional" json:"notificationRuleName" yaml:"notificationRuleName"`
 }
 
 // Properties for a new notification rule.
 //
 // Example:
-//   import notifications "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk"import sns "github.com/aws/aws-cdk-go/awscdk"import chatbot "github.com/aws/aws-cdk-go/awscdk"
+//   import notifications "github.com/aws/aws-cdk-go/awscdk"
+//   import codebuild "github.com/aws/aws-cdk-go/awscdk"
+//   import sns "github.com/aws/aws-cdk-go/awscdk"
+//   import chatbot "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   project := codebuild.NewPipelineProject(this, jsii.String("MyProject"))
 //
@@ -1529,40 +1549,43 @@ type NotificationRuleProps struct {
 	// BASIC will include only the contents of the event as it would appear in AWS CloudWatch.
 	// FULL will include any supplemental information provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.
 	// Experimental.
-	DetailType DetailType `json:"detailType" yaml:"detailType"`
+	DetailType DetailType `field:"optional" json:"detailType" yaml:"detailType"`
 	// The status of the notification rule.
 	//
 	// If the enabled is set to DISABLED, notifications aren't sent for the notification rule.
 	// Experimental.
-	Enabled *bool `json:"enabled" yaml:"enabled"`
+	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// The name for the notification rule.
 	//
 	// Notification rule names must be unique in your AWS account.
 	// Experimental.
-	NotificationRuleName *string `json:"notificationRuleName" yaml:"notificationRuleName"`
+	NotificationRuleName *string `field:"optional" json:"notificationRuleName" yaml:"notificationRuleName"`
 	// A list of event types associated with this notification rule.
 	//
 	// For a complete list of event types and IDs, see Notification concepts in the Developer Tools Console User Guide.
 	// See: https://docs.aws.amazon.com/dtconsole/latest/userguide/concepts.html#concepts-api
 	//
 	// Experimental.
-	Events *[]*string `json:"events" yaml:"events"`
+	Events *[]*string `field:"required" json:"events" yaml:"events"`
 	// The Amazon Resource Name (ARN) of the resource to associate with the notification rule.
 	//
 	// Currently, Supported sources include pipelines in AWS CodePipeline, build projects in AWS CodeBuild, and repositories in AWS CodeCommit in this L2 constructor.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-resource
 	//
 	// Experimental.
-	Source INotificationRuleSource `json:"source" yaml:"source"`
+	Source INotificationRuleSource `field:"required" json:"source" yaml:"source"`
 	// The targets to register for the notification destination.
 	// Experimental.
-	Targets *[]INotificationRuleTarget `json:"targets" yaml:"targets"`
+	Targets *[]INotificationRuleTarget `field:"optional" json:"targets" yaml:"targets"`
 }
 
 // Information about the Codebuild or CodePipeline associated with a notification source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codestarnotifications "github.com/aws/aws-cdk-go/awscdk/aws_codestarnotifications"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   notificationRuleSourceConfig := &notificationRuleSourceConfig{
 //   	sourceArn: jsii.String("sourceArn"),
 //   }
@@ -1571,13 +1594,16 @@ type NotificationRuleProps struct {
 type NotificationRuleSourceConfig struct {
 	// The Amazon Resource Name (ARN) of the notification source.
 	// Experimental.
-	SourceArn *string `json:"sourceArn" yaml:"sourceArn"`
+	SourceArn *string `field:"required" json:"sourceArn" yaml:"sourceArn"`
 }
 
 // Information about the SNS topic or AWS Chatbot client associated with a notification target.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codestarnotifications "github.com/aws/aws-cdk-go/awscdk/aws_codestarnotifications"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   notificationRuleTargetConfig := &notificationRuleTargetConfig{
 //   	targetAddress: jsii.String("targetAddress"),
 //   	targetType: jsii.String("targetType"),
@@ -1587,11 +1613,11 @@ type NotificationRuleSourceConfig struct {
 type NotificationRuleTargetConfig struct {
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic or AWS Chatbot client.
 	// Experimental.
-	TargetAddress *string `json:"targetAddress" yaml:"targetAddress"`
+	TargetAddress *string `field:"required" json:"targetAddress" yaml:"targetAddress"`
 	// The target type.
 	//
 	// Can be an Amazon SNS topic or AWS Chatbot client.
 	// Experimental.
-	TargetType *string `json:"targetType" yaml:"targetType"`
+	TargetType *string `field:"required" json:"targetType" yaml:"targetType"`
 }
 

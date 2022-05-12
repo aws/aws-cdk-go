@@ -15,11 +15,16 @@ import (
 // Use a Kinesis stream as the destination for a log subscription.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesis "github.com/aws/aws-cdk-go/awscdk/aws_kinesis"import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs_destinations "github.com/aws/aws-cdk-go/awscdk/aws_logs_destinations"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var role role
 //   var stream stream
-//   kinesisDestination := logs_destinations.NewKinesisDestination(stream, &kinesisDestinationProps{
+//
+//   kinesisDestination := awscdk.Aws_logs_destinations.NewKinesisDestination(stream, &kinesisDestinationProps{
 //   	role: role,
 //   })
 //
@@ -85,9 +90,13 @@ func (k *jsiiProxy_KinesisDestination) Bind(scope awscdk.Construct, _sourceLogGr
 // Customize the Kinesis Logs Destination.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs_destinations "github.com/aws/aws-cdk-go/awscdk/aws_logs_destinations"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var role role
+//
 //   kinesisDestinationProps := &kinesisDestinationProps{
 //   	role: role,
 //   }
@@ -96,7 +105,7 @@ func (k *jsiiProxy_KinesisDestination) Bind(scope awscdk.Construct, _sourceLogGr
 type KinesisDestinationProps struct {
 	// The role to assume to write log events to the destination.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 }
 
 // Use a Lambda Function as the destination for a log subscription.
@@ -105,6 +114,7 @@ type KinesisDestinationProps struct {
 //   import destinations "github.com/aws/aws-cdk-go/awscdk"
 //   var fn function
 //   var logGroup logGroup
+//
 //
 //   logs.NewSubscriptionFilter(this, jsii.String("Subscription"), &subscriptionFilterProps{
 //   	logGroup: logGroup,
@@ -176,7 +186,10 @@ func (l *jsiiProxy_LambdaDestination) Bind(scope awscdk.Construct, logGroup awsl
 // Options that may be provided to LambdaDestination.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs_destinations "github.com/aws/aws-cdk-go/awscdk/aws_logs_destinations"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   lambdaDestinationOptions := &lambdaDestinationOptions{
 //   	addPermissions: jsii.Boolean(false),
 //   }
@@ -185,6 +198,6 @@ func (l *jsiiProxy_LambdaDestination) Bind(scope awscdk.Construct, logGroup awsl
 type LambdaDestinationOptions struct {
 	// Whether or not to add Lambda Permissions.
 	// Experimental.
-	AddPermissions *bool `json:"addPermissions" yaml:"addPermissions"`
+	AddPermissions *bool `field:"optional" json:"addPermissions" yaml:"addPermissions"`
 }
 

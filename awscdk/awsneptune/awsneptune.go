@@ -23,8 +23,11 @@ import (
 // You can use `AWS::Neptune::DBCluster.DeletionProtection` to help guard against unintended deletion of your DB cluster.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import neptune "github.com/aws/aws-cdk-go/awscdk/aws_neptune"
-//   cfnDBCluster := neptune.NewCfnDBCluster(this, jsii.String("MyCfnDBCluster"), &cfnDBClusterProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDBCluster := awscdk.Aws_neptune.NewCfnDBCluster(this, jsii.String("MyCfnDBCluster"), &cfnDBClusterProps{
 //   	associatedRoles: []interface{}{
 //   		&dBClusterRoleProperty{
 //   			roleArn: jsii.String("roleArn"),
@@ -1220,7 +1223,10 @@ func (c *jsiiProxy_CfnDBCluster) ValidateProperties(_properties interface{}) {
 // Describes an Amazon Identity and Access Management (IAM) role that is associated with a DB cluster.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import neptune "github.com/aws/aws-cdk-go/awscdk/aws_neptune"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dBClusterRoleProperty := &dBClusterRoleProperty{
 //   	roleArn: jsii.String("roleArn"),
 //
@@ -1230,11 +1236,11 @@ func (c *jsiiProxy_CfnDBCluster) ValidateProperties(_properties interface{}) {
 //
 type CfnDBCluster_DBClusterRoleProperty struct {
 	// The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The name of the feature associated with the Amazon Identity and Access Management (IAM) role.
 	//
 	// For the list of supported feature names, see [DescribeDBEngineVersions](https://docs.aws.amazon.com/neptune/latest/userguide/api-other-apis.html#DescribeDBEngineVersions) .
-	FeatureName *string `json:"featureName" yaml:"featureName"`
+	FeatureName *string `field:"optional" json:"featureName" yaml:"featureName"`
 }
 
 // A CloudFormation `AWS::Neptune::DBClusterParameterGroup`.
@@ -1244,10 +1250,13 @@ type CfnDBCluster_DBClusterRoleProperty struct {
 // > Applying a parameter group to a DB cluster might require instances to reboot, resulting in a database outage while the instances reboot.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import neptune "github.com/aws/aws-cdk-go/awscdk/aws_neptune"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameters interface{}
-//   cfnDBClusterParameterGroup := neptune.NewCfnDBClusterParameterGroup(this, jsii.String("MyCfnDBClusterParameterGroup"), &cfnDBClusterParameterGroupProps{
+//
+//   cfnDBClusterParameterGroup := awscdk.Aws_neptune.NewCfnDBClusterParameterGroup(this, jsii.String("MyCfnDBClusterParameterGroup"), &cfnDBClusterParameterGroupProps{
 //   	description: jsii.String("description"),
 //   	family: jsii.String("family"),
 //   	parameters: parameters,
@@ -1970,9 +1979,12 @@ func (c *jsiiProxy_CfnDBClusterParameterGroup) ValidateProperties(_properties in
 // Properties for defining a `CfnDBClusterParameterGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import neptune "github.com/aws/aws-cdk-go/awscdk/aws_neptune"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameters interface{}
+//
 //   cfnDBClusterParameterGroupProps := &cfnDBClusterParameterGroupProps{
 //   	description: jsii.String("description"),
 //   	family: jsii.String("family"),
@@ -1990,25 +2002,28 @@ func (c *jsiiProxy_CfnDBClusterParameterGroup) ValidateProperties(_properties in
 //
 type CfnDBClusterParameterGroupProps struct {
 	// Provides the customer-specified description for this DB cluster parameter group.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"required" json:"description" yaml:"description"`
 	// Must be `neptune1` .
-	Family *string `json:"family" yaml:"family"`
+	Family *string `field:"required" json:"family" yaml:"family"`
 	// The parameters to set for this DB cluster parameter group.
 	//
 	// The parameters are expressed as a JSON object consisting of key-value pairs.
 	//
 	// If you update the parameters, some interruption may occur depending on which parameters you update.
-	Parameters interface{} `json:"parameters" yaml:"parameters"`
+	Parameters interface{} `field:"required" json:"parameters" yaml:"parameters"`
 	// Provides the name of the DB cluster parameter group.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The tags that you want to attach to this parameter group.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // Properties for defining a `CfnDBCluster`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import neptune "github.com/aws/aws-cdk-go/awscdk/aws_neptune"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDBClusterProps := &cfnDBClusterProps{
 //   	associatedRoles: []interface{}{
 //   		&dBClusterRoleProperty{
@@ -2056,83 +2071,83 @@ type CfnDBClusterProps struct {
 	// Provides a list of the Amazon Identity and Access Management (IAM) roles that are associated with the DB cluster.
 	//
 	// IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other Amazon services on your behalf.
-	AssociatedRoles interface{} `json:"associatedRoles" yaml:"associatedRoles"`
+	AssociatedRoles interface{} `field:"optional" json:"associatedRoles" yaml:"associatedRoles"`
 	// Provides the list of EC2 Availability Zones that instances in the DB cluster can be created in.
-	AvailabilityZones *[]*string `json:"availabilityZones" yaml:"availabilityZones"`
+	AvailabilityZones *[]*string `field:"optional" json:"availabilityZones" yaml:"availabilityZones"`
 	// Specifies the number of days for which automatic DB snapshots are retained.
 	//
 	// An update may require some interruption. See [ModifyDBInstance](https://docs.aws.amazon.com/neptune/latest/userguide/api-instances.html#ModifyDBInstance) in the Amazon Neptune User Guide for more information.
-	BackupRetentionPeriod *float64 `json:"backupRetentionPeriod" yaml:"backupRetentionPeriod"`
+	BackupRetentionPeriod *float64 `field:"optional" json:"backupRetentionPeriod" yaml:"backupRetentionPeriod"`
 	// Contains a user-supplied DB cluster identifier.
 	//
 	// This identifier is the unique key that identifies a DB cluster.
-	DbClusterIdentifier *string `json:"dbClusterIdentifier" yaml:"dbClusterIdentifier"`
+	DbClusterIdentifier *string `field:"optional" json:"dbClusterIdentifier" yaml:"dbClusterIdentifier"`
 	// Provides the name of the DB cluster parameter group.
 	//
 	// An update may require some interruption. See [ModifyDBInstance](https://docs.aws.amazon.com/neptune/latest/userguide/api-instances.html#ModifyDBInstance) in the Amazon Neptune User Guide for more information.
-	DbClusterParameterGroupName *string `json:"dbClusterParameterGroupName" yaml:"dbClusterParameterGroupName"`
+	DbClusterParameterGroupName *string `field:"optional" json:"dbClusterParameterGroupName" yaml:"dbClusterParameterGroupName"`
 	// Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
-	DbSubnetGroupName *string `json:"dbSubnetGroupName" yaml:"dbSubnetGroupName"`
+	DbSubnetGroupName *string `field:"optional" json:"dbSubnetGroupName" yaml:"dbSubnetGroupName"`
 	// Indicates whether or not the DB cluster has deletion protection enabled.
 	//
 	// The database can't be deleted when deletion protection is enabled.
-	DeletionProtection interface{} `json:"deletionProtection" yaml:"deletionProtection"`
+	DeletionProtection interface{} `field:"optional" json:"deletionProtection" yaml:"deletionProtection"`
 	// Specifies a list of log types that are enabled for export to CloudWatch Logs.
-	EnableCloudwatchLogsExports *[]*string `json:"enableCloudwatchLogsExports" yaml:"enableCloudwatchLogsExports"`
+	EnableCloudwatchLogsExports *[]*string `field:"optional" json:"enableCloudwatchLogsExports" yaml:"enableCloudwatchLogsExports"`
 	// Indicates the database engine version.
-	EngineVersion *string `json:"engineVersion" yaml:"engineVersion"`
+	EngineVersion *string `field:"optional" json:"engineVersion" yaml:"engineVersion"`
 	// True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
-	IamAuthEnabled interface{} `json:"iamAuthEnabled" yaml:"iamAuthEnabled"`
+	IamAuthEnabled interface{} `field:"optional" json:"iamAuthEnabled" yaml:"iamAuthEnabled"`
 	// If `StorageEncrypted` is true, the Amazon KMS key identifier for the encrypted DB cluster.
-	KmsKeyId *string `json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// Specifies the port that the database engine is listening on.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the `BackupRetentionPeriod` .
 	//
 	// An update may require some interruption.
-	PreferredBackupWindow *string `json:"preferredBackupWindow" yaml:"preferredBackupWindow"`
+	PreferredBackupWindow *string `field:"optional" json:"preferredBackupWindow" yaml:"preferredBackupWindow"`
 	// Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
+	PreferredMaintenanceWindow *string `field:"optional" json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
 	// Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
 	//
 	// If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
 	//
 	// If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
-	RestoreToTime *string `json:"restoreToTime" yaml:"restoreToTime"`
+	RestoreToTime *string `field:"optional" json:"restoreToTime" yaml:"restoreToTime"`
 	// Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
 	//
 	// If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
 	//
 	// If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
-	RestoreType *string `json:"restoreType" yaml:"restoreType"`
+	RestoreType *string `field:"optional" json:"restoreType" yaml:"restoreType"`
 	// Specifies the identifier for a DB cluster snapshot. Must match the identifier of an existing snapshot.
 	//
 	// After you restore a DB cluster using a `SnapshotIdentifier` , you must specify the same `SnapshotIdentifier` for any future updates to the DB cluster. When you specify this property for an update, the DB cluster is not restored from the snapshot again, and the data in the database is not changed.
 	//
 	// However, if you don't specify the `SnapshotIdentifier` , an empty DB cluster is created, and the original DB cluster is deleted. If you specify a property that is different from the previous snapshot restore property, the DB cluster is restored from the snapshot specified by the `SnapshotIdentifier` , and the original DB cluster is deleted.
-	SnapshotIdentifier *string `json:"snapshotIdentifier" yaml:"snapshotIdentifier"`
+	SnapshotIdentifier *string `field:"optional" json:"snapshotIdentifier" yaml:"snapshotIdentifier"`
 	// Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
 	//
 	// If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
 	//
 	// If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
-	SourceDbClusterIdentifier *string `json:"sourceDbClusterIdentifier" yaml:"sourceDbClusterIdentifier"`
+	SourceDbClusterIdentifier *string `field:"optional" json:"sourceDbClusterIdentifier" yaml:"sourceDbClusterIdentifier"`
 	// Indicates whether the DB cluster is encrypted.
 	//
 	// If you specify the `DBClusterIdentifier` , `DBSnapshotIdentifier` , or `SourceDBInstanceIdentifier` property, don't specify this property. The value is inherited from the cluster, snapshot, or source DB instance. If you specify the `KmsKeyId` property, you must enable encryption.
 	//
 	// If you specify the `KmsKeyId` , you must enable encryption by setting `StorageEncrypted` to true.
-	StorageEncrypted interface{} `json:"storageEncrypted" yaml:"storageEncrypted"`
+	StorageEncrypted interface{} `field:"optional" json:"storageEncrypted" yaml:"storageEncrypted"`
 	// The tags assigned to this cluster.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
 	//
 	// If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
 	//
 	// If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
-	UseLatestRestorableTime interface{} `json:"useLatestRestorableTime" yaml:"useLatestRestorableTime"`
+	UseLatestRestorableTime interface{} `field:"optional" json:"useLatestRestorableTime" yaml:"useLatestRestorableTime"`
 	// Provides a list of VPC security groups that the DB cluster belongs to.
-	VpcSecurityGroupIds *[]*string `json:"vpcSecurityGroupIds" yaml:"vpcSecurityGroupIds"`
+	VpcSecurityGroupIds *[]*string `field:"optional" json:"vpcSecurityGroupIds" yaml:"vpcSecurityGroupIds"`
 }
 
 // A CloudFormation `AWS::Neptune::DBInstance`.
@@ -2160,8 +2175,11 @@ type CfnDBClusterProps struct {
 // > - Update the stack.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import neptune "github.com/aws/aws-cdk-go/awscdk/aws_neptune"
-//   cfnDBInstance := neptune.NewCfnDBInstance(this, jsii.String("MyCfnDBInstance"), &cfnDBInstanceProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDBInstance := awscdk.Aws_neptune.NewCfnDBInstance(this, jsii.String("MyCfnDBInstance"), &cfnDBInstanceProps{
 //   	dbInstanceClass: jsii.String("dbInstanceClass"),
 //
 //   	// the properties below are optional
@@ -3056,7 +3074,10 @@ func (c *jsiiProxy_CfnDBInstance) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnDBInstance`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import neptune "github.com/aws/aws-cdk-go/awscdk/aws_neptune"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDBInstanceProps := &cfnDBInstanceProps{
 //   	dbInstanceClass: jsii.String("dbInstanceClass"),
 //
@@ -3082,41 +3103,41 @@ type CfnDBInstanceProps struct {
 	// Contains the name of the compute and memory capacity class of the DB instance.
 	//
 	// If you update this property, some interruptions may occur.
-	DbInstanceClass *string `json:"dbInstanceClass" yaml:"dbInstanceClass"`
+	DbInstanceClass *string `field:"required" json:"dbInstanceClass" yaml:"dbInstanceClass"`
 	// Indicates that major version upgrades are allowed.
 	//
 	// Changing this parameter doesn't result in an outage and the change is asynchronously applied as soon as possible. This parameter must be set to true when specifying a value for the EngineVersion parameter that is a different major version than the DB instance's current version.
-	AllowMajorVersionUpgrade interface{} `json:"allowMajorVersionUpgrade" yaml:"allowMajorVersionUpgrade"`
+	AllowMajorVersionUpgrade interface{} `field:"optional" json:"allowMajorVersionUpgrade" yaml:"allowMajorVersionUpgrade"`
 	// Indicates that minor version patches are applied automatically.
 	//
 	// When updating this property, some interruptions may occur.
-	AutoMinorVersionUpgrade interface{} `json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
+	AutoMinorVersionUpgrade interface{} `field:"optional" json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
 	// Specifies the name of the Availability Zone the DB instance is located in.
-	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
+	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
 	// If the DB instance is a member of a DB cluster, contains the name of the DB cluster that the DB instance is a member of.
-	DbClusterIdentifier *string `json:"dbClusterIdentifier" yaml:"dbClusterIdentifier"`
+	DbClusterIdentifier *string `field:"optional" json:"dbClusterIdentifier" yaml:"dbClusterIdentifier"`
 	// Contains a user-supplied database identifier.
 	//
 	// This identifier is the unique key that identifies a DB instance.
-	DbInstanceIdentifier *string `json:"dbInstanceIdentifier" yaml:"dbInstanceIdentifier"`
+	DbInstanceIdentifier *string `field:"optional" json:"dbInstanceIdentifier" yaml:"dbInstanceIdentifier"`
 	// The name of an existing DB parameter group or a reference to an AWS::Neptune::DBParameterGroup resource created in the template.
 	//
 	// If any of the data members of the referenced parameter group are changed during an update, the DB instance might need to be restarted, which causes some interruption. If the parameter group contains static parameters, whether they were changed or not, an update triggers a reboot.
-	DbParameterGroupName *string `json:"dbParameterGroupName" yaml:"dbParameterGroupName"`
+	DbParameterGroupName *string `field:"optional" json:"dbParameterGroupName" yaml:"dbParameterGroupName"`
 	// This parameter is not supported.
 	//
 	// `AWS::Neptune::DBInstance` does not support restoring from snapshots.
 	//
 	// `AWS::Neptune::DBCluster` does support restoring from snapshots.
-	DbSnapshotIdentifier *string `json:"dbSnapshotIdentifier" yaml:"dbSnapshotIdentifier"`
+	DbSnapshotIdentifier *string `field:"optional" json:"dbSnapshotIdentifier" yaml:"dbSnapshotIdentifier"`
 	// A DB subnet group to associate with the DB instance.
 	//
 	// If you update this value, the new subnet group must be a subnet group in a new virtual private cloud (VPC).
-	DbSubnetGroupName *string `json:"dbSubnetGroupName" yaml:"dbSubnetGroupName"`
+	DbSubnetGroupName *string `field:"optional" json:"dbSubnetGroupName" yaml:"dbSubnetGroupName"`
 	// Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
+	PreferredMaintenanceWindow *string `field:"optional" json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
 	// An arbitrary set of tags (key-value pairs) for this DB instance.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Neptune::DBParameterGroup`.
@@ -3130,10 +3151,13 @@ type CfnDBInstanceProps struct {
 // > After you create a DB parameter group, you should wait at least 5 minutes before creating your first DB instance that uses that DB parameter group as the default parameter group. This allows Amazon Neptune to fully complete the create action before the parameter group is used as the default for a new DB instance. This is especially important for parameters that are critical when creating the default database for a DB instance, such as the character set for the default database defined by the `character_set_database` parameter. You can use the *Parameter Groups* option of the Amazon Neptune console or the *DescribeDBParameters* command to verify that your DB parameter group has been created or modified.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import neptune "github.com/aws/aws-cdk-go/awscdk/aws_neptune"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameters interface{}
-//   cfnDBParameterGroup := neptune.NewCfnDBParameterGroup(this, jsii.String("MyCfnDBParameterGroup"), &cfnDBParameterGroupProps{
+//
+//   cfnDBParameterGroup := awscdk.Aws_neptune.NewCfnDBParameterGroup(this, jsii.String("MyCfnDBParameterGroup"), &cfnDBParameterGroupProps{
 //   	description: jsii.String("description"),
 //   	family: jsii.String("family"),
 //   	parameters: parameters,
@@ -3856,9 +3880,12 @@ func (c *jsiiProxy_CfnDBParameterGroup) ValidateProperties(_properties interface
 // Properties for defining a `CfnDBParameterGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import neptune "github.com/aws/aws-cdk-go/awscdk/aws_neptune"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameters interface{}
+//
 //   cfnDBParameterGroupProps := &cfnDBParameterGroupProps{
 //   	description: jsii.String("description"),
 //   	family: jsii.String("family"),
@@ -3876,19 +3903,19 @@ func (c *jsiiProxy_CfnDBParameterGroup) ValidateProperties(_properties interface
 //
 type CfnDBParameterGroupProps struct {
 	// Provides the customer-specified description for this DB parameter group.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"required" json:"description" yaml:"description"`
 	// Must be `neptune1` .
-	Family *string `json:"family" yaml:"family"`
+	Family *string `field:"required" json:"family" yaml:"family"`
 	// The parameters to set for this DB parameter group.
 	//
 	// The parameters are expressed as a JSON object consisting of key-value pairs.
 	//
 	// Changes to dynamic parameters are applied immediately. During an update, if you have static parameters (whether they were changed or not), it triggers AWS CloudFormation to reboot the associated DB instance without failover.
-	Parameters interface{} `json:"parameters" yaml:"parameters"`
+	Parameters interface{} `field:"required" json:"parameters" yaml:"parameters"`
 	// Provides the name of the DB parameter group.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The tags that you want to attach to this parameter group.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Neptune::DBSubnetGroup`.
@@ -3896,8 +3923,11 @@ type CfnDBParameterGroupProps struct {
 // The `AWS::Neptune::DBSubnetGroup` type creates an Amazon Neptune DB subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same AWS Region.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import neptune "github.com/aws/aws-cdk-go/awscdk/aws_neptune"
-//   cfnDBSubnetGroup := neptune.NewCfnDBSubnetGroup(this, jsii.String("MyCfnDBSubnetGroup"), &cfnDBSubnetGroupProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDBSubnetGroup := awscdk.Aws_neptune.NewCfnDBSubnetGroup(this, jsii.String("MyCfnDBSubnetGroup"), &cfnDBSubnetGroupProps{
 //   	dbSubnetGroupDescription: jsii.String("dbSubnetGroupDescription"),
 //   	subnetIds: []*string{
 //   		jsii.String("subnetIds"),
@@ -4596,7 +4626,10 @@ func (c *jsiiProxy_CfnDBSubnetGroup) ValidateProperties(_properties interface{})
 // Properties for defining a `CfnDBSubnetGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import neptune "github.com/aws/aws-cdk-go/awscdk/aws_neptune"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDBSubnetGroupProps := &cfnDBSubnetGroupProps{
 //   	dbSubnetGroupDescription: jsii.String("dbSubnetGroupDescription"),
 //   	subnetIds: []*string{
@@ -4615,13 +4648,13 @@ func (c *jsiiProxy_CfnDBSubnetGroup) ValidateProperties(_properties interface{})
 //
 type CfnDBSubnetGroupProps struct {
 	// Provides the description of the DB subnet group.
-	DbSubnetGroupDescription *string `json:"dbSubnetGroupDescription" yaml:"dbSubnetGroupDescription"`
+	DbSubnetGroupDescription *string `field:"required" json:"dbSubnetGroupDescription" yaml:"dbSubnetGroupDescription"`
 	// The Amazon EC2 subnet IDs for the DB subnet group.
-	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
+	SubnetIds *[]*string `field:"required" json:"subnetIds" yaml:"subnetIds"`
 	// The name of the DB subnet group.
-	DbSubnetGroupName *string `json:"dbSubnetGroupName" yaml:"dbSubnetGroupName"`
+	DbSubnetGroupName *string `field:"optional" json:"dbSubnetGroupName" yaml:"dbSubnetGroupName"`
 	// The tags that you want to attach to the DB subnet group.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A cluster parameter group.
@@ -5041,13 +5074,13 @@ func (c *jsiiProxy_ClusterParameterGroup) Validate() *[]*string {
 type ClusterParameterGroupProps struct {
 	// The parameters in this parameter group.
 	// Experimental.
-	Parameters *map[string]*string `json:"parameters" yaml:"parameters"`
+	Parameters *map[string]*string `field:"required" json:"parameters" yaml:"parameters"`
 	// The name of the parameter group.
 	// Experimental.
-	ClusterParameterGroupName *string `json:"clusterParameterGroupName" yaml:"clusterParameterGroupName"`
+	ClusterParameterGroupName *string `field:"optional" json:"clusterParameterGroupName" yaml:"clusterParameterGroupName"`
 	// Description for this parameter group.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 
 // Create a clustered database with a given number of instances.
@@ -5596,9 +5629,13 @@ func (d *jsiiProxy_DatabaseCluster) Validate() *[]*string {
 // Properties that describe an existing cluster instance.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import neptune "github.com/aws/aws-cdk-go/awscdk/aws_neptune"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var securityGroup securityGroup
+//
 //   databaseClusterAttributes := &databaseClusterAttributes{
 //   	clusterEndpointAddress: jsii.String("clusterEndpointAddress"),
 //   	clusterIdentifier: jsii.String("clusterIdentifier"),
@@ -5612,31 +5649,35 @@ func (d *jsiiProxy_DatabaseCluster) Validate() *[]*string {
 type DatabaseClusterAttributes struct {
 	// Cluster endpoint address.
 	// Experimental.
-	ClusterEndpointAddress *string `json:"clusterEndpointAddress" yaml:"clusterEndpointAddress"`
+	ClusterEndpointAddress *string `field:"required" json:"clusterEndpointAddress" yaml:"clusterEndpointAddress"`
 	// Identifier for the cluster.
 	// Experimental.
-	ClusterIdentifier *string `json:"clusterIdentifier" yaml:"clusterIdentifier"`
+	ClusterIdentifier *string `field:"required" json:"clusterIdentifier" yaml:"clusterIdentifier"`
 	// Resource Identifier for the cluster.
 	// Experimental.
-	ClusterResourceIdentifier *string `json:"clusterResourceIdentifier" yaml:"clusterResourceIdentifier"`
+	ClusterResourceIdentifier *string `field:"required" json:"clusterResourceIdentifier" yaml:"clusterResourceIdentifier"`
 	// The database port.
 	// Experimental.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"required" json:"port" yaml:"port"`
 	// Reader endpoint address.
 	// Experimental.
-	ReaderEndpointAddress *string `json:"readerEndpointAddress" yaml:"readerEndpointAddress"`
+	ReaderEndpointAddress *string `field:"required" json:"readerEndpointAddress" yaml:"readerEndpointAddress"`
 	// The security group of the database cluster.
 	// Experimental.
-	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup" yaml:"securityGroup"`
+	SecurityGroup awsec2.ISecurityGroup `field:"required" json:"securityGroup" yaml:"securityGroup"`
 }
 
 // A new or imported database cluster.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import neptune "github.com/aws/aws-cdk-go/awscdk/aws_neptune"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var securityGroup securityGroup
-//   databaseClusterBase := neptune.databaseClusterBase.fromDatabaseClusterAttributes(this, jsii.String("MyDatabaseClusterBase"), &databaseClusterAttributes{
+//
+//   databaseClusterBase := awscdk.Aws_neptune.databaseClusterBase.fromDatabaseClusterAttributes(this, jsii.String("MyDatabaseClusterBase"), &databaseClusterAttributes{
 //   	clusterEndpointAddress: jsii.String("clusterEndpointAddress"),
 //   	clusterIdentifier: jsii.String("clusterIdentifier"),
 //   	clusterResourceIdentifier: jsii.String("clusterResourceIdentifier"),
@@ -6098,86 +6139,86 @@ func (d *jsiiProxy_DatabaseClusterBase) Validate() *[]*string {
 type DatabaseClusterProps struct {
 	// What type of instance to start for the replicas.
 	// Experimental.
-	InstanceType InstanceType `json:"instanceType" yaml:"instanceType"`
+	InstanceType InstanceType `field:"required" json:"instanceType" yaml:"instanceType"`
 	// What subnets to run the Neptune instances in.
 	//
 	// Must be at least 2 subnets in two different AZs.
 	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
+	Vpc awsec2.IVpc `field:"required" json:"vpc" yaml:"vpc"`
 	// A list of AWS Identity and Access Management (IAM) role that can be used by the cluster to access other AWS services.
 	// Experimental.
-	AssociatedRoles *[]awsiam.IRole `json:"associatedRoles" yaml:"associatedRoles"`
+	AssociatedRoles *[]awsiam.IRole `field:"optional" json:"associatedRoles" yaml:"associatedRoles"`
 	// If set to true, Neptune will automatically update the engine of the entire cluster to the latest minor version after a stabilization window of 2 to 3 weeks.
 	// Experimental.
-	AutoMinorVersionUpgrade *bool `json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
+	AutoMinorVersionUpgrade *bool `field:"optional" json:"autoMinorVersionUpgrade" yaml:"autoMinorVersionUpgrade"`
 	// How many days to retain the backup.
 	// Experimental.
-	BackupRetention awscdk.Duration `json:"backupRetention" yaml:"backupRetention"`
+	BackupRetention awscdk.Duration `field:"optional" json:"backupRetention" yaml:"backupRetention"`
 	// Additional parameters to pass to the database engine.
 	// Experimental.
-	ClusterParameterGroup IClusterParameterGroup `json:"clusterParameterGroup" yaml:"clusterParameterGroup"`
+	ClusterParameterGroup IClusterParameterGroup `field:"optional" json:"clusterParameterGroup" yaml:"clusterParameterGroup"`
 	// An optional identifier for the cluster.
 	// Experimental.
-	DbClusterName *string `json:"dbClusterName" yaml:"dbClusterName"`
+	DbClusterName *string `field:"optional" json:"dbClusterName" yaml:"dbClusterName"`
 	// Indicates whether the DB cluster should have deletion protection enabled.
 	// Experimental.
-	DeletionProtection *bool `json:"deletionProtection" yaml:"deletionProtection"`
+	DeletionProtection *bool `field:"optional" json:"deletionProtection" yaml:"deletionProtection"`
 	// What version of the database to start.
 	// Experimental.
-	EngineVersion EngineVersion `json:"engineVersion" yaml:"engineVersion"`
+	EngineVersion EngineVersion `field:"optional" json:"engineVersion" yaml:"engineVersion"`
 	// Map AWS Identity and Access Management (IAM) accounts to database accounts.
 	// Experimental.
-	IamAuthentication *bool `json:"iamAuthentication" yaml:"iamAuthentication"`
+	IamAuthentication *bool `field:"optional" json:"iamAuthentication" yaml:"iamAuthentication"`
 	// Base identifier for instances.
 	//
 	// Every replica is named by appending the replica number to this string, 1-based.
 	// Experimental.
-	InstanceIdentifierBase *string `json:"instanceIdentifierBase" yaml:"instanceIdentifierBase"`
+	InstanceIdentifierBase *string `field:"optional" json:"instanceIdentifierBase" yaml:"instanceIdentifierBase"`
 	// Number of Neptune compute instances.
 	// Experimental.
-	Instances *float64 `json:"instances" yaml:"instances"`
+	Instances *float64 `field:"optional" json:"instances" yaml:"instances"`
 	// The KMS key for storage encryption.
 	// Experimental.
-	KmsKey awskms.IKey `json:"kmsKey" yaml:"kmsKey"`
+	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 	// The DB parameter group to associate with the instance.
 	// Experimental.
-	ParameterGroup IParameterGroup `json:"parameterGroup" yaml:"parameterGroup"`
+	ParameterGroup IParameterGroup `field:"optional" json:"parameterGroup" yaml:"parameterGroup"`
 	// The port the Neptune cluster will listen on.
 	// Experimental.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// A daily time range in 24-hours UTC format in which backups preferably execute.
 	//
 	// Must be at least 30 minutes long.
 	//
 	// Example: '01:00-02:00'.
 	// Experimental.
-	PreferredBackupWindow *string `json:"preferredBackupWindow" yaml:"preferredBackupWindow"`
+	PreferredBackupWindow *string `field:"optional" json:"preferredBackupWindow" yaml:"preferredBackupWindow"`
 	// A weekly time range in which maintenance should preferably execute.
 	//
 	// Must be at least 30 minutes long.
 	//
 	// Example: 'tue:04:17-tue:04:47'.
 	// Experimental.
-	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
+	PreferredMaintenanceWindow *string `field:"optional" json:"preferredMaintenanceWindow" yaml:"preferredMaintenanceWindow"`
 	// The removal policy to apply when the cluster and its instances are removed or replaced during a stack update, or when the stack is deleted.
 	//
 	// This
 	// removal policy also applies to the implicit security group created for the
 	// cluster if one is not supplied as a parameter.
 	// Experimental.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// Security group.
 	// Experimental.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// Whether to enable storage encryption.
 	// Experimental.
-	StorageEncrypted *bool `json:"storageEncrypted" yaml:"storageEncrypted"`
+	StorageEncrypted *bool `field:"optional" json:"storageEncrypted" yaml:"storageEncrypted"`
 	// Existing subnet group for the cluster.
 	// Experimental.
-	SubnetGroup ISubnetGroup `json:"subnetGroup" yaml:"subnetGroup"`
+	SubnetGroup ISubnetGroup `field:"optional" json:"subnetGroup" yaml:"subnetGroup"`
 	// Where to place the instances within the VPC.
 	// Experimental.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
 // A database instance.
@@ -6608,7 +6649,10 @@ func (d *jsiiProxy_DatabaseInstance) Validate() *[]*string {
 // Properties that describe an existing instance.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import neptune "github.com/aws/aws-cdk-go/awscdk/aws_neptune"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   databaseInstanceAttributes := &databaseInstanceAttributes{
 //   	instanceEndpointAddress: jsii.String("instanceEndpointAddress"),
 //   	instanceIdentifier: jsii.String("instanceIdentifier"),
@@ -6619,13 +6663,13 @@ func (d *jsiiProxy_DatabaseInstance) Validate() *[]*string {
 type DatabaseInstanceAttributes struct {
 	// The endpoint address.
 	// Experimental.
-	InstanceEndpointAddress *string `json:"instanceEndpointAddress" yaml:"instanceEndpointAddress"`
+	InstanceEndpointAddress *string `field:"required" json:"instanceEndpointAddress" yaml:"instanceEndpointAddress"`
 	// The instance identifier.
 	// Experimental.
-	InstanceIdentifier *string `json:"instanceIdentifier" yaml:"instanceIdentifier"`
+	InstanceIdentifier *string `field:"required" json:"instanceIdentifier" yaml:"instanceIdentifier"`
 	// The database port.
 	// Experimental.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"required" json:"port" yaml:"port"`
 }
 
 // Construction properties for a DatabaseInstanceNew.
@@ -6640,25 +6684,25 @@ type DatabaseInstanceAttributes struct {
 type DatabaseInstanceProps struct {
 	// The Neptune database cluster the instance should launch into.
 	// Experimental.
-	Cluster IDatabaseCluster `json:"cluster" yaml:"cluster"`
+	Cluster IDatabaseCluster `field:"required" json:"cluster" yaml:"cluster"`
 	// What type of instance to start for the replicas.
 	// Experimental.
-	InstanceType InstanceType `json:"instanceType" yaml:"instanceType"`
+	InstanceType InstanceType `field:"required" json:"instanceType" yaml:"instanceType"`
 	// The name of the Availability Zone where the DB instance will be located.
 	// Experimental.
-	AvailabilityZone *string `json:"availabilityZone" yaml:"availabilityZone"`
+	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
 	// A name for the DB instance.
 	//
 	// If you specify a name, AWS CloudFormation
 	// converts it to lowercase.
 	// Experimental.
-	DbInstanceName *string `json:"dbInstanceName" yaml:"dbInstanceName"`
+	DbInstanceName *string `field:"optional" json:"dbInstanceName" yaml:"dbInstanceName"`
 	// The DB parameter group to associate with the instance.
 	// Experimental.
-	ParameterGroup IParameterGroup `json:"parameterGroup" yaml:"parameterGroup"`
+	ParameterGroup IParameterGroup `field:"optional" json:"parameterGroup" yaml:"parameterGroup"`
 	// The CloudFormation policy to apply when the instance is removed from the stack or replaced during an update.
 	// Experimental.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 }
 
 // Connection endpoint of a neptune cluster or instance.
@@ -6666,8 +6710,11 @@ type DatabaseInstanceProps struct {
 // Consists of a combination of hostname and port.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import neptune "github.com/aws/aws-cdk-go/awscdk/aws_neptune"
-//   endpoint := neptune.NewEndpoint(jsii.String("address"), jsii.Number(123))
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   endpoint := awscdk.Aws_neptune.NewEndpoint(jsii.String("address"), jsii.Number(123))
 //
 // Experimental.
 type Endpoint interface {
@@ -6747,8 +6794,11 @@ func NewEndpoint_Override(e Endpoint, address *string, port *float64) {
 // Possible Instances Types to use in Neptune cluster used for defining {@link DatabaseClusterProps.engineVersion}.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import neptune "github.com/aws/aws-cdk-go/awscdk/aws_neptune"
-//   engineVersion := neptune.engineVersion_V1_0_1_0()
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   engineVersion := awscdk.Aws_neptune.engineVersion_V1_0_1_0()
 //
 // Experimental.
 type EngineVersion interface {
@@ -7858,24 +7908,29 @@ func (p *jsiiProxy_ParameterGroup) Validate() *[]*string {
 type ParameterGroupProps struct {
 	// The parameters in this parameter group.
 	// Experimental.
-	Parameters *map[string]*string `json:"parameters" yaml:"parameters"`
+	Parameters *map[string]*string `field:"required" json:"parameters" yaml:"parameters"`
 	// Description for this parameter group.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the parameter group.
 	// Experimental.
-	ParameterGroupName *string `json:"parameterGroupName" yaml:"parameterGroupName"`
+	ParameterGroupName *string `field:"optional" json:"parameterGroupName" yaml:"parameterGroupName"`
 }
 
 // Class for creating a RDS DB subnet group.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import neptune "github.com/aws/aws-cdk-go/awscdk/aws_neptune"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var subnet subnet
 //   var subnetFilter subnetFilter
 //   var vpc vpc
-//   subnetGroup := neptune.NewSubnetGroup(this, jsii.String("MySubnetGroup"), &subnetGroupProps{
+//
+//   subnetGroup := awscdk.Aws_neptune.NewSubnetGroup(this, jsii.String("MySubnetGroup"), &subnetGroupProps{
 //   	vpc: vpc,
 //
 //   	// the properties below are optional
@@ -7895,7 +7950,7 @@ type ParameterGroupProps struct {
 //   		subnets: []iSubnet{
 //   			subnet,
 //   		},
-//   		subnetType: ec2.subnetType_ISOLATED,
+//   		subnetType: awscdk.Aws_ec2.subnetType_ISOLATED,
 //   	},
 //   })
 //
@@ -8267,11 +8322,16 @@ func (s *jsiiProxy_SubnetGroup) Validate() *[]*string {
 // Properties for creating a SubnetGroup.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import neptune "github.com/aws/aws-cdk-go/awscdk/aws_neptune"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var subnet subnet
 //   var subnetFilter subnetFilter
 //   var vpc vpc
+//
 //   subnetGroupProps := &subnetGroupProps{
 //   	vpc: vpc,
 //
@@ -8292,7 +8352,7 @@ func (s *jsiiProxy_SubnetGroup) Validate() *[]*string {
 //   		subnets: []iSubnet{
 //   			subnet,
 //   		},
-//   		subnetType: ec2.subnetType_ISOLATED,
+//   		subnetType: awscdk.Aws_ec2.subnetType_ISOLATED,
 //   	},
 //   }
 //
@@ -8300,18 +8360,18 @@ func (s *jsiiProxy_SubnetGroup) Validate() *[]*string {
 type SubnetGroupProps struct {
 	// The VPC to place the subnet group in.
 	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
+	Vpc awsec2.IVpc `field:"required" json:"vpc" yaml:"vpc"`
 	// Description of the subnet group.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The removal policy to apply when the subnet group are removed from the stack or replaced during an update.
 	// Experimental.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// The name of the subnet group.
 	// Experimental.
-	SubnetGroupName *string `json:"subnetGroupName" yaml:"subnetGroupName"`
+	SubnetGroupName *string `field:"optional" json:"subnetGroupName" yaml:"subnetGroupName"`
 	// Which subnets within the VPC to associate with this group.
 	// Experimental.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 

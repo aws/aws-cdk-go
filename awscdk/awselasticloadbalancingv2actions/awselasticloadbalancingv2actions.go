@@ -13,9 +13,12 @@ import (
 // A Listener Action to authenticate with Cognito.
 //
 // Example:
-//   import cognito "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk"import elbv2 "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"type App awscdk.App
-//   type CfnOutput awscdk.CfnOutput
-//   type Stack awscdk.Stackimport constructs "github.com/aws/constructs-go/constructs"type Construct constructs.Constructimport actions "github.com/aws/aws-cdk-go/awscdk"
+//   import cognito "github.com/aws/aws-cdk-go/awscdk"
+//   import ec2 "github.com/aws/aws-cdk-go/awscdk"
+//   import elbv2 "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/constructs-go/constructs"
+//   import actions "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cognitoStack struct {
 //   stack
@@ -76,11 +79,11 @@ import (
 //   	}),
 //   })
 //
-//   NewCfnOutput(this, jsii.String("DNS"), &cfnOutputProps{
+//   awscdk.NewCfnOutput(this, jsii.String("DNS"), &cfnOutputProps{
 //   	value: lb.loadBalancerDnsName,
 //   })
 //
-//   app := NewApp()
+//   app := awscdk.NewApp()
 //   NewCognitoStack(app, jsii.String("integ-cognito"))
 //   app.synth()
 //
@@ -298,9 +301,12 @@ func (a *jsiiProxy_AuthenticateCognitoAction) Renumber(actions *[]*awselasticloa
 // Properties for AuthenticateCognitoAction.
 //
 // Example:
-//   import cognito "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk"import elbv2 "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"type App awscdk.App
-//   type CfnOutput awscdk.CfnOutput
-//   type Stack awscdk.Stackimport constructs "github.com/aws/constructs-go/constructs"type Construct constructs.Constructimport actions "github.com/aws/aws-cdk-go/awscdk"
+//   import cognito "github.com/aws/aws-cdk-go/awscdk"
+//   import ec2 "github.com/aws/aws-cdk-go/awscdk"
+//   import elbv2 "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/constructs-go/constructs"
+//   import actions "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cognitoStack struct {
 //   stack
@@ -361,11 +367,11 @@ func (a *jsiiProxy_AuthenticateCognitoAction) Renumber(actions *[]*awselasticloa
 //   	}),
 //   })
 //
-//   NewCfnOutput(this, jsii.String("DNS"), &cfnOutputProps{
+//   awscdk.NewCfnOutput(this, jsii.String("DNS"), &cfnOutputProps{
 //   	value: lb.loadBalancerDnsName,
 //   })
 //
-//   app := NewApp()
+//   app := awscdk.NewApp()
 //   NewCognitoStack(app, jsii.String("integ-cognito"))
 //   app.synth()
 //
@@ -376,32 +382,32 @@ type AuthenticateCognitoActionProps struct {
 	// Multiple actions form a linked chain; the chain must always terminate in a
 	// (weighted)forward, fixedResponse or redirect action.
 	// Experimental.
-	Next awselasticloadbalancingv2.ListenerAction `json:"next" yaml:"next"`
+	Next awselasticloadbalancingv2.ListenerAction `field:"required" json:"next" yaml:"next"`
 	// The Amazon Cognito user pool.
 	// Experimental.
-	UserPool awscognito.IUserPool `json:"userPool" yaml:"userPool"`
+	UserPool awscognito.IUserPool `field:"required" json:"userPool" yaml:"userPool"`
 	// The Amazon Cognito user pool client.
 	// Experimental.
-	UserPoolClient awscognito.IUserPoolClient `json:"userPoolClient" yaml:"userPoolClient"`
+	UserPoolClient awscognito.IUserPoolClient `field:"required" json:"userPoolClient" yaml:"userPoolClient"`
 	// The domain prefix or fully-qualified domain name of the Amazon Cognito user pool.
 	// Experimental.
-	UserPoolDomain awscognito.IUserPoolDomain `json:"userPoolDomain" yaml:"userPoolDomain"`
+	UserPoolDomain awscognito.IUserPoolDomain `field:"required" json:"userPoolDomain" yaml:"userPoolDomain"`
 	// The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
 	// Experimental.
-	AuthenticationRequestExtraParams *map[string]*string `json:"authenticationRequestExtraParams" yaml:"authenticationRequestExtraParams"`
+	AuthenticationRequestExtraParams *map[string]*string `field:"optional" json:"authenticationRequestExtraParams" yaml:"authenticationRequestExtraParams"`
 	// The behavior if the user is not authenticated.
 	// Experimental.
-	OnUnauthenticatedRequest awselasticloadbalancingv2.UnauthenticatedAction `json:"onUnauthenticatedRequest" yaml:"onUnauthenticatedRequest"`
+	OnUnauthenticatedRequest awselasticloadbalancingv2.UnauthenticatedAction `field:"optional" json:"onUnauthenticatedRequest" yaml:"onUnauthenticatedRequest"`
 	// The set of user claims to be requested from the IdP.
 	//
 	// To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
 	// Experimental.
-	Scope *string `json:"scope" yaml:"scope"`
+	Scope *string `field:"optional" json:"scope" yaml:"scope"`
 	// The name of the cookie used to maintain session information.
 	// Experimental.
-	SessionCookieName *string `json:"sessionCookieName" yaml:"sessionCookieName"`
+	SessionCookieName *string `field:"optional" json:"sessionCookieName" yaml:"sessionCookieName"`
 	// The maximum duration of the authentication session.
 	// Experimental.
-	SessionTimeout awscdk.Duration `json:"sessionTimeout" yaml:"sessionTimeout"`
+	SessionTimeout awscdk.Duration `field:"optional" json:"sessionTimeout" yaml:"sessionTimeout"`
 }
 

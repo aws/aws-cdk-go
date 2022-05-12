@@ -14,8 +14,11 @@ import (
 // The `AWS::IoT1Click::Device` resource controls the enabled state of an AWS IoT 1-Click compatible device. For more information, see [Device](https://docs.aws.amazon.com/iot-1-click/1.0/devices-apireference/devices-deviceid.html) in the *AWS IoT 1-Click Devices API Reference* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot1click "github.com/aws/aws-cdk-go/awscdk/aws_iot1click"
-//   cfnDevice := iot1click.NewCfnDevice(this, jsii.String("MyCfnDevice"), &cfnDeviceProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDevice := awscdk.Aws_iot1click.NewCfnDevice(this, jsii.String("MyCfnDevice"), &cfnDeviceProps{
 //   	deviceId: jsii.String("deviceId"),
 //   	enabled: jsii.Boolean(false),
 //   })
@@ -706,7 +709,10 @@ func (c *jsiiProxy_CfnDevice) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnDevice`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot1click "github.com/aws/aws-cdk-go/awscdk/aws_iot1click"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDeviceProps := &cfnDeviceProps{
 //   	deviceId: jsii.String("deviceId"),
 //   	enabled: jsii.Boolean(false),
@@ -714,9 +720,9 @@ func (c *jsiiProxy_CfnDevice) ValidateProperties(_properties interface{}) {
 //
 type CfnDeviceProps struct {
 	// The ID of the device, such as `G030PX0312744DWM` .
-	DeviceId *string `json:"deviceId" yaml:"deviceId"`
+	DeviceId *string `field:"required" json:"deviceId" yaml:"deviceId"`
 	// A Boolean value indicating whether the device is enabled ( `true` ) or not ( `false` ).
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
 }
 
 // A CloudFormation `AWS::IoT1Click::Placement`.
@@ -724,11 +730,14 @@ type CfnDeviceProps struct {
 // The `AWS::IoT1Click::Placement` resource creates a placement to be associated with an AWS IoT 1-Click project. A placement is an instance of a device in a location. For more information, see [Projects, Templates, and Placements](https://docs.aws.amazon.com/iot-1-click/latest/developerguide/1click-PTP.html) in the *AWS IoT 1-Click Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot1click "github.com/aws/aws-cdk-go/awscdk/aws_iot1click"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var associatedDevices interface{}
 //   var attributes interface{}
-//   cfnPlacement := iot1click.NewCfnPlacement(this, jsii.String("MyCfnPlacement"), &cfnPlacementProps{
+//
+//   cfnPlacement := awscdk.Aws_iot1click.NewCfnPlacement(this, jsii.String("MyCfnPlacement"), &cfnPlacementProps{
 //   	projectName: jsii.String("projectName"),
 //
 //   	// the properties below are optional
@@ -1453,10 +1462,13 @@ func (c *jsiiProxy_CfnPlacement) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnPlacement`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot1click "github.com/aws/aws-cdk-go/awscdk/aws_iot1click"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var associatedDevices interface{}
 //   var attributes interface{}
+//
 //   cfnPlacementProps := &cfnPlacementProps{
 //   	projectName: jsii.String("projectName"),
 //
@@ -1468,13 +1480,13 @@ func (c *jsiiProxy_CfnPlacement) ValidateProperties(_properties interface{}) {
 //
 type CfnPlacementProps struct {
 	// The name of the project containing the placement.
-	ProjectName *string `json:"projectName" yaml:"projectName"`
+	ProjectName *string `field:"required" json:"projectName" yaml:"projectName"`
 	// The devices to associate with the placement, as defined by a mapping of zero or more key-value pairs wherein the key is a template name and the value is a device ID.
-	AssociatedDevices interface{} `json:"associatedDevices" yaml:"associatedDevices"`
+	AssociatedDevices interface{} `field:"optional" json:"associatedDevices" yaml:"associatedDevices"`
 	// The user-defined attributes associated with the placement.
-	Attributes interface{} `json:"attributes" yaml:"attributes"`
+	Attributes interface{} `field:"optional" json:"attributes" yaml:"attributes"`
 	// The name of the placement.
-	PlacementName *string `json:"placementName" yaml:"placementName"`
+	PlacementName *string `field:"optional" json:"placementName" yaml:"placementName"`
 }
 
 // A CloudFormation `AWS::IoT1Click::Project`.
@@ -1482,11 +1494,14 @@ type CfnPlacementProps struct {
 // The `AWS::IoT1Click::Project` resource creates an empty project with a placement template. A project contains zero or more placements that adhere to the placement template defined in the project. For more information, see [CreateProject](https://docs.aws.amazon.com/iot-1-click/latest/projects-apireference/API_CreateProject.html) in the *AWS IoT 1-Click Projects API Reference* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot1click "github.com/aws/aws-cdk-go/awscdk/aws_iot1click"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var callbackOverrides interface{}
 //   var defaultAttributes interface{}
-//   cfnProject := iot1click.NewCfnProject(this, jsii.String("MyCfnProject"), &cfnProjectProps{
+//
+//   cfnProject := awscdk.Aws_iot1click.NewCfnProject(this, jsii.String("MyCfnProject"), &cfnProjectProps{
 //   	placementTemplate: &placementTemplateProperty{
 //   		defaultAttributes: defaultAttributes,
 //   		deviceTemplates: map[string]interface{}{
@@ -2199,9 +2214,12 @@ func (c *jsiiProxy_CfnProject) ValidateProperties(_properties interface{}) {
 // `DeviceTemplate` is a property of the `AWS::IoT1Click::Project` resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot1click "github.com/aws/aws-cdk-go/awscdk/aws_iot1click"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var callbackOverrides interface{}
+//
 //   deviceTemplateProperty := &deviceTemplateProperty{
 //   	callbackOverrides: callbackOverrides,
 //   	deviceType: jsii.String("deviceType"),
@@ -2209,9 +2227,9 @@ func (c *jsiiProxy_CfnProject) ValidateProperties(_properties interface{}) {
 //
 type CfnProject_DeviceTemplateProperty struct {
 	// An optional AWS Lambda function to invoke instead of the default AWS Lambda function provided by the placement template.
-	CallbackOverrides interface{} `json:"callbackOverrides" yaml:"callbackOverrides"`
+	CallbackOverrides interface{} `field:"optional" json:"callbackOverrides" yaml:"callbackOverrides"`
 	// The device type, which currently must be `"button"` .
-	DeviceType *string `json:"deviceType" yaml:"deviceType"`
+	DeviceType *string `field:"optional" json:"deviceType" yaml:"deviceType"`
 }
 
 // In AWS CloudFormation , use the `PlacementTemplate` property type to define the template for an AWS IoT 1-Click project.
@@ -2219,10 +2237,13 @@ type CfnProject_DeviceTemplateProperty struct {
 // `PlacementTemplate` is a property of the `AWS::IoT1Click::Project` resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot1click "github.com/aws/aws-cdk-go/awscdk/aws_iot1click"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var callbackOverrides interface{}
 //   var defaultAttributes interface{}
+//
 //   placementTemplateProperty := &placementTemplateProperty{
 //   	defaultAttributes: defaultAttributes,
 //   	deviceTemplates: map[string]interface{}{
@@ -2235,18 +2256,21 @@ type CfnProject_DeviceTemplateProperty struct {
 //
 type CfnProject_PlacementTemplateProperty struct {
 	// The default attributes (key-value pairs) to be applied to all placements using this template.
-	DefaultAttributes interface{} `json:"defaultAttributes" yaml:"defaultAttributes"`
+	DefaultAttributes interface{} `field:"optional" json:"defaultAttributes" yaml:"defaultAttributes"`
 	// An object specifying the [DeviceTemplate](https://docs.aws.amazon.com/iot-1-click/latest/projects-apireference/API_DeviceTemplate.html) for all placements using this ( [PlacementTemplate](https://docs.aws.amazon.com/iot-1-click/latest/projects-apireference/API_PlacementTemplate.html) ) template.
-	DeviceTemplates interface{} `json:"deviceTemplates" yaml:"deviceTemplates"`
+	DeviceTemplates interface{} `field:"optional" json:"deviceTemplates" yaml:"deviceTemplates"`
 }
 
 // Properties for defining a `CfnProject`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iot1click "github.com/aws/aws-cdk-go/awscdk/aws_iot1click"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var callbackOverrides interface{}
 //   var defaultAttributes interface{}
+//
 //   cfnProjectProps := &cfnProjectProps{
 //   	placementTemplate: &placementTemplateProperty{
 //   		defaultAttributes: defaultAttributes,
@@ -2265,10 +2289,10 @@ type CfnProject_PlacementTemplateProperty struct {
 //
 type CfnProjectProps struct {
 	// An object describing the project's placement specifications.
-	PlacementTemplate interface{} `json:"placementTemplate" yaml:"placementTemplate"`
+	PlacementTemplate interface{} `field:"required" json:"placementTemplate" yaml:"placementTemplate"`
 	// The description of the project.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the project from which to obtain information.
-	ProjectName *string `json:"projectName" yaml:"projectName"`
+	ProjectName *string `field:"optional" json:"projectName" yaml:"projectName"`
 }
 

@@ -16,8 +16,11 @@ import (
 // The ADMChannel resource represents the status and authentication settings for the ADM channel for an application.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
-//   cfnADMChannel := pinpoint.NewCfnADMChannel(this, jsii.String("MyCfnADMChannel"), &cfnADMChannelProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnADMChannel := awscdk.Aws_pinpoint.NewCfnADMChannel(this, jsii.String("MyCfnADMChannel"), &cfnADMChannelProps{
 //   	applicationId: jsii.String("applicationId"),
 //   	clientId: jsii.String("clientId"),
 //   	clientSecret: jsii.String("clientSecret"),
@@ -718,7 +721,10 @@ func (c *jsiiProxy_CfnADMChannel) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnADMChannel`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnADMChannelProps := &cfnADMChannelProps{
 //   	applicationId: jsii.String("applicationId"),
 //   	clientId: jsii.String("clientId"),
@@ -730,13 +736,13 @@ func (c *jsiiProxy_CfnADMChannel) ValidateProperties(_properties interface{}) {
 //
 type CfnADMChannelProps struct {
 	// The unique identifier for the Amazon Pinpoint application that the ADM channel applies to.
-	ApplicationId *string `json:"applicationId" yaml:"applicationId"`
+	ApplicationId *string `field:"required" json:"applicationId" yaml:"applicationId"`
 	// The Client ID that you received from Amazon to send messages by using ADM.
-	ClientId *string `json:"clientId" yaml:"clientId"`
+	ClientId *string `field:"required" json:"clientId" yaml:"clientId"`
 	// The Client Secret that you received from Amazon to send messages by using ADM.
-	ClientSecret *string `json:"clientSecret" yaml:"clientSecret"`
+	ClientSecret *string `field:"required" json:"clientSecret" yaml:"clientSecret"`
 	// Specifies whether to enable the ADM channel for the application.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 }
 
 // A CloudFormation `AWS::Pinpoint::APNSChannel`.
@@ -746,8 +752,11 @@ type CfnADMChannelProps struct {
 // The APNSChannel resource represents the status and authentication settings for the APNs channel for an application.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
-//   cfnAPNSChannel := pinpoint.NewCfnAPNSChannel(this, jsii.String("MyCfnAPNSChannel"), &cfnAPNSChannelProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnAPNSChannel := awscdk.Aws_pinpoint.NewCfnAPNSChannel(this, jsii.String("MyCfnAPNSChannel"), &cfnAPNSChannelProps{
 //   	applicationId: jsii.String("applicationId"),
 //
 //   	// the properties below are optional
@@ -1568,7 +1577,10 @@ func (c *jsiiProxy_CfnAPNSChannel) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnAPNSChannel`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAPNSChannelProps := &cfnAPNSChannelProps{
 //   	applicationId: jsii.String("applicationId"),
 //
@@ -1585,33 +1597,33 @@ func (c *jsiiProxy_CfnAPNSChannel) ValidateProperties(_properties interface{}) {
 //
 type CfnAPNSChannelProps struct {
 	// The unique identifier for the Amazon Pinpoint application that the APNs channel applies to.
-	ApplicationId *string `json:"applicationId" yaml:"applicationId"`
+	ApplicationId *string `field:"required" json:"applicationId" yaml:"applicationId"`
 	// The bundle identifier that's assigned to your iOS app.
 	//
 	// This identifier is used for APNs tokens.
-	BundleId *string `json:"bundleId" yaml:"bundleId"`
+	BundleId *string `field:"optional" json:"bundleId" yaml:"bundleId"`
 	// The APNs client certificate that you received from Apple.
 	//
 	// Specify this value if you want Amazon Pinpoint to communicate with APNs by using an APNs certificate.
-	Certificate *string `json:"certificate" yaml:"certificate"`
+	Certificate *string `field:"optional" json:"certificate" yaml:"certificate"`
 	// The default authentication method that you want Amazon Pinpoint to use when authenticating with APNs.
 	//
 	// Valid options are `key` or `certificate` .
-	DefaultAuthenticationMethod *string `json:"defaultAuthenticationMethod" yaml:"defaultAuthenticationMethod"`
+	DefaultAuthenticationMethod *string `field:"optional" json:"defaultAuthenticationMethod" yaml:"defaultAuthenticationMethod"`
 	// Specifies whether to enable the APNs channel for the application.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// The private key for the APNs client certificate that you want Amazon Pinpoint to use to communicate with APNs.
-	PrivateKey *string `json:"privateKey" yaml:"privateKey"`
+	PrivateKey *string `field:"optional" json:"privateKey" yaml:"privateKey"`
 	// The identifier that's assigned to your Apple Developer Account team.
 	//
 	// This identifier is used for APNs tokens.
-	TeamId *string `json:"teamId" yaml:"teamId"`
+	TeamId *string `field:"optional" json:"teamId" yaml:"teamId"`
 	// The authentication key to use for APNs tokens.
-	TokenKey *string `json:"tokenKey" yaml:"tokenKey"`
+	TokenKey *string `field:"optional" json:"tokenKey" yaml:"tokenKey"`
 	// The key identifier that's assigned to your APNs signing key.
 	//
 	// Specify this value if you want Amazon Pinpoint to communicate with APNs by using APNs tokens.
-	TokenKeyId *string `json:"tokenKeyId" yaml:"tokenKeyId"`
+	TokenKeyId *string `field:"optional" json:"tokenKeyId" yaml:"tokenKeyId"`
 }
 
 // A CloudFormation `AWS::Pinpoint::APNSSandboxChannel`.
@@ -1621,8 +1633,11 @@ type CfnAPNSChannelProps struct {
 // The APNSSandboxChannel resource represents the status and authentication settings of the APNs sandbox channel for an application.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
-//   cfnAPNSSandboxChannel := pinpoint.NewCfnAPNSSandboxChannel(this, jsii.String("MyCfnAPNSSandboxChannel"), &cfnAPNSSandboxChannelProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnAPNSSandboxChannel := awscdk.Aws_pinpoint.NewCfnAPNSSandboxChannel(this, jsii.String("MyCfnAPNSSandboxChannel"), &cfnAPNSSandboxChannelProps{
 //   	applicationId: jsii.String("applicationId"),
 //
 //   	// the properties below are optional
@@ -2443,7 +2458,10 @@ func (c *jsiiProxy_CfnAPNSSandboxChannel) ValidateProperties(_properties interfa
 // Properties for defining a `CfnAPNSSandboxChannel`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAPNSSandboxChannelProps := &cfnAPNSSandboxChannelProps{
 //   	applicationId: jsii.String("applicationId"),
 //
@@ -2460,33 +2478,33 @@ func (c *jsiiProxy_CfnAPNSSandboxChannel) ValidateProperties(_properties interfa
 //
 type CfnAPNSSandboxChannelProps struct {
 	// The unique identifier for the Amazon Pinpoint application that the APNs sandbox channel applies to.
-	ApplicationId *string `json:"applicationId" yaml:"applicationId"`
+	ApplicationId *string `field:"required" json:"applicationId" yaml:"applicationId"`
 	// The bundle identifier that's assigned to your iOS app.
 	//
 	// This identifier is used for APNs tokens.
-	BundleId *string `json:"bundleId" yaml:"bundleId"`
+	BundleId *string `field:"optional" json:"bundleId" yaml:"bundleId"`
 	// The APNs client certificate that you received from Apple.
 	//
 	// Specify this value if you want Amazon Pinpoint to communicate with APNs by using an APNs certificate.
-	Certificate *string `json:"certificate" yaml:"certificate"`
+	Certificate *string `field:"optional" json:"certificate" yaml:"certificate"`
 	// The default authentication method that you want Amazon Pinpoint to use when authenticating with APNs.
 	//
 	// Valid options are `key` or `certificate` .
-	DefaultAuthenticationMethod *string `json:"defaultAuthenticationMethod" yaml:"defaultAuthenticationMethod"`
+	DefaultAuthenticationMethod *string `field:"optional" json:"defaultAuthenticationMethod" yaml:"defaultAuthenticationMethod"`
 	// Specifies whether to enable the APNs Sandbox channel for the Amazon Pinpoint application.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// The private key for the APNs client certificate that you want Amazon Pinpoint to use to communicate with APNs.
-	PrivateKey *string `json:"privateKey" yaml:"privateKey"`
+	PrivateKey *string `field:"optional" json:"privateKey" yaml:"privateKey"`
 	// The identifier that's assigned to your Apple Developer Account team.
 	//
 	// This identifier is used for APNs tokens.
-	TeamId *string `json:"teamId" yaml:"teamId"`
+	TeamId *string `field:"optional" json:"teamId" yaml:"teamId"`
 	// The authentication key to use for APNs tokens.
-	TokenKey *string `json:"tokenKey" yaml:"tokenKey"`
+	TokenKey *string `field:"optional" json:"tokenKey" yaml:"tokenKey"`
 	// The key identifier that's assigned to your APNs signing key.
 	//
 	// Specify this value if you want Amazon Pinpoint to communicate with APNs by using APNs tokens.
-	TokenKeyId *string `json:"tokenKeyId" yaml:"tokenKeyId"`
+	TokenKeyId *string `field:"optional" json:"tokenKeyId" yaml:"tokenKeyId"`
 }
 
 // A CloudFormation `AWS::Pinpoint::APNSVoipChannel`.
@@ -2496,8 +2514,11 @@ type CfnAPNSSandboxChannelProps struct {
 // The APNSVoipChannel resource represents the status and authentication settings of the APNs VoIP channel for an application.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
-//   cfnAPNSVoipChannel := pinpoint.NewCfnAPNSVoipChannel(this, jsii.String("MyCfnAPNSVoipChannel"), &cfnAPNSVoipChannelProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnAPNSVoipChannel := awscdk.Aws_pinpoint.NewCfnAPNSVoipChannel(this, jsii.String("MyCfnAPNSVoipChannel"), &cfnAPNSVoipChannelProps{
 //   	applicationId: jsii.String("applicationId"),
 //
 //   	// the properties below are optional
@@ -3318,7 +3339,10 @@ func (c *jsiiProxy_CfnAPNSVoipChannel) ValidateProperties(_properties interface{
 // Properties for defining a `CfnAPNSVoipChannel`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAPNSVoipChannelProps := &cfnAPNSVoipChannelProps{
 //   	applicationId: jsii.String("applicationId"),
 //
@@ -3335,33 +3359,33 @@ func (c *jsiiProxy_CfnAPNSVoipChannel) ValidateProperties(_properties interface{
 //
 type CfnAPNSVoipChannelProps struct {
 	// The unique identifier for the Amazon Pinpoint application that the APNs VoIP channel applies to.
-	ApplicationId *string `json:"applicationId" yaml:"applicationId"`
+	ApplicationId *string `field:"required" json:"applicationId" yaml:"applicationId"`
 	// The bundle identifier that's assigned to your iOS app.
 	//
 	// This identifier is used for APNs tokens.
-	BundleId *string `json:"bundleId" yaml:"bundleId"`
+	BundleId *string `field:"optional" json:"bundleId" yaml:"bundleId"`
 	// The APNs client certificate that you received from Apple.
 	//
 	// Specify this value if you want Amazon Pinpoint to communicate with APNs by using an APNs certificate.
-	Certificate *string `json:"certificate" yaml:"certificate"`
+	Certificate *string `field:"optional" json:"certificate" yaml:"certificate"`
 	// The default authentication method that you want Amazon Pinpoint to use when authenticating with APNs.
 	//
 	// Valid options are `key` or `certificate` .
-	DefaultAuthenticationMethod *string `json:"defaultAuthenticationMethod" yaml:"defaultAuthenticationMethod"`
+	DefaultAuthenticationMethod *string `field:"optional" json:"defaultAuthenticationMethod" yaml:"defaultAuthenticationMethod"`
 	// Specifies whether to enable the APNs VoIP channel for the Amazon Pinpoint application.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// The private key for the APNs client certificate that you want Amazon Pinpoint to use to communicate with APNs.
-	PrivateKey *string `json:"privateKey" yaml:"privateKey"`
+	PrivateKey *string `field:"optional" json:"privateKey" yaml:"privateKey"`
 	// The identifier that's assigned to your Apple Developer Account team.
 	//
 	// This identifier is used for APNs tokens.
-	TeamId *string `json:"teamId" yaml:"teamId"`
+	TeamId *string `field:"optional" json:"teamId" yaml:"teamId"`
 	// The authentication key to use for APNs tokens.
-	TokenKey *string `json:"tokenKey" yaml:"tokenKey"`
+	TokenKey *string `field:"optional" json:"tokenKey" yaml:"tokenKey"`
 	// The key identifier that's assigned to your APNs signing key.
 	//
 	// Specify this value if you want Amazon Pinpoint to communicate with APNs by using APNs tokens.
-	TokenKeyId *string `json:"tokenKeyId" yaml:"tokenKeyId"`
+	TokenKeyId *string `field:"optional" json:"tokenKeyId" yaml:"tokenKeyId"`
 }
 
 // A CloudFormation `AWS::Pinpoint::APNSVoipSandboxChannel`.
@@ -3371,8 +3395,11 @@ type CfnAPNSVoipChannelProps struct {
 // The APNSVoipSandboxChannel resource represents the status and authentication settings of the APNs VoIP sandbox channel for an application.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
-//   cfnAPNSVoipSandboxChannel := pinpoint.NewCfnAPNSVoipSandboxChannel(this, jsii.String("MyCfnAPNSVoipSandboxChannel"), &cfnAPNSVoipSandboxChannelProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnAPNSVoipSandboxChannel := awscdk.Aws_pinpoint.NewCfnAPNSVoipSandboxChannel(this, jsii.String("MyCfnAPNSVoipSandboxChannel"), &cfnAPNSVoipSandboxChannelProps{
 //   	applicationId: jsii.String("applicationId"),
 //
 //   	// the properties below are optional
@@ -4193,7 +4220,10 @@ func (c *jsiiProxy_CfnAPNSVoipSandboxChannel) ValidateProperties(_properties int
 // Properties for defining a `CfnAPNSVoipSandboxChannel`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAPNSVoipSandboxChannelProps := &cfnAPNSVoipSandboxChannelProps{
 //   	applicationId: jsii.String("applicationId"),
 //
@@ -4210,33 +4240,33 @@ func (c *jsiiProxy_CfnAPNSVoipSandboxChannel) ValidateProperties(_properties int
 //
 type CfnAPNSVoipSandboxChannelProps struct {
 	// The unique identifier for the application that the APNs VoIP sandbox channel applies to.
-	ApplicationId *string `json:"applicationId" yaml:"applicationId"`
+	ApplicationId *string `field:"required" json:"applicationId" yaml:"applicationId"`
 	// The bundle identifier that's assigned to your iOS app.
 	//
 	// This identifier is used for APNs tokens.
-	BundleId *string `json:"bundleId" yaml:"bundleId"`
+	BundleId *string `field:"optional" json:"bundleId" yaml:"bundleId"`
 	// The APNs client certificate that you received from Apple.
 	//
 	// Specify this value if you want Amazon Pinpoint to communicate with the APNs sandbox environment by using an APNs certificate.
-	Certificate *string `json:"certificate" yaml:"certificate"`
+	Certificate *string `field:"optional" json:"certificate" yaml:"certificate"`
 	// The default authentication method that you want Amazon Pinpoint to use when authenticating with APNs.
 	//
 	// Valid options are `key` or `certificate` .
-	DefaultAuthenticationMethod *string `json:"defaultAuthenticationMethod" yaml:"defaultAuthenticationMethod"`
+	DefaultAuthenticationMethod *string `field:"optional" json:"defaultAuthenticationMethod" yaml:"defaultAuthenticationMethod"`
 	// Specifies whether the APNs VoIP sandbox channel is enabled for the application.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// The private key for the APNs client certificate that you want Amazon Pinpoint to use to communicate with the APNs sandbox environment.
-	PrivateKey *string `json:"privateKey" yaml:"privateKey"`
+	PrivateKey *string `field:"optional" json:"privateKey" yaml:"privateKey"`
 	// The identifier that's assigned to your Apple developer account team.
 	//
 	// This identifier is used for APNs tokens.
-	TeamId *string `json:"teamId" yaml:"teamId"`
+	TeamId *string `field:"optional" json:"teamId" yaml:"teamId"`
 	// The authentication key to use for APNs tokens.
-	TokenKey *string `json:"tokenKey" yaml:"tokenKey"`
+	TokenKey *string `field:"optional" json:"tokenKey" yaml:"tokenKey"`
 	// The key identifier that's assigned to your APNs signing key.
 	//
 	// Specify this value if you want Amazon Pinpoint to communicate with the APNs sandbox environment by using APNs tokens.
-	TokenKeyId *string `json:"tokenKeyId" yaml:"tokenKeyId"`
+	TokenKeyId *string `field:"optional" json:"tokenKeyId" yaml:"tokenKeyId"`
 }
 
 // A CloudFormation `AWS::Pinpoint::App`.
@@ -4246,10 +4276,13 @@ type CfnAPNSVoipSandboxChannelProps struct {
 // The App resource represents an Amazon Pinpoint application.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var tags interface{}
-//   cfnApp := pinpoint.NewCfnApp(this, jsii.String("MyCfnApp"), &cfnAppProps{
+//
+//   cfnApp := awscdk.Aws_pinpoint.NewCfnApp(this, jsii.String("MyCfnApp"), &cfnAppProps{
 //   	name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -4911,9 +4944,12 @@ func (c *jsiiProxy_CfnApp) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnApp`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var tags interface{}
+//
 //   cfnAppProps := &cfnAppProps{
 //   	name: jsii.String("name"),
 //
@@ -4923,11 +4959,11 @@ func (c *jsiiProxy_CfnApp) ValidateProperties(_properties interface{}) {
 //
 type CfnAppProps struct {
 	// The display name of the application.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags interface{} `json:"tags" yaml:"tags"`
+	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Pinpoint::ApplicationSettings`.
@@ -4935,8 +4971,11 @@ type CfnAppProps struct {
 // Specifies the settings for an Amazon Pinpoint application. In Amazon Pinpoint, an *application* (also referred to as an *app* or *project* ) is a collection of related settings, customer information, segments, and campaigns, and other types of Amazon Pinpoint resources.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
-//   cfnApplicationSettings := pinpoint.NewCfnApplicationSettings(this, jsii.String("MyCfnApplicationSettings"), &cfnApplicationSettingsProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnApplicationSettings := awscdk.Aws_pinpoint.NewCfnApplicationSettings(this, jsii.String("MyCfnApplicationSettings"), &cfnApplicationSettingsProps{
 //   	applicationId: jsii.String("applicationId"),
 //
 //   	// the properties below are optional
@@ -5687,7 +5726,10 @@ func (c *jsiiProxy_CfnApplicationSettings) ValidateProperties(_properties interf
 // Specifies the Lambda function to use by default as a code hook for campaigns in the application.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   campaignHookProperty := &campaignHookProperty{
 //   	lambdaFunctionName: jsii.String("lambdaFunctionName"),
 //   	mode: jsii.String("mode"),
@@ -5696,20 +5738,23 @@ func (c *jsiiProxy_CfnApplicationSettings) ValidateProperties(_properties interf
 //
 type CfnApplicationSettings_CampaignHookProperty struct {
 	// The name or Amazon Resource Name (ARN) of the Lambda function that Amazon Pinpoint invokes to send messages for campaigns in the application.
-	LambdaFunctionName *string `json:"lambdaFunctionName" yaml:"lambdaFunctionName"`
+	LambdaFunctionName *string `field:"optional" json:"lambdaFunctionName" yaml:"lambdaFunctionName"`
 	// The mode that Amazon Pinpoint uses to invoke the Lambda function. Possible values are:.
 	//
 	// - `FILTER` - Invoke the function to customize the segment that's used by a campaign.
 	// - `DELIVERY` - (Deprecated) Previously, invoked the function to send a campaign through a custom channel. This functionality is not supported anymore. To send a campaign through a custom channel, use the `CustomDeliveryConfiguration` and `CampaignCustomMessage` objects of the campaign.
-	Mode *string `json:"mode" yaml:"mode"`
+	Mode *string `field:"optional" json:"mode" yaml:"mode"`
 	// The web URL that Amazon Pinpoint calls to invoke the Lambda function over HTTPS.
-	WebUrl *string `json:"webUrl" yaml:"webUrl"`
+	WebUrl *string `field:"optional" json:"webUrl" yaml:"webUrl"`
 }
 
 // Specifies the default sending limits for campaigns in the application.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   limitsProperty := &limitsProperty{
 //   	daily: jsii.Number(123),
 //   	maximumDuration: jsii.Number(123),
@@ -5721,25 +5766,28 @@ type CfnApplicationSettings_LimitsProperty struct {
 	// The maximum number of messages that a campaign can send to a single endpoint during a 24-hour period.
 	//
 	// The maximum value is 100.
-	Daily *float64 `json:"daily" yaml:"daily"`
+	Daily *float64 `field:"optional" json:"daily" yaml:"daily"`
 	// The maximum amount of time, in seconds, that a campaign can attempt to deliver a message after the scheduled start time for the campaign.
 	//
 	// The minimum value is 60 seconds.
-	MaximumDuration *float64 `json:"maximumDuration" yaml:"maximumDuration"`
+	MaximumDuration *float64 `field:"optional" json:"maximumDuration" yaml:"maximumDuration"`
 	// The maximum number of messages that a campaign can send each second.
 	//
 	// The minimum value is 50. The maximum value is 20,000.
-	MessagesPerSecond *float64 `json:"messagesPerSecond" yaml:"messagesPerSecond"`
+	MessagesPerSecond *float64 `field:"optional" json:"messagesPerSecond" yaml:"messagesPerSecond"`
 	// The maximum number of messages that a campaign can send to a single endpoint during the course of the campaign.
 	//
 	// The maximum value is 100.
-	Total *float64 `json:"total" yaml:"total"`
+	Total *float64 `field:"optional" json:"total" yaml:"total"`
 }
 
 // Specifies the start and end times that define a time range when messages aren't sent to endpoints.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   quietTimeProperty := &quietTimeProperty{
 //   	end: jsii.String("end"),
 //   	start: jsii.String("start"),
@@ -5749,17 +5797,20 @@ type CfnApplicationSettings_QuietTimeProperty struct {
 	// The specific time when quiet time ends.
 	//
 	// This value has to use 24-hour notation and be in HH:MM format, where HH is the hour (with a leading zero, if applicable) and MM is the minutes. For example, use `02:30` to represent 2:30 AM, or `14:30` to represent 2:30 PM.
-	End *string `json:"end" yaml:"end"`
+	End *string `field:"required" json:"end" yaml:"end"`
 	// The specific time when quiet time begins.
 	//
 	// This value has to use 24-hour notation and be in HH:MM format, where HH is the hour (with a leading zero, if applicable) and MM is the minutes. For example, use `02:30` to represent 2:30 AM, or `14:30` to represent 2:30 PM.
-	Start *string `json:"start" yaml:"start"`
+	Start *string `field:"required" json:"start" yaml:"start"`
 }
 
 // Properties for defining a `CfnApplicationSettings`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnApplicationSettingsProps := &cfnApplicationSettingsProps{
 //   	applicationId: jsii.String("applicationId"),
 //
@@ -5784,17 +5835,17 @@ type CfnApplicationSettings_QuietTimeProperty struct {
 //
 type CfnApplicationSettingsProps struct {
 	// The unique identifier for the Amazon Pinpoint application.
-	ApplicationId *string `json:"applicationId" yaml:"applicationId"`
+	ApplicationId *string `field:"required" json:"applicationId" yaml:"applicationId"`
 	// The settings for the Lambda function to use by default as a code hook for campaigns in the application.
 	//
 	// To override these settings for a specific campaign, use the Campaign resource to define custom Lambda function settings for the campaign.
-	CampaignHook interface{} `json:"campaignHook" yaml:"campaignHook"`
+	CampaignHook interface{} `field:"optional" json:"campaignHook" yaml:"campaignHook"`
 	// Specifies whether to enable application-related alarms in Amazon CloudWatch.
-	CloudWatchMetricsEnabled interface{} `json:"cloudWatchMetricsEnabled" yaml:"cloudWatchMetricsEnabled"`
+	CloudWatchMetricsEnabled interface{} `field:"optional" json:"cloudWatchMetricsEnabled" yaml:"cloudWatchMetricsEnabled"`
 	// The default sending limits for campaigns in the application.
 	//
 	// To override these limits for a specific campaign, use the Campaign resource to define custom limits for the campaign.
-	Limits interface{} `json:"limits" yaml:"limits"`
+	Limits interface{} `field:"optional" json:"limits" yaml:"limits"`
 	// The default quiet time for campaigns in the application.
 	//
 	// Quiet time is a specific time range when campaigns don't send messages to endpoints, if all the following conditions are met:
@@ -5808,7 +5859,7 @@ type CfnApplicationSettingsProps struct {
 	// If any of the preceding conditions isn't met, the endpoint will receive messages from a campaign, even if quiet time is enabled.
 	//
 	// To override the default quiet time settings for a specific campaign, use the Campaign resource to define a custom quiet time for the campaign.
-	QuietTime interface{} `json:"quietTime" yaml:"quietTime"`
+	QuietTime interface{} `field:"optional" json:"quietTime" yaml:"quietTime"`
 }
 
 // A CloudFormation `AWS::Pinpoint::BaiduChannel`.
@@ -5818,8 +5869,11 @@ type CfnApplicationSettingsProps struct {
 // The BaiduChannel resource represents the status and authentication settings of the Baidu channel for an application.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
-//   cfnBaiduChannel := pinpoint.NewCfnBaiduChannel(this, jsii.String("MyCfnBaiduChannel"), &cfnBaiduChannelProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnBaiduChannel := awscdk.Aws_pinpoint.NewCfnBaiduChannel(this, jsii.String("MyCfnBaiduChannel"), &cfnBaiduChannelProps{
 //   	apiKey: jsii.String("apiKey"),
 //   	applicationId: jsii.String("applicationId"),
 //   	secretKey: jsii.String("secretKey"),
@@ -6520,7 +6574,10 @@ func (c *jsiiProxy_CfnBaiduChannel) ValidateProperties(_properties interface{}) 
 // Properties for defining a `CfnBaiduChannel`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnBaiduChannelProps := &cfnBaiduChannelProps{
 //   	apiKey: jsii.String("apiKey"),
 //   	applicationId: jsii.String("applicationId"),
@@ -6532,13 +6589,13 @@ func (c *jsiiProxy_CfnBaiduChannel) ValidateProperties(_properties interface{}) 
 //
 type CfnBaiduChannelProps struct {
 	// The API key that you received from the Baidu Cloud Push service to communicate with the service.
-	ApiKey *string `json:"apiKey" yaml:"apiKey"`
+	ApiKey *string `field:"required" json:"apiKey" yaml:"apiKey"`
 	// The unique identifier for the Amazon Pinpoint application that you're configuring the Baidu channel for.
-	ApplicationId *string `json:"applicationId" yaml:"applicationId"`
+	ApplicationId *string `field:"required" json:"applicationId" yaml:"applicationId"`
 	// The secret key that you received from the Baidu Cloud Push service to communicate with the service.
-	SecretKey *string `json:"secretKey" yaml:"secretKey"`
+	SecretKey *string `field:"required" json:"secretKey" yaml:"secretKey"`
 	// Specifies whether to enable the Baidu channel for the application.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 }
 
 // A CloudFormation `AWS::Pinpoint::Campaign`.
@@ -6546,13 +6603,16 @@ type CfnBaiduChannelProps struct {
 // Specifies the settings for a campaign. A *campaign* is a messaging initiative that engages a specific segment of users for an Amazon Pinpoint application.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var attributes interface{}
 //   var customConfig interface{}
 //   var metrics interface{}
 //   var tags interface{}
-//   cfnCampaign := pinpoint.NewCfnCampaign(this, jsii.String("MyCfnCampaign"), &cfnCampaignProps{
+//
+//   cfnCampaign := awscdk.Aws_pinpoint.NewCfnCampaign(this, jsii.String("MyCfnCampaign"), &cfnCampaignProps{
 //   	applicationId: jsii.String("applicationId"),
 //   	messageConfiguration: &messageConfigurationProperty{
 //   		admMessage: &messageProperty{
@@ -7902,7 +7962,10 @@ func (c *jsiiProxy_CfnCampaign) ValidateProperties(_properties interface{}) {
 // Specifies attribute-based criteria for including or excluding endpoints from a segment.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   attributeDimensionProperty := &attributeDimensionProperty{
 //   	attributeType: jsii.String("attributeType"),
 //   	values: []*string{
@@ -7920,17 +7983,20 @@ type CfnCampaign_AttributeDimensionProperty struct {
 	// - `AFTER` – endpoints with attributes read as ISO_INSTANT datetimes after the value are included in the segment.
 	// - `BETWEEN` – endpoints with attributes read as ISO_INSTANT datetimes between the values are included in the segment.
 	// - `ON` – endpoints with attributes read as ISO_INSTANT dates on the value are included in the segment. Time is ignored in this comparison.
-	AttributeType *string `json:"attributeType" yaml:"attributeType"`
+	AttributeType *string `field:"optional" json:"attributeType" yaml:"attributeType"`
 	// The criteria values to use for the segment dimension.
 	//
 	// Depending on the value of the `AttributeType` property, endpoints are included or excluded from the segment if their attribute values match the criteria values.
-	Values *[]*string `json:"values" yaml:"values"`
+	Values *[]*string `field:"optional" json:"values" yaml:"values"`
 }
 
 // Specifies the content and "From" address for an email message that's sent to recipients of a campaign.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   campaignEmailMessageProperty := &campaignEmailMessageProperty{
 //   	body: jsii.String("body"),
 //   	fromAddress: jsii.String("fromAddress"),
@@ -7940,24 +8006,27 @@ type CfnCampaign_AttributeDimensionProperty struct {
 //
 type CfnCampaign_CampaignEmailMessageProperty struct {
 	// The body of the email for recipients whose email clients don't render HTML content.
-	Body *string `json:"body" yaml:"body"`
+	Body *string `field:"optional" json:"body" yaml:"body"`
 	// The verified email address to send the email from.
 	//
 	// The default address is the `FromAddress` specified for the email channel for the application.
-	FromAddress *string `json:"fromAddress" yaml:"fromAddress"`
+	FromAddress *string `field:"optional" json:"fromAddress" yaml:"fromAddress"`
 	// The body of the email, in HTML format, for recipients whose email clients render HTML content.
-	HtmlBody *string `json:"htmlBody" yaml:"htmlBody"`
+	HtmlBody *string `field:"optional" json:"htmlBody" yaml:"htmlBody"`
 	// The subject line, or title, of the email.
-	Title *string `json:"title" yaml:"title"`
+	Title *string `field:"optional" json:"title" yaml:"title"`
 }
 
 // Specifies the settings for events that cause a campaign to be sent.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var attributes interface{}
 //   var metrics interface{}
+//
 //   campaignEventFilterProperty := &campaignEventFilterProperty{
 //   	dimensions: &eventDimensionsProperty{
 //   		attributes: attributes,
@@ -7974,17 +8043,20 @@ type CfnCampaign_CampaignEmailMessageProperty struct {
 //
 type CfnCampaign_CampaignEventFilterProperty struct {
 	// The dimension settings of the event filter for the campaign.
-	Dimensions interface{} `json:"dimensions" yaml:"dimensions"`
+	Dimensions interface{} `field:"optional" json:"dimensions" yaml:"dimensions"`
 	// The type of event that causes the campaign to be sent.
 	//
 	// Valid values are: `SYSTEM` , sends the campaign when a system event occurs; and, `ENDPOINT` , sends the campaign when an endpoint event (Events resource) occurs.
-	FilterType *string `json:"filterType" yaml:"filterType"`
+	FilterType *string `field:"optional" json:"filterType" yaml:"filterType"`
 }
 
 // Specifies settings for invoking an Lambda function that customizes a segment for a campaign.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   campaignHookProperty := &campaignHookProperty{
 //   	lambdaFunctionName: jsii.String("lambdaFunctionName"),
 //   	mode: jsii.String("mode"),
@@ -7993,22 +8065,25 @@ type CfnCampaign_CampaignEventFilterProperty struct {
 //
 type CfnCampaign_CampaignHookProperty struct {
 	// The name or Amazon Resource Name (ARN) of the Lambda function that Amazon Pinpoint invokes to customize a segment for a campaign.
-	LambdaFunctionName *string `json:"lambdaFunctionName" yaml:"lambdaFunctionName"`
+	LambdaFunctionName *string `field:"optional" json:"lambdaFunctionName" yaml:"lambdaFunctionName"`
 	// The mode that Amazon Pinpoint uses to invoke the Lambda function. Possible values are:.
 	//
 	// - `FILTER` - Invoke the function to customize the segment that's used by a campaign.
 	// - `DELIVERY` - (Deprecated) Previously, invoked the function to send a campaign through a custom channel. This functionality is not supported anymore. To send a campaign through a custom channel, use the `CustomDeliveryConfiguration` and `CampaignCustomMessage` objects of the campaign.
-	Mode *string `json:"mode" yaml:"mode"`
+	Mode *string `field:"optional" json:"mode" yaml:"mode"`
 	// The web URL that Amazon Pinpoint calls to invoke the Lambda function over HTTPS.
-	WebUrl *string `json:"webUrl" yaml:"webUrl"`
+	WebUrl *string `field:"optional" json:"webUrl" yaml:"webUrl"`
 }
 
 // Specifies the appearance of an in-app message, including the message type, the title and body text, text and background colors, and the configurations of buttons that appear in the message.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var customConfig interface{}
+//
 //   campaignInAppMessageProperty := &campaignInAppMessageProperty{
 //   	content: []interface{}{
 //   		&inAppMessageContentProperty{
@@ -8076,9 +8151,9 @@ type CfnCampaign_CampaignHookProperty struct {
 //
 type CfnCampaign_CampaignInAppMessageProperty struct {
 	// An array that contains configurtion information about the in-app message for the campaign, including title and body text, text colors, background colors, image URLs, and button configurations.
-	Content interface{} `json:"content" yaml:"content"`
+	Content interface{} `field:"optional" json:"content" yaml:"content"`
 	// Custom data, in the form of key-value pairs, that is included in an in-app messaging payload.
-	CustomConfig interface{} `json:"customConfig" yaml:"customConfig"`
+	CustomConfig interface{} `field:"optional" json:"customConfig" yaml:"customConfig"`
 	// A string that describes how the in-app message will appear. You can specify one of the following:.
 	//
 	// - `BOTTOM_BANNER` – a message that appears as a banner at the bottom of the page.
@@ -8087,13 +8162,16 @@ type CfnCampaign_CampaignInAppMessageProperty struct {
 	// - `MOBILE_FEED` – a message that appears in a window in front of the page.
 	// - `MIDDLE_BANNER` – a message that appears as a banner in the middle of the page.
 	// - `CAROUSEL` – a scrollable layout of up to five unique messages.
-	Layout *string `json:"layout" yaml:"layout"`
+	Layout *string `field:"optional" json:"layout" yaml:"layout"`
 }
 
 // Specifies the content and settings for an SMS message that's sent to recipients of a campaign.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   campaignSmsMessageProperty := &campaignSmsMessageProperty{
 //   	body: jsii.String("body"),
 //   	entityId: jsii.String("entityId"),
@@ -8105,23 +8183,23 @@ type CfnCampaign_CampaignInAppMessageProperty struct {
 //
 type CfnCampaign_CampaignSmsMessageProperty struct {
 	// The body of the SMS message.
-	Body *string `json:"body" yaml:"body"`
+	Body *string `field:"optional" json:"body" yaml:"body"`
 	// The entity ID or Principal Entity (PE) id received from the regulatory body for sending SMS in your country.
-	EntityId *string `json:"entityId" yaml:"entityId"`
+	EntityId *string `field:"optional" json:"entityId" yaml:"entityId"`
 	// The SMS message type.
 	//
 	// Valid values are `TRANSACTIONAL` (for messages that are critical or time-sensitive, such as a one-time passwords) and `PROMOTIONAL` (for messsages that aren't critical or time-sensitive, such as marketing messages).
-	MessageType *string `json:"messageType" yaml:"messageType"`
+	MessageType *string `field:"optional" json:"messageType" yaml:"messageType"`
 	// The long code to send the SMS message from.
 	//
 	// This value should be one of the dedicated long codes that's assigned to your AWS account. Although it isn't required, we recommend that you specify the long code using an E.164 format to ensure prompt and accurate delivery of the message. For example, +12065550100.
-	OriginationNumber *string `json:"originationNumber" yaml:"originationNumber"`
+	OriginationNumber *string `field:"optional" json:"originationNumber" yaml:"originationNumber"`
 	// The alphabetic Sender ID to display as the sender of the message on a recipient's device.
 	//
 	// Support for sender IDs varies by country or region. To specify a phone number as the sender, omit this parameter and use `OriginationNumber` instead. For more information about support for Sender ID by country, see the [Amazon Pinpoint User Guide](https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-countries.html) .
-	SenderId *string `json:"senderId" yaml:"senderId"`
+	SenderId *string `field:"optional" json:"senderId" yaml:"senderId"`
 	// The template ID received from the regulatory body for sending SMS in your country.
-	TemplateId *string `json:"templateId" yaml:"templateId"`
+	TemplateId *string `field:"optional" json:"templateId" yaml:"templateId"`
 }
 
 // Specifies the default behavior for a button that appears in an in-app message.
@@ -8129,7 +8207,10 @@ type CfnCampaign_CampaignSmsMessageProperty struct {
 // You can optionally add button configurations that specifically apply to iOS, Android, or web browser users.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   defaultButtonConfigurationProperty := &defaultButtonConfigurationProperty{
 //   	backgroundColor: jsii.String("backgroundColor"),
 //   	borderRadius: jsii.Number(123),
@@ -8141,9 +8222,9 @@ type CfnCampaign_CampaignSmsMessageProperty struct {
 //
 type CfnCampaign_DefaultButtonConfigurationProperty struct {
 	// The background color of a button, expressed as a hex color code (such as #000000 for black).
-	BackgroundColor *string `json:"backgroundColor" yaml:"backgroundColor"`
+	BackgroundColor *string `field:"optional" json:"backgroundColor" yaml:"backgroundColor"`
 	// The border radius of a button.
-	BorderRadius *float64 `json:"borderRadius" yaml:"borderRadius"`
+	BorderRadius *float64 `field:"optional" json:"borderRadius" yaml:"borderRadius"`
 	// The action that occurs when a recipient chooses a button in an in-app message.
 	//
 	// You can specify one of the following:
@@ -8151,22 +8232,25 @@ type CfnCampaign_DefaultButtonConfigurationProperty struct {
 	// - `LINK` – A link to a web destination.
 	// - `DEEP_LINK` – A link to a specific page in an application.
 	// - `CLOSE` – Dismisses the message.
-	ButtonAction *string `json:"buttonAction" yaml:"buttonAction"`
+	ButtonAction *string `field:"optional" json:"buttonAction" yaml:"buttonAction"`
 	// The destination (such as a URL) for a button.
-	Link *string `json:"link" yaml:"link"`
+	Link *string `field:"optional" json:"link" yaml:"link"`
 	// The text that appears on a button in an in-app message.
-	Text *string `json:"text" yaml:"text"`
+	Text *string `field:"optional" json:"text" yaml:"text"`
 	// The color of the body text in a button, expressed as a hex color code (such as #000000 for black).
-	TextColor *string `json:"textColor" yaml:"textColor"`
+	TextColor *string `field:"optional" json:"textColor" yaml:"textColor"`
 }
 
 // Specifies the dimensions for an event filter that determines when a campaign is sent or a journey activity is performed.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var attributes interface{}
 //   var metrics interface{}
+//
 //   eventDimensionsProperty := &eventDimensionsProperty{
 //   	attributes: attributes,
 //   	eventType: &setDimensionProperty{
@@ -8182,21 +8266,24 @@ type CfnCampaign_EventDimensionsProperty struct {
 	// One or more custom attributes that your application reports to Amazon Pinpoint.
 	//
 	// You can use these attributes as selection criteria when you create an event filter.
-	Attributes interface{} `json:"attributes" yaml:"attributes"`
+	Attributes interface{} `field:"optional" json:"attributes" yaml:"attributes"`
 	// The name of the event that causes the campaign to be sent or the journey activity to be performed.
 	//
 	// This can be a standard event that Amazon Pinpoint generates, such as `_email.delivered` . For campaigns, this can also be a custom event that's specific to your application. For information about standard events, see [Streaming Amazon Pinpoint Events](https://docs.aws.amazon.com/pinpoint/latest/developerguide/event-streams.html) in the *Amazon Pinpoint Developer Guide* .
-	EventType interface{} `json:"eventType" yaml:"eventType"`
+	EventType interface{} `field:"optional" json:"eventType" yaml:"eventType"`
 	// One or more custom metrics that your application reports to Amazon Pinpoint .
 	//
 	// You can use these metrics as selection criteria when you create an event filter.
-	Metrics interface{} `json:"metrics" yaml:"metrics"`
+	Metrics interface{} `field:"optional" json:"metrics" yaml:"metrics"`
 }
 
 // Specifies the configuration of main body text of the in-app message.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   inAppMessageBodyConfigProperty := &inAppMessageBodyConfigProperty{
 //   	alignment: jsii.String("alignment"),
 //   	body: jsii.String("body"),
@@ -8207,17 +8294,20 @@ type CfnCampaign_InAppMessageBodyConfigProperty struct {
 	// The text alignment of the main body text of the message.
 	//
 	// Acceptable values: `LEFT` , `CENTER` , `RIGHT` .
-	Alignment *string `json:"alignment" yaml:"alignment"`
+	Alignment *string `field:"optional" json:"alignment" yaml:"alignment"`
 	// The main body text of the message.
-	Body *string `json:"body" yaml:"body"`
+	Body *string `field:"optional" json:"body" yaml:"body"`
 	// The color of the body text, expressed as a string consisting of a hex color code (such as "#000000" for black).
-	TextColor *string `json:"textColor" yaml:"textColor"`
+	TextColor *string `field:"optional" json:"textColor" yaml:"textColor"`
 }
 
 // Specifies the configuration of a button that appears in an in-app message.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   inAppMessageButtonProperty := &inAppMessageButtonProperty{
 //   	android: &overrideButtonConfigurationProperty{
 //   		buttonAction: jsii.String("buttonAction"),
@@ -8243,19 +8333,22 @@ type CfnCampaign_InAppMessageBodyConfigProperty struct {
 //
 type CfnCampaign_InAppMessageButtonProperty struct {
 	// An object that defines the default behavior for a button in in-app messages sent to Android.
-	Android interface{} `json:"android" yaml:"android"`
+	Android interface{} `field:"optional" json:"android" yaml:"android"`
 	// An object that defines the default behavior for a button in an in-app message.
-	DefaultConfig interface{} `json:"defaultConfig" yaml:"defaultConfig"`
+	DefaultConfig interface{} `field:"optional" json:"defaultConfig" yaml:"defaultConfig"`
 	// An object that defines the default behavior for a button in in-app messages sent to iOS devices.
-	Ios interface{} `json:"ios" yaml:"ios"`
+	Ios interface{} `field:"optional" json:"ios" yaml:"ios"`
 	// An object that defines the default behavior for a button in in-app messages for web applications.
-	Web interface{} `json:"web" yaml:"web"`
+	Web interface{} `field:"optional" json:"web" yaml:"web"`
 }
 
 // Specifies the configuration and contents of an in-app message.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   inAppMessageContentProperty := &inAppMessageContentProperty{
 //   	backgroundColor: jsii.String("backgroundColor"),
 //   	bodyConfig: &inAppMessageBodyConfigProperty{
@@ -8317,23 +8410,26 @@ type CfnCampaign_InAppMessageButtonProperty struct {
 //
 type CfnCampaign_InAppMessageContentProperty struct {
 	// The background color for an in-app message banner, expressed as a hex color code (such as #000000 for black).
-	BackgroundColor *string `json:"backgroundColor" yaml:"backgroundColor"`
+	BackgroundColor *string `field:"optional" json:"backgroundColor" yaml:"backgroundColor"`
 	// Specifies the configuration of main body text in an in-app message template.
-	BodyConfig interface{} `json:"bodyConfig" yaml:"bodyConfig"`
+	BodyConfig interface{} `field:"optional" json:"bodyConfig" yaml:"bodyConfig"`
 	// Specifies the configuration and content of the header or title text of the in-app message.
-	HeaderConfig interface{} `json:"headerConfig" yaml:"headerConfig"`
+	HeaderConfig interface{} `field:"optional" json:"headerConfig" yaml:"headerConfig"`
 	// The URL of the image that appears on an in-app message banner.
-	ImageUrl *string `json:"imageUrl" yaml:"imageUrl"`
+	ImageUrl *string `field:"optional" json:"imageUrl" yaml:"imageUrl"`
 	// An object that contains configuration information about the primary button in an in-app message.
-	PrimaryBtn interface{} `json:"primaryBtn" yaml:"primaryBtn"`
+	PrimaryBtn interface{} `field:"optional" json:"primaryBtn" yaml:"primaryBtn"`
 	// An object that contains configuration information about the secondary button in an in-app message.
-	SecondaryBtn interface{} `json:"secondaryBtn" yaml:"secondaryBtn"`
+	SecondaryBtn interface{} `field:"optional" json:"secondaryBtn" yaml:"secondaryBtn"`
 }
 
 // Specifies the configuration and content of the header or title text of the in-app message.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   inAppMessageHeaderConfigProperty := &inAppMessageHeaderConfigProperty{
 //   	alignment: jsii.String("alignment"),
 //   	header: jsii.String("header"),
@@ -8344,17 +8440,20 @@ type CfnCampaign_InAppMessageHeaderConfigProperty struct {
 	// The text alignment of the title of the message.
 	//
 	// Acceptable values: `LEFT` , `CENTER` , `RIGHT` .
-	Alignment *string `json:"alignment" yaml:"alignment"`
+	Alignment *string `field:"optional" json:"alignment" yaml:"alignment"`
 	// The header or title text of the in-app message.
-	Header *string `json:"header" yaml:"header"`
+	Header *string `field:"optional" json:"header" yaml:"header"`
 	// The color of the body text, expressed as a string consisting of a hex color code (such as "#000000" for black).
-	TextColor *string `json:"textColor" yaml:"textColor"`
+	TextColor *string `field:"optional" json:"textColor" yaml:"textColor"`
 }
 
 // Specifies the limits on the messages that a campaign can send.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   limitsProperty := &limitsProperty{
 //   	daily: jsii.Number(123),
 //   	maximumDuration: jsii.Number(123),
@@ -8367,29 +8466,32 @@ type CfnCampaign_LimitsProperty struct {
 	// The maximum number of messages that a campaign can send to a single endpoint during a 24-hour period.
 	//
 	// The maximum value is 100.
-	Daily *float64 `json:"daily" yaml:"daily"`
+	Daily *float64 `field:"optional" json:"daily" yaml:"daily"`
 	// The maximum amount of time, in seconds, that a campaign can attempt to deliver a message after the scheduled start time for the campaign.
 	//
 	// The minimum value is 60 seconds.
-	MaximumDuration *float64 `json:"maximumDuration" yaml:"maximumDuration"`
+	MaximumDuration *float64 `field:"optional" json:"maximumDuration" yaml:"maximumDuration"`
 	// The maximum number of messages that a campaign can send each second.
 	//
 	// The minimum value is 50. The maximum value is 20,000.
-	MessagesPerSecond *float64 `json:"messagesPerSecond" yaml:"messagesPerSecond"`
+	MessagesPerSecond *float64 `field:"optional" json:"messagesPerSecond" yaml:"messagesPerSecond"`
 	// `CfnCampaign.LimitsProperty.Session`.
-	Session *float64 `json:"session" yaml:"session"`
+	Session *float64 `field:"optional" json:"session" yaml:"session"`
 	// The maximum number of messages that a campaign can send to a single endpoint during the course of the campaign.
 	//
 	// The maximum value is 100.
-	Total *float64 `json:"total" yaml:"total"`
+	Total *float64 `field:"optional" json:"total" yaml:"total"`
 }
 
 // Specifies the message configuration settings for a campaign.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var customConfig interface{}
+//
 //   messageConfigurationProperty := &messageConfigurationProperty{
 //   	admMessage: &messageProperty{
 //   		action: jsii.String("action"),
@@ -8545,39 +8647,42 @@ type CfnCampaign_MessageConfigurationProperty struct {
 	// The message that the campaign sends through the ADM (Amazon Device Messaging) channel.
 	//
 	// If specified, this message overrides the default message.
-	AdmMessage interface{} `json:"admMessage" yaml:"admMessage"`
+	AdmMessage interface{} `field:"optional" json:"admMessage" yaml:"admMessage"`
 	// The message that the campaign sends through the APNs (Apple Push Notification service) channel.
 	//
 	// If specified, this message overrides the default message.
-	ApnsMessage interface{} `json:"apnsMessage" yaml:"apnsMessage"`
+	ApnsMessage interface{} `field:"optional" json:"apnsMessage" yaml:"apnsMessage"`
 	// The message that the campaign sends through the Baidu (Baidu Cloud Push) channel.
 	//
 	// If specified, this message overrides the default message.
-	BaiduMessage interface{} `json:"baiduMessage" yaml:"baiduMessage"`
+	BaiduMessage interface{} `field:"optional" json:"baiduMessage" yaml:"baiduMessage"`
 	// The default message that the campaign sends through all the channels that are configured for the campaign.
-	DefaultMessage interface{} `json:"defaultMessage" yaml:"defaultMessage"`
+	DefaultMessage interface{} `field:"optional" json:"defaultMessage" yaml:"defaultMessage"`
 	// The message that the campaign sends through the email channel.
 	//
 	// If specified, this message overrides the default message.
-	EmailMessage interface{} `json:"emailMessage" yaml:"emailMessage"`
+	EmailMessage interface{} `field:"optional" json:"emailMessage" yaml:"emailMessage"`
 	// The message that the campaign sends through the GCM channel, which enables Amazon Pinpoint to send push notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service.
 	//
 	// If specified, this message overrides the default message.
-	GcmMessage interface{} `json:"gcmMessage" yaml:"gcmMessage"`
+	GcmMessage interface{} `field:"optional" json:"gcmMessage" yaml:"gcmMessage"`
 	// The default message for the in-app messaging channel.
 	//
 	// This message overrides the default message ( `DefaultMessage` ).
-	InAppMessage interface{} `json:"inAppMessage" yaml:"inAppMessage"`
+	InAppMessage interface{} `field:"optional" json:"inAppMessage" yaml:"inAppMessage"`
 	// The message that the campaign sends through the SMS channel.
 	//
 	// If specified, this message overrides the default message.
-	SmsMessage interface{} `json:"smsMessage" yaml:"smsMessage"`
+	SmsMessage interface{} `field:"optional" json:"smsMessage" yaml:"smsMessage"`
 }
 
 // Specifies the content and settings for a push notification that's sent to recipients of a campaign.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   messageProperty := &messageProperty{
 //   	action: jsii.String("action"),
 //   	body: jsii.String("body"),
@@ -8599,39 +8704,39 @@ type CfnCampaign_MessageProperty struct {
 	// - `OPEN_APP` – Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.
 	// - `DEEP_LINK` – Your app opens and displays a designated user interface in the app. This setting uses the deep-linking features of iOS and Android.
 	// - `URL` – The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.
-	Action *string `json:"action" yaml:"action"`
+	Action *string `field:"optional" json:"action" yaml:"action"`
 	// The body of the notification message.
 	//
 	// The maximum number of characters is 200.
-	Body *string `json:"body" yaml:"body"`
+	Body *string `field:"optional" json:"body" yaml:"body"`
 	// The URL of the image to display as the push notification icon, such as the icon for the app.
-	ImageIconUrl *string `json:"imageIconUrl" yaml:"imageIconUrl"`
+	ImageIconUrl *string `field:"optional" json:"imageIconUrl" yaml:"imageIconUrl"`
 	// The URL of the image to display as the small, push notification icon, such as a small version of the icon for the app.
-	ImageSmallIconUrl *string `json:"imageSmallIconUrl" yaml:"imageSmallIconUrl"`
+	ImageSmallIconUrl *string `field:"optional" json:"imageSmallIconUrl" yaml:"imageSmallIconUrl"`
 	// The URL of an image to display in the push notification.
-	ImageUrl *string `json:"imageUrl" yaml:"imageUrl"`
+	ImageUrl *string `field:"optional" json:"imageUrl" yaml:"imageUrl"`
 	// The JSON payload to use for a silent push notification.
-	JsonBody *string `json:"jsonBody" yaml:"jsonBody"`
+	JsonBody *string `field:"optional" json:"jsonBody" yaml:"jsonBody"`
 	// The URL of the image or video to display in the push notification.
-	MediaUrl *string `json:"mediaUrl" yaml:"mediaUrl"`
+	MediaUrl *string `field:"optional" json:"mediaUrl" yaml:"mediaUrl"`
 	// The raw, JSON-formatted string to use as the payload for the notification message.
 	//
 	// If specified, this value overrides all other content for the message.
-	RawContent *string `json:"rawContent" yaml:"rawContent"`
+	RawContent *string `field:"optional" json:"rawContent" yaml:"rawContent"`
 	// Specifies whether the notification is a silent push notification, which is a push notification that doesn't display on a recipient's device.
 	//
 	// Silent push notifications can be used for cases such as updating an app's configuration, displaying messages in an in-app message center, or supporting phone home functionality.
-	SilentPush interface{} `json:"silentPush" yaml:"silentPush"`
+	SilentPush interface{} `field:"optional" json:"silentPush" yaml:"silentPush"`
 	// The number of seconds that the push notification service should keep the message, if the service is unable to deliver the notification the first time.
 	//
 	// This value is converted to an expiration value when it's sent to a push notification service. If this value is `0` , the service treats the notification as if it expires immediately and the service doesn't store or try to deliver the notification again.
 	//
 	// This value doesn't apply to messages that are sent through the Amazon Device Messaging (ADM) service.
-	TimeToLive *float64 `json:"timeToLive" yaml:"timeToLive"`
+	TimeToLive *float64 `field:"optional" json:"timeToLive" yaml:"timeToLive"`
 	// The title to display above the notification message on a recipient's device.
-	Title *string `json:"title" yaml:"title"`
+	Title *string `field:"optional" json:"title" yaml:"title"`
 	// The URL to open in a recipient's default mobile browser, if a recipient taps the push notification and the value of the `Action` property is `URL` .
-	Url *string `json:"url" yaml:"url"`
+	Url *string `field:"optional" json:"url" yaml:"url"`
 }
 
 // Specifies metric-based criteria for including or excluding endpoints from a segment.
@@ -8639,7 +8744,10 @@ type CfnCampaign_MessageProperty struct {
 // These criteria derive from custom metrics that you define for endpoints.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   metricDimensionProperty := &metricDimensionProperty{
 //   	comparisonOperator: jsii.String("comparisonOperator"),
 //   	value: jsii.Number(123),
@@ -8649,15 +8757,18 @@ type CfnCampaign_MetricDimensionProperty struct {
 	// The operator to use when comparing metric values.
 	//
 	// Valid values are: `GREATER_THAN` , `LESS_THAN` , `GREATER_THAN_OR_EQUAL` , `LESS_THAN_OR_EQUAL` , and `EQUAL` .
-	ComparisonOperator *string `json:"comparisonOperator" yaml:"comparisonOperator"`
+	ComparisonOperator *string `field:"optional" json:"comparisonOperator" yaml:"comparisonOperator"`
 	// The value to compare.
-	Value *float64 `json:"value" yaml:"value"`
+	Value *float64 `field:"optional" json:"value" yaml:"value"`
 }
 
 // Specifies the configuration of a button with settings that are specific to a certain device type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   overrideButtonConfigurationProperty := &overrideButtonConfigurationProperty{
 //   	buttonAction: jsii.String("buttonAction"),
 //   	link: jsii.String("link"),
@@ -8671,15 +8782,18 @@ type CfnCampaign_OverrideButtonConfigurationProperty struct {
 	// - `LINK` – A link to a web destination.
 	// - `DEEP_LINK` – A link to a specific page in an application.
 	// - `CLOSE` – Dismisses the message.
-	ButtonAction *string `json:"buttonAction" yaml:"buttonAction"`
+	ButtonAction *string `field:"optional" json:"buttonAction" yaml:"buttonAction"`
 	// The destination (such as a URL) for a button.
-	Link *string `json:"link" yaml:"link"`
+	Link *string `field:"optional" json:"link" yaml:"link"`
 }
 
 // Specifies the start and end times that define a time range when messages aren't sent to endpoints.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   quietTimeProperty := &quietTimeProperty{
 //   	end: jsii.String("end"),
 //   	start: jsii.String("start"),
@@ -8689,20 +8803,23 @@ type CfnCampaign_QuietTimeProperty struct {
 	// The specific time when quiet time ends.
 	//
 	// This value has to use 24-hour notation and be in HH:MM format, where HH is the hour (with a leading zero, if applicable) and MM is the minutes. For example, use `02:30` to represent 2:30 AM, or `14:30` to represent 2:30 PM.
-	End *string `json:"end" yaml:"end"`
+	End *string `field:"required" json:"end" yaml:"end"`
 	// The specific time when quiet time begins.
 	//
 	// This value has to use 24-hour notation and be in HH:MM format, where HH is the hour (with a leading zero, if applicable) and MM is the minutes. For example, use `02:30` to represent 2:30 AM, or `14:30` to represent 2:30 PM.
-	Start *string `json:"start" yaml:"start"`
+	Start *string `field:"required" json:"start" yaml:"start"`
 }
 
 // Specifies the schedule settings for a campaign.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var attributes interface{}
 //   var metrics interface{}
+//
 //   scheduleProperty := &scheduleProperty{
 //   	endTime: jsii.String("endTime"),
 //   	eventFilter: &campaignEventFilterProperty{
@@ -8730,15 +8847,15 @@ type CfnCampaign_QuietTimeProperty struct {
 //
 type CfnCampaign_ScheduleProperty struct {
 	// The scheduled time, in ISO 8601 format, when the campaign ended or will end.
-	EndTime *string `json:"endTime" yaml:"endTime"`
+	EndTime *string `field:"optional" json:"endTime" yaml:"endTime"`
 	// The type of event that causes the campaign to be sent, if the value of the `Frequency` property is `EVENT` .
-	EventFilter interface{} `json:"eventFilter" yaml:"eventFilter"`
+	EventFilter interface{} `field:"optional" json:"eventFilter" yaml:"eventFilter"`
 	// Specifies how often the campaign is sent or whether the campaign is sent in response to a specific event.
-	Frequency *string `json:"frequency" yaml:"frequency"`
+	Frequency *string `field:"optional" json:"frequency" yaml:"frequency"`
 	// Specifies whether the start and end times for the campaign schedule use each recipient's local time.
 	//
 	// To base the schedule on each recipient's local time, set this value to `true` .
-	IsLocalTime interface{} `json:"isLocalTime" yaml:"isLocalTime"`
+	IsLocalTime interface{} `field:"optional" json:"isLocalTime" yaml:"isLocalTime"`
 	// The default quiet time for the campaign.
 	//
 	// Quiet time is a specific time range when a campaign doesn't send messages to endpoints, if all the following conditions are met:
@@ -8748,21 +8865,24 @@ type CfnCampaign_ScheduleProperty struct {
 	// - The current time in the endpoint's time zone is earlier than or equal to the time specified by the `QuietTime.End` property for the campaign.
 	//
 	// If any of the preceding conditions isn't met, the endpoint will receive messages from the campaign, even if quiet time is enabled.
-	QuietTime interface{} `json:"quietTime" yaml:"quietTime"`
+	QuietTime interface{} `field:"optional" json:"quietTime" yaml:"quietTime"`
 	// The scheduled time when the campaign began or will begin.
 	//
 	// Valid values are: `IMMEDIATE` , to start the campaign immediately; or, a specific time in ISO 8601 format.
-	StartTime *string `json:"startTime" yaml:"startTime"`
+	StartTime *string `field:"optional" json:"startTime" yaml:"startTime"`
 	// The starting UTC offset for the campaign schedule, if the value of the `IsLocalTime` property is `true` .
 	//
 	// Valid values are: `UTC, UTC+01, UTC+02, UTC+03, UTC+03:30, UTC+04, UTC+04:30, UTC+05, UTC+05:30, UTC+05:45, UTC+06, UTC+06:30, UTC+07, UTC+08, UTC+09, UTC+09:30, UTC+10, UTC+10:30, UTC+11, UTC+12, UTC+13, UTC-02, UTC-03, UTC-04, UTC-05, UTC-06, UTC-07, UTC-08, UTC-09, UTC-10,` and `UTC-11` .
-	TimeZone *string `json:"timeZone" yaml:"timeZone"`
+	TimeZone *string `field:"optional" json:"timeZone" yaml:"timeZone"`
 }
 
 // Specifies the dimension type and values for a segment dimension.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   setDimensionProperty := &setDimensionProperty{
 //   	dimensionType: jsii.String("dimensionType"),
 //   	values: []*string{
@@ -8774,11 +8894,11 @@ type CfnCampaign_SetDimensionProperty struct {
 	// The type of segment dimension to use.
 	//
 	// Valid values are: `INCLUSIVE` , endpoints that match the criteria are included in the segment; and, `EXCLUSIVE` , endpoints that match the criteria are excluded from the segment.
-	DimensionType *string `json:"dimensionType" yaml:"dimensionType"`
+	DimensionType *string `field:"optional" json:"dimensionType" yaml:"dimensionType"`
 	// The criteria values to use for the segment dimension.
 	//
 	// Depending on the value of the `DimensionType` property, endpoints are included or excluded from the segment if their values match the criteria values.
-	Values *[]*string `json:"values" yaml:"values"`
+	Values *[]*string `field:"optional" json:"values" yaml:"values"`
 }
 
 // Specifies the settings for a campaign treatment.
@@ -8786,11 +8906,14 @@ type CfnCampaign_SetDimensionProperty struct {
 // A *treatment* is a variation of a campaign that's used for A/B testing of a campaign.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var attributes interface{}
 //   var customConfig interface{}
 //   var metrics interface{}
+//
 //   writeTreatmentResourceProperty := &writeTreatmentResourceProperty{
 //   	messageConfiguration: &messageConfigurationProperty{
 //   		admMessage: &messageProperty{
@@ -8973,26 +9096,29 @@ type CfnCampaign_SetDimensionProperty struct {
 //
 type CfnCampaign_WriteTreatmentResourceProperty struct {
 	// The message configuration settings for the treatment.
-	MessageConfiguration interface{} `json:"messageConfiguration" yaml:"messageConfiguration"`
+	MessageConfiguration interface{} `field:"optional" json:"messageConfiguration" yaml:"messageConfiguration"`
 	// The schedule settings for the treatment.
-	Schedule interface{} `json:"schedule" yaml:"schedule"`
+	Schedule interface{} `field:"optional" json:"schedule" yaml:"schedule"`
 	// The allocated percentage of users (segment members) to send the treatment to.
-	SizePercent *float64 `json:"sizePercent" yaml:"sizePercent"`
+	SizePercent *float64 `field:"optional" json:"sizePercent" yaml:"sizePercent"`
 	// A custom description of the treatment.
-	TreatmentDescription *string `json:"treatmentDescription" yaml:"treatmentDescription"`
+	TreatmentDescription *string `field:"optional" json:"treatmentDescription" yaml:"treatmentDescription"`
 	// A custom name for the treatment.
-	TreatmentName *string `json:"treatmentName" yaml:"treatmentName"`
+	TreatmentName *string `field:"optional" json:"treatmentName" yaml:"treatmentName"`
 }
 
 // Properties for defining a `CfnCampaign`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var attributes interface{}
 //   var customConfig interface{}
 //   var metrics interface{}
 //   var tags interface{}
+//
 //   cfnCampaignProps := &cfnCampaignProps{
 //   	applicationId: jsii.String("applicationId"),
 //   	messageConfiguration: &messageConfigurationProperty{
@@ -9378,45 +9504,45 @@ type CfnCampaign_WriteTreatmentResourceProperty struct {
 //
 type CfnCampaignProps struct {
 	// The unique identifier for the Amazon Pinpoint application that the campaign is associated with.
-	ApplicationId *string `json:"applicationId" yaml:"applicationId"`
+	ApplicationId *string `field:"required" json:"applicationId" yaml:"applicationId"`
 	// The message configuration settings for the campaign.
-	MessageConfiguration interface{} `json:"messageConfiguration" yaml:"messageConfiguration"`
+	MessageConfiguration interface{} `field:"required" json:"messageConfiguration" yaml:"messageConfiguration"`
 	// The name of the campaign.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The schedule settings for the campaign.
-	Schedule interface{} `json:"schedule" yaml:"schedule"`
+	Schedule interface{} `field:"required" json:"schedule" yaml:"schedule"`
 	// The unique identifier for the segment to associate with the campaign.
-	SegmentId *string `json:"segmentId" yaml:"segmentId"`
+	SegmentId *string `field:"required" json:"segmentId" yaml:"segmentId"`
 	// An array of requests that defines additional treatments for the campaign, in addition to the default treatment for the campaign.
-	AdditionalTreatments interface{} `json:"additionalTreatments" yaml:"additionalTreatments"`
+	AdditionalTreatments interface{} `field:"optional" json:"additionalTreatments" yaml:"additionalTreatments"`
 	// Specifies the Lambda function to use as a code hook for a campaign.
-	CampaignHook interface{} `json:"campaignHook" yaml:"campaignHook"`
+	CampaignHook interface{} `field:"optional" json:"campaignHook" yaml:"campaignHook"`
 	// A custom description of the campaign.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The allocated percentage of users (segment members) who shouldn't receive messages from the campaign.
-	HoldoutPercent *float64 `json:"holdoutPercent" yaml:"holdoutPercent"`
+	HoldoutPercent *float64 `field:"optional" json:"holdoutPercent" yaml:"holdoutPercent"`
 	// Specifies whether to pause the campaign.
 	//
 	// A paused campaign doesn't run unless you resume it by changing this value to `false` . If you restart a campaign, the campaign restarts from the beginning and not at the point you paused it.
-	IsPaused interface{} `json:"isPaused" yaml:"isPaused"`
+	IsPaused interface{} `field:"optional" json:"isPaused" yaml:"isPaused"`
 	// The messaging limits for the campaign.
-	Limits interface{} `json:"limits" yaml:"limits"`
+	Limits interface{} `field:"optional" json:"limits" yaml:"limits"`
 	// An integer between 1 and 5, inclusive, that represents the priority of the in-app message campaign, where 1 is the highest priority and 5 is the lowest.
 	//
 	// If there are multiple messages scheduled to be displayed at the same time, the priority determines the order in which those messages are displayed.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 	// The version of the segment to associate with the campaign.
-	SegmentVersion *float64 `json:"segmentVersion" yaml:"segmentVersion"`
+	SegmentVersion *float64 `field:"optional" json:"segmentVersion" yaml:"segmentVersion"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags interface{} `json:"tags" yaml:"tags"`
+	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
 	// A custom description of the default treatment for the campaign.
-	TreatmentDescription *string `json:"treatmentDescription" yaml:"treatmentDescription"`
+	TreatmentDescription *string `field:"optional" json:"treatmentDescription" yaml:"treatmentDescription"`
 	// A custom name of the default treatment for the campaign, if the campaign has multiple treatments.
 	//
 	// A *treatment* is a variation of a campaign that's used for A/B testing.
-	TreatmentName *string `json:"treatmentName" yaml:"treatmentName"`
+	TreatmentName *string `field:"optional" json:"treatmentName" yaml:"treatmentName"`
 }
 
 // A CloudFormation `AWS::Pinpoint::EmailChannel`.
@@ -9426,8 +9552,11 @@ type CfnCampaignProps struct {
 // The EmailChannel resource represents the status, identity, and other settings of the email channel for an application.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
-//   cfnEmailChannel := pinpoint.NewCfnEmailChannel(this, jsii.String("MyCfnEmailChannel"), &cfnEmailChannelProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnEmailChannel := awscdk.Aws_pinpoint.NewCfnEmailChannel(this, jsii.String("MyCfnEmailChannel"), &cfnEmailChannelProps{
 //   	applicationId: jsii.String("applicationId"),
 //   	fromAddress: jsii.String("fromAddress"),
 //   	identity: jsii.String("identity"),
@@ -10172,7 +10301,10 @@ func (c *jsiiProxy_CfnEmailChannel) ValidateProperties(_properties interface{}) 
 // Properties for defining a `CfnEmailChannel`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnEmailChannelProps := &cfnEmailChannelProps{
 //   	applicationId: jsii.String("applicationId"),
 //   	fromAddress: jsii.String("fromAddress"),
@@ -10186,17 +10318,17 @@ func (c *jsiiProxy_CfnEmailChannel) ValidateProperties(_properties interface{}) 
 //
 type CfnEmailChannelProps struct {
 	// The unique identifier for the Amazon Pinpoint application that you're specifying the email channel for.
-	ApplicationId *string `json:"applicationId" yaml:"applicationId"`
+	ApplicationId *string `field:"required" json:"applicationId" yaml:"applicationId"`
 	// The verified email address that you want to send email from when you send email through the channel.
-	FromAddress *string `json:"fromAddress" yaml:"fromAddress"`
+	FromAddress *string `field:"required" json:"fromAddress" yaml:"fromAddress"`
 	// The Amazon Resource Name (ARN) of the identity, verified with Amazon Simple Email Service (Amazon SES), that you want to use when you send email through the channel.
-	Identity *string `json:"identity" yaml:"identity"`
+	Identity *string `field:"required" json:"identity" yaml:"identity"`
 	// The [Amazon SES configuration set](https://docs.aws.amazon.com/ses/latest/APIReference/API_ConfigurationSet.html) that you want to apply to messages that you send through the channel.
-	ConfigurationSet *string `json:"configurationSet" yaml:"configurationSet"`
+	ConfigurationSet *string `field:"optional" json:"configurationSet" yaml:"configurationSet"`
 	// Specifies whether to enable the email channel for the application.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// The ARN of the AWS Identity and Access Management (IAM) role that you want Amazon Pinpoint to use when it submits email-related event data for the channel.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 }
 
 // A CloudFormation `AWS::Pinpoint::EmailTemplate`.
@@ -10204,10 +10336,13 @@ type CfnEmailChannelProps struct {
 // Creates a message template that you can use in messages that are sent through the email channel. A *message template* is a set of content and settings that you can define, save, and reuse in messages for any of your Amazon Pinpoint applications.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var tags interface{}
-//   cfnEmailTemplate := pinpoint.NewCfnEmailTemplate(this, jsii.String("MyCfnEmailTemplate"), &cfnEmailTemplateProps{
+//
+//   cfnEmailTemplate := awscdk.Aws_pinpoint.NewCfnEmailTemplate(this, jsii.String("MyCfnEmailTemplate"), &cfnEmailTemplateProps{
 //   	subject: jsii.String("subject"),
 //   	templateName: jsii.String("templateName"),
 //
@@ -10985,9 +11120,12 @@ func (c *jsiiProxy_CfnEmailTemplate) ValidateProperties(_properties interface{})
 // Properties for defining a `CfnEmailTemplate`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var tags interface{}
+//
 //   cfnEmailTemplateProps := &cfnEmailTemplateProps{
 //   	subject: jsii.String("subject"),
 //   	templateName: jsii.String("templateName"),
@@ -11002,27 +11140,27 @@ func (c *jsiiProxy_CfnEmailTemplate) ValidateProperties(_properties interface{})
 //
 type CfnEmailTemplateProps struct {
 	// The subject line, or title, to use in email messages that are based on the message template.
-	Subject *string `json:"subject" yaml:"subject"`
+	Subject *string `field:"required" json:"subject" yaml:"subject"`
 	// The name of the message template.
-	TemplateName *string `json:"templateName" yaml:"templateName"`
+	TemplateName *string `field:"required" json:"templateName" yaml:"templateName"`
 	// A JSON object that specifies the default values to use for message variables in the message template.
 	//
 	// This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
-	DefaultSubstitutions *string `json:"defaultSubstitutions" yaml:"defaultSubstitutions"`
+	DefaultSubstitutions *string `field:"optional" json:"defaultSubstitutions" yaml:"defaultSubstitutions"`
 	// The message body, in HTML format, to use in email messages that are based on the message template.
 	//
 	// We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
-	HtmlPart *string `json:"htmlPart" yaml:"htmlPart"`
+	HtmlPart *string `field:"optional" json:"htmlPart" yaml:"htmlPart"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags interface{} `json:"tags" yaml:"tags"`
+	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
 	// A custom description of the message template.
-	TemplateDescription *string `json:"templateDescription" yaml:"templateDescription"`
+	TemplateDescription *string `field:"optional" json:"templateDescription" yaml:"templateDescription"`
 	// The message body, in plain text format, to use in email messages that are based on the message template.
 	//
 	// We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.
-	TextPart *string `json:"textPart" yaml:"textPart"`
+	TextPart *string `field:"optional" json:"textPart" yaml:"textPart"`
 }
 
 // A CloudFormation `AWS::Pinpoint::EventStream`.
@@ -11030,8 +11168,11 @@ type CfnEmailTemplateProps struct {
 // Creates a new event stream for an application or updates the settings of an existing event stream for an application.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
-//   cfnEventStream := pinpoint.NewCfnEventStream(this, jsii.String("MyCfnEventStream"), &cfnEventStreamProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnEventStream := awscdk.Aws_pinpoint.NewCfnEventStream(this, jsii.String("MyCfnEventStream"), &cfnEventStreamProps{
 //   	applicationId: jsii.String("applicationId"),
 //   	destinationStreamArn: jsii.String("destinationStreamArn"),
 //   	roleArn: jsii.String("roleArn"),
@@ -11712,7 +11853,10 @@ func (c *jsiiProxy_CfnEventStream) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnEventStream`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnEventStreamProps := &cfnEventStreamProps{
 //   	applicationId: jsii.String("applicationId"),
 //   	destinationStreamArn: jsii.String("destinationStreamArn"),
@@ -11721,15 +11865,15 @@ func (c *jsiiProxy_CfnEventStream) ValidateProperties(_properties interface{}) {
 //
 type CfnEventStreamProps struct {
 	// The unique identifier for the Amazon Pinpoint application that you want to export data from.
-	ApplicationId *string `json:"applicationId" yaml:"applicationId"`
+	ApplicationId *string `field:"required" json:"applicationId" yaml:"applicationId"`
 	// The Amazon Resource Name (ARN) of the Amazon Kinesis data stream or Amazon Kinesis Data Firehose delivery stream that you want to publish event data to.
 	//
 	// For a Kinesis data stream, the ARN format is: `arn:aws:kinesis: region : account-id :stream/ stream_name`
 	//
 	// For a Kinesis Data Firehose delivery stream, the ARN format is: `arn:aws:firehose: region : account-id :deliverystream/ stream_name`.
-	DestinationStreamArn *string `json:"destinationStreamArn" yaml:"destinationStreamArn"`
+	DestinationStreamArn *string `field:"required" json:"destinationStreamArn" yaml:"destinationStreamArn"`
 	// The AWS Identity and Access Management (IAM) role that authorizes Amazon Pinpoint to publish event data to the stream in your AWS account.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 }
 
 // A CloudFormation `AWS::Pinpoint::GCMChannel`.
@@ -11739,8 +11883,11 @@ type CfnEventStreamProps struct {
 // The GCMChannel resource represents the status and authentication settings of the GCM channel for an application.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
-//   cfnGCMChannel := pinpoint.NewCfnGCMChannel(this, jsii.String("MyCfnGCMChannel"), &cfnGCMChannelProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnGCMChannel := awscdk.Aws_pinpoint.NewCfnGCMChannel(this, jsii.String("MyCfnGCMChannel"), &cfnGCMChannelProps{
 //   	apiKey: jsii.String("apiKey"),
 //   	applicationId: jsii.String("applicationId"),
 //
@@ -12419,7 +12566,10 @@ func (c *jsiiProxy_CfnGCMChannel) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnGCMChannel`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnGCMChannelProps := &cfnGCMChannelProps{
 //   	apiKey: jsii.String("apiKey"),
 //   	applicationId: jsii.String("applicationId"),
@@ -12430,11 +12580,11 @@ func (c *jsiiProxy_CfnGCMChannel) ValidateProperties(_properties interface{}) {
 //
 type CfnGCMChannelProps struct {
 	// The Web API key, also called the *server key* , that you received from Google to communicate with Google services.
-	ApiKey *string `json:"apiKey" yaml:"apiKey"`
+	ApiKey *string `field:"required" json:"apiKey" yaml:"apiKey"`
 	// The unique identifier for the Amazon Pinpoint application that the GCM channel applies to.
-	ApplicationId *string `json:"applicationId" yaml:"applicationId"`
+	ApplicationId *string `field:"required" json:"applicationId" yaml:"applicationId"`
 	// Specifies whether to enable the GCM channel for the Amazon Pinpoint application.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 }
 
 // A CloudFormation `AWS::Pinpoint::InAppTemplate`.
@@ -12442,11 +12592,14 @@ type CfnGCMChannelProps struct {
 // Creates a message template that you can use to send in-app messages. A message template is a set of content and settings that you can define, save, and reuse in messages for any of your Amazon Pinpoint applications.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var customConfig interface{}
 //   var tags interface{}
-//   cfnInAppTemplate := pinpoint.NewCfnInAppTemplate(this, jsii.String("MyCfnInAppTemplate"), &cfnInAppTemplateProps{
+//
+//   cfnInAppTemplate := awscdk.Aws_pinpoint.NewCfnInAppTemplate(this, jsii.String("MyCfnInAppTemplate"), &cfnInAppTemplateProps{
 //   	templateName: jsii.String("templateName"),
 //
 //   	// the properties below are optional
@@ -13262,7 +13415,10 @@ func (c *jsiiProxy_CfnInAppTemplate) ValidateProperties(_properties interface{})
 // Specifies the configuration of the main body text of the in-app message.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   bodyConfigProperty := &bodyConfigProperty{
 //   	alignment: jsii.String("alignment"),
 //   	body: jsii.String("body"),
@@ -13273,17 +13429,20 @@ type CfnInAppTemplate_BodyConfigProperty struct {
 	// The text alignment of the main body text of the message.
 	//
 	// Acceptable values: `LEFT` , `CENTER` , `RIGHT` .
-	Alignment *string `json:"alignment" yaml:"alignment"`
+	Alignment *string `field:"optional" json:"alignment" yaml:"alignment"`
 	// The main body text of the message.
-	Body *string `json:"body" yaml:"body"`
+	Body *string `field:"optional" json:"body" yaml:"body"`
 	// The color of the body text, expressed as a hex color code (such as #000000 for black).
-	TextColor *string `json:"textColor" yaml:"textColor"`
+	TextColor *string `field:"optional" json:"textColor" yaml:"textColor"`
 }
 
 // Specifies the behavior of buttons that appear in an in-app message template.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   buttonConfigProperty := &buttonConfigProperty{
 //   	android: &overrideButtonConfigurationProperty{
 //   		buttonAction: jsii.String("buttonAction"),
@@ -13311,19 +13470,19 @@ type CfnInAppTemplate_ButtonConfigProperty struct {
 	// Optional button configuration to use for in-app messages sent to Android devices.
 	//
 	// This button configuration overrides the default button configuration.
-	Android interface{} `json:"android" yaml:"android"`
+	Android interface{} `field:"optional" json:"android" yaml:"android"`
 	// Specifies the default behavior of a button that appears in an in-app message.
 	//
 	// You can optionally add button configurations that specifically apply to iOS, Android, or web browser users.
-	DefaultConfig interface{} `json:"defaultConfig" yaml:"defaultConfig"`
+	DefaultConfig interface{} `field:"optional" json:"defaultConfig" yaml:"defaultConfig"`
 	// Optional button configuration to use for in-app messages sent to iOS devices.
 	//
 	// This button configuration overrides the default button configuration.
-	Ios interface{} `json:"ios" yaml:"ios"`
+	Ios interface{} `field:"optional" json:"ios" yaml:"ios"`
 	// Optional button configuration to use for in-app messages sent to web applications.
 	//
 	// This button configuration overrides the default button configuration.
-	Web interface{} `json:"web" yaml:"web"`
+	Web interface{} `field:"optional" json:"web" yaml:"web"`
 }
 
 // Specifies the default behavior of a button that appears in an in-app message.
@@ -13331,7 +13490,10 @@ type CfnInAppTemplate_ButtonConfigProperty struct {
 // You can optionally add button configurations that specifically apply to iOS, Android, or web browser users.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   defaultButtonConfigurationProperty := &defaultButtonConfigurationProperty{
 //   	backgroundColor: jsii.String("backgroundColor"),
 //   	borderRadius: jsii.Number(123),
@@ -13343,9 +13505,9 @@ type CfnInAppTemplate_ButtonConfigProperty struct {
 //
 type CfnInAppTemplate_DefaultButtonConfigurationProperty struct {
 	// The background color of a button, expressed as a hex color code (such as #000000 for black).
-	BackgroundColor *string `json:"backgroundColor" yaml:"backgroundColor"`
+	BackgroundColor *string `field:"optional" json:"backgroundColor" yaml:"backgroundColor"`
 	// The border radius of a button.
-	BorderRadius *float64 `json:"borderRadius" yaml:"borderRadius"`
+	BorderRadius *float64 `field:"optional" json:"borderRadius" yaml:"borderRadius"`
 	// The action that occurs when a recipient chooses a button in an in-app message.
 	//
 	// You can specify one of the following:
@@ -13353,19 +13515,22 @@ type CfnInAppTemplate_DefaultButtonConfigurationProperty struct {
 	// - `LINK` – A link to a web destination.
 	// - `DEEP_LINK` – A link to a specific page in an application.
 	// - `CLOSE` – Dismisses the message.
-	ButtonAction *string `json:"buttonAction" yaml:"buttonAction"`
+	ButtonAction *string `field:"optional" json:"buttonAction" yaml:"buttonAction"`
 	// The destination (such as a URL) for a button.
-	Link *string `json:"link" yaml:"link"`
+	Link *string `field:"optional" json:"link" yaml:"link"`
 	// The text that appears on a button in an in-app message.
-	Text *string `json:"text" yaml:"text"`
+	Text *string `field:"optional" json:"text" yaml:"text"`
 	// The color of the body text in a button, expressed as a hex color code (such as #000000 for black).
-	TextColor *string `json:"textColor" yaml:"textColor"`
+	TextColor *string `field:"optional" json:"textColor" yaml:"textColor"`
 }
 
 // Specifies the configuration and content of the header or title text of the in-app message.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   headerConfigProperty := &headerConfigProperty{
 //   	alignment: jsii.String("alignment"),
 //   	header: jsii.String("header"),
@@ -13376,17 +13541,20 @@ type CfnInAppTemplate_HeaderConfigProperty struct {
 	// The text alignment of the title of the message.
 	//
 	// Acceptable values: `LEFT` , `CENTER` , `RIGHT` .
-	Alignment *string `json:"alignment" yaml:"alignment"`
+	Alignment *string `field:"optional" json:"alignment" yaml:"alignment"`
 	// The title text of the in-app message.
-	Header *string `json:"header" yaml:"header"`
+	Header *string `field:"optional" json:"header" yaml:"header"`
 	// The color of the title text, expressed as a hex color code (such as #000000 for black).
-	TextColor *string `json:"textColor" yaml:"textColor"`
+	TextColor *string `field:"optional" json:"textColor" yaml:"textColor"`
 }
 
 // Specifies the configuration of an in-app message, including its header, body, buttons, colors, and images.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   inAppMessageContentProperty := &inAppMessageContentProperty{
 //   	backgroundColor: jsii.String("backgroundColor"),
 //   	bodyConfig: &bodyConfigProperty{
@@ -13448,23 +13616,26 @@ type CfnInAppTemplate_HeaderConfigProperty struct {
 //
 type CfnInAppTemplate_InAppMessageContentProperty struct {
 	// The background color for an in-app message banner, expressed as a hex color code (such as #000000 for black).
-	BackgroundColor *string `json:"backgroundColor" yaml:"backgroundColor"`
+	BackgroundColor *string `field:"optional" json:"backgroundColor" yaml:"backgroundColor"`
 	// An object that contains configuration information about the header or title text of the in-app message.
-	BodyConfig interface{} `json:"bodyConfig" yaml:"bodyConfig"`
+	BodyConfig interface{} `field:"optional" json:"bodyConfig" yaml:"bodyConfig"`
 	// An object that contains configuration information about the header or title text of the in-app message.
-	HeaderConfig interface{} `json:"headerConfig" yaml:"headerConfig"`
+	HeaderConfig interface{} `field:"optional" json:"headerConfig" yaml:"headerConfig"`
 	// The URL of the image that appears on an in-app message banner.
-	ImageUrl *string `json:"imageUrl" yaml:"imageUrl"`
+	ImageUrl *string `field:"optional" json:"imageUrl" yaml:"imageUrl"`
 	// An object that contains configuration information about the primary button in an in-app message.
-	PrimaryBtn interface{} `json:"primaryBtn" yaml:"primaryBtn"`
+	PrimaryBtn interface{} `field:"optional" json:"primaryBtn" yaml:"primaryBtn"`
 	// An object that contains configuration information about the secondary button in an in-app message.
-	SecondaryBtn interface{} `json:"secondaryBtn" yaml:"secondaryBtn"`
+	SecondaryBtn interface{} `field:"optional" json:"secondaryBtn" yaml:"secondaryBtn"`
 }
 
 // Specifies the configuration of a button with settings that are specific to a certain device type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   overrideButtonConfigurationProperty := &overrideButtonConfigurationProperty{
 //   	buttonAction: jsii.String("buttonAction"),
 //   	link: jsii.String("link"),
@@ -13478,18 +13649,21 @@ type CfnInAppTemplate_OverrideButtonConfigurationProperty struct {
 	// - `LINK` – A link to a web destination.
 	// - `DEEP_LINK` – A link to a specific page in an application.
 	// - `CLOSE` – Dismisses the message.
-	ButtonAction *string `json:"buttonAction" yaml:"buttonAction"`
+	ButtonAction *string `field:"optional" json:"buttonAction" yaml:"buttonAction"`
 	// The destination (such as a URL) for a button.
-	Link *string `json:"link" yaml:"link"`
+	Link *string `field:"optional" json:"link" yaml:"link"`
 }
 
 // Properties for defining a `CfnInAppTemplate`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var customConfig interface{}
 //   var tags interface{}
+//
 //   cfnInAppTemplateProps := &cfnInAppTemplateProps{
 //   	templateName: jsii.String("templateName"),
 //
@@ -13562,11 +13736,11 @@ type CfnInAppTemplate_OverrideButtonConfigurationProperty struct {
 //
 type CfnInAppTemplateProps struct {
 	// The name of the in-app message template.
-	TemplateName *string `json:"templateName" yaml:"templateName"`
+	TemplateName *string `field:"required" json:"templateName" yaml:"templateName"`
 	// An object that contains information about the content of an in-app message, including its title and body text, text colors, background colors, images, buttons, and behaviors.
-	Content interface{} `json:"content" yaml:"content"`
+	Content interface{} `field:"optional" json:"content" yaml:"content"`
 	// Custom data, in the form of key-value pairs, that is included in an in-app messaging payload.
-	CustomConfig interface{} `json:"customConfig" yaml:"customConfig"`
+	CustomConfig interface{} `field:"optional" json:"customConfig" yaml:"customConfig"`
 	// A string that determines the appearance of the in-app message. You can specify one of the following:.
 	//
 	// - `BOTTOM_BANNER` – a message that appears as a banner at the bottom of the page.
@@ -13575,13 +13749,13 @@ type CfnInAppTemplateProps struct {
 	// - `MOBILE_FEED` – a message that appears in a window in front of the page.
 	// - `MIDDLE_BANNER` – a message that appears as a banner in the middle of the page.
 	// - `CAROUSEL` – a scrollable layout of up to five unique messages.
-	Layout *string `json:"layout" yaml:"layout"`
+	Layout *string `field:"optional" json:"layout" yaml:"layout"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags interface{} `json:"tags" yaml:"tags"`
+	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
 	// An optional description of the in-app template.
-	TemplateDescription *string `json:"templateDescription" yaml:"templateDescription"`
+	TemplateDescription *string `field:"optional" json:"templateDescription" yaml:"templateDescription"`
 }
 
 // A CloudFormation `AWS::Pinpoint::PushTemplate`.
@@ -13589,10 +13763,13 @@ type CfnInAppTemplateProps struct {
 // Creates a message template that you can use in messages that are sent through a push notification channel. A *message template* is a set of content and settings that you can define, save, and reuse in messages for any of your Amazon Pinpoint applications.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var tags interface{}
-//   cfnPushTemplate := pinpoint.NewCfnPushTemplate(this, jsii.String("MyCfnPushTemplate"), &cfnPushTemplateProps{
+//
+//   cfnPushTemplate := awscdk.Aws_pinpoint.NewCfnPushTemplate(this, jsii.String("MyCfnPushTemplate"), &cfnPushTemplateProps{
 //   	templateName: jsii.String("templateName"),
 //
 //   	// the properties below are optional
@@ -14458,7 +14635,10 @@ func (c *jsiiProxy_CfnPushTemplate) ValidateProperties(_properties interface{}) 
 // Specifies channel-specific content and settings for a message template that can be used in push notifications that are sent through the APNs (Apple Push Notification service) channel.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   aPNSPushNotificationTemplateProperty := &aPNSPushNotificationTemplateProperty{
 //   	action: jsii.String("action"),
 //   	body: jsii.String("body"),
@@ -14476,27 +14656,30 @@ type CfnPushTemplate_APNSPushNotificationTemplateProperty struct {
 	// - `OPEN_APP` – Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.
 	// - `DEEP_LINK` – Your app opens and displays a designated user interface in the app. This setting uses the deep-linking features of the iOS platform.
 	// - `URL` – The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.
-	Action *string `json:"action" yaml:"action"`
+	Action *string `field:"optional" json:"action" yaml:"action"`
 	// The message body to use in push notifications that are based on the message template.
-	Body *string `json:"body" yaml:"body"`
+	Body *string `field:"optional" json:"body" yaml:"body"`
 	// The URL of an image or video to display in push notifications that are based on the message template.
-	MediaUrl *string `json:"mediaUrl" yaml:"mediaUrl"`
+	MediaUrl *string `field:"optional" json:"mediaUrl" yaml:"mediaUrl"`
 	// The key for the sound to play when the recipient receives a push notification that's based on the message template.
 	//
 	// The value for this key is the name of a sound file in your app's main bundle or the `Library/Sounds` folder in your app's data container. If the sound file can't be found or you specify `default` for the value, the system plays the default alert sound.
-	Sound *string `json:"sound" yaml:"sound"`
+	Sound *string `field:"optional" json:"sound" yaml:"sound"`
 	// The title to use in push notifications that are based on the message template.
 	//
 	// This title appears above the notification message on a recipient's device.
-	Title *string `json:"title" yaml:"title"`
+	Title *string `field:"optional" json:"title" yaml:"title"`
 	// The URL to open in the recipient's default mobile browser, if a recipient taps a push notification that's based on the message template and the value of the `Action` property is `URL` .
-	Url *string `json:"url" yaml:"url"`
+	Url *string `field:"optional" json:"url" yaml:"url"`
 }
 
 // Specifies channel-specific content and settings for a message template that can be used in push notifications that are sent through the ADM (Amazon Device Messaging), Baidu (Baidu Cloud Push), or GCM (Firebase Cloud Messaging, formerly Google Cloud Messaging) channel.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   androidPushNotificationTemplateProperty := &androidPushNotificationTemplateProperty{
 //   	action: jsii.String("action"),
 //   	body: jsii.String("body"),
@@ -14516,31 +14699,34 @@ type CfnPushTemplate_AndroidPushNotificationTemplateProperty struct {
 	// - `OPEN_APP` – Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.
 	// - `DEEP_LINK` – Your app opens and displays a designated user interface in the app. This action uses the deep-linking features of the Android platform.
 	// - `URL` – The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.
-	Action *string `json:"action" yaml:"action"`
+	Action *string `field:"optional" json:"action" yaml:"action"`
 	// The message body to use in a push notification that's based on the message template.
-	Body *string `json:"body" yaml:"body"`
+	Body *string `field:"optional" json:"body" yaml:"body"`
 	// The URL of the large icon image to display in the content view of a push notification that's based on the message template.
-	ImageIconUrl *string `json:"imageIconUrl" yaml:"imageIconUrl"`
+	ImageIconUrl *string `field:"optional" json:"imageIconUrl" yaml:"imageIconUrl"`
 	// The URL of an image to display in a push notification that's based on the message template.
-	ImageUrl *string `json:"imageUrl" yaml:"imageUrl"`
+	ImageUrl *string `field:"optional" json:"imageUrl" yaml:"imageUrl"`
 	// The URL of the small icon image to display in the status bar and the content view of a push notification that's based on the message template.
-	SmallImageIconUrl *string `json:"smallImageIconUrl" yaml:"smallImageIconUrl"`
+	SmallImageIconUrl *string `field:"optional" json:"smallImageIconUrl" yaml:"smallImageIconUrl"`
 	// The sound to play when a recipient receives a push notification that's based on the message template.
 	//
 	// You can use the default stream or specify the file name of a sound resource that's bundled in your app. On an Android platform, the sound file must reside in `/res/raw/` .
-	Sound *string `json:"sound" yaml:"sound"`
+	Sound *string `field:"optional" json:"sound" yaml:"sound"`
 	// The title to use in a push notification that's based on the message template.
 	//
 	// This title appears above the notification message on a recipient's device.
-	Title *string `json:"title" yaml:"title"`
+	Title *string `field:"optional" json:"title" yaml:"title"`
 	// The URL to open in a recipient's default mobile browser, if a recipient taps a push notification that's based on the message template and the value of the `Action` property is `URL` .
-	Url *string `json:"url" yaml:"url"`
+	Url *string `field:"optional" json:"url" yaml:"url"`
 }
 
 // Specifies the default settings and content for a message template that can be used in messages that are sent through a push notification channel.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   defaultPushNotificationTemplateProperty := &defaultPushNotificationTemplateProperty{
 //   	action: jsii.String("action"),
 //   	body: jsii.String("body"),
@@ -14557,29 +14743,32 @@ type CfnPushTemplate_DefaultPushNotificationTemplateProperty struct {
 	// - `OPEN_APP` – Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.
 	// - `DEEP_LINK` – Your app opens and displays a designated user interface in the app. This setting uses the deep-linking features of the iOS and Android platforms.
 	// - `URL` – The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.
-	Action *string `json:"action" yaml:"action"`
+	Action *string `field:"optional" json:"action" yaml:"action"`
 	// The message body to use in push notifications that are based on the message template.
-	Body *string `json:"body" yaml:"body"`
+	Body *string `field:"optional" json:"body" yaml:"body"`
 	// The sound to play when a recipient receives a push notification that's based on the message template.
 	//
 	// You can use the default stream or specify the file name of a sound resource that's bundled in your app. On an Android platform, the sound file must reside in `/res/raw/` .
 	//
 	// For an iOS platform, this value is the key for the name of a sound file in your app's main bundle or the `Library/Sounds` folder in your app's data container. If the sound file can't be found or you specify `default` for the value, the system plays the default alert sound.
-	Sound *string `json:"sound" yaml:"sound"`
+	Sound *string `field:"optional" json:"sound" yaml:"sound"`
 	// The title to use in push notifications that are based on the message template.
 	//
 	// This title appears above the notification message on a recipient's device.
-	Title *string `json:"title" yaml:"title"`
+	Title *string `field:"optional" json:"title" yaml:"title"`
 	// The URL to open in a recipient's default mobile browser, if a recipient taps a push notification that's based on the message template and the value of the `Action` property is `URL` .
-	Url *string `json:"url" yaml:"url"`
+	Url *string `field:"optional" json:"url" yaml:"url"`
 }
 
 // Properties for defining a `CfnPushTemplate`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var tags interface{}
+//
 //   cfnPushTemplateProps := &cfnPushTemplateProps{
 //   	templateName: jsii.String("templateName"),
 //
@@ -14636,35 +14825,35 @@ type CfnPushTemplate_DefaultPushNotificationTemplateProperty struct {
 //
 type CfnPushTemplateProps struct {
 	// The name of the message template.
-	TemplateName *string `json:"templateName" yaml:"templateName"`
+	TemplateName *string `field:"required" json:"templateName" yaml:"templateName"`
 	// The message template to use for the ADM (Amazon Device Messaging) channel.
 	//
 	// This message template overrides the default template for push notification channels ( `Default` ).
-	Adm interface{} `json:"adm" yaml:"adm"`
+	Adm interface{} `field:"optional" json:"adm" yaml:"adm"`
 	// The message template to use for the APNs (Apple Push Notification service) channel.
 	//
 	// This message template overrides the default template for push notification channels ( `Default` ).
-	Apns interface{} `json:"apns" yaml:"apns"`
+	Apns interface{} `field:"optional" json:"apns" yaml:"apns"`
 	// The message template to use for the Baidu (Baidu Cloud Push) channel.
 	//
 	// This message template overrides the default template for push notification channels ( `Default` ).
-	Baidu interface{} `json:"baidu" yaml:"baidu"`
+	Baidu interface{} `field:"optional" json:"baidu" yaml:"baidu"`
 	// The default message template to use for push notification channels.
-	Default interface{} `json:"default" yaml:"default"`
+	Default interface{} `field:"optional" json:"default" yaml:"default"`
 	// A JSON object that specifies the default values to use for message variables in the message template.
 	//
 	// This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
-	DefaultSubstitutions *string `json:"defaultSubstitutions" yaml:"defaultSubstitutions"`
+	DefaultSubstitutions *string `field:"optional" json:"defaultSubstitutions" yaml:"defaultSubstitutions"`
 	// The message template to use for the GCM channel, which is used to send notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service.
 	//
 	// This message template overrides the default template for push notification channels ( `Default` ).
-	Gcm interface{} `json:"gcm" yaml:"gcm"`
+	Gcm interface{} `field:"optional" json:"gcm" yaml:"gcm"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags interface{} `json:"tags" yaml:"tags"`
+	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
 	// A custom description of the message template.
-	TemplateDescription *string `json:"templateDescription" yaml:"templateDescription"`
+	TemplateDescription *string `field:"optional" json:"templateDescription" yaml:"templateDescription"`
 }
 
 // A CloudFormation `AWS::Pinpoint::SMSChannel`.
@@ -14674,8 +14863,11 @@ type CfnPushTemplateProps struct {
 // The SMSChannel resource represents the status, sender ID, and other settings for the SMS channel for an application.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
-//   cfnSMSChannel := pinpoint.NewCfnSMSChannel(this, jsii.String("MyCfnSMSChannel"), &cfnSMSChannelProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnSMSChannel := awscdk.Aws_pinpoint.NewCfnSMSChannel(this, jsii.String("MyCfnSMSChannel"), &cfnSMSChannelProps{
 //   	applicationId: jsii.String("applicationId"),
 //
 //   	// the properties below are optional
@@ -15380,7 +15572,10 @@ func (c *jsiiProxy_CfnSMSChannel) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnSMSChannel`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnSMSChannelProps := &cfnSMSChannelProps{
 //   	applicationId: jsii.String("applicationId"),
 //
@@ -15392,17 +15587,17 @@ func (c *jsiiProxy_CfnSMSChannel) ValidateProperties(_properties interface{}) {
 //
 type CfnSMSChannelProps struct {
 	// The unique identifier for the Amazon Pinpoint application that the SMS channel applies to.
-	ApplicationId *string `json:"applicationId" yaml:"applicationId"`
+	ApplicationId *string `field:"required" json:"applicationId" yaml:"applicationId"`
 	// Specifies whether to enable the SMS channel for the application.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// The identity that you want to display on recipients' devices when they receive messages from the SMS channel.
 	//
 	// > SenderIDs are only supported in certain countries and regions. For more information, see [Supported Countries and Regions](https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-countries.html) in the *Amazon Pinpoint User Guide* .
-	SenderId *string `json:"senderId" yaml:"senderId"`
+	SenderId *string `field:"optional" json:"senderId" yaml:"senderId"`
 	// The registered short code that you want to use when you send messages through the SMS channel.
 	//
 	// > For information about obtaining a dedicated short code for sending SMS messages, see [Requesting Dedicated Short Codes for SMS Messaging with Amazon Pinpoint](https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-awssupport-short-code.html) in the *Amazon Pinpoint User Guide* .
-	ShortCode *string `json:"shortCode" yaml:"shortCode"`
+	ShortCode *string `field:"optional" json:"shortCode" yaml:"shortCode"`
 }
 
 // A CloudFormation `AWS::Pinpoint::Segment`.
@@ -15410,13 +15605,16 @@ type CfnSMSChannelProps struct {
 // Updates the configuration, dimension, and other settings for an existing segment.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var attributes interface{}
 //   var metrics interface{}
 //   var tags interface{}
 //   var userAttributes interface{}
-//   cfnSegment := pinpoint.NewCfnSegment(this, jsii.String("MyCfnSegment"), &cfnSegmentProps{
+//
+//   cfnSegment := awscdk.Aws_pinpoint.NewCfnSegment(this, jsii.String("MyCfnSegment"), &cfnSegmentProps{
 //   	applicationId: jsii.String("applicationId"),
 //   	name: jsii.String("name"),
 //
@@ -16303,7 +16501,10 @@ func (c *jsiiProxy_CfnSegment) ValidateProperties(_properties interface{}) {
 // Specifies attribute-based criteria for including or excluding endpoints from a segment.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   attributeDimensionProperty := &attributeDimensionProperty{
 //   	attributeType: jsii.String("attributeType"),
 //   	values: []*string{
@@ -16321,17 +16522,20 @@ type CfnSegment_AttributeDimensionProperty struct {
 	// - `AFTER` – endpoints with attributes read as ISO_INSTANT datetimes after the value are included in the segment.
 	// - `BETWEEN` – endpoints with attributes read as ISO_INSTANT datetimes between the values are included in the segment.
 	// - `ON` – endpoints with attributes read as ISO_INSTANT dates on the value are included in the segment. Time is ignored in this comparison.
-	AttributeType *string `json:"attributeType" yaml:"attributeType"`
+	AttributeType *string `field:"optional" json:"attributeType" yaml:"attributeType"`
 	// The criteria values to use for the segment dimension.
 	//
 	// Depending on the value of the `AttributeType` property, endpoints are included or excluded from the segment if their attribute values match the criteria values.
-	Values *[]*string `json:"values" yaml:"values"`
+	Values *[]*string `field:"optional" json:"values" yaml:"values"`
 }
 
 // Specifies behavior-based criteria for the segment, such as how recently users have used your app.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   behaviorProperty := &behaviorProperty{
 //   	recency: &recencyProperty{
 //   		duration: jsii.String("duration"),
@@ -16341,13 +16545,16 @@ type CfnSegment_AttributeDimensionProperty struct {
 //
 type CfnSegment_BehaviorProperty struct {
 	// Specifies how recently segment members were active.
-	Recency interface{} `json:"recency" yaml:"recency"`
+	Recency interface{} `field:"optional" json:"recency" yaml:"recency"`
 }
 
 // Specifies the GPS coordinates of a location.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   coordinatesProperty := &coordinatesProperty{
 //   	latitude: jsii.Number(123),
 //   	longitude: jsii.Number(123),
@@ -16355,15 +16562,18 @@ type CfnSegment_BehaviorProperty struct {
 //
 type CfnSegment_CoordinatesProperty struct {
 	// The latitude coordinate of the location.
-	Latitude *float64 `json:"latitude" yaml:"latitude"`
+	Latitude *float64 `field:"required" json:"latitude" yaml:"latitude"`
 	// The longitude coordinate of the location.
-	Longitude *float64 `json:"longitude" yaml:"longitude"`
+	Longitude *float64 `field:"required" json:"longitude" yaml:"longitude"`
 }
 
 // Specifies demographic-based criteria, such as device platform, for the segment.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   demographicProperty := &demographicProperty{
 //   	appVersion: &setDimensionProperty{
 //   		dimensionType: jsii.String("dimensionType"),
@@ -16405,23 +16615,26 @@ type CfnSegment_CoordinatesProperty struct {
 //
 type CfnSegment_DemographicProperty struct {
 	// The app version criteria for the segment.
-	AppVersion interface{} `json:"appVersion" yaml:"appVersion"`
+	AppVersion interface{} `field:"optional" json:"appVersion" yaml:"appVersion"`
 	// The channel criteria for the segment.
-	Channel interface{} `json:"channel" yaml:"channel"`
+	Channel interface{} `field:"optional" json:"channel" yaml:"channel"`
 	// The device type criteria for the segment.
-	DeviceType interface{} `json:"deviceType" yaml:"deviceType"`
+	DeviceType interface{} `field:"optional" json:"deviceType" yaml:"deviceType"`
 	// The device make criteria for the segment.
-	Make interface{} `json:"make" yaml:"make"`
+	Make interface{} `field:"optional" json:"make" yaml:"make"`
 	// The device model criteria for the segment.
-	Model interface{} `json:"model" yaml:"model"`
+	Model interface{} `field:"optional" json:"model" yaml:"model"`
 	// The device platform criteria for the segment.
-	Platform interface{} `json:"platform" yaml:"platform"`
+	Platform interface{} `field:"optional" json:"platform" yaml:"platform"`
 }
 
 // Specifies the GPS coordinates of the endpoint location.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   gPSPointProperty := &gPSPointProperty{
 //   	coordinates: &coordinatesProperty{
 //   		latitude: jsii.Number(123),
@@ -16432,19 +16645,22 @@ type CfnSegment_DemographicProperty struct {
 //
 type CfnSegment_GPSPointProperty struct {
 	// The GPS coordinates to measure distance from.
-	Coordinates interface{} `json:"coordinates" yaml:"coordinates"`
+	Coordinates interface{} `field:"required" json:"coordinates" yaml:"coordinates"`
 	// The range, in kilometers, from the GPS coordinates.
-	RangeInKilometers *float64 `json:"rangeInKilometers" yaml:"rangeInKilometers"`
+	RangeInKilometers *float64 `field:"required" json:"rangeInKilometers" yaml:"rangeInKilometers"`
 }
 
 // An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var attributes interface{}
 //   var metrics interface{}
 //   var userAttributes interface{}
+//
 //   groupsProperty := &groupsProperty{
 //   	dimensions: []interface{}{
 //   		&segmentDimensionsProperty{
@@ -16526,27 +16742,30 @@ type CfnSegment_GPSPointProperty struct {
 //
 type CfnSegment_GroupsProperty struct {
 	// An array that defines the dimensions to include or exclude from the segment.
-	Dimensions interface{} `json:"dimensions" yaml:"dimensions"`
+	Dimensions interface{} `field:"optional" json:"dimensions" yaml:"dimensions"`
 	// The base segment to build the segment on.
 	//
 	// A base segment, also called a *source segment* , defines the initial population of endpoints for a segment. When you add dimensions to the segment, Amazon Pinpoint filters the base segment by using the dimensions that you specify.
 	//
 	// You can specify more than one dimensional segment or only one imported segment. If you specify an imported segment, the segment size estimate that displays on the Amazon Pinpoint console indicates the size of the imported segment without any filters applied to it.
-	SourceSegments interface{} `json:"sourceSegments" yaml:"sourceSegments"`
+	SourceSegments interface{} `field:"optional" json:"sourceSegments" yaml:"sourceSegments"`
 	// Specifies how to handle multiple base segments for the segment.
 	//
 	// For example, if you specify three base segments for the segment, whether the resulting segment is based on all, any, or none of the base segments.
-	SourceType *string `json:"sourceType" yaml:"sourceType"`
+	SourceType *string `field:"optional" json:"sourceType" yaml:"sourceType"`
 	// Specifies how to handle multiple dimensions for the segment.
 	//
 	// For example, if you specify three dimensions for the segment, whether the resulting segment includes endpoints that match all, any, or none of the dimensions.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 
 // Specifies location-based criteria, such as region or GPS coordinates, for the segment.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   locationProperty := &locationProperty{
 //   	country: &setDimensionProperty{
 //   		dimensionType: jsii.String("dimensionType"),
@@ -16565,15 +16784,18 @@ type CfnSegment_GroupsProperty struct {
 //
 type CfnSegment_LocationProperty struct {
 	// The country or region code, in ISO 3166-1 alpha-2 format, for the segment.
-	Country interface{} `json:"country" yaml:"country"`
+	Country interface{} `field:"optional" json:"country" yaml:"country"`
 	// The GPS point dimension for the segment.
-	GpsPoint interface{} `json:"gpsPoint" yaml:"gpsPoint"`
+	GpsPoint interface{} `field:"optional" json:"gpsPoint" yaml:"gpsPoint"`
 }
 
 // Specifies how recently segment members were active.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   recencyProperty := &recencyProperty{
 //   	duration: jsii.String("duration"),
 //   	recencyType: jsii.String("recencyType"),
@@ -16583,21 +16805,24 @@ type CfnSegment_RecencyProperty struct {
 	// The duration to use when determining which users have been active or inactive with your app.
 	//
 	// Possible values: `HR_24` | `DAY_7` | `DAY_14` | `DAY_30` .
-	Duration *string `json:"duration" yaml:"duration"`
+	Duration *string `field:"required" json:"duration" yaml:"duration"`
 	// The type of recency dimension to use for the segment.
 	//
 	// Valid values are: `ACTIVE` and `INACTIVE` . If the value is `ACTIVE` , the segment includes users who have used your app within the specified duration are included in the segment. If the value is `INACTIVE` , the segment includes users who haven't used your app within the specified duration are included in the segment.
-	RecencyType *string `json:"recencyType" yaml:"recencyType"`
+	RecencyType *string `field:"required" json:"recencyType" yaml:"recencyType"`
 }
 
 // Specifies the dimension settings for a segment.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var attributes interface{}
 //   var metrics interface{}
 //   var userAttributes interface{}
+//
 //   segmentDimensionsProperty := &segmentDimensionsProperty{
 //   	attributes: attributes,
 //   	behavior: &behaviorProperty{
@@ -16665,27 +16890,30 @@ type CfnSegment_RecencyProperty struct {
 //
 type CfnSegment_SegmentDimensionsProperty struct {
 	// One or more custom attributes to use as criteria for the segment.
-	Attributes interface{} `json:"attributes" yaml:"attributes"`
+	Attributes interface{} `field:"optional" json:"attributes" yaml:"attributes"`
 	// The behavior-based criteria, such as how recently users have used your app, for the segment.
-	Behavior interface{} `json:"behavior" yaml:"behavior"`
+	Behavior interface{} `field:"optional" json:"behavior" yaml:"behavior"`
 	// The demographic-based criteria, such as device platform, for the segment.
-	Demographic interface{} `json:"demographic" yaml:"demographic"`
+	Demographic interface{} `field:"optional" json:"demographic" yaml:"demographic"`
 	// The location-based criteria, such as region or GPS coordinates, for the segment.
-	Location interface{} `json:"location" yaml:"location"`
+	Location interface{} `field:"optional" json:"location" yaml:"location"`
 	// One or more custom metrics to use as criteria for the segment.
-	Metrics interface{} `json:"metrics" yaml:"metrics"`
+	Metrics interface{} `field:"optional" json:"metrics" yaml:"metrics"`
 	// One or more custom user attributes to use as criteria for the segment.
-	UserAttributes interface{} `json:"userAttributes" yaml:"userAttributes"`
+	UserAttributes interface{} `field:"optional" json:"userAttributes" yaml:"userAttributes"`
 }
 
 // Specifies the set of segment criteria to evaluate when handling segment groups for the segment.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var attributes interface{}
 //   var metrics interface{}
 //   var userAttributes interface{}
+//
 //   segmentGroupsProperty := &segmentGroupsProperty{
 //   	groups: []interface{}{
 //   		&groupsProperty{
@@ -16772,17 +17000,20 @@ type CfnSegment_SegmentDimensionsProperty struct {
 //
 type CfnSegment_SegmentGroupsProperty struct {
 	// Specifies the set of segment criteria to evaluate when handling segment groups for the segment.
-	Groups interface{} `json:"groups" yaml:"groups"`
+	Groups interface{} `field:"optional" json:"groups" yaml:"groups"`
 	// Specifies how to handle multiple segment groups for the segment.
 	//
 	// For example, if the segment includes three segment groups, whether the resulting segment includes endpoints that match all, any, or none of the segment groups.
-	Include *string `json:"include" yaml:"include"`
+	Include *string `field:"optional" json:"include" yaml:"include"`
 }
 
 // Specifies the dimension type and values for a segment dimension.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   setDimensionProperty := &setDimensionProperty{
 //   	dimensionType: jsii.String("dimensionType"),
 //   	values: []*string{
@@ -16794,11 +17025,11 @@ type CfnSegment_SetDimensionProperty struct {
 	// The type of segment dimension to use.
 	//
 	// Valid values are: `INCLUSIVE` , endpoints that match the criteria are included in the segment; and, `EXCLUSIVE` , endpoints that match the criteria are excluded from the segment.
-	DimensionType *string `json:"dimensionType" yaml:"dimensionType"`
+	DimensionType *string `field:"optional" json:"dimensionType" yaml:"dimensionType"`
 	// The criteria values to use for the segment dimension.
 	//
 	// Depending on the value of the `DimensionType` property, endpoints are included or excluded from the segment if their values match the criteria values.
-	Values *[]*string `json:"values" yaml:"values"`
+	Values *[]*string `field:"optional" json:"values" yaml:"values"`
 }
 
 // Specifies the base segment to build the segment on.
@@ -16808,7 +17039,10 @@ type CfnSegment_SetDimensionProperty struct {
 // You can specify more than one dimensional segment or only one imported segment. If you specify an imported segment, the segment size estimate that displays on the Amazon Pinpoint console indicates the size of the imported segment without any filters applied to it.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sourceSegmentsProperty := &sourceSegmentsProperty{
 //   	id: jsii.String("id"),
 //
@@ -16818,20 +17052,23 @@ type CfnSegment_SetDimensionProperty struct {
 //
 type CfnSegment_SourceSegmentsProperty struct {
 	// The unique identifier for the source segment.
-	Id *string `json:"id" yaml:"id"`
+	Id *string `field:"required" json:"id" yaml:"id"`
 	// The version number of the source segment.
-	Version *float64 `json:"version" yaml:"version"`
+	Version *float64 `field:"optional" json:"version" yaml:"version"`
 }
 
 // Properties for defining a `CfnSegment`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var attributes interface{}
 //   var metrics interface{}
 //   var tags interface{}
 //   var userAttributes interface{}
+//
 //   cfnSegmentProps := &cfnSegmentProps{
 //   	applicationId: jsii.String("applicationId"),
 //   	name: jsii.String("name"),
@@ -16989,19 +17226,19 @@ type CfnSegment_SourceSegmentsProperty struct {
 //
 type CfnSegmentProps struct {
 	// The unique identifier for the Amazon Pinpoint application that the segment is associated with.
-	ApplicationId *string `json:"applicationId" yaml:"applicationId"`
+	ApplicationId *string `field:"required" json:"applicationId" yaml:"applicationId"`
 	// The name of the segment.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The criteria that define the dimensions for the segment.
-	Dimensions interface{} `json:"dimensions" yaml:"dimensions"`
+	Dimensions interface{} `field:"optional" json:"dimensions" yaml:"dimensions"`
 	// The segment group to use and the dimensions to apply to the group's base segments in order to build the segment.
 	//
 	// A segment group can consist of zero or more base segments. Your request can include only one segment group.
-	SegmentGroups interface{} `json:"segmentGroups" yaml:"segmentGroups"`
+	SegmentGroups interface{} `field:"optional" json:"segmentGroups" yaml:"segmentGroups"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags interface{} `json:"tags" yaml:"tags"`
+	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Pinpoint::SmsTemplate`.
@@ -17009,10 +17246,13 @@ type CfnSegmentProps struct {
 // Creates a message template that you can use in messages that are sent through the SMS channel. A *message template* is a set of content and settings that you can define, save, and reuse in messages for any of your Amazon Pinpoint applications.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var tags interface{}
-//   cfnSmsTemplate := pinpoint.NewCfnSmsTemplate(this, jsii.String("MyCfnSmsTemplate"), &cfnSmsTemplateProps{
+//
+//   cfnSmsTemplate := awscdk.Aws_pinpoint.NewCfnSmsTemplate(this, jsii.String("MyCfnSmsTemplate"), &cfnSmsTemplateProps{
 //   	body: jsii.String("body"),
 //   	templateName: jsii.String("templateName"),
 //
@@ -17742,9 +17982,12 @@ func (c *jsiiProxy_CfnSmsTemplate) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnSmsTemplate`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var tags interface{}
+//
 //   cfnSmsTemplateProps := &cfnSmsTemplateProps{
 //   	body: jsii.String("body"),
 //   	templateName: jsii.String("templateName"),
@@ -17757,19 +18000,19 @@ func (c *jsiiProxy_CfnSmsTemplate) ValidateProperties(_properties interface{}) {
 //
 type CfnSmsTemplateProps struct {
 	// The message body to use in text messages that are based on the message template.
-	Body *string `json:"body" yaml:"body"`
+	Body *string `field:"required" json:"body" yaml:"body"`
 	// The name of the message template.
-	TemplateName *string `json:"templateName" yaml:"templateName"`
+	TemplateName *string `field:"required" json:"templateName" yaml:"templateName"`
 	// A JSON object that specifies the default values to use for message variables in the message template.
 	//
 	// This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
-	DefaultSubstitutions *string `json:"defaultSubstitutions" yaml:"defaultSubstitutions"`
+	DefaultSubstitutions *string `field:"optional" json:"defaultSubstitutions" yaml:"defaultSubstitutions"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags interface{} `json:"tags" yaml:"tags"`
+	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
 	// A custom description of the message template.
-	TemplateDescription *string `json:"templateDescription" yaml:"templateDescription"`
+	TemplateDescription *string `field:"optional" json:"templateDescription" yaml:"templateDescription"`
 }
 
 // A CloudFormation `AWS::Pinpoint::VoiceChannel`.
@@ -17779,8 +18022,11 @@ type CfnSmsTemplateProps struct {
 // The VoiceChannel resource represents the status and other information about the voice channel for an application.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
-//   cfnVoiceChannel := pinpoint.NewCfnVoiceChannel(this, jsii.String("MyCfnVoiceChannel"), &cfnVoiceChannelProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnVoiceChannel := awscdk.Aws_pinpoint.NewCfnVoiceChannel(this, jsii.String("MyCfnVoiceChannel"), &cfnVoiceChannelProps{
 //   	applicationId: jsii.String("applicationId"),
 //
 //   	// the properties below are optional
@@ -18437,7 +18683,10 @@ func (c *jsiiProxy_CfnVoiceChannel) ValidateProperties(_properties interface{}) 
 // Properties for defining a `CfnVoiceChannel`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import pinpoint "github.com/aws/aws-cdk-go/awscdk/aws_pinpoint"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnVoiceChannelProps := &cfnVoiceChannelProps{
 //   	applicationId: jsii.String("applicationId"),
 //
@@ -18447,8 +18696,8 @@ func (c *jsiiProxy_CfnVoiceChannel) ValidateProperties(_properties interface{}) 
 //
 type CfnVoiceChannelProps struct {
 	// The unique identifier for the Amazon Pinpoint application that the voice channel applies to.
-	ApplicationId *string `json:"applicationId" yaml:"applicationId"`
+	ApplicationId *string `field:"required" json:"applicationId" yaml:"applicationId"`
 	// Specifies whether to enable the voice channel for the application.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 }
 

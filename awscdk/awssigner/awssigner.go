@@ -14,8 +14,11 @@ import (
 // Adds cross-account permissions to a signing profile.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import signer "github.com/aws/aws-cdk-go/awscdk/aws_signer"
-//   cfnProfilePermission := signer.NewCfnProfilePermission(this, jsii.String("MyCfnProfilePermission"), &cfnProfilePermissionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnProfilePermission := awscdk.Aws_signer.NewCfnProfilePermission(this, jsii.String("MyCfnProfilePermission"), &cfnProfilePermissionProps{
 //   	action: jsii.String("action"),
 //   	principal: jsii.String("principal"),
 //   	profileName: jsii.String("profileName"),
@@ -740,7 +743,10 @@ func (c *jsiiProxy_CfnProfilePermission) ValidateProperties(_properties interfac
 // Properties for defining a `CfnProfilePermission`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import signer "github.com/aws/aws-cdk-go/awscdk/aws_signer"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnProfilePermissionProps := &cfnProfilePermissionProps{
 //   	action: jsii.String("action"),
 //   	principal: jsii.String("principal"),
@@ -753,17 +759,17 @@ func (c *jsiiProxy_CfnProfilePermission) ValidateProperties(_properties interfac
 //
 type CfnProfilePermissionProps struct {
 	// The AWS Signer action permitted as part of cross-account permissions.
-	Action *string `json:"action" yaml:"action"`
+	Action *string `field:"required" json:"action" yaml:"action"`
 	// The AWS principal receiving cross-account permissions.
 	//
 	// This may be an IAM role or another AWS account ID.
-	Principal *string `json:"principal" yaml:"principal"`
+	Principal *string `field:"required" json:"principal" yaml:"principal"`
 	// The human-readable name of the signing profile.
-	ProfileName *string `json:"profileName" yaml:"profileName"`
+	ProfileName *string `field:"required" json:"profileName" yaml:"profileName"`
 	// A unique identifier for the cross-account permission statement.
-	StatementId *string `json:"statementId" yaml:"statementId"`
+	StatementId *string `field:"required" json:"statementId" yaml:"statementId"`
 	// The version of the signing profile.
-	ProfileVersion *string `json:"profileVersion" yaml:"profileVersion"`
+	ProfileVersion *string `field:"optional" json:"profileVersion" yaml:"profileVersion"`
 }
 
 // A CloudFormation `AWS::Signer::SigningProfile`.
@@ -771,8 +777,11 @@ type CfnProfilePermissionProps struct {
 // Creates a signing profile. A signing profile is a code signing template that can be used to carry out a pre-defined signing job.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import signer "github.com/aws/aws-cdk-go/awscdk/aws_signer"
-//   cfnSigningProfile := signer.NewCfnSigningProfile(this, jsii.String("MyCfnSigningProfile"), &cfnSigningProfileProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnSigningProfile := awscdk.Aws_signer.NewCfnSigningProfile(this, jsii.String("MyCfnSigningProfile"), &cfnSigningProfileProps{
 //   	platformId: jsii.String("platformId"),
 //
 //   	// the properties below are optional
@@ -1496,7 +1505,10 @@ func (c *jsiiProxy_CfnSigningProfile) ValidateProperties(_properties interface{}
 // The validity period for the signing job.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import signer "github.com/aws/aws-cdk-go/awscdk/aws_signer"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   signatureValidityPeriodProperty := &signatureValidityPeriodProperty{
 //   	type: jsii.String("type"),
 //   	value: jsii.Number(123),
@@ -1504,15 +1516,18 @@ func (c *jsiiProxy_CfnSigningProfile) ValidateProperties(_properties interface{}
 //
 type CfnSigningProfile_SignatureValidityPeriodProperty struct {
 	// The time unit for signature validity: DAYS | MONTHS | YEARS.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 	// The numerical value of the time unit for signature validity.
-	Value *float64 `json:"value" yaml:"value"`
+	Value *float64 `field:"optional" json:"value" yaml:"value"`
 }
 
 // Properties for defining a `CfnSigningProfile`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import signer "github.com/aws/aws-cdk-go/awscdk/aws_signer"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnSigningProfileProps := &cfnSigningProfileProps{
 //   	platformId: jsii.String("platformId"),
 //
@@ -1531,13 +1546,13 @@ type CfnSigningProfile_SignatureValidityPeriodProperty struct {
 //
 type CfnSigningProfileProps struct {
 	// The ID of a platform that is available for use by a signing profile.
-	PlatformId *string `json:"platformId" yaml:"platformId"`
+	PlatformId *string `field:"required" json:"platformId" yaml:"platformId"`
 	// The validity period override for any signature generated using this signing profile.
 	//
 	// If unspecified, the default is 135 months.
-	SignatureValidityPeriod interface{} `json:"signatureValidityPeriod" yaml:"signatureValidityPeriod"`
+	SignatureValidityPeriod interface{} `field:"optional" json:"signatureValidityPeriod" yaml:"signatureValidityPeriod"`
 	// A list of tags associated with the signing profile.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A Signer Profile.
@@ -1608,6 +1623,7 @@ func (j *jsiiProxy_ISigningProfile) SigningProfileVersionArn() *string {
 // Example:
 //   import signer "github.com/aws/aws-cdk-go/awscdk"
 //
+//
 //   signingProfile := signer.NewSigningProfile(this, jsii.String("SigningProfile"), &signingProfileProps{
 //   	platform: signer.platform_AWS_LAMBDA_SHA384_ECDSA(),
 //   })
@@ -1620,7 +1636,7 @@ func (j *jsiiProxy_ISigningProfile) SigningProfileVersionArn() *string {
 //
 //   lambda.NewFunction(this, jsii.String("Function"), &functionProps{
 //   	codeSigningConfig: codeSigningConfig,
-//   	runtime: lambda.runtime_NODEJS_12_X(),
+//   	runtime: lambda.runtime_NODEJS_16_X(),
 //   	handler: jsii.String("index.handler"),
 //   	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 //   })
@@ -1701,6 +1717,7 @@ func Platform_AWS_LAMBDA_SHA384_ECDSA() Platform {
 // Example:
 //   import signer "github.com/aws/aws-cdk-go/awscdk"
 //
+//
 //   signingProfile := signer.NewSigningProfile(this, jsii.String("SigningProfile"), &signingProfileProps{
 //   	platform: signer.platform_AWS_LAMBDA_SHA384_ECDSA(),
 //   })
@@ -1713,7 +1730,7 @@ func Platform_AWS_LAMBDA_SHA384_ECDSA() Platform {
 //
 //   lambda.NewFunction(this, jsii.String("Function"), &functionProps{
 //   	codeSigningConfig: codeSigningConfig,
-//   	runtime: lambda.runtime_NODEJS_12_X(),
+//   	runtime: lambda.runtime_NODEJS_16_X(),
 //   	handler: jsii.String("index.handler"),
 //   	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 //   })
@@ -2125,7 +2142,10 @@ func (s *jsiiProxy_SigningProfile) Validate() *[]*string {
 // A reference to a Signing Profile.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import signer "github.com/aws/aws-cdk-go/awscdk/aws_signer"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   signingProfileAttributes := &signingProfileAttributes{
 //   	signingProfileName: jsii.String("signingProfileName"),
 //   	signingProfileVersion: jsii.String("signingProfileVersion"),
@@ -2135,16 +2155,17 @@ func (s *jsiiProxy_SigningProfile) Validate() *[]*string {
 type SigningProfileAttributes struct {
 	// The name of signing profile.
 	// Experimental.
-	SigningProfileName *string `json:"signingProfileName" yaml:"signingProfileName"`
+	SigningProfileName *string `field:"required" json:"signingProfileName" yaml:"signingProfileName"`
 	// The version of signing profile.
 	// Experimental.
-	SigningProfileVersion *string `json:"signingProfileVersion" yaml:"signingProfileVersion"`
+	SigningProfileVersion *string `field:"required" json:"signingProfileVersion" yaml:"signingProfileVersion"`
 }
 
 // Construction properties for a Signing Profile object.
 //
 // Example:
 //   import signer "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   signingProfile := signer.NewSigningProfile(this, jsii.String("SigningProfile"), &signingProfileProps{
 //   	platform: signer.platform_AWS_LAMBDA_SHA384_ECDSA(),
@@ -2158,7 +2179,7 @@ type SigningProfileAttributes struct {
 //
 //   lambda.NewFunction(this, jsii.String("Function"), &functionProps{
 //   	codeSigningConfig: codeSigningConfig,
-//   	runtime: lambda.runtime_NODEJS_12_X(),
+//   	runtime: lambda.runtime_NODEJS_16_X(),
 //   	handler: jsii.String("index.handler"),
 //   	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 //   })
@@ -2169,12 +2190,12 @@ type SigningProfileProps struct {
 	// See: https://docs.aws.amazon.com/signer/latest/developerguide/gs-platform.html
 	//
 	// Experimental.
-	Platform Platform `json:"platform" yaml:"platform"`
+	Platform Platform `field:"required" json:"platform" yaml:"platform"`
 	// The validity period for signatures generated using this signing profile.
 	// Experimental.
-	SignatureValidity awscdk.Duration `json:"signatureValidity" yaml:"signatureValidity"`
+	SignatureValidity awscdk.Duration `field:"optional" json:"signatureValidity" yaml:"signatureValidity"`
 	// Physical name of this Signing Profile.
 	// Experimental.
-	SigningProfileName *string `json:"signingProfileName" yaml:"signingProfileName"`
+	SigningProfileName *string `field:"optional" json:"signingProfileName" yaml:"signingProfileName"`
 }
 

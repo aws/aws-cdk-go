@@ -14,8 +14,11 @@ import (
 // The `AWS::EMRContainers::VirtualCluster` resource specifies a virtual cluster. A virtual cluster is a managed entity on Amazon EMR on EKS. You can create, describe, list, and delete virtual clusters. They do not consume any additional resources in your system. A single virtual cluster maps to a single Kubernetes namespace. Given this relationship, you can model virtual clusters the same way you model Kubernetes namespaces to meet your requirements.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emrcontainers "github.com/aws/aws-cdk-go/awscdk/aws_emrcontainers"
-//   cfnVirtualCluster := emrcontainers.NewCfnVirtualCluster(this, jsii.String("MyCfnVirtualCluster"), &cfnVirtualClusterProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnVirtualCluster := awscdk.Aws_emrcontainers.NewCfnVirtualCluster(this, jsii.String("MyCfnVirtualCluster"), &cfnVirtualClusterProps{
 //   	containerProvider: &containerProviderProperty{
 //   		id: jsii.String("id"),
 //   		info: &containerInfoProperty{
@@ -724,7 +727,10 @@ func (c *jsiiProxy_CfnVirtualCluster) ValidateProperties(_properties interface{}
 // The information about the container used for a job run or a managed endpoint.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emrcontainers "github.com/aws/aws-cdk-go/awscdk/aws_emrcontainers"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   containerInfoProperty := &containerInfoProperty{
 //   	eksInfo: &eksInfoProperty{
 //   		namespace: jsii.String("namespace"),
@@ -733,13 +739,16 @@ func (c *jsiiProxy_CfnVirtualCluster) ValidateProperties(_properties interface{}
 //
 type CfnVirtualCluster_ContainerInfoProperty struct {
 	// The information about the EKS cluster.
-	EksInfo interface{} `json:"eksInfo" yaml:"eksInfo"`
+	EksInfo interface{} `field:"required" json:"eksInfo" yaml:"eksInfo"`
 }
 
 // The information about the container provider.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emrcontainers "github.com/aws/aws-cdk-go/awscdk/aws_emrcontainers"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   containerProviderProperty := &containerProviderProperty{
 //   	id: jsii.String("id"),
 //   	info: &containerInfoProperty{
@@ -758,19 +767,22 @@ type CfnVirtualCluster_ContainerProviderProperty struct {
 	// *Maximum* : 100
 	//
 	// *Pattern* : `^[0-9A-Za-z][A-Za-z0-9\-_]*`.
-	Id *string `json:"id" yaml:"id"`
+	Id *string `field:"required" json:"id" yaml:"id"`
 	// The information about the container cluster.
-	Info interface{} `json:"info" yaml:"info"`
+	Info interface{} `field:"required" json:"info" yaml:"info"`
 	// The type of the container provider.
 	//
 	// EKS is the only supported type as of now.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 }
 
 // The information about the EKS cluster.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emrcontainers "github.com/aws/aws-cdk-go/awscdk/aws_emrcontainers"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   eksInfoProperty := &eksInfoProperty{
 //   	namespace: jsii.String("namespace"),
 //   }
@@ -783,13 +795,16 @@ type CfnVirtualCluster_EksInfoProperty struct {
 	// *Maximum* : 63
 	//
 	// *Pattern* : `[a-z0-9]([-a-z0-9]*[a-z0-9])?`
-	Namespace *string `json:"namespace" yaml:"namespace"`
+	Namespace *string `field:"required" json:"namespace" yaml:"namespace"`
 }
 
 // Properties for defining a `CfnVirtualCluster`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import emrcontainers "github.com/aws/aws-cdk-go/awscdk/aws_emrcontainers"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnVirtualClusterProps := &cfnVirtualClusterProps{
 //   	containerProvider: &containerProviderProperty{
 //   		id: jsii.String("id"),
@@ -813,12 +828,12 @@ type CfnVirtualCluster_EksInfoProperty struct {
 //
 type CfnVirtualClusterProps struct {
 	// The container provider of the virtual cluster.
-	ContainerProvider interface{} `json:"containerProvider" yaml:"containerProvider"`
+	ContainerProvider interface{} `field:"required" json:"containerProvider" yaml:"containerProvider"`
 	// The name of the virtual cluster.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

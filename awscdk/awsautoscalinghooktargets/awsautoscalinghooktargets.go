@@ -18,11 +18,16 @@ import (
 // Internally creates a Topic to make the connection.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import autoscaling_hooktargets "github.com/aws/aws-cdk-go/awscdk/aws_autoscaling_hooktargets"import awscdk "github.com/aws/aws-cdk-go/awscdk"import kms "github.com/aws/aws-cdk-go/awscdk/aws_kms"import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var function_ function
 //   var key key
-//   functionHook := autoscaling_hooktargets.NewFunctionHook(function_, key)
+//
+//   functionHook := awscdk.Aws_autoscaling_hooktargets.NewFunctionHook(function_, key)
 //
 // Experimental.
 type FunctionHook interface {
@@ -81,10 +86,14 @@ func (f *jsiiProxy_FunctionHook) Bind(_scope constructs.Construct, options *awsa
 // Use an SQS queue as a hook target.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import autoscaling_hooktargets "github.com/aws/aws-cdk-go/awscdk/aws_autoscaling_hooktargets"import awscdk "github.com/aws/aws-cdk-go/awscdk"import sqs "github.com/aws/aws-cdk-go/awscdk/aws_sqs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var queue queue
-//   queueHook := autoscaling_hooktargets.NewQueueHook(queue)
+//
+//   queueHook := awscdk.Aws_autoscaling_hooktargets.NewQueueHook(queue)
 //
 // Experimental.
 type QueueHook interface {
@@ -145,10 +154,14 @@ func (q *jsiiProxy_QueueHook) Bind(_scope constructs.Construct, options *awsauto
 // Use an SNS topic as a hook target.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import autoscaling_hooktargets "github.com/aws/aws-cdk-go/awscdk/aws_autoscaling_hooktargets"import awscdk "github.com/aws/aws-cdk-go/awscdk"import sns "github.com/aws/aws-cdk-go/awscdk/aws_sns"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var topic topic
-//   topicHook := autoscaling_hooktargets.NewTopicHook(topic)
+//
+//   topicHook := awscdk.Aws_autoscaling_hooktargets.NewTopicHook(topic)
 //
 // Experimental.
 type TopicHook interface {

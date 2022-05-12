@@ -14,8 +14,11 @@ import (
 // The `AWS::SSMIncidents::ReplicationSet` resource specifies a set of Regions that Incident Manager data is replicated to and the KMS key used to encrypt the data.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ssmincidents "github.com/aws/aws-cdk-go/awscdk/aws_ssmincidents"
-//   cfnReplicationSet := ssmincidents.NewCfnReplicationSet(this, jsii.String("MyCfnReplicationSet"), &cfnReplicationSetProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnReplicationSet := awscdk.Aws_ssmincidents.NewCfnReplicationSet(this, jsii.String("MyCfnReplicationSet"), &cfnReplicationSetProps{
 //   	regions: []interface{}{
 //   		&replicationRegionProperty{
 //   			regionConfiguration: &regionConfigurationProperty{
@@ -692,20 +695,26 @@ func (c *jsiiProxy_CfnReplicationSet) ValidateProperties(_properties interface{}
 // The `RegionConfiguration` property specifies the Region and KMS key to add to the replication set.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ssmincidents "github.com/aws/aws-cdk-go/awscdk/aws_ssmincidents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   regionConfigurationProperty := &regionConfigurationProperty{
 //   	sseKmsKeyId: jsii.String("sseKmsKeyId"),
 //   }
 //
 type CfnReplicationSet_RegionConfigurationProperty struct {
 	// The KMS key ID to use to encrypt your replication set.
-	SseKmsKeyId *string `json:"sseKmsKeyId" yaml:"sseKmsKeyId"`
+	SseKmsKeyId *string `field:"required" json:"sseKmsKeyId" yaml:"sseKmsKeyId"`
 }
 
 // The `ReplicationRegion` property type specifies the Region and KMS key to add to the replication set.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ssmincidents "github.com/aws/aws-cdk-go/awscdk/aws_ssmincidents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   replicationRegionProperty := &replicationRegionProperty{
 //   	regionConfiguration: &regionConfigurationProperty{
 //   		sseKmsKeyId: jsii.String("sseKmsKeyId"),
@@ -715,15 +724,18 @@ type CfnReplicationSet_RegionConfigurationProperty struct {
 //
 type CfnReplicationSet_ReplicationRegionProperty struct {
 	// Specifies the Region configuration.
-	RegionConfiguration interface{} `json:"regionConfiguration" yaml:"regionConfiguration"`
+	RegionConfiguration interface{} `field:"optional" json:"regionConfiguration" yaml:"regionConfiguration"`
 	// Specifies the region name to add to the replication set.
-	RegionName *string `json:"regionName" yaml:"regionName"`
+	RegionName *string `field:"optional" json:"regionName" yaml:"regionName"`
 }
 
 // Properties for defining a `CfnReplicationSet`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ssmincidents "github.com/aws/aws-cdk-go/awscdk/aws_ssmincidents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnReplicationSetProps := &cfnReplicationSetProps{
 //   	regions: []interface{}{
 //   		&replicationRegionProperty{
@@ -740,11 +752,11 @@ type CfnReplicationSet_ReplicationRegionProperty struct {
 //
 type CfnReplicationSetProps struct {
 	// Specifies the Regions of the replication set.
-	Regions interface{} `json:"regions" yaml:"regions"`
+	Regions interface{} `field:"required" json:"regions" yaml:"regions"`
 	// Determines if the replication set deletion protection is enabled or not.
 	//
 	// If deletion protection is enabled, you can't delete the last Region in the replication set.
-	DeletionProtected interface{} `json:"deletionProtected" yaml:"deletionProtected"`
+	DeletionProtected interface{} `field:"optional" json:"deletionProtected" yaml:"deletionProtected"`
 }
 
 // A CloudFormation `AWS::SSMIncidents::ResponsePlan`.
@@ -752,8 +764,11 @@ type CfnReplicationSetProps struct {
 // The `AWS::SSMIncidents::ResponsePlan` resource specifies the details of the response plan that are used when creating an incident.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ssmincidents "github.com/aws/aws-cdk-go/awscdk/aws_ssmincidents"
-//   cfnResponsePlan := ssmincidents.NewCfnResponsePlan(this, jsii.String("MyCfnResponsePlan"), &cfnResponsePlanProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnResponsePlan := awscdk.Aws_ssmincidents.NewCfnResponsePlan(this, jsii.String("MyCfnResponsePlan"), &cfnResponsePlanProps{
 //   	incidentTemplate: &incidentTemplateProperty{
 //   		impact: jsii.Number(123),
 //   		title: jsii.String("title"),
@@ -1566,7 +1581,10 @@ func (c *jsiiProxy_CfnResponsePlan) ValidateProperties(_properties interface{}) 
 // The `Action` property type specifies the configuration to launch.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ssmincidents "github.com/aws/aws-cdk-go/awscdk/aws_ssmincidents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   actionProperty := &actionProperty{
 //   	ssmAutomation: &ssmAutomationProperty{
 //   		documentName: jsii.String("documentName"),
@@ -1588,13 +1606,16 @@ func (c *jsiiProxy_CfnResponsePlan) ValidateProperties(_properties interface{}) 
 //
 type CfnResponsePlan_ActionProperty struct {
 	// Details about the Systems Manager automation document that will be used as a runbook during an incident.
-	SsmAutomation interface{} `json:"ssmAutomation" yaml:"ssmAutomation"`
+	SsmAutomation interface{} `field:"optional" json:"ssmAutomation" yaml:"ssmAutomation"`
 }
 
 // The AWS Chatbot chat channel used for collaboration during an incident.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ssmincidents "github.com/aws/aws-cdk-go/awscdk/aws_ssmincidents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   chatChannelProperty := &chatChannelProperty{
 //   	chatbotSns: []*string{
 //   		jsii.String("chatbotSns"),
@@ -1605,13 +1626,16 @@ type CfnResponsePlan_ChatChannelProperty struct {
 	// The SNS targets that AWS Chatbot uses to notify the chat channel of updates to an incident.
 	//
 	// You can also make updates to the incident through the chat channel by using the SNS topics.
-	ChatbotSns *[]*string `json:"chatbotSns" yaml:"chatbotSns"`
+	ChatbotSns *[]*string `field:"optional" json:"chatbotSns" yaml:"chatbotSns"`
 }
 
 // The `IncidentTemplate` property type specifies details used to create an incident when using this response plan.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ssmincidents "github.com/aws/aws-cdk-go/awscdk/aws_ssmincidents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   incidentTemplateProperty := &incidentTemplateProperty{
 //   	impact: jsii.Number(123),
 //   	title: jsii.String("title"),
@@ -1634,36 +1658,42 @@ type CfnResponsePlan_IncidentTemplateProperty struct {
 	// - `3` - Medium impact, the application is providing reduced service to customers.
 	// - `4` - Low impact, customer might aren't impacted by the problem yet.
 	// - `5` - No impact, customers aren't currently impacted but urgent action is needed to avoid impact.
-	Impact *float64 `json:"impact" yaml:"impact"`
+	Impact *float64 `field:"required" json:"impact" yaml:"impact"`
 	// The title of the incident is a brief and easily recognizable.
-	Title *string `json:"title" yaml:"title"`
+	Title *string `field:"required" json:"title" yaml:"title"`
 	// Used to create only one incident record for an incident.
-	DedupeString *string `json:"dedupeString" yaml:"dedupeString"`
+	DedupeString *string `field:"optional" json:"dedupeString" yaml:"dedupeString"`
 	// The SNS targets that AWS Chatbot uses to notify the chat channel of updates to an incident.
 	//
 	// You can also make updates to the incident through the chat channel using the SNS topics.
-	NotificationTargets interface{} `json:"notificationTargets" yaml:"notificationTargets"`
+	NotificationTargets interface{} `field:"optional" json:"notificationTargets" yaml:"notificationTargets"`
 	// The summary describes what has happened during the incident.
-	Summary *string `json:"summary" yaml:"summary"`
+	Summary *string `field:"optional" json:"summary" yaml:"summary"`
 }
 
 // The SNS topic that's used by AWS Chatbot to notify the incidents chat channel.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ssmincidents "github.com/aws/aws-cdk-go/awscdk/aws_ssmincidents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   notificationTargetItemProperty := &notificationTargetItemProperty{
 //   	snsTopicArn: jsii.String("snsTopicArn"),
 //   }
 //
 type CfnResponsePlan_NotificationTargetItemProperty struct {
 	// The Amazon Resource Name (ARN) of the SNS topic.
-	SnsTopicArn *string `json:"snsTopicArn" yaml:"snsTopicArn"`
+	SnsTopicArn *string `field:"optional" json:"snsTopicArn" yaml:"snsTopicArn"`
 }
 
 // The `SsmAutomation` property type specifies details about the Systems Manager automation document that will be used as a runbook during an incident.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ssmincidents "github.com/aws/aws-cdk-go/awscdk/aws_ssmincidents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   ssmAutomationProperty := &ssmAutomationProperty{
 //   	documentName: jsii.String("documentName"),
 //   	roleArn: jsii.String("roleArn"),
@@ -1683,23 +1713,26 @@ type CfnResponsePlan_NotificationTargetItemProperty struct {
 //
 type CfnResponsePlan_SsmAutomationProperty struct {
 	// The automation document's name.
-	DocumentName *string `json:"documentName" yaml:"documentName"`
+	DocumentName *string `field:"required" json:"documentName" yaml:"documentName"`
 	// The Amazon Resource Name (ARN) of the role that the automation document will assume when running commands.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The automation document's version to use when running.
-	DocumentVersion *string `json:"documentVersion" yaml:"documentVersion"`
+	DocumentVersion *string `field:"optional" json:"documentVersion" yaml:"documentVersion"`
 	// The key-value pair parameters to use when running the automation document.
-	Parameters interface{} `json:"parameters" yaml:"parameters"`
+	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// The account that the automation document will be run in.
 	//
 	// This can be in either the management account or an application account.
-	TargetAccount *string `json:"targetAccount" yaml:"targetAccount"`
+	TargetAccount *string `field:"optional" json:"targetAccount" yaml:"targetAccount"`
 }
 
 // The key-value pair parameters to use when running the automation document.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ssmincidents "github.com/aws/aws-cdk-go/awscdk/aws_ssmincidents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   ssmParameterProperty := &ssmParameterProperty{
 //   	key: jsii.String("key"),
 //   	values: []*string{
@@ -1709,15 +1742,18 @@ type CfnResponsePlan_SsmAutomationProperty struct {
 //
 type CfnResponsePlan_SsmParameterProperty struct {
 	// The key parameter to use when running the automation document.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// The value parameter to use when running the automation document.
-	Values *[]*string `json:"values" yaml:"values"`
+	Values *[]*string `field:"required" json:"values" yaml:"values"`
 }
 
 // Properties for defining a `CfnResponsePlan`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ssmincidents "github.com/aws/aws-cdk-go/awscdk/aws_ssmincidents"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnResponsePlanProps := &cfnResponsePlanProps{
 //   	incidentTemplate: &incidentTemplateProperty{
 //   		impact: jsii.Number(123),
@@ -1774,20 +1810,20 @@ type CfnResponsePlan_SsmParameterProperty struct {
 //
 type CfnResponsePlanProps struct {
 	// Details used to create an incident when using this response plan.
-	IncidentTemplate interface{} `json:"incidentTemplate" yaml:"incidentTemplate"`
+	IncidentTemplate interface{} `field:"required" json:"incidentTemplate" yaml:"incidentTemplate"`
 	// The name of the response plan.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The actions that the response plan starts at the beginning of an incident.
-	Actions interface{} `json:"actions" yaml:"actions"`
+	Actions interface{} `field:"optional" json:"actions" yaml:"actions"`
 	// The AWS Chatbot chat channel used for collaboration during an incident.
-	ChatChannel interface{} `json:"chatChannel" yaml:"chatChannel"`
+	ChatChannel interface{} `field:"optional" json:"chatChannel" yaml:"chatChannel"`
 	// The human readable name of the response plan.
-	DisplayName *string `json:"displayName" yaml:"displayName"`
+	DisplayName *string `field:"optional" json:"displayName" yaml:"displayName"`
 	// The contacts and escalation plans that the response plan engages during an incident.
-	Engagements *[]*string `json:"engagements" yaml:"engagements"`
+	Engagements *[]*string `field:"optional" json:"engagements" yaml:"engagements"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

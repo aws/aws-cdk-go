@@ -12,12 +12,16 @@ import (
 // Obtains applied when copying directories into the staging location.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import assets "github.com/aws/aws-cdk-go/awscdk/assets"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   copyOptions := &copyOptions{
 //   	exclude: []*string{
 //   		jsii.String("exclude"),
 //   	},
-//   	follow: assets.followMode_NEVER,
+//   	follow: awscdk.Assets.followMode_NEVER,
 //   	ignoreMode: monocdk.ignoreMode_GLOB,
 //   }
 //
@@ -25,25 +29,29 @@ import (
 type CopyOptions struct {
 	// Glob patterns to exclude from the copy.
 	// Deprecated: see `core.CopyOptions`
-	Exclude *[]*string `json:"exclude" yaml:"exclude"`
+	Exclude *[]*string `field:"optional" json:"exclude" yaml:"exclude"`
 	// A strategy for how to handle symlinks.
 	// Deprecated: use `followSymlinks` instead.
-	Follow FollowMode `json:"follow" yaml:"follow"`
+	Follow FollowMode `field:"optional" json:"follow" yaml:"follow"`
 	// The ignore behavior to use for exclude patterns.
 	// Deprecated: see `core.CopyOptions`
-	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode" yaml:"ignoreMode"`
+	IgnoreMode awscdk.IgnoreMode `field:"optional" json:"ignoreMode" yaml:"ignoreMode"`
 }
 
 // Options related to calculating source hash.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import assets "github.com/aws/aws-cdk-go/awscdk/assets"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   fingerprintOptions := &fingerprintOptions{
 //   	exclude: []*string{
 //   		jsii.String("exclude"),
 //   	},
 //   	extraHash: jsii.String("extraHash"),
-//   	follow: assets.followMode_NEVER,
+//   	follow: awscdk.Assets.followMode_NEVER,
 //   	ignoreMode: monocdk.ignoreMode_GLOB,
 //   }
 //
@@ -51,16 +59,16 @@ type CopyOptions struct {
 type FingerprintOptions struct {
 	// Glob patterns to exclude from the copy.
 	// Deprecated: see `core.FingerprintOptions`
-	Exclude *[]*string `json:"exclude" yaml:"exclude"`
+	Exclude *[]*string `field:"optional" json:"exclude" yaml:"exclude"`
 	// A strategy for how to handle symlinks.
 	// Deprecated: use `followSymlinks` instead.
-	Follow FollowMode `json:"follow" yaml:"follow"`
+	Follow FollowMode `field:"optional" json:"follow" yaml:"follow"`
 	// The ignore behavior to use for exclude patterns.
 	// Deprecated: see `core.FingerprintOptions`
-	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode" yaml:"ignoreMode"`
+	IgnoreMode awscdk.IgnoreMode `field:"optional" json:"ignoreMode" yaml:"ignoreMode"`
 	// Extra information to encode into the fingerprint (e.g. build instructions and other inputs).
 	// Deprecated: see `core.FingerprintOptions`
-	ExtraHash *string `json:"extraHash" yaml:"extraHash"`
+	ExtraHash *string `field:"optional" json:"extraHash" yaml:"extraHash"`
 }
 
 // Symlink follow mode.
@@ -118,8 +126,12 @@ func (j *jsiiProxy_IAsset) SourceHash() *string {
 // Deprecated.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import assets "github.com/aws/aws-cdk-go/awscdk/assets"
-//   staging := assets.NewStaging(this, jsii.String("MyStaging"), &stagingProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   staging := awscdk.Assets.NewStaging(this, jsii.String("MyStaging"), &stagingProps{
 //   	sourcePath: jsii.String("sourcePath"),
 //
 //   	// the properties below are optional
@@ -127,7 +139,7 @@ func (j *jsiiProxy_IAsset) SourceHash() *string {
 //   		jsii.String("exclude"),
 //   	},
 //   	extraHash: jsii.String("extraHash"),
-//   	follow: assets.followMode_NEVER,
+//   	follow: awscdk.*Assets.followMode_NEVER,
 //   	ignoreMode: monocdk.ignoreMode_GLOB,
 //   })
 //
@@ -499,7 +511,11 @@ func (s *jsiiProxy_Staging) Validate() *[]*string {
 // Deprecated.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import assets "github.com/aws/aws-cdk-go/awscdk/assets"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   stagingProps := &stagingProps{
 //   	sourcePath: jsii.String("sourcePath"),
 //
@@ -508,7 +524,7 @@ func (s *jsiiProxy_Staging) Validate() *[]*string {
 //   		jsii.String("exclude"),
 //   	},
 //   	extraHash: jsii.String("extraHash"),
-//   	follow: assets.followMode_NEVER,
+//   	follow: awscdk.Assets.followMode_NEVER,
 //   	ignoreMode: monocdk.ignoreMode_GLOB,
 //   }
 //
@@ -516,18 +532,18 @@ func (s *jsiiProxy_Staging) Validate() *[]*string {
 type StagingProps struct {
 	// Glob patterns to exclude from the copy.
 	// Deprecated: use `core.AssetStagingProps`
-	Exclude *[]*string `json:"exclude" yaml:"exclude"`
+	Exclude *[]*string `field:"optional" json:"exclude" yaml:"exclude"`
 	// A strategy for how to handle symlinks.
 	// Deprecated: use `followSymlinks` instead.
-	Follow FollowMode `json:"follow" yaml:"follow"`
+	Follow FollowMode `field:"optional" json:"follow" yaml:"follow"`
 	// The ignore behavior to use for exclude patterns.
 	// Deprecated: use `core.AssetStagingProps`
-	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode" yaml:"ignoreMode"`
+	IgnoreMode awscdk.IgnoreMode `field:"optional" json:"ignoreMode" yaml:"ignoreMode"`
 	// Extra information to encode into the fingerprint (e.g. build instructions and other inputs).
 	// Deprecated: use `core.AssetStagingProps`
-	ExtraHash *string `json:"extraHash" yaml:"extraHash"`
+	ExtraHash *string `field:"optional" json:"extraHash" yaml:"extraHash"`
 	// Local file or directory to stage.
 	// Deprecated: use `core.AssetStagingProps`
-	SourcePath *string `json:"sourcePath" yaml:"sourcePath"`
+	SourcePath *string `field:"required" json:"sourcePath" yaml:"sourcePath"`
 }
 

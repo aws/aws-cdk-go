@@ -14,10 +14,13 @@ import (
 // The `AWS::CodeArtifact::Domain` resource creates an AWS CodeArtifact domain. CodeArtifact *domains* make it easier to manage multiple repositories across an organization. You can use a domain to apply permissions across many repositories owned by different AWS accounts. For more information about domains, see the [Domain concepts information](https://docs.aws.amazon.com/codeartifact/latest/ug/codeartifact-concepts.html#welcome-concepts-domain) in the *CodeArtifact User Guide* . For more information about the `CreateDomain` API, see [CreateDomain](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_CreateDomain.html) in the *CodeArtifact API Reference* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codeartifact "github.com/aws/aws-cdk-go/awscdk/aws_codeartifact"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var permissionsPolicyDocument interface{}
-//   cfnDomain := codeartifact.NewCfnDomain(this, jsii.String("MyCfnDomain"), &cfnDomainProps{
+//
+//   cfnDomain := awscdk.Aws_codeartifact.NewCfnDomain(this, jsii.String("MyCfnDomain"), &cfnDomainProps{
 //   	domainName: jsii.String("domainName"),
 //
 //   	// the properties below are optional
@@ -762,9 +765,12 @@ func (c *jsiiProxy_CfnDomain) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnDomain`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codeartifact "github.com/aws/aws-cdk-go/awscdk/aws_codeartifact"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var permissionsPolicyDocument interface{}
+//
 //   cfnDomainProps := &cfnDomainProps{
 //   	domainName: jsii.String("domainName"),
 //
@@ -781,13 +787,13 @@ func (c *jsiiProxy_CfnDomain) ValidateProperties(_properties interface{}) {
 //
 type CfnDomainProps struct {
 	// A string that specifies the name of the requested domain.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 	// The key used to encrypt the domain.
-	EncryptionKey *string `json:"encryptionKey" yaml:"encryptionKey"`
+	EncryptionKey *string `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// The document that defines the resource policy that is set on a domain.
-	PermissionsPolicyDocument interface{} `json:"permissionsPolicyDocument" yaml:"permissionsPolicyDocument"`
+	PermissionsPolicyDocument interface{} `field:"optional" json:"permissionsPolicyDocument" yaml:"permissionsPolicyDocument"`
 	// A list of tags to be applied to the domain.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::CodeArtifact::Repository`.
@@ -795,10 +801,13 @@ type CfnDomainProps struct {
 // The `AWS::CodeArtifact::Repository` resource creates an AWS CodeArtifact repository. CodeArtifact *repositories* contain a set of package versions. For more information about repositories, see the [Repository concepts information](https://docs.aws.amazon.com/codeartifact/latest/ug/codeartifact-concepts.html#welcome-concepts-repository) in the *CodeArtifact User Guide* . For more information about the `CreateRepository` API, see [CreateRepository](https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_CreateRepository.html) in the *CodeArtifact API Reference* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codeartifact "github.com/aws/aws-cdk-go/awscdk/aws_codeartifact"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var permissionsPolicyDocument interface{}
-//   cfnRepository := codeartifact.NewCfnRepository(this, jsii.String("MyCfnRepository"), &cfnRepositoryProps{
+//
+//   cfnRepository := awscdk.Aws_codeartifact.NewCfnRepository(this, jsii.String("MyCfnRepository"), &cfnRepositoryProps{
 //   	domainName: jsii.String("domainName"),
 //   	repositoryName: jsii.String("repositoryName"),
 //
@@ -1639,9 +1648,12 @@ func (c *jsiiProxy_CfnRepository) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnRepository`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codeartifact "github.com/aws/aws-cdk-go/awscdk/aws_codeartifact"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var permissionsPolicyDocument interface{}
+//
 //   cfnRepositoryProps := &cfnRepositoryProps{
 //   	domainName: jsii.String("domainName"),
 //   	repositoryName: jsii.String("repositoryName"),
@@ -1666,24 +1678,24 @@ func (c *jsiiProxy_CfnRepository) ValidateProperties(_properties interface{}) {
 //
 type CfnRepositoryProps struct {
 	// The name of the domain that contains the repository.
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 	// The name of an upstream repository.
-	RepositoryName *string `json:"repositoryName" yaml:"repositoryName"`
+	RepositoryName *string `field:"required" json:"repositoryName" yaml:"repositoryName"`
 	// A text description of the repository.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The 12-digit account number of the AWS account that owns the domain that contains the repository.
 	//
 	// It does not include dashes or spaces.
-	DomainOwner *string `json:"domainOwner" yaml:"domainOwner"`
+	DomainOwner *string `field:"optional" json:"domainOwner" yaml:"domainOwner"`
 	// An array of external connections associated with the repository.
-	ExternalConnections *[]*string `json:"externalConnections" yaml:"externalConnections"`
+	ExternalConnections *[]*string `field:"optional" json:"externalConnections" yaml:"externalConnections"`
 	// The document that defines the resource policy that is set on a repository.
-	PermissionsPolicyDocument interface{} `json:"permissionsPolicyDocument" yaml:"permissionsPolicyDocument"`
+	PermissionsPolicyDocument interface{} `field:"optional" json:"permissionsPolicyDocument" yaml:"permissionsPolicyDocument"`
 	// A list of tags to be applied to the repository.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// A list of upstream repositories to associate with the repository.
 	//
 	// The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. For more information, see [Working with upstream repositories](https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html) .
-	Upstreams *[]*string `json:"upstreams" yaml:"upstreams"`
+	Upstreams *[]*string `field:"optional" json:"upstreams" yaml:"upstreams"`
 }
 

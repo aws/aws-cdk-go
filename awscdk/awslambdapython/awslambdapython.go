@@ -22,11 +22,11 @@ import (
 //
 // Example:
 //   entry := "/path/to/function"
-//   image := dockerImage.fromBuild(entry)
+//   image := awscdk.DockerImage.fromBuild(entry)
 //
 //   lambda.NewPythonFunction(this, jsii.String("function"), &pythonFunctionProps{
 //   	entry: jsii.String(entry),
-//   	runtime: runtime_PYTHON_3_8(),
+//   	runtime: awscdk.Runtime_PYTHON_3_8(),
 //   	bundling: &bundlingOptions{
 //   		buildArgs: map[string]*string{
 //   			"PIP_INDEX_URL": jsii.String("https://your.index.url/simple/"),
@@ -50,7 +50,7 @@ type BundlingOptions struct {
 	// need to make sure it is updated every time the asset changes, or otherwise it is
 	// possible that some deployments will not be invalidated.
 	// Experimental.
-	AssetHash *string `json:"assetHash" yaml:"assetHash"`
+	AssetHash *string `field:"optional" json:"assetHash" yaml:"assetHash"`
 	// Determines how asset hash is calculated. Assets will get rebuild and uploaded only if their hash has changed.
 	//
 	// If asset hash is set to `SOURCE` (default), then only changes to the source
@@ -66,38 +66,38 @@ type BundlingOptions struct {
 	// will _always_ get rebuild and uploaded. Normally this is an anti-pattern
 	// since build.
 	// Experimental.
-	AssetHashType awscdk.AssetHashType `json:"assetHashType" yaml:"assetHashType"`
+	AssetHashType awscdk.AssetHashType `field:"optional" json:"assetHashType" yaml:"assetHashType"`
 	// Optional build arguments to pass to the default container.
 	//
 	// This can be used to customize
 	// the index URLs used for installing dependencies.
 	// This is not used if a custom image is provided.
 	// Experimental.
-	BuildArgs *map[string]*string `json:"buildArgs" yaml:"buildArgs"`
+	BuildArgs *map[string]*string `field:"optional" json:"buildArgs" yaml:"buildArgs"`
 	// Environment variables defined when bundling runs.
 	// Experimental.
-	Environment *map[string]*string `json:"environment" yaml:"environment"`
+	Environment *map[string]*string `field:"optional" json:"environment" yaml:"environment"`
 	// Docker image to use for bundling.
 	//
 	// If no options are provided, the default bundling image
 	// will be used. Dependencies will be installed using the default packaging commands
 	// and copied over from into the Lambda asset.
 	// Experimental.
-	Image awscdk.DockerImage `json:"image" yaml:"image"`
+	Image awscdk.DockerImage `field:"optional" json:"image" yaml:"image"`
 	// Output path suffix: the suffix for the directory into which the bundled output is written.
 	// Experimental.
-	OutputPathSuffix *string `json:"outputPathSuffix" yaml:"outputPathSuffix"`
+	OutputPathSuffix *string `field:"optional" json:"outputPathSuffix" yaml:"outputPathSuffix"`
 }
 
 // A Python Lambda function.
 //
 // Example:
 //   entry := "/path/to/function"
-//   image := dockerImage.fromBuild(entry)
+//   image := awscdk.DockerImage.fromBuild(entry)
 //
 //   lambda.NewPythonFunction(this, jsii.String("function"), &pythonFunctionProps{
 //   	entry: jsii.String(entry),
-//   	runtime: runtime_PYTHON_3_8(),
+//   	runtime: awscdk.Runtime_PYTHON_3_8(),
 //   	bundling: &bundlingOptions{
 //   		buildArgs: map[string]*string{
 //   			"PIP_INDEX_URL": jsii.String("https://your.index.url/simple/"),
@@ -1198,11 +1198,11 @@ func (p *jsiiProxy_PythonFunction) WarnInvokeFunctionPermissions(scope awscdk.Co
 //
 // Example:
 //   entry := "/path/to/function"
-//   image := dockerImage.fromBuild(entry)
+//   image := awscdk.DockerImage.fromBuild(entry)
 //
 //   lambda.NewPythonFunction(this, jsii.String("function"), &pythonFunctionProps{
 //   	entry: jsii.String(entry),
-//   	runtime: runtime_PYTHON_3_8(),
+//   	runtime: awscdk.Runtime_PYTHON_3_8(),
 //   	bundling: &bundlingOptions{
 //   		buildArgs: map[string]*string{
 //   			"PIP_INDEX_URL": jsii.String("https://your.index.url/simple/"),
@@ -1218,142 +1218,142 @@ type PythonFunctionProps struct {
 	// Minimum: 60 seconds
 	// Maximum: 6 hours.
 	// Experimental.
-	MaxEventAge awscdk.Duration `json:"maxEventAge" yaml:"maxEventAge"`
+	MaxEventAge awscdk.Duration `field:"optional" json:"maxEventAge" yaml:"maxEventAge"`
 	// The destination for failed invocations.
 	// Experimental.
-	OnFailure awslambda.IDestination `json:"onFailure" yaml:"onFailure"`
+	OnFailure awslambda.IDestination `field:"optional" json:"onFailure" yaml:"onFailure"`
 	// The destination for successful invocations.
 	// Experimental.
-	OnSuccess awslambda.IDestination `json:"onSuccess" yaml:"onSuccess"`
+	OnSuccess awslambda.IDestination `field:"optional" json:"onSuccess" yaml:"onSuccess"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum: 0
 	// Maximum: 2.
 	// Experimental.
-	RetryAttempts *float64 `json:"retryAttempts" yaml:"retryAttempts"`
+	RetryAttempts *float64 `field:"optional" json:"retryAttempts" yaml:"retryAttempts"`
 	// Whether to allow the Lambda to send all network traffic.
 	//
 	// If set to false, you must individually add traffic rules to allow the
 	// Lambda to connect to network targets.
 	// Experimental.
-	AllowAllOutbound *bool `json:"allowAllOutbound" yaml:"allowAllOutbound"`
+	AllowAllOutbound *bool `field:"optional" json:"allowAllOutbound" yaml:"allowAllOutbound"`
 	// Lambda Functions in a public subnet can NOT access the internet.
 	//
 	// Use this property to acknowledge this limitation and still place the function in a public subnet.
 	// See: https://stackoverflow.com/questions/52992085/why-cant-an-aws-lambda-function-inside-a-public-subnet-in-a-vpc-connect-to-the/52994841#52994841
 	//
 	// Experimental.
-	AllowPublicSubnet *bool `json:"allowPublicSubnet" yaml:"allowPublicSubnet"`
+	AllowPublicSubnet *bool `field:"optional" json:"allowPublicSubnet" yaml:"allowPublicSubnet"`
 	// The system architectures compatible with this lambda function.
 	// Experimental.
-	Architecture awslambda.Architecture `json:"architecture" yaml:"architecture"`
+	Architecture awslambda.Architecture `field:"optional" json:"architecture" yaml:"architecture"`
 	// DEPRECATED.
 	// Deprecated: use `architecture`.
-	Architectures *[]awslambda.Architecture `json:"architectures" yaml:"architectures"`
+	Architectures *[]awslambda.Architecture `field:"optional" json:"architectures" yaml:"architectures"`
 	// Code signing config associated with this function.
 	// Experimental.
-	CodeSigningConfig awslambda.ICodeSigningConfig `json:"codeSigningConfig" yaml:"codeSigningConfig"`
+	CodeSigningConfig awslambda.ICodeSigningConfig `field:"optional" json:"codeSigningConfig" yaml:"codeSigningConfig"`
 	// Options for the `lambda.Version` resource automatically created by the `fn.currentVersion` method.
 	// Experimental.
-	CurrentVersionOptions *awslambda.VersionOptions `json:"currentVersionOptions" yaml:"currentVersionOptions"`
+	CurrentVersionOptions *awslambda.VersionOptions `field:"optional" json:"currentVersionOptions" yaml:"currentVersionOptions"`
 	// The SQS queue to use if DLQ is enabled.
 	//
 	// If SNS topic is desired, specify `deadLetterTopic` property instead.
 	// Experimental.
-	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue" yaml:"deadLetterQueue"`
+	DeadLetterQueue awssqs.IQueue `field:"optional" json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// Enabled DLQ.
 	//
 	// If `deadLetterQueue` is undefined,
 	// an SQS queue with default options will be defined for your Function.
 	// Experimental.
-	DeadLetterQueueEnabled *bool `json:"deadLetterQueueEnabled" yaml:"deadLetterQueueEnabled"`
+	DeadLetterQueueEnabled *bool `field:"optional" json:"deadLetterQueueEnabled" yaml:"deadLetterQueueEnabled"`
 	// The SNS topic to use as a DLQ.
 	//
 	// Note that if `deadLetterQueueEnabled` is set to `true`, an SQS queue will be created
 	// rather than an SNS topic. Using an SNS topic as a DLQ requires this property to be set explicitly.
 	// Experimental.
-	DeadLetterTopic awssns.ITopic `json:"deadLetterTopic" yaml:"deadLetterTopic"`
+	DeadLetterTopic awssns.ITopic `field:"optional" json:"deadLetterTopic" yaml:"deadLetterTopic"`
 	// A description of the function.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Key-value pairs that Lambda caches and makes available for your Lambda functions.
 	//
 	// Use environment variables to apply configuration changes, such
 	// as test and production environment configurations, without changing your
 	// Lambda function source code.
 	// Experimental.
-	Environment *map[string]*string `json:"environment" yaml:"environment"`
+	Environment *map[string]*string `field:"optional" json:"environment" yaml:"environment"`
 	// The AWS KMS key that's used to encrypt your function's environment variables.
 	// Experimental.
-	EnvironmentEncryption awskms.IKey `json:"environmentEncryption" yaml:"environmentEncryption"`
+	EnvironmentEncryption awskms.IKey `field:"optional" json:"environmentEncryption" yaml:"environmentEncryption"`
 	// The size of the function’s /tmp directory in MiB.
 	// Experimental.
-	EphemeralStorageSize awscdk.Size `json:"ephemeralStorageSize" yaml:"ephemeralStorageSize"`
+	EphemeralStorageSize awscdk.Size `field:"optional" json:"ephemeralStorageSize" yaml:"ephemeralStorageSize"`
 	// Event sources for this function.
 	//
 	// You can also add event sources using `addEventSource`.
 	// Experimental.
-	Events *[]awslambda.IEventSource `json:"events" yaml:"events"`
+	Events *[]awslambda.IEventSource `field:"optional" json:"events" yaml:"events"`
 	// The filesystem configuration for the lambda function.
 	// Experimental.
-	Filesystem awslambda.FileSystem `json:"filesystem" yaml:"filesystem"`
+	Filesystem awslambda.FileSystem `field:"optional" json:"filesystem" yaml:"filesystem"`
 	// A name for the function.
 	// Experimental.
-	FunctionName *string `json:"functionName" yaml:"functionName"`
+	FunctionName *string `field:"optional" json:"functionName" yaml:"functionName"`
 	// Initial policy statements to add to the created Lambda Role.
 	//
 	// You can call `addToRolePolicy` to the created lambda to add statements post creation.
 	// Experimental.
-	InitialPolicy *[]awsiam.PolicyStatement `json:"initialPolicy" yaml:"initialPolicy"`
+	InitialPolicy *[]awsiam.PolicyStatement `field:"optional" json:"initialPolicy" yaml:"initialPolicy"`
 	// Specify the version of CloudWatch Lambda insights to use for monitoring.
 	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Lambda-Insights-Getting-Started-docker.html
 	//
 	// Experimental.
-	InsightsVersion awslambda.LambdaInsightsVersion `json:"insightsVersion" yaml:"insightsVersion"`
+	InsightsVersion awslambda.LambdaInsightsVersion `field:"optional" json:"insightsVersion" yaml:"insightsVersion"`
 	// A list of layers to add to the function's execution environment.
 	//
 	// You can configure your Lambda function to pull in
 	// additional code during initialization in the form of layers. Layers are packages of libraries or other dependencies
 	// that can be used by multiple functions.
 	// Experimental.
-	Layers *[]awslambda.ILayerVersion `json:"layers" yaml:"layers"`
+	Layers *[]awslambda.ILayerVersion `field:"optional" json:"layers" yaml:"layers"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `INFINITE`.
 	// Experimental.
-	LogRetention awslogs.RetentionDays `json:"logRetention" yaml:"logRetention"`
+	LogRetention awslogs.RetentionDays `field:"optional" json:"logRetention" yaml:"logRetention"`
 	// When log retention is specified, a custom resource attempts to create the CloudWatch log group.
 	//
 	// These options control the retry policy when interacting with CloudWatch APIs.
 	// Experimental.
-	LogRetentionRetryOptions *awslambda.LogRetentionRetryOptions `json:"logRetentionRetryOptions" yaml:"logRetentionRetryOptions"`
+	LogRetentionRetryOptions *awslambda.LogRetentionRetryOptions `field:"optional" json:"logRetentionRetryOptions" yaml:"logRetentionRetryOptions"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
 	// Experimental.
-	LogRetentionRole awsiam.IRole `json:"logRetentionRole" yaml:"logRetentionRole"`
+	LogRetentionRole awsiam.IRole `field:"optional" json:"logRetentionRole" yaml:"logRetentionRole"`
 	// The amount of memory, in MB, that is allocated to your Lambda function.
 	//
 	// Lambda uses this value to proportionally allocate the amount of CPU
 	// power. For more information, see Resource Model in the AWS Lambda
 	// Developer Guide.
 	// Experimental.
-	MemorySize *float64 `json:"memorySize" yaml:"memorySize"`
+	MemorySize *float64 `field:"optional" json:"memorySize" yaml:"memorySize"`
 	// Enable profiling.
 	// See: https://docs.aws.amazon.com/codeguru/latest/profiler-ug/setting-up-lambda.html
 	//
 	// Experimental.
-	Profiling *bool `json:"profiling" yaml:"profiling"`
+	Profiling *bool `field:"optional" json:"profiling" yaml:"profiling"`
 	// Profiling Group.
 	// See: https://docs.aws.amazon.com/codeguru/latest/profiler-ug/setting-up-lambda.html
 	//
 	// Experimental.
-	ProfilingGroup awscodeguruprofiler.IProfilingGroup `json:"profilingGroup" yaml:"profilingGroup"`
+	ProfilingGroup awscodeguruprofiler.IProfilingGroup `field:"optional" json:"profilingGroup" yaml:"profilingGroup"`
 	// The maximum of concurrent executions you want to reserve for the function.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html
 	//
 	// Experimental.
-	ReservedConcurrentExecutions *float64 `json:"reservedConcurrentExecutions" yaml:"reservedConcurrentExecutions"`
+	ReservedConcurrentExecutions *float64 `field:"optional" json:"reservedConcurrentExecutions" yaml:"reservedConcurrentExecutions"`
 	// Lambda execution role.
 	//
 	// This is the role that will be assumed by the function upon execution.
@@ -1366,7 +1366,7 @@ type PythonFunctionProps struct {
 	// The relevant managed policies are "service-role/AWSLambdaBasicExecutionRole" and
 	// "service-role/AWSLambdaVPCAccessExecutionRole".
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// What security group to associate with the Lambda's network interfaces. This property is being deprecated, consider using securityGroups instead.
 	//
 	// Only used if 'vpc' is supplied.
@@ -1374,53 +1374,53 @@ type PythonFunctionProps struct {
 	// Use securityGroups property instead.
 	// Function constructor will throw an error if both are specified.
 	// Deprecated: - This property is deprecated, use securityGroups instead.
-	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup" yaml:"securityGroup"`
+	SecurityGroup awsec2.ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
 	// The list of security groups to associate with the Lambda's network interfaces.
 	//
 	// Only used if 'vpc' is supplied.
 	// Experimental.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// The function execution time (in seconds) after which Lambda terminates the function.
 	//
 	// Because the execution time affects cost, set this value
 	// based on the function's expected execution time.
 	// Experimental.
-	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
+	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 	// Enable AWS X-Ray Tracing for Lambda Function.
 	// Experimental.
-	Tracing awslambda.Tracing `json:"tracing" yaml:"tracing"`
+	Tracing awslambda.Tracing `field:"optional" json:"tracing" yaml:"tracing"`
 	// VPC network to place Lambda network interfaces.
 	//
 	// Specify this if the Lambda function needs to access resources in a VPC.
 	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
+	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 	// Where to place the network interfaces within the VPC.
 	//
 	// Only used if 'vpc' is supplied. Note: internet access for Lambdas
 	// requires a NAT gateway, so picking Public subnets is not allowed.
 	// Experimental.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 	// Path to the source of the function or the location for dependencies.
 	// Experimental.
-	Entry *string `json:"entry" yaml:"entry"`
+	Entry *string `field:"required" json:"entry" yaml:"entry"`
 	// The runtime environment.
 	//
 	// Only runtimes of the Python family are
 	// supported.
 	// Experimental.
-	Runtime awslambda.Runtime `json:"runtime" yaml:"runtime"`
+	Runtime awslambda.Runtime `field:"required" json:"runtime" yaml:"runtime"`
 	// Bundling options to use for this function.
 	//
 	// Use this to specify custom bundling options like
 	// the bundling Docker image, asset hash type, custom hash, architecture, etc.
 	// Experimental.
-	Bundling *BundlingOptions `json:"bundling" yaml:"bundling"`
+	Bundling *BundlingOptions `field:"optional" json:"bundling" yaml:"bundling"`
 	// The name of the exported handler in the index file.
 	// Experimental.
-	Handler *string `json:"handler" yaml:"handler"`
+	Handler *string `field:"optional" json:"handler" yaml:"handler"`
 	// The path (relative to entry) to the index file containing the exported handler.
 	// Experimental.
-	Index *string `json:"index" yaml:"index"`
+	Index *string `field:"optional" json:"index" yaml:"index"`
 }
 
 // A lambda layer version.
@@ -1854,30 +1854,30 @@ func (p *jsiiProxy_PythonLayerVersion) Validate() *[]*string {
 type PythonLayerVersionProps struct {
 	// The description the this Lambda Layer.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the layer.
 	// Experimental.
-	LayerVersionName *string `json:"layerVersionName" yaml:"layerVersionName"`
+	LayerVersionName *string `field:"optional" json:"layerVersionName" yaml:"layerVersionName"`
 	// The SPDX licence identifier or URL to the license file for this layer.
 	// Experimental.
-	License *string `json:"license" yaml:"license"`
+	License *string `field:"optional" json:"license" yaml:"license"`
 	// Whether to retain this version of the layer when a new version is added or when the stack is deleted.
 	// Experimental.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// The path to the root directory of the lambda layer.
 	// Experimental.
-	Entry *string `json:"entry" yaml:"entry"`
+	Entry *string `field:"required" json:"entry" yaml:"entry"`
 	// Bundling options to use for this function.
 	//
 	// Use this to specify custom bundling options like
 	// the bundling Docker image, asset hash type, custom hash, architecture, etc.
 	// Experimental.
-	Bundling *BundlingOptions `json:"bundling" yaml:"bundling"`
+	Bundling *BundlingOptions `field:"optional" json:"bundling" yaml:"bundling"`
 	// The system architectures compatible with this layer.
 	// Experimental.
-	CompatibleArchitectures *[]awslambda.Architecture `json:"compatibleArchitectures" yaml:"compatibleArchitectures"`
+	CompatibleArchitectures *[]awslambda.Architecture `field:"optional" json:"compatibleArchitectures" yaml:"compatibleArchitectures"`
 	// The runtimes compatible with the python layer.
 	// Experimental.
-	CompatibleRuntimes *[]awslambda.Runtime `json:"compatibleRuntimes" yaml:"compatibleRuntimes"`
+	CompatibleRuntimes *[]awslambda.Runtime `field:"optional" json:"compatibleRuntimes" yaml:"compatibleRuntimes"`
 }
 

@@ -14,8 +14,11 @@ import (
 // Creates an AWS Migration Hub Refactor Spaces application. The account that owns the environment also owns the applications created inside the environment, regardless of the account that creates the application. Refactor Spaces provisions an Amazon API Gateway , API Gateway VPC link, and Network Load Balancer for the application proxy inside your account.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import refactorspaces "github.com/aws/aws-cdk-go/awscdk/aws_refactorspaces"
-//   cfnApplication := refactorspaces.NewCfnApplication(this, jsii.String("MyCfnApplication"), &cfnApplicationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnApplication := awscdk.Aws_refactorspaces.NewCfnApplication(this, jsii.String("MyCfnApplication"), &cfnApplicationProps{
 //   	apiGatewayProxy: &apiGatewayProxyInputProperty{
 //   		endpointType: jsii.String("endpointType"),
 //   		stageName: jsii.String("stageName"),
@@ -855,7 +858,10 @@ func (c *jsiiProxy_CfnApplication) ValidateProperties(_properties interface{}) {
 // A wrapper object holding the Amazon API Gateway endpoint input.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import refactorspaces "github.com/aws/aws-cdk-go/awscdk/aws_refactorspaces"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   apiGatewayProxyInputProperty := &apiGatewayProxyInputProperty{
 //   	endpointType: jsii.String("endpointType"),
 //   	stageName: jsii.String("stageName"),
@@ -867,17 +873,20 @@ type CfnApplication_ApiGatewayProxyInputProperty struct {
 	// If no value is specified in the request, the value is set to `REGIONAL` by default.
 	//
 	// If the value is set to `PRIVATE` in the request, this creates a private API endpoint that is isolated from the public internet. The private endpoint can only be accessed by using Amazon Virtual Private Cloud ( Amazon VPC ) endpoints for Amazon API Gateway that have been granted access.
-	EndpointType *string `json:"endpointType" yaml:"endpointType"`
+	EndpointType *string `field:"optional" json:"endpointType" yaml:"endpointType"`
 	// The name of the API Gateway stage.
 	//
 	// The name defaults to `prod` .
-	StageName *string `json:"stageName" yaml:"stageName"`
+	StageName *string `field:"optional" json:"stageName" yaml:"stageName"`
 }
 
 // Properties for defining a `CfnApplication`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import refactorspaces "github.com/aws/aws-cdk-go/awscdk/aws_refactorspaces"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnApplicationProps := &cfnApplicationProps{
 //   	apiGatewayProxy: &apiGatewayProxyInputProperty{
 //   		endpointType: jsii.String("endpointType"),
@@ -897,17 +906,17 @@ type CfnApplication_ApiGatewayProxyInputProperty struct {
 //
 type CfnApplicationProps struct {
 	// The endpoint URL of the Amazon API Gateway proxy.
-	ApiGatewayProxy interface{} `json:"apiGatewayProxy" yaml:"apiGatewayProxy"`
+	ApiGatewayProxy interface{} `field:"optional" json:"apiGatewayProxy" yaml:"apiGatewayProxy"`
 	// The unique identifier of the environment.
-	EnvironmentIdentifier *string `json:"environmentIdentifier" yaml:"environmentIdentifier"`
+	EnvironmentIdentifier *string `field:"optional" json:"environmentIdentifier" yaml:"environmentIdentifier"`
 	// The name of the application.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The proxy type of the proxy created within the application.
-	ProxyType *string `json:"proxyType" yaml:"proxyType"`
+	ProxyType *string `field:"optional" json:"proxyType" yaml:"proxyType"`
 	// The tags assigned to the application.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The ID of the virtual private cloud (VPC).
-	VpcId *string `json:"vpcId" yaml:"vpcId"`
+	VpcId *string `field:"optional" json:"vpcId" yaml:"vpcId"`
 }
 
 // A CloudFormation `AWS::RefactorSpaces::Environment`.
@@ -915,8 +924,11 @@ type CfnApplicationProps struct {
 // Creates an AWS Migration Hub Refactor Spaces environment. The caller owns the environment resource, and all Refactor Spaces applications, services, and routes created within the environment. They are referred to as the *environment owner* . The environment owner has cross-account visibility and control of Refactor Spaces resources that are added to the environment by other accounts that the environment is shared with. When creating an environment, Refactor Spaces provisions a transit gateway in your account.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import refactorspaces "github.com/aws/aws-cdk-go/awscdk/aws_refactorspaces"
-//   cfnEnvironment := refactorspaces.NewCfnEnvironment(this, jsii.String("MyCfnEnvironment"), &cfnEnvironmentProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnEnvironment := awscdk.Aws_refactorspaces.NewCfnEnvironment(this, jsii.String("MyCfnEnvironment"), &cfnEnvironmentProps{
 //   	description: jsii.String("description"),
 //   	name: jsii.String("name"),
 //   	networkFabricType: jsii.String("networkFabricType"),
@@ -1647,7 +1659,10 @@ func (c *jsiiProxy_CfnEnvironment) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnEnvironment`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import refactorspaces "github.com/aws/aws-cdk-go/awscdk/aws_refactorspaces"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnEnvironmentProps := &cfnEnvironmentProps{
 //   	description: jsii.String("description"),
 //   	name: jsii.String("name"),
@@ -1662,13 +1677,13 @@ func (c *jsiiProxy_CfnEnvironment) ValidateProperties(_properties interface{}) {
 //
 type CfnEnvironmentProps struct {
 	// A description of the environment.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the environment.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The network fabric type of the environment.
-	NetworkFabricType *string `json:"networkFabricType" yaml:"networkFabricType"`
+	NetworkFabricType *string `field:"optional" json:"networkFabricType" yaml:"networkFabricType"`
 	// The tags assigned to the environment.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::RefactorSpaces::Route`.
@@ -1686,8 +1701,11 @@ type CfnEnvironmentProps struct {
 // A health check is performed on the service when the route is created. If the health check fails, the route transitions to `FAILED` , and no traffic is sent to the service. For Lambda functions, the Lambda function state is checked. If the function is not active, the function configuration is updated so Lambda resources are provisioned. If the Lambda state is `Failed` , then the route creation fails. For more information, see the [GetFunctionConfiguration's State response parameter](https://docs.aws.amazon.com/lambda/latest/dg/API_GetFunctionConfiguration.html#SSS-GetFunctionConfiguration-response-State) in the *AWS Lambda Developer Guide* . For public URLs, a connection is opened to the public endpoint. If the URL is not reachable, the health check fails. For private URLs, a target groups is created and the target group health check is run. The `HealthCheckProtocol` , `HealthCheckPort` , and `HealthCheckPath` are the same protocol, port, and path specified in the URL or Health URL if used. All other settings use the default values, as described in [Health checks for your target groups](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/target-group-health-checks.html) . The health check is considered successful if at least one target within the target group transitions to healthy state.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import refactorspaces "github.com/aws/aws-cdk-go/awscdk/aws_refactorspaces"
-//   cfnRoute := refactorspaces.NewCfnRoute(this, jsii.String("MyCfnRoute"), &cfnRouteProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnRoute := awscdk.Aws_refactorspaces.NewCfnRoute(this, jsii.String("MyCfnRoute"), &cfnRouteProps{
 //   	applicationIdentifier: jsii.String("applicationIdentifier"),
 //   	environmentIdentifier: jsii.String("environmentIdentifier"),
 //   	serviceIdentifier: jsii.String("serviceIdentifier"),
@@ -2473,7 +2491,10 @@ func (c *jsiiProxy_CfnRoute) ValidateProperties(_properties interface{}) {
 // The configuration for the URI path route type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import refactorspaces "github.com/aws/aws-cdk-go/awscdk/aws_refactorspaces"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   uriPathRouteInputProperty := &uriPathRouteInputProperty{
 //   	activationState: jsii.String("activationState"),
 //
@@ -2487,25 +2508,28 @@ func (c *jsiiProxy_CfnRoute) ValidateProperties(_properties interface{}) {
 //
 type CfnRoute_UriPathRouteInputProperty struct {
 	// Indicates whether traffic is forwarded to this route’s service after the route is created.
-	ActivationState *string `json:"activationState" yaml:"activationState"`
+	ActivationState *string `field:"required" json:"activationState" yaml:"activationState"`
 	// Indicates whether to match all subpaths of the given source path.
 	//
 	// If this value is `false` , requests must match the source path exactly before they are forwarded to this route's service.
-	IncludeChildPaths interface{} `json:"includeChildPaths" yaml:"includeChildPaths"`
+	IncludeChildPaths interface{} `field:"optional" json:"includeChildPaths" yaml:"includeChildPaths"`
 	// A list of HTTP methods to match.
 	//
 	// An empty list matches all values. If a method is present, only HTTP requests using that method are forwarded to this route’s service.
-	Methods *[]*string `json:"methods" yaml:"methods"`
+	Methods *[]*string `field:"optional" json:"methods" yaml:"methods"`
 	// The path to use to match traffic.
 	//
 	// Paths must start with `/` and are relative to the base of the application.
-	SourcePath *string `json:"sourcePath" yaml:"sourcePath"`
+	SourcePath *string `field:"optional" json:"sourcePath" yaml:"sourcePath"`
 }
 
 // Properties for defining a `CfnRoute`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import refactorspaces "github.com/aws/aws-cdk-go/awscdk/aws_refactorspaces"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnRouteProps := &cfnRouteProps{
 //   	applicationIdentifier: jsii.String("applicationIdentifier"),
 //   	environmentIdentifier: jsii.String("environmentIdentifier"),
@@ -2533,17 +2557,17 @@ type CfnRoute_UriPathRouteInputProperty struct {
 //
 type CfnRouteProps struct {
 	// The unique identifier of the application.
-	ApplicationIdentifier *string `json:"applicationIdentifier" yaml:"applicationIdentifier"`
+	ApplicationIdentifier *string `field:"required" json:"applicationIdentifier" yaml:"applicationIdentifier"`
 	// The unique identifier of the environment.
-	EnvironmentIdentifier *string `json:"environmentIdentifier" yaml:"environmentIdentifier"`
+	EnvironmentIdentifier *string `field:"required" json:"environmentIdentifier" yaml:"environmentIdentifier"`
 	// The unique identifier of the service.
-	ServiceIdentifier *string `json:"serviceIdentifier" yaml:"serviceIdentifier"`
+	ServiceIdentifier *string `field:"required" json:"serviceIdentifier" yaml:"serviceIdentifier"`
 	// The route type of the route.
-	RouteType *string `json:"routeType" yaml:"routeType"`
+	RouteType *string `field:"optional" json:"routeType" yaml:"routeType"`
 	// The tags assigned to the route.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The configuration for the URI path route type.
-	UriPathRoute interface{} `json:"uriPathRoute" yaml:"uriPathRoute"`
+	UriPathRoute interface{} `field:"optional" json:"uriPathRoute" yaml:"uriPathRoute"`
 }
 
 // A CloudFormation `AWS::RefactorSpaces::Service`.
@@ -2553,8 +2577,11 @@ type CfnRouteProps struct {
 // > If an AWS resource is launched in a service VPC, and you want it to be accessible to all of an environment’s services with VPCs and routes, apply the `RefactorSpacesSecurityGroup` to the resource. Alternatively, to add more cross-account constraints, apply your own security group.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import refactorspaces "github.com/aws/aws-cdk-go/awscdk/aws_refactorspaces"
-//   cfnService := refactorspaces.NewCfnService(this, jsii.String("MyCfnService"), &cfnServiceProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnService := awscdk.Aws_refactorspaces.NewCfnService(this, jsii.String("MyCfnService"), &cfnServiceProps{
 //   	applicationIdentifier: jsii.String("applicationIdentifier"),
 //   	environmentIdentifier: jsii.String("environmentIdentifier"),
 //
@@ -3392,20 +3419,26 @@ func (c *jsiiProxy_CfnService) ValidateProperties(_properties interface{}) {
 // The input for the AWS Lambda endpoint type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import refactorspaces "github.com/aws/aws-cdk-go/awscdk/aws_refactorspaces"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   lambdaEndpointInputProperty := &lambdaEndpointInputProperty{
 //   	arn: jsii.String("arn"),
 //   }
 //
 type CfnService_LambdaEndpointInputProperty struct {
 	// The Amazon Resource Name (ARN) of the Lambda endpoint.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"required" json:"arn" yaml:"arn"`
 }
 
 // The configuration for the URL endpoint type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import refactorspaces "github.com/aws/aws-cdk-go/awscdk/aws_refactorspaces"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   urlEndpointInputProperty := &urlEndpointInputProperty{
 //   	url: jsii.String("url"),
 //
@@ -3417,17 +3450,20 @@ type CfnService_UrlEndpointInputProperty struct {
 	// The URL to route traffic to.
 	//
 	// The URL must be an [rfc3986-formatted URL](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc3986) . If the host is a domain name, the name must be resolvable over the public internet. If the scheme is `https` , the top level domain of the host must be listed in the [IANA root zone database](https://docs.aws.amazon.com/https://www.iana.org/domains/root/db) .
-	Url *string `json:"url" yaml:"url"`
+	Url *string `field:"required" json:"url" yaml:"url"`
 	// The health check URL of the URL endpoint type.
 	//
 	// If the URL is a public endpoint, the `HealthUrl` must also be a public endpoint. If the URL is a private endpoint inside a virtual private cloud (VPC), the health URL must also be a private endpoint, and the host must be the same as the URL.
-	HealthUrl *string `json:"healthUrl" yaml:"healthUrl"`
+	HealthUrl *string `field:"optional" json:"healthUrl" yaml:"healthUrl"`
 }
 
 // Properties for defining a `CfnService`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import refactorspaces "github.com/aws/aws-cdk-go/awscdk/aws_refactorspaces"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnServiceProps := &cfnServiceProps{
 //   	applicationIdentifier: jsii.String("applicationIdentifier"),
 //   	environmentIdentifier: jsii.String("environmentIdentifier"),
@@ -3456,22 +3492,22 @@ type CfnService_UrlEndpointInputProperty struct {
 //
 type CfnServiceProps struct {
 	// The unique identifier of the application.
-	ApplicationIdentifier *string `json:"applicationIdentifier" yaml:"applicationIdentifier"`
+	ApplicationIdentifier *string `field:"required" json:"applicationIdentifier" yaml:"applicationIdentifier"`
 	// The unique identifier of the environment.
-	EnvironmentIdentifier *string `json:"environmentIdentifier" yaml:"environmentIdentifier"`
+	EnvironmentIdentifier *string `field:"required" json:"environmentIdentifier" yaml:"environmentIdentifier"`
 	// A description of the service.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The endpoint type of the service.
-	EndpointType *string `json:"endpointType" yaml:"endpointType"`
+	EndpointType *string `field:"optional" json:"endpointType" yaml:"endpointType"`
 	// A summary of the configuration for the AWS Lambda endpoint type.
-	LambdaEndpoint interface{} `json:"lambdaEndpoint" yaml:"lambdaEndpoint"`
+	LambdaEndpoint interface{} `field:"optional" json:"lambdaEndpoint" yaml:"lambdaEndpoint"`
 	// The name of the service.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The tags assigned to the service.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The summary of the configuration for the URL endpoint type.
-	UrlEndpoint interface{} `json:"urlEndpoint" yaml:"urlEndpoint"`
+	UrlEndpoint interface{} `field:"optional" json:"urlEndpoint" yaml:"urlEndpoint"`
 	// The ID of the virtual private cloud (VPC).
-	VpcId *string `json:"vpcId" yaml:"vpcId"`
+	VpcId *string `field:"optional" json:"vpcId" yaml:"vpcId"`
 }
 

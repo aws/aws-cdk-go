@@ -16,8 +16,11 @@ import (
 // After you create a Resilience Hub application, you publish it so that you can run a resiliency assessment on it. You can then use recommendations from the assessment to improve resiliency by running another assessment, comparing results, and then iterating the process until you achieve your goals for recovery time objective (RTO) and recovery point objective (RPO).
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import resiliencehub "github.com/aws/aws-cdk-go/awscdk/aws_resiliencehub"
-//   cfnApp := resiliencehub.NewCfnApp(this, jsii.String("MyCfnApp"), &cfnAppProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnApp := awscdk.Aws_resiliencehub.NewCfnApp(this, jsii.String("MyCfnApp"), &cfnAppProps{
 //   	appTemplateBody: jsii.String("appTemplateBody"),
 //   	name: jsii.String("name"),
 //   	resourceMappings: []interface{}{
@@ -785,7 +788,10 @@ func (c *jsiiProxy_CfnApp) ValidateProperties(_properties interface{}) {
 // Defines a physical resource identifier.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import resiliencehub "github.com/aws/aws-cdk-go/awscdk/aws_resiliencehub"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   physicalResourceIdProperty := &physicalResourceIdProperty{
 //   	identifier: jsii.String("identifier"),
 //   	type: jsii.String("type"),
@@ -797,22 +803,25 @@ func (c *jsiiProxy_CfnApp) ValidateProperties(_properties interface{}) {
 //
 type CfnApp_PhysicalResourceIdProperty struct {
 	// The identifier of the physical resource.
-	Identifier *string `json:"identifier" yaml:"identifier"`
+	Identifier *string `field:"required" json:"identifier" yaml:"identifier"`
 	// Specifies the type of physical resource identifier.
 	//
 	// - **Arn** - The resource identifier is an Amazon Resource Name (ARN) .
 	// - **Native** - The resource identifier is a Resilience Hub-native identifier.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// The AWS account that owns the physical resource.
-	AwsAccountId *string `json:"awsAccountId" yaml:"awsAccountId"`
+	AwsAccountId *string `field:"optional" json:"awsAccountId" yaml:"awsAccountId"`
 	// The AWS Region that the physical resource is located in.
-	AwsRegion *string `json:"awsRegion" yaml:"awsRegion"`
+	AwsRegion *string `field:"optional" json:"awsRegion" yaml:"awsRegion"`
 }
 
 // Defines a resource mapping.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import resiliencehub "github.com/aws/aws-cdk-go/awscdk/aws_resiliencehub"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   resourceMappingProperty := &resourceMappingProperty{
 //   	mappingType: jsii.String("mappingType"),
 //   	physicalResourceId: &physicalResourceIdProperty{
@@ -836,19 +845,22 @@ type CfnApp_ResourceMappingProperty struct {
 	// - **CfnStack** - The resource is mapped to a CloudFormation stack. The name of the CloudFormation stack is contained in the `logicalStackName` property.
 	// - **Resource** - The resource is mapped to another resource. The name of the resource is contained in the `resourceName` property.
 	// - **ResourceGroup** - The resource is mapped to a resource group. The name of the resource group is contained in the `resourceGroupName` property.
-	MappingType *string `json:"mappingType" yaml:"mappingType"`
+	MappingType *string `field:"required" json:"mappingType" yaml:"mappingType"`
 	// The identifier of this resource.
-	PhysicalResourceId interface{} `json:"physicalResourceId" yaml:"physicalResourceId"`
+	PhysicalResourceId interface{} `field:"required" json:"physicalResourceId" yaml:"physicalResourceId"`
 	// The name of the CloudFormation stack this resource is mapped to.
-	LogicalStackName *string `json:"logicalStackName" yaml:"logicalStackName"`
+	LogicalStackName *string `field:"optional" json:"logicalStackName" yaml:"logicalStackName"`
 	// The name of the resource this resource is mapped to.
-	ResourceName *string `json:"resourceName" yaml:"resourceName"`
+	ResourceName *string `field:"optional" json:"resourceName" yaml:"resourceName"`
 }
 
 // Properties for defining a `CfnApp`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import resiliencehub "github.com/aws/aws-cdk-go/awscdk/aws_resiliencehub"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAppProps := &cfnAppProps{
 //   	appTemplateBody: jsii.String("appTemplateBody"),
 //   	name: jsii.String("name"),
@@ -880,19 +892,19 @@ type CfnApp_ResourceMappingProperty struct {
 //
 type CfnAppProps struct {
 	// A string containing a full Resilience Hub app template body.
-	AppTemplateBody *string `json:"appTemplateBody" yaml:"appTemplateBody"`
+	AppTemplateBody *string `field:"required" json:"appTemplateBody" yaml:"appTemplateBody"`
 	// The name for the application.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// An array of ResourceMapping objects.
-	ResourceMappings interface{} `json:"resourceMappings" yaml:"resourceMappings"`
+	ResourceMappings interface{} `field:"required" json:"resourceMappings" yaml:"resourceMappings"`
 	// The optional description for an app.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The Amazon Resource Name (ARN) of the resiliency policy.
-	ResiliencyPolicyArn *string `json:"resiliencyPolicyArn" yaml:"resiliencyPolicyArn"`
+	ResiliencyPolicyArn *string `field:"optional" json:"resiliencyPolicyArn" yaml:"resiliencyPolicyArn"`
 	// The tags assigned to the resource.
 	//
 	// A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
-	Tags *map[string]*string `json:"tags" yaml:"tags"`
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::ResilienceHub::ResiliencyPolicy`.
@@ -900,8 +912,11 @@ type CfnAppProps struct {
 // Defines a resiliency policy.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import resiliencehub "github.com/aws/aws-cdk-go/awscdk/aws_resiliencehub"
-//   cfnResiliencyPolicy := resiliencehub.NewCfnResiliencyPolicy(this, jsii.String("MyCfnResiliencyPolicy"), &cfnResiliencyPolicyProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnResiliencyPolicy := awscdk.Aws_resiliencehub.NewCfnResiliencyPolicy(this, jsii.String("MyCfnResiliencyPolicy"), &cfnResiliencyPolicyProps{
 //   	policy: map[string]interface{}{
 //   		"policyKey": &FailurePolicyProperty{
 //   			"rpoInSecs": jsii.Number(123),
@@ -1658,7 +1673,10 @@ func (c *jsiiProxy_CfnResiliencyPolicy) ValidateProperties(_properties interface
 // Defines a failure policy.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import resiliencehub "github.com/aws/aws-cdk-go/awscdk/aws_resiliencehub"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   failurePolicyProperty := &failurePolicyProperty{
 //   	rpoInSecs: jsii.Number(123),
 //   	rtoInSecs: jsii.Number(123),
@@ -1666,15 +1684,18 @@ func (c *jsiiProxy_CfnResiliencyPolicy) ValidateProperties(_properties interface
 //
 type CfnResiliencyPolicy_FailurePolicyProperty struct {
 	// The Recovery Point Objective (RPO), in seconds.
-	RpoInSecs *float64 `json:"rpoInSecs" yaml:"rpoInSecs"`
+	RpoInSecs *float64 `field:"required" json:"rpoInSecs" yaml:"rpoInSecs"`
 	// The Recovery Time Objective (RTO), in seconds.
-	RtoInSecs *float64 `json:"rtoInSecs" yaml:"rtoInSecs"`
+	RtoInSecs *float64 `field:"required" json:"rtoInSecs" yaml:"rtoInSecs"`
 }
 
 // Properties for defining a `CfnResiliencyPolicy`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import resiliencehub "github.com/aws/aws-cdk-go/awscdk/aws_resiliencehub"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnResiliencyPolicyProps := &cfnResiliencyPolicyProps{
 //   	policy: map[string]interface{}{
 //   		"policyKey": &FailurePolicyProperty{
@@ -1695,18 +1716,18 @@ type CfnResiliencyPolicy_FailurePolicyProperty struct {
 //
 type CfnResiliencyPolicyProps struct {
 	// The resiliency policy.
-	Policy interface{} `json:"policy" yaml:"policy"`
+	Policy interface{} `field:"required" json:"policy" yaml:"policy"`
 	// The name of the policy.
-	PolicyName *string `json:"policyName" yaml:"policyName"`
+	PolicyName *string `field:"required" json:"policyName" yaml:"policyName"`
 	// The tier for this resiliency policy, ranging from the highest severity ( `MissionCritical` ) to lowest ( `NonCritical` ).
-	Tier *string `json:"tier" yaml:"tier"`
+	Tier *string `field:"required" json:"tier" yaml:"tier"`
 	// Specifies a high-level geographical location constraint for where your resilience policy data can be stored.
-	DataLocationConstraint *string `json:"dataLocationConstraint" yaml:"dataLocationConstraint"`
+	DataLocationConstraint *string `field:"optional" json:"dataLocationConstraint" yaml:"dataLocationConstraint"`
 	// The description for the policy.
-	PolicyDescription *string `json:"policyDescription" yaml:"policyDescription"`
+	PolicyDescription *string `field:"optional" json:"policyDescription" yaml:"policyDescription"`
 	// The tags assigned to the resource.
 	//
 	// A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
-	Tags *map[string]*string `json:"tags" yaml:"tags"`
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 

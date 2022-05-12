@@ -31,6 +31,10 @@ func init() {
 		"monocdk.aws_cognito.AutoVerifiedAttrs",
 		reflect.TypeOf((*AutoVerifiedAttrs)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_cognito.BaseUrlOptions",
+		reflect.TypeOf((*BaseUrlOptions)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"monocdk.aws_cognito.BooleanAttribute",
 		reflect.TypeOf((*BooleanAttribute)(nil)).Elem(),

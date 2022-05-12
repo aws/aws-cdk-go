@@ -13,8 +13,11 @@ import (
 // A single Application Load Balancer as the target for load balancing.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2_targets "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2_targets"
-//   albArnTarget := elasticloadbalancingv2_targets.NewAlbArnTarget(jsii.String("albArn"), jsii.Number(123))
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   albArnTarget := awscdk.Aws_elasticloadbalancingv2_targets.NewAlbArnTarget(jsii.String("albArn"), jsii.Number(123))
 //
 // Experimental.
 type AlbArnTarget interface {
@@ -76,9 +79,12 @@ func (a *jsiiProxy_AlbArnTarget) AttachToNetworkTargetGroup(targetGroup awselast
 // A single Application Load Balancer as the target for load balancing.
 //
 // Example:
-//   import targets "github.com/aws/aws-cdk-go/awscdk"import ecs "github.com/aws/aws-cdk-go/awscdk"import patterns "github.com/aws/aws-cdk-go/awscdk"
+//   import targets "github.com/aws/aws-cdk-go/awscdk"
+//   import ecs "github.com/aws/aws-cdk-go/awscdk"
+//   import patterns "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var vpc vpc
+//
 //
 //   task := ecs.NewFargateTaskDefinition(this, jsii.String("Task"), &fargateTaskDefinitionProps{
 //   	cpu: jsii.Number(256),
@@ -116,7 +122,7 @@ func (a *jsiiProxy_AlbArnTarget) AttachToNetworkTargetGroup(targetGroup awselast
 //   	port: jsii.Number(80),
 //   })
 //
-//   NewCfnOutput(this, jsii.String("NlbEndpoint"), &cfnOutputProps{
+//   awscdk.NewCfnOutput(this, jsii.String("NlbEndpoint"), &cfnOutputProps{
 //   	value: fmt.Sprintf("http://%v", nlb.loadBalancerDnsName),
 //   })
 //
@@ -181,8 +187,11 @@ func (a *jsiiProxy_AlbTarget) AttachToNetworkTargetGroup(targetGroup awselasticl
 // sure the load balancer's security group can connect to the instance.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2_targets "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2_targets"
-//   instanceIdTarget := elasticloadbalancingv2_targets.NewInstanceIdTarget(jsii.String("instanceId"), jsii.Number(123))
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   instanceIdTarget := awscdk.Aws_elasticloadbalancingv2_targets.NewInstanceIdTarget(jsii.String("instanceId"), jsii.Number(123))
 //
 // Experimental.
 type InstanceIdTarget interface {
@@ -263,10 +272,14 @@ func (i *jsiiProxy_InstanceIdTarget) AttachToNetworkTargetGroup(targetGroup awse
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2_targets "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2_targets"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var instance instance
-//   instanceTarget := elasticloadbalancingv2_targets.NewInstanceTarget(instance, jsii.Number(123))
+//
+//   instanceTarget := awscdk.Aws_elasticloadbalancingv2_targets.NewInstanceTarget(instance, jsii.Number(123))
 //
 // Experimental.
 type InstanceTarget interface {
@@ -355,8 +368,11 @@ func (i *jsiiProxy_InstanceTarget) AttachToNetworkTargetGroup(targetGroup awsela
 // sure the load balancer's security group can send packets to the IP address.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import elasticloadbalancingv2_targets "github.com/aws/aws-cdk-go/awscdk/aws_elasticloadbalancingv2_targets"
-//   ipTarget := elasticloadbalancingv2_targets.NewIpTarget(jsii.String("ipAddress"), jsii.Number(123), jsii.String("availabilityZone"))
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   ipTarget := awscdk.Aws_elasticloadbalancingv2_targets.NewIpTarget(jsii.String("ipAddress"), jsii.Number(123), jsii.String("availabilityZone"))
 //
 // Experimental.
 type IpTarget interface {
@@ -467,10 +483,12 @@ func (i *jsiiProxy_IpTarget) AttachToNetworkTargetGroup(targetGroup awselasticlo
 }
 
 // Example:
-//   import lambda "github.com/aws/aws-cdk-go/awscdk"import targets "github.com/aws/aws-cdk-go/awscdk"
+//   import lambda "github.com/aws/aws-cdk-go/awscdk"
+//   import targets "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var lambdaFunction function
 //   var lb applicationLoadBalancer
+//
 //
 //   listener := lb.addListener(jsii.String("Listener"), &baseApplicationListenerProps{
 //   	port: jsii.Number(80),

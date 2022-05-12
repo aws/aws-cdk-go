@@ -20,8 +20,11 @@ import (
 // If you use an Amazon SNS topic that is encrypted by an AWS Key Management Service customer-managed key (CMK), then you must add permissions to the CMK. For more information, see [Permissions for AWS KMS–encrypted Amazon SNS topics](https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-kms-permissions.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import devopsguru "github.com/aws/aws-cdk-go/awscdk/aws_devopsguru"
-//   cfnNotificationChannel := devopsguru.NewCfnNotificationChannel(this, jsii.String("MyCfnNotificationChannel"), &cfnNotificationChannelProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnNotificationChannel := awscdk.Aws_devopsguru.NewCfnNotificationChannel(this, jsii.String("MyCfnNotificationChannel"), &cfnNotificationChannelProps{
 //   	config: &notificationChannelConfigProperty{
 //   		sns: &snsChannelConfigProperty{
 //   			topicArn: jsii.String("topicArn"),
@@ -672,7 +675,10 @@ func (c *jsiiProxy_CfnNotificationChannel) ValidateProperties(_properties interf
 // The one supported notification channel is Amazon Simple Notification Service (Amazon SNS).
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import devopsguru "github.com/aws/aws-cdk-go/awscdk/aws_devopsguru"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   notificationChannelConfigProperty := &notificationChannelConfigProperty{
 //   	sns: &snsChannelConfigProperty{
 //   		topicArn: jsii.String("topicArn"),
@@ -687,7 +693,7 @@ type CfnNotificationChannel_NotificationChannelConfigProperty struct {
 	// If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission to it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. For more information, see Permissions for cross account Amazon SNS topics.
 	//
 	// If you use an Amazon SNS topic that is encrypted by an AWS Key Management Service customer-managed key (CMK), then you must add permissions to the CMK. For more information, see [Permissions for AWS KMS–encrypted Amazon SNS topics](https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-kms-permissions.html) .
-	Sns interface{} `json:"sns" yaml:"sns"`
+	Sns interface{} `field:"optional" json:"sns" yaml:"sns"`
 }
 
 // Contains the Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
@@ -699,20 +705,26 @@ type CfnNotificationChannel_NotificationChannelConfigProperty struct {
 // If you use an Amazon SNS topic that is encrypted by an AWS Key Management Service customer-managed key (CMK), then you must add permissions to the CMK. For more information, see [Permissions for AWS KMS–encrypted Amazon SNS topics](https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-kms-permissions.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import devopsguru "github.com/aws/aws-cdk-go/awscdk/aws_devopsguru"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   snsChannelConfigProperty := &snsChannelConfigProperty{
 //   	topicArn: jsii.String("topicArn"),
 //   }
 //
 type CfnNotificationChannel_SnsChannelConfigProperty struct {
 	// The Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
-	TopicArn *string `json:"topicArn" yaml:"topicArn"`
+	TopicArn *string `field:"optional" json:"topicArn" yaml:"topicArn"`
 }
 
 // Properties for defining a `CfnNotificationChannel`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import devopsguru "github.com/aws/aws-cdk-go/awscdk/aws_devopsguru"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnNotificationChannelProps := &cfnNotificationChannelProps{
 //   	config: &notificationChannelConfigProperty{
 //   		sns: &snsChannelConfigProperty{
@@ -723,7 +735,7 @@ type CfnNotificationChannel_SnsChannelConfigProperty struct {
 //
 type CfnNotificationChannelProps struct {
 	// A `NotificationChannelConfig` object that contains information about configured notification channels.
-	Config interface{} `json:"config" yaml:"config"`
+	Config interface{} `field:"required" json:"config" yaml:"config"`
 }
 
 // A CloudFormation `AWS::DevOpsGuru::ResourceCollection`.
@@ -731,8 +743,11 @@ type CfnNotificationChannelProps struct {
 // A collection of AWS resources supported by DevOps Guru. The one type of AWS resource collection supported is AWS CloudFormation stacks. DevOps Guru can be configured to analyze only the AWS resources that are defined in the stacks.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import devopsguru "github.com/aws/aws-cdk-go/awscdk/aws_devopsguru"
-//   cfnResourceCollection := devopsguru.NewCfnResourceCollection(this, jsii.String("MyCfnResourceCollection"), &cfnResourceCollectionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnResourceCollection := awscdk.Aws_devopsguru.NewCfnResourceCollection(this, jsii.String("MyCfnResourceCollection"), &cfnResourceCollectionProps{
 //   	resourceCollectionFilter: &resourceCollectionFilterProperty{
 //   		cloudFormation: &cloudFormationCollectionFilterProperty{
 //   			stackNames: []*string{
@@ -1395,7 +1410,10 @@ func (c *jsiiProxy_CfnResourceCollection) ValidateProperties(_properties interfa
 // You can use up to 500 stacks to specify which AWS resources in your account to analyze. For more information, see [Stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html) in the *AWS CloudFormation User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import devopsguru "github.com/aws/aws-cdk-go/awscdk/aws_devopsguru"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cloudFormationCollectionFilterProperty := &cloudFormationCollectionFilterProperty{
 //   	stackNames: []*string{
 //   		jsii.String("stackNames"),
@@ -1404,13 +1422,16 @@ func (c *jsiiProxy_CfnResourceCollection) ValidateProperties(_properties interfa
 //
 type CfnResourceCollection_CloudFormationCollectionFilterProperty struct {
 	// An array of CloudFormation stack names.
-	StackNames *[]*string `json:"stackNames" yaml:"stackNames"`
+	StackNames *[]*string `field:"optional" json:"stackNames" yaml:"stackNames"`
 }
 
 // Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import devopsguru "github.com/aws/aws-cdk-go/awscdk/aws_devopsguru"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   resourceCollectionFilterProperty := &resourceCollectionFilterProperty{
 //   	cloudFormation: &cloudFormationCollectionFilterProperty{
 //   		stackNames: []*string{
@@ -1431,7 +1452,7 @@ type CfnResourceCollection_ResourceCollectionFilterProperty struct {
 	// Information about AWS CloudFormation stacks.
 	//
 	// You can use up to 500 stacks to specify which AWS resources in your account to analyze. For more information, see [Stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html) in the *AWS CloudFormation User Guide* .
-	CloudFormation interface{} `json:"cloudFormation" yaml:"cloudFormation"`
+	CloudFormation interface{} `field:"optional" json:"cloudFormation" yaml:"cloudFormation"`
 	// The AWS tags used to filter the resources in the resource collection.
 	//
 	// Tags help you identify and organize your AWS resources. Many AWS services support tagging, so you can assign the same tag to resources from different services to indicate that the resources are related. For example, you can assign the same tag to an Amazon DynamoDB table resource that you assign to an AWS Lambda function. For more information about using tags, see the [Tagging best practices](https://docs.aws.amazon.com/https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf) whitepaper.
@@ -1444,7 +1465,7 @@ type CfnResourceCollection_ResourceCollectionFilterProperty struct {
 	// Together these are known as *key* - *value* pairs.
 	//
 	// > The string used for a *key* in a tag that you use to define your resource coverage must begin with the prefix `Devops-guru-` . The tag *key* might be `Devops-guru-deployment-application` or `Devops-guru-rds-application` . While *keys* are case-sensitive, the case of *key* characters don't matter to DevOps Guru. For example, DevOps Guru works with a *key* named `devops-guru-rds` and a *key* named `DevOps-Guru-RDS` . Possible *key* / *value* pairs in your application might be `Devops-Guru-production-application/RDS` or `Devops-Guru-production-application/containers` .
-	Tags *[]*CfnResourceCollection_TagCollectionProperty `json:"tags" yaml:"tags"`
+	Tags *[]*CfnResourceCollection_TagCollectionProperty `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A collection of AWS stags.
@@ -1461,7 +1482,10 @@ type CfnResourceCollection_ResourceCollectionFilterProperty struct {
 // > The string used for a *key* in a tag that you use to define your resource coverage must begin with the prefix `Devops-guru-` . The tag *key* might be `Devops-guru-deployment-application` or `Devops-guru-rds-application` . While *keys* are case-sensitive, the case of *key* characters don't matter to DevOps Guru. For example, DevOps Guru works with a *key* named `devops-guru-rds` and a *key* named `DevOps-Guru-RDS` . Possible *key* / *value* pairs in your application might be `Devops-Guru-production-application/RDS` or `Devops-Guru-production-application/containers` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import devopsguru "github.com/aws/aws-cdk-go/awscdk/aws_devopsguru"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tagCollectionProperty := &tagCollectionProperty{
 //   	appBoundaryKey: jsii.String("appBoundaryKey"),
 //   	tagValues: []*string{
@@ -1475,17 +1499,20 @@ type CfnResourceCollection_TagCollectionProperty struct {
 	// All AWS resources in your account and Region tagged with this *key* make up your DevOps Guru application and analysis boundary.
 	//
 	// > The string used for a *key* in a tag that you use to define your resource coverage must begin with the prefix `Devops-guru-` . The tag *key* might be `Devops-guru-deployment-application` or `Devops-guru-rds-application` . While *keys* are case-sensitive, the case of *key* characters don't matter to DevOps Guru. For example, DevOps Guru works with a *key* named `devops-guru-rds` and a *key* named `DevOps-Guru-RDS` . Possible *key* / *value* pairs in your application might be `Devops-Guru-production-application/RDS` or `Devops-Guru-production-application/containers` .
-	AppBoundaryKey *string `json:"appBoundaryKey" yaml:"appBoundaryKey"`
+	AppBoundaryKey *string `field:"optional" json:"appBoundaryKey" yaml:"appBoundaryKey"`
 	// The values in an AWS tag collection.
 	//
 	// The tag's *value* is an optional field used to associate a string with the tag *key* (for example, `111122223333` , `Production` , or a team name). The *key* and *value* are the tag's *key* pair. Omitting the tag *value* is the same as using an empty string. Like tag *keys* , tag *values* are case-sensitive. You can specify a maximum of 256 characters for a tag value.
-	TagValues *[]*string `json:"tagValues" yaml:"tagValues"`
+	TagValues *[]*string `field:"optional" json:"tagValues" yaml:"tagValues"`
 }
 
 // Properties for defining a `CfnResourceCollection`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import devopsguru "github.com/aws/aws-cdk-go/awscdk/aws_devopsguru"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnResourceCollectionProps := &cfnResourceCollectionProps{
 //   	resourceCollectionFilter: &resourceCollectionFilterProperty{
 //   		cloudFormation: &cloudFormationCollectionFilterProperty{
@@ -1506,6 +1533,6 @@ type CfnResourceCollection_TagCollectionProperty struct {
 //
 type CfnResourceCollectionProps struct {
 	// Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
-	ResourceCollectionFilter interface{} `json:"resourceCollectionFilter" yaml:"resourceCollectionFilter"`
+	ResourceCollectionFilter interface{} `field:"required" json:"resourceCollectionFilter" yaml:"resourceCollectionFilter"`
 }
 

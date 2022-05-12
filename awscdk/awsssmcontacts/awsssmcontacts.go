@@ -14,8 +14,11 @@ import (
 // The `AWS::SSMContacts::Contact` resource specifies a contact or escalation plan. Incident Manager contacts are a subset of actions and data types that you can use for managing responder engagement and interaction.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ssmcontacts "github.com/aws/aws-cdk-go/awscdk/aws_ssmcontacts"
-//   cfnContact := ssmcontacts.NewCfnContact(this, jsii.String("MyCfnContact"), &cfnContactProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnContact := awscdk.Aws_ssmcontacts.NewCfnContact(this, jsii.String("MyCfnContact"), &cfnContactProps{
 //   	alias: jsii.String("alias"),
 //   	displayName: jsii.String("displayName"),
 //   	plan: []interface{}{
@@ -748,7 +751,10 @@ func (c *jsiiProxy_CfnContact) ValidateProperties(_properties interface{}) {
 // Information about the contact channel that Incident Manager uses to engage the contact.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ssmcontacts "github.com/aws/aws-cdk-go/awscdk/aws_ssmcontacts"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   channelTargetInfoProperty := &channelTargetInfoProperty{
 //   	channelId: jsii.String("channelId"),
 //   	retryIntervalInMinutes: jsii.Number(123),
@@ -756,15 +762,18 @@ func (c *jsiiProxy_CfnContact) ValidateProperties(_properties interface{}) {
 //
 type CfnContact_ChannelTargetInfoProperty struct {
 	// The Amazon Resource Name (ARN) of the contact channel.
-	ChannelId *string `json:"channelId" yaml:"channelId"`
+	ChannelId *string `field:"required" json:"channelId" yaml:"channelId"`
 	// The number of minutes to wait to retry sending engagement in the case the engagement initially fails.
-	RetryIntervalInMinutes *float64 `json:"retryIntervalInMinutes" yaml:"retryIntervalInMinutes"`
+	RetryIntervalInMinutes *float64 `field:"required" json:"retryIntervalInMinutes" yaml:"retryIntervalInMinutes"`
 }
 
 // The contact that Incident Manager is engaging during an incident.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ssmcontacts "github.com/aws/aws-cdk-go/awscdk/aws_ssmcontacts"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   contactTargetInfoProperty := &contactTargetInfoProperty{
 //   	contactId: jsii.String("contactId"),
 //   	isEssential: jsii.Boolean(false),
@@ -772,15 +781,18 @@ type CfnContact_ChannelTargetInfoProperty struct {
 //
 type CfnContact_ContactTargetInfoProperty struct {
 	// The Amazon Resource Name (ARN) of the contact.
-	ContactId *string `json:"contactId" yaml:"contactId"`
+	ContactId *string `field:"required" json:"contactId" yaml:"contactId"`
 	// A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
-	IsEssential interface{} `json:"isEssential" yaml:"isEssential"`
+	IsEssential interface{} `field:"required" json:"isEssential" yaml:"isEssential"`
 }
 
 // The `Stage` property type specifies a set amount of time that an escalation plan or engagement plan engages the specified contacts or contact methods.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ssmcontacts "github.com/aws/aws-cdk-go/awscdk/aws_ssmcontacts"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   stageProperty := &stageProperty{
 //   	durationInMinutes: jsii.Number(123),
 //
@@ -803,15 +815,18 @@ type CfnContact_StageProperty struct {
 	// The time to wait until beginning the next stage.
 	//
 	// The duration can only be set to 0 if a target is specified.
-	DurationInMinutes *float64 `json:"durationInMinutes" yaml:"durationInMinutes"`
+	DurationInMinutes *float64 `field:"required" json:"durationInMinutes" yaml:"durationInMinutes"`
 	// The contacts or contact methods that the escalation plan or engagement plan is engaging.
-	Targets interface{} `json:"targets" yaml:"targets"`
+	Targets interface{} `field:"optional" json:"targets" yaml:"targets"`
 }
 
 // The contact or contact channel that's being engaged.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ssmcontacts "github.com/aws/aws-cdk-go/awscdk/aws_ssmcontacts"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   targetsProperty := &targetsProperty{
 //   	channelTargetInfo: &channelTargetInfoProperty{
 //   		channelId: jsii.String("channelId"),
@@ -825,9 +840,9 @@ type CfnContact_StageProperty struct {
 //
 type CfnContact_TargetsProperty struct {
 	// Information about the contact channel Incident Manager is engaging.
-	ChannelTargetInfo interface{} `json:"channelTargetInfo" yaml:"channelTargetInfo"`
+	ChannelTargetInfo interface{} `field:"optional" json:"channelTargetInfo" yaml:"channelTargetInfo"`
 	// The contact that Incident Manager is engaging during an incident.
-	ContactTargetInfo interface{} `json:"contactTargetInfo" yaml:"contactTargetInfo"`
+	ContactTargetInfo interface{} `field:"optional" json:"contactTargetInfo" yaml:"contactTargetInfo"`
 }
 
 // A CloudFormation `AWS::SSMContacts::ContactChannel`.
@@ -835,8 +850,11 @@ type CfnContact_TargetsProperty struct {
 // The `AWS::SSMContacts::ContactChannel` resource specifies a contact channel as the method that Incident Manager uses to engage your contact.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ssmcontacts "github.com/aws/aws-cdk-go/awscdk/aws_ssmcontacts"
-//   cfnContactChannel := ssmcontacts.NewCfnContactChannel(this, jsii.String("MyCfnContactChannel"), &cfnContactChannelProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnContactChannel := awscdk.Aws_ssmcontacts.NewCfnContactChannel(this, jsii.String("MyCfnContactChannel"), &cfnContactChannelProps{
 //   	channelAddress: jsii.String("channelAddress"),
 //   	channelName: jsii.String("channelName"),
 //   	channelType: jsii.String("channelType"),
@@ -1577,7 +1595,10 @@ func (c *jsiiProxy_CfnContactChannel) ValidateProperties(_properties interface{}
 // Properties for defining a `CfnContactChannel`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ssmcontacts "github.com/aws/aws-cdk-go/awscdk/aws_ssmcontacts"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnContactChannelProps := &cfnContactChannelProps{
 //   	channelAddress: jsii.String("channelAddress"),
 //   	channelName: jsii.String("channelName"),
@@ -1590,27 +1611,30 @@ func (c *jsiiProxy_CfnContactChannel) ValidateProperties(_properties interface{}
 //
 type CfnContactChannelProps struct {
 	// The details that Incident Manager uses when trying to engage the contact channel.
-	ChannelAddress *string `json:"channelAddress" yaml:"channelAddress"`
+	ChannelAddress *string `field:"required" json:"channelAddress" yaml:"channelAddress"`
 	// The name of the contact channel.
-	ChannelName *string `json:"channelName" yaml:"channelName"`
+	ChannelName *string `field:"required" json:"channelName" yaml:"channelName"`
 	// The type of the contact channel. Incident Manager supports three contact methods:.
 	//
 	// - SMS
 	// - VOICE
 	// - EMAIL.
-	ChannelType *string `json:"channelType" yaml:"channelType"`
+	ChannelType *string `field:"required" json:"channelType" yaml:"channelType"`
 	// The Amazon Resource Name (ARN) of the contact you are adding the contact channel to.
-	ContactId *string `json:"contactId" yaml:"contactId"`
+	ContactId *string `field:"required" json:"contactId" yaml:"contactId"`
 	// If you want to activate the channel at a later time, you can choose to defer activation.
 	//
 	// Incident Manager can't engage your contact channel until it has been activated.
-	DeferActivation interface{} `json:"deferActivation" yaml:"deferActivation"`
+	DeferActivation interface{} `field:"optional" json:"deferActivation" yaml:"deferActivation"`
 }
 
 // Properties for defining a `CfnContact`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ssmcontacts "github.com/aws/aws-cdk-go/awscdk/aws_ssmcontacts"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnContactProps := &cfnContactProps{
 //   	alias: jsii.String("alias"),
 //   	displayName: jsii.String("displayName"),
@@ -1638,16 +1662,16 @@ type CfnContactChannelProps struct {
 //
 type CfnContactProps struct {
 	// The unique and identifiable alias of the contact or escalation plan.
-	Alias *string `json:"alias" yaml:"alias"`
+	Alias *string `field:"required" json:"alias" yaml:"alias"`
 	// The full name of the contact or escalation plan.
-	DisplayName *string `json:"displayName" yaml:"displayName"`
+	DisplayName *string `field:"required" json:"displayName" yaml:"displayName"`
 	// A list of stages.
 	//
 	// A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
-	Plan interface{} `json:"plan" yaml:"plan"`
+	Plan interface{} `field:"required" json:"plan" yaml:"plan"`
 	// Refers to the type of contact.
 	//
 	// A single contact is type `PERSONAL` and an escalation plan is type `ESCALATION` .
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 }
 

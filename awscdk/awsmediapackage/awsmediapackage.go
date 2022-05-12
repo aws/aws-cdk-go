@@ -16,8 +16,11 @@ import (
 // After it's created, the asset starts ingesting content and generates playback URLs for the packaging configurations associated with it. When ingest is complete, downstream devices use the appropriate URL to request VOD content from AWS Elemental MediaPackage .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediapackage "github.com/aws/aws-cdk-go/awscdk/aws_mediapackage"
-//   cfnAsset := mediapackage.NewCfnAsset(this, jsii.String("MyCfnAsset"), &cfnAssetProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnAsset := awscdk.Aws_mediapackage.NewCfnAsset(this, jsii.String("MyCfnAsset"), &cfnAssetProps{
 //   	id: jsii.String("id"),
 //   	packagingGroupId: jsii.String("packagingGroupId"),
 //   	sourceArn: jsii.String("sourceArn"),
@@ -798,7 +801,10 @@ func (c *jsiiProxy_CfnAsset) ValidateProperties(_properties interface{}) {
 // The playback endpoint for a packaging configuration on an asset.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediapackage "github.com/aws/aws-cdk-go/awscdk/aws_mediapackage"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   egressEndpointProperty := &egressEndpointProperty{
 //   	packagingConfigurationId: jsii.String("packagingConfigurationId"),
 //   	url: jsii.String("url"),
@@ -806,15 +812,18 @@ func (c *jsiiProxy_CfnAsset) ValidateProperties(_properties interface{}) {
 //
 type CfnAsset_EgressEndpointProperty struct {
 	// The ID of a packaging configuration that's applied to this asset.
-	PackagingConfigurationId *string `json:"packagingConfigurationId" yaml:"packagingConfigurationId"`
+	PackagingConfigurationId *string `field:"required" json:"packagingConfigurationId" yaml:"packagingConfigurationId"`
 	// The URL that's used to request content from this endpoint.
-	Url *string `json:"url" yaml:"url"`
+	Url *string `field:"required" json:"url" yaml:"url"`
 }
 
 // Properties for defining a `CfnAsset`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediapackage "github.com/aws/aws-cdk-go/awscdk/aws_mediapackage"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAssetProps := &cfnAssetProps{
 //   	id: jsii.String("id"),
 //   	packagingGroupId: jsii.String("packagingGroupId"),
@@ -833,19 +842,19 @@ type CfnAsset_EgressEndpointProperty struct {
 //
 type CfnAssetProps struct {
 	// Unique identifier that you assign to the asset.
-	Id *string `json:"id" yaml:"id"`
+	Id *string `field:"required" json:"id" yaml:"id"`
 	// The ID of the packaging group associated with this asset.
-	PackagingGroupId *string `json:"packagingGroupId" yaml:"packagingGroupId"`
+	PackagingGroupId *string `field:"required" json:"packagingGroupId" yaml:"packagingGroupId"`
 	// The ARN for the source content in Amazon S3.
-	SourceArn *string `json:"sourceArn" yaml:"sourceArn"`
+	SourceArn *string `field:"required" json:"sourceArn" yaml:"sourceArn"`
 	// The ARN for the IAM role that provides AWS Elemental MediaPackage access to the Amazon S3 bucket where the source content is stored.
 	//
 	// Valid format: arn:aws:iam::{accountID}:role/{name}.
-	SourceRoleArn *string `json:"sourceRoleArn" yaml:"sourceRoleArn"`
+	SourceRoleArn *string `field:"required" json:"sourceRoleArn" yaml:"sourceRoleArn"`
 	// Unique identifier for this asset, as it's configured in the key provider service.
-	ResourceId *string `json:"resourceId" yaml:"resourceId"`
+	ResourceId *string `field:"optional" json:"resourceId" yaml:"resourceId"`
 	// The tags to assign to the asset.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::MediaPackage::Channel`.
@@ -855,8 +864,11 @@ type CfnAssetProps struct {
 // After it's created, a channel provides static input URLs. These URLs remain the same throughout the lifetime of the channel, regardless of any failures or upgrades that might occur. Use these URLs to configure the outputs of your upstream encoder.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediapackage "github.com/aws/aws-cdk-go/awscdk/aws_mediapackage"
-//   cfnChannel := mediapackage.NewCfnChannel(this, jsii.String("MyCfnChannel"), &cfnChannelProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnChannel := awscdk.Aws_mediapackage.NewCfnChannel(this, jsii.String("MyCfnChannel"), &cfnChannelProps{
 //   	id: jsii.String("id"),
 //
 //   	// the properties below are optional
@@ -1591,20 +1603,26 @@ func (c *jsiiProxy_CfnChannel) ValidateProperties(_properties interface{}) {
 // The access log configuration parameters for your channel.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediapackage "github.com/aws/aws-cdk-go/awscdk/aws_mediapackage"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   logConfigurationProperty := &logConfigurationProperty{
 //   	logGroupName: jsii.String("logGroupName"),
 //   }
 //
 type CfnChannel_LogConfigurationProperty struct {
 	// Sets a custom Amazon CloudWatch log group name.
-	LogGroupName *string `json:"logGroupName" yaml:"logGroupName"`
+	LogGroupName *string `field:"optional" json:"logGroupName" yaml:"logGroupName"`
 }
 
 // Properties for defining a `CfnChannel`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediapackage "github.com/aws/aws-cdk-go/awscdk/aws_mediapackage"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnChannelProps := &cfnChannelProps{
 //   	id: jsii.String("id"),
 //
@@ -1626,15 +1644,15 @@ type CfnChannel_LogConfigurationProperty struct {
 //
 type CfnChannelProps struct {
 	// Unique identifier that you assign to the channel.
-	Id *string `json:"id" yaml:"id"`
+	Id *string `field:"required" json:"id" yaml:"id"`
 	// Any descriptive information that you want to add to the channel for future identification purposes.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Configures egress access logs.
-	EgressAccessLogs interface{} `json:"egressAccessLogs" yaml:"egressAccessLogs"`
+	EgressAccessLogs interface{} `field:"optional" json:"egressAccessLogs" yaml:"egressAccessLogs"`
 	// Configures ingress access logs.
-	IngressAccessLogs interface{} `json:"ingressAccessLogs" yaml:"ingressAccessLogs"`
+	IngressAccessLogs interface{} `field:"optional" json:"ingressAccessLogs" yaml:"ingressAccessLogs"`
 	// The tags to assign to the channel.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::MediaPackage::OriginEndpoint`.
@@ -1646,8 +1664,11 @@ type CfnChannelProps struct {
 // After it's created, an endpoint provides a fixed public URL. This URL remains the same throughout the lifetime of the endpoint, regardless of any failures or upgrades that might occur. Integrate the URL with a downstream CDN (such as Amazon CloudFront) or playback device.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediapackage "github.com/aws/aws-cdk-go/awscdk/aws_mediapackage"
-//   cfnOriginEndpoint := mediapackage.NewCfnOriginEndpoint(this, jsii.String("MyCfnOriginEndpoint"), &cfnOriginEndpointProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnOriginEndpoint := awscdk.Aws_mediapackage.NewCfnOriginEndpoint(this, jsii.String("MyCfnOriginEndpoint"), &cfnOriginEndpointProps{
 //   	channelId: jsii.String("channelId"),
 //   	id: jsii.String("id"),
 //
@@ -2759,7 +2780,10 @@ func (c *jsiiProxy_CfnOriginEndpoint) ValidateProperties(_properties interface{}
 // Parameters for enabling CDN authorization on the endpoint.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediapackage "github.com/aws/aws-cdk-go/awscdk/aws_mediapackage"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   authorizationProperty := &authorizationProperty{
 //   	cdnIdentifierSecret: jsii.String("cdnIdentifierSecret"),
 //   	secretsRoleArn: jsii.String("secretsRoleArn"),
@@ -2767,15 +2791,18 @@ func (c *jsiiProxy_CfnOriginEndpoint) ValidateProperties(_properties interface{}
 //
 type CfnOriginEndpoint_AuthorizationProperty struct {
 	// The Amazon Resource Name (ARN) for the secret in AWS Secrets Manager that your Content Distribution Network (CDN) uses for authorization to access your endpoint.
-	CdnIdentifierSecret *string `json:"cdnIdentifierSecret" yaml:"cdnIdentifierSecret"`
+	CdnIdentifierSecret *string `field:"required" json:"cdnIdentifierSecret" yaml:"cdnIdentifierSecret"`
 	// The Amazon Resource Name (ARN) for the IAM role that allows MediaPackage to communicate with AWS Secrets Manager .
-	SecretsRoleArn *string `json:"secretsRoleArn" yaml:"secretsRoleArn"`
+	SecretsRoleArn *string `field:"required" json:"secretsRoleArn" yaml:"secretsRoleArn"`
 }
 
 // Holds encryption information so that access to the content can be controlled by a DRM solution.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediapackage "github.com/aws/aws-cdk-go/awscdk/aws_mediapackage"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cmafEncryptionProperty := &cmafEncryptionProperty{
 //   	spekeKeyProvider: &spekeKeyProviderProperty{
 //   		resourceId: jsii.String("resourceId"),
@@ -2800,21 +2827,24 @@ type CfnOriginEndpoint_AuthorizationProperty struct {
 //
 type CfnOriginEndpoint_CmafEncryptionProperty struct {
 	// Parameters for the SPEKE key provider.
-	SpekeKeyProvider interface{} `json:"spekeKeyProvider" yaml:"spekeKeyProvider"`
+	SpekeKeyProvider interface{} `field:"required" json:"spekeKeyProvider" yaml:"spekeKeyProvider"`
 	// An optional 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting blocks.
 	//
 	// If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).
-	ConstantInitializationVector *string `json:"constantInitializationVector" yaml:"constantInitializationVector"`
+	ConstantInitializationVector *string `field:"optional" json:"constantInitializationVector" yaml:"constantInitializationVector"`
 	// Number of seconds before AWS Elemental MediaPackage rotates to a new key.
 	//
 	// By default, rotation is set to 60 seconds. Set to `0` to disable key rotation.
-	KeyRotationIntervalSeconds *float64 `json:"keyRotationIntervalSeconds" yaml:"keyRotationIntervalSeconds"`
+	KeyRotationIntervalSeconds *float64 `field:"optional" json:"keyRotationIntervalSeconds" yaml:"keyRotationIntervalSeconds"`
 }
 
 // Parameters for Common Media Application Format (CMAF) packaging.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediapackage "github.com/aws/aws-cdk-go/awscdk/aws_mediapackage"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cmafPackageProperty := &cmafPackageProperty{
 //   	encryption: &cmafEncryptionProperty{
 //   		spekeKeyProvider: &spekeKeyProviderProperty{
@@ -2866,25 +2896,28 @@ type CfnOriginEndpoint_CmafEncryptionProperty struct {
 //
 type CfnOriginEndpoint_CmafPackageProperty struct {
 	// Parameters for encrypting content.
-	Encryption interface{} `json:"encryption" yaml:"encryption"`
+	Encryption interface{} `field:"optional" json:"encryption" yaml:"encryption"`
 	// A list of HLS manifest configurations that are available from this endpoint.
-	HlsManifests interface{} `json:"hlsManifests" yaml:"hlsManifests"`
+	HlsManifests interface{} `field:"optional" json:"hlsManifests" yaml:"hlsManifests"`
 	// Duration (in seconds) of each segment.
 	//
 	// Actual segments are rounded to the nearest multiple of the source segment duration.
-	SegmentDurationSeconds *float64 `json:"segmentDurationSeconds" yaml:"segmentDurationSeconds"`
+	SegmentDurationSeconds *float64 `field:"optional" json:"segmentDurationSeconds" yaml:"segmentDurationSeconds"`
 	// An optional custom string that is prepended to the name of each segment.
 	//
 	// If not specified, the segment prefix defaults to the ChannelId.
-	SegmentPrefix *string `json:"segmentPrefix" yaml:"segmentPrefix"`
+	SegmentPrefix *string `field:"optional" json:"segmentPrefix" yaml:"segmentPrefix"`
 	// Limitations for outputs from the endpoint, based on the video bitrate.
-	StreamSelection interface{} `json:"streamSelection" yaml:"streamSelection"`
+	StreamSelection interface{} `field:"optional" json:"streamSelection" yaml:"streamSelection"`
 }
 
 // Holds encryption information so that access to the content can be controlled by a DRM solution.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediapackage "github.com/aws/aws-cdk-go/awscdk/aws_mediapackage"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dashEncryptionProperty := &dashEncryptionProperty{
 //   	spekeKeyProvider: &spekeKeyProviderProperty{
 //   		resourceId: jsii.String("resourceId"),
@@ -2908,17 +2941,20 @@ type CfnOriginEndpoint_CmafPackageProperty struct {
 //
 type CfnOriginEndpoint_DashEncryptionProperty struct {
 	// Parameters for the SPEKE key provider.
-	SpekeKeyProvider interface{} `json:"spekeKeyProvider" yaml:"spekeKeyProvider"`
+	SpekeKeyProvider interface{} `field:"required" json:"spekeKeyProvider" yaml:"spekeKeyProvider"`
 	// Number of seconds before AWS Elemental MediaPackage rotates to a new key.
 	//
 	// By default, rotation is set to 60 seconds. Set to `0` to disable key rotation.
-	KeyRotationIntervalSeconds *float64 `json:"keyRotationIntervalSeconds" yaml:"keyRotationIntervalSeconds"`
+	KeyRotationIntervalSeconds *float64 `field:"optional" json:"keyRotationIntervalSeconds" yaml:"keyRotationIntervalSeconds"`
 }
 
 // Parameters for DASH packaging.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediapackage "github.com/aws/aws-cdk-go/awscdk/aws_mediapackage"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dashPackageProperty := &dashPackageProperty{
 //   	adsOnDeliveryRestrictions: jsii.String("adsOnDeliveryRestrictions"),
 //   	adTriggers: []*string{
@@ -2968,7 +3004,7 @@ type CfnOriginEndpoint_DashPackageProperty struct {
 	// The flags on SCTE-35 segmentation descriptors that have to be present for MediaPackage to insert ad markers in the output manifest.
 	//
 	// For information about SCTE-35 in MediaPackage, see [SCTE-35 Message Options in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/scte.html) .
-	AdsOnDeliveryRestrictions *string `json:"adsOnDeliveryRestrictions" yaml:"adsOnDeliveryRestrictions"`
+	AdsOnDeliveryRestrictions *string `field:"optional" json:"adsOnDeliveryRestrictions" yaml:"adsOnDeliveryRestrictions"`
 	// Specifies the SCTE-35 message types that MediaPackage treats as ad markers in the output manifest.
 	//
 	// Valid values:
@@ -2981,22 +3017,22 @@ type CfnOriginEndpoint_DashPackageProperty struct {
 	// - `PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY` .
 	// - `PROVIDER_PLACEMENT_OPPORTUNITY` .
 	// - `SPLICE_INSERT` .
-	AdTriggers *[]*string `json:"adTriggers" yaml:"adTriggers"`
+	AdTriggers *[]*string `field:"optional" json:"adTriggers" yaml:"adTriggers"`
 	// Parameters for encrypting content.
-	Encryption interface{} `json:"encryption" yaml:"encryption"`
+	Encryption interface{} `field:"optional" json:"encryption" yaml:"encryption"`
 	// Determines the position of some tags in the manifest.
 	//
 	// Options:
 	//
 	// - `FULL` - elements like `SegmentTemplate` and `ContentProtection` are included in each `Representation` .
 	// - `COMPACT` - duplicate elements are combined and presented at the `AdaptationSet` level.
-	ManifestLayout *string `json:"manifestLayout" yaml:"manifestLayout"`
+	ManifestLayout *string `field:"optional" json:"manifestLayout" yaml:"manifestLayout"`
 	// Time window (in seconds) contained in each manifest.
-	ManifestWindowSeconds *float64 `json:"manifestWindowSeconds" yaml:"manifestWindowSeconds"`
+	ManifestWindowSeconds *float64 `field:"optional" json:"manifestWindowSeconds" yaml:"manifestWindowSeconds"`
 	// Minimum amount of content (measured in seconds) that a player must keep available in the buffer.
-	MinBufferTimeSeconds *float64 `json:"minBufferTimeSeconds" yaml:"minBufferTimeSeconds"`
+	MinBufferTimeSeconds *float64 `field:"optional" json:"minBufferTimeSeconds" yaml:"minBufferTimeSeconds"`
 	// Minimum amount of time (in seconds) that the player should wait before requesting updates to the manifest.
-	MinUpdatePeriodSeconds *float64 `json:"minUpdatePeriodSeconds" yaml:"minUpdatePeriodSeconds"`
+	MinUpdatePeriodSeconds *float64 `field:"optional" json:"minUpdatePeriodSeconds" yaml:"minUpdatePeriodSeconds"`
 	// Controls whether MediaPackage produces single-period or multi-period DASH manifests.
 	//
 	// For more information about periods, see [Multi-period DASH in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/multi-period.html) .
@@ -3005,18 +3041,18 @@ type CfnOriginEndpoint_DashPackageProperty struct {
 	//
 	// - `ADS` - MediaPackage will produce multi-period DASH manifests. Periods are created based on the SCTE-35 ad markers present in the input manifest.
 	// - *No value* - MediaPackage will produce single-period DASH manifests. This is the default setting.
-	PeriodTriggers *[]*string `json:"periodTriggers" yaml:"periodTriggers"`
+	PeriodTriggers *[]*string `field:"optional" json:"periodTriggers" yaml:"periodTriggers"`
 	// DASH profile for the output, such as HbbTV.
 	//
 	// Valid values:
 	//
 	// - `NONE` - the output doesn't use a DASH profile.
 	// - `HBBTV_1_5` - the output is HbbTV-compliant.
-	Profile *string `json:"profile" yaml:"profile"`
+	Profile *string `field:"optional" json:"profile" yaml:"profile"`
 	// Duration (in seconds) of each fragment.
 	//
 	// Actual fragments are rounded to the nearest multiple of the source fragment duration.
-	SegmentDurationSeconds *float64 `json:"segmentDurationSeconds" yaml:"segmentDurationSeconds"`
+	SegmentDurationSeconds *float64 `field:"optional" json:"segmentDurationSeconds" yaml:"segmentDurationSeconds"`
 	// Determines the type of variable used in the `media` URL of the `SegmentTemplate` tag in the manifest.
 	//
 	// Also specifies if segment timeline information is included in `SegmentTimeline` or `SegmentTemplate` .
@@ -3024,19 +3060,22 @@ type CfnOriginEndpoint_DashPackageProperty struct {
 	// - `NUMBER_WITH_TIMELINE` - The `$Number$` variable is used in the `media` URL. The value of this variable is the sequential number of the segment. A full `SegmentTimeline` object is presented in each `SegmentTemplate` .
 	// - `NUMBER_WITH_DURATION` - The `$Number$` variable is used in the `media` URL and a `duration` attribute is added to the segment template. The `SegmentTimeline` object is removed from the representation.
 	// - `TIME_WITH_TIMELINE` - The `$Time$` variable is used in the `media` URL. The value of this variable is the timestamp of when the segment starts. A full `SegmentTimeline` object is presented in each `SegmentTemplate` .
-	SegmentTemplateFormat *string `json:"segmentTemplateFormat" yaml:"segmentTemplateFormat"`
+	SegmentTemplateFormat *string `field:"optional" json:"segmentTemplateFormat" yaml:"segmentTemplateFormat"`
 	// Limitations for outputs from the endpoint, based on the video bitrate.
-	StreamSelection interface{} `json:"streamSelection" yaml:"streamSelection"`
+	StreamSelection interface{} `field:"optional" json:"streamSelection" yaml:"streamSelection"`
 	// Amount of time (in seconds) that the player should be from the live point at the end of the manifest.
-	SuggestedPresentationDelaySeconds *float64 `json:"suggestedPresentationDelaySeconds" yaml:"suggestedPresentationDelaySeconds"`
+	SuggestedPresentationDelaySeconds *float64 `field:"optional" json:"suggestedPresentationDelaySeconds" yaml:"suggestedPresentationDelaySeconds"`
 	// Determines the type of UTC timing included in the DASH Media Presentation Description (MPD).
-	UtcTiming *string `json:"utcTiming" yaml:"utcTiming"`
+	UtcTiming *string `field:"optional" json:"utcTiming" yaml:"utcTiming"`
 	// Specifies the value attribute of the UTC timing field when utcTiming is set to HTTP-ISO or HTTP-HEAD.
-	UtcTimingUri *string `json:"utcTimingUri" yaml:"utcTimingUri"`
+	UtcTimingUri *string `field:"optional" json:"utcTimingUri" yaml:"utcTimingUri"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediapackage "github.com/aws/aws-cdk-go/awscdk/aws_mediapackage"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   encryptionContractConfigurationProperty := &encryptionContractConfigurationProperty{
 //   	presetSpeke20Audio: jsii.String("presetSpeke20Audio"),
 //   	presetSpeke20Video: jsii.String("presetSpeke20Video"),
@@ -3044,15 +3083,18 @@ type CfnOriginEndpoint_DashPackageProperty struct {
 //
 type CfnOriginEndpoint_EncryptionContractConfigurationProperty struct {
 	// `CfnOriginEndpoint.EncryptionContractConfigurationProperty.PresetSpeke20Audio`.
-	PresetSpeke20Audio *string `json:"presetSpeke20Audio" yaml:"presetSpeke20Audio"`
+	PresetSpeke20Audio *string `field:"required" json:"presetSpeke20Audio" yaml:"presetSpeke20Audio"`
 	// `CfnOriginEndpoint.EncryptionContractConfigurationProperty.PresetSpeke20Video`.
-	PresetSpeke20Video *string `json:"presetSpeke20Video" yaml:"presetSpeke20Video"`
+	PresetSpeke20Video *string `field:"required" json:"presetSpeke20Video" yaml:"presetSpeke20Video"`
 }
 
 // Holds encryption information so that access to the content can be controlled by a DRM solution.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediapackage "github.com/aws/aws-cdk-go/awscdk/aws_mediapackage"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   hlsEncryptionProperty := &hlsEncryptionProperty{
 //   	spekeKeyProvider: &spekeKeyProviderProperty{
 //   		resourceId: jsii.String("resourceId"),
@@ -3079,25 +3121,28 @@ type CfnOriginEndpoint_EncryptionContractConfigurationProperty struct {
 //
 type CfnOriginEndpoint_HlsEncryptionProperty struct {
 	// Parameters for the SPEKE key provider.
-	SpekeKeyProvider interface{} `json:"spekeKeyProvider" yaml:"spekeKeyProvider"`
+	SpekeKeyProvider interface{} `field:"required" json:"spekeKeyProvider" yaml:"spekeKeyProvider"`
 	// A 128-bit, 16-byte hex value represented by a 32-character string, used with the key for encrypting blocks.
-	ConstantInitializationVector *string `json:"constantInitializationVector" yaml:"constantInitializationVector"`
+	ConstantInitializationVector *string `field:"optional" json:"constantInitializationVector" yaml:"constantInitializationVector"`
 	// HLS encryption type.
-	EncryptionMethod *string `json:"encryptionMethod" yaml:"encryptionMethod"`
+	EncryptionMethod *string `field:"optional" json:"encryptionMethod" yaml:"encryptionMethod"`
 	// Number of seconds before AWS Elemental MediaPackage rotates to a new key.
 	//
 	// By default, rotation is set to 60 seconds. Set to `0` to disable key rotation.
-	KeyRotationIntervalSeconds *float64 `json:"keyRotationIntervalSeconds" yaml:"keyRotationIntervalSeconds"`
+	KeyRotationIntervalSeconds *float64 `field:"optional" json:"keyRotationIntervalSeconds" yaml:"keyRotationIntervalSeconds"`
 	// Repeat the `EXT-X-KEY` directive for every media segment.
 	//
 	// This might result in an increase in client requests to the DRM server.
-	RepeatExtXKey interface{} `json:"repeatExtXKey" yaml:"repeatExtXKey"`
+	RepeatExtXKey interface{} `field:"optional" json:"repeatExtXKey" yaml:"repeatExtXKey"`
 }
 
 // An HTTP Live Streaming (HLS) manifest configuration on a CMAF endpoint.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediapackage "github.com/aws/aws-cdk-go/awscdk/aws_mediapackage"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   hlsManifestProperty := &hlsManifestProperty{
 //   	id: jsii.String("id"),
 //
@@ -3119,7 +3164,7 @@ type CfnOriginEndpoint_HlsManifestProperty struct {
 	// The manifest ID is required and must be unique within the OriginEndpoint.
 	//
 	// The ID can't be changed after the endpoint is created.
-	Id *string `json:"id" yaml:"id"`
+	Id *string `field:"required" json:"id" yaml:"id"`
 	// Controls how ad markers are included in the packaged endpoint.
 	//
 	// Valid values are `none` , `passthrough` , or `scte35_enhanced` .
@@ -3127,11 +3172,11 @@ type CfnOriginEndpoint_HlsManifestProperty struct {
 	// - `NONE` - omits all SCTE-35 ad markers from the output.
 	// - `PASSTHROUGH` - creates a copy in the output of the SCTE-35 ad markers (comments) taken directly from the input manifest.
 	// - `SCTE35_ENHANCED` - generates ad markers and blackout tags in the output based on the SCTE-35 messages from the input manifest.
-	AdMarkers *string `json:"adMarkers" yaml:"adMarkers"`
+	AdMarkers *string `field:"optional" json:"adMarkers" yaml:"adMarkers"`
 	// The flags on SCTE-35 segmentation descriptors that have to be present for MediaPackage to insert ad markers in the output manifest.
 	//
 	// For information about SCTE-35 in MediaPackage, see [SCTE-35 Message Options in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/scte.html) .
-	AdsOnDeliveryRestrictions *string `json:"adsOnDeliveryRestrictions" yaml:"adsOnDeliveryRestrictions"`
+	AdsOnDeliveryRestrictions *string `field:"optional" json:"adsOnDeliveryRestrictions" yaml:"adsOnDeliveryRestrictions"`
 	// Specifies the SCTE-35 message types that MediaPackage treats as ad markers in the output manifest.
 	//
 	// Valid values:
@@ -3144,21 +3189,21 @@ type CfnOriginEndpoint_HlsManifestProperty struct {
 	// - `PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY`
 	// - `PROVIDER_PLACEMENT_OPPORTUNITY`
 	// - `SPLICE_INSERT`.
-	AdTriggers *[]*string `json:"adTriggers" yaml:"adTriggers"`
+	AdTriggers *[]*string `field:"optional" json:"adTriggers" yaml:"adTriggers"`
 	// Applies to stream sets with a single video track only.
 	//
 	// When true, the stream set includes an additional I-frame only stream, along with the other tracks. If false, this extra stream is not included.
-	IncludeIframeOnlyStream interface{} `json:"includeIframeOnlyStream" yaml:"includeIframeOnlyStream"`
+	IncludeIframeOnlyStream interface{} `field:"optional" json:"includeIframeOnlyStream" yaml:"includeIframeOnlyStream"`
 	// A short string that's appended to the end of the endpoint URL to create a unique path to this endpoint.
 	//
 	// The manifestName on the HLSManifest object overrides the manifestName that you provided on the originEndpoint object.
-	ManifestName *string `json:"manifestName" yaml:"manifestName"`
+	ManifestName *string `field:"optional" json:"manifestName" yaml:"manifestName"`
 	// When specified as either `event` or `vod` , a corresponding `EXT-X-PLAYLIST-TYPE` entry is included in the media playlist.
 	//
 	// Indicates if the playlist is live-to-VOD content.
-	PlaylistType *string `json:"playlistType" yaml:"playlistType"`
+	PlaylistType *string `field:"optional" json:"playlistType" yaml:"playlistType"`
 	// Time window (in seconds) contained in each parent manifest.
-	PlaylistWindowSeconds *float64 `json:"playlistWindowSeconds" yaml:"playlistWindowSeconds"`
+	PlaylistWindowSeconds *float64 `field:"optional" json:"playlistWindowSeconds" yaml:"playlistWindowSeconds"`
 	// Inserts `EXT-X-PROGRAM-DATE-TIME` tags in the output manifest at the interval that you specify.
 	//
 	// Additionally, ID3Timed metadata messages are generated every 5 seconds starting when the content was ingested.
@@ -3166,15 +3211,18 @@ type CfnOriginEndpoint_HlsManifestProperty struct {
 	// Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.
 	//
 	// Omit this attribute or enter `0` to indicate that the `EXT-X-PROGRAM-DATE-TIME` tags are not included in the manifest.
-	ProgramDateTimeIntervalSeconds *float64 `json:"programDateTimeIntervalSeconds" yaml:"programDateTimeIntervalSeconds"`
+	ProgramDateTimeIntervalSeconds *float64 `field:"optional" json:"programDateTimeIntervalSeconds" yaml:"programDateTimeIntervalSeconds"`
 	// The URL that's used to request this manifest from this endpoint.
-	Url *string `json:"url" yaml:"url"`
+	Url *string `field:"optional" json:"url" yaml:"url"`
 }
 
 // Parameters for Apple HLS packaging.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediapackage "github.com/aws/aws-cdk-go/awscdk/aws_mediapackage"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   hlsPackageProperty := &hlsPackageProperty{
 //   	adMarkers: jsii.String("adMarkers"),
 //   	adsOnDeliveryRestrictions: jsii.String("adsOnDeliveryRestrictions"),
@@ -3225,11 +3273,11 @@ type CfnOriginEndpoint_HlsPackageProperty struct {
 	// - `NONE` - omits all SCTE-35 ad markers from the output.
 	// - `PASSTHROUGH` - creates a copy in the output of the SCTE-35 ad markers (comments) taken directly from the input manifest.
 	// - `SCTE35_ENHANCED` - generates ad markers and blackout tags in the output based on the SCTE-35 messages from the input manifest.
-	AdMarkers *string `json:"adMarkers" yaml:"adMarkers"`
+	AdMarkers *string `field:"optional" json:"adMarkers" yaml:"adMarkers"`
 	// The flags on SCTE-35 segmentation descriptors that have to be present for MediaPackage to insert ad markers in the output manifest.
 	//
 	// For information about SCTE-35 in MediaPackage, see [SCTE-35 Message Options in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/scte.html) .
-	AdsOnDeliveryRestrictions *string `json:"adsOnDeliveryRestrictions" yaml:"adsOnDeliveryRestrictions"`
+	AdsOnDeliveryRestrictions *string `field:"optional" json:"adsOnDeliveryRestrictions" yaml:"adsOnDeliveryRestrictions"`
 	// Specifies the SCTE-35 message types that MediaPackage treats as ad markers in the output manifest.
 	//
 	// Valid values:
@@ -3242,19 +3290,19 @@ type CfnOriginEndpoint_HlsPackageProperty struct {
 	// - `PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY`
 	// - `PROVIDER_PLACEMENT_OPPORTUNITY`
 	// - `SPLICE_INSERT`.
-	AdTriggers *[]*string `json:"adTriggers" yaml:"adTriggers"`
+	AdTriggers *[]*string `field:"optional" json:"adTriggers" yaml:"adTriggers"`
 	// Parameters for encrypting content.
-	Encryption interface{} `json:"encryption" yaml:"encryption"`
+	Encryption interface{} `field:"optional" json:"encryption" yaml:"encryption"`
 	// Only applies to stream sets with a single video track.
 	//
 	// When true, the stream set includes an additional I-frame only stream, along with the other tracks. If false, this extra stream is not included.
-	IncludeIframeOnlyStream interface{} `json:"includeIframeOnlyStream" yaml:"includeIframeOnlyStream"`
+	IncludeIframeOnlyStream interface{} `field:"optional" json:"includeIframeOnlyStream" yaml:"includeIframeOnlyStream"`
 	// When specified as either `event` or `vod` , a corresponding `EXT-X-PLAYLIST-TYPE` entry is included in the media playlist.
 	//
 	// Indicates if the playlist is live-to-VOD content.
-	PlaylistType *string `json:"playlistType" yaml:"playlistType"`
+	PlaylistType *string `field:"optional" json:"playlistType" yaml:"playlistType"`
 	// Time window (in seconds) contained in each parent manifest.
-	PlaylistWindowSeconds *float64 `json:"playlistWindowSeconds" yaml:"playlistWindowSeconds"`
+	PlaylistWindowSeconds *float64 `field:"optional" json:"playlistWindowSeconds" yaml:"playlistWindowSeconds"`
 	// Inserts `EXT-X-PROGRAM-DATE-TIME` tags in the output manifest at the interval that you specify.
 	//
 	// Additionally, ID3Timed metadata messages are generated every 5 seconds starting when the content was ingested.
@@ -3262,23 +3310,26 @@ type CfnOriginEndpoint_HlsPackageProperty struct {
 	// Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.
 	//
 	// Omit this attribute or enter `0` to indicate that the `EXT-X-PROGRAM-DATE-TIME` tags are not included in the manifest.
-	ProgramDateTimeIntervalSeconds *float64 `json:"programDateTimeIntervalSeconds" yaml:"programDateTimeIntervalSeconds"`
+	ProgramDateTimeIntervalSeconds *float64 `field:"optional" json:"programDateTimeIntervalSeconds" yaml:"programDateTimeIntervalSeconds"`
 	// Duration (in seconds) of each fragment.
 	//
 	// Actual fragments are rounded to the nearest multiple of the source fragment duration.
-	SegmentDurationSeconds *float64 `json:"segmentDurationSeconds" yaml:"segmentDurationSeconds"`
+	SegmentDurationSeconds *float64 `field:"optional" json:"segmentDurationSeconds" yaml:"segmentDurationSeconds"`
 	// Limitations for outputs from the endpoint, based on the video bitrate.
-	StreamSelection interface{} `json:"streamSelection" yaml:"streamSelection"`
+	StreamSelection interface{} `field:"optional" json:"streamSelection" yaml:"streamSelection"`
 	// When true, AWS Elemental MediaPackage bundles all audio tracks in a rendition group.
 	//
 	// All other tracks in the stream can be used with any audio rendition from the group.
-	UseAudioRenditionGroup interface{} `json:"useAudioRenditionGroup" yaml:"useAudioRenditionGroup"`
+	UseAudioRenditionGroup interface{} `field:"optional" json:"useAudioRenditionGroup" yaml:"useAudioRenditionGroup"`
 }
 
 // Holds encryption information so that access to the content can be controlled by a DRM solution.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediapackage "github.com/aws/aws-cdk-go/awscdk/aws_mediapackage"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   mssEncryptionProperty := &mssEncryptionProperty{
 //   	spekeKeyProvider: &spekeKeyProviderProperty{
 //   		resourceId: jsii.String("resourceId"),
@@ -3299,13 +3350,16 @@ type CfnOriginEndpoint_HlsPackageProperty struct {
 //
 type CfnOriginEndpoint_MssEncryptionProperty struct {
 	// Parameters for the SPEKE key provider.
-	SpekeKeyProvider interface{} `json:"spekeKeyProvider" yaml:"spekeKeyProvider"`
+	SpekeKeyProvider interface{} `field:"required" json:"spekeKeyProvider" yaml:"spekeKeyProvider"`
 }
 
 // Parameters for Microsoft Smooth Streaming packaging.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediapackage "github.com/aws/aws-cdk-go/awscdk/aws_mediapackage"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   mssPackageProperty := &mssPackageProperty{
 //   	encryption: &mssEncryptionProperty{
 //   		spekeKeyProvider: &spekeKeyProviderProperty{
@@ -3335,21 +3389,24 @@ type CfnOriginEndpoint_MssEncryptionProperty struct {
 //
 type CfnOriginEndpoint_MssPackageProperty struct {
 	// Parameters for encrypting content.
-	Encryption interface{} `json:"encryption" yaml:"encryption"`
+	Encryption interface{} `field:"optional" json:"encryption" yaml:"encryption"`
 	// Time window (in seconds) contained in each manifest.
-	ManifestWindowSeconds *float64 `json:"manifestWindowSeconds" yaml:"manifestWindowSeconds"`
+	ManifestWindowSeconds *float64 `field:"optional" json:"manifestWindowSeconds" yaml:"manifestWindowSeconds"`
 	// Duration (in seconds) of each fragment.
 	//
 	// Actual fragments are rounded to the nearest multiple of the source fragment duration.
-	SegmentDurationSeconds *float64 `json:"segmentDurationSeconds" yaml:"segmentDurationSeconds"`
+	SegmentDurationSeconds *float64 `field:"optional" json:"segmentDurationSeconds" yaml:"segmentDurationSeconds"`
 	// Limitations for outputs from the endpoint, based on the video bitrate.
-	StreamSelection interface{} `json:"streamSelection" yaml:"streamSelection"`
+	StreamSelection interface{} `field:"optional" json:"streamSelection" yaml:"streamSelection"`
 }
 
 // Keyprovider settings for DRM.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediapackage "github.com/aws/aws-cdk-go/awscdk/aws_mediapackage"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   spekeKeyProviderProperty := &spekeKeyProviderProperty{
 //   	resourceId: jsii.String("resourceId"),
 //   	roleArn: jsii.String("roleArn"),
@@ -3368,29 +3425,32 @@ type CfnOriginEndpoint_MssPackageProperty struct {
 //
 type CfnOriginEndpoint_SpekeKeyProviderProperty struct {
 	// Unique identifier for this endpoint, as it is configured in the key provider service.
-	ResourceId *string `json:"resourceId" yaml:"resourceId"`
+	ResourceId *string `field:"required" json:"resourceId" yaml:"resourceId"`
 	// The ARN for the IAM role that's granted by the key provider to provide access to the key provider API.
 	//
 	// This role must have a trust policy that allows AWS Elemental MediaPackage to assume the role, and it must have a sufficient permissions policy to allow access to the specific key retrieval URL. Valid format: arn:aws:iam::{accountID}:role/{name}
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// List of unique identifiers for the DRM systems to use, as defined in the CPIX specification.
-	SystemIds *[]*string `json:"systemIds" yaml:"systemIds"`
+	SystemIds *[]*string `field:"required" json:"systemIds" yaml:"systemIds"`
 	// URL for the key provider’s key retrieval API endpoint.
 	//
 	// Must start with https://.
-	Url *string `json:"url" yaml:"url"`
+	Url *string `field:"required" json:"url" yaml:"url"`
 	// The Amazon Resource Name (ARN) for the certificate that you imported to AWS Certificate Manager to add content key encryption to this endpoint.
 	//
 	// For this feature to work, your DRM key provider must support content key encryption.
-	CertificateArn *string `json:"certificateArn" yaml:"certificateArn"`
+	CertificateArn *string `field:"optional" json:"certificateArn" yaml:"certificateArn"`
 	// `CfnOriginEndpoint.SpekeKeyProviderProperty.EncryptionContractConfiguration`.
-	EncryptionContractConfiguration interface{} `json:"encryptionContractConfiguration" yaml:"encryptionContractConfiguration"`
+	EncryptionContractConfiguration interface{} `field:"optional" json:"encryptionContractConfiguration" yaml:"encryptionContractConfiguration"`
 }
 
 // Limitations for outputs from the endpoint, based on the video bitrate.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediapackage "github.com/aws/aws-cdk-go/awscdk/aws_mediapackage"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   streamSelectionProperty := &streamSelectionProperty{
 //   	maxVideoBitsPerSecond: jsii.Number(123),
 //   	minVideoBitsPerSecond: jsii.Number(123),
@@ -3401,21 +3461,24 @@ type CfnOriginEndpoint_StreamSelectionProperty struct {
 	// The upper limit of the bitrates that this endpoint serves.
 	//
 	// If the video track exceeds this threshold, then AWS Elemental MediaPackage excludes it from output. If you don't specify a value, it defaults to 2147483647 bits per second.
-	MaxVideoBitsPerSecond *float64 `json:"maxVideoBitsPerSecond" yaml:"maxVideoBitsPerSecond"`
+	MaxVideoBitsPerSecond *float64 `field:"optional" json:"maxVideoBitsPerSecond" yaml:"maxVideoBitsPerSecond"`
 	// The lower limit of the bitrates that this endpoint serves.
 	//
 	// If the video track is below this threshold, then AWS Elemental MediaPackage excludes it from output. If you don't specify a value, it defaults to 0 bits per second.
-	MinVideoBitsPerSecond *float64 `json:"minVideoBitsPerSecond" yaml:"minVideoBitsPerSecond"`
+	MinVideoBitsPerSecond *float64 `field:"optional" json:"minVideoBitsPerSecond" yaml:"minVideoBitsPerSecond"`
 	// Order in which the different video bitrates are presented to the player.
 	//
 	// Valid values: `ORIGINAL` , `VIDEO_BITRATE_ASCENDING` , `VIDEO_BITRATE_DESCENDING` .
-	StreamOrder *string `json:"streamOrder" yaml:"streamOrder"`
+	StreamOrder *string `field:"optional" json:"streamOrder" yaml:"streamOrder"`
 }
 
 // Properties for defining a `CfnOriginEndpoint`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediapackage "github.com/aws/aws-cdk-go/awscdk/aws_mediapackage"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnOriginEndpointProps := &cfnOriginEndpointProps{
 //   	channelId: jsii.String("channelId"),
 //   	id: jsii.String("id"),
@@ -3602,42 +3665,42 @@ type CfnOriginEndpoint_StreamSelectionProperty struct {
 //
 type CfnOriginEndpointProps struct {
 	// The ID of the channel associated with this endpoint.
-	ChannelId *string `json:"channelId" yaml:"channelId"`
+	ChannelId *string `field:"required" json:"channelId" yaml:"channelId"`
 	// The manifest ID is required and must be unique within the OriginEndpoint.
 	//
 	// The ID can't be changed after the endpoint is created.
-	Id *string `json:"id" yaml:"id"`
+	Id *string `field:"required" json:"id" yaml:"id"`
 	// Parameters for CDN authorization.
-	Authorization interface{} `json:"authorization" yaml:"authorization"`
+	Authorization interface{} `field:"optional" json:"authorization" yaml:"authorization"`
 	// Parameters for Common Media Application Format (CMAF) packaging.
-	CmafPackage interface{} `json:"cmafPackage" yaml:"cmafPackage"`
+	CmafPackage interface{} `field:"optional" json:"cmafPackage" yaml:"cmafPackage"`
 	// Parameters for DASH packaging.
-	DashPackage interface{} `json:"dashPackage" yaml:"dashPackage"`
+	DashPackage interface{} `field:"optional" json:"dashPackage" yaml:"dashPackage"`
 	// Any descriptive information that you want to add to the endpoint for future identification purposes.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Parameters for Apple HLS packaging.
-	HlsPackage interface{} `json:"hlsPackage" yaml:"hlsPackage"`
+	HlsPackage interface{} `field:"optional" json:"hlsPackage" yaml:"hlsPackage"`
 	// A short string that's appended to the end of the endpoint URL to create a unique path to this endpoint.
-	ManifestName *string `json:"manifestName" yaml:"manifestName"`
+	ManifestName *string `field:"optional" json:"manifestName" yaml:"manifestName"`
 	// Parameters for Microsoft Smooth Streaming packaging.
-	MssPackage interface{} `json:"mssPackage" yaml:"mssPackage"`
+	MssPackage interface{} `field:"optional" json:"mssPackage" yaml:"mssPackage"`
 	// Controls video origination from this endpoint.
 	//
 	// - `ALLOW` - enables this endpoint to serve content to requesting devices.
 	// - `DENY` - prevents this endpoint from serving content. Denying origination is helpful for harvesting live-to-VOD assets. For more information about harvesting and origination, see [Live-to-VOD Requirements](https://docs.aws.amazon.com/mediapackage/latest/ug/ltov-reqmts.html) .
-	Origination *string `json:"origination" yaml:"origination"`
+	Origination *string `field:"optional" json:"origination" yaml:"origination"`
 	// Maximum duration (seconds) of content to retain for startover playback.
 	//
 	// Omit this attribute or enter `0` to indicate that startover playback is disabled for this endpoint.
-	StartoverWindowSeconds *float64 `json:"startoverWindowSeconds" yaml:"startoverWindowSeconds"`
+	StartoverWindowSeconds *float64 `field:"optional" json:"startoverWindowSeconds" yaml:"startoverWindowSeconds"`
 	// The tags to assign to the endpoint.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// Minimum duration (seconds) of delay to enforce on the playback of live content.
 	//
 	// Omit this attribute or enter `0` to indicate that there is no time delay in effect for this endpoint.
-	TimeDelaySeconds *float64 `json:"timeDelaySeconds" yaml:"timeDelaySeconds"`
+	TimeDelaySeconds *float64 `field:"optional" json:"timeDelaySeconds" yaml:"timeDelaySeconds"`
 	// The IP addresses that can access this endpoint.
-	Whitelist *[]*string `json:"whitelist" yaml:"whitelist"`
+	Whitelist *[]*string `field:"optional" json:"whitelist" yaml:"whitelist"`
 }
 
 // A CloudFormation `AWS::MediaPackage::PackagingConfiguration`.
@@ -3647,8 +3710,11 @@ type CfnOriginEndpointProps struct {
 // The packaging configuration represents a single delivery point for an asset. It determines the format and setting for the egressing content. Specify only one package format per configuration, such as `HlsPackage` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediapackage "github.com/aws/aws-cdk-go/awscdk/aws_mediapackage"
-//   cfnPackagingConfiguration := mediapackage.NewCfnPackagingConfiguration(this, jsii.String("MyCfnPackagingConfiguration"), &cfnPackagingConfigurationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnPackagingConfiguration := awscdk.Aws_mediapackage.NewCfnPackagingConfiguration(this, jsii.String("MyCfnPackagingConfiguration"), &cfnPackagingConfigurationProps{
 //   	id: jsii.String("id"),
 //   	packagingGroupId: jsii.String("packagingGroupId"),
 //
@@ -4539,7 +4605,10 @@ func (c *jsiiProxy_CfnPackagingConfiguration) ValidateProperties(_properties int
 // Holds encryption information so that access to the content can be controlled by a DRM solution.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediapackage "github.com/aws/aws-cdk-go/awscdk/aws_mediapackage"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cmafEncryptionProperty := &cmafEncryptionProperty{
 //   	spekeKeyProvider: &spekeKeyProviderProperty{
 //   		roleArn: jsii.String("roleArn"),
@@ -4552,13 +4621,16 @@ func (c *jsiiProxy_CfnPackagingConfiguration) ValidateProperties(_properties int
 //
 type CfnPackagingConfiguration_CmafEncryptionProperty struct {
 	// Parameters for the SPEKE key provider.
-	SpekeKeyProvider interface{} `json:"spekeKeyProvider" yaml:"spekeKeyProvider"`
+	SpekeKeyProvider interface{} `field:"required" json:"spekeKeyProvider" yaml:"spekeKeyProvider"`
 }
 
 // Parameters for a packaging configuration that uses Common Media Application Format (CMAF) packaging.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediapackage "github.com/aws/aws-cdk-go/awscdk/aws_mediapackage"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cmafPackageProperty := &cmafPackageProperty{
 //   	hlsManifests: []interface{}{
 //   		&hlsManifestProperty{
@@ -4591,23 +4663,26 @@ type CfnPackagingConfiguration_CmafEncryptionProperty struct {
 //
 type CfnPackagingConfiguration_CmafPackageProperty struct {
 	// A list of HLS manifest configurations that are available from this endpoint.
-	HlsManifests interface{} `json:"hlsManifests" yaml:"hlsManifests"`
+	HlsManifests interface{} `field:"required" json:"hlsManifests" yaml:"hlsManifests"`
 	// Parameters for encrypting content.
-	Encryption interface{} `json:"encryption" yaml:"encryption"`
+	Encryption interface{} `field:"optional" json:"encryption" yaml:"encryption"`
 	// When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment.
 	//
 	// This lets you use different SPS/PPS/VPS settings for your assets during content playback.
-	IncludeEncoderConfigurationInSegments interface{} `json:"includeEncoderConfigurationInSegments" yaml:"includeEncoderConfigurationInSegments"`
+	IncludeEncoderConfigurationInSegments interface{} `field:"optional" json:"includeEncoderConfigurationInSegments" yaml:"includeEncoderConfigurationInSegments"`
 	// Duration (in seconds) of each segment.
 	//
 	// Actual segments are rounded to the nearest multiple of the source fragment duration.
-	SegmentDurationSeconds *float64 `json:"segmentDurationSeconds" yaml:"segmentDurationSeconds"`
+	SegmentDurationSeconds *float64 `field:"optional" json:"segmentDurationSeconds" yaml:"segmentDurationSeconds"`
 }
 
 // Holds encryption information so that access to the content can be controlled by a DRM solution.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediapackage "github.com/aws/aws-cdk-go/awscdk/aws_mediapackage"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dashEncryptionProperty := &dashEncryptionProperty{
 //   	spekeKeyProvider: &spekeKeyProviderProperty{
 //   		roleArn: jsii.String("roleArn"),
@@ -4620,13 +4695,16 @@ type CfnPackagingConfiguration_CmafPackageProperty struct {
 //
 type CfnPackagingConfiguration_DashEncryptionProperty struct {
 	// Parameters for the SPEKE key provider.
-	SpekeKeyProvider interface{} `json:"spekeKeyProvider" yaml:"spekeKeyProvider"`
+	SpekeKeyProvider interface{} `field:"required" json:"spekeKeyProvider" yaml:"spekeKeyProvider"`
 }
 
 // Parameters for a DASH manifest.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediapackage "github.com/aws/aws-cdk-go/awscdk/aws_mediapackage"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dashManifestProperty := &dashManifestProperty{
 //   	manifestLayout: jsii.String("manifestLayout"),
 //   	manifestName: jsii.String("manifestName"),
@@ -4643,23 +4721,26 @@ type CfnPackagingConfiguration_DashManifestProperty struct {
 	// Determines the position of some tags in the Media Presentation Description (MPD).
 	//
 	// When set to `FULL` , elements like `SegmentTemplate` and `ContentProtection` are included in each `Representation` . When set to `COMPACT` , duplicate elements are combined and presented at the AdaptationSet level.
-	ManifestLayout *string `json:"manifestLayout" yaml:"manifestLayout"`
+	ManifestLayout *string `field:"optional" json:"manifestLayout" yaml:"manifestLayout"`
 	// A short string that's appended to the end of the endpoint URL to create a unique path to this packaging configuration.
-	ManifestName *string `json:"manifestName" yaml:"manifestName"`
+	ManifestName *string `field:"optional" json:"manifestName" yaml:"manifestName"`
 	// Minimum amount of content (measured in seconds) that a player must keep available in the buffer.
-	MinBufferTimeSeconds *float64 `json:"minBufferTimeSeconds" yaml:"minBufferTimeSeconds"`
+	MinBufferTimeSeconds *float64 `field:"optional" json:"minBufferTimeSeconds" yaml:"minBufferTimeSeconds"`
 	// The DASH profile type.
 	//
 	// When set to `HBBTV_1_5` , the content is compliant with HbbTV 1.5.
-	Profile *string `json:"profile" yaml:"profile"`
+	Profile *string `field:"optional" json:"profile" yaml:"profile"`
 	// Limitations for outputs from the endpoint, based on the video bitrate.
-	StreamSelection interface{} `json:"streamSelection" yaml:"streamSelection"`
+	StreamSelection interface{} `field:"optional" json:"streamSelection" yaml:"streamSelection"`
 }
 
 // Parameters for a packaging configuration that uses Dynamic Adaptive Streaming over HTTP (DASH) packaging.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediapackage "github.com/aws/aws-cdk-go/awscdk/aws_mediapackage"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dashPackageProperty := &dashPackageProperty{
 //   	dashManifests: []interface{}{
 //   		&dashManifestProperty{
@@ -4695,13 +4776,13 @@ type CfnPackagingConfiguration_DashManifestProperty struct {
 //
 type CfnPackagingConfiguration_DashPackageProperty struct {
 	// A list of DASH manifest configurations that are available from this endpoint.
-	DashManifests interface{} `json:"dashManifests" yaml:"dashManifests"`
+	DashManifests interface{} `field:"required" json:"dashManifests" yaml:"dashManifests"`
 	// Parameters for encrypting content.
-	Encryption interface{} `json:"encryption" yaml:"encryption"`
+	Encryption interface{} `field:"optional" json:"encryption" yaml:"encryption"`
 	// When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment.
 	//
 	// This lets you use different SPS/PPS/VPS settings for your assets during content playback.
-	IncludeEncoderConfigurationInSegments interface{} `json:"includeEncoderConfigurationInSegments" yaml:"includeEncoderConfigurationInSegments"`
+	IncludeEncoderConfigurationInSegments interface{} `field:"optional" json:"includeEncoderConfigurationInSegments" yaml:"includeEncoderConfigurationInSegments"`
 	// Controls whether MediaPackage produces single-period or multi-period DASH manifests.
 	//
 	// For more information about periods, see [Multi-period DASH in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/multi-period.html) .
@@ -4710,21 +4791,24 @@ type CfnPackagingConfiguration_DashPackageProperty struct {
 	//
 	// - `ADS` - MediaPackage will produce multi-period DASH manifests. Periods are created based on the SCTE-35 ad markers present in the input manifest.
 	// - *No value* - MediaPackage will produce single-period DASH manifests. This is the default setting.
-	PeriodTriggers *[]*string `json:"periodTriggers" yaml:"periodTriggers"`
+	PeriodTriggers *[]*string `field:"optional" json:"periodTriggers" yaml:"periodTriggers"`
 	// Duration (in seconds) of each fragment.
 	//
 	// Actual fragments are rounded to the nearest multiple of the source segment duration.
-	SegmentDurationSeconds *float64 `json:"segmentDurationSeconds" yaml:"segmentDurationSeconds"`
+	SegmentDurationSeconds *float64 `field:"optional" json:"segmentDurationSeconds" yaml:"segmentDurationSeconds"`
 	// Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).
 	//
 	// When set to `NUMBER_WITH_TIMELINE` , a full timeline is presented in each SegmentTemplate, with $Number$ media URLs. When set to `TIME_WITH_TIMELINE` , a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to `NUMBER_WITH_DURATION` , only a duration is included in each SegmentTemplate, with $Number$ media URLs.
-	SegmentTemplateFormat *string `json:"segmentTemplateFormat" yaml:"segmentTemplateFormat"`
+	SegmentTemplateFormat *string `field:"optional" json:"segmentTemplateFormat" yaml:"segmentTemplateFormat"`
 }
 
 // Holds encryption information so that access to the content can be controlled by a DRM solution.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediapackage "github.com/aws/aws-cdk-go/awscdk/aws_mediapackage"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   hlsEncryptionProperty := &hlsEncryptionProperty{
 //   	spekeKeyProvider: &spekeKeyProviderProperty{
 //   		roleArn: jsii.String("roleArn"),
@@ -4741,19 +4825,22 @@ type CfnPackagingConfiguration_DashPackageProperty struct {
 //
 type CfnPackagingConfiguration_HlsEncryptionProperty struct {
 	// Parameters for the SPEKE key provider.
-	SpekeKeyProvider interface{} `json:"spekeKeyProvider" yaml:"spekeKeyProvider"`
+	SpekeKeyProvider interface{} `field:"required" json:"spekeKeyProvider" yaml:"spekeKeyProvider"`
 	// A 128-bit, 16-byte hex value represented by a 32-character string, used with the key for encrypting blocks.
 	//
 	// If you don't specify a constant initialization vector (IV), MediaPackage periodically rotates the IV.
-	ConstantInitializationVector *string `json:"constantInitializationVector" yaml:"constantInitializationVector"`
+	ConstantInitializationVector *string `field:"optional" json:"constantInitializationVector" yaml:"constantInitializationVector"`
 	// HLS encryption type.
-	EncryptionMethod *string `json:"encryptionMethod" yaml:"encryptionMethod"`
+	EncryptionMethod *string `field:"optional" json:"encryptionMethod" yaml:"encryptionMethod"`
 }
 
 // Parameters for an HLS manifest.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediapackage "github.com/aws/aws-cdk-go/awscdk/aws_mediapackage"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   hlsManifestProperty := &hlsManifestProperty{
 //   	adMarkers: jsii.String("adMarkers"),
 //   	includeIframeOnlyStream: jsii.Boolean(false),
@@ -4771,13 +4858,13 @@ type CfnPackagingConfiguration_HlsManifestProperty struct {
 	// This setting controls ad markers in the packaged content.
 	//
 	// `NONE` omits SCTE-35 ad markers from the output. `PASSTHROUGH` copies SCTE-35 ad markers from the source content to the output. `SCTE35_ENHANCED` generates ad markers and blackout tags in the output, based on SCTE-35 messages in the source content.
-	AdMarkers *string `json:"adMarkers" yaml:"adMarkers"`
+	AdMarkers *string `field:"optional" json:"adMarkers" yaml:"adMarkers"`
 	// Applies to stream sets with a single video track only.
 	//
 	// When enabled, the output includes an additional I-frame only stream, along with the other tracks.
-	IncludeIframeOnlyStream interface{} `json:"includeIframeOnlyStream" yaml:"includeIframeOnlyStream"`
+	IncludeIframeOnlyStream interface{} `field:"optional" json:"includeIframeOnlyStream" yaml:"includeIframeOnlyStream"`
 	// A short string that's appended to the end of the endpoint URL to create a unique path to this packaging configuration.
-	ManifestName *string `json:"manifestName" yaml:"manifestName"`
+	ManifestName *string `field:"optional" json:"manifestName" yaml:"manifestName"`
 	// Inserts `EXT-X-PROGRAM-DATE-TIME` tags in the output manifest at the interval that you specify.
 	//
 	// Additionally, ID3Timed metadata messages are generated every 5 seconds starting when the content was ingested.
@@ -4785,19 +4872,22 @@ type CfnPackagingConfiguration_HlsManifestProperty struct {
 	// Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.
 	//
 	// Omit this attribute or enter `0` to indicate that the `EXT-X-PROGRAM-DATE-TIME` tags are not included in the manifest.
-	ProgramDateTimeIntervalSeconds *float64 `json:"programDateTimeIntervalSeconds" yaml:"programDateTimeIntervalSeconds"`
+	ProgramDateTimeIntervalSeconds *float64 `field:"optional" json:"programDateTimeIntervalSeconds" yaml:"programDateTimeIntervalSeconds"`
 	// Repeat the `EXT-X-KEY` directive for every media segment.
 	//
 	// This might result in an increase in client requests to the DRM server.
-	RepeatExtXKey interface{} `json:"repeatExtXKey" yaml:"repeatExtXKey"`
+	RepeatExtXKey interface{} `field:"optional" json:"repeatExtXKey" yaml:"repeatExtXKey"`
 	// Video bitrate limitations for outputs from this packaging configuration.
-	StreamSelection interface{} `json:"streamSelection" yaml:"streamSelection"`
+	StreamSelection interface{} `field:"optional" json:"streamSelection" yaml:"streamSelection"`
 }
 
 // Parameters for a packaging configuration that uses HTTP Live Streaming (HLS) packaging.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediapackage "github.com/aws/aws-cdk-go/awscdk/aws_mediapackage"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   hlsPackageProperty := &hlsPackageProperty{
 //   	hlsManifests: []interface{}{
 //   		&hlsManifestProperty{
@@ -4834,23 +4924,26 @@ type CfnPackagingConfiguration_HlsManifestProperty struct {
 //
 type CfnPackagingConfiguration_HlsPackageProperty struct {
 	// A list of HLS manifest configurations that are available from this endpoint.
-	HlsManifests interface{} `json:"hlsManifests" yaml:"hlsManifests"`
+	HlsManifests interface{} `field:"required" json:"hlsManifests" yaml:"hlsManifests"`
 	// Parameters for encrypting content.
-	Encryption interface{} `json:"encryption" yaml:"encryption"`
+	Encryption interface{} `field:"optional" json:"encryption" yaml:"encryption"`
 	// Duration (in seconds) of each fragment.
 	//
 	// Actual fragments are rounded to the nearest multiple of the source fragment duration.
-	SegmentDurationSeconds *float64 `json:"segmentDurationSeconds" yaml:"segmentDurationSeconds"`
+	SegmentDurationSeconds *float64 `field:"optional" json:"segmentDurationSeconds" yaml:"segmentDurationSeconds"`
 	// When true, AWS Elemental MediaPackage bundles all audio tracks in a rendition group.
 	//
 	// All other tracks in the stream can be used with any audio rendition from the group.
-	UseAudioRenditionGroup interface{} `json:"useAudioRenditionGroup" yaml:"useAudioRenditionGroup"`
+	UseAudioRenditionGroup interface{} `field:"optional" json:"useAudioRenditionGroup" yaml:"useAudioRenditionGroup"`
 }
 
 // Holds encryption information so that access to the content can be controlled by a DRM solution.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediapackage "github.com/aws/aws-cdk-go/awscdk/aws_mediapackage"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   mssEncryptionProperty := &mssEncryptionProperty{
 //   	spekeKeyProvider: &spekeKeyProviderProperty{
 //   		roleArn: jsii.String("roleArn"),
@@ -4863,13 +4956,16 @@ type CfnPackagingConfiguration_HlsPackageProperty struct {
 //
 type CfnPackagingConfiguration_MssEncryptionProperty struct {
 	// Parameters for the SPEKE key provider.
-	SpekeKeyProvider interface{} `json:"spekeKeyProvider" yaml:"spekeKeyProvider"`
+	SpekeKeyProvider interface{} `field:"required" json:"spekeKeyProvider" yaml:"spekeKeyProvider"`
 }
 
 // Parameters for a Microsoft Smooth manifest.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediapackage "github.com/aws/aws-cdk-go/awscdk/aws_mediapackage"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   mssManifestProperty := &mssManifestProperty{
 //   	manifestName: jsii.String("manifestName"),
 //   	streamSelection: &streamSelectionProperty{
@@ -4881,15 +4977,18 @@ type CfnPackagingConfiguration_MssEncryptionProperty struct {
 //
 type CfnPackagingConfiguration_MssManifestProperty struct {
 	// A short string that's appended to the end of the endpoint URL to create a unique path to this packaging configuration.
-	ManifestName *string `json:"manifestName" yaml:"manifestName"`
+	ManifestName *string `field:"optional" json:"manifestName" yaml:"manifestName"`
 	// Video bitrate limitations for outputs from this packaging configuration.
-	StreamSelection interface{} `json:"streamSelection" yaml:"streamSelection"`
+	StreamSelection interface{} `field:"optional" json:"streamSelection" yaml:"streamSelection"`
 }
 
 // Parameters for a packaging configuration that uses Microsoft Smooth Streaming (MSS) packaging.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediapackage "github.com/aws/aws-cdk-go/awscdk/aws_mediapackage"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   mssPackageProperty := &mssPackageProperty{
 //   	mssManifests: []interface{}{
 //   		&mssManifestProperty{
@@ -4917,19 +5016,22 @@ type CfnPackagingConfiguration_MssManifestProperty struct {
 //
 type CfnPackagingConfiguration_MssPackageProperty struct {
 	// A list of Microsoft Smooth manifest configurations that are available from this endpoint.
-	MssManifests interface{} `json:"mssManifests" yaml:"mssManifests"`
+	MssManifests interface{} `field:"required" json:"mssManifests" yaml:"mssManifests"`
 	// Parameters for encrypting content.
-	Encryption interface{} `json:"encryption" yaml:"encryption"`
+	Encryption interface{} `field:"optional" json:"encryption" yaml:"encryption"`
 	// Duration (in seconds) of each fragment.
 	//
 	// Actual fragments are rounded to the nearest multiple of the source fragment duration.
-	SegmentDurationSeconds *float64 `json:"segmentDurationSeconds" yaml:"segmentDurationSeconds"`
+	SegmentDurationSeconds *float64 `field:"optional" json:"segmentDurationSeconds" yaml:"segmentDurationSeconds"`
 }
 
 // A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediapackage "github.com/aws/aws-cdk-go/awscdk/aws_mediapackage"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   spekeKeyProviderProperty := &spekeKeyProviderProperty{
 //   	roleArn: jsii.String("roleArn"),
 //   	systemIds: []*string{
@@ -4942,19 +5044,22 @@ type CfnPackagingConfiguration_SpekeKeyProviderProperty struct {
 	// The ARN for the IAM role that's granted by the key provider to provide access to the key provider API.
 	//
 	// Valid format: arn:aws:iam::{accountID}:role/{name}.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// List of unique identifiers for the DRM systems to use, as defined in the CPIX specification.
-	SystemIds *[]*string `json:"systemIds" yaml:"systemIds"`
+	SystemIds *[]*string `field:"required" json:"systemIds" yaml:"systemIds"`
 	// URL for the key provider's key retrieval API endpoint.
 	//
 	// Must start with https://.
-	Url *string `json:"url" yaml:"url"`
+	Url *string `field:"required" json:"url" yaml:"url"`
 }
 
 // Limitations for outputs from the endpoint, based on the video bitrate.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediapackage "github.com/aws/aws-cdk-go/awscdk/aws_mediapackage"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   streamSelectionProperty := &streamSelectionProperty{
 //   	maxVideoBitsPerSecond: jsii.Number(123),
 //   	minVideoBitsPerSecond: jsii.Number(123),
@@ -4965,21 +5070,24 @@ type CfnPackagingConfiguration_StreamSelectionProperty struct {
 	// The upper limit of the bitrates that this endpoint serves.
 	//
 	// If the video track exceeds this threshold, then AWS Elemental MediaPackage excludes it from output. If you don't specify a value, it defaults to 2147483647 bits per second.
-	MaxVideoBitsPerSecond *float64 `json:"maxVideoBitsPerSecond" yaml:"maxVideoBitsPerSecond"`
+	MaxVideoBitsPerSecond *float64 `field:"optional" json:"maxVideoBitsPerSecond" yaml:"maxVideoBitsPerSecond"`
 	// The lower limit of the bitrates that this endpoint serves.
 	//
 	// If the video track is below this threshold, then AWS Elemental MediaPackage excludes it from output. If you don't specify a value, it defaults to 0 bits per second.
-	MinVideoBitsPerSecond *float64 `json:"minVideoBitsPerSecond" yaml:"minVideoBitsPerSecond"`
+	MinVideoBitsPerSecond *float64 `field:"optional" json:"minVideoBitsPerSecond" yaml:"minVideoBitsPerSecond"`
 	// Order in which the different video bitrates are presented to the player.
 	//
 	// Valid values: `ORIGINAL` , `VIDEO_BITRATE_ASCENDING` , `VIDEO_BITRATE_DESCENDING` .
-	StreamOrder *string `json:"streamOrder" yaml:"streamOrder"`
+	StreamOrder *string `field:"optional" json:"streamOrder" yaml:"streamOrder"`
 }
 
 // Properties for defining a `CfnPackagingConfiguration`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediapackage "github.com/aws/aws-cdk-go/awscdk/aws_mediapackage"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnPackagingConfigurationProps := &cfnPackagingConfigurationProps{
 //   	id: jsii.String("id"),
 //   	packagingGroupId: jsii.String("packagingGroupId"),
@@ -5113,19 +5221,19 @@ type CfnPackagingConfiguration_StreamSelectionProperty struct {
 //
 type CfnPackagingConfigurationProps struct {
 	// Unique identifier that you assign to the packaging configuration.
-	Id *string `json:"id" yaml:"id"`
+	Id *string `field:"required" json:"id" yaml:"id"`
 	// The ID of the packaging group associated with this packaging configuration.
-	PackagingGroupId *string `json:"packagingGroupId" yaml:"packagingGroupId"`
+	PackagingGroupId *string `field:"required" json:"packagingGroupId" yaml:"packagingGroupId"`
 	// Parameters for CMAF packaging.
-	CmafPackage interface{} `json:"cmafPackage" yaml:"cmafPackage"`
+	CmafPackage interface{} `field:"optional" json:"cmafPackage" yaml:"cmafPackage"`
 	// Parameters for DASH-ISO packaging.
-	DashPackage interface{} `json:"dashPackage" yaml:"dashPackage"`
+	DashPackage interface{} `field:"optional" json:"dashPackage" yaml:"dashPackage"`
 	// Parameters for Apple HLS packaging.
-	HlsPackage interface{} `json:"hlsPackage" yaml:"hlsPackage"`
+	HlsPackage interface{} `field:"optional" json:"hlsPackage" yaml:"hlsPackage"`
 	// Parameters for Microsoft Smooth Streaming packaging.
-	MssPackage interface{} `json:"mssPackage" yaml:"mssPackage"`
+	MssPackage interface{} `field:"optional" json:"mssPackage" yaml:"mssPackage"`
 	// The tags to assign to the packaging configuration.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::MediaPackage::PackagingGroup`.
@@ -5135,8 +5243,11 @@ type CfnPackagingConfigurationProps struct {
 // The packaging group holds one or more packaging configurations. When you create an asset, you specify the packaging group associated with the asset. The asset has playback endpoints for each packaging configuration within the group.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediapackage "github.com/aws/aws-cdk-go/awscdk/aws_mediapackage"
-//   cfnPackagingGroup := mediapackage.NewCfnPackagingGroup(this, jsii.String("MyCfnPackagingGroup"), &cfnPackagingGroupProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnPackagingGroup := awscdk.Aws_mediapackage.NewCfnPackagingGroup(this, jsii.String("MyCfnPackagingGroup"), &cfnPackagingGroupProps{
 //   	id: jsii.String("id"),
 //
 //   	// the properties below are optional
@@ -5864,7 +5975,10 @@ func (c *jsiiProxy_CfnPackagingGroup) ValidateProperties(_properties interface{}
 // Parameters for enabling CDN authorization.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediapackage "github.com/aws/aws-cdk-go/awscdk/aws_mediapackage"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   authorizationProperty := &authorizationProperty{
 //   	cdnIdentifierSecret: jsii.String("cdnIdentifierSecret"),
 //   	secretsRoleArn: jsii.String("secretsRoleArn"),
@@ -5872,9 +5986,9 @@ func (c *jsiiProxy_CfnPackagingGroup) ValidateProperties(_properties interface{}
 //
 type CfnPackagingGroup_AuthorizationProperty struct {
 	// The Amazon Resource Name (ARN) for the secret in AWS Secrets Manager that is used for CDN authorization.
-	CdnIdentifierSecret *string `json:"cdnIdentifierSecret" yaml:"cdnIdentifierSecret"`
+	CdnIdentifierSecret *string `field:"required" json:"cdnIdentifierSecret" yaml:"cdnIdentifierSecret"`
 	// The Amazon Resource Name (ARN) for the IAM role that allows MediaPackage to communicate with AWS Secrets Manager .
-	SecretsRoleArn *string `json:"secretsRoleArn" yaml:"secretsRoleArn"`
+	SecretsRoleArn *string `field:"required" json:"secretsRoleArn" yaml:"secretsRoleArn"`
 }
 
 // Sets a custom Amazon CloudWatch log group name for egress logs.
@@ -5882,7 +5996,10 @@ type CfnPackagingGroup_AuthorizationProperty struct {
 // If a log group name isn't specified, the default name is used: /aws/MediaPackage/EgressAccessLogs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediapackage "github.com/aws/aws-cdk-go/awscdk/aws_mediapackage"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   logConfigurationProperty := &logConfigurationProperty{
 //   	logGroupName: jsii.String("logGroupName"),
 //   }
@@ -5891,13 +6008,16 @@ type CfnPackagingGroup_LogConfigurationProperty struct {
 	// Sets a custom Amazon CloudWatch log group name for egress logs.
 	//
 	// If a log group name isn't specified, the default name is used: /aws/MediaPackage/EgressAccessLogs.
-	LogGroupName *string `json:"logGroupName" yaml:"logGroupName"`
+	LogGroupName *string `field:"optional" json:"logGroupName" yaml:"logGroupName"`
 }
 
 // Properties for defining a `CfnPackagingGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mediapackage "github.com/aws/aws-cdk-go/awscdk/aws_mediapackage"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnPackagingGroupProps := &cfnPackagingGroupProps{
 //   	id: jsii.String("id"),
 //
@@ -5919,12 +6039,12 @@ type CfnPackagingGroup_LogConfigurationProperty struct {
 //
 type CfnPackagingGroupProps struct {
 	// Unique identifier that you assign to the packaging group.
-	Id *string `json:"id" yaml:"id"`
+	Id *string `field:"required" json:"id" yaml:"id"`
 	// Parameters for CDN authorization.
-	Authorization interface{} `json:"authorization" yaml:"authorization"`
+	Authorization interface{} `field:"optional" json:"authorization" yaml:"authorization"`
 	// The configuration parameters for egress access logging.
-	EgressAccessLogs interface{} `json:"egressAccessLogs" yaml:"egressAccessLogs"`
+	EgressAccessLogs interface{} `field:"optional" json:"egressAccessLogs" yaml:"egressAccessLogs"`
 	// The tags to assign to the packaging group.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

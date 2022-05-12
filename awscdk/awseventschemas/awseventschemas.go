@@ -14,8 +14,11 @@ import (
 // Use the `AWS::EventSchemas::Discoverer` resource to specify a *discoverer* that is associated with an event bus. A discoverer allows the Amazon EventBridge Schema Registry to automatically generate schemas based on events on an event bus.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import eventschemas "github.com/aws/aws-cdk-go/awscdk/aws_eventschemas"
-//   cfnDiscoverer := eventschemas.NewCfnDiscoverer(this, jsii.String("MyCfnDiscoverer"), &cfnDiscovererProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDiscoverer := awscdk.Aws_eventschemas.NewCfnDiscoverer(this, jsii.String("MyCfnDiscoverer"), &cfnDiscovererProps{
 //   	sourceArn: jsii.String("sourceArn"),
 //
 //   	// the properties below are optional
@@ -750,7 +753,10 @@ func (c *jsiiProxy_CfnDiscoverer) ValidateProperties(_properties interface{}) {
 // Tags to associate with the discoverer.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import eventschemas "github.com/aws/aws-cdk-go/awscdk/aws_eventschemas"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tagsEntryProperty := &tagsEntryProperty{
 //   	key: jsii.String("key"),
 //   	value: jsii.String("value"),
@@ -758,15 +764,18 @@ func (c *jsiiProxy_CfnDiscoverer) ValidateProperties(_properties interface{}) {
 //
 type CfnDiscoverer_TagsEntryProperty struct {
 	// They key of a key-value pair.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// They value of a key-value pair.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // Properties for defining a `CfnDiscoverer`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import eventschemas "github.com/aws/aws-cdk-go/awscdk/aws_eventschemas"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDiscovererProps := &cfnDiscovererProps{
 //   	sourceArn: jsii.String("sourceArn"),
 //
@@ -783,13 +792,13 @@ type CfnDiscoverer_TagsEntryProperty struct {
 //
 type CfnDiscovererProps struct {
 	// The ARN of the event bus.
-	SourceArn *string `json:"sourceArn" yaml:"sourceArn"`
+	SourceArn *string `field:"required" json:"sourceArn" yaml:"sourceArn"`
 	// Allows for the discovery of the event schemas that are sent to the event bus from another account.
-	CrossAccount interface{} `json:"crossAccount" yaml:"crossAccount"`
+	CrossAccount interface{} `field:"optional" json:"crossAccount" yaml:"crossAccount"`
 	// A description for the discoverer.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Tags associated with the resource.
-	Tags *[]*CfnDiscoverer_TagsEntryProperty `json:"tags" yaml:"tags"`
+	Tags *[]*CfnDiscoverer_TagsEntryProperty `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::EventSchemas::Registry`.
@@ -797,8 +806,11 @@ type CfnDiscovererProps struct {
 // Use the `AWS::EventSchemas::Registry` to specify a schema registry. Schema registries are containers for Schemas. Registries collect and organize schemas so that your schemas are in logical groups.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import eventschemas "github.com/aws/aws-cdk-go/awscdk/aws_eventschemas"
-//   cfnRegistry := eventschemas.NewCfnRegistry(this, jsii.String("MyCfnRegistry"), &cfnRegistryProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnRegistry := awscdk.Aws_eventschemas.NewCfnRegistry(this, jsii.String("MyCfnRegistry"), &cfnRegistryProps{
 //   	description: jsii.String("description"),
 //   	registryName: jsii.String("registryName"),
 //   	tags: []tagsEntryProperty{
@@ -1495,7 +1507,10 @@ func (c *jsiiProxy_CfnRegistry) ValidateProperties(_properties interface{}) {
 // Tags to associate with the schema registry.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import eventschemas "github.com/aws/aws-cdk-go/awscdk/aws_eventschemas"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tagsEntryProperty := &tagsEntryProperty{
 //   	key: jsii.String("key"),
 //   	value: jsii.String("value"),
@@ -1503,9 +1518,9 @@ func (c *jsiiProxy_CfnRegistry) ValidateProperties(_properties interface{}) {
 //
 type CfnRegistry_TagsEntryProperty struct {
 	// They key of a key-value pair.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// They value of a key-value pair.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // A CloudFormation `AWS::EventSchemas::RegistryPolicy`.
@@ -1513,10 +1528,13 @@ type CfnRegistry_TagsEntryProperty struct {
 // Use the `AWS::EventSchemas::RegistryPolicy` resource to specify resource-based policies for an EventBridge Schema Registry.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import eventschemas "github.com/aws/aws-cdk-go/awscdk/aws_eventschemas"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var policy interface{}
-//   cfnRegistryPolicy := eventschemas.NewCfnRegistryPolicy(this, jsii.String("MyCfnRegistryPolicy"), &cfnRegistryPolicyProps{
+//
+//   cfnRegistryPolicy := awscdk.Aws_eventschemas.NewCfnRegistryPolicy(this, jsii.String("MyCfnRegistryPolicy"), &cfnRegistryPolicyProps{
 //   	policy: policy,
 //   	registryName: jsii.String("registryName"),
 //
@@ -2207,9 +2225,12 @@ func (c *jsiiProxy_CfnRegistryPolicy) ValidateProperties(_properties interface{}
 // Properties for defining a `CfnRegistryPolicy`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import eventschemas "github.com/aws/aws-cdk-go/awscdk/aws_eventschemas"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var policy interface{}
+//
 //   cfnRegistryPolicyProps := &cfnRegistryPolicyProps{
 //   	policy: policy,
 //   	registryName: jsii.String("registryName"),
@@ -2220,17 +2241,20 @@ func (c *jsiiProxy_CfnRegistryPolicy) ValidateProperties(_properties interface{}
 //
 type CfnRegistryPolicyProps struct {
 	// A resource-based policy.
-	Policy interface{} `json:"policy" yaml:"policy"`
+	Policy interface{} `field:"required" json:"policy" yaml:"policy"`
 	// The name of the registry.
-	RegistryName *string `json:"registryName" yaml:"registryName"`
+	RegistryName *string `field:"required" json:"registryName" yaml:"registryName"`
 	// The revision ID of the policy.
-	RevisionId *string `json:"revisionId" yaml:"revisionId"`
+	RevisionId *string `field:"optional" json:"revisionId" yaml:"revisionId"`
 }
 
 // Properties for defining a `CfnRegistry`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import eventschemas "github.com/aws/aws-cdk-go/awscdk/aws_eventschemas"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnRegistryProps := &cfnRegistryProps{
 //   	description: jsii.String("description"),
 //   	registryName: jsii.String("registryName"),
@@ -2244,11 +2268,11 @@ type CfnRegistryPolicyProps struct {
 //
 type CfnRegistryProps struct {
 	// A description of the registry to be created.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the schema registry.
-	RegistryName *string `json:"registryName" yaml:"registryName"`
+	RegistryName *string `field:"optional" json:"registryName" yaml:"registryName"`
 	// Tags to associate with the registry.
-	Tags *[]*CfnRegistry_TagsEntryProperty `json:"tags" yaml:"tags"`
+	Tags *[]*CfnRegistry_TagsEntryProperty `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::EventSchemas::Schema`.
@@ -2256,8 +2280,11 @@ type CfnRegistryProps struct {
 // Use the `AWS::EventSchemas::Schema` resource to specify an event schema.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import eventschemas "github.com/aws/aws-cdk-go/awscdk/aws_eventschemas"
-//   cfnSchema := eventschemas.NewCfnSchema(this, jsii.String("MyCfnSchema"), &cfnSchemaProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnSchema := awscdk.Aws_eventschemas.NewCfnSchema(this, jsii.String("MyCfnSchema"), &cfnSchemaProps{
 //   	content: jsii.String("content"),
 //   	registryName: jsii.String("registryName"),
 //   	type: jsii.String("type"),
@@ -3036,7 +3063,10 @@ func (c *jsiiProxy_CfnSchema) ValidateProperties(_properties interface{}) {
 // Tags to associate with the schema.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import eventschemas "github.com/aws/aws-cdk-go/awscdk/aws_eventschemas"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tagsEntryProperty := &tagsEntryProperty{
 //   	key: jsii.String("key"),
 //   	value: jsii.String("value"),
@@ -3044,15 +3074,18 @@ func (c *jsiiProxy_CfnSchema) ValidateProperties(_properties interface{}) {
 //
 type CfnSchema_TagsEntryProperty struct {
 	// They key of a key-value pair.
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"required" json:"key" yaml:"key"`
 	// They value of a key-value pair.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 }
 
 // Properties for defining a `CfnSchema`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import eventschemas "github.com/aws/aws-cdk-go/awscdk/aws_eventschemas"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnSchemaProps := &cfnSchemaProps{
 //   	content: jsii.String("content"),
 //   	registryName: jsii.String("registryName"),
@@ -3071,18 +3104,18 @@ type CfnSchema_TagsEntryProperty struct {
 //
 type CfnSchemaProps struct {
 	// The source of the schema definition.
-	Content *string `json:"content" yaml:"content"`
+	Content *string `field:"required" json:"content" yaml:"content"`
 	// The name of the schema registry.
-	RegistryName *string `json:"registryName" yaml:"registryName"`
+	RegistryName *string `field:"required" json:"registryName" yaml:"registryName"`
 	// The type of schema.
 	//
 	// Valid types include `OpenApi3` and `JSONSchemaDraft4` .
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// A description of the schema.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the schema.
-	SchemaName *string `json:"schemaName" yaml:"schemaName"`
+	SchemaName *string `field:"optional" json:"schemaName" yaml:"schemaName"`
 	// Tags associated with the schema.
-	Tags *[]*CfnSchema_TagsEntryProperty `json:"tags" yaml:"tags"`
+	Tags *[]*CfnSchema_TagsEntryProperty `field:"optional" json:"tags" yaml:"tags"`
 }
 

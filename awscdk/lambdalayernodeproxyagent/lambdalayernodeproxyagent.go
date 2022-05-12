@@ -13,10 +13,12 @@ import (
 // An AWS Lambda layer that includes the NPM dependency `proxy-agent`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type NodeProxyAgentLayer awscdk.NodeProxyAgentLayerimport lambda "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import lambda "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var fn function
-//   fn.addLayers(NewNodeProxyAgentLayer(this, jsii.String("NodeProxyAgentLayer")))
+//
+//   fn.addLayers(awscdk.NewNodeProxyAgentLayer(this, jsii.String("NodeProxyAgentLayer")))
 //
 // Experimental.
 type NodeProxyAgentLayer interface {

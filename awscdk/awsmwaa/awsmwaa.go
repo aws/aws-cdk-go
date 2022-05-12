@@ -14,11 +14,14 @@ import (
 // The `AWS::MWAA::Environment` resource creates an Amazon Managed Workflows for Apache Airflow (MWAA) environment.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mwaa "github.com/aws/aws-cdk-go/awscdk/aws_mwaa"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var airflowConfigurationOptions interface{}
 //   var tags interface{}
-//   cfnEnvironment := mwaa.NewCfnEnvironment(this, jsii.String("MyCfnEnvironment"), &cfnEnvironmentProps{
+//
+//   cfnEnvironment := awscdk.Aws_mwaa.NewCfnEnvironment(this, jsii.String("MyCfnEnvironment"), &cfnEnvironmentProps{
 //   	name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -1210,7 +1213,10 @@ func (c *jsiiProxy_CfnEnvironment) ValidateProperties(_properties interface{}) {
 // The type of Apache Airflow logs to send to CloudWatch Logs.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mwaa "github.com/aws/aws-cdk-go/awscdk/aws_mwaa"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   loggingConfigurationProperty := &loggingConfigurationProperty{
 //   	dagProcessingLogs: &moduleLoggingConfigurationProperty{
 //   		cloudWatchLogGroupArn: jsii.String("cloudWatchLogGroupArn"),
@@ -1241,21 +1247,24 @@ func (c *jsiiProxy_CfnEnvironment) ValidateProperties(_properties interface{}) {
 //
 type CfnEnvironment_LoggingConfigurationProperty struct {
 	// Defines the processing logs sent to CloudWatch Logs and the logging level to send.
-	DagProcessingLogs interface{} `json:"dagProcessingLogs" yaml:"dagProcessingLogs"`
+	DagProcessingLogs interface{} `field:"optional" json:"dagProcessingLogs" yaml:"dagProcessingLogs"`
 	// Defines the scheduler logs sent to CloudWatch Logs and the logging level to send.
-	SchedulerLogs interface{} `json:"schedulerLogs" yaml:"schedulerLogs"`
+	SchedulerLogs interface{} `field:"optional" json:"schedulerLogs" yaml:"schedulerLogs"`
 	// Defines the task logs sent to CloudWatch Logs and the logging level to send.
-	TaskLogs interface{} `json:"taskLogs" yaml:"taskLogs"`
+	TaskLogs interface{} `field:"optional" json:"taskLogs" yaml:"taskLogs"`
 	// Defines the web server logs sent to CloudWatch Logs and the logging level to send.
-	WebserverLogs interface{} `json:"webserverLogs" yaml:"webserverLogs"`
+	WebserverLogs interface{} `field:"optional" json:"webserverLogs" yaml:"webserverLogs"`
 	// Defines the worker logs sent to CloudWatch Logs and the logging level to send.
-	WorkerLogs interface{} `json:"workerLogs" yaml:"workerLogs"`
+	WorkerLogs interface{} `field:"optional" json:"workerLogs" yaml:"workerLogs"`
 }
 
 // Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mwaa "github.com/aws/aws-cdk-go/awscdk/aws_mwaa"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   moduleLoggingConfigurationProperty := &moduleLoggingConfigurationProperty{
 //   	cloudWatchLogGroupArn: jsii.String("cloudWatchLogGroupArn"),
 //   	enabled: jsii.Boolean(false),
@@ -1266,11 +1275,11 @@ type CfnEnvironment_ModuleLoggingConfigurationProperty struct {
 	// The ARN of the CloudWatch Logs log group for each type of Apache Airflow log type that you have enabled.
 	//
 	// > `CloudWatchLogGroupArn` is available only as a return value, accessible when specified as an attribute in the [`Fn:GetAtt`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#aws-resource-mwaa-environment-return-values) intrinsic function. Any value you provide for `CloudWatchLogGroupArn` is discarded by Amazon MWAA.
-	CloudWatchLogGroupArn *string `json:"cloudWatchLogGroupArn" yaml:"cloudWatchLogGroupArn"`
+	CloudWatchLogGroupArn *string `field:"optional" json:"cloudWatchLogGroupArn" yaml:"cloudWatchLogGroupArn"`
 	// Indicates whether to enable the Apache Airflow log type (e.g. `DagProcessingLogs` ) in CloudWatch Logs.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// Defines the Apache Airflow logs to send for the log type (e.g. `DagProcessingLogs` ) to CloudWatch Logs. Valid values: `CRITICAL` , `ERROR` , `WARNING` , `INFO` .
-	LogLevel *string `json:"logLevel" yaml:"logLevel"`
+	LogLevel *string `field:"optional" json:"logLevel" yaml:"logLevel"`
 }
 
 // The VPC networking components used to secure and enable network traffic between the AWS resources for your environment.
@@ -1278,7 +1287,10 @@ type CfnEnvironment_ModuleLoggingConfigurationProperty struct {
 // To learn more, see [About networking on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mwaa "github.com/aws/aws-cdk-go/awscdk/aws_mwaa"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   networkConfigurationProperty := &networkConfigurationProperty{
 //   	securityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
@@ -1292,20 +1304,23 @@ type CfnEnvironment_NetworkConfigurationProperty struct {
 	// A list of one or more security group IDs.
 	//
 	// Accepts up to 5 security group IDs. A security group must be attached to the same VPC as the subnets. To learn more, see [Security in your VPC on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/vpc-security.html) .
-	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
+	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// A list of subnet IDs.
 	//
 	// *Required* to create an environment. Must be private subnets in two different availability zones. A subnet must be attached to the same VPC as the security group. To learn more, see [About networking on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html) .
-	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
+	SubnetIds *[]*string `field:"optional" json:"subnetIds" yaml:"subnetIds"`
 }
 
 // Properties for defining a `CfnEnvironment`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import mwaa "github.com/aws/aws-cdk-go/awscdk/aws_mwaa"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var airflowConfigurationOptions interface{}
 //   var tags interface{}
+//
 //   cfnEnvironmentProps := &cfnEnvironmentProps{
 //   	name: jsii.String("name"),
 //
@@ -1366,75 +1381,75 @@ type CfnEnvironment_NetworkConfigurationProperty struct {
 //
 type CfnEnvironmentProps struct {
 	// The name of your Amazon MWAA environment.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// A list of key-value pairs containing the Airflow configuration options for your environment.
 	//
 	// For example, `core.default_timezone: utc` . To learn more, see [Apache Airflow configuration options](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html) .
-	AirflowConfigurationOptions interface{} `json:"airflowConfigurationOptions" yaml:"airflowConfigurationOptions"`
+	AirflowConfigurationOptions interface{} `field:"optional" json:"airflowConfigurationOptions" yaml:"airflowConfigurationOptions"`
 	// The version of Apache Airflow to use for the environment.
 	//
 	// If no value is specified, defaults to the latest version. Valid values: `2.0.2` , `1.10.12` .
-	AirflowVersion *string `json:"airflowVersion" yaml:"airflowVersion"`
+	AirflowVersion *string `field:"optional" json:"airflowVersion" yaml:"airflowVersion"`
 	// The relative path to the DAGs folder on your Amazon S3 bucket.
 	//
 	// For example, `dags` . To learn more, see [Adding or updating DAGs](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-folder.html) .
-	DagS3Path *string `json:"dagS3Path" yaml:"dagS3Path"`
+	DagS3Path *string `field:"optional" json:"dagS3Path" yaml:"dagS3Path"`
 	// The environment class type.
 	//
 	// Valid values: `mw1.small` , `mw1.medium` , `mw1.large` . To learn more, see [Amazon MWAA environment class](https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html) .
-	EnvironmentClass *string `json:"environmentClass" yaml:"environmentClass"`
+	EnvironmentClass *string `field:"optional" json:"environmentClass" yaml:"environmentClass"`
 	// The Amazon Resource Name (ARN) of the execution role in IAM that allows MWAA to access AWS resources in your environment.
 	//
 	// For example, `arn:aws:iam::123456789:role/my-execution-role` . To learn more, see [Amazon MWAA Execution role](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) .
-	ExecutionRoleArn *string `json:"executionRoleArn" yaml:"executionRoleArn"`
+	ExecutionRoleArn *string `field:"optional" json:"executionRoleArn" yaml:"executionRoleArn"`
 	// The AWS Key Management Service (KMS) key to encrypt and decrypt the data in your environment.
 	//
 	// You can use an AWS KMS key managed by MWAA, or a customer-managed KMS key (advanced).
-	KmsKey *string `json:"kmsKey" yaml:"kmsKey"`
+	KmsKey *string `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 	// The Apache Airflow logs being sent to CloudWatch Logs: `DagProcessingLogs` , `SchedulerLogs` , `TaskLogs` , `WebserverLogs` , `WorkerLogs` .
-	LoggingConfiguration interface{} `json:"loggingConfiguration" yaml:"loggingConfiguration"`
+	LoggingConfiguration interface{} `field:"optional" json:"loggingConfiguration" yaml:"loggingConfiguration"`
 	// The maximum number of workers that you want to run in your environment.
 	//
 	// MWAA scales the number of Apache Airflow workers up to the number you specify in the `MaxWorkers` field. For example, `20` . When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the one worker that is included with your environment, or the number you specify in `MinWorkers` .
-	MaxWorkers *float64 `json:"maxWorkers" yaml:"maxWorkers"`
+	MaxWorkers *float64 `field:"optional" json:"maxWorkers" yaml:"maxWorkers"`
 	// The minimum number of workers that you want to run in your environment.
 	//
 	// MWAA scales the number of Apache Airflow workers up to the number you specify in the `MaxWorkers` field. When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the worker count you specify in the `MinWorkers` field. For example, `2` .
-	MinWorkers *float64 `json:"minWorkers" yaml:"minWorkers"`
+	MinWorkers *float64 `field:"optional" json:"minWorkers" yaml:"minWorkers"`
 	// The VPC networking components used to secure and enable network traffic between the AWS resources for your environment.
 	//
 	// To learn more, see [About networking on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html) .
-	NetworkConfiguration interface{} `json:"networkConfiguration" yaml:"networkConfiguration"`
+	NetworkConfiguration interface{} `field:"optional" json:"networkConfiguration" yaml:"networkConfiguration"`
 	// The version of the plugins.zip file on your Amazon S3 bucket. To learn more, see [Installing custom plugins](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import-plugins.html) .
-	PluginsS3ObjectVersion *string `json:"pluginsS3ObjectVersion" yaml:"pluginsS3ObjectVersion"`
+	PluginsS3ObjectVersion *string `field:"optional" json:"pluginsS3ObjectVersion" yaml:"pluginsS3ObjectVersion"`
 	// The relative path to the `plugins.zip` file on your Amazon S3 bucket. For example, `plugins.zip` . To learn more, see [Installing custom plugins](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import-plugins.html) .
-	PluginsS3Path *string `json:"pluginsS3Path" yaml:"pluginsS3Path"`
+	PluginsS3Path *string `field:"optional" json:"pluginsS3Path" yaml:"pluginsS3Path"`
 	// The version of the requirements.txt file on your Amazon S3 bucket. To learn more, see [Installing Python dependencies](https://docs.aws.amazon.com/mwaa/latest/userguide/working-dags-dependencies.html) .
-	RequirementsS3ObjectVersion *string `json:"requirementsS3ObjectVersion" yaml:"requirementsS3ObjectVersion"`
+	RequirementsS3ObjectVersion *string `field:"optional" json:"requirementsS3ObjectVersion" yaml:"requirementsS3ObjectVersion"`
 	// The relative path to the `requirements.txt` file on your Amazon S3 bucket. For example, `requirements.txt` . To learn more, see [Installing Python dependencies](https://docs.aws.amazon.com/mwaa/latest/userguide/working-dags-dependencies.html) .
-	RequirementsS3Path *string `json:"requirementsS3Path" yaml:"requirementsS3Path"`
+	RequirementsS3Path *string `field:"optional" json:"requirementsS3Path" yaml:"requirementsS3Path"`
 	// The number of schedulers that you want to run in your environment. Valid values:.
 	//
 	// - *v2.0.2* - Accepts between 2 to 5. Defaults to 2.
 	// - *v1.10.12* - Accepts 1.
-	Schedulers *float64 `json:"schedulers" yaml:"schedulers"`
+	Schedulers *float64 `field:"optional" json:"schedulers" yaml:"schedulers"`
 	// The Amazon Resource Name (ARN) of the Amazon S3 bucket where your DAG code and supporting files are stored.
 	//
 	// For example, `arn:aws:s3:::my-airflow-bucket-unique-name` . To learn more, see [Create an Amazon S3 bucket for Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-s3-bucket.html) .
-	SourceBucketArn *string `json:"sourceBucketArn" yaml:"sourceBucketArn"`
+	SourceBucketArn *string `field:"optional" json:"sourceBucketArn" yaml:"sourceBucketArn"`
 	// The key-value tag pairs associated to your environment.
 	//
 	// For example, `"Environment": "Staging"` . To learn more, see [Tagging](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) .
-	Tags interface{} `json:"tags" yaml:"tags"`
+	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
 	// The Apache Airflow *Web server* access mode.
 	//
 	// To learn more, see [Apache Airflow access modes](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-networking.html) . Valid values: `PRIVATE_ONLY` or `PUBLIC_ONLY` .
-	WebserverAccessMode *string `json:"webserverAccessMode" yaml:"webserverAccessMode"`
+	WebserverAccessMode *string `field:"optional" json:"webserverAccessMode" yaml:"webserverAccessMode"`
 	// The day and time of the week to start weekly maintenance updates of your environment in the following format: `DAY:HH:MM` .
 	//
 	// For example: `TUE:03:30` . You can specify a start time in 30 minute increments only. Supported input includes the following:
 	//
 	// - MON|TUE|WED|THU|FRI|SAT|SUN:([01]\\d|2[0-3]):(00|30).
-	WeeklyMaintenanceWindowStart *string `json:"weeklyMaintenanceWindowStart" yaml:"weeklyMaintenanceWindowStart"`
+	WeeklyMaintenanceWindowStart *string `field:"optional" json:"weeklyMaintenanceWindowStart" yaml:"weeklyMaintenanceWindowStart"`
 }
 

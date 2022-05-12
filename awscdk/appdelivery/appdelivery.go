@@ -22,7 +22,12 @@ import (
 //
 // Example:
 //   // Example automatically generated from non-compiling source. May contain errors.
-//   import codebuild "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk"import codepipeline_actions "github.com/aws/aws-cdk-go/awscdk"import cdk "github.com/aws/aws-cdk-go/awscdk"import cicd "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk"
+//   import codebuild "github.com/aws/aws-cdk-go/awscdk"
+//   import codepipeline "github.com/aws/aws-cdk-go/awscdk"
+//   import codepipeline_actions "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cicd "github.com/aws/aws-cdk-go/awscdk"
+//   import iam "github.com/aws/aws-cdk-go/awscdk"
 //
 //
 //   type myServiceStackA struct {
@@ -239,7 +244,12 @@ func (p *jsiiProxy_PipelineDeployStackAction) OnStateChange(name *string, target
 
 // Example:
 //   // Example automatically generated from non-compiling source. May contain errors.
-//   import codebuild "github.com/aws/aws-cdk-go/awscdk"import codepipeline "github.com/aws/aws-cdk-go/awscdk"import codepipeline_actions "github.com/aws/aws-cdk-go/awscdk"import cdk "github.com/aws/aws-cdk-go/awscdk"import cicd "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk"
+//   import codebuild "github.com/aws/aws-cdk-go/awscdk"
+//   import codepipeline "github.com/aws/aws-cdk-go/awscdk"
+//   import codepipeline_actions "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import cicd "github.com/aws/aws-cdk-go/awscdk"
+//   import iam "github.com/aws/aws-cdk-go/awscdk"
 //
 //
 //   type myServiceStackA struct {
@@ -357,13 +367,13 @@ type PipelineDeployStackActionProps struct {
 	// use `addToRolePolicy` and `capabilities` to control what the CloudFormation
 	// deployment is allowed to do.
 	// Experimental.
-	AdminPermissions *bool `json:"adminPermissions" yaml:"adminPermissions"`
+	AdminPermissions *bool `field:"required" json:"adminPermissions" yaml:"adminPermissions"`
 	// The CodePipeline artifact that holds the synthesized app, which is the contents of the ``<directory>`` when running ``cdk synth -o <directory>``.
 	// Experimental.
-	Input awscodepipeline.Artifact `json:"input" yaml:"input"`
+	Input awscodepipeline.Artifact `field:"required" json:"input" yaml:"input"`
 	// The CDK stack to be deployed.
 	// Experimental.
-	Stack awscdk.Stack `json:"stack" yaml:"stack"`
+	Stack awscdk.Stack `field:"required" json:"stack" yaml:"stack"`
 	// Acknowledge certain changes made as part of deployment.
 	//
 	// For stacks that contain certain resources, explicit acknowledgement that AWS CloudFormation
@@ -373,28 +383,28 @@ type PipelineDeployStackActionProps struct {
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities
 	//
 	// Experimental.
-	Capabilities *[]awscloudformation.CloudFormationCapabilities `json:"capabilities" yaml:"capabilities"`
+	Capabilities *[]awscloudformation.CloudFormationCapabilities `field:"optional" json:"capabilities" yaml:"capabilities"`
 	// The name to use when creating a ChangeSet for the stack.
 	// Experimental.
-	ChangeSetName *string `json:"changeSetName" yaml:"changeSetName"`
+	ChangeSetName *string `field:"optional" json:"changeSetName" yaml:"changeSetName"`
 	// The name of the CodePipeline action creating the ChangeSet.
 	// Experimental.
-	CreateChangeSetActionName *string `json:"createChangeSetActionName" yaml:"createChangeSetActionName"`
+	CreateChangeSetActionName *string `field:"optional" json:"createChangeSetActionName" yaml:"createChangeSetActionName"`
 	// The runOrder for the CodePipeline action creating the ChangeSet.
 	// Experimental.
-	CreateChangeSetRunOrder *float64 `json:"createChangeSetRunOrder" yaml:"createChangeSetRunOrder"`
+	CreateChangeSetRunOrder *float64 `field:"optional" json:"createChangeSetRunOrder" yaml:"createChangeSetRunOrder"`
 	// The name of the CodePipeline action creating the ChangeSet.
 	// Experimental.
-	ExecuteChangeSetActionName *string `json:"executeChangeSetActionName" yaml:"executeChangeSetActionName"`
+	ExecuteChangeSetActionName *string `field:"optional" json:"executeChangeSetActionName" yaml:"executeChangeSetActionName"`
 	// The runOrder for the CodePipeline action executing the ChangeSet.
 	// Experimental.
-	ExecuteChangeSetRunOrder *float64 `json:"executeChangeSetRunOrder" yaml:"executeChangeSetRunOrder"`
+	ExecuteChangeSetRunOrder *float64 `field:"optional" json:"executeChangeSetRunOrder" yaml:"executeChangeSetRunOrder"`
 	// IAM role to assume when deploying changes.
 	//
 	// If not specified, a fresh role is created. The role is created with zero
 	// permissions unless `adminPermissions` is true, in which case the role will have
 	// admin permissions.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 }
 

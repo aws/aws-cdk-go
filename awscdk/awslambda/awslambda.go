@@ -867,9 +867,12 @@ func (a *jsiiProxy_Alias) WarnInvokeFunctionPermissions(scope awscdk.Construct) 
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var version version
+//
 //   aliasAttributes := &aliasAttributes{
 //   	aliasName: jsii.String("aliasName"),
 //   	aliasVersion: version,
@@ -878,19 +881,23 @@ func (a *jsiiProxy_Alias) WarnInvokeFunctionPermissions(scope awscdk.Construct) 
 // Experimental.
 type AliasAttributes struct {
 	// Experimental.
-	AliasName *string `json:"aliasName" yaml:"aliasName"`
+	AliasName *string `field:"required" json:"aliasName" yaml:"aliasName"`
 	// Experimental.
-	AliasVersion IVersion `json:"aliasVersion" yaml:"aliasVersion"`
+	AliasVersion IVersion `field:"required" json:"aliasVersion" yaml:"aliasVersion"`
 }
 
 // Options for `lambda.Alias`.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var destination iDestination
 //   var duration duration
 //   var version version
+//
 //   aliasOptions := &aliasOptions{
 //   	additionalVersions: []versionWeight{
 //   		&versionWeight{
@@ -913,19 +920,19 @@ type AliasOptions struct {
 	// Minimum: 60 seconds
 	// Maximum: 6 hours.
 	// Experimental.
-	MaxEventAge awscdk.Duration `json:"maxEventAge" yaml:"maxEventAge"`
+	MaxEventAge awscdk.Duration `field:"optional" json:"maxEventAge" yaml:"maxEventAge"`
 	// The destination for failed invocations.
 	// Experimental.
-	OnFailure IDestination `json:"onFailure" yaml:"onFailure"`
+	OnFailure IDestination `field:"optional" json:"onFailure" yaml:"onFailure"`
 	// The destination for successful invocations.
 	// Experimental.
-	OnSuccess IDestination `json:"onSuccess" yaml:"onSuccess"`
+	OnSuccess IDestination `field:"optional" json:"onSuccess" yaml:"onSuccess"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum: 0
 	// Maximum: 2.
 	// Experimental.
-	RetryAttempts *float64 `json:"retryAttempts" yaml:"retryAttempts"`
+	RetryAttempts *float64 `field:"optional" json:"retryAttempts" yaml:"retryAttempts"`
 	// Additional versions with individual weights this alias points to.
 	//
 	// Individual additional version weights specified here should add up to
@@ -940,13 +947,13 @@ type AliasOptions struct {
 	// Then 5% of traffic will be routed to function version 2, while
 	// the remaining 95% of traffic will be routed to function version 1.
 	// Experimental.
-	AdditionalVersions *[]*VersionWeight `json:"additionalVersions" yaml:"additionalVersions"`
+	AdditionalVersions *[]*VersionWeight `field:"optional" json:"additionalVersions" yaml:"additionalVersions"`
 	// Description for the alias.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Specifies a provisioned concurrency configuration for a function's alias.
 	// Experimental.
-	ProvisionedConcurrentExecutions *float64 `json:"provisionedConcurrentExecutions" yaml:"provisionedConcurrentExecutions"`
+	ProvisionedConcurrentExecutions *float64 `field:"optional" json:"provisionedConcurrentExecutions" yaml:"provisionedConcurrentExecutions"`
 }
 
 // Properties for a new Lambda alias.
@@ -977,19 +984,19 @@ type AliasProps struct {
 	// Minimum: 60 seconds
 	// Maximum: 6 hours.
 	// Experimental.
-	MaxEventAge awscdk.Duration `json:"maxEventAge" yaml:"maxEventAge"`
+	MaxEventAge awscdk.Duration `field:"optional" json:"maxEventAge" yaml:"maxEventAge"`
 	// The destination for failed invocations.
 	// Experimental.
-	OnFailure IDestination `json:"onFailure" yaml:"onFailure"`
+	OnFailure IDestination `field:"optional" json:"onFailure" yaml:"onFailure"`
 	// The destination for successful invocations.
 	// Experimental.
-	OnSuccess IDestination `json:"onSuccess" yaml:"onSuccess"`
+	OnSuccess IDestination `field:"optional" json:"onSuccess" yaml:"onSuccess"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum: 0
 	// Maximum: 2.
 	// Experimental.
-	RetryAttempts *float64 `json:"retryAttempts" yaml:"retryAttempts"`
+	RetryAttempts *float64 `field:"optional" json:"retryAttempts" yaml:"retryAttempts"`
 	// Additional versions with individual weights this alias points to.
 	//
 	// Individual additional version weights specified here should add up to
@@ -1004,28 +1011,28 @@ type AliasProps struct {
 	// Then 5% of traffic will be routed to function version 2, while
 	// the remaining 95% of traffic will be routed to function version 1.
 	// Experimental.
-	AdditionalVersions *[]*VersionWeight `json:"additionalVersions" yaml:"additionalVersions"`
+	AdditionalVersions *[]*VersionWeight `field:"optional" json:"additionalVersions" yaml:"additionalVersions"`
 	// Description for the alias.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Specifies a provisioned concurrency configuration for a function's alias.
 	// Experimental.
-	ProvisionedConcurrentExecutions *float64 `json:"provisionedConcurrentExecutions" yaml:"provisionedConcurrentExecutions"`
+	ProvisionedConcurrentExecutions *float64 `field:"optional" json:"provisionedConcurrentExecutions" yaml:"provisionedConcurrentExecutions"`
 	// Name of this alias.
 	// Experimental.
-	AliasName *string `json:"aliasName" yaml:"aliasName"`
+	AliasName *string `field:"required" json:"aliasName" yaml:"aliasName"`
 	// Function version this alias refers to.
 	//
 	// Use lambda.currentVersion to reference a version with your latest changes.
 	// Experimental.
-	Version IVersion `json:"version" yaml:"version"`
+	Version IVersion `field:"required" json:"version" yaml:"version"`
 }
 
 // Architectures supported by AWS Lambda.
 //
 // Example:
 //   lambda.NewFunction(this, jsii.String("MyFunction"), &functionProps{
-//   	runtime: lambda.runtime_NODEJS_12_X(),
+//   	runtime: lambda.runtime_NODEJS_16_X(),
 //   	handler: jsii.String("index.handler"),
 //   	architecture: lambda.architecture_ARM_64(),
 //   	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
@@ -1112,11 +1119,10 @@ func Architecture_X86_64() Architecture {
 // Lambda code from a local directory.
 //
 // Example:
-//   import path "github.com/aws-samples/dummy/path"import lambda "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"type App awscdk.App
-//   type Stack awscdk.Stackimport awscdk "github.com/aws/aws-cdk-go/awscdk"type MockIntegration awscdk.MockIntegration
-//   type PassthroughBehavior awscdk.PassthroughBehavior
-//   type RestApi awscdk.RestApi
-//   type TokenAuthorizer awscdk.TokenAuthorizer
+//   import path "github.com/aws-samples/dummy/path"
+//   import lambda "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   /*
 //    * Stack verification steps:
@@ -1125,8 +1131,8 @@ func Architecture_X86_64() Architecture {
 //    * * `curl -s -o /dev/null -w "%{http_code}" -H 'Authorization: allow' <url>` should return 200
 //    */
 //
-//   app := NewApp()
-//   stack := NewStack(app, jsii.String("TokenAuthorizerInteg"))
+//   app := awscdk.NewApp()
+//   stack := awscdk.NewStack(app, jsii.String("TokenAuthorizerInteg"))
 //
 //   authorizerFn := lambda.NewFunction(stack, jsii.String("MyAuthorizerFunction"), &functionProps{
 //   	runtime: lambda.runtime_NODEJS_14_X(),
@@ -1134,19 +1140,19 @@ func Architecture_X86_64() Architecture {
 //   	code: lambda.assetCode.fromAsset(path.join(__dirname, jsii.String("integ.token-authorizer.handler"))),
 //   })
 //
-//   restapi := NewRestApi(stack, jsii.String("MyRestApi"))
+//   restapi := awscdk.NewRestApi(stack, jsii.String("MyRestApi"))
 //
-//   authorizer := NewTokenAuthorizer(stack, jsii.String("MyAuthorizer"), &tokenAuthorizerProps{
+//   authorizer := awscdk.NewTokenAuthorizer(stack, jsii.String("MyAuthorizer"), &tokenAuthorizerProps{
 //   	handler: authorizerFn,
 //   })
 //
-//   restapi.root.addMethod(jsii.String("ANY"), NewMockIntegration(&integrationOptions{
+//   restapi.root.addMethod(jsii.String("ANY"), awscdk.NewMockIntegration(&integrationOptions{
 //   	integrationResponses: []integrationResponse{
 //   		&integrationResponse{
 //   			statusCode: jsii.String("200"),
 //   		},
 //   	},
-//   	passthroughBehavior: passthroughBehavior_NEVER,
+//   	passthroughBehavior: awscdk.PassthroughBehavior_NEVER,
 //   	requestTemplates: map[string]*string{
 //   		"application/json": jsii.String("{ \"statusCode\": 200 }"),
 //   	},
@@ -1449,10 +1455,16 @@ func (a *jsiiProxy_AssetCode) BindToResource(resource awscdk.CfnResource, option
 // Represents an ECR image that will be constructed from the specified asset and can be bound as Lambda code.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import assets "github.com/aws/aws-cdk-go/awscdk/assets"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecr_assets "github.com/aws/aws-cdk-go/awscdk/aws_ecr_assets"import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var networkMode networkMode
-//   assetImageCode := lambda.NewAssetImageCode(jsii.String("directory"), &assetImageCodeProps{
+//
+//   assetImageCode := awscdk.Aws_lambda.NewAssetImageCode(jsii.String("directory"), &assetImageCodeProps{
 //   	buildArgs: map[string]*string{
 //   		"buildArgsKey": jsii.String("buildArgs"),
 //   	},
@@ -1467,7 +1479,7 @@ func (a *jsiiProxy_AssetCode) BindToResource(resource awscdk.CfnResource, option
 //   	},
 //   	extraHash: jsii.String("extraHash"),
 //   	file: jsii.String("file"),
-//   	follow: assets.followMode_NEVER,
+//   	follow: awscdk.Assets.followMode_NEVER,
 //   	followSymlinks: monocdk.symlinkFollowMode_NEVER,
 //   	ignoreMode: monocdk.ignoreMode_GLOB,
 //   	invalidation: &dockerImageAssetInvalidationOptions{
@@ -1761,9 +1773,15 @@ func (a *jsiiProxy_AssetImageCode) BindToResource(resource awscdk.CfnResource, o
 // Properties to initialize a new AssetImage.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import assets "github.com/aws/aws-cdk-go/awscdk/assets"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecr_assets "github.com/aws/aws-cdk-go/awscdk/aws_ecr_assets"import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var networkMode networkMode
+//
 //   assetImageCodeProps := &assetImageCodeProps{
 //   	buildArgs: map[string]*string{
 //   		"buildArgsKey": jsii.String("buildArgs"),
@@ -1779,7 +1797,7 @@ func (a *jsiiProxy_AssetImageCode) BindToResource(resource awscdk.CfnResource, o
 //   	},
 //   	extraHash: jsii.String("extraHash"),
 //   	file: jsii.String("file"),
-//   	follow: assets.followMode_NEVER,
+//   	follow: awscdk.Assets.followMode_NEVER,
 //   	followSymlinks: monocdk.symlinkFollowMode_NEVER,
 //   	ignoreMode: monocdk.ignoreMode_GLOB,
 //   	invalidation: &dockerImageAssetInvalidationOptions{
@@ -1800,37 +1818,37 @@ func (a *jsiiProxy_AssetImageCode) BindToResource(resource awscdk.CfnResource, o
 type AssetImageCodeProps struct {
 	// Glob patterns to exclude from the copy.
 	// Experimental.
-	Exclude *[]*string `json:"exclude" yaml:"exclude"`
+	Exclude *[]*string `field:"optional" json:"exclude" yaml:"exclude"`
 	// A strategy for how to handle symlinks.
 	// Deprecated: use `followSymlinks` instead.
-	Follow assets.FollowMode `json:"follow" yaml:"follow"`
+	Follow assets.FollowMode `field:"optional" json:"follow" yaml:"follow"`
 	// The ignore behavior to use for exclude patterns.
 	// Experimental.
-	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode" yaml:"ignoreMode"`
+	IgnoreMode awscdk.IgnoreMode `field:"optional" json:"ignoreMode" yaml:"ignoreMode"`
 	// Extra information to encode into the fingerprint (e.g. build instructions and other inputs).
 	// Experimental.
-	ExtraHash *string `json:"extraHash" yaml:"extraHash"`
+	ExtraHash *string `field:"optional" json:"extraHash" yaml:"extraHash"`
 	// A strategy for how to handle symlinks.
 	// Experimental.
-	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks" yaml:"followSymlinks"`
+	FollowSymlinks awscdk.SymlinkFollowMode `field:"optional" json:"followSymlinks" yaml:"followSymlinks"`
 	// Build args to pass to the `docker build` command.
 	//
 	// Since Docker build arguments are resolved before deployment, keys and
 	// values cannot refer to unresolved tokens (such as `lambda.functionArn` or
 	// `queue.queueUrl`).
 	// Experimental.
-	BuildArgs *map[string]*string `json:"buildArgs" yaml:"buildArgs"`
+	BuildArgs *map[string]*string `field:"optional" json:"buildArgs" yaml:"buildArgs"`
 	// Path to the Dockerfile (relative to the directory).
 	// Experimental.
-	File *string `json:"file" yaml:"file"`
+	File *string `field:"optional" json:"file" yaml:"file"`
 	// Options to control which parameters are used to invalidate the asset hash.
 	// Experimental.
-	Invalidation *awsecrassets.DockerImageAssetInvalidationOptions `json:"invalidation" yaml:"invalidation"`
+	Invalidation *awsecrassets.DockerImageAssetInvalidationOptions `field:"optional" json:"invalidation" yaml:"invalidation"`
 	// Networking mode for the RUN commands during build.
 	//
 	// Support docker API 1.25+.
 	// Experimental.
-	NetworkMode awsecrassets.NetworkMode `json:"networkMode" yaml:"networkMode"`
+	NetworkMode awsecrassets.NetworkMode `field:"optional" json:"networkMode" yaml:"networkMode"`
 	// ECR repository name.
 	//
 	// Specify this property if you need to statically address the image, e.g.
@@ -1839,17 +1857,17 @@ type AssetImageCodeProps struct {
 	// Deprecated: to control the location of docker image assets, please override
 	// `Stack.addDockerImageAsset`. this feature will be removed in future
 	// releases.
-	RepositoryName *string `json:"repositoryName" yaml:"repositoryName"`
+	RepositoryName *string `field:"optional" json:"repositoryName" yaml:"repositoryName"`
 	// Docker target to build to.
 	// Experimental.
-	Target *string `json:"target" yaml:"target"`
+	Target *string `field:"optional" json:"target" yaml:"target"`
 	// Specify or override the CMD on the specified Docker image or Dockerfile.
 	//
 	// This needs to be in the 'exec form', viz., `[ 'executable', 'param1', 'param2' ]`.
 	// See: https://docs.docker.com/engine/reference/builder/#cmd
 	//
 	// Experimental.
-	Cmd *[]*string `json:"cmd" yaml:"cmd"`
+	Cmd *[]*string `field:"optional" json:"cmd" yaml:"cmd"`
 	// Specify or override the ENTRYPOINT on the specified Docker image or Dockerfile.
 	//
 	// An ENTRYPOINT allows you to configure a container that will run as an executable.
@@ -1857,14 +1875,14 @@ type AssetImageCodeProps struct {
 	// See: https://docs.docker.com/engine/reference/builder/#entrypoint
 	//
 	// Experimental.
-	Entrypoint *[]*string `json:"entrypoint" yaml:"entrypoint"`
+	Entrypoint *[]*string `field:"optional" json:"entrypoint" yaml:"entrypoint"`
 	// Specify or override the WORKDIR on the specified Docker image or Dockerfile.
 	//
 	// A WORKDIR allows you to configure the working directory the container will use.
 	// See: https://docs.docker.com/engine/reference/builder/#workdir
 	//
 	// Experimental.
-	WorkingDirectory *string `json:"workingDirectory" yaml:"workingDirectory"`
+	WorkingDirectory *string `field:"optional" json:"workingDirectory" yaml:"workingDirectory"`
 }
 
 // Properties for enabling Lambda autoscaling.
@@ -1873,6 +1891,7 @@ type AssetImageCodeProps struct {
 //   import autoscaling "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var fn function
+//
 //   alias := fn.addAlias(jsii.String("prod"))
 //
 //   // Create AutoScaling target
@@ -1898,10 +1917,10 @@ type AssetImageCodeProps struct {
 type AutoScalingOptions struct {
 	// Maximum capacity to scale to.
 	// Experimental.
-	MaxCapacity *float64 `json:"maxCapacity" yaml:"maxCapacity"`
+	MaxCapacity *float64 `field:"required" json:"maxCapacity" yaml:"maxCapacity"`
 	// Minimum capacity to scale to.
 	// Experimental.
-	MinCapacity *float64 `json:"minCapacity" yaml:"minCapacity"`
+	MinCapacity *float64 `field:"optional" json:"minCapacity" yaml:"minCapacity"`
 }
 
 // A CloudFormation `AWS::Lambda::Alias`.
@@ -1911,8 +1930,11 @@ type AutoScalingOptions struct {
 // You can also map an alias to split invocation requests between two versions. Use the `RoutingConfig` parameter to specify a second version and the percentage of invocation requests that it receives.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
-//   cfnAlias := lambda.NewCfnAlias(this, jsii.String("MyCfnAlias"), &cfnAliasProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnAlias := awscdk.Aws_lambda.NewCfnAlias(this, jsii.String("MyCfnAlias"), &cfnAliasProps{
 //   	functionName: jsii.String("functionName"),
 //   	functionVersion: jsii.String("functionVersion"),
 //   	name: jsii.String("name"),
@@ -2672,7 +2694,10 @@ func (c *jsiiProxy_CfnAlias) ValidateProperties(_properties interface{}) {
 // The [traffic-shifting](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) configuration of a Lambda function alias.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   aliasRoutingConfigurationProperty := &aliasRoutingConfigurationProperty{
 //   	additionalVersionWeights: []interface{}{
 //   		&versionWeightProperty{
@@ -2684,26 +2709,32 @@ func (c *jsiiProxy_CfnAlias) ValidateProperties(_properties interface{}) {
 //
 type CfnAlias_AliasRoutingConfigurationProperty struct {
 	// The second version, and the percentage of traffic that's routed to it.
-	AdditionalVersionWeights interface{} `json:"additionalVersionWeights" yaml:"additionalVersionWeights"`
+	AdditionalVersionWeights interface{} `field:"required" json:"additionalVersionWeights" yaml:"additionalVersionWeights"`
 }
 
 // A provisioned concurrency configuration for a function's alias.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   provisionedConcurrencyConfigurationProperty := &provisionedConcurrencyConfigurationProperty{
 //   	provisionedConcurrentExecutions: jsii.Number(123),
 //   }
 //
 type CfnAlias_ProvisionedConcurrencyConfigurationProperty struct {
 	// The amount of provisioned concurrency to allocate for the alias.
-	ProvisionedConcurrentExecutions *float64 `json:"provisionedConcurrentExecutions" yaml:"provisionedConcurrentExecutions"`
+	ProvisionedConcurrentExecutions *float64 `field:"required" json:"provisionedConcurrentExecutions" yaml:"provisionedConcurrentExecutions"`
 }
 
 // The [traffic-shifting](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) configuration of a Lambda function alias.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   versionWeightProperty := &versionWeightProperty{
 //   	functionVersion: jsii.String("functionVersion"),
 //   	functionWeight: jsii.Number(123),
@@ -2711,15 +2742,18 @@ type CfnAlias_ProvisionedConcurrencyConfigurationProperty struct {
 //
 type CfnAlias_VersionWeightProperty struct {
 	// The qualifier of the second version.
-	FunctionVersion *string `json:"functionVersion" yaml:"functionVersion"`
+	FunctionVersion *string `field:"required" json:"functionVersion" yaml:"functionVersion"`
 	// The percentage of traffic that the alias routes to the second version.
-	FunctionWeight *float64 `json:"functionWeight" yaml:"functionWeight"`
+	FunctionWeight *float64 `field:"required" json:"functionWeight" yaml:"functionWeight"`
 }
 
 // Properties for defining a `CfnAlias`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAliasProps := &cfnAliasProps{
 //   	functionName: jsii.String("functionName"),
 //   	functionVersion: jsii.String("functionVersion"),
@@ -2748,17 +2782,17 @@ type CfnAliasProps struct {
 	// - *Partial ARN* - `123456789012:function:MyFunction` .
 	//
 	// The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-	FunctionName *string `json:"functionName" yaml:"functionName"`
+	FunctionName *string `field:"required" json:"functionName" yaml:"functionName"`
 	// The function version that the alias invokes.
-	FunctionVersion *string `json:"functionVersion" yaml:"functionVersion"`
+	FunctionVersion *string `field:"required" json:"functionVersion" yaml:"functionVersion"`
 	// The name of the alias.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// A description of the alias.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Specifies a [provisioned concurrency](https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html) configuration for a function's alias.
-	ProvisionedConcurrencyConfig interface{} `json:"provisionedConcurrencyConfig" yaml:"provisionedConcurrencyConfig"`
+	ProvisionedConcurrencyConfig interface{} `field:"optional" json:"provisionedConcurrencyConfig" yaml:"provisionedConcurrencyConfig"`
 	// The [routing configuration](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) of the alias.
-	RoutingConfig interface{} `json:"routingConfig" yaml:"routingConfig"`
+	RoutingConfig interface{} `field:"optional" json:"routingConfig" yaml:"routingConfig"`
 }
 
 // A CloudFormation `AWS::Lambda::CodeSigningConfig`.
@@ -2766,8 +2800,11 @@ type CfnAliasProps struct {
 // Details about a [Code signing configuration](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
-//   cfnCodeSigningConfig := lambda.NewCfnCodeSigningConfig(this, jsii.String("MyCfnCodeSigningConfig"), &cfnCodeSigningConfigProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnCodeSigningConfig := awscdk.Aws_lambda.NewCfnCodeSigningConfig(this, jsii.String("MyCfnCodeSigningConfig"), &cfnCodeSigningConfigProps{
 //   	allowedPublishers: &allowedPublishersProperty{
 //   		signingProfileVersionArns: []*string{
 //   			jsii.String("signingProfileVersionArns"),
@@ -3476,7 +3513,10 @@ func (c *jsiiProxy_CfnCodeSigningConfig) ValidateProperties(_properties interfac
 // List of signing profiles that can sign a code package.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   allowedPublishersProperty := &allowedPublishersProperty{
 //   	signingProfileVersionArns: []*string{
 //   		jsii.String("signingProfileVersionArns"),
@@ -3487,13 +3527,16 @@ type CfnCodeSigningConfig_AllowedPublishersProperty struct {
 	// The Amazon Resource Name (ARN) for each of the signing profiles.
 	//
 	// A signing profile defines a trusted user who can sign a code package.
-	SigningProfileVersionArns *[]*string `json:"signingProfileVersionArns" yaml:"signingProfileVersionArns"`
+	SigningProfileVersionArns *[]*string `field:"required" json:"signingProfileVersionArns" yaml:"signingProfileVersionArns"`
 }
 
 // Code signing configuration [policies](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html#config-codesigning-policies) specify the validation failure action for signature mismatch or expiry.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   codeSigningPoliciesProperty := &codeSigningPoliciesProperty{
 //   	untrustedArtifactOnDeployment: jsii.String("untrustedArtifactOnDeployment"),
 //   }
@@ -3504,13 +3547,16 @@ type CfnCodeSigningConfig_CodeSigningPoliciesProperty struct {
 	// If you set the policy to `Enforce` , Lambda blocks the deployment request if signature validation checks fail. If you set the policy to `Warn` , Lambda allows the deployment and creates a CloudWatch log.
 	//
 	// Default value: `Warn`.
-	UntrustedArtifactOnDeployment *string `json:"untrustedArtifactOnDeployment" yaml:"untrustedArtifactOnDeployment"`
+	UntrustedArtifactOnDeployment *string `field:"required" json:"untrustedArtifactOnDeployment" yaml:"untrustedArtifactOnDeployment"`
 }
 
 // Properties for defining a `CfnCodeSigningConfig`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnCodeSigningConfigProps := &cfnCodeSigningConfigProps{
 //   	allowedPublishers: &allowedPublishersProperty{
 //   		signingProfileVersionArns: []*string{
@@ -3527,11 +3573,11 @@ type CfnCodeSigningConfig_CodeSigningPoliciesProperty struct {
 //
 type CfnCodeSigningConfigProps struct {
 	// List of allowed publishers.
-	AllowedPublishers interface{} `json:"allowedPublishers" yaml:"allowedPublishers"`
+	AllowedPublishers interface{} `field:"required" json:"allowedPublishers" yaml:"allowedPublishers"`
 	// The code signing policy controls the validation failure action for signature mismatch or expiry.
-	CodeSigningPolicies interface{} `json:"codeSigningPolicies" yaml:"codeSigningPolicies"`
+	CodeSigningPolicies interface{} `field:"optional" json:"codeSigningPolicies" yaml:"codeSigningPolicies"`
 	// Code signing configuration description.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 
 // A CloudFormation `AWS::Lambda::EventInvokeConfig`.
@@ -3541,8 +3587,11 @@ type CfnCodeSigningConfigProps struct {
 // By default, Lambda retries an asynchronous invocation twice if the function returns an error. It retains events in a queue for up to six hours. When an event fails all processing attempts or stays in the asynchronous invocation queue for too long, Lambda discards it.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
-//   cfnEventInvokeConfig := lambda.NewCfnEventInvokeConfig(this, jsii.String("MyCfnEventInvokeConfig"), &cfnEventInvokeConfigProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnEventInvokeConfig := awscdk.Aws_lambda.NewCfnEventInvokeConfig(this, jsii.String("MyCfnEventInvokeConfig"), &cfnEventInvokeConfigProps{
 //   	functionName: jsii.String("functionName"),
 //   	qualifier: jsii.String("qualifier"),
 //
@@ -4287,7 +4336,10 @@ func (c *jsiiProxy_CfnEventInvokeConfig) ValidateProperties(_properties interfac
 // A configuration object that specifies the destination of an event after Lambda processes it.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   destinationConfigProperty := &destinationConfigProperty{
 //   	onFailure: &onFailureProperty{
 //   		destination: jsii.String("destination"),
@@ -4299,41 +4351,50 @@ func (c *jsiiProxy_CfnEventInvokeConfig) ValidateProperties(_properties interfac
 //
 type CfnEventInvokeConfig_DestinationConfigProperty struct {
 	// The destination configuration for failed invocations.
-	OnFailure interface{} `json:"onFailure" yaml:"onFailure"`
+	OnFailure interface{} `field:"optional" json:"onFailure" yaml:"onFailure"`
 	// The destination configuration for successful invocations.
-	OnSuccess interface{} `json:"onSuccess" yaml:"onSuccess"`
+	OnSuccess interface{} `field:"optional" json:"onSuccess" yaml:"onSuccess"`
 }
 
 // A destination for events that failed processing.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   onFailureProperty := &onFailureProperty{
 //   	destination: jsii.String("destination"),
 //   }
 //
 type CfnEventInvokeConfig_OnFailureProperty struct {
 	// The Amazon Resource Name (ARN) of the destination resource.
-	Destination *string `json:"destination" yaml:"destination"`
+	Destination *string `field:"required" json:"destination" yaml:"destination"`
 }
 
 // A destination for events that were processed successfully.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   onSuccessProperty := &onSuccessProperty{
 //   	destination: jsii.String("destination"),
 //   }
 //
 type CfnEventInvokeConfig_OnSuccessProperty struct {
 	// The Amazon Resource Name (ARN) of the destination resource.
-	Destination *string `json:"destination" yaml:"destination"`
+	Destination *string `field:"required" json:"destination" yaml:"destination"`
 }
 
 // Properties for defining a `CfnEventInvokeConfig`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnEventInvokeConfigProps := &cfnEventInvokeConfigProps{
 //   	functionName: jsii.String("functionName"),
 //   	qualifier: jsii.String("qualifier"),
@@ -4359,24 +4420,24 @@ type CfnEventInvokeConfigProps struct {
 	// *Maximum* : `64`
 	//
 	// *Pattern* : `([a-zA-Z0-9-_]+)`.
-	FunctionName *string `json:"functionName" yaml:"functionName"`
+	FunctionName *string `field:"required" json:"functionName" yaml:"functionName"`
 	// The identifier of a version or alias.
 	//
 	// - *Version* - A version number.
 	// - *Alias* - An alias name.
 	// - *Latest* - To specify the unpublished version, use `$LATEST` .
-	Qualifier *string `json:"qualifier" yaml:"qualifier"`
+	Qualifier *string `field:"required" json:"qualifier" yaml:"qualifier"`
 	// A destination for events after they have been sent to a function for processing.
 	//
 	// **Destinations** - *Function* - The Amazon Resource Name (ARN) of a Lambda function.
 	// - *Queue* - The ARN of an SQS queue.
 	// - *Topic* - The ARN of an SNS topic.
 	// - *Event Bus* - The ARN of an Amazon EventBridge event bus.
-	DestinationConfig interface{} `json:"destinationConfig" yaml:"destinationConfig"`
+	DestinationConfig interface{} `field:"optional" json:"destinationConfig" yaml:"destinationConfig"`
 	// The maximum age of a request that Lambda sends to a function for processing.
-	MaximumEventAgeInSeconds *float64 `json:"maximumEventAgeInSeconds" yaml:"maximumEventAgeInSeconds"`
+	MaximumEventAgeInSeconds *float64 `field:"optional" json:"maximumEventAgeInSeconds" yaml:"maximumEventAgeInSeconds"`
 	// The maximum number of times to retry when the function returns an error.
-	MaximumRetryAttempts *float64 `json:"maximumRetryAttempts" yaml:"maximumRetryAttempts"`
+	MaximumRetryAttempts *float64 `field:"optional" json:"maximumRetryAttempts" yaml:"maximumRetryAttempts"`
 }
 
 // A CloudFormation `AWS::Lambda::EventSourceMapping`.
@@ -4393,8 +4454,11 @@ type CfnEventInvokeConfigProps struct {
 // - [Configuring Self-Managed Apache Kafka as an event source](https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html)
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
-//   cfnEventSourceMapping := lambda.NewCfnEventSourceMapping(this, jsii.String("MyCfnEventSourceMapping"), &cfnEventSourceMappingProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnEventSourceMapping := awscdk.Aws_lambda.NewCfnEventSourceMapping(this, jsii.String("MyCfnEventSourceMapping"), &cfnEventSourceMappingProps{
 //   	functionName: jsii.String("functionName"),
 //
 //   	// the properties below are optional
@@ -5511,7 +5575,10 @@ func (c *jsiiProxy_CfnEventSourceMapping) ValidateProperties(_properties interfa
 // A configuration object that specifies the destination of an event after Lambda processes it.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   destinationConfigProperty := &destinationConfigProperty{
 //   	onFailure: &onFailureProperty{
 //   		destination: jsii.String("destination"),
@@ -5520,13 +5587,16 @@ func (c *jsiiProxy_CfnEventSourceMapping) ValidateProperties(_properties interfa
 //
 type CfnEventSourceMapping_DestinationConfigProperty struct {
 	// The destination configuration for failed invocations.
-	OnFailure interface{} `json:"onFailure" yaml:"onFailure"`
+	OnFailure interface{} `field:"optional" json:"onFailure" yaml:"onFailure"`
 }
 
 // The list of bootstrap servers for your Kafka brokers in the following format: `"KafkaBootstrapServers": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   endpointsProperty := &endpointsProperty{
 //   	kafkaBootstrapServers: []*string{
 //   		jsii.String("kafkaBootstrapServers"),
@@ -5535,13 +5605,16 @@ type CfnEventSourceMapping_DestinationConfigProperty struct {
 //
 type CfnEventSourceMapping_EndpointsProperty struct {
 	// The list of bootstrap servers for your Kafka brokers in the following format: `"KafkaBootstrapServers": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]` .
-	KafkaBootstrapServers *[]*string `json:"kafkaBootstrapServers" yaml:"kafkaBootstrapServers"`
+	KafkaBootstrapServers *[]*string `field:"optional" json:"kafkaBootstrapServers" yaml:"kafkaBootstrapServers"`
 }
 
 // An object that contains the filters for an event source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   filterCriteriaProperty := &filterCriteriaProperty{
 //   	filters: []interface{}{
 //   		&filterProperty{
@@ -5552,13 +5625,16 @@ type CfnEventSourceMapping_EndpointsProperty struct {
 //
 type CfnEventSourceMapping_FilterCriteriaProperty struct {
 	// A list of filters.
-	Filters interface{} `json:"filters" yaml:"filters"`
+	Filters interface{} `field:"optional" json:"filters" yaml:"filters"`
 }
 
 // A structure within a `FilterCriteria` object that defines an event filtering pattern.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   filterProperty := &filterProperty{
 //   	pattern: jsii.String("pattern"),
 //   }
@@ -5567,26 +5643,32 @@ type CfnEventSourceMapping_FilterProperty struct {
 	// A filter pattern.
 	//
 	// For more information on the syntax of a filter pattern, see [Filter rule syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax) .
-	Pattern *string `json:"pattern" yaml:"pattern"`
+	Pattern *string `field:"optional" json:"pattern" yaml:"pattern"`
 }
 
 // A destination for events that failed processing.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   onFailureProperty := &onFailureProperty{
 //   	destination: jsii.String("destination"),
 //   }
 //
 type CfnEventSourceMapping_OnFailureProperty struct {
 	// The Amazon Resource Name (ARN) of the destination resource.
-	Destination *string `json:"destination" yaml:"destination"`
+	Destination *string `field:"optional" json:"destination" yaml:"destination"`
 }
 
 // The self-managed Apache Kafka cluster for your event source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   selfManagedEventSourceProperty := &selfManagedEventSourceProperty{
 //   	endpoints: &endpointsProperty{
 //   		kafkaBootstrapServers: []*string{
@@ -5597,13 +5679,16 @@ type CfnEventSourceMapping_OnFailureProperty struct {
 //
 type CfnEventSourceMapping_SelfManagedEventSourceProperty struct {
 	// The list of bootstrap servers for your Kafka brokers in the following format: `"KafkaBootstrapServers": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]` .
-	Endpoints interface{} `json:"endpoints" yaml:"endpoints"`
+	Endpoints interface{} `field:"optional" json:"endpoints" yaml:"endpoints"`
 }
 
 // An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sourceAccessConfigurationProperty := &sourceAccessConfigurationProperty{
 //   	type: jsii.String("type"),
 //   	uri: jsii.String("uri"),
@@ -5621,17 +5706,20 @@ type CfnEventSourceMapping_SourceAccessConfigurationProperty struct {
 	// - `VIRTUAL_HOST` - (Amazon MQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source. This property cannot be specified in an UpdateEventSourceMapping API call.
 	// - `CLIENT_CERTIFICATE_TLS_AUTH` - (Amazon MSK, Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication of your MSK/Apache Kafka brokers.
 	// - `SERVER_ROOT_CA_CERTIFICATE` - (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption of your Apache Kafka brokers.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 	// The value for your chosen configuration in `Type` .
 	//
 	// For example: `"URI": "arn:aws:secretsmanager:us-east-1:01234567890:secret:MyBrokerSecretName"` .
-	Uri *string `json:"uri" yaml:"uri"`
+	Uri *string `field:"optional" json:"uri" yaml:"uri"`
 }
 
 // Properties for defining a `CfnEventSourceMapping`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnEventSourceMappingProps := &cfnEventSourceMappingProps{
 //   	functionName: jsii.String("functionName"),
 //
@@ -5692,7 +5780,7 @@ type CfnEventSourceMappingProps struct {
 	// - *Partial ARN* - `123456789012:function:MyFunction` .
 	//
 	// The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.
-	FunctionName *string `json:"functionName" yaml:"functionName"`
+	FunctionName *string `field:"required" json:"functionName" yaml:"functionName"`
 	// The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function.
 	//
 	// Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).
@@ -5703,72 +5791,72 @@ type CfnEventSourceMappingProps struct {
 	// - *Amazon Managed Streaming for Apache Kafka* - Default 100. Max 10,000.
 	// - *Self-Managed Apache Kafka* - Default 100. Max 10,000.
 	// - *Amazon MQ (ActiveMQ and RabbitMQ)* - Default 100. Max 10,000.
-	BatchSize *float64 `json:"batchSize" yaml:"batchSize"`
+	BatchSize *float64 `field:"optional" json:"batchSize" yaml:"batchSize"`
 	// (Streams only) If the function returns an error, split the batch in two and retry.
 	//
 	// The default value is false.
-	BisectBatchOnFunctionError interface{} `json:"bisectBatchOnFunctionError" yaml:"bisectBatchOnFunctionError"`
+	BisectBatchOnFunctionError interface{} `field:"optional" json:"bisectBatchOnFunctionError" yaml:"bisectBatchOnFunctionError"`
 	// (Streams only) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
-	DestinationConfig interface{} `json:"destinationConfig" yaml:"destinationConfig"`
+	DestinationConfig interface{} `field:"optional" json:"destinationConfig" yaml:"destinationConfig"`
 	// When true, the event source mapping is active. When false, Lambda pauses polling and invocation.
 	//
 	// Default: True.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// The Amazon Resource Name (ARN) of the event source.
 	//
 	// - *Amazon Kinesis* - The ARN of the data stream or a stream consumer.
 	// - *Amazon DynamoDB Streams* - The ARN of the stream.
 	// - *Amazon Simple Queue Service* - The ARN of the queue.
 	// - *Amazon Managed Streaming for Apache Kafka* - The ARN of the cluster.
-	EventSourceArn *string `json:"eventSourceArn" yaml:"eventSourceArn"`
+	EventSourceArn *string `field:"optional" json:"eventSourceArn" yaml:"eventSourceArn"`
 	// (Streams and Amazon SQS) An object that defines the filter criteria that determine whether Lambda should process an event.
 	//
 	// For more information, see [Lambda event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) .
-	FilterCriteria interface{} `json:"filterCriteria" yaml:"filterCriteria"`
+	FilterCriteria interface{} `field:"optional" json:"filterCriteria" yaml:"filterCriteria"`
 	// (Streams and SQS) A list of current response type enums applied to the event source mapping.
 	//
 	// Valid Values: `ReportBatchItemFailures`.
-	FunctionResponseTypes *[]*string `json:"functionResponseTypes" yaml:"functionResponseTypes"`
+	FunctionResponseTypes *[]*string `field:"optional" json:"functionResponseTypes" yaml:"functionResponseTypes"`
 	// The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
 	//
 	// *Default ( Kinesis , DynamoDB , Amazon SQS event sources)* : 0
 	//
 	// *Default ( Amazon MSK , Kafka, Amazon MQ event sources)* : 500 ms.
-	MaximumBatchingWindowInSeconds *float64 `json:"maximumBatchingWindowInSeconds" yaml:"maximumBatchingWindowInSeconds"`
+	MaximumBatchingWindowInSeconds *float64 `field:"optional" json:"maximumBatchingWindowInSeconds" yaml:"maximumBatchingWindowInSeconds"`
 	// (Streams only) Discard records older than the specified age.
 	//
 	// The default value is -1,
 	// which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.
-	MaximumRecordAgeInSeconds *float64 `json:"maximumRecordAgeInSeconds" yaml:"maximumRecordAgeInSeconds"`
+	MaximumRecordAgeInSeconds *float64 `field:"optional" json:"maximumRecordAgeInSeconds" yaml:"maximumRecordAgeInSeconds"`
 	// (Streams only) Discard records after the specified number of retries.
 	//
 	// The default value is -1,
 	// which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.
-	MaximumRetryAttempts *float64 `json:"maximumRetryAttempts" yaml:"maximumRetryAttempts"`
+	MaximumRetryAttempts *float64 `field:"optional" json:"maximumRetryAttempts" yaml:"maximumRetryAttempts"`
 	// (Streams only) The number of batches to process concurrently from each shard.
 	//
 	// The default value is 1.
-	ParallelizationFactor *float64 `json:"parallelizationFactor" yaml:"parallelizationFactor"`
+	ParallelizationFactor *float64 `field:"optional" json:"parallelizationFactor" yaml:"parallelizationFactor"`
 	// (Amazon MQ) The name of the Amazon MQ broker destination queue to consume.
-	Queues *[]*string `json:"queues" yaml:"queues"`
+	Queues *[]*string `field:"optional" json:"queues" yaml:"queues"`
 	// The self-managed Apache Kafka cluster for your event source.
-	SelfManagedEventSource interface{} `json:"selfManagedEventSource" yaml:"selfManagedEventSource"`
+	SelfManagedEventSource interface{} `field:"optional" json:"selfManagedEventSource" yaml:"selfManagedEventSource"`
 	// An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.
-	SourceAccessConfigurations interface{} `json:"sourceAccessConfigurations" yaml:"sourceAccessConfigurations"`
+	SourceAccessConfigurations interface{} `field:"optional" json:"sourceAccessConfigurations" yaml:"sourceAccessConfigurations"`
 	// The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB.
 	//
 	// - *LATEST* - Read only new records.
 	// - *TRIM_HORIZON* - Process all available records.
 	// - *AT_TIMESTAMP* - Specify a time from which to start reading records.
-	StartingPosition *string `json:"startingPosition" yaml:"startingPosition"`
+	StartingPosition *string `field:"optional" json:"startingPosition" yaml:"startingPosition"`
 	// With `StartingPosition` set to `AT_TIMESTAMP` , the time from which to start reading, in Unix time seconds.
-	StartingPositionTimestamp *float64 `json:"startingPositionTimestamp" yaml:"startingPositionTimestamp"`
+	StartingPositionTimestamp *float64 `field:"optional" json:"startingPositionTimestamp" yaml:"startingPositionTimestamp"`
 	// The name of the Kafka topic.
-	Topics *[]*string `json:"topics" yaml:"topics"`
+	Topics *[]*string `field:"optional" json:"topics" yaml:"topics"`
 	// (Streams only) The duration in seconds of a processing window.
 	//
 	// The range is between 1 second up to 900 seconds.
-	TumblingWindowInSeconds *float64 `json:"tumblingWindowInSeconds" yaml:"tumblingWindowInSeconds"`
+	TumblingWindowInSeconds *float64 `field:"optional" json:"tumblingWindowInSeconds" yaml:"tumblingWindowInSeconds"`
 }
 
 // A CloudFormation `AWS::Lambda::Function`.
@@ -5786,8 +5874,11 @@ type CfnEventSourceMappingProps struct {
 // For a complete introduction to Lambda functions, see [What is Lambda?](https://docs.aws.amazon.com/lambda/latest/dg/lambda-welcome.html) in the *Lambda developer guide.*
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
-//   cfnFunction := lambda.NewCfnFunction(this, jsii.String("MyCfnFunction"), &cfnFunctionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnFunction := awscdk.Aws_lambda.NewCfnFunction(this, jsii.String("MyCfnFunction"), &cfnFunctionProps{
 //   	code: &codeProperty{
 //   		imageUri: jsii.String("imageUri"),
 //   		s3Bucket: jsii.String("s3Bucket"),
@@ -6961,7 +7052,10 @@ func (c *jsiiProxy_CfnFunction) ValidateProperties(_properties interface{}) {
 // Changes to a deployment package in Amazon S3 are not detected automatically during stack updates. To update the function code, change the object key or version in the template.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   codeProperty := &codeProperty{
 //   	imageUri: jsii.String("imageUri"),
 //   	s3Bucket: jsii.String("s3Bucket"),
@@ -6972,34 +7066,37 @@ func (c *jsiiProxy_CfnFunction) ValidateProperties(_properties interface{}) {
 //
 type CfnFunction_CodeProperty struct {
 	// URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html) in the Amazon ECR registry.
-	ImageUri *string `json:"imageUri" yaml:"imageUri"`
+	ImageUri *string `field:"optional" json:"imageUri" yaml:"imageUri"`
 	// An Amazon S3 bucket in the same AWS Region as your function.
 	//
 	// The bucket can be in a different AWS account.
-	S3Bucket *string `json:"s3Bucket" yaml:"s3Bucket"`
+	S3Bucket *string `field:"optional" json:"s3Bucket" yaml:"s3Bucket"`
 	// The Amazon S3 key of the deployment package.
-	S3Key *string `json:"s3Key" yaml:"s3Key"`
+	S3Key *string `field:"optional" json:"s3Key" yaml:"s3Key"`
 	// For versioned objects, the version of the deployment package object to use.
-	S3ObjectVersion *string `json:"s3ObjectVersion" yaml:"s3ObjectVersion"`
+	S3ObjectVersion *string `field:"optional" json:"s3ObjectVersion" yaml:"s3ObjectVersion"`
 	// (Node.js and Python) The source code of your Lambda function. If you include your function source inline with this parameter, AWS CloudFormation places it in a file named `index` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html) . This zip file cannot exceed 4MB. For the `Handler` property, the first part of the handler identifier must be `index` . For example, `index.handler` .
 	//
 	// For JSON, you must escape quotes and special characters such as newline ( `\n` ) with a backslash.
 	//
 	// If you specify a function that interacts with an AWS CloudFormation custom resource, you don't have to write your own functions to send responses to the custom resource that invoked the function. AWS CloudFormation provides a response module ( [cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html) ) that simplifies sending responses. See [Using AWS Lambda with AWS CloudFormation](https://docs.aws.amazon.com/lambda/latest/dg/services-cloudformation.html) for details.
-	ZipFile *string `json:"zipFile" yaml:"zipFile"`
+	ZipFile *string `field:"optional" json:"zipFile" yaml:"zipFile"`
 }
 
 // The [dead-letter queue](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq) for failed asynchronous invocations.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   deadLetterConfigProperty := &deadLetterConfigProperty{
 //   	targetArn: jsii.String("targetArn"),
 //   }
 //
 type CfnFunction_DeadLetterConfigProperty struct {
 	// The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.
-	TargetArn *string `json:"targetArn" yaml:"targetArn"`
+	TargetArn *string `field:"optional" json:"targetArn" yaml:"targetArn"`
 }
 
 // A function's environment variable settings.
@@ -7007,7 +7104,10 @@ type CfnFunction_DeadLetterConfigProperty struct {
 // You can use environment variables to adjust your function's behavior without updating code. An environment variable is a pair of strings that are stored in a function's version-specific configuration.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   environmentProperty := &environmentProperty{
 //   	variables: map[string]*string{
 //   		"variablesKey": jsii.String("variables"),
@@ -7018,7 +7118,7 @@ type CfnFunction_EnvironmentProperty struct {
 	// Environment variable key-value pairs.
 	//
 	// For more information, see [Using Lambda environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html) .
-	Variables interface{} `json:"variables" yaml:"variables"`
+	Variables interface{} `field:"optional" json:"variables" yaml:"variables"`
 }
 
 // The size of the function’s /tmp directory in MB.
@@ -7026,20 +7126,26 @@ type CfnFunction_EnvironmentProperty struct {
 // The default value is 512, but can be any whole number between 512 and 10240 MB.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   ephemeralStorageProperty := &ephemeralStorageProperty{
 //   	size: jsii.Number(123),
 //   }
 //
 type CfnFunction_EphemeralStorageProperty struct {
 	// The size of the function’s /tmp directory.
-	Size *float64 `json:"size" yaml:"size"`
+	Size *float64 `field:"required" json:"size" yaml:"size"`
 }
 
 // Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   fileSystemConfigProperty := &fileSystemConfigProperty{
 //   	arn: jsii.String("arn"),
 //   	localMountPath: jsii.String("localMountPath"),
@@ -7047,9 +7153,9 @@ type CfnFunction_EphemeralStorageProperty struct {
 //
 type CfnFunction_FileSystemConfigProperty struct {
 	// The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"required" json:"arn" yaml:"arn"`
 	// The path where the function can access the file system, starting with `/mnt/` .
-	LocalMountPath *string `json:"localMountPath" yaml:"localMountPath"`
+	LocalMountPath *string `field:"required" json:"localMountPath" yaml:"localMountPath"`
 }
 
 // Configuration values that override the container image Dockerfile settings.
@@ -7057,7 +7163,10 @@ type CfnFunction_FileSystemConfigProperty struct {
 // See [Container settings](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   imageConfigProperty := &imageConfigProperty{
 //   	command: []*string{
 //   		jsii.String("command"),
@@ -7070,24 +7179,27 @@ type CfnFunction_FileSystemConfigProperty struct {
 //
 type CfnFunction_ImageConfigProperty struct {
 	// Specifies parameters that you want to pass in with ENTRYPOINT.
-	Command *[]*string `json:"command" yaml:"command"`
+	Command *[]*string `field:"optional" json:"command" yaml:"command"`
 	// Specifies the entry point to their application, which is typically the location of the runtime executable.
-	EntryPoint *[]*string `json:"entryPoint" yaml:"entryPoint"`
+	EntryPoint *[]*string `field:"optional" json:"entryPoint" yaml:"entryPoint"`
 	// Specifies the working directory.
-	WorkingDirectory *string `json:"workingDirectory" yaml:"workingDirectory"`
+	WorkingDirectory *string `field:"optional" json:"workingDirectory" yaml:"workingDirectory"`
 }
 
 // The function's [AWS X-Ray](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html) tracing configuration. To sample and record incoming requests, set `Mode` to `Active` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tracingConfigProperty := &tracingConfigProperty{
 //   	mode: jsii.String("mode"),
 //   }
 //
 type CfnFunction_TracingConfigProperty struct {
 	// The tracing mode.
-	Mode *string `json:"mode" yaml:"mode"`
+	Mode *string `field:"optional" json:"mode" yaml:"mode"`
 }
 
 // The VPC security groups and subnets that are attached to a Lambda function.
@@ -7099,7 +7211,10 @@ type CfnFunction_TracingConfigProperty struct {
 // > To monitor network interfaces, AWS CloudFormation needs the `ec2:DescribeNetworkInterfaces` permission. It obtains this from the user or role that modifies the stack. If you don't provide this permission, AWS CloudFormation does not wait for network interfaces to be deleted.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   vpcConfigProperty := &vpcConfigProperty{
 //   	securityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
@@ -7111,15 +7226,18 @@ type CfnFunction_TracingConfigProperty struct {
 //
 type CfnFunction_VpcConfigProperty struct {
 	// A list of VPC security groups IDs.
-	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
+	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// A list of VPC subnet IDs.
-	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
+	SubnetIds *[]*string `field:"optional" json:"subnetIds" yaml:"subnetIds"`
 }
 
 // Properties for defining a `CfnFunction`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnFunctionProps := &cfnFunctionProps{
 //   	code: &codeProperty{
 //   		imageUri: jsii.String("imageUri"),
@@ -7194,76 +7312,76 @@ type CfnFunction_VpcConfigProperty struct {
 //
 type CfnFunctionProps struct {
 	// The code for the function.
-	Code interface{} `json:"code" yaml:"code"`
+	Code interface{} `field:"required" json:"code" yaml:"code"`
 	// The Amazon Resource Name (ARN) of the function's execution role.
-	Role *string `json:"role" yaml:"role"`
+	Role *string `field:"required" json:"role" yaml:"role"`
 	// The instruction set architecture that the function supports.
 	//
 	// Enter a string array with one of the valid values (arm64 or x86_64). The default value is `x86_64` .
-	Architectures *[]*string `json:"architectures" yaml:"architectures"`
+	Architectures *[]*string `field:"optional" json:"architectures" yaml:"architectures"`
 	// To enable code signing for this function, specify the ARN of a code-signing configuration.
 	//
 	// A code-signing configuration
 	// includes a set of signing profiles, which define the trusted publishers for this function.
-	CodeSigningConfigArn *string `json:"codeSigningConfigArn" yaml:"codeSigningConfigArn"`
+	CodeSigningConfigArn *string `field:"optional" json:"codeSigningConfigArn" yaml:"codeSigningConfigArn"`
 	// A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing.
 	//
 	// For more information, see [Dead Letter Queues](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq) .
-	DeadLetterConfig interface{} `json:"deadLetterConfig" yaml:"deadLetterConfig"`
+	DeadLetterConfig interface{} `field:"optional" json:"deadLetterConfig" yaml:"deadLetterConfig"`
 	// A description of the function.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Environment variables that are accessible from function code during execution.
-	Environment interface{} `json:"environment" yaml:"environment"`
+	Environment interface{} `field:"optional" json:"environment" yaml:"environment"`
 	// The size of the function’s /tmp directory in MB.
 	//
 	// The default value is 512, but can be any whole number between 512 and 10240 MB.
-	EphemeralStorage interface{} `json:"ephemeralStorage" yaml:"ephemeralStorage"`
+	EphemeralStorage interface{} `field:"optional" json:"ephemeralStorage" yaml:"ephemeralStorage"`
 	// Connection settings for an Amazon EFS file system.
 	//
 	// To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an [AWS::EFS::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html) resource, you must also specify a `DependsOn` attribute to ensure that the mount target is created or updated before the function.
 	//
 	// For more information about using the `DependsOn` attribute, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) .
-	FileSystemConfigs interface{} `json:"fileSystemConfigs" yaml:"fileSystemConfigs"`
+	FileSystemConfigs interface{} `field:"optional" json:"fileSystemConfigs" yaml:"fileSystemConfigs"`
 	// The name of the Lambda function, up to 64 characters in length.
 	//
 	// If you don't specify a name, AWS CloudFormation generates one.
 	//
 	// If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-	FunctionName *string `json:"functionName" yaml:"functionName"`
+	FunctionName *string `field:"optional" json:"functionName" yaml:"functionName"`
 	// The name of the method within your code that Lambda calls to execute your function.
 	//
 	// Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see [Programming Model](https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html) .
-	Handler *string `json:"handler" yaml:"handler"`
+	Handler *string `field:"optional" json:"handler" yaml:"handler"`
 	// Configuration values that override the container image Dockerfile settings.
 	//
 	// See [Container settings](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms) .
-	ImageConfig interface{} `json:"imageConfig" yaml:"imageConfig"`
+	ImageConfig interface{} `field:"optional" json:"imageConfig" yaml:"imageConfig"`
 	// The ARN of the AWS Key Management Service ( AWS KMS ) key that's used to encrypt your function's environment variables.
 	//
 	// If it's not provided, AWS Lambda uses a default service key.
-	KmsKeyArn *string `json:"kmsKeyArn" yaml:"kmsKeyArn"`
+	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
 	// A list of [function layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html) to add to the function's execution environment. Specify each layer by its ARN, including the version.
-	Layers *[]*string `json:"layers" yaml:"layers"`
+	Layers *[]*string `field:"optional" json:"layers" yaml:"layers"`
 	// The amount of [memory available to the function](https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html) at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB.
-	MemorySize *float64 `json:"memorySize" yaml:"memorySize"`
+	MemorySize *float64 `field:"optional" json:"memorySize" yaml:"memorySize"`
 	// The type of deployment package.
 	//
 	// Set to `Image` for container image and set `Zip` for .zip file archive.
-	PackageType *string `json:"packageType" yaml:"packageType"`
+	PackageType *string `field:"optional" json:"packageType" yaml:"packageType"`
 	// The number of simultaneous executions to reserve for the function.
-	ReservedConcurrentExecutions *float64 `json:"reservedConcurrentExecutions" yaml:"reservedConcurrentExecutions"`
+	ReservedConcurrentExecutions *float64 `field:"optional" json:"reservedConcurrentExecutions" yaml:"reservedConcurrentExecutions"`
 	// The identifier of the function's [runtime](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html) . Runtime is required if the deployment package is a .zip file archive.
-	Runtime *string `json:"runtime" yaml:"runtime"`
+	Runtime *string `field:"optional" json:"runtime" yaml:"runtime"`
 	// A list of [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) to apply to the function.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The amount of time (in seconds) that Lambda allows a function to run before stopping it.
 	//
 	// The default is 3 seconds. The maximum allowed value is 900 seconds. For additional information, see [Lambda execution environment](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html) .
-	Timeout *float64 `json:"timeout" yaml:"timeout"`
+	Timeout *float64 `field:"optional" json:"timeout" yaml:"timeout"`
 	// Set `Mode` to `Active` to sample and trace a subset of incoming requests with [X-Ray](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html) .
-	TracingConfig interface{} `json:"tracingConfig" yaml:"tracingConfig"`
+	TracingConfig interface{} `field:"optional" json:"tracingConfig" yaml:"tracingConfig"`
 	// For network connectivity to AWS resources in a [VPC](https://docs.aws.amazon.com/lambda/latest/dg/configuration-network.html) , specify a list of security groups and subnets in the VPC.
-	VpcConfig interface{} `json:"vpcConfig" yaml:"vpcConfig"`
+	VpcConfig interface{} `field:"optional" json:"vpcConfig" yaml:"vpcConfig"`
 }
 
 // A CloudFormation `AWS::Lambda::LayerVersion`.
@@ -7271,8 +7389,11 @@ type CfnFunctionProps struct {
 // The `AWS::Lambda::LayerVersion` resource creates a [Lambda layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html) from a ZIP archive.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
-//   cfnLayerVersion := lambda.NewCfnLayerVersion(this, jsii.String("MyCfnLayerVersion"), &cfnLayerVersionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnLayerVersion := awscdk.Aws_lambda.NewCfnLayerVersion(this, jsii.String("MyCfnLayerVersion"), &cfnLayerVersionProps{
 //   	content: &contentProperty{
 //   		s3Bucket: jsii.String("s3Bucket"),
 //   		s3Key: jsii.String("s3Key"),
@@ -8031,7 +8152,10 @@ func (c *jsiiProxy_CfnLayerVersion) ValidateProperties(_properties interface{}) 
 // A ZIP archive that contains the contents of an [Lambda layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   contentProperty := &contentProperty{
 //   	s3Bucket: jsii.String("s3Bucket"),
 //   	s3Key: jsii.String("s3Key"),
@@ -8042,11 +8166,11 @@ func (c *jsiiProxy_CfnLayerVersion) ValidateProperties(_properties interface{}) 
 //
 type CfnLayerVersion_ContentProperty struct {
 	// The Amazon S3 bucket of the layer archive.
-	S3Bucket *string `json:"s3Bucket" yaml:"s3Bucket"`
+	S3Bucket *string `field:"required" json:"s3Bucket" yaml:"s3Bucket"`
 	// The Amazon S3 key of the layer archive.
-	S3Key *string `json:"s3Key" yaml:"s3Key"`
+	S3Key *string `field:"required" json:"s3Key" yaml:"s3Key"`
 	// For versioned objects, the version of the layer archive object to use.
-	S3ObjectVersion *string `json:"s3ObjectVersion" yaml:"s3ObjectVersion"`
+	S3ObjectVersion *string `field:"optional" json:"s3ObjectVersion" yaml:"s3ObjectVersion"`
 }
 
 // A CloudFormation `AWS::Lambda::LayerVersionPermission`.
@@ -8056,8 +8180,11 @@ type CfnLayerVersion_ContentProperty struct {
 // > Since the release of the [UpdateReplacePolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html) both `UpdateReplacePolicy` and `DeletionPolicy` are required to protect your Resources/LayerPermissions from deletion.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
-//   cfnLayerVersionPermission := lambda.NewCfnLayerVersionPermission(this, jsii.String("MyCfnLayerVersionPermission"), &cfnLayerVersionPermissionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnLayerVersionPermission := awscdk.Aws_lambda.NewCfnLayerVersionPermission(this, jsii.String("MyCfnLayerVersionPermission"), &cfnLayerVersionPermissionProps{
 //   	action: jsii.String("action"),
 //   	layerVersionArn: jsii.String("layerVersionArn"),
 //   	principal: jsii.String("principal"),
@@ -8762,7 +8889,10 @@ func (c *jsiiProxy_CfnLayerVersionPermission) ValidateProperties(_properties int
 // Properties for defining a `CfnLayerVersionPermission`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnLayerVersionPermissionProps := &cfnLayerVersionPermissionProps{
 //   	action: jsii.String("action"),
 //   	layerVersionArn: jsii.String("layerVersionArn"),
@@ -8776,21 +8906,24 @@ type CfnLayerVersionPermissionProps struct {
 	// The API action that grants access to the layer.
 	//
 	// For example, `lambda:GetLayerVersion` .
-	Action *string `json:"action" yaml:"action"`
+	Action *string `field:"required" json:"action" yaml:"action"`
 	// The name or Amazon Resource Name (ARN) of the layer.
-	LayerVersionArn *string `json:"layerVersionArn" yaml:"layerVersionArn"`
+	LayerVersionArn *string `field:"required" json:"layerVersionArn" yaml:"layerVersionArn"`
 	// An account ID, or `*` to grant layer usage permission to all accounts in an organization, or all AWS accounts (if `organizationId` is not specified).
 	//
 	// For the last case, make sure that you really do want all AWS accounts to have usage permission to this layer.
-	Principal *string `json:"principal" yaml:"principal"`
+	Principal *string `field:"required" json:"principal" yaml:"principal"`
 	// With the principal set to `*` , grant permission to all accounts in the specified organization.
-	OrganizationId *string `json:"organizationId" yaml:"organizationId"`
+	OrganizationId *string `field:"optional" json:"organizationId" yaml:"organizationId"`
 }
 
 // Properties for defining a `CfnLayerVersion`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnLayerVersionProps := &cfnLayerVersionProps{
 //   	content: &contentProperty{
 //   		s3Bucket: jsii.String("s3Bucket"),
@@ -8814,21 +8947,21 @@ type CfnLayerVersionPermissionProps struct {
 //
 type CfnLayerVersionProps struct {
 	// The function layer archive.
-	Content interface{} `json:"content" yaml:"content"`
+	Content interface{} `field:"required" json:"content" yaml:"content"`
 	// A list of compatible [instruction set architectures](https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html) .
-	CompatibleArchitectures *[]*string `json:"compatibleArchitectures" yaml:"compatibleArchitectures"`
+	CompatibleArchitectures *[]*string `field:"optional" json:"compatibleArchitectures" yaml:"compatibleArchitectures"`
 	// A list of compatible [function runtimes](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html) . Used for filtering with [ListLayers](https://docs.aws.amazon.com/lambda/latest/dg/API_ListLayers.html) and [ListLayerVersions](https://docs.aws.amazon.com/lambda/latest/dg/API_ListLayerVersions.html) .
-	CompatibleRuntimes *[]*string `json:"compatibleRuntimes" yaml:"compatibleRuntimes"`
+	CompatibleRuntimes *[]*string `field:"optional" json:"compatibleRuntimes" yaml:"compatibleRuntimes"`
 	// The description of the version.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name or Amazon Resource Name (ARN) of the layer.
-	LayerName *string `json:"layerName" yaml:"layerName"`
+	LayerName *string `field:"optional" json:"layerName" yaml:"layerName"`
 	// The layer's software license. It can be any of the following:.
 	//
 	// - An [SPDX license identifier](https://docs.aws.amazon.com/https://spdx.org/licenses/) . For example, `MIT` .
 	// - The URL of a license hosted on the internet. For example, `https://opensource.org/licenses/MIT` .
 	// - The full text of the license.
-	LicenseInfo *string `json:"licenseInfo" yaml:"licenseInfo"`
+	LicenseInfo *string `field:"optional" json:"licenseInfo" yaml:"licenseInfo"`
 }
 
 // Lambda code defined using 2 CloudFormation parameters.
@@ -9295,9 +9428,13 @@ func (c *jsiiProxy_CfnParametersCode) BindToResource(_resource awscdk.CfnResourc
 // Construction properties for {@link CfnParametersCode}.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var cfnParameter cfnParameter
+//
 //   cfnParametersCodeProps := &cfnParametersCodeProps{
 //   	bucketNameParam: cfnParameter,
 //   	objectKeyParam: cfnParameter,
@@ -9309,12 +9446,12 @@ type CfnParametersCodeProps struct {
 	//
 	// Must be of type 'String'.
 	// Experimental.
-	BucketNameParam awscdk.CfnParameter `json:"bucketNameParam" yaml:"bucketNameParam"`
+	BucketNameParam awscdk.CfnParameter `field:"optional" json:"bucketNameParam" yaml:"bucketNameParam"`
 	// The CloudFormation parameter that represents the path inside the S3 Bucket where the Lambda code will be located at.
 	//
 	// Must be of type 'String'.
 	// Experimental.
-	ObjectKeyParam awscdk.CfnParameter `json:"objectKeyParam" yaml:"objectKeyParam"`
+	ObjectKeyParam awscdk.CfnParameter `field:"optional" json:"objectKeyParam" yaml:"objectKeyParam"`
 }
 
 // A CloudFormation `AWS::Lambda::Permission`.
@@ -9328,8 +9465,11 @@ type CfnParametersCodeProps struct {
 // This resource adds a statement to a resource-based permission policy for the function. For more information about function policies, see [Lambda Function Policies](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
-//   cfnPermission := lambda.NewCfnPermission(this, jsii.String("MyCfnPermission"), &cfnPermissionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnPermission := awscdk.Aws_lambda.NewCfnPermission(this, jsii.String("MyCfnPermission"), &cfnPermissionProps{
 //   	action: jsii.String("action"),
 //   	functionName: jsii.String("functionName"),
 //   	principal: jsii.String("principal"),
@@ -10138,7 +10278,10 @@ func (c *jsiiProxy_CfnPermission) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnPermission`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnPermissionProps := &cfnPermissionProps{
 //   	action: jsii.String("action"),
 //   	functionName: jsii.String("functionName"),
@@ -10156,7 +10299,7 @@ type CfnPermissionProps struct {
 	// The action that the principal can use on the function.
 	//
 	// For example, `lambda:InvokeFunction` or `lambda:GetFunction` .
-	Action *string `json:"action" yaml:"action"`
+	Action *string `field:"required" json:"action" yaml:"action"`
 	// The name of the Lambda function, version, or alias.
 	//
 	// **Name formats** - *Function name* - `my-function` (name-only), `my-function:v1` (with alias).
@@ -10164,31 +10307,31 @@ type CfnPermissionProps struct {
 	// - *Partial ARN* - `123456789012:function:my-function` .
 	//
 	// You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-	FunctionName *string `json:"functionName" yaml:"functionName"`
+	FunctionName *string `field:"required" json:"functionName" yaml:"functionName"`
 	// The AWS service or account that invokes the function.
 	//
 	// If you specify a service, use `SourceArn` or `SourceAccount` to limit who can invoke the function through that service.
-	Principal *string `json:"principal" yaml:"principal"`
+	Principal *string `field:"required" json:"principal" yaml:"principal"`
 	// For Alexa Smart Home functions, a token that must be supplied by the invoker.
-	EventSourceToken *string `json:"eventSourceToken" yaml:"eventSourceToken"`
+	EventSourceToken *string `field:"optional" json:"eventSourceToken" yaml:"eventSourceToken"`
 	// The type of authentication that your function URL uses.
 	//
 	// Set to `AWS_IAM` if you want to restrict access to authenticated `IAM` users only. Set to `NONE` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Security and auth model for Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) .
-	FunctionUrlAuthType *string `json:"functionUrlAuthType" yaml:"functionUrlAuthType"`
+	FunctionUrlAuthType *string `field:"optional" json:"functionUrlAuthType" yaml:"functionUrlAuthType"`
 	// The identifier for your organization in AWS Organizations .
 	//
 	// Use this to grant permissions to all the AWS accounts under this organization.
-	PrincipalOrgId *string `json:"principalOrgId" yaml:"principalOrgId"`
+	PrincipalOrgId *string `field:"optional" json:"principalOrgId" yaml:"principalOrgId"`
 	// For Amazon S3, the ID of the account that owns the resource.
 	//
 	// Use this together with `SourceArn` to ensure that the resource is owned by the specified account. It is possible for an Amazon S3 bucket to be deleted by its owner and recreated by another account.
-	SourceAccount *string `json:"sourceAccount" yaml:"sourceAccount"`
+	SourceAccount *string `field:"optional" json:"sourceAccount" yaml:"sourceAccount"`
 	// For AWS services, the ARN of the AWS resource that invokes the function.
 	//
 	// For example, an Amazon S3 bucket or Amazon SNS topic.
 	//
 	// Note that Lambda configures the comparison using the `StringLike` operator.
-	SourceArn *string `json:"sourceArn" yaml:"sourceArn"`
+	SourceArn *string `field:"optional" json:"sourceArn" yaml:"sourceArn"`
 }
 
 // A CloudFormation `AWS::Lambda::Url`.
@@ -10196,8 +10339,11 @@ type CfnPermissionProps struct {
 // The `AWS::Lambda::Url` resource creates a function URL with the specified configuration parameters. A [function URL](https://docs.aws.amazon.com/lambda/latest/dg/lambda-urls.html) is a dedicated HTTP(S) endpoint that you can use to invoke your function.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
-//   cfnUrl := lambda.NewCfnUrl(this, jsii.String("MyCfnUrl"), &cfnUrlProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnUrl := awscdk.Aws_lambda.NewCfnUrl(this, jsii.String("MyCfnUrl"), &cfnUrlProps{
 //   	authType: jsii.String("authType"),
 //   	targetFunctionArn: jsii.String("targetFunctionArn"),
 //
@@ -10945,7 +11091,10 @@ func (c *jsiiProxy_CfnUrl) ValidateProperties(_properties interface{}) {
 // The [Cross-Origin Resource Sharing (CORS)](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for your function URL. Use CORS to grant access to your function URL from any origin. You can also use CORS to control access for specific HTTP headers and methods in requests to your function URL.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   corsProperty := &corsProperty{
 //   	allowCredentials: jsii.Boolean(false),
 //   	allowHeaders: []*string{
@@ -10967,35 +11116,38 @@ type CfnUrl_CorsProperty struct {
 	// Whether you want to allow cookies or other credentials in requests to your function URL.
 	//
 	// The default is `false` .
-	AllowCredentials interface{} `json:"allowCredentials" yaml:"allowCredentials"`
+	AllowCredentials interface{} `field:"optional" json:"allowCredentials" yaml:"allowCredentials"`
 	// The HTTP headers that origins can include in requests to your function URL.
 	//
 	// For example: `Date` , `Keep-Alive` , `X-Custom-Header` .
-	AllowHeaders *[]*string `json:"allowHeaders" yaml:"allowHeaders"`
+	AllowHeaders *[]*string `field:"optional" json:"allowHeaders" yaml:"allowHeaders"`
 	// The HTTP methods that are allowed when calling your function URL.
 	//
 	// For example: `GET` , `POST` , `DELETE` , or the wildcard character ( `*` ).
-	AllowMethods *[]*string `json:"allowMethods" yaml:"allowMethods"`
+	AllowMethods *[]*string `field:"optional" json:"allowMethods" yaml:"allowMethods"`
 	// The origins that can access your function URL.
 	//
 	// You can list any number of specific origins, separated by a comma. For example: `https://www.example.com` , `http://localhost:60905` .
 	//
 	// Alternatively, you can grant access to all origins with the wildcard character ( `*` ).
-	AllowOrigins *[]*string `json:"allowOrigins" yaml:"allowOrigins"`
+	AllowOrigins *[]*string `field:"optional" json:"allowOrigins" yaml:"allowOrigins"`
 	// The HTTP headers in your function response that you want to expose to origins that call your function URL.
 	//
 	// For example: `Date` , `Keep-Alive` , `X-Custom-Header` .
-	ExposeHeaders *[]*string `json:"exposeHeaders" yaml:"exposeHeaders"`
+	ExposeHeaders *[]*string `field:"optional" json:"exposeHeaders" yaml:"exposeHeaders"`
 	// The maximum amount of time, in seconds, that browsers can cache results of a preflight request.
 	//
 	// By default, this is set to `0` , which means the browser will not cache results.
-	MaxAge *float64 `json:"maxAge" yaml:"maxAge"`
+	MaxAge *float64 `field:"optional" json:"maxAge" yaml:"maxAge"`
 }
 
 // Properties for defining a `CfnUrl`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnUrlProps := &cfnUrlProps{
 //   	authType: jsii.String("authType"),
 //   	targetFunctionArn: jsii.String("targetFunctionArn"),
@@ -11024,7 +11176,7 @@ type CfnUrlProps struct {
 	// The type of authentication that your function URL uses.
 	//
 	// Set to `AWS_IAM` if you want to restrict access to authenticated `IAM` users only. Set to `NONE` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Security and auth model for Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) .
-	AuthType *string `json:"authType" yaml:"authType"`
+	AuthType *string `field:"required" json:"authType" yaml:"authType"`
 	// The name of the Lambda function.
 	//
 	// **Name formats** - *Function name* - `my-function` .
@@ -11032,11 +11184,11 @@ type CfnUrlProps struct {
 	// - *Partial ARN* - `123456789012:function:my-function` .
 	//
 	// The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-	TargetFunctionArn *string `json:"targetFunctionArn" yaml:"targetFunctionArn"`
+	TargetFunctionArn *string `field:"required" json:"targetFunctionArn" yaml:"targetFunctionArn"`
 	// The [Cross-Origin Resource Sharing (CORS)](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for your function URL.
-	Cors interface{} `json:"cors" yaml:"cors"`
+	Cors interface{} `field:"optional" json:"cors" yaml:"cors"`
 	// The alias name.
-	Qualifier *string `json:"qualifier" yaml:"qualifier"`
+	Qualifier *string `field:"optional" json:"qualifier" yaml:"qualifier"`
 }
 
 // A CloudFormation `AWS::Lambda::Version`.
@@ -11044,8 +11196,11 @@ type CfnUrlProps struct {
 // The `AWS::Lambda::Version` resource creates a [version](https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html) from the current code and configuration of a function. Use versions to create a snapshot of your function code and configuration that doesn't change.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
-//   cfnVersion := lambda.NewCfnVersion(this, jsii.String("MyCfnVersion"), &cfnVersionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnVersion := awscdk.Aws_lambda.NewCfnVersion(this, jsii.String("MyCfnVersion"), &cfnVersionProps{
 //   	functionName: jsii.String("functionName"),
 //
 //   	// the properties below are optional
@@ -11772,20 +11927,26 @@ func (c *jsiiProxy_CfnVersion) ValidateProperties(_properties interface{}) {
 // A [provisioned concurrency](https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html) configuration for a function's version.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   provisionedConcurrencyConfigurationProperty := &provisionedConcurrencyConfigurationProperty{
 //   	provisionedConcurrentExecutions: jsii.Number(123),
 //   }
 //
 type CfnVersion_ProvisionedConcurrencyConfigurationProperty struct {
 	// The amount of provisioned concurrency to allocate for the version.
-	ProvisionedConcurrentExecutions *float64 `json:"provisionedConcurrentExecutions" yaml:"provisionedConcurrentExecutions"`
+	ProvisionedConcurrentExecutions *float64 `field:"required" json:"provisionedConcurrentExecutions" yaml:"provisionedConcurrentExecutions"`
 }
 
 // Properties for defining a `CfnVersion`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnVersionProps := &cfnVersionProps{
 //   	functionName: jsii.String("functionName"),
 //
@@ -11805,25 +11966,26 @@ type CfnVersionProps struct {
 	// - *Partial ARN* - `123456789012:function:MyFunction` .
 	//
 	// The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-	FunctionName *string `json:"functionName" yaml:"functionName"`
+	FunctionName *string `field:"required" json:"functionName" yaml:"functionName"`
 	// Only publish a version if the hash value matches the value that's specified.
 	//
 	// Use this option to avoid publishing a version if the function code has changed since you last updated it. Updates are not supported for this property.
-	CodeSha256 *string `json:"codeSha256" yaml:"codeSha256"`
+	CodeSha256 *string `field:"optional" json:"codeSha256" yaml:"codeSha256"`
 	// A description for the version to override the description in the function configuration.
 	//
 	// Updates are not supported for this property.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Specifies a provisioned concurrency configuration for a function's version.
 	//
 	// Updates are not supported for this property.
-	ProvisionedConcurrencyConfig interface{} `json:"provisionedConcurrencyConfig" yaml:"provisionedConcurrencyConfig"`
+	ProvisionedConcurrencyConfig interface{} `field:"optional" json:"provisionedConcurrencyConfig" yaml:"provisionedConcurrencyConfig"`
 }
 
 // Represents the Lambda Handler Code.
 //
 // Example:
 //   import signer "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   signingProfile := signer.NewSigningProfile(this, jsii.String("SigningProfile"), &signingProfileProps{
 //   	platform: signer.platform_AWS_LAMBDA_SHA384_ECDSA(),
@@ -11837,7 +11999,7 @@ type CfnVersionProps struct {
 //
 //   lambda.NewFunction(this, jsii.String("Function"), &functionProps{
 //   	codeSigningConfig: codeSigningConfig,
-//   	runtime: lambda.runtime_NODEJS_12_X(),
+//   	runtime: lambda.runtime_NODEJS_16_X(),
 //   	handler: jsii.String("index.handler"),
 //   	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 //   })
@@ -12104,7 +12266,10 @@ func (c *jsiiProxy_Code) BindToResource(_resource awscdk.CfnResource, _options *
 // Result of binding `Code` into a `Function`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   codeConfig := &codeConfig{
 //   	image: &codeImageConfig{
 //   		imageUri: jsii.String("imageUri"),
@@ -12132,19 +12297,22 @@ func (c *jsiiProxy_Code) BindToResource(_resource awscdk.CfnResource, _options *
 type CodeConfig struct {
 	// Docker image configuration (mutually exclusive with `s3Location` and `inlineCode`).
 	// Experimental.
-	Image *CodeImageConfig `json:"image" yaml:"image"`
+	Image *CodeImageConfig `field:"optional" json:"image" yaml:"image"`
 	// Inline code (mutually exclusive with `s3Location` and `image`).
 	// Experimental.
-	InlineCode *string `json:"inlineCode" yaml:"inlineCode"`
+	InlineCode *string `field:"optional" json:"inlineCode" yaml:"inlineCode"`
 	// The location of the code in S3 (mutually exclusive with `inlineCode` and `image`).
 	// Experimental.
-	S3Location *awss3.Location `json:"s3Location" yaml:"s3Location"`
+	S3Location *awss3.Location `field:"optional" json:"s3Location" yaml:"s3Location"`
 }
 
 // Result of the bind when an ECR image is used.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   codeImageConfig := &codeImageConfig{
 //   	imageUri: jsii.String("imageUri"),
 //
@@ -12162,14 +12330,14 @@ type CodeConfig struct {
 type CodeImageConfig struct {
 	// URI to the Docker image.
 	// Experimental.
-	ImageUri *string `json:"imageUri" yaml:"imageUri"`
+	ImageUri *string `field:"required" json:"imageUri" yaml:"imageUri"`
 	// Specify or override the CMD on the specified Docker image or Dockerfile.
 	//
 	// This needs to be in the 'exec form', viz., `[ 'executable', 'param1', 'param2' ]`.
 	// See: https://docs.docker.com/engine/reference/builder/#cmd
 	//
 	// Experimental.
-	Cmd *[]*string `json:"cmd" yaml:"cmd"`
+	Cmd *[]*string `field:"optional" json:"cmd" yaml:"cmd"`
 	// Specify or override the ENTRYPOINT on the specified Docker image or Dockerfile.
 	//
 	// An ENTRYPOINT allows you to configure a container that will run as an executable.
@@ -12177,20 +12345,21 @@ type CodeImageConfig struct {
 	// See: https://docs.docker.com/engine/reference/builder/#entrypoint
 	//
 	// Experimental.
-	Entrypoint *[]*string `json:"entrypoint" yaml:"entrypoint"`
+	Entrypoint *[]*string `field:"optional" json:"entrypoint" yaml:"entrypoint"`
 	// Specify or override the WORKDIR on the specified Docker image or Dockerfile.
 	//
 	// A WORKDIR allows you to configure the working directory the container will use.
 	// See: https://docs.docker.com/engine/reference/builder/#workdir
 	//
 	// Experimental.
-	WorkingDirectory *string `json:"workingDirectory" yaml:"workingDirectory"`
+	WorkingDirectory *string `field:"optional" json:"workingDirectory" yaml:"workingDirectory"`
 }
 
 // Defines a Code Signing Config.
 //
 // Example:
 //   import signer "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   signingProfile := signer.NewSigningProfile(this, jsii.String("SigningProfile"), &signingProfileProps{
 //   	platform: signer.platform_AWS_LAMBDA_SHA384_ECDSA(),
@@ -12204,7 +12373,7 @@ type CodeImageConfig struct {
 //
 //   lambda.NewFunction(this, jsii.String("Function"), &functionProps{
 //   	codeSigningConfig: codeSigningConfig,
-//   	runtime: lambda.runtime_NODEJS_12_X(),
+//   	runtime: lambda.runtime_NODEJS_16_X(),
 //   	handler: jsii.String("index.handler"),
 //   	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 //   })
@@ -12592,6 +12761,7 @@ func (c *jsiiProxy_CodeSigningConfig) Validate() *[]*string {
 // Example:
 //   import signer "github.com/aws/aws-cdk-go/awscdk"
 //
+//
 //   signingProfile := signer.NewSigningProfile(this, jsii.String("SigningProfile"), &signingProfileProps{
 //   	platform: signer.platform_AWS_LAMBDA_SHA384_ECDSA(),
 //   })
@@ -12604,7 +12774,7 @@ func (c *jsiiProxy_CodeSigningConfig) Validate() *[]*string {
 //
 //   lambda.NewFunction(this, jsii.String("Function"), &functionProps{
 //   	codeSigningConfig: codeSigningConfig,
-//   	runtime: lambda.runtime_NODEJS_12_X(),
+//   	runtime: lambda.runtime_NODEJS_16_X(),
 //   	handler: jsii.String("index.handler"),
 //   	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 //   })
@@ -12613,10 +12783,10 @@ func (c *jsiiProxy_CodeSigningConfig) Validate() *[]*string {
 type CodeSigningConfigProps struct {
 	// List of signing profiles that defines a trusted user who can sign a code package.
 	// Experimental.
-	SigningProfiles *[]awssigner.ISigningProfile `json:"signingProfiles" yaml:"signingProfiles"`
+	SigningProfiles *[]awssigner.ISigningProfile `field:"required" json:"signingProfiles" yaml:"signingProfiles"`
 	// Code signing configuration description.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Code signing configuration policy for deployment validation failure.
 	//
 	// If you set the policy to Enforce, Lambda blocks the deployment request
@@ -12624,13 +12794,16 @@ type CodeSigningConfigProps struct {
 	// If you set the policy to Warn, Lambda allows the deployment and
 	// creates a CloudWatch log.
 	// Experimental.
-	UntrustedArtifactOnDeployment UntrustedArtifactOnDeployment `json:"untrustedArtifactOnDeployment" yaml:"untrustedArtifactOnDeployment"`
+	UntrustedArtifactOnDeployment UntrustedArtifactOnDeployment `field:"optional" json:"untrustedArtifactOnDeployment" yaml:"untrustedArtifactOnDeployment"`
 }
 
 // A destination configuration.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   destinationConfig := &destinationConfig{
 //   	destination: jsii.String("destination"),
 //   }
@@ -12639,22 +12812,25 @@ type CodeSigningConfigProps struct {
 type DestinationConfig struct {
 	// The Amazon Resource Name (ARN) of the destination resource.
 	// Experimental.
-	Destination *string `json:"destination" yaml:"destination"`
+	Destination *string `field:"required" json:"destination" yaml:"destination"`
 }
 
 // Options when binding a destination to a function.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   destinationOptions := &destinationOptions{
-//   	type: lambda.destinationType_FAILURE,
+//   	type: awscdk.Aws_lambda.destinationType_FAILURE,
 //   }
 //
 // Experimental.
 type DestinationOptions struct {
 	// The destination type.
 	// Experimental.
-	Type DestinationType `json:"type" yaml:"type"`
+	Type DestinationType `field:"required" json:"type" yaml:"type"`
 }
 
 // The type of destination.
@@ -12673,7 +12849,10 @@ const (
 // A destination configuration.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dlqDestinationConfig := &dlqDestinationConfig{
 //   	destination: jsii.String("destination"),
 //   }
@@ -12682,13 +12861,16 @@ const (
 type DlqDestinationConfig struct {
 	// The Amazon Resource Name (ARN) of the destination resource.
 	// Experimental.
-	Destination *string `json:"destination" yaml:"destination"`
+	Destination *string `field:"required" json:"destination" yaml:"destination"`
 }
 
 // Options when creating an asset from a Docker build.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dockerBuildAssetOptions := &dockerBuildAssetOptions{
 //   	buildArgs: map[string]*string{
 //   		"buildArgsKey": jsii.String("buildArgs"),
@@ -12703,21 +12885,21 @@ type DlqDestinationConfig struct {
 type DockerBuildAssetOptions struct {
 	// Build args.
 	// Experimental.
-	BuildArgs *map[string]*string `json:"buildArgs" yaml:"buildArgs"`
+	BuildArgs *map[string]*string `field:"optional" json:"buildArgs" yaml:"buildArgs"`
 	// Name of the Dockerfile, must relative to the docker build path.
 	// Experimental.
-	File *string `json:"file" yaml:"file"`
+	File *string `field:"optional" json:"file" yaml:"file"`
 	// Set platform if server is multi-platform capable. _Requires Docker Engine API v1.38+_.
 	//
 	// Example value: `linux/amd64`.
 	// Experimental.
-	Platform *string `json:"platform" yaml:"platform"`
+	Platform *string `field:"optional" json:"platform" yaml:"platform"`
 	// The path in the Docker image where the asset is located after the build operation.
 	// Experimental.
-	ImagePath *string `json:"imagePath" yaml:"imagePath"`
+	ImagePath *string `field:"optional" json:"imagePath" yaml:"imagePath"`
 	// The path on the local filesystem where the asset will be copied using `docker cp`.
 	// Experimental.
-	OutputPath *string `json:"outputPath" yaml:"outputPath"`
+	OutputPath *string `field:"optional" json:"outputPath" yaml:"outputPath"`
 }
 
 // Code property for the DockerImageFunction construct.
@@ -13890,142 +14072,142 @@ type DockerImageFunctionProps struct {
 	// Minimum: 60 seconds
 	// Maximum: 6 hours.
 	// Experimental.
-	MaxEventAge awscdk.Duration `json:"maxEventAge" yaml:"maxEventAge"`
+	MaxEventAge awscdk.Duration `field:"optional" json:"maxEventAge" yaml:"maxEventAge"`
 	// The destination for failed invocations.
 	// Experimental.
-	OnFailure IDestination `json:"onFailure" yaml:"onFailure"`
+	OnFailure IDestination `field:"optional" json:"onFailure" yaml:"onFailure"`
 	// The destination for successful invocations.
 	// Experimental.
-	OnSuccess IDestination `json:"onSuccess" yaml:"onSuccess"`
+	OnSuccess IDestination `field:"optional" json:"onSuccess" yaml:"onSuccess"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum: 0
 	// Maximum: 2.
 	// Experimental.
-	RetryAttempts *float64 `json:"retryAttempts" yaml:"retryAttempts"`
+	RetryAttempts *float64 `field:"optional" json:"retryAttempts" yaml:"retryAttempts"`
 	// Whether to allow the Lambda to send all network traffic.
 	//
 	// If set to false, you must individually add traffic rules to allow the
 	// Lambda to connect to network targets.
 	// Experimental.
-	AllowAllOutbound *bool `json:"allowAllOutbound" yaml:"allowAllOutbound"`
+	AllowAllOutbound *bool `field:"optional" json:"allowAllOutbound" yaml:"allowAllOutbound"`
 	// Lambda Functions in a public subnet can NOT access the internet.
 	//
 	// Use this property to acknowledge this limitation and still place the function in a public subnet.
 	// See: https://stackoverflow.com/questions/52992085/why-cant-an-aws-lambda-function-inside-a-public-subnet-in-a-vpc-connect-to-the/52994841#52994841
 	//
 	// Experimental.
-	AllowPublicSubnet *bool `json:"allowPublicSubnet" yaml:"allowPublicSubnet"`
+	AllowPublicSubnet *bool `field:"optional" json:"allowPublicSubnet" yaml:"allowPublicSubnet"`
 	// The system architectures compatible with this lambda function.
 	// Experimental.
-	Architecture Architecture `json:"architecture" yaml:"architecture"`
+	Architecture Architecture `field:"optional" json:"architecture" yaml:"architecture"`
 	// DEPRECATED.
 	// Deprecated: use `architecture`.
-	Architectures *[]Architecture `json:"architectures" yaml:"architectures"`
+	Architectures *[]Architecture `field:"optional" json:"architectures" yaml:"architectures"`
 	// Code signing config associated with this function.
 	// Experimental.
-	CodeSigningConfig ICodeSigningConfig `json:"codeSigningConfig" yaml:"codeSigningConfig"`
+	CodeSigningConfig ICodeSigningConfig `field:"optional" json:"codeSigningConfig" yaml:"codeSigningConfig"`
 	// Options for the `lambda.Version` resource automatically created by the `fn.currentVersion` method.
 	// Experimental.
-	CurrentVersionOptions *VersionOptions `json:"currentVersionOptions" yaml:"currentVersionOptions"`
+	CurrentVersionOptions *VersionOptions `field:"optional" json:"currentVersionOptions" yaml:"currentVersionOptions"`
 	// The SQS queue to use if DLQ is enabled.
 	//
 	// If SNS topic is desired, specify `deadLetterTopic` property instead.
 	// Experimental.
-	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue" yaml:"deadLetterQueue"`
+	DeadLetterQueue awssqs.IQueue `field:"optional" json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// Enabled DLQ.
 	//
 	// If `deadLetterQueue` is undefined,
 	// an SQS queue with default options will be defined for your Function.
 	// Experimental.
-	DeadLetterQueueEnabled *bool `json:"deadLetterQueueEnabled" yaml:"deadLetterQueueEnabled"`
+	DeadLetterQueueEnabled *bool `field:"optional" json:"deadLetterQueueEnabled" yaml:"deadLetterQueueEnabled"`
 	// The SNS topic to use as a DLQ.
 	//
 	// Note that if `deadLetterQueueEnabled` is set to `true`, an SQS queue will be created
 	// rather than an SNS topic. Using an SNS topic as a DLQ requires this property to be set explicitly.
 	// Experimental.
-	DeadLetterTopic awssns.ITopic `json:"deadLetterTopic" yaml:"deadLetterTopic"`
+	DeadLetterTopic awssns.ITopic `field:"optional" json:"deadLetterTopic" yaml:"deadLetterTopic"`
 	// A description of the function.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Key-value pairs that Lambda caches and makes available for your Lambda functions.
 	//
 	// Use environment variables to apply configuration changes, such
 	// as test and production environment configurations, without changing your
 	// Lambda function source code.
 	// Experimental.
-	Environment *map[string]*string `json:"environment" yaml:"environment"`
+	Environment *map[string]*string `field:"optional" json:"environment" yaml:"environment"`
 	// The AWS KMS key that's used to encrypt your function's environment variables.
 	// Experimental.
-	EnvironmentEncryption awskms.IKey `json:"environmentEncryption" yaml:"environmentEncryption"`
+	EnvironmentEncryption awskms.IKey `field:"optional" json:"environmentEncryption" yaml:"environmentEncryption"`
 	// The size of the function’s /tmp directory in MiB.
 	// Experimental.
-	EphemeralStorageSize awscdk.Size `json:"ephemeralStorageSize" yaml:"ephemeralStorageSize"`
+	EphemeralStorageSize awscdk.Size `field:"optional" json:"ephemeralStorageSize" yaml:"ephemeralStorageSize"`
 	// Event sources for this function.
 	//
 	// You can also add event sources using `addEventSource`.
 	// Experimental.
-	Events *[]IEventSource `json:"events" yaml:"events"`
+	Events *[]IEventSource `field:"optional" json:"events" yaml:"events"`
 	// The filesystem configuration for the lambda function.
 	// Experimental.
-	Filesystem FileSystem `json:"filesystem" yaml:"filesystem"`
+	Filesystem FileSystem `field:"optional" json:"filesystem" yaml:"filesystem"`
 	// A name for the function.
 	// Experimental.
-	FunctionName *string `json:"functionName" yaml:"functionName"`
+	FunctionName *string `field:"optional" json:"functionName" yaml:"functionName"`
 	// Initial policy statements to add to the created Lambda Role.
 	//
 	// You can call `addToRolePolicy` to the created lambda to add statements post creation.
 	// Experimental.
-	InitialPolicy *[]awsiam.PolicyStatement `json:"initialPolicy" yaml:"initialPolicy"`
+	InitialPolicy *[]awsiam.PolicyStatement `field:"optional" json:"initialPolicy" yaml:"initialPolicy"`
 	// Specify the version of CloudWatch Lambda insights to use for monitoring.
 	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Lambda-Insights-Getting-Started-docker.html
 	//
 	// Experimental.
-	InsightsVersion LambdaInsightsVersion `json:"insightsVersion" yaml:"insightsVersion"`
+	InsightsVersion LambdaInsightsVersion `field:"optional" json:"insightsVersion" yaml:"insightsVersion"`
 	// A list of layers to add to the function's execution environment.
 	//
 	// You can configure your Lambda function to pull in
 	// additional code during initialization in the form of layers. Layers are packages of libraries or other dependencies
 	// that can be used by multiple functions.
 	// Experimental.
-	Layers *[]ILayerVersion `json:"layers" yaml:"layers"`
+	Layers *[]ILayerVersion `field:"optional" json:"layers" yaml:"layers"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `INFINITE`.
 	// Experimental.
-	LogRetention awslogs.RetentionDays `json:"logRetention" yaml:"logRetention"`
+	LogRetention awslogs.RetentionDays `field:"optional" json:"logRetention" yaml:"logRetention"`
 	// When log retention is specified, a custom resource attempts to create the CloudWatch log group.
 	//
 	// These options control the retry policy when interacting with CloudWatch APIs.
 	// Experimental.
-	LogRetentionRetryOptions *LogRetentionRetryOptions `json:"logRetentionRetryOptions" yaml:"logRetentionRetryOptions"`
+	LogRetentionRetryOptions *LogRetentionRetryOptions `field:"optional" json:"logRetentionRetryOptions" yaml:"logRetentionRetryOptions"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
 	// Experimental.
-	LogRetentionRole awsiam.IRole `json:"logRetentionRole" yaml:"logRetentionRole"`
+	LogRetentionRole awsiam.IRole `field:"optional" json:"logRetentionRole" yaml:"logRetentionRole"`
 	// The amount of memory, in MB, that is allocated to your Lambda function.
 	//
 	// Lambda uses this value to proportionally allocate the amount of CPU
 	// power. For more information, see Resource Model in the AWS Lambda
 	// Developer Guide.
 	// Experimental.
-	MemorySize *float64 `json:"memorySize" yaml:"memorySize"`
+	MemorySize *float64 `field:"optional" json:"memorySize" yaml:"memorySize"`
 	// Enable profiling.
 	// See: https://docs.aws.amazon.com/codeguru/latest/profiler-ug/setting-up-lambda.html
 	//
 	// Experimental.
-	Profiling *bool `json:"profiling" yaml:"profiling"`
+	Profiling *bool `field:"optional" json:"profiling" yaml:"profiling"`
 	// Profiling Group.
 	// See: https://docs.aws.amazon.com/codeguru/latest/profiler-ug/setting-up-lambda.html
 	//
 	// Experimental.
-	ProfilingGroup awscodeguruprofiler.IProfilingGroup `json:"profilingGroup" yaml:"profilingGroup"`
+	ProfilingGroup awscodeguruprofiler.IProfilingGroup `field:"optional" json:"profilingGroup" yaml:"profilingGroup"`
 	// The maximum of concurrent executions you want to reserve for the function.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html
 	//
 	// Experimental.
-	ReservedConcurrentExecutions *float64 `json:"reservedConcurrentExecutions" yaml:"reservedConcurrentExecutions"`
+	ReservedConcurrentExecutions *float64 `field:"optional" json:"reservedConcurrentExecutions" yaml:"reservedConcurrentExecutions"`
 	// Lambda execution role.
 	//
 	// This is the role that will be assumed by the function upon execution.
@@ -14038,7 +14220,7 @@ type DockerImageFunctionProps struct {
 	// The relevant managed policies are "service-role/AWSLambdaBasicExecutionRole" and
 	// "service-role/AWSLambdaVPCAccessExecutionRole".
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// What security group to associate with the Lambda's network interfaces. This property is being deprecated, consider using securityGroups instead.
 	//
 	// Only used if 'vpc' is supplied.
@@ -14046,48 +14228,52 @@ type DockerImageFunctionProps struct {
 	// Use securityGroups property instead.
 	// Function constructor will throw an error if both are specified.
 	// Deprecated: - This property is deprecated, use securityGroups instead.
-	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup" yaml:"securityGroup"`
+	SecurityGroup awsec2.ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
 	// The list of security groups to associate with the Lambda's network interfaces.
 	//
 	// Only used if 'vpc' is supplied.
 	// Experimental.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// The function execution time (in seconds) after which Lambda terminates the function.
 	//
 	// Because the execution time affects cost, set this value
 	// based on the function's expected execution time.
 	// Experimental.
-	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
+	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 	// Enable AWS X-Ray Tracing for Lambda Function.
 	// Experimental.
-	Tracing Tracing `json:"tracing" yaml:"tracing"`
+	Tracing Tracing `field:"optional" json:"tracing" yaml:"tracing"`
 	// VPC network to place Lambda network interfaces.
 	//
 	// Specify this if the Lambda function needs to access resources in a VPC.
 	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
+	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 	// Where to place the network interfaces within the VPC.
 	//
 	// Only used if 'vpc' is supplied. Note: internet access for Lambdas
 	// requires a NAT gateway, so picking Public subnets is not allowed.
 	// Experimental.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 	// The source code of your Lambda function.
 	//
 	// You can point to a file in an
 	// Amazon Simple Storage Service (Amazon S3) bucket or specify your source
 	// code as inline text.
 	// Experimental.
-	Code DockerImageCode `json:"code" yaml:"code"`
+	Code DockerImageCode `field:"required" json:"code" yaml:"code"`
 }
 
 // Represents a Docker image in ECR that can be bound as Lambda Code.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ecr "github.com/aws/aws-cdk-go/awscdk/aws_ecr"import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var repository repository
-//   ecrImageCode := lambda.NewEcrImageCode(repository, &ecrImageCodeProps{
+//
+//   ecrImageCode := awscdk.Aws_lambda.NewEcrImageCode(repository, &ecrImageCodeProps{
 //   	cmd: []*string{
 //   		jsii.String("cmd"),
 //   	},
@@ -14376,7 +14562,10 @@ func (e *jsiiProxy_EcrImageCode) BindToResource(_resource awscdk.CfnResource, _o
 // Properties to initialize a new EcrImageCode.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   ecrImageCodeProps := &ecrImageCodeProps{
 //   	cmd: []*string{
 //   		jsii.String("cmd"),
@@ -14397,7 +14586,7 @@ type EcrImageCodeProps struct {
 	// See: https://docs.docker.com/engine/reference/builder/#cmd
 	//
 	// Experimental.
-	Cmd *[]*string `json:"cmd" yaml:"cmd"`
+	Cmd *[]*string `field:"optional" json:"cmd" yaml:"cmd"`
 	// Specify or override the ENTRYPOINT on the specified Docker image or Dockerfile.
 	//
 	// An ENTRYPOINT allows you to configure a container that will run as an executable.
@@ -14405,26 +14594,29 @@ type EcrImageCodeProps struct {
 	// See: https://docs.docker.com/engine/reference/builder/#entrypoint
 	//
 	// Experimental.
-	Entrypoint *[]*string `json:"entrypoint" yaml:"entrypoint"`
+	Entrypoint *[]*string `field:"optional" json:"entrypoint" yaml:"entrypoint"`
 	// The image tag to use when pulling the image from ECR.
 	// Deprecated: use `tagOrDigest`.
-	Tag *string `json:"tag" yaml:"tag"`
+	Tag *string `field:"optional" json:"tag" yaml:"tag"`
 	// The image tag or digest to use when pulling the image from ECR (digests must start with `sha256:`).
 	// Experimental.
-	TagOrDigest *string `json:"tagOrDigest" yaml:"tagOrDigest"`
+	TagOrDigest *string `field:"optional" json:"tagOrDigest" yaml:"tagOrDigest"`
 	// Specify or override the WORKDIR on the specified Docker image or Dockerfile.
 	//
 	// A WORKDIR allows you to configure the working directory the container will use.
 	// See: https://docs.docker.com/engine/reference/builder/#workdir
 	//
 	// Experimental.
-	WorkingDirectory *string `json:"workingDirectory" yaml:"workingDirectory"`
+	WorkingDirectory *string `field:"optional" json:"workingDirectory" yaml:"workingDirectory"`
 }
 
 // Environment variables options.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   environmentOptions := &environmentOptions{
 //   	removeInEdge: jsii.Boolean(false),
 //   }
@@ -14437,7 +14629,7 @@ type EnvironmentOptions struct {
 	// See: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-requirements-limits.html#lambda-requirements-lambda-function-configuration
 	//
 	// Experimental.
-	RemoveInEdge *bool `json:"removeInEdge" yaml:"removeInEdge"`
+	RemoveInEdge *bool `field:"optional" json:"removeInEdge" yaml:"removeInEdge"`
 }
 
 // Configure options for asynchronous invocation on a version or an alias.
@@ -14448,12 +14640,16 @@ type EnvironmentOptions struct {
 // queue for too long, Lambda discards it.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var destination iDestination
 //   var duration duration
 //   var function_ function
-//   eventInvokeConfig := lambda.NewEventInvokeConfig(this, jsii.String("MyEventInvokeConfig"), &eventInvokeConfigProps{
+//
+//   eventInvokeConfig := awscdk.Aws_lambda.NewEventInvokeConfig(this, jsii.String("MyEventInvokeConfig"), &eventInvokeConfigProps{
 //   	function: function_,
 //
 //   	// the properties below are optional
@@ -14800,10 +14996,14 @@ func (e *jsiiProxy_EventInvokeConfig) Validate() *[]*string {
 // Options to add an EventInvokeConfig to a function.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var destination iDestination
 //   var duration duration
+//
 //   eventInvokeConfigOptions := &eventInvokeConfigOptions{
 //   	maxEventAge: duration,
 //   	onFailure: destination,
@@ -14818,29 +15018,33 @@ type EventInvokeConfigOptions struct {
 	// Minimum: 60 seconds
 	// Maximum: 6 hours.
 	// Experimental.
-	MaxEventAge awscdk.Duration `json:"maxEventAge" yaml:"maxEventAge"`
+	MaxEventAge awscdk.Duration `field:"optional" json:"maxEventAge" yaml:"maxEventAge"`
 	// The destination for failed invocations.
 	// Experimental.
-	OnFailure IDestination `json:"onFailure" yaml:"onFailure"`
+	OnFailure IDestination `field:"optional" json:"onFailure" yaml:"onFailure"`
 	// The destination for successful invocations.
 	// Experimental.
-	OnSuccess IDestination `json:"onSuccess" yaml:"onSuccess"`
+	OnSuccess IDestination `field:"optional" json:"onSuccess" yaml:"onSuccess"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum: 0
 	// Maximum: 2.
 	// Experimental.
-	RetryAttempts *float64 `json:"retryAttempts" yaml:"retryAttempts"`
+	RetryAttempts *float64 `field:"optional" json:"retryAttempts" yaml:"retryAttempts"`
 }
 
 // Properties for an EventInvokeConfig.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var destination iDestination
 //   var duration duration
 //   var function_ function
+//
 //   eventInvokeConfigProps := &eventInvokeConfigProps{
 //   	function: function_,
 //
@@ -14859,25 +15063,25 @@ type EventInvokeConfigProps struct {
 	// Minimum: 60 seconds
 	// Maximum: 6 hours.
 	// Experimental.
-	MaxEventAge awscdk.Duration `json:"maxEventAge" yaml:"maxEventAge"`
+	MaxEventAge awscdk.Duration `field:"optional" json:"maxEventAge" yaml:"maxEventAge"`
 	// The destination for failed invocations.
 	// Experimental.
-	OnFailure IDestination `json:"onFailure" yaml:"onFailure"`
+	OnFailure IDestination `field:"optional" json:"onFailure" yaml:"onFailure"`
 	// The destination for successful invocations.
 	// Experimental.
-	OnSuccess IDestination `json:"onSuccess" yaml:"onSuccess"`
+	OnSuccess IDestination `field:"optional" json:"onSuccess" yaml:"onSuccess"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum: 0
 	// Maximum: 2.
 	// Experimental.
-	RetryAttempts *float64 `json:"retryAttempts" yaml:"retryAttempts"`
+	RetryAttempts *float64 `field:"optional" json:"retryAttempts" yaml:"retryAttempts"`
 	// The Lambda function.
 	// Experimental.
-	Function IFunction `json:"function" yaml:"function"`
+	Function IFunction `field:"required" json:"function" yaml:"function"`
 	// The qualifier.
 	// Experimental.
-	Qualifier *string `json:"qualifier" yaml:"qualifier"`
+	Qualifier *string `field:"optional" json:"qualifier" yaml:"qualifier"`
 }
 
 // Defines a Lambda EventSourceMapping resource.
@@ -14892,13 +15096,17 @@ type EventInvokeConfigProps struct {
 // modify the Lambda's execution role so it can consume messages from the queue.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var eventSourceDlq iEventSourceDlq
 //   var function_ function
 //   var sourceAccessConfigurationType sourceAccessConfigurationType
-//   eventSourceMapping := lambda.NewEventSourceMapping(this, jsii.String("MyEventSourceMapping"), &eventSourceMappingProps{
+//
+//   eventSourceMapping := awscdk.Aws_lambda.NewEventSourceMapping(this, jsii.String("MyEventSourceMapping"), &eventSourceMappingProps{
 //   	target: function_,
 //
 //   	// the properties below are optional
@@ -14922,7 +15130,7 @@ type EventInvokeConfigProps struct {
 //   			uri: jsii.String("uri"),
 //   		},
 //   	},
-//   	startingPosition: lambda.startingPosition_TRIM_HORIZON,
+//   	startingPosition: awscdk.*Aws_lambda.startingPosition_TRIM_HORIZON,
 //   	tumblingWindow: duration,
 //   })
 //
@@ -15292,11 +15500,15 @@ func (e *jsiiProxy_EventSourceMapping) Validate() *[]*string {
 }
 
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var eventSourceDlq iEventSourceDlq
 //   var sourceAccessConfigurationType sourceAccessConfigurationType
+//
 //   eventSourceMappingOptions := &eventSourceMappingOptions{
 //   	batchSize: jsii.Number(123),
 //   	bisectBatchOnError: jsii.Boolean(false),
@@ -15318,7 +15530,7 @@ func (e *jsiiProxy_EventSourceMapping) Validate() *[]*string {
 //   			uri: jsii.String("uri"),
 //   		},
 //   	},
-//   	startingPosition: lambda.startingPosition_TRIM_HORIZON,
+//   	startingPosition: awscdk.Aws_lambda.startingPosition_TRIM_HORIZON,
 //   	tumblingWindow: duration,
 //   }
 //
@@ -15331,54 +15543,54 @@ type EventSourceMappingOptions struct {
 	//
 	// Valid Range: Minimum value of 1. Maximum value of 10000.
 	// Experimental.
-	BatchSize *float64 `json:"batchSize" yaml:"batchSize"`
+	BatchSize *float64 `field:"optional" json:"batchSize" yaml:"batchSize"`
 	// If the function returns an error, split the batch in two and retry.
 	// Experimental.
-	BisectBatchOnError *bool `json:"bisectBatchOnError" yaml:"bisectBatchOnError"`
+	BisectBatchOnError *bool `field:"optional" json:"bisectBatchOnError" yaml:"bisectBatchOnError"`
 	// Set to false to disable the event source upon creation.
 	// Experimental.
-	Enabled *bool `json:"enabled" yaml:"enabled"`
+	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// The Amazon Resource Name (ARN) of the event source.
 	//
 	// Any record added to
 	// this stream can invoke the Lambda function.
 	// Experimental.
-	EventSourceArn *string `json:"eventSourceArn" yaml:"eventSourceArn"`
+	EventSourceArn *string `field:"optional" json:"eventSourceArn" yaml:"eventSourceArn"`
 	// A list of host and port pairs that are the addresses of the Kafka brokers in a self managed "bootstrap" Kafka cluster that a Kafka client connects to initially to bootstrap itself.
 	//
 	// They are in the format `abc.example.com:9096`.
 	// Experimental.
-	KafkaBootstrapServers *[]*string `json:"kafkaBootstrapServers" yaml:"kafkaBootstrapServers"`
+	KafkaBootstrapServers *[]*string `field:"optional" json:"kafkaBootstrapServers" yaml:"kafkaBootstrapServers"`
 	// The name of the Kafka topic.
 	// Experimental.
-	KafkaTopic *string `json:"kafkaTopic" yaml:"kafkaTopic"`
+	KafkaTopic *string `field:"optional" json:"kafkaTopic" yaml:"kafkaTopic"`
 	// The maximum amount of time to gather records before invoking the function.
 	//
 	// Maximum of Duration.minutes(5)
 	// Experimental.
-	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
+	MaxBatchingWindow awscdk.Duration `field:"optional" json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
 	// The maximum age of a record that Lambda sends to a function for processing.
 	//
 	// Valid Range:
 	// * Minimum value of 60 seconds
 	// * Maximum value of 7 days.
 	// Experimental.
-	MaxRecordAge awscdk.Duration `json:"maxRecordAge" yaml:"maxRecordAge"`
+	MaxRecordAge awscdk.Duration `field:"optional" json:"maxRecordAge" yaml:"maxRecordAge"`
 	// An Amazon SQS queue or Amazon SNS topic destination for discarded records.
 	// Experimental.
-	OnFailure IEventSourceDlq `json:"onFailure" yaml:"onFailure"`
+	OnFailure IEventSourceDlq `field:"optional" json:"onFailure" yaml:"onFailure"`
 	// The number of batches to process from each shard concurrently.
 	//
 	// Valid Range:
 	// * Minimum value of 1
 	// * Maximum value of 10.
 	// Experimental.
-	ParallelizationFactor *float64 `json:"parallelizationFactor" yaml:"parallelizationFactor"`
+	ParallelizationFactor *float64 `field:"optional" json:"parallelizationFactor" yaml:"parallelizationFactor"`
 	// Allow functions to return partially successful responses for a batch of records.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting
 	//
 	// Experimental.
-	ReportBatchItemFailures *bool `json:"reportBatchItemFailures" yaml:"reportBatchItemFailures"`
+	ReportBatchItemFailures *bool `field:"optional" json:"reportBatchItemFailures" yaml:"reportBatchItemFailures"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Set to `undefined` if you want lambda to keep retrying infinitely or until
@@ -15388,35 +15600,39 @@ type EventSourceMappingOptions struct {
 	// * Minimum value of 0
 	// * Maximum value of 10000.
 	// Experimental.
-	RetryAttempts *float64 `json:"retryAttempts" yaml:"retryAttempts"`
+	RetryAttempts *float64 `field:"optional" json:"retryAttempts" yaml:"retryAttempts"`
 	// Specific settings like the authentication protocol or the VPC components to secure access to your event source.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.html
 	//
 	// Experimental.
-	SourceAccessConfigurations *[]*SourceAccessConfiguration `json:"sourceAccessConfigurations" yaml:"sourceAccessConfigurations"`
+	SourceAccessConfigurations *[]*SourceAccessConfiguration `field:"optional" json:"sourceAccessConfigurations" yaml:"sourceAccessConfigurations"`
 	// The position in the DynamoDB, Kinesis or MSK stream where AWS Lambda should start reading.
 	// See: https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType
 	//
 	// Experimental.
-	StartingPosition StartingPosition `json:"startingPosition" yaml:"startingPosition"`
+	StartingPosition StartingPosition `field:"optional" json:"startingPosition" yaml:"startingPosition"`
 	// The size of the tumbling windows to group records sent to DynamoDB or Kinesis.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-windows
 	//
 	// Valid Range: 0 - 15 minutes.
 	//
 	// Experimental.
-	TumblingWindow awscdk.Duration `json:"tumblingWindow" yaml:"tumblingWindow"`
+	TumblingWindow awscdk.Duration `field:"optional" json:"tumblingWindow" yaml:"tumblingWindow"`
 }
 
 // Properties for declaring a new event source mapping.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var eventSourceDlq iEventSourceDlq
 //   var function_ function
 //   var sourceAccessConfigurationType sourceAccessConfigurationType
+//
 //   eventSourceMappingProps := &eventSourceMappingProps{
 //   	target: function_,
 //
@@ -15441,7 +15657,7 @@ type EventSourceMappingOptions struct {
 //   			uri: jsii.String("uri"),
 //   		},
 //   	},
-//   	startingPosition: lambda.startingPosition_TRIM_HORIZON,
+//   	startingPosition: awscdk.Aws_lambda.startingPosition_TRIM_HORIZON,
 //   	tumblingWindow: duration,
 //   }
 //
@@ -15454,54 +15670,54 @@ type EventSourceMappingProps struct {
 	//
 	// Valid Range: Minimum value of 1. Maximum value of 10000.
 	// Experimental.
-	BatchSize *float64 `json:"batchSize" yaml:"batchSize"`
+	BatchSize *float64 `field:"optional" json:"batchSize" yaml:"batchSize"`
 	// If the function returns an error, split the batch in two and retry.
 	// Experimental.
-	BisectBatchOnError *bool `json:"bisectBatchOnError" yaml:"bisectBatchOnError"`
+	BisectBatchOnError *bool `field:"optional" json:"bisectBatchOnError" yaml:"bisectBatchOnError"`
 	// Set to false to disable the event source upon creation.
 	// Experimental.
-	Enabled *bool `json:"enabled" yaml:"enabled"`
+	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// The Amazon Resource Name (ARN) of the event source.
 	//
 	// Any record added to
 	// this stream can invoke the Lambda function.
 	// Experimental.
-	EventSourceArn *string `json:"eventSourceArn" yaml:"eventSourceArn"`
+	EventSourceArn *string `field:"optional" json:"eventSourceArn" yaml:"eventSourceArn"`
 	// A list of host and port pairs that are the addresses of the Kafka brokers in a self managed "bootstrap" Kafka cluster that a Kafka client connects to initially to bootstrap itself.
 	//
 	// They are in the format `abc.example.com:9096`.
 	// Experimental.
-	KafkaBootstrapServers *[]*string `json:"kafkaBootstrapServers" yaml:"kafkaBootstrapServers"`
+	KafkaBootstrapServers *[]*string `field:"optional" json:"kafkaBootstrapServers" yaml:"kafkaBootstrapServers"`
 	// The name of the Kafka topic.
 	// Experimental.
-	KafkaTopic *string `json:"kafkaTopic" yaml:"kafkaTopic"`
+	KafkaTopic *string `field:"optional" json:"kafkaTopic" yaml:"kafkaTopic"`
 	// The maximum amount of time to gather records before invoking the function.
 	//
 	// Maximum of Duration.minutes(5)
 	// Experimental.
-	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
+	MaxBatchingWindow awscdk.Duration `field:"optional" json:"maxBatchingWindow" yaml:"maxBatchingWindow"`
 	// The maximum age of a record that Lambda sends to a function for processing.
 	//
 	// Valid Range:
 	// * Minimum value of 60 seconds
 	// * Maximum value of 7 days.
 	// Experimental.
-	MaxRecordAge awscdk.Duration `json:"maxRecordAge" yaml:"maxRecordAge"`
+	MaxRecordAge awscdk.Duration `field:"optional" json:"maxRecordAge" yaml:"maxRecordAge"`
 	// An Amazon SQS queue or Amazon SNS topic destination for discarded records.
 	// Experimental.
-	OnFailure IEventSourceDlq `json:"onFailure" yaml:"onFailure"`
+	OnFailure IEventSourceDlq `field:"optional" json:"onFailure" yaml:"onFailure"`
 	// The number of batches to process from each shard concurrently.
 	//
 	// Valid Range:
 	// * Minimum value of 1
 	// * Maximum value of 10.
 	// Experimental.
-	ParallelizationFactor *float64 `json:"parallelizationFactor" yaml:"parallelizationFactor"`
+	ParallelizationFactor *float64 `field:"optional" json:"parallelizationFactor" yaml:"parallelizationFactor"`
 	// Allow functions to return partially successful responses for a batch of records.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting
 	//
 	// Experimental.
-	ReportBatchItemFailures *bool `json:"reportBatchItemFailures" yaml:"reportBatchItemFailures"`
+	ReportBatchItemFailures *bool `field:"optional" json:"reportBatchItemFailures" yaml:"reportBatchItemFailures"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Set to `undefined` if you want lambda to keep retrying infinitely or until
@@ -15511,33 +15727,35 @@ type EventSourceMappingProps struct {
 	// * Minimum value of 0
 	// * Maximum value of 10000.
 	// Experimental.
-	RetryAttempts *float64 `json:"retryAttempts" yaml:"retryAttempts"`
+	RetryAttempts *float64 `field:"optional" json:"retryAttempts" yaml:"retryAttempts"`
 	// Specific settings like the authentication protocol or the VPC components to secure access to your event source.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.html
 	//
 	// Experimental.
-	SourceAccessConfigurations *[]*SourceAccessConfiguration `json:"sourceAccessConfigurations" yaml:"sourceAccessConfigurations"`
+	SourceAccessConfigurations *[]*SourceAccessConfiguration `field:"optional" json:"sourceAccessConfigurations" yaml:"sourceAccessConfigurations"`
 	// The position in the DynamoDB, Kinesis or MSK stream where AWS Lambda should start reading.
 	// See: https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType
 	//
 	// Experimental.
-	StartingPosition StartingPosition `json:"startingPosition" yaml:"startingPosition"`
+	StartingPosition StartingPosition `field:"optional" json:"startingPosition" yaml:"startingPosition"`
 	// The size of the tumbling windows to group records sent to DynamoDB or Kinesis.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-windows
 	//
 	// Valid Range: 0 - 15 minutes.
 	//
 	// Experimental.
-	TumblingWindow awscdk.Duration `json:"tumblingWindow" yaml:"tumblingWindow"`
+	TumblingWindow awscdk.Duration `field:"optional" json:"tumblingWindow" yaml:"tumblingWindow"`
 	// The target AWS Lambda function.
 	// Experimental.
-	Target IFunction `json:"target" yaml:"target"`
+	Target IFunction `field:"required" json:"target" yaml:"target"`
 }
 
 // Represents the filesystem for the Lambda function.
 //
 // Example:
-//   import ec2 "github.com/aws/aws-cdk-go/awscdk"import efs "github.com/aws/aws-cdk-go/awscdk"
+//   import ec2 "github.com/aws/aws-cdk-go/awscdk"
+//   import efs "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   // create a new VPC
 //   vpc := ec2.NewVpc(this, jsii.String("VPC"))
@@ -15567,7 +15785,7 @@ type EventSourceMappingProps struct {
 //   fn := lambda.NewFunction(this, jsii.String("MyLambda"), &functionProps{
 //   	// mount the access point to /mnt/msg in the lambda runtime environment
 //   	filesystem: lambda.fileSystem.fromEfsAccessPoint(accessPoint, jsii.String("/mnt/msg")),
-//   	runtime: lambda.runtime_NODEJS_12_X(),
+//   	runtime: lambda.runtime_NODEJS_16_X(),
 //   	handler: jsii.String("index.handler"),
 //   	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 //   	vpc: vpc,
@@ -15642,11 +15860,17 @@ func FileSystem_FromEfsAccessPoint(ap awsefs.IAccessPoint, mountPath *string) Fi
 // FileSystem configurations for the Lambda function.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var connections connections
 //   var dependable iDependable
 //   var policyStatement policyStatement
+//
 //   fileSystemConfig := &fileSystemConfig{
 //   	arn: jsii.String("arn"),
 //   	localMountPath: jsii.String("localMountPath"),
@@ -15665,19 +15889,19 @@ func FileSystem_FromEfsAccessPoint(ap awsefs.IAccessPoint, mountPath *string) Fi
 type FileSystemConfig struct {
 	// ARN of the access point.
 	// Experimental.
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"required" json:"arn" yaml:"arn"`
 	// mount path in the lambda runtime environment.
 	// Experimental.
-	LocalMountPath *string `json:"localMountPath" yaml:"localMountPath"`
+	LocalMountPath *string `field:"required" json:"localMountPath" yaml:"localMountPath"`
 	// connections object used to allow ingress traffic from lambda function.
 	// Experimental.
-	Connections awsec2.Connections `json:"connections" yaml:"connections"`
+	Connections awsec2.Connections `field:"optional" json:"connections" yaml:"connections"`
 	// array of IDependable that lambda function depends on.
 	// Experimental.
-	Dependency *[]awscdk.IDependable `json:"dependency" yaml:"dependency"`
+	Dependency *[]awscdk.IDependable `field:"optional" json:"dependency" yaml:"dependency"`
 	// additional IAM policies required for the lambda function.
 	// Experimental.
-	Policies *[]awsiam.PolicyStatement `json:"policies" yaml:"policies"`
+	Policies *[]awsiam.PolicyStatement `field:"optional" json:"policies" yaml:"policies"`
 }
 
 // Deploys a file from inside the construct library as a function.
@@ -15692,6 +15916,7 @@ type FileSystemConfig struct {
 //
 // Example:
 //   import lambda "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   fn := lambda.NewFunction(this, jsii.String("MyFunc"), &functionProps{
 //   	runtime: lambda.runtime_NODEJS_12_X(),
@@ -16827,15 +17052,15 @@ type FunctionAttributes struct {
 	//
 	// Format: arn:<partition>:lambda:<region>:<account-id>:function:<function-name>.
 	// Experimental.
-	FunctionArn *string `json:"functionArn" yaml:"functionArn"`
+	FunctionArn *string `field:"required" json:"functionArn" yaml:"functionArn"`
 	// The architecture of this Lambda Function (this is an optional attribute and defaults to X86_64).
 	// Experimental.
-	Architecture Architecture `json:"architecture" yaml:"architecture"`
+	Architecture Architecture `field:"optional" json:"architecture" yaml:"architecture"`
 	// The IAM execution role associated with this function.
 	//
 	// If the role is not specified, any role-related operations will no-op.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// Setting this property informs the CDK that the imported function is in the same environment as the stack.
 	//
 	// This affects certain behaviours such as, whether this function's permission can be modified.
@@ -16845,19 +17070,19 @@ type FunctionAttributes struct {
 	// Set this to property *ONLY IF* the imported function is in the same account as the stack
 	// it's imported in.
 	// Experimental.
-	SameEnvironment *bool `json:"sameEnvironment" yaml:"sameEnvironment"`
+	SameEnvironment *bool `field:"optional" json:"sameEnvironment" yaml:"sameEnvironment"`
 	// The security group of this Lambda, if in a VPC.
 	//
 	// This needs to be given in order to support allowing connections
 	// to this Lambda.
 	// Experimental.
-	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup" yaml:"securityGroup"`
+	SecurityGroup awsec2.ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
 	// Id of the security group of this Lambda, if in a VPC.
 	//
 	// This needs to be given in order to support allowing connections
 	// to this Lambda.
 	// Deprecated: use `securityGroup` instead.
-	SecurityGroupId *string `json:"securityGroupId" yaml:"securityGroupId"`
+	SecurityGroupId *string `field:"optional" json:"securityGroupId" yaml:"securityGroupId"`
 	// Setting this property informs the CDK that the imported function ALREADY HAS the necessary permissions for what you are trying to do.
 	//
 	// When not configured, the CDK attempts to auto-determine whether or not
@@ -16868,7 +17093,7 @@ type FunctionAttributes struct {
 	// CDK. You are acknowledging that your CDK code alone will have insufficient permissions to access the
 	// imported function.
 	// Experimental.
-	SkipPermissions *bool `json:"skipPermissions" yaml:"skipPermissions"`
+	SkipPermissions *bool `field:"optional" json:"skipPermissions" yaml:"skipPermissions"`
 }
 
 // Experimental.
@@ -17587,7 +17812,17 @@ func (f *jsiiProxy_FunctionBase) WarnInvokeFunctionPermissions(scope awscdk.Cons
 // Non runtime options.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import codeguruprofiler "github.com/aws/aws-cdk-go/awscdk/aws_codeguruprofiler"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"import awscdk "github.com/aws/aws-cdk-go/awscdk"import kms "github.com/aws/aws-cdk-go/awscdk/aws_kms"import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"import awscdk "github.com/aws/aws-cdk-go/awscdk"import sns "github.com/aws/aws-cdk-go/awscdk/aws_sns"import awscdk "github.com/aws/aws-cdk-go/awscdk"import sqs "github.com/aws/aws-cdk-go/awscdk/aws_sqs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var architecture architecture
 //   var codeSigningConfig codeSigningConfig
@@ -17608,6 +17843,7 @@ func (f *jsiiProxy_FunctionBase) WarnInvokeFunctionPermissions(scope awscdk.Cons
 //   var subnetFilter subnetFilter
 //   var topic topic
 //   var vpc vpc
+//
 //   functionOptions := &functionOptions{
 //   	allowAllOutbound: jsii.Boolean(false),
 //   	allowPublicSubnet: jsii.Boolean(false),
@@ -17647,7 +17883,7 @@ func (f *jsiiProxy_FunctionBase) WarnInvokeFunctionPermissions(scope awscdk.Cons
 //   	layers: []iLayerVersion{
 //   		layerVersion,
 //   	},
-//   	logRetention: logs.retentionDays_ONE_DAY,
+//   	logRetention: awscdk.Aws_logs.retentionDays_ONE_DAY,
 //   	logRetentionRetryOptions: &logRetentionRetryOptions{
 //   		base: duration,
 //   		maxRetries: jsii.Number(123),
@@ -17667,7 +17903,7 @@ func (f *jsiiProxy_FunctionBase) WarnInvokeFunctionPermissions(scope awscdk.Cons
 //   		securityGroup,
 //   	},
 //   	timeout: duration,
-//   	tracing: lambda.tracing_ACTIVE,
+//   	tracing: awscdk.Aws_lambda.tracing_ACTIVE,
 //   	vpc: vpc,
 //   	vpcSubnets: &subnetSelection{
 //   		availabilityZones: []*string{
@@ -17682,7 +17918,7 @@ func (f *jsiiProxy_FunctionBase) WarnInvokeFunctionPermissions(scope awscdk.Cons
 //   		subnets: []iSubnet{
 //   			subnet,
 //   		},
-//   		subnetType: ec2.subnetType_ISOLATED,
+//   		subnetType: awscdk.Aws_ec2.subnetType_ISOLATED,
 //   	},
 //   }
 //
@@ -17693,142 +17929,142 @@ type FunctionOptions struct {
 	// Minimum: 60 seconds
 	// Maximum: 6 hours.
 	// Experimental.
-	MaxEventAge awscdk.Duration `json:"maxEventAge" yaml:"maxEventAge"`
+	MaxEventAge awscdk.Duration `field:"optional" json:"maxEventAge" yaml:"maxEventAge"`
 	// The destination for failed invocations.
 	// Experimental.
-	OnFailure IDestination `json:"onFailure" yaml:"onFailure"`
+	OnFailure IDestination `field:"optional" json:"onFailure" yaml:"onFailure"`
 	// The destination for successful invocations.
 	// Experimental.
-	OnSuccess IDestination `json:"onSuccess" yaml:"onSuccess"`
+	OnSuccess IDestination `field:"optional" json:"onSuccess" yaml:"onSuccess"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum: 0
 	// Maximum: 2.
 	// Experimental.
-	RetryAttempts *float64 `json:"retryAttempts" yaml:"retryAttempts"`
+	RetryAttempts *float64 `field:"optional" json:"retryAttempts" yaml:"retryAttempts"`
 	// Whether to allow the Lambda to send all network traffic.
 	//
 	// If set to false, you must individually add traffic rules to allow the
 	// Lambda to connect to network targets.
 	// Experimental.
-	AllowAllOutbound *bool `json:"allowAllOutbound" yaml:"allowAllOutbound"`
+	AllowAllOutbound *bool `field:"optional" json:"allowAllOutbound" yaml:"allowAllOutbound"`
 	// Lambda Functions in a public subnet can NOT access the internet.
 	//
 	// Use this property to acknowledge this limitation and still place the function in a public subnet.
 	// See: https://stackoverflow.com/questions/52992085/why-cant-an-aws-lambda-function-inside-a-public-subnet-in-a-vpc-connect-to-the/52994841#52994841
 	//
 	// Experimental.
-	AllowPublicSubnet *bool `json:"allowPublicSubnet" yaml:"allowPublicSubnet"`
+	AllowPublicSubnet *bool `field:"optional" json:"allowPublicSubnet" yaml:"allowPublicSubnet"`
 	// The system architectures compatible with this lambda function.
 	// Experimental.
-	Architecture Architecture `json:"architecture" yaml:"architecture"`
+	Architecture Architecture `field:"optional" json:"architecture" yaml:"architecture"`
 	// DEPRECATED.
 	// Deprecated: use `architecture`.
-	Architectures *[]Architecture `json:"architectures" yaml:"architectures"`
+	Architectures *[]Architecture `field:"optional" json:"architectures" yaml:"architectures"`
 	// Code signing config associated with this function.
 	// Experimental.
-	CodeSigningConfig ICodeSigningConfig `json:"codeSigningConfig" yaml:"codeSigningConfig"`
+	CodeSigningConfig ICodeSigningConfig `field:"optional" json:"codeSigningConfig" yaml:"codeSigningConfig"`
 	// Options for the `lambda.Version` resource automatically created by the `fn.currentVersion` method.
 	// Experimental.
-	CurrentVersionOptions *VersionOptions `json:"currentVersionOptions" yaml:"currentVersionOptions"`
+	CurrentVersionOptions *VersionOptions `field:"optional" json:"currentVersionOptions" yaml:"currentVersionOptions"`
 	// The SQS queue to use if DLQ is enabled.
 	//
 	// If SNS topic is desired, specify `deadLetterTopic` property instead.
 	// Experimental.
-	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue" yaml:"deadLetterQueue"`
+	DeadLetterQueue awssqs.IQueue `field:"optional" json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// Enabled DLQ.
 	//
 	// If `deadLetterQueue` is undefined,
 	// an SQS queue with default options will be defined for your Function.
 	// Experimental.
-	DeadLetterQueueEnabled *bool `json:"deadLetterQueueEnabled" yaml:"deadLetterQueueEnabled"`
+	DeadLetterQueueEnabled *bool `field:"optional" json:"deadLetterQueueEnabled" yaml:"deadLetterQueueEnabled"`
 	// The SNS topic to use as a DLQ.
 	//
 	// Note that if `deadLetterQueueEnabled` is set to `true`, an SQS queue will be created
 	// rather than an SNS topic. Using an SNS topic as a DLQ requires this property to be set explicitly.
 	// Experimental.
-	DeadLetterTopic awssns.ITopic `json:"deadLetterTopic" yaml:"deadLetterTopic"`
+	DeadLetterTopic awssns.ITopic `field:"optional" json:"deadLetterTopic" yaml:"deadLetterTopic"`
 	// A description of the function.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Key-value pairs that Lambda caches and makes available for your Lambda functions.
 	//
 	// Use environment variables to apply configuration changes, such
 	// as test and production environment configurations, without changing your
 	// Lambda function source code.
 	// Experimental.
-	Environment *map[string]*string `json:"environment" yaml:"environment"`
+	Environment *map[string]*string `field:"optional" json:"environment" yaml:"environment"`
 	// The AWS KMS key that's used to encrypt your function's environment variables.
 	// Experimental.
-	EnvironmentEncryption awskms.IKey `json:"environmentEncryption" yaml:"environmentEncryption"`
+	EnvironmentEncryption awskms.IKey `field:"optional" json:"environmentEncryption" yaml:"environmentEncryption"`
 	// The size of the function’s /tmp directory in MiB.
 	// Experimental.
-	EphemeralStorageSize awscdk.Size `json:"ephemeralStorageSize" yaml:"ephemeralStorageSize"`
+	EphemeralStorageSize awscdk.Size `field:"optional" json:"ephemeralStorageSize" yaml:"ephemeralStorageSize"`
 	// Event sources for this function.
 	//
 	// You can also add event sources using `addEventSource`.
 	// Experimental.
-	Events *[]IEventSource `json:"events" yaml:"events"`
+	Events *[]IEventSource `field:"optional" json:"events" yaml:"events"`
 	// The filesystem configuration for the lambda function.
 	// Experimental.
-	Filesystem FileSystem `json:"filesystem" yaml:"filesystem"`
+	Filesystem FileSystem `field:"optional" json:"filesystem" yaml:"filesystem"`
 	// A name for the function.
 	// Experimental.
-	FunctionName *string `json:"functionName" yaml:"functionName"`
+	FunctionName *string `field:"optional" json:"functionName" yaml:"functionName"`
 	// Initial policy statements to add to the created Lambda Role.
 	//
 	// You can call `addToRolePolicy` to the created lambda to add statements post creation.
 	// Experimental.
-	InitialPolicy *[]awsiam.PolicyStatement `json:"initialPolicy" yaml:"initialPolicy"`
+	InitialPolicy *[]awsiam.PolicyStatement `field:"optional" json:"initialPolicy" yaml:"initialPolicy"`
 	// Specify the version of CloudWatch Lambda insights to use for monitoring.
 	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Lambda-Insights-Getting-Started-docker.html
 	//
 	// Experimental.
-	InsightsVersion LambdaInsightsVersion `json:"insightsVersion" yaml:"insightsVersion"`
+	InsightsVersion LambdaInsightsVersion `field:"optional" json:"insightsVersion" yaml:"insightsVersion"`
 	// A list of layers to add to the function's execution environment.
 	//
 	// You can configure your Lambda function to pull in
 	// additional code during initialization in the form of layers. Layers are packages of libraries or other dependencies
 	// that can be used by multiple functions.
 	// Experimental.
-	Layers *[]ILayerVersion `json:"layers" yaml:"layers"`
+	Layers *[]ILayerVersion `field:"optional" json:"layers" yaml:"layers"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `INFINITE`.
 	// Experimental.
-	LogRetention awslogs.RetentionDays `json:"logRetention" yaml:"logRetention"`
+	LogRetention awslogs.RetentionDays `field:"optional" json:"logRetention" yaml:"logRetention"`
 	// When log retention is specified, a custom resource attempts to create the CloudWatch log group.
 	//
 	// These options control the retry policy when interacting with CloudWatch APIs.
 	// Experimental.
-	LogRetentionRetryOptions *LogRetentionRetryOptions `json:"logRetentionRetryOptions" yaml:"logRetentionRetryOptions"`
+	LogRetentionRetryOptions *LogRetentionRetryOptions `field:"optional" json:"logRetentionRetryOptions" yaml:"logRetentionRetryOptions"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
 	// Experimental.
-	LogRetentionRole awsiam.IRole `json:"logRetentionRole" yaml:"logRetentionRole"`
+	LogRetentionRole awsiam.IRole `field:"optional" json:"logRetentionRole" yaml:"logRetentionRole"`
 	// The amount of memory, in MB, that is allocated to your Lambda function.
 	//
 	// Lambda uses this value to proportionally allocate the amount of CPU
 	// power. For more information, see Resource Model in the AWS Lambda
 	// Developer Guide.
 	// Experimental.
-	MemorySize *float64 `json:"memorySize" yaml:"memorySize"`
+	MemorySize *float64 `field:"optional" json:"memorySize" yaml:"memorySize"`
 	// Enable profiling.
 	// See: https://docs.aws.amazon.com/codeguru/latest/profiler-ug/setting-up-lambda.html
 	//
 	// Experimental.
-	Profiling *bool `json:"profiling" yaml:"profiling"`
+	Profiling *bool `field:"optional" json:"profiling" yaml:"profiling"`
 	// Profiling Group.
 	// See: https://docs.aws.amazon.com/codeguru/latest/profiler-ug/setting-up-lambda.html
 	//
 	// Experimental.
-	ProfilingGroup awscodeguruprofiler.IProfilingGroup `json:"profilingGroup" yaml:"profilingGroup"`
+	ProfilingGroup awscodeguruprofiler.IProfilingGroup `field:"optional" json:"profilingGroup" yaml:"profilingGroup"`
 	// The maximum of concurrent executions you want to reserve for the function.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html
 	//
 	// Experimental.
-	ReservedConcurrentExecutions *float64 `json:"reservedConcurrentExecutions" yaml:"reservedConcurrentExecutions"`
+	ReservedConcurrentExecutions *float64 `field:"optional" json:"reservedConcurrentExecutions" yaml:"reservedConcurrentExecutions"`
 	// Lambda execution role.
 	//
 	// This is the role that will be assumed by the function upon execution.
@@ -17841,7 +18077,7 @@ type FunctionOptions struct {
 	// The relevant managed policies are "service-role/AWSLambdaBasicExecutionRole" and
 	// "service-role/AWSLambdaVPCAccessExecutionRole".
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// What security group to associate with the Lambda's network interfaces. This property is being deprecated, consider using securityGroups instead.
 	//
 	// Only used if 'vpc' is supplied.
@@ -17849,36 +18085,37 @@ type FunctionOptions struct {
 	// Use securityGroups property instead.
 	// Function constructor will throw an error if both are specified.
 	// Deprecated: - This property is deprecated, use securityGroups instead.
-	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup" yaml:"securityGroup"`
+	SecurityGroup awsec2.ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
 	// The list of security groups to associate with the Lambda's network interfaces.
 	//
 	// Only used if 'vpc' is supplied.
 	// Experimental.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// The function execution time (in seconds) after which Lambda terminates the function.
 	//
 	// Because the execution time affects cost, set this value
 	// based on the function's expected execution time.
 	// Experimental.
-	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
+	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 	// Enable AWS X-Ray Tracing for Lambda Function.
 	// Experimental.
-	Tracing Tracing `json:"tracing" yaml:"tracing"`
+	Tracing Tracing `field:"optional" json:"tracing" yaml:"tracing"`
 	// VPC network to place Lambda network interfaces.
 	//
 	// Specify this if the Lambda function needs to access resources in a VPC.
 	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
+	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 	// Where to place the network interfaces within the VPC.
 	//
 	// Only used if 'vpc' is supplied. Note: internet access for Lambdas
 	// requires a NAT gateway, so picking Public subnets is not allowed.
 	// Experimental.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 
 // Example:
 //   import lambda "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   fn := lambda.NewFunction(this, jsii.String("MyFunc"), &functionProps{
 //   	runtime: lambda.runtime_NODEJS_12_X(),
@@ -17911,142 +18148,142 @@ type FunctionProps struct {
 	// Minimum: 60 seconds
 	// Maximum: 6 hours.
 	// Experimental.
-	MaxEventAge awscdk.Duration `json:"maxEventAge" yaml:"maxEventAge"`
+	MaxEventAge awscdk.Duration `field:"optional" json:"maxEventAge" yaml:"maxEventAge"`
 	// The destination for failed invocations.
 	// Experimental.
-	OnFailure IDestination `json:"onFailure" yaml:"onFailure"`
+	OnFailure IDestination `field:"optional" json:"onFailure" yaml:"onFailure"`
 	// The destination for successful invocations.
 	// Experimental.
-	OnSuccess IDestination `json:"onSuccess" yaml:"onSuccess"`
+	OnSuccess IDestination `field:"optional" json:"onSuccess" yaml:"onSuccess"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum: 0
 	// Maximum: 2.
 	// Experimental.
-	RetryAttempts *float64 `json:"retryAttempts" yaml:"retryAttempts"`
+	RetryAttempts *float64 `field:"optional" json:"retryAttempts" yaml:"retryAttempts"`
 	// Whether to allow the Lambda to send all network traffic.
 	//
 	// If set to false, you must individually add traffic rules to allow the
 	// Lambda to connect to network targets.
 	// Experimental.
-	AllowAllOutbound *bool `json:"allowAllOutbound" yaml:"allowAllOutbound"`
+	AllowAllOutbound *bool `field:"optional" json:"allowAllOutbound" yaml:"allowAllOutbound"`
 	// Lambda Functions in a public subnet can NOT access the internet.
 	//
 	// Use this property to acknowledge this limitation and still place the function in a public subnet.
 	// See: https://stackoverflow.com/questions/52992085/why-cant-an-aws-lambda-function-inside-a-public-subnet-in-a-vpc-connect-to-the/52994841#52994841
 	//
 	// Experimental.
-	AllowPublicSubnet *bool `json:"allowPublicSubnet" yaml:"allowPublicSubnet"`
+	AllowPublicSubnet *bool `field:"optional" json:"allowPublicSubnet" yaml:"allowPublicSubnet"`
 	// The system architectures compatible with this lambda function.
 	// Experimental.
-	Architecture Architecture `json:"architecture" yaml:"architecture"`
+	Architecture Architecture `field:"optional" json:"architecture" yaml:"architecture"`
 	// DEPRECATED.
 	// Deprecated: use `architecture`.
-	Architectures *[]Architecture `json:"architectures" yaml:"architectures"`
+	Architectures *[]Architecture `field:"optional" json:"architectures" yaml:"architectures"`
 	// Code signing config associated with this function.
 	// Experimental.
-	CodeSigningConfig ICodeSigningConfig `json:"codeSigningConfig" yaml:"codeSigningConfig"`
+	CodeSigningConfig ICodeSigningConfig `field:"optional" json:"codeSigningConfig" yaml:"codeSigningConfig"`
 	// Options for the `lambda.Version` resource automatically created by the `fn.currentVersion` method.
 	// Experimental.
-	CurrentVersionOptions *VersionOptions `json:"currentVersionOptions" yaml:"currentVersionOptions"`
+	CurrentVersionOptions *VersionOptions `field:"optional" json:"currentVersionOptions" yaml:"currentVersionOptions"`
 	// The SQS queue to use if DLQ is enabled.
 	//
 	// If SNS topic is desired, specify `deadLetterTopic` property instead.
 	// Experimental.
-	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue" yaml:"deadLetterQueue"`
+	DeadLetterQueue awssqs.IQueue `field:"optional" json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// Enabled DLQ.
 	//
 	// If `deadLetterQueue` is undefined,
 	// an SQS queue with default options will be defined for your Function.
 	// Experimental.
-	DeadLetterQueueEnabled *bool `json:"deadLetterQueueEnabled" yaml:"deadLetterQueueEnabled"`
+	DeadLetterQueueEnabled *bool `field:"optional" json:"deadLetterQueueEnabled" yaml:"deadLetterQueueEnabled"`
 	// The SNS topic to use as a DLQ.
 	//
 	// Note that if `deadLetterQueueEnabled` is set to `true`, an SQS queue will be created
 	// rather than an SNS topic. Using an SNS topic as a DLQ requires this property to be set explicitly.
 	// Experimental.
-	DeadLetterTopic awssns.ITopic `json:"deadLetterTopic" yaml:"deadLetterTopic"`
+	DeadLetterTopic awssns.ITopic `field:"optional" json:"deadLetterTopic" yaml:"deadLetterTopic"`
 	// A description of the function.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Key-value pairs that Lambda caches and makes available for your Lambda functions.
 	//
 	// Use environment variables to apply configuration changes, such
 	// as test and production environment configurations, without changing your
 	// Lambda function source code.
 	// Experimental.
-	Environment *map[string]*string `json:"environment" yaml:"environment"`
+	Environment *map[string]*string `field:"optional" json:"environment" yaml:"environment"`
 	// The AWS KMS key that's used to encrypt your function's environment variables.
 	// Experimental.
-	EnvironmentEncryption awskms.IKey `json:"environmentEncryption" yaml:"environmentEncryption"`
+	EnvironmentEncryption awskms.IKey `field:"optional" json:"environmentEncryption" yaml:"environmentEncryption"`
 	// The size of the function’s /tmp directory in MiB.
 	// Experimental.
-	EphemeralStorageSize awscdk.Size `json:"ephemeralStorageSize" yaml:"ephemeralStorageSize"`
+	EphemeralStorageSize awscdk.Size `field:"optional" json:"ephemeralStorageSize" yaml:"ephemeralStorageSize"`
 	// Event sources for this function.
 	//
 	// You can also add event sources using `addEventSource`.
 	// Experimental.
-	Events *[]IEventSource `json:"events" yaml:"events"`
+	Events *[]IEventSource `field:"optional" json:"events" yaml:"events"`
 	// The filesystem configuration for the lambda function.
 	// Experimental.
-	Filesystem FileSystem `json:"filesystem" yaml:"filesystem"`
+	Filesystem FileSystem `field:"optional" json:"filesystem" yaml:"filesystem"`
 	// A name for the function.
 	// Experimental.
-	FunctionName *string `json:"functionName" yaml:"functionName"`
+	FunctionName *string `field:"optional" json:"functionName" yaml:"functionName"`
 	// Initial policy statements to add to the created Lambda Role.
 	//
 	// You can call `addToRolePolicy` to the created lambda to add statements post creation.
 	// Experimental.
-	InitialPolicy *[]awsiam.PolicyStatement `json:"initialPolicy" yaml:"initialPolicy"`
+	InitialPolicy *[]awsiam.PolicyStatement `field:"optional" json:"initialPolicy" yaml:"initialPolicy"`
 	// Specify the version of CloudWatch Lambda insights to use for monitoring.
 	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Lambda-Insights-Getting-Started-docker.html
 	//
 	// Experimental.
-	InsightsVersion LambdaInsightsVersion `json:"insightsVersion" yaml:"insightsVersion"`
+	InsightsVersion LambdaInsightsVersion `field:"optional" json:"insightsVersion" yaml:"insightsVersion"`
 	// A list of layers to add to the function's execution environment.
 	//
 	// You can configure your Lambda function to pull in
 	// additional code during initialization in the form of layers. Layers are packages of libraries or other dependencies
 	// that can be used by multiple functions.
 	// Experimental.
-	Layers *[]ILayerVersion `json:"layers" yaml:"layers"`
+	Layers *[]ILayerVersion `field:"optional" json:"layers" yaml:"layers"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `INFINITE`.
 	// Experimental.
-	LogRetention awslogs.RetentionDays `json:"logRetention" yaml:"logRetention"`
+	LogRetention awslogs.RetentionDays `field:"optional" json:"logRetention" yaml:"logRetention"`
 	// When log retention is specified, a custom resource attempts to create the CloudWatch log group.
 	//
 	// These options control the retry policy when interacting with CloudWatch APIs.
 	// Experimental.
-	LogRetentionRetryOptions *LogRetentionRetryOptions `json:"logRetentionRetryOptions" yaml:"logRetentionRetryOptions"`
+	LogRetentionRetryOptions *LogRetentionRetryOptions `field:"optional" json:"logRetentionRetryOptions" yaml:"logRetentionRetryOptions"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
 	// Experimental.
-	LogRetentionRole awsiam.IRole `json:"logRetentionRole" yaml:"logRetentionRole"`
+	LogRetentionRole awsiam.IRole `field:"optional" json:"logRetentionRole" yaml:"logRetentionRole"`
 	// The amount of memory, in MB, that is allocated to your Lambda function.
 	//
 	// Lambda uses this value to proportionally allocate the amount of CPU
 	// power. For more information, see Resource Model in the AWS Lambda
 	// Developer Guide.
 	// Experimental.
-	MemorySize *float64 `json:"memorySize" yaml:"memorySize"`
+	MemorySize *float64 `field:"optional" json:"memorySize" yaml:"memorySize"`
 	// Enable profiling.
 	// See: https://docs.aws.amazon.com/codeguru/latest/profiler-ug/setting-up-lambda.html
 	//
 	// Experimental.
-	Profiling *bool `json:"profiling" yaml:"profiling"`
+	Profiling *bool `field:"optional" json:"profiling" yaml:"profiling"`
 	// Profiling Group.
 	// See: https://docs.aws.amazon.com/codeguru/latest/profiler-ug/setting-up-lambda.html
 	//
 	// Experimental.
-	ProfilingGroup awscodeguruprofiler.IProfilingGroup `json:"profilingGroup" yaml:"profilingGroup"`
+	ProfilingGroup awscodeguruprofiler.IProfilingGroup `field:"optional" json:"profilingGroup" yaml:"profilingGroup"`
 	// The maximum of concurrent executions you want to reserve for the function.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html
 	//
 	// Experimental.
-	ReservedConcurrentExecutions *float64 `json:"reservedConcurrentExecutions" yaml:"reservedConcurrentExecutions"`
+	ReservedConcurrentExecutions *float64 `field:"optional" json:"reservedConcurrentExecutions" yaml:"reservedConcurrentExecutions"`
 	// Lambda execution role.
 	//
 	// This is the role that will be assumed by the function upon execution.
@@ -18059,7 +18296,7 @@ type FunctionProps struct {
 	// The relevant managed policies are "service-role/AWSLambdaBasicExecutionRole" and
 	// "service-role/AWSLambdaVPCAccessExecutionRole".
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// What security group to associate with the Lambda's network interfaces. This property is being deprecated, consider using securityGroups instead.
 	//
 	// Only used if 'vpc' is supplied.
@@ -18067,39 +18304,39 @@ type FunctionProps struct {
 	// Use securityGroups property instead.
 	// Function constructor will throw an error if both are specified.
 	// Deprecated: - This property is deprecated, use securityGroups instead.
-	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup" yaml:"securityGroup"`
+	SecurityGroup awsec2.ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
 	// The list of security groups to associate with the Lambda's network interfaces.
 	//
 	// Only used if 'vpc' is supplied.
 	// Experimental.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// The function execution time (in seconds) after which Lambda terminates the function.
 	//
 	// Because the execution time affects cost, set this value
 	// based on the function's expected execution time.
 	// Experimental.
-	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
+	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 	// Enable AWS X-Ray Tracing for Lambda Function.
 	// Experimental.
-	Tracing Tracing `json:"tracing" yaml:"tracing"`
+	Tracing Tracing `field:"optional" json:"tracing" yaml:"tracing"`
 	// VPC network to place Lambda network interfaces.
 	//
 	// Specify this if the Lambda function needs to access resources in a VPC.
 	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
+	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 	// Where to place the network interfaces within the VPC.
 	//
 	// Only used if 'vpc' is supplied. Note: internet access for Lambdas
 	// requires a NAT gateway, so picking Public subnets is not allowed.
 	// Experimental.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 	// The source code of your Lambda function.
 	//
 	// You can point to a file in an
 	// Amazon Simple Storage Service (Amazon S3) bucket or specify your source
 	// code as inline text.
 	// Experimental.
-	Code Code `json:"code" yaml:"code"`
+	Code Code `field:"required" json:"code" yaml:"code"`
 	// The name of the method within your code that Lambda calls to execute your function.
 	//
 	// The format includes the file name. It can also include
@@ -18112,7 +18349,7 @@ type FunctionProps struct {
 	// ZipFile property within the Code property, specify index.function_name as
 	// the handler.
 	// Experimental.
-	Handler *string `json:"handler" yaml:"handler"`
+	Handler *string `field:"required" json:"handler" yaml:"handler"`
 	// The runtime environment for the Lambda function that you are uploading.
 	//
 	// For valid values, see the Runtime property in the AWS Lambda Developer
@@ -18120,7 +18357,7 @@ type FunctionProps struct {
 	//
 	// Use `Runtime.FROM_IMAGE` when when defining a function from a Docker image.
 	// Experimental.
-	Runtime Runtime `json:"runtime" yaml:"runtime"`
+	Runtime Runtime `field:"required" json:"runtime" yaml:"runtime"`
 }
 
 // Defines a Lambda function url.
@@ -18130,10 +18367,11 @@ type FunctionProps struct {
 //   var fn function
 //   var myRole role
 //
+//
 //   fnUrl := fn.addFunctionUrl()
 //   fnUrl.grantInvokeUrl(myRole)
 //
-//   NewCfnOutput(this, jsii.String("TheUrl"), &cfnOutputProps{
+//   awscdk.NewCfnOutput(this, jsii.String("TheUrl"), &cfnOutputProps{
 //   	// The .url attributes will return the unique Function URL
 //   	value: fnUrl.url,
 //   })
@@ -18521,11 +18759,12 @@ func (f *jsiiProxy_FunctionUrl) Validate() *[]*string {
 //   // Can be a Function or an Alias
 //   var fn function
 //
+//
 //   fnUrl := fn.addFunctionUrl(&functionUrlOptions{
 //   	authType: lambda.functionUrlAuthType_NONE,
 //   })
 //
-//   NewCfnOutput(this, jsii.String("TheUrl"), &cfnOutputProps{
+//   awscdk.NewCfnOutput(this, jsii.String("TheUrl"), &cfnOutputProps{
 //   	value: fnUrl.url,
 //   })
 //
@@ -18546,6 +18785,7 @@ const (
 // Example:
 //   var fn function
 //
+//
 //   fn.addFunctionUrl(&functionUrlOptions{
 //   	authType: lambda.functionUrlAuthType_NONE,
 //   	cors: &functionUrlCorsOptions{
@@ -18561,22 +18801,22 @@ const (
 type FunctionUrlCorsOptions struct {
 	// Whether to allow cookies or other credentials in requests to your function URL.
 	// Experimental.
-	AllowCredentials *bool `json:"allowCredentials" yaml:"allowCredentials"`
+	AllowCredentials *bool `field:"optional" json:"allowCredentials" yaml:"allowCredentials"`
 	// Headers that are specified in the Access-Control-Request-Headers header.
 	// Experimental.
-	AllowedHeaders *[]*string `json:"allowedHeaders" yaml:"allowedHeaders"`
+	AllowedHeaders *[]*string `field:"optional" json:"allowedHeaders" yaml:"allowedHeaders"`
 	// An HTTP method that you allow the origin to execute.
 	// Experimental.
-	AllowedMethods *[]HttpMethod `json:"allowedMethods" yaml:"allowedMethods"`
+	AllowedMethods *[]HttpMethod `field:"optional" json:"allowedMethods" yaml:"allowedMethods"`
 	// One or more origins you want customers to be able to access the bucket from.
 	// Experimental.
-	AllowedOrigins *[]*string `json:"allowedOrigins" yaml:"allowedOrigins"`
+	AllowedOrigins *[]*string `field:"optional" json:"allowedOrigins" yaml:"allowedOrigins"`
 	// One or more headers in the response that you want customers to be able to access from their applications.
 	// Experimental.
-	ExposedHeaders *[]*string `json:"exposedHeaders" yaml:"exposedHeaders"`
+	ExposedHeaders *[]*string `field:"optional" json:"exposedHeaders" yaml:"exposedHeaders"`
 	// The time in seconds that your browser is to cache the preflight response for the specified resource.
 	// Experimental.
-	MaxAge awscdk.Duration `json:"maxAge" yaml:"maxAge"`
+	MaxAge awscdk.Duration `field:"optional" json:"maxAge" yaml:"maxAge"`
 }
 
 // Options to add a url to a Lambda function.
@@ -18585,11 +18825,12 @@ type FunctionUrlCorsOptions struct {
 //   // Can be a Function or an Alias
 //   var fn function
 //
+//
 //   fnUrl := fn.addFunctionUrl(&functionUrlOptions{
 //   	authType: lambda.functionUrlAuthType_NONE,
 //   })
 //
-//   NewCfnOutput(this, jsii.String("TheUrl"), &cfnOutputProps{
+//   awscdk.NewCfnOutput(this, jsii.String("TheUrl"), &cfnOutputProps{
 //   	value: fnUrl.url,
 //   })
 //
@@ -18597,31 +18838,35 @@ type FunctionUrlCorsOptions struct {
 type FunctionUrlOptions struct {
 	// The type of authentication that your function URL uses.
 	// Experimental.
-	AuthType FunctionUrlAuthType `json:"authType" yaml:"authType"`
+	AuthType FunctionUrlAuthType `field:"optional" json:"authType" yaml:"authType"`
 	// The cross-origin resource sharing (CORS) settings for your function URL.
 	// Experimental.
-	Cors *FunctionUrlCorsOptions `json:"cors" yaml:"cors"`
+	Cors *FunctionUrlCorsOptions `field:"optional" json:"cors" yaml:"cors"`
 }
 
 // Properties for a FunctionUrl.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var function_ function
+//
 //   functionUrlProps := &functionUrlProps{
 //   	function: function_,
 //
 //   	// the properties below are optional
-//   	authType: lambda.functionUrlAuthType_AWS_IAM,
+//   	authType: awscdk.Aws_lambda.functionUrlAuthType_AWS_IAM,
 //   	cors: &functionUrlCorsOptions{
 //   		allowCredentials: jsii.Boolean(false),
 //   		allowedHeaders: []*string{
 //   			jsii.String("allowedHeaders"),
 //   		},
 //   		allowedMethods: []httpMethod{
-//   			lambda.*httpMethod_GET,
+//   			awscdk.*Aws_lambda.*httpMethod_GET,
 //   		},
 //   		allowedOrigins: []*string{
 //   			jsii.String("allowedOrigins"),
@@ -18637,15 +18882,15 @@ type FunctionUrlOptions struct {
 type FunctionUrlProps struct {
 	// The type of authentication that your function URL uses.
 	// Experimental.
-	AuthType FunctionUrlAuthType `json:"authType" yaml:"authType"`
+	AuthType FunctionUrlAuthType `field:"optional" json:"authType" yaml:"authType"`
 	// The cross-origin resource sharing (CORS) settings for your function URL.
 	// Experimental.
-	Cors *FunctionUrlCorsOptions `json:"cors" yaml:"cors"`
+	Cors *FunctionUrlCorsOptions `field:"optional" json:"cors" yaml:"cors"`
 	// The function to which this url refers.
 	//
 	// It can also be an `Alias` but not a `Version`.
 	// Experimental.
-	Function IFunction `json:"function" yaml:"function"`
+	Function IFunction `field:"required" json:"function" yaml:"function"`
 }
 
 // Lambda function handler.
@@ -19785,7 +20030,7 @@ func (i *jsiiProxy_InlineCode) BindToResource(_resource awscdk.CfnResource, _opt
 // Example:
 //   layerArn := "arn:aws:lambda:us-east-1:580247275435:layer:LambdaInsightsExtension:14"
 //   lambda.NewFunction(this, jsii.String("MyFunction"), &functionProps{
-//   	runtime: lambda.runtime_NODEJS_12_X(),
+//   	runtime: lambda.runtime_NODEJS_16_X(),
 //   	handler: jsii.String("index.handler"),
 //   	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 //   	insightsVersion: lambda.lambdaInsightsVersion.fromInsightVersionArn(layerArn),
@@ -19903,7 +20148,10 @@ func LambdaInsightsVersion_VERSION_1_0_98_0() LambdaInsightsVersion {
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   lambdaRuntimeProps := &lambdaRuntimeProps{
 //   	bundlingDockerImage: jsii.String("bundlingDockerImage"),
 //   	supportsCodeGuruProfiling: jsii.Boolean(false),
@@ -19914,20 +20162,20 @@ func LambdaInsightsVersion_VERSION_1_0_98_0() LambdaInsightsVersion {
 type LambdaRuntimeProps struct {
 	// The Docker image name to be used for bundling in this runtime.
 	// Experimental.
-	BundlingDockerImage *string `json:"bundlingDockerImage" yaml:"bundlingDockerImage"`
+	BundlingDockerImage *string `field:"optional" json:"bundlingDockerImage" yaml:"bundlingDockerImage"`
 	// Whether this runtime is integrated with and supported for profiling using Amazon CodeGuru Profiler.
 	// Experimental.
-	SupportsCodeGuruProfiling *bool `json:"supportsCodeGuruProfiling" yaml:"supportsCodeGuruProfiling"`
+	SupportsCodeGuruProfiling *bool `field:"optional" json:"supportsCodeGuruProfiling" yaml:"supportsCodeGuruProfiling"`
 	// Whether the ``ZipFile`` (aka inline code) property can be used with this runtime.
 	// Experimental.
-	SupportsInlineCode *bool `json:"supportsInlineCode" yaml:"supportsInlineCode"`
+	SupportsInlineCode *bool `field:"optional" json:"supportsInlineCode" yaml:"supportsInlineCode"`
 }
 
 // Defines a new Lambda Layer version.
 //
 // Example:
 //   lambda.NewLayerVersion(this, jsii.String("MyLayer"), &layerVersionProps{
-//   	removalPolicy: removalPolicy_RETAIN,
+//   	removalPolicy: awscdk.RemovalPolicy_RETAIN,
 //   	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 //   	compatibleArchitectures: []architecture{
 //   		lambda.*architecture_X86_64(),
@@ -20353,9 +20601,12 @@ func (l *jsiiProxy_LayerVersion) Validate() *[]*string {
 // Properties necessary to import a LayerVersion.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var runtime runtime
+//
 //   layerVersionAttributes := &layerVersionAttributes{
 //   	layerVersionArn: jsii.String("layerVersionArn"),
 //
@@ -20369,16 +20620,20 @@ func (l *jsiiProxy_LayerVersion) Validate() *[]*string {
 type LayerVersionAttributes struct {
 	// The ARN of the LayerVersion.
 	// Experimental.
-	LayerVersionArn *string `json:"layerVersionArn" yaml:"layerVersionArn"`
+	LayerVersionArn *string `field:"required" json:"layerVersionArn" yaml:"layerVersionArn"`
 	// The list of compatible runtimes with this Layer.
 	// Experimental.
-	CompatibleRuntimes *[]Runtime `json:"compatibleRuntimes" yaml:"compatibleRuntimes"`
+	CompatibleRuntimes *[]Runtime `field:"optional" json:"compatibleRuntimes" yaml:"compatibleRuntimes"`
 }
 
 // Non runtime options.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   layerVersionOptions := &layerVersionOptions{
 //   	description: jsii.String("description"),
 //   	layerVersionName: jsii.String("layerVersionName"),
@@ -20390,16 +20645,16 @@ type LayerVersionAttributes struct {
 type LayerVersionOptions struct {
 	// The description the this Lambda Layer.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the layer.
 	// Experimental.
-	LayerVersionName *string `json:"layerVersionName" yaml:"layerVersionName"`
+	LayerVersionName *string `field:"optional" json:"layerVersionName" yaml:"layerVersionName"`
 	// The SPDX licence identifier or URL to the license file for this layer.
 	// Experimental.
-	License *string `json:"license" yaml:"license"`
+	License *string `field:"optional" json:"license" yaml:"license"`
 	// Whether to retain this version of the layer when a new version is added or when the stack is deleted.
 	// Experimental.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 }
 
 // Identification of an account (or organization) that is allowed to access a Lambda Layer Version.
@@ -20440,17 +20695,17 @@ type LayerVersionPermission struct {
 	// The wild-card ``'*'`` can be
 	// used to grant access to "any" account (or any account in an organization when ``organizationId`` is specified).
 	// Experimental.
-	AccountId *string `json:"accountId" yaml:"accountId"`
+	AccountId *string `field:"required" json:"accountId" yaml:"accountId"`
 	// The ID of the AWS Organization to which the grant is restricted.
 	//
 	// Can only be specified if ``accountId`` is ``'*'``.
 	// Experimental.
-	OrganizationId *string `json:"organizationId" yaml:"organizationId"`
+	OrganizationId *string `field:"optional" json:"organizationId" yaml:"organizationId"`
 }
 
 // Example:
 //   lambda.NewLayerVersion(this, jsii.String("MyLayer"), &layerVersionProps{
-//   	removalPolicy: removalPolicy_RETAIN,
+//   	removalPolicy: awscdk.RemovalPolicy_RETAIN,
 //   	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 //   	compatibleArchitectures: []architecture{
 //   		lambda.*architecture_X86_64(),
@@ -20462,27 +20717,27 @@ type LayerVersionPermission struct {
 type LayerVersionProps struct {
 	// The description the this Lambda Layer.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the layer.
 	// Experimental.
-	LayerVersionName *string `json:"layerVersionName" yaml:"layerVersionName"`
+	LayerVersionName *string `field:"optional" json:"layerVersionName" yaml:"layerVersionName"`
 	// The SPDX licence identifier or URL to the license file for this layer.
 	// Experimental.
-	License *string `json:"license" yaml:"license"`
+	License *string `field:"optional" json:"license" yaml:"license"`
 	// Whether to retain this version of the layer when a new version is added or when the stack is deleted.
 	// Experimental.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// The content of this Layer.
 	//
 	// Using `Code.fromInline` is not supported.
 	// Experimental.
-	Code Code `json:"code" yaml:"code"`
+	Code Code `field:"required" json:"code" yaml:"code"`
 	// The system architectures compatible with this layer.
 	// Experimental.
-	CompatibleArchitectures *[]Architecture `json:"compatibleArchitectures" yaml:"compatibleArchitectures"`
+	CompatibleArchitectures *[]Architecture `field:"optional" json:"compatibleArchitectures" yaml:"compatibleArchitectures"`
 	// The runtimes compatible with this Layer.
 	// Experimental.
-	CompatibleRuntimes *[]Runtime `json:"compatibleRuntimes" yaml:"compatibleRuntimes"`
+	CompatibleRuntimes *[]Runtime `field:"optional" json:"compatibleRuntimes" yaml:"compatibleRuntimes"`
 }
 
 // Creates a custom resource to control the retention policy of a CloudWatch Logs log group.
@@ -20491,13 +20746,19 @@ type LayerVersionProps struct {
 // is removed when `retentionDays` is `undefined` or equal to `Infinity`.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var role role
-//   logRetention := lambda.NewLogRetention(this, jsii.String("MyLogRetention"), &logRetentionProps{
+//
+//   logRetention := awscdk.Aws_lambda.NewLogRetention(this, jsii.String("MyLogRetention"), &logRetentionProps{
 //   	logGroupName: jsii.String("logGroupName"),
-//   	retention: logs.retentionDays_ONE_DAY,
+//   	retention: awscdk.Aws_logs.retentionDays_ONE_DAY,
 //
 //   	// the properties below are optional
 //   	logGroupRegion: jsii.String("logGroupRegion"),
@@ -20713,13 +20974,19 @@ func (l *jsiiProxy_LogRetention) Validate() *[]*string {
 // Construction properties for a LogRetention.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var role role
+//
 //   logRetentionProps := &logRetentionProps{
 //   	logGroupName: jsii.String("logGroupName"),
-//   	retention: logs.retentionDays_ONE_DAY,
+//   	retention: awscdk.Aws_logs.retentionDays_ONE_DAY,
 //
 //   	// the properties below are optional
 //   	logGroupRegion: jsii.String("logGroupRegion"),
@@ -20734,27 +21001,31 @@ func (l *jsiiProxy_LogRetention) Validate() *[]*string {
 type LogRetentionProps struct {
 	// The log group name.
 	// Deprecated: use `LogRetentionProps` from '.
-	LogGroupName *string `json:"logGroupName" yaml:"logGroupName"`
+	LogGroupName *string `field:"required" json:"logGroupName" yaml:"logGroupName"`
 	// The number of days log events are kept in CloudWatch Logs.
 	// Deprecated: use `LogRetentionProps` from '.
-	Retention awslogs.RetentionDays `json:"retention" yaml:"retention"`
+	Retention awslogs.RetentionDays `field:"required" json:"retention" yaml:"retention"`
 	// The region where the log group should be created.
 	// Deprecated: use `LogRetentionProps` from '.
-	LogGroupRegion *string `json:"logGroupRegion" yaml:"logGroupRegion"`
+	LogGroupRegion *string `field:"optional" json:"logGroupRegion" yaml:"logGroupRegion"`
 	// Retry options for all AWS API calls.
 	// Deprecated: use `LogRetentionProps` from '.
-	LogRetentionRetryOptions *awslogs.LogRetentionRetryOptions `json:"logRetentionRetryOptions" yaml:"logRetentionRetryOptions"`
+	LogRetentionRetryOptions *awslogs.LogRetentionRetryOptions `field:"optional" json:"logRetentionRetryOptions" yaml:"logRetentionRetryOptions"`
 	// The IAM role for the Lambda function associated with the custom resource.
 	// Deprecated: use `LogRetentionProps` from '.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 }
 
 // Retry options for all AWS API calls.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
+//
 //   logRetentionRetryOptions := &logRetentionRetryOptions{
 //   	base: duration,
 //   	maxRetries: jsii.Number(123),
@@ -20764,16 +21035,17 @@ type LogRetentionProps struct {
 type LogRetentionRetryOptions struct {
 	// The base duration to use in the exponential backoff for operation retries.
 	// Experimental.
-	Base awscdk.Duration `json:"base" yaml:"base"`
+	Base awscdk.Duration `field:"optional" json:"base" yaml:"base"`
 	// The maximum amount of retries.
 	// Experimental.
-	MaxRetries *float64 `json:"maxRetries" yaml:"maxRetries"`
+	MaxRetries *float64 `field:"optional" json:"maxRetries" yaml:"maxRetries"`
 }
 
 // Represents a permission statement that can be added to a Lambda function's resource policy via the `addPermission()` method.
 //
 // Example:
 //   var fn function
+//
 //   principal := iam.NewServicePrincipal(jsii.String("my-service"))
 //
 //   fn.grantInvoke(principal)
@@ -20795,7 +21067,7 @@ type Permission struct {
 	//
 	// The principal can be either an AccountPrincipal or a ServicePrincipal.
 	// Experimental.
-	Principal awsiam.IPrincipal `json:"principal" yaml:"principal"`
+	Principal awsiam.IPrincipal `field:"required" json:"principal" yaml:"principal"`
 	// The Lambda actions that you want to allow in this statement.
 	//
 	// For example,
@@ -20804,13 +21076,13 @@ type Permission struct {
 	// list of actions, see Actions and Condition Context Keys for AWS Lambda in
 	// the IAM User Guide.
 	// Experimental.
-	Action *string `json:"action" yaml:"action"`
+	Action *string `field:"optional" json:"action" yaml:"action"`
 	// A unique token that must be supplied by the principal invoking the function.
 	// Experimental.
-	EventSourceToken *string `json:"eventSourceToken" yaml:"eventSourceToken"`
+	EventSourceToken *string `field:"optional" json:"eventSourceToken" yaml:"eventSourceToken"`
 	// The authType for the function URL that you are granting permissions for.
 	// Experimental.
-	FunctionUrlAuthType FunctionUrlAuthType `json:"functionUrlAuthType" yaml:"functionUrlAuthType"`
+	FunctionUrlAuthType FunctionUrlAuthType `field:"optional" json:"functionUrlAuthType" yaml:"functionUrlAuthType"`
 	// The scope to which the permission constructs be attached.
 	//
 	// The default is
@@ -20818,7 +21090,7 @@ type Permission struct {
 	// in cases such as cross-stack references where the Permissions would need
 	// to sit closer to the consumer of this permission (i.e., the caller).
 	// Experimental.
-	Scope awscdk.Construct `json:"scope" yaml:"scope"`
+	Scope awscdk.Construct `field:"optional" json:"scope" yaml:"scope"`
 	// The AWS account ID (without hyphens) of the source owner.
 	//
 	// For example, if
@@ -20826,7 +21098,7 @@ type Permission struct {
 	// bucket owner's account ID. You can use this property to ensure that all
 	// source principals are owned by a specific account.
 	// Experimental.
-	SourceAccount *string `json:"sourceAccount" yaml:"sourceAccount"`
+	SourceAccount *string `field:"optional" json:"sourceAccount" yaml:"sourceAccount"`
 	// The ARN of a resource that is invoking your function.
 	//
 	// When granting
@@ -20836,7 +21108,7 @@ type Permission struct {
 	// any bucket from any AWS account that creates a mapping to your function,
 	// can invoke the function.
 	// Experimental.
-	SourceArn *string `json:"sourceArn" yaml:"sourceArn"`
+	SourceArn *string `field:"optional" json:"sourceArn" yaml:"sourceArn"`
 }
 
 // Experimental.
@@ -21578,7 +21850,10 @@ func (q *jsiiProxy_QualifiedFunctionBase) WarnInvokeFunctionPermissions(scope aw
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   resourceBindOptions := &resourceBindOptions{
 //   	resourceProperty: jsii.String("resourceProperty"),
 //   }
@@ -21589,7 +21864,7 @@ type ResourceBindOptions struct {
 	// See: https://github.com/aws/aws-cdk/issues/1432
 	//
 	// Experimental.
-	ResourceProperty *string `json:"resourceProperty" yaml:"resourceProperty"`
+	ResourceProperty *string `field:"optional" json:"resourceProperty" yaml:"resourceProperty"`
 }
 
 // Lambda function runtime environment.
@@ -21599,6 +21874,7 @@ type ResourceBindOptions struct {
 //
 // Example:
 //   import signer "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   signingProfile := signer.NewSigningProfile(this, jsii.String("SigningProfile"), &signingProfileProps{
 //   	platform: signer.platform_AWS_LAMBDA_SHA384_ECDSA(),
@@ -21612,7 +21888,7 @@ type ResourceBindOptions struct {
 //
 //   lambda.NewFunction(this, jsii.String("Function"), &functionProps{
 //   	codeSigningConfig: codeSigningConfig,
-//   	runtime: lambda.runtime_NODEJS_12_X(),
+//   	runtime: lambda.runtime_NODEJS_16_X(),
 //   	handler: jsii.String("index.handler"),
 //   	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 //   })
@@ -21900,6 +22176,17 @@ func Runtime_NODEJS_14_X() Runtime {
 	return returns
 }
 
+func Runtime_NODEJS_16_X() Runtime {
+	_init_.Initialize()
+	var returns Runtime
+	_jsii_.StaticGet(
+		"monocdk.aws_lambda.Runtime",
+		"NODEJS_16_X",
+		&returns,
+	)
+	return returns
+}
+
 func Runtime_NODEJS_4_3() Runtime {
 	_init_.Initialize()
 	var returns Runtime
@@ -22081,10 +22368,14 @@ const (
 // Lambda code from an S3 archive.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3 "github.com/aws/aws-cdk-go/awscdk/aws_s3"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var bucket bucket
-//   s3Code := lambda.NewS3Code(bucket, jsii.String("key"), jsii.String("objectVersion"))
+//
+//   s3Code := awscdk.Aws_lambda.NewS3Code(bucket, jsii.String("key"), jsii.String("objectVersion"))
 //
 // Experimental.
 type S3Code interface {
@@ -22368,7 +22659,17 @@ func (s *jsiiProxy_S3Code) BindToResource(_resource awscdk.CfnResource, _options
 // whenever they're declared into the stack.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import codeguruprofiler "github.com/aws/aws-cdk-go/awscdk/aws_codeguruprofiler"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"import awscdk "github.com/aws/aws-cdk-go/awscdk"import kms "github.com/aws/aws-cdk-go/awscdk/aws_kms"import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"import awscdk "github.com/aws/aws-cdk-go/awscdk"import sns "github.com/aws/aws-cdk-go/awscdk/aws_sns"import awscdk "github.com/aws/aws-cdk-go/awscdk"import sqs "github.com/aws/aws-cdk-go/awscdk/aws_sqs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var architecture architecture
 //   var code code
@@ -22391,7 +22692,8 @@ func (s *jsiiProxy_S3Code) BindToResource(_resource awscdk.CfnResource, _options
 //   var subnetFilter subnetFilter
 //   var topic topic
 //   var vpc vpc
-//   singletonFunction := lambda.NewSingletonFunction(this, jsii.String("MySingletonFunction"), &singletonFunctionProps{
+//
+//   singletonFunction := awscdk.Aws_lambda.NewSingletonFunction(this, jsii.String("MySingletonFunction"), &singletonFunctionProps{
 //   	code: code,
 //   	handler: jsii.String("handler"),
 //   	runtime: runtime,
@@ -22437,7 +22739,7 @@ func (s *jsiiProxy_S3Code) BindToResource(_resource awscdk.CfnResource, _options
 //   	layers: []iLayerVersion{
 //   		layerVersion,
 //   	},
-//   	logRetention: logs.retentionDays_ONE_DAY,
+//   	logRetention: awscdk.Aws_logs.retentionDays_ONE_DAY,
 //   	logRetentionRetryOptions: &logRetentionRetryOptions{
 //   		base: duration,
 //   		maxRetries: jsii.Number(123),
@@ -22457,7 +22759,7 @@ func (s *jsiiProxy_S3Code) BindToResource(_resource awscdk.CfnResource, _options
 //   		securityGroup,
 //   	},
 //   	timeout: duration,
-//   	tracing: lambda.tracing_ACTIVE,
+//   	tracing: awscdk.*Aws_lambda.tracing_ACTIVE,
 //   	vpc: vpc,
 //   	vpcSubnets: &subnetSelection{
 //   		availabilityZones: []*string{
@@ -22472,7 +22774,7 @@ func (s *jsiiProxy_S3Code) BindToResource(_resource awscdk.CfnResource, _options
 //   		subnets: []iSubnet{
 //   			subnet,
 //   		},
-//   		subnetType: ec2.subnetType_ISOLATED,
+//   		subnetType: awscdk.Aws_ec2.subnetType_ISOLATED,
 //   	},
 //   })
 //
@@ -23311,7 +23613,17 @@ func (s *jsiiProxy_SingletonFunction) WarnInvokeFunctionPermissions(scope awscdk
 // Properties for a newly created singleton Lambda.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import codeguruprofiler "github.com/aws/aws-cdk-go/awscdk/aws_codeguruprofiler"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"import awscdk "github.com/aws/aws-cdk-go/awscdk"import kms "github.com/aws/aws-cdk-go/awscdk/aws_kms"import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"import awscdk "github.com/aws/aws-cdk-go/awscdk"import sns "github.com/aws/aws-cdk-go/awscdk/aws_sns"import awscdk "github.com/aws/aws-cdk-go/awscdk"import sqs "github.com/aws/aws-cdk-go/awscdk/aws_sqs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var architecture architecture
 //   var code code
@@ -23334,6 +23646,7 @@ func (s *jsiiProxy_SingletonFunction) WarnInvokeFunctionPermissions(scope awscdk
 //   var subnetFilter subnetFilter
 //   var topic topic
 //   var vpc vpc
+//
 //   singletonFunctionProps := &singletonFunctionProps{
 //   	code: code,
 //   	handler: jsii.String("handler"),
@@ -23380,7 +23693,7 @@ func (s *jsiiProxy_SingletonFunction) WarnInvokeFunctionPermissions(scope awscdk
 //   	layers: []iLayerVersion{
 //   		layerVersion,
 //   	},
-//   	logRetention: logs.retentionDays_ONE_DAY,
+//   	logRetention: awscdk.Aws_logs.retentionDays_ONE_DAY,
 //   	logRetentionRetryOptions: &logRetentionRetryOptions{
 //   		base: duration,
 //   		maxRetries: jsii.Number(123),
@@ -23400,7 +23713,7 @@ func (s *jsiiProxy_SingletonFunction) WarnInvokeFunctionPermissions(scope awscdk
 //   		securityGroup,
 //   	},
 //   	timeout: duration,
-//   	tracing: lambda.tracing_ACTIVE,
+//   	tracing: awscdk.Aws_lambda.tracing_ACTIVE,
 //   	vpc: vpc,
 //   	vpcSubnets: &subnetSelection{
 //   		availabilityZones: []*string{
@@ -23415,7 +23728,7 @@ func (s *jsiiProxy_SingletonFunction) WarnInvokeFunctionPermissions(scope awscdk
 //   		subnets: []iSubnet{
 //   			subnet,
 //   		},
-//   		subnetType: ec2.subnetType_ISOLATED,
+//   		subnetType: awscdk.Aws_ec2.subnetType_ISOLATED,
 //   	},
 //   }
 //
@@ -23426,142 +23739,142 @@ type SingletonFunctionProps struct {
 	// Minimum: 60 seconds
 	// Maximum: 6 hours.
 	// Experimental.
-	MaxEventAge awscdk.Duration `json:"maxEventAge" yaml:"maxEventAge"`
+	MaxEventAge awscdk.Duration `field:"optional" json:"maxEventAge" yaml:"maxEventAge"`
 	// The destination for failed invocations.
 	// Experimental.
-	OnFailure IDestination `json:"onFailure" yaml:"onFailure"`
+	OnFailure IDestination `field:"optional" json:"onFailure" yaml:"onFailure"`
 	// The destination for successful invocations.
 	// Experimental.
-	OnSuccess IDestination `json:"onSuccess" yaml:"onSuccess"`
+	OnSuccess IDestination `field:"optional" json:"onSuccess" yaml:"onSuccess"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum: 0
 	// Maximum: 2.
 	// Experimental.
-	RetryAttempts *float64 `json:"retryAttempts" yaml:"retryAttempts"`
+	RetryAttempts *float64 `field:"optional" json:"retryAttempts" yaml:"retryAttempts"`
 	// Whether to allow the Lambda to send all network traffic.
 	//
 	// If set to false, you must individually add traffic rules to allow the
 	// Lambda to connect to network targets.
 	// Experimental.
-	AllowAllOutbound *bool `json:"allowAllOutbound" yaml:"allowAllOutbound"`
+	AllowAllOutbound *bool `field:"optional" json:"allowAllOutbound" yaml:"allowAllOutbound"`
 	// Lambda Functions in a public subnet can NOT access the internet.
 	//
 	// Use this property to acknowledge this limitation and still place the function in a public subnet.
 	// See: https://stackoverflow.com/questions/52992085/why-cant-an-aws-lambda-function-inside-a-public-subnet-in-a-vpc-connect-to-the/52994841#52994841
 	//
 	// Experimental.
-	AllowPublicSubnet *bool `json:"allowPublicSubnet" yaml:"allowPublicSubnet"`
+	AllowPublicSubnet *bool `field:"optional" json:"allowPublicSubnet" yaml:"allowPublicSubnet"`
 	// The system architectures compatible with this lambda function.
 	// Experimental.
-	Architecture Architecture `json:"architecture" yaml:"architecture"`
+	Architecture Architecture `field:"optional" json:"architecture" yaml:"architecture"`
 	// DEPRECATED.
 	// Deprecated: use `architecture`.
-	Architectures *[]Architecture `json:"architectures" yaml:"architectures"`
+	Architectures *[]Architecture `field:"optional" json:"architectures" yaml:"architectures"`
 	// Code signing config associated with this function.
 	// Experimental.
-	CodeSigningConfig ICodeSigningConfig `json:"codeSigningConfig" yaml:"codeSigningConfig"`
+	CodeSigningConfig ICodeSigningConfig `field:"optional" json:"codeSigningConfig" yaml:"codeSigningConfig"`
 	// Options for the `lambda.Version` resource automatically created by the `fn.currentVersion` method.
 	// Experimental.
-	CurrentVersionOptions *VersionOptions `json:"currentVersionOptions" yaml:"currentVersionOptions"`
+	CurrentVersionOptions *VersionOptions `field:"optional" json:"currentVersionOptions" yaml:"currentVersionOptions"`
 	// The SQS queue to use if DLQ is enabled.
 	//
 	// If SNS topic is desired, specify `deadLetterTopic` property instead.
 	// Experimental.
-	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue" yaml:"deadLetterQueue"`
+	DeadLetterQueue awssqs.IQueue `field:"optional" json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// Enabled DLQ.
 	//
 	// If `deadLetterQueue` is undefined,
 	// an SQS queue with default options will be defined for your Function.
 	// Experimental.
-	DeadLetterQueueEnabled *bool `json:"deadLetterQueueEnabled" yaml:"deadLetterQueueEnabled"`
+	DeadLetterQueueEnabled *bool `field:"optional" json:"deadLetterQueueEnabled" yaml:"deadLetterQueueEnabled"`
 	// The SNS topic to use as a DLQ.
 	//
 	// Note that if `deadLetterQueueEnabled` is set to `true`, an SQS queue will be created
 	// rather than an SNS topic. Using an SNS topic as a DLQ requires this property to be set explicitly.
 	// Experimental.
-	DeadLetterTopic awssns.ITopic `json:"deadLetterTopic" yaml:"deadLetterTopic"`
+	DeadLetterTopic awssns.ITopic `field:"optional" json:"deadLetterTopic" yaml:"deadLetterTopic"`
 	// A description of the function.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Key-value pairs that Lambda caches and makes available for your Lambda functions.
 	//
 	// Use environment variables to apply configuration changes, such
 	// as test and production environment configurations, without changing your
 	// Lambda function source code.
 	// Experimental.
-	Environment *map[string]*string `json:"environment" yaml:"environment"`
+	Environment *map[string]*string `field:"optional" json:"environment" yaml:"environment"`
 	// The AWS KMS key that's used to encrypt your function's environment variables.
 	// Experimental.
-	EnvironmentEncryption awskms.IKey `json:"environmentEncryption" yaml:"environmentEncryption"`
+	EnvironmentEncryption awskms.IKey `field:"optional" json:"environmentEncryption" yaml:"environmentEncryption"`
 	// The size of the function’s /tmp directory in MiB.
 	// Experimental.
-	EphemeralStorageSize awscdk.Size `json:"ephemeralStorageSize" yaml:"ephemeralStorageSize"`
+	EphemeralStorageSize awscdk.Size `field:"optional" json:"ephemeralStorageSize" yaml:"ephemeralStorageSize"`
 	// Event sources for this function.
 	//
 	// You can also add event sources using `addEventSource`.
 	// Experimental.
-	Events *[]IEventSource `json:"events" yaml:"events"`
+	Events *[]IEventSource `field:"optional" json:"events" yaml:"events"`
 	// The filesystem configuration for the lambda function.
 	// Experimental.
-	Filesystem FileSystem `json:"filesystem" yaml:"filesystem"`
+	Filesystem FileSystem `field:"optional" json:"filesystem" yaml:"filesystem"`
 	// A name for the function.
 	// Experimental.
-	FunctionName *string `json:"functionName" yaml:"functionName"`
+	FunctionName *string `field:"optional" json:"functionName" yaml:"functionName"`
 	// Initial policy statements to add to the created Lambda Role.
 	//
 	// You can call `addToRolePolicy` to the created lambda to add statements post creation.
 	// Experimental.
-	InitialPolicy *[]awsiam.PolicyStatement `json:"initialPolicy" yaml:"initialPolicy"`
+	InitialPolicy *[]awsiam.PolicyStatement `field:"optional" json:"initialPolicy" yaml:"initialPolicy"`
 	// Specify the version of CloudWatch Lambda insights to use for monitoring.
 	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Lambda-Insights-Getting-Started-docker.html
 	//
 	// Experimental.
-	InsightsVersion LambdaInsightsVersion `json:"insightsVersion" yaml:"insightsVersion"`
+	InsightsVersion LambdaInsightsVersion `field:"optional" json:"insightsVersion" yaml:"insightsVersion"`
 	// A list of layers to add to the function's execution environment.
 	//
 	// You can configure your Lambda function to pull in
 	// additional code during initialization in the form of layers. Layers are packages of libraries or other dependencies
 	// that can be used by multiple functions.
 	// Experimental.
-	Layers *[]ILayerVersion `json:"layers" yaml:"layers"`
+	Layers *[]ILayerVersion `field:"optional" json:"layers" yaml:"layers"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `INFINITE`.
 	// Experimental.
-	LogRetention awslogs.RetentionDays `json:"logRetention" yaml:"logRetention"`
+	LogRetention awslogs.RetentionDays `field:"optional" json:"logRetention" yaml:"logRetention"`
 	// When log retention is specified, a custom resource attempts to create the CloudWatch log group.
 	//
 	// These options control the retry policy when interacting with CloudWatch APIs.
 	// Experimental.
-	LogRetentionRetryOptions *LogRetentionRetryOptions `json:"logRetentionRetryOptions" yaml:"logRetentionRetryOptions"`
+	LogRetentionRetryOptions *LogRetentionRetryOptions `field:"optional" json:"logRetentionRetryOptions" yaml:"logRetentionRetryOptions"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
 	// Experimental.
-	LogRetentionRole awsiam.IRole `json:"logRetentionRole" yaml:"logRetentionRole"`
+	LogRetentionRole awsiam.IRole `field:"optional" json:"logRetentionRole" yaml:"logRetentionRole"`
 	// The amount of memory, in MB, that is allocated to your Lambda function.
 	//
 	// Lambda uses this value to proportionally allocate the amount of CPU
 	// power. For more information, see Resource Model in the AWS Lambda
 	// Developer Guide.
 	// Experimental.
-	MemorySize *float64 `json:"memorySize" yaml:"memorySize"`
+	MemorySize *float64 `field:"optional" json:"memorySize" yaml:"memorySize"`
 	// Enable profiling.
 	// See: https://docs.aws.amazon.com/codeguru/latest/profiler-ug/setting-up-lambda.html
 	//
 	// Experimental.
-	Profiling *bool `json:"profiling" yaml:"profiling"`
+	Profiling *bool `field:"optional" json:"profiling" yaml:"profiling"`
 	// Profiling Group.
 	// See: https://docs.aws.amazon.com/codeguru/latest/profiler-ug/setting-up-lambda.html
 	//
 	// Experimental.
-	ProfilingGroup awscodeguruprofiler.IProfilingGroup `json:"profilingGroup" yaml:"profilingGroup"`
+	ProfilingGroup awscodeguruprofiler.IProfilingGroup `field:"optional" json:"profilingGroup" yaml:"profilingGroup"`
 	// The maximum of concurrent executions you want to reserve for the function.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html
 	//
 	// Experimental.
-	ReservedConcurrentExecutions *float64 `json:"reservedConcurrentExecutions" yaml:"reservedConcurrentExecutions"`
+	ReservedConcurrentExecutions *float64 `field:"optional" json:"reservedConcurrentExecutions" yaml:"reservedConcurrentExecutions"`
 	// Lambda execution role.
 	//
 	// This is the role that will be assumed by the function upon execution.
@@ -23574,7 +23887,7 @@ type SingletonFunctionProps struct {
 	// The relevant managed policies are "service-role/AWSLambdaBasicExecutionRole" and
 	// "service-role/AWSLambdaVPCAccessExecutionRole".
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// What security group to associate with the Lambda's network interfaces. This property is being deprecated, consider using securityGroups instead.
 	//
 	// Only used if 'vpc' is supplied.
@@ -23582,39 +23895,39 @@ type SingletonFunctionProps struct {
 	// Use securityGroups property instead.
 	// Function constructor will throw an error if both are specified.
 	// Deprecated: - This property is deprecated, use securityGroups instead.
-	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup" yaml:"securityGroup"`
+	SecurityGroup awsec2.ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
 	// The list of security groups to associate with the Lambda's network interfaces.
 	//
 	// Only used if 'vpc' is supplied.
 	// Experimental.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// The function execution time (in seconds) after which Lambda terminates the function.
 	//
 	// Because the execution time affects cost, set this value
 	// based on the function's expected execution time.
 	// Experimental.
-	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
+	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 	// Enable AWS X-Ray Tracing for Lambda Function.
 	// Experimental.
-	Tracing Tracing `json:"tracing" yaml:"tracing"`
+	Tracing Tracing `field:"optional" json:"tracing" yaml:"tracing"`
 	// VPC network to place Lambda network interfaces.
 	//
 	// Specify this if the Lambda function needs to access resources in a VPC.
 	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
+	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 	// Where to place the network interfaces within the VPC.
 	//
 	// Only used if 'vpc' is supplied. Note: internet access for Lambdas
 	// requires a NAT gateway, so picking Public subnets is not allowed.
 	// Experimental.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets" yaml:"vpcSubnets"`
+	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 	// The source code of your Lambda function.
 	//
 	// You can point to a file in an
 	// Amazon Simple Storage Service (Amazon S3) bucket or specify your source
 	// code as inline text.
 	// Experimental.
-	Code Code `json:"code" yaml:"code"`
+	Code Code `field:"required" json:"code" yaml:"code"`
 	// The name of the method within your code that Lambda calls to execute your function.
 	//
 	// The format includes the file name. It can also include
@@ -23627,7 +23940,7 @@ type SingletonFunctionProps struct {
 	// ZipFile property within the Code property, specify index.function_name as
 	// the handler.
 	// Experimental.
-	Handler *string `json:"handler" yaml:"handler"`
+	Handler *string `field:"required" json:"handler" yaml:"handler"`
 	// The runtime environment for the Lambda function that you are uploading.
 	//
 	// For valid values, see the Runtime property in the AWS Lambda Developer
@@ -23635,28 +23948,31 @@ type SingletonFunctionProps struct {
 	//
 	// Use `Runtime.FROM_IMAGE` when when defining a function from a Docker image.
 	// Experimental.
-	Runtime Runtime `json:"runtime" yaml:"runtime"`
+	Runtime Runtime `field:"required" json:"runtime" yaml:"runtime"`
 	// A unique identifier to identify this lambda.
 	//
 	// The identifier should be unique across all custom resource providers.
 	// We recommend generating a UUID per provider.
 	// Experimental.
-	Uuid *string `json:"uuid" yaml:"uuid"`
+	Uuid *string `field:"required" json:"uuid" yaml:"uuid"`
 	// A descriptive name for the purpose of this Lambda.
 	//
 	// If the Lambda does not have a physical name, this string will be
 	// reflected its generated name. The combination of lambdaPurpose
 	// and uuid must be unique.
 	// Experimental.
-	LambdaPurpose *string `json:"lambdaPurpose" yaml:"lambdaPurpose"`
+	LambdaPurpose *string `field:"optional" json:"lambdaPurpose" yaml:"lambdaPurpose"`
 }
 
 // Specific settings like the authentication protocol or the VPC components to secure access to your event source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var sourceAccessConfigurationType sourceAccessConfigurationType
+//
 //   sourceAccessConfiguration := &sourceAccessConfiguration{
 //   	type: sourceAccessConfigurationType,
 //   	uri: jsii.String("uri"),
@@ -23668,7 +23984,7 @@ type SourceAccessConfiguration struct {
 	//
 	// For example: "SASL_SCRAM_512_AUTH".
 	// Experimental.
-	Type SourceAccessConfigurationType `json:"type" yaml:"type"`
+	Type SourceAccessConfigurationType `field:"required" json:"type" yaml:"type"`
 	// The value for your chosen configuration in type.
 	//
 	// For example: "URI": "arn:aws:secretsmanager:us-east-1:01234567890:secret:MyBrokerSecretName".
@@ -23676,14 +23992,17 @@ type SourceAccessConfiguration struct {
 	// See: SourceAccessConfigurationType.
 	//
 	// Experimental.
-	Uri *string `json:"uri" yaml:"uri"`
+	Uri *string `field:"required" json:"uri" yaml:"uri"`
 }
 
 // The type of authentication protocol or the VPC components for your event source's SourceAccessConfiguration.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
-//   sourceAccessConfigurationType := lambda.sourceAccessConfigurationType_BASIC_AUTH()
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   sourceAccessConfigurationType := awscdk.Aws_lambda.sourceAccessConfigurationType_BASIC_AUTH()
 //
 // See: https://docs.aws.amazon.com/lambda/latest/dg/API_SourceAccessConfiguration.html#SSS-Type-SourceAccessConfiguration-Type
 //
@@ -23798,12 +24117,14 @@ func SourceAccessConfigurationType_VPC_SUBNET() SourceAccessConfigurationType {
 // The position in the DynamoDB, Kinesis or MSK stream where AWS Lambda should start reading.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type Secret awscdk.Secretimport awscdk "github.com/aws/aws-cdk-go/awscdk"type SelfManagedKafkaEventSource awscdk.SelfManagedKafkaEventSource
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   // The secret that allows access to your self hosted Kafka cluster
 //   var secret secret
 //
 //   var myFunction function
+//
 //
 //   // The list of Kafka brokers
 //   bootstrapServers := []*string{
@@ -23812,7 +24133,7 @@ func SourceAccessConfigurationType_VPC_SUBNET() SourceAccessConfigurationType {
 //
 //   // The Kafka topic you want to subscribe to
 //   topic := "some-cool-topic"
-//   myFunction.addEventSource(NewSelfManagedKafkaEventSource(&selfManagedKafkaEventSourceProps{
+//   myFunction.addEventSource(awscdk.NewSelfManagedKafkaEventSource(&selfManagedKafkaEventSourceProps{
 //   	bootstrapServers: bootstrapServers,
 //   	topic: topic,
 //   	secret: secret,
@@ -23837,7 +24158,7 @@ const (
 //
 // Example:
 //   fn := lambda.NewFunction(this, jsii.String("MyFunction"), &functionProps{
-//   	runtime: lambda.runtime_NODEJS_12_X(),
+//   	runtime: lambda.runtime_NODEJS_16_X(),
 //   	handler: jsii.String("index.handler"),
 //   	code: lambda.code.fromInline(jsii.String("exports.handler = function(event, ctx, cb) { return cb(null, \"hi\"); }")),
 //   	tracing: lambda.tracing_ACTIVE,
@@ -23881,6 +24202,7 @@ const (
 //   import autoscaling "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var fn function
+//
 //   alias := fn.addAlias(jsii.String("prod"))
 //
 //   // Create AutoScaling target
@@ -23911,21 +24233,21 @@ type UtilizationScalingOptions struct {
 	// enabled and the target tracking policy can remove capacity from the
 	// scalable resource.
 	// Experimental.
-	DisableScaleIn *bool `json:"disableScaleIn" yaml:"disableScaleIn"`
+	DisableScaleIn *bool `field:"optional" json:"disableScaleIn" yaml:"disableScaleIn"`
 	// A name for the scaling policy.
 	// Experimental.
-	PolicyName *string `json:"policyName" yaml:"policyName"`
+	PolicyName *string `field:"optional" json:"policyName" yaml:"policyName"`
 	// Period after a scale in activity completes before another scale in activity can start.
 	// Experimental.
-	ScaleInCooldown awscdk.Duration `json:"scaleInCooldown" yaml:"scaleInCooldown"`
+	ScaleInCooldown awscdk.Duration `field:"optional" json:"scaleInCooldown" yaml:"scaleInCooldown"`
 	// Period after a scale out activity completes before another scale out activity can start.
 	// Experimental.
-	ScaleOutCooldown awscdk.Duration `json:"scaleOutCooldown" yaml:"scaleOutCooldown"`
+	ScaleOutCooldown awscdk.Duration `field:"optional" json:"scaleOutCooldown" yaml:"scaleOutCooldown"`
 	// Utilization target for the attribute.
 	//
 	// For example, .5 indicates that 50 percent of allocated provisioned concurrency is in use.
 	// Experimental.
-	UtilizationTarget *float64 `json:"utilizationTarget" yaml:"utilizationTarget"`
+	UtilizationTarget *float64 `field:"required" json:"utilizationTarget" yaml:"utilizationTarget"`
 }
 
 // Tag the current state of a Function with a Version number.
@@ -24793,9 +25115,12 @@ func (v *jsiiProxy_Version) WarnInvokeFunctionPermissions(scope awscdk.Construct
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var function_ function
+//
 //   versionAttributes := &versionAttributes{
 //   	lambda: function_,
 //   	version: jsii.String("version"),
@@ -24805,10 +25130,10 @@ func (v *jsiiProxy_Version) WarnInvokeFunctionPermissions(scope awscdk.Construct
 type VersionAttributes struct {
 	// The lambda function.
 	// Experimental.
-	Lambda IFunction `json:"lambda" yaml:"lambda"`
+	Lambda IFunction `field:"required" json:"lambda" yaml:"lambda"`
 	// The version.
 	// Experimental.
-	Version *string `json:"version" yaml:"version"`
+	Version *string `field:"required" json:"version" yaml:"version"`
 }
 
 // Options for `lambda.Version`.
@@ -24816,11 +25141,11 @@ type VersionAttributes struct {
 // Example:
 //   fn := lambda.NewFunction(this, jsii.String("MyFunction"), &functionProps{
 //   	currentVersionOptions: &versionOptions{
-//   		removalPolicy: removalPolicy_RETAIN,
+//   		removalPolicy: awscdk.RemovalPolicy_RETAIN,
 //   		 // retain old versions
 //   		retryAttempts: jsii.Number(1),
 //   	},
-//   	runtime: lambda.runtime_NODEJS_12_X(),
+//   	runtime: lambda.runtime_NODEJS_16_X(),
 //   	handler: jsii.String("index.handler"),
 //   	code: lambda.code.fromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 //   })
@@ -24834,39 +25159,40 @@ type VersionOptions struct {
 	// Minimum: 60 seconds
 	// Maximum: 6 hours.
 	// Experimental.
-	MaxEventAge awscdk.Duration `json:"maxEventAge" yaml:"maxEventAge"`
+	MaxEventAge awscdk.Duration `field:"optional" json:"maxEventAge" yaml:"maxEventAge"`
 	// The destination for failed invocations.
 	// Experimental.
-	OnFailure IDestination `json:"onFailure" yaml:"onFailure"`
+	OnFailure IDestination `field:"optional" json:"onFailure" yaml:"onFailure"`
 	// The destination for successful invocations.
 	// Experimental.
-	OnSuccess IDestination `json:"onSuccess" yaml:"onSuccess"`
+	OnSuccess IDestination `field:"optional" json:"onSuccess" yaml:"onSuccess"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum: 0
 	// Maximum: 2.
 	// Experimental.
-	RetryAttempts *float64 `json:"retryAttempts" yaml:"retryAttempts"`
+	RetryAttempts *float64 `field:"optional" json:"retryAttempts" yaml:"retryAttempts"`
 	// SHA256 of the version of the Lambda source code.
 	//
 	// Specify to validate that you're deploying the right version.
 	// Experimental.
-	CodeSha256 *string `json:"codeSha256" yaml:"codeSha256"`
+	CodeSha256 *string `field:"optional" json:"codeSha256" yaml:"codeSha256"`
 	// Description of the version.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Specifies a provisioned concurrency configuration for a function's version.
 	// Experimental.
-	ProvisionedConcurrentExecutions *float64 `json:"provisionedConcurrentExecutions" yaml:"provisionedConcurrentExecutions"`
+	ProvisionedConcurrentExecutions *float64 `field:"optional" json:"provisionedConcurrentExecutions" yaml:"provisionedConcurrentExecutions"`
 	// Whether to retain old versions of this function when a new version is created.
 	// Experimental.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 }
 
 // Properties for a new Lambda version.
 //
 // Example:
 //   var fn function
+//
 //   version := lambda.NewVersion(this, jsii.String("MyVersion"), &versionProps{
 //   	lambda: fn,
 //   })
@@ -24878,44 +25204,47 @@ type VersionProps struct {
 	// Minimum: 60 seconds
 	// Maximum: 6 hours.
 	// Experimental.
-	MaxEventAge awscdk.Duration `json:"maxEventAge" yaml:"maxEventAge"`
+	MaxEventAge awscdk.Duration `field:"optional" json:"maxEventAge" yaml:"maxEventAge"`
 	// The destination for failed invocations.
 	// Experimental.
-	OnFailure IDestination `json:"onFailure" yaml:"onFailure"`
+	OnFailure IDestination `field:"optional" json:"onFailure" yaml:"onFailure"`
 	// The destination for successful invocations.
 	// Experimental.
-	OnSuccess IDestination `json:"onSuccess" yaml:"onSuccess"`
+	OnSuccess IDestination `field:"optional" json:"onSuccess" yaml:"onSuccess"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum: 0
 	// Maximum: 2.
 	// Experimental.
-	RetryAttempts *float64 `json:"retryAttempts" yaml:"retryAttempts"`
+	RetryAttempts *float64 `field:"optional" json:"retryAttempts" yaml:"retryAttempts"`
 	// SHA256 of the version of the Lambda source code.
 	//
 	// Specify to validate that you're deploying the right version.
 	// Experimental.
-	CodeSha256 *string `json:"codeSha256" yaml:"codeSha256"`
+	CodeSha256 *string `field:"optional" json:"codeSha256" yaml:"codeSha256"`
 	// Description of the version.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Specifies a provisioned concurrency configuration for a function's version.
 	// Experimental.
-	ProvisionedConcurrentExecutions *float64 `json:"provisionedConcurrentExecutions" yaml:"provisionedConcurrentExecutions"`
+	ProvisionedConcurrentExecutions *float64 `field:"optional" json:"provisionedConcurrentExecutions" yaml:"provisionedConcurrentExecutions"`
 	// Whether to retain old versions of this function when a new version is created.
 	// Experimental.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// Function to get the value of.
 	// Experimental.
-	Lambda IFunction `json:"lambda" yaml:"lambda"`
+	Lambda IFunction `field:"required" json:"lambda" yaml:"lambda"`
 }
 
 // A version/weight pair for routing traffic to Lambda functions.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var version version
+//
 //   versionWeight := &versionWeight{
 //   	version: version,
 //   	weight: jsii.Number(123),
@@ -24925,9 +25254,9 @@ type VersionProps struct {
 type VersionWeight struct {
 	// The version to route traffic to.
 	// Experimental.
-	Version IVersion `json:"version" yaml:"version"`
+	Version IVersion `field:"required" json:"version" yaml:"version"`
 	// How much weight to assign to this version (0..1).
 	// Experimental.
-	Weight *float64 `json:"weight" yaml:"weight"`
+	Weight *float64 `field:"required" json:"weight" yaml:"weight"`
 }
 

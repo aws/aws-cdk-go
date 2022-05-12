@@ -16,7 +16,7 @@ import (
 //
 // Example:
 //   myTopic := sns.NewTopic(this, jsii.String("Topic"))
-//   emailAddress := NewCfnParameter(this, jsii.String("email-param"))
+//   emailAddress := awscdk.NewCfnParameter(this, jsii.String("email-param"))
 //
 //   myTopic.addSubscription(subscriptions.NewEmailSubscription(emailAddress.valueAsString))
 //
@@ -75,10 +75,15 @@ func (e *jsiiProxy_EmailSubscription) Bind(_topic awssns.ITopic) *awssns.TopicSu
 // Options for email subscriptions.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sns "github.com/aws/aws-cdk-go/awscdk/aws_sns"import awscdk "github.com/aws/aws-cdk-go/awscdk"import sns_subscriptions "github.com/aws/aws-cdk-go/awscdk/aws_sns_subscriptions"import awscdk "github.com/aws/aws-cdk-go/awscdk"import sqs "github.com/aws/aws-cdk-go/awscdk/aws_sqs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var queue queue
 //   var subscriptionFilter subscriptionFilter
+//
 //   emailSubscriptionProps := &emailSubscriptionProps{
 //   	deadLetterQueue: queue,
 //   	filterPolicy: map[string]*subscriptionFilter{
@@ -93,13 +98,13 @@ type EmailSubscriptionProps struct {
 	//
 	// If not passed no dead letter queue is enabled.
 	// Experimental.
-	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue" yaml:"deadLetterQueue"`
+	DeadLetterQueue awssqs.IQueue `field:"optional" json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// The filter policy.
 	// Experimental.
-	FilterPolicy *map[string]awssns.SubscriptionFilter `json:"filterPolicy" yaml:"filterPolicy"`
+	FilterPolicy *map[string]awssns.SubscriptionFilter `field:"optional" json:"filterPolicy" yaml:"filterPolicy"`
 	// Indicates if the full notification JSON should be sent to the email address or just the message text.
 	// Experimental.
-	Json *bool `json:"json" yaml:"json"`
+	Json *bool `field:"optional" json:"json" yaml:"json"`
 }
 
 // Use a Lambda function as a subscription target.
@@ -107,6 +112,7 @@ type EmailSubscriptionProps struct {
 // Example:
 //   import lambda "github.com/aws/aws-cdk-go/awscdk"
 //   var fn function
+//
 //
 //   myTopic := sns.NewTopic(this, jsii.String("MyTopic"))
 //
@@ -201,6 +207,7 @@ func (l *jsiiProxy_LambdaSubscription) Bind(topic awssns.ITopic) *awssns.TopicSu
 //   import lambda "github.com/aws/aws-cdk-go/awscdk"
 //   var fn function
 //
+//
 //   myTopic := sns.NewTopic(this, jsii.String("MyTopic"))
 //
 //   // Lambda should receive only message matching the following conditions on attributes:
@@ -242,10 +249,10 @@ type LambdaSubscriptionProps struct {
 	//
 	// If not passed no dead letter queue is enabled.
 	// Experimental.
-	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue" yaml:"deadLetterQueue"`
+	DeadLetterQueue awssqs.IQueue `field:"optional" json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// The filter policy.
 	// Experimental.
-	FilterPolicy *map[string]awssns.SubscriptionFilter `json:"filterPolicy" yaml:"filterPolicy"`
+	FilterPolicy *map[string]awssns.SubscriptionFilter `field:"optional" json:"filterPolicy" yaml:"filterPolicy"`
 }
 
 // Use an sms address as a subscription target.
@@ -310,10 +317,15 @@ func (s *jsiiProxy_SmsSubscription) Bind(_topic awssns.ITopic) *awssns.TopicSubs
 // Options for SMS subscriptions.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sns "github.com/aws/aws-cdk-go/awscdk/aws_sns"import awscdk "github.com/aws/aws-cdk-go/awscdk"import sns_subscriptions "github.com/aws/aws-cdk-go/awscdk/aws_sns_subscriptions"import awscdk "github.com/aws/aws-cdk-go/awscdk"import sqs "github.com/aws/aws-cdk-go/awscdk/aws_sqs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var queue queue
 //   var subscriptionFilter subscriptionFilter
+//
 //   smsSubscriptionProps := &smsSubscriptionProps{
 //   	deadLetterQueue: queue,
 //   	filterPolicy: map[string]*subscriptionFilter{
@@ -327,16 +339,17 @@ type SmsSubscriptionProps struct {
 	//
 	// If not passed no dead letter queue is enabled.
 	// Experimental.
-	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue" yaml:"deadLetterQueue"`
+	DeadLetterQueue awssqs.IQueue `field:"optional" json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// The filter policy.
 	// Experimental.
-	FilterPolicy *map[string]awssns.SubscriptionFilter `json:"filterPolicy" yaml:"filterPolicy"`
+	FilterPolicy *map[string]awssns.SubscriptionFilter `field:"optional" json:"filterPolicy" yaml:"filterPolicy"`
 }
 
 // Use an SQS queue as a subscription target.
 //
 // Example:
 //   var queue queue
+//
 //   myTopic := sns.NewTopic(this, jsii.String("MyTopic"))
 //
 //   myTopic.addSubscription(subscriptions.NewSqsSubscription(queue))
@@ -396,10 +409,15 @@ func (s *jsiiProxy_SqsSubscription) Bind(topic awssns.ITopic) *awssns.TopicSubsc
 // Properties for an SQS subscription.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sns "github.com/aws/aws-cdk-go/awscdk/aws_sns"import awscdk "github.com/aws/aws-cdk-go/awscdk"import sns_subscriptions "github.com/aws/aws-cdk-go/awscdk/aws_sns_subscriptions"import awscdk "github.com/aws/aws-cdk-go/awscdk"import sqs "github.com/aws/aws-cdk-go/awscdk/aws_sqs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var queue queue
 //   var subscriptionFilter subscriptionFilter
+//
 //   sqsSubscriptionProps := &sqsSubscriptionProps{
 //   	deadLetterQueue: queue,
 //   	filterPolicy: map[string]*subscriptionFilter{
@@ -414,24 +432,29 @@ type SqsSubscriptionProps struct {
 	//
 	// If not passed no dead letter queue is enabled.
 	// Experimental.
-	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue" yaml:"deadLetterQueue"`
+	DeadLetterQueue awssqs.IQueue `field:"optional" json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// The filter policy.
 	// Experimental.
-	FilterPolicy *map[string]awssns.SubscriptionFilter `json:"filterPolicy" yaml:"filterPolicy"`
+	FilterPolicy *map[string]awssns.SubscriptionFilter `field:"optional" json:"filterPolicy" yaml:"filterPolicy"`
 	// The message to the queue is the same as it was sent to the topic.
 	//
 	// If false, the message will be wrapped in an SNS envelope.
 	// Experimental.
-	RawMessageDelivery *bool `json:"rawMessageDelivery" yaml:"rawMessageDelivery"`
+	RawMessageDelivery *bool `field:"optional" json:"rawMessageDelivery" yaml:"rawMessageDelivery"`
 }
 
 // Options to subscribing to an SNS topic.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sns "github.com/aws/aws-cdk-go/awscdk/aws_sns"import awscdk "github.com/aws/aws-cdk-go/awscdk"import sns_subscriptions "github.com/aws/aws-cdk-go/awscdk/aws_sns_subscriptions"import awscdk "github.com/aws/aws-cdk-go/awscdk"import sqs "github.com/aws/aws-cdk-go/awscdk/aws_sqs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var queue queue
 //   var subscriptionFilter subscriptionFilter
+//
 //   subscriptionProps := &subscriptionProps{
 //   	deadLetterQueue: queue,
 //   	filterPolicy: map[string]*subscriptionFilter{
@@ -445,10 +468,10 @@ type SubscriptionProps struct {
 	//
 	// If not passed no dead letter queue is enabled.
 	// Experimental.
-	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue" yaml:"deadLetterQueue"`
+	DeadLetterQueue awssqs.IQueue `field:"optional" json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// The filter policy.
 	// Experimental.
-	FilterPolicy *map[string]awssns.SubscriptionFilter `json:"filterPolicy" yaml:"filterPolicy"`
+	FilterPolicy *map[string]awssns.SubscriptionFilter `field:"optional" json:"filterPolicy" yaml:"filterPolicy"`
 }
 
 // Use a URL as a subscription target.
@@ -517,16 +540,21 @@ func (u *jsiiProxy_UrlSubscription) Bind(_topic awssns.ITopic) *awssns.TopicSubs
 // Options for URL subscriptions.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import sns "github.com/aws/aws-cdk-go/awscdk/aws_sns"import awscdk "github.com/aws/aws-cdk-go/awscdk"import sns_subscriptions "github.com/aws/aws-cdk-go/awscdk/aws_sns_subscriptions"import awscdk "github.com/aws/aws-cdk-go/awscdk"import sqs "github.com/aws/aws-cdk-go/awscdk/aws_sqs"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var queue queue
 //   var subscriptionFilter subscriptionFilter
+//
 //   urlSubscriptionProps := &urlSubscriptionProps{
 //   	deadLetterQueue: queue,
 //   	filterPolicy: map[string]*subscriptionFilter{
 //   		"filterPolicyKey": subscriptionFilter,
 //   	},
-//   	protocol: sns.subscriptionProtocol_HTTP,
+//   	protocol: awscdk.Aws_sns.subscriptionProtocol_HTTP,
 //   	rawMessageDelivery: jsii.Boolean(false),
 //   }
 //
@@ -536,17 +564,17 @@ type UrlSubscriptionProps struct {
 	//
 	// If not passed no dead letter queue is enabled.
 	// Experimental.
-	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue" yaml:"deadLetterQueue"`
+	DeadLetterQueue awssqs.IQueue `field:"optional" json:"deadLetterQueue" yaml:"deadLetterQueue"`
 	// The filter policy.
 	// Experimental.
-	FilterPolicy *map[string]awssns.SubscriptionFilter `json:"filterPolicy" yaml:"filterPolicy"`
+	FilterPolicy *map[string]awssns.SubscriptionFilter `field:"optional" json:"filterPolicy" yaml:"filterPolicy"`
 	// The subscription's protocol.
 	// Experimental.
-	Protocol awssns.SubscriptionProtocol `json:"protocol" yaml:"protocol"`
+	Protocol awssns.SubscriptionProtocol `field:"optional" json:"protocol" yaml:"protocol"`
 	// The message to the queue is the same as it was sent to the topic.
 	//
 	// If false, the message will be wrapped in an SNS envelope.
 	// Experimental.
-	RawMessageDelivery *bool `json:"rawMessageDelivery" yaml:"rawMessageDelivery"`
+	RawMessageDelivery *bool `field:"optional" json:"rawMessageDelivery" yaml:"rawMessageDelivery"`
 }
 

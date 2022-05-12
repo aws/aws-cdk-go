@@ -22,11 +22,14 @@ import (
 // For more information, see [Experiment templates](https://docs.aws.amazon.com/fis/latest/userguide/experiment-templates.html) in the *AWS Fault Injection Simulator User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import fis "github.com/aws/aws-cdk-go/awscdk/aws_fis"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var cloudWatchLogsConfiguration interface{}
 //   var s3Configuration interface{}
-//   cfnExperimentTemplate := fis.NewCfnExperimentTemplate(this, jsii.String("MyCfnExperimentTemplate"), &cfnExperimentTemplateProps{
+//
+//   cfnExperimentTemplate := awscdk.Aws_fis.NewCfnExperimentTemplate(this, jsii.String("MyCfnExperimentTemplate"), &cfnExperimentTemplateProps{
 //   	description: jsii.String("description"),
 //   	roleArn: jsii.String("roleArn"),
 //   	stopConditions: []interface{}{
@@ -853,7 +856,10 @@ func (c *jsiiProxy_CfnExperimentTemplate) ValidateProperties(_properties interfa
 // For more information, see [Actions](https://docs.aws.amazon.com/fis/latest/userguide/actions.html) in the *AWS Fault Injection Simulator User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import fis "github.com/aws/aws-cdk-go/awscdk/aws_fis"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   experimentTemplateActionProperty := &experimentTemplateActionProperty{
 //   	actionId: jsii.String("actionId"),
 //
@@ -874,26 +880,29 @@ type CfnExperimentTemplate_ExperimentTemplateActionProperty struct {
 	// The ID of the action.
 	//
 	// The format of the action ID is: aws: *service-name* : *action-type* .
-	ActionId *string `json:"actionId" yaml:"actionId"`
+	ActionId *string `field:"required" json:"actionId" yaml:"actionId"`
 	// A description for the action.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The parameters for the action, if applicable.
-	Parameters interface{} `json:"parameters" yaml:"parameters"`
+	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// The name of the action that must be completed before the current action starts.
 	//
 	// Omit this parameter to run the action at the start of the experiment.
-	StartAfter *[]*string `json:"startAfter" yaml:"startAfter"`
+	StartAfter *[]*string `field:"optional" json:"startAfter" yaml:"startAfter"`
 	// The targets for the action.
-	Targets interface{} `json:"targets" yaml:"targets"`
+	Targets interface{} `field:"optional" json:"targets" yaml:"targets"`
 }
 
 // Specifies the configuration for experiment logging.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import fis "github.com/aws/aws-cdk-go/awscdk/aws_fis"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var cloudWatchLogsConfiguration interface{}
 //   var s3Configuration interface{}
+//
 //   experimentTemplateLogConfigurationProperty := &experimentTemplateLogConfigurationProperty{
 //   	logSchemaVersion: jsii.Number(123),
 //
@@ -906,11 +915,11 @@ type CfnExperimentTemplate_ExperimentTemplateLogConfigurationProperty struct {
 	// The schema version.
 	//
 	// The supported value is 1.
-	LogSchemaVersion *float64 `json:"logSchemaVersion" yaml:"logSchemaVersion"`
-	// The configuration for experiment logging to Amazon CloudWatch Logs. The supported field is `logGroupArn` . For example:.
+	LogSchemaVersion *float64 `field:"required" json:"logSchemaVersion" yaml:"logSchemaVersion"`
+	// The configuration for experiment logging to Amazon CloudWatch Logs. The supported field is `LogGroupArn` . For example:.
 	//
-	// `{"logGroupArn": "aws:arn:logs: *region_name* : *account_id* :log-group: *log_group_name* "}`.
-	CloudWatchLogsConfiguration interface{} `json:"cloudWatchLogsConfiguration" yaml:"cloudWatchLogsConfiguration"`
+	// `{"LogGroupArn": "aws:arn:logs: *region_name* : *account_id* :log-group: *log_group_name* "}`.
+	CloudWatchLogsConfiguration interface{} `field:"optional" json:"cloudWatchLogsConfiguration" yaml:"cloudWatchLogsConfiguration"`
 	// The configuration for experiment logging to Amazon S3. The following fields are supported:.
 	//
 	// - `bucketName` - The name of the destination bucket.
@@ -918,14 +927,17 @@ type CfnExperimentTemplate_ExperimentTemplateLogConfigurationProperty struct {
 	//
 	// For example:
 	//
-	// `{"bucketName": " *my-s3-bucket* ", "prefix": " *log-folder* "}`.
-	S3Configuration interface{} `json:"s3Configuration" yaml:"s3Configuration"`
+	// `{"BucketName": " *my-s3-bucket* ", "Prefix": " *log-folder* "}`.
+	S3Configuration interface{} `field:"optional" json:"s3Configuration" yaml:"s3Configuration"`
 }
 
 // Specifies a stop condition for an experiment template.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import fis "github.com/aws/aws-cdk-go/awscdk/aws_fis"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   experimentTemplateStopConditionProperty := &experimentTemplateStopConditionProperty{
 //   	source: jsii.String("source"),
 //
@@ -937,11 +949,11 @@ type CfnExperimentTemplate_ExperimentTemplateStopConditionProperty struct {
 	// The source for the stop condition.
 	//
 	// Specify `aws:cloudwatch:alarm` if the stop condition is defined by a CloudWatch alarm. Specify `none` if there is no stop condition.
-	Source *string `json:"source" yaml:"source"`
+	Source *string `field:"required" json:"source" yaml:"source"`
 	// The Amazon Resource Name (ARN) of the CloudWatch alarm.
 	//
 	// This is required if the source is a CloudWatch alarm.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
 // Specifies a filter used for the target resource input in an experiment template.
@@ -949,7 +961,10 @@ type CfnExperimentTemplate_ExperimentTemplateStopConditionProperty struct {
 // For more information, see [Resource filters](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters) in the *AWS Fault Injection Simulator User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import fis "github.com/aws/aws-cdk-go/awscdk/aws_fis"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   experimentTemplateTargetFilterProperty := &experimentTemplateTargetFilterProperty{
 //   	path: jsii.String("path"),
 //   	values: []*string{
@@ -959,9 +974,9 @@ type CfnExperimentTemplate_ExperimentTemplateStopConditionProperty struct {
 //
 type CfnExperimentTemplate_ExperimentTemplateTargetFilterProperty struct {
 	// The attribute path for the filter.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"required" json:"path" yaml:"path"`
 	// The attribute values for the filter.
-	Values *[]*string `json:"values" yaml:"values"`
+	Values *[]*string `field:"required" json:"values" yaml:"values"`
 }
 
 // Specifies a target for an experiment.
@@ -971,7 +986,10 @@ type CfnExperimentTemplate_ExperimentTemplateTargetFilterProperty struct {
 // For more information, see [Targets](https://docs.aws.amazon.com/fis/latest/userguide/targets.html) in the *AWS Fault Injection Simulator User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import fis "github.com/aws/aws-cdk-go/awscdk/aws_fis"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   experimentTemplateTargetProperty := &experimentTemplateTargetProperty{
 //   	resourceType: jsii.String("resourceType"),
 //   	selectionMode: jsii.String("selectionMode"),
@@ -1000,7 +1018,7 @@ type CfnExperimentTemplate_ExperimentTemplateTargetProperty struct {
 	// The resource type.
 	//
 	// The resource type must be supported for the specified action.
-	ResourceType *string `json:"resourceType" yaml:"resourceType"`
+	ResourceType *string `field:"required" json:"resourceType" yaml:"resourceType"`
 	// Scopes the identified resources to a specific count of the resources at random, or a percentage of the resources.
 	//
 	// All identified resources are included in the target.
@@ -1008,24 +1026,27 @@ type CfnExperimentTemplate_ExperimentTemplateTargetProperty struct {
 	// - ALL - Run the action on all identified targets. This is the default.
 	// - COUNT(n) - Run the action on the specified number of targets, chosen from the identified targets at random. For example, COUNT(1) selects one of the targets.
 	// - PERCENT(n) - Run the action on the specified percentage of targets, chosen from the identified targets at random. For example, PERCENT(25) selects 25% of the targets.
-	SelectionMode *string `json:"selectionMode" yaml:"selectionMode"`
+	SelectionMode *string `field:"required" json:"selectionMode" yaml:"selectionMode"`
 	// The filters to apply to identify target resources using specific attributes.
-	Filters interface{} `json:"filters" yaml:"filters"`
+	Filters interface{} `field:"optional" json:"filters" yaml:"filters"`
 	// The parameters for the resource type.
-	Parameters interface{} `json:"parameters" yaml:"parameters"`
+	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// The Amazon Resource Names (ARNs) of the resources.
-	ResourceArns *[]*string `json:"resourceArns" yaml:"resourceArns"`
+	ResourceArns *[]*string `field:"optional" json:"resourceArns" yaml:"resourceArns"`
 	// The tags for the target resources.
-	ResourceTags interface{} `json:"resourceTags" yaml:"resourceTags"`
+	ResourceTags interface{} `field:"optional" json:"resourceTags" yaml:"resourceTags"`
 }
 
 // Properties for defining a `CfnExperimentTemplate`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import fis "github.com/aws/aws-cdk-go/awscdk/aws_fis"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var cloudWatchLogsConfiguration interface{}
 //   var s3Configuration interface{}
+//
 //   cfnExperimentTemplateProps := &cfnExperimentTemplateProps{
 //   	description: jsii.String("description"),
 //   	roleArn: jsii.String("roleArn"),
@@ -1095,18 +1116,18 @@ type CfnExperimentTemplate_ExperimentTemplateTargetProperty struct {
 //
 type CfnExperimentTemplateProps struct {
 	// A description for the experiment template.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"required" json:"description" yaml:"description"`
 	// The Amazon Resource Name (ARN) of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The stop conditions.
-	StopConditions interface{} `json:"stopConditions" yaml:"stopConditions"`
+	StopConditions interface{} `field:"required" json:"stopConditions" yaml:"stopConditions"`
 	// The tags to apply to the experiment template.
-	Tags *map[string]*string `json:"tags" yaml:"tags"`
+	Tags *map[string]*string `field:"required" json:"tags" yaml:"tags"`
 	// The targets for the experiment.
-	Targets interface{} `json:"targets" yaml:"targets"`
+	Targets interface{} `field:"required" json:"targets" yaml:"targets"`
 	// The actions for the experiment.
-	Actions interface{} `json:"actions" yaml:"actions"`
+	Actions interface{} `field:"optional" json:"actions" yaml:"actions"`
 	// The configuration for experiment logging.
-	LogConfiguration interface{} `json:"logConfiguration" yaml:"logConfiguration"`
+	LogConfiguration interface{} `field:"optional" json:"logConfiguration" yaml:"logConfiguration"`
 }
 

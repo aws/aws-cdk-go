@@ -22,8 +22,11 @@ import (
 // > If you use the [VPC endpoints](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html) feature, custom resources in the VPC must have access to CloudFormation -specific Amazon Simple Storage Service ( Amazon S3 ) buckets. Custom resources must send responses to a presigned Amazon S3 URL. If they can't send responses to Amazon S3 , CloudFormation won't receive a response and the stack operation fails. For more information, see [Setting up VPC endpoints for AWS CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-vpce-bucketnames.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"
-//   cfnCustomResource := cloudformation.NewCfnCustomResource(this, jsii.String("MyCfnCustomResource"), &cfnCustomResourceProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnCustomResource := awscdk.Aws_cloudformation.NewCfnCustomResource(this, jsii.String("MyCfnCustomResource"), &cfnCustomResourceProps{
 //   	serviceToken: jsii.String("serviceToken"),
 //   })
 //
@@ -662,7 +665,10 @@ func (c *jsiiProxy_CfnCustomResource) ValidateProperties(_properties interface{}
 // Properties for defining a `CfnCustomResource`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnCustomResourceProps := &cfnCustomResourceProps{
 //   	serviceToken: jsii.String("serviceToken"),
 //   }
@@ -675,7 +681,7 @@ type CfnCustomResourceProps struct {
 	// The service token that was given to the template developer by the service provider to access the service, such as an Amazon SNS topic ARN or Lambda function ARN. The service token must be from the same Region in which you are creating the stack.
 	//
 	// Updates aren't supported.
-	ServiceToken *string `json:"serviceToken" yaml:"serviceToken"`
+	ServiceToken *string `field:"required" json:"serviceToken" yaml:"serviceToken"`
 }
 
 // A CloudFormation `AWS::CloudFormation::HookDefaultVersion`.
@@ -683,8 +689,11 @@ type CfnCustomResourceProps struct {
 // The `HookDefaultVersion` resource specifies the default version of the hook. The default version of the hook is used in CloudFormation operations for this AWS account and AWS Region .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"
-//   cfnHookDefaultVersion := cloudformation.NewCfnHookDefaultVersion(this, jsii.String("MyCfnHookDefaultVersion"), &cfnHookDefaultVersionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnHookDefaultVersion := awscdk.Aws_cloudformation.NewCfnHookDefaultVersion(this, jsii.String("MyCfnHookDefaultVersion"), &cfnHookDefaultVersionProps{
 //   	typeName: jsii.String("typeName"),
 //   	typeVersionArn: jsii.String("typeVersionArn"),
 //   	versionId: jsii.String("versionId"),
@@ -1379,7 +1388,10 @@ func (c *jsiiProxy_CfnHookDefaultVersion) ValidateProperties(_properties interfa
 // Properties for defining a `CfnHookDefaultVersion`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnHookDefaultVersionProps := &cfnHookDefaultVersionProps{
 //   	typeName: jsii.String("typeName"),
 //   	typeVersionArn: jsii.String("typeVersionArn"),
@@ -1390,15 +1402,15 @@ type CfnHookDefaultVersionProps struct {
 	// The name of the hook.
 	//
 	// You must specify either `TypeVersionArn` , or `TypeName` and `VersionId` .
-	TypeName *string `json:"typeName" yaml:"typeName"`
+	TypeName *string `field:"optional" json:"typeName" yaml:"typeName"`
 	// The version ID of the type configuration.
 	//
 	// You must specify either `TypeVersionArn` , or `TypeName` and `VersionId` .
-	TypeVersionArn *string `json:"typeVersionArn" yaml:"typeVersionArn"`
+	TypeVersionArn *string `field:"optional" json:"typeVersionArn" yaml:"typeVersionArn"`
 	// The version ID of the type specified.
 	//
 	// You must specify either `TypeVersionArn` , or `TypeName` and `VersionId` .
-	VersionId *string `json:"versionId" yaml:"versionId"`
+	VersionId *string `field:"optional" json:"versionId" yaml:"versionId"`
 }
 
 // A CloudFormation `AWS::CloudFormation::HookTypeConfig`.
@@ -1406,8 +1418,11 @@ type CfnHookDefaultVersionProps struct {
 // The `HookTypeConfig` resource specifies the configuration of a hook.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"
-//   cfnHookTypeConfig := cloudformation.NewCfnHookTypeConfig(this, jsii.String("MyCfnHookTypeConfig"), &cfnHookTypeConfigProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnHookTypeConfig := awscdk.Aws_cloudformation.NewCfnHookTypeConfig(this, jsii.String("MyCfnHookTypeConfig"), &cfnHookTypeConfigProps{
 //   	configuration: jsii.String("configuration"),
 //
 //   	// the properties below are optional
@@ -2130,7 +2145,10 @@ func (c *jsiiProxy_CfnHookTypeConfig) ValidateProperties(_properties interface{}
 // Properties for defining a `CfnHookTypeConfig`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnHookTypeConfigProps := &cfnHookTypeConfigProps{
 //   	configuration: jsii.String("configuration"),
 //
@@ -2144,21 +2162,21 @@ type CfnHookTypeConfigProps struct {
 	// Specifies the activated hook type configuration, in this AWS account and AWS Region .
 	//
 	// You must specify either `TypeName` and `Configuration` or `TypeARN` and `Configuration` .
-	Configuration *string `json:"configuration" yaml:"configuration"`
+	Configuration *string `field:"required" json:"configuration" yaml:"configuration"`
 	// Specifies the activated hook type configuration, in this AWS account and AWS Region .
 	//
 	// Defaults to `default` alias. Hook types currently support default configuration alias.
-	ConfigurationAlias *string `json:"configurationAlias" yaml:"configurationAlias"`
+	ConfigurationAlias *string `field:"optional" json:"configurationAlias" yaml:"configurationAlias"`
 	// The Amazon Resource Number (ARN) for the hook to set `Configuration` for.
 	//
 	// You must specify either `TypeName` and `Configuration` or `TypeARN` and `Configuration` .
-	TypeArn *string `json:"typeArn" yaml:"typeArn"`
+	TypeArn *string `field:"optional" json:"typeArn" yaml:"typeArn"`
 	// The unique name for your hook.
 	//
 	// Specifies a three-part namespace for your hook, with a recommended pattern of `Organization::Service::Hook` .
 	//
 	// You must specify either `TypeName` and `Configuration` or `TypeARN` and `Configuration` .
-	TypeName *string `json:"typeName" yaml:"typeName"`
+	TypeName *string `field:"optional" json:"typeName" yaml:"typeName"`
 }
 
 // A CloudFormation `AWS::CloudFormation::HookVersion`.
@@ -2166,8 +2184,11 @@ type CfnHookTypeConfigProps struct {
 // The `HookVersion` resource publishes new or first hook version to the AWS CloudFormation registry.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"
-//   cfnHookVersion := cloudformation.NewCfnHookVersion(this, jsii.String("MyCfnHookVersion"), &cfnHookVersionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnHookVersion := awscdk.Aws_cloudformation.NewCfnHookVersion(this, jsii.String("MyCfnHookVersion"), &cfnHookVersionProps{
 //   	schemaHandlerPackage: jsii.String("schemaHandlerPackage"),
 //   	typeName: jsii.String("typeName"),
 //
@@ -2952,7 +2973,10 @@ func (c *jsiiProxy_CfnHookVersion) ValidateProperties(_properties interface{}) {
 // The `LoggingConfig` property type specifies logging configuration information for an extension.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   loggingConfigProperty := &loggingConfigProperty{
 //   	logGroupName: jsii.String("logGroupName"),
 //   	logRoleArn: jsii.String("logRoleArn"),
@@ -2960,15 +2984,18 @@ func (c *jsiiProxy_CfnHookVersion) ValidateProperties(_properties interface{}) {
 //
 type CfnHookVersion_LoggingConfigProperty struct {
 	// The Amazon CloudWatch Logs group to which CloudFormation sends error logging information when invoking the extension's handlers.
-	LogGroupName *string `json:"logGroupName" yaml:"logGroupName"`
+	LogGroupName *string `field:"optional" json:"logGroupName" yaml:"logGroupName"`
 	// The Amazon Resource Name (ARN) of the role that CloudFormation should assume when sending log entries to CloudWatch Logs.
-	LogRoleArn *string `json:"logRoleArn" yaml:"logRoleArn"`
+	LogRoleArn *string `field:"optional" json:"logRoleArn" yaml:"logRoleArn"`
 }
 
 // Properties for defining a `CfnHookVersion`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnHookVersionProps := &cfnHookVersionProps{
 //   	schemaHandlerPackage: jsii.String("schemaHandlerPackage"),
 //   	typeName: jsii.String("typeName"),
@@ -2987,7 +3014,7 @@ type CfnHookVersionProps struct {
 	// For information on generating a schema handler package for the resource you want to register, see [submit](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-cli-submit.html) in the *CloudFormation CLI User Guide for Extension Development* .
 	//
 	// > The user registering the resource must be able to access the package in the S3 bucket. That's, the user must have [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html) permissions for the schema handler package. For more information, see [Actions, Resources, and Condition Keys for Amazon S3](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazons3.html) in the *AWS Identity and Access Management User Guide* .
-	SchemaHandlerPackage *string `json:"schemaHandlerPackage" yaml:"schemaHandlerPackage"`
+	SchemaHandlerPackage *string `field:"required" json:"schemaHandlerPackage" yaml:"schemaHandlerPackage"`
 	// The unique name for your hook.
 	//
 	// Specifies a three-part namespace for your hook, with a recommended pattern of `Organization::Service::Hook` .
@@ -3001,11 +3028,11 @@ type CfnHookVersionProps struct {
 	// > - `AWS`
 	// > - `Custom`
 	// > - `Dev`.
-	TypeName *string `json:"typeName" yaml:"typeName"`
+	TypeName *string `field:"required" json:"typeName" yaml:"typeName"`
 	// The Amazon Resource Name (ARN) of the task execution role that grants the hook permission.
-	ExecutionRoleArn *string `json:"executionRoleArn" yaml:"executionRoleArn"`
+	ExecutionRoleArn *string `field:"optional" json:"executionRoleArn" yaml:"executionRoleArn"`
 	// Contains logging configuration information for an extension.
-	LoggingConfig interface{} `json:"loggingConfig" yaml:"loggingConfig"`
+	LoggingConfig interface{} `field:"optional" json:"loggingConfig" yaml:"loggingConfig"`
 }
 
 // A CloudFormation `AWS::CloudFormation::Macro`.
@@ -3013,8 +3040,11 @@ type CfnHookVersionProps struct {
 // The `AWS::CloudFormation::Macro` resource is a CloudFormation resource type that creates a CloudFormation macro to perform custom processing on CloudFormation templates. For more information, see [Using AWS CloudFormation macros to perform custom processing on templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"
-//   cfnMacro := cloudformation.NewCfnMacro(this, jsii.String("MyCfnMacro"), &cfnMacroProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnMacro := awscdk.Aws_cloudformation.NewCfnMacro(this, jsii.String("MyCfnMacro"), &cfnMacroProps{
 //   	functionName: jsii.String("functionName"),
 //   	name: jsii.String("name"),
 //
@@ -3739,7 +3769,10 @@ func (c *jsiiProxy_CfnMacro) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnMacro`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnMacroProps := &cfnMacroProps{
 //   	functionName: jsii.String("functionName"),
 //   	name: jsii.String("name"),
@@ -3752,17 +3785,17 @@ func (c *jsiiProxy_CfnMacro) ValidateProperties(_properties interface{}) {
 //
 type CfnMacroProps struct {
 	// The Amazon Resource Name (ARN) of the underlying AWS Lambda function that you want AWS CloudFormation to invoke when the macro is run.
-	FunctionName *string `json:"functionName" yaml:"functionName"`
+	FunctionName *string `field:"required" json:"functionName" yaml:"functionName"`
 	// The name of the macro.
 	//
 	// The name of the macro must be unique across all macros in the account.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// A description of the macro.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The CloudWatch Logs group to which AWS CloudFormation sends error logging information when invoking the macro's underlying AWS Lambda function.
-	LogGroupName *string `json:"logGroupName" yaml:"logGroupName"`
+	LogGroupName *string `field:"optional" json:"logGroupName" yaml:"logGroupName"`
 	// The ARN of the role AWS CloudFormation should assume when sending log entries to CloudWatch Logs .
-	LogRoleArn *string `json:"logRoleArn" yaml:"logRoleArn"`
+	LogRoleArn *string `field:"optional" json:"logRoleArn" yaml:"logRoleArn"`
 }
 
 // A CloudFormation `AWS::CloudFormation::ModuleDefaultVersion`.
@@ -3774,8 +3807,11 @@ type CfnMacroProps struct {
 // For more information using modules, see [Using modules to encapsulate and reuse resource configurations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/modules.html) and [Registering extensions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html#registry-register) in the *CloudFormation User Guide* . For information on developing modules, see [Developing modules](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/modules.html) in the *CloudFormation CLI User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"
-//   cfnModuleDefaultVersion := cloudformation.NewCfnModuleDefaultVersion(this, jsii.String("MyCfnModuleDefaultVersion"), &cfnModuleDefaultVersionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnModuleDefaultVersion := awscdk.Aws_cloudformation.NewCfnModuleDefaultVersion(this, jsii.String("MyCfnModuleDefaultVersion"), &cfnModuleDefaultVersionProps{
 //   	arn: jsii.String("arn"),
 //   	moduleName: jsii.String("moduleName"),
 //   	versionId: jsii.String("versionId"),
@@ -4458,7 +4494,10 @@ func (c *jsiiProxy_CfnModuleDefaultVersion) ValidateProperties(_properties inter
 // Properties for defining a `CfnModuleDefaultVersion`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnModuleDefaultVersionProps := &cfnModuleDefaultVersionProps{
 //   	arn: jsii.String("arn"),
 //   	moduleName: jsii.String("moduleName"),
@@ -4469,15 +4508,15 @@ type CfnModuleDefaultVersionProps struct {
 	// The Amazon Resource Name (ARN) of the module version to set as the default version.
 	//
 	// Conditional: You must specify either `Arn` , or `ModuleName` and `VersionId` .
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"optional" json:"arn" yaml:"arn"`
 	// The name of the module.
 	//
 	// Conditional: You must specify either `Arn` , or `ModuleName` and `VersionId` .
-	ModuleName *string `json:"moduleName" yaml:"moduleName"`
+	ModuleName *string `field:"optional" json:"moduleName" yaml:"moduleName"`
 	// The ID for the specific version of the module.
 	//
 	// Conditional: You must specify either `Arn` , or `ModuleName` and `VersionId` .
-	VersionId *string `json:"versionId" yaml:"versionId"`
+	VersionId *string `field:"optional" json:"versionId" yaml:"versionId"`
 }
 
 // A CloudFormation `AWS::CloudFormation::ModuleVersion`.
@@ -4489,8 +4528,11 @@ type CfnModuleDefaultVersionProps struct {
 // For more information using modules, see [Using modules to encapsulate and reuse resource configurations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/modules.html) and [Registering extensions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html#registry-register) in the *CloudFormation User Guide* . For information on developing modules, see [Developing modules](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/modules.html) in the *CloudFormation CLI User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"
-//   cfnModuleVersion := cloudformation.NewCfnModuleVersion(this, jsii.String("MyCfnModuleVersion"), &cfnModuleVersionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnModuleVersion := awscdk.Aws_cloudformation.NewCfnModuleVersion(this, jsii.String("MyCfnModuleVersion"), &cfnModuleVersionProps{
 //   	moduleName: jsii.String("moduleName"),
 //   	modulePackage: jsii.String("modulePackage"),
 //   })
@@ -5248,7 +5290,10 @@ func (c *jsiiProxy_CfnModuleVersion) ValidateProperties(_properties interface{})
 // Properties for defining a `CfnModuleVersion`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnModuleVersionProps := &cfnModuleVersionProps{
 //   	moduleName: jsii.String("moduleName"),
 //   	modulePackage: jsii.String("modulePackage"),
@@ -5256,11 +5301,11 @@ func (c *jsiiProxy_CfnModuleVersion) ValidateProperties(_properties interface{})
 //
 type CfnModuleVersionProps struct {
 	// The name of the module being registered.
-	ModuleName *string `json:"moduleName" yaml:"moduleName"`
+	ModuleName *string `field:"required" json:"moduleName" yaml:"moduleName"`
 	// A URL to the S3 bucket containing the package that contains the template fragment and schema files for the module version to register.
 	//
 	// > The user registering the module version must be able to access the module package in the S3 bucket. That's, the user needs to have [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html) permissions for the package. For more information, see [Actions, Resources, and Condition Keys for Amazon S3](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazons3.html) in the *AWS Identity and Access Management User Guide* .
-	ModulePackage *string `json:"modulePackage" yaml:"modulePackage"`
+	ModulePackage *string `field:"required" json:"modulePackage" yaml:"modulePackage"`
 }
 
 // A CloudFormation `AWS::CloudFormation::PublicTypeVersion`.
@@ -5281,8 +5326,11 @@ type CfnModuleVersionProps struct {
 // An extension must have a test status of `PASSED` before it can be published. For more information, see [Publishing extensions to make them available for public use](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-publish.html) in the *CloudFormation CLI User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"
-//   cfnPublicTypeVersion := cloudformation.NewCfnPublicTypeVersion(this, jsii.String("MyCfnPublicTypeVersion"), &cfnPublicTypeVersionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnPublicTypeVersion := awscdk.Aws_cloudformation.NewCfnPublicTypeVersion(this, jsii.String("MyCfnPublicTypeVersion"), &cfnPublicTypeVersionProps{
 //   	arn: jsii.String("arn"),
 //   	logDeliveryBucket: jsii.String("logDeliveryBucket"),
 //   	publicVersionNumber: jsii.String("publicVersionNumber"),
@@ -6064,7 +6112,10 @@ func (c *jsiiProxy_CfnPublicTypeVersion) ValidateProperties(_properties interfac
 // Properties for defining a `CfnPublicTypeVersion`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnPublicTypeVersionProps := &cfnPublicTypeVersionProps{
 //   	arn: jsii.String("arn"),
 //   	logDeliveryBucket: jsii.String("logDeliveryBucket"),
@@ -6077,7 +6128,7 @@ type CfnPublicTypeVersionProps struct {
 	// The Amazon Resource Number (ARN) of the extension.
 	//
 	// Conditional: You must specify `Arn` , or `TypeName` and `Type` .
-	Arn *string `json:"arn" yaml:"arn"`
+	Arn *string `field:"optional" json:"arn" yaml:"arn"`
 	// The S3 bucket to which CloudFormation delivers the contract test execution logs.
 	//
 	// CloudFormation delivers the logs by the time contract testing has completed and the extension has been assigned a test type status of `PASSED` or `FAILED` .
@@ -6088,7 +6139,7 @@ type CfnPublicTypeVersionProps struct {
 	// - PutObject
 	//
 	// For more information, see [Actions, Resources, and Condition Keys for Amazon S3](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html) in the *AWS Identity and Access Management User Guide* .
-	LogDeliveryBucket *string `json:"logDeliveryBucket" yaml:"logDeliveryBucket"`
+	LogDeliveryBucket *string `field:"optional" json:"logDeliveryBucket" yaml:"logDeliveryBucket"`
 	// The version number to assign to this version of the extension.
 	//
 	// Use the following format, and adhere to semantic versioning when assigning a version number to your extension:
@@ -6100,15 +6151,15 @@ type CfnPublicTypeVersionProps struct {
 	// If you don't specify a version number, CloudFormation increments the version number by one minor version release.
 	//
 	// You cannot specify a version number the first time you publish a type. AWS CloudFormation automatically sets the first version number to be `1.0.0` .
-	PublicVersionNumber *string `json:"publicVersionNumber" yaml:"publicVersionNumber"`
+	PublicVersionNumber *string `field:"optional" json:"publicVersionNumber" yaml:"publicVersionNumber"`
 	// The type of the extension to test.
 	//
 	// Conditional: You must specify `Arn` , or `TypeName` and `Type` .
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 	// The name of the extension to test.
 	//
 	// Conditional: You must specify `Arn` , or `TypeName` and `Type` .
-	TypeName *string `json:"typeName" yaml:"typeName"`
+	TypeName *string `field:"optional" json:"typeName" yaml:"typeName"`
 }
 
 // A CloudFormation `AWS::CloudFormation::Publisher`.
@@ -6118,8 +6169,11 @@ type CfnPublicTypeVersionProps struct {
 // For information on requirements for registering as a public extension publisher, see [Registering your account to publish CloudFormation extensions](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html#publish-extension-prereqs) in the *CloudFormation CLI User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"
-//   cfnPublisher := cloudformation.NewCfnPublisher(this, jsii.String("MyCfnPublisher"), &cfnPublisherProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnPublisher := awscdk.Aws_cloudformation.NewCfnPublisher(this, jsii.String("MyCfnPublisher"), &cfnPublisherProps{
 //   	acceptTermsAndConditions: jsii.Boolean(false),
 //
 //   	// the properties below are optional
@@ -6832,7 +6886,10 @@ func (c *jsiiProxy_CfnPublisher) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnPublisher`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnPublisherProps := &cfnPublisherProps{
 //   	acceptTermsAndConditions: jsii.Boolean(false),
 //
@@ -6844,11 +6901,11 @@ type CfnPublisherProps struct {
 	// Whether you accept the [Terms and Conditions](https://docs.aws.amazon.com/https://cloudformation-registry-documents.s3.amazonaws.com/Terms_and_Conditions_for_AWS_CloudFormation_Registry_Publishers.pdf) for publishing extensions in the CloudFormation registry. You must accept the terms and conditions in order to register to publish public extensions to the CloudFormation registry.
 	//
 	// The default is `false` .
-	AcceptTermsAndConditions interface{} `json:"acceptTermsAndConditions" yaml:"acceptTermsAndConditions"`
+	AcceptTermsAndConditions interface{} `field:"required" json:"acceptTermsAndConditions" yaml:"acceptTermsAndConditions"`
 	// If you are using a Bitbucket or GitHub account for identity verification, the Amazon Resource Name (ARN) for your connection to that account.
 	//
 	// For more information, see [Registering your account to publish CloudFormation extensions](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html#publish-extension-prereqs) in the *CloudFormation CLI User Guide* .
-	ConnectionArn *string `json:"connectionArn" yaml:"connectionArn"`
+	ConnectionArn *string `field:"optional" json:"connectionArn" yaml:"connectionArn"`
 }
 
 // A CloudFormation `AWS::CloudFormation::ResourceDefaultVersion`.
@@ -6856,8 +6913,11 @@ type CfnPublisherProps struct {
 // Specifies the default version of a resource. The default version of a resource will be used in CloudFormation operations.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"
-//   cfnResourceDefaultVersion := cloudformation.NewCfnResourceDefaultVersion(this, jsii.String("MyCfnResourceDefaultVersion"), &cfnResourceDefaultVersionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnResourceDefaultVersion := awscdk.Aws_cloudformation.NewCfnResourceDefaultVersion(this, jsii.String("MyCfnResourceDefaultVersion"), &cfnResourceDefaultVersionProps{
 //   	typeName: jsii.String("typeName"),
 //   	typeVersionArn: jsii.String("typeVersionArn"),
 //   	versionId: jsii.String("versionId"),
@@ -7554,7 +7614,10 @@ func (c *jsiiProxy_CfnResourceDefaultVersion) ValidateProperties(_properties int
 // Properties for defining a `CfnResourceDefaultVersion`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnResourceDefaultVersionProps := &cfnResourceDefaultVersionProps{
 //   	typeName: jsii.String("typeName"),
 //   	typeVersionArn: jsii.String("typeVersionArn"),
@@ -7565,17 +7628,17 @@ type CfnResourceDefaultVersionProps struct {
 	// The name of the resource.
 	//
 	// Conditional: You must specify either `TypeVersionArn` , or `TypeName` and `VersionId` .
-	TypeName *string `json:"typeName" yaml:"typeName"`
+	TypeName *string `field:"optional" json:"typeName" yaml:"typeName"`
 	// The Amazon Resource Name (ARN) of the resource version.
 	//
 	// Conditional: You must specify either `TypeVersionArn` , or `TypeName` and `VersionId` .
-	TypeVersionArn *string `json:"typeVersionArn" yaml:"typeVersionArn"`
+	TypeVersionArn *string `field:"optional" json:"typeVersionArn" yaml:"typeVersionArn"`
 	// The ID of a specific version of the resource.
 	//
 	// The version ID is the value at the end of the Amazon Resource Name (ARN) assigned to the resource version when it's registered.
 	//
 	// Conditional: You must specify either `TypeVersionArn` , or `TypeName` and `VersionId` .
-	VersionId *string `json:"versionId" yaml:"versionId"`
+	VersionId *string `field:"optional" json:"versionId" yaml:"versionId"`
 }
 
 // A CloudFormation `AWS::CloudFormation::ResourceVersion`.
@@ -7591,8 +7654,11 @@ type CfnResourceDefaultVersionProps struct {
 // You can have a maximum of 50 resource versions registered at a time. This maximum is per account and per Region.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"
-//   cfnResourceVersion := cloudformation.NewCfnResourceVersion(this, jsii.String("MyCfnResourceVersion"), &cfnResourceVersionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnResourceVersion := awscdk.Aws_cloudformation.NewCfnResourceVersion(this, jsii.String("MyCfnResourceVersion"), &cfnResourceVersionProps{
 //   	schemaHandlerPackage: jsii.String("schemaHandlerPackage"),
 //   	typeName: jsii.String("typeName"),
 //
@@ -8404,7 +8470,10 @@ func (c *jsiiProxy_CfnResourceVersion) ValidateProperties(_properties interface{
 // Logging configuration information for a resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   loggingConfigProperty := &loggingConfigProperty{
 //   	logGroupName: jsii.String("logGroupName"),
 //   	logRoleArn: jsii.String("logRoleArn"),
@@ -8412,15 +8481,18 @@ func (c *jsiiProxy_CfnResourceVersion) ValidateProperties(_properties interface{
 //
 type CfnResourceVersion_LoggingConfigProperty struct {
 	// The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
-	LogGroupName *string `json:"logGroupName" yaml:"logGroupName"`
+	LogGroupName *string `field:"optional" json:"logGroupName" yaml:"logGroupName"`
 	// The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
-	LogRoleArn *string `json:"logRoleArn" yaml:"logRoleArn"`
+	LogRoleArn *string `field:"optional" json:"logRoleArn" yaml:"logRoleArn"`
 }
 
 // Properties for defining a `CfnResourceVersion`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnResourceVersionProps := &cfnResourceVersionProps{
 //   	schemaHandlerPackage: jsii.String("schemaHandlerPackage"),
 //   	typeName: jsii.String("typeName"),
@@ -8439,7 +8511,7 @@ type CfnResourceVersionProps struct {
 	// For information on generating a schema handler package for the resource you want to register, see [submit](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-cli-submit.html) in the *CloudFormation CLI User Guide* .
 	//
 	// > The user registering the resource must be able to access the package in the S3 bucket. That is, the user needs to have [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html) permissions for the schema handler package. For more information, see [Actions, Resources, and Condition Keys for Amazon S3](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazons3.html) in the *AWS Identity and Access Management User Guide* .
-	SchemaHandlerPackage *string `json:"schemaHandlerPackage" yaml:"schemaHandlerPackage"`
+	SchemaHandlerPackage *string `field:"required" json:"schemaHandlerPackage" yaml:"schemaHandlerPackage"`
 	// The name of the resource being registered.
 	//
 	// We recommend that resource names adhere to the following pattern: *company_or_organization* :: *service* :: *type* .
@@ -8452,13 +8524,13 @@ type CfnResourceVersionProps struct {
 	// > - `AWS`
 	// > - `Custom`
 	// > - `Dev`.
-	TypeName *string `json:"typeName" yaml:"typeName"`
+	TypeName *string `field:"required" json:"typeName" yaml:"typeName"`
 	// The Amazon Resource Name (ARN) of the IAM role for CloudFormation to assume when invoking the resource.
 	//
 	// If your resource calls AWS APIs in any of its handlers, you must create an *[IAM execution role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html)* that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the resource type handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the resource type handler, thereby supplying your resource type with the appropriate credentials.
-	ExecutionRoleArn *string `json:"executionRoleArn" yaml:"executionRoleArn"`
+	ExecutionRoleArn *string `field:"optional" json:"executionRoleArn" yaml:"executionRoleArn"`
 	// Logging configuration information for a resource.
-	LoggingConfig interface{} `json:"loggingConfig" yaml:"loggingConfig"`
+	LoggingConfig interface{} `field:"optional" json:"loggingConfig" yaml:"loggingConfig"`
 }
 
 // A CloudFormation `AWS::CloudFormation::Stack`.
@@ -8474,8 +8546,11 @@ type CfnResourceVersionProps struct {
 // > You must acknowledge IAM capabilities for nested stacks that contain IAM resources. Also, verify that you have cancel update stack permissions, which is required if an update rolls back. For more information about IAM and CloudFormation , see [Controlling access with AWS Identity and Access Management](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"
-//   cfnStack := cloudformation.NewCfnStack(this, jsii.String("MyCfnStack"), &cfnStackProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnStack := awscdk.Aws_cloudformation.NewCfnStack(this, jsii.String("MyCfnStack"), &cfnStackProps{
 //   	templateUrl: jsii.String("templateUrl"),
 //
 //   	// the properties below are optional
@@ -9218,7 +9293,10 @@ func (c *jsiiProxy_CfnStack) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnStack`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnStackProps := &cfnStackProps{
 //   	templateUrl: jsii.String("templateUrl"),
 //
@@ -9244,11 +9322,11 @@ type CfnStackProps struct {
 	// The URL must point to a template (max size: 460,800 bytes) that's located in an Amazon S3 bucket. For more information, see [Template anatomy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html) .
 	//
 	// Whether an update causes interruptions depends on the resources that are being updated. An update never causes a nested stack to be replaced.
-	TemplateUrl *string `json:"templateUrl" yaml:"templateUrl"`
+	TemplateUrl *string `field:"required" json:"templateUrl" yaml:"templateUrl"`
 	// The Amazon Simple Notification Service (Amazon SNS) topic ARNs to publish stack related events.
 	//
 	// You can find your Amazon SNS topic ARNs using the Amazon SNS console or your Command Line Interface (CLI).
-	NotificationArns *[]*string `json:"notificationArns" yaml:"notificationArns"`
+	NotificationArns *[]*string `field:"optional" json:"notificationArns" yaml:"notificationArns"`
 	// The set value pairs that represent the parameters passed to CloudFormation when this nested stack is created.
 	//
 	// Each parameter has a name corresponding to a parameter defined in the embedded template and a value representing the value that you want to set for the parameter.
@@ -9258,17 +9336,17 @@ type CfnStackProps struct {
 	// Conditional. Required if the nested stack requires input parameters.
 	//
 	// Whether an update causes interruptions depends on the resources that are being updated. An update never causes a nested stack to be replaced.
-	Parameters interface{} `json:"parameters" yaml:"parameters"`
+	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// Key-value pairs to associate with this stack.
 	//
 	// AWS CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 50 tags can be specified.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The length of time, in minutes, that CloudFormation waits for the nested stack to reach the `CREATE_COMPLETE` state.
 	//
 	// The default is no timeout. When CloudFormation detects that the nested stack has reached the `CREATE_COMPLETE` state, it marks the nested stack resource as `CREATE_COMPLETE` in the parent stack and resumes creating the parent stack. If the timeout period expires before the nested stack reaches `CREATE_COMPLETE` , CloudFormation marks the nested stack as failed and rolls back both the nested stack and parent stack.
 	//
 	// Updates aren't supported.
-	TimeoutInMinutes *float64 `json:"timeoutInMinutes" yaml:"timeoutInMinutes"`
+	TimeoutInMinutes *float64 `field:"optional" json:"timeoutInMinutes" yaml:"timeoutInMinutes"`
 }
 
 // A CloudFormation `AWS::CloudFormation::StackSet`.
@@ -9276,10 +9354,13 @@ type CfnStackProps struct {
 // The `AWS::CloudFormation::StackSet` enables you to provision stacks into AWS accounts and across Regions by using a single CloudFormation template. In the stack set, you specify the template to use, in addition to any parameters and capabilities that the template requires.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var managedExecution interface{}
-//   cfnStackSet := cloudformation.NewCfnStackSet(this, jsii.String("MyCfnStackSet"), &cfnStackSetProps{
+//
+//   cfnStackSet := awscdk.Aws_cloudformation.NewCfnStackSet(this, jsii.String("MyCfnStackSet"), &cfnStackSetProps{
 //   	permissionModel: jsii.String("permissionModel"),
 //   	stackSetName: jsii.String("stackSetName"),
 //
@@ -10343,7 +10424,10 @@ func (c *jsiiProxy_CfnStackSet) ValidateProperties(_properties interface{}) {
 // [ `Service-managed` permissions] Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to a target organizational unit (OU).
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   autoDeploymentProperty := &autoDeploymentProperty{
 //   	enabled: jsii.Boolean(false),
 //   	retainStacksOnAccountRemoval: jsii.Boolean(false),
@@ -10353,17 +10437,20 @@ type CfnStackSet_AutoDeploymentProperty struct {
 	// If set to `true` , StackSets automatically deploys additional stack instances to AWS Organizations accounts that are added to a target organization or organizational unit (OU) in the specified Regions.
 	//
 	// If an account is removed from a target organization or OU, StackSets deletes stack instances from the account in the specified Regions.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 	// If set to `true` , stack resources are retained when an account is removed from a target organization or OU.
 	//
 	// If set to `false` , stack resources are deleted. Specify only if `Enabled` is set to `True` .
-	RetainStacksOnAccountRemoval interface{} `json:"retainStacksOnAccountRemoval" yaml:"retainStacksOnAccountRemoval"`
+	RetainStacksOnAccountRemoval interface{} `field:"optional" json:"retainStacksOnAccountRemoval" yaml:"retainStacksOnAccountRemoval"`
 }
 
 // The AWS OrganizationalUnitIds or Accounts for which to create stack instances in the specified Regions.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   deploymentTargetsProperty := &deploymentTargetsProperty{
 //   	accounts: []*string{
 //   		jsii.String("accounts"),
@@ -10377,11 +10464,11 @@ type CfnStackSet_DeploymentTargetsProperty struct {
 	// The names of one or more AWS accounts for which you want to deploy stack set updates.
 	//
 	// *Pattern* : `^[0-9]{12}$`.
-	Accounts *[]*string `json:"accounts" yaml:"accounts"`
+	Accounts *[]*string `field:"optional" json:"accounts" yaml:"accounts"`
 	// The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
 	//
 	// *Pattern* : `^(ou-[a-z0-9]{4,32}-[a-z0-9]{8,32}|r-[a-z0-9]{4,32})$`.
-	OrganizationalUnitIds *[]*string `json:"organizationalUnitIds" yaml:"organizationalUnitIds"`
+	OrganizationalUnitIds *[]*string `field:"optional" json:"organizationalUnitIds" yaml:"organizationalUnitIds"`
 }
 
 // The user-specified preferences for how AWS CloudFormation performs a stack set operation.
@@ -10389,7 +10476,10 @@ type CfnStackSet_DeploymentTargetsProperty struct {
 // For more information on maximum concurrent accounts and failure tolerance, see [Stack set operation options](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   operationPreferencesProperty := &operationPreferencesProperty{
 //   	failureToleranceCount: jsii.Number(123),
 //   	failureTolerancePercentage: jsii.Number(123),
@@ -10407,7 +10497,7 @@ type CfnStackSet_OperationPreferencesProperty struct {
 	// If the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in any subsequent Regions.
 	//
 	// Conditional: You must specify either `FailureToleranceCount` or `FailureTolerancePercentage` (but not both).
-	FailureToleranceCount *float64 `json:"failureToleranceCount" yaml:"failureToleranceCount"`
+	FailureToleranceCount *float64 `field:"optional" json:"failureToleranceCount" yaml:"failureToleranceCount"`
 	// The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
 	//
 	// If the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in any subsequent Regions.
@@ -10415,7 +10505,7 @@ type CfnStackSet_OperationPreferencesProperty struct {
 	// When calculating the number of accounts based on the specified percentage, AWS CloudFormation rounds *down* to the next whole number.
 	//
 	// Conditional: You must specify either `FailureToleranceCount` or `FailureTolerancePercentage` , but not both.
-	FailureTolerancePercentage *float64 `json:"failureTolerancePercentage" yaml:"failureTolerancePercentage"`
+	FailureTolerancePercentage *float64 `field:"optional" json:"failureTolerancePercentage" yaml:"failureTolerancePercentage"`
 	// The maximum number of accounts in which to perform this operation at one time.
 	//
 	// This is dependent on the value of `FailureToleranceCount` . `MaxConcurrentCount` is at most one more than the `FailureToleranceCount` .
@@ -10423,7 +10513,7 @@ type CfnStackSet_OperationPreferencesProperty struct {
 	// Note that this setting lets you specify the *maximum* for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.
 	//
 	// Conditional: You must specify either `MaxConcurrentCount` or `MaxConcurrentPercentage` , but not both.
-	MaxConcurrentCount *float64 `json:"maxConcurrentCount" yaml:"maxConcurrentCount"`
+	MaxConcurrentCount *float64 `field:"optional" json:"maxConcurrentCount" yaml:"maxConcurrentCount"`
 	// The maximum percentage of accounts in which to perform this operation at one time.
 	//
 	// When calculating the number of accounts based on the specified percentage, AWS CloudFormation rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, CloudFormation sets the number as one instead.
@@ -10431,19 +10521,22 @@ type CfnStackSet_OperationPreferencesProperty struct {
 	// Note that this setting lets you specify the *maximum* for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.
 	//
 	// Conditional: You must specify either `MaxConcurrentCount` or `MaxConcurrentPercentage` , but not both.
-	MaxConcurrentPercentage *float64 `json:"maxConcurrentPercentage" yaml:"maxConcurrentPercentage"`
+	MaxConcurrentPercentage *float64 `field:"optional" json:"maxConcurrentPercentage" yaml:"maxConcurrentPercentage"`
 	// The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time.
 	//
 	// *Allowed values* : `SEQUENTIAL` | `PARALLEL`.
-	RegionConcurrencyType *string `json:"regionConcurrencyType" yaml:"regionConcurrencyType"`
+	RegionConcurrencyType *string `field:"optional" json:"regionConcurrencyType" yaml:"regionConcurrencyType"`
 	// The order of the Regions where you want to perform the stack operation.
-	RegionOrder *[]*string `json:"regionOrder" yaml:"regionOrder"`
+	RegionOrder *[]*string `field:"optional" json:"regionOrder" yaml:"regionOrder"`
 }
 
 // The Parameter data type.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   parameterProperty := &parameterProperty{
 //   	parameterKey: jsii.String("parameterKey"),
 //   	parameterValue: jsii.String("parameterValue"),
@@ -10453,15 +10546,18 @@ type CfnStackSet_ParameterProperty struct {
 	// The key associated with the parameter.
 	//
 	// If you don't specify a key and value for a particular parameter, AWS CloudFormation uses the default value that's specified in your template.
-	ParameterKey *string `json:"parameterKey" yaml:"parameterKey"`
+	ParameterKey *string `field:"required" json:"parameterKey" yaml:"parameterKey"`
 	// The input value associated with the parameter.
-	ParameterValue *string `json:"parameterValue" yaml:"parameterValue"`
+	ParameterValue *string `field:"required" json:"parameterValue" yaml:"parameterValue"`
 }
 
 // Stack instances in some specific accounts and Regions.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   stackInstancesProperty := &stackInstancesProperty{
 //   	deploymentTargets: &deploymentTargetsProperty{
 //   		accounts: []*string{
@@ -10486,19 +10582,22 @@ type CfnStackSet_ParameterProperty struct {
 //
 type CfnStackSet_StackInstancesProperty struct {
 	// The AWS `OrganizationalUnitIds` or `Accounts` for which to create stack instances in the specified Regions.
-	DeploymentTargets interface{} `json:"deploymentTargets" yaml:"deploymentTargets"`
+	DeploymentTargets interface{} `field:"required" json:"deploymentTargets" yaml:"deploymentTargets"`
 	// The names of one or more Regions where you want to create stack instances using the specified AWS accounts .
-	Regions *[]*string `json:"regions" yaml:"regions"`
+	Regions *[]*string `field:"required" json:"regions" yaml:"regions"`
 	// A list of stack set parameters whose values you want to override in the selected stack instances.
-	ParameterOverrides interface{} `json:"parameterOverrides" yaml:"parameterOverrides"`
+	ParameterOverrides interface{} `field:"optional" json:"parameterOverrides" yaml:"parameterOverrides"`
 }
 
 // Properties for defining a `CfnStackSet`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var managedExecution interface{}
+//
 //   cfnStackSetProps := &cfnStackSetProps{
 //   	permissionModel: jsii.String("permissionModel"),
 //   	stackSetName: jsii.String("stackSetName"),
@@ -10574,7 +10673,7 @@ type CfnStackSetProps struct {
 	// *Allowed Values* : `SERVICE_MANAGED` | `SELF_MANAGED`
 	//
 	// > The `PermissionModel` property is required.
-	PermissionModel *string `json:"permissionModel" yaml:"permissionModel"`
+	PermissionModel *string `field:"required" json:"permissionModel" yaml:"permissionModel"`
 	// The name to associate with the stack set.
 	//
 	// The name must be unique in the Region where you create your stack set.
@@ -10584,7 +10683,7 @@ type CfnStackSetProps struct {
 	// *Pattern* : `^[a-zA-Z][a-zA-Z0-9-]{0,127}$`
 	//
 	// > The `StackSetName` property is required.
-	StackSetName *string `json:"stackSetName" yaml:"stackSetName"`
+	StackSetName *string `field:"required" json:"stackSetName" yaml:"stackSetName"`
 	// The Amazon Resource Number (ARN) of the IAM role to use to create this stack set.
 	//
 	// Specify an IAM role only if you are using customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account.
@@ -10594,9 +10693,9 @@ type CfnStackSetProps struct {
 	// *Minimum* : `20`
 	//
 	// *Maximum* : `2048`.
-	AdministrationRoleArn *string `json:"administrationRoleArn" yaml:"administrationRoleArn"`
+	AdministrationRoleArn *string `field:"optional" json:"administrationRoleArn" yaml:"administrationRoleArn"`
 	// [ `Service-managed` permissions] Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to a target organization or organizational unit (OU).
-	AutoDeployment interface{} `json:"autoDeployment" yaml:"autoDeployment"`
+	AutoDeployment interface{} `field:"optional" json:"autoDeployment" yaml:"autoDeployment"`
 	// [Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account.
 	//
 	// By default, `SELF` is specified. Use `SELF` for stack sets with self-managed permissions.
@@ -10609,17 +10708,17 @@ type CfnStackSetProps struct {
 	// Stack sets with service-managed permissions are created in the management account, including stack sets that are created by delegated administrators.
 	//
 	// *Valid Values* : `SELF` | `DELEGATED_ADMIN`.
-	CallAs *string `json:"callAs" yaml:"callAs"`
+	CallAs *string `field:"optional" json:"callAs" yaml:"callAs"`
 	// The capabilities that are allowed in the stack set.
 	//
 	// Some stack set templates might include resources that can affect permissions in your AWS account —for example, by creating new AWS Identity and Access Management ( IAM ) users. For more information, see [Acknowledging IAM Resources in AWS CloudFormation Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities) .
-	Capabilities *[]*string `json:"capabilities" yaml:"capabilities"`
+	Capabilities *[]*string `field:"optional" json:"capabilities" yaml:"capabilities"`
 	// A description of the stack set.
 	//
 	// *Minimum* : `1`
 	//
 	// *Maximum* : `1024`.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the IAM execution role to use to create the stack set.
 	//
 	// If you don't specify an execution role, AWS CloudFormation uses the `AWSCloudFormationStackSetExecutionRole` role for the stack set operation.
@@ -10629,7 +10728,7 @@ type CfnStackSetProps struct {
 	// *Maximum* : `64`
 	//
 	// *Pattern* : `[a-zA-Z_0-9+=,.@-]+`
-	ExecutionRoleName *string `json:"executionRoleName" yaml:"executionRoleName"`
+	ExecutionRoleName *string `field:"optional" json:"executionRoleName" yaml:"executionRoleName"`
 	// Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
 	//
 	// When active, StackSets performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, StackSets starts queued operations in request order.
@@ -10639,17 +10738,17 @@ type CfnStackSetProps struct {
 	// > You can't modify your stack set's execution configuration while there are running or queued operations for that stack set.
 	//
 	// When inactive (default), StackSets performs one operation at a time in request order.
-	ManagedExecution interface{} `json:"managedExecution" yaml:"managedExecution"`
+	ManagedExecution interface{} `field:"optional" json:"managedExecution" yaml:"managedExecution"`
 	// The user-specified preferences for how AWS CloudFormation performs a stack set operation.
-	OperationPreferences interface{} `json:"operationPreferences" yaml:"operationPreferences"`
+	OperationPreferences interface{} `field:"optional" json:"operationPreferences" yaml:"operationPreferences"`
 	// The input parameters for the stack set template.
-	Parameters interface{} `json:"parameters" yaml:"parameters"`
+	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// A group of stack instances with parameters in some specific accounts and Regions.
-	StackInstancesGroup interface{} `json:"stackInstancesGroup" yaml:"stackInstancesGroup"`
+	StackInstancesGroup interface{} `field:"optional" json:"stackInstancesGroup" yaml:"stackInstancesGroup"`
 	// The key-value pairs to associate with this stack set and the stacks created from it.
 	//
 	// AWS CloudFormation also propagates these tags to supported resources that are created in the stacks. A maximum number of 50 tags can be specified.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The structure that contains the template body, with a minimum length of 1 byte and a maximum length of 51,200 bytes.
 	//
 	// You must include either `TemplateURL` or `TemplateBody` in a StackSet, but you can't use both. Dynamic references in the `TemplateBody` may not work correctly in all cases. It's recommended to pass templates containing dynamic references through `TemplateUrl` instead.
@@ -10657,7 +10756,7 @@ type CfnStackSetProps struct {
 	// *Minimum* : `1`
 	//
 	// *Maximum* : `51200`.
-	TemplateBody *string `json:"templateBody" yaml:"templateBody"`
+	TemplateBody *string `field:"optional" json:"templateBody" yaml:"templateBody"`
 	// Location of file containing the template body.
 	//
 	// The URL must point to a template (max size: 460,800 bytes) that's located in an Amazon S3 bucket.
@@ -10667,7 +10766,7 @@ type CfnStackSetProps struct {
 	// *Minimum* : `1`
 	//
 	// *Maximum* : `1024`.
-	TemplateUrl *string `json:"templateUrl" yaml:"templateUrl"`
+	TemplateUrl *string `field:"optional" json:"templateUrl" yaml:"templateUrl"`
 }
 
 // A CloudFormation `AWS::CloudFormation::TypeActivation`.
@@ -10677,8 +10776,11 @@ type CfnStackSetProps struct {
 // Once you have activated a public third-party extension in your account and region, use [SetTypeConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html) to specify configuration properties for the extension. For more information, see [Configuring extensions at the account level](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration) in the *CloudFormation User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"
-//   cfnTypeActivation := cloudformation.NewCfnTypeActivation(this, jsii.String("MyCfnTypeActivation"), &cfnTypeActivationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnTypeActivation := awscdk.Aws_cloudformation.NewCfnTypeActivation(this, jsii.String("MyCfnTypeActivation"), &cfnTypeActivationProps{
 //   	autoUpdate: jsii.Boolean(false),
 //   	executionRoleArn: jsii.String("executionRoleArn"),
 //   	loggingConfig: &loggingConfigProperty{
@@ -11549,7 +11651,10 @@ func (c *jsiiProxy_CfnTypeActivation) ValidateProperties(_properties interface{}
 // Contains logging configuration information for an extension.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   loggingConfigProperty := &loggingConfigProperty{
 //   	logGroupName: jsii.String("logGroupName"),
 //   	logRoleArn: jsii.String("logRoleArn"),
@@ -11557,15 +11662,18 @@ func (c *jsiiProxy_CfnTypeActivation) ValidateProperties(_properties interface{}
 //
 type CfnTypeActivation_LoggingConfigProperty struct {
 	// The Amazon CloudWatch Logs group to which CloudFormation sends error logging information when invoking the extension's handlers.
-	LogGroupName *string `json:"logGroupName" yaml:"logGroupName"`
+	LogGroupName *string `field:"optional" json:"logGroupName" yaml:"logGroupName"`
 	// The Amazon Resource Name (ARN) of the role that CloudFormation should assume when sending log entries to CloudWatch Logs.
-	LogRoleArn *string `json:"logRoleArn" yaml:"logRoleArn"`
+	LogRoleArn *string `field:"optional" json:"logRoleArn" yaml:"logRoleArn"`
 }
 
 // Properties for defining a `CfnTypeActivation`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnTypeActivationProps := &cfnTypeActivationProps{
 //   	autoUpdate: jsii.Boolean(false),
 //   	executionRoleArn: jsii.String("executionRoleArn"),
@@ -11588,46 +11696,46 @@ type CfnTypeActivationProps struct {
 	// Major versions released by the publisher must be manually updated.
 	//
 	// The default is `true` .
-	AutoUpdate interface{} `json:"autoUpdate" yaml:"autoUpdate"`
+	AutoUpdate interface{} `field:"optional" json:"autoUpdate" yaml:"autoUpdate"`
 	// The name of the IAM execution role to use to activate the extension.
-	ExecutionRoleArn *string `json:"executionRoleArn" yaml:"executionRoleArn"`
+	ExecutionRoleArn *string `field:"optional" json:"executionRoleArn" yaml:"executionRoleArn"`
 	// Specifies logging configuration information for an extension.
-	LoggingConfig interface{} `json:"loggingConfig" yaml:"loggingConfig"`
+	LoggingConfig interface{} `field:"optional" json:"loggingConfig" yaml:"loggingConfig"`
 	// The major version of this extension you want to activate, if multiple major versions are available.
 	//
 	// The default is the latest major version. CloudFormation uses the latest available *minor* version of the major version selected.
 	//
 	// You can specify `MajorVersion` or `VersionBump` , but not both.
-	MajorVersion *string `json:"majorVersion" yaml:"majorVersion"`
+	MajorVersion *string `field:"optional" json:"majorVersion" yaml:"majorVersion"`
 	// The Amazon Resource Number (ARN) of the public extension.
 	//
 	// Conditional: You must specify `PublicTypeArn` , or `TypeName` , `Type` , and `PublisherId` .
-	PublicTypeArn *string `json:"publicTypeArn" yaml:"publicTypeArn"`
+	PublicTypeArn *string `field:"optional" json:"publicTypeArn" yaml:"publicTypeArn"`
 	// The ID of the extension publisher.
 	//
 	// Conditional: You must specify `PublicTypeArn` , or `TypeName` , `Type` , and `PublisherId` .
-	PublisherId *string `json:"publisherId" yaml:"publisherId"`
+	PublisherId *string `field:"optional" json:"publisherId" yaml:"publisherId"`
 	// The extension type.
 	//
 	// Conditional: You must specify `PublicTypeArn` , or `TypeName` , `Type` , and `PublisherId` .
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 	// The name of the extension.
 	//
 	// Conditional: You must specify `PublicTypeArn` , or `TypeName` , `Type` , and `PublisherId` .
-	TypeName *string `json:"typeName" yaml:"typeName"`
+	TypeName *string `field:"optional" json:"typeName" yaml:"typeName"`
 	// An alias to assign to the public extension, in this account and region.
 	//
 	// If you specify an alias for the extension, CloudFormation treats the alias as the extension type name within this account and region. You must use the alias to refer to the extension in your templates, API calls, and CloudFormation console.
 	//
 	// An extension alias must be unique within a given account and region. You can activate the same public resource multiple times in the same account and region, using different type name aliases.
-	TypeNameAlias *string `json:"typeNameAlias" yaml:"typeNameAlias"`
+	TypeNameAlias *string `field:"optional" json:"typeNameAlias" yaml:"typeNameAlias"`
 	// Manually updates a previously-activated type to a new major or minor version, if available.
 	//
 	// You can also use this parameter to update the value of `AutoUpdate` .
 	//
 	// - `MAJOR` : CloudFormation updates the extension to the newest major version, if one is available.
 	// - `MINOR` : CloudFormation updates the extension to the newest minor version, if one is available.
-	VersionBump *string `json:"versionBump" yaml:"versionBump"`
+	VersionBump *string `field:"optional" json:"versionBump" yaml:"versionBump"`
 }
 
 // A CloudFormation `AWS::CloudFormation::WaitCondition`.
@@ -11644,8 +11752,11 @@ type CfnTypeActivationProps struct {
 // > If you use the [VPC endpoints](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html) feature, resources in the VPC that respond to wait conditions must have access to CloudFormation , specific Amazon Simple Storage Service ( Amazon S3 ) buckets. Resources must send wait condition responses to a presigned Amazon S3 URL. If they can't send responses to Amazon S3 , CloudFormation won't receive a response and the stack operation fails. For more information, see [Setting up VPC endpoints for AWS CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-vpce-bucketnames.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"
-//   cfnWaitCondition := cloudformation.NewCfnWaitCondition(this, jsii.String("MyCfnWaitCondition"), &cfnWaitConditionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnWaitCondition := awscdk.Aws_cloudformation.NewCfnWaitCondition(this, jsii.String("MyCfnWaitCondition"), &cfnWaitConditionProps{
 //   	count: jsii.Number(123),
 //   	handle: jsii.String("handle"),
 //   	timeout: jsii.String("timeout"),
@@ -12362,8 +12473,11 @@ func (c *jsiiProxy_CfnWaitCondition) ValidateProperties(_properties interface{})
 // > Anytime you add a `WaitCondition` resource during a stack update or update a resource with a wait condition, you must associate the wait condition with a new `WaitConditionHandle` resource. Don't reuse an old wait condition handle that has already been defined in the template. If you reuse a wait condition handle, the wait condition might evaluate old signals from a previous create or update stack command. > Updates aren't supported for this resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"
-//   cfnWaitConditionHandle := cloudformation.NewCfnWaitConditionHandle(this, jsii.String("MyCfnWaitConditionHandle"))
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnWaitConditionHandle := awscdk.Aws_cloudformation.NewCfnWaitConditionHandle(this, jsii.String("MyCfnWaitConditionHandle"))
 //
 type CfnWaitConditionHandle interface {
 	awscdk.CfnResource
@@ -12975,7 +13089,10 @@ func (c *jsiiProxy_CfnWaitConditionHandle) ValidateProperties(_properties interf
 // Properties for defining a `CfnWaitCondition`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnWaitConditionProps := &cfnWaitConditionProps{
 //   	count: jsii.Number(123),
 //   	handle: jsii.String("handle"),
@@ -12988,7 +13105,7 @@ type CfnWaitConditionProps struct {
 	// When the wait condition receives the requisite number of success signals, CloudFormation resumes the creation of the stack. If the wait condition doesn't receive the specified number of success signals before the Timeout period expires, CloudFormation assumes that the wait condition has failed and rolls the stack back.
 	//
 	// Updates aren't supported.
-	Count *float64 `json:"count" yaml:"count"`
+	Count *float64 `field:"optional" json:"count" yaml:"count"`
 	// A reference to the wait condition handle used to signal this wait condition.
 	//
 	// Use the `Ref` intrinsic function to specify an [AWS::CloudFormation::WaitConditionHandle](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitconditionhandle.html) resource.
@@ -12996,13 +13113,13 @@ type CfnWaitConditionProps struct {
 	// Anytime you add a WaitCondition resource during a stack update, you must associate the wait condition with a new WaitConditionHandle resource. Don't reuse an old wait condition handle that has already been defined in the template. If you reuse a wait condition handle, the wait condition might evaluate old signals from a previous create or update stack command.
 	//
 	// Updates aren't supported.
-	Handle *string `json:"handle" yaml:"handle"`
+	Handle *string `field:"optional" json:"handle" yaml:"handle"`
 	// The length of time (in seconds) to wait for the number of signals that the `Count` property specifies.
 	//
 	// `Timeout` is a minimum-bound property, meaning the timeout occurs no sooner than the time you specify, but can occur shortly thereafter. The maximum time that can be specified for this property is 12 hours (43200 seconds).
 	//
 	// Updates aren't supported.
-	Timeout *string `json:"timeout" yaml:"timeout"`
+	Timeout *string `field:"optional" json:"timeout" yaml:"timeout"`
 }
 
 // Capabilities that affect whether CloudFormation is allowed to change IAM resources.
@@ -13038,11 +13155,15 @@ const (
 // Deprecated.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var customResourceProvider customResourceProvider
 //   var properties interface{}
-//   customResource := cloudformation.NewCustomResource(this, jsii.String("MyCustomResource"), &customResourceProps{
+//
+//   customResource := awscdk.Aws_cloudformation.NewCustomResource(this, jsii.String("MyCustomResource"), &customResourceProps{
 //   	provider: customResourceProvider,
 //
 //   	// the properties below are optional
@@ -13445,10 +13566,14 @@ func (c *jsiiProxy_CustomResource) Validate() *[]*string {
 // Properties to provide a Lambda-backed custom resource.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var customResourceProvider customResourceProvider
 //   var properties interface{}
+//
 //   customResourceProps := &customResourceProps{
 //   	provider: customResourceProvider,
 //
@@ -13503,13 +13628,13 @@ type CustomResourceProps struct {
 	// const provider = cloudformation.CustomResourceProvider.fromTopic(myTopic);
 	// ```.
 	// Deprecated: use `core.CustomResourceProps`
-	Provider ICustomResourceProvider `json:"provider" yaml:"provider"`
+	Provider ICustomResourceProvider `field:"required" json:"provider" yaml:"provider"`
 	// Properties to pass to the Lambda.
 	// Deprecated: use `core.CustomResourceProps`
-	Properties *map[string]interface{} `json:"properties" yaml:"properties"`
+	Properties *map[string]interface{} `field:"optional" json:"properties" yaml:"properties"`
 	// The policy to apply when this resource is removed from the application.
 	// Deprecated: use `core.CustomResourceProps`
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// For custom resources, you can specify AWS::CloudFormation::CustomResource (the default) as the resource type, or you can specify your own resource type name.
 	//
 	// For example, you can use "Custom::MyCustomResourceTypeName".
@@ -13527,16 +13652,20 @@ type CustomResourceProps struct {
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cfn-customresource.html#aws-cfn-resource-type-name
 	//
 	// Deprecated: use `core.CustomResourceProps`
-	ResourceType *string `json:"resourceType" yaml:"resourceType"`
+	ResourceType *string `field:"optional" json:"resourceType" yaml:"resourceType"`
 }
 
 // Represents a provider for an AWS CloudFormation custom resources.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"import awscdk "github.com/aws/aws-cdk-go/awscdk"import lambda "github.com/aws/aws-cdk-go/awscdk/aws_lambda"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var function_ function
-//   customResourceProvider := cloudformation.customResourceProvider.fromLambda(function_)
+//
+//   customResourceProvider := awscdk.Aws_cloudformation.customResourceProvider.fromLambda(function_)
 //
 // Deprecated: use core.CustomResource instead
 type CustomResourceProvider interface {
@@ -13651,7 +13780,10 @@ func (c *jsiiProxy_CustomResourceProvider) Bind(_arg awscdk.Construct) *CustomRe
 // Configuration options for custom resource providers.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   customResourceProviderConfig := &customResourceProviderConfig{
 //   	serviceToken: jsii.String("serviceToken"),
 //   }
@@ -13660,7 +13792,7 @@ func (c *jsiiProxy_CustomResourceProvider) Bind(_arg awscdk.Construct) *CustomRe
 type CustomResourceProviderConfig struct {
 	// The ARN of the SNS topic or the AWS Lambda function which implements this provider.
 	// Deprecated: used in {@link ICustomResourceProvider} which is now deprecated.
-	ServiceToken *string `json:"serviceToken" yaml:"serviceToken"`
+	ServiceToken *string `field:"required" json:"serviceToken" yaml:"serviceToken"`
 }
 
 // Represents a provider for an AWS CloudFormation custom resources.
@@ -13707,11 +13839,16 @@ func (i *jsiiProxy_ICustomResourceProvider) Bind(scope awscdk.Construct) *Custom
 // outputs.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"import awscdk "github.com/aws/aws-cdk-go/awscdk"import sns "github.com/aws/aws-cdk-go/awscdk/aws_sns"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var topic topic
-//   nestedStack := cloudformation.NewNestedStack(this, jsii.String("MyNestedStack"), &nestedStackProps{
+//
+//   nestedStack := awscdk.Aws_cloudformation.NewNestedStack(this, jsii.String("MyNestedStack"), &nestedStackProps{
 //   	notifications: []iTopic{
 //   		topic,
 //   	},
@@ -14746,10 +14883,15 @@ func (n *jsiiProxy_NestedStack) Validate() *[]*string {
 // Initialization props for the `NestedStack` construct.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import cloudformation "github.com/aws/aws-cdk-go/awscdk/aws_cloudformation"import awscdk "github.com/aws/aws-cdk-go/awscdk"import sns "github.com/aws/aws-cdk-go/awscdk/aws_sns"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var topic topic
+//
 //   nestedStackProps := &nestedStackProps{
 //   	notifications: []iTopic{
 //   		topic,
@@ -14764,7 +14906,7 @@ func (n *jsiiProxy_NestedStack) Validate() *[]*string {
 type NestedStackProps struct {
 	// The Simple Notification Service (SNS) topics to publish stack related events.
 	// Deprecated: use core.NestedStackProps instead
-	Notifications *[]awssns.ITopic `json:"notifications" yaml:"notifications"`
+	Notifications *[]awssns.ITopic `field:"optional" json:"notifications" yaml:"notifications"`
 	// The set value pairs that represent the parameters passed to CloudFormation when this nested stack is created.
 	//
 	// Each parameter has a name corresponding
@@ -14774,7 +14916,7 @@ type NestedStackProps struct {
 	// The nested stack construct will automatically synthesize parameters in order
 	// to bind references from the parent stack(s) into the nested stack.
 	// Deprecated: use core.NestedStackProps instead
-	Parameters *map[string]*string `json:"parameters" yaml:"parameters"`
+	Parameters *map[string]*string `field:"optional" json:"parameters" yaml:"parameters"`
 	// The length of time that CloudFormation waits for the nested stack to reach the CREATE_COMPLETE state.
 	//
 	// When CloudFormation detects that the nested stack has reached the
@@ -14784,6 +14926,6 @@ type NestedStackProps struct {
 	// CREATE_COMPLETE, CloudFormation marks the nested stack as failed and rolls
 	// back both the nested stack and parent stack.
 	// Deprecated: use core.NestedStackProps instead
-	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
+	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 }
 

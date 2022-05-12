@@ -14,8 +14,11 @@ import (
 // Returns an array of all the clusters in an account.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53recoverycontrol "github.com/aws/aws-cdk-go/awscdk/aws_route53recoverycontrol"
-//   cfnCluster := route53recoverycontrol.NewCfnCluster(this, jsii.String("MyCfnCluster"), &cfnClusterProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnCluster := awscdk.Aws_route53recoverycontrol.NewCfnCluster(this, jsii.String("MyCfnCluster"), &cfnClusterProps{
 //   	name: jsii.String("name"),
 //   	tags: []cfnTag{
 //   		&cfnTag{
@@ -708,7 +711,10 @@ func (c *jsiiProxy_CfnCluster) ValidateProperties(_properties interface{}) {
 // Specify an endpoint when you want to set or retrieve a routing control state in the cluster.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53recoverycontrol "github.com/aws/aws-cdk-go/awscdk/aws_route53recoverycontrol"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   clusterEndpointProperty := &clusterEndpointProperty{
 //   	endpoint: jsii.String("endpoint"),
 //   	region: jsii.String("region"),
@@ -720,15 +726,18 @@ type CfnCluster_ClusterEndpointProperty struct {
 	// Specify an endpoint and AWS Region when you want to set or retrieve a routing control state in the cluster.
 	//
 	// To get or update the routing control state, see the Amazon Route 53 Application Recovery Controller Routing Control Actions.
-	Endpoint *string `json:"endpoint" yaml:"endpoint"`
+	Endpoint *string `field:"optional" json:"endpoint" yaml:"endpoint"`
 	// The AWS Region for a cluster endpoint.
-	Region *string `json:"region" yaml:"region"`
+	Region *string `field:"optional" json:"region" yaml:"region"`
 }
 
 // Properties for defining a `CfnCluster`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53recoverycontrol "github.com/aws/aws-cdk-go/awscdk/aws_route53recoverycontrol"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnClusterProps := &cfnClusterProps{
 //   	name: jsii.String("name"),
 //   	tags: []cfnTag{
@@ -743,9 +752,9 @@ type CfnClusterProps struct {
 	// Name of the cluster.
 	//
 	// You can use any non-white space character in the name.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The value for a tag.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Route53RecoveryControl::ControlPanel`.
@@ -753,8 +762,11 @@ type CfnClusterProps struct {
 // Creates a new control panel. A control panel represents a group of routing controls that can be changed together in a single transaction. You can use a control panel to centrally view the operational status of applications across your organization, and trigger multi-app failovers in a single transaction, for example, to fail over an Availability Zone or AWS Region .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53recoverycontrol "github.com/aws/aws-cdk-go/awscdk/aws_route53recoverycontrol"
-//   cfnControlPanel := route53recoverycontrol.NewCfnControlPanel(this, jsii.String("MyCfnControlPanel"), &cfnControlPanelProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnControlPanel := awscdk.Aws_route53recoverycontrol.NewCfnControlPanel(this, jsii.String("MyCfnControlPanel"), &cfnControlPanelProps{
 //   	name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -1481,7 +1493,10 @@ func (c *jsiiProxy_CfnControlPanel) ValidateProperties(_properties interface{}) 
 // Properties for defining a `CfnControlPanel`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53recoverycontrol "github.com/aws/aws-cdk-go/awscdk/aws_route53recoverycontrol"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnControlPanelProps := &cfnControlPanelProps{
 //   	name: jsii.String("name"),
 //
@@ -1499,11 +1514,11 @@ type CfnControlPanelProps struct {
 	// The name of the control panel.
 	//
 	// You can use any non-white space character in the name.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The Amazon Resource Name (ARN) of the cluster for the control panel.
-	ClusterArn *string `json:"clusterArn" yaml:"clusterArn"`
+	ClusterArn *string `field:"optional" json:"clusterArn" yaml:"clusterArn"`
 	// The value for a tag.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Route53RecoveryControl::RoutingControl`.
@@ -1511,8 +1526,11 @@ type CfnControlPanelProps struct {
 // Defines a routing control. To get or update the routing control state, see the Recovery Cluster (data plane) API actions for Amazon Route 53 Application Recovery Controller.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53recoverycontrol "github.com/aws/aws-cdk-go/awscdk/aws_route53recoverycontrol"
-//   cfnRoutingControl := route53recoverycontrol.NewCfnRoutingControl(this, jsii.String("MyCfnRoutingControl"), &cfnRoutingControlProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnRoutingControl := awscdk.Aws_route53recoverycontrol.NewCfnRoutingControl(this, jsii.String("MyCfnRoutingControl"), &cfnRoutingControlProps{
 //   	name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -2219,7 +2237,10 @@ func (c *jsiiProxy_CfnRoutingControl) ValidateProperties(_properties interface{}
 // Properties for defining a `CfnRoutingControl`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53recoverycontrol "github.com/aws/aws-cdk-go/awscdk/aws_route53recoverycontrol"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnRoutingControlProps := &cfnRoutingControlProps{
 //   	name: jsii.String("name"),
 //
@@ -2232,11 +2253,11 @@ type CfnRoutingControlProps struct {
 	// The name of the routing control.
 	//
 	// You can use any non-white space character in the name.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The Amazon Resource Name (ARN) of the cluster that includes the routing control.
-	ClusterArn *string `json:"clusterArn" yaml:"clusterArn"`
+	ClusterArn *string `field:"optional" json:"clusterArn" yaml:"clusterArn"`
 	// The Amazon Resource Name (ARN) of the control panel that includes the routing control.
-	ControlPanelArn *string `json:"controlPanelArn" yaml:"controlPanelArn"`
+	ControlPanelArn *string `field:"optional" json:"controlPanelArn" yaml:"controlPanelArn"`
 }
 
 // A CloudFormation `AWS::Route53RecoveryControl::SafetyRule`.
@@ -2244,8 +2265,11 @@ type CfnRoutingControlProps struct {
 // List the safety rules (the assertion rules and gating rules) that you've defined for the routing controls in a control panel.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53recoverycontrol "github.com/aws/aws-cdk-go/awscdk/aws_route53recoverycontrol"
-//   cfnSafetyRule := route53recoverycontrol.NewCfnSafetyRule(this, jsii.String("MyCfnSafetyRule"), &cfnSafetyRuleProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnSafetyRule := awscdk.Aws_route53recoverycontrol.NewCfnSafetyRule(this, jsii.String("MyCfnSafetyRule"), &cfnSafetyRuleProps{
 //   	controlPanelArn: jsii.String("controlPanelArn"),
 //   	name: jsii.String("name"),
 //   	ruleConfig: &ruleConfigProperty{
@@ -3039,7 +3063,10 @@ func (c *jsiiProxy_CfnSafetyRule) ValidateProperties(_properties interface{}) {
 // Otherwise, the change to the routing control is not accepted. For example, the criteria might be that at least one routing control state is `On` after the transaction so that traffic continues to flow to at least one cell for the application. This ensures that you avoid a fail-open scenario.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53recoverycontrol "github.com/aws/aws-cdk-go/awscdk/aws_route53recoverycontrol"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   assertionRuleProperty := &assertionRuleProperty{
 //   	assertedControls: []*string{
 //   		jsii.String("assertedControls"),
@@ -3051,11 +3078,11 @@ type CfnSafetyRule_AssertionRuleProperty struct {
 	// The routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
 	//
 	// For example, you might include three routing controls, one for each of three AWS Regions.
-	AssertedControls *[]*string `json:"assertedControls" yaml:"assertedControls"`
+	AssertedControls *[]*string `field:"required" json:"assertedControls" yaml:"assertedControls"`
 	// An evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
 	//
 	// This helps prevent "flapping" of state. The wait period is 5000 ms by default, but you can choose a custom value.
-	WaitPeriodMs *float64 `json:"waitPeriodMs" yaml:"waitPeriodMs"`
+	WaitPeriodMs *float64 `field:"required" json:"waitPeriodMs" yaml:"waitPeriodMs"`
 }
 
 // A gating rule verifies that a gating routing control or set of gating routing controls, evaluates as true, based on a rule configuration that you specify, which allows a set of routing control state changes to complete.
@@ -3063,7 +3090,10 @@ type CfnSafetyRule_AssertionRuleProperty struct {
 // For example, if you specify one gating routing control and you set the `Type` in the rule configuration to `OR` , that indicates that you must set the gating routing control to `On` for the rule to evaluate as true; that is, for the gating control "switch" to be "On". When you do that, then you can update the routing control states for the target routing controls that you specify in the gating rule.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53recoverycontrol "github.com/aws/aws-cdk-go/awscdk/aws_route53recoverycontrol"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   gatingRuleProperty := &gatingRuleProperty{
 //   	gatingControls: []*string{
 //   		jsii.String("gatingControls"),
@@ -3078,15 +3108,15 @@ type CfnSafetyRule_GatingRuleProperty struct {
 	// An array of gating routing control Amazon Resource Names (ARNs).
 	//
 	// For a simple "on/off" switch, specify the ARN for one routing control. The gating routing controls are evaluated by the rule configuration that you specify to determine if the target routing control states can be changed.
-	GatingControls *[]*string `json:"gatingControls" yaml:"gatingControls"`
+	GatingControls *[]*string `field:"required" json:"gatingControls" yaml:"gatingControls"`
 	// An array of target routing control Amazon Resource Names (ARNs) for which the states can only be updated if the rule configuration that you specify evaluates to true for the gating routing control.
 	//
 	// As a simple example, if you have a single gating control, it acts as an overall "on/off" switch for a set of target routing controls. You can use this to manually override automated failover, for example.
-	TargetControls *[]*string `json:"targetControls" yaml:"targetControls"`
+	TargetControls *[]*string `field:"required" json:"targetControls" yaml:"targetControls"`
 	// An evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
 	//
 	// This helps prevent "flapping" of state. The wait period is 5000 ms by default, but you can choose a custom value.
-	WaitPeriodMs *float64 `json:"waitPeriodMs" yaml:"waitPeriodMs"`
+	WaitPeriodMs *float64 `field:"required" json:"waitPeriodMs" yaml:"waitPeriodMs"`
 }
 
 // The rule configuration for an assertion rule.
@@ -3094,7 +3124,10 @@ type CfnSafetyRule_GatingRuleProperty struct {
 // That is, the criteria that you set for specific assertion controls (routing controls) that specify how many control states must be `ON` after a transaction completes.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53recoverycontrol "github.com/aws/aws-cdk-go/awscdk/aws_route53recoverycontrol"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   ruleConfigProperty := &ruleConfigProperty{
 //   	inverted: jsii.Boolean(false),
 //   	threshold: jsii.Number(123),
@@ -3105,19 +3138,22 @@ type CfnSafetyRule_RuleConfigProperty struct {
 	// Logical negation of the rule.
 	//
 	// If the rule would usually evaluate true, it's evaluated as false, and vice versa.
-	Inverted interface{} `json:"inverted" yaml:"inverted"`
+	Inverted interface{} `field:"required" json:"inverted" yaml:"inverted"`
 	// The value of N, when you specify an `ATLEAST` rule type.
 	//
 	// That is, `Threshold` is the number of controls that must be set when you specify an `ATLEAST` type.
-	Threshold *float64 `json:"threshold" yaml:"threshold"`
+	Threshold *float64 `field:"required" json:"threshold" yaml:"threshold"`
 	// A rule can be one of the following: `ATLEAST` , `AND` , or `OR` .
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 }
 
 // Properties for defining a `CfnSafetyRule`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53recoverycontrol "github.com/aws/aws-cdk-go/awscdk/aws_route53recoverycontrol"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnSafetyRuleProps := &cfnSafetyRuleProps{
 //   	controlPanelArn: jsii.String("controlPanelArn"),
 //   	name: jsii.String("name"),
@@ -3153,24 +3189,24 @@ type CfnSafetyRule_RuleConfigProperty struct {
 //
 type CfnSafetyRuleProps struct {
 	// The Amazon Resource Name (ARN) for the control panel.
-	ControlPanelArn *string `json:"controlPanelArn" yaml:"controlPanelArn"`
+	ControlPanelArn *string `field:"required" json:"controlPanelArn" yaml:"controlPanelArn"`
 	// The name of the assertion rule.
 	//
 	// You can use any non-white space character in the name. The name must be unique within a control panel.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The criteria that you set for specific assertion controls (routing controls) that designate how many control states must be `ON` as the result of a transaction.
 	//
 	// For example, if you have three assertion controls, you might specify `ATLEAST 2` for your rule configuration. This means that at least two assertion controls must be `ON` , so that at least two AWS Regions have traffic flowing to them.
-	RuleConfig interface{} `json:"ruleConfig" yaml:"ruleConfig"`
+	RuleConfig interface{} `field:"required" json:"ruleConfig" yaml:"ruleConfig"`
 	// An assertion rule enforces that, when you change a routing control state, that the criteria that you set in the rule configuration is met.
 	//
 	// Otherwise, the change to the routing control is not accepted. For example, the criteria might be that at least one routing control state is `On` after the transaction so that traffic continues to flow to at least one cell for the application. This ensures that you avoid a fail-open scenario.
-	AssertionRule interface{} `json:"assertionRule" yaml:"assertionRule"`
+	AssertionRule interface{} `field:"optional" json:"assertionRule" yaml:"assertionRule"`
 	// A gating rule verifies that a gating routing control or set of gating routing controls, evaluates as true, based on a rule configuration that you specify, which allows a set of routing control state changes to complete.
 	//
 	// For example, if you specify one gating routing control and you set the `Type` in the rule configuration to `OR` , that indicates that you must set the gating routing control to `On` for the rule to evaluate as true; that is, for the gating control "switch" to be "On". When you do that, then you can update the routing control states for the target routing controls that you specify in the gating rule.
-	GatingRule interface{} `json:"gatingRule" yaml:"gatingRule"`
+	GatingRule interface{} `field:"optional" json:"gatingRule" yaml:"gatingRule"`
 	// The value for a tag.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

@@ -14,8 +14,11 @@ import (
 // The `AWS::Inspector::AssessmentTarget` resource is used to create Amazon Inspector assessment targets, which specify the Amazon EC2 instances that will be analyzed during an assessment run.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import inspector "github.com/aws/aws-cdk-go/awscdk/aws_inspector"
-//   cfnAssessmentTarget := inspector.NewCfnAssessmentTarget(this, jsii.String("MyCfnAssessmentTarget"), &cfnAssessmentTargetProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnAssessmentTarget := awscdk.Aws_inspector.NewCfnAssessmentTarget(this, jsii.String("MyCfnAssessmentTarget"), &cfnAssessmentTargetProps{
 //   	assessmentTargetName: jsii.String("assessmentTargetName"),
 //   	resourceGroupArn: jsii.String("resourceGroupArn"),
 //   })
@@ -686,7 +689,10 @@ func (c *jsiiProxy_CfnAssessmentTarget) ValidateProperties(_properties interface
 // Properties for defining a `CfnAssessmentTarget`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import inspector "github.com/aws/aws-cdk-go/awscdk/aws_inspector"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAssessmentTargetProps := &cfnAssessmentTargetProps{
 //   	assessmentTargetName: jsii.String("assessmentTargetName"),
 //   	resourceGroupArn: jsii.String("resourceGroupArn"),
@@ -696,11 +702,11 @@ type CfnAssessmentTargetProps struct {
 	// The name of the Amazon Inspector assessment target.
 	//
 	// The name must be unique within the AWS account .
-	AssessmentTargetName *string `json:"assessmentTargetName" yaml:"assessmentTargetName"`
+	AssessmentTargetName *string `field:"optional" json:"assessmentTargetName" yaml:"assessmentTargetName"`
 	// The ARN that specifies the resource group that is used to create the assessment target.
 	//
 	// If `resourceGroupArn` is not specified, all EC2 instances in the current AWS account and Region are included in the assessment target.
-	ResourceGroupArn *string `json:"resourceGroupArn" yaml:"resourceGroupArn"`
+	ResourceGroupArn *string `field:"optional" json:"resourceGroupArn" yaml:"resourceGroupArn"`
 }
 
 // A CloudFormation `AWS::Inspector::AssessmentTemplate`.
@@ -708,8 +714,11 @@ type CfnAssessmentTargetProps struct {
 // The `AWS::Inspector::AssessmentTemplate` resource creates an Amazon Inspector assessment template, which specifies the Inspector assessment targets that will be evaluated by an assessment run and its related configurations.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import inspector "github.com/aws/aws-cdk-go/awscdk/aws_inspector"
-//   cfnAssessmentTemplate := inspector.NewCfnAssessmentTemplate(this, jsii.String("MyCfnAssessmentTemplate"), &cfnAssessmentTemplateProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnAssessmentTemplate := awscdk.Aws_inspector.NewCfnAssessmentTemplate(this, jsii.String("MyCfnAssessmentTemplate"), &cfnAssessmentTemplateProps{
 //   	assessmentTargetArn: jsii.String("assessmentTargetArn"),
 //   	durationInSeconds: jsii.Number(123),
 //   	rulesPackageArns: []*string{
@@ -1455,7 +1464,10 @@ func (c *jsiiProxy_CfnAssessmentTemplate) ValidateProperties(_properties interfa
 // Properties for defining a `CfnAssessmentTemplate`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import inspector "github.com/aws/aws-cdk-go/awscdk/aws_inspector"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAssessmentTemplateProps := &cfnAssessmentTemplateProps{
 //   	assessmentTargetArn: jsii.String("assessmentTargetArn"),
 //   	durationInSeconds: jsii.Number(123),
@@ -1475,19 +1487,19 @@ func (c *jsiiProxy_CfnAssessmentTemplate) ValidateProperties(_properties interfa
 //
 type CfnAssessmentTemplateProps struct {
 	// The ARN of the assessment target to be included in the assessment template.
-	AssessmentTargetArn *string `json:"assessmentTargetArn" yaml:"assessmentTargetArn"`
+	AssessmentTargetArn *string `field:"required" json:"assessmentTargetArn" yaml:"assessmentTargetArn"`
 	// The duration of the assessment run in seconds.
-	DurationInSeconds *float64 `json:"durationInSeconds" yaml:"durationInSeconds"`
+	DurationInSeconds *float64 `field:"required" json:"durationInSeconds" yaml:"durationInSeconds"`
 	// The ARNs of the rules packages that you want to use in the assessment template.
-	RulesPackageArns *[]*string `json:"rulesPackageArns" yaml:"rulesPackageArns"`
+	RulesPackageArns *[]*string `field:"required" json:"rulesPackageArns" yaml:"rulesPackageArns"`
 	// The user-defined name that identifies the assessment template that you want to create.
 	//
 	// You can create several assessment templates for the same assessment target. The names of the assessment templates that correspond to a particular assessment target must be unique.
-	AssessmentTemplateName *string `json:"assessmentTemplateName" yaml:"assessmentTemplateName"`
+	AssessmentTemplateName *string `field:"optional" json:"assessmentTemplateName" yaml:"assessmentTemplateName"`
 	// The user-defined attributes that are assigned to every finding that is generated by the assessment run that uses this assessment template.
 	//
 	// Within an assessment template, each key must be unique.
-	UserAttributesForFindings interface{} `json:"userAttributesForFindings" yaml:"userAttributesForFindings"`
+	UserAttributesForFindings interface{} `field:"optional" json:"userAttributesForFindings" yaml:"userAttributesForFindings"`
 }
 
 // A CloudFormation `AWS::Inspector::ResourceGroup`.
@@ -1495,8 +1507,11 @@ type CfnAssessmentTemplateProps struct {
 // The `AWS::Inspector::ResourceGroup` resource is used to create Amazon Inspector resource groups. A resource group defines a set of tags that, when queried, identify the AWS resources that make up the assessment target.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import inspector "github.com/aws/aws-cdk-go/awscdk/aws_inspector"
-//   cfnResourceGroup := inspector.NewCfnResourceGroup(this, jsii.String("MyCfnResourceGroup"), &cfnResourceGroupProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnResourceGroup := awscdk.Aws_inspector.NewCfnResourceGroup(this, jsii.String("MyCfnResourceGroup"), &cfnResourceGroupProps{
 //   	resourceGroupTags: []interface{}{
 //   		&cfnTag{
 //   			key: jsii.String("key"),
@@ -2148,7 +2163,10 @@ func (c *jsiiProxy_CfnResourceGroup) ValidateProperties(_properties interface{})
 // Properties for defining a `CfnResourceGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import inspector "github.com/aws/aws-cdk-go/awscdk/aws_inspector"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnResourceGroupProps := &cfnResourceGroupProps{
 //   	resourceGroupTags: []interface{}{
 //   		&cfnTag{
@@ -2162,6 +2180,6 @@ type CfnResourceGroupProps struct {
 	// The tags (key and value pairs) that will be associated with the resource group.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	ResourceGroupTags interface{} `json:"resourceGroupTags" yaml:"resourceGroupTags"`
+	ResourceGroupTags interface{} `field:"required" json:"resourceGroupTags" yaml:"resourceGroupTags"`
 }
 

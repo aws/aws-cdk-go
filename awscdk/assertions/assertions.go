@@ -13,10 +13,14 @@ import (
 // Focused on asserting annotations.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import assertions "github.com/aws/aws-cdk-go/awscdk/assertions"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var stack stack
-//   annotations := assertions.annotations.fromStack(stack)
+//
+//   annotations := awscdk.Assertions.annotations.fromStack(stack)
 //
 // Experimental.
 type Annotations interface {
@@ -182,7 +186,7 @@ func (a *jsiiProxy_Annotations) HasWarning(constructPath *string, message interf
 //   //   }
 //   // }
 //
-//   fredCapture := NewCapture()
+//   fredCapture := awscdk.NewCapture()
 //   template.hasResourceProperties(jsii.String("Foo::Bar"), map[string]capture{
 //   	"Fred": fredCapture,
 //   })
@@ -591,10 +595,13 @@ func Match_StringLikeRegexp(pattern *string) Matcher {
 // Information about a value captured during match.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import assertions "github.com/aws/aws-cdk-go/awscdk/assertions"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var capture capture
 //   var value interface{}
+//
 //   matchCapture := &matchCapture{
 //   	capture: capture,
 //   	value: value,
@@ -604,18 +611,21 @@ func Match_StringLikeRegexp(pattern *string) Matcher {
 type MatchCapture struct {
 	// The instance of Capture class to which this capture is associated with.
 	// Experimental.
-	Capture Capture `json:"capture" yaml:"capture"`
+	Capture Capture `field:"required" json:"capture" yaml:"capture"`
 	// The value that was captured.
 	// Experimental.
-	Value interface{} `json:"value" yaml:"value"`
+	Value interface{} `field:"required" json:"value" yaml:"value"`
 }
 
 // Match failure details.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import assertions "github.com/aws/aws-cdk-go/awscdk/assertions"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var matcher matcher
+//
 //   matchFailure := &matchFailure{
 //   	matcher: matcher,
 //   	message: jsii.String("message"),
@@ -628,26 +638,29 @@ type MatchCapture struct {
 type MatchFailure struct {
 	// The matcher that had the failure.
 	// Experimental.
-	Matcher Matcher `json:"matcher" yaml:"matcher"`
+	Matcher Matcher `field:"required" json:"matcher" yaml:"matcher"`
 	// Failure message.
 	// Experimental.
-	Message *string `json:"message" yaml:"message"`
+	Message *string `field:"required" json:"message" yaml:"message"`
 	// The relative path in the target where the failure occurred.
 	//
 	// If the failure occurred at root of the match tree, set the path to an empty list.
 	// If it occurs in the 5th index of an array nested within the 'foo' key of an object,
 	// set the path as `['/foo', '[5]']`.
 	// Experimental.
-	Path *[]*string `json:"path" yaml:"path"`
+	Path *[]*string `field:"required" json:"path" yaml:"path"`
 }
 
 // The result of `Match.test()`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import assertions "github.com/aws/aws-cdk-go/awscdk/assertions"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var target interface{}
-//   matchResult := assertions.NewMatchResult(target)
+//
+//   matchResult := awscdk.Assertions.NewMatchResult(target)
 //
 // Experimental.
 type MatchResult interface {
@@ -839,14 +852,14 @@ func (m *jsiiProxy_MatchResult) ToHumanStrings() *[]*string {
 //
 //   // The following will NOT throw an assertion error
 //   template.hasResourceProperties(jsii.String("Foo::Bar"), map[string]matcher{
-//   	"Fred": Match.arrayWith([]interface{}{
+//   	"Fred": awscdk.Match.arrayWith([]interface{}{
 //   		jsii.String("Flob"),
 //   	}),
 //   })
 //
 //   // The following will throw an assertion error
-//   template.hasResourceProperties(jsii.String("Foo::Bar"), match.objectLike(map[string]interface{}{
-//   	"Fred": match.arrayWith([]interface{}{
+//   template.hasResourceProperties(jsii.String("Foo::Bar"), awscdk.Match.objectLike(map[string]interface{}{
+//   	"Fred": awscdk.Match.arrayWith([]interface{}{
 //   		jsii.String("Wobble"),
 //   	}),
 //   }))
@@ -931,11 +944,12 @@ func (m *jsiiProxy_Matcher) Test(actual interface{}) MatchResult {
 // CloudFormation template has expected resources and properties.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"type Stack awscdk.Stackimport awscdk "github.com/aws/aws-cdk-go/awscdk"type Template awscdk.Template
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   stack := NewStack()
+//   stack := awscdk.NewStack()
 //   // ...
-//   template := template.fromStack(stack)
+//   template := awscdk.Template.fromStack(stack)
 //
 // Experimental.
 type Template interface {

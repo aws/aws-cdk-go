@@ -16,8 +16,11 @@ import (
 // Config objects provide Ground Station with the details necessary in order to schedule and execute satellite contacts.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import groundstation "github.com/aws/aws-cdk-go/awscdk/aws_groundstation"
-//   cfnConfig := groundstation.NewCfnConfig(this, jsii.String("MyCfnConfig"), &cfnConfigProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnConfig := awscdk.Aws_groundstation.NewCfnConfig(this, jsii.String("MyCfnConfig"), &cfnConfigProps{
 //   	configData: &configDataProperty{
 //   		antennaDownlinkConfig: &antennaDownlinkConfigProperty{
 //   			spectrumConfig: &spectrumConfigProperty{
@@ -795,7 +798,10 @@ func (c *jsiiProxy_CfnConfig) ValidateProperties(_properties interface{}) {
 // Use an antenna downlink config in a mission profile to receive the downlink data in raw DigIF format.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import groundstation "github.com/aws/aws-cdk-go/awscdk/aws_groundstation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   antennaDownlinkConfigProperty := &antennaDownlinkConfigProperty{
 //   	spectrumConfig: &spectrumConfigProperty{
 //   		bandwidth: &frequencyBandwidthProperty{
@@ -812,7 +818,7 @@ func (c *jsiiProxy_CfnConfig) ValidateProperties(_properties interface{}) {
 //
 type CfnConfig_AntennaDownlinkConfigProperty struct {
 	// Defines the spectrum configuration.
-	SpectrumConfig interface{} `json:"spectrumConfig" yaml:"spectrumConfig"`
+	SpectrumConfig interface{} `field:"optional" json:"spectrumConfig" yaml:"spectrumConfig"`
 }
 
 // Provides information about how AWS Ground Station should configure an antenna for downlink during a contact.
@@ -820,7 +826,10 @@ type CfnConfig_AntennaDownlinkConfigProperty struct {
 // Use an antenna downlink demod decode config in a mission profile to receive the downlink data that has been demodulated and decoded.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import groundstation "github.com/aws/aws-cdk-go/awscdk/aws_groundstation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   antennaDownlinkDemodDecodeConfigProperty := &antennaDownlinkDemodDecodeConfigProperty{
 //   	decodeConfig: &decodeConfigProperty{
 //   		unvalidatedJson: jsii.String("unvalidatedJson"),
@@ -843,17 +852,20 @@ type CfnConfig_AntennaDownlinkConfigProperty struct {
 //
 type CfnConfig_AntennaDownlinkDemodDecodeConfigProperty struct {
 	// Defines how the RF signal will be decoded.
-	DecodeConfig interface{} `json:"decodeConfig" yaml:"decodeConfig"`
+	DecodeConfig interface{} `field:"optional" json:"decodeConfig" yaml:"decodeConfig"`
 	// Defines how the RF signal will be demodulated.
-	DemodulationConfig interface{} `json:"demodulationConfig" yaml:"demodulationConfig"`
+	DemodulationConfig interface{} `field:"optional" json:"demodulationConfig" yaml:"demodulationConfig"`
 	// Defines the spectrum configuration.
-	SpectrumConfig interface{} `json:"spectrumConfig" yaml:"spectrumConfig"`
+	SpectrumConfig interface{} `field:"optional" json:"spectrumConfig" yaml:"spectrumConfig"`
 }
 
 // Provides information about how AWS Ground Station should configure an antenna for uplink during a contact.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import groundstation "github.com/aws/aws-cdk-go/awscdk/aws_groundstation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   antennaUplinkConfigProperty := &antennaUplinkConfigProperty{
 //   	spectrumConfig: &uplinkSpectrumConfigProperty{
 //   		centerFrequency: &frequencyProperty{
@@ -871,19 +883,22 @@ type CfnConfig_AntennaDownlinkDemodDecodeConfigProperty struct {
 //
 type CfnConfig_AntennaUplinkConfigProperty struct {
 	// Defines the spectrum configuration.
-	SpectrumConfig interface{} `json:"spectrumConfig" yaml:"spectrumConfig"`
+	SpectrumConfig interface{} `field:"optional" json:"spectrumConfig" yaml:"spectrumConfig"`
 	// The equivalent isotropically radiated power (EIRP) to use for uplink transmissions.
 	//
 	// Valid values are between 20.0 to 50.0 dBW.
-	TargetEirp interface{} `json:"targetEirp" yaml:"targetEirp"`
+	TargetEirp interface{} `field:"optional" json:"targetEirp" yaml:"targetEirp"`
 	// Whether or not uplink transmit is disabled.
-	TransmitDisabled interface{} `json:"transmitDisabled" yaml:"transmitDisabled"`
+	TransmitDisabled interface{} `field:"optional" json:"transmitDisabled" yaml:"transmitDisabled"`
 }
 
 // Config objects provide information to Ground Station about how to configure the antenna and how data flows during a contact.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import groundstation "github.com/aws/aws-cdk-go/awscdk/aws_groundstation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   configDataProperty := &configDataProperty{
 //   	antennaDownlinkConfig: &antennaDownlinkConfigProperty{
 //   		spectrumConfig: &spectrumConfigProperty{
@@ -953,37 +968,40 @@ type CfnConfig_ConfigDataProperty struct {
 	// Provides information for an antenna downlink config object.
 	//
 	// Antenna downlink config objects are used to provide parameters for downlinks where no demodulation or decoding is performed by Ground Station (RF over IP downlinks).
-	AntennaDownlinkConfig interface{} `json:"antennaDownlinkConfig" yaml:"antennaDownlinkConfig"`
+	AntennaDownlinkConfig interface{} `field:"optional" json:"antennaDownlinkConfig" yaml:"antennaDownlinkConfig"`
 	// Provides information for a downlink demod decode config object.
 	//
 	// Downlink demod decode config objects are used to provide parameters for downlinks where the Ground Station service will demodulate and decode the downlinked data.
-	AntennaDownlinkDemodDecodeConfig interface{} `json:"antennaDownlinkDemodDecodeConfig" yaml:"antennaDownlinkDemodDecodeConfig"`
+	AntennaDownlinkDemodDecodeConfig interface{} `field:"optional" json:"antennaDownlinkDemodDecodeConfig" yaml:"antennaDownlinkDemodDecodeConfig"`
 	// Provides information for an uplink config object.
 	//
 	// Uplink config objects are used to provide parameters for uplink contacts.
-	AntennaUplinkConfig interface{} `json:"antennaUplinkConfig" yaml:"antennaUplinkConfig"`
+	AntennaUplinkConfig interface{} `field:"optional" json:"antennaUplinkConfig" yaml:"antennaUplinkConfig"`
 	// Provides information for a dataflow endpoint config object.
 	//
 	// Dataflow endpoint config objects are used to provide parameters about which IP endpoint(s) to use during a contact. Dataflow endpoints are where Ground Station sends data during a downlink contact and where Ground Station receives data to send to the satellite during an uplink contact.
-	DataflowEndpointConfig interface{} `json:"dataflowEndpointConfig" yaml:"dataflowEndpointConfig"`
+	DataflowEndpointConfig interface{} `field:"optional" json:"dataflowEndpointConfig" yaml:"dataflowEndpointConfig"`
 	// Provides information for an S3 recording config object.
 	//
 	// S3 recording config objects are used to provide parameters for S3 recording during downlink contacts.
-	S3RecordingConfig interface{} `json:"s3RecordingConfig" yaml:"s3RecordingConfig"`
+	S3RecordingConfig interface{} `field:"optional" json:"s3RecordingConfig" yaml:"s3RecordingConfig"`
 	// Provides information for a tracking config object.
 	//
 	// Tracking config objects are used to provide parameters about how to track the satellite through the sky during a contact.
-	TrackingConfig interface{} `json:"trackingConfig" yaml:"trackingConfig"`
+	TrackingConfig interface{} `field:"optional" json:"trackingConfig" yaml:"trackingConfig"`
 	// Provides information for an uplink echo config object.
 	//
 	// Uplink echo config objects are used to provide parameters for uplink echo during uplink contacts.
-	UplinkEchoConfig interface{} `json:"uplinkEchoConfig" yaml:"uplinkEchoConfig"`
+	UplinkEchoConfig interface{} `field:"optional" json:"uplinkEchoConfig" yaml:"uplinkEchoConfig"`
 }
 
 // Provides information to AWS Ground Station about which IP endpoints to use during a contact.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import groundstation "github.com/aws/aws-cdk-go/awscdk/aws_groundstation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dataflowEndpointConfigProperty := &dataflowEndpointConfigProperty{
 //   	dataflowEndpointName: jsii.String("dataflowEndpointName"),
 //   	dataflowEndpointRegion: jsii.String("dataflowEndpointRegion"),
@@ -991,43 +1009,52 @@ type CfnConfig_ConfigDataProperty struct {
 //
 type CfnConfig_DataflowEndpointConfigProperty struct {
 	// The name of the dataflow endpoint to use during contacts.
-	DataflowEndpointName *string `json:"dataflowEndpointName" yaml:"dataflowEndpointName"`
+	DataflowEndpointName *string `field:"optional" json:"dataflowEndpointName" yaml:"dataflowEndpointName"`
 	// The region of the dataflow endpoint to use during contacts.
 	//
 	// When omitted, Ground Station will use the region of the contact.
-	DataflowEndpointRegion *string `json:"dataflowEndpointRegion" yaml:"dataflowEndpointRegion"`
+	DataflowEndpointRegion *string `field:"optional" json:"dataflowEndpointRegion" yaml:"dataflowEndpointRegion"`
 }
 
 // Defines decoding settings.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import groundstation "github.com/aws/aws-cdk-go/awscdk/aws_groundstation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   decodeConfigProperty := &decodeConfigProperty{
 //   	unvalidatedJson: jsii.String("unvalidatedJson"),
 //   }
 //
 type CfnConfig_DecodeConfigProperty struct {
 	// The decoding settings are in JSON format and define a set of steps to perform to decode the data.
-	UnvalidatedJson *string `json:"unvalidatedJson" yaml:"unvalidatedJson"`
+	UnvalidatedJson *string `field:"optional" json:"unvalidatedJson" yaml:"unvalidatedJson"`
 }
 
 // Defines demodulation settings.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import groundstation "github.com/aws/aws-cdk-go/awscdk/aws_groundstation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   demodulationConfigProperty := &demodulationConfigProperty{
 //   	unvalidatedJson: jsii.String("unvalidatedJson"),
 //   }
 //
 type CfnConfig_DemodulationConfigProperty struct {
 	// The demodulation settings are in JSON format and define parameters for demodulation, for example which modulation scheme (e.g. PSK, QPSK, etc.) and matched filter to use.
-	UnvalidatedJson *string `json:"unvalidatedJson" yaml:"unvalidatedJson"`
+	UnvalidatedJson *string `field:"optional" json:"unvalidatedJson" yaml:"unvalidatedJson"`
 }
 
 // Defines an equivalent isotropically radiated power (EIRP).
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import groundstation "github.com/aws/aws-cdk-go/awscdk/aws_groundstation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   eirpProperty := &eirpProperty{
 //   	units: jsii.String("units"),
 //   	value: jsii.Number(123),
@@ -1035,17 +1062,20 @@ type CfnConfig_DemodulationConfigProperty struct {
 //
 type CfnConfig_EirpProperty struct {
 	// The units of the EIRP.
-	Units *string `json:"units" yaml:"units"`
+	Units *string `field:"optional" json:"units" yaml:"units"`
 	// The value of the EIRP.
 	//
 	// Valid values are between 20.0 to 50.0 dBW.
-	Value *float64 `json:"value" yaml:"value"`
+	Value *float64 `field:"optional" json:"value" yaml:"value"`
 }
 
 // Defines a bandwidth.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import groundstation "github.com/aws/aws-cdk-go/awscdk/aws_groundstation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   frequencyBandwidthProperty := &frequencyBandwidthProperty{
 //   	units: jsii.String("units"),
 //   	value: jsii.Number(123),
@@ -1053,19 +1083,22 @@ type CfnConfig_EirpProperty struct {
 //
 type CfnConfig_FrequencyBandwidthProperty struct {
 	// The units of the bandwidth.
-	Units *string `json:"units" yaml:"units"`
+	Units *string `field:"optional" json:"units" yaml:"units"`
 	// The value of the bandwidth. AWS Ground Station currently has the following bandwidth limitations:.
 	//
 	// - For `AntennaDownlinkDemodDecodeconfig` , valid values are between 125 kHz to 650 MHz.
 	// - For `AntennaDownlinkconfig` , valid values are between 10 kHz to 54 MHz.
 	// - For `AntennaUplinkConfig` , valid values are between 10 kHz to 54 MHz.
-	Value *float64 `json:"value" yaml:"value"`
+	Value *float64 `field:"optional" json:"value" yaml:"value"`
 }
 
 // Defines a frequency.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import groundstation "github.com/aws/aws-cdk-go/awscdk/aws_groundstation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   frequencyProperty := &frequencyProperty{
 //   	units: jsii.String("units"),
 //   	value: jsii.Number(123),
@@ -1073,17 +1106,20 @@ type CfnConfig_FrequencyBandwidthProperty struct {
 //
 type CfnConfig_FrequencyProperty struct {
 	// The units of the frequency.
-	Units *string `json:"units" yaml:"units"`
+	Units *string `field:"optional" json:"units" yaml:"units"`
 	// The value of the frequency.
 	//
 	// Valid values are between 2200 to 2300 MHz and 7750 to 8400 MHz for downlink and 2025 to 2120 MHz for uplink.
-	Value *float64 `json:"value" yaml:"value"`
+	Value *float64 `field:"optional" json:"value" yaml:"value"`
 }
 
 // Provides information about how AWS Ground Station should save downlink data to S3.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import groundstation "github.com/aws/aws-cdk-go/awscdk/aws_groundstation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3RecordingConfigProperty := &s3RecordingConfigProperty{
 //   	bucketArn: jsii.String("bucketArn"),
 //   	prefix: jsii.String("prefix"),
@@ -1094,21 +1130,24 @@ type CfnConfig_S3RecordingConfigProperty struct {
 	// S3 Bucket where the data is written.
 	//
 	// The name of the S3 Bucket provided must begin with `aws-groundstation` .
-	BucketArn *string `json:"bucketArn" yaml:"bucketArn"`
+	BucketArn *string `field:"optional" json:"bucketArn" yaml:"bucketArn"`
 	// The prefix of the S3 data object.
 	//
 	// If you choose to use any optional keys for substitution, these values will be replaced with the corresponding information from your contact details. For example, a prefix of `{satellite_id}/{year}/{month}/{day}/` will replaced with `fake_satellite_id/2021/01/10/`
 	//
 	// *Optional keys for substitution* : `{satellite_id}` | `{config-name}` | `{config-id}` | `{year}` | `{month}` | `{day}`.
-	Prefix *string `json:"prefix" yaml:"prefix"`
+	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 	// Defines the ARN of the role assumed for putting archives to S3.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 }
 
 // Defines a spectrum.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import groundstation "github.com/aws/aws-cdk-go/awscdk/aws_groundstation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   spectrumConfigProperty := &spectrumConfigProperty{
 //   	bandwidth: &frequencyBandwidthProperty{
 //   		units: jsii.String("units"),
@@ -1127,21 +1166,24 @@ type CfnConfig_SpectrumConfigProperty struct {
 	// - For `AntennaDownlinkDemodDecodeconfig` , valid values are between 125 kHz to 650 MHz.
 	// - For `AntennaDownlinkconfig` , valid values are between 10 kHz to 54 MHz.
 	// - For `AntennaUplinkConfig` , valid values are between 10 kHz to 54 MHz.
-	Bandwidth interface{} `json:"bandwidth" yaml:"bandwidth"`
+	Bandwidth interface{} `field:"optional" json:"bandwidth" yaml:"bandwidth"`
 	// The center frequency of the spectrum.
 	//
 	// Valid values are between 2200 to 2300 MHz and 7750 to 8400 MHz for downlink and 2025 to 2120 MHz for uplink.
-	CenterFrequency interface{} `json:"centerFrequency" yaml:"centerFrequency"`
+	CenterFrequency interface{} `field:"optional" json:"centerFrequency" yaml:"centerFrequency"`
 	// The polarization of the spectrum.
 	//
 	// Valid values are `"RIGHT_HAND"` and `"LEFT_HAND"` . Capturing both `"RIGHT_HAND"` and `"LEFT_HAND"` polarization requires two separate configs.
-	Polarization *string `json:"polarization" yaml:"polarization"`
+	Polarization *string `field:"optional" json:"polarization" yaml:"polarization"`
 }
 
 // Provides information about how AWS Ground Station should track the satellite through the sky during a contact.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import groundstation "github.com/aws/aws-cdk-go/awscdk/aws_groundstation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   trackingConfigProperty := &trackingConfigProperty{
 //   	autotrack: jsii.String("autotrack"),
 //   }
@@ -1150,13 +1192,16 @@ type CfnConfig_TrackingConfigProperty struct {
 	// Specifies whether or not to use autotrack.
 	//
 	// `REMOVED` specifies that program track should only be used during the contact. `PREFERRED` specifies that autotracking is preferred during the contact but fallback to program track if the signal is lost. `REQUIRED` specifies that autotracking is required during the contact and not to use program track if the signal is lost.
-	Autotrack *string `json:"autotrack" yaml:"autotrack"`
+	Autotrack *string `field:"optional" json:"autotrack" yaml:"autotrack"`
 }
 
 // Provides information about how AWS Ground Station should echo back uplink transmissions to a dataflow endpoint.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import groundstation "github.com/aws/aws-cdk-go/awscdk/aws_groundstation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   uplinkEchoConfigProperty := &uplinkEchoConfigProperty{
 //   	antennaUplinkConfigArn: jsii.String("antennaUplinkConfigArn"),
 //   	enabled: jsii.Boolean(false),
@@ -1164,15 +1209,18 @@ type CfnConfig_TrackingConfigProperty struct {
 //
 type CfnConfig_UplinkEchoConfigProperty struct {
 	// Defines the ARN of the uplink config to echo back to a dataflow endpoint.
-	AntennaUplinkConfigArn *string `json:"antennaUplinkConfigArn" yaml:"antennaUplinkConfigArn"`
+	AntennaUplinkConfigArn *string `field:"optional" json:"antennaUplinkConfigArn" yaml:"antennaUplinkConfigArn"`
 	// Whether or not uplink echo is enabled.
-	Enabled interface{} `json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 }
 
 // Defines a uplink spectrum.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import groundstation "github.com/aws/aws-cdk-go/awscdk/aws_groundstation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   uplinkSpectrumConfigProperty := &uplinkSpectrumConfigProperty{
 //   	centerFrequency: &frequencyProperty{
 //   		units: jsii.String("units"),
@@ -1185,17 +1233,20 @@ type CfnConfig_UplinkSpectrumConfigProperty struct {
 	// The center frequency of the spectrum.
 	//
 	// Valid values are between 2200 to 2300 MHz and 7750 to 8400 MHz for downlink and 2025 to 2120 MHz for uplink.
-	CenterFrequency interface{} `json:"centerFrequency" yaml:"centerFrequency"`
+	CenterFrequency interface{} `field:"optional" json:"centerFrequency" yaml:"centerFrequency"`
 	// The polarization of the spectrum.
 	//
 	// Valid values are `"RIGHT_HAND"` and `"LEFT_HAND"` .
-	Polarization *string `json:"polarization" yaml:"polarization"`
+	Polarization *string `field:"optional" json:"polarization" yaml:"polarization"`
 }
 
 // Properties for defining a `CfnConfig`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import groundstation "github.com/aws/aws-cdk-go/awscdk/aws_groundstation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnConfigProps := &cfnConfigProps{
 //   	configData: &configDataProperty{
 //   		antennaDownlinkConfig: &antennaDownlinkConfigProperty{
@@ -1276,11 +1327,11 @@ type CfnConfigProps struct {
 	// Object containing the parameters of a config.
 	//
 	// Only one subtype may be specified per config. See the subtype definitions for a description of each config subtype.
-	ConfigData interface{} `json:"configData" yaml:"configData"`
+	ConfigData interface{} `field:"required" json:"configData" yaml:"configData"`
 	// The name of the config object.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// Tags assigned to a resource.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::GroundStation::DataflowEndpointGroup`.
@@ -1292,8 +1343,11 @@ type CfnConfigProps struct {
 // For more information about dataflow endpoint groups, see [Dataflow Endpoint Groups](https://docs.aws.amazon.com/ground-station/latest/ug/dataflowendpointgroups.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import groundstation "github.com/aws/aws-cdk-go/awscdk/aws_groundstation"
-//   cfnDataflowEndpointGroup := groundstation.NewCfnDataflowEndpointGroup(this, jsii.String("MyCfnDataflowEndpointGroup"), &cfnDataflowEndpointGroupProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDataflowEndpointGroup := awscdk.Aws_groundstation.NewCfnDataflowEndpointGroup(this, jsii.String("MyCfnDataflowEndpointGroup"), &cfnDataflowEndpointGroupProps{
 //   	endpointDetails: []interface{}{
 //   		&endpointDetailsProperty{
 //   			endpoint: &dataflowEndpointProperty{
@@ -1990,7 +2044,10 @@ func (c *jsiiProxy_CfnDataflowEndpointGroup) ValidateProperties(_properties inte
 // Contains information such as socket address and name that defines an endpoint.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import groundstation "github.com/aws/aws-cdk-go/awscdk/aws_groundstation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dataflowEndpointProperty := &dataflowEndpointProperty{
 //   	address: &socketAddressProperty{
 //   		name: jsii.String("name"),
@@ -2002,21 +2059,24 @@ func (c *jsiiProxy_CfnDataflowEndpointGroup) ValidateProperties(_properties inte
 //
 type CfnDataflowEndpointGroup_DataflowEndpointProperty struct {
 	// The address and port of an endpoint.
-	Address interface{} `json:"address" yaml:"address"`
+	Address interface{} `field:"optional" json:"address" yaml:"address"`
 	// Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
 	//
 	// Valid values are between 1400 and 1500. A default value of 1500 is used if not set.
-	Mtu *float64 `json:"mtu" yaml:"mtu"`
+	Mtu *float64 `field:"optional" json:"mtu" yaml:"mtu"`
 	// The endpoint name.
 	//
 	// When listing available contacts for a satellite, Ground Station searches for a dataflow endpoint whose name matches the value specified by the dataflow endpoint config of the selected mission profile. If no matching dataflow endpoints are found then Ground Station will not display any available contacts for the satellite.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 
 // The security details and endpoint information.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import groundstation "github.com/aws/aws-cdk-go/awscdk/aws_groundstation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   endpointDetailsProperty := &endpointDetailsProperty{
 //   	endpoint: &dataflowEndpointProperty{
 //   		address: &socketAddressProperty{
@@ -2039,15 +2099,18 @@ type CfnDataflowEndpointGroup_DataflowEndpointProperty struct {
 //
 type CfnDataflowEndpointGroup_EndpointDetailsProperty struct {
 	// Information about the endpoint such as name and the endpoint address.
-	Endpoint interface{} `json:"endpoint" yaml:"endpoint"`
+	Endpoint interface{} `field:"optional" json:"endpoint" yaml:"endpoint"`
 	// The role ARN, and IDs for security groups and subnets.
-	SecurityDetails interface{} `json:"securityDetails" yaml:"securityDetails"`
+	SecurityDetails interface{} `field:"optional" json:"securityDetails" yaml:"securityDetails"`
 }
 
 // Information about IAM roles, subnets, and security groups needed for this DataflowEndpointGroup.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import groundstation "github.com/aws/aws-cdk-go/awscdk/aws_groundstation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   securityDetailsProperty := &securityDetailsProperty{
 //   	roleArn: jsii.String("roleArn"),
 //   	securityGroupIds: []*string{
@@ -2062,17 +2125,20 @@ type CfnDataflowEndpointGroup_SecurityDetailsProperty struct {
 	// The ARN of a role which Ground Station has permission to assume, such as `arn:aws:iam::1234567890:role/DataDeliveryServiceRole` .
 	//
 	// Ground Station will assume this role and create an ENI in your VPC on the specified subnet upon creation of a dataflow endpoint group. This ENI is used as the ingress/egress point for data streamed during a satellite contact.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// The security group Ids of the security role, such as `sg-1234567890abcdef0` .
-	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
+	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// The subnet Ids of the security details, such as `subnet-12345678` .
-	SubnetIds *[]*string `json:"subnetIds" yaml:"subnetIds"`
+	SubnetIds *[]*string `field:"optional" json:"subnetIds" yaml:"subnetIds"`
 }
 
 // The address of the endpoint, such as `192.168.1.1` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import groundstation "github.com/aws/aws-cdk-go/awscdk/aws_groundstation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   socketAddressProperty := &socketAddressProperty{
 //   	name: jsii.String("name"),
 //   	port: jsii.Number(123),
@@ -2080,15 +2146,18 @@ type CfnDataflowEndpointGroup_SecurityDetailsProperty struct {
 //
 type CfnDataflowEndpointGroup_SocketAddressProperty struct {
 	// The name of the endpoint, such as `Endpoint 1` .
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The port of the endpoint, such as `55888` .
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"optional" json:"port" yaml:"port"`
 }
 
 // Properties for defining a `CfnDataflowEndpointGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import groundstation "github.com/aws/aws-cdk-go/awscdk/aws_groundstation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDataflowEndpointGroupProps := &cfnDataflowEndpointGroupProps{
 //   	endpointDetails: []interface{}{
 //   		&endpointDetailsProperty{
@@ -2123,9 +2192,9 @@ type CfnDataflowEndpointGroup_SocketAddressProperty struct {
 //
 type CfnDataflowEndpointGroupProps struct {
 	// List of Endpoint Details, containing address and port for each endpoint.
-	EndpointDetails interface{} `json:"endpointDetails" yaml:"endpointDetails"`
+	EndpointDetails interface{} `field:"required" json:"endpointDetails" yaml:"endpointDetails"`
 	// Tags assigned to a resource.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::GroundStation::MissionProfile`.
@@ -2133,8 +2202,11 @@ type CfnDataflowEndpointGroupProps struct {
 // Mission profiles specify parameters and provide references to config objects to define how Ground Station lists and executes contacts.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import groundstation "github.com/aws/aws-cdk-go/awscdk/aws_groundstation"
-//   cfnMissionProfile := groundstation.NewCfnMissionProfile(this, jsii.String("MyCfnMissionProfile"), &cfnMissionProfileProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnMissionProfile := awscdk.Aws_groundstation.NewCfnMissionProfile(this, jsii.String("MyCfnMissionProfile"), &cfnMissionProfileProps{
 //   	dataflowEdges: []interface{}{
 //   		&dataflowEdgeProperty{
 //   			destination: jsii.String("destination"),
@@ -2946,7 +3018,10 @@ func (c *jsiiProxy_CfnMissionProfile) ValidateProperties(_properties interface{}
 // A dataflow edge defines from where and to where data will flow during a contact.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import groundstation "github.com/aws/aws-cdk-go/awscdk/aws_groundstation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dataflowEdgeProperty := &dataflowEdgeProperty{
 //   	destination: jsii.String("destination"),
 //   	source: jsii.String("source"),
@@ -2956,17 +3031,20 @@ type CfnMissionProfile_DataflowEdgeProperty struct {
 	// The ARN of the destination for this dataflow edge.
 	//
 	// For example, specify the ARN of a dataflow endpoint config for a downlink edge or an antenna uplink config for an uplink edge.
-	Destination *string `json:"destination" yaml:"destination"`
+	Destination *string `field:"optional" json:"destination" yaml:"destination"`
 	// The ARN of the source for this dataflow edge.
 	//
 	// For example, specify the ARN of an antenna downlink config for a downlink edge or a dataflow endpoint config for an uplink edge.
-	Source *string `json:"source" yaml:"source"`
+	Source *string `field:"optional" json:"source" yaml:"source"`
 }
 
 // Properties for defining a `CfnMissionProfile`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import groundstation "github.com/aws/aws-cdk-go/awscdk/aws_groundstation"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnMissionProfileProps := &cfnMissionProfileProps{
 //   	dataflowEdges: []interface{}{
 //   		&dataflowEdgeProperty{
@@ -2993,24 +3071,24 @@ type CfnMissionProfileProps struct {
 	// A list containing lists of config ARNs.
 	//
 	// Each list of config ARNs is an edge, with a "from" config and a "to" config.
-	DataflowEdges interface{} `json:"dataflowEdges" yaml:"dataflowEdges"`
+	DataflowEdges interface{} `field:"required" json:"dataflowEdges" yaml:"dataflowEdges"`
 	// Minimum length of a contact in seconds that Ground Station will return when listing contacts.
 	//
 	// Ground Station will not return contacts shorter than this duration.
-	MinimumViableContactDurationSeconds *float64 `json:"minimumViableContactDurationSeconds" yaml:"minimumViableContactDurationSeconds"`
+	MinimumViableContactDurationSeconds *float64 `field:"required" json:"minimumViableContactDurationSeconds" yaml:"minimumViableContactDurationSeconds"`
 	// The name of the mission profile.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The ARN of a tracking config objects that defines how to track the satellite through the sky during a contact.
-	TrackingConfigArn *string `json:"trackingConfigArn" yaml:"trackingConfigArn"`
+	TrackingConfigArn *string `field:"required" json:"trackingConfigArn" yaml:"trackingConfigArn"`
 	// Amount of time in seconds after a contact ends that you’d like to receive a CloudWatch Event indicating the pass has finished.
 	//
 	// For more information on CloudWatch Events, see the [What Is CloudWatch Events?](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/WhatIsCloudWatchEvents.html)
-	ContactPostPassDurationSeconds *float64 `json:"contactPostPassDurationSeconds" yaml:"contactPostPassDurationSeconds"`
+	ContactPostPassDurationSeconds *float64 `field:"optional" json:"contactPostPassDurationSeconds" yaml:"contactPostPassDurationSeconds"`
 	// Amount of time in seconds prior to contact start that you'd like to receive a CloudWatch Event indicating an upcoming pass.
 	//
 	// For more information on CloudWatch Events, see the [What Is CloudWatch Events?](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/WhatIsCloudWatchEvents.html)
-	ContactPrePassDurationSeconds *float64 `json:"contactPrePassDurationSeconds" yaml:"contactPrePassDurationSeconds"`
+	ContactPrePassDurationSeconds *float64 `field:"optional" json:"contactPrePassDurationSeconds" yaml:"contactPrePassDurationSeconds"`
 	// Tags assigned to the mission profile.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

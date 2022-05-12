@@ -14,8 +14,11 @@ import (
 // Creates an application instance and deploys it to a device.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import panorama "github.com/aws/aws-cdk-go/awscdk/aws_panorama"
-//   cfnApplicationInstance := panorama.NewCfnApplicationInstance(this, jsii.String("MyCfnApplicationInstance"), &cfnApplicationInstanceProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnApplicationInstance := awscdk.Aws_panorama.NewCfnApplicationInstance(this, jsii.String("MyCfnApplicationInstance"), &cfnApplicationInstanceProps{
 //   	defaultRuntimeContextDevice: jsii.String("defaultRuntimeContextDevice"),
 //   	manifestPayload: &manifestPayloadProperty{
 //   		payloadData: jsii.String("payloadData"),
@@ -946,14 +949,17 @@ func (c *jsiiProxy_CfnApplicationInstance) ValidateProperties(_properties interf
 // This is a JSON document that has a single key ( `PayloadData` ) where the value is an escaped string representation of the overrides document.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import panorama "github.com/aws/aws-cdk-go/awscdk/aws_panorama"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   manifestOverridesPayloadProperty := &manifestOverridesPayloadProperty{
 //   	payloadData: jsii.String("payloadData"),
 //   }
 //
 type CfnApplicationInstance_ManifestOverridesPayloadProperty struct {
 	// The overrides document.
-	PayloadData *string `json:"payloadData" yaml:"payloadData"`
+	PayloadData *string `field:"optional" json:"payloadData" yaml:"payloadData"`
 }
 
 // A application verion's manifest file.
@@ -961,20 +967,26 @@ type CfnApplicationInstance_ManifestOverridesPayloadProperty struct {
 // This is a JSON document that has a single key ( `PayloadData` ) where the value is an escaped string representation of the application manifest ( `graph.json` ). This file is located in the `graphs` folder in your application source.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import panorama "github.com/aws/aws-cdk-go/awscdk/aws_panorama"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   manifestPayloadProperty := &manifestPayloadProperty{
 //   	payloadData: jsii.String("payloadData"),
 //   }
 //
 type CfnApplicationInstance_ManifestPayloadProperty struct {
 	// The application manifest.
-	PayloadData *string `json:"payloadData" yaml:"payloadData"`
+	PayloadData *string `field:"optional" json:"payloadData" yaml:"payloadData"`
 }
 
 // Properties for defining a `CfnApplicationInstance`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import panorama "github.com/aws/aws-cdk-go/awscdk/aws_panorama"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnApplicationInstanceProps := &cfnApplicationInstanceProps{
 //   	defaultRuntimeContextDevice: jsii.String("defaultRuntimeContextDevice"),
 //   	manifestPayload: &manifestPayloadProperty{
@@ -1001,25 +1013,25 @@ type CfnApplicationInstance_ManifestPayloadProperty struct {
 //
 type CfnApplicationInstanceProps struct {
 	// The device's ID.
-	DefaultRuntimeContextDevice *string `json:"defaultRuntimeContextDevice" yaml:"defaultRuntimeContextDevice"`
+	DefaultRuntimeContextDevice *string `field:"required" json:"defaultRuntimeContextDevice" yaml:"defaultRuntimeContextDevice"`
 	// The application's manifest document.
-	ManifestPayload interface{} `json:"manifestPayload" yaml:"manifestPayload"`
+	ManifestPayload interface{} `field:"required" json:"manifestPayload" yaml:"manifestPayload"`
 	// The ID of an application instance to replace with the new instance.
-	ApplicationInstanceIdToReplace *string `json:"applicationInstanceIdToReplace" yaml:"applicationInstanceIdToReplace"`
+	ApplicationInstanceIdToReplace *string `field:"optional" json:"applicationInstanceIdToReplace" yaml:"applicationInstanceIdToReplace"`
 	// A description for the application instance.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// A device's ID.
-	DeviceId *string `json:"deviceId" yaml:"deviceId"`
+	DeviceId *string `field:"optional" json:"deviceId" yaml:"deviceId"`
 	// Setting overrides for the application manifest.
-	ManifestOverridesPayload interface{} `json:"manifestOverridesPayload" yaml:"manifestOverridesPayload"`
+	ManifestOverridesPayload interface{} `field:"optional" json:"manifestOverridesPayload" yaml:"manifestOverridesPayload"`
 	// A name for the application instance.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The ARN of a runtime role for the application instance.
-	RuntimeRoleArn *string `json:"runtimeRoleArn" yaml:"runtimeRoleArn"`
+	RuntimeRoleArn *string `field:"optional" json:"runtimeRoleArn" yaml:"runtimeRoleArn"`
 	// Only include instances with a specific status.
-	StatusFilter *string `json:"statusFilter" yaml:"statusFilter"`
+	StatusFilter *string `field:"optional" json:"statusFilter" yaml:"statusFilter"`
 	// Tags for the application instance.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Panorama::Package`.
@@ -1027,8 +1039,11 @@ type CfnApplicationInstanceProps struct {
 // Creates a package and storage location in an Amazon S3 access point.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import panorama "github.com/aws/aws-cdk-go/awscdk/aws_panorama"
-//   cfnPackage := panorama.NewCfnPackage(this, jsii.String("MyCfnPackage"), &cfnPackageProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnPackage := awscdk.Aws_panorama.NewCfnPackage(this, jsii.String("MyCfnPackage"), &cfnPackageProps{
 //   	packageName: jsii.String("packageName"),
 //
 //   	// the properties below are optional
@@ -1717,7 +1732,10 @@ func (c *jsiiProxy_CfnPackage) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnPackage`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import panorama "github.com/aws/aws-cdk-go/awscdk/aws_panorama"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnPackageProps := &cfnPackageProps{
 //   	packageName: jsii.String("packageName"),
 //
@@ -1732,9 +1750,9 @@ func (c *jsiiProxy_CfnPackage) ValidateProperties(_properties interface{}) {
 //
 type CfnPackageProps struct {
 	// A name for the package.
-	PackageName *string `json:"packageName" yaml:"packageName"`
+	PackageName *string `field:"required" json:"packageName" yaml:"packageName"`
 	// Tags for the package.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Panorama::PackageVersion`.
@@ -1742,8 +1760,11 @@ type CfnPackageProps struct {
 // Registers a package version.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import panorama "github.com/aws/aws-cdk-go/awscdk/aws_panorama"
-//   cfnPackageVersion := panorama.NewCfnPackageVersion(this, jsii.String("MyCfnPackageVersion"), &cfnPackageVersionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnPackageVersion := awscdk.Aws_panorama.NewCfnPackageVersion(this, jsii.String("MyCfnPackageVersion"), &cfnPackageVersionProps{
 //   	packageId: jsii.String("packageId"),
 //   	packageVersion: jsii.String("packageVersion"),
 //   	patchVersion: jsii.String("patchVersion"),
@@ -2560,7 +2581,10 @@ func (c *jsiiProxy_CfnPackageVersion) ValidateProperties(_properties interface{}
 // Properties for defining a `CfnPackageVersion`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import panorama "github.com/aws/aws-cdk-go/awscdk/aws_panorama"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnPackageVersionProps := &cfnPackageVersionProps{
 //   	packageId: jsii.String("packageId"),
 //   	packageVersion: jsii.String("packageVersion"),
@@ -2574,16 +2598,16 @@ func (c *jsiiProxy_CfnPackageVersion) ValidateProperties(_properties interface{}
 //
 type CfnPackageVersionProps struct {
 	// A package ID.
-	PackageId *string `json:"packageId" yaml:"packageId"`
+	PackageId *string `field:"required" json:"packageId" yaml:"packageId"`
 	// A package version.
-	PackageVersion *string `json:"packageVersion" yaml:"packageVersion"`
+	PackageVersion *string `field:"required" json:"packageVersion" yaml:"packageVersion"`
 	// A patch version.
-	PatchVersion *string `json:"patchVersion" yaml:"patchVersion"`
+	PatchVersion *string `field:"required" json:"patchVersion" yaml:"patchVersion"`
 	// Whether to mark the new version as the latest version.
-	MarkLatest interface{} `json:"markLatest" yaml:"markLatest"`
+	MarkLatest interface{} `field:"optional" json:"markLatest" yaml:"markLatest"`
 	// An owner account.
-	OwnerAccount *string `json:"ownerAccount" yaml:"ownerAccount"`
+	OwnerAccount *string `field:"optional" json:"ownerAccount" yaml:"ownerAccount"`
 	// If the version was marked latest, the new version to maker as latest.
-	UpdatedLatestPatchVersion *string `json:"updatedLatestPatchVersion" yaml:"updatedLatestPatchVersion"`
+	UpdatedLatestPatchVersion *string `field:"optional" json:"updatedLatestPatchVersion" yaml:"updatedLatestPatchVersion"`
 }
 

@@ -18,8 +18,11 @@ import (
 // To retrieve the domains that are defined for this domain list, call [ListFirewallDomains](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListFirewallDomains.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53resolver "github.com/aws/aws-cdk-go/awscdk/aws_route53resolver"
-//   cfnFirewallDomainList := route53resolver.NewCfnFirewallDomainList(this, jsii.String("MyCfnFirewallDomainList"), &cfnFirewallDomainListProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnFirewallDomainList := awscdk.Aws_route53resolver.NewCfnFirewallDomainList(this, jsii.String("MyCfnFirewallDomainList"), &cfnFirewallDomainListProps{
 //   	domainFileUrl: jsii.String("domainFileUrl"),
 //   	domains: []*string{
 //   		jsii.String("domains"),
@@ -830,7 +833,10 @@ func (c *jsiiProxy_CfnFirewallDomainList) ValidateProperties(_properties interfa
 // Properties for defining a `CfnFirewallDomainList`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53resolver "github.com/aws/aws-cdk-go/awscdk/aws_route53resolver"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnFirewallDomainListProps := &cfnFirewallDomainListProps{
 //   	domainFileUrl: jsii.String("domainFileUrl"),
 //   	domains: []*string{
@@ -849,13 +855,13 @@ type CfnFirewallDomainListProps struct {
 	// The fully qualified URL or URI of the file stored in Amazon Simple Storage Service (Amazon S3) that contains the list of domains to import.
 	//
 	// The file must be in an S3 bucket that's in the same Region as your DNS Firewall. The file must be a text file and must contain a single domain per line.
-	DomainFileUrl *string `json:"domainFileUrl" yaml:"domainFileUrl"`
+	DomainFileUrl *string `field:"optional" json:"domainFileUrl" yaml:"domainFileUrl"`
 	// A list of the domain lists that you have defined.
-	Domains *[]*string `json:"domains" yaml:"domains"`
+	Domains *[]*string `field:"optional" json:"domains" yaml:"domains"`
 	// The name of the domain list.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// A list of the tag keys and values that you want to associate with the domain list.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Route53Resolver::FirewallRuleGroup`.
@@ -863,8 +869,11 @@ type CfnFirewallDomainListProps struct {
 // High-level information for a firewall rule group. A firewall rule group is a collection of rules that DNS Firewall uses to filter DNS network traffic for a VPC. To retrieve the rules for the rule group, call [ListFirewallRules](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListFirewallRules.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53resolver "github.com/aws/aws-cdk-go/awscdk/aws_route53resolver"
-//   cfnFirewallRuleGroup := route53resolver.NewCfnFirewallRuleGroup(this, jsii.String("MyCfnFirewallRuleGroup"), &cfnFirewallRuleGroupProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnFirewallRuleGroup := awscdk.Aws_route53resolver.NewCfnFirewallRuleGroup(this, jsii.String("MyCfnFirewallRuleGroup"), &cfnFirewallRuleGroupProps{
 //   	firewallRules: []interface{}{
 //   		&firewallRuleProperty{
 //   			action: jsii.String("action"),
@@ -1675,7 +1684,10 @@ func (c *jsiiProxy_CfnFirewallRuleGroup) ValidateProperties(_properties interfac
 // A single firewall rule in a rule group.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53resolver "github.com/aws/aws-cdk-go/awscdk/aws_route53resolver"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   firewallRuleProperty := &firewallRuleProperty{
 //   	action: jsii.String("action"),
 //   	firewallDomainListId: jsii.String("firewallDomainListId"),
@@ -1699,31 +1711,31 @@ type CfnFirewallRuleGroup_FirewallRuleProperty struct {
 	// - `BlockOverrideDnsType`
 	// - `BlockOverrideDomain`
 	// - `BlockOverrideTtl`.
-	Action *string `json:"action" yaml:"action"`
+	Action *string `field:"required" json:"action" yaml:"action"`
 	// The ID of the domain list that's used in the rule.
-	FirewallDomainListId *string `json:"firewallDomainListId" yaml:"firewallDomainListId"`
+	FirewallDomainListId *string `field:"required" json:"firewallDomainListId" yaml:"firewallDomainListId"`
 	// The priority of the rule in the rule group.
 	//
 	// This value must be unique within the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"required" json:"priority" yaml:"priority"`
 	// The DNS record's type.
 	//
 	// This determines the format of the record value that you provided in `BlockOverrideDomain` . Used for the rule action `BLOCK` with a `BlockResponse` setting of `OVERRIDE` .
-	BlockOverrideDnsType *string `json:"blockOverrideDnsType" yaml:"blockOverrideDnsType"`
+	BlockOverrideDnsType *string `field:"optional" json:"blockOverrideDnsType" yaml:"blockOverrideDnsType"`
 	// The custom DNS record to send back in response to the query.
 	//
 	// Used for the rule action `BLOCK` with a `BlockResponse` setting of `OVERRIDE` .
-	BlockOverrideDomain *string `json:"blockOverrideDomain" yaml:"blockOverrideDomain"`
+	BlockOverrideDomain *string `field:"optional" json:"blockOverrideDomain" yaml:"blockOverrideDomain"`
 	// The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record.
 	//
 	// Used for the rule action `BLOCK` with a `BlockResponse` setting of `OVERRIDE` .
-	BlockOverrideTtl *float64 `json:"blockOverrideTtl" yaml:"blockOverrideTtl"`
+	BlockOverrideTtl *float64 `field:"optional" json:"blockOverrideTtl" yaml:"blockOverrideTtl"`
 	// The way that you want DNS Firewall to block the request. Used for the rule action setting `BLOCK` .
 	//
 	// - `NODATA` - Respond indicating that the query was successful, but no response is available for it.
 	// - `NXDOMAIN` - Respond indicating that the domain name that's in the query doesn't exist.
 	// - `OVERRIDE` - Provide a custom override in the response. This option requires custom handling details in the rule's `BlockOverride*` settings.
-	BlockResponse *string `json:"blockResponse" yaml:"blockResponse"`
+	BlockResponse *string `field:"optional" json:"blockResponse" yaml:"blockResponse"`
 }
 
 // A CloudFormation `AWS::Route53Resolver::FirewallRuleGroupAssociation`.
@@ -1731,8 +1743,11 @@ type CfnFirewallRuleGroup_FirewallRuleProperty struct {
 // An association between a firewall rule group and a VPC, which enables DNS filtering for the VPC.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53resolver "github.com/aws/aws-cdk-go/awscdk/aws_route53resolver"
-//   cfnFirewallRuleGroupAssociation := route53resolver.NewCfnFirewallRuleGroupAssociation(this, jsii.String("MyCfnFirewallRuleGroupAssociation"), &cfnFirewallRuleGroupAssociationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnFirewallRuleGroupAssociation := awscdk.Aws_route53resolver.NewCfnFirewallRuleGroupAssociation(this, jsii.String("MyCfnFirewallRuleGroupAssociation"), &cfnFirewallRuleGroupAssociationProps{
 //   	firewallRuleGroupId: jsii.String("firewallRuleGroupId"),
 //   	priority: jsii.Number(123),
 //   	vpcId: jsii.String("vpcId"),
@@ -2579,7 +2594,10 @@ func (c *jsiiProxy_CfnFirewallRuleGroupAssociation) ValidateProperties(_properti
 // Properties for defining a `CfnFirewallRuleGroupAssociation`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53resolver "github.com/aws/aws-cdk-go/awscdk/aws_route53resolver"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnFirewallRuleGroupAssociationProps := &cfnFirewallRuleGroupAssociationProps{
 //   	firewallRuleGroupId: jsii.String("firewallRuleGroupId"),
 //   	priority: jsii.Number(123),
@@ -2598,7 +2616,7 @@ func (c *jsiiProxy_CfnFirewallRuleGroupAssociation) ValidateProperties(_properti
 //
 type CfnFirewallRuleGroupAssociationProps struct {
 	// The unique identifier of the firewall rule group.
-	FirewallRuleGroupId *string `json:"firewallRuleGroupId" yaml:"firewallRuleGroupId"`
+	FirewallRuleGroupId *string `field:"required" json:"firewallRuleGroupId" yaml:"firewallRuleGroupId"`
 	// The setting that determines the processing order of the rule group among the rule groups that are associated with a single VPC.
 	//
 	// DNS Firewall filters VPC traffic starting from rule group with the lowest numeric priority setting.
@@ -2606,21 +2624,24 @@ type CfnFirewallRuleGroupAssociationProps struct {
 	// You must specify a unique priority for each rule group that you associate with a single VPC. To make it easier to insert rule groups later, leave space between the numbers, for example, use 101, 200, and so on. You can change the priority setting for a rule group association after you create it.
 	//
 	// The allowed values for `Priority` are between 100 and 9900 (excluding 100 and 9900).
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"required" json:"priority" yaml:"priority"`
 	// The unique identifier of the VPC that is associated with the rule group.
-	VpcId *string `json:"vpcId" yaml:"vpcId"`
+	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
 	// If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections.
-	MutationProtection *string `json:"mutationProtection" yaml:"mutationProtection"`
+	MutationProtection *string `field:"optional" json:"mutationProtection" yaml:"mutationProtection"`
 	// The name of the association.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// A list of the tag keys and values that you want to associate with the rule group.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // Properties for defining a `CfnFirewallRuleGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53resolver "github.com/aws/aws-cdk-go/awscdk/aws_route53resolver"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnFirewallRuleGroupProps := &cfnFirewallRuleGroupProps{
 //   	firewallRules: []interface{}{
 //   		&firewallRuleProperty{
@@ -2646,11 +2667,11 @@ type CfnFirewallRuleGroupAssociationProps struct {
 //
 type CfnFirewallRuleGroupProps struct {
 	// A list of the rules that you have defined.
-	FirewallRules interface{} `json:"firewallRules" yaml:"firewallRules"`
+	FirewallRules interface{} `field:"optional" json:"firewallRules" yaml:"firewallRules"`
 	// The name of the rule group.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// A list of the tag keys and values that you want to associate with the rule group.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Route53Resolver::ResolverConfig`.
@@ -2658,8 +2679,11 @@ type CfnFirewallRuleGroupProps struct {
 // A complex type that contains information about a Resolver configuration for a VPC.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53resolver "github.com/aws/aws-cdk-go/awscdk/aws_route53resolver"
-//   cfnResolverConfig := route53resolver.NewCfnResolverConfig(this, jsii.String("MyCfnResolverConfig"), &cfnResolverConfigProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnResolverConfig := awscdk.Aws_route53resolver.NewCfnResolverConfig(this, jsii.String("MyCfnResolverConfig"), &cfnResolverConfigProps{
 //   	autodefinedReverseFlag: jsii.String("autodefinedReverseFlag"),
 //   	resourceId: jsii.String("resourceId"),
 //   })
@@ -3354,7 +3378,10 @@ func (c *jsiiProxy_CfnResolverConfig) ValidateProperties(_properties interface{}
 // Properties for defining a `CfnResolverConfig`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53resolver "github.com/aws/aws-cdk-go/awscdk/aws_route53resolver"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnResolverConfigProps := &cfnResolverConfigProps{
 //   	autodefinedReverseFlag: jsii.String("autodefinedReverseFlag"),
 //   	resourceId: jsii.String("resourceId"),
@@ -3364,9 +3391,9 @@ type CfnResolverConfigProps struct {
 	// Represents the desired status of `AutodefinedReverse` .
 	//
 	// The only supported value on creation is `DISABLE` . Deletion of this resource will return `AutodefinedReverse` to its default value of `ENABLED` .
-	AutodefinedReverseFlag *string `json:"autodefinedReverseFlag" yaml:"autodefinedReverseFlag"`
+	AutodefinedReverseFlag *string `field:"required" json:"autodefinedReverseFlag" yaml:"autodefinedReverseFlag"`
 	// The ID of the Amazon Virtual Private Cloud VPC that you're configuring Resolver for.
-	ResourceId *string `json:"resourceId" yaml:"resourceId"`
+	ResourceId *string `field:"required" json:"resourceId" yaml:"resourceId"`
 }
 
 // A CloudFormation `AWS::Route53Resolver::ResolverDNSSECConfig`.
@@ -3374,8 +3401,11 @@ type CfnResolverConfigProps struct {
 // The `AWS::Route53Resolver::ResolverDNSSECConfig` resource is a complex type that contains information about a configuration for DNSSEC validation.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53resolver "github.com/aws/aws-cdk-go/awscdk/aws_route53resolver"
-//   cfnResolverDNSSECConfig := route53resolver.NewCfnResolverDNSSECConfig(this, jsii.String("MyCfnResolverDNSSECConfig"), &cfnResolverDNSSECConfigProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnResolverDNSSECConfig := awscdk.Aws_route53resolver.NewCfnResolverDNSSECConfig(this, jsii.String("MyCfnResolverDNSSECConfig"), &cfnResolverDNSSECConfigProps{
 //   	resourceId: jsii.String("resourceId"),
 //   })
 //
@@ -4050,14 +4080,17 @@ func (c *jsiiProxy_CfnResolverDNSSECConfig) ValidateProperties(_properties inter
 // Properties for defining a `CfnResolverDNSSECConfig`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53resolver "github.com/aws/aws-cdk-go/awscdk/aws_route53resolver"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnResolverDNSSECConfigProps := &cfnResolverDNSSECConfigProps{
 //   	resourceId: jsii.String("resourceId"),
 //   }
 //
 type CfnResolverDNSSECConfigProps struct {
 	// The ID of the virtual private cloud (VPC) that you're configuring the DNSSEC validation status for.
-	ResourceId *string `json:"resourceId" yaml:"resourceId"`
+	ResourceId *string `field:"optional" json:"resourceId" yaml:"resourceId"`
 }
 
 // A CloudFormation `AWS::Route53Resolver::ResolverEndpoint`.
@@ -4068,8 +4101,11 @@ type CfnResolverDNSSECConfigProps struct {
 // - An *outbound Resolver endpoint* forwards DNS queries from the DNS service for a VPC to your network.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53resolver "github.com/aws/aws-cdk-go/awscdk/aws_route53resolver"
-//   cfnResolverEndpoint := route53resolver.NewCfnResolverEndpoint(this, jsii.String("MyCfnResolverEndpoint"), &cfnResolverEndpointProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnResolverEndpoint := awscdk.Aws_route53resolver.NewCfnResolverEndpoint(this, jsii.String("MyCfnResolverEndpoint"), &cfnResolverEndpointProps{
 //   	direction: jsii.String("direction"),
 //   	ipAddresses: []interface{}{
 //   		&ipAddressRequestProperty{
@@ -4876,7 +4912,10 @@ func (c *jsiiProxy_CfnResolverEndpoint) ValidateProperties(_properties interface
 // In a [CreateResolverEndpoint](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_CreateResolverEndpoint.html) request, the IP address that DNS queries originate from (for outbound endpoints) or that you forward DNS queries to (for inbound endpoints). `IpAddressRequest` also includes the ID of the subnet that contains the IP address.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53resolver "github.com/aws/aws-cdk-go/awscdk/aws_route53resolver"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   ipAddressRequestProperty := &ipAddressRequestProperty{
 //   	subnetId: jsii.String("subnetId"),
 //
@@ -4886,15 +4925,18 @@ func (c *jsiiProxy_CfnResolverEndpoint) ValidateProperties(_properties interface
 //
 type CfnResolverEndpoint_IpAddressRequestProperty struct {
 	// The ID of the subnet that contains the IP address.
-	SubnetId *string `json:"subnetId" yaml:"subnetId"`
+	SubnetId *string `field:"required" json:"subnetId" yaml:"subnetId"`
 	// The IP address that you want to use for DNS queries.
-	Ip *string `json:"ip" yaml:"ip"`
+	Ip *string `field:"optional" json:"ip" yaml:"ip"`
 }
 
 // Properties for defining a `CfnResolverEndpoint`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53resolver "github.com/aws/aws-cdk-go/awscdk/aws_route53resolver"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnResolverEndpointProps := &cfnResolverEndpointProps{
 //   	direction: jsii.String("direction"),
 //   	ipAddresses: []interface{}{
@@ -4924,19 +4966,19 @@ type CfnResolverEndpointProps struct {
 	//
 	// - `INBOUND` : allows DNS queries to your VPC from your network
 	// - `OUTBOUND` : allows DNS queries from your VPC to your network.
-	Direction *string `json:"direction" yaml:"direction"`
+	Direction *string `field:"required" json:"direction" yaml:"direction"`
 	// The subnets and IP addresses in your VPC that DNS queries originate from (for outbound endpoints) or that you forward DNS queries to (for inbound endpoints).
 	//
 	// The subnet ID uniquely identifies a VPC.
-	IpAddresses interface{} `json:"ipAddresses" yaml:"ipAddresses"`
+	IpAddresses interface{} `field:"required" json:"ipAddresses" yaml:"ipAddresses"`
 	// The ID of one or more security groups that control access to this VPC.
 	//
 	// The security group must include one or more inbound rules (for inbound endpoints) or outbound rules (for outbound endpoints). Inbound and outbound rules must allow TCP and UDP access. For inbound access, open port 53. For outbound access, open the port that you're using for DNS queries on your network.
-	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
+	SecurityGroupIds *[]*string `field:"required" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// A friendly name that lets you easily find a configuration in the Resolver dashboard in the Route 53 console.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Route 53 Resolver doesn't support updating tags through CloudFormation.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Route53Resolver::ResolverQueryLoggingConfig`.
@@ -4944,8 +4986,11 @@ type CfnResolverEndpointProps struct {
 // The AWS::Route53Resolver::ResolverQueryLoggingConfig resource is a complex type that contains settings for one query logging configuration.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53resolver "github.com/aws/aws-cdk-go/awscdk/aws_route53resolver"
-//   cfnResolverQueryLoggingConfig := route53resolver.NewCfnResolverQueryLoggingConfig(this, jsii.String("MyCfnResolverQueryLoggingConfig"), &cfnResolverQueryLoggingConfigProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnResolverQueryLoggingConfig := awscdk.Aws_route53resolver.NewCfnResolverQueryLoggingConfig(this, jsii.String("MyCfnResolverQueryLoggingConfig"), &cfnResolverQueryLoggingConfigProps{
 //   	destinationArn: jsii.String("destinationArn"),
 //   	name: jsii.String("name"),
 //   })
@@ -5710,8 +5755,11 @@ func (c *jsiiProxy_CfnResolverQueryLoggingConfig) ValidateProperties(_properties
 // The AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation resource is a configuration for DNS query logging. After you create a query logging configuration, Amazon Route 53 begins to publish log data to an Amazon CloudWatch Logs log group.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53resolver "github.com/aws/aws-cdk-go/awscdk/aws_route53resolver"
-//   cfnResolverQueryLoggingConfigAssociation := route53resolver.NewCfnResolverQueryLoggingConfigAssociation(this, jsii.String("MyCfnResolverQueryLoggingConfigAssociation"), &cfnResolverQueryLoggingConfigAssociationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnResolverQueryLoggingConfigAssociation := awscdk.Aws_route53resolver.NewCfnResolverQueryLoggingConfigAssociation(this, jsii.String("MyCfnResolverQueryLoggingConfigAssociation"), &cfnResolverQueryLoggingConfigAssociationProps{
 //   	resolverQueryLogConfigId: jsii.String("resolverQueryLogConfigId"),
 //   	resourceId: jsii.String("resourceId"),
 //   })
@@ -6438,7 +6486,10 @@ func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) ValidateProperties(
 // Properties for defining a `CfnResolverQueryLoggingConfigAssociation`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53resolver "github.com/aws/aws-cdk-go/awscdk/aws_route53resolver"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnResolverQueryLoggingConfigAssociationProps := &cfnResolverQueryLoggingConfigAssociationProps{
 //   	resolverQueryLogConfigId: jsii.String("resolverQueryLogConfigId"),
 //   	resourceId: jsii.String("resourceId"),
@@ -6446,15 +6497,18 @@ func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) ValidateProperties(
 //
 type CfnResolverQueryLoggingConfigAssociationProps struct {
 	// The ID of the query logging configuration that a VPC is associated with.
-	ResolverQueryLogConfigId *string `json:"resolverQueryLogConfigId" yaml:"resolverQueryLogConfigId"`
+	ResolverQueryLogConfigId *string `field:"optional" json:"resolverQueryLogConfigId" yaml:"resolverQueryLogConfigId"`
 	// The ID of the Amazon VPC that is associated with the query logging configuration.
-	ResourceId *string `json:"resourceId" yaml:"resourceId"`
+	ResourceId *string `field:"optional" json:"resourceId" yaml:"resourceId"`
 }
 
 // Properties for defining a `CfnResolverQueryLoggingConfig`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53resolver "github.com/aws/aws-cdk-go/awscdk/aws_route53resolver"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnResolverQueryLoggingConfigProps := &cfnResolverQueryLoggingConfigProps{
 //   	destinationArn: jsii.String("destinationArn"),
 //   	name: jsii.String("name"),
@@ -6462,9 +6516,9 @@ type CfnResolverQueryLoggingConfigAssociationProps struct {
 //
 type CfnResolverQueryLoggingConfigProps struct {
 	// The ARN of the resource that you want Resolver to send query logs: an Amazon S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
-	DestinationArn *string `json:"destinationArn" yaml:"destinationArn"`
+	DestinationArn *string `field:"optional" json:"destinationArn" yaml:"destinationArn"`
 	// The name of the query logging configuration.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 
 // A CloudFormation `AWS::Route53Resolver::ResolverRule`.
@@ -6472,8 +6526,11 @@ type CfnResolverQueryLoggingConfigProps struct {
 // For DNS queries that originate in your VPCs, specifies which Resolver endpoint the queries pass through, one domain name that you want to forward to your network, and the IP addresses of the DNS resolvers in your network.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53resolver "github.com/aws/aws-cdk-go/awscdk/aws_route53resolver"
-//   cfnResolverRule := route53resolver.NewCfnResolverRule(this, jsii.String("MyCfnResolverRule"), &cfnResolverRuleProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnResolverRule := awscdk.Aws_route53resolver.NewCfnResolverRule(this, jsii.String("MyCfnResolverRule"), &cfnResolverRuleProps{
 //   	domainName: jsii.String("domainName"),
 //   	ruleType: jsii.String("ruleType"),
 //
@@ -7309,7 +7366,10 @@ func (c *jsiiProxy_CfnResolverRule) ValidateProperties(_properties interface{}) 
 // In a [CreateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_CreateResolverRule.html) request, an array of the IPs that you want to forward DNS queries to.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53resolver "github.com/aws/aws-cdk-go/awscdk/aws_route53resolver"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   targetAddressProperty := &targetAddressProperty{
 //   	ip: jsii.String("ip"),
 //
@@ -7321,9 +7381,9 @@ type CfnResolverRule_TargetAddressProperty struct {
 	// One IP address that you want to forward DNS queries to.
 	//
 	// You can specify only IPv4 addresses.
-	Ip *string `json:"ip" yaml:"ip"`
+	Ip *string `field:"required" json:"ip" yaml:"ip"`
 	// The port at `Ip` that you want to forward DNS queries to.
-	Port *string `json:"port" yaml:"port"`
+	Port *string `field:"optional" json:"port" yaml:"port"`
 }
 
 // A CloudFormation `AWS::Route53Resolver::ResolverRuleAssociation`.
@@ -7331,8 +7391,11 @@ type CfnResolverRule_TargetAddressProperty struct {
 // In the response to an [AssociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverRule.html) , [DisassociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverRule.html) , or [ListResolverRuleAssociations](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRuleAssociations.html) request, provides information about an association between a resolver rule and a VPC. The association determines which DNS queries that originate in the VPC are forwarded to your network.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53resolver "github.com/aws/aws-cdk-go/awscdk/aws_route53resolver"
-//   cfnResolverRuleAssociation := route53resolver.NewCfnResolverRuleAssociation(this, jsii.String("MyCfnResolverRuleAssociation"), &cfnResolverRuleAssociationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnResolverRuleAssociation := awscdk.Aws_route53resolver.NewCfnResolverRuleAssociation(this, jsii.String("MyCfnResolverRuleAssociation"), &cfnResolverRuleAssociationProps{
 //   	resolverRuleId: jsii.String("resolverRuleId"),
 //   	vpcId: jsii.String("vpcId"),
 //
@@ -8059,7 +8122,10 @@ func (c *jsiiProxy_CfnResolverRuleAssociation) ValidateProperties(_properties in
 // Properties for defining a `CfnResolverRuleAssociation`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53resolver "github.com/aws/aws-cdk-go/awscdk/aws_route53resolver"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnResolverRuleAssociationProps := &cfnResolverRuleAssociationProps{
 //   	resolverRuleId: jsii.String("resolverRuleId"),
 //   	vpcId: jsii.String("vpcId"),
@@ -8070,17 +8136,20 @@ func (c *jsiiProxy_CfnResolverRuleAssociation) ValidateProperties(_properties in
 //
 type CfnResolverRuleAssociationProps struct {
 	// The ID of the Resolver rule that you associated with the VPC that is specified by `VPCId` .
-	ResolverRuleId *string `json:"resolverRuleId" yaml:"resolverRuleId"`
+	ResolverRuleId *string `field:"required" json:"resolverRuleId" yaml:"resolverRuleId"`
 	// The ID of the VPC that you associated the Resolver rule with.
-	VpcId *string `json:"vpcId" yaml:"vpcId"`
+	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
 	// The name of an association between a Resolver rule and a VPC.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 
 // Properties for defining a `CfnResolverRule`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53resolver "github.com/aws/aws-cdk-go/awscdk/aws_route53resolver"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnResolverRuleProps := &cfnResolverRuleProps{
 //   	domainName: jsii.String("domainName"),
 //   	ruleType: jsii.String("ruleType"),
@@ -8108,7 +8177,7 @@ type CfnResolverRuleProps struct {
 	// DNS queries for this domain name are forwarded to the IP addresses that are specified in `TargetIps` .
 	//
 	// If a query matches multiple Resolver rules (example.com and www.example.com), the query is routed using the Resolver rule that contains the most specific domain name (www.example.com).
-	DomainName *string `json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 	// When you want to forward DNS queries for specified domain name to resolvers on your network, specify `FORWARD` .
 	//
 	// When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify `SYSTEM` .
@@ -8116,17 +8185,17 @@ type CfnResolverRuleProps struct {
 	// For example, to forward DNS queries for example.com to resolvers on your network, you create a rule and specify `FORWARD` for `RuleType` . To then have Resolver process queries for apex.example.com, you create a rule and specify `SYSTEM` for `RuleType` .
 	//
 	// Currently, only Resolver can create rules that have a value of `RECURSIVE` for `RuleType` .
-	RuleType *string `json:"ruleType" yaml:"ruleType"`
+	RuleType *string `field:"required" json:"ruleType" yaml:"ruleType"`
 	// The name for the Resolver rule, which you specified when you created the Resolver rule.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The ID of the endpoint that the rule is associated with.
-	ResolverEndpointId *string `json:"resolverEndpointId" yaml:"resolverEndpointId"`
+	ResolverEndpointId *string `field:"optional" json:"resolverEndpointId" yaml:"resolverEndpointId"`
 	// Route 53 Resolver doesn't support updating tags through CloudFormation.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// An array that contains the IP addresses and ports that an outbound endpoint forwards DNS queries to.
 	//
 	// Typically, these are the IP addresses of DNS resolvers on your network. Specify IPv4 addresses. IPv6 is not supported.
-	TargetIps interface{} `json:"targetIps" yaml:"targetIps"`
+	TargetIps interface{} `field:"optional" json:"targetIps" yaml:"targetIps"`
 }
 
 // The way that you want DNS Firewall to block the request.
@@ -8134,6 +8203,7 @@ type CfnResolverRuleProps struct {
 // Example:
 //   var myBlockList firewallDomainList
 //   var ruleGroup firewallRuleGroup
+//
 //
 //   ruleGroup.addRule(&firewallRule{
 //   	priority: jsii.Number(10),
@@ -8276,7 +8346,10 @@ func DnsBlockResponse_Override(domain *string, ttl awscdk.Duration) DnsBlockResp
 // Domains configuration.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53resolver "github.com/aws/aws-cdk-go/awscdk/aws_route53resolver"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   domainsConfig := &domainsConfig{
 //   	domainFileUrl: jsii.String("domainFileUrl"),
 //   	domains: []*string{
@@ -8291,10 +8364,10 @@ type DomainsConfig struct {
 	// The file must be a text file and must contain
 	// a single domain per line. The content type of the S3 object must be `plain/text`.
 	// Experimental.
-	DomainFileUrl *string `json:"domainFileUrl" yaml:"domainFileUrl"`
+	DomainFileUrl *string `field:"optional" json:"domainFileUrl" yaml:"domainFileUrl"`
 	// A list of domains.
 	// Experimental.
-	Domains *[]*string `json:"domains" yaml:"domains"`
+	Domains *[]*string `field:"optional" json:"domains" yaml:"domains"`
 }
 
 // A Firewall Domain List.
@@ -8809,10 +8882,10 @@ func (f *jsiiProxy_FirewallDomainList) Validate() *[]*string {
 type FirewallDomainListProps struct {
 	// A list of domains.
 	// Experimental.
-	Domains FirewallDomains `json:"domains" yaml:"domains"`
+	Domains FirewallDomains `field:"required" json:"domains" yaml:"domains"`
 	// A name for the domain list.
 	// Experimental.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 
 // A list of domains.
@@ -8952,6 +9025,7 @@ func (f *jsiiProxy_FirewallDomains) Bind(scope constructs.Construct) *DomainsCon
 //   var myBlockList firewallDomainList
 //   var ruleGroup firewallRuleGroup
 //
+//
 //   ruleGroup.addRule(&firewallRule{
 //   	priority: jsii.Number(10),
 //   	firewallDomainList: myBlockList,
@@ -8970,22 +9044,23 @@ func (f *jsiiProxy_FirewallDomains) Bind(scope constructs.Construct) *DomainsCon
 type FirewallRule struct {
 	// The action for this rule.
 	// Experimental.
-	Action FirewallRuleAction `json:"action" yaml:"action"`
+	Action FirewallRuleAction `field:"required" json:"action" yaml:"action"`
 	// The domain list for this rule.
 	// Experimental.
-	FirewallDomainList IFirewallDomainList `json:"firewallDomainList" yaml:"firewallDomainList"`
+	FirewallDomainList IFirewallDomainList `field:"required" json:"firewallDomainList" yaml:"firewallDomainList"`
 	// The priority of the rule in the rule group.
 	//
 	// This value must be unique within
 	// the rule group.
 	// Experimental.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"required" json:"priority" yaml:"priority"`
 }
 
 // A Firewall Rule.
 //
 // Example:
 //   var myBlockList firewallDomainList
+//
 //   route53resolver.NewFirewallRuleGroup(this, jsii.String("RuleGroup"), &firewallRuleGroupProps{
 //   	rules: []firewallRule{
 //   		&firewallRule{
@@ -9099,6 +9174,7 @@ func FirewallRuleAction_Block(response DnsBlockResponse) FirewallRuleAction {
 //
 // Example:
 //   var myBlockList firewallDomainList
+//
 //   route53resolver.NewFirewallRuleGroup(this, jsii.String("RuleGroup"), &firewallRuleGroupProps{
 //   	rules: []firewallRule{
 //   		&firewallRule{
@@ -9627,11 +9703,15 @@ func (f *jsiiProxy_FirewallRuleGroup) Validate() *[]*string {
 // A Firewall Rule Group Association.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53resolver "github.com/aws/aws-cdk-go/awscdk/aws_route53resolver"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var firewallRuleGroup firewallRuleGroup
 //   var vpc vpc
-//   firewallRuleGroupAssociation := route53resolver.NewFirewallRuleGroupAssociation(this, jsii.String("MyFirewallRuleGroupAssociation"), &firewallRuleGroupAssociationProps{
+//
+//   firewallRuleGroupAssociation := awscdk.Aws_route53resolver.NewFirewallRuleGroupAssociation(this, jsii.String("MyFirewallRuleGroupAssociation"), &firewallRuleGroupAssociationProps{
 //   	firewallRuleGroup: firewallRuleGroup,
 //   	priority: jsii.Number(123),
 //   	vpc: vpc,
@@ -10089,6 +10169,7 @@ func (f *jsiiProxy_FirewallRuleGroupAssociation) Validate() *[]*string {
 //   var ruleGroup firewallRuleGroup
 //   var myVpc vpc
 //
+//
 //   ruleGroup.associate(jsii.String("Association"), &firewallRuleGroupAssociationOptions{
 //   	priority: jsii.Number(101),
 //   	vpc: myVpc,
@@ -10103,25 +10184,29 @@ type FirewallRuleGroupAssociationOptions struct {
 	//
 	// This value must be greater than 100 and less than 9,000.
 	// Experimental.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"required" json:"priority" yaml:"priority"`
 	// The VPC that to associate with the rule group.
 	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
+	Vpc awsec2.IVpc `field:"required" json:"vpc" yaml:"vpc"`
 	// If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections.
 	// Experimental.
-	MutationProtection *bool `json:"mutationProtection" yaml:"mutationProtection"`
+	MutationProtection *bool `field:"optional" json:"mutationProtection" yaml:"mutationProtection"`
 	// The name of the association.
 	// Experimental.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 
 // Properties for a Firewall Rule Group Association.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import route53resolver "github.com/aws/aws-cdk-go/awscdk/aws_route53resolver"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var firewallRuleGroup firewallRuleGroup
 //   var vpc vpc
+//
 //   firewallRuleGroupAssociationProps := &firewallRuleGroupAssociationProps{
 //   	firewallRuleGroup: firewallRuleGroup,
 //   	priority: jsii.Number(123),
@@ -10141,25 +10226,26 @@ type FirewallRuleGroupAssociationProps struct {
 	//
 	// This value must be greater than 100 and less than 9,000.
 	// Experimental.
-	Priority *float64 `json:"priority" yaml:"priority"`
+	Priority *float64 `field:"required" json:"priority" yaml:"priority"`
 	// The VPC that to associate with the rule group.
 	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
+	Vpc awsec2.IVpc `field:"required" json:"vpc" yaml:"vpc"`
 	// If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections.
 	// Experimental.
-	MutationProtection *bool `json:"mutationProtection" yaml:"mutationProtection"`
+	MutationProtection *bool `field:"optional" json:"mutationProtection" yaml:"mutationProtection"`
 	// The name of the association.
 	// Experimental.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The firewall rule group which must be associated.
 	// Experimental.
-	FirewallRuleGroup IFirewallRuleGroup `json:"firewallRuleGroup" yaml:"firewallRuleGroup"`
+	FirewallRuleGroup IFirewallRuleGroup `field:"required" json:"firewallRuleGroup" yaml:"firewallRuleGroup"`
 }
 
 // Properties for a Firewall Rule Group.
 //
 // Example:
 //   var myBlockList firewallDomainList
+//
 //   route53resolver.NewFirewallRuleGroup(this, jsii.String("RuleGroup"), &firewallRuleGroupProps{
 //   	rules: []firewallRule{
 //   		&firewallRule{
@@ -10175,10 +10261,10 @@ type FirewallRuleGroupAssociationProps struct {
 type FirewallRuleGroupProps struct {
 	// The name of the rule group.
 	// Experimental.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// A list of rules for this group.
 	// Experimental.
-	Rules *[]*FirewallRule `json:"rules" yaml:"rules"`
+	Rules *[]*FirewallRule `field:"optional" json:"rules" yaml:"rules"`
 }
 
 // A Firewall Domain List.

@@ -14,8 +14,11 @@ import (
 // Represents a Fleet Hub for AWS IoT Device Management web application.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotfleethub "github.com/aws/aws-cdk-go/awscdk/aws_iotfleethub"
-//   cfnApplication := iotfleethub.NewCfnApplication(this, jsii.String("MyCfnApplication"), &cfnApplicationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnApplication := awscdk.Aws_iotfleethub.NewCfnApplication(this, jsii.String("MyCfnApplication"), &cfnApplicationProps{
 //   	applicationName: jsii.String("applicationName"),
 //   	roleArn: jsii.String("roleArn"),
 //
@@ -814,7 +817,10 @@ func (c *jsiiProxy_CfnApplication) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnApplication`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import iotfleethub "github.com/aws/aws-cdk-go/awscdk/aws_iotfleethub"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnApplicationProps := &cfnApplicationProps{
 //   	applicationName: jsii.String("applicationName"),
 //   	roleArn: jsii.String("roleArn"),
@@ -831,16 +837,16 @@ func (c *jsiiProxy_CfnApplication) ValidateProperties(_properties interface{}) {
 //
 type CfnApplicationProps struct {
 	// The name of the web application.
-	ApplicationName *string `json:"applicationName" yaml:"applicationName"`
+	ApplicationName *string `field:"required" json:"applicationName" yaml:"applicationName"`
 	// The ARN of the role that the web application assumes when it interacts with AWS IoT Core .
 	//
 	// > The name of the role must be in the form `FleetHub_random_string` .
 	//
 	// Pattern: `^arn:[!-~]+$`
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// An optional description of the web application.
-	ApplicationDescription *string `json:"applicationDescription" yaml:"applicationDescription"`
+	ApplicationDescription *string `field:"optional" json:"applicationDescription" yaml:"applicationDescription"`
 	// A set of key/value pairs that you can use to manage the web application resource.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

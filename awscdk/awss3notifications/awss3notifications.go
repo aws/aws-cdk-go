@@ -16,6 +16,7 @@ import (
 //
 // Example:
 //   var myLambda function
+//
 //   bucket := s3.bucket.fromBucketAttributes(this, jsii.String("ImportedBucket"), &bucketAttributes{
 //   	bucketArn: jsii.String("arn:aws:s3:::my-bucket"),
 //   })
@@ -148,6 +149,7 @@ func (s *jsiiProxy_SnsDestination) Bind(_scope awscdk.Construct, bucket awss3.IB
 //
 // Example:
 //   var myQueue queue
+//
 //   bucket := s3.NewBucket(this, jsii.String("MyBucket"))
 //   bucket.addEventNotification(s3.eventType_OBJECT_REMOVED,
 //   s3n.NewSqsDestination(myQueue), &notificationKeyFilter{

@@ -39,11 +39,11 @@ import (
 //   }
 //
 //   // Beginning of the test suite
-//   app := NewApp()
+//   app := awscdk.NewApp()
 //
-//   stack := NewStack(app, jsii.String("stack"))
+//   stack := awscdk.Newstack(app, jsii.String("stack"))
 //
-//   differentArchsCase := NewIntegTestCase(stack, jsii.String("DifferentArchitectures"), &integTestCaseProps{
+//   differentArchsCase := awscdk.NewIntegTestCase(stack, jsii.String("DifferentArchitectures"), &integTestCaseProps{
 //   	stacks: []*stack{
 //   		NewStackUnderTest(app, jsii.String("Stack1"), &stackUnderTestProps{
 //   			architecture: lambda.*architecture_ARM_64(),
@@ -56,7 +56,7 @@ import (
 //
 //   // There must be exactly one instance of TestCase per file
 //   // There must be exactly one instance of TestCase per file
-//   NewIntegTest(app, jsii.String("integ-test"), &integTestProps{
+//   awscdk.NewIntegTest(app, jsii.String("integ-test"), &integTestProps{
 //
 //   	// Register as many test cases as you want here
 //   	testCases: []integTestCase{
@@ -282,11 +282,11 @@ func (i *jsiiProxy_IntegTest) Validate() *[]*string {
 //   }
 //
 //   // Beginning of the test suite
-//   app := NewApp()
+//   app := awscdk.NewApp()
 //
-//   stack := NewStack(app, jsii.String("stack"))
+//   stack := awscdk.Newstack(app, jsii.String("stack"))
 //
-//   differentArchsCase := NewIntegTestCase(stack, jsii.String("DifferentArchitectures"), &integTestCaseProps{
+//   differentArchsCase := awscdk.NewIntegTestCase(stack, jsii.String("DifferentArchitectures"), &integTestCaseProps{
 //   	stacks: []*stack{
 //   		NewStackUnderTest(app, jsii.String("Stack1"), &stackUnderTestProps{
 //   			architecture: lambda.*architecture_ARM_64(),
@@ -299,7 +299,7 @@ func (i *jsiiProxy_IntegTest) Validate() *[]*string {
 //
 //   // There must be exactly one instance of TestCase per file
 //   // There must be exactly one instance of TestCase per file
-//   NewIntegTest(app, jsii.String("integ-test"), &integTestProps{
+//   awscdk.NewIntegTest(app, jsii.String("integ-test"), &integTestProps{
 //
 //   	// Register as many test cases as you want here
 //   	testCases: []integTestCase{
@@ -538,11 +538,11 @@ func (i *jsiiProxy_IntegTestCase) Validate() *[]*string {
 //   }
 //
 //   // Beginning of the test suite
-//   app := NewApp()
+//   app := awscdk.NewApp()
 //
-//   stack := NewStack(app, jsii.String("stack"))
+//   stack := awscdk.Newstack(app, jsii.String("stack"))
 //
-//   differentArchsCase := NewIntegTestCase(stack, jsii.String("DifferentArchitectures"), &integTestCaseProps{
+//   differentArchsCase := awscdk.NewIntegTestCase(stack, jsii.String("DifferentArchitectures"), &integTestCaseProps{
 //   	stacks: []*stack{
 //   		NewStackUnderTest(app, jsii.String("Stack1"), &stackUnderTestProps{
 //   			architecture: lambda.*architecture_ARM_64(),
@@ -555,7 +555,7 @@ func (i *jsiiProxy_IntegTestCase) Validate() *[]*string {
 //
 //   // There must be exactly one instance of TestCase per file
 //   // There must be exactly one instance of TestCase per file
-//   NewIntegTest(app, jsii.String("integ-test"), &integTestProps{
+//   awscdk.NewIntegTest(app, jsii.String("integ-test"), &integTestProps{
 //
 //   	// Register as many test cases as you want here
 //   	testCases: []integTestCase{
@@ -574,30 +574,30 @@ type IntegTestCaseProps struct {
 	//
 	// e.g. ['AWS::IAM::Role']
 	// Experimental.
-	AllowDestroy *[]*string `json:"allowDestroy" yaml:"allowDestroy"`
+	AllowDestroy *[]*string `field:"optional" json:"allowDestroy" yaml:"allowDestroy"`
 	// Additional options to use for each CDK command.
 	// Experimental.
-	CdkCommandOptions *cloudassemblyschema.CdkCommands `json:"cdkCommandOptions" yaml:"cdkCommandOptions"`
+	CdkCommandOptions *cloudassemblyschema.CdkCommands `field:"optional" json:"cdkCommandOptions" yaml:"cdkCommandOptions"`
 	// Whether or not to include asset hashes in the diff Asset hashes can introduces a lot of unneccessary noise into tests, but there are some cases where asset hashes _should_ be included.
 	//
 	// For example
 	// any tests involving custom resources or bundling.
 	// Experimental.
-	DiffAssets *bool `json:"diffAssets" yaml:"diffAssets"`
+	DiffAssets *bool `field:"optional" json:"diffAssets" yaml:"diffAssets"`
 	// Additional commands to run at predefined points in the test workflow.
 	//
 	// e.g. { postDeploy: ['yarn', 'test'] }
 	// Experimental.
-	Hooks *cloudassemblyschema.Hooks `json:"hooks" yaml:"hooks"`
+	Hooks *cloudassemblyschema.Hooks `field:"optional" json:"hooks" yaml:"hooks"`
 	// Limit deployment to these regions.
 	// Experimental.
-	Regions *[]*string `json:"regions" yaml:"regions"`
+	Regions *[]*string `field:"optional" json:"regions" yaml:"regions"`
 	// Run update workflow on this test case This should only be set to false to test scenarios that are not possible to test as part of the update workflow.
 	// Experimental.
-	StackUpdateWorkflow *bool `json:"stackUpdateWorkflow" yaml:"stackUpdateWorkflow"`
+	StackUpdateWorkflow *bool `field:"optional" json:"stackUpdateWorkflow" yaml:"stackUpdateWorkflow"`
 	// Stacks to be deployed during the test.
 	// Experimental.
-	Stacks *[]awscdk.Stack `json:"stacks" yaml:"stacks"`
+	Stacks *[]awscdk.Stack `field:"required" json:"stacks" yaml:"stacks"`
 }
 
 // Integration test properties.
@@ -626,11 +626,11 @@ type IntegTestCaseProps struct {
 //   }
 //
 //   // Beginning of the test suite
-//   app := NewApp()
+//   app := awscdk.NewApp()
 //
-//   stack := NewStack(app, jsii.String("stack"))
+//   stack := awscdk.Newstack(app, jsii.String("stack"))
 //
-//   differentArchsCase := NewIntegTestCase(stack, jsii.String("DifferentArchitectures"), &integTestCaseProps{
+//   differentArchsCase := awscdk.NewIntegTestCase(stack, jsii.String("DifferentArchitectures"), &integTestCaseProps{
 //   	stacks: []*stack{
 //   		NewStackUnderTest(app, jsii.String("Stack1"), &stackUnderTestProps{
 //   			architecture: lambda.*architecture_ARM_64(),
@@ -643,7 +643,7 @@ type IntegTestCaseProps struct {
 //
 //   // There must be exactly one instance of TestCase per file
 //   // There must be exactly one instance of TestCase per file
-//   NewIntegTest(app, jsii.String("integ-test"), &integTestProps{
+//   awscdk.NewIntegTest(app, jsii.String("integ-test"), &integTestProps{
 //
 //   	// Register as many test cases as you want here
 //   	testCases: []integTestCase{
@@ -655,6 +655,6 @@ type IntegTestCaseProps struct {
 type IntegTestProps struct {
 	// List of test cases that make up this test.
 	// Experimental.
-	TestCases *[]IntegTestCase `json:"testCases" yaml:"testCases"`
+	TestCases *[]IntegTestCase `field:"required" json:"testCases" yaml:"testCases"`
 }
 

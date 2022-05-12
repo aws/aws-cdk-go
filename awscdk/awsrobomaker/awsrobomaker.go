@@ -14,8 +14,11 @@ import (
 // The `AWS::RoboMaker::Fleet` resource creates an AWS RoboMaker fleet. Fleets contain robots and can receive deployments.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import robomaker "github.com/aws/aws-cdk-go/awscdk/aws_robomaker"
-//   cfnFleet := robomaker.NewCfnFleet(this, jsii.String("MyCfnFleet"), &cfnFleetProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnFleet := awscdk.Aws_robomaker.NewCfnFleet(this, jsii.String("MyCfnFleet"), &cfnFleetProps{
 //   	name: jsii.String("name"),
 //   	tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
@@ -675,7 +678,10 @@ func (c *jsiiProxy_CfnFleet) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnFleet`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import robomaker "github.com/aws/aws-cdk-go/awscdk/aws_robomaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnFleetProps := &cfnFleetProps{
 //   	name: jsii.String("name"),
 //   	tags: map[string]*string{
@@ -685,9 +691,9 @@ func (c *jsiiProxy_CfnFleet) ValidateProperties(_properties interface{}) {
 //
 type CfnFleetProps struct {
 	// The name of the fleet.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The list of all tags added to the fleet.
-	Tags *map[string]*string `json:"tags" yaml:"tags"`
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::RoboMaker::Robot`.
@@ -695,8 +701,11 @@ type CfnFleetProps struct {
 // The `AWS::RoboMaker::RobotApplication` resource creates an AWS RoboMaker robot.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import robomaker "github.com/aws/aws-cdk-go/awscdk/aws_robomaker"
-//   cfnRobot := robomaker.NewCfnRobot(this, jsii.String("MyCfnRobot"), &cfnRobotProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnRobot := awscdk.Aws_robomaker.NewCfnRobot(this, jsii.String("MyCfnRobot"), &cfnRobotProps{
 //   	architecture: jsii.String("architecture"),
 //   	greengrassGroupId: jsii.String("greengrassGroupId"),
 //
@@ -1426,8 +1435,11 @@ func (c *jsiiProxy_CfnRobot) ValidateProperties(_properties interface{}) {
 // The `AWS::RoboMaker::RobotApplication` resource creates an AWS RoboMaker robot application.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import robomaker "github.com/aws/aws-cdk-go/awscdk/aws_robomaker"
-//   cfnRobotApplication := robomaker.NewCfnRobotApplication(this, jsii.String("MyCfnRobotApplication"), &cfnRobotApplicationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnRobotApplication := awscdk.Aws_robomaker.NewCfnRobotApplication(this, jsii.String("MyCfnRobotApplication"), &cfnRobotApplicationProps{
 //   	robotSoftwareSuite: &robotSoftwareSuiteProperty{
 //   		name: jsii.String("name"),
 //
@@ -2200,7 +2212,10 @@ func (c *jsiiProxy_CfnRobotApplication) ValidateProperties(_properties interface
 // Information about a robot software suite.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import robomaker "github.com/aws/aws-cdk-go/awscdk/aws_robomaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   robotSoftwareSuiteProperty := &robotSoftwareSuiteProperty{
 //   	name: jsii.String("name"),
 //
@@ -2212,17 +2227,20 @@ type CfnRobotApplication_RobotSoftwareSuiteProperty struct {
 	// The name of the robot software suite.
 	//
 	// `General` is the only supported value.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The version of the robot software suite.
 	//
 	// Not applicable for General software suite.
-	Version *string `json:"version" yaml:"version"`
+	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 
 // Information about a source configuration.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import robomaker "github.com/aws/aws-cdk-go/awscdk/aws_robomaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sourceConfigProperty := &sourceConfigProperty{
 //   	architecture: jsii.String("architecture"),
 //   	s3Bucket: jsii.String("s3Bucket"),
@@ -2231,17 +2249,20 @@ type CfnRobotApplication_RobotSoftwareSuiteProperty struct {
 //
 type CfnRobotApplication_SourceConfigProperty struct {
 	// The target processor architecture for the application.
-	Architecture *string `json:"architecture" yaml:"architecture"`
+	Architecture *string `field:"required" json:"architecture" yaml:"architecture"`
 	// The Amazon S3 bucket name.
-	S3Bucket *string `json:"s3Bucket" yaml:"s3Bucket"`
+	S3Bucket *string `field:"required" json:"s3Bucket" yaml:"s3Bucket"`
 	// The s3 object key.
-	S3Key *string `json:"s3Key" yaml:"s3Key"`
+	S3Key *string `field:"required" json:"s3Key" yaml:"s3Key"`
 }
 
 // Properties for defining a `CfnRobotApplication`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import robomaker "github.com/aws/aws-cdk-go/awscdk/aws_robomaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnRobotApplicationProps := &cfnRobotApplicationProps{
 //   	robotSoftwareSuite: &robotSoftwareSuiteProperty{
 //   		name: jsii.String("name"),
@@ -2268,17 +2289,17 @@ type CfnRobotApplication_SourceConfigProperty struct {
 //
 type CfnRobotApplicationProps struct {
 	// The robot software suite used by the robot application.
-	RobotSoftwareSuite interface{} `json:"robotSoftwareSuite" yaml:"robotSoftwareSuite"`
+	RobotSoftwareSuite interface{} `field:"required" json:"robotSoftwareSuite" yaml:"robotSoftwareSuite"`
 	// The current revision id.
-	CurrentRevisionId *string `json:"currentRevisionId" yaml:"currentRevisionId"`
+	CurrentRevisionId *string `field:"optional" json:"currentRevisionId" yaml:"currentRevisionId"`
 	// The environment of the robot application.
-	Environment *string `json:"environment" yaml:"environment"`
+	Environment *string `field:"optional" json:"environment" yaml:"environment"`
 	// The name of the robot application.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The sources of the robot application.
-	Sources interface{} `json:"sources" yaml:"sources"`
+	Sources interface{} `field:"optional" json:"sources" yaml:"sources"`
 	// A map that contains tag keys and tag values that are attached to the robot application.
-	Tags *map[string]*string `json:"tags" yaml:"tags"`
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::RoboMaker::RobotApplicationVersion`.
@@ -2286,8 +2307,11 @@ type CfnRobotApplicationProps struct {
 // The `AWS::RoboMaker::RobotApplicationVersion` resource creates an AWS RoboMaker robot version.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import robomaker "github.com/aws/aws-cdk-go/awscdk/aws_robomaker"
-//   cfnRobotApplicationVersion := robomaker.NewCfnRobotApplicationVersion(this, jsii.String("MyCfnRobotApplicationVersion"), &cfnRobotApplicationVersionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnRobotApplicationVersion := awscdk.Aws_robomaker.NewCfnRobotApplicationVersion(this, jsii.String("MyCfnRobotApplicationVersion"), &cfnRobotApplicationVersionProps{
 //   	application: jsii.String("application"),
 //
 //   	// the properties below are optional
@@ -2970,7 +2994,10 @@ func (c *jsiiProxy_CfnRobotApplicationVersion) ValidateProperties(_properties in
 // Properties for defining a `CfnRobotApplicationVersion`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import robomaker "github.com/aws/aws-cdk-go/awscdk/aws_robomaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnRobotApplicationVersionProps := &cfnRobotApplicationVersionProps{
 //   	application: jsii.String("application"),
 //
@@ -2980,17 +3007,20 @@ func (c *jsiiProxy_CfnRobotApplicationVersion) ValidateProperties(_properties in
 //
 type CfnRobotApplicationVersionProps struct {
 	// The application information for the robot application.
-	Application *string `json:"application" yaml:"application"`
+	Application *string `field:"required" json:"application" yaml:"application"`
 	// The current revision id for the robot application.
 	//
 	// If you provide a value and it matches the latest revision ID, a new version will be created.
-	CurrentRevisionId *string `json:"currentRevisionId" yaml:"currentRevisionId"`
+	CurrentRevisionId *string `field:"optional" json:"currentRevisionId" yaml:"currentRevisionId"`
 }
 
 // Properties for defining a `CfnRobot`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import robomaker "github.com/aws/aws-cdk-go/awscdk/aws_robomaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnRobotProps := &cfnRobotProps{
 //   	architecture: jsii.String("architecture"),
 //   	greengrassGroupId: jsii.String("greengrassGroupId"),
@@ -3005,15 +3035,15 @@ type CfnRobotApplicationVersionProps struct {
 //
 type CfnRobotProps struct {
 	// The architecture of the robot.
-	Architecture *string `json:"architecture" yaml:"architecture"`
+	Architecture *string `field:"required" json:"architecture" yaml:"architecture"`
 	// The Greengrass group associated with the robot.
-	GreengrassGroupId *string `json:"greengrassGroupId" yaml:"greengrassGroupId"`
+	GreengrassGroupId *string `field:"required" json:"greengrassGroupId" yaml:"greengrassGroupId"`
 	// The Amazon Resource Name (ARN) of the fleet to which the robot will be registered.
-	Fleet *string `json:"fleet" yaml:"fleet"`
+	Fleet *string `field:"optional" json:"fleet" yaml:"fleet"`
 	// The name of the robot.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// A map that contains tag keys and tag values that are attached to the robot.
-	Tags *map[string]*string `json:"tags" yaml:"tags"`
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::RoboMaker::SimulationApplication`.
@@ -3021,8 +3051,11 @@ type CfnRobotProps struct {
 // The `AWS::RoboMaker::SimulationApplication` resource creates an AWS RoboMaker simulation application.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import robomaker "github.com/aws/aws-cdk-go/awscdk/aws_robomaker"
-//   cfnSimulationApplication := robomaker.NewCfnSimulationApplication(this, jsii.String("MyCfnSimulationApplication"), &cfnSimulationApplicationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnSimulationApplication := awscdk.Aws_robomaker.NewCfnSimulationApplication(this, jsii.String("MyCfnSimulationApplication"), &cfnSimulationApplicationProps{
 //   	robotSoftwareSuite: &robotSoftwareSuiteProperty{
 //   		name: jsii.String("name"),
 //
@@ -3847,7 +3880,10 @@ func (c *jsiiProxy_CfnSimulationApplication) ValidateProperties(_properties inte
 // Information about a rendering engine.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import robomaker "github.com/aws/aws-cdk-go/awscdk/aws_robomaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   renderingEngineProperty := &renderingEngineProperty{
 //   	name: jsii.String("name"),
 //   	version: jsii.String("version"),
@@ -3855,15 +3891,18 @@ func (c *jsiiProxy_CfnSimulationApplication) ValidateProperties(_properties inte
 //
 type CfnSimulationApplication_RenderingEngineProperty struct {
 	// The name of the rendering engine.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The version of the rendering engine.
-	Version *string `json:"version" yaml:"version"`
+	Version *string `field:"required" json:"version" yaml:"version"`
 }
 
 // Information about a robot software suite.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import robomaker "github.com/aws/aws-cdk-go/awscdk/aws_robomaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   robotSoftwareSuiteProperty := &robotSoftwareSuiteProperty{
 //   	name: jsii.String("name"),
 //
@@ -3875,17 +3914,20 @@ type CfnSimulationApplication_RobotSoftwareSuiteProperty struct {
 	// The name of the robot software suite.
 	//
 	// `General` is the only supported value.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The version of the robot software suite.
 	//
 	// Not applicable for General software suite.
-	Version *string `json:"version" yaml:"version"`
+	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 
 // Information about a simulation software suite.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import robomaker "github.com/aws/aws-cdk-go/awscdk/aws_robomaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   simulationSoftwareSuiteProperty := &simulationSoftwareSuiteProperty{
 //   	name: jsii.String("name"),
 //
@@ -3897,17 +3939,20 @@ type CfnSimulationApplication_SimulationSoftwareSuiteProperty struct {
 	// The name of the simulation software suite.
 	//
 	// `SimulationRuntime` is the only supported value.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The version of the simulation software suite.
 	//
 	// Not applicable for `SimulationRuntime` .
-	Version *string `json:"version" yaml:"version"`
+	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 
 // Information about a source configuration.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import robomaker "github.com/aws/aws-cdk-go/awscdk/aws_robomaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sourceConfigProperty := &sourceConfigProperty{
 //   	architecture: jsii.String("architecture"),
 //   	s3Bucket: jsii.String("s3Bucket"),
@@ -3916,17 +3961,20 @@ type CfnSimulationApplication_SimulationSoftwareSuiteProperty struct {
 //
 type CfnSimulationApplication_SourceConfigProperty struct {
 	// The target processor architecture for the application.
-	Architecture *string `json:"architecture" yaml:"architecture"`
+	Architecture *string `field:"required" json:"architecture" yaml:"architecture"`
 	// The Amazon S3 bucket name.
-	S3Bucket *string `json:"s3Bucket" yaml:"s3Bucket"`
+	S3Bucket *string `field:"required" json:"s3Bucket" yaml:"s3Bucket"`
 	// The s3 object key.
-	S3Key *string `json:"s3Key" yaml:"s3Key"`
+	S3Key *string `field:"required" json:"s3Key" yaml:"s3Key"`
 }
 
 // Properties for defining a `CfnSimulationApplication`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import robomaker "github.com/aws/aws-cdk-go/awscdk/aws_robomaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnSimulationApplicationProps := &cfnSimulationApplicationProps{
 //   	robotSoftwareSuite: &robotSoftwareSuiteProperty{
 //   		name: jsii.String("name"),
@@ -3963,21 +4011,21 @@ type CfnSimulationApplication_SourceConfigProperty struct {
 //
 type CfnSimulationApplicationProps struct {
 	// The robot software suite used by the simulation application.
-	RobotSoftwareSuite interface{} `json:"robotSoftwareSuite" yaml:"robotSoftwareSuite"`
+	RobotSoftwareSuite interface{} `field:"required" json:"robotSoftwareSuite" yaml:"robotSoftwareSuite"`
 	// The simulation software suite used by the simulation application.
-	SimulationSoftwareSuite interface{} `json:"simulationSoftwareSuite" yaml:"simulationSoftwareSuite"`
+	SimulationSoftwareSuite interface{} `field:"required" json:"simulationSoftwareSuite" yaml:"simulationSoftwareSuite"`
 	// The current revision id.
-	CurrentRevisionId *string `json:"currentRevisionId" yaml:"currentRevisionId"`
+	CurrentRevisionId *string `field:"optional" json:"currentRevisionId" yaml:"currentRevisionId"`
 	// The environment of the simulation application.
-	Environment *string `json:"environment" yaml:"environment"`
+	Environment *string `field:"optional" json:"environment" yaml:"environment"`
 	// The name of the simulation application.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The rendering engine for the simulation application.
-	RenderingEngine interface{} `json:"renderingEngine" yaml:"renderingEngine"`
+	RenderingEngine interface{} `field:"optional" json:"renderingEngine" yaml:"renderingEngine"`
 	// The sources of the simulation application.
-	Sources interface{} `json:"sources" yaml:"sources"`
+	Sources interface{} `field:"optional" json:"sources" yaml:"sources"`
 	// A map that contains tag keys and tag values that are attached to the simulation application.
-	Tags *map[string]*string `json:"tags" yaml:"tags"`
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::RoboMaker::SimulationApplicationVersion`.
@@ -3985,8 +4033,11 @@ type CfnSimulationApplicationProps struct {
 // The `AWS::RoboMaker::SimulationApplicationVersion` resource creates a version of an AWS RoboMaker simulation application.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import robomaker "github.com/aws/aws-cdk-go/awscdk/aws_robomaker"
-//   cfnSimulationApplicationVersion := robomaker.NewCfnSimulationApplicationVersion(this, jsii.String("MyCfnSimulationApplicationVersion"), &cfnSimulationApplicationVersionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnSimulationApplicationVersion := awscdk.Aws_robomaker.NewCfnSimulationApplicationVersion(this, jsii.String("MyCfnSimulationApplicationVersion"), &cfnSimulationApplicationVersionProps{
 //   	application: jsii.String("application"),
 //
 //   	// the properties below are optional
@@ -4669,7 +4720,10 @@ func (c *jsiiProxy_CfnSimulationApplicationVersion) ValidateProperties(_properti
 // Properties for defining a `CfnSimulationApplicationVersion`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import robomaker "github.com/aws/aws-cdk-go/awscdk/aws_robomaker"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnSimulationApplicationVersionProps := &cfnSimulationApplicationVersionProps{
 //   	application: jsii.String("application"),
 //
@@ -4679,10 +4733,10 @@ func (c *jsiiProxy_CfnSimulationApplicationVersion) ValidateProperties(_properti
 //
 type CfnSimulationApplicationVersionProps struct {
 	// The application information for the simulation application.
-	Application *string `json:"application" yaml:"application"`
+	Application *string `field:"required" json:"application" yaml:"application"`
 	// The current revision id for the simulation application.
 	//
 	// If you provide a value and it matches the latest revision ID, a new version will be created.
-	CurrentRevisionId *string `json:"currentRevisionId" yaml:"currentRevisionId"`
+	CurrentRevisionId *string `field:"optional" json:"currentRevisionId" yaml:"currentRevisionId"`
 }
 

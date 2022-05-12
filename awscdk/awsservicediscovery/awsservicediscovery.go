@@ -17,10 +17,13 @@ import (
 // Balancers.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk/aws_servicediscovery"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var service service
-//   aliasTargetInstance := servicediscovery.NewAliasTargetInstance(this, jsii.String("MyAliasTargetInstance"), &aliasTargetInstanceProps{
+//
+//   aliasTargetInstance := awscdk.Aws_servicediscovery.NewAliasTargetInstance(this, jsii.String("MyAliasTargetInstance"), &aliasTargetInstanceProps{
 //   	dnsName: jsii.String("dnsName"),
 //   	service: service,
 //
@@ -420,9 +423,12 @@ func (a *jsiiProxy_AliasTargetInstance) Validate() *[]*string {
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk/aws_servicediscovery"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var service service
+//
 //   aliasTargetInstanceProps := &aliasTargetInstanceProps{
 //   	dnsName: jsii.String("dnsName"),
 //   	service: service,
@@ -438,22 +444,25 @@ func (a *jsiiProxy_AliasTargetInstance) Validate() *[]*string {
 type AliasTargetInstanceProps struct {
 	// Custom attributes of the instance.
 	// Experimental.
-	CustomAttributes *map[string]*string `json:"customAttributes" yaml:"customAttributes"`
+	CustomAttributes *map[string]*string `field:"optional" json:"customAttributes" yaml:"customAttributes"`
 	// The id of the instance resource.
 	// Experimental.
-	InstanceId *string `json:"instanceId" yaml:"instanceId"`
+	InstanceId *string `field:"optional" json:"instanceId" yaml:"instanceId"`
 	// DNS name of the target.
 	// Experimental.
-	DnsName *string `json:"dnsName" yaml:"dnsName"`
+	DnsName *string `field:"required" json:"dnsName" yaml:"dnsName"`
 	// The Cloudmap service this resource is registered to.
 	// Experimental.
-	Service IService `json:"service" yaml:"service"`
+	Service IService `field:"required" json:"service" yaml:"service"`
 }
 
 // Used when the resource that's associated with the service instance is accessible using values other than an IP address or a domain name (CNAME), i.e. for non-ip-instances.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk/aws_servicediscovery"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   baseInstanceProps := &baseInstanceProps{
 //   	customAttributes: map[string]*string{
 //   		"customAttributesKey": jsii.String("customAttributes"),
@@ -465,14 +474,17 @@ type AliasTargetInstanceProps struct {
 type BaseInstanceProps struct {
 	// Custom attributes of the instance.
 	// Experimental.
-	CustomAttributes *map[string]*string `json:"customAttributes" yaml:"customAttributes"`
+	CustomAttributes *map[string]*string `field:"optional" json:"customAttributes" yaml:"customAttributes"`
 	// The id of the instance resource.
 	// Experimental.
-	InstanceId *string `json:"instanceId" yaml:"instanceId"`
+	InstanceId *string `field:"optional" json:"instanceId" yaml:"instanceId"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk/aws_servicediscovery"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   baseNamespaceProps := &baseNamespaceProps{
 //   	name: jsii.String("name"),
 //
@@ -484,10 +496,10 @@ type BaseInstanceProps struct {
 type BaseNamespaceProps struct {
 	// A name for the Namespace.
 	// Experimental.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// A description of the Namespace.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 
 // Basic props needed to create a service in a given namespace.
@@ -495,7 +507,8 @@ type BaseNamespaceProps struct {
 // Used by HttpNamespace.createService
 //
 // Example:
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import servicediscovery "github.com/aws/aws-cdk-go/awscdk"
 //
 //   app := cdk.NewApp()
 //   stack := cdk.NewStack(app, jsii.String("aws-servicediscovery-integ"))
@@ -535,10 +548,10 @@ type BaseServiceProps struct {
 	// Only one of healthCheckConfig or healthCheckCustomConfig can be specified.
 	// See: https://docs.aws.amazon.com/cloud-map/latest/api/API_HealthCheckCustomConfig.html
 	// Experimental.
-	CustomHealthCheck *HealthCheckCustomConfig `json:"customHealthCheck" yaml:"customHealthCheck"`
+	CustomHealthCheck *HealthCheckCustomConfig `field:"optional" json:"customHealthCheck" yaml:"customHealthCheck"`
 	// A description of the service.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Settings for an optional health check.
 	//
 	// If you specify health check settings, AWS Cloud Map associates the health
@@ -546,10 +559,10 @@ type BaseServiceProps struct {
 	// be specified. Not valid for PrivateDnsNamespaces. If you use healthCheck, you can only register IP instances to
 	// this service.
 	// Experimental.
-	HealthCheck *HealthCheckConfig `json:"healthCheck" yaml:"healthCheck"`
+	HealthCheck *HealthCheckConfig `field:"optional" json:"healthCheck" yaml:"healthCheck"`
 	// A name for the Service.
 	// Experimental.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 
 // A CloudFormation `AWS::ServiceDiscovery::HttpNamespace`.
@@ -559,8 +572,11 @@ type BaseServiceProps struct {
 // For the current quota on the number of namespaces that you can create using the same AWS account, see [AWS Cloud Map quotas](https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html) in the ** .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk/aws_servicediscovery"
-//   cfnHttpNamespace := servicediscovery.NewCfnHttpNamespace(this, jsii.String("MyCfnHttpNamespace"), &cfnHttpNamespaceProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnHttpNamespace := awscdk.Aws_servicediscovery.NewCfnHttpNamespace(this, jsii.String("MyCfnHttpNamespace"), &cfnHttpNamespaceProps{
 //   	name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -1261,7 +1277,10 @@ func (c *jsiiProxy_CfnHttpNamespace) ValidateProperties(_properties interface{})
 // Properties for defining a `CfnHttpNamespace`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk/aws_servicediscovery"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnHttpNamespaceProps := &cfnHttpNamespaceProps{
 //   	name: jsii.String("name"),
 //
@@ -1277,13 +1296,13 @@ func (c *jsiiProxy_CfnHttpNamespace) ValidateProperties(_properties interface{})
 //
 type CfnHttpNamespaceProps struct {
 	// The name that you want to assign to this namespace.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// A description for the namespace.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The tags for the namespace.
 	//
 	// Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::ServiceDiscovery::Instance`.
@@ -1291,10 +1310,13 @@ type CfnHttpNamespaceProps struct {
 // A complex type that contains information about an instance that AWS Cloud Map creates when you submit a `RegisterInstance` request.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk/aws_servicediscovery"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var instanceAttributes interface{}
-//   cfnInstance := servicediscovery.NewCfnInstance(this, jsii.String("MyCfnInstance"), &cfnInstanceProps{
+//
+//   cfnInstance := awscdk.Aws_servicediscovery.NewCfnInstance(this, jsii.String("MyCfnInstance"), &cfnInstanceProps{
 //   	instanceAttributes: instanceAttributes,
 //   	serviceId: jsii.String("serviceId"),
 //
@@ -2011,9 +2033,12 @@ func (c *jsiiProxy_CfnInstance) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnInstance`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk/aws_servicediscovery"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var instanceAttributes interface{}
+//
 //   cfnInstanceProps := &cfnInstanceProps{
 //   	instanceAttributes: instanceAttributes,
 //   	serviceId: jsii.String("serviceId"),
@@ -2055,9 +2080,9 @@ type CfnInstanceProps struct {
 	// If the service includes `HealthCheckConfig` , the port on the endpoint that you want Route 53 to send requests to.
 	//
 	// This value is required if you specified settings for an `SRV` record or a Route 53 health check when you created the service.
-	InstanceAttributes interface{} `json:"instanceAttributes" yaml:"instanceAttributes"`
+	InstanceAttributes interface{} `field:"required" json:"instanceAttributes" yaml:"instanceAttributes"`
 	// The ID of the service that you want to use for settings for the instance.
-	ServiceId *string `json:"serviceId" yaml:"serviceId"`
+	ServiceId *string `field:"required" json:"serviceId" yaml:"serviceId"`
 	// An identifier that you want to associate with the instance. Note the following:.
 	//
 	// - If the service that's specified by `ServiceId` includes settings for an `SRV` record, the value of `InstanceId` is automatically included as part of the value for the `SRV` record. For more information, see [DnsRecord > Type](https://docs.aws.amazon.com/cloud-map/latest/api/API_DnsRecord.html#cloudmap-Type-DnsRecord-Type) .
@@ -2066,7 +2091,7 @@ type CfnInstanceProps struct {
 	// - If you specify an existing `InstanceId` and `ServiceId` , AWS Cloud Map updates the existing DNS records, if any. If there's also an existing health check, AWS Cloud Map deletes the old health check and creates a new one.
 	//
 	// > The health check isn't deleted immediately, so it will still appear for a while if you submit a `ListHealthChecks` request, for example.
-	InstanceId *string `json:"instanceId" yaml:"instanceId"`
+	InstanceId *string `field:"optional" json:"instanceId" yaml:"instanceId"`
 }
 
 // A CloudFormation `AWS::ServiceDiscovery::PrivateDnsNamespace`.
@@ -2074,8 +2099,11 @@ type CfnInstanceProps struct {
 // Creates a private namespace based on DNS, which is visible only inside a specified Amazon VPC. The namespace defines your service naming scheme. For example, if you name your namespace `example.com` and name your service `backend` , the resulting DNS name for the service is `backend.example.com` . Service instances that are registered using a private DNS namespace can be discovered using either a `DiscoverInstances` request or using DNS. For the current quota on the number of namespaces that you can create using the same AWS account , see [AWS Cloud Map quotas](https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html) in the *AWS Cloud Map Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk/aws_servicediscovery"
-//   cfnPrivateDnsNamespace := servicediscovery.NewCfnPrivateDnsNamespace(this, jsii.String("MyCfnPrivateDnsNamespace"), &cfnPrivateDnsNamespaceProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnPrivateDnsNamespace := awscdk.Aws_servicediscovery.NewCfnPrivateDnsNamespace(this, jsii.String("MyCfnPrivateDnsNamespace"), &cfnPrivateDnsNamespaceProps{
 //   	name: jsii.String("name"),
 //   	vpc: jsii.String("vpc"),
 //
@@ -2840,7 +2868,10 @@ func (c *jsiiProxy_CfnPrivateDnsNamespace) ValidateProperties(_properties interf
 // DNS properties for the private DNS namespace.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk/aws_servicediscovery"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   privateDnsPropertiesMutableProperty := &privateDnsPropertiesMutableProperty{
 //   	soa: &sOAProperty{
 //   		ttl: jsii.Number(123),
@@ -2849,13 +2880,16 @@ func (c *jsiiProxy_CfnPrivateDnsNamespace) ValidateProperties(_properties interf
 //
 type CfnPrivateDnsNamespace_PrivateDnsPropertiesMutableProperty struct {
 	// Fields for the Start of Authority (SOA) record for the hosted zone for the private DNS namespace.
-	Soa interface{} `json:"soa" yaml:"soa"`
+	Soa interface{} `field:"optional" json:"soa" yaml:"soa"`
 }
 
 // Properties for the private DNS namespace.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk/aws_servicediscovery"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   propertiesProperty := &propertiesProperty{
 //   	dnsProperties: &privateDnsPropertiesMutableProperty{
 //   		soa: &sOAProperty{
@@ -2866,26 +2900,32 @@ type CfnPrivateDnsNamespace_PrivateDnsPropertiesMutableProperty struct {
 //
 type CfnPrivateDnsNamespace_PropertiesProperty struct {
 	// DNS properties for the private DNS namespace.
-	DnsProperties interface{} `json:"dnsProperties" yaml:"dnsProperties"`
+	DnsProperties interface{} `field:"optional" json:"dnsProperties" yaml:"dnsProperties"`
 }
 
 // Start of Authority (SOA) properties for a public or private DNS namespace.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk/aws_servicediscovery"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sOAProperty := &sOAProperty{
 //   	ttl: jsii.Number(123),
 //   }
 //
 type CfnPrivateDnsNamespace_SOAProperty struct {
 	// The time to live (TTL) for purposes of negative caching.
-	Ttl *float64 `json:"ttl" yaml:"ttl"`
+	Ttl *float64 `field:"optional" json:"ttl" yaml:"ttl"`
 }
 
 // Properties for defining a `CfnPrivateDnsNamespace`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk/aws_servicediscovery"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnPrivateDnsNamespaceProps := &cfnPrivateDnsNamespaceProps{
 //   	name: jsii.String("name"),
 //   	vpc: jsii.String("vpc"),
@@ -2911,17 +2951,17 @@ type CfnPrivateDnsNamespaceProps struct {
 	// The name that you want to assign to this namespace.
 	//
 	// When you create a private DNS namespace, AWS Cloud Map automatically creates an Amazon Route 53 private hosted zone that has the same name as the namespace.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The ID of the Amazon VPC that you want to associate the namespace with.
-	Vpc *string `json:"vpc" yaml:"vpc"`
+	Vpc *string `field:"required" json:"vpc" yaml:"vpc"`
 	// A description for the namespace.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Properties for the private DNS namespace.
-	Properties interface{} `json:"properties" yaml:"properties"`
+	Properties interface{} `field:"optional" json:"properties" yaml:"properties"`
 	// The tags for the namespace.
 	//
 	// Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::ServiceDiscovery::PublicDnsNamespace`.
@@ -2931,8 +2971,11 @@ type CfnPrivateDnsNamespaceProps struct {
 // > The `CreatePublicDnsNamespace` API operation is not supported in the AWS GovCloud (US) Regions.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk/aws_servicediscovery"
-//   cfnPublicDnsNamespace := servicediscovery.NewCfnPublicDnsNamespace(this, jsii.String("MyCfnPublicDnsNamespace"), &cfnPublicDnsNamespaceProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnPublicDnsNamespace := awscdk.Aws_servicediscovery.NewCfnPublicDnsNamespace(this, jsii.String("MyCfnPublicDnsNamespace"), &cfnPublicDnsNamespaceProps{
 //   	name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -3673,7 +3716,10 @@ func (c *jsiiProxy_CfnPublicDnsNamespace) ValidateProperties(_properties interfa
 // Properties for the public DNS namespace.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk/aws_servicediscovery"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   propertiesProperty := &propertiesProperty{
 //   	dnsProperties: &publicDnsPropertiesMutableProperty{
 //   		soa: &sOAProperty{
@@ -3684,13 +3730,16 @@ func (c *jsiiProxy_CfnPublicDnsNamespace) ValidateProperties(_properties interfa
 //
 type CfnPublicDnsNamespace_PropertiesProperty struct {
 	// DNS properties for the public DNS namespace.
-	DnsProperties interface{} `json:"dnsProperties" yaml:"dnsProperties"`
+	DnsProperties interface{} `field:"optional" json:"dnsProperties" yaml:"dnsProperties"`
 }
 
 // DNS properties for the public DNS namespace.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk/aws_servicediscovery"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   publicDnsPropertiesMutableProperty := &publicDnsPropertiesMutableProperty{
 //   	soa: &sOAProperty{
 //   		ttl: jsii.Number(123),
@@ -3699,26 +3748,32 @@ type CfnPublicDnsNamespace_PropertiesProperty struct {
 //
 type CfnPublicDnsNamespace_PublicDnsPropertiesMutableProperty struct {
 	// Start of Authority (SOA) record for the hosted zone for the public DNS namespace.
-	Soa interface{} `json:"soa" yaml:"soa"`
+	Soa interface{} `field:"optional" json:"soa" yaml:"soa"`
 }
 
 // Start of Authority (SOA) properties for a public or private DNS namespace.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk/aws_servicediscovery"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sOAProperty := &sOAProperty{
 //   	ttl: jsii.Number(123),
 //   }
 //
 type CfnPublicDnsNamespace_SOAProperty struct {
 	// The time to live (TTL) for purposes of negative caching.
-	Ttl *float64 `json:"ttl" yaml:"ttl"`
+	Ttl *float64 `field:"optional" json:"ttl" yaml:"ttl"`
 }
 
 // Properties for defining a `CfnPublicDnsNamespace`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk/aws_servicediscovery"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnPublicDnsNamespaceProps := &cfnPublicDnsNamespaceProps{
 //   	name: jsii.String("name"),
 //
@@ -3741,15 +3796,15 @@ type CfnPublicDnsNamespace_SOAProperty struct {
 //
 type CfnPublicDnsNamespaceProps struct {
 	// The name that you want to assign to this namespace.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// A description for the namespace.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Properties for the public DNS namespace.
-	Properties interface{} `json:"properties" yaml:"properties"`
+	Properties interface{} `field:"optional" json:"properties" yaml:"properties"`
 	// The tags for the namespace.
 	//
 	// Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::ServiceDiscovery::Service`.
@@ -3766,8 +3821,11 @@ type CfnPublicDnsNamespaceProps struct {
 // - Optionally, a health check.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk/aws_servicediscovery"
-//   cfnService := servicediscovery.NewCfnService(this, jsii.String("MyCfnService"), &cfnServiceProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnService := awscdk.Aws_servicediscovery.NewCfnService(this, jsii.String("MyCfnService"), &cfnServiceProps{
 //   	description: jsii.String("description"),
 //   	dnsConfig: &dnsConfigProperty{
 //   		dnsRecords: []interface{}{
@@ -4615,7 +4673,10 @@ func (c *jsiiProxy_CfnService) ValidateProperties(_properties interface{}) {
 // A complex type that contains information about the Amazon Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk/aws_servicediscovery"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dnsConfigProperty := &dnsConfigProperty{
 //   	dnsRecords: []interface{}{
 //   		&dnsRecordProperty{
@@ -4631,11 +4692,11 @@ func (c *jsiiProxy_CfnService) ValidateProperties(_properties interface{}) {
 //
 type CfnService_DnsConfigProperty struct {
 	// An array that contains one `DnsRecord` object for each Route 53 DNS record that you want AWS Cloud Map to create when you register an instance.
-	DnsRecords interface{} `json:"dnsRecords" yaml:"dnsRecords"`
+	DnsRecords interface{} `field:"required" json:"dnsRecords" yaml:"dnsRecords"`
 	// The ID of the namespace to use for DNS configuration.
 	//
 	// > You must specify a value for `NamespaceId` either for `DnsConfig` or for the [service properties](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html) . Don't specify a value in both places.
-	NamespaceId *string `json:"namespaceId" yaml:"namespaceId"`
+	NamespaceId *string `field:"optional" json:"namespaceId" yaml:"namespaceId"`
 	// The routing policy that you want to apply to all Route 53 DNS records that AWS Cloud Map creates when you register an instance and specify this service.
 	//
 	// > If you want to use this service to register instances that create alias records, specify `WEIGHTED` for the routing policy.
@@ -4656,13 +4717,16 @@ type CfnService_DnsConfigProperty struct {
 	// If you don't define a health check for the service, Route 53 assumes that all instances are healthy and returns the applicable value for one randomly selected instance.
 	//
 	// For more information about the weighted routing policy, see [Weighted Routing](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted) in the *Route 53 Developer Guide* .
-	RoutingPolicy *string `json:"routingPolicy" yaml:"routingPolicy"`
+	RoutingPolicy *string `field:"optional" json:"routingPolicy" yaml:"routingPolicy"`
 }
 
 // A complex type that contains information about the Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk/aws_servicediscovery"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   dnsRecordProperty := &dnsRecordProperty{
 //   	ttl: jsii.Number(123),
 //   	type: jsii.String("type"),
@@ -4672,7 +4736,7 @@ type CfnService_DnsRecordProperty struct {
 	// The amount of time, in seconds, that you want DNS resolvers to cache the settings for this record.
 	//
 	// > Alias records don't include a TTL because Route 53 uses the TTL for the AWS resource that an alias record routes traffic to. If you include the `AWS_ALIAS_DNS_NAME` attribute when you submit a [RegisterInstance](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html) request, the `TTL` value is ignored. Always specify a TTL for the service; you can use a service to register instances that create either alias or non-alias records.
-	Ttl *float64 `json:"ttl" yaml:"ttl"`
+	Ttl *float64 `field:"required" json:"ttl" yaml:"ttl"`
 	// The type of the resource, which indicates the type of value that Route 53 returns in response to DNS queries.
 	//
 	// You can specify values for `Type` in the following combinations:
@@ -4715,7 +4779,7 @@ type CfnService_DnsRecordProperty struct {
 	// `test.backend.example.com`
 	//
 	// If you specify settings for an `SRV` record and if you specify values for `AWS_INSTANCE_IPV4` , `AWS_INSTANCE_IPV6` , or both in the `RegisterInstance` request, AWS Cloud Map automatically creates `A` and/or `AAAA` records that have the same name as the value of `service-hostname` in the `SRV` record. You can ignore these records.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 }
 
 // *Public DNS and HTTP namespaces only.* A complex type that contains settings for an optional health check. If you specify settings for a health check, AWS Cloud Map associates the health check with the records that you specify in `DnsConfig` .
@@ -4737,7 +4801,10 @@ type CfnService_DnsRecordProperty struct {
 // - **Charges for health checks** - Health checks are basic Route 53 health checks that monitor an AWS endpoint. For information about pricing for health checks, see [Amazon Route 53 Pricing](https://docs.aws.amazon.com/route53/pricing/) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk/aws_servicediscovery"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   healthCheckConfigProperty := &healthCheckConfigProperty{
 //   	type: jsii.String("type"),
 //
@@ -4762,17 +4829,17 @@ type CfnService_HealthCheckConfigProperty struct {
 	// If you specify `TCP` for `Type` , don't specify a value for `ResourcePath` .
 	//
 	// For more information, see [How Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) in the *Route 53 Developer Guide* .
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// The number of consecutive health checks that an endpoint must pass or fail for Route 53 to change the current status of the endpoint from unhealthy to healthy or the other way around.
 	//
 	// For more information, see [How Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) in the *Route 53 Developer Guide* .
-	FailureThreshold *float64 `json:"failureThreshold" yaml:"failureThreshold"`
+	FailureThreshold *float64 `field:"optional" json:"failureThreshold" yaml:"failureThreshold"`
 	// The path that you want Route 53 to request when performing health checks.
 	//
 	// The path can be any value that your endpoint returns an HTTP status code of a 2xx or 3xx format for when the endpoint is healthy. An example file is `/docs/route53-health-check.html` . Route 53 automatically adds the DNS name for the service. If you don't specify a value for `ResourcePath` , the default value is `/` .
 	//
 	// If you specify `TCP` for `Type` , you must *not* specify a value for `ResourcePath` .
-	ResourcePath *string `json:"resourcePath" yaml:"resourcePath"`
+	ResourcePath *string `field:"optional" json:"resourcePath" yaml:"resourcePath"`
 }
 
 // A complex type that contains information about an optional custom health check.
@@ -4799,7 +4866,10 @@ type CfnService_HealthCheckConfigProperty struct {
 // - If another `UpdateInstanceCustomHealthStatus` request doesn't arrive during that time to change the status back to healthy, AWS Cloud Map stops routing traffic to the resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk/aws_servicediscovery"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   healthCheckCustomConfigProperty := &healthCheckCustomConfigProperty{
 //   	failureThreshold: jsii.Number(123),
 //   }
@@ -4812,13 +4882,16 @@ type CfnService_HealthCheckCustomConfigProperty struct {
 	// The number of 30-second intervals that you want AWS Cloud Map to wait after receiving an `UpdateInstanceCustomHealthStatus` request before it changes the health status of a service instance.
 	//
 	// Sending a second or subsequent `UpdateInstanceCustomHealthStatus` request with the same value before 30 seconds has passed doesn't accelerate the change. AWS Cloud Map still waits `30` seconds after the first request to make the change.
-	FailureThreshold *float64 `json:"failureThreshold" yaml:"failureThreshold"`
+	FailureThreshold *float64 `field:"optional" json:"failureThreshold" yaml:"failureThreshold"`
 }
 
 // Properties for defining a `CfnService`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk/aws_servicediscovery"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnServiceProps := &cfnServiceProps{
 //   	description: jsii.String("description"),
 //   	dnsConfig: &dnsConfigProperty{
@@ -4856,40 +4929,43 @@ type CfnService_HealthCheckCustomConfigProperty struct {
 //
 type CfnServiceProps struct {
 	// The description of the service.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// A complex type that contains information about the Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.
-	DnsConfig interface{} `json:"dnsConfig" yaml:"dnsConfig"`
+	DnsConfig interface{} `field:"optional" json:"dnsConfig" yaml:"dnsConfig"`
 	// *Public DNS and HTTP namespaces only.* A complex type that contains settings for an optional health check. If you specify settings for a health check, AWS Cloud Map associates the health check with the records that you specify in `DnsConfig` .
 	//
 	// For information about the charges for health checks, see [Amazon Route 53 Pricing](https://docs.aws.amazon.com/route53/pricing/) .
-	HealthCheckConfig interface{} `json:"healthCheckConfig" yaml:"healthCheckConfig"`
+	HealthCheckConfig interface{} `field:"optional" json:"healthCheckConfig" yaml:"healthCheckConfig"`
 	// A complex type that contains information about an optional custom health check.
 	//
 	// > If you specify a health check configuration, you can specify either `HealthCheckCustomConfig` or `HealthCheckConfig` but not both.
-	HealthCheckCustomConfig interface{} `json:"healthCheckCustomConfig" yaml:"healthCheckCustomConfig"`
+	HealthCheckCustomConfig interface{} `field:"optional" json:"healthCheckCustomConfig" yaml:"healthCheckCustomConfig"`
 	// The name of the service.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The ID of the namespace that was used to create the service.
 	//
 	// > You must specify a value for `NamespaceId` either for the service properties or for [DnsConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsconfig.html) . Don't specify a value in both places.
-	NamespaceId *string `json:"namespaceId" yaml:"namespaceId"`
+	NamespaceId *string `field:"optional" json:"namespaceId" yaml:"namespaceId"`
 	// The tags for the service.
 	//
 	// Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation.
 	//
 	// No DNS records is registered for the service instances. The only valid value is `HTTP` .
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 
 // Instance that is accessible using a domain name (CNAME).
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk/aws_servicediscovery"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var service service
-//   cnameInstance := servicediscovery.NewCnameInstance(this, jsii.String("MyCnameInstance"), &cnameInstanceProps{
+//
+//   cnameInstance := awscdk.Aws_servicediscovery.NewCnameInstance(this, jsii.String("MyCnameInstance"), &cnameInstanceProps{
 //   	instanceCname: jsii.String("instanceCname"),
 //   	service: service,
 //
@@ -5289,7 +5365,8 @@ func (c *jsiiProxy_CnameInstance) Validate() *[]*string {
 }
 
 // Example:
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import servicediscovery "github.com/aws/aws-cdk-go/awscdk"
 //
 //   app := cdk.NewApp()
 //   stack := cdk.NewStack(app, jsii.String("aws-servicediscovery-integ"))
@@ -5314,19 +5391,22 @@ func (c *jsiiProxy_CnameInstance) Validate() *[]*string {
 type CnameInstanceBaseProps struct {
 	// Custom attributes of the instance.
 	// Experimental.
-	CustomAttributes *map[string]*string `json:"customAttributes" yaml:"customAttributes"`
+	CustomAttributes *map[string]*string `field:"optional" json:"customAttributes" yaml:"customAttributes"`
 	// The id of the instance resource.
 	// Experimental.
-	InstanceId *string `json:"instanceId" yaml:"instanceId"`
+	InstanceId *string `field:"optional" json:"instanceId" yaml:"instanceId"`
 	// If the service configuration includes a CNAME record, the domain name that you want Route 53 to return in response to DNS queries, for example, example.com. This value is required if the service specified by ServiceId includes settings for an CNAME record.
 	// Experimental.
-	InstanceCname *string `json:"instanceCname" yaml:"instanceCname"`
+	InstanceCname *string `field:"required" json:"instanceCname" yaml:"instanceCname"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk/aws_servicediscovery"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var service service
+//
 //   cnameInstanceProps := &cnameInstanceProps{
 //   	instanceCname: jsii.String("instanceCname"),
 //   	service: service,
@@ -5342,20 +5422,21 @@ type CnameInstanceBaseProps struct {
 type CnameInstanceProps struct {
 	// Custom attributes of the instance.
 	// Experimental.
-	CustomAttributes *map[string]*string `json:"customAttributes" yaml:"customAttributes"`
+	CustomAttributes *map[string]*string `field:"optional" json:"customAttributes" yaml:"customAttributes"`
 	// The id of the instance resource.
 	// Experimental.
-	InstanceId *string `json:"instanceId" yaml:"instanceId"`
+	InstanceId *string `field:"optional" json:"instanceId" yaml:"instanceId"`
 	// If the service configuration includes a CNAME record, the domain name that you want Route 53 to return in response to DNS queries, for example, example.com. This value is required if the service specified by ServiceId includes settings for an CNAME record.
 	// Experimental.
-	InstanceCname *string `json:"instanceCname" yaml:"instanceCname"`
+	InstanceCname *string `field:"required" json:"instanceCname" yaml:"instanceCname"`
 	// The Cloudmap service this resource is registered to.
 	// Experimental.
-	Service IService `json:"service" yaml:"service"`
+	Service IService `field:"required" json:"service" yaml:"service"`
 }
 
 // Example:
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import servicediscovery "github.com/aws/aws-cdk-go/awscdk"
 //
 //   app := cdk.NewApp()
 //   stack := cdk.NewStack(app, jsii.String("aws-servicediscovery-integ"))
@@ -5403,7 +5484,8 @@ const (
 // PublicDnsNamespace.
 //
 // Example:
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import servicediscovery "github.com/aws/aws-cdk-go/awscdk"
 //
 //   app := cdk.NewApp()
 //   stack := cdk.NewStack(app, jsii.String("aws-servicediscovery-integ"))
@@ -5437,10 +5519,10 @@ type DnsServiceProps struct {
 	// Only one of healthCheckConfig or healthCheckCustomConfig can be specified.
 	// See: https://docs.aws.amazon.com/cloud-map/latest/api/API_HealthCheckCustomConfig.html
 	// Experimental.
-	CustomHealthCheck *HealthCheckCustomConfig `json:"customHealthCheck" yaml:"customHealthCheck"`
+	CustomHealthCheck *HealthCheckCustomConfig `field:"optional" json:"customHealthCheck" yaml:"customHealthCheck"`
 	// A description of the service.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Settings for an optional health check.
 	//
 	// If you specify health check settings, AWS Cloud Map associates the health
@@ -5448,28 +5530,28 @@ type DnsServiceProps struct {
 	// be specified. Not valid for PrivateDnsNamespaces. If you use healthCheck, you can only register IP instances to
 	// this service.
 	// Experimental.
-	HealthCheck *HealthCheckConfig `json:"healthCheck" yaml:"healthCheck"`
+	HealthCheck *HealthCheckConfig `field:"optional" json:"healthCheck" yaml:"healthCheck"`
 	// A name for the Service.
 	// Experimental.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The DNS type of the record that you want AWS Cloud Map to create.
 	//
 	// Supported record types
 	// include A, AAAA, A and AAAA (A_AAAA), CNAME, and SRV.
 	// Experimental.
-	DnsRecordType DnsRecordType `json:"dnsRecordType" yaml:"dnsRecordType"`
+	DnsRecordType DnsRecordType `field:"optional" json:"dnsRecordType" yaml:"dnsRecordType"`
 	// The amount of time, in seconds, that you want DNS resolvers to cache the settings for this record.
 	// Experimental.
-	DnsTtl awscdk.Duration `json:"dnsTtl" yaml:"dnsTtl"`
+	DnsTtl awscdk.Duration `field:"optional" json:"dnsTtl" yaml:"dnsTtl"`
 	// Whether or not this service will have an Elastic LoadBalancer registered to it as an AliasTargetInstance.
 	//
 	// Setting this to `true` correctly configures the `routingPolicy`
 	// and performs some additional validation.
 	// Experimental.
-	LoadBalancer *bool `json:"loadBalancer" yaml:"loadBalancer"`
+	LoadBalancer *bool `field:"optional" json:"loadBalancer" yaml:"loadBalancer"`
 	// The routing policy that you want to apply to all DNS records that AWS Cloud Map creates when you register an instance and specify this service.
 	// Experimental.
-	RoutingPolicy RoutingPolicy `json:"routingPolicy" yaml:"routingPolicy"`
+	RoutingPolicy RoutingPolicy `field:"optional" json:"routingPolicy" yaml:"routingPolicy"`
 }
 
 // Settings for an optional Amazon Route 53 health check.
@@ -5478,7 +5560,8 @@ type DnsServiceProps struct {
 // associates the health check with all the records that you specify in DnsConfig. Only valid with a PublicDnsNamespace.
 //
 // Example:
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import servicediscovery "github.com/aws/aws-cdk-go/awscdk"
 //
 //   app := cdk.NewApp()
 //   stack := cdk.NewStack(app, jsii.String("aws-servicediscovery-integ"))
@@ -5515,23 +5598,26 @@ type DnsServiceProps struct {
 type HealthCheckConfig struct {
 	// The number of consecutive health checks that an endpoint must pass or fail for Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa.
 	// Experimental.
-	FailureThreshold *float64 `json:"failureThreshold" yaml:"failureThreshold"`
+	FailureThreshold *float64 `field:"optional" json:"failureThreshold" yaml:"failureThreshold"`
 	// The path that you want Route 53 to request when performing health checks.
 	//
 	// Do not use when health check type is TCP.
 	// Experimental.
-	ResourcePath *string `json:"resourcePath" yaml:"resourcePath"`
+	ResourcePath *string `field:"optional" json:"resourcePath" yaml:"resourcePath"`
 	// The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy.
 	//
 	// Cannot be modified once created. Supported values are HTTP, HTTPS, and TCP.
 	// Experimental.
-	Type HealthCheckType `json:"type" yaml:"type"`
+	Type HealthCheckType `field:"optional" json:"type" yaml:"type"`
 }
 
 // Specifies information about an optional custom health check.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk/aws_servicediscovery"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   healthCheckCustomConfig := &healthCheckCustomConfig{
 //   	failureThreshold: jsii.Number(123),
 //   }
@@ -5540,11 +5626,12 @@ type HealthCheckConfig struct {
 type HealthCheckCustomConfig struct {
 	// The number of 30-second intervals that you want Cloud Map to wait after receiving an UpdateInstanceCustomHealthStatus request before it changes the health status of a service instance.
 	// Experimental.
-	FailureThreshold *float64 `json:"failureThreshold" yaml:"failureThreshold"`
+	FailureThreshold *float64 `field:"optional" json:"failureThreshold" yaml:"failureThreshold"`
 }
 
 // Example:
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import servicediscovery "github.com/aws/aws-cdk-go/awscdk"
 //
 //   app := cdk.NewApp()
 //   stack := cdk.NewStack(app, jsii.String("aws-servicediscovery-integ"))
@@ -5604,7 +5691,8 @@ const (
 // Define an HTTP Namespace.
 //
 // Example:
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import servicediscovery "github.com/aws/aws-cdk-go/awscdk"
 //
 //   app := cdk.NewApp()
 //   stack := cdk.NewStack(app, jsii.String("aws-servicediscovery-integ"))
@@ -6093,7 +6181,10 @@ func (h *jsiiProxy_HttpNamespace) Validate() *[]*string {
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk/aws_servicediscovery"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   httpNamespaceAttributes := &httpNamespaceAttributes{
 //   	namespaceArn: jsii.String("namespaceArn"),
 //   	namespaceId: jsii.String("namespaceId"),
@@ -6104,17 +6195,18 @@ func (h *jsiiProxy_HttpNamespace) Validate() *[]*string {
 type HttpNamespaceAttributes struct {
 	// Namespace ARN for the Namespace.
 	// Experimental.
-	NamespaceArn *string `json:"namespaceArn" yaml:"namespaceArn"`
+	NamespaceArn *string `field:"required" json:"namespaceArn" yaml:"namespaceArn"`
 	// Namespace Id for the Namespace.
 	// Experimental.
-	NamespaceId *string `json:"namespaceId" yaml:"namespaceId"`
+	NamespaceId *string `field:"required" json:"namespaceId" yaml:"namespaceId"`
 	// A name for the Namespace.
 	// Experimental.
-	NamespaceName *string `json:"namespaceName" yaml:"namespaceName"`
+	NamespaceName *string `field:"required" json:"namespaceName" yaml:"namespaceName"`
 }
 
 // Example:
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import servicediscovery "github.com/aws/aws-cdk-go/awscdk"
 //
 //   app := cdk.NewApp()
 //   stack := cdk.NewStack(app, jsii.String("aws-servicediscovery-integ"))
@@ -6151,10 +6243,10 @@ type HttpNamespaceAttributes struct {
 type HttpNamespaceProps struct {
 	// A name for the Namespace.
 	// Experimental.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// A description of the Namespace.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 
 // Experimental.
@@ -6738,10 +6830,13 @@ func (i *jsiiProxy_InstanceBase) Validate() *[]*string {
 // Instance that is accessible using an IP address.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk/aws_servicediscovery"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var service service
-//   ipInstance := servicediscovery.NewIpInstance(this, jsii.String("MyIpInstance"), &ipInstanceProps{
+//
+//   ipInstance := awscdk.Aws_servicediscovery.NewIpInstance(this, jsii.String("MyIpInstance"), &ipInstanceProps{
 //   	service: service,
 //
 //   	// the properties below are optional
@@ -7169,7 +7264,8 @@ func (i *jsiiProxy_IpInstance) Validate() *[]*string {
 }
 
 // Example:
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import servicediscovery "github.com/aws/aws-cdk-go/awscdk"
 //
 //   app := cdk.NewApp()
 //   stack := cdk.NewStack(app, jsii.String("aws-servicediscovery-integ"))
@@ -7206,29 +7302,32 @@ func (i *jsiiProxy_IpInstance) Validate() *[]*string {
 type IpInstanceBaseProps struct {
 	// Custom attributes of the instance.
 	// Experimental.
-	CustomAttributes *map[string]*string `json:"customAttributes" yaml:"customAttributes"`
+	CustomAttributes *map[string]*string `field:"optional" json:"customAttributes" yaml:"customAttributes"`
 	// The id of the instance resource.
 	// Experimental.
-	InstanceId *string `json:"instanceId" yaml:"instanceId"`
+	InstanceId *string `field:"optional" json:"instanceId" yaml:"instanceId"`
 	// If the service that you specify contains a template for an A record, the IPv4 address that you want AWS Cloud Map to use for the value of the A record.
 	// Experimental.
-	Ipv4 *string `json:"ipv4" yaml:"ipv4"`
+	Ipv4 *string `field:"optional" json:"ipv4" yaml:"ipv4"`
 	// If the service that you specify contains a template for an AAAA record, the IPv6 address that you want AWS Cloud Map to use for the value of the AAAA record.
 	// Experimental.
-	Ipv6 *string `json:"ipv6" yaml:"ipv6"`
+	Ipv6 *string `field:"optional" json:"ipv6" yaml:"ipv6"`
 	// The port on the endpoint that you want AWS Cloud Map to perform health checks on.
 	//
 	// This value is also used for
 	// the port value in an SRV record if the service that you specify includes an SRV record. You can also specify a
 	// default port that is applied to all instances in the Service configuration.
 	// Experimental.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"optional" json:"port" yaml:"port"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk/aws_servicediscovery"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var service service
+//
 //   ipInstanceProps := &ipInstanceProps{
 //   	service: service,
 //
@@ -7246,26 +7345,26 @@ type IpInstanceBaseProps struct {
 type IpInstanceProps struct {
 	// Custom attributes of the instance.
 	// Experimental.
-	CustomAttributes *map[string]*string `json:"customAttributes" yaml:"customAttributes"`
+	CustomAttributes *map[string]*string `field:"optional" json:"customAttributes" yaml:"customAttributes"`
 	// The id of the instance resource.
 	// Experimental.
-	InstanceId *string `json:"instanceId" yaml:"instanceId"`
+	InstanceId *string `field:"optional" json:"instanceId" yaml:"instanceId"`
 	// If the service that you specify contains a template for an A record, the IPv4 address that you want AWS Cloud Map to use for the value of the A record.
 	// Experimental.
-	Ipv4 *string `json:"ipv4" yaml:"ipv4"`
+	Ipv4 *string `field:"optional" json:"ipv4" yaml:"ipv4"`
 	// If the service that you specify contains a template for an AAAA record, the IPv6 address that you want AWS Cloud Map to use for the value of the AAAA record.
 	// Experimental.
-	Ipv6 *string `json:"ipv6" yaml:"ipv6"`
+	Ipv6 *string `field:"optional" json:"ipv6" yaml:"ipv6"`
 	// The port on the endpoint that you want AWS Cloud Map to perform health checks on.
 	//
 	// This value is also used for
 	// the port value in an SRV record if the service that you specify includes an SRV record. You can also specify a
 	// default port that is applied to all instances in the Service configuration.
 	// Experimental.
-	Port *float64 `json:"port" yaml:"port"`
+	Port *float64 `field:"optional" json:"port" yaml:"port"`
 	// The Cloudmap service this resource is registered to.
 	// Experimental.
-	Service IService `json:"service" yaml:"service"`
+	Service IService `field:"required" json:"service" yaml:"service"`
 }
 
 // Experimental.
@@ -7290,10 +7389,13 @@ const (
 // Specify the other values in Custom attributes.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk/aws_servicediscovery"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var service service
-//   nonIpInstance := servicediscovery.NewNonIpInstance(this, jsii.String("MyNonIpInstance"), &nonIpInstanceProps{
+//
+//   nonIpInstance := awscdk.Aws_servicediscovery.NewNonIpInstance(this, jsii.String("MyNonIpInstance"), &nonIpInstanceProps{
 //   	service: service,
 //
 //   	// the properties below are optional
@@ -7679,7 +7781,8 @@ func (n *jsiiProxy_NonIpInstance) Validate() *[]*string {
 }
 
 // Example:
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import servicediscovery "github.com/aws/aws-cdk-go/awscdk"
 //
 //   app := cdk.NewApp()
 //   stack := cdk.NewStack(app, jsii.String("aws-servicediscovery-integ"))
@@ -7716,16 +7819,19 @@ func (n *jsiiProxy_NonIpInstance) Validate() *[]*string {
 type NonIpInstanceBaseProps struct {
 	// Custom attributes of the instance.
 	// Experimental.
-	CustomAttributes *map[string]*string `json:"customAttributes" yaml:"customAttributes"`
+	CustomAttributes *map[string]*string `field:"optional" json:"customAttributes" yaml:"customAttributes"`
 	// The id of the instance resource.
 	// Experimental.
-	InstanceId *string `json:"instanceId" yaml:"instanceId"`
+	InstanceId *string `field:"optional" json:"instanceId" yaml:"instanceId"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk/aws_servicediscovery"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var service service
+//
 //   nonIpInstanceProps := &nonIpInstanceProps{
 //   	service: service,
 //
@@ -7740,19 +7846,20 @@ type NonIpInstanceBaseProps struct {
 type NonIpInstanceProps struct {
 	// Custom attributes of the instance.
 	// Experimental.
-	CustomAttributes *map[string]*string `json:"customAttributes" yaml:"customAttributes"`
+	CustomAttributes *map[string]*string `field:"optional" json:"customAttributes" yaml:"customAttributes"`
 	// The id of the instance resource.
 	// Experimental.
-	InstanceId *string `json:"instanceId" yaml:"instanceId"`
+	InstanceId *string `field:"optional" json:"instanceId" yaml:"instanceId"`
 	// The Cloudmap service this resource is registered to.
 	// Experimental.
-	Service IService `json:"service" yaml:"service"`
+	Service IService `field:"required" json:"service" yaml:"service"`
 }
 
 // Define a Service Discovery HTTP Namespace.
 //
 // Example:
-//   var mesh mesh// Cloud Map service discovery is currently required for host ejection by outlier detection
+//   var mesh mesh
+//   // Cloud Map service discovery is currently required for host ejection by outlier detection
 //   vpc := ec2.NewVpc(this, jsii.String("vpc"))
 //   namespace := cloudmap.NewPrivateDnsNamespace(this, jsii.String("test-namespace"), &privateDnsNamespaceProps{
 //   	vpc: vpc,
@@ -8229,7 +8336,10 @@ func (p *jsiiProxy_PrivateDnsNamespace) Validate() *[]*string {
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk/aws_servicediscovery"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   privateDnsNamespaceAttributes := &privateDnsNamespaceAttributes{
 //   	namespaceArn: jsii.String("namespaceArn"),
 //   	namespaceId: jsii.String("namespaceId"),
@@ -8240,17 +8350,18 @@ func (p *jsiiProxy_PrivateDnsNamespace) Validate() *[]*string {
 type PrivateDnsNamespaceAttributes struct {
 	// Namespace ARN for the Namespace.
 	// Experimental.
-	NamespaceArn *string `json:"namespaceArn" yaml:"namespaceArn"`
+	NamespaceArn *string `field:"required" json:"namespaceArn" yaml:"namespaceArn"`
 	// Namespace Id for the Namespace.
 	// Experimental.
-	NamespaceId *string `json:"namespaceId" yaml:"namespaceId"`
+	NamespaceId *string `field:"required" json:"namespaceId" yaml:"namespaceId"`
 	// A name for the Namespace.
 	// Experimental.
-	NamespaceName *string `json:"namespaceName" yaml:"namespaceName"`
+	NamespaceName *string `field:"required" json:"namespaceName" yaml:"namespaceName"`
 }
 
 // Example:
-//   var mesh mesh// Cloud Map service discovery is currently required for host ejection by outlier detection
+//   var mesh mesh
+//   // Cloud Map service discovery is currently required for host ejection by outlier detection
 //   vpc := ec2.NewVpc(this, jsii.String("vpc"))
 //   namespace := cloudmap.NewPrivateDnsNamespace(this, jsii.String("test-namespace"), &privateDnsNamespaceProps{
 //   	vpc: vpc,
@@ -8275,19 +8386,20 @@ type PrivateDnsNamespaceAttributes struct {
 type PrivateDnsNamespaceProps struct {
 	// A name for the Namespace.
 	// Experimental.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// A description of the Namespace.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The Amazon VPC that you want to associate the namespace with.
 	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
+	Vpc awsec2.IVpc `field:"required" json:"vpc" yaml:"vpc"`
 }
 
 // Define a Public DNS Namespace.
 //
 // Example:
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import servicediscovery "github.com/aws/aws-cdk-go/awscdk"
 //
 //   app := cdk.NewApp()
 //   stack := cdk.NewStack(app, jsii.String("aws-servicediscovery-integ"))
@@ -8770,7 +8882,10 @@ func (p *jsiiProxy_PublicDnsNamespace) Validate() *[]*string {
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk/aws_servicediscovery"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   publicDnsNamespaceAttributes := &publicDnsNamespaceAttributes{
 //   	namespaceArn: jsii.String("namespaceArn"),
 //   	namespaceId: jsii.String("namespaceId"),
@@ -8781,17 +8896,18 @@ func (p *jsiiProxy_PublicDnsNamespace) Validate() *[]*string {
 type PublicDnsNamespaceAttributes struct {
 	// Namespace ARN for the Namespace.
 	// Experimental.
-	NamespaceArn *string `json:"namespaceArn" yaml:"namespaceArn"`
+	NamespaceArn *string `field:"required" json:"namespaceArn" yaml:"namespaceArn"`
 	// Namespace Id for the Namespace.
 	// Experimental.
-	NamespaceId *string `json:"namespaceId" yaml:"namespaceId"`
+	NamespaceId *string `field:"required" json:"namespaceId" yaml:"namespaceId"`
 	// A name for the Namespace.
 	// Experimental.
-	NamespaceName *string `json:"namespaceName" yaml:"namespaceName"`
+	NamespaceName *string `field:"required" json:"namespaceName" yaml:"namespaceName"`
 }
 
 // Example:
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import servicediscovery "github.com/aws/aws-cdk-go/awscdk"
 //
 //   app := cdk.NewApp()
 //   stack := cdk.NewStack(app, jsii.String("aws-servicediscovery-integ"))
@@ -8822,10 +8938,10 @@ type PublicDnsNamespaceAttributes struct {
 type PublicDnsNamespaceProps struct {
 	// A name for the Namespace.
 	// Experimental.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// A description of the Namespace.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 
 // Experimental.
@@ -8843,7 +8959,8 @@ const (
 // Define a CloudMap Service.
 //
 // Example:
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import servicediscovery "github.com/aws/aws-cdk-go/awscdk"
 //
 //   app := cdk.NewApp()
 //   stack := cdk.NewStack(app, jsii.String("aws-servicediscovery-integ"))
@@ -9364,13 +9481,16 @@ func (s *jsiiProxy_Service) Validate() *[]*string {
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk/aws_servicediscovery"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var namespace iNamespace
+//
 //   serviceAttributes := &serviceAttributes{
-//   	dnsRecordType: servicediscovery.dnsRecordType_A,
+//   	dnsRecordType: awscdk.Aws_servicediscovery.dnsRecordType_A,
 //   	namespace: namespace,
-//   	routingPolicy: servicediscovery.routingPolicy_WEIGHTED,
+//   	routingPolicy: awscdk.*Aws_servicediscovery.routingPolicy_WEIGHTED,
 //   	serviceArn: jsii.String("serviceArn"),
 //   	serviceId: jsii.String("serviceId"),
 //   	serviceName: jsii.String("serviceName"),
@@ -9379,24 +9499,28 @@ func (s *jsiiProxy_Service) Validate() *[]*string {
 // Experimental.
 type ServiceAttributes struct {
 	// Experimental.
-	DnsRecordType DnsRecordType `json:"dnsRecordType" yaml:"dnsRecordType"`
+	DnsRecordType DnsRecordType `field:"required" json:"dnsRecordType" yaml:"dnsRecordType"`
 	// Experimental.
-	Namespace INamespace `json:"namespace" yaml:"namespace"`
+	Namespace INamespace `field:"required" json:"namespace" yaml:"namespace"`
 	// Experimental.
-	RoutingPolicy RoutingPolicy `json:"routingPolicy" yaml:"routingPolicy"`
+	RoutingPolicy RoutingPolicy `field:"required" json:"routingPolicy" yaml:"routingPolicy"`
 	// Experimental.
-	ServiceArn *string `json:"serviceArn" yaml:"serviceArn"`
+	ServiceArn *string `field:"required" json:"serviceArn" yaml:"serviceArn"`
 	// Experimental.
-	ServiceId *string `json:"serviceId" yaml:"serviceId"`
+	ServiceId *string `field:"required" json:"serviceId" yaml:"serviceId"`
 	// Experimental.
-	ServiceName *string `json:"serviceName" yaml:"serviceName"`
+	ServiceName *string `field:"required" json:"serviceName" yaml:"serviceName"`
 }
 
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import servicediscovery "github.com/aws/aws-cdk-go/awscdk/aws_servicediscovery"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var namespace iNamespace
+//
 //   serviceProps := &serviceProps{
 //   	namespace: namespace,
 //
@@ -9405,16 +9529,16 @@ type ServiceAttributes struct {
 //   		failureThreshold: jsii.Number(123),
 //   	},
 //   	description: jsii.String("description"),
-//   	dnsRecordType: servicediscovery.dnsRecordType_A,
+//   	dnsRecordType: awscdk.Aws_servicediscovery.dnsRecordType_A,
 //   	dnsTtl: duration,
 //   	healthCheck: &healthCheckConfig{
 //   		failureThreshold: jsii.Number(123),
 //   		resourcePath: jsii.String("resourcePath"),
-//   		type: servicediscovery.healthCheckType_HTTP,
+//   		type: awscdk.*Aws_servicediscovery.healthCheckType_HTTP,
 //   	},
 //   	loadBalancer: jsii.Boolean(false),
 //   	name: jsii.String("name"),
-//   	routingPolicy: servicediscovery.routingPolicy_WEIGHTED,
+//   	routingPolicy: awscdk.*Aws_servicediscovery.routingPolicy_WEIGHTED,
 //   }
 //
 // Experimental.
@@ -9424,10 +9548,10 @@ type ServiceProps struct {
 	// Only one of healthCheckConfig or healthCheckCustomConfig can be specified.
 	// See: https://docs.aws.amazon.com/cloud-map/latest/api/API_HealthCheckCustomConfig.html
 	// Experimental.
-	CustomHealthCheck *HealthCheckCustomConfig `json:"customHealthCheck" yaml:"customHealthCheck"`
+	CustomHealthCheck *HealthCheckCustomConfig `field:"optional" json:"customHealthCheck" yaml:"customHealthCheck"`
 	// A description of the service.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Settings for an optional health check.
 	//
 	// If you specify health check settings, AWS Cloud Map associates the health
@@ -9435,30 +9559,30 @@ type ServiceProps struct {
 	// be specified. Not valid for PrivateDnsNamespaces. If you use healthCheck, you can only register IP instances to
 	// this service.
 	// Experimental.
-	HealthCheck *HealthCheckConfig `json:"healthCheck" yaml:"healthCheck"`
+	HealthCheck *HealthCheckConfig `field:"optional" json:"healthCheck" yaml:"healthCheck"`
 	// A name for the Service.
 	// Experimental.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The DNS type of the record that you want AWS Cloud Map to create.
 	//
 	// Supported record types
 	// include A, AAAA, A and AAAA (A_AAAA), CNAME, and SRV.
 	// Experimental.
-	DnsRecordType DnsRecordType `json:"dnsRecordType" yaml:"dnsRecordType"`
+	DnsRecordType DnsRecordType `field:"optional" json:"dnsRecordType" yaml:"dnsRecordType"`
 	// The amount of time, in seconds, that you want DNS resolvers to cache the settings for this record.
 	// Experimental.
-	DnsTtl awscdk.Duration `json:"dnsTtl" yaml:"dnsTtl"`
+	DnsTtl awscdk.Duration `field:"optional" json:"dnsTtl" yaml:"dnsTtl"`
 	// Whether or not this service will have an Elastic LoadBalancer registered to it as an AliasTargetInstance.
 	//
 	// Setting this to `true` correctly configures the `routingPolicy`
 	// and performs some additional validation.
 	// Experimental.
-	LoadBalancer *bool `json:"loadBalancer" yaml:"loadBalancer"`
+	LoadBalancer *bool `field:"optional" json:"loadBalancer" yaml:"loadBalancer"`
 	// The routing policy that you want to apply to all DNS records that AWS Cloud Map creates when you register an instance and specify this service.
 	// Experimental.
-	RoutingPolicy RoutingPolicy `json:"routingPolicy" yaml:"routingPolicy"`
+	RoutingPolicy RoutingPolicy `field:"optional" json:"routingPolicy" yaml:"routingPolicy"`
 	// The namespace that you want to use for DNS configuration.
 	// Experimental.
-	Namespace INamespace `json:"namespace" yaml:"namespace"`
+	Namespace INamespace `field:"required" json:"namespace" yaml:"namespace"`
 }
 

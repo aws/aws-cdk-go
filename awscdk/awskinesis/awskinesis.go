@@ -17,8 +17,11 @@ import (
 // Creates a Kinesis stream that captures and transports data records that are emitted from data sources. For information about creating streams, see [CreateStream](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_CreateStream.html) in the Amazon Kinesis API Reference.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesis "github.com/aws/aws-cdk-go/awscdk/aws_kinesis"
-//   cfnStream := kinesis.NewCfnStream(this, jsii.String("MyCfnStream"), &cfnStreamProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnStream := awscdk.Aws_kinesis.NewCfnStream(this, jsii.String("MyCfnStream"), &cfnStreamProps{
 //   	name: jsii.String("name"),
 //   	retentionPeriodHours: jsii.Number(123),
 //   	shardCount: jsii.Number(123),
@@ -794,7 +797,10 @@ func (c *jsiiProxy_CfnStream) ValidateProperties(_properties interface{}) {
 // Note: It can take up to 5 seconds after the stream is in an `ACTIVE` status before all records written to the stream are encrypted. After you enable encryption, you can verify that encryption is applied by inspecting the API response from `PutRecord` or `PutRecords` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesis "github.com/aws/aws-cdk-go/awscdk/aws_kinesis"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   streamEncryptionProperty := &streamEncryptionProperty{
 //   	encryptionType: jsii.String("encryptionType"),
 //   	keyId: jsii.String("keyId"),
@@ -804,7 +810,7 @@ type CfnStream_StreamEncryptionProperty struct {
 	// The encryption type to use.
 	//
 	// The only valid value is `KMS` .
-	EncryptionType *string `json:"encryptionType" yaml:"encryptionType"`
+	EncryptionType *string `field:"required" json:"encryptionType" yaml:"encryptionType"`
 	// The GUID for the customer-managed AWS KMS key to use for encryption.
 	//
 	// This value can be a globally unique identifier, a fully specified Amazon Resource Name (ARN) to either an alias or a key, or an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis` .
@@ -814,7 +820,7 @@ type CfnStream_StreamEncryptionProperty struct {
 	// - Globally unique key ID example: `12345678-1234-1234-1234-123456789012`
 	// - Alias name example: `alias/MyAliasName`
 	// - Master key owned by Kinesis Data Streams: `alias/aws/kinesis`.
-	KeyId *string `json:"keyId" yaml:"keyId"`
+	KeyId *string `field:"required" json:"keyId" yaml:"keyId"`
 }
 
 // Specifies the capacity mode to which you want to set your data stream.
@@ -822,7 +828,10 @@ type CfnStream_StreamEncryptionProperty struct {
 // Currently, in Kinesis Data Streams, you can choose between an *on-demand* capacity mode and a *provisioned* capacity mode for your data streams.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesis "github.com/aws/aws-cdk-go/awscdk/aws_kinesis"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   streamModeDetailsProperty := &streamModeDetailsProperty{
 //   	streamMode: jsii.String("streamMode"),
 //   }
@@ -831,7 +840,7 @@ type CfnStream_StreamModeDetailsProperty struct {
 	// Specifies the capacity mode to which you want to set your data stream.
 	//
 	// Currently, in Kinesis Data Streams, you can choose between an *on-demand* capacity mode and a *provisioned* capacity mode for your data streams.
-	StreamMode *string `json:"streamMode" yaml:"streamMode"`
+	StreamMode *string `field:"required" json:"streamMode" yaml:"streamMode"`
 }
 
 // A CloudFormation `AWS::Kinesis::StreamConsumer`.
@@ -843,8 +852,11 @@ type CfnStream_StreamModeDetailsProperty struct {
 // For more information, see [Using Consumers with Enhanced Fan-Out](https://docs.aws.amazon.com/streams/latest/dev/introduction-to-enhanced-consumers.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesis "github.com/aws/aws-cdk-go/awscdk/aws_kinesis"
-//   cfnStreamConsumer := kinesis.NewCfnStreamConsumer(this, jsii.String("MyCfnStreamConsumer"), &cfnStreamConsumerProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnStreamConsumer := awscdk.Aws_kinesis.NewCfnStreamConsumer(this, jsii.String("MyCfnStreamConsumer"), &cfnStreamConsumerProps{
 //   	consumerName: jsii.String("consumerName"),
 //   	streamArn: jsii.String("streamArn"),
 //   })
@@ -1563,7 +1575,10 @@ func (c *jsiiProxy_CfnStreamConsumer) ValidateProperties(_properties interface{}
 // Properties for defining a `CfnStreamConsumer`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesis "github.com/aws/aws-cdk-go/awscdk/aws_kinesis"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnStreamConsumerProps := &cfnStreamConsumerProps{
 //   	consumerName: jsii.String("consumerName"),
 //   	streamArn: jsii.String("streamArn"),
@@ -1571,15 +1586,18 @@ func (c *jsiiProxy_CfnStreamConsumer) ValidateProperties(_properties interface{}
 //
 type CfnStreamConsumerProps struct {
 	// The name of the consumer is something you choose when you register the consumer.
-	ConsumerName *string `json:"consumerName" yaml:"consumerName"`
+	ConsumerName *string `field:"required" json:"consumerName" yaml:"consumerName"`
 	// The ARN of the stream with which you registered the consumer.
-	StreamArn *string `json:"streamArn" yaml:"streamArn"`
+	StreamArn *string `field:"required" json:"streamArn" yaml:"streamArn"`
 }
 
 // Properties for defining a `CfnStream`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import kinesis "github.com/aws/aws-cdk-go/awscdk/aws_kinesis"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnStreamProps := &cfnStreamProps{
 //   	name: jsii.String("name"),
 //   	retentionPeriodHours: jsii.Number(123),
@@ -1605,27 +1623,27 @@ type CfnStreamProps struct {
 	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the stream name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
 	//
 	// If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The number of hours for the data records that are stored in shards to remain accessible.
 	//
 	// The default value is 24. For more information about the stream retention period, see [Changing the Data Retention Period](https://docs.aws.amazon.com/streams/latest/dev/kinesis-extended-retention.html) in the Amazon Kinesis Developer Guide.
-	RetentionPeriodHours *float64 `json:"retentionPeriodHours" yaml:"retentionPeriodHours"`
+	RetentionPeriodHours *float64 `field:"optional" json:"retentionPeriodHours" yaml:"retentionPeriodHours"`
 	// The number of shards that the stream uses.
 	//
 	// For greater provisioned throughput, increase the number of shards.
-	ShardCount *float64 `json:"shardCount" yaml:"shardCount"`
+	ShardCount *float64 `field:"optional" json:"shardCount" yaml:"shardCount"`
 	// When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
 	//
 	// Removing this property from your stack template and updating your stack disables encryption.
-	StreamEncryption interface{} `json:"streamEncryption" yaml:"streamEncryption"`
+	StreamEncryption interface{} `field:"optional" json:"streamEncryption" yaml:"streamEncryption"`
 	// Specifies the capacity mode to which you want to set your data stream.
 	//
 	// Currently, in Kinesis Data Streams, you can choose between an *on-demand* capacity mode and a *provisioned* capacity mode for your data streams.
-	StreamModeDetails interface{} `json:"streamModeDetails" yaml:"streamModeDetails"`
+	StreamModeDetails interface{} `field:"optional" json:"streamModeDetails" yaml:"streamModeDetails"`
 	// An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
 	//
 	// For information about constraints for this property, see [Tag Restrictions](https://docs.aws.amazon.com/streams/latest/dev/tagging.html#tagging-restrictions) in the *Amazon Kinesis Developer Guide* .
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A Kinesis Stream.
@@ -3073,10 +3091,10 @@ func (s *jsiiProxy_Stream) Validate() *[]*string {
 type StreamAttributes struct {
 	// The ARN of the stream.
 	// Experimental.
-	StreamArn *string `json:"streamArn" yaml:"streamArn"`
+	StreamArn *string `field:"required" json:"streamArn" yaml:"streamArn"`
 	// The KMS key securing the contents of the stream if encryption is enabled.
 	// Experimental.
-	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
+	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 }
 
 // What kind of server-side encryption to apply to this stream.
@@ -3142,25 +3160,25 @@ type StreamProps struct {
 	// If you choose KMS, you can specify a KMS key via `encryptionKey`. If
 	// encryption key is not specified, a key will automatically be created.
 	// Experimental.
-	Encryption StreamEncryption `json:"encryption" yaml:"encryption"`
+	Encryption StreamEncryption `field:"optional" json:"encryption" yaml:"encryption"`
 	// External KMS key to use for stream encryption.
 	//
 	// The 'encryption' property must be set to "Kms".
 	// Experimental.
-	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
+	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// The number of hours for the data records that are stored in shards to remain accessible.
 	// Experimental.
-	RetentionPeriod awscdk.Duration `json:"retentionPeriod" yaml:"retentionPeriod"`
+	RetentionPeriod awscdk.Duration `field:"optional" json:"retentionPeriod" yaml:"retentionPeriod"`
 	// The number of shards for the stream.
 	//
 	// Can only be provided if streamMode is Provisioned.
 	// Experimental.
-	ShardCount *float64 `json:"shardCount" yaml:"shardCount"`
+	ShardCount *float64 `field:"optional" json:"shardCount" yaml:"shardCount"`
 	// The capacity mode of this stream.
 	// Experimental.
-	StreamMode StreamMode `json:"streamMode" yaml:"streamMode"`
+	StreamMode StreamMode `field:"optional" json:"streamMode" yaml:"streamMode"`
 	// Enforces a particular physical stream name.
 	// Experimental.
-	StreamName *string `json:"streamName" yaml:"streamName"`
+	StreamName *string `field:"optional" json:"streamName" yaml:"streamName"`
 }
 

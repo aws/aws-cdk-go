@@ -26,6 +26,7 @@ import (
 // Example:
 //   var bucket bucket
 //
+//
 //   project := codebuild.NewProject(this, jsii.String("MyProject"), &projectProps{
 //   	buildSpec: codebuild.buildSpec.fromObject(map[string]interface{}{
 //   		"version": jsii.String("0.2"),
@@ -124,7 +125,10 @@ func (a *jsiiProxy_Artifacts) Bind(_scope awscdk.Construct, _project IProject) *
 // The type returned from {@link IArtifacts#bind}.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   artifactsConfig := &artifactsConfig{
 //   	artifactsProperty: &artifactsProperty{
 //   		type: jsii.String("type"),
@@ -145,13 +149,16 @@ func (a *jsiiProxy_Artifacts) Bind(_scope awscdk.Construct, _project IProject) *
 type ArtifactsConfig struct {
 	// The low-level CloudFormation artifacts property.
 	// Experimental.
-	ArtifactsProperty *CfnProject_ArtifactsProperty `json:"artifactsProperty" yaml:"artifactsProperty"`
+	ArtifactsProperty *CfnProject_ArtifactsProperty `field:"required" json:"artifactsProperty" yaml:"artifactsProperty"`
 }
 
 // Properties common to all Artifacts classes.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   artifactsProps := &artifactsProps{
 //   	identifier: jsii.String("identifier"),
 //   }
@@ -162,15 +169,19 @@ type ArtifactsProps struct {
 	//
 	// This property is required on secondary artifacts.
 	// Experimental.
-	Identifier *string `json:"identifier" yaml:"identifier"`
+	Identifier *string `field:"optional" json:"identifier" yaml:"identifier"`
 }
 
 // The type returned from {@link IProject#enableBatchBuilds}.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var role role
+//
 //   batchBuildConfig := &batchBuildConfig{
 //   	role: role,
 //   }
@@ -179,15 +190,19 @@ type ArtifactsProps struct {
 type BatchBuildConfig struct {
 	// The IAM batch service Role of this Project.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"required" json:"role" yaml:"role"`
 }
 
 // The extra options passed to the {@link IProject.bindToCodePipeline} method.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3 "github.com/aws/aws-cdk-go/awscdk/aws_s3"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var bucket bucket
+//
 //   bindToCodePipelineOptions := &bindToCodePipelineOptions{
 //   	artifactBucket: bucket,
 //   }
@@ -196,7 +211,7 @@ type BatchBuildConfig struct {
 type BindToCodePipelineOptions struct {
 	// The artifact bucket that will be used by the action that invokes this project.
 	// Experimental.
-	ArtifactBucket awss3.IBucket `json:"artifactBucket" yaml:"artifactBucket"`
+	ArtifactBucket awss3.IBucket `field:"required" json:"artifactBucket" yaml:"artifactBucket"`
 }
 
 // The source credentials used when contacting the BitBucket API.
@@ -207,10 +222,10 @@ type BindToCodePipelineOptions struct {
 //
 // Example:
 //   codebuild.NewBitBucketSourceCredentials(this, jsii.String("CodeBuildBitBucketCreds"), &bitBucketSourceCredentialsProps{
-//   	username: secretValue.secretsManager(jsii.String("my-bitbucket-creds"), &secretsManagerSecretOptions{
+//   	username: awscdk.SecretValue.secretsManager(jsii.String("my-bitbucket-creds"), &secretsManagerSecretOptions{
 //   		jsonField: jsii.String("username"),
 //   	}),
-//   	password: *secretValue.secretsManager(jsii.String("my-bitbucket-creds"), &secretsManagerSecretOptions{
+//   	password: awscdk.SecretValue.secretsManager(jsii.String("my-bitbucket-creds"), &secretsManagerSecretOptions{
 //   		jsonField: jsii.String("password"),
 //   	}),
 //   })
@@ -552,10 +567,10 @@ func (b *jsiiProxy_BitBucketSourceCredentials) Validate() *[]*string {
 //
 // Example:
 //   codebuild.NewBitBucketSourceCredentials(this, jsii.String("CodeBuildBitBucketCreds"), &bitBucketSourceCredentialsProps{
-//   	username: secretValue.secretsManager(jsii.String("my-bitbucket-creds"), &secretsManagerSecretOptions{
+//   	username: awscdk.SecretValue.secretsManager(jsii.String("my-bitbucket-creds"), &secretsManagerSecretOptions{
 //   		jsonField: jsii.String("username"),
 //   	}),
-//   	password: *secretValue.secretsManager(jsii.String("my-bitbucket-creds"), &secretsManagerSecretOptions{
+//   	password: awscdk.SecretValue.secretsManager(jsii.String("my-bitbucket-creds"), &secretsManagerSecretOptions{
 //   		jsonField: jsii.String("password"),
 //   	}),
 //   })
@@ -564,10 +579,10 @@ func (b *jsiiProxy_BitBucketSourceCredentials) Validate() *[]*string {
 type BitBucketSourceCredentialsProps struct {
 	// Your BitBucket application password.
 	// Experimental.
-	Password awscdk.SecretValue `json:"password" yaml:"password"`
+	Password awscdk.SecretValue `field:"required" json:"password" yaml:"password"`
 	// Your BitBucket username.
 	// Experimental.
-	Username awscdk.SecretValue `json:"username" yaml:"username"`
+	Username awscdk.SecretValue `field:"required" json:"username" yaml:"username"`
 }
 
 // Construction properties for {@link BitBucketSource}.
@@ -584,28 +599,28 @@ type BitBucketSourceProps struct {
 	//
 	// This property is required on secondary sources.
 	// Experimental.
-	Identifier *string `json:"identifier" yaml:"identifier"`
+	Identifier *string `field:"optional" json:"identifier" yaml:"identifier"`
 	// The BitBucket account/user that owns the repo.
 	//
 	// Example:
 	//   "awslabs"
 	//
 	// Experimental.
-	Owner *string `json:"owner" yaml:"owner"`
+	Owner *string `field:"required" json:"owner" yaml:"owner"`
 	// The name of the repo (without the username).
 	//
 	// Example:
 	//   "aws-cdk"
 	//
 	// Experimental.
-	Repo *string `json:"repo" yaml:"repo"`
+	Repo *string `field:"required" json:"repo" yaml:"repo"`
 	// The commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build.
 	//
 	// Example:
 	//   "mybranch"
 	//
 	// Experimental.
-	BranchOrRef *string `json:"branchOrRef" yaml:"branchOrRef"`
+	BranchOrRef *string `field:"optional" json:"branchOrRef" yaml:"branchOrRef"`
 	// This parameter is used for the `name` parameter in the Bitbucket commit status.
 	//
 	// Can use built-in CodeBuild variables, like $AWS_REGION.
@@ -616,7 +631,7 @@ type BitBucketSourceProps struct {
 	// See: https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-env-vars.html
 	//
 	// Experimental.
-	BuildStatusName *string `json:"buildStatusName" yaml:"buildStatusName"`
+	BuildStatusName *string `field:"optional" json:"buildStatusName" yaml:"buildStatusName"`
 	// The URL that the build will report back to the source provider.
 	//
 	// Can use built-in CodeBuild variables, like $AWS_REGION.
@@ -627,38 +642,41 @@ type BitBucketSourceProps struct {
 	// See: https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-env-vars.html
 	//
 	// Experimental.
-	BuildStatusUrl *string `json:"buildStatusUrl" yaml:"buildStatusUrl"`
+	BuildStatusUrl *string `field:"optional" json:"buildStatusUrl" yaml:"buildStatusUrl"`
 	// The depth of history to download.
 	//
 	// Minimum value is 0.
 	// If this value is 0, greater than 25, or not provided,
 	// then the full history is downloaded with each build of the project.
 	// Experimental.
-	CloneDepth *float64 `json:"cloneDepth" yaml:"cloneDepth"`
+	CloneDepth *float64 `field:"optional" json:"cloneDepth" yaml:"cloneDepth"`
 	// Whether to fetch submodules while cloning git repo.
 	// Experimental.
-	FetchSubmodules *bool `json:"fetchSubmodules" yaml:"fetchSubmodules"`
+	FetchSubmodules *bool `field:"optional" json:"fetchSubmodules" yaml:"fetchSubmodules"`
 	// Whether to send notifications on your build's start and end.
 	// Experimental.
-	ReportBuildStatus *bool `json:"reportBuildStatus" yaml:"reportBuildStatus"`
+	ReportBuildStatus *bool `field:"optional" json:"reportBuildStatus" yaml:"reportBuildStatus"`
 	// Whether to create a webhook that will trigger a build every time an event happens in the repository.
 	// Experimental.
-	Webhook *bool `json:"webhook" yaml:"webhook"`
+	Webhook *bool `field:"optional" json:"webhook" yaml:"webhook"`
 	// A list of webhook filters that can constraint what events in the repository will trigger a build.
 	//
 	// A build is triggered if any of the provided filter groups match.
 	// Only valid if `webhook` was not provided as false.
 	// Experimental.
-	WebhookFilters *[]FilterGroup `json:"webhookFilters" yaml:"webhookFilters"`
+	WebhookFilters *[]FilterGroup `field:"optional" json:"webhookFilters" yaml:"webhookFilters"`
 	// Trigger a batch build from a webhook instead of a standard one.
 	//
 	// Enabling this will enable batch builds on the CodeBuild project.
 	// Experimental.
-	WebhookTriggersBatchBuild *bool `json:"webhookTriggersBatchBuild" yaml:"webhookTriggersBatchBuild"`
+	WebhookTriggersBatchBuild *bool `field:"optional" json:"webhookTriggersBatchBuild" yaml:"webhookTriggersBatchBuild"`
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   bucketCacheOptions := &bucketCacheOptions{
 //   	prefix: jsii.String("prefix"),
 //   }
@@ -667,12 +685,13 @@ type BitBucketSourceProps struct {
 type BucketCacheOptions struct {
 	// The prefix to use to store the cache in the bucket.
 	// Experimental.
-	Prefix *string `json:"prefix" yaml:"prefix"`
+	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 }
 
 // Example:
 //   var vpc vpc
 //   var mySecurityGroup securityGroup
+//
 //   pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &codePipelineProps{
 //   	// Standard CodePipeline properties
 //   	synth: pipelines.NewShellStep(jsii.String("Synth"), &shellStepProps{
@@ -726,18 +745,18 @@ type BucketCacheOptions struct {
 type BuildEnvironment struct {
 	// The image used for the builds.
 	// Experimental.
-	BuildImage IBuildImage `json:"buildImage" yaml:"buildImage"`
+	BuildImage IBuildImage `field:"optional" json:"buildImage" yaml:"buildImage"`
 	// The location of the PEM-encoded certificate for the build project.
 	// Experimental.
-	Certificate *BuildEnvironmentCertificate `json:"certificate" yaml:"certificate"`
+	Certificate *BuildEnvironmentCertificate `field:"optional" json:"certificate" yaml:"certificate"`
 	// The type of compute to use for this build.
 	//
 	// See the {@link ComputeType} enum for the possible values.
 	// Experimental.
-	ComputeType ComputeType `json:"computeType" yaml:"computeType"`
+	ComputeType ComputeType `field:"optional" json:"computeType" yaml:"computeType"`
 	// The environment variables that your builds can use.
 	// Experimental.
-	EnvironmentVariables *map[string]*BuildEnvironmentVariable `json:"environmentVariables" yaml:"environmentVariables"`
+	EnvironmentVariables *map[string]*BuildEnvironmentVariable `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`
 	// Indicates how the project builds Docker images.
 	//
 	// Specify true to enable
@@ -747,13 +766,14 @@ type BuildEnvironment struct {
 	// AWS CodeBuild with Docker support. Otherwise, all associated builds that
 	// attempt to interact with the Docker daemon will fail.
 	// Experimental.
-	Privileged *bool `json:"privileged" yaml:"privileged"`
+	Privileged *bool `field:"optional" json:"privileged" yaml:"privileged"`
 }
 
 // Location of a PEM certificate on S3.
 //
 // Example:
 //   var ecrRepository repository
+//
 //
 //   codebuild.NewProject(this, jsii.String("Project"), &projectProps{
 //   	environment: &buildEnvironment{
@@ -770,15 +790,16 @@ type BuildEnvironment struct {
 type BuildEnvironmentCertificate struct {
 	// The bucket where the certificate is.
 	// Experimental.
-	Bucket awss3.IBucket `json:"bucket" yaml:"bucket"`
+	Bucket awss3.IBucket `field:"required" json:"bucket" yaml:"bucket"`
 	// The full path and name of the key file.
 	// Experimental.
-	ObjectKey *string `json:"objectKey" yaml:"objectKey"`
+	ObjectKey *string `field:"required" json:"objectKey" yaml:"objectKey"`
 }
 
 // Example:
 //   // later:
-//   var project pipelineProjectsourceOutput := codepipeline.NewArtifact()
+//   var project pipelineProject
+//   sourceOutput := codepipeline.NewArtifact()
 //   buildAction := codepipeline_actions.NewCodeBuildAction(&codeBuildActionProps{
 //   	actionName: jsii.String("Build1"),
 //   	input: sourceOutput,
@@ -821,14 +842,15 @@ type BuildEnvironmentVariable struct {
 	// along with optional SecretsManager qualifiers separated by ':', like the JSON key, or the version or stage
 	// (see https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.env.secrets-manager for details).
 	// Experimental.
-	Value interface{} `json:"value" yaml:"value"`
+	Value interface{} `field:"required" json:"value" yaml:"value"`
 	// The type of environment variable.
 	// Experimental.
-	Type BuildEnvironmentVariableType `json:"type" yaml:"type"`
+	Type BuildEnvironmentVariableType `field:"optional" json:"type" yaml:"type"`
 }
 
 // Example:
 //   import codebuild "github.com/aws/aws-cdk-go/awscdk"
+//
 //
 //   codebuildProject := codebuild.NewProject(this, jsii.String("Project"), &projectProps{
 //   	projectName: jsii.String("MyTestProject"),
@@ -873,7 +895,10 @@ const (
 // Optional arguments to {@link IBuildImage.binder} - currently empty.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   buildImageBindOptions := &buildImageBindOptions{
 //   }
 //
@@ -884,7 +909,10 @@ type BuildImageBindOptions struct {
 // The return type from {@link IBuildImage.binder} - currently empty.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   buildImageConfig := &buildImageConfig{
 //   }
 //
@@ -896,7 +924,8 @@ type BuildImageConfig struct {
 //
 // Example:
 //   // later:
-//   var project pipelineProjectsourceOutput := codepipeline.NewArtifact()
+//   var project pipelineProject
+//   sourceOutput := codepipeline.NewArtifact()
 //   buildAction := codepipeline_actions.NewCodeBuildAction(&codeBuildActionProps{
 //   	actionName: jsii.String("Build1"),
 //   	input: sourceOutput,
@@ -1037,6 +1066,7 @@ func (b *jsiiProxy_BuildSpec) ToBuildSpec() *string {
 // Example:
 //   var myCachingBucket bucket
 //
+//
 //   codebuild.NewProject(this, jsii.String("Project"), &projectProps{
 //   	source: codebuild.source.bitBucket(&bitBucketSourceProps{
 //   		owner: jsii.String("awslabs"),
@@ -1146,8 +1176,11 @@ func Cache_None() Cache {
 // The `AWS::CodeBuild::Project` resource configures how AWS CodeBuild builds your source code. For example, it tells CodeBuild where to get the source code and which build environment to use.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"
-//   cfnProject := codebuild.NewCfnProject(this, jsii.String("MyCfnProject"), &cfnProjectProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnProject := awscdk.Aws_codebuild.NewCfnProject(this, jsii.String("MyCfnProject"), &cfnProjectProps{
 //   	artifacts: &artifactsProperty{
 //   		type: jsii.String("type"),
 //
@@ -2505,7 +2538,10 @@ func (c *jsiiProxy_CfnProject) ValidateProperties(_properties interface{}) {
 // `Artifacts` is a property of the [AWS::CodeBuild::Project](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html) resource that specifies output settings for artifacts generated by an AWS CodeBuild build.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   artifactsProperty := &artifactsProperty{
 //   	type: jsii.String("type"),
 //
@@ -2528,13 +2564,13 @@ type CfnProject_ArtifactsProperty struct {
 	// > The `CODEPIPELINE` type is not supported for `secondaryArtifacts` .
 	// - `NO_ARTIFACTS` : The build project does not produce any build output.
 	// - `S3` : The build project stores build output in Amazon S3.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// An identifier for this artifact definition.
-	ArtifactIdentifier *string `json:"artifactIdentifier" yaml:"artifactIdentifier"`
+	ArtifactIdentifier *string `field:"optional" json:"artifactIdentifier" yaml:"artifactIdentifier"`
 	// Set to true if you do not want your output artifacts encrypted.
 	//
 	// This option is valid only if your artifacts type is Amazon Simple Storage Service (Amazon S3). If this is set with another artifacts type, an `invalidInputException` is thrown.
-	EncryptionDisabled interface{} `json:"encryptionDisabled" yaml:"encryptionDisabled"`
+	EncryptionDisabled interface{} `field:"optional" json:"encryptionDisabled" yaml:"encryptionDisabled"`
 	// Information about the build output artifact location:.
 	//
 	// - If `type` is set to `CODEPIPELINE` , AWS CodePipeline ignores this value if specified. This is because CodePipeline manages its build output locations instead of CodeBuild .
@@ -2542,7 +2578,7 @@ type CfnProject_ArtifactsProperty struct {
 	// - If `type` is set to `S3` , this is the name of the output bucket.
 	//
 	// If you specify `CODEPIPELINE` or `NO_ARTIFACTS` for the `Type` property, don't specify this property. For all of the other types, you must specify this property.
-	Location *string `json:"location" yaml:"location"`
+	Location *string `field:"optional" json:"location" yaml:"location"`
 	// Along with `path` and `namespaceType` , the pattern that AWS CodeBuild uses to name and store the output artifact:.
 	//
 	// - If `type` is set to `CODEPIPELINE` , AWS CodePipeline ignores this value if specified. This is because CodePipeline manages its build output names instead of AWS CodeBuild .
@@ -2556,7 +2592,7 @@ type CfnProject_ArtifactsProperty struct {
 	// - If `path` is set to `MyArtifacts` , `namespaceType` is set to `BUILD_ID` , and `name` is set to " `/` ", the output artifact is stored in `MyArtifacts/ *build-ID*` .
 	//
 	// If you specify `CODEPIPELINE` or `NO_ARTIFACTS` for the `Type` property, don't specify this property. For all of the other types, you must specify this property.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Along with `path` and `name` , the pattern that AWS CodeBuild uses to determine the name and location to store the output artifact:  - If `type` is set to `CODEPIPELINE` , CodePipeline ignores this value if specified.
 	//
 	// This is because CodePipeline manages its build output names instead of AWS CodeBuild .
@@ -2567,11 +2603,11 @@ type CfnProject_ArtifactsProperty struct {
 	// - `NONE` : Do not include the build ID. This is the default if `namespaceType` is not specified.
 	//
 	// For example, if `path` is set to `MyArtifacts` , `namespaceType` is set to `BUILD_ID` , and `name` is set to `MyArtifact.zip` , the output artifact is stored in `MyArtifacts/<build-ID>/MyArtifact.zip` .
-	NamespaceType *string `json:"namespaceType" yaml:"namespaceType"`
+	NamespaceType *string `field:"optional" json:"namespaceType" yaml:"namespaceType"`
 	// If set to true a name specified in the buildspec file overrides the artifact name.
 	//
 	// The name specified in a buildspec file is calculated at build time and uses the Shell command language. For example, you can append a date and time to your artifact name so that it is always unique.
-	OverrideArtifactName interface{} `json:"overrideArtifactName" yaml:"overrideArtifactName"`
+	OverrideArtifactName interface{} `field:"optional" json:"overrideArtifactName" yaml:"overrideArtifactName"`
 	// The type of build output artifact to create:.
 	//
 	// - If `type` is set to `CODEPIPELINE` , CodePipeline ignores this value if specified. This is because CodePipeline manages its build output artifacts instead of AWS CodeBuild .
@@ -2580,7 +2616,7 @@ type CfnProject_ArtifactsProperty struct {
 	//
 	// - `NONE` : AWS CodeBuild creates in the output bucket a folder that contains the build output. This is the default if `packaging` is not specified.
 	// - `ZIP` : AWS CodeBuild creates in the output bucket a ZIP file that contains the build output.
-	Packaging *string `json:"packaging" yaml:"packaging"`
+	Packaging *string `field:"optional" json:"packaging" yaml:"packaging"`
 	// Along with `namespaceType` and `name` , the pattern that AWS CodeBuild uses to name and store the output artifact:.
 	//
 	// - If `type` is set to `CODEPIPELINE` , CodePipeline ignores this value if specified. This is because CodePipeline manages its build output names instead of AWS CodeBuild .
@@ -2588,13 +2624,16 @@ type CfnProject_ArtifactsProperty struct {
 	// - If `type` is set to `S3` , this is the path to the output artifact. If `path` is not specified, `path` is not used.
 	//
 	// For example, if `path` is set to `MyArtifacts` , `namespaceType` is set to `NONE` , and `name` is set to `MyArtifact.zip` , the output artifact is stored in the output bucket at `MyArtifacts/MyArtifact.zip` .
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 }
 
 // Specifies restrictions for the batch build.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   batchRestrictionsProperty := &batchRestrictionsProperty{
 //   	computeTypesAllowed: []*string{
 //   		jsii.String("computeTypesAllowed"),
@@ -2606,15 +2645,18 @@ type CfnProject_BatchRestrictionsProperty struct {
 	// An array of strings that specify the compute types that are allowed for the batch build.
 	//
 	// See [Build environment compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild User Guide* for these values.
-	ComputeTypesAllowed *[]*string `json:"computeTypesAllowed" yaml:"computeTypesAllowed"`
+	ComputeTypesAllowed *[]*string `field:"optional" json:"computeTypesAllowed" yaml:"computeTypesAllowed"`
 	// Specifies the maximum number of builds allowed.
-	MaximumBuildsAllowed *float64 `json:"maximumBuildsAllowed" yaml:"maximumBuildsAllowed"`
+	MaximumBuildsAllowed *float64 `field:"optional" json:"maximumBuildsAllowed" yaml:"maximumBuildsAllowed"`
 }
 
 // Contains information that defines how the AWS CodeBuild build project reports the build status to the source provider.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   buildStatusConfigProperty := &buildStatusConfigProperty{
 //   	context: jsii.String("context"),
 //   	targetUrl: jsii.String("targetUrl"),
@@ -2627,20 +2669,23 @@ type CfnProject_BuildStatusConfigProperty struct {
 	//
 	// - **Bitbucket** - This parameter is used for the `name` parameter in the Bitbucket commit status. For more information, see [build](https://docs.aws.amazon.com/https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build) in the Bitbucket API documentation.
 	// - **GitHub/GitHub Enterprise Server** - This parameter is used for the `context` parameter in the GitHub commit status. For more information, see [Create a commit status](https://docs.aws.amazon.com/https://developer.github.com/v3/repos/statuses/#create-a-commit-status) in the GitHub developer guide.
-	Context *string `json:"context" yaml:"context"`
+	Context *string `field:"optional" json:"context" yaml:"context"`
 	// Specifies the target url of the build status CodeBuild sends to the source provider.
 	//
 	// The usage of this parameter depends on the source provider.
 	//
 	// - **Bitbucket** - This parameter is used for the `url` parameter in the Bitbucket commit status. For more information, see [build](https://docs.aws.amazon.com/https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build) in the Bitbucket API documentation.
 	// - **GitHub/GitHub Enterprise Server** - This parameter is used for the `target_url` parameter in the GitHub commit status. For more information, see [Create a commit status](https://docs.aws.amazon.com/https://developer.github.com/v3/repos/statuses/#create-a-commit-status) in the GitHub developer guide.
-	TargetUrl *string `json:"targetUrl" yaml:"targetUrl"`
+	TargetUrl *string `field:"optional" json:"targetUrl" yaml:"targetUrl"`
 }
 
 // `CloudWatchLogs` is a property of the [AWS CodeBuild Project LogsConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-logsconfig.html) property type that specifies settings for CloudWatch logs generated by an AWS CodeBuild build.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cloudWatchLogsConfigProperty := &cloudWatchLogsConfigProperty{
 //   	status: jsii.String("status"),
 //
@@ -2654,21 +2699,24 @@ type CfnProject_CloudWatchLogsConfigProperty struct {
 	//
 	// - `ENABLED` : CloudWatch Logs are enabled for this build project.
 	// - `DISABLED` : CloudWatch Logs are not enabled for this build project.
-	Status *string `json:"status" yaml:"status"`
+	Status *string `field:"required" json:"status" yaml:"status"`
 	// The group name of the logs in CloudWatch Logs.
 	//
 	// For more information, see [Working with Log Groups and Log Streams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html) .
-	GroupName *string `json:"groupName" yaml:"groupName"`
+	GroupName *string `field:"optional" json:"groupName" yaml:"groupName"`
 	// The prefix of the stream name of the CloudWatch Logs.
 	//
 	// For more information, see [Working with Log Groups and Log Streams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html) .
-	StreamName *string `json:"streamName" yaml:"streamName"`
+	StreamName *string `field:"optional" json:"streamName" yaml:"streamName"`
 }
 
 // `Environment` is a property of the [AWS::CodeBuild::Project](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html) resource that specifies the environment for an AWS CodeBuild project.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   environmentProperty := &environmentProperty{
 //   	computeType: jsii.String("computeType"),
 //   	image: jsii.String("image"),
@@ -2703,7 +2751,7 @@ type CfnProject_EnvironmentProperty struct {
 	// - `BUILD_GENERAL1_LARGE` : Use up to 15 GB memory and 8 vCPUs for builds.
 	//
 	// For more information, see [Build Environment Compute Types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild User Guide.*
-	ComputeType *string `json:"computeType" yaml:"computeType"`
+	ComputeType *string `field:"required" json:"computeType" yaml:"computeType"`
 	// The image tag or image digest that identifies the Docker image to use for this build project.
 	//
 	// Use the following formats:
@@ -2712,7 +2760,7 @@ type CfnProject_EnvironmentProperty struct {
 	// - For an image digest: `<registry>/<repository>@<digest>` . For example, to specify an image with the digest "sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf," use `<registry>/<repository>@sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf` .
 	//
 	// For more information, see [Docker images provided by CodeBuild](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-available.html) in the *AWS CodeBuild user guide* .
-	Image *string `json:"image" yaml:"image"`
+	Image *string `field:"required" json:"image" yaml:"image"`
 	// The type of build environment to use for related builds.
 	//
 	// - The environment type `ARM_CONTAINER` is available only in regions US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), Asia Pacific (Mumbai), Asia Pacific (Tokyo), Asia Pacific (Sydney), and EU (Frankfurt).
@@ -2722,20 +2770,20 @@ type CfnProject_EnvironmentProperty struct {
 	// - The environment types `WINDOWS_CONTAINER` and `WINDOWS_SERVER_2019_CONTAINER` are available only in regions US East (N. Virginia), US East (Ohio), US West (Oregon), and EU (Ireland).
 	//
 	// For more information, see [Build environment compute types](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild user guide* .
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// The ARN of the Amazon S3 bucket, path prefix, and object key that contains the PEM-encoded certificate for the build project.
 	//
 	// For more information, see [certificate](https://docs.aws.amazon.com/codebuild/latest/userguide/create-project-cli.html#cli.environment.certificate) in the *AWS CodeBuild User Guide* .
-	Certificate *string `json:"certificate" yaml:"certificate"`
+	Certificate *string `field:"optional" json:"certificate" yaml:"certificate"`
 	// A set of environment variables to make available to builds for this build project.
-	EnvironmentVariables interface{} `json:"environmentVariables" yaml:"environmentVariables"`
+	EnvironmentVariables interface{} `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`
 	// The type of credentials AWS CodeBuild uses to pull images in your build. There are two valid values:.
 	//
 	// - `CODEBUILD` specifies that AWS CodeBuild uses its own credentials. This requires that you modify your ECR repository policy to trust AWS CodeBuild service principal.
 	// - `SERVICE_ROLE` specifies that AWS CodeBuild uses your build project's service role.
 	//
 	// When you use a cross-account or private registry image, you must use SERVICE_ROLE credentials. When you use an AWS CodeBuild curated image, you must use CODEBUILD credentials.
-	ImagePullCredentialsType *string `json:"imagePullCredentialsType" yaml:"imagePullCredentialsType"`
+	ImagePullCredentialsType *string `field:"optional" json:"imagePullCredentialsType" yaml:"imagePullCredentialsType"`
 	// Enables running the Docker daemon inside a Docker container.
 	//
 	// Set to true only if the build project is used to build Docker images. Otherwise, a build that attempts to interact with the Docker daemon fails. The default setting is `false` .
@@ -2753,18 +2801,21 @@ type CfnProject_EnvironmentProperty struct {
 	// `- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay&`
 	//
 	// `- timeout -t 15 sh -c "until docker info; do echo .; sleep 1; done"`
-	PrivilegedMode interface{} `json:"privilegedMode" yaml:"privilegedMode"`
+	PrivilegedMode interface{} `field:"optional" json:"privilegedMode" yaml:"privilegedMode"`
 	// `RegistryCredential` is a property of the [AWS::CodeBuild::Project Environment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-environment) property that specifies information about credentials that provide access to a private Docker registry. When this is set:.
 	//
 	// - `imagePullCredentialsType` must be set to `SERVICE_ROLE` .
 	// - images cannot be curated or an Amazon ECR image.
-	RegistryCredential interface{} `json:"registryCredential" yaml:"registryCredential"`
+	RegistryCredential interface{} `field:"optional" json:"registryCredential" yaml:"registryCredential"`
 }
 
 // `EnvironmentVariable` is a property of the [AWS CodeBuild Project Environment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html) property type that specifies the name and value of an environment variable for an AWS CodeBuild project environment. When you use the environment to run a build, these variables are available for your builds to use. `EnvironmentVariable` contains a list of `EnvironmentVariable` property types.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   environmentVariableProperty := &environmentVariableProperty{
 //   	name: jsii.String("name"),
 //   	value: jsii.String("value"),
@@ -2775,36 +2826,42 @@ type CfnProject_EnvironmentProperty struct {
 //
 type CfnProject_EnvironmentVariableProperty struct {
 	// The name or key of the environment variable.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// The value of the environment variable.
 	//
 	// > We strongly discourage the use of `PLAINTEXT` environment variables to store sensitive values, especially AWS secret key IDs and secret access keys. `PLAINTEXT` environment variables can be displayed in plain text using the AWS CodeBuild console and the AWS CLI . For sensitive values, we recommend you use an environment variable of type `PARAMETER_STORE` or `SECRETS_MANAGER` .
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"required" json:"value" yaml:"value"`
 	// The type of environment variable. Valid values include:.
 	//
 	// - `PARAMETER_STORE` : An environment variable stored in Systems Manager Parameter Store. To learn how to specify a parameter store environment variable, see [env/parameter-store](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.env.parameter-store) in the *AWS CodeBuild User Guide* .
 	// - `PLAINTEXT` : An environment variable in plain text format. This is the default value.
 	// - `SECRETS_MANAGER` : An environment variable stored in AWS Secrets Manager . To learn how to specify a secrets manager environment variable, see [env/secrets-manager](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.env.secrets-manager) in the *AWS CodeBuild User Guide* .
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 
 // `GitSubmodulesConfig` is a property of the [AWS CodeBuild Project Source](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html) property type that specifies information about the Git submodules configuration for the build project.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   gitSubmodulesConfigProperty := &gitSubmodulesConfigProperty{
 //   	fetchSubmodules: jsii.Boolean(false),
 //   }
 //
 type CfnProject_GitSubmodulesConfigProperty struct {
 	// Set to true to fetch Git submodules for your AWS CodeBuild build project.
-	FetchSubmodules interface{} `json:"fetchSubmodules" yaml:"fetchSubmodules"`
+	FetchSubmodules interface{} `field:"required" json:"fetchSubmodules" yaml:"fetchSubmodules"`
 }
 
 // `LogsConfig` is a property of the [AWS CodeBuild Project](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html) resource that specifies information about logs for a build project. These can be logs in Amazon CloudWatch Logs, built in a specified S3 bucket, or both.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   logsConfigProperty := &logsConfigProperty{
 //   	cloudWatchLogs: &cloudWatchLogsConfigProperty{
 //   		status: jsii.String("status"),
@@ -2826,17 +2883,20 @@ type CfnProject_LogsConfigProperty struct {
 	// Information about CloudWatch Logs for a build project.
 	//
 	// CloudWatch Logs are enabled by default.
-	CloudWatchLogs interface{} `json:"cloudWatchLogs" yaml:"cloudWatchLogs"`
+	CloudWatchLogs interface{} `field:"optional" json:"cloudWatchLogs" yaml:"cloudWatchLogs"`
 	// Information about logs built to an S3 bucket for a build project.
 	//
 	// S3 logs are not enabled by default.
-	S3Logs interface{} `json:"s3Logs" yaml:"s3Logs"`
+	S3Logs interface{} `field:"optional" json:"s3Logs" yaml:"s3Logs"`
 }
 
 // Contains configuration information about a batch build project.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   projectBuildBatchConfigProperty := &projectBuildBatchConfigProperty{
 //   	batchReportMode: jsii.String("batchReportMode"),
 //   	combineArtifacts: jsii.Boolean(false),
@@ -2857,21 +2917,24 @@ type CfnProject_ProjectBuildBatchConfigProperty struct {
 	//
 	// - **REPORT_AGGREGATED_BATCH** - (Default) Aggregate all of the build statuses into a single status report.
 	// - **REPORT_INDIVIDUAL_BUILDS** - Send a separate status report for each individual build.
-	BatchReportMode *string `json:"batchReportMode" yaml:"batchReportMode"`
+	BatchReportMode *string `field:"optional" json:"batchReportMode" yaml:"batchReportMode"`
 	// Specifies if the build artifacts for the batch build should be combined into a single artifact location.
-	CombineArtifacts interface{} `json:"combineArtifacts" yaml:"combineArtifacts"`
+	CombineArtifacts interface{} `field:"optional" json:"combineArtifacts" yaml:"combineArtifacts"`
 	// A `BatchRestrictions` object that specifies the restrictions for the batch build.
-	Restrictions interface{} `json:"restrictions" yaml:"restrictions"`
+	Restrictions interface{} `field:"optional" json:"restrictions" yaml:"restrictions"`
 	// Specifies the service role ARN for the batch build project.
-	ServiceRole *string `json:"serviceRole" yaml:"serviceRole"`
+	ServiceRole *string `field:"optional" json:"serviceRole" yaml:"serviceRole"`
 	// Specifies the maximum amount of time, in minutes, that the batch build must be completed in.
-	TimeoutInMins *float64 `json:"timeoutInMins" yaml:"timeoutInMins"`
+	TimeoutInMins *float64 `field:"optional" json:"timeoutInMins" yaml:"timeoutInMins"`
 }
 
 // `ProjectCache` is a property of the [AWS CodeBuild Project](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html) resource that specifies information about the cache for the build project. If `ProjectCache` is not specified, then both of its properties default to `NO_CACHE` .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   projectCacheProperty := &projectCacheProperty{
 //   	type: jsii.String("type"),
 //
@@ -2888,12 +2951,12 @@ type CfnProject_ProjectCacheProperty struct {
 	// - `NO_CACHE` : The build project does not use any cache.
 	// - `S3` : The build project reads and writes from and to S3.
 	// - `LOCAL` : The build project stores a cache locally on a build host that is only available to that build host.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// Information about the cache location:.
 	//
 	// - `NO_CACHE` or `LOCAL` : This value is ignored.
 	// - `S3` : This is the S3 bucket name/prefix.
-	Location *string `json:"location" yaml:"location"`
+	Location *string `field:"optional" json:"location" yaml:"location"`
 	// An array of strings that specify the local cache modes.
 	//
 	// You can use one or more local cache modes at the same time. This is only used for `LOCAL` cache types.
@@ -2911,7 +2974,7 @@ type CfnProject_ProjectCacheProperty struct {
 	// - Only directories can be specified for caching. You cannot specify individual files.
 	// - Symlinks are used to reference cached directories.
 	// - Cached directories are linked to your build before it downloads its project sources. Cached items are overridden if a source item has the same name. Directories are specified using cache paths in the buildspec file.
-	Modes *[]*string `json:"modes" yaml:"modes"`
+	Modes *[]*string `field:"optional" json:"modes" yaml:"modes"`
 }
 
 // Information about a file system created by Amazon Elastic File System (EFS).
@@ -2919,7 +2982,10 @@ type CfnProject_ProjectCacheProperty struct {
 // For more information, see [What Is Amazon Elastic File System?](https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html)
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   projectFileSystemLocationProperty := &projectFileSystemLocationProperty{
 //   	identifier: jsii.String("identifier"),
 //   	location: jsii.String("location"),
@@ -2936,29 +3002,32 @@ type CfnProject_ProjectFileSystemLocationProperty struct {
 	// CodeBuild creates an environment variable by appending the `identifier` in all capital letters to `CODEBUILD_` . For example, if you specify `my_efs` for `identifier` , a new environment variable is create named `CODEBUILD_MY_EFS` .
 	//
 	// The `identifier` is used to mount your file system.
-	Identifier *string `json:"identifier" yaml:"identifier"`
+	Identifier *string `field:"required" json:"identifier" yaml:"identifier"`
 	// A string that specifies the location of the file system created by Amazon EFS.
 	//
 	// Its format is `efs-dns-name:/directory-path` . You can find the DNS name of file system when you view it in the Amazon EFS console. The directory path is a path to a directory in the file system that CodeBuild mounts. For example, if the DNS name of a file system is `fs-abcd1234.efs.us-west-2.amazonaws.com` , and its mount directory is `my-efs-mount-directory` , then the `location` is `fs-abcd1234.efs.us-west-2.amazonaws.com:/my-efs-mount-directory` .
 	//
 	// The directory path in the format `efs-dns-name:/directory-path` is optional. If you do not specify a directory path, the location is only the DNS name and CodeBuild mounts the entire file system.
-	Location *string `json:"location" yaml:"location"`
+	Location *string `field:"required" json:"location" yaml:"location"`
 	// The location in the container where you mount the file system.
-	MountPoint *string `json:"mountPoint" yaml:"mountPoint"`
+	MountPoint *string `field:"required" json:"mountPoint" yaml:"mountPoint"`
 	// The type of the file system.
 	//
 	// The one supported type is `EFS` .
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// The mount options for a file system created by Amazon EFS.
 	//
 	// The default mount options used by CodeBuild are `nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2` . For more information, see [Recommended NFS Mount Options](https://docs.aws.amazon.com/efs/latest/ug/mounting-fs-nfs-mount-settings.html) .
-	MountOptions *string `json:"mountOptions" yaml:"mountOptions"`
+	MountOptions *string `field:"optional" json:"mountOptions" yaml:"mountOptions"`
 }
 
 // A source identifier and its corresponding version.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   projectSourceVersionProperty := &projectSourceVersionProperty{
 //   	sourceIdentifier: jsii.String("sourceIdentifier"),
 //
@@ -2970,7 +3039,7 @@ type CfnProject_ProjectSourceVersionProperty struct {
 	// An identifier for a source in the build project.
 	//
 	// The identifier can only contain alphanumeric characters and underscores, and must be less than 128 characters in length.
-	SourceIdentifier *string `json:"sourceIdentifier" yaml:"sourceIdentifier"`
+	SourceIdentifier *string `field:"required" json:"sourceIdentifier" yaml:"sourceIdentifier"`
 	// The source version for the corresponding source identifier. If specified, must be one of:.
 	//
 	// - For CodeCommit: the commit ID, branch, or Git tag to use.
@@ -2979,13 +3048,16 @@ type CfnProject_ProjectSourceVersionProperty struct {
 	// - For Amazon S3: the version ID of the object that represents the build input ZIP file to use.
 	//
 	// For more information, see [Source Version Sample with CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html) in the *AWS CodeBuild User Guide* .
-	SourceVersion *string `json:"sourceVersion" yaml:"sourceVersion"`
+	SourceVersion *string `field:"optional" json:"sourceVersion" yaml:"sourceVersion"`
 }
 
 // `ProjectTriggers` is a property of the [AWS CodeBuild Project](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html) resource that specifies webhooks that trigger an AWS CodeBuild build.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   projectTriggersProperty := &projectTriggersProperty{
 //   	buildType: jsii.String("buildType"),
 //   	filterGroups: []interface{}{
@@ -3007,13 +3079,13 @@ type CfnProject_ProjectTriggersProperty struct {
 	//
 	// - **BUILD** - A single build
 	// - **BUILD_BATCH** - A batch build.
-	BuildType *string `json:"buildType" yaml:"buildType"`
+	BuildType *string `field:"optional" json:"buildType" yaml:"buildType"`
 	// A list of lists of `WebhookFilter` objects used to determine which webhook events are triggered.
 	//
 	// At least one `WebhookFilter` in the array must specify `EVENT` as its type.
-	FilterGroups interface{} `json:"filterGroups" yaml:"filterGroups"`
+	FilterGroups interface{} `field:"optional" json:"filterGroups" yaml:"filterGroups"`
 	// Specifies whether or not to begin automatically rebuilding the source code every time a code change is pushed to the repository.
-	Webhook interface{} `json:"webhook" yaml:"webhook"`
+	Webhook interface{} `field:"optional" json:"webhook" yaml:"webhook"`
 }
 
 // `RegistryCredential` is a property of the [AWS CodeBuild Project Environment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html) property type that specifies information about credentials that provide access to a private Docker registry. When this is set:.
@@ -3024,7 +3096,10 @@ type CfnProject_ProjectTriggersProperty struct {
 // For more information, see [Private Registry with AWS Secrets Manager Sample for AWS CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-private-registry.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   registryCredentialProperty := &registryCredentialProperty{
 //   	credential: jsii.String("credential"),
 //   	credentialProvider: jsii.String("credentialProvider"),
@@ -3034,17 +3109,20 @@ type CfnProject_RegistryCredentialProperty struct {
 	// The Amazon Resource Name (ARN) or name of credentials created using AWS Secrets Manager .
 	//
 	// > The `credential` can use the name of the credentials only if they exist in your current AWS Region .
-	Credential *string `json:"credential" yaml:"credential"`
+	Credential *string `field:"required" json:"credential" yaml:"credential"`
 	// The service that created the credentials to access a private Docker registry.
 	//
 	// The valid value, SECRETS_MANAGER, is for AWS Secrets Manager .
-	CredentialProvider *string `json:"credentialProvider" yaml:"credentialProvider"`
+	CredentialProvider *string `field:"required" json:"credentialProvider" yaml:"credentialProvider"`
 }
 
 // `S3Logs` is a property of the [AWS CodeBuild Project LogsConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-logsconfig.html) property type that specifies settings for logs generated by an AWS CodeBuild build in an S3 bucket.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3LogsConfigProperty := &s3LogsConfigProperty{
 //   	status: jsii.String("status"),
 //
@@ -3058,15 +3136,15 @@ type CfnProject_S3LogsConfigProperty struct {
 	//
 	// - `ENABLED` : S3 build logs are enabled for this build project.
 	// - `DISABLED` : S3 build logs are not enabled for this build project.
-	Status *string `json:"status" yaml:"status"`
+	Status *string `field:"required" json:"status" yaml:"status"`
 	// Set to true if you do not want your S3 build log output encrypted.
 	//
 	// By default S3 build logs are encrypted.
-	EncryptionDisabled interface{} `json:"encryptionDisabled" yaml:"encryptionDisabled"`
+	EncryptionDisabled interface{} `field:"optional" json:"encryptionDisabled" yaml:"encryptionDisabled"`
 	// The ARN of an S3 bucket and the path prefix for S3 logs.
 	//
 	// If your Amazon S3 bucket name is `my-bucket` , and your path prefix is `build-log` , then acceptable formats are `my-bucket/build-log` or `arn:aws:s3:::my-bucket/build-log` .
-	Location *string `json:"location" yaml:"location"`
+	Location *string `field:"optional" json:"location" yaml:"location"`
 }
 
 // `SourceAuth` is a property of the [AWS CodeBuild Project Source](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html) property type that specifies authorization settings for AWS CodeBuild to access the source code to be built.
@@ -3074,7 +3152,10 @@ type CfnProject_S3LogsConfigProperty struct {
 // `SourceAuth` is for use by the CodeBuild console only. Do not get or set it directly.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sourceAuthProperty := &sourceAuthProperty{
 //   	type: jsii.String("type"),
 //
@@ -3086,17 +3167,20 @@ type CfnProject_SourceAuthProperty struct {
 	// The authorization type to use. The only valid value is `OAUTH` , which represents the OAuth authorization type.
 	//
 	// > This data type is used by the AWS CodeBuild console only.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// The resource value that applies to the specified authorization type.
 	//
 	// > This data type is used by the AWS CodeBuild console only.
-	Resource *string `json:"resource" yaml:"resource"`
+	Resource *string `field:"optional" json:"resource" yaml:"resource"`
 }
 
 // `Source` is a property of the [AWS::CodeBuild::Project](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html) resource that specifies the source code settings for the project, such as the source code's repository type and location.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sourceProperty := &sourceProperty{
 //   	type: jsii.String("type"),
 //
@@ -3132,29 +3216,29 @@ type CfnProject_SourceProperty struct {
 	// - `GITHUB_ENTERPRISE` : The source code is in a GitHub Enterprise Server repository.
 	// - `NO_SOURCE` : The project does not have input source code.
 	// - `S3` : The source code is in an Amazon S3 bucket.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// Information about the authorization settings for AWS CodeBuild to access the source code to be built.
 	//
 	// This information is for the AWS CodeBuild console's use only. Your code should not get or set `Auth` directly.
-	Auth interface{} `json:"auth" yaml:"auth"`
+	Auth interface{} `field:"optional" json:"auth" yaml:"auth"`
 	// The build specification for the project.
 	//
 	// If this value is not provided, then the source code must contain a buildspec file named `buildspec.yml` at the root level. If this value is provided, it can be either a single string containing the entire build specification, or the path to an alternate buildspec file relative to the value of the built-in environment variable `CODEBUILD_SRC_DIR` . The alternate buildspec file can have a name other than `buildspec.yml` , for example `myspec.yml` or `build_spec_qa.yml` or similar. For more information, see the [Build Spec Reference](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-example) in the *AWS CodeBuild User Guide* .
-	BuildSpec *string `json:"buildSpec" yaml:"buildSpec"`
+	BuildSpec *string `field:"optional" json:"buildSpec" yaml:"buildSpec"`
 	// Contains information that defines how the build project reports the build status to the source provider.
 	//
 	// This option is only used when the source provider is `GITHUB` , `GITHUB_ENTERPRISE` , or `BITBUCKET` .
-	BuildStatusConfig interface{} `json:"buildStatusConfig" yaml:"buildStatusConfig"`
+	BuildStatusConfig interface{} `field:"optional" json:"buildStatusConfig" yaml:"buildStatusConfig"`
 	// The depth of history to download.
 	//
 	// Minimum value is 0. If this value is 0, greater than 25, or not provided, then the full history is downloaded with each build project. If your source type is Amazon S3, this value is not supported.
-	GitCloneDepth *float64 `json:"gitCloneDepth" yaml:"gitCloneDepth"`
+	GitCloneDepth *float64 `field:"optional" json:"gitCloneDepth" yaml:"gitCloneDepth"`
 	// Information about the Git submodules configuration for the build project.
-	GitSubmodulesConfig interface{} `json:"gitSubmodulesConfig" yaml:"gitSubmodulesConfig"`
+	GitSubmodulesConfig interface{} `field:"optional" json:"gitSubmodulesConfig" yaml:"gitSubmodulesConfig"`
 	// This is used with GitHub Enterprise only.
 	//
 	// Set to true to ignore SSL warnings while connecting to your GitHub Enterprise project repository. The default value is `false` . `InsecureSsl` should be used for testing purposes only. It should not be used in a production environment.
-	InsecureSsl interface{} `json:"insecureSsl" yaml:"insecureSsl"`
+	InsecureSsl interface{} `field:"optional" json:"insecureSsl" yaml:"insecureSsl"`
 	// Information about the location of the source code to be built. Valid values include:.
 	//
 	// - For source code settings that are specified in the source action of a pipeline in CodePipeline, `location` should not be specified. If it is specified, CodePipeline ignores it. This is because CodePipeline uses the settings in a pipeline's source action instead of this value.
@@ -3167,21 +3251,24 @@ type CfnProject_SourceProperty struct {
 	// - For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the buildspec file. You must connect your AWS account to your Bitbucket account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket *Confirm access to your account* page, choose *Grant access* . (After you have connected to your Bitbucket account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the `source` object, set the `auth` object's `type` value to `OAUTH` .
 	//
 	// If you specify `CODEPIPELINE` for the `Type` property, don't specify this property. For all of the other types, you must specify `Location` .
-	Location *string `json:"location" yaml:"location"`
+	Location *string `field:"optional" json:"location" yaml:"location"`
 	// Set to true to report the status of a build's start and finish to your source provider.
 	//
 	// This option is valid only when your source provider is GitHub, GitHub Enterprise, or Bitbucket. If this is set and you use a different source provider, an `invalidInputException` is thrown.
-	ReportBuildStatus interface{} `json:"reportBuildStatus" yaml:"reportBuildStatus"`
+	ReportBuildStatus interface{} `field:"optional" json:"reportBuildStatus" yaml:"reportBuildStatus"`
 	// An identifier for this project source.
 	//
 	// The identifier can only contain alphanumeric characters and underscores, and must be less than 128 characters in length.
-	SourceIdentifier *string `json:"sourceIdentifier" yaml:"sourceIdentifier"`
+	SourceIdentifier *string `field:"optional" json:"sourceIdentifier" yaml:"sourceIdentifier"`
 }
 
 // `VpcConfig` is a property of the [AWS::CodeBuild::Project](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html) resource that enable AWS CodeBuild to access resources in an Amazon VPC. For more information, see [Use AWS CodeBuild with Amazon Virtual Private Cloud](https://docs.aws.amazon.com/codebuild/latest/userguide/vpc-support.html) in the *AWS CodeBuild User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   vpcConfigProperty := &vpcConfigProperty{
 //   	securityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
@@ -3196,19 +3283,22 @@ type CfnProject_VpcConfigProperty struct {
 	// A list of one or more security groups IDs in your Amazon VPC.
 	//
 	// The maximum count is 5.
-	SecurityGroupIds *[]*string `json:"securityGroupIds" yaml:"securityGroupIds"`
+	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// A list of one or more subnet IDs in your Amazon VPC.
 	//
 	// The maximum count is 16.
-	Subnets *[]*string `json:"subnets" yaml:"subnets"`
+	Subnets *[]*string `field:"optional" json:"subnets" yaml:"subnets"`
 	// The ID of the Amazon VPC.
-	VpcId *string `json:"vpcId" yaml:"vpcId"`
+	VpcId *string `field:"optional" json:"vpcId" yaml:"vpcId"`
 }
 
 // `WebhookFilter` is a structure of the `FilterGroups` property on the [AWS CodeBuild Project ProjectTriggers](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html) property type that specifies which webhooks trigger an AWS CodeBuild build.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   webhookFilterProperty := &webhookFilterProperty{
 //   	pattern: jsii.String("pattern"),
 //   	type: jsii.String("type"),
@@ -3223,7 +3313,7 @@ type CfnProject_WebhookFilterProperty struct {
 	// For example, the webhook filter `PUSH, PULL_REQUEST_CREATED, PULL_REQUEST_UPDATED` allows all push, pull request created, and pull request updated events to trigger a build.
 	//
 	// For a `WebHookFilter` that uses any of the other filter types, a regular expression pattern. For example, a `WebHookFilter` that uses `HEAD_REF` for its `type` and the pattern `^refs/heads/` triggers a build when the head reference is a branch with a reference name `refs/heads/branch-name` .
-	Pattern *string `json:"pattern" yaml:"pattern"`
+	Pattern *string `field:"required" json:"pattern" yaml:"pattern"`
 	// The type of webhook filter.
 	//
 	// There are six webhook filter types: `EVENT` , `ACTOR_ACCOUNT_ID` , `HEAD_REF` , `BASE_REF` , `FILE_PATH` , and `COMMIT_MESSAGE` .
@@ -3244,17 +3334,20 @@ type CfnProject_WebhookFilterProperty struct {
 	// - **COMMIT_MESSAGE** - A webhook triggers a build when the head commit message matches the regular expression `pattern` .
 	//
 	// > Works with GitHub and Bitbucket events push and pull requests events. Also works with GitHub Enterprise push events, but does not work with GitHub Enterprise pull request events.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// Used to indicate that the `pattern` determines which webhook events do not trigger a build.
 	//
 	// If true, then a webhook event that does not match the `pattern` triggers a build. If false, then a webhook event that matches the `pattern` triggers a build.
-	ExcludeMatchedPattern interface{} `json:"excludeMatchedPattern" yaml:"excludeMatchedPattern"`
+	ExcludeMatchedPattern interface{} `field:"optional" json:"excludeMatchedPattern" yaml:"excludeMatchedPattern"`
 }
 
 // Properties for defining a `CfnProject`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnProjectProps := &cfnProjectProps{
 //   	artifacts: &artifactsProperty{
 //   		type: jsii.String("type"),
@@ -3460,61 +3553,61 @@ type CfnProject_WebhookFilterProperty struct {
 //
 type CfnProjectProps struct {
 	// `Artifacts` is a property of the [AWS::CodeBuild::Project](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html) resource that specifies output settings for artifacts generated by an AWS CodeBuild build.
-	Artifacts interface{} `json:"artifacts" yaml:"artifacts"`
+	Artifacts interface{} `field:"required" json:"artifacts" yaml:"artifacts"`
 	// The build environment settings for the project, such as the environment type or the environment variables to use for the build environment.
-	Environment interface{} `json:"environment" yaml:"environment"`
+	Environment interface{} `field:"required" json:"environment" yaml:"environment"`
 	// The ARN of the IAM role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
-	ServiceRole *string `json:"serviceRole" yaml:"serviceRole"`
+	ServiceRole *string `field:"required" json:"serviceRole" yaml:"serviceRole"`
 	// The source code settings for the project, such as the source code's repository type and location.
-	Source interface{} `json:"source" yaml:"source"`
+	Source interface{} `field:"required" json:"source" yaml:"source"`
 	// Indicates whether AWS CodeBuild generates a publicly accessible URL for your project's build badge.
 	//
 	// For more information, see [Build Badges Sample](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-build-badges.html) in the *AWS CodeBuild User Guide* .
 	//
 	// > Including build badges with your project is currently not supported if the source type is CodePipeline. If you specify `CODEPIPELINE` for the `Source` property, do not specify the `BadgeEnabled` property.
-	BadgeEnabled interface{} `json:"badgeEnabled" yaml:"badgeEnabled"`
+	BadgeEnabled interface{} `field:"optional" json:"badgeEnabled" yaml:"badgeEnabled"`
 	// A `ProjectBuildBatchConfig` object that defines the batch build options for the project.
-	BuildBatchConfig interface{} `json:"buildBatchConfig" yaml:"buildBatchConfig"`
+	BuildBatchConfig interface{} `field:"optional" json:"buildBatchConfig" yaml:"buildBatchConfig"`
 	// Settings that AWS CodeBuild uses to store and reuse build dependencies.
-	Cache interface{} `json:"cache" yaml:"cache"`
+	Cache interface{} `field:"optional" json:"cache" yaml:"cache"`
 	// The maximum number of concurrent builds that are allowed for this project.
 	//
 	// New builds are only started if the current number of builds is less than or equal to this limit. If the current build count meets this limit, new builds are throttled and are not run.
-	ConcurrentBuildLimit *float64 `json:"concurrentBuildLimit" yaml:"concurrentBuildLimit"`
+	ConcurrentBuildLimit *float64 `field:"optional" json:"concurrentBuildLimit" yaml:"concurrentBuildLimit"`
 	// A description that makes the build project easy to identify.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The AWS Key Management Service customer master key (CMK) to be used for encrypting the build output artifacts.
 	//
 	// > You can use a cross-account KMS key to encrypt the build output artifacts if your service role has permission to that key.
 	//
 	// You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the format `alias/<alias-name>` ). If you don't specify a value, CodeBuild uses the managed CMK for Amazon Simple Storage Service (Amazon S3).
-	EncryptionKey *string `json:"encryptionKey" yaml:"encryptionKey"`
+	EncryptionKey *string `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// An array of `ProjectFileSystemLocation` objects for a CodeBuild build project.
 	//
 	// A `ProjectFileSystemLocation` object specifies the `identifier` , `location` , `mountOptions` , `mountPoint` , and `type` of a file system created using Amazon Elastic File System.
-	FileSystemLocations interface{} `json:"fileSystemLocations" yaml:"fileSystemLocations"`
+	FileSystemLocations interface{} `field:"optional" json:"fileSystemLocations" yaml:"fileSystemLocations"`
 	// Information about logs for the build project.
 	//
 	// A project can create logs in CloudWatch Logs, an S3 bucket, or both.
-	LogsConfig interface{} `json:"logsConfig" yaml:"logsConfig"`
+	LogsConfig interface{} `field:"optional" json:"logsConfig" yaml:"logsConfig"`
 	// The name of the build project.
 	//
 	// The name must be unique across all of the projects in your AWS account .
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The number of minutes a build is allowed to be queued before it times out.
-	QueuedTimeoutInMinutes *float64 `json:"queuedTimeoutInMinutes" yaml:"queuedTimeoutInMinutes"`
+	QueuedTimeoutInMinutes *float64 `field:"optional" json:"queuedTimeoutInMinutes" yaml:"queuedTimeoutInMinutes"`
 	// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
-	ResourceAccessRole *string `json:"resourceAccessRole" yaml:"resourceAccessRole"`
+	ResourceAccessRole *string `field:"optional" json:"resourceAccessRole" yaml:"resourceAccessRole"`
 	// A list of `Artifacts` objects.
 	//
 	// Each artifacts object specifies output settings that the project generates during a build.
-	SecondaryArtifacts interface{} `json:"secondaryArtifacts" yaml:"secondaryArtifacts"`
+	SecondaryArtifacts interface{} `field:"optional" json:"secondaryArtifacts" yaml:"secondaryArtifacts"`
 	// An array of `ProjectSource` objects.
-	SecondarySources interface{} `json:"secondarySources" yaml:"secondarySources"`
+	SecondarySources interface{} `field:"optional" json:"secondarySources" yaml:"secondarySources"`
 	// An array of `ProjectSourceVersion` objects.
 	//
 	// If `secondarySourceVersions` is specified at the build level, then they take over these `secondarySourceVersions` (at the project level).
-	SecondarySourceVersions interface{} `json:"secondarySourceVersions" yaml:"secondarySourceVersions"`
+	SecondarySourceVersions interface{} `field:"optional" json:"secondarySourceVersions" yaml:"secondarySourceVersions"`
 	// A version of the build input to be built for this project.
 	//
 	// If not specified, the latest version is used. If specified, it must be one of:
@@ -3527,26 +3620,26 @@ type CfnProjectProps struct {
 	// If `sourceVersion` is specified at the build level, then that version takes precedence over this `sourceVersion` (at the project level).
 	//
 	// For more information, see [Source Version Sample with CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html) in the *AWS CodeBuild User Guide* .
-	SourceVersion *string `json:"sourceVersion" yaml:"sourceVersion"`
+	SourceVersion *string `field:"optional" json:"sourceVersion" yaml:"sourceVersion"`
 	// An arbitrary set of tags (key-value pairs) for the AWS CodeBuild project.
 	//
 	// These tags are available for use by AWS services that support AWS CodeBuild build project tags.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// How long, in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait before timing out any related build that did not get marked as completed.
 	//
 	// The default is 60 minutes.
-	TimeoutInMinutes *float64 `json:"timeoutInMinutes" yaml:"timeoutInMinutes"`
+	TimeoutInMinutes *float64 `field:"optional" json:"timeoutInMinutes" yaml:"timeoutInMinutes"`
 	// For an existing AWS CodeBuild build project that has its source code stored in a GitHub repository, enables AWS CodeBuild to begin automatically rebuilding the source code every time a code change is pushed to the repository.
-	Triggers interface{} `json:"triggers" yaml:"triggers"`
+	Triggers interface{} `field:"optional" json:"triggers" yaml:"triggers"`
 	// Specifies the visibility of the project's builds. Possible values are:.
 	//
 	// - **PUBLIC_READ** - The project builds are visible to the public.
 	// - **PRIVATE** - The project builds are not visible to the public.
-	Visibility *string `json:"visibility" yaml:"visibility"`
+	Visibility *string `field:"optional" json:"visibility" yaml:"visibility"`
 	// `VpcConfig` specifies settings that enable AWS CodeBuild to access resources in an Amazon VPC.
 	//
 	// For more information, see [Use AWS CodeBuild with Amazon Virtual Private Cloud](https://docs.aws.amazon.com/codebuild/latest/userguide/vpc-support.html) in the *AWS CodeBuild User Guide* .
-	VpcConfig interface{} `json:"vpcConfig" yaml:"vpcConfig"`
+	VpcConfig interface{} `field:"optional" json:"vpcConfig" yaml:"vpcConfig"`
 }
 
 // A CloudFormation `AWS::CodeBuild::ReportGroup`.
@@ -3554,8 +3647,11 @@ type CfnProjectProps struct {
 // Represents a report group. A report group contains a collection of reports.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"
-//   cfnReportGroup := codebuild.NewCfnReportGroup(this, jsii.String("MyCfnReportGroup"), &cfnReportGroupProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnReportGroup := awscdk.Aws_codebuild.NewCfnReportGroup(this, jsii.String("MyCfnReportGroup"), &cfnReportGroupProps{
 //   	exportConfig: &reportExportConfigProperty{
 //   		exportConfigType: jsii.String("exportConfigType"),
 //
@@ -4308,7 +4404,10 @@ func (c *jsiiProxy_CfnReportGroup) ValidateProperties(_properties interface{}) {
 // Information about the location where the run of a report is exported.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   reportExportConfigProperty := &reportExportConfigProperty{
 //   	exportConfigType: jsii.String("exportConfigType"),
 //
@@ -4330,15 +4429,18 @@ type CfnReportGroup_ReportExportConfigProperty struct {
 	//
 	// - `S3` : The report results are exported to an S3 bucket.
 	// - `NO_EXPORT` : The report results are not exported.
-	ExportConfigType *string `json:"exportConfigType" yaml:"exportConfigType"`
+	ExportConfigType *string `field:"required" json:"exportConfigType" yaml:"exportConfigType"`
 	// A `S3ReportExportConfig` object that contains information about the S3 bucket where the run of a report is exported.
-	S3Destination interface{} `json:"s3Destination" yaml:"s3Destination"`
+	S3Destination interface{} `field:"optional" json:"s3Destination" yaml:"s3Destination"`
 }
 
 // Information about the S3 bucket where the raw data of a report are exported.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   s3ReportExportConfigProperty := &s3ReportExportConfigProperty{
 //   	bucket: jsii.String("bucket"),
 //
@@ -4352,28 +4454,31 @@ type CfnReportGroup_ReportExportConfigProperty struct {
 //
 type CfnReportGroup_S3ReportExportConfigProperty struct {
 	// The name of the S3 bucket where the raw data of a report are exported.
-	Bucket *string `json:"bucket" yaml:"bucket"`
+	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
 	// The AWS account identifier of the owner of the Amazon S3 bucket.
 	//
 	// This allows report data to be exported to an Amazon S3 bucket that is owned by an account other than the account running the build.
-	BucketOwner *string `json:"bucketOwner" yaml:"bucketOwner"`
+	BucketOwner *string `field:"optional" json:"bucketOwner" yaml:"bucketOwner"`
 	// A boolean value that specifies if the results of a report are encrypted.
-	EncryptionDisabled interface{} `json:"encryptionDisabled" yaml:"encryptionDisabled"`
+	EncryptionDisabled interface{} `field:"optional" json:"encryptionDisabled" yaml:"encryptionDisabled"`
 	// The encryption key for the report's encrypted raw data.
-	EncryptionKey *string `json:"encryptionKey" yaml:"encryptionKey"`
+	EncryptionKey *string `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// The type of build output artifact to create. Valid values include:.
 	//
 	// - `NONE` : CodeBuild creates the raw data in the output bucket. This is the default if packaging is not specified.
 	// - `ZIP` : CodeBuild creates a ZIP file with the raw data in the output bucket.
-	Packaging *string `json:"packaging" yaml:"packaging"`
+	Packaging *string `field:"optional" json:"packaging" yaml:"packaging"`
 	// The path to the exported report's raw data results.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 }
 
 // Properties for defining a `CfnReportGroup`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnReportGroupProps := &cfnReportGroupProps{
 //   	exportConfig: &reportExportConfigProperty{
 //   		exportConfigType: jsii.String("exportConfigType"),
@@ -4405,23 +4510,23 @@ type CfnReportGroup_S3ReportExportConfigProperty struct {
 //
 type CfnReportGroupProps struct {
 	// Information about the destination where the raw data of this `ReportGroup` is exported.
-	ExportConfig interface{} `json:"exportConfig" yaml:"exportConfig"`
+	ExportConfig interface{} `field:"required" json:"exportConfig" yaml:"exportConfig"`
 	// The type of the `ReportGroup` . This can be one of the following values:.
 	//
 	// - **CODE_COVERAGE** - The report group contains code coverage reports.
 	// - **TEST** - The report group contains test reports.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"required" json:"type" yaml:"type"`
 	// When deleting a report group, specifies if reports within the report group should be deleted.
 	//
 	// - **true** - Deletes any reports that belong to the report group before deleting the report group.
 	// - **false** - You must delete any reports in the report group. This is the default value. If you delete a report group that contains one or more reports, an exception is thrown.
-	DeleteReports interface{} `json:"deleteReports" yaml:"deleteReports"`
+	DeleteReports interface{} `field:"optional" json:"deleteReports" yaml:"deleteReports"`
 	// The name of the `ReportGroup` .
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// A list of tag key and value pairs associated with this report group.
 	//
 	// These tags are available for use by AWS services that support AWS CodeBuild report group tags.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::CodeBuild::SourceCredential`.
@@ -4431,8 +4536,11 @@ type CfnReportGroupProps struct {
 // > For security purposes, do not use plain text in your AWS CloudFormation template to store your credentials.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"
-//   cfnSourceCredential := codebuild.NewCfnSourceCredential(this, jsii.String("MyCfnSourceCredential"), &cfnSourceCredentialProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnSourceCredential := awscdk.Aws_codebuild.NewCfnSourceCredential(this, jsii.String("MyCfnSourceCredential"), &cfnSourceCredentialProps{
 //   	authType: jsii.String("authType"),
 //   	serverType: jsii.String("serverType"),
 //   	token: jsii.String("token"),
@@ -5141,7 +5249,10 @@ func (c *jsiiProxy_CfnSourceCredential) ValidateProperties(_properties interface
 // Properties for defining a `CfnSourceCredential`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnSourceCredentialProps := &cfnSourceCredentialProps{
 //   	authType: jsii.String("authType"),
 //   	serverType: jsii.String("serverType"),
@@ -5155,19 +5266,19 @@ type CfnSourceCredentialProps struct {
 	// The type of authentication used by the credentials.
 	//
 	// Valid options are OAUTH, BASIC_AUTH, or PERSONAL_ACCESS_TOKEN.
-	AuthType *string `json:"authType" yaml:"authType"`
+	AuthType *string `field:"required" json:"authType" yaml:"authType"`
 	// The type of source provider.
 	//
 	// The valid options are GITHUB, GITHUB_ENTERPRISE, or BITBUCKET.
-	ServerType *string `json:"serverType" yaml:"serverType"`
+	ServerType *string `field:"required" json:"serverType" yaml:"serverType"`
 	// For GitHub or GitHub Enterprise, this is the personal access token.
 	//
 	// For Bitbucket, this is the app password.
-	Token *string `json:"token" yaml:"token"`
+	Token *string `field:"required" json:"token" yaml:"token"`
 	// The Bitbucket username when the `authType` is BASIC_AUTH.
 	//
 	// This parameter is not valid for other types of source providers or connections.
-	Username *string `json:"username" yaml:"username"`
+	Username *string `field:"optional" json:"username" yaml:"username"`
 }
 
 // Information about logs built to a CloudWatch Log Group for a build project.
@@ -5185,13 +5296,13 @@ type CfnSourceCredentialProps struct {
 type CloudWatchLoggingOptions struct {
 	// The current status of the logs in Amazon CloudWatch Logs for a build project.
 	// Experimental.
-	Enabled *bool `json:"enabled" yaml:"enabled"`
+	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// The Log Group to send logs to.
 	// Experimental.
-	LogGroup awslogs.ILogGroup `json:"logGroup" yaml:"logGroup"`
+	LogGroup awslogs.ILogGroup `field:"optional" json:"logGroup" yaml:"logGroup"`
 	// The prefix of the stream name of the Amazon CloudWatch Logs.
 	// Experimental.
-	Prefix *string `json:"prefix" yaml:"prefix"`
+	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 }
 
 // Construction properties for {@link CodeCommitSource}.
@@ -5200,6 +5311,7 @@ type CloudWatchLoggingOptions struct {
 //   import codecommit "github.com/aws/aws-cdk-go/awscdk"
 //   var repo repository
 //   var bucket bucket
+//
 //
 //   project := codebuild.NewProject(this, jsii.String("MyProject"), &projectProps{
 //   	secondarySources: []iSource{
@@ -5224,30 +5336,38 @@ type CodeCommitSourceProps struct {
 	//
 	// This property is required on secondary sources.
 	// Experimental.
-	Identifier *string `json:"identifier" yaml:"identifier"`
+	Identifier *string `field:"optional" json:"identifier" yaml:"identifier"`
 	// Experimental.
-	Repository awscodecommit.IRepository `json:"repository" yaml:"repository"`
+	Repository awscodecommit.IRepository `field:"required" json:"repository" yaml:"repository"`
 	// The commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build.
 	//
 	// Example:
 	//   "mybranch"
 	//
 	// Experimental.
-	BranchOrRef *string `json:"branchOrRef" yaml:"branchOrRef"`
+	BranchOrRef *string `field:"optional" json:"branchOrRef" yaml:"branchOrRef"`
 	// The depth of history to download.
 	//
 	// Minimum value is 0.
 	// If this value is 0, greater than 25, or not provided,
 	// then the full history is downloaded with each build of the project.
 	// Experimental.
-	CloneDepth *float64 `json:"cloneDepth" yaml:"cloneDepth"`
+	CloneDepth *float64 `field:"optional" json:"cloneDepth" yaml:"cloneDepth"`
 	// Whether to fetch submodules while cloning git repo.
 	// Experimental.
-	FetchSubmodules *bool `json:"fetchSubmodules" yaml:"fetchSubmodules"`
+	FetchSubmodules *bool `field:"optional" json:"fetchSubmodules" yaml:"fetchSubmodules"`
 }
 
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"import awscdk "github.com/aws/aws-cdk-go/awscdk"import ec2 "github.com/aws/aws-cdk-go/awscdk/aws_ec2"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"import awscdk "github.com/aws/aws-cdk-go/awscdk"import kms "github.com/aws/aws-cdk-go/awscdk/aws_kms"import awscdk "github.com/aws/aws-cdk-go/awscdk"import logs "github.com/aws/aws-cdk-go/awscdk/aws_logs"import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3 "github.com/aws/aws-cdk-go/awscdk/aws_s3"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var bucket bucket
 //   var buildImage iBuildImage
@@ -5263,6 +5383,7 @@ type CodeCommitSourceProps struct {
 //   var subnetFilter subnetFilter
 //   var value interface{}
 //   var vpc vpc
+//
 //   commonProjectProps := &commonProjectProps{
 //   	allowAllOutbound: jsii.Boolean(false),
 //   	badge: jsii.Boolean(false),
@@ -5278,13 +5399,13 @@ type CodeCommitSourceProps struct {
 //   			bucket: bucket,
 //   			objectKey: jsii.String("objectKey"),
 //   		},
-//   		computeType: codebuild.computeType_SMALL,
+//   		computeType: awscdk.Aws_codebuild.computeType_SMALL,
 //   		environmentVariables: map[string]buildEnvironmentVariable{
 //   			"environmentVariablesKey": &buildEnvironmentVariable{
 //   				"value": value,
 //
 //   				// the properties below are optional
-//   				"type": codebuild.BuildEnvironmentVariableType_PLAINTEXT,
+//   				"type": awscdk.*Aws_codebuild.BuildEnvironmentVariableType_PLAINTEXT,
 //   			},
 //   		},
 //   		privileged: jsii.Boolean(false),
@@ -5294,7 +5415,7 @@ type CodeCommitSourceProps struct {
 //   			"value": value,
 //
 //   			// the properties below are optional
-//   			"type": codebuild.BuildEnvironmentVariableType_PLAINTEXT,
+//   			"type": awscdk.*Aws_codebuild.BuildEnvironmentVariableType_PLAINTEXT,
 //   		},
 //   	},
 //   	fileSystemLocations: []*iFileSystemLocation{
@@ -5335,7 +5456,7 @@ type CodeCommitSourceProps struct {
 //   		subnets: []iSubnet{
 //   			subnet,
 //   		},
-//   		subnetType: ec2.subnetType_ISOLATED,
+//   		subnetType: awscdk.Aws_ec2.subnetType_ISOLATED,
 //   	},
 //   	timeout: duration,
 //   	vpc: vpc,
@@ -5350,50 +5471,50 @@ type CommonProjectProps struct {
 	//
 	// Only used if 'vpc' is supplied.
 	// Experimental.
-	AllowAllOutbound *bool `json:"allowAllOutbound" yaml:"allowAllOutbound"`
+	AllowAllOutbound *bool `field:"optional" json:"allowAllOutbound" yaml:"allowAllOutbound"`
 	// Indicates whether AWS CodeBuild generates a publicly accessible URL for your project's build badge.
 	//
 	// For more information, see Build Badges Sample
 	// in the AWS CodeBuild User Guide.
 	// Experimental.
-	Badge *bool `json:"badge" yaml:"badge"`
+	Badge *bool `field:"optional" json:"badge" yaml:"badge"`
 	// Filename or contents of buildspec in JSON format.
 	// See: https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-example
 	//
 	// Experimental.
-	BuildSpec BuildSpec `json:"buildSpec" yaml:"buildSpec"`
+	BuildSpec BuildSpec `field:"optional" json:"buildSpec" yaml:"buildSpec"`
 	// Caching strategy to use.
 	// Experimental.
-	Cache Cache `json:"cache" yaml:"cache"`
+	Cache Cache `field:"optional" json:"cache" yaml:"cache"`
 	// Whether to check for the presence of any secrets in the environment variables of the default type, BuildEnvironmentVariableType.PLAINTEXT. Since using a secret for the value of that kind of variable would result in it being displayed in plain text in the AWS Console, the construct will throw an exception if it detects a secret was passed there. Pass this property as false if you want to skip this validation, and keep using a secret in a plain text environment variable.
 	// Experimental.
-	CheckSecretsInPlainTextEnvVariables *bool `json:"checkSecretsInPlainTextEnvVariables" yaml:"checkSecretsInPlainTextEnvVariables"`
+	CheckSecretsInPlainTextEnvVariables *bool `field:"optional" json:"checkSecretsInPlainTextEnvVariables" yaml:"checkSecretsInPlainTextEnvVariables"`
 	// Maximum number of concurrent builds.
 	//
 	// Minimum value is 1 and maximum is account build limit.
 	// Experimental.
-	ConcurrentBuildLimit *float64 `json:"concurrentBuildLimit" yaml:"concurrentBuildLimit"`
+	ConcurrentBuildLimit *float64 `field:"optional" json:"concurrentBuildLimit" yaml:"concurrentBuildLimit"`
 	// A description of the project.
 	//
 	// Use the description to identify the purpose
 	// of the project.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Encryption key to use to read and write artifacts.
 	// Experimental.
-	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
+	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// Build environment to use for the build.
 	// Experimental.
-	Environment *BuildEnvironment `json:"environment" yaml:"environment"`
+	Environment *BuildEnvironment `field:"optional" json:"environment" yaml:"environment"`
 	// Additional environment variables to add to the build environment.
 	// Experimental.
-	EnvironmentVariables *map[string]*BuildEnvironmentVariable `json:"environmentVariables" yaml:"environmentVariables"`
+	EnvironmentVariables *map[string]*BuildEnvironmentVariable `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`
 	// An  ProjectFileSystemLocation objects for a CodeBuild build project.
 	//
 	// A ProjectFileSystemLocation object specifies the identifier, location, mountOptions, mountPoint,
 	// and type of a file system created using Amazon Elastic File System.
 	// Experimental.
-	FileSystemLocations *[]IFileSystemLocation `json:"fileSystemLocations" yaml:"fileSystemLocations"`
+	FileSystemLocations *[]IFileSystemLocation `field:"optional" json:"fileSystemLocations" yaml:"fileSystemLocations"`
 	// Add permissions to this project's role to create and use test report groups with name starting with the name of this project.
 	//
 	// That is the standard report group that gets created when a simple name
@@ -5404,47 +5525,47 @@ type CommonProjectProps struct {
 	// See: https://docs.aws.amazon.com/codebuild/latest/userguide/test-report-group-naming.html
 	//
 	// Experimental.
-	GrantReportGroupPermissions *bool `json:"grantReportGroupPermissions" yaml:"grantReportGroupPermissions"`
+	GrantReportGroupPermissions *bool `field:"optional" json:"grantReportGroupPermissions" yaml:"grantReportGroupPermissions"`
 	// Information about logs for the build project.
 	//
 	// A project can create logs in Amazon CloudWatch Logs, an S3 bucket, or both.
 	// Experimental.
-	Logging *LoggingOptions `json:"logging" yaml:"logging"`
+	Logging *LoggingOptions `field:"optional" json:"logging" yaml:"logging"`
 	// The physical, human-readable name of the CodeBuild Project.
 	// Experimental.
-	ProjectName *string `json:"projectName" yaml:"projectName"`
+	ProjectName *string `field:"optional" json:"projectName" yaml:"projectName"`
 	// The number of minutes after which AWS CodeBuild stops the build if it's still in queue.
 	//
 	// For valid values, see the timeoutInMinutes field in the AWS
 	// CodeBuild User Guide.
 	// Experimental.
-	QueuedTimeout awscdk.Duration `json:"queuedTimeout" yaml:"queuedTimeout"`
+	QueuedTimeout awscdk.Duration `field:"optional" json:"queuedTimeout" yaml:"queuedTimeout"`
 	// Service Role to assume while running the build.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// What security group to associate with the codebuild project's network interfaces.
 	//
 	// If no security group is identified, one will be created automatically.
 	//
 	// Only used if 'vpc' is supplied.
 	// Experimental.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// Where to place the network interfaces within the VPC.
 	//
 	// Only used if 'vpc' is supplied.
 	// Experimental.
-	SubnetSelection *awsec2.SubnetSelection `json:"subnetSelection" yaml:"subnetSelection"`
+	SubnetSelection *awsec2.SubnetSelection `field:"optional" json:"subnetSelection" yaml:"subnetSelection"`
 	// The number of minutes after which AWS CodeBuild stops the build if it's not complete.
 	//
 	// For valid values, see the timeoutInMinutes field in the AWS
 	// CodeBuild User Guide.
 	// Experimental.
-	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
+	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 	// VPC network to place codebuild network interfaces.
 	//
 	// Specify this if the codebuild project needs to access resources in a VPC.
 	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
+	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 }
 
 // Build machine compute type.
@@ -5452,6 +5573,7 @@ type CommonProjectProps struct {
 // Example:
 //   var vpc vpc
 //   var mySecurityGroup securityGroup
+//
 //   pipelines.NewCodeBuildStep(jsii.String("Synth"), &codeBuildStepProps{
 //   	// ...standard ShellStep props...
 //   	commands: []*string{
@@ -5475,7 +5597,7 @@ type CommonProjectProps struct {
 //   	buildEnvironment: &buildEnvironment{
 //   		computeType: codebuild.computeType_LARGE,
 //   	},
-//   	timeout: duration.minutes(jsii.Number(90)),
+//   	timeout: awscdk.Duration.minutes(jsii.Number(90)),
 //
 //   	// Control Elastic Network Interface creation
 //   	vpc: vpc,
@@ -5520,7 +5642,7 @@ const (
 type DockerImageOptions struct {
 	// The credentials, stored in Secrets Manager, used for accessing the repository holding the image, if the repository is private.
 	// Experimental.
-	SecretsManagerCredentials awssecretsmanager.ISecret `json:"secretsManagerCredentials" yaml:"secretsManagerCredentials"`
+	SecretsManagerCredentials awssecretsmanager.ISecret `field:"optional" json:"secretsManagerCredentials" yaml:"secretsManagerCredentials"`
 }
 
 // Construction properties for {@link EfsFileSystemLocation}.
@@ -5544,18 +5666,18 @@ type DockerImageOptions struct {
 type EfsFileSystemLocationProps struct {
 	// The name used to access a file system created by Amazon EFS.
 	// Experimental.
-	Identifier *string `json:"identifier" yaml:"identifier"`
+	Identifier *string `field:"required" json:"identifier" yaml:"identifier"`
 	// A string that specifies the location of the file system, like Amazon EFS.
 	//
 	// This value looks like `fs-abcd1234.efs.us-west-2.amazonaws.com:/my-efs-mount-directory`.
 	// Experimental.
-	Location *string `json:"location" yaml:"location"`
+	Location *string `field:"required" json:"location" yaml:"location"`
 	// The location in the container where you mount the file system.
 	// Experimental.
-	MountPoint *string `json:"mountPoint" yaml:"mountPoint"`
+	MountPoint *string `field:"required" json:"mountPoint" yaml:"mountPoint"`
 	// The mount options for a file system such as Amazon EFS.
 	// Experimental.
-	MountOptions *string `json:"mountOptions" yaml:"mountOptions"`
+	MountOptions *string `field:"optional" json:"mountOptions" yaml:"mountOptions"`
 }
 
 // The types of webhook event actions.
@@ -5599,7 +5721,10 @@ const (
 // The type returned from {@link IFileSystemLocation#bind}.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   fileSystemConfig := &fileSystemConfig{
 //   	location: &projectFileSystemLocationProperty{
 //   		identifier: jsii.String("identifier"),
@@ -5618,7 +5743,7 @@ type FileSystemConfig struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectfilesystemlocation.html
 	//
 	// Experimental.
-	Location *CfnProject_ProjectFileSystemLocationProperty `json:"location" yaml:"location"`
+	Location *CfnProject_ProjectFileSystemLocationProperty `field:"required" json:"location" yaml:"location"`
 }
 
 // FileSystemLocation provider definition for a CodeBuild Project.
@@ -6020,10 +6145,14 @@ func (f *jsiiProxy_FilterGroup) AndTagIsNot(tagName *string) FilterGroup {
 // any attempt to add more than one will result in an error.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var secretValue secretValue
-//   gitHubEnterpriseSourceCredentials := codebuild.NewGitHubEnterpriseSourceCredentials(this, jsii.String("MyGitHubEnterpriseSourceCredentials"), &gitHubEnterpriseSourceCredentialsProps{
+//
+//   gitHubEnterpriseSourceCredentials := awscdk.Aws_codebuild.NewGitHubEnterpriseSourceCredentials(this, jsii.String("MyGitHubEnterpriseSourceCredentials"), &gitHubEnterpriseSourceCredentialsProps{
 //   	accessToken: secretValue,
 //   })
 //
@@ -6363,9 +6492,13 @@ func (g *jsiiProxy_GitHubEnterpriseSourceCredentials) Validate() *[]*string {
 // Creation properties for {@link GitHubEnterpriseSourceCredentials}.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var secretValue secretValue
+//
 //   gitHubEnterpriseSourceCredentialsProps := &gitHubEnterpriseSourceCredentialsProps{
 //   	accessToken: secretValue,
 //   }
@@ -6374,7 +6507,7 @@ func (g *jsiiProxy_GitHubEnterpriseSourceCredentials) Validate() *[]*string {
 type GitHubEnterpriseSourceCredentialsProps struct {
 	// The personal access token to use when contacting the instance of the GitHub Enterprise API.
 	// Experimental.
-	AccessToken awscdk.SecretValue `json:"accessToken" yaml:"accessToken"`
+	AccessToken awscdk.SecretValue `field:"required" json:"accessToken" yaml:"accessToken"`
 }
 
 // Construction properties for {@link GitHubEnterpriseSource}.
@@ -6413,17 +6546,17 @@ type GitHubEnterpriseSourceProps struct {
 	//
 	// This property is required on secondary sources.
 	// Experimental.
-	Identifier *string `json:"identifier" yaml:"identifier"`
+	Identifier *string `field:"optional" json:"identifier" yaml:"identifier"`
 	// The HTTPS URL of the repository in your GitHub Enterprise installation.
 	// Experimental.
-	HttpsCloneUrl *string `json:"httpsCloneUrl" yaml:"httpsCloneUrl"`
+	HttpsCloneUrl *string `field:"required" json:"httpsCloneUrl" yaml:"httpsCloneUrl"`
 	// The commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build.
 	//
 	// Example:
 	//   "mybranch"
 	//
 	// Experimental.
-	BranchOrRef *string `json:"branchOrRef" yaml:"branchOrRef"`
+	BranchOrRef *string `field:"optional" json:"branchOrRef" yaml:"branchOrRef"`
 	// This parameter is used for the `context` parameter in the GitHub commit status.
 	//
 	// Can use built-in CodeBuild variables, like $AWS_REGION.
@@ -6434,7 +6567,7 @@ type GitHubEnterpriseSourceProps struct {
 	// See: https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-env-vars.html
 	//
 	// Experimental.
-	BuildStatusContext *string `json:"buildStatusContext" yaml:"buildStatusContext"`
+	BuildStatusContext *string `field:"optional" json:"buildStatusContext" yaml:"buildStatusContext"`
 	// The URL that the build will report back to the source provider.
 	//
 	// Can use built-in CodeBuild variables, like $AWS_REGION.
@@ -6445,37 +6578,37 @@ type GitHubEnterpriseSourceProps struct {
 	// See: https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-env-vars.html
 	//
 	// Experimental.
-	BuildStatusUrl *string `json:"buildStatusUrl" yaml:"buildStatusUrl"`
+	BuildStatusUrl *string `field:"optional" json:"buildStatusUrl" yaml:"buildStatusUrl"`
 	// The depth of history to download.
 	//
 	// Minimum value is 0.
 	// If this value is 0, greater than 25, or not provided,
 	// then the full history is downloaded with each build of the project.
 	// Experimental.
-	CloneDepth *float64 `json:"cloneDepth" yaml:"cloneDepth"`
+	CloneDepth *float64 `field:"optional" json:"cloneDepth" yaml:"cloneDepth"`
 	// Whether to fetch submodules while cloning git repo.
 	// Experimental.
-	FetchSubmodules *bool `json:"fetchSubmodules" yaml:"fetchSubmodules"`
+	FetchSubmodules *bool `field:"optional" json:"fetchSubmodules" yaml:"fetchSubmodules"`
 	// Whether to ignore SSL errors when connecting to the repository.
 	// Experimental.
-	IgnoreSslErrors *bool `json:"ignoreSslErrors" yaml:"ignoreSslErrors"`
+	IgnoreSslErrors *bool `field:"optional" json:"ignoreSslErrors" yaml:"ignoreSslErrors"`
 	// Whether to send notifications on your build's start and end.
 	// Experimental.
-	ReportBuildStatus *bool `json:"reportBuildStatus" yaml:"reportBuildStatus"`
+	ReportBuildStatus *bool `field:"optional" json:"reportBuildStatus" yaml:"reportBuildStatus"`
 	// Whether to create a webhook that will trigger a build every time an event happens in the repository.
 	// Experimental.
-	Webhook *bool `json:"webhook" yaml:"webhook"`
+	Webhook *bool `field:"optional" json:"webhook" yaml:"webhook"`
 	// A list of webhook filters that can constraint what events in the repository will trigger a build.
 	//
 	// A build is triggered if any of the provided filter groups match.
 	// Only valid if `webhook` was not provided as false.
 	// Experimental.
-	WebhookFilters *[]FilterGroup `json:"webhookFilters" yaml:"webhookFilters"`
+	WebhookFilters *[]FilterGroup `field:"optional" json:"webhookFilters" yaml:"webhookFilters"`
 	// Trigger a batch build from a webhook instead of a standard one.
 	//
 	// Enabling this will enable batch builds on the CodeBuild project.
 	// Experimental.
-	WebhookTriggersBatchBuild *bool `json:"webhookTriggersBatchBuild" yaml:"webhookTriggersBatchBuild"`
+	WebhookTriggersBatchBuild *bool `field:"optional" json:"webhookTriggersBatchBuild" yaml:"webhookTriggersBatchBuild"`
 }
 
 // The source credentials used when contacting the GitHub API.
@@ -6486,7 +6619,7 @@ type GitHubEnterpriseSourceProps struct {
 //
 // Example:
 //   codebuild.NewGitHubSourceCredentials(this, jsii.String("CodeBuildGitHubCreds"), &gitHubSourceCredentialsProps{
-//   	accessToken: secretValue.secretsManager(jsii.String("my-token")),
+//   	accessToken: awscdk.SecretValue.secretsManager(jsii.String("my-token")),
 //   })
 //
 // Experimental.
@@ -6826,14 +6959,14 @@ func (g *jsiiProxy_GitHubSourceCredentials) Validate() *[]*string {
 //
 // Example:
 //   codebuild.NewGitHubSourceCredentials(this, jsii.String("CodeBuildGitHubCreds"), &gitHubSourceCredentialsProps{
-//   	accessToken: secretValue.secretsManager(jsii.String("my-token")),
+//   	accessToken: awscdk.SecretValue.secretsManager(jsii.String("my-token")),
 //   })
 //
 // Experimental.
 type GitHubSourceCredentialsProps struct {
 	// The personal access token to use when contacting the GitHub API.
 	// Experimental.
-	AccessToken awscdk.SecretValue `json:"accessToken" yaml:"accessToken"`
+	AccessToken awscdk.SecretValue `field:"required" json:"accessToken" yaml:"accessToken"`
 }
 
 // Construction properties for {@link GitHubSource} and {@link GitHubEnterpriseSource}.
@@ -6857,28 +6990,28 @@ type GitHubSourceProps struct {
 	//
 	// This property is required on secondary sources.
 	// Experimental.
-	Identifier *string `json:"identifier" yaml:"identifier"`
+	Identifier *string `field:"optional" json:"identifier" yaml:"identifier"`
 	// The GitHub account/user that owns the repo.
 	//
 	// Example:
 	//   "awslabs"
 	//
 	// Experimental.
-	Owner *string `json:"owner" yaml:"owner"`
+	Owner *string `field:"required" json:"owner" yaml:"owner"`
 	// The name of the repo (without the username).
 	//
 	// Example:
 	//   "aws-cdk"
 	//
 	// Experimental.
-	Repo *string `json:"repo" yaml:"repo"`
+	Repo *string `field:"required" json:"repo" yaml:"repo"`
 	// The commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build.
 	//
 	// Example:
 	//   "mybranch"
 	//
 	// Experimental.
-	BranchOrRef *string `json:"branchOrRef" yaml:"branchOrRef"`
+	BranchOrRef *string `field:"optional" json:"branchOrRef" yaml:"branchOrRef"`
 	// This parameter is used for the `context` parameter in the GitHub commit status.
 	//
 	// Can use built-in CodeBuild variables, like $AWS_REGION.
@@ -6889,7 +7022,7 @@ type GitHubSourceProps struct {
 	// See: https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-env-vars.html
 	//
 	// Experimental.
-	BuildStatusContext *string `json:"buildStatusContext" yaml:"buildStatusContext"`
+	BuildStatusContext *string `field:"optional" json:"buildStatusContext" yaml:"buildStatusContext"`
 	// The URL that the build will report back to the source provider.
 	//
 	// Can use built-in CodeBuild variables, like $AWS_REGION.
@@ -6900,34 +7033,34 @@ type GitHubSourceProps struct {
 	// See: https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-env-vars.html
 	//
 	// Experimental.
-	BuildStatusUrl *string `json:"buildStatusUrl" yaml:"buildStatusUrl"`
+	BuildStatusUrl *string `field:"optional" json:"buildStatusUrl" yaml:"buildStatusUrl"`
 	// The depth of history to download.
 	//
 	// Minimum value is 0.
 	// If this value is 0, greater than 25, or not provided,
 	// then the full history is downloaded with each build of the project.
 	// Experimental.
-	CloneDepth *float64 `json:"cloneDepth" yaml:"cloneDepth"`
+	CloneDepth *float64 `field:"optional" json:"cloneDepth" yaml:"cloneDepth"`
 	// Whether to fetch submodules while cloning git repo.
 	// Experimental.
-	FetchSubmodules *bool `json:"fetchSubmodules" yaml:"fetchSubmodules"`
+	FetchSubmodules *bool `field:"optional" json:"fetchSubmodules" yaml:"fetchSubmodules"`
 	// Whether to send notifications on your build's start and end.
 	// Experimental.
-	ReportBuildStatus *bool `json:"reportBuildStatus" yaml:"reportBuildStatus"`
+	ReportBuildStatus *bool `field:"optional" json:"reportBuildStatus" yaml:"reportBuildStatus"`
 	// Whether to create a webhook that will trigger a build every time an event happens in the repository.
 	// Experimental.
-	Webhook *bool `json:"webhook" yaml:"webhook"`
+	Webhook *bool `field:"optional" json:"webhook" yaml:"webhook"`
 	// A list of webhook filters that can constraint what events in the repository will trigger a build.
 	//
 	// A build is triggered if any of the provided filter groups match.
 	// Only valid if `webhook` was not provided as false.
 	// Experimental.
-	WebhookFilters *[]FilterGroup `json:"webhookFilters" yaml:"webhookFilters"`
+	WebhookFilters *[]FilterGroup `field:"optional" json:"webhookFilters" yaml:"webhookFilters"`
 	// Trigger a batch build from a webhook instead of a standard one.
 	//
 	// Enabling this will enable batch builds on the CodeBuild project.
 	// Experimental.
-	WebhookTriggersBatchBuild *bool `json:"webhookTriggersBatchBuild" yaml:"webhookTriggersBatchBuild"`
+	WebhookTriggersBatchBuild *bool `field:"optional" json:"webhookTriggersBatchBuild" yaml:"webhookTriggersBatchBuild"`
 }
 
 // The abstract interface of a CodeBuild build output.
@@ -7739,8 +7872,11 @@ const (
 // - LinuxBuildImage.fromEcrRepository(repo[, tag])
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"
-//   linuxArmBuildImage := codebuild.linuxArmBuildImage.fromCodeBuildImageId(jsii.String("id"))
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   linuxArmBuildImage := awscdk.Aws_codebuild.linuxArmBuildImage.fromCodeBuildImageId(jsii.String("id"))
 //
 // See: https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html
 //
@@ -9038,10 +9174,10 @@ const (
 type LoggingOptions struct {
 	// Information about Amazon CloudWatch Logs for a build project.
 	// Experimental.
-	CloudWatch *CloudWatchLoggingOptions `json:"cloudWatch" yaml:"cloudWatch"`
+	CloudWatch *CloudWatchLoggingOptions `field:"optional" json:"cloudWatch" yaml:"cloudWatch"`
 	// Information about logs built to an S3 bucket for a build project.
 	// Experimental.
-	S3 *S3LoggingOptions `json:"s3" yaml:"s3"`
+	S3 *S3LoggingOptions `field:"optional" json:"s3" yaml:"s3"`
 }
 
 // Event fields for the CodeBuild "phase change" event.
@@ -9125,8 +9261,10 @@ func PhaseChangeEvent_ProjectName() *string {
 // A convenience class for CodeBuild Projects that are used in CodePipeline.
 //
 // Example:
+//   // Create a Cloudfront Web Distribution
 //   import cloudfront "github.com/aws/aws-cdk-go/awscdk"
 //   var distribution distribution
+//
 //
 //   // Create the build project that will invalidate the cache
 //   invalidateBuildProject := codebuild.NewPipelineProject(this, jsii.String("InvalidateProject"), &pipelineProjectProps{
@@ -10009,8 +10147,10 @@ func (p *jsiiProxy_PipelineProject) Validate() *[]*string {
 }
 
 // Example:
+//   // Create a Cloudfront Web Distribution
 //   import cloudfront "github.com/aws/aws-cdk-go/awscdk"
 //   var distribution distribution
+//
 //
 //   // Create the build project that will invalidate the cache
 //   invalidateBuildProject := codebuild.NewPipelineProject(this, jsii.String("InvalidateProject"), &pipelineProjectProps{
@@ -10076,50 +10216,50 @@ type PipelineProjectProps struct {
 	//
 	// Only used if 'vpc' is supplied.
 	// Experimental.
-	AllowAllOutbound *bool `json:"allowAllOutbound" yaml:"allowAllOutbound"`
+	AllowAllOutbound *bool `field:"optional" json:"allowAllOutbound" yaml:"allowAllOutbound"`
 	// Indicates whether AWS CodeBuild generates a publicly accessible URL for your project's build badge.
 	//
 	// For more information, see Build Badges Sample
 	// in the AWS CodeBuild User Guide.
 	// Experimental.
-	Badge *bool `json:"badge" yaml:"badge"`
+	Badge *bool `field:"optional" json:"badge" yaml:"badge"`
 	// Filename or contents of buildspec in JSON format.
 	// See: https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-example
 	//
 	// Experimental.
-	BuildSpec BuildSpec `json:"buildSpec" yaml:"buildSpec"`
+	BuildSpec BuildSpec `field:"optional" json:"buildSpec" yaml:"buildSpec"`
 	// Caching strategy to use.
 	// Experimental.
-	Cache Cache `json:"cache" yaml:"cache"`
+	Cache Cache `field:"optional" json:"cache" yaml:"cache"`
 	// Whether to check for the presence of any secrets in the environment variables of the default type, BuildEnvironmentVariableType.PLAINTEXT. Since using a secret for the value of that kind of variable would result in it being displayed in plain text in the AWS Console, the construct will throw an exception if it detects a secret was passed there. Pass this property as false if you want to skip this validation, and keep using a secret in a plain text environment variable.
 	// Experimental.
-	CheckSecretsInPlainTextEnvVariables *bool `json:"checkSecretsInPlainTextEnvVariables" yaml:"checkSecretsInPlainTextEnvVariables"`
+	CheckSecretsInPlainTextEnvVariables *bool `field:"optional" json:"checkSecretsInPlainTextEnvVariables" yaml:"checkSecretsInPlainTextEnvVariables"`
 	// Maximum number of concurrent builds.
 	//
 	// Minimum value is 1 and maximum is account build limit.
 	// Experimental.
-	ConcurrentBuildLimit *float64 `json:"concurrentBuildLimit" yaml:"concurrentBuildLimit"`
+	ConcurrentBuildLimit *float64 `field:"optional" json:"concurrentBuildLimit" yaml:"concurrentBuildLimit"`
 	// A description of the project.
 	//
 	// Use the description to identify the purpose
 	// of the project.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Encryption key to use to read and write artifacts.
 	// Experimental.
-	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
+	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// Build environment to use for the build.
 	// Experimental.
-	Environment *BuildEnvironment `json:"environment" yaml:"environment"`
+	Environment *BuildEnvironment `field:"optional" json:"environment" yaml:"environment"`
 	// Additional environment variables to add to the build environment.
 	// Experimental.
-	EnvironmentVariables *map[string]*BuildEnvironmentVariable `json:"environmentVariables" yaml:"environmentVariables"`
+	EnvironmentVariables *map[string]*BuildEnvironmentVariable `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`
 	// An  ProjectFileSystemLocation objects for a CodeBuild build project.
 	//
 	// A ProjectFileSystemLocation object specifies the identifier, location, mountOptions, mountPoint,
 	// and type of a file system created using Amazon Elastic File System.
 	// Experimental.
-	FileSystemLocations *[]IFileSystemLocation `json:"fileSystemLocations" yaml:"fileSystemLocations"`
+	FileSystemLocations *[]IFileSystemLocation `field:"optional" json:"fileSystemLocations" yaml:"fileSystemLocations"`
 	// Add permissions to this project's role to create and use test report groups with name starting with the name of this project.
 	//
 	// That is the standard report group that gets created when a simple name
@@ -10130,53 +10270,54 @@ type PipelineProjectProps struct {
 	// See: https://docs.aws.amazon.com/codebuild/latest/userguide/test-report-group-naming.html
 	//
 	// Experimental.
-	GrantReportGroupPermissions *bool `json:"grantReportGroupPermissions" yaml:"grantReportGroupPermissions"`
+	GrantReportGroupPermissions *bool `field:"optional" json:"grantReportGroupPermissions" yaml:"grantReportGroupPermissions"`
 	// Information about logs for the build project.
 	//
 	// A project can create logs in Amazon CloudWatch Logs, an S3 bucket, or both.
 	// Experimental.
-	Logging *LoggingOptions `json:"logging" yaml:"logging"`
+	Logging *LoggingOptions `field:"optional" json:"logging" yaml:"logging"`
 	// The physical, human-readable name of the CodeBuild Project.
 	// Experimental.
-	ProjectName *string `json:"projectName" yaml:"projectName"`
+	ProjectName *string `field:"optional" json:"projectName" yaml:"projectName"`
 	// The number of minutes after which AWS CodeBuild stops the build if it's still in queue.
 	//
 	// For valid values, see the timeoutInMinutes field in the AWS
 	// CodeBuild User Guide.
 	// Experimental.
-	QueuedTimeout awscdk.Duration `json:"queuedTimeout" yaml:"queuedTimeout"`
+	QueuedTimeout awscdk.Duration `field:"optional" json:"queuedTimeout" yaml:"queuedTimeout"`
 	// Service Role to assume while running the build.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// What security group to associate with the codebuild project's network interfaces.
 	//
 	// If no security group is identified, one will be created automatically.
 	//
 	// Only used if 'vpc' is supplied.
 	// Experimental.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// Where to place the network interfaces within the VPC.
 	//
 	// Only used if 'vpc' is supplied.
 	// Experimental.
-	SubnetSelection *awsec2.SubnetSelection `json:"subnetSelection" yaml:"subnetSelection"`
+	SubnetSelection *awsec2.SubnetSelection `field:"optional" json:"subnetSelection" yaml:"subnetSelection"`
 	// The number of minutes after which AWS CodeBuild stops the build if it's not complete.
 	//
 	// For valid values, see the timeoutInMinutes field in the AWS
 	// CodeBuild User Guide.
 	// Experimental.
-	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
+	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 	// VPC network to place codebuild network interfaces.
 	//
 	// Specify this if the codebuild project needs to access resources in a VPC.
 	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
+	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 }
 
 // A representation of a CodeBuild Project.
 //
 // Example:
 //   var bucket bucket
+//
 //
 //   project := codebuild.NewProject(this, jsii.String("MyProject"), &projectProps{
 //   	buildSpec: codebuild.buildSpec.fromObject(map[string]interface{}{
@@ -11048,14 +11189,18 @@ const (
 // Additional options to pass to the notification rule.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"import awscdk "github.com/aws/aws-cdk-go/awscdk"import codestarnotifications "github.com/aws/aws-cdk-go/awscdk/aws_codestarnotifications"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   projectNotifyOnOptions := &projectNotifyOnOptions{
 //   	events: []projectNotificationEvents{
-//   		codebuild.*projectNotificationEvents_BUILD_FAILED,
+//   		awscdk.Aws_codebuild.*projectNotificationEvents_BUILD_FAILED,
 //   	},
 //
 //   	// the properties below are optional
-//   	detailType: codestarnotifications.detailType_BASIC,
+//   	detailType: awscdk.Aws_codestarnotifications.detailType_BASIC,
 //   	enabled: jsii.Boolean(false),
 //   	notificationRuleName: jsii.String("notificationRuleName"),
 //   }
@@ -11067,28 +11212,29 @@ type ProjectNotifyOnOptions struct {
 	// BASIC will include only the contents of the event as it would appear in AWS CloudWatch.
 	// FULL will include any supplemental information provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.
 	// Experimental.
-	DetailType awscodestarnotifications.DetailType `json:"detailType" yaml:"detailType"`
+	DetailType awscodestarnotifications.DetailType `field:"optional" json:"detailType" yaml:"detailType"`
 	// The status of the notification rule.
 	//
 	// If the enabled is set to DISABLED, notifications aren't sent for the notification rule.
 	// Experimental.
-	Enabled *bool `json:"enabled" yaml:"enabled"`
+	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// The name for the notification rule.
 	//
 	// Notification rule names must be unique in your AWS account.
 	// Experimental.
-	NotificationRuleName *string `json:"notificationRuleName" yaml:"notificationRuleName"`
+	NotificationRuleName *string `field:"optional" json:"notificationRuleName" yaml:"notificationRuleName"`
 	// A list of event types associated with this notification rule for CodeBuild Project.
 	//
 	// For a complete list of event types and IDs, see Notification concepts in the Developer Tools Console User Guide.
 	// See: https://docs.aws.amazon.com/dtconsole/latest/userguide/concepts.html#concepts-api
 	//
 	// Experimental.
-	Events *[]ProjectNotificationEvents `json:"events" yaml:"events"`
+	Events *[]ProjectNotificationEvents `field:"required" json:"events" yaml:"events"`
 }
 
 // Example:
 //   var bucket bucket
+//
 //
 //   project := codebuild.NewProject(this, jsii.String("MyProject"), &projectProps{
 //   	buildSpec: codebuild.buildSpec.fromObject(map[string]interface{}{
@@ -11112,50 +11258,50 @@ type ProjectProps struct {
 	//
 	// Only used if 'vpc' is supplied.
 	// Experimental.
-	AllowAllOutbound *bool `json:"allowAllOutbound" yaml:"allowAllOutbound"`
+	AllowAllOutbound *bool `field:"optional" json:"allowAllOutbound" yaml:"allowAllOutbound"`
 	// Indicates whether AWS CodeBuild generates a publicly accessible URL for your project's build badge.
 	//
 	// For more information, see Build Badges Sample
 	// in the AWS CodeBuild User Guide.
 	// Experimental.
-	Badge *bool `json:"badge" yaml:"badge"`
+	Badge *bool `field:"optional" json:"badge" yaml:"badge"`
 	// Filename or contents of buildspec in JSON format.
 	// See: https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-example
 	//
 	// Experimental.
-	BuildSpec BuildSpec `json:"buildSpec" yaml:"buildSpec"`
+	BuildSpec BuildSpec `field:"optional" json:"buildSpec" yaml:"buildSpec"`
 	// Caching strategy to use.
 	// Experimental.
-	Cache Cache `json:"cache" yaml:"cache"`
+	Cache Cache `field:"optional" json:"cache" yaml:"cache"`
 	// Whether to check for the presence of any secrets in the environment variables of the default type, BuildEnvironmentVariableType.PLAINTEXT. Since using a secret for the value of that kind of variable would result in it being displayed in plain text in the AWS Console, the construct will throw an exception if it detects a secret was passed there. Pass this property as false if you want to skip this validation, and keep using a secret in a plain text environment variable.
 	// Experimental.
-	CheckSecretsInPlainTextEnvVariables *bool `json:"checkSecretsInPlainTextEnvVariables" yaml:"checkSecretsInPlainTextEnvVariables"`
+	CheckSecretsInPlainTextEnvVariables *bool `field:"optional" json:"checkSecretsInPlainTextEnvVariables" yaml:"checkSecretsInPlainTextEnvVariables"`
 	// Maximum number of concurrent builds.
 	//
 	// Minimum value is 1 and maximum is account build limit.
 	// Experimental.
-	ConcurrentBuildLimit *float64 `json:"concurrentBuildLimit" yaml:"concurrentBuildLimit"`
+	ConcurrentBuildLimit *float64 `field:"optional" json:"concurrentBuildLimit" yaml:"concurrentBuildLimit"`
 	// A description of the project.
 	//
 	// Use the description to identify the purpose
 	// of the project.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Encryption key to use to read and write artifacts.
 	// Experimental.
-	EncryptionKey awskms.IKey `json:"encryptionKey" yaml:"encryptionKey"`
+	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// Build environment to use for the build.
 	// Experimental.
-	Environment *BuildEnvironment `json:"environment" yaml:"environment"`
+	Environment *BuildEnvironment `field:"optional" json:"environment" yaml:"environment"`
 	// Additional environment variables to add to the build environment.
 	// Experimental.
-	EnvironmentVariables *map[string]*BuildEnvironmentVariable `json:"environmentVariables" yaml:"environmentVariables"`
+	EnvironmentVariables *map[string]*BuildEnvironmentVariable `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`
 	// An  ProjectFileSystemLocation objects for a CodeBuild build project.
 	//
 	// A ProjectFileSystemLocation object specifies the identifier, location, mountOptions, mountPoint,
 	// and type of a file system created using Amazon Elastic File System.
 	// Experimental.
-	FileSystemLocations *[]IFileSystemLocation `json:"fileSystemLocations" yaml:"fileSystemLocations"`
+	FileSystemLocations *[]IFileSystemLocation `field:"optional" json:"fileSystemLocations" yaml:"fileSystemLocations"`
 	// Add permissions to this project's role to create and use test report groups with name starting with the name of this project.
 	//
 	// That is the standard report group that gets created when a simple name
@@ -11166,78 +11312,79 @@ type ProjectProps struct {
 	// See: https://docs.aws.amazon.com/codebuild/latest/userguide/test-report-group-naming.html
 	//
 	// Experimental.
-	GrantReportGroupPermissions *bool `json:"grantReportGroupPermissions" yaml:"grantReportGroupPermissions"`
+	GrantReportGroupPermissions *bool `field:"optional" json:"grantReportGroupPermissions" yaml:"grantReportGroupPermissions"`
 	// Information about logs for the build project.
 	//
 	// A project can create logs in Amazon CloudWatch Logs, an S3 bucket, or both.
 	// Experimental.
-	Logging *LoggingOptions `json:"logging" yaml:"logging"`
+	Logging *LoggingOptions `field:"optional" json:"logging" yaml:"logging"`
 	// The physical, human-readable name of the CodeBuild Project.
 	// Experimental.
-	ProjectName *string `json:"projectName" yaml:"projectName"`
+	ProjectName *string `field:"optional" json:"projectName" yaml:"projectName"`
 	// The number of minutes after which AWS CodeBuild stops the build if it's still in queue.
 	//
 	// For valid values, see the timeoutInMinutes field in the AWS
 	// CodeBuild User Guide.
 	// Experimental.
-	QueuedTimeout awscdk.Duration `json:"queuedTimeout" yaml:"queuedTimeout"`
+	QueuedTimeout awscdk.Duration `field:"optional" json:"queuedTimeout" yaml:"queuedTimeout"`
 	// Service Role to assume while running the build.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// What security group to associate with the codebuild project's network interfaces.
 	//
 	// If no security group is identified, one will be created automatically.
 	//
 	// Only used if 'vpc' is supplied.
 	// Experimental.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// Where to place the network interfaces within the VPC.
 	//
 	// Only used if 'vpc' is supplied.
 	// Experimental.
-	SubnetSelection *awsec2.SubnetSelection `json:"subnetSelection" yaml:"subnetSelection"`
+	SubnetSelection *awsec2.SubnetSelection `field:"optional" json:"subnetSelection" yaml:"subnetSelection"`
 	// The number of minutes after which AWS CodeBuild stops the build if it's not complete.
 	//
 	// For valid values, see the timeoutInMinutes field in the AWS
 	// CodeBuild User Guide.
 	// Experimental.
-	Timeout awscdk.Duration `json:"timeout" yaml:"timeout"`
+	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 	// VPC network to place codebuild network interfaces.
 	//
 	// Specify this if the codebuild project needs to access resources in a VPC.
 	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc" yaml:"vpc"`
+	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 	// Defines where build artifacts will be stored.
 	//
 	// Could be: PipelineBuildArtifacts, NoArtifacts and S3Artifacts.
 	// Experimental.
-	Artifacts IArtifacts `json:"artifacts" yaml:"artifacts"`
+	Artifacts IArtifacts `field:"optional" json:"artifacts" yaml:"artifacts"`
 	// The secondary artifacts for the Project.
 	//
 	// Can also be added after the Project has been created by using the {@link Project#addSecondaryArtifact} method.
 	// See: https://docs.aws.amazon.com/codebuild/latest/userguide/sample-multi-in-out.html
 	//
 	// Experimental.
-	SecondaryArtifacts *[]IArtifacts `json:"secondaryArtifacts" yaml:"secondaryArtifacts"`
+	SecondaryArtifacts *[]IArtifacts `field:"optional" json:"secondaryArtifacts" yaml:"secondaryArtifacts"`
 	// The secondary sources for the Project.
 	//
 	// Can be also added after the Project has been created by using the {@link Project#addSecondarySource} method.
 	// See: https://docs.aws.amazon.com/codebuild/latest/userguide/sample-multi-in-out.html
 	//
 	// Experimental.
-	SecondarySources *[]ISource `json:"secondarySources" yaml:"secondarySources"`
+	SecondarySources *[]ISource `field:"optional" json:"secondarySources" yaml:"secondarySources"`
 	// The source of the build.
 	//
 	// *Note*: if {@link NoSource} is given as the source,
 	// then you need to provide an explicit `buildSpec`.
 	// Experimental.
-	Source ISource `json:"source" yaml:"source"`
+	Source ISource `field:"optional" json:"source" yaml:"source"`
 }
 
 // The ReportGroup resource class.
 //
 // Example:
 //   var source source
+//
 //
 //   // create a new ReportGroup
 //   reportGroup := codebuild.NewReportGroup(this, jsii.String("ReportGroup"))
@@ -11664,9 +11811,14 @@ func (r *jsiiProxy_ReportGroup) Validate() *[]*string {
 // Construction properties for {@link ReportGroup}.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"import awscdk "github.com/aws/aws-cdk-go/awscdk"import s3 "github.com/aws/aws-cdk-go/awscdk/aws_s3"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var bucket bucket
+//
 //   reportGroupProps := &reportGroupProps{
 //   	exportBucket: bucket,
 //   	removalPolicy: monocdk.removalPolicy_DESTROY,
@@ -11678,27 +11830,28 @@ func (r *jsiiProxy_ReportGroup) Validate() *[]*string {
 type ReportGroupProps struct {
 	// An optional S3 bucket to export the reports to.
 	// Experimental.
-	ExportBucket awss3.IBucket `json:"exportBucket" yaml:"exportBucket"`
+	ExportBucket awss3.IBucket `field:"optional" json:"exportBucket" yaml:"exportBucket"`
 	// What to do when this resource is deleted from a stack.
 	//
 	// As CodeBuild does not allow deleting a ResourceGroup that has reports inside of it,
 	// this is set to retain the resource by default.
 	// Experimental.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy" yaml:"removalPolicy"`
+	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// The physical name of the report group.
 	// Experimental.
-	ReportGroupName *string `json:"reportGroupName" yaml:"reportGroupName"`
+	ReportGroupName *string `field:"optional" json:"reportGroupName" yaml:"reportGroupName"`
 	// Whether to output the report files into the export bucket as-is, or create a ZIP from them before doing the export.
 	//
 	// Ignored if {@link exportBucket} has not been provided.
 	// Experimental.
-	ZipExport *bool `json:"zipExport" yaml:"zipExport"`
+	ZipExport *bool `field:"optional" json:"zipExport" yaml:"zipExport"`
 }
 
 // Construction properties for {@link S3Artifacts}.
 //
 // Example:
 //   var bucket bucket
+//
 //
 //   project := codebuild.NewProject(this, jsii.String("MyProject"), &projectProps{
 //   	buildSpec: codebuild.buildSpec.fromObject(map[string]interface{}{
@@ -11719,21 +11872,21 @@ type S3ArtifactsProps struct {
 	//
 	// This property is required on secondary artifacts.
 	// Experimental.
-	Identifier *string `json:"identifier" yaml:"identifier"`
+	Identifier *string `field:"optional" json:"identifier" yaml:"identifier"`
 	// The name of the output bucket.
 	// Experimental.
-	Bucket awss3.IBucket `json:"bucket" yaml:"bucket"`
+	Bucket awss3.IBucket `field:"required" json:"bucket" yaml:"bucket"`
 	// If this is false, build output will not be encrypted.
 	//
 	// This is useful if the artifact to publish a static website or sharing content with others.
 	// Experimental.
-	Encryption *bool `json:"encryption" yaml:"encryption"`
+	Encryption *bool `field:"optional" json:"encryption" yaml:"encryption"`
 	// Indicates if the build ID should be included in the path.
 	//
 	// If this is set to true,
 	// then the build artifact will be stored in "<path>/<build-id>/<name>".
 	// Experimental.
-	IncludeBuildId *bool `json:"includeBuildId" yaml:"includeBuildId"`
+	IncludeBuildId *bool `field:"optional" json:"includeBuildId" yaml:"includeBuildId"`
 	// The name of the build output ZIP file or folder inside the bucket.
 	//
 	// The full S3 object key will be "<path>/<build-id>/<name>" or
@@ -11742,13 +11895,13 @@ type S3ArtifactsProps struct {
 	// If not set, `overrideArtifactName` will be set and the name from the
 	// buildspec will be used instead.
 	// Experimental.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// If this is true, all build output will be packaged into a single .zip file. Otherwise, all files will be uploaded to <path>/<name>.
 	// Experimental.
-	PackageZip *bool `json:"packageZip" yaml:"packageZip"`
+	PackageZip *bool `field:"optional" json:"packageZip" yaml:"packageZip"`
 	// The path inside of the bucket for the build output .zip file or folder. If a value is not specified, then build output will be stored at the root of the bucket (or under the <build-id> directory if `includeBuildId` is set to true).
 	// Experimental.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"optional" json:"path" yaml:"path"`
 }
 
 // Information about logs built to an S3 bucket for a build project.
@@ -11766,16 +11919,16 @@ type S3ArtifactsProps struct {
 type S3LoggingOptions struct {
 	// The S3 Bucket to send logs to.
 	// Experimental.
-	Bucket awss3.IBucket `json:"bucket" yaml:"bucket"`
+	Bucket awss3.IBucket `field:"required" json:"bucket" yaml:"bucket"`
 	// The current status of the logs in Amazon CloudWatch Logs for a build project.
 	// Experimental.
-	Enabled *bool `json:"enabled" yaml:"enabled"`
+	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// Encrypt the S3 build log output.
 	// Experimental.
-	Encrypted *bool `json:"encrypted" yaml:"encrypted"`
+	Encrypted *bool `field:"optional" json:"encrypted" yaml:"encrypted"`
 	// The path prefix for S3 logs.
 	// Experimental.
-	Prefix *string `json:"prefix" yaml:"prefix"`
+	Prefix *string `field:"optional" json:"prefix" yaml:"prefix"`
 }
 
 // Construction properties for {@link S3Source}.
@@ -11796,14 +11949,14 @@ type S3SourceProps struct {
 	//
 	// This property is required on secondary sources.
 	// Experimental.
-	Identifier *string `json:"identifier" yaml:"identifier"`
+	Identifier *string `field:"optional" json:"identifier" yaml:"identifier"`
 	// Experimental.
-	Bucket awss3.IBucket `json:"bucket" yaml:"bucket"`
+	Bucket awss3.IBucket `field:"required" json:"bucket" yaml:"bucket"`
 	// Experimental.
-	Path *string `json:"path" yaml:"path"`
+	Path *string `field:"required" json:"path" yaml:"path"`
 	// The version ID of the object that represents the build input ZIP file to use.
 	// Experimental.
-	Version *string `json:"version" yaml:"version"`
+	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 
 // Source provider definition for a CodeBuild Project.
@@ -11981,7 +12134,10 @@ func (s *jsiiProxy_Source) Bind(_scope awscdk.Construct, _project IProject) *Sou
 // The type returned from {@link ISource#bind}.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sourceConfig := &sourceConfig{
 //   	sourceProperty: &sourceProperty{
 //   		type: jsii.String("type"),
@@ -12030,20 +12186,23 @@ func (s *jsiiProxy_Source) Bind(_scope awscdk.Construct, _project IProject) *Sou
 // Experimental.
 type SourceConfig struct {
 	// Experimental.
-	SourceProperty *CfnProject_SourceProperty `json:"sourceProperty" yaml:"sourceProperty"`
+	SourceProperty *CfnProject_SourceProperty `field:"required" json:"sourceProperty" yaml:"sourceProperty"`
 	// Experimental.
-	BuildTriggers *CfnProject_ProjectTriggersProperty `json:"buildTriggers" yaml:"buildTriggers"`
+	BuildTriggers *CfnProject_ProjectTriggersProperty `field:"optional" json:"buildTriggers" yaml:"buildTriggers"`
 	// `AWS::CodeBuild::Project.SourceVersion`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-sourceversion
 	//
 	// Experimental.
-	SourceVersion *string `json:"sourceVersion" yaml:"sourceVersion"`
+	SourceVersion *string `field:"optional" json:"sourceVersion" yaml:"sourceVersion"`
 }
 
 // Properties common to all Source classes.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sourceProps := &sourceProps{
 //   	identifier: jsii.String("identifier"),
 //   }
@@ -12054,7 +12213,7 @@ type SourceProps struct {
 	//
 	// This property is required on secondary sources.
 	// Experimental.
-	Identifier *string `json:"identifier" yaml:"identifier"`
+	Identifier *string `field:"optional" json:"identifier" yaml:"identifier"`
 }
 
 // Event fields for the CodeBuild "state change" event.
@@ -12131,6 +12290,7 @@ func StateChangeEvent_ProjectName() *string {
 //
 // Example:
 //   var project project
+//
 //   iam.permissionsBoundary.of(project).apply(codebuild.NewUntrustedCodeBoundaryPolicy(this, jsii.String("Boundary")))
 //
 // Experimental.
@@ -12652,9 +12812,13 @@ func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) Validate() *[]*string {
 // Construction properties for UntrustedCodeBoundaryPolicy.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import codebuild "github.com/aws/aws-cdk-go/awscdk/aws_codebuild"import awscdk "github.com/aws/aws-cdk-go/awscdk"import iam "github.com/aws/aws-cdk-go/awscdk/aws_iam"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var policyStatement policyStatement
+//
 //   untrustedCodeBoundaryPolicyProps := &untrustedCodeBoundaryPolicyProps{
 //   	additionalStatements: []*policyStatement{
 //   		policyStatement,
@@ -12666,10 +12830,10 @@ func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) Validate() *[]*string {
 type UntrustedCodeBoundaryPolicyProps struct {
 	// Additional statements to add to the default set of statements.
 	// Experimental.
-	AdditionalStatements *[]awsiam.PolicyStatement `json:"additionalStatements" yaml:"additionalStatements"`
+	AdditionalStatements *[]awsiam.PolicyStatement `field:"optional" json:"additionalStatements" yaml:"additionalStatements"`
 	// The name of the managed policy.
 	// Experimental.
-	ManagedPolicyName *string `json:"managedPolicyName" yaml:"managedPolicyName"`
+	ManagedPolicyName *string `field:"optional" json:"managedPolicyName" yaml:"managedPolicyName"`
 }
 
 // A CodeBuild image running Windows.
@@ -12684,6 +12848,7 @@ type UntrustedCodeBoundaryPolicyProps struct {
 //
 // Example:
 //   var ecrRepository repository
+//
 //
 //   codebuild.NewProject(this, jsii.String("Project"), &projectProps{
 //   	environment: &buildEnvironment{
@@ -12912,6 +13077,7 @@ func (w *jsiiProxy_WindowsBuildImage) Validate(buildEnvironment *BuildEnvironmen
 //
 // Example:
 //   var ecrRepository repository
+//
 //
 //   codebuild.NewProject(this, jsii.String("Project"), &projectProps{
 //   	environment: &buildEnvironment{

@@ -24,8 +24,11 @@ import (
 // For more information, see [AWS AppConfig](https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html) in the *AWS AppConfig User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appconfig "github.com/aws/aws-cdk-go/awscdk/aws_appconfig"
-//   cfnApplication := appconfig.NewCfnApplication(this, jsii.String("MyCfnApplication"), &cfnApplicationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnApplication := awscdk.Aws_appconfig.NewCfnApplication(this, jsii.String("MyCfnApplication"), &cfnApplicationProps{
 //   	name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -713,7 +716,10 @@ func (c *jsiiProxy_CfnApplication) ValidateProperties(_properties interface{}) {
 // Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appconfig "github.com/aws/aws-cdk-go/awscdk/aws_appconfig"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tagsProperty := &tagsProperty{
 //   	key: jsii.String("key"),
 //   	value: jsii.String("value"),
@@ -723,15 +729,18 @@ type CfnApplication_TagsProperty struct {
 	// The key-value string map.
 	//
 	// The valid character set is `[a-zA-Z+-=._:/]` . The tag key can be up to 128 characters and must not start with `aws:` .
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"optional" json:"key" yaml:"key"`
 	// The tag value can be up to 256 characters.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
 // Properties for defining a `CfnApplication`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appconfig "github.com/aws/aws-cdk-go/awscdk/aws_appconfig"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnApplicationProps := &cfnApplicationProps{
 //   	name: jsii.String("name"),
 //
@@ -747,13 +756,13 @@ type CfnApplication_TagsProperty struct {
 //
 type CfnApplicationProps struct {
 	// A name for the application.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// A description of the application.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Metadata to assign to the application.
 	//
 	// Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
-	Tags *[]*CfnApplication_TagsProperty `json:"tags" yaml:"tags"`
+	Tags *[]*CfnApplication_TagsProperty `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::AppConfig::ConfigurationProfile`.
@@ -775,8 +784,11 @@ type CfnApplicationProps struct {
 // For more information, see [AWS AppConfig](https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html) in the *AWS AppConfig User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appconfig "github.com/aws/aws-cdk-go/awscdk/aws_appconfig"
-//   cfnConfigurationProfile := appconfig.NewCfnConfigurationProfile(this, jsii.String("MyCfnConfigurationProfile"), &cfnConfigurationProfileProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnConfigurationProfile := awscdk.Aws_appconfig.NewCfnConfigurationProfile(this, jsii.String("MyCfnConfigurationProfile"), &cfnConfigurationProfileProps{
 //   	applicationId: jsii.String("applicationId"),
 //   	locationUri: jsii.String("locationUri"),
 //   	name: jsii.String("name"),
@@ -1589,7 +1601,10 @@ func (c *jsiiProxy_CfnConfigurationProfile) ValidateProperties(_properties inter
 // Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appconfig "github.com/aws/aws-cdk-go/awscdk/aws_appconfig"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tagsProperty := &tagsProperty{
 //   	key: jsii.String("key"),
 //   	value: jsii.String("value"),
@@ -1599,9 +1614,9 @@ type CfnConfigurationProfile_TagsProperty struct {
 	// The key-value string map.
 	//
 	// The valid character set is `[a-zA-Z+-=._:/]` . The tag key can be up to 128 characters and must not start with `aws:` .
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"optional" json:"key" yaml:"key"`
 	// The tag value can be up to 256 characters.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
 // A validator provides a syntactic or semantic check to ensure the configuration that you want to deploy functions as intended.
@@ -1609,7 +1624,10 @@ type CfnConfigurationProfile_TagsProperty struct {
 // To validate your application configuration data, you provide a schema or an AWS Lambda function that runs against the configuration. The configuration deployment or update can only proceed when the configuration data is valid.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appconfig "github.com/aws/aws-cdk-go/awscdk/aws_appconfig"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   validatorsProperty := &validatorsProperty{
 //   	content: jsii.String("content"),
 //   	type: jsii.String("type"),
@@ -1617,15 +1635,18 @@ type CfnConfigurationProfile_TagsProperty struct {
 //
 type CfnConfigurationProfile_ValidatorsProperty struct {
 	// Either the JSON Schema content or the Amazon Resource Name (ARN) of an Lambda function.
-	Content *string `json:"content" yaml:"content"`
+	Content *string `field:"optional" json:"content" yaml:"content"`
 	// AWS AppConfig supports validators of type `JSON_SCHEMA` and `LAMBDA`.
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 
 // Properties for defining a `CfnConfigurationProfile`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appconfig "github.com/aws/aws-cdk-go/awscdk/aws_appconfig"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnConfigurationProfileProps := &cfnConfigurationProfileProps{
 //   	applicationId: jsii.String("applicationId"),
 //   	locationUri: jsii.String("locationUri"),
@@ -1651,23 +1672,23 @@ type CfnConfigurationProfile_ValidatorsProperty struct {
 //
 type CfnConfigurationProfileProps struct {
 	// The application ID.
-	ApplicationId *string `json:"applicationId" yaml:"applicationId"`
+	ApplicationId *string `field:"required" json:"applicationId" yaml:"applicationId"`
 	// A URI to locate the configuration.
 	//
 	// You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store and for feature flags, specify `hosted` . For an SSM document, specify either the document name in the format `ssm-document://<Document_name>` or the Amazon Resource Name (ARN). For a parameter, specify either the parameter name in the format `ssm-parameter://<Parameter_name>` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://<bucket>/<objectKey>` . Here is an example: `s3://my-bucket/my-app/us-east-1/my-config.json`
-	LocationUri *string `json:"locationUri" yaml:"locationUri"`
+	LocationUri *string `field:"required" json:"locationUri" yaml:"locationUri"`
 	// A name for the configuration profile.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// A description of the configuration profile.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The ARN of an IAM role with permission to access the configuration at the specified `LocationUri` .
 	//
 	// > A retrieval role ARN is not required for configurations stored in the AWS AppConfig hosted configuration store. It is required for all other sources that store your configuration.
-	RetrievalRoleArn *string `json:"retrievalRoleArn" yaml:"retrievalRoleArn"`
+	RetrievalRoleArn *string `field:"optional" json:"retrievalRoleArn" yaml:"retrievalRoleArn"`
 	// Metadata to assign to the configuration profile.
 	//
 	// Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
-	Tags *[]*CfnConfigurationProfile_TagsProperty `json:"tags" yaml:"tags"`
+	Tags *[]*CfnConfigurationProfile_TagsProperty `field:"optional" json:"tags" yaml:"tags"`
 	// The type of configurations contained in the profile.
 	//
 	// AWS AppConfig supports `feature flags` and `freeform` configurations. We recommend you create feature flag configurations to enable or disable new features and freeform configurations to distribute configurations to an application. When calling this API, enter one of the following values for `Type` :
@@ -1675,9 +1696,9 @@ type CfnConfigurationProfileProps struct {
 	// `AWS.AppConfig.FeatureFlags`
 	//
 	// `AWS.Freeform`
-	Type *string `json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 	// A list of methods for validating the configuration.
-	Validators interface{} `json:"validators" yaml:"validators"`
+	Validators interface{} `field:"optional" json:"validators" yaml:"validators"`
 }
 
 // A CloudFormation `AWS::AppConfig::Deployment`.
@@ -1697,8 +1718,11 @@ type CfnConfigurationProfileProps struct {
 // For more information, see [AWS AppConfig](https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html) in the *AWS AppConfig User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appconfig "github.com/aws/aws-cdk-go/awscdk/aws_appconfig"
-//   cfnDeployment := appconfig.NewCfnDeployment(this, jsii.String("MyCfnDeployment"), &cfnDeploymentProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDeployment := awscdk.Aws_appconfig.NewCfnDeployment(this, jsii.String("MyCfnDeployment"), &cfnDeploymentProps{
 //   	applicationId: jsii.String("applicationId"),
 //   	configurationProfileId: jsii.String("configurationProfileId"),
 //   	configurationVersion: jsii.String("configurationVersion"),
@@ -2474,7 +2498,10 @@ func (c *jsiiProxy_CfnDeployment) ValidateProperties(_properties interface{}) {
 // Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appconfig "github.com/aws/aws-cdk-go/awscdk/aws_appconfig"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tagsProperty := &tagsProperty{
 //   	key: jsii.String("key"),
 //   	value: jsii.String("value"),
@@ -2484,15 +2511,18 @@ type CfnDeployment_TagsProperty struct {
 	// The key-value string map.
 	//
 	// The valid character set is `[a-zA-Z+-=._:/]` . The tag key can be up to 128 characters and must not start with `aws:` .
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"optional" json:"key" yaml:"key"`
 	// The tag value can be up to 256 characters.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
 // Properties for defining a `CfnDeployment`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appconfig "github.com/aws/aws-cdk-go/awscdk/aws_appconfig"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDeploymentProps := &cfnDeploymentProps{
 //   	applicationId: jsii.String("applicationId"),
 //   	configurationProfileId: jsii.String("configurationProfileId"),
@@ -2512,21 +2542,21 @@ type CfnDeployment_TagsProperty struct {
 //
 type CfnDeploymentProps struct {
 	// The application ID.
-	ApplicationId *string `json:"applicationId" yaml:"applicationId"`
+	ApplicationId *string `field:"required" json:"applicationId" yaml:"applicationId"`
 	// The configuration profile ID.
-	ConfigurationProfileId *string `json:"configurationProfileId" yaml:"configurationProfileId"`
+	ConfigurationProfileId *string `field:"required" json:"configurationProfileId" yaml:"configurationProfileId"`
 	// The configuration version to deploy.
-	ConfigurationVersion *string `json:"configurationVersion" yaml:"configurationVersion"`
+	ConfigurationVersion *string `field:"required" json:"configurationVersion" yaml:"configurationVersion"`
 	// The deployment strategy ID.
-	DeploymentStrategyId *string `json:"deploymentStrategyId" yaml:"deploymentStrategyId"`
+	DeploymentStrategyId *string `field:"required" json:"deploymentStrategyId" yaml:"deploymentStrategyId"`
 	// The environment ID.
-	EnvironmentId *string `json:"environmentId" yaml:"environmentId"`
+	EnvironmentId *string `field:"required" json:"environmentId" yaml:"environmentId"`
 	// A description of the deployment.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Metadata to assign to the deployment.
 	//
 	// Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
-	Tags *[]*CfnDeployment_TagsProperty `json:"tags" yaml:"tags"`
+	Tags *[]*CfnDeployment_TagsProperty `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::AppConfig::DeploymentStrategy`.
@@ -2544,8 +2574,11 @@ type CfnDeploymentProps struct {
 // For more information, see [AWS AppConfig](https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html) in the *AWS AppConfig User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appconfig "github.com/aws/aws-cdk-go/awscdk/aws_appconfig"
-//   cfnDeploymentStrategy := appconfig.NewCfnDeploymentStrategy(this, jsii.String("MyCfnDeploymentStrategy"), &cfnDeploymentStrategyProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDeploymentStrategy := awscdk.Aws_appconfig.NewCfnDeploymentStrategy(this, jsii.String("MyCfnDeploymentStrategy"), &cfnDeploymentStrategyProps{
 //   	deploymentDurationInMinutes: jsii.Number(123),
 //   	growthFactor: jsii.Number(123),
 //   	name: jsii.String("name"),
@@ -3355,7 +3388,10 @@ func (c *jsiiProxy_CfnDeploymentStrategy) ValidateProperties(_properties interfa
 // Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appconfig "github.com/aws/aws-cdk-go/awscdk/aws_appconfig"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tagsProperty := &tagsProperty{
 //   	key: jsii.String("key"),
 //   	value: jsii.String("value"),
@@ -3365,15 +3401,18 @@ type CfnDeploymentStrategy_TagsProperty struct {
 	// The key-value string map.
 	//
 	// The valid character set is `[a-zA-Z+-=._:/]` . The tag key can be up to 128 characters and must not start with `aws:` .
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"optional" json:"key" yaml:"key"`
 	// The tag value can be up to 256 characters.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
 // Properties for defining a `CfnDeploymentStrategy`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appconfig "github.com/aws/aws-cdk-go/awscdk/aws_appconfig"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDeploymentStrategyProps := &cfnDeploymentStrategyProps{
 //   	deploymentDurationInMinutes: jsii.Number(123),
 //   	growthFactor: jsii.Number(123),
@@ -3394,17 +3433,17 @@ type CfnDeploymentStrategy_TagsProperty struct {
 //
 type CfnDeploymentStrategyProps struct {
 	// Total amount of time for a deployment to last.
-	DeploymentDurationInMinutes *float64 `json:"deploymentDurationInMinutes" yaml:"deploymentDurationInMinutes"`
+	DeploymentDurationInMinutes *float64 `field:"required" json:"deploymentDurationInMinutes" yaml:"deploymentDurationInMinutes"`
 	// The percentage of targets to receive a deployed configuration during each interval.
-	GrowthFactor *float64 `json:"growthFactor" yaml:"growthFactor"`
+	GrowthFactor *float64 `field:"required" json:"growthFactor" yaml:"growthFactor"`
 	// A name for the deployment strategy.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// Save the deployment strategy to a Systems Manager (SSM) document.
-	ReplicateTo *string `json:"replicateTo" yaml:"replicateTo"`
+	ReplicateTo *string `field:"required" json:"replicateTo" yaml:"replicateTo"`
 	// A description of the deployment strategy.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back.
-	FinalBakeTimeInMinutes *float64 `json:"finalBakeTimeInMinutes" yaml:"finalBakeTimeInMinutes"`
+	FinalBakeTimeInMinutes *float64 `field:"optional" json:"finalBakeTimeInMinutes" yaml:"finalBakeTimeInMinutes"`
 	// The algorithm used to define how percentage grows over time. AWS AppConfig supports the following growth types:.
 	//
 	// *Linear* : For this type, AWS AppConfig processes the deployment by dividing the total number of targets by the value specified for `Step percentage` . For example, a linear deployment that uses a `Step percentage` of 10 deploys the configuration to 10 percent of the hosts. After those deployments are complete, the system deploys the configuration to the next 10 percent. This continues until 100% of the targets have successfully received the configuration.
@@ -3418,11 +3457,11 @@ type CfnDeploymentStrategyProps struct {
 	// `2*(2^2)`
 	//
 	// Expressed numerically, the deployment rolls out as follows: 2% of the targets, 4% of the targets, 8% of the targets, and continues until the configuration has been deployed to all targets.
-	GrowthType *string `json:"growthType" yaml:"growthType"`
+	GrowthType *string `field:"optional" json:"growthType" yaml:"growthType"`
 	// Assigns metadata to an AWS AppConfig resource.
 	//
 	// Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define. You can specify a maximum of 50 tags for a resource.
-	Tags *[]*CfnDeploymentStrategy_TagsProperty `json:"tags" yaml:"tags"`
+	Tags *[]*CfnDeploymentStrategy_TagsProperty `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::AppConfig::Environment`.
@@ -3440,8 +3479,11 @@ type CfnDeploymentStrategyProps struct {
 // For more information, see [AWS AppConfig](https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html) in the *AWS AppConfig User Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appconfig "github.com/aws/aws-cdk-go/awscdk/aws_appconfig"
-//   cfnEnvironment := appconfig.NewCfnEnvironment(this, jsii.String("MyCfnEnvironment"), &cfnEnvironmentProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnEnvironment := awscdk.Aws_appconfig.NewCfnEnvironment(this, jsii.String("MyCfnEnvironment"), &cfnEnvironmentProps{
 //   	applicationId: jsii.String("applicationId"),
 //   	name: jsii.String("name"),
 //
@@ -4176,7 +4218,10 @@ func (c *jsiiProxy_CfnEnvironment) ValidateProperties(_properties interface{}) {
 // Amazon CloudWatch alarms to monitor during the deployment process.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appconfig "github.com/aws/aws-cdk-go/awscdk/aws_appconfig"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   monitorsProperty := &monitorsProperty{
 //   	alarmArn: jsii.String("alarmArn"),
 //   	alarmRoleArn: jsii.String("alarmRoleArn"),
@@ -4184,9 +4229,9 @@ func (c *jsiiProxy_CfnEnvironment) ValidateProperties(_properties interface{}) {
 //
 type CfnEnvironment_MonitorsProperty struct {
 	// Amazon Resource Name (ARN) of the Amazon CloudWatch alarm.
-	AlarmArn *string `json:"alarmArn" yaml:"alarmArn"`
+	AlarmArn *string `field:"optional" json:"alarmArn" yaml:"alarmArn"`
 	// ARN of an AWS Identity and Access Management (IAM) role for AWS AppConfig to monitor `AlarmArn` .
-	AlarmRoleArn *string `json:"alarmRoleArn" yaml:"alarmRoleArn"`
+	AlarmRoleArn *string `field:"optional" json:"alarmRoleArn" yaml:"alarmRoleArn"`
 }
 
 // Metadata to assign to the environment.
@@ -4194,7 +4239,10 @@ type CfnEnvironment_MonitorsProperty struct {
 // Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appconfig "github.com/aws/aws-cdk-go/awscdk/aws_appconfig"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   tagsProperty := &tagsProperty{
 //   	key: jsii.String("key"),
 //   	value: jsii.String("value"),
@@ -4204,15 +4252,18 @@ type CfnEnvironment_TagsProperty struct {
 	// The key-value string map.
 	//
 	// The valid character set is `[a-zA-Z+-=._:/]` . The tag key can be up to 128 characters and must not start with `aws:` .
-	Key *string `json:"key" yaml:"key"`
+	Key *string `field:"optional" json:"key" yaml:"key"`
 	// The tag value can be up to 256 characters.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
 // Properties for defining a `CfnEnvironment`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appconfig "github.com/aws/aws-cdk-go/awscdk/aws_appconfig"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnEnvironmentProps := &cfnEnvironmentProps{
 //   	applicationId: jsii.String("applicationId"),
 //   	name: jsii.String("name"),
@@ -4235,17 +4286,17 @@ type CfnEnvironment_TagsProperty struct {
 //
 type CfnEnvironmentProps struct {
 	// The application ID.
-	ApplicationId *string `json:"applicationId" yaml:"applicationId"`
+	ApplicationId *string `field:"required" json:"applicationId" yaml:"applicationId"`
 	// A name for the environment.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
 	// A description of the environment.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Amazon CloudWatch alarms to monitor during the deployment process.
-	Monitors interface{} `json:"monitors" yaml:"monitors"`
+	Monitors interface{} `field:"optional" json:"monitors" yaml:"monitors"`
 	// Metadata to assign to the environment.
 	//
 	// Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
-	Tags *[]*CfnEnvironment_TagsProperty `json:"tags" yaml:"tags"`
+	Tags *[]*CfnEnvironment_TagsProperty `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::AppConfig::HostedConfigurationVersion`.
@@ -4259,8 +4310,11 @@ type CfnEnvironmentProps struct {
 // - You can create a configuration and add it to the store when you create a configuration profile.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appconfig "github.com/aws/aws-cdk-go/awscdk/aws_appconfig"
-//   cfnHostedConfigurationVersion := appconfig.NewCfnHostedConfigurationVersion(this, jsii.String("MyCfnHostedConfigurationVersion"), &cfnHostedConfigurationVersionProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnHostedConfigurationVersion := awscdk.Aws_appconfig.NewCfnHostedConfigurationVersion(this, jsii.String("MyCfnHostedConfigurationVersion"), &cfnHostedConfigurationVersionProps{
 //   	applicationId: jsii.String("applicationId"),
 //   	configurationProfileId: jsii.String("configurationProfileId"),
 //   	content: jsii.String("content"),
@@ -5009,7 +5063,10 @@ func (c *jsiiProxy_CfnHostedConfigurationVersion) ValidateProperties(_properties
 // Properties for defining a `CfnHostedConfigurationVersion`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import appconfig "github.com/aws/aws-cdk-go/awscdk/aws_appconfig"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnHostedConfigurationVersionProps := &cfnHostedConfigurationVersionProps{
 //   	applicationId: jsii.String("applicationId"),
 //   	configurationProfileId: jsii.String("configurationProfileId"),
@@ -5023,20 +5080,20 @@ func (c *jsiiProxy_CfnHostedConfigurationVersion) ValidateProperties(_properties
 //
 type CfnHostedConfigurationVersionProps struct {
 	// The application ID.
-	ApplicationId *string `json:"applicationId" yaml:"applicationId"`
+	ApplicationId *string `field:"required" json:"applicationId" yaml:"applicationId"`
 	// The configuration profile ID.
-	ConfigurationProfileId *string `json:"configurationProfileId" yaml:"configurationProfileId"`
+	ConfigurationProfileId *string `field:"required" json:"configurationProfileId" yaml:"configurationProfileId"`
 	// The content of the configuration or the configuration data.
-	Content *string `json:"content" yaml:"content"`
+	Content *string `field:"required" json:"content" yaml:"content"`
 	// A standard MIME type describing the format of the configuration content.
 	//
 	// For more information, see [Content-Type](https://docs.aws.amazon.com/https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17) .
-	ContentType *string `json:"contentType" yaml:"contentType"`
+	ContentType *string `field:"required" json:"contentType" yaml:"contentType"`
 	// A description of the configuration.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// An optional locking token used to prevent race conditions from overwriting configuration updates when creating a new version.
 	//
 	// To ensure your data is not overwritten when creating multiple hosted configuration versions in rapid succession, specify the version number of the latest hosted configuration version.
-	LatestVersionNumber *float64 `json:"latestVersionNumber" yaml:"latestVersionNumber"`
+	LatestVersionNumber *float64 `field:"optional" json:"latestVersionNumber" yaml:"latestVersionNumber"`
 }
 

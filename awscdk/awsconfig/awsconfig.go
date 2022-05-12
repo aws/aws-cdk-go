@@ -544,11 +544,15 @@ func (a *jsiiProxy_AccessKeysRotated) Validate() *[]*string {
 // Construction properties for a AccessKeysRotated.
 //
 // Example:
-//   import monocdk "github.com/aws/aws-cdk-go/awscdk"import awscdk "github.com/aws/aws-cdk-go/awscdk"import config "github.com/aws/aws-cdk-go/awscdk/aws_config"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import monocdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var duration duration
 //   var inputParameters interface{}
 //   var ruleScope ruleScope
+//
 //   accessKeysRotatedProps := &accessKeysRotatedProps{
 //   	configRuleName: jsii.String("configRuleName"),
 //   	description: jsii.String("description"),
@@ -556,7 +560,7 @@ func (a *jsiiProxy_AccessKeysRotated) Validate() *[]*string {
 //   		"inputParametersKey": inputParameters,
 //   	},
 //   	maxAge: duration,
-//   	maximumExecutionFrequency: config.maximumExecutionFrequency_ONE_HOUR,
+//   	maximumExecutionFrequency: awscdk.Aws_config.maximumExecutionFrequency_ONE_HOUR,
 //   	ruleScope: ruleScope,
 //   }
 //
@@ -564,22 +568,22 @@ func (a *jsiiProxy_AccessKeysRotated) Validate() *[]*string {
 type AccessKeysRotatedProps struct {
 	// A name for the AWS Config rule.
 	// Experimental.
-	ConfigRuleName *string `json:"configRuleName" yaml:"configRuleName"`
+	ConfigRuleName *string `field:"optional" json:"configRuleName" yaml:"configRuleName"`
 	// A description about this AWS Config rule.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Input parameter values that are passed to the AWS Config rule.
 	// Experimental.
-	InputParameters *map[string]interface{} `json:"inputParameters" yaml:"inputParameters"`
+	InputParameters *map[string]interface{} `field:"optional" json:"inputParameters" yaml:"inputParameters"`
 	// The maximum frequency at which the AWS Config rule runs evaluations.
 	// Experimental.
-	MaximumExecutionFrequency MaximumExecutionFrequency `json:"maximumExecutionFrequency" yaml:"maximumExecutionFrequency"`
+	MaximumExecutionFrequency MaximumExecutionFrequency `field:"optional" json:"maximumExecutionFrequency" yaml:"maximumExecutionFrequency"`
 	// Defines which resources trigger an evaluation for an AWS Config rule.
 	// Experimental.
-	RuleScope RuleScope `json:"ruleScope" yaml:"ruleScope"`
+	RuleScope RuleScope `field:"optional" json:"ruleScope" yaml:"ruleScope"`
 	// The maximum number of days within which the access keys must be rotated.
 	// Experimental.
-	MaxAge awscdk.Duration `json:"maxAge" yaml:"maxAge"`
+	MaxAge awscdk.Duration `field:"optional" json:"maxAge" yaml:"maxAge"`
 }
 
 // A CloudFormation `AWS::Config::AggregationAuthorization`.
@@ -587,8 +591,11 @@ type AccessKeysRotatedProps struct {
 // An object that represents the authorizations granted to aggregator accounts and regions.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import config "github.com/aws/aws-cdk-go/awscdk/aws_config"
-//   cfnAggregationAuthorization := config.NewCfnAggregationAuthorization(this, jsii.String("MyCfnAggregationAuthorization"), &cfnAggregationAuthorizationProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnAggregationAuthorization := awscdk.Aws_config.NewCfnAggregationAuthorization(this, jsii.String("MyCfnAggregationAuthorization"), &cfnAggregationAuthorizationProps{
 //   	authorizedAccountId: jsii.String("authorizedAccountId"),
 //   	authorizedAwsRegion: jsii.String("authorizedAwsRegion"),
 //
@@ -1275,7 +1282,10 @@ func (c *jsiiProxy_CfnAggregationAuthorization) ValidateProperties(_properties i
 // Properties for defining a `CfnAggregationAuthorization`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import config "github.com/aws/aws-cdk-go/awscdk/aws_config"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnAggregationAuthorizationProps := &cfnAggregationAuthorizationProps{
 //   	authorizedAccountId: jsii.String("authorizedAccountId"),
 //   	authorizedAwsRegion: jsii.String("authorizedAwsRegion"),
@@ -1291,11 +1301,11 @@ func (c *jsiiProxy_CfnAggregationAuthorization) ValidateProperties(_properties i
 //
 type CfnAggregationAuthorizationProps struct {
 	// The 12-digit account ID of the account authorized to aggregate data.
-	AuthorizedAccountId *string `json:"authorizedAccountId" yaml:"authorizedAccountId"`
+	AuthorizedAccountId *string `field:"required" json:"authorizedAccountId" yaml:"authorizedAccountId"`
 	// The region authorized to collect aggregated data.
-	AuthorizedAwsRegion *string `json:"authorizedAwsRegion" yaml:"authorizedAwsRegion"`
+	AuthorizedAwsRegion *string `field:"required" json:"authorizedAwsRegion" yaml:"authorizedAwsRegion"`
 	// An array of tag object.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Config::ConfigRule`.
@@ -1319,10 +1329,13 @@ type CfnAggregationAuthorizationProps struct {
 // For more information about developing and using AWS Config rules, see [Evaluating AWS Resource Configurations with AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html) in the *AWS Config Developer Guide* .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import config "github.com/aws/aws-cdk-go/awscdk/aws_config"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var inputParameters interface{}
-//   cfnConfigRule := config.NewCfnConfigRule(this, jsii.String("MyCfnConfigRule"), &cfnConfigRuleProps{
+//
+//   cfnConfigRule := awscdk.Aws_config.NewCfnConfigRule(this, jsii.String("MyCfnConfigRule"), &cfnConfigRuleProps{
 //   	source: &sourceProperty{
 //   		owner: jsii.String("owner"),
 //   		sourceIdentifier: jsii.String("sourceIdentifier"),
@@ -2139,7 +2152,10 @@ func (c *jsiiProxy_CfnConfigRule) ValidateProperties(_properties interface{}) {
 // The scope can include one or more resource types, a combination of a tag key and value, or a combination of one resource type and one resource ID. Specify a scope to constrain which resources trigger an evaluation for a rule. Otherwise, evaluations for the rule are triggered when any resource in your recording group changes in configuration.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import config "github.com/aws/aws-cdk-go/awscdk/aws_config"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   scopeProperty := &scopeProperty{
 //   	complianceResourceId: jsii.String("complianceResourceId"),
 //   	complianceResourceTypes: []*string{
@@ -2153,17 +2169,17 @@ type CfnConfigRule_ScopeProperty struct {
 	// The ID of the only AWS resource that you want to trigger an evaluation for the rule.
 	//
 	// If you specify a resource ID, you must specify one resource type for `ComplianceResourceTypes` .
-	ComplianceResourceId *string `json:"complianceResourceId" yaml:"complianceResourceId"`
+	ComplianceResourceId *string `field:"optional" json:"complianceResourceId" yaml:"complianceResourceId"`
 	// The resource types of only those AWS resources that you want to trigger an evaluation for the rule.
 	//
 	// You can only specify one type if you also specify a resource ID for `ComplianceResourceId` .
-	ComplianceResourceTypes *[]*string `json:"complianceResourceTypes" yaml:"complianceResourceTypes"`
+	ComplianceResourceTypes *[]*string `field:"optional" json:"complianceResourceTypes" yaml:"complianceResourceTypes"`
 	// The tag key that is applied to only those AWS resources that you want to trigger an evaluation for the rule.
-	TagKey *string `json:"tagKey" yaml:"tagKey"`
+	TagKey *string `field:"optional" json:"tagKey" yaml:"tagKey"`
 	// The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule.
 	//
 	// If you specify a value for `TagValue` , you must also specify a value for `TagKey` .
-	TagValue *string `json:"tagValue" yaml:"tagValue"`
+	TagValue *string `field:"optional" json:"tagValue" yaml:"tagValue"`
 }
 
 // Provides the source and the message types that trigger AWS Config to evaluate your AWS resources against a rule.
@@ -2171,7 +2187,10 @@ type CfnConfigRule_ScopeProperty struct {
 // It also provides the frequency with which you want AWS Config to run evaluations for the rule if the trigger type is periodic. You can specify the parameter values for `SourceDetail` only for custom rules.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import config "github.com/aws/aws-cdk-go/awscdk/aws_config"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sourceDetailProperty := &sourceDetailProperty{
 //   	eventSource: jsii.String("eventSource"),
 //   	messageType: jsii.String("messageType"),
@@ -2182,7 +2201,7 @@ type CfnConfigRule_ScopeProperty struct {
 //
 type CfnConfigRule_SourceDetailProperty struct {
 	// The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWS resources.
-	EventSource *string `json:"eventSource" yaml:"eventSource"`
+	EventSource *string `field:"required" json:"eventSource" yaml:"eventSource"`
 	// The type of notification that triggers AWS Config to run an evaluation for a rule.
 	//
 	// You can specify the following notification types:
@@ -2193,7 +2212,7 @@ type CfnConfigRule_SourceDetailProperty struct {
 	// - `ConfigurationSnapshotDeliveryCompleted` - Triggers a periodic evaluation when AWS Config delivers a configuration snapshot.
 	//
 	// If you want your custom rule to be triggered by configuration changes, specify two SourceDetail objects, one for `ConfigurationItemChangeNotification` and one for `OversizedConfigurationItemChangeNotification` .
-	MessageType *string `json:"messageType" yaml:"messageType"`
+	MessageType *string `field:"required" json:"messageType" yaml:"messageType"`
 	// The frequency at which you want AWS Config to run evaluations for a custom rule with a periodic trigger.
 	//
 	// If you specify a value for `MaximumExecutionFrequency` , then `MessageType` must use the `ScheduledNotification` value.
@@ -2201,13 +2220,16 @@ type CfnConfigRule_SourceDetailProperty struct {
 	// > By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the `MaximumExecutionFrequency` parameter.
 	// >
 	// > Based on the valid value you choose, AWS Config runs evaluations once for each valid value. For example, if you choose `Three_Hours` , AWS Config runs evaluations once every three hours. In this case, `Three_Hours` is the frequency of this rule.
-	MaximumExecutionFrequency *string `json:"maximumExecutionFrequency" yaml:"maximumExecutionFrequency"`
+	MaximumExecutionFrequency *string `field:"optional" json:"maximumExecutionFrequency" yaml:"maximumExecutionFrequency"`
 }
 
 // Provides the CustomPolicyDetails, the rule owner ( AWS or customer), the rule identifier, and the events that cause the evaluation of your AWS resources.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import config "github.com/aws/aws-cdk-go/awscdk/aws_config"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   sourceProperty := &sourceProperty{
 //   	owner: jsii.String("owner"),
 //   	sourceIdentifier: jsii.String("sourceIdentifier"),
@@ -2230,7 +2252,7 @@ type CfnConfigRule_SourceProperty struct {
 	// AWS Config Managed Rules are predefined rules owned by AWS . For more information, see [AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html) in the AWS Config developer guide.
 	//
 	// AWS Config Custom Rules are rules that you can develop either with Guard ( `CUSTOM_POLICY` ) or AWS Lambda ( `CUSTOM_LAMBDA` ). For more information, see [AWS Config Custom Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html) in the AWS Config developer guide.
-	Owner *string `json:"owner" yaml:"owner"`
+	Owner *string `field:"required" json:"owner" yaml:"owner"`
 	// For AWS Config Managed rules, a predefined identifier from a list.
 	//
 	// For example, `IAM_PASSWORD_POLICY` is a managed rule. To reference a managed rule, see [List of AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html) .
@@ -2238,21 +2260,24 @@ type CfnConfigRule_SourceProperty struct {
 	// For AWS Config Custom Lambda rules, the identifier is the Amazon Resource Name (ARN) of the rule's AWS Lambda function, such as `arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name` .
 	//
 	// For AWS Config Custom Policy rules, this field will be ignored.
-	SourceIdentifier *string `json:"sourceIdentifier" yaml:"sourceIdentifier"`
+	SourceIdentifier *string `field:"required" json:"sourceIdentifier" yaml:"sourceIdentifier"`
 	// Provides the source and the message types that cause AWS Config to evaluate your AWS resources against a rule.
 	//
 	// It also provides the frequency with which you want AWS Config to run evaluations for the rule if the trigger type is periodic.
 	//
 	// If the owner is set to `CUSTOM_POLICY` , the only acceptable values for the AWS Config rule trigger message type are `ConfigurationItemChangeNotification` and `OversizedConfigurationItemChangeNotification` .
-	SourceDetails interface{} `json:"sourceDetails" yaml:"sourceDetails"`
+	SourceDetails interface{} `field:"optional" json:"sourceDetails" yaml:"sourceDetails"`
 }
 
 // Properties for defining a `CfnConfigRule`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import config "github.com/aws/aws-cdk-go/awscdk/aws_config"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var inputParameters interface{}
+//
 //   cfnConfigRuleProps := &cfnConfigRuleProps{
 //   	source: &sourceProperty{
 //   		owner: jsii.String("owner"),
@@ -2287,15 +2312,15 @@ type CfnConfigRule_SourceProperty struct {
 //
 type CfnConfigRuleProps struct {
 	// Provides the rule owner ( AWS or customer), the rule identifier, and the notifications that cause the function to evaluate your AWS resources.
-	Source interface{} `json:"source" yaml:"source"`
+	Source interface{} `field:"required" json:"source" yaml:"source"`
 	// A name for the AWS Config rule.
 	//
 	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the rule name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
-	ConfigRuleName *string `json:"configRuleName" yaml:"configRuleName"`
+	ConfigRuleName *string `field:"optional" json:"configRuleName" yaml:"configRuleName"`
 	// The description that you provide for the AWS Config rule.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// A string, in JSON format, that is passed to the AWS Config rule Lambda function.
-	InputParameters interface{} `json:"inputParameters" yaml:"inputParameters"`
+	InputParameters interface{} `field:"optional" json:"inputParameters" yaml:"inputParameters"`
 	// The maximum frequency with which AWS Config runs evaluations for a rule.
 	//
 	// You can specify a value for `MaximumExecutionFrequency` when:
@@ -2304,13 +2329,13 @@ type CfnConfigRuleProps struct {
 	// - Your custom rule is triggered when AWS Config delivers the configuration snapshot. For more information, see [ConfigSnapshotDeliveryProperties](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html) .
 	//
 	// > By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the `MaximumExecutionFrequency` parameter.
-	MaximumExecutionFrequency *string `json:"maximumExecutionFrequency" yaml:"maximumExecutionFrequency"`
+	MaximumExecutionFrequency *string `field:"optional" json:"maximumExecutionFrequency" yaml:"maximumExecutionFrequency"`
 	// Defines which resources can trigger an evaluation for the rule.
 	//
 	// The scope can include one or more resource types, a combination of one resource type and one resource ID, or a combination of a tag key and value. Specify a scope to constrain the resources that can trigger an evaluation for the rule. If you do not specify a scope, evaluations are triggered when any resource in the recording group changes.
 	//
 	// > The scope can be empty.
-	Scope interface{} `json:"scope" yaml:"scope"`
+	Scope interface{} `field:"optional" json:"scope" yaml:"scope"`
 }
 
 // A CloudFormation `AWS::Config::ConfigurationAggregator`.
@@ -2318,8 +2343,11 @@ type CfnConfigRuleProps struct {
 // The details about the configuration aggregator, including information about source accounts, regions, and metadata of the aggregator.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import config "github.com/aws/aws-cdk-go/awscdk/aws_config"
-//   cfnConfigurationAggregator := config.NewCfnConfigurationAggregator(this, jsii.String("MyCfnConfigurationAggregator"), &cfnConfigurationAggregatorProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnConfigurationAggregator := awscdk.Aws_config.NewCfnConfigurationAggregator(this, jsii.String("MyCfnConfigurationAggregator"), &cfnConfigurationAggregatorProps{
 //   	accountAggregationSources: []interface{}{
 //   		&accountAggregationSourceProperty{
 //   			accountIds: []*string{
@@ -3046,7 +3074,10 @@ func (c *jsiiProxy_CfnConfigurationAggregator) ValidateProperties(_properties in
 // A collection of accounts and regions.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import config "github.com/aws/aws-cdk-go/awscdk/aws_config"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   accountAggregationSourceProperty := &accountAggregationSourceProperty{
 //   	accountIds: []*string{
 //   		jsii.String("accountIds"),
@@ -3061,17 +3092,20 @@ func (c *jsiiProxy_CfnConfigurationAggregator) ValidateProperties(_properties in
 //
 type CfnConfigurationAggregator_AccountAggregationSourceProperty struct {
 	// The 12-digit account ID of the account being aggregated.
-	AccountIds *[]*string `json:"accountIds" yaml:"accountIds"`
+	AccountIds *[]*string `field:"required" json:"accountIds" yaml:"accountIds"`
 	// If true, aggregate existing AWS Config regions and future regions.
-	AllAwsRegions interface{} `json:"allAwsRegions" yaml:"allAwsRegions"`
+	AllAwsRegions interface{} `field:"optional" json:"allAwsRegions" yaml:"allAwsRegions"`
 	// The source regions being aggregated.
-	AwsRegions *[]*string `json:"awsRegions" yaml:"awsRegions"`
+	AwsRegions *[]*string `field:"optional" json:"awsRegions" yaml:"awsRegions"`
 }
 
 // This object contains regions to set up the aggregator and an IAM role to retrieve organization details.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import config "github.com/aws/aws-cdk-go/awscdk/aws_config"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   organizationAggregationSourceProperty := &organizationAggregationSourceProperty{
 //   	roleArn: jsii.String("roleArn"),
 //
@@ -3084,17 +3118,20 @@ type CfnConfigurationAggregator_AccountAggregationSourceProperty struct {
 //
 type CfnConfigurationAggregator_OrganizationAggregationSourceProperty struct {
 	// ARN of the IAM role used to retrieve AWS Organizations details associated with the aggregator account.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// If true, aggregate existing AWS Config regions and future regions.
-	AllAwsRegions interface{} `json:"allAwsRegions" yaml:"allAwsRegions"`
+	AllAwsRegions interface{} `field:"optional" json:"allAwsRegions" yaml:"allAwsRegions"`
 	// The source regions being aggregated.
-	AwsRegions *[]*string `json:"awsRegions" yaml:"awsRegions"`
+	AwsRegions *[]*string `field:"optional" json:"awsRegions" yaml:"awsRegions"`
 }
 
 // Properties for defining a `CfnConfigurationAggregator`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import config "github.com/aws/aws-cdk-go/awscdk/aws_config"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnConfigurationAggregatorProps := &cfnConfigurationAggregatorProps{
 //   	accountAggregationSources: []interface{}{
 //   		&accountAggregationSourceProperty{
@@ -3129,13 +3166,13 @@ type CfnConfigurationAggregator_OrganizationAggregationSourceProperty struct {
 //
 type CfnConfigurationAggregatorProps struct {
 	// Provides a list of source accounts and regions to be aggregated.
-	AccountAggregationSources interface{} `json:"accountAggregationSources" yaml:"accountAggregationSources"`
+	AccountAggregationSources interface{} `field:"optional" json:"accountAggregationSources" yaml:"accountAggregationSources"`
 	// The name of the aggregator.
-	ConfigurationAggregatorName *string `json:"configurationAggregatorName" yaml:"configurationAggregatorName"`
+	ConfigurationAggregatorName *string `field:"optional" json:"configurationAggregatorName" yaml:"configurationAggregatorName"`
 	// Provides an organization and list of regions to be aggregated.
-	OrganizationAggregationSource interface{} `json:"organizationAggregationSource" yaml:"organizationAggregationSource"`
+	OrganizationAggregationSource interface{} `field:"optional" json:"organizationAggregationSource" yaml:"organizationAggregationSource"`
 	// An array of tag object.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // A CloudFormation `AWS::Config::ConfigurationRecorder`.
@@ -3151,8 +3188,11 @@ type CfnConfigurationAggregatorProps struct {
 // For more information, see [Configuration Recorder](https://docs.aws.amazon.com/config/latest/developerguide/config-concepts.html#config-recorder) in the AWS Config Developer Guide.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import config "github.com/aws/aws-cdk-go/awscdk/aws_config"
-//   cfnConfigurationRecorder := config.NewCfnConfigurationRecorder(this, jsii.String("MyCfnConfigurationRecorder"), &cfnConfigurationRecorderProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnConfigurationRecorder := awscdk.Aws_config.NewCfnConfigurationRecorder(this, jsii.String("MyCfnConfigurationRecorder"), &cfnConfigurationRecorderProps{
 //   	roleArn: jsii.String("roleArn"),
 //
 //   	// the properties below are optional
@@ -3861,7 +3901,10 @@ func (c *jsiiProxy_CfnConfigurationRecorder) ValidateProperties(_properties inte
 // For more information, see [Selecting Which Resources AWS Config Records](https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import config "github.com/aws/aws-cdk-go/awscdk/aws_config"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   recordingGroupProperty := &recordingGroupProperty{
 //   	allSupported: jsii.Boolean(false),
 //   	includeGlobalResourceTypes: jsii.Boolean(false),
@@ -3876,7 +3919,7 @@ type CfnConfigurationRecorder_RecordingGroupProperty struct {
 	// If you set this option to `true` , when AWS Config adds support for a new type of regional resource, it starts recording resources of that type automatically.
 	//
 	// If you set this option to `true` , you cannot enumerate a list of `resourceTypes` .
-	AllSupported interface{} `json:"allSupported" yaml:"allSupported"`
+	AllSupported interface{} `field:"optional" json:"allSupported" yaml:"allSupported"`
 	// Specifies whether AWS Config includes all supported types of global resources (for example, IAM resources) with the resources that it records.
 	//
 	// Before you can set this option to `true` , you must set the `AllSupported` option to `true` .
@@ -3884,7 +3927,7 @@ type CfnConfigurationRecorder_RecordingGroupProperty struct {
 	// If you set this option to `true` , when AWS Config adds support for a new type of global resource, it starts recording resources of that type automatically.
 	//
 	// The configuration details for any global resource are the same in all regions. To prevent duplicate configuration items, you should consider customizing AWS Config in only one region to record global resources.
-	IncludeGlobalResourceTypes interface{} `json:"includeGlobalResourceTypes" yaml:"includeGlobalResourceTypes"`
+	IncludeGlobalResourceTypes interface{} `field:"optional" json:"includeGlobalResourceTypes" yaml:"includeGlobalResourceTypes"`
 	// A comma-separated list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail` ).
 	//
 	// To record all configuration changes, you must set the `AllSupported` option to `false` .
@@ -3892,13 +3935,16 @@ type CfnConfigurationRecorder_RecordingGroupProperty struct {
 	// If you set this option to `true` , when AWS Config adds support for a new type of resource, it will not record resources of that type unless you manually add that type to your recording group.
 	//
 	// For a list of valid `resourceTypes` values, see the *resourceType Value* column in [Supported AWS Resource Types](https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources) .
-	ResourceTypes *[]*string `json:"resourceTypes" yaml:"resourceTypes"`
+	ResourceTypes *[]*string `field:"optional" json:"resourceTypes" yaml:"resourceTypes"`
 }
 
 // Properties for defining a `CfnConfigurationRecorder`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import config "github.com/aws/aws-cdk-go/awscdk/aws_config"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnConfigurationRecorderProps := &cfnConfigurationRecorderProps{
 //   	roleArn: jsii.String("roleArn"),
 //
@@ -3917,7 +3963,7 @@ type CfnConfigurationRecorderProps struct {
 	// The Amazon Resource Name (ARN) of the IAM (IAM) role that is used to make read or write requests to the delivery channel that you specify and to get configuration details for supported AWS resources.
 	//
 	// For more information, see [Permissions for the IAM Role Assigned](https://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) to AWS Config in the AWS Config Developer Guide.
-	RoleArn *string `json:"roleArn" yaml:"roleArn"`
+	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// A name for the configuration recorder.
 	//
 	// If you don't specify a name, AWS CloudFormation CloudFormation generates a unique physical ID and uses that ID for the configuration recorder name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
@@ -3925,11 +3971,11 @@ type CfnConfigurationRecorderProps struct {
 	// > After you create a configuration recorder, you cannot rename it. If you don't want a name that AWS CloudFormation generates, specify a value for this property.
 	//
 	// Updates are not supported.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Indicates whether to record configurations for all supported resources or for a list of resource types.
 	//
 	// The resource types that you list must be supported by AWS Config .
-	RecordingGroup interface{} `json:"recordingGroup" yaml:"recordingGroup"`
+	RecordingGroup interface{} `field:"optional" json:"recordingGroup" yaml:"recordingGroup"`
 }
 
 // A CloudFormation `AWS::Config::ConformancePack`.
@@ -3937,8 +3983,11 @@ type CfnConfigurationRecorderProps struct {
 // A conformance pack is a collection of AWS Config rules and remediation actions that can be easily deployed in an account and a region. ConformancePack creates a service linked role in your account. The service linked role is created only when the role does not exist in your account.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import config "github.com/aws/aws-cdk-go/awscdk/aws_config"
-//   cfnConformancePack := config.NewCfnConformancePack(this, jsii.String("MyCfnConformancePack"), &cfnConformancePackProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnConformancePack := awscdk.Aws_config.NewCfnConformancePack(this, jsii.String("MyCfnConformancePack"), &cfnConformancePackProps{
 //   	conformancePackName: jsii.String("conformancePackName"),
 //
 //   	// the properties below are optional
@@ -4698,7 +4747,10 @@ func (c *jsiiProxy_CfnConformancePack) ValidateProperties(_properties interface{
 // Keys can have a maximum character length of 255 characters, and values can have a maximum length of 4096 characters.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import config "github.com/aws/aws-cdk-go/awscdk/aws_config"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   conformancePackInputParameterProperty := &conformancePackInputParameterProperty{
 //   	parameterName: jsii.String("parameterName"),
 //   	parameterValue: jsii.String("parameterValue"),
@@ -4706,15 +4758,18 @@ func (c *jsiiProxy_CfnConformancePack) ValidateProperties(_properties interface{
 //
 type CfnConformancePack_ConformancePackInputParameterProperty struct {
 	// One part of a key-value pair.
-	ParameterName *string `json:"parameterName" yaml:"parameterName"`
+	ParameterName *string `field:"required" json:"parameterName" yaml:"parameterName"`
 	// Another part of the key-value pair.
-	ParameterValue *string `json:"parameterValue" yaml:"parameterValue"`
+	ParameterValue *string `field:"required" json:"parameterValue" yaml:"parameterValue"`
 }
 
 // Properties for defining a `CfnConformancePack`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import config "github.com/aws/aws-cdk-go/awscdk/aws_config"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnConformancePackProps := &cfnConformancePackProps{
 //   	conformancePackName: jsii.String("conformancePackName"),
 //
@@ -4733,25 +4788,25 @@ type CfnConformancePack_ConformancePackInputParameterProperty struct {
 //
 type CfnConformancePackProps struct {
 	// Name of the conformance pack you want to create.
-	ConformancePackName *string `json:"conformancePackName" yaml:"conformancePackName"`
+	ConformancePackName *string `field:"required" json:"conformancePackName" yaml:"conformancePackName"`
 	// A list of ConformancePackInputParameter objects.
-	ConformancePackInputParameters interface{} `json:"conformancePackInputParameters" yaml:"conformancePackInputParameters"`
+	ConformancePackInputParameters interface{} `field:"optional" json:"conformancePackInputParameters" yaml:"conformancePackInputParameters"`
 	// The name of the Amazon S3 bucket where AWS Config stores conformance pack templates.
-	DeliveryS3Bucket *string `json:"deliveryS3Bucket" yaml:"deliveryS3Bucket"`
+	DeliveryS3Bucket *string `field:"optional" json:"deliveryS3Bucket" yaml:"deliveryS3Bucket"`
 	// The prefix for the Amazon S3 bucket.
-	DeliveryS3KeyPrefix *string `json:"deliveryS3KeyPrefix" yaml:"deliveryS3KeyPrefix"`
+	DeliveryS3KeyPrefix *string `field:"optional" json:"deliveryS3KeyPrefix" yaml:"deliveryS3KeyPrefix"`
 	// A string containing full conformance pack template body.
 	//
 	// Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes.
 	//
 	// > You can only use a YAML template with two resource types: config rule ( `AWS::Config::ConfigRule` ) and a remediation action ( `AWS::Config::RemediationConfiguration` ).
-	TemplateBody *string `json:"templateBody" yaml:"templateBody"`
+	TemplateBody *string `field:"optional" json:"templateBody" yaml:"templateBody"`
 	// Location of file containing the template body (s3://bucketname/prefix).
 	//
 	// The uri must point to the conformance pack template (max size: 300 KB) that is located in an Amazon S3 bucket.
 	//
 	// > You must have access to read Amazon S3 bucket.
-	TemplateS3Uri *string `json:"templateS3Uri" yaml:"templateS3Uri"`
+	TemplateS3Uri *string `field:"optional" json:"templateS3Uri" yaml:"templateS3Uri"`
 }
 
 // A CloudFormation `AWS::Config::DeliveryChannel`.
@@ -4773,8 +4828,11 @@ type CfnConformancePackProps struct {
 // For more information, see [Managing the Delivery Channel](https://docs.aws.amazon.com/config/latest/developerguide/manage-delivery-channel.html) in the AWS Config Developer Guide.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import config "github.com/aws/aws-cdk-go/awscdk/aws_config"
-//   cfnDeliveryChannel := config.NewCfnDeliveryChannel(this, jsii.String("MyCfnDeliveryChannel"), &cfnDeliveryChannelProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnDeliveryChannel := awscdk.Aws_config.NewCfnDeliveryChannel(this, jsii.String("MyCfnDeliveryChannel"), &cfnDeliveryChannelProps{
 //   	s3BucketName: jsii.String("s3BucketName"),
 //
 //   	// the properties below are optional
@@ -5549,20 +5607,26 @@ func (c *jsiiProxy_CfnDeliveryChannel) ValidateProperties(_properties interface{
 // To update the `deliveryFrequency` with which AWS Config delivers your configuration snapshots, use the `PutDeliveryChannel` action.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import config "github.com/aws/aws-cdk-go/awscdk/aws_config"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   configSnapshotDeliveryPropertiesProperty := &configSnapshotDeliveryPropertiesProperty{
 //   	deliveryFrequency: jsii.String("deliveryFrequency"),
 //   }
 //
 type CfnDeliveryChannel_ConfigSnapshotDeliveryPropertiesProperty struct {
 	// The frequency with which AWS Config delivers configuration snapshots.
-	DeliveryFrequency *string `json:"deliveryFrequency" yaml:"deliveryFrequency"`
+	DeliveryFrequency *string `field:"optional" json:"deliveryFrequency" yaml:"deliveryFrequency"`
 }
 
 // Properties for defining a `CfnDeliveryChannel`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import config "github.com/aws/aws-cdk-go/awscdk/aws_config"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnDeliveryChannelProps := &cfnDeliveryChannelProps{
 //   	s3BucketName: jsii.String("s3BucketName"),
 //
@@ -5580,25 +5644,25 @@ type CfnDeliveryChannelProps struct {
 	// The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots and configuration history files.
 	//
 	// If you specify a bucket that belongs to another AWS account , that bucket must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon S3 Bucket](https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html) in the AWS Config Developer Guide.
-	S3BucketName *string `json:"s3BucketName" yaml:"s3BucketName"`
+	S3BucketName *string `field:"required" json:"s3BucketName" yaml:"s3BucketName"`
 	// The options for how often AWS Config delivers configuration snapshots to the Amazon S3 bucket.
-	ConfigSnapshotDeliveryProperties interface{} `json:"configSnapshotDeliveryProperties" yaml:"configSnapshotDeliveryProperties"`
+	ConfigSnapshotDeliveryProperties interface{} `field:"optional" json:"configSnapshotDeliveryProperties" yaml:"configSnapshotDeliveryProperties"`
 	// A name for the delivery channel.
 	//
 	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the delivery channel name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
 	//
 	// Updates are not supported. To change the name, you must run two separate updates. In the first update, delete this resource, and then recreate it with a new name in the second update.
-	Name *string `json:"name" yaml:"name"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The prefix for the specified Amazon S3 bucket.
-	S3KeyPrefix *string `json:"s3KeyPrefix" yaml:"s3KeyPrefix"`
+	S3KeyPrefix *string `field:"optional" json:"s3KeyPrefix" yaml:"s3KeyPrefix"`
 	// The Amazon Resource Name (ARN) of the AWS Key Management Service ( AWS KMS ) AWS KMS key (KMS key) used to encrypt objects delivered by AWS Config .
 	//
 	// Must belong to the same Region as the destination S3 bucket.
-	S3KmsKeyArn *string `json:"s3KmsKeyArn" yaml:"s3KmsKeyArn"`
+	S3KmsKeyArn *string `field:"optional" json:"s3KmsKeyArn" yaml:"s3KmsKeyArn"`
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic to which AWS Config sends notifications about configuration changes.
 	//
 	// If you choose a topic from another account, the topic must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon SNS Topic](https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html) in the AWS Config Developer Guide.
-	SnsTopicArn *string `json:"snsTopicArn" yaml:"snsTopicArn"`
+	SnsTopicArn *string `field:"optional" json:"snsTopicArn" yaml:"snsTopicArn"`
 }
 
 // A CloudFormation `AWS::Config::OrganizationConfigRule`.
@@ -5610,8 +5674,11 @@ type CfnDeliveryChannelProps struct {
 // When creating custom organization config rules using a centralized Lambda function, you will need to allow Lambda permissions to sub-accounts and you will need to create an IAM role will to pass to the Lambda function. For more information, see [How to Centrally Manage AWS Config Rules across Multiple AWS Accounts](https://docs.aws.amazon.com/devops/how-to-centrally-manage-aws-config-rules-across-multiple-aws-accounts/) .
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import config "github.com/aws/aws-cdk-go/awscdk/aws_config"
-//   cfnOrganizationConfigRule := config.NewCfnOrganizationConfigRule(this, jsii.String("MyCfnOrganizationConfigRule"), &cfnOrganizationConfigRuleProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnOrganizationConfigRule := awscdk.Aws_config.NewCfnOrganizationConfigRule(this, jsii.String("MyCfnOrganizationConfigRule"), &cfnOrganizationConfigRuleProps{
 //   	organizationConfigRuleName: jsii.String("organizationConfigRuleName"),
 //
 //   	// the properties below are optional
@@ -6383,7 +6450,10 @@ func (c *jsiiProxy_CfnOrganizationConfigRule) ValidateProperties(_properties int
 }
 
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import config "github.com/aws/aws-cdk-go/awscdk/aws_config"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   organizationCustomCodeRuleMetadataProperty := &organizationCustomCodeRuleMetadataProperty{
 //   	codeText: jsii.String("codeText"),
 //   	runtime: jsii.String("runtime"),
@@ -6408,27 +6478,27 @@ func (c *jsiiProxy_CfnOrganizationConfigRule) ValidateProperties(_properties int
 //
 type CfnOrganizationConfigRule_OrganizationCustomCodeRuleMetadataProperty struct {
 	// `CfnOrganizationConfigRule.OrganizationCustomCodeRuleMetadataProperty.CodeText`.
-	CodeText *string `json:"codeText" yaml:"codeText"`
+	CodeText *string `field:"required" json:"codeText" yaml:"codeText"`
 	// `CfnOrganizationConfigRule.OrganizationCustomCodeRuleMetadataProperty.Runtime`.
-	Runtime *string `json:"runtime" yaml:"runtime"`
+	Runtime *string `field:"required" json:"runtime" yaml:"runtime"`
 	// `CfnOrganizationConfigRule.OrganizationCustomCodeRuleMetadataProperty.DebugLogDeliveryAccounts`.
-	DebugLogDeliveryAccounts *[]*string `json:"debugLogDeliveryAccounts" yaml:"debugLogDeliveryAccounts"`
+	DebugLogDeliveryAccounts *[]*string `field:"optional" json:"debugLogDeliveryAccounts" yaml:"debugLogDeliveryAccounts"`
 	// `CfnOrganizationConfigRule.OrganizationCustomCodeRuleMetadataProperty.Description`.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// `CfnOrganizationConfigRule.OrganizationCustomCodeRuleMetadataProperty.InputParameters`.
-	InputParameters *string `json:"inputParameters" yaml:"inputParameters"`
+	InputParameters *string `field:"optional" json:"inputParameters" yaml:"inputParameters"`
 	// `CfnOrganizationConfigRule.OrganizationCustomCodeRuleMetadataProperty.MaximumExecutionFrequency`.
-	MaximumExecutionFrequency *string `json:"maximumExecutionFrequency" yaml:"maximumExecutionFrequency"`
+	MaximumExecutionFrequency *string `field:"optional" json:"maximumExecutionFrequency" yaml:"maximumExecutionFrequency"`
 	// `CfnOrganizationConfigRule.OrganizationCustomCodeRuleMetadataProperty.OrganizationConfigRuleTriggerTypes`.
-	OrganizationConfigRuleTriggerTypes *[]*string `json:"organizationConfigRuleTriggerTypes" yaml:"organizationConfigRuleTriggerTypes"`
+	OrganizationConfigRuleTriggerTypes *[]*string `field:"optional" json:"organizationConfigRuleTriggerTypes" yaml:"organizationConfigRuleTriggerTypes"`
 	// `CfnOrganizationConfigRule.OrganizationCustomCodeRuleMetadataProperty.ResourceIdScope`.
-	ResourceIdScope *string `json:"resourceIdScope" yaml:"resourceIdScope"`
+	ResourceIdScope *string `field:"optional" json:"resourceIdScope" yaml:"resourceIdScope"`
 	// `CfnOrganizationConfigRule.OrganizationCustomCodeRuleMetadataProperty.ResourceTypesScope`.
-	ResourceTypesScope *[]*string `json:"resourceTypesScope" yaml:"resourceTypesScope"`
+	ResourceTypesScope *[]*string `field:"optional" json:"resourceTypesScope" yaml:"resourceTypesScope"`
 	// `CfnOrganizationConfigRule.OrganizationCustomCodeRuleMetadataProperty.TagKeyScope`.
-	TagKeyScope *string `json:"tagKeyScope" yaml:"tagKeyScope"`
+	TagKeyScope *string `field:"optional" json:"tagKeyScope" yaml:"tagKeyScope"`
 	// `CfnOrganizationConfigRule.OrganizationCustomCodeRuleMetadataProperty.TagValueScope`.
-	TagValueScope *string `json:"tagValueScope" yaml:"tagValueScope"`
+	TagValueScope *string `field:"optional" json:"tagValueScope" yaml:"tagValueScope"`
 }
 
 // An object that specifies organization custom rule metadata such as resource type, resource ID of AWS resource, Lambda function ARN, and organization trigger types that trigger AWS Config to evaluate your AWS resources against a rule.
@@ -6436,7 +6506,10 @@ type CfnOrganizationConfigRule_OrganizationCustomCodeRuleMetadataProperty struct
 // It also provides the frequency with which you want AWS Config to run evaluations for the rule if the trigger type is periodic.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import config "github.com/aws/aws-cdk-go/awscdk/aws_config"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   organizationCustomRuleMetadataProperty := &organizationCustomRuleMetadataProperty{
 //   	lambdaFunctionArn: jsii.String("lambdaFunctionArn"),
 //   	organizationConfigRuleTriggerTypes: []*string{
@@ -6457,7 +6530,7 @@ type CfnOrganizationConfigRule_OrganizationCustomCodeRuleMetadataProperty struct
 //
 type CfnOrganizationConfigRule_OrganizationCustomRuleMetadataProperty struct {
 	// The lambda function ARN.
-	LambdaFunctionArn *string `json:"lambdaFunctionArn" yaml:"lambdaFunctionArn"`
+	LambdaFunctionArn *string `field:"required" json:"lambdaFunctionArn" yaml:"lambdaFunctionArn"`
 	// The type of notification that triggers AWS Config to run an evaluation for a rule.
 	//
 	// You can specify the following notification types:
@@ -6465,29 +6538,29 @@ type CfnOrganizationConfigRule_OrganizationCustomRuleMetadataProperty struct {
 	// - `ConfigurationItemChangeNotification` - Triggers an evaluation when AWS Config delivers a configuration item as a result of a resource change.
 	// - `OversizedConfigurationItemChangeNotification` - Triggers an evaluation when AWS Config delivers an oversized configuration item. AWS Config may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.
 	// - `ScheduledNotification` - Triggers a periodic evaluation at the frequency specified for `MaximumExecutionFrequency` .
-	OrganizationConfigRuleTriggerTypes *[]*string `json:"organizationConfigRuleTriggerTypes" yaml:"organizationConfigRuleTriggerTypes"`
+	OrganizationConfigRuleTriggerTypes *[]*string `field:"required" json:"organizationConfigRuleTriggerTypes" yaml:"organizationConfigRuleTriggerTypes"`
 	// The description that you provide for your organization AWS Config rule.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// A string, in JSON format, that is passed to your organization AWS Config rule Lambda function.
-	InputParameters *string `json:"inputParameters" yaml:"inputParameters"`
+	InputParameters *string `field:"optional" json:"inputParameters" yaml:"inputParameters"`
 	// The maximum frequency with which AWS Config runs evaluations for a rule.
 	//
 	// Your custom rule is triggered when AWS Config delivers the configuration snapshot. For more information, see `ConfigSnapshotDeliveryProperties` .
 	//
 	// > By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the `MaximumExecutionFrequency` parameter.
-	MaximumExecutionFrequency *string `json:"maximumExecutionFrequency" yaml:"maximumExecutionFrequency"`
+	MaximumExecutionFrequency *string `field:"optional" json:"maximumExecutionFrequency" yaml:"maximumExecutionFrequency"`
 	// The ID of the AWS resource that was evaluated.
-	ResourceIdScope *string `json:"resourceIdScope" yaml:"resourceIdScope"`
+	ResourceIdScope *string `field:"optional" json:"resourceIdScope" yaml:"resourceIdScope"`
 	// The type of the AWS resource that was evaluated.
-	ResourceTypesScope *[]*string `json:"resourceTypesScope" yaml:"resourceTypesScope"`
+	ResourceTypesScope *[]*string `field:"optional" json:"resourceTypesScope" yaml:"resourceTypesScope"`
 	// One part of a key-value pair that make up a tag.
 	//
 	// A key is a general label that acts like a category for more specific tag values.
-	TagKeyScope *string `json:"tagKeyScope" yaml:"tagKeyScope"`
+	TagKeyScope *string `field:"optional" json:"tagKeyScope" yaml:"tagKeyScope"`
 	// The optional part of a key-value pair that make up a tag.
 	//
 	// A value acts as a descriptor within a tag category (key).
-	TagValueScope *string `json:"tagValueScope" yaml:"tagValueScope"`
+	TagValueScope *string `field:"optional" json:"tagValueScope" yaml:"tagValueScope"`
 }
 
 // An object that specifies organization managed rule metadata such as resource type and ID of AWS resource along with the rule identifier.
@@ -6495,7 +6568,10 @@ type CfnOrganizationConfigRule_OrganizationCustomRuleMetadataProperty struct {
 // It also provides the frequency with which you want AWS Config to run evaluations for the rule if the trigger type is periodic.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import config "github.com/aws/aws-cdk-go/awscdk/aws_config"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   organizationManagedRuleMetadataProperty := &organizationManagedRuleMetadataProperty{
 //   	ruleIdentifier: jsii.String("ruleIdentifier"),
 //
@@ -6515,35 +6591,38 @@ type CfnOrganizationConfigRule_OrganizationManagedRuleMetadataProperty struct {
 	// For organization config managed rules, a predefined identifier from a list.
 	//
 	// For example, `IAM_PASSWORD_POLICY` is a managed rule. To reference a managed rule, see [Using AWS Config managed rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html) .
-	RuleIdentifier *string `json:"ruleIdentifier" yaml:"ruleIdentifier"`
+	RuleIdentifier *string `field:"required" json:"ruleIdentifier" yaml:"ruleIdentifier"`
 	// The description that you provide for your organization AWS Config rule.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// A string, in JSON format, that is passed to your organization AWS Config rule Lambda function.
-	InputParameters *string `json:"inputParameters" yaml:"inputParameters"`
+	InputParameters *string `field:"optional" json:"inputParameters" yaml:"inputParameters"`
 	// The maximum frequency with which AWS Config runs evaluations for a rule.
 	//
 	// You are using an AWS Config managed rule that is triggered at a periodic frequency.
 	//
 	// > By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the `MaximumExecutionFrequency` parameter.
-	MaximumExecutionFrequency *string `json:"maximumExecutionFrequency" yaml:"maximumExecutionFrequency"`
+	MaximumExecutionFrequency *string `field:"optional" json:"maximumExecutionFrequency" yaml:"maximumExecutionFrequency"`
 	// The ID of the AWS resource that was evaluated.
-	ResourceIdScope *string `json:"resourceIdScope" yaml:"resourceIdScope"`
+	ResourceIdScope *string `field:"optional" json:"resourceIdScope" yaml:"resourceIdScope"`
 	// The type of the AWS resource that was evaluated.
-	ResourceTypesScope *[]*string `json:"resourceTypesScope" yaml:"resourceTypesScope"`
+	ResourceTypesScope *[]*string `field:"optional" json:"resourceTypesScope" yaml:"resourceTypesScope"`
 	// One part of a key-value pair that make up a tag.
 	//
 	// A key is a general label that acts like a category for more specific tag values.
-	TagKeyScope *string `json:"tagKeyScope" yaml:"tagKeyScope"`
+	TagKeyScope *string `field:"optional" json:"tagKeyScope" yaml:"tagKeyScope"`
 	// The optional part of a key-value pair that make up a tag.
 	//
 	// A value acts as a descriptor within a tag category (key).
-	TagValueScope *string `json:"tagValueScope" yaml:"tagValueScope"`
+	TagValueScope *string `field:"optional" json:"tagValueScope" yaml:"tagValueScope"`
 }
 
 // Properties for defining a `CfnOrganizationConfigRule`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import config "github.com/aws/aws-cdk-go/awscdk/aws_config"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnOrganizationConfigRuleProps := &cfnOrganizationConfigRuleProps{
 //   	organizationConfigRuleName: jsii.String("organizationConfigRuleName"),
 //
@@ -6607,15 +6686,15 @@ type CfnOrganizationConfigRule_OrganizationManagedRuleMetadataProperty struct {
 //
 type CfnOrganizationConfigRuleProps struct {
 	// The name that you assign to organization AWS Config rule.
-	OrganizationConfigRuleName *string `json:"organizationConfigRuleName" yaml:"organizationConfigRuleName"`
+	OrganizationConfigRuleName *string `field:"required" json:"organizationConfigRuleName" yaml:"organizationConfigRuleName"`
 	// A comma-separated list of accounts excluded from organization AWS Config rule.
-	ExcludedAccounts *[]*string `json:"excludedAccounts" yaml:"excludedAccounts"`
+	ExcludedAccounts *[]*string `field:"optional" json:"excludedAccounts" yaml:"excludedAccounts"`
 	// `AWS::Config::OrganizationConfigRule.OrganizationCustomCodeRuleMetadata`.
-	OrganizationCustomCodeRuleMetadata interface{} `json:"organizationCustomCodeRuleMetadata" yaml:"organizationCustomCodeRuleMetadata"`
+	OrganizationCustomCodeRuleMetadata interface{} `field:"optional" json:"organizationCustomCodeRuleMetadata" yaml:"organizationCustomCodeRuleMetadata"`
 	// An `OrganizationCustomRuleMetadata` object.
-	OrganizationCustomRuleMetadata interface{} `json:"organizationCustomRuleMetadata" yaml:"organizationCustomRuleMetadata"`
+	OrganizationCustomRuleMetadata interface{} `field:"optional" json:"organizationCustomRuleMetadata" yaml:"organizationCustomRuleMetadata"`
 	// An `OrganizationManagedRuleMetadata` object.
-	OrganizationManagedRuleMetadata interface{} `json:"organizationManagedRuleMetadata" yaml:"organizationManagedRuleMetadata"`
+	OrganizationManagedRuleMetadata interface{} `field:"optional" json:"organizationManagedRuleMetadata" yaml:"organizationManagedRuleMetadata"`
 }
 
 // A CloudFormation `AWS::Config::OrganizationConformancePack`.
@@ -6623,8 +6702,11 @@ type CfnOrganizationConfigRuleProps struct {
 // OrganizationConformancePack deploys conformance packs across member accounts in an AWS Organizations . OrganizationConformancePack enables organization service access for `config-multiaccountsetup.amazonaws.com` through the `EnableAWSServiceAccess` action and creates a service linked role in the master account of your organization. The service linked role is created only when the role does not exist in the master account.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import config "github.com/aws/aws-cdk-go/awscdk/aws_config"
-//   cfnOrganizationConformancePack := config.NewCfnOrganizationConformancePack(this, jsii.String("MyCfnOrganizationConformancePack"), &cfnOrganizationConformancePackProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnOrganizationConformancePack := awscdk.Aws_config.NewCfnOrganizationConformancePack(this, jsii.String("MyCfnOrganizationConformancePack"), &cfnOrganizationConformancePackProps{
 //   	organizationConformancePackName: jsii.String("organizationConformancePackName"),
 //
 //   	// the properties below are optional
@@ -7408,7 +7490,10 @@ func (c *jsiiProxy_CfnOrganizationConformancePack) ValidateProperties(_propertie
 // Keys can have a maximum character length of 255 characters, and values can have a maximum length of 4096 characters.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import config "github.com/aws/aws-cdk-go/awscdk/aws_config"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   conformancePackInputParameterProperty := &conformancePackInputParameterProperty{
 //   	parameterName: jsii.String("parameterName"),
 //   	parameterValue: jsii.String("parameterValue"),
@@ -7416,15 +7501,18 @@ func (c *jsiiProxy_CfnOrganizationConformancePack) ValidateProperties(_propertie
 //
 type CfnOrganizationConformancePack_ConformancePackInputParameterProperty struct {
 	// One part of a key-value pair.
-	ParameterName *string `json:"parameterName" yaml:"parameterName"`
+	ParameterName *string `field:"required" json:"parameterName" yaml:"parameterName"`
 	// One part of a key-value pair.
-	ParameterValue *string `json:"parameterValue" yaml:"parameterValue"`
+	ParameterValue *string `field:"required" json:"parameterValue" yaml:"parameterValue"`
 }
 
 // Properties for defining a `CfnOrganizationConformancePack`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import config "github.com/aws/aws-cdk-go/awscdk/aws_config"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnOrganizationConformancePackProps := &cfnOrganizationConformancePackProps{
 //   	organizationConformancePackName: jsii.String("organizationConformancePackName"),
 //
@@ -7446,27 +7534,27 @@ type CfnOrganizationConformancePack_ConformancePackInputParameterProperty struct
 //
 type CfnOrganizationConformancePackProps struct {
 	// The name you assign to an organization conformance pack.
-	OrganizationConformancePackName *string `json:"organizationConformancePackName" yaml:"organizationConformancePackName"`
+	OrganizationConformancePackName *string `field:"required" json:"organizationConformancePackName" yaml:"organizationConformancePackName"`
 	// A list of `ConformancePackInputParameter` objects.
-	ConformancePackInputParameters interface{} `json:"conformancePackInputParameters" yaml:"conformancePackInputParameters"`
+	ConformancePackInputParameters interface{} `field:"optional" json:"conformancePackInputParameters" yaml:"conformancePackInputParameters"`
 	// The name of the Amazon S3 bucket where AWS Config stores conformance pack templates.
 	//
 	// > This field is optional.
-	DeliveryS3Bucket *string `json:"deliveryS3Bucket" yaml:"deliveryS3Bucket"`
+	DeliveryS3Bucket *string `field:"optional" json:"deliveryS3Bucket" yaml:"deliveryS3Bucket"`
 	// Any folder structure you want to add to an Amazon S3 bucket.
 	//
 	// > This field is optional.
-	DeliveryS3KeyPrefix *string `json:"deliveryS3KeyPrefix" yaml:"deliveryS3KeyPrefix"`
+	DeliveryS3KeyPrefix *string `field:"optional" json:"deliveryS3KeyPrefix" yaml:"deliveryS3KeyPrefix"`
 	// A comma-separated list of accounts excluded from organization conformance pack.
-	ExcludedAccounts *[]*string `json:"excludedAccounts" yaml:"excludedAccounts"`
+	ExcludedAccounts *[]*string `field:"optional" json:"excludedAccounts" yaml:"excludedAccounts"`
 	// A string containing full conformance pack template body.
 	//
 	// Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes.
-	TemplateBody *string `json:"templateBody" yaml:"templateBody"`
+	TemplateBody *string `field:"optional" json:"templateBody" yaml:"templateBody"`
 	// Location of file containing the template body.
 	//
 	// The uri must point to the conformance pack template (max size: 300 KB).
-	TemplateS3Uri *string `json:"templateS3Uri" yaml:"templateS3Uri"`
+	TemplateS3Uri *string `field:"optional" json:"templateS3Uri" yaml:"templateS3Uri"`
 }
 
 // A CloudFormation `AWS::Config::RemediationConfiguration`.
@@ -7474,10 +7562,13 @@ type CfnOrganizationConformancePackProps struct {
 // An object that represents the details about the remediation configuration that includes the remediation action, parameters, and data to execute the action.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import config "github.com/aws/aws-cdk-go/awscdk/aws_config"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameters interface{}
-//   cfnRemediationConfiguration := config.NewCfnRemediationConfiguration(this, jsii.String("MyCfnRemediationConfiguration"), &cfnRemediationConfigurationProps{
+//
+//   cfnRemediationConfiguration := awscdk.Aws_config.NewCfnRemediationConfiguration(this, jsii.String("MyCfnRemediationConfiguration"), &cfnRemediationConfigurationProps{
 //   	configRuleName: jsii.String("configRuleName"),
 //   	targetId: jsii.String("targetId"),
 //   	targetType: jsii.String("targetType"),
@@ -8327,7 +8418,10 @@ func (c *jsiiProxy_CfnRemediationConfiguration) ValidateProperties(_properties i
 // An ExecutionControls object.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import config "github.com/aws/aws-cdk-go/awscdk/aws_config"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   executionControlsProperty := &executionControlsProperty{
 //   	ssmControls: &ssmControlsProperty{
 //   		concurrentExecutionRatePercentage: jsii.Number(123),
@@ -8337,7 +8431,7 @@ func (c *jsiiProxy_CfnRemediationConfiguration) ValidateProperties(_properties i
 //
 type CfnRemediationConfiguration_ExecutionControlsProperty struct {
 	// A SsmControls object.
-	SsmControls interface{} `json:"ssmControls" yaml:"ssmControls"`
+	SsmControls interface{} `field:"optional" json:"ssmControls" yaml:"ssmControls"`
 }
 
 // The value is either a dynamic (resource) value or a static value.
@@ -8345,7 +8439,10 @@ type CfnRemediationConfiguration_ExecutionControlsProperty struct {
 // You must select either a dynamic value or a static value.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import config "github.com/aws/aws-cdk-go/awscdk/aws_config"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   remediationParameterValueProperty := &remediationParameterValueProperty{
 //   	resourceValue: &resourceValueProperty{
 //   		value: jsii.String("value"),
@@ -8359,28 +8456,34 @@ type CfnRemediationConfiguration_ExecutionControlsProperty struct {
 //
 type CfnRemediationConfiguration_RemediationParameterValueProperty struct {
 	// The value is dynamic and changes at run-time.
-	ResourceValue interface{} `json:"resourceValue" yaml:"resourceValue"`
+	ResourceValue interface{} `field:"optional" json:"resourceValue" yaml:"resourceValue"`
 	// The value is static and does not change at run-time.
-	StaticValue interface{} `json:"staticValue" yaml:"staticValue"`
+	StaticValue interface{} `field:"optional" json:"staticValue" yaml:"staticValue"`
 }
 
 // The dynamic value of the resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import config "github.com/aws/aws-cdk-go/awscdk/aws_config"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   resourceValueProperty := &resourceValueProperty{
 //   	value: jsii.String("value"),
 //   }
 //
 type CfnRemediationConfiguration_ResourceValueProperty struct {
 	// The value is a resource ID.
-	Value *string `json:"value" yaml:"value"`
+	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 
 // AWS Systems Manager (SSM) specific remediation controls.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import config "github.com/aws/aws-cdk-go/awscdk/aws_config"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   ssmControlsProperty := &ssmControlsProperty{
 //   	concurrentExecutionRatePercentage: jsii.Number(123),
 //   	errorPercentage: jsii.Number(123),
@@ -8390,17 +8493,20 @@ type CfnRemediationConfiguration_SsmControlsProperty struct {
 	// The maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule.
 	//
 	// You can specify a percentage, such as 10%. The default value is 10.
-	ConcurrentExecutionRatePercentage *float64 `json:"concurrentExecutionRatePercentage" yaml:"concurrentExecutionRatePercentage"`
+	ConcurrentExecutionRatePercentage *float64 `field:"optional" json:"concurrentExecutionRatePercentage" yaml:"concurrentExecutionRatePercentage"`
 	// The percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule.
 	//
 	// You can specify a percentage of errors, for example 10%. If you do not specifiy a percentage, the default is 50%. For example, if you set the ErrorPercentage to 40% for 10 non-compliant resources, then SSM stops running the automations when the fifth error is received.
-	ErrorPercentage *float64 `json:"errorPercentage" yaml:"errorPercentage"`
+	ErrorPercentage *float64 `field:"optional" json:"errorPercentage" yaml:"errorPercentage"`
 }
 
 // The static value of the resource.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import config "github.com/aws/aws-cdk-go/awscdk/aws_config"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   staticValueProperty := &staticValueProperty{
 //   	values: []*string{
 //   		jsii.String("values"),
@@ -8411,15 +8517,18 @@ type CfnRemediationConfiguration_StaticValueProperty struct {
 	// A list of values.
 	//
 	// For example, the ARN of the assumed role.
-	Values *[]*string `json:"values" yaml:"values"`
+	Values *[]*string `field:"optional" json:"values" yaml:"values"`
 }
 
 // Properties for defining a `CfnRemediationConfiguration`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import config "github.com/aws/aws-cdk-go/awscdk/aws_config"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameters interface{}
+//
 //   cfnRemediationConfigurationProps := &cfnRemediationConfigurationProps{
 //   	configRuleName: jsii.String("configRuleName"),
 //   	targetId: jsii.String("targetId"),
@@ -8442,37 +8551,37 @@ type CfnRemediationConfiguration_StaticValueProperty struct {
 //
 type CfnRemediationConfigurationProps struct {
 	// The name of the AWS Config rule.
-	ConfigRuleName *string `json:"configRuleName" yaml:"configRuleName"`
+	ConfigRuleName *string `field:"required" json:"configRuleName" yaml:"configRuleName"`
 	// Target ID is the name of the public document.
-	TargetId *string `json:"targetId" yaml:"targetId"`
+	TargetId *string `field:"required" json:"targetId" yaml:"targetId"`
 	// The type of the target.
 	//
 	// Target executes remediation. For example, SSM document.
-	TargetType *string `json:"targetType" yaml:"targetType"`
+	TargetType *string `field:"required" json:"targetType" yaml:"targetType"`
 	// The remediation is triggered automatically.
-	Automatic interface{} `json:"automatic" yaml:"automatic"`
+	Automatic interface{} `field:"optional" json:"automatic" yaml:"automatic"`
 	// An ExecutionControls object.
-	ExecutionControls interface{} `json:"executionControls" yaml:"executionControls"`
+	ExecutionControls interface{} `field:"optional" json:"executionControls" yaml:"executionControls"`
 	// The maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
 	//
 	// For example, if you specify MaximumAutomaticAttempts as 5 with RetryAttemptSeconds as 50 seconds, AWS Config will put a RemediationException on your behalf for the failing resource after the 5th failed attempt within 50 seconds.
-	MaximumAutomaticAttempts *float64 `json:"maximumAutomaticAttempts" yaml:"maximumAutomaticAttempts"`
+	MaximumAutomaticAttempts *float64 `field:"optional" json:"maximumAutomaticAttempts" yaml:"maximumAutomaticAttempts"`
 	// An object of the RemediationParameterValue.
 	//
 	// > The type is a map of strings to RemediationParameterValue.
-	Parameters interface{} `json:"parameters" yaml:"parameters"`
+	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// The type of a resource.
-	ResourceType *string `json:"resourceType" yaml:"resourceType"`
+	ResourceType *string `field:"optional" json:"resourceType" yaml:"resourceType"`
 	// Maximum time in seconds that AWS Config runs auto-remediation.
 	//
 	// If you do not select a number, the default is 60 seconds.
 	//
 	// For example, if you specify RetryAttemptSeconds as 50 seconds and MaximumAutomaticAttempts as 5, AWS Config will run auto-remediations 5 times within 50 seconds before throwing an exception.
-	RetryAttemptSeconds *float64 `json:"retryAttemptSeconds" yaml:"retryAttemptSeconds"`
+	RetryAttemptSeconds *float64 `field:"optional" json:"retryAttemptSeconds" yaml:"retryAttemptSeconds"`
 	// Version of the target. For example, version of the SSM document.
 	//
 	// > If you make backward incompatible changes to the SSM document, you must call PutRemediationConfiguration API again to ensure the remediations can run.
-	TargetVersion *string `json:"targetVersion" yaml:"targetVersion"`
+	TargetVersion *string `field:"optional" json:"targetVersion" yaml:"targetVersion"`
 }
 
 // A CloudFormation `AWS::Config::StoredQuery`.
@@ -8480,8 +8589,11 @@ type CfnRemediationConfigurationProps struct {
 // Provides the details of a stored query.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import config "github.com/aws/aws-cdk-go/awscdk/aws_config"
-//   cfnStoredQuery := config.NewCfnStoredQuery(this, jsii.String("MyCfnStoredQuery"), &cfnStoredQueryProps{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnStoredQuery := awscdk.Aws_config.NewCfnStoredQuery(this, jsii.String("MyCfnStoredQuery"), &cfnStoredQueryProps{
 //   	queryExpression: jsii.String("queryExpression"),
 //   	queryName: jsii.String("queryName"),
 //
@@ -9206,7 +9318,10 @@ func (c *jsiiProxy_CfnStoredQuery) ValidateProperties(_properties interface{}) {
 // Properties for defining a `CfnStoredQuery`.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import config "github.com/aws/aws-cdk-go/awscdk/aws_config"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
 //   cfnStoredQueryProps := &cfnStoredQueryProps{
 //   	queryExpression: jsii.String("queryExpression"),
 //   	queryName: jsii.String("queryName"),
@@ -9225,13 +9340,13 @@ type CfnStoredQueryProps struct {
 	// The expression of the query.
 	//
 	// For example, `SELECT resourceId, resourceType, supplementaryConfiguration.BucketVersioningConfiguration.status WHERE resourceType = 'AWS::S3::Bucket' AND supplementaryConfiguration.BucketVersioningConfiguration.status = 'Off'.`
-	QueryExpression *string `json:"queryExpression" yaml:"queryExpression"`
+	QueryExpression *string `field:"required" json:"queryExpression" yaml:"queryExpression"`
 	// The name of the query.
-	QueryName *string `json:"queryName" yaml:"queryName"`
+	QueryName *string `field:"required" json:"queryName" yaml:"queryName"`
 	// A unique description for the query.
-	QueryDescription *string `json:"queryDescription" yaml:"queryDescription"`
+	QueryDescription *string `field:"optional" json:"queryDescription" yaml:"queryDescription"`
 	// An array of key-value pairs to apply to this resource.
-	Tags *[]*awscdk.CfnTag `json:"tags" yaml:"tags"`
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
 // Checks whether your CloudFormation stacks' actual configuration differs, or has drifted, from its expected configuration.
@@ -9781,22 +9896,22 @@ func (c *jsiiProxy_CloudFormationStackDriftDetectionCheck) Validate() *[]*string
 type CloudFormationStackDriftDetectionCheckProps struct {
 	// A name for the AWS Config rule.
 	// Experimental.
-	ConfigRuleName *string `json:"configRuleName" yaml:"configRuleName"`
+	ConfigRuleName *string `field:"optional" json:"configRuleName" yaml:"configRuleName"`
 	// A description about this AWS Config rule.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Input parameter values that are passed to the AWS Config rule.
 	// Experimental.
-	InputParameters *map[string]interface{} `json:"inputParameters" yaml:"inputParameters"`
+	InputParameters *map[string]interface{} `field:"optional" json:"inputParameters" yaml:"inputParameters"`
 	// The maximum frequency at which the AWS Config rule runs evaluations.
 	// Experimental.
-	MaximumExecutionFrequency MaximumExecutionFrequency `json:"maximumExecutionFrequency" yaml:"maximumExecutionFrequency"`
+	MaximumExecutionFrequency MaximumExecutionFrequency `field:"optional" json:"maximumExecutionFrequency" yaml:"maximumExecutionFrequency"`
 	// Defines which resources trigger an evaluation for an AWS Config rule.
 	// Experimental.
-	RuleScope RuleScope `json:"ruleScope" yaml:"ruleScope"`
+	RuleScope RuleScope `field:"optional" json:"ruleScope" yaml:"ruleScope"`
 	// Whether to check only the stack where this rule is deployed.
 	// Experimental.
-	OwnStackOnly *bool `json:"ownStackOnly" yaml:"ownStackOnly"`
+	OwnStackOnly *bool `field:"optional" json:"ownStackOnly" yaml:"ownStackOnly"`
 	// The IAM role to use for this rule.
 	//
 	// It must have permissions to detect drift
@@ -9804,7 +9919,7 @@ type CloudFormationStackDriftDetectionCheckProps struct {
 	// permissions and `ReadOnlyAccess` policy permissions. For specific policy permissions,
 	// refer to https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html.
 	// Experimental.
-	Role awsiam.IRole `json:"role" yaml:"role"`
+	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 }
 
 // Checks whether your CloudFormation stacks are sending event notifications to a SNS topic.
@@ -10366,24 +10481,24 @@ func (c *jsiiProxy_CloudFormationStackNotificationCheck) Validate() *[]*string {
 type CloudFormationStackNotificationCheckProps struct {
 	// A name for the AWS Config rule.
 	// Experimental.
-	ConfigRuleName *string `json:"configRuleName" yaml:"configRuleName"`
+	ConfigRuleName *string `field:"optional" json:"configRuleName" yaml:"configRuleName"`
 	// A description about this AWS Config rule.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Input parameter values that are passed to the AWS Config rule.
 	// Experimental.
-	InputParameters *map[string]interface{} `json:"inputParameters" yaml:"inputParameters"`
+	InputParameters *map[string]interface{} `field:"optional" json:"inputParameters" yaml:"inputParameters"`
 	// The maximum frequency at which the AWS Config rule runs evaluations.
 	// Experimental.
-	MaximumExecutionFrequency MaximumExecutionFrequency `json:"maximumExecutionFrequency" yaml:"maximumExecutionFrequency"`
+	MaximumExecutionFrequency MaximumExecutionFrequency `field:"optional" json:"maximumExecutionFrequency" yaml:"maximumExecutionFrequency"`
 	// Defines which resources trigger an evaluation for an AWS Config rule.
 	// Experimental.
-	RuleScope RuleScope `json:"ruleScope" yaml:"ruleScope"`
+	RuleScope RuleScope `field:"optional" json:"ruleScope" yaml:"ruleScope"`
 	// A list of allowed topics.
 	//
 	// At most 5 topics.
 	// Experimental.
-	Topics *[]awssns.ITopic `json:"topics" yaml:"topics"`
+	Topics *[]awssns.ITopic `field:"optional" json:"topics" yaml:"topics"`
 }
 
 // A new custom rule.
@@ -10967,28 +11082,28 @@ func (c *jsiiProxy_CustomRule) Validate() *[]*string {
 type CustomRuleProps struct {
 	// A name for the AWS Config rule.
 	// Experimental.
-	ConfigRuleName *string `json:"configRuleName" yaml:"configRuleName"`
+	ConfigRuleName *string `field:"optional" json:"configRuleName" yaml:"configRuleName"`
 	// A description about this AWS Config rule.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Input parameter values that are passed to the AWS Config rule.
 	// Experimental.
-	InputParameters *map[string]interface{} `json:"inputParameters" yaml:"inputParameters"`
+	InputParameters *map[string]interface{} `field:"optional" json:"inputParameters" yaml:"inputParameters"`
 	// The maximum frequency at which the AWS Config rule runs evaluations.
 	// Experimental.
-	MaximumExecutionFrequency MaximumExecutionFrequency `json:"maximumExecutionFrequency" yaml:"maximumExecutionFrequency"`
+	MaximumExecutionFrequency MaximumExecutionFrequency `field:"optional" json:"maximumExecutionFrequency" yaml:"maximumExecutionFrequency"`
 	// Defines which resources trigger an evaluation for an AWS Config rule.
 	// Experimental.
-	RuleScope RuleScope `json:"ruleScope" yaml:"ruleScope"`
+	RuleScope RuleScope `field:"optional" json:"ruleScope" yaml:"ruleScope"`
 	// The Lambda function to run.
 	// Experimental.
-	LambdaFunction awslambda.IFunction `json:"lambdaFunction" yaml:"lambdaFunction"`
+	LambdaFunction awslambda.IFunction `field:"required" json:"lambdaFunction" yaml:"lambdaFunction"`
 	// Whether to run the rule on configuration changes.
 	// Experimental.
-	ConfigurationChanges *bool `json:"configurationChanges" yaml:"configurationChanges"`
+	ConfigurationChanges *bool `field:"optional" json:"configurationChanges" yaml:"configurationChanges"`
 	// Whether to run the rule on a fixed frequency.
 	// Experimental.
-	Periodic *bool `json:"periodic" yaml:"periodic"`
+	Periodic *bool `field:"optional" json:"periodic" yaml:"periodic"`
 }
 
 // Interface representing an AWS Config rule.
@@ -13473,24 +13588,24 @@ func ManagedRuleIdentifiers_WAFV2_LOGGING_ENABLED() *string {
 type ManagedRuleProps struct {
 	// A name for the AWS Config rule.
 	// Experimental.
-	ConfigRuleName *string `json:"configRuleName" yaml:"configRuleName"`
+	ConfigRuleName *string `field:"optional" json:"configRuleName" yaml:"configRuleName"`
 	// A description about this AWS Config rule.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Input parameter values that are passed to the AWS Config rule.
 	// Experimental.
-	InputParameters *map[string]interface{} `json:"inputParameters" yaml:"inputParameters"`
+	InputParameters *map[string]interface{} `field:"optional" json:"inputParameters" yaml:"inputParameters"`
 	// The maximum frequency at which the AWS Config rule runs evaluations.
 	// Experimental.
-	MaximumExecutionFrequency MaximumExecutionFrequency `json:"maximumExecutionFrequency" yaml:"maximumExecutionFrequency"`
+	MaximumExecutionFrequency MaximumExecutionFrequency `field:"optional" json:"maximumExecutionFrequency" yaml:"maximumExecutionFrequency"`
 	// Defines which resources trigger an evaluation for an AWS Config rule.
 	// Experimental.
-	RuleScope RuleScope `json:"ruleScope" yaml:"ruleScope"`
+	RuleScope RuleScope `field:"optional" json:"ruleScope" yaml:"ruleScope"`
 	// The identifier of the AWS managed rule.
 	// See: https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html
 	//
 	// Experimental.
-	Identifier *string `json:"identifier" yaml:"identifier"`
+	Identifier *string `field:"required" json:"identifier" yaml:"identifier"`
 }
 
 // The maximum frequency at which the AWS Config rule runs evaluations.
@@ -13532,7 +13647,8 @@ const (
 // Resources types that are supported by AWS Config.
 //
 // Example:
-//   var evalComplianceFn functionsshRule := config.NewManagedRule(this, jsii.String("SSH"), &managedRuleProps{
+//   var evalComplianceFn function
+//   sshRule := config.NewManagedRule(this, jsii.String("SSH"), &managedRuleProps{
 //   	identifier: config.managedRuleIdentifiers_EC2_SECURITY_GROUPS_INCOMING_SSH_DISABLED(),
 //   	ruleScope: config.ruleScope.fromResource(config.resourceType_EC2_SECURITY_GROUP(), jsii.String("sg-1234567890abcdefgh")),
 //   })
@@ -14564,17 +14680,20 @@ func ResourceType_XRAY_ENCRYPTION_CONFIGURATION() ResourceType {
 // Construction properties for a new rule.
 //
 // Example:
-//   import awscdk "github.com/aws/aws-cdk-go/awscdk"import config "github.com/aws/aws-cdk-go/awscdk/aws_config"
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var inputParameters interface{}
 //   var ruleScope ruleScope
+//
 //   ruleProps := &ruleProps{
 //   	configRuleName: jsii.String("configRuleName"),
 //   	description: jsii.String("description"),
 //   	inputParameters: map[string]interface{}{
 //   		"inputParametersKey": inputParameters,
 //   	},
-//   	maximumExecutionFrequency: config.maximumExecutionFrequency_ONE_HOUR,
+//   	maximumExecutionFrequency: awscdk.Aws_config.maximumExecutionFrequency_ONE_HOUR,
 //   	ruleScope: ruleScope,
 //   }
 //
@@ -14582,25 +14701,26 @@ func ResourceType_XRAY_ENCRYPTION_CONFIGURATION() ResourceType {
 type RuleProps struct {
 	// A name for the AWS Config rule.
 	// Experimental.
-	ConfigRuleName *string `json:"configRuleName" yaml:"configRuleName"`
+	ConfigRuleName *string `field:"optional" json:"configRuleName" yaml:"configRuleName"`
 	// A description about this AWS Config rule.
 	// Experimental.
-	Description *string `json:"description" yaml:"description"`
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Input parameter values that are passed to the AWS Config rule.
 	// Experimental.
-	InputParameters *map[string]interface{} `json:"inputParameters" yaml:"inputParameters"`
+	InputParameters *map[string]interface{} `field:"optional" json:"inputParameters" yaml:"inputParameters"`
 	// The maximum frequency at which the AWS Config rule runs evaluations.
 	// Experimental.
-	MaximumExecutionFrequency MaximumExecutionFrequency `json:"maximumExecutionFrequency" yaml:"maximumExecutionFrequency"`
+	MaximumExecutionFrequency MaximumExecutionFrequency `field:"optional" json:"maximumExecutionFrequency" yaml:"maximumExecutionFrequency"`
 	// Defines which resources trigger an evaluation for an AWS Config rule.
 	// Experimental.
-	RuleScope RuleScope `json:"ruleScope" yaml:"ruleScope"`
+	RuleScope RuleScope `field:"optional" json:"ruleScope" yaml:"ruleScope"`
 }
 
 // Determines which resources trigger an evaluation of an AWS Config rule.
 //
 // Example:
-//   var evalComplianceFn functionsshRule := config.NewManagedRule(this, jsii.String("SSH"), &managedRuleProps{
+//   var evalComplianceFn function
+//   sshRule := config.NewManagedRule(this, jsii.String("SSH"), &managedRuleProps{
 //   	identifier: config.managedRuleIdentifiers_EC2_SECURITY_GROUPS_INCOMING_SSH_DISABLED(),
 //   	ruleScope: config.ruleScope.fromResource(config.resourceType_EC2_SECURITY_GROUP(), jsii.String("sg-1234567890abcdefgh")),
 //   })
